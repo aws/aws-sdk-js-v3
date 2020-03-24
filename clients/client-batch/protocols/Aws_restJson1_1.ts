@@ -701,19 +701,22 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -721,14 +724,15 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -780,19 +784,22 @@ async function deserializeAws_restJson1_1CreateComputeEnvironmentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateComputeEnvironmentCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -800,14 +807,15 @@ async function deserializeAws_restJson1_1CreateComputeEnvironmentCommandError(
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -853,19 +861,22 @@ async function deserializeAws_restJson1_1CreateJobQueueCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateJobQueueCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -873,14 +884,15 @@ async function deserializeAws_restJson1_1CreateJobQueueCommandError(
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -918,19 +930,22 @@ async function deserializeAws_restJson1_1DeleteComputeEnvironmentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteComputeEnvironmentCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -938,14 +953,15 @@ async function deserializeAws_restJson1_1DeleteComputeEnvironmentCommandError(
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -983,19 +999,22 @@ async function deserializeAws_restJson1_1DeleteJobQueueCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteJobQueueCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1003,14 +1022,15 @@ async function deserializeAws_restJson1_1DeleteJobQueueCommandError(
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1048,19 +1068,22 @@ async function deserializeAws_restJson1_1DeregisterJobDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterJobDefinitionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1068,14 +1091,15 @@ async function deserializeAws_restJson1_1DeregisterJobDefinitionCommandError(
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1127,19 +1151,22 @@ async function deserializeAws_restJson1_1DescribeComputeEnvironmentsCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeComputeEnvironmentsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1147,14 +1174,15 @@ async function deserializeAws_restJson1_1DescribeComputeEnvironmentsCommandError
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1203,19 +1231,22 @@ async function deserializeAws_restJson1_1DescribeJobDefinitionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobDefinitionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1223,14 +1254,15 @@ async function deserializeAws_restJson1_1DescribeJobDefinitionsCommandError(
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1279,19 +1311,22 @@ async function deserializeAws_restJson1_1DescribeJobQueuesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobQueuesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1299,14 +1334,15 @@ async function deserializeAws_restJson1_1DescribeJobQueuesCommandError(
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1345,19 +1381,22 @@ async function deserializeAws_restJson1_1DescribeJobsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1365,14 +1404,15 @@ async function deserializeAws_restJson1_1DescribeJobsCommandError(
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1418,19 +1458,22 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1438,14 +1481,15 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1495,19 +1539,22 @@ async function deserializeAws_restJson1_1RegisterJobDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterJobDefinitionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1515,14 +1562,15 @@ async function deserializeAws_restJson1_1RegisterJobDefinitionCommandError(
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1565,19 +1613,22 @@ async function deserializeAws_restJson1_1SubmitJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SubmitJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1585,14 +1636,15 @@ async function deserializeAws_restJson1_1SubmitJobCommandError(
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1627,19 +1679,22 @@ async function deserializeAws_restJson1_1TerminateJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TerminateJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1647,14 +1702,15 @@ async function deserializeAws_restJson1_1TerminateJobCommandError(
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1706,19 +1762,22 @@ async function deserializeAws_restJson1_1UpdateComputeEnvironmentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateComputeEnvironmentCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1726,14 +1785,15 @@ async function deserializeAws_restJson1_1UpdateComputeEnvironmentCommandError(
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1779,19 +1839,22 @@ async function deserializeAws_restJson1_1UpdateJobQueueCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJobQueueCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1799,14 +1862,15 @@ async function deserializeAws_restJson1_1UpdateJobQueueCommandError(
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1823,16 +1887,16 @@ async function deserializeAws_restJson1_1UpdateJobQueueCommandError(
 }
 
 const deserializeAws_restJson1_1ClientExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ClientException> => {
   const contents: ClientException = {
     name: "ClientException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -1840,16 +1904,16 @@ const deserializeAws_restJson1_1ClientExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ServerExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServerException> => {
   const contents: ServerException = {
     name: "ServerException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -3880,4 +3944,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

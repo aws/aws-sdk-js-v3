@@ -931,19 +931,22 @@ async function deserializeAws_restJson1_1CreateMemberCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMemberCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -951,9 +954,10 @@ async function deserializeAws_restJson1_1CreateMemberCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -961,9 +965,10 @@ async function deserializeAws_restJson1_1CreateMemberCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -971,9 +976,10 @@ async function deserializeAws_restJson1_1CreateMemberCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -981,9 +987,10 @@ async function deserializeAws_restJson1_1CreateMemberCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -991,9 +998,10 @@ async function deserializeAws_restJson1_1CreateMemberCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1001,9 +1009,10 @@ async function deserializeAws_restJson1_1CreateMemberCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1011,14 +1020,15 @@ async function deserializeAws_restJson1_1CreateMemberCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1061,19 +1071,22 @@ async function deserializeAws_restJson1_1CreateNetworkCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNetworkCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1081,9 +1094,10 @@ async function deserializeAws_restJson1_1CreateNetworkCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1091,9 +1105,10 @@ async function deserializeAws_restJson1_1CreateNetworkCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1101,9 +1116,10 @@ async function deserializeAws_restJson1_1CreateNetworkCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1111,9 +1127,10 @@ async function deserializeAws_restJson1_1CreateNetworkCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1121,14 +1138,15 @@ async function deserializeAws_restJson1_1CreateNetworkCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1167,19 +1185,22 @@ async function deserializeAws_restJson1_1CreateNodeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNodeCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1187,9 +1208,10 @@ async function deserializeAws_restJson1_1CreateNodeCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1197,9 +1219,10 @@ async function deserializeAws_restJson1_1CreateNodeCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1207,9 +1230,10 @@ async function deserializeAws_restJson1_1CreateNodeCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1217,9 +1241,10 @@ async function deserializeAws_restJson1_1CreateNodeCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1227,9 +1252,10 @@ async function deserializeAws_restJson1_1CreateNodeCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1237,9 +1263,10 @@ async function deserializeAws_restJson1_1CreateNodeCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1247,14 +1274,15 @@ async function deserializeAws_restJson1_1CreateNodeCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1296,19 +1324,22 @@ async function deserializeAws_restJson1_1CreateProposalCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProposalCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1316,9 +1347,10 @@ async function deserializeAws_restJson1_1CreateProposalCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1326,9 +1358,10 @@ async function deserializeAws_restJson1_1CreateProposalCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1336,9 +1369,10 @@ async function deserializeAws_restJson1_1CreateProposalCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1346,9 +1380,10 @@ async function deserializeAws_restJson1_1CreateProposalCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1356,14 +1391,15 @@ async function deserializeAws_restJson1_1CreateProposalCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1398,19 +1434,22 @@ async function deserializeAws_restJson1_1DeleteMemberCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMemberCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1418,9 +1457,10 @@ async function deserializeAws_restJson1_1DeleteMemberCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1428,9 +1468,10 @@ async function deserializeAws_restJson1_1DeleteMemberCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1438,9 +1479,10 @@ async function deserializeAws_restJson1_1DeleteMemberCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1448,9 +1490,10 @@ async function deserializeAws_restJson1_1DeleteMemberCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1458,14 +1501,15 @@ async function deserializeAws_restJson1_1DeleteMemberCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1500,19 +1544,22 @@ async function deserializeAws_restJson1_1DeleteNodeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNodeCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1520,9 +1567,10 @@ async function deserializeAws_restJson1_1DeleteNodeCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1530,9 +1578,10 @@ async function deserializeAws_restJson1_1DeleteNodeCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1540,9 +1589,10 @@ async function deserializeAws_restJson1_1DeleteNodeCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1550,9 +1600,10 @@ async function deserializeAws_restJson1_1DeleteNodeCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1560,14 +1611,15 @@ async function deserializeAws_restJson1_1DeleteNodeCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1606,19 +1658,22 @@ async function deserializeAws_restJson1_1GetMemberCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMemberCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1626,9 +1681,10 @@ async function deserializeAws_restJson1_1GetMemberCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1636,9 +1692,10 @@ async function deserializeAws_restJson1_1GetMemberCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1646,9 +1703,10 @@ async function deserializeAws_restJson1_1GetMemberCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1656,14 +1714,15 @@ async function deserializeAws_restJson1_1GetMemberCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1702,19 +1761,22 @@ async function deserializeAws_restJson1_1GetNetworkCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNetworkCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1722,9 +1784,10 @@ async function deserializeAws_restJson1_1GetNetworkCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1732,9 +1795,10 @@ async function deserializeAws_restJson1_1GetNetworkCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1742,9 +1806,10 @@ async function deserializeAws_restJson1_1GetNetworkCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1752,14 +1817,15 @@ async function deserializeAws_restJson1_1GetNetworkCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1798,19 +1864,22 @@ async function deserializeAws_restJson1_1GetNodeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNodeCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1818,9 +1887,10 @@ async function deserializeAws_restJson1_1GetNodeCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1828,9 +1898,10 @@ async function deserializeAws_restJson1_1GetNodeCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1838,9 +1909,10 @@ async function deserializeAws_restJson1_1GetNodeCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1848,14 +1920,15 @@ async function deserializeAws_restJson1_1GetNodeCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1897,19 +1970,22 @@ async function deserializeAws_restJson1_1GetProposalCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProposalCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1917,9 +1993,10 @@ async function deserializeAws_restJson1_1GetProposalCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1927,9 +2004,10 @@ async function deserializeAws_restJson1_1GetProposalCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1937,9 +2015,10 @@ async function deserializeAws_restJson1_1GetProposalCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1947,14 +2026,15 @@ async function deserializeAws_restJson1_1GetProposalCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2003,19 +2083,22 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInvitationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2023,9 +2106,10 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2033,9 +2117,10 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2043,9 +2128,10 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2053,9 +2139,10 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2063,14 +2150,15 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2116,19 +2204,22 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMembersCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2136,9 +2227,10 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2146,9 +2238,10 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2156,14 +2249,15 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2209,19 +2303,22 @@ async function deserializeAws_restJson1_1ListNetworksCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNetworksCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2229,9 +2326,10 @@ async function deserializeAws_restJson1_1ListNetworksCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2239,9 +2337,10 @@ async function deserializeAws_restJson1_1ListNetworksCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2249,14 +2348,15 @@ async function deserializeAws_restJson1_1ListNetworksCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2302,19 +2402,22 @@ async function deserializeAws_restJson1_1ListNodesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNodesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2322,9 +2425,10 @@ async function deserializeAws_restJson1_1ListNodesCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2332,9 +2436,10 @@ async function deserializeAws_restJson1_1ListNodesCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2342,14 +2447,15 @@ async function deserializeAws_restJson1_1ListNodesCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2398,19 +2504,22 @@ async function deserializeAws_restJson1_1ListProposalVotesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProposalVotesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2418,9 +2527,10 @@ async function deserializeAws_restJson1_1ListProposalVotesCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2428,9 +2538,10 @@ async function deserializeAws_restJson1_1ListProposalVotesCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2438,14 +2549,15 @@ async function deserializeAws_restJson1_1ListProposalVotesCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2491,19 +2603,22 @@ async function deserializeAws_restJson1_1ListProposalsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProposalsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2511,9 +2626,10 @@ async function deserializeAws_restJson1_1ListProposalsCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2521,9 +2637,10 @@ async function deserializeAws_restJson1_1ListProposalsCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2531,9 +2648,10 @@ async function deserializeAws_restJson1_1ListProposalsCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2541,14 +2659,15 @@ async function deserializeAws_restJson1_1ListProposalsCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2586,19 +2705,22 @@ async function deserializeAws_restJson1_1RejectInvitationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectInvitationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2606,9 +2728,10 @@ async function deserializeAws_restJson1_1RejectInvitationCommandError(
     case "com.amazonaws.taiga.webservice.api#IllegalActionException":
       response = {
         ...(await deserializeAws_restJson1_1IllegalActionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2616,9 +2739,10 @@ async function deserializeAws_restJson1_1RejectInvitationCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2626,9 +2750,10 @@ async function deserializeAws_restJson1_1RejectInvitationCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2636,9 +2761,10 @@ async function deserializeAws_restJson1_1RejectInvitationCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2646,14 +2772,15 @@ async function deserializeAws_restJson1_1RejectInvitationCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2691,19 +2818,22 @@ async function deserializeAws_restJson1_1VoteOnProposalCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VoteOnProposalCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2711,9 +2841,10 @@ async function deserializeAws_restJson1_1VoteOnProposalCommandError(
     case "com.amazonaws.taiga.webservice.api#IllegalActionException":
       response = {
         ...(await deserializeAws_restJson1_1IllegalActionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2721,9 +2852,10 @@ async function deserializeAws_restJson1_1VoteOnProposalCommandError(
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2731,9 +2863,10 @@ async function deserializeAws_restJson1_1VoteOnProposalCommandError(
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2741,9 +2874,10 @@ async function deserializeAws_restJson1_1VoteOnProposalCommandError(
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2751,14 +2885,15 @@ async function deserializeAws_restJson1_1VoteOnProposalCommandError(
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2775,29 +2910,29 @@ async function deserializeAws_restJson1_1VoteOnProposalCommandError(
 }
 
 const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(parsedOutput)
   };
-  await collectBody(output.body, context);
+  const data: any = parsedOutput.body;
   return contents;
 };
 
 const deserializeAws_restJson1_1IllegalActionExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<IllegalActionException> => {
   const contents: IllegalActionException = {
     name: "IllegalActionException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -2805,29 +2940,29 @@ const deserializeAws_restJson1_1IllegalActionExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InternalServiceErrorExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceErrorException> => {
   const contents: InternalServiceErrorException = {
     name: "InternalServiceErrorException",
     $fault: "server",
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(parsedOutput)
   };
-  await collectBody(output.body, context);
+  const data: any = parsedOutput.body;
   return contents;
 };
 
 const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -2835,16 +2970,16 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -2852,16 +2987,16 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceLimitExceededException> => {
   const contents: ResourceLimitExceededException = {
     name: "ResourceLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -2869,16 +3004,16 @@ const deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -2886,16 +3021,16 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceNotReadyExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotReadyException> => {
   const contents: ResourceNotReadyException = {
     name: "ResourceNotReadyException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -2903,15 +3038,15 @@ const deserializeAws_restJson1_1ResourceNotReadyExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
     name: "ThrottlingException",
     $fault: "client",
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(parsedOutput)
   };
-  await collectBody(output.body, context);
+  const data: any = parsedOutput.body;
   return contents;
 };
 
@@ -3860,4 +3995,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

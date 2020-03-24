@@ -661,7 +661,9 @@ export async function serializeAws_restJson1_1GetBlacklistReportsCommand(
   let resolvedPath = "/v2/email/deliverability-dashboard/blacklist-report";
   const query: any = {};
   if (input.BlacklistItemNames !== undefined) {
-    query["BlacklistItemNames"] = input.BlacklistItemNames;
+    query["BlacklistItemNames"] = (input.BlacklistItemNames || []).map(
+      _entry => _entry
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -889,10 +891,14 @@ export async function serializeAws_restJson1_1GetDomainStatisticsReportCommand(
   }
   const query: any = {};
   if (input.EndDate !== undefined) {
-    query["EndDate"] = input.EndDate.toISOString().toString();
+    query["EndDate"] = (
+      input.EndDate.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (input.StartDate !== undefined) {
-    query["StartDate"] = input.StartDate.toISOString().toString();
+    query["StartDate"] = (
+      input.StartDate.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1062,7 +1068,9 @@ export async function serializeAws_restJson1_1ListDomainDeliverabilityCampaignsC
   }
   const query: any = {};
   if (input.EndDate !== undefined) {
-    query["EndDate"] = input.EndDate.toISOString().toString();
+    query["EndDate"] = (
+      input.EndDate.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (input.NextToken !== undefined) {
     query["NextToken"] = input.NextToken;
@@ -1071,7 +1079,9 @@ export async function serializeAws_restJson1_1ListDomainDeliverabilityCampaignsC
     query["PageSize"] = input.PageSize.toString();
   }
   if (input.StartDate !== undefined) {
-    query["StartDate"] = input.StartDate.toISOString().toString();
+    query["StartDate"] = (
+      input.StartDate.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1116,7 +1126,9 @@ export async function serializeAws_restJson1_1ListSuppressedDestinationsCommand(
   let resolvedPath = "/v2/email/suppression/addresses";
   const query: any = {};
   if (input.EndDate !== undefined) {
-    query["EndDate"] = input.EndDate.toISOString().toString();
+    query["EndDate"] = (
+      input.EndDate.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (input.NextToken !== undefined) {
     query["NextToken"] = input.NextToken;
@@ -1125,10 +1137,12 @@ export async function serializeAws_restJson1_1ListSuppressedDestinationsCommand(
     query["PageSize"] = input.PageSize.toString();
   }
   if (input.Reasons !== undefined) {
-    query["Reason"] = input.Reasons;
+    query["Reason"] = (input.Reasons || []).map(_entry => _entry);
   }
   if (input.StartDate !== undefined) {
-    query["StartDate"] = input.StartDate.toISOString().toString();
+    query["StartDate"] = (
+      input.StartDate.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1821,7 +1835,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     query["ResourceArn"] = input.ResourceArn;
   }
   if (input.TagKeys !== undefined) {
-    query["TagKeys"] = input.TagKeys;
+    query["TagKeys"] = (input.TagKeys || []).map(_entry => _entry);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1916,19 +1930,22 @@ async function deserializeAws_restJson1_1CreateConfigurationSetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1936,9 +1953,10 @@ async function deserializeAws_restJson1_1CreateConfigurationSetCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1946,9 +1964,10 @@ async function deserializeAws_restJson1_1CreateConfigurationSetCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1956,9 +1975,10 @@ async function deserializeAws_restJson1_1CreateConfigurationSetCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1966,9 +1986,10 @@ async function deserializeAws_restJson1_1CreateConfigurationSetCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1976,14 +1997,15 @@ async function deserializeAws_restJson1_1CreateConfigurationSetCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2021,19 +2043,22 @@ async function deserializeAws_restJson1_1CreateConfigurationSetEventDestinationC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetEventDestinationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2041,9 +2066,10 @@ async function deserializeAws_restJson1_1CreateConfigurationSetEventDestinationC
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2051,9 +2077,10 @@ async function deserializeAws_restJson1_1CreateConfigurationSetEventDestinationC
     case "com.amazon.bacon.pinpoint.frontend.svc#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2061,9 +2088,10 @@ async function deserializeAws_restJson1_1CreateConfigurationSetEventDestinationC
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2071,14 +2099,15 @@ async function deserializeAws_restJson1_1CreateConfigurationSetEventDestinationC
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2116,19 +2145,22 @@ async function deserializeAws_restJson1_1CreateDedicatedIpPoolCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDedicatedIpPoolCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2136,9 +2168,10 @@ async function deserializeAws_restJson1_1CreateDedicatedIpPoolCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2146,9 +2179,10 @@ async function deserializeAws_restJson1_1CreateDedicatedIpPoolCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2156,9 +2190,10 @@ async function deserializeAws_restJson1_1CreateDedicatedIpPoolCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2166,14 +2201,15 @@ async function deserializeAws_restJson1_1CreateDedicatedIpPoolCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2222,19 +2258,22 @@ async function deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeliverabilityTestReportCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSuspendedException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AccountSuspendedException":
       response = {
         ...(await deserializeAws_restJson1_1AccountSuspendedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2242,9 +2281,10 @@ async function deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandEr
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2252,9 +2292,10 @@ async function deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandEr
     case "com.amazon.bacon.pinpoint.frontend.svc#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2262,9 +2303,10 @@ async function deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandEr
     case "com.amazon.bacon.pinpoint.frontend.svc#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2272,9 +2314,10 @@ async function deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandEr
     case "com.amazon.bacon.pinpoint.frontend.svc#MailFromDomainNotVerifiedException":
       response = {
         ...(await deserializeAws_restJson1_1MailFromDomainNotVerifiedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2282,9 +2325,10 @@ async function deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandEr
     case "com.amazon.bacon.pinpoint.frontend.svc#MessageRejected":
       response = {
         ...(await deserializeAws_restJson1_1MessageRejectedResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2292,9 +2336,10 @@ async function deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandEr
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2302,9 +2347,10 @@ async function deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandEr
     case "com.amazon.bacon.pinpoint.frontend.svc#SendingPausedException":
       response = {
         ...(await deserializeAws_restJson1_1SendingPausedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2312,14 +2358,15 @@ async function deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandEr
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2375,19 +2422,22 @@ async function deserializeAws_restJson1_1CreateEmailIdentityCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEmailIdentityCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2395,9 +2445,10 @@ async function deserializeAws_restJson1_1CreateEmailIdentityCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2405,9 +2456,10 @@ async function deserializeAws_restJson1_1CreateEmailIdentityCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2415,9 +2467,10 @@ async function deserializeAws_restJson1_1CreateEmailIdentityCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2425,14 +2478,15 @@ async function deserializeAws_restJson1_1CreateEmailIdentityCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2470,19 +2524,22 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2490,9 +2547,10 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2500,9 +2558,10 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2510,14 +2569,15 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2555,19 +2615,22 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2575,9 +2638,10 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationC
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2585,14 +2649,15 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationC
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2630,19 +2695,22 @@ async function deserializeAws_restJson1_1DeleteDedicatedIpPoolCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDedicatedIpPoolCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2650,9 +2718,10 @@ async function deserializeAws_restJson1_1DeleteDedicatedIpPoolCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2660,9 +2729,10 @@ async function deserializeAws_restJson1_1DeleteDedicatedIpPoolCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2670,14 +2740,15 @@ async function deserializeAws_restJson1_1DeleteDedicatedIpPoolCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2715,19 +2786,22 @@ async function deserializeAws_restJson1_1DeleteEmailIdentityCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEmailIdentityCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2735,9 +2809,10 @@ async function deserializeAws_restJson1_1DeleteEmailIdentityCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2745,9 +2820,10 @@ async function deserializeAws_restJson1_1DeleteEmailIdentityCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2755,14 +2831,15 @@ async function deserializeAws_restJson1_1DeleteEmailIdentityCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2800,19 +2877,22 @@ async function deserializeAws_restJson1_1DeleteSuppressedDestinationCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSuppressedDestinationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2820,9 +2900,10 @@ async function deserializeAws_restJson1_1DeleteSuppressedDestinationCommandError
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2830,14 +2911,15 @@ async function deserializeAws_restJson1_1DeleteSuppressedDestinationCommandError
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2911,19 +2993,22 @@ async function deserializeAws_restJson1_1GetAccountCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2931,14 +3016,15 @@ async function deserializeAws_restJson1_1GetAccountCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2983,19 +3069,22 @@ async function deserializeAws_restJson1_1GetBlacklistReportsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBlacklistReportsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3003,9 +3092,10 @@ async function deserializeAws_restJson1_1GetBlacklistReportsCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3013,14 +3103,15 @@ async function deserializeAws_restJson1_1GetBlacklistReportsCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3107,19 +3198,22 @@ async function deserializeAws_restJson1_1GetConfigurationSetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationSetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3127,9 +3221,10 @@ async function deserializeAws_restJson1_1GetConfigurationSetCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3137,14 +3232,15 @@ async function deserializeAws_restJson1_1GetConfigurationSetCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3189,19 +3285,22 @@ async function deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationSetEventDestinationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3209,9 +3308,10 @@ async function deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCom
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3219,14 +3319,15 @@ async function deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCom
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3271,19 +3372,22 @@ async function deserializeAws_restJson1_1GetDedicatedIpCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDedicatedIpCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3291,9 +3395,10 @@ async function deserializeAws_restJson1_1GetDedicatedIpCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3301,14 +3406,15 @@ async function deserializeAws_restJson1_1GetDedicatedIpCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3357,19 +3463,22 @@ async function deserializeAws_restJson1_1GetDedicatedIpsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDedicatedIpsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3377,9 +3486,10 @@ async function deserializeAws_restJson1_1GetDedicatedIpsCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3387,14 +3497,15 @@ async function deserializeAws_restJson1_1GetDedicatedIpsCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3469,19 +3580,22 @@ async function deserializeAws_restJson1_1GetDeliverabilityDashboardOptionsComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeliverabilityDashboardOptionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3489,9 +3603,10 @@ async function deserializeAws_restJson1_1GetDeliverabilityDashboardOptionsComman
     case "com.amazon.bacon.pinpoint.frontend.svc#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3499,14 +3614,15 @@ async function deserializeAws_restJson1_1GetDeliverabilityDashboardOptionsComman
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3576,19 +3692,22 @@ async function deserializeAws_restJson1_1GetDeliverabilityTestReportCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeliverabilityTestReportCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3596,9 +3715,10 @@ async function deserializeAws_restJson1_1GetDeliverabilityTestReportCommandError
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3606,14 +3726,15 @@ async function deserializeAws_restJson1_1GetDeliverabilityTestReportCommandError
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3661,19 +3782,22 @@ async function deserializeAws_restJson1_1GetDomainDeliverabilityCampaignCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainDeliverabilityCampaignCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3681,9 +3805,10 @@ async function deserializeAws_restJson1_1GetDomainDeliverabilityCampaignCommandE
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3691,14 +3816,15 @@ async function deserializeAws_restJson1_1GetDomainDeliverabilityCampaignCommandE
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3750,19 +3876,22 @@ async function deserializeAws_restJson1_1GetDomainStatisticsReportCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainStatisticsReportCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3770,9 +3899,10 @@ async function deserializeAws_restJson1_1GetDomainStatisticsReportCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3780,14 +3910,15 @@ async function deserializeAws_restJson1_1GetDomainStatisticsReportCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3864,19 +3995,22 @@ async function deserializeAws_restJson1_1GetEmailIdentityCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEmailIdentityCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3884,9 +4018,10 @@ async function deserializeAws_restJson1_1GetEmailIdentityCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3894,14 +4029,15 @@ async function deserializeAws_restJson1_1GetEmailIdentityCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3949,19 +4085,22 @@ async function deserializeAws_restJson1_1GetSuppressedDestinationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSuppressedDestinationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3969,9 +4108,10 @@ async function deserializeAws_restJson1_1GetSuppressedDestinationCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3979,14 +4119,15 @@ async function deserializeAws_restJson1_1GetSuppressedDestinationCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4035,19 +4176,22 @@ async function deserializeAws_restJson1_1ListConfigurationSetsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationSetsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4055,14 +4199,15 @@ async function deserializeAws_restJson1_1ListConfigurationSetsCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4111,19 +4256,22 @@ async function deserializeAws_restJson1_1ListDedicatedIpPoolsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDedicatedIpPoolsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4131,14 +4279,15 @@ async function deserializeAws_restJson1_1ListDedicatedIpPoolsCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4190,19 +4339,22 @@ async function deserializeAws_restJson1_1ListDeliverabilityTestReportsCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeliverabilityTestReportsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4210,9 +4362,10 @@ async function deserializeAws_restJson1_1ListDeliverabilityTestReportsCommandErr
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4220,14 +4373,15 @@ async function deserializeAws_restJson1_1ListDeliverabilityTestReportsCommandErr
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4279,19 +4433,22 @@ async function deserializeAws_restJson1_1ListDomainDeliverabilityCampaignsComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainDeliverabilityCampaignsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4299,9 +4456,10 @@ async function deserializeAws_restJson1_1ListDomainDeliverabilityCampaignsComman
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4309,14 +4467,15 @@ async function deserializeAws_restJson1_1ListDomainDeliverabilityCampaignsComman
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4365,19 +4524,22 @@ async function deserializeAws_restJson1_1ListEmailIdentitiesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEmailIdentitiesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4385,14 +4547,15 @@ async function deserializeAws_restJson1_1ListEmailIdentitiesCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4444,19 +4607,22 @@ async function deserializeAws_restJson1_1ListSuppressedDestinationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSuppressedDestinationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4464,9 +4630,10 @@ async function deserializeAws_restJson1_1ListSuppressedDestinationsCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4474,14 +4641,15 @@ async function deserializeAws_restJson1_1ListSuppressedDestinationsCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4523,19 +4691,22 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4543,9 +4714,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4553,14 +4725,15 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4598,19 +4771,22 @@ async function deserializeAws_restJson1_1PutAccountDedicatedIpWarmupAttributesCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4618,14 +4794,15 @@ async function deserializeAws_restJson1_1PutAccountDedicatedIpWarmupAttributesCo
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4663,19 +4840,22 @@ async function deserializeAws_restJson1_1PutAccountSendingAttributesCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountSendingAttributesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4683,14 +4863,15 @@ async function deserializeAws_restJson1_1PutAccountSendingAttributesCommandError
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4728,19 +4909,22 @@ async function deserializeAws_restJson1_1PutAccountSuppressionAttributesCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountSuppressionAttributesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4748,14 +4932,15 @@ async function deserializeAws_restJson1_1PutAccountSuppressionAttributesCommandE
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4793,19 +4978,22 @@ async function deserializeAws_restJson1_1PutConfigurationSetDeliveryOptionsComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4813,9 +5001,10 @@ async function deserializeAws_restJson1_1PutConfigurationSetDeliveryOptionsComma
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4823,14 +5012,15 @@ async function deserializeAws_restJson1_1PutConfigurationSetDeliveryOptionsComma
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4868,19 +5058,22 @@ async function deserializeAws_restJson1_1PutConfigurationSetReputationOptionsCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetReputationOptionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4888,9 +5081,10 @@ async function deserializeAws_restJson1_1PutConfigurationSetReputationOptionsCom
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4898,14 +5092,15 @@ async function deserializeAws_restJson1_1PutConfigurationSetReputationOptionsCom
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4943,19 +5138,22 @@ async function deserializeAws_restJson1_1PutConfigurationSetSendingOptionsComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetSendingOptionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4963,9 +5161,10 @@ async function deserializeAws_restJson1_1PutConfigurationSetSendingOptionsComman
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4973,14 +5172,15 @@ async function deserializeAws_restJson1_1PutConfigurationSetSendingOptionsComman
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5018,19 +5218,22 @@ async function deserializeAws_restJson1_1PutConfigurationSetSuppressionOptionsCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetSuppressionOptionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5038,9 +5241,10 @@ async function deserializeAws_restJson1_1PutConfigurationSetSuppressionOptionsCo
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5048,14 +5252,15 @@ async function deserializeAws_restJson1_1PutConfigurationSetSuppressionOptionsCo
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5093,19 +5298,22 @@ async function deserializeAws_restJson1_1PutConfigurationSetTrackingOptionsComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetTrackingOptionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5113,9 +5321,10 @@ async function deserializeAws_restJson1_1PutConfigurationSetTrackingOptionsComma
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5123,14 +5332,15 @@ async function deserializeAws_restJson1_1PutConfigurationSetTrackingOptionsComma
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5168,19 +5378,22 @@ async function deserializeAws_restJson1_1PutDedicatedIpInPoolCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDedicatedIpInPoolCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5188,9 +5401,10 @@ async function deserializeAws_restJson1_1PutDedicatedIpInPoolCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5198,14 +5412,15 @@ async function deserializeAws_restJson1_1PutDedicatedIpInPoolCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5243,19 +5458,22 @@ async function deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDedicatedIpWarmupAttributesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5263,9 +5481,10 @@ async function deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommandEr
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5273,14 +5492,15 @@ async function deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommandEr
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5318,19 +5538,22 @@ async function deserializeAws_restJson1_1PutDeliverabilityDashboardOptionCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDeliverabilityDashboardOptionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5338,9 +5561,10 @@ async function deserializeAws_restJson1_1PutDeliverabilityDashboardOptionCommand
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5348,9 +5572,10 @@ async function deserializeAws_restJson1_1PutDeliverabilityDashboardOptionCommand
     case "com.amazon.bacon.pinpoint.frontend.svc#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5358,9 +5583,10 @@ async function deserializeAws_restJson1_1PutDeliverabilityDashboardOptionCommand
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5368,14 +5594,15 @@ async function deserializeAws_restJson1_1PutDeliverabilityDashboardOptionCommand
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5413,19 +5640,22 @@ async function deserializeAws_restJson1_1PutEmailIdentityDkimAttributesCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEmailIdentityDkimAttributesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5433,9 +5663,10 @@ async function deserializeAws_restJson1_1PutEmailIdentityDkimAttributesCommandEr
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5443,14 +5674,15 @@ async function deserializeAws_restJson1_1PutEmailIdentityDkimAttributesCommandEr
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5499,19 +5731,22 @@ async function deserializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEmailIdentityDkimSigningAttributesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5519,9 +5754,10 @@ async function deserializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesCo
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5529,14 +5765,15 @@ async function deserializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesCo
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5574,19 +5811,22 @@ async function deserializeAws_restJson1_1PutEmailIdentityFeedbackAttributesComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEmailIdentityFeedbackAttributesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5594,9 +5834,10 @@ async function deserializeAws_restJson1_1PutEmailIdentityFeedbackAttributesComma
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5604,14 +5845,15 @@ async function deserializeAws_restJson1_1PutEmailIdentityFeedbackAttributesComma
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5649,19 +5891,22 @@ async function deserializeAws_restJson1_1PutEmailIdentityMailFromAttributesComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEmailIdentityMailFromAttributesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5669,9 +5914,10 @@ async function deserializeAws_restJson1_1PutEmailIdentityMailFromAttributesComma
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5679,14 +5925,15 @@ async function deserializeAws_restJson1_1PutEmailIdentityMailFromAttributesComma
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5724,19 +5971,22 @@ async function deserializeAws_restJson1_1PutSuppressedDestinationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSuppressedDestinationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5744,14 +5994,15 @@ async function deserializeAws_restJson1_1PutSuppressedDestinationCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5790,19 +6041,22 @@ async function deserializeAws_restJson1_1SendEmailCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendEmailCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSuspendedException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AccountSuspendedException":
       response = {
         ...(await deserializeAws_restJson1_1AccountSuspendedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5810,9 +6064,10 @@ async function deserializeAws_restJson1_1SendEmailCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5820,9 +6075,10 @@ async function deserializeAws_restJson1_1SendEmailCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5830,9 +6086,10 @@ async function deserializeAws_restJson1_1SendEmailCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#MailFromDomainNotVerifiedException":
       response = {
         ...(await deserializeAws_restJson1_1MailFromDomainNotVerifiedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5840,9 +6097,10 @@ async function deserializeAws_restJson1_1SendEmailCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#MessageRejected":
       response = {
         ...(await deserializeAws_restJson1_1MessageRejectedResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5850,9 +6108,10 @@ async function deserializeAws_restJson1_1SendEmailCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5860,9 +6119,10 @@ async function deserializeAws_restJson1_1SendEmailCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#SendingPausedException":
       response = {
         ...(await deserializeAws_restJson1_1SendingPausedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5870,14 +6130,15 @@ async function deserializeAws_restJson1_1SendEmailCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5912,19 +6173,22 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5932,9 +6196,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5942,9 +6207,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5952,14 +6218,15 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5994,19 +6261,22 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6014,9 +6284,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6024,9 +6295,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6034,14 +6306,15 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6079,19 +6352,22 @@ async function deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6099,9 +6375,10 @@ async function deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationC
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6109,14 +6386,15 @@ async function deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationC
     case "com.amazon.bacon.pinpoint.frontend.svc#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6133,16 +6411,16 @@ async function deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationC
 }
 
 const deserializeAws_restJson1_1AccountSuspendedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccountSuspendedException> => {
   const contents: AccountSuspendedException = {
     name: "AccountSuspendedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -6150,16 +6428,16 @@ const deserializeAws_restJson1_1AccountSuspendedExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1AlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<AlreadyExistsException> => {
   const contents: AlreadyExistsException = {
     name: "AlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -6167,16 +6445,16 @@ const deserializeAws_restJson1_1AlreadyExistsExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
     name: "BadRequestException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -6184,16 +6462,16 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ConcurrentModificationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -6201,16 +6479,16 @@ const deserializeAws_restJson1_1ConcurrentModificationExceptionResponse = async 
 };
 
 const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -6218,16 +6496,16 @@ const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -6235,16 +6513,16 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1MailFromDomainNotVerifiedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<MailFromDomainNotVerifiedException> => {
   const contents: MailFromDomainNotVerifiedException = {
     name: "MailFromDomainNotVerifiedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -6252,16 +6530,16 @@ const deserializeAws_restJson1_1MailFromDomainNotVerifiedExceptionResponse = asy
 };
 
 const deserializeAws_restJson1_1MessageRejectedResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<MessageRejected> => {
   const contents: MessageRejected = {
     name: "MessageRejected",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -6269,16 +6547,16 @@ const deserializeAws_restJson1_1MessageRejectedResponse = async (
 };
 
 const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -6286,16 +6564,16 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1SendingPausedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<SendingPausedException> => {
   const contents: SendingPausedException = {
     name: "SendingPausedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -6303,16 +6581,16 @@ const deserializeAws_restJson1_1SendingPausedExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -7894,4 +8172,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

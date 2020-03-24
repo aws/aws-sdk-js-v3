@@ -514,19 +514,22 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -534,9 +537,10 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
     case "com.amazonaws.ardi#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -544,9 +548,10 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
     case "com.amazonaws.ardi#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -554,9 +559,10 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
     case "com.amazonaws.ardi#MethodNotAllowedException":
       response = {
         ...(await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -564,14 +570,15 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
     case "com.amazonaws.ardi#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -610,19 +617,22 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -630,9 +640,10 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
     case "com.amazonaws.ardi#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -640,9 +651,10 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
     case "com.amazonaws.ardi#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -650,9 +662,10 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
     case "com.amazonaws.ardi#MethodNotAllowedException":
       response = {
         ...(await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -660,9 +673,10 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
     case "com.amazonaws.ardi#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -670,14 +684,15 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
     case "com.amazonaws.ardi#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -716,19 +731,22 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -736,9 +754,10 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
     case "com.amazonaws.ardi#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -746,9 +765,10 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
     case "com.amazonaws.ardi#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -756,9 +776,10 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
     case "com.amazonaws.ardi#MethodNotAllowedException":
       response = {
         ...(await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -766,9 +787,10 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
     case "com.amazonaws.ardi#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -776,14 +798,15 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
     case "com.amazonaws.ardi#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -825,19 +848,22 @@ async function deserializeAws_restJson1_1GetGroupQueryCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupQueryCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -845,9 +871,10 @@ async function deserializeAws_restJson1_1GetGroupQueryCommandError(
     case "com.amazonaws.ardi#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -855,9 +882,10 @@ async function deserializeAws_restJson1_1GetGroupQueryCommandError(
     case "com.amazonaws.ardi#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -865,9 +893,10 @@ async function deserializeAws_restJson1_1GetGroupQueryCommandError(
     case "com.amazonaws.ardi#MethodNotAllowedException":
       response = {
         ...(await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -875,9 +904,10 @@ async function deserializeAws_restJson1_1GetGroupQueryCommandError(
     case "com.amazonaws.ardi#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -885,14 +915,15 @@ async function deserializeAws_restJson1_1GetGroupQueryCommandError(
     case "com.amazonaws.ardi#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -935,19 +966,22 @@ async function deserializeAws_restJson1_1GetTagsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTagsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -955,9 +989,10 @@ async function deserializeAws_restJson1_1GetTagsCommandError(
     case "com.amazonaws.ardi#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -965,9 +1000,10 @@ async function deserializeAws_restJson1_1GetTagsCommandError(
     case "com.amazonaws.ardi#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -975,9 +1011,10 @@ async function deserializeAws_restJson1_1GetTagsCommandError(
     case "com.amazonaws.ardi#MethodNotAllowedException":
       response = {
         ...(await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -985,9 +1022,10 @@ async function deserializeAws_restJson1_1GetTagsCommandError(
     case "com.amazonaws.ardi#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -995,14 +1033,15 @@ async function deserializeAws_restJson1_1GetTagsCommandError(
     case "com.amazonaws.ardi#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1061,19 +1100,22 @@ async function deserializeAws_restJson1_1ListGroupResourcesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupResourcesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1081,9 +1123,10 @@ async function deserializeAws_restJson1_1ListGroupResourcesCommandError(
     case "com.amazonaws.ardi#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1091,9 +1134,10 @@ async function deserializeAws_restJson1_1ListGroupResourcesCommandError(
     case "com.amazonaws.ardi#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1101,9 +1145,10 @@ async function deserializeAws_restJson1_1ListGroupResourcesCommandError(
     case "com.amazonaws.ardi#MethodNotAllowedException":
       response = {
         ...(await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1111,9 +1156,10 @@ async function deserializeAws_restJson1_1ListGroupResourcesCommandError(
     case "com.amazonaws.ardi#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1121,9 +1167,10 @@ async function deserializeAws_restJson1_1ListGroupResourcesCommandError(
     case "com.amazonaws.ardi#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1131,14 +1178,15 @@ async function deserializeAws_restJson1_1ListGroupResourcesCommandError(
     case "com.amazonaws.ardi#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1188,19 +1236,22 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1208,9 +1259,10 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
     case "com.amazonaws.ardi#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1218,9 +1270,10 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
     case "com.amazonaws.ardi#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1228,9 +1281,10 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
     case "com.amazonaws.ardi#MethodNotAllowedException":
       response = {
         ...(await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1238,14 +1292,15 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
     case "com.amazonaws.ardi#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1304,19 +1359,22 @@ async function deserializeAws_restJson1_1SearchResourcesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchResourcesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1324,9 +1382,10 @@ async function deserializeAws_restJson1_1SearchResourcesCommandError(
     case "com.amazonaws.ardi#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1334,9 +1393,10 @@ async function deserializeAws_restJson1_1SearchResourcesCommandError(
     case "com.amazonaws.ardi#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1344,9 +1404,10 @@ async function deserializeAws_restJson1_1SearchResourcesCommandError(
     case "com.amazonaws.ardi#MethodNotAllowedException":
       response = {
         ...(await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1354,9 +1415,10 @@ async function deserializeAws_restJson1_1SearchResourcesCommandError(
     case "com.amazonaws.ardi#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1364,14 +1426,15 @@ async function deserializeAws_restJson1_1SearchResourcesCommandError(
     case "com.amazonaws.ardi#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1414,19 +1477,22 @@ async function deserializeAws_restJson1_1TagCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1434,9 +1500,10 @@ async function deserializeAws_restJson1_1TagCommandError(
     case "com.amazonaws.ardi#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1444,9 +1511,10 @@ async function deserializeAws_restJson1_1TagCommandError(
     case "com.amazonaws.ardi#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1454,9 +1522,10 @@ async function deserializeAws_restJson1_1TagCommandError(
     case "com.amazonaws.ardi#MethodNotAllowedException":
       response = {
         ...(await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1464,9 +1533,10 @@ async function deserializeAws_restJson1_1TagCommandError(
     case "com.amazonaws.ardi#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1474,14 +1544,15 @@ async function deserializeAws_restJson1_1TagCommandError(
     case "com.amazonaws.ardi#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1524,19 +1595,22 @@ async function deserializeAws_restJson1_1UntagCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1544,9 +1618,10 @@ async function deserializeAws_restJson1_1UntagCommandError(
     case "com.amazonaws.ardi#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1554,9 +1629,10 @@ async function deserializeAws_restJson1_1UntagCommandError(
     case "com.amazonaws.ardi#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1564,9 +1640,10 @@ async function deserializeAws_restJson1_1UntagCommandError(
     case "com.amazonaws.ardi#MethodNotAllowedException":
       response = {
         ...(await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1574,9 +1651,10 @@ async function deserializeAws_restJson1_1UntagCommandError(
     case "com.amazonaws.ardi#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1584,14 +1662,15 @@ async function deserializeAws_restJson1_1UntagCommandError(
     case "com.amazonaws.ardi#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1630,19 +1709,22 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1650,9 +1732,10 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
     case "com.amazonaws.ardi#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1660,9 +1743,10 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
     case "com.amazonaws.ardi#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1670,9 +1754,10 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
     case "com.amazonaws.ardi#MethodNotAllowedException":
       response = {
         ...(await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1680,9 +1765,10 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
     case "com.amazonaws.ardi#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1690,14 +1776,15 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
     case "com.amazonaws.ardi#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1742,19 +1829,22 @@ async function deserializeAws_restJson1_1UpdateGroupQueryCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupQueryCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1762,9 +1852,10 @@ async function deserializeAws_restJson1_1UpdateGroupQueryCommandError(
     case "com.amazonaws.ardi#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1772,9 +1863,10 @@ async function deserializeAws_restJson1_1UpdateGroupQueryCommandError(
     case "com.amazonaws.ardi#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1782,9 +1874,10 @@ async function deserializeAws_restJson1_1UpdateGroupQueryCommandError(
     case "com.amazonaws.ardi#MethodNotAllowedException":
       response = {
         ...(await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1792,9 +1885,10 @@ async function deserializeAws_restJson1_1UpdateGroupQueryCommandError(
     case "com.amazonaws.ardi#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1802,14 +1896,15 @@ async function deserializeAws_restJson1_1UpdateGroupQueryCommandError(
     case "com.amazonaws.ardi#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1826,16 +1921,16 @@ async function deserializeAws_restJson1_1UpdateGroupQueryCommandError(
 }
 
 const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
     name: "BadRequestException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -1843,16 +1938,16 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ForbiddenException> => {
   const contents: ForbiddenException = {
     name: "ForbiddenException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -1860,16 +1955,16 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
   const contents: InternalServerErrorException = {
     name: "InternalServerErrorException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -1877,16 +1972,16 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1MethodNotAllowedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<MethodNotAllowedException> => {
   const contents: MethodNotAllowedException = {
     name: "MethodNotAllowedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -1894,16 +1989,16 @@ const deserializeAws_restJson1_1MethodNotAllowedExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -1911,16 +2006,16 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -1928,16 +2023,16 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnauthorizedException> => {
   const contents: UnauthorizedException = {
     name: "UnauthorizedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -2263,4 +2358,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

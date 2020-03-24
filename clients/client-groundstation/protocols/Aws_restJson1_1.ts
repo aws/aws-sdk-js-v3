@@ -980,7 +980,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.tagKeys !== undefined) {
-    query["tagKeys"] = input.tagKeys;
+    query["tagKeys"] = (input.tagKeys || []).map(_entry => _entry);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1015,19 +1015,22 @@ async function deserializeAws_restJson1_1CancelContactCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelContactCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1035,9 +1038,10 @@ async function deserializeAws_restJson1_1CancelContactCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1045,14 +1049,15 @@ async function deserializeAws_restJson1_1CancelContactCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1099,19 +1104,22 @@ async function deserializeAws_restJson1_1CreateConfigCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1119,9 +1127,10 @@ async function deserializeAws_restJson1_1CreateConfigCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1129,14 +1138,15 @@ async function deserializeAws_restJson1_1CreateConfigCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1181,19 +1191,22 @@ async function deserializeAws_restJson1_1CreateDataflowEndpointGroupCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataflowEndpointGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1201,9 +1214,10 @@ async function deserializeAws_restJson1_1CreateDataflowEndpointGroupCommandError
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1211,14 +1225,15 @@ async function deserializeAws_restJson1_1CreateDataflowEndpointGroupCommandError
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1260,19 +1275,22 @@ async function deserializeAws_restJson1_1CreateMissionProfileCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMissionProfileCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1280,9 +1298,10 @@ async function deserializeAws_restJson1_1CreateMissionProfileCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1290,14 +1309,15 @@ async function deserializeAws_restJson1_1CreateMissionProfileCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1344,19 +1364,22 @@ async function deserializeAws_restJson1_1DeleteConfigCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1364,9 +1387,10 @@ async function deserializeAws_restJson1_1DeleteConfigCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1374,14 +1398,15 @@ async function deserializeAws_restJson1_1DeleteConfigCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1426,19 +1451,22 @@ async function deserializeAws_restJson1_1DeleteDataflowEndpointGroupCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDataflowEndpointGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1446,9 +1474,10 @@ async function deserializeAws_restJson1_1DeleteDataflowEndpointGroupCommandError
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1456,14 +1485,15 @@ async function deserializeAws_restJson1_1DeleteDataflowEndpointGroupCommandError
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1505,19 +1535,22 @@ async function deserializeAws_restJson1_1DeleteMissionProfileCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMissionProfileCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1525,9 +1558,10 @@ async function deserializeAws_restJson1_1DeleteMissionProfileCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1535,14 +1569,15 @@ async function deserializeAws_restJson1_1DeleteMissionProfileCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1635,19 +1670,22 @@ async function deserializeAws_restJson1_1DescribeContactCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeContactCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1655,9 +1693,10 @@ async function deserializeAws_restJson1_1DescribeContactCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1665,14 +1704,15 @@ async function deserializeAws_restJson1_1DescribeContactCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1734,19 +1774,22 @@ async function deserializeAws_restJson1_1GetConfigCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1754,9 +1797,10 @@ async function deserializeAws_restJson1_1GetConfigCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1764,14 +1808,15 @@ async function deserializeAws_restJson1_1GetConfigCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1834,19 +1879,22 @@ async function deserializeAws_restJson1_1GetDataflowEndpointGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataflowEndpointGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1854,9 +1902,10 @@ async function deserializeAws_restJson1_1GetDataflowEndpointGroupCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1864,14 +1913,15 @@ async function deserializeAws_restJson1_1GetDataflowEndpointGroupCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1963,19 +2013,22 @@ async function deserializeAws_restJson1_1GetMissionProfileCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMissionProfileCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1983,9 +2036,10 @@ async function deserializeAws_restJson1_1GetMissionProfileCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1993,14 +2047,15 @@ async function deserializeAws_restJson1_1GetMissionProfileCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2046,19 +2101,22 @@ async function deserializeAws_restJson1_1ListConfigsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2066,9 +2124,10 @@ async function deserializeAws_restJson1_1ListConfigsCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2076,14 +2135,15 @@ async function deserializeAws_restJson1_1ListConfigsCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2129,19 +2189,22 @@ async function deserializeAws_restJson1_1ListContactsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListContactsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2149,9 +2212,10 @@ async function deserializeAws_restJson1_1ListContactsCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2159,14 +2223,15 @@ async function deserializeAws_restJson1_1ListContactsCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2218,19 +2283,22 @@ async function deserializeAws_restJson1_1ListDataflowEndpointGroupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataflowEndpointGroupsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2238,9 +2306,10 @@ async function deserializeAws_restJson1_1ListDataflowEndpointGroupsCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2248,14 +2317,15 @@ async function deserializeAws_restJson1_1ListDataflowEndpointGroupsCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2307,19 +2377,22 @@ async function deserializeAws_restJson1_1ListMissionProfilesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMissionProfilesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2327,9 +2400,10 @@ async function deserializeAws_restJson1_1ListMissionProfilesCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2337,14 +2411,15 @@ async function deserializeAws_restJson1_1ListMissionProfilesCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2386,19 +2461,22 @@ async function deserializeAws_restJson1_1ReserveContactCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReserveContactCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2406,9 +2484,10 @@ async function deserializeAws_restJson1_1ReserveContactCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2416,14 +2495,15 @@ async function deserializeAws_restJson1_1ReserveContactCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2470,19 +2550,22 @@ async function deserializeAws_restJson1_1UpdateConfigCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2490,9 +2573,10 @@ async function deserializeAws_restJson1_1UpdateConfigCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2500,14 +2584,15 @@ async function deserializeAws_restJson1_1UpdateConfigCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2549,19 +2634,22 @@ async function deserializeAws_restJson1_1UpdateMissionProfileCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMissionProfileCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2569,9 +2657,10 @@ async function deserializeAws_restJson1_1UpdateMissionProfileCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2579,14 +2668,15 @@ async function deserializeAws_restJson1_1UpdateMissionProfileCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2659,19 +2749,22 @@ async function deserializeAws_restJson1_1GetMinuteUsageCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMinuteUsageCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2679,9 +2772,10 @@ async function deserializeAws_restJson1_1GetMinuteUsageCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2689,14 +2783,15 @@ async function deserializeAws_restJson1_1GetMinuteUsageCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2755,19 +2850,22 @@ async function deserializeAws_restJson1_1GetSatelliteCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSatelliteCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2775,9 +2873,10 @@ async function deserializeAws_restJson1_1GetSatelliteCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2785,14 +2884,15 @@ async function deserializeAws_restJson1_1GetSatelliteCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2841,19 +2941,22 @@ async function deserializeAws_restJson1_1ListGroundStationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroundStationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2861,9 +2964,10 @@ async function deserializeAws_restJson1_1ListGroundStationsCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2871,14 +2975,15 @@ async function deserializeAws_restJson1_1ListGroundStationsCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2927,19 +3032,22 @@ async function deserializeAws_restJson1_1ListSatellitesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSatellitesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2947,9 +3055,10 @@ async function deserializeAws_restJson1_1ListSatellitesCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2957,14 +3066,15 @@ async function deserializeAws_restJson1_1ListSatellitesCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3006,19 +3116,22 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3026,9 +3139,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3036,14 +3150,15 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3078,19 +3193,22 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3098,9 +3216,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3108,14 +3227,15 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3150,19 +3270,22 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyException":
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#DependencyException":
       response = {
         ...(await deserializeAws_restJson1_1DependencyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3170,9 +3293,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3180,14 +3304,15 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazon.awsgsaascontrolplanelambda.r20190311#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3204,17 +3329,17 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
 }
 
 const deserializeAws_restJson1_1DependencyExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DependencyException> => {
   const contents: DependencyException = {
     name: "DependencyException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
     parameterName: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -3225,17 +3350,17 @@ const deserializeAws_restJson1_1DependencyExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
     parameterName: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -3246,16 +3371,16 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -4432,4 +4557,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

@@ -849,7 +849,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.tagKeys !== undefined) {
-    query["tagKeys"] = input.tagKeys;
+    query["tagKeys"] = (input.tagKeys || []).map(_entry => _entry);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1108,19 +1108,22 @@ async function deserializeAws_restJson1_1CreateClusterCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateClusterCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1128,9 +1131,10 @@ async function deserializeAws_restJson1_1CreateClusterCommandError(
     case "com.amazonaws.wesley.fe#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1138,9 +1142,10 @@ async function deserializeAws_restJson1_1CreateClusterCommandError(
     case "com.amazonaws.wesley.fe#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1148,9 +1153,10 @@ async function deserializeAws_restJson1_1CreateClusterCommandError(
     case "com.amazonaws.wesley.fe#ResourceLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1158,9 +1164,10 @@ async function deserializeAws_restJson1_1CreateClusterCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1168,9 +1175,10 @@ async function deserializeAws_restJson1_1CreateClusterCommandError(
     case "com.amazonaws.wesley.fe#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1178,14 +1186,15 @@ async function deserializeAws_restJson1_1CreateClusterCommandError(
     case "com.amazonaws.wesley.fe#UnsupportedAvailabilityZoneException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedAvailabilityZoneExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1230,19 +1239,22 @@ async function deserializeAws_restJson1_1CreateFargateProfileCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFargateProfileCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1250,9 +1262,10 @@ async function deserializeAws_restJson1_1CreateFargateProfileCommandError(
     case "com.amazonaws.wesley.fe#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1260,9 +1273,10 @@ async function deserializeAws_restJson1_1CreateFargateProfileCommandError(
     case "com.amazonaws.wesley.fe#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1270,9 +1284,10 @@ async function deserializeAws_restJson1_1CreateFargateProfileCommandError(
     case "com.amazonaws.wesley.fe#ResourceLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1280,9 +1295,10 @@ async function deserializeAws_restJson1_1CreateFargateProfileCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1290,14 +1306,15 @@ async function deserializeAws_restJson1_1CreateFargateProfileCommandError(
     case "com.amazonaws.wesley.fe#UnsupportedAvailabilityZoneException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedAvailabilityZoneExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1342,19 +1359,22 @@ async function deserializeAws_restJson1_1CreateNodegroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNodegroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1362,9 +1382,10 @@ async function deserializeAws_restJson1_1CreateNodegroupCommandError(
     case "com.amazonaws.wesley.fe#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1372,9 +1393,10 @@ async function deserializeAws_restJson1_1CreateNodegroupCommandError(
     case "com.amazonaws.wesley.fe#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1382,9 +1404,10 @@ async function deserializeAws_restJson1_1CreateNodegroupCommandError(
     case "com.amazonaws.wesley.fe#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1392,9 +1415,10 @@ async function deserializeAws_restJson1_1CreateNodegroupCommandError(
     case "com.amazonaws.wesley.fe#ResourceLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1402,9 +1426,10 @@ async function deserializeAws_restJson1_1CreateNodegroupCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1412,14 +1437,15 @@ async function deserializeAws_restJson1_1CreateNodegroupCommandError(
     case "com.amazonaws.wesley.fe#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1458,19 +1484,22 @@ async function deserializeAws_restJson1_1DeleteClusterCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteClusterCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1478,9 +1507,10 @@ async function deserializeAws_restJson1_1DeleteClusterCommandError(
     case "com.amazonaws.wesley.fe#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1488,9 +1518,10 @@ async function deserializeAws_restJson1_1DeleteClusterCommandError(
     case "com.amazonaws.wesley.fe#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1498,9 +1529,10 @@ async function deserializeAws_restJson1_1DeleteClusterCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1508,14 +1540,15 @@ async function deserializeAws_restJson1_1DeleteClusterCommandError(
     case "com.amazonaws.wesley.fe#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1560,19 +1593,22 @@ async function deserializeAws_restJson1_1DeleteFargateProfileCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFargateProfileCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1580,9 +1616,10 @@ async function deserializeAws_restJson1_1DeleteFargateProfileCommandError(
     case "com.amazonaws.wesley.fe#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1590,9 +1627,10 @@ async function deserializeAws_restJson1_1DeleteFargateProfileCommandError(
     case "com.amazonaws.wesley.fe#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1600,14 +1638,15 @@ async function deserializeAws_restJson1_1DeleteFargateProfileCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1652,19 +1691,22 @@ async function deserializeAws_restJson1_1DeleteNodegroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNodegroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1672,9 +1714,10 @@ async function deserializeAws_restJson1_1DeleteNodegroupCommandError(
     case "com.amazonaws.wesley.fe#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1682,9 +1725,10 @@ async function deserializeAws_restJson1_1DeleteNodegroupCommandError(
     case "com.amazonaws.wesley.fe#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1692,9 +1736,10 @@ async function deserializeAws_restJson1_1DeleteNodegroupCommandError(
     case "com.amazonaws.wesley.fe#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1702,9 +1747,10 @@ async function deserializeAws_restJson1_1DeleteNodegroupCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1712,14 +1758,15 @@ async function deserializeAws_restJson1_1DeleteNodegroupCommandError(
     case "com.amazonaws.wesley.fe#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1761,19 +1808,22 @@ async function deserializeAws_restJson1_1DescribeClusterCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClusterCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1781,9 +1831,10 @@ async function deserializeAws_restJson1_1DescribeClusterCommandError(
     case "com.amazonaws.wesley.fe#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1791,9 +1842,10 @@ async function deserializeAws_restJson1_1DescribeClusterCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1801,14 +1853,15 @@ async function deserializeAws_restJson1_1DescribeClusterCommandError(
     case "com.amazonaws.wesley.fe#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1853,19 +1906,22 @@ async function deserializeAws_restJson1_1DescribeFargateProfileCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFargateProfileCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1873,9 +1929,10 @@ async function deserializeAws_restJson1_1DescribeFargateProfileCommandError(
     case "com.amazonaws.wesley.fe#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1883,9 +1940,10 @@ async function deserializeAws_restJson1_1DescribeFargateProfileCommandError(
     case "com.amazonaws.wesley.fe#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1893,14 +1951,15 @@ async function deserializeAws_restJson1_1DescribeFargateProfileCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1945,19 +2004,22 @@ async function deserializeAws_restJson1_1DescribeNodegroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeNodegroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1965,9 +2027,10 @@ async function deserializeAws_restJson1_1DescribeNodegroupCommandError(
     case "com.amazonaws.wesley.fe#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1975,9 +2038,10 @@ async function deserializeAws_restJson1_1DescribeNodegroupCommandError(
     case "com.amazonaws.wesley.fe#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1985,9 +2049,10 @@ async function deserializeAws_restJson1_1DescribeNodegroupCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1995,14 +2060,15 @@ async function deserializeAws_restJson1_1DescribeNodegroupCommandError(
     case "com.amazonaws.wesley.fe#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2044,19 +2110,22 @@ async function deserializeAws_restJson1_1DescribeUpdateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUpdateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2064,9 +2133,10 @@ async function deserializeAws_restJson1_1DescribeUpdateCommandError(
     case "com.amazonaws.wesley.fe#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2074,9 +2144,10 @@ async function deserializeAws_restJson1_1DescribeUpdateCommandError(
     case "com.amazonaws.wesley.fe#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2084,14 +2155,15 @@ async function deserializeAws_restJson1_1DescribeUpdateCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2137,19 +2209,22 @@ async function deserializeAws_restJson1_1ListClustersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClustersCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2157,9 +2232,10 @@ async function deserializeAws_restJson1_1ListClustersCommandError(
     case "com.amazonaws.wesley.fe#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2167,9 +2243,10 @@ async function deserializeAws_restJson1_1ListClustersCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2177,14 +2254,15 @@ async function deserializeAws_restJson1_1ListClustersCommandError(
     case "com.amazonaws.wesley.fe#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2236,19 +2314,22 @@ async function deserializeAws_restJson1_1ListFargateProfilesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFargateProfilesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2256,9 +2337,10 @@ async function deserializeAws_restJson1_1ListFargateProfilesCommandError(
     case "com.amazonaws.wesley.fe#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2266,9 +2348,10 @@ async function deserializeAws_restJson1_1ListFargateProfilesCommandError(
     case "com.amazonaws.wesley.fe#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2276,14 +2359,15 @@ async function deserializeAws_restJson1_1ListFargateProfilesCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2332,19 +2416,22 @@ async function deserializeAws_restJson1_1ListNodegroupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNodegroupsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2352,9 +2439,10 @@ async function deserializeAws_restJson1_1ListNodegroupsCommandError(
     case "com.amazonaws.wesley.fe#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2362,9 +2450,10 @@ async function deserializeAws_restJson1_1ListNodegroupsCommandError(
     case "com.amazonaws.wesley.fe#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2372,9 +2461,10 @@ async function deserializeAws_restJson1_1ListNodegroupsCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2382,14 +2472,15 @@ async function deserializeAws_restJson1_1ListNodegroupsCommandError(
     case "com.amazonaws.wesley.fe#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2431,19 +2522,22 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.wesley.fe#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2451,14 +2545,15 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.wesley.fe#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2504,19 +2599,22 @@ async function deserializeAws_restJson1_1ListUpdatesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUpdatesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2524,9 +2622,10 @@ async function deserializeAws_restJson1_1ListUpdatesCommandError(
     case "com.amazonaws.wesley.fe#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2534,9 +2633,10 @@ async function deserializeAws_restJson1_1ListUpdatesCommandError(
     case "com.amazonaws.wesley.fe#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2544,14 +2644,15 @@ async function deserializeAws_restJson1_1ListUpdatesCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2586,19 +2687,22 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.wesley.fe#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2606,14 +2710,15 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.wesley.fe#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2648,19 +2753,22 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.wesley.fe#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2668,14 +2776,15 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.wesley.fe#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2717,19 +2826,22 @@ async function deserializeAws_restJson1_1UpdateClusterConfigCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateClusterConfigCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2737,9 +2849,10 @@ async function deserializeAws_restJson1_1UpdateClusterConfigCommandError(
     case "com.amazonaws.wesley.fe#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2747,9 +2860,10 @@ async function deserializeAws_restJson1_1UpdateClusterConfigCommandError(
     case "com.amazonaws.wesley.fe#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2757,9 +2871,10 @@ async function deserializeAws_restJson1_1UpdateClusterConfigCommandError(
     case "com.amazonaws.wesley.fe#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2767,9 +2882,10 @@ async function deserializeAws_restJson1_1UpdateClusterConfigCommandError(
     case "com.amazonaws.wesley.fe#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2777,14 +2893,15 @@ async function deserializeAws_restJson1_1UpdateClusterConfigCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2826,19 +2943,22 @@ async function deserializeAws_restJson1_1UpdateClusterVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateClusterVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2846,9 +2966,10 @@ async function deserializeAws_restJson1_1UpdateClusterVersionCommandError(
     case "com.amazonaws.wesley.fe#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2856,9 +2977,10 @@ async function deserializeAws_restJson1_1UpdateClusterVersionCommandError(
     case "com.amazonaws.wesley.fe#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2866,9 +2988,10 @@ async function deserializeAws_restJson1_1UpdateClusterVersionCommandError(
     case "com.amazonaws.wesley.fe#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2876,9 +2999,10 @@ async function deserializeAws_restJson1_1UpdateClusterVersionCommandError(
     case "com.amazonaws.wesley.fe#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2886,14 +3010,15 @@ async function deserializeAws_restJson1_1UpdateClusterVersionCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2935,19 +3060,22 @@ async function deserializeAws_restJson1_1UpdateNodegroupConfigCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNodegroupConfigCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2955,9 +3083,10 @@ async function deserializeAws_restJson1_1UpdateNodegroupConfigCommandError(
     case "com.amazonaws.wesley.fe#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2965,9 +3094,10 @@ async function deserializeAws_restJson1_1UpdateNodegroupConfigCommandError(
     case "com.amazonaws.wesley.fe#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2975,9 +3105,10 @@ async function deserializeAws_restJson1_1UpdateNodegroupConfigCommandError(
     case "com.amazonaws.wesley.fe#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2985,9 +3116,10 @@ async function deserializeAws_restJson1_1UpdateNodegroupConfigCommandError(
     case "com.amazonaws.wesley.fe#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2995,14 +3127,15 @@ async function deserializeAws_restJson1_1UpdateNodegroupConfigCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3044,19 +3177,22 @@ async function deserializeAws_restJson1_1UpdateNodegroupVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNodegroupVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
       response = {
         ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3064,9 +3200,10 @@ async function deserializeAws_restJson1_1UpdateNodegroupVersionCommandError(
     case "com.amazonaws.wesley.fe#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3074,9 +3211,10 @@ async function deserializeAws_restJson1_1UpdateNodegroupVersionCommandError(
     case "com.amazonaws.wesley.fe#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3084,9 +3222,10 @@ async function deserializeAws_restJson1_1UpdateNodegroupVersionCommandError(
     case "com.amazonaws.wesley.fe#ResourceInUseException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3094,9 +3233,10 @@ async function deserializeAws_restJson1_1UpdateNodegroupVersionCommandError(
     case "com.amazonaws.wesley.fe#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3104,14 +3244,15 @@ async function deserializeAws_restJson1_1UpdateNodegroupVersionCommandError(
     case "com.amazonaws.wesley.fe#ServerException":
       response = {
         ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3128,16 +3269,16 @@ async function deserializeAws_restJson1_1UpdateNodegroupVersionCommandError(
 }
 
 const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
     name: "BadRequestException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -3145,18 +3286,18 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ClientExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ClientException> => {
   const contents: ClientException = {
     name: "ClientException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     clusterName: undefined,
     message: undefined,
     nodegroupName: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.clusterName !== undefined && data.clusterName !== null) {
     contents.clusterName = data.clusterName;
   }
@@ -3170,19 +3311,19 @@ const deserializeAws_restJson1_1ClientExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     clusterName: undefined,
     fargateProfileName: undefined,
     message: undefined,
     nodegroupName: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.clusterName !== undefined && data.clusterName !== null) {
     contents.clusterName = data.clusterName;
   }
@@ -3202,18 +3343,18 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     clusterName: undefined,
     message: undefined,
     nodegroupName: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.clusterName !== undefined && data.clusterName !== null) {
     contents.clusterName = data.clusterName;
   }
@@ -3227,16 +3368,16 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -3244,18 +3385,18 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     clusterName: undefined,
     message: undefined,
     nodegroupName: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.clusterName !== undefined && data.clusterName !== null) {
     contents.clusterName = data.clusterName;
   }
@@ -3269,18 +3410,18 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceLimitExceededException> => {
   const contents: ResourceLimitExceededException = {
     name: "ResourceLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     clusterName: undefined,
     message: undefined,
     nodegroupName: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.clusterName !== undefined && data.clusterName !== null) {
     contents.clusterName = data.clusterName;
   }
@@ -3294,19 +3435,19 @@ const deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     clusterName: undefined,
     fargateProfileName: undefined,
     message: undefined,
     nodegroupName: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.clusterName !== undefined && data.clusterName !== null) {
     contents.clusterName = data.clusterName;
   }
@@ -3326,18 +3467,18 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ServerExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServerException> => {
   const contents: ServerException = {
     name: "ServerException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     clusterName: undefined,
     message: undefined,
     nodegroupName: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.clusterName !== undefined && data.clusterName !== null) {
     contents.clusterName = data.clusterName;
   }
@@ -3351,16 +3492,16 @@ const deserializeAws_restJson1_1ServerExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -3368,19 +3509,19 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1UnsupportedAvailabilityZoneExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedAvailabilityZoneException> => {
   const contents: UnsupportedAvailabilityZoneException = {
     name: "UnsupportedAvailabilityZoneException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     clusterName: undefined,
     message: undefined,
     nodegroupName: undefined,
     validZones: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.clusterName !== undefined && data.clusterName !== null) {
     contents.clusterName = data.clusterName;
   }
@@ -4387,4 +4528,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

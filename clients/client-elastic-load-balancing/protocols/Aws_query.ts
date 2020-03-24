@@ -781,7 +781,7 @@ async function deserializeAws_queryAddTagsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -791,6 +791,7 @@ async function deserializeAws_queryAddTagsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -801,6 +802,7 @@ async function deserializeAws_queryAddTagsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -811,6 +813,7 @@ async function deserializeAws_queryAddTagsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -865,7 +868,7 @@ async function deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -875,6 +878,7 @@ async function deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -885,6 +889,7 @@ async function deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -895,6 +900,7 @@ async function deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -949,7 +955,7 @@ async function deserializeAws_queryAttachLoadBalancerToSubnetsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -959,6 +965,7 @@ async function deserializeAws_queryAttachLoadBalancerToSubnetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -969,6 +976,7 @@ async function deserializeAws_queryAttachLoadBalancerToSubnetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -979,6 +987,7 @@ async function deserializeAws_queryAttachLoadBalancerToSubnetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -989,6 +998,7 @@ async function deserializeAws_queryAttachLoadBalancerToSubnetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1043,7 +1053,7 @@ async function deserializeAws_queryConfigureHealthCheckCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1053,6 +1063,7 @@ async function deserializeAws_queryConfigureHealthCheckCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1107,7 +1118,7 @@ async function deserializeAws_queryCreateAppCookieStickinessPolicyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1117,6 +1128,7 @@ async function deserializeAws_queryCreateAppCookieStickinessPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1127,6 +1139,7 @@ async function deserializeAws_queryCreateAppCookieStickinessPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1137,6 +1150,7 @@ async function deserializeAws_queryCreateAppCookieStickinessPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1147,6 +1161,7 @@ async function deserializeAws_queryCreateAppCookieStickinessPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1201,7 +1216,7 @@ async function deserializeAws_queryCreateLBCookieStickinessPolicyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1211,6 +1226,7 @@ async function deserializeAws_queryCreateLBCookieStickinessPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1221,6 +1237,7 @@ async function deserializeAws_queryCreateLBCookieStickinessPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1231,6 +1248,7 @@ async function deserializeAws_queryCreateLBCookieStickinessPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1241,6 +1259,7 @@ async function deserializeAws_queryCreateLBCookieStickinessPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1292,7 +1311,7 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateNotFoundException":
@@ -1302,6 +1321,7 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1312,6 +1332,7 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1322,6 +1343,7 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1332,6 +1354,7 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1342,6 +1365,7 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1352,6 +1376,7 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1362,6 +1387,7 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1372,6 +1398,7 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1382,6 +1409,7 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1392,6 +1420,7 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1402,6 +1431,7 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1412,6 +1442,7 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1466,7 +1497,7 @@ async function deserializeAws_queryCreateLoadBalancerListenersCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1476,6 +1507,7 @@ async function deserializeAws_queryCreateLoadBalancerListenersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1486,6 +1518,7 @@ async function deserializeAws_queryCreateLoadBalancerListenersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1496,6 +1529,7 @@ async function deserializeAws_queryCreateLoadBalancerListenersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1506,6 +1540,7 @@ async function deserializeAws_queryCreateLoadBalancerListenersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1516,6 +1551,7 @@ async function deserializeAws_queryCreateLoadBalancerListenersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1570,7 +1606,7 @@ async function deserializeAws_queryCreateLoadBalancerPolicyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1580,6 +1616,7 @@ async function deserializeAws_queryCreateLoadBalancerPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1590,6 +1627,7 @@ async function deserializeAws_queryCreateLoadBalancerPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1600,6 +1638,7 @@ async function deserializeAws_queryCreateLoadBalancerPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1610,6 +1649,7 @@ async function deserializeAws_queryCreateLoadBalancerPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1620,6 +1660,7 @@ async function deserializeAws_queryCreateLoadBalancerPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1671,7 +1712,7 @@ async function deserializeAws_queryDeleteLoadBalancerCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1725,7 +1766,7 @@ async function deserializeAws_queryDeleteLoadBalancerListenersCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1735,6 +1776,7 @@ async function deserializeAws_queryDeleteLoadBalancerListenersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1789,7 +1831,7 @@ async function deserializeAws_queryDeleteLoadBalancerPolicyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1799,6 +1841,7 @@ async function deserializeAws_queryDeleteLoadBalancerPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1809,6 +1852,7 @@ async function deserializeAws_queryDeleteLoadBalancerPolicyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1863,7 +1907,7 @@ async function deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -1873,6 +1917,7 @@ async function deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1883,6 +1928,7 @@ async function deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1937,7 +1983,7 @@ async function deserializeAws_queryDescribeAccountLimitsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1991,7 +2037,7 @@ async function deserializeAws_queryDescribeInstanceHealthCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -2001,6 +2047,7 @@ async function deserializeAws_queryDescribeInstanceHealthCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2011,6 +2058,7 @@ async function deserializeAws_queryDescribeInstanceHealthCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2065,7 +2113,7 @@ async function deserializeAws_queryDescribeLoadBalancerAttributesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -2075,6 +2123,7 @@ async function deserializeAws_queryDescribeLoadBalancerAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2085,6 +2134,7 @@ async function deserializeAws_queryDescribeLoadBalancerAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2139,7 +2189,7 @@ async function deserializeAws_queryDescribeLoadBalancerPoliciesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -2149,6 +2199,7 @@ async function deserializeAws_queryDescribeLoadBalancerPoliciesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2159,6 +2210,7 @@ async function deserializeAws_queryDescribeLoadBalancerPoliciesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2213,7 +2265,7 @@ async function deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "PolicyTypeNotFoundException":
@@ -2223,6 +2275,7 @@ async function deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2277,7 +2330,7 @@ async function deserializeAws_queryDescribeLoadBalancersCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -2287,6 +2340,7 @@ async function deserializeAws_queryDescribeLoadBalancersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2297,6 +2351,7 @@ async function deserializeAws_queryDescribeLoadBalancersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2348,7 +2403,7 @@ async function deserializeAws_queryDescribeTagsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -2358,6 +2413,7 @@ async function deserializeAws_queryDescribeTagsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2412,7 +2468,7 @@ async function deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -2422,6 +2478,7 @@ async function deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2432,6 +2489,7 @@ async function deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2486,7 +2544,7 @@ async function deserializeAws_queryDisableAvailabilityZonesForLoadBalancerComman
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -2496,6 +2554,7 @@ async function deserializeAws_queryDisableAvailabilityZonesForLoadBalancerComman
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2506,6 +2565,7 @@ async function deserializeAws_queryDisableAvailabilityZonesForLoadBalancerComman
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2560,7 +2620,7 @@ async function deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -2570,6 +2630,7 @@ async function deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2624,7 +2685,7 @@ async function deserializeAws_queryModifyLoadBalancerAttributesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -2634,6 +2695,7 @@ async function deserializeAws_queryModifyLoadBalancerAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2644,6 +2706,7 @@ async function deserializeAws_queryModifyLoadBalancerAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2654,6 +2717,7 @@ async function deserializeAws_queryModifyLoadBalancerAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2708,7 +2772,7 @@ async function deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -2718,6 +2782,7 @@ async function deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2728,6 +2793,7 @@ async function deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2779,7 +2845,7 @@ async function deserializeAws_queryRemoveTagsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -2789,6 +2855,7 @@ async function deserializeAws_queryRemoveTagsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2843,7 +2910,7 @@ async function deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandE
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -2853,6 +2920,7 @@ async function deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2863,6 +2931,7 @@ async function deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2873,6 +2942,7 @@ async function deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2883,6 +2953,7 @@ async function deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2893,6 +2964,7 @@ async function deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandE
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2947,7 +3019,7 @@ async function deserializeAws_querySetLoadBalancerPoliciesForBackendServerComman
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -2957,6 +3029,7 @@ async function deserializeAws_querySetLoadBalancerPoliciesForBackendServerComman
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2967,6 +3040,7 @@ async function deserializeAws_querySetLoadBalancerPoliciesForBackendServerComman
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2977,6 +3051,7 @@ async function deserializeAws_querySetLoadBalancerPoliciesForBackendServerComman
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3031,7 +3106,7 @@ async function deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
@@ -3041,6 +3116,7 @@ async function deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3051,6 +3127,7 @@ async function deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3061,6 +3138,7 @@ async function deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3071,6 +3149,7 @@ async function deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4601,18 +4680,24 @@ const deserializeAws_queryAdditionalAttributes = (
   output: any,
   context: __SerdeContext
 ): Array<AdditionalAttribute> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryAdditionalAttribute(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryAdditionalAttribute(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryAppCookieStickinessPolicies = (
   output: any,
   context: __SerdeContext
 ): Array<AppCookieStickinessPolicy> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryAppCookieStickinessPolicy(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryAppCookieStickinessPolicy(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryAppCookieStickinessPolicy = (
@@ -4688,7 +4773,11 @@ const deserializeAws_queryAvailabilityZones = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryBackendServerDescription = (
@@ -4726,9 +4815,11 @@ const deserializeAws_queryBackendServerDescriptions = (
   output: any,
   context: __SerdeContext
 ): Array<BackendServerDescription> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryBackendServerDescription(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryBackendServerDescription(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryCertificateNotFoundException = (
@@ -5268,18 +5359,22 @@ const deserializeAws_queryInstanceStates = (
   output: any,
   context: __SerdeContext
 ): Array<InstanceState> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryInstanceState(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryInstanceState(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryInstances = (
   output: any,
   context: __SerdeContext
 ): Array<Instance> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryInstance(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryInstance(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryInvalidConfigurationRequestException = (
@@ -5356,9 +5451,11 @@ const deserializeAws_queryLBCookieStickinessPolicies = (
   output: any,
   context: __SerdeContext
 ): Array<LBCookieStickinessPolicy> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryLBCookieStickinessPolicy(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryLBCookieStickinessPolicy(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryLBCookieStickinessPolicy = (
@@ -5403,9 +5500,11 @@ const deserializeAws_queryLimits = (
   output: any,
   context: __SerdeContext
 ): Array<Limit> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryLimit(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryLimit(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryListener = (
@@ -5476,9 +5575,11 @@ const deserializeAws_queryListenerDescriptions = (
   output: any,
   context: __SerdeContext
 ): Array<ListenerDescription> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryListenerDescription(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryListenerDescription(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryListenerNotFoundException = (
@@ -5723,9 +5824,11 @@ const deserializeAws_queryLoadBalancerDescriptions = (
   output: any,
   context: __SerdeContext
 ): Array<LoadBalancerDescription> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryLoadBalancerDescription(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryLoadBalancerDescription(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryModifyLoadBalancerAttributesOutput = (
@@ -5846,9 +5949,13 @@ const deserializeAws_queryPolicyAttributeDescriptions = (
   output: any,
   context: __SerdeContext
 ): Array<PolicyAttributeDescription> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryPolicyAttributeDescription(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryPolicyAttributeDescription(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryPolicyAttributeTypeDescription = (
@@ -5885,9 +5992,13 @@ const deserializeAws_queryPolicyAttributeTypeDescriptions = (
   output: any,
   context: __SerdeContext
 ): Array<PolicyAttributeTypeDescription> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryPolicyAttributeTypeDescription(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryPolicyAttributeTypeDescription(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryPolicyDescription = (
@@ -5929,16 +6040,22 @@ const deserializeAws_queryPolicyDescriptions = (
   output: any,
   context: __SerdeContext
 ): Array<PolicyDescription> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryPolicyDescription(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryPolicyDescription(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryPolicyNames = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryPolicyNotFoundException = (
@@ -5994,9 +6111,11 @@ const deserializeAws_queryPolicyTypeDescriptions = (
   output: any,
   context: __SerdeContext
 ): Array<PolicyTypeDescription> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryPolicyTypeDescription(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryPolicyTypeDescription(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryPolicyTypeNotFoundException = (
@@ -6078,7 +6197,11 @@ const deserializeAws_querySecurityGroups = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_querySetLoadBalancerListenerSSLCertificateOutput = (
@@ -6147,7 +6270,11 @@ const deserializeAws_querySubnets = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
@@ -6194,18 +6321,22 @@ const deserializeAws_queryTagDescriptions = (
   output: any,
   context: __SerdeContext
 ): Array<TagDescription> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTagDescription(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryTagDescription(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryTagList = (
   output: any,
   context: __SerdeContext
 ): Array<Tag> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTag(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryTag(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryTooManyAccessPointsException = (

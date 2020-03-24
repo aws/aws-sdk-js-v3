@@ -3241,7 +3241,7 @@ async function deserializeAws_queryAddRoleToDBClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -3251,6 +3251,7 @@ async function deserializeAws_queryAddRoleToDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3261,6 +3262,7 @@ async function deserializeAws_queryAddRoleToDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3271,6 +3273,7 @@ async function deserializeAws_queryAddRoleToDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3281,6 +3284,7 @@ async function deserializeAws_queryAddRoleToDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3325,7 +3329,7 @@ async function deserializeAws_queryAddRoleToDBInstanceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
@@ -3335,6 +3339,7 @@ async function deserializeAws_queryAddRoleToDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3345,6 +3350,7 @@ async function deserializeAws_queryAddRoleToDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3355,6 +3361,7 @@ async function deserializeAws_queryAddRoleToDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3365,6 +3372,7 @@ async function deserializeAws_queryAddRoleToDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3419,7 +3427,7 @@ async function deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SourceNotFoundFault":
@@ -3429,6 +3437,7 @@ async function deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3439,6 +3448,7 @@ async function deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3483,7 +3493,7 @@ async function deserializeAws_queryAddTagsToResourceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -3493,6 +3503,7 @@ async function deserializeAws_queryAddTagsToResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3503,6 +3514,7 @@ async function deserializeAws_queryAddTagsToResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3513,6 +3525,7 @@ async function deserializeAws_queryAddTagsToResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3567,7 +3580,7 @@ async function deserializeAws_queryApplyPendingMaintenanceActionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidDBClusterStateFault":
@@ -3577,6 +3590,7 @@ async function deserializeAws_queryApplyPendingMaintenanceActionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3587,6 +3601,7 @@ async function deserializeAws_queryApplyPendingMaintenanceActionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3597,6 +3612,7 @@ async function deserializeAws_queryApplyPendingMaintenanceActionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3651,7 +3667,7 @@ async function deserializeAws_queryAuthorizeDBSecurityGroupIngressCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationAlreadyExistsFault":
@@ -3661,6 +3677,7 @@ async function deserializeAws_queryAuthorizeDBSecurityGroupIngressCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3671,6 +3688,7 @@ async function deserializeAws_queryAuthorizeDBSecurityGroupIngressCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3681,6 +3699,7 @@ async function deserializeAws_queryAuthorizeDBSecurityGroupIngressCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3691,6 +3710,7 @@ async function deserializeAws_queryAuthorizeDBSecurityGroupIngressCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3742,7 +3762,7 @@ async function deserializeAws_queryBacktrackDBClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -3752,6 +3772,7 @@ async function deserializeAws_queryBacktrackDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3762,6 +3783,7 @@ async function deserializeAws_queryBacktrackDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3816,7 +3838,7 @@ async function deserializeAws_queryCopyDBClusterParameterGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
@@ -3826,6 +3848,7 @@ async function deserializeAws_queryCopyDBClusterParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3836,6 +3859,7 @@ async function deserializeAws_queryCopyDBClusterParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3846,6 +3870,7 @@ async function deserializeAws_queryCopyDBClusterParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3900,7 +3925,7 @@ async function deserializeAws_queryCopyDBClusterSnapshotCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotAlreadyExistsFault":
@@ -3910,6 +3935,7 @@ async function deserializeAws_queryCopyDBClusterSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3920,6 +3946,7 @@ async function deserializeAws_queryCopyDBClusterSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3930,6 +3957,7 @@ async function deserializeAws_queryCopyDBClusterSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3940,6 +3968,7 @@ async function deserializeAws_queryCopyDBClusterSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3950,6 +3979,7 @@ async function deserializeAws_queryCopyDBClusterSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3960,6 +3990,7 @@ async function deserializeAws_queryCopyDBClusterSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4014,7 +4045,7 @@ async function deserializeAws_queryCopyDBParameterGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
@@ -4024,6 +4055,7 @@ async function deserializeAws_queryCopyDBParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4034,6 +4066,7 @@ async function deserializeAws_queryCopyDBParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4044,6 +4077,7 @@ async function deserializeAws_queryCopyDBParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4095,7 +4129,7 @@ async function deserializeAws_queryCopyDBSnapshotCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSnapshotAlreadyExistsFault":
@@ -4105,6 +4139,7 @@ async function deserializeAws_queryCopyDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4115,6 +4150,7 @@ async function deserializeAws_queryCopyDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4125,6 +4161,7 @@ async function deserializeAws_queryCopyDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4135,6 +4172,7 @@ async function deserializeAws_queryCopyDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4145,6 +4183,7 @@ async function deserializeAws_queryCopyDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4196,7 +4235,7 @@ async function deserializeAws_queryCopyOptionGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OptionGroupAlreadyExistsFault":
@@ -4206,6 +4245,7 @@ async function deserializeAws_queryCopyOptionGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4216,6 +4256,7 @@ async function deserializeAws_queryCopyOptionGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4226,6 +4267,7 @@ async function deserializeAws_queryCopyOptionGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4280,7 +4322,7 @@ async function deserializeAws_queryCreateCustomAvailabilityZoneCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomAvailabilityZoneAlreadyExistsFault":
@@ -4290,6 +4332,7 @@ async function deserializeAws_queryCreateCustomAvailabilityZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4300,6 +4343,7 @@ async function deserializeAws_queryCreateCustomAvailabilityZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4310,6 +4354,7 @@ async function deserializeAws_queryCreateCustomAvailabilityZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4361,7 +4406,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
@@ -4371,6 +4416,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4381,6 +4427,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4391,6 +4438,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4401,6 +4449,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4411,6 +4460,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4421,6 +4471,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4431,6 +4482,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4441,6 +4493,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4451,6 +4504,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4461,6 +4515,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4471,6 +4526,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4481,6 +4537,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4491,6 +4548,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4501,6 +4559,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4511,6 +4570,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4521,6 +4581,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4531,6 +4592,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4541,6 +4603,7 @@ async function deserializeAws_queryCreateDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4595,7 +4658,7 @@ async function deserializeAws_queryCreateDBClusterEndpointCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterEndpointAlreadyExistsFault":
@@ -4605,6 +4668,7 @@ async function deserializeAws_queryCreateDBClusterEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4615,6 +4679,7 @@ async function deserializeAws_queryCreateDBClusterEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4625,6 +4690,7 @@ async function deserializeAws_queryCreateDBClusterEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4635,6 +4701,7 @@ async function deserializeAws_queryCreateDBClusterEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4645,6 +4712,7 @@ async function deserializeAws_queryCreateDBClusterEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4655,6 +4723,7 @@ async function deserializeAws_queryCreateDBClusterEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4709,7 +4778,7 @@ async function deserializeAws_queryCreateDBClusterParameterGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
@@ -4719,6 +4788,7 @@ async function deserializeAws_queryCreateDBClusterParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4729,6 +4799,7 @@ async function deserializeAws_queryCreateDBClusterParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4783,7 +4854,7 @@ async function deserializeAws_queryCreateDBClusterSnapshotCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -4793,6 +4864,7 @@ async function deserializeAws_queryCreateDBClusterSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4803,6 +4875,7 @@ async function deserializeAws_queryCreateDBClusterSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4813,6 +4886,7 @@ async function deserializeAws_queryCreateDBClusterSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4823,6 +4897,7 @@ async function deserializeAws_queryCreateDBClusterSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4833,6 +4908,7 @@ async function deserializeAws_queryCreateDBClusterSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4884,7 +4960,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
@@ -4894,6 +4970,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4904,6 +4981,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4914,6 +4992,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4924,6 +5003,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4934,6 +5014,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4944,6 +5025,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4954,6 +5036,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4964,6 +5047,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4974,6 +5058,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4984,6 +5069,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4994,6 +5080,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5004,6 +5091,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5014,6 +5102,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5024,6 +5113,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5034,6 +5124,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5044,6 +5135,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5054,6 +5146,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5064,6 +5157,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5074,6 +5168,7 @@ async function deserializeAws_queryCreateDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5128,7 +5223,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceAlreadyExistsFault":
@@ -5138,6 +5233,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5148,6 +5244,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5158,6 +5255,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5168,6 +5266,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5178,6 +5277,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5188,6 +5288,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5198,6 +5299,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5208,6 +5310,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5218,6 +5321,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5228,6 +5332,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5238,6 +5343,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5248,6 +5354,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5258,6 +5365,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5268,6 +5376,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5278,6 +5387,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5288,6 +5398,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5298,6 +5409,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5308,6 +5420,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5318,6 +5431,7 @@ async function deserializeAws_queryCreateDBInstanceReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5372,7 +5486,7 @@ async function deserializeAws_queryCreateDBParameterGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
@@ -5382,6 +5496,7 @@ async function deserializeAws_queryCreateDBParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5392,6 +5507,7 @@ async function deserializeAws_queryCreateDBParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5443,7 +5559,7 @@ async function deserializeAws_queryCreateDBProxyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyAlreadyExistsFault":
@@ -5453,6 +5569,7 @@ async function deserializeAws_queryCreateDBProxyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5463,6 +5580,7 @@ async function deserializeAws_queryCreateDBProxyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5473,6 +5591,7 @@ async function deserializeAws_queryCreateDBProxyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5527,7 +5646,7 @@ async function deserializeAws_queryCreateDBSecurityGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSecurityGroupAlreadyExistsFault":
@@ -5537,6 +5656,7 @@ async function deserializeAws_queryCreateDBSecurityGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5547,6 +5667,7 @@ async function deserializeAws_queryCreateDBSecurityGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5557,6 +5678,7 @@ async function deserializeAws_queryCreateDBSecurityGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5608,7 +5730,7 @@ async function deserializeAws_queryCreateDBSnapshotCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
@@ -5618,6 +5740,7 @@ async function deserializeAws_queryCreateDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5628,6 +5751,7 @@ async function deserializeAws_queryCreateDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5638,6 +5762,7 @@ async function deserializeAws_queryCreateDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5648,6 +5773,7 @@ async function deserializeAws_queryCreateDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5699,7 +5825,7 @@ async function deserializeAws_queryCreateDBSubnetGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSubnetGroupAlreadyExistsFault":
@@ -5709,6 +5835,7 @@ async function deserializeAws_queryCreateDBSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5719,6 +5846,7 @@ async function deserializeAws_queryCreateDBSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5729,6 +5857,7 @@ async function deserializeAws_queryCreateDBSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5739,6 +5868,7 @@ async function deserializeAws_queryCreateDBSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5749,6 +5879,7 @@ async function deserializeAws_queryCreateDBSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5803,7 +5934,7 @@ async function deserializeAws_queryCreateEventSubscriptionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EventSubscriptionQuotaExceededFault":
@@ -5813,6 +5944,7 @@ async function deserializeAws_queryCreateEventSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5823,6 +5955,7 @@ async function deserializeAws_queryCreateEventSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5833,6 +5966,7 @@ async function deserializeAws_queryCreateEventSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5843,6 +5977,7 @@ async function deserializeAws_queryCreateEventSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5853,6 +5988,7 @@ async function deserializeAws_queryCreateEventSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5863,6 +5999,7 @@ async function deserializeAws_queryCreateEventSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5873,6 +6010,7 @@ async function deserializeAws_queryCreateEventSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5924,7 +6062,7 @@ async function deserializeAws_queryCreateGlobalClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -5934,6 +6072,7 @@ async function deserializeAws_queryCreateGlobalClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5944,6 +6083,7 @@ async function deserializeAws_queryCreateGlobalClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5954,6 +6094,7 @@ async function deserializeAws_queryCreateGlobalClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5964,6 +6105,7 @@ async function deserializeAws_queryCreateGlobalClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6015,7 +6157,7 @@ async function deserializeAws_queryCreateOptionGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OptionGroupAlreadyExistsFault":
@@ -6025,6 +6167,7 @@ async function deserializeAws_queryCreateOptionGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6035,6 +6178,7 @@ async function deserializeAws_queryCreateOptionGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6089,7 +6233,7 @@ async function deserializeAws_queryDeleteCustomAvailabilityZoneCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomAvailabilityZoneNotFoundFault":
@@ -6099,6 +6243,7 @@ async function deserializeAws_queryDeleteCustomAvailabilityZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6109,6 +6254,7 @@ async function deserializeAws_queryDeleteCustomAvailabilityZoneCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6160,7 +6306,7 @@ async function deserializeAws_queryDeleteDBClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -6170,6 +6316,7 @@ async function deserializeAws_queryDeleteDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6180,6 +6327,7 @@ async function deserializeAws_queryDeleteDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6190,6 +6338,7 @@ async function deserializeAws_queryDeleteDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6200,6 +6349,7 @@ async function deserializeAws_queryDeleteDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6210,6 +6360,7 @@ async function deserializeAws_queryDeleteDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6264,7 +6415,7 @@ async function deserializeAws_queryDeleteDBClusterEndpointCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterEndpointNotFoundFault":
@@ -6274,6 +6425,7 @@ async function deserializeAws_queryDeleteDBClusterEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6284,6 +6436,7 @@ async function deserializeAws_queryDeleteDBClusterEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6294,6 +6447,7 @@ async function deserializeAws_queryDeleteDBClusterEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6341,7 +6495,7 @@ async function deserializeAws_queryDeleteDBClusterParameterGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
@@ -6351,6 +6505,7 @@ async function deserializeAws_queryDeleteDBClusterParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6361,6 +6516,7 @@ async function deserializeAws_queryDeleteDBClusterParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6415,7 +6571,7 @@ async function deserializeAws_queryDeleteDBClusterSnapshotCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
@@ -6425,6 +6581,7 @@ async function deserializeAws_queryDeleteDBClusterSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6435,6 +6592,7 @@ async function deserializeAws_queryDeleteDBClusterSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6486,7 +6644,7 @@ async function deserializeAws_queryDeleteDBInstanceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceAutomatedBackupQuotaExceededFault":
@@ -6496,6 +6654,7 @@ async function deserializeAws_queryDeleteDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6506,6 +6665,7 @@ async function deserializeAws_queryDeleteDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6516,6 +6676,7 @@ async function deserializeAws_queryDeleteDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6526,6 +6687,7 @@ async function deserializeAws_queryDeleteDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6536,6 +6698,7 @@ async function deserializeAws_queryDeleteDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6546,6 +6709,7 @@ async function deserializeAws_queryDeleteDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6600,7 +6764,7 @@ async function deserializeAws_queryDeleteDBInstanceAutomatedBackupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceAutomatedBackupNotFoundFault":
@@ -6610,6 +6774,7 @@ async function deserializeAws_queryDeleteDBInstanceAutomatedBackupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6620,6 +6785,7 @@ async function deserializeAws_queryDeleteDBInstanceAutomatedBackupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6667,7 +6833,7 @@ async function deserializeAws_queryDeleteDBParameterGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
@@ -6677,6 +6843,7 @@ async function deserializeAws_queryDeleteDBParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6687,6 +6854,7 @@ async function deserializeAws_queryDeleteDBParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6738,7 +6906,7 @@ async function deserializeAws_queryDeleteDBProxyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyNotFoundFault":
@@ -6748,6 +6916,7 @@ async function deserializeAws_queryDeleteDBProxyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6758,6 +6927,7 @@ async function deserializeAws_queryDeleteDBProxyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6805,7 +6975,7 @@ async function deserializeAws_queryDeleteDBSecurityGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSecurityGroupNotFoundFault":
@@ -6815,6 +6985,7 @@ async function deserializeAws_queryDeleteDBSecurityGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6825,6 +6996,7 @@ async function deserializeAws_queryDeleteDBSecurityGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6876,7 +7048,7 @@ async function deserializeAws_queryDeleteDBSnapshotCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSnapshotNotFoundFault":
@@ -6886,6 +7058,7 @@ async function deserializeAws_queryDeleteDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6896,6 +7069,7 @@ async function deserializeAws_queryDeleteDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6940,7 +7114,7 @@ async function deserializeAws_queryDeleteDBSubnetGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSubnetGroupNotFoundFault":
@@ -6950,6 +7124,7 @@ async function deserializeAws_queryDeleteDBSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6960,6 +7135,7 @@ async function deserializeAws_queryDeleteDBSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6970,6 +7146,7 @@ async function deserializeAws_queryDeleteDBSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7024,7 +7201,7 @@ async function deserializeAws_queryDeleteEventSubscriptionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidEventSubscriptionStateFault":
@@ -7034,6 +7211,7 @@ async function deserializeAws_queryDeleteEventSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7044,6 +7222,7 @@ async function deserializeAws_queryDeleteEventSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7095,7 +7274,7 @@ async function deserializeAws_queryDeleteGlobalClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalClusterNotFoundFault":
@@ -7105,6 +7284,7 @@ async function deserializeAws_queryDeleteGlobalClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7115,6 +7295,7 @@ async function deserializeAws_queryDeleteGlobalClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7169,7 +7350,7 @@ async function deserializeAws_queryDeleteInstallationMediaCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InstallationMediaNotFoundFault":
@@ -7179,6 +7360,7 @@ async function deserializeAws_queryDeleteInstallationMediaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7223,7 +7405,7 @@ async function deserializeAws_queryDeleteOptionGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidOptionGroupStateFault":
@@ -7233,6 +7415,7 @@ async function deserializeAws_queryDeleteOptionGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7243,6 +7426,7 @@ async function deserializeAws_queryDeleteOptionGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7297,7 +7481,7 @@ async function deserializeAws_queryDeregisterDBProxyTargetsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyNotFoundFault":
@@ -7307,6 +7491,7 @@ async function deserializeAws_queryDeregisterDBProxyTargetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7317,6 +7502,7 @@ async function deserializeAws_queryDeregisterDBProxyTargetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7327,6 +7513,7 @@ async function deserializeAws_queryDeregisterDBProxyTargetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7381,7 +7568,7 @@ async function deserializeAws_queryDescribeAccountAttributesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -7435,7 +7622,7 @@ async function deserializeAws_queryDescribeCertificatesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateNotFoundFault":
@@ -7445,6 +7632,7 @@ async function deserializeAws_queryDescribeCertificatesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7499,7 +7687,7 @@ async function deserializeAws_queryDescribeCustomAvailabilityZonesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomAvailabilityZoneNotFoundFault":
@@ -7509,6 +7697,7 @@ async function deserializeAws_queryDescribeCustomAvailabilityZonesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7563,7 +7752,7 @@ async function deserializeAws_queryDescribeDBClusterBacktracksCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterBacktrackNotFoundFault":
@@ -7573,6 +7762,7 @@ async function deserializeAws_queryDescribeDBClusterBacktracksCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7583,6 +7773,7 @@ async function deserializeAws_queryDescribeDBClusterBacktracksCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7637,7 +7828,7 @@ async function deserializeAws_queryDescribeDBClusterEndpointsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -7647,6 +7838,7 @@ async function deserializeAws_queryDescribeDBClusterEndpointsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7701,7 +7893,7 @@ async function deserializeAws_queryDescribeDBClusterParameterGroupsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
@@ -7711,6 +7903,7 @@ async function deserializeAws_queryDescribeDBClusterParameterGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7765,7 +7958,7 @@ async function deserializeAws_queryDescribeDBClusterParametersCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
@@ -7775,6 +7968,7 @@ async function deserializeAws_queryDescribeDBClusterParametersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7829,7 +8023,7 @@ async function deserializeAws_queryDescribeDBClusterSnapshotAttributesCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
@@ -7839,6 +8033,7 @@ async function deserializeAws_queryDescribeDBClusterSnapshotAttributesCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7893,7 +8088,7 @@ async function deserializeAws_queryDescribeDBClusterSnapshotsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
@@ -7903,6 +8098,7 @@ async function deserializeAws_queryDescribeDBClusterSnapshotsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7954,7 +8150,7 @@ async function deserializeAws_queryDescribeDBClustersCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -7964,6 +8160,7 @@ async function deserializeAws_queryDescribeDBClustersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8018,7 +8215,7 @@ async function deserializeAws_queryDescribeDBEngineVersionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -8072,7 +8269,7 @@ async function deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommandErro
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceAutomatedBackupNotFoundFault":
@@ -8082,6 +8279,7 @@ async function deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8133,7 +8331,7 @@ async function deserializeAws_queryDescribeDBInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
@@ -8143,6 +8341,7 @@ async function deserializeAws_queryDescribeDBInstancesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8194,7 +8393,7 @@ async function deserializeAws_queryDescribeDBLogFilesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
@@ -8204,6 +8403,7 @@ async function deserializeAws_queryDescribeDBLogFilesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8258,7 +8458,7 @@ async function deserializeAws_queryDescribeDBParameterGroupsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
@@ -8268,6 +8468,7 @@ async function deserializeAws_queryDescribeDBParameterGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8322,7 +8523,7 @@ async function deserializeAws_queryDescribeDBParametersCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
@@ -8332,6 +8533,7 @@ async function deserializeAws_queryDescribeDBParametersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8383,7 +8585,7 @@ async function deserializeAws_queryDescribeDBProxiesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyNotFoundFault":
@@ -8393,6 +8595,7 @@ async function deserializeAws_queryDescribeDBProxiesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8447,7 +8650,7 @@ async function deserializeAws_queryDescribeDBProxyTargetGroupsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyTargetGroupNotFoundFault":
@@ -8457,6 +8660,7 @@ async function deserializeAws_queryDescribeDBProxyTargetGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8511,7 +8715,7 @@ async function deserializeAws_queryDescribeDBProxyTargetsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyNotFoundFault":
@@ -8521,6 +8725,7 @@ async function deserializeAws_queryDescribeDBProxyTargetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8531,6 +8736,7 @@ async function deserializeAws_queryDescribeDBProxyTargetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8541,6 +8747,7 @@ async function deserializeAws_queryDescribeDBProxyTargetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8595,7 +8802,7 @@ async function deserializeAws_queryDescribeDBSecurityGroupsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSecurityGroupNotFoundFault":
@@ -8605,6 +8812,7 @@ async function deserializeAws_queryDescribeDBSecurityGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8659,7 +8867,7 @@ async function deserializeAws_queryDescribeDBSnapshotAttributesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSnapshotNotFoundFault":
@@ -8669,6 +8877,7 @@ async function deserializeAws_queryDescribeDBSnapshotAttributesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8720,7 +8929,7 @@ async function deserializeAws_queryDescribeDBSnapshotsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSnapshotNotFoundFault":
@@ -8730,6 +8939,7 @@ async function deserializeAws_queryDescribeDBSnapshotsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8784,7 +8994,7 @@ async function deserializeAws_queryDescribeDBSubnetGroupsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSubnetGroupNotFoundFault":
@@ -8794,6 +9004,7 @@ async function deserializeAws_queryDescribeDBSubnetGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8848,7 +9059,7 @@ async function deserializeAws_queryDescribeEngineDefaultClusterParametersCommand
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -8902,7 +9113,7 @@ async function deserializeAws_queryDescribeEngineDefaultParametersCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -8956,7 +9167,7 @@ async function deserializeAws_queryDescribeEventCategoriesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -9010,7 +9221,7 @@ async function deserializeAws_queryDescribeEventSubscriptionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SubscriptionNotFoundFault":
@@ -9020,6 +9231,7 @@ async function deserializeAws_queryDescribeEventSubscriptionsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9071,7 +9283,7 @@ async function deserializeAws_queryDescribeEventsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -9125,7 +9337,7 @@ async function deserializeAws_queryDescribeGlobalClustersCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalClusterNotFoundFault":
@@ -9135,6 +9347,7 @@ async function deserializeAws_queryDescribeGlobalClustersCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9189,7 +9402,7 @@ async function deserializeAws_queryDescribeInstallationMediaCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InstallationMediaNotFoundFault":
@@ -9199,6 +9412,7 @@ async function deserializeAws_queryDescribeInstallationMediaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9253,7 +9467,7 @@ async function deserializeAws_queryDescribeOptionGroupOptionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -9307,7 +9521,7 @@ async function deserializeAws_queryDescribeOptionGroupsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OptionGroupNotFoundFault":
@@ -9317,6 +9531,7 @@ async function deserializeAws_queryDescribeOptionGroupsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9371,7 +9586,7 @@ async function deserializeAws_queryDescribeOrderableDBInstanceOptionsCommandErro
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -9425,7 +9640,7 @@ async function deserializeAws_queryDescribePendingMaintenanceActionsCommandError
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
@@ -9435,6 +9650,7 @@ async function deserializeAws_queryDescribePendingMaintenanceActionsCommandError
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9489,7 +9705,7 @@ async function deserializeAws_queryDescribeReservedDBInstancesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ReservedDBInstanceNotFoundFault":
@@ -9499,6 +9715,7 @@ async function deserializeAws_queryDescribeReservedDBInstancesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9553,7 +9770,7 @@ async function deserializeAws_queryDescribeReservedDBInstancesOfferingsCommandEr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ReservedDBInstancesOfferingNotFoundFault":
@@ -9563,6 +9780,7 @@ async function deserializeAws_queryDescribeReservedDBInstancesOfferingsCommandEr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9617,7 +9835,7 @@ async function deserializeAws_queryDescribeSourceRegionsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -9671,7 +9889,7 @@ async function deserializeAws_queryDescribeValidDBInstanceModificationsCommandEr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
@@ -9681,6 +9899,7 @@ async function deserializeAws_queryDescribeValidDBInstanceModificationsCommandEr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9691,6 +9910,7 @@ async function deserializeAws_queryDescribeValidDBInstanceModificationsCommandEr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9745,7 +9965,7 @@ async function deserializeAws_queryDownloadDBLogFilePortionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
@@ -9755,6 +9975,7 @@ async function deserializeAws_queryDownloadDBLogFilePortionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9765,6 +9986,7 @@ async function deserializeAws_queryDownloadDBLogFilePortionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9816,7 +10038,7 @@ async function deserializeAws_queryFailoverDBClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -9826,6 +10048,7 @@ async function deserializeAws_queryFailoverDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9836,6 +10059,7 @@ async function deserializeAws_queryFailoverDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9846,6 +10070,7 @@ async function deserializeAws_queryFailoverDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9900,7 +10125,7 @@ async function deserializeAws_queryImportInstallationMediaCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomAvailabilityZoneNotFoundFault":
@@ -9910,6 +10135,7 @@ async function deserializeAws_queryImportInstallationMediaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9920,6 +10146,7 @@ async function deserializeAws_queryImportInstallationMediaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9971,7 +10198,7 @@ async function deserializeAws_queryListTagsForResourceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -9981,6 +10208,7 @@ async function deserializeAws_queryListTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9991,6 +10219,7 @@ async function deserializeAws_queryListTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10001,6 +10230,7 @@ async function deserializeAws_queryListTagsForResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10052,7 +10282,7 @@ async function deserializeAws_queryModifyCertificatesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateNotFoundFault":
@@ -10062,6 +10292,7 @@ async function deserializeAws_queryModifyCertificatesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10116,7 +10347,7 @@ async function deserializeAws_queryModifyCurrentDBClusterCapacityCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -10126,6 +10357,7 @@ async function deserializeAws_queryModifyCurrentDBClusterCapacityCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10136,6 +10368,7 @@ async function deserializeAws_queryModifyCurrentDBClusterCapacityCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10146,6 +10379,7 @@ async function deserializeAws_queryModifyCurrentDBClusterCapacityCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10197,7 +10431,7 @@ async function deserializeAws_queryModifyDBClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
@@ -10207,6 +10441,7 @@ async function deserializeAws_queryModifyDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10217,6 +10452,7 @@ async function deserializeAws_queryModifyDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10227,6 +10463,7 @@ async function deserializeAws_queryModifyDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10237,6 +10474,7 @@ async function deserializeAws_queryModifyDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10247,6 +10485,7 @@ async function deserializeAws_queryModifyDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10257,6 +10496,7 @@ async function deserializeAws_queryModifyDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10267,6 +10507,7 @@ async function deserializeAws_queryModifyDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10277,6 +10518,7 @@ async function deserializeAws_queryModifyDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10287,6 +10529,7 @@ async function deserializeAws_queryModifyDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10297,6 +10540,7 @@ async function deserializeAws_queryModifyDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10307,6 +10551,7 @@ async function deserializeAws_queryModifyDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10317,6 +10562,7 @@ async function deserializeAws_queryModifyDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10371,7 +10617,7 @@ async function deserializeAws_queryModifyDBClusterEndpointCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterEndpointNotFoundFault":
@@ -10381,6 +10627,7 @@ async function deserializeAws_queryModifyDBClusterEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10391,6 +10638,7 @@ async function deserializeAws_queryModifyDBClusterEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10401,6 +10649,7 @@ async function deserializeAws_queryModifyDBClusterEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10411,6 +10660,7 @@ async function deserializeAws_queryModifyDBClusterEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10421,6 +10671,7 @@ async function deserializeAws_queryModifyDBClusterEndpointCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10475,7 +10726,7 @@ async function deserializeAws_queryModifyDBClusterParameterGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
@@ -10485,6 +10736,7 @@ async function deserializeAws_queryModifyDBClusterParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10495,6 +10747,7 @@ async function deserializeAws_queryModifyDBClusterParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10549,7 +10802,7 @@ async function deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
@@ -10559,6 +10812,7 @@ async function deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10569,6 +10823,7 @@ async function deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10579,6 +10834,7 @@ async function deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10630,7 +10886,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
@@ -10640,6 +10896,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10650,6 +10907,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10660,6 +10918,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10670,6 +10929,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10680,6 +10940,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10690,6 +10951,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10700,6 +10962,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10710,6 +10973,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10720,6 +10984,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10730,6 +10995,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10740,6 +11006,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10750,6 +11017,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10760,6 +11028,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10770,6 +11039,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10780,6 +11050,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10790,6 +11061,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10800,6 +11072,7 @@ async function deserializeAws_queryModifyDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10854,7 +11127,7 @@ async function deserializeAws_queryModifyDBParameterGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
@@ -10864,6 +11137,7 @@ async function deserializeAws_queryModifyDBParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10874,6 +11148,7 @@ async function deserializeAws_queryModifyDBParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10925,7 +11200,7 @@ async function deserializeAws_queryModifyDBProxyCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyAlreadyExistsFault":
@@ -10935,6 +11210,7 @@ async function deserializeAws_queryModifyDBProxyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10945,6 +11221,7 @@ async function deserializeAws_queryModifyDBProxyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10955,6 +11232,7 @@ async function deserializeAws_queryModifyDBProxyCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11009,7 +11287,7 @@ async function deserializeAws_queryModifyDBProxyTargetGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyNotFoundFault":
@@ -11019,6 +11297,7 @@ async function deserializeAws_queryModifyDBProxyTargetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11029,6 +11308,7 @@ async function deserializeAws_queryModifyDBProxyTargetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11080,7 +11360,7 @@ async function deserializeAws_queryModifyDBSnapshotCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSnapshotNotFoundFault":
@@ -11090,6 +11370,7 @@ async function deserializeAws_queryModifyDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11144,7 +11425,7 @@ async function deserializeAws_queryModifyDBSnapshotAttributeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSnapshotNotFoundFault":
@@ -11154,6 +11435,7 @@ async function deserializeAws_queryModifyDBSnapshotAttributeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11164,6 +11446,7 @@ async function deserializeAws_queryModifyDBSnapshotAttributeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11174,6 +11457,7 @@ async function deserializeAws_queryModifyDBSnapshotAttributeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11225,7 +11509,7 @@ async function deserializeAws_queryModifyDBSubnetGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
@@ -11235,6 +11519,7 @@ async function deserializeAws_queryModifyDBSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11245,6 +11530,7 @@ async function deserializeAws_queryModifyDBSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11255,6 +11541,7 @@ async function deserializeAws_queryModifyDBSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11265,6 +11552,7 @@ async function deserializeAws_queryModifyDBSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11275,6 +11563,7 @@ async function deserializeAws_queryModifyDBSubnetGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11329,7 +11618,7 @@ async function deserializeAws_queryModifyEventSubscriptionCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EventSubscriptionQuotaExceededFault":
@@ -11339,6 +11628,7 @@ async function deserializeAws_queryModifyEventSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11349,6 +11639,7 @@ async function deserializeAws_queryModifyEventSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11359,6 +11650,7 @@ async function deserializeAws_queryModifyEventSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11369,6 +11661,7 @@ async function deserializeAws_queryModifyEventSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11379,6 +11672,7 @@ async function deserializeAws_queryModifyEventSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11389,6 +11683,7 @@ async function deserializeAws_queryModifyEventSubscriptionCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11440,7 +11735,7 @@ async function deserializeAws_queryModifyGlobalClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalClusterNotFoundFault":
@@ -11450,6 +11745,7 @@ async function deserializeAws_queryModifyGlobalClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11460,6 +11756,7 @@ async function deserializeAws_queryModifyGlobalClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11511,7 +11808,7 @@ async function deserializeAws_queryModifyOptionGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidOptionGroupStateFault":
@@ -11521,6 +11818,7 @@ async function deserializeAws_queryModifyOptionGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11531,6 +11829,7 @@ async function deserializeAws_queryModifyOptionGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11582,7 +11881,7 @@ async function deserializeAws_queryPromoteReadReplicaCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
@@ -11592,6 +11891,7 @@ async function deserializeAws_queryPromoteReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11602,6 +11902,7 @@ async function deserializeAws_queryPromoteReadReplicaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11656,7 +11957,7 @@ async function deserializeAws_queryPromoteReadReplicaDBClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -11666,6 +11967,7 @@ async function deserializeAws_queryPromoteReadReplicaDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11676,6 +11978,7 @@ async function deserializeAws_queryPromoteReadReplicaDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11730,7 +12033,7 @@ async function deserializeAws_queryPurchaseReservedDBInstancesOfferingCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ReservedDBInstanceAlreadyExistsFault":
@@ -11740,6 +12043,7 @@ async function deserializeAws_queryPurchaseReservedDBInstancesOfferingCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11750,6 +12054,7 @@ async function deserializeAws_queryPurchaseReservedDBInstancesOfferingCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11760,6 +12065,7 @@ async function deserializeAws_queryPurchaseReservedDBInstancesOfferingCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11811,7 +12117,7 @@ async function deserializeAws_queryRebootDBInstanceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
@@ -11821,6 +12127,7 @@ async function deserializeAws_queryRebootDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11831,6 +12138,7 @@ async function deserializeAws_queryRebootDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11885,7 +12193,7 @@ async function deserializeAws_queryRegisterDBProxyTargetsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -11895,6 +12203,7 @@ async function deserializeAws_queryRegisterDBProxyTargetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11905,6 +12214,7 @@ async function deserializeAws_queryRegisterDBProxyTargetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11915,6 +12225,7 @@ async function deserializeAws_queryRegisterDBProxyTargetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11925,6 +12236,7 @@ async function deserializeAws_queryRegisterDBProxyTargetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11935,6 +12247,7 @@ async function deserializeAws_queryRegisterDBProxyTargetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11945,6 +12258,7 @@ async function deserializeAws_queryRegisterDBProxyTargetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11955,6 +12269,7 @@ async function deserializeAws_queryRegisterDBProxyTargetsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12009,7 +12324,7 @@ async function deserializeAws_queryRemoveFromGlobalClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -12019,6 +12334,7 @@ async function deserializeAws_queryRemoveFromGlobalClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12029,6 +12345,7 @@ async function deserializeAws_queryRemoveFromGlobalClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12039,6 +12356,7 @@ async function deserializeAws_queryRemoveFromGlobalClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12086,7 +12404,7 @@ async function deserializeAws_queryRemoveRoleFromDBClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -12096,6 +12414,7 @@ async function deserializeAws_queryRemoveRoleFromDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12106,6 +12425,7 @@ async function deserializeAws_queryRemoveRoleFromDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12116,6 +12436,7 @@ async function deserializeAws_queryRemoveRoleFromDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12163,7 +12484,7 @@ async function deserializeAws_queryRemoveRoleFromDBInstanceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
@@ -12173,6 +12494,7 @@ async function deserializeAws_queryRemoveRoleFromDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12183,6 +12505,7 @@ async function deserializeAws_queryRemoveRoleFromDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12193,6 +12516,7 @@ async function deserializeAws_queryRemoveRoleFromDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12247,7 +12571,7 @@ async function deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SourceNotFoundFault":
@@ -12257,6 +12581,7 @@ async function deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12267,6 +12592,7 @@ async function deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12314,7 +12640,7 @@ async function deserializeAws_queryRemoveTagsFromResourceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -12324,6 +12650,7 @@ async function deserializeAws_queryRemoveTagsFromResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12334,6 +12661,7 @@ async function deserializeAws_queryRemoveTagsFromResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12344,6 +12672,7 @@ async function deserializeAws_queryRemoveTagsFromResourceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12398,7 +12727,7 @@ async function deserializeAws_queryResetDBClusterParameterGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
@@ -12408,6 +12737,7 @@ async function deserializeAws_queryResetDBClusterParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12418,6 +12748,7 @@ async function deserializeAws_queryResetDBClusterParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12472,7 +12803,7 @@ async function deserializeAws_queryResetDBParameterGroupCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
@@ -12482,6 +12813,7 @@ async function deserializeAws_queryResetDBParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12492,6 +12824,7 @@ async function deserializeAws_queryResetDBParameterGroupCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12546,7 +12879,7 @@ async function deserializeAws_queryRestoreDBClusterFromS3CommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
@@ -12556,6 +12889,7 @@ async function deserializeAws_queryRestoreDBClusterFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12566,6 +12900,7 @@ async function deserializeAws_queryRestoreDBClusterFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12576,6 +12911,7 @@ async function deserializeAws_queryRestoreDBClusterFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12586,6 +12922,7 @@ async function deserializeAws_queryRestoreDBClusterFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12596,6 +12933,7 @@ async function deserializeAws_queryRestoreDBClusterFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12606,6 +12944,7 @@ async function deserializeAws_queryRestoreDBClusterFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12616,6 +12955,7 @@ async function deserializeAws_queryRestoreDBClusterFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12626,6 +12966,7 @@ async function deserializeAws_queryRestoreDBClusterFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12636,6 +12977,7 @@ async function deserializeAws_queryRestoreDBClusterFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12646,6 +12988,7 @@ async function deserializeAws_queryRestoreDBClusterFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12656,6 +12999,7 @@ async function deserializeAws_queryRestoreDBClusterFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12666,6 +13010,7 @@ async function deserializeAws_queryRestoreDBClusterFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12676,6 +13021,7 @@ async function deserializeAws_queryRestoreDBClusterFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12686,6 +13032,7 @@ async function deserializeAws_queryRestoreDBClusterFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12740,7 +13087,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
@@ -12750,6 +13097,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12760,6 +13108,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12770,6 +13119,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12780,6 +13130,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12790,6 +13141,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12800,6 +13152,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12810,6 +13163,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12820,6 +13174,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12830,6 +13185,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12840,6 +13196,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12850,6 +13207,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12860,6 +13218,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12870,6 +13229,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12880,6 +13240,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12890,6 +13251,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12900,6 +13262,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12910,6 +13273,7 @@ async function deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12964,7 +13328,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
@@ -12974,6 +13338,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12984,6 +13349,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12994,6 +13360,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13004,6 +13371,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13014,6 +13382,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13024,6 +13393,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13034,6 +13404,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13044,6 +13415,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13054,6 +13426,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13064,6 +13437,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13074,6 +13448,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13084,6 +13459,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13094,6 +13470,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13104,6 +13481,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13114,6 +13492,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13124,6 +13503,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13134,6 +13514,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13144,6 +13525,7 @@ async function deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13198,7 +13580,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
@@ -13208,6 +13590,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13218,6 +13601,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13228,6 +13612,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13238,6 +13623,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13248,6 +13634,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13258,6 +13645,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13268,6 +13656,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13278,6 +13667,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13288,6 +13678,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13298,6 +13689,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13308,6 +13700,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13318,6 +13711,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13328,6 +13722,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13338,6 +13733,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13348,6 +13744,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13358,6 +13755,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13368,6 +13766,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13378,6 +13777,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13388,6 +13788,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13398,6 +13799,7 @@ async function deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13452,7 +13854,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
@@ -13462,6 +13864,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13472,6 +13875,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13482,6 +13886,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13492,6 +13897,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13502,6 +13908,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13512,6 +13919,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13522,6 +13930,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13532,6 +13941,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13542,6 +13952,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13552,6 +13963,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13562,6 +13974,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13572,6 +13985,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13582,6 +13996,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13592,6 +14007,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13602,6 +14018,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13612,6 +14029,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13622,6 +14040,7 @@ async function deserializeAws_queryRestoreDBInstanceFromS3CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13676,7 +14095,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
@@ -13686,6 +14105,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13696,6 +14116,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13706,6 +14127,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13716,6 +14138,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13726,6 +14149,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13736,6 +14160,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13746,6 +14171,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13756,6 +14182,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13766,6 +14193,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13776,6 +14204,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13786,6 +14215,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13796,6 +14226,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13806,6 +14237,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13816,6 +14248,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13826,6 +14259,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13836,6 +14270,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13846,6 +14281,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13856,6 +14292,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13866,6 +14303,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13876,6 +14314,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13886,6 +14325,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13896,6 +14336,7 @@ async function deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13950,7 +14391,7 @@ async function deserializeAws_queryRevokeDBSecurityGroupIngressCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
@@ -13960,6 +14401,7 @@ async function deserializeAws_queryRevokeDBSecurityGroupIngressCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13970,6 +14412,7 @@ async function deserializeAws_queryRevokeDBSecurityGroupIngressCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13980,6 +14423,7 @@ async function deserializeAws_queryRevokeDBSecurityGroupIngressCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14031,7 +14475,7 @@ async function deserializeAws_queryStartActivityStreamCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -14041,6 +14485,7 @@ async function deserializeAws_queryStartActivityStreamCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14051,6 +14496,7 @@ async function deserializeAws_queryStartActivityStreamCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14061,6 +14507,7 @@ async function deserializeAws_queryStartActivityStreamCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14071,6 +14518,7 @@ async function deserializeAws_queryStartActivityStreamCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14081,6 +14529,7 @@ async function deserializeAws_queryStartActivityStreamCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14091,6 +14540,7 @@ async function deserializeAws_queryStartActivityStreamCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14142,7 +14592,7 @@ async function deserializeAws_queryStartDBClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -14152,6 +14602,7 @@ async function deserializeAws_queryStartDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14162,6 +14613,7 @@ async function deserializeAws_queryStartDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14172,6 +14624,7 @@ async function deserializeAws_queryStartDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14223,7 +14676,7 @@ async function deserializeAws_queryStartDBInstanceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
@@ -14233,6 +14686,7 @@ async function deserializeAws_queryStartDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14243,6 +14697,7 @@ async function deserializeAws_queryStartDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14253,6 +14708,7 @@ async function deserializeAws_queryStartDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14263,6 +14719,7 @@ async function deserializeAws_queryStartDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14273,6 +14730,7 @@ async function deserializeAws_queryStartDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14283,6 +14741,7 @@ async function deserializeAws_queryStartDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14293,6 +14752,7 @@ async function deserializeAws_queryStartDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14303,6 +14763,7 @@ async function deserializeAws_queryStartDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14313,6 +14774,7 @@ async function deserializeAws_queryStartDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14323,6 +14785,7 @@ async function deserializeAws_queryStartDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14333,6 +14796,7 @@ async function deserializeAws_queryStartDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14384,7 +14848,7 @@ async function deserializeAws_queryStopActivityStreamCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -14394,6 +14858,7 @@ async function deserializeAws_queryStopActivityStreamCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14404,6 +14869,7 @@ async function deserializeAws_queryStopActivityStreamCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14414,6 +14880,7 @@ async function deserializeAws_queryStopActivityStreamCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14424,6 +14891,7 @@ async function deserializeAws_queryStopActivityStreamCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14434,6 +14902,7 @@ async function deserializeAws_queryStopActivityStreamCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14485,7 +14954,7 @@ async function deserializeAws_queryStopDBClusterCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -14495,6 +14964,7 @@ async function deserializeAws_queryStopDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14505,6 +14975,7 @@ async function deserializeAws_queryStopDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14515,6 +14986,7 @@ async function deserializeAws_queryStopDBClusterCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14566,7 +15038,7 @@ async function deserializeAws_queryStopDBInstanceCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
@@ -14576,6 +15048,7 @@ async function deserializeAws_queryStopDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14586,6 +15059,7 @@ async function deserializeAws_queryStopDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14596,6 +15070,7 @@ async function deserializeAws_queryStopDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14606,6 +15081,7 @@ async function deserializeAws_queryStopDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14616,6 +15092,7 @@ async function deserializeAws_queryStopDBInstanceCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16665,7 +17142,8 @@ const serializeAws_queryBacktrackDBClusterMessage = (
 ): any => {
   const entries: any = {};
   if (input.BacktrackTo !== undefined) {
-    entries["BacktrackTo"] = input.BacktrackTo.toISOString();
+    entries["BacktrackTo"] =
+      input.BacktrackTo.toISOString().split(".")[0] + "Z";
   }
   if (input.DBClusterIdentifier !== undefined) {
     entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
@@ -18615,7 +19093,7 @@ const serializeAws_queryDescribeEventsMessage = (
     entries["Duration"] = input.Duration;
   }
   if (input.EndTime !== undefined) {
-    entries["EndTime"] = input.EndTime.toISOString();
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
   if (input.EventCategories !== undefined) {
     const memberEntries = serializeAws_queryEventCategoriesList(
@@ -18647,7 +19125,7 @@ const serializeAws_queryDescribeEventsMessage = (
     entries["SourceType"] = input.SourceType;
   }
   if (input.StartTime !== undefined) {
-    entries["StartTime"] = input.StartTime.toISOString();
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -20465,7 +20943,8 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
     entries["Port"] = input.Port;
   }
   if (input.RestoreToTime !== undefined) {
-    entries["RestoreToTime"] = input.RestoreToTime.toISOString();
+    entries["RestoreToTime"] =
+      input.RestoreToTime.toISOString().split(".")[0] + "Z";
   }
   if (input.RestoreType !== undefined) {
     entries["RestoreType"] = input.RestoreType;
@@ -20866,7 +21345,8 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
     entries["PubliclyAccessible"] = input.PubliclyAccessible;
   }
   if (input.RestoreTime !== undefined) {
-    entries["RestoreTime"] = input.RestoreTime.toISOString();
+    entries["RestoreTime"] =
+      input.RestoreTime.toISOString().split(".")[0] + "Z";
   }
   if (input.SourceDBInstanceIdentifier !== undefined) {
     entries["SourceDBInstanceIdentifier"] = input.SourceDBInstanceIdentifier;
@@ -22680,9 +23160,11 @@ const deserializeAws_queryAccountQuotaList = (
   output: any,
   context: __SerdeContext
 ): Array<AccountQuota> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryAccountQuota(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryAccountQuota(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryAddSourceIdentifierToSubscriptionResult = (
@@ -22723,7 +23205,11 @@ const deserializeAws_queryAttributeValueList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryAuthorizeDBSecurityGroupIngressResult = (
@@ -22761,16 +23247,22 @@ const deserializeAws_queryAvailabilityZoneList = (
   output: any,
   context: __SerdeContext
 ): Array<AvailabilityZone> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryAvailabilityZone(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryAvailabilityZone(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryAvailabilityZones = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryAvailableProcessorFeature = (
@@ -22799,9 +23291,13 @@ const deserializeAws_queryAvailableProcessorFeatureList = (
   output: any,
   context: __SerdeContext
 ): Array<AvailableProcessorFeature> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryAvailableProcessorFeature(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryAvailableProcessorFeature(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryCertificate = (
@@ -22852,9 +23348,11 @@ const deserializeAws_queryCertificateList = (
   output: any,
   context: __SerdeContext
 ): Array<Certificate> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryCertificate(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryCertificate(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryCertificateMessage = (
@@ -23307,9 +23805,11 @@ const deserializeAws_queryCustomAvailabilityZoneList = (
   output: any,
   context: __SerdeContext
 ): Array<CustomAvailabilityZone> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryCustomAvailabilityZone(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryCustomAvailabilityZone(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryCustomAvailabilityZoneMessage = (
@@ -23715,9 +24215,11 @@ const deserializeAws_queryDBClusterBacktrackList = (
   output: any,
   context: __SerdeContext
 ): Array<DBClusterBacktrack> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBClusterBacktrack(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBClusterBacktrack(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBClusterBacktrackMessage = (
@@ -23863,9 +24365,11 @@ const deserializeAws_queryDBClusterEndpointList = (
   output: any,
   context: __SerdeContext
 ): Array<DBClusterEndpoint> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBClusterEndpoint(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBClusterEndpoint(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBClusterEndpointMessage = (
@@ -23903,9 +24407,11 @@ const deserializeAws_queryDBClusterList = (
   output: any,
   context: __SerdeContext
 ): Array<DBCluster> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBCluster(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBCluster(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBClusterMember = (
@@ -23939,9 +24445,11 @@ const deserializeAws_queryDBClusterMemberList = (
   output: any,
   context: __SerdeContext
 ): Array<DBClusterMember> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBClusterMember(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBClusterMember(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBClusterMessage = (
@@ -23979,9 +24487,13 @@ const deserializeAws_queryDBClusterOptionGroupMemberships = (
   output: any,
   context: __SerdeContext
 ): Array<DBClusterOptionGroupStatus> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBClusterOptionGroupStatus(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryDBClusterOptionGroupStatus(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBClusterOptionGroupStatus = (
@@ -24064,9 +24576,11 @@ const deserializeAws_queryDBClusterParameterGroupList = (
   output: any,
   context: __SerdeContext
 ): Array<DBClusterParameterGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBClusterParameterGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBClusterParameterGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBClusterParameterGroupNameMessage = (
@@ -24142,9 +24656,11 @@ const deserializeAws_queryDBClusterRoles = (
   output: any,
   context: __SerdeContext
 ): Array<DBClusterRole> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBClusterRole(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBClusterRole(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBClusterSnapshot = (
@@ -24287,9 +24803,13 @@ const deserializeAws_queryDBClusterSnapshotAttributeList = (
   output: any,
   context: __SerdeContext
 ): Array<DBClusterSnapshotAttribute> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBClusterSnapshotAttribute(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryDBClusterSnapshotAttribute(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBClusterSnapshotAttributesResult = (
@@ -24331,9 +24851,11 @@ const deserializeAws_queryDBClusterSnapshotList = (
   output: any,
   context: __SerdeContext
 ): Array<DBClusterSnapshot> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBClusterSnapshot(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBClusterSnapshot(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBClusterSnapshotMessage = (
@@ -24523,9 +25045,11 @@ const deserializeAws_queryDBEngineVersionList = (
   output: any,
   context: __SerdeContext
 ): Array<DBEngineVersion> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBEngineVersion(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBEngineVersion(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBEngineVersionMessage = (
@@ -25094,9 +25618,13 @@ const deserializeAws_queryDBInstanceAutomatedBackupList = (
   output: any,
   context: __SerdeContext
 ): Array<DBInstanceAutomatedBackup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBInstanceAutomatedBackup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryDBInstanceAutomatedBackup(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBInstanceAutomatedBackupMessage = (
@@ -25137,9 +25665,11 @@ const deserializeAws_queryDBInstanceList = (
   output: any,
   context: __SerdeContext
 ): Array<DBInstance> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBInstance(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBInstance(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBInstanceMessage = (
@@ -25199,9 +25729,11 @@ const deserializeAws_queryDBInstanceRoles = (
   output: any,
   context: __SerdeContext
 ): Array<DBInstanceRole> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBInstanceRole(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBInstanceRole(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBInstanceStatusInfo = (
@@ -25234,9 +25766,11 @@ const deserializeAws_queryDBInstanceStatusInfoList = (
   output: any,
   context: __SerdeContext
 ): Array<DBInstanceStatusInfo> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBInstanceStatusInfo(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBInstanceStatusInfo(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBParameterGroup = (
@@ -25300,9 +25834,11 @@ const deserializeAws_queryDBParameterGroupList = (
   output: any,
   context: __SerdeContext
 ): Array<DBParameterGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBParameterGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBParameterGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBParameterGroupNameMessage = (
@@ -25341,9 +25877,11 @@ const deserializeAws_queryDBParameterGroupStatusList = (
   output: any,
   context: __SerdeContext
 ): Array<DBParameterGroupStatus> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBParameterGroupStatus(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBParameterGroupStatus(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBParameterGroupsMessage = (
@@ -25483,9 +26021,11 @@ const deserializeAws_queryDBProxyList = (
   output: any,
   context: __SerdeContext
 ): Array<DBProxy> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBProxy(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBProxy(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBProxyTarget = (
@@ -25650,9 +26190,13 @@ const deserializeAws_queryDBSecurityGroupMembershipList = (
   output: any,
   context: __SerdeContext
 ): Array<DBSecurityGroupMembership> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBSecurityGroupMembership(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryDBSecurityGroupMembership(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBSecurityGroupMessage = (
@@ -25690,9 +26234,11 @@ const deserializeAws_queryDBSecurityGroups = (
   output: any,
   context: __SerdeContext
 ): Array<DBSecurityGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBSecurityGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBSecurityGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBSnapshot = (
@@ -25866,9 +26412,11 @@ const deserializeAws_queryDBSnapshotAttributeList = (
   output: any,
   context: __SerdeContext
 ): Array<DBSnapshotAttribute> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBSnapshotAttribute(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBSnapshotAttribute(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBSnapshotAttributesResult = (
@@ -25906,9 +26454,11 @@ const deserializeAws_queryDBSnapshotList = (
   output: any,
   context: __SerdeContext
 ): Array<DBSnapshot> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBSnapshot(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBSnapshot(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDBSnapshotMessage = (
@@ -26021,9 +26571,11 @@ const deserializeAws_queryDBSubnetGroups = (
   output: any,
   context: __SerdeContext
 ): Array<DBSubnetGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBSubnetGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBSubnetGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDeleteCustomAvailabilityZoneResult = (
@@ -26229,9 +26781,13 @@ const deserializeAws_queryDescribeDBLogFilesList = (
   output: any,
   context: __SerdeContext
 ): Array<DescribeDBLogFilesDetails> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDescribeDBLogFilesDetails(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryDescribeDBLogFilesDetails(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryDescribeDBLogFilesResponse = (
@@ -26450,9 +27006,11 @@ const deserializeAws_queryDomainMembershipList = (
   output: any,
   context: __SerdeContext
 ): Array<DomainMembership> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDomainMembership(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDomainMembership(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDoubleRange = (
@@ -26477,9 +27035,11 @@ const deserializeAws_queryDoubleRangeList = (
   output: any,
   context: __SerdeContext
 ): Array<DoubleRange> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDoubleRange(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDoubleRange(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryDownloadDBLogFilePortionDetails = (
@@ -26534,9 +27094,11 @@ const deserializeAws_queryEC2SecurityGroupList = (
   output: any,
   context: __SerdeContext
 ): Array<EC2SecurityGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryEC2SecurityGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryEC2SecurityGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryEndpoint = (
@@ -26600,7 +27162,11 @@ const deserializeAws_queryEngineModeList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryEvent = (
@@ -26654,7 +27220,11 @@ const deserializeAws_queryEventCategoriesList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryEventCategoriesMap = (
@@ -26692,9 +27262,11 @@ const deserializeAws_queryEventCategoriesMapList = (
   output: any,
   context: __SerdeContext
 ): Array<EventCategoriesMap> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryEventCategoriesMap(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryEventCategoriesMap(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryEventCategoriesMessage = (
@@ -26728,9 +27300,11 @@ const deserializeAws_queryEventList = (
   output: any,
   context: __SerdeContext
 ): Array<Event> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryEvent(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryEvent(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryEventSubscription = (
@@ -26813,9 +27387,11 @@ const deserializeAws_queryEventSubscriptionsList = (
   output: any,
   context: __SerdeContext
 ): Array<EventSubscription> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryEventSubscription(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryEventSubscription(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryEventSubscriptionsMessage = (
@@ -26898,7 +27474,11 @@ const deserializeAws_queryFeatureNameList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryGlobalCluster = (
@@ -26968,9 +27548,11 @@ const deserializeAws_queryGlobalClusterList = (
   output: any,
   context: __SerdeContext
 ): Array<GlobalCluster> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryGlobalCluster(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryGlobalCluster(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryGlobalClusterMember = (
@@ -27009,9 +27591,11 @@ const deserializeAws_queryGlobalClusterMemberList = (
   output: any,
   context: __SerdeContext
 ): Array<GlobalClusterMember> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryGlobalClusterMember(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryGlobalClusterMember(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryGlobalClustersMessage = (
@@ -27067,9 +27651,11 @@ const deserializeAws_queryIPRangeList = (
   output: any,
   context: __SerdeContext
 ): Array<IPRange> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryIPRange(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryIPRange(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryInstallationMedia = (
@@ -27136,9 +27722,11 @@ const deserializeAws_queryInstallationMediaList = (
   output: any,
   context: __SerdeContext
 ): Array<InstallationMedia> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryInstallationMedia(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryInstallationMedia(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryInstallationMediaMessage = (
@@ -27176,7 +27764,11 @@ const deserializeAws_queryLogTypeList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryMinimumEngineVersionPerAllowedValue = (
@@ -27201,9 +27793,13 @@ const deserializeAws_queryMinimumEngineVersionPerAllowedValueList = (
   output: any,
   context: __SerdeContext
 ): Array<MinimumEngineVersionPerAllowedValue> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryMinimumEngineVersionPerAllowedValue(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryMinimumEngineVersionPerAllowedValue(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryModifyCertificatesResult = (
@@ -27570,9 +28166,11 @@ const deserializeAws_queryOptionGroupMembershipList = (
   output: any,
   context: __SerdeContext
 ): Array<OptionGroupMembership> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryOptionGroupMembership(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryOptionGroupMembership(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryOptionGroupOption = (
@@ -27775,27 +28373,33 @@ const deserializeAws_queryOptionGroupOptionSettingsList = (
   output: any,
   context: __SerdeContext
 ): Array<OptionGroupOptionSetting> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryOptionGroupOptionSetting(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryOptionGroupOptionSetting(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryOptionGroupOptionVersionsList = (
   output: any,
   context: __SerdeContext
 ): Array<OptionVersion> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryOptionVersion(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryOptionVersion(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryOptionGroupOptionsList = (
   output: any,
   context: __SerdeContext
 ): Array<OptionGroupOption> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryOptionGroupOption(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryOptionGroupOption(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryOptionGroupOptionsMessage = (
@@ -27864,9 +28468,11 @@ const deserializeAws_queryOptionGroupsList = (
   output: any,
   context: __SerdeContext
 ): Array<OptionGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryOptionGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryOptionGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryOptionSetting = (
@@ -27919,9 +28525,11 @@ const deserializeAws_queryOptionSettingConfigurationList = (
   output: any,
   context: __SerdeContext
 ): Array<OptionSetting> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryOptionSetting(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryOptionSetting(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryOptionVersion = (
@@ -27946,23 +28554,33 @@ const deserializeAws_queryOptionsConflictsWith = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryOptionsDependedOn = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryOptionsList = (
   output: any,
   context: __SerdeContext
 ): Array<Option> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryOption(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryOption(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryOrderableDBInstanceOption = (
@@ -28123,9 +28741,13 @@ const deserializeAws_queryOrderableDBInstanceOptionsList = (
   output: any,
   context: __SerdeContext
 ): Array<OrderableDBInstanceOption> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryOrderableDBInstanceOption(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryOrderableDBInstanceOption(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryOrderableDBInstanceOptionsMessage = (
@@ -28233,9 +28855,11 @@ const deserializeAws_queryParametersList = (
   output: any,
   context: __SerdeContext
 ): Array<Parameter> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryParameter(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryParameter(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryPendingCloudwatchLogsExports = (
@@ -28320,18 +28944,24 @@ const deserializeAws_queryPendingMaintenanceActionDetails = (
   output: any,
   context: __SerdeContext
 ): Array<PendingMaintenanceAction> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryPendingMaintenanceAction(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryPendingMaintenanceAction(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryPendingMaintenanceActions = (
   output: any,
   context: __SerdeContext
 ): Array<ResourcePendingMaintenanceActions> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryResourcePendingMaintenanceActions(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryResourcePendingMaintenanceActions(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryPendingMaintenanceActionsMessage = (
@@ -28482,9 +29112,11 @@ const deserializeAws_queryProcessorFeatureList = (
   output: any,
   context: __SerdeContext
 ): Array<ProcessorFeature> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryProcessorFeature(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryProcessorFeature(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryPromoteReadReplicaDBClusterResult = (
@@ -28564,37 +29196,55 @@ const deserializeAws_queryRangeList = (
   output: any,
   context: __SerdeContext
 ): Array<Range> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryRange(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryRange(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryReadReplicaDBClusterIdentifierList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryReadReplicaDBInstanceIdentifierList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryReadReplicaIdentifierList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryReadersArnList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_queryRebootDBInstanceResult = (
@@ -28638,9 +29288,11 @@ const deserializeAws_queryRecurringChargeList = (
   output: any,
   context: __SerdeContext
 ): Array<RecurringCharge> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryRecurringCharge(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryRecurringCharge(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryRegisterDBProxyTargetsResponse = (
@@ -28796,9 +29448,11 @@ const deserializeAws_queryReservedDBInstanceList = (
   output: any,
   context: __SerdeContext
 ): Array<ReservedDBInstance> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryReservedDBInstance(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryReservedDBInstance(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryReservedDBInstanceMessage = (
@@ -28900,9 +29554,13 @@ const deserializeAws_queryReservedDBInstancesOfferingList = (
   output: any,
   context: __SerdeContext
 ): Array<ReservedDBInstancesOffering> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryReservedDBInstancesOffering(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryReservedDBInstancesOffering(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryReservedDBInstancesOfferingMessage = (
@@ -29152,7 +29810,11 @@ const deserializeAws_querySourceIdsList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_querySourceRegion = (
@@ -29181,9 +29843,11 @@ const deserializeAws_querySourceRegionList = (
   output: any,
   context: __SerdeContext
 ): Array<SourceRegion> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_querySourceRegion(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_querySourceRegion(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_querySourceRegionMessage = (
@@ -29341,7 +30005,11 @@ const deserializeAws_queryStringList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(entry);
+  });
+  return contents;
 };
 
 const deserializeAws_querySubnet = (
@@ -29373,27 +30041,33 @@ const deserializeAws_querySubnetList = (
   output: any,
   context: __SerdeContext
 ): Array<Subnet> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_querySubnet(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_querySubnet(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_querySupportedCharacterSetsList = (
   output: any,
   context: __SerdeContext
 ): Array<CharacterSet> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryCharacterSet(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryCharacterSet(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_querySupportedTimezonesList = (
   output: any,
   context: __SerdeContext
 ): Array<Timezone> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTimezone(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryTimezone(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
@@ -29415,9 +30089,11 @@ const deserializeAws_queryTagList = (
   output: any,
   context: __SerdeContext
 ): Array<Tag> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTag(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryTag(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryTagListMessage = (
@@ -29448,18 +30124,22 @@ const deserializeAws_queryTargetGroupList = (
   output: any,
   context: __SerdeContext
 ): Array<DBProxyTargetGroup> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBProxyTargetGroup(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBProxyTargetGroup(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryTargetList = (
   output: any,
   context: __SerdeContext
 ): Array<DBProxyTarget> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryDBProxyTarget(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryDBProxyTarget(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryTimezone = (
@@ -29540,9 +30220,11 @@ const deserializeAws_queryUserAuthConfigInfoList = (
   output: any,
   context: __SerdeContext
 ): Array<UserAuthConfigInfo> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryUserAuthConfigInfo(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryUserAuthConfigInfo(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryValidDBInstanceModificationsMessage = (
@@ -29661,18 +30343,22 @@ const deserializeAws_queryValidStorageOptionsList = (
   output: any,
   context: __SerdeContext
 ): Array<ValidStorageOptions> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryValidStorageOptions(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryValidStorageOptions(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryValidUpgradeTargetList = (
   output: any,
   context: __SerdeContext
 ): Array<UpgradeTarget> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryUpgradeTarget(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(deserializeAws_queryUpgradeTarget(entry, context));
+  });
+  return contents;
 };
 
 const deserializeAws_queryVpcSecurityGroupMembership = (
@@ -29697,9 +30383,13 @@ const deserializeAws_queryVpcSecurityGroupMembershipList = (
   output: any,
   context: __SerdeContext
 ): Array<VpcSecurityGroupMembership> => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryVpcSecurityGroupMembership(entry, context)
-  );
+  const contents: any = [];
+  (output || []).map((entry: any) => {
+    contents.push(
+      deserializeAws_queryVpcSecurityGroupMembership(entry, context)
+    );
+  });
+  return contents;
 };
 
 const deserializeAws_queryVpnDetails = (

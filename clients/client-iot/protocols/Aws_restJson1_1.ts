@@ -7247,7 +7247,9 @@ export async function serializeAws_restJson1_1ListAuditMitigationActionsTasksCom
     query["auditTaskId"] = input.auditTaskId;
   }
   if (input.endTime !== undefined) {
-    query["endTime"] = input.endTime.toISOString().toString();
+    query["endTime"] = (
+      input.endTime.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (input.findingId !== undefined) {
     query["findingId"] = input.findingId;
@@ -7259,7 +7261,9 @@ export async function serializeAws_restJson1_1ListAuditMitigationActionsTasksCom
     query["nextToken"] = input.nextToken;
   }
   if (input.startTime !== undefined) {
-    query["startTime"] = input.startTime.toISOString().toString();
+    query["startTime"] = (
+      input.startTime.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (input.taskStatus !== undefined) {
     query["taskStatus"] = input.taskStatus;
@@ -7283,7 +7287,9 @@ export async function serializeAws_restJson1_1ListAuditTasksCommand(
   let resolvedPath = "/audit/tasks";
   const query: any = {};
   if (input.endTime !== undefined) {
-    query["endTime"] = input.endTime.toISOString().toString();
+    query["endTime"] = (
+      input.endTime.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (input.maxResults !== undefined) {
     query["maxResults"] = input.maxResults.toString();
@@ -7292,7 +7298,9 @@ export async function serializeAws_restJson1_1ListAuditTasksCommand(
     query["nextToken"] = input.nextToken;
   }
   if (input.startTime !== undefined) {
-    query["startTime"] = input.startTime.toISOString().toString();
+    query["startTime"] = (
+      input.startTime.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (input.taskStatus !== undefined) {
     query["taskStatus"] = input.taskStatus;
@@ -7464,7 +7472,9 @@ export async function serializeAws_restJson1_1ListViolationEventsCommand(
   let resolvedPath = "/violation-events";
   const query: any = {};
   if (input.endTime !== undefined) {
-    query["endTime"] = input.endTime.toISOString().toString();
+    query["endTime"] = (
+      input.endTime.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (input.maxResults !== undefined) {
     query["maxResults"] = input.maxResults.toString();
@@ -7476,7 +7486,9 @@ export async function serializeAws_restJson1_1ListViolationEventsCommand(
     query["securityProfileName"] = input.securityProfileName;
   }
   if (input.startTime !== undefined) {
-    query["startTime"] = input.startTime.toISOString().toString();
+    query["startTime"] = (
+      input.startTime.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (input.thingName !== undefined) {
     query["thingName"] = input.thingName;
@@ -8002,19 +8014,22 @@ async function deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfirmTopicRuleDestinationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8022,9 +8037,10 @@ async function deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommandError
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8032,9 +8048,10 @@ async function deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommandError
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8042,9 +8059,10 @@ async function deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommandError
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8052,14 +8070,15 @@ async function deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommandError
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8096,19 +8115,22 @@ async function deserializeAws_restJson1_1CreateTopicRuleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTopicRuleCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8116,9 +8138,10 @@ async function deserializeAws_restJson1_1CreateTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8126,9 +8149,10 @@ async function deserializeAws_restJson1_1CreateTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8136,9 +8160,10 @@ async function deserializeAws_restJson1_1CreateTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8146,9 +8171,10 @@ async function deserializeAws_restJson1_1CreateTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8156,14 +8182,15 @@ async function deserializeAws_restJson1_1CreateTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#SqlParseException":
       response = {
         ...(await deserializeAws_restJson1_1SqlParseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8211,19 +8238,22 @@ async function deserializeAws_restJson1_1CreateTopicRuleDestinationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTopicRuleDestinationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8231,9 +8261,10 @@ async function deserializeAws_restJson1_1CreateTopicRuleDestinationCommandError(
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8241,9 +8272,10 @@ async function deserializeAws_restJson1_1CreateTopicRuleDestinationCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8251,9 +8283,10 @@ async function deserializeAws_restJson1_1CreateTopicRuleDestinationCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8261,14 +8294,15 @@ async function deserializeAws_restJson1_1CreateTopicRuleDestinationCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8305,19 +8339,22 @@ async function deserializeAws_restJson1_1DeleteTopicRuleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTopicRuleCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8325,9 +8362,10 @@ async function deserializeAws_restJson1_1DeleteTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8335,9 +8373,10 @@ async function deserializeAws_restJson1_1DeleteTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8345,9 +8384,10 @@ async function deserializeAws_restJson1_1DeleteTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8355,14 +8395,15 @@ async function deserializeAws_restJson1_1DeleteTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8400,19 +8441,22 @@ async function deserializeAws_restJson1_1DeleteTopicRuleDestinationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTopicRuleDestinationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8420,9 +8464,10 @@ async function deserializeAws_restJson1_1DeleteTopicRuleDestinationCommandError(
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8430,9 +8475,10 @@ async function deserializeAws_restJson1_1DeleteTopicRuleDestinationCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8440,9 +8486,10 @@ async function deserializeAws_restJson1_1DeleteTopicRuleDestinationCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8450,14 +8497,15 @@ async function deserializeAws_restJson1_1DeleteTopicRuleDestinationCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8494,19 +8542,22 @@ async function deserializeAws_restJson1_1DeleteV2LoggingLevelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteV2LoggingLevelCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8514,9 +8565,10 @@ async function deserializeAws_restJson1_1DeleteV2LoggingLevelCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8524,14 +8576,15 @@ async function deserializeAws_restJson1_1DeleteV2LoggingLevelCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8568,19 +8621,22 @@ async function deserializeAws_restJson1_1DisableTopicRuleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableTopicRuleCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8588,9 +8644,10 @@ async function deserializeAws_restJson1_1DisableTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8598,9 +8655,10 @@ async function deserializeAws_restJson1_1DisableTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8608,9 +8666,10 @@ async function deserializeAws_restJson1_1DisableTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8618,14 +8677,15 @@ async function deserializeAws_restJson1_1DisableTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8662,19 +8722,22 @@ async function deserializeAws_restJson1_1EnableTopicRuleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableTopicRuleCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8682,9 +8745,10 @@ async function deserializeAws_restJson1_1EnableTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8692,9 +8756,10 @@ async function deserializeAws_restJson1_1EnableTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8702,9 +8767,10 @@ async function deserializeAws_restJson1_1EnableTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8712,14 +8778,15 @@ async function deserializeAws_restJson1_1EnableTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8765,19 +8832,22 @@ async function deserializeAws_restJson1_1GetLoggingOptionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLoggingOptionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8785,9 +8855,10 @@ async function deserializeAws_restJson1_1GetLoggingOptionsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8795,14 +8866,15 @@ async function deserializeAws_restJson1_1GetLoggingOptionsCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8845,19 +8917,22 @@ async function deserializeAws_restJson1_1GetTopicRuleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTopicRuleCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8865,9 +8940,10 @@ async function deserializeAws_restJson1_1GetTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8875,9 +8951,10 @@ async function deserializeAws_restJson1_1GetTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8885,14 +8962,15 @@ async function deserializeAws_restJson1_1GetTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8940,19 +9018,22 @@ async function deserializeAws_restJson1_1GetTopicRuleDestinationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTopicRuleDestinationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8960,9 +9041,10 @@ async function deserializeAws_restJson1_1GetTopicRuleDestinationCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8970,9 +9052,10 @@ async function deserializeAws_restJson1_1GetTopicRuleDestinationCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8980,14 +9063,15 @@ async function deserializeAws_restJson1_1GetTopicRuleDestinationCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9037,19 +9121,22 @@ async function deserializeAws_restJson1_1GetV2LoggingOptionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetV2LoggingOptionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9057,9 +9144,10 @@ async function deserializeAws_restJson1_1GetV2LoggingOptionsCommandError(
     case "com.amazonaws.iot.common.types#NotConfiguredException":
       response = {
         ...(await deserializeAws_restJson1_1NotConfiguredExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9067,14 +9155,15 @@ async function deserializeAws_restJson1_1GetV2LoggingOptionsCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9126,19 +9215,22 @@ async function deserializeAws_restJson1_1ListTopicRuleDestinationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTopicRuleDestinationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9146,9 +9238,10 @@ async function deserializeAws_restJson1_1ListTopicRuleDestinationsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9156,9 +9249,10 @@ async function deserializeAws_restJson1_1ListTopicRuleDestinationsCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9166,14 +9260,15 @@ async function deserializeAws_restJson1_1ListTopicRuleDestinationsCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9222,19 +9317,22 @@ async function deserializeAws_restJson1_1ListTopicRulesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTopicRulesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9242,9 +9340,10 @@ async function deserializeAws_restJson1_1ListTopicRulesCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9252,14 +9351,15 @@ async function deserializeAws_restJson1_1ListTopicRulesCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9311,19 +9411,22 @@ async function deserializeAws_restJson1_1ListV2LoggingLevelsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListV2LoggingLevelsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9331,9 +9434,10 @@ async function deserializeAws_restJson1_1ListV2LoggingLevelsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9341,9 +9445,10 @@ async function deserializeAws_restJson1_1ListV2LoggingLevelsCommandError(
     case "com.amazonaws.iot.common.types#NotConfiguredException":
       response = {
         ...(await deserializeAws_restJson1_1NotConfiguredExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9351,14 +9456,15 @@ async function deserializeAws_restJson1_1ListV2LoggingLevelsCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9395,19 +9501,22 @@ async function deserializeAws_restJson1_1ReplaceTopicRuleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReplaceTopicRuleCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9415,9 +9524,10 @@ async function deserializeAws_restJson1_1ReplaceTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9425,9 +9535,10 @@ async function deserializeAws_restJson1_1ReplaceTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9435,9 +9546,10 @@ async function deserializeAws_restJson1_1ReplaceTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9445,9 +9557,10 @@ async function deserializeAws_restJson1_1ReplaceTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#SqlParseException":
       response = {
         ...(await deserializeAws_restJson1_1SqlParseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9455,14 +9568,15 @@ async function deserializeAws_restJson1_1ReplaceTopicRuleCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9499,19 +9613,22 @@ async function deserializeAws_restJson1_1SetLoggingOptionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetLoggingOptionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9519,9 +9636,10 @@ async function deserializeAws_restJson1_1SetLoggingOptionsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9529,14 +9647,15 @@ async function deserializeAws_restJson1_1SetLoggingOptionsCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9573,19 +9692,22 @@ async function deserializeAws_restJson1_1SetV2LoggingLevelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetV2LoggingLevelCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9593,9 +9715,10 @@ async function deserializeAws_restJson1_1SetV2LoggingLevelCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9603,9 +9726,10 @@ async function deserializeAws_restJson1_1SetV2LoggingLevelCommandError(
     case "com.amazonaws.iot.common.types#NotConfiguredException":
       response = {
         ...(await deserializeAws_restJson1_1NotConfiguredExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9613,14 +9737,15 @@ async function deserializeAws_restJson1_1SetV2LoggingLevelCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9657,19 +9782,22 @@ async function deserializeAws_restJson1_1SetV2LoggingOptionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetV2LoggingOptionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9677,9 +9805,10 @@ async function deserializeAws_restJson1_1SetV2LoggingOptionsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9687,14 +9816,15 @@ async function deserializeAws_restJson1_1SetV2LoggingOptionsCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9732,19 +9862,22 @@ async function deserializeAws_restJson1_1UpdateTopicRuleDestinationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTopicRuleDestinationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9752,9 +9885,10 @@ async function deserializeAws_restJson1_1UpdateTopicRuleDestinationCommandError(
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9762,9 +9896,10 @@ async function deserializeAws_restJson1_1UpdateTopicRuleDestinationCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9772,9 +9907,10 @@ async function deserializeAws_restJson1_1UpdateTopicRuleDestinationCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9782,14 +9918,15 @@ async function deserializeAws_restJson1_1UpdateTopicRuleDestinationCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9826,19 +9963,22 @@ async function deserializeAws_restJson1_1AcceptCertificateTransferCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptCertificateTransferCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9846,9 +9986,10 @@ async function deserializeAws_restJson1_1AcceptCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9856,9 +9997,10 @@ async function deserializeAws_restJson1_1AcceptCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9866,9 +10008,10 @@ async function deserializeAws_restJson1_1AcceptCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9876,9 +10019,10 @@ async function deserializeAws_restJson1_1AcceptCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9886,9 +10030,10 @@ async function deserializeAws_restJson1_1AcceptCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#TransferAlreadyCompletedException":
       response = {
         ...(await deserializeAws_restJson1_1TransferAlreadyCompletedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9896,14 +10041,15 @@ async function deserializeAws_restJson1_1AcceptCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9937,19 +10083,22 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachPolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9957,9 +10106,10 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9967,9 +10117,10 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9977,9 +10128,10 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9987,9 +10139,10 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9997,9 +10150,10 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10007,14 +10161,15 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10051,19 +10206,22 @@ async function deserializeAws_restJson1_1AttachPrincipalPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachPrincipalPolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10071,9 +10229,10 @@ async function deserializeAws_restJson1_1AttachPrincipalPolicyCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10081,9 +10240,10 @@ async function deserializeAws_restJson1_1AttachPrincipalPolicyCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10091,9 +10251,10 @@ async function deserializeAws_restJson1_1AttachPrincipalPolicyCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10101,9 +10262,10 @@ async function deserializeAws_restJson1_1AttachPrincipalPolicyCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10111,9 +10273,10 @@ async function deserializeAws_restJson1_1AttachPrincipalPolicyCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10121,14 +10284,15 @@ async function deserializeAws_restJson1_1AttachPrincipalPolicyCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10165,19 +10329,22 @@ async function deserializeAws_restJson1_1CancelCertificateTransferCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelCertificateTransferCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10185,9 +10352,10 @@ async function deserializeAws_restJson1_1CancelCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10195,9 +10363,10 @@ async function deserializeAws_restJson1_1CancelCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10205,9 +10374,10 @@ async function deserializeAws_restJson1_1CancelCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10215,9 +10385,10 @@ async function deserializeAws_restJson1_1CancelCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10225,9 +10396,10 @@ async function deserializeAws_restJson1_1CancelCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#TransferAlreadyCompletedException":
       response = {
         ...(await deserializeAws_restJson1_1TransferAlreadyCompletedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10235,14 +10407,15 @@ async function deserializeAws_restJson1_1CancelCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10280,19 +10453,22 @@ async function deserializeAws_restJson1_1ClearDefaultAuthorizerCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ClearDefaultAuthorizerCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10300,9 +10476,10 @@ async function deserializeAws_restJson1_1ClearDefaultAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10310,9 +10487,10 @@ async function deserializeAws_restJson1_1ClearDefaultAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10320,9 +10498,10 @@ async function deserializeAws_restJson1_1ClearDefaultAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10330,9 +10509,10 @@ async function deserializeAws_restJson1_1ClearDefaultAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10340,14 +10520,15 @@ async function deserializeAws_restJson1_1ClearDefaultAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10393,19 +10574,22 @@ async function deserializeAws_restJson1_1CreateAuthorizerCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAuthorizerCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10413,9 +10597,10 @@ async function deserializeAws_restJson1_1CreateAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10423,9 +10608,10 @@ async function deserializeAws_restJson1_1CreateAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10433,9 +10619,10 @@ async function deserializeAws_restJson1_1CreateAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10443,9 +10630,10 @@ async function deserializeAws_restJson1_1CreateAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10453,9 +10641,10 @@ async function deserializeAws_restJson1_1CreateAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10463,14 +10652,15 @@ async function deserializeAws_restJson1_1CreateAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10520,19 +10710,22 @@ async function deserializeAws_restJson1_1CreateCertificateFromCsrCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCertificateFromCsrCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10540,9 +10733,10 @@ async function deserializeAws_restJson1_1CreateCertificateFromCsrCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10550,9 +10744,10 @@ async function deserializeAws_restJson1_1CreateCertificateFromCsrCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10560,9 +10755,10 @@ async function deserializeAws_restJson1_1CreateCertificateFromCsrCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10570,14 +10766,15 @@ async function deserializeAws_restJson1_1CreateCertificateFromCsrCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10629,19 +10826,22 @@ async function deserializeAws_restJson1_1CreateDomainConfigurationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iot.common.types#CertificateValidationException":
       response = {
         ...(await deserializeAws_restJson1_1CertificateValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10649,9 +10849,10 @@ async function deserializeAws_restJson1_1CreateDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10659,9 +10860,10 @@ async function deserializeAws_restJson1_1CreateDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10669,9 +10871,10 @@ async function deserializeAws_restJson1_1CreateDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10679,9 +10882,10 @@ async function deserializeAws_restJson1_1CreateDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10689,9 +10893,10 @@ async function deserializeAws_restJson1_1CreateDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10699,9 +10904,10 @@ async function deserializeAws_restJson1_1CreateDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10709,14 +10915,15 @@ async function deserializeAws_restJson1_1CreateDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10770,19 +10977,22 @@ async function deserializeAws_restJson1_1CreateKeysAndCertificateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateKeysAndCertificateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10790,9 +11000,10 @@ async function deserializeAws_restJson1_1CreateKeysAndCertificateCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10800,9 +11011,10 @@ async function deserializeAws_restJson1_1CreateKeysAndCertificateCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10810,9 +11022,10 @@ async function deserializeAws_restJson1_1CreateKeysAndCertificateCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10820,14 +11033,15 @@ async function deserializeAws_restJson1_1CreateKeysAndCertificateCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10878,19 +11092,22 @@ async function deserializeAws_restJson1_1CreatePolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10898,9 +11115,10 @@ async function deserializeAws_restJson1_1CreatePolicyCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10908,9 +11126,10 @@ async function deserializeAws_restJson1_1CreatePolicyCommandError(
     case "com.amazonaws.iot.common.types#MalformedPolicyException":
       response = {
         ...(await deserializeAws_restJson1_1MalformedPolicyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10918,9 +11137,10 @@ async function deserializeAws_restJson1_1CreatePolicyCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10928,9 +11148,10 @@ async function deserializeAws_restJson1_1CreatePolicyCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10938,9 +11159,10 @@ async function deserializeAws_restJson1_1CreatePolicyCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10948,14 +11170,15 @@ async function deserializeAws_restJson1_1CreatePolicyCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11009,19 +11232,22 @@ async function deserializeAws_restJson1_1CreatePolicyVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePolicyVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11029,9 +11255,10 @@ async function deserializeAws_restJson1_1CreatePolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11039,9 +11266,10 @@ async function deserializeAws_restJson1_1CreatePolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#MalformedPolicyException":
       response = {
         ...(await deserializeAws_restJson1_1MalformedPolicyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11049,9 +11277,10 @@ async function deserializeAws_restJson1_1CreatePolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11059,9 +11288,10 @@ async function deserializeAws_restJson1_1CreatePolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11069,9 +11299,10 @@ async function deserializeAws_restJson1_1CreatePolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11079,9 +11310,10 @@ async function deserializeAws_restJson1_1CreatePolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11089,14 +11321,15 @@ async function deserializeAws_restJson1_1CreatePolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#VersionsLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1VersionsLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11150,19 +11383,22 @@ async function deserializeAws_restJson1_1CreateProvisioningClaimCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProvisioningClaimCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11170,9 +11406,10 @@ async function deserializeAws_restJson1_1CreateProvisioningClaimCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11180,9 +11417,10 @@ async function deserializeAws_restJson1_1CreateProvisioningClaimCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11190,9 +11428,10 @@ async function deserializeAws_restJson1_1CreateProvisioningClaimCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11200,9 +11439,10 @@ async function deserializeAws_restJson1_1CreateProvisioningClaimCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11210,14 +11450,15 @@ async function deserializeAws_restJson1_1CreateProvisioningClaimCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11267,19 +11508,22 @@ async function deserializeAws_restJson1_1CreateProvisioningTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProvisioningTemplateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11287,9 +11531,10 @@ async function deserializeAws_restJson1_1CreateProvisioningTemplateCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11297,9 +11542,10 @@ async function deserializeAws_restJson1_1CreateProvisioningTemplateCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11307,9 +11553,10 @@ async function deserializeAws_restJson1_1CreateProvisioningTemplateCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11317,9 +11564,10 @@ async function deserializeAws_restJson1_1CreateProvisioningTemplateCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11327,14 +11575,15 @@ async function deserializeAws_restJson1_1CreateProvisioningTemplateCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11388,19 +11637,22 @@ async function deserializeAws_restJson1_1CreateProvisioningTemplateVersionComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProvisioningTemplateVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11408,9 +11660,10 @@ async function deserializeAws_restJson1_1CreateProvisioningTemplateVersionComman
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11418,9 +11671,10 @@ async function deserializeAws_restJson1_1CreateProvisioningTemplateVersionComman
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11428,9 +11682,10 @@ async function deserializeAws_restJson1_1CreateProvisioningTemplateVersionComman
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11438,9 +11693,10 @@ async function deserializeAws_restJson1_1CreateProvisioningTemplateVersionComman
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11448,9 +11704,10 @@ async function deserializeAws_restJson1_1CreateProvisioningTemplateVersionComman
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11458,14 +11715,15 @@ async function deserializeAws_restJson1_1CreateProvisioningTemplateVersionComman
     case "com.amazonaws.iot.common.types#VersionsLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1VersionsLimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11511,19 +11769,22 @@ async function deserializeAws_restJson1_1CreateRoleAliasCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRoleAliasCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11531,9 +11792,10 @@ async function deserializeAws_restJson1_1CreateRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11541,9 +11803,10 @@ async function deserializeAws_restJson1_1CreateRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11551,9 +11814,10 @@ async function deserializeAws_restJson1_1CreateRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11561,9 +11825,10 @@ async function deserializeAws_restJson1_1CreateRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11571,9 +11836,10 @@ async function deserializeAws_restJson1_1CreateRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11581,14 +11847,15 @@ async function deserializeAws_restJson1_1CreateRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11626,19 +11893,22 @@ async function deserializeAws_restJson1_1DeleteAuthorizerCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAuthorizerCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
       response = {
         ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11646,9 +11916,10 @@ async function deserializeAws_restJson1_1DeleteAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11656,9 +11927,10 @@ async function deserializeAws_restJson1_1DeleteAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11666,9 +11938,10 @@ async function deserializeAws_restJson1_1DeleteAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11676,9 +11949,10 @@ async function deserializeAws_restJson1_1DeleteAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11686,9 +11960,10 @@ async function deserializeAws_restJson1_1DeleteAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11696,14 +11971,15 @@ async function deserializeAws_restJson1_1DeleteAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11741,19 +12017,22 @@ async function deserializeAws_restJson1_1DeleteCACertificateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCACertificateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateStateException":
     case "com.amazonaws.iot.common.types#CertificateStateException":
       response = {
         ...(await deserializeAws_restJson1_1CertificateStateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11761,9 +12040,10 @@ async function deserializeAws_restJson1_1DeleteCACertificateCommandError(
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11771,9 +12051,10 @@ async function deserializeAws_restJson1_1DeleteCACertificateCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11781,9 +12062,10 @@ async function deserializeAws_restJson1_1DeleteCACertificateCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11791,9 +12073,10 @@ async function deserializeAws_restJson1_1DeleteCACertificateCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11801,9 +12084,10 @@ async function deserializeAws_restJson1_1DeleteCACertificateCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11811,14 +12095,15 @@ async function deserializeAws_restJson1_1DeleteCACertificateCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11855,19 +12140,22 @@ async function deserializeAws_restJson1_1DeleteCertificateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCertificateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateStateException":
     case "com.amazonaws.iot.common.types#CertificateStateException":
       response = {
         ...(await deserializeAws_restJson1_1CertificateStateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11875,9 +12163,10 @@ async function deserializeAws_restJson1_1DeleteCertificateCommandError(
     case "com.amazonaws.iot.common.types#DeleteConflictException":
       response = {
         ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11885,9 +12174,10 @@ async function deserializeAws_restJson1_1DeleteCertificateCommandError(
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11895,9 +12185,10 @@ async function deserializeAws_restJson1_1DeleteCertificateCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11905,9 +12196,10 @@ async function deserializeAws_restJson1_1DeleteCertificateCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11915,9 +12207,10 @@ async function deserializeAws_restJson1_1DeleteCertificateCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11925,9 +12218,10 @@ async function deserializeAws_restJson1_1DeleteCertificateCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11935,14 +12229,15 @@ async function deserializeAws_restJson1_1DeleteCertificateCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11980,19 +12275,22 @@ async function deserializeAws_restJson1_1DeleteDomainConfigurationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12000,9 +12298,10 @@ async function deserializeAws_restJson1_1DeleteDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12010,9 +12309,10 @@ async function deserializeAws_restJson1_1DeleteDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12020,9 +12320,10 @@ async function deserializeAws_restJson1_1DeleteDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12030,9 +12331,10 @@ async function deserializeAws_restJson1_1DeleteDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12040,14 +12342,15 @@ async function deserializeAws_restJson1_1DeleteDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -12081,19 +12384,22 @@ async function deserializeAws_restJson1_1DeletePolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
       response = {
         ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12101,9 +12407,10 @@ async function deserializeAws_restJson1_1DeletePolicyCommandError(
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12111,9 +12418,10 @@ async function deserializeAws_restJson1_1DeletePolicyCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12121,9 +12429,10 @@ async function deserializeAws_restJson1_1DeletePolicyCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12131,9 +12440,10 @@ async function deserializeAws_restJson1_1DeletePolicyCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12141,9 +12451,10 @@ async function deserializeAws_restJson1_1DeletePolicyCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12151,14 +12462,15 @@ async function deserializeAws_restJson1_1DeletePolicyCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -12195,19 +12507,22 @@ async function deserializeAws_restJson1_1DeletePolicyVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePolicyVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
       response = {
         ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12215,9 +12530,10 @@ async function deserializeAws_restJson1_1DeletePolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12225,9 +12541,10 @@ async function deserializeAws_restJson1_1DeletePolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12235,9 +12552,10 @@ async function deserializeAws_restJson1_1DeletePolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12245,9 +12563,10 @@ async function deserializeAws_restJson1_1DeletePolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12255,9 +12574,10 @@ async function deserializeAws_restJson1_1DeletePolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12265,14 +12585,15 @@ async function deserializeAws_restJson1_1DeletePolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -12310,19 +12631,22 @@ async function deserializeAws_restJson1_1DeleteProvisioningTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProvisioningTemplateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
       response = {
         ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12330,9 +12654,10 @@ async function deserializeAws_restJson1_1DeleteProvisioningTemplateCommandError(
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12340,9 +12665,10 @@ async function deserializeAws_restJson1_1DeleteProvisioningTemplateCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12350,9 +12676,10 @@ async function deserializeAws_restJson1_1DeleteProvisioningTemplateCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12360,9 +12687,10 @@ async function deserializeAws_restJson1_1DeleteProvisioningTemplateCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12370,14 +12698,15 @@ async function deserializeAws_restJson1_1DeleteProvisioningTemplateCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -12415,19 +12744,22 @@ async function deserializeAws_restJson1_1DeleteProvisioningTemplateVersionComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProvisioningTemplateVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
       response = {
         ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12435,9 +12767,10 @@ async function deserializeAws_restJson1_1DeleteProvisioningTemplateVersionComman
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12445,9 +12778,10 @@ async function deserializeAws_restJson1_1DeleteProvisioningTemplateVersionComman
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12455,9 +12789,10 @@ async function deserializeAws_restJson1_1DeleteProvisioningTemplateVersionComman
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12465,9 +12800,10 @@ async function deserializeAws_restJson1_1DeleteProvisioningTemplateVersionComman
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12475,14 +12811,15 @@ async function deserializeAws_restJson1_1DeleteProvisioningTemplateVersionComman
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -12520,19 +12857,22 @@ async function deserializeAws_restJson1_1DeleteRegistrationCodeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRegistrationCodeCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12540,9 +12880,10 @@ async function deserializeAws_restJson1_1DeleteRegistrationCodeCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12550,9 +12891,10 @@ async function deserializeAws_restJson1_1DeleteRegistrationCodeCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12560,9 +12902,10 @@ async function deserializeAws_restJson1_1DeleteRegistrationCodeCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12570,14 +12913,15 @@ async function deserializeAws_restJson1_1DeleteRegistrationCodeCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -12615,19 +12959,22 @@ async function deserializeAws_restJson1_1DeleteRoleAliasCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRoleAliasCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
       response = {
         ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12635,9 +12982,10 @@ async function deserializeAws_restJson1_1DeleteRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12645,9 +12993,10 @@ async function deserializeAws_restJson1_1DeleteRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12655,9 +13004,10 @@ async function deserializeAws_restJson1_1DeleteRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12665,9 +13015,10 @@ async function deserializeAws_restJson1_1DeleteRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12675,9 +13026,10 @@ async function deserializeAws_restJson1_1DeleteRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12685,14 +13037,15 @@ async function deserializeAws_restJson1_1DeleteRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -12740,19 +13093,22 @@ async function deserializeAws_restJson1_1DescribeAuthorizerCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAuthorizerCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12760,9 +13116,10 @@ async function deserializeAws_restJson1_1DescribeAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12770,9 +13127,10 @@ async function deserializeAws_restJson1_1DescribeAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12780,9 +13138,10 @@ async function deserializeAws_restJson1_1DescribeAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12790,9 +13149,10 @@ async function deserializeAws_restJson1_1DescribeAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12800,14 +13160,15 @@ async function deserializeAws_restJson1_1DescribeAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -12865,19 +13226,22 @@ async function deserializeAws_restJson1_1DescribeCACertificateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCACertificateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12885,9 +13249,10 @@ async function deserializeAws_restJson1_1DescribeCACertificateCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12895,9 +13260,10 @@ async function deserializeAws_restJson1_1DescribeCACertificateCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12905,9 +13271,10 @@ async function deserializeAws_restJson1_1DescribeCACertificateCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12915,9 +13282,10 @@ async function deserializeAws_restJson1_1DescribeCACertificateCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -12925,14 +13293,15 @@ async function deserializeAws_restJson1_1DescribeCACertificateCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -12980,19 +13349,22 @@ async function deserializeAws_restJson1_1DescribeCertificateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCertificateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13000,9 +13372,10 @@ async function deserializeAws_restJson1_1DescribeCertificateCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13010,9 +13383,10 @@ async function deserializeAws_restJson1_1DescribeCertificateCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13020,9 +13394,10 @@ async function deserializeAws_restJson1_1DescribeCertificateCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13030,9 +13405,10 @@ async function deserializeAws_restJson1_1DescribeCertificateCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13040,14 +13416,15 @@ async function deserializeAws_restJson1_1DescribeCertificateCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -13095,19 +13472,22 @@ async function deserializeAws_restJson1_1DescribeDefaultAuthorizerCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDefaultAuthorizerCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13115,9 +13495,10 @@ async function deserializeAws_restJson1_1DescribeDefaultAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13125,9 +13506,10 @@ async function deserializeAws_restJson1_1DescribeDefaultAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13135,9 +13517,10 @@ async function deserializeAws_restJson1_1DescribeDefaultAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13145,9 +13528,10 @@ async function deserializeAws_restJson1_1DescribeDefaultAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13155,14 +13539,15 @@ async function deserializeAws_restJson1_1DescribeDefaultAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -13250,19 +13635,22 @@ async function deserializeAws_restJson1_1DescribeDomainConfigurationCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13270,9 +13658,10 @@ async function deserializeAws_restJson1_1DescribeDomainConfigurationCommandError
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13280,9 +13669,10 @@ async function deserializeAws_restJson1_1DescribeDomainConfigurationCommandError
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13290,9 +13680,10 @@ async function deserializeAws_restJson1_1DescribeDomainConfigurationCommandError
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13300,14 +13691,15 @@ async function deserializeAws_restJson1_1DescribeDomainConfigurationCommandError
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -13349,19 +13741,22 @@ async function deserializeAws_restJson1_1DescribeEndpointCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEndpointCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13369,9 +13764,10 @@ async function deserializeAws_restJson1_1DescribeEndpointCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13379,9 +13775,10 @@ async function deserializeAws_restJson1_1DescribeEndpointCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13389,14 +13786,15 @@ async function deserializeAws_restJson1_1DescribeEndpointCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -13475,19 +13873,22 @@ async function deserializeAws_restJson1_1DescribeProvisioningTemplateCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProvisioningTemplateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13495,9 +13896,10 @@ async function deserializeAws_restJson1_1DescribeProvisioningTemplateCommandErro
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13505,9 +13907,10 @@ async function deserializeAws_restJson1_1DescribeProvisioningTemplateCommandErro
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13515,9 +13918,10 @@ async function deserializeAws_restJson1_1DescribeProvisioningTemplateCommandErro
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13525,14 +13929,15 @@ async function deserializeAws_restJson1_1DescribeProvisioningTemplateCommandErro
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -13586,19 +13991,22 @@ async function deserializeAws_restJson1_1DescribeProvisioningTemplateVersionComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProvisioningTemplateVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13606,9 +14014,10 @@ async function deserializeAws_restJson1_1DescribeProvisioningTemplateVersionComm
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13616,9 +14025,10 @@ async function deserializeAws_restJson1_1DescribeProvisioningTemplateVersionComm
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13626,9 +14036,10 @@ async function deserializeAws_restJson1_1DescribeProvisioningTemplateVersionComm
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13636,14 +14047,15 @@ async function deserializeAws_restJson1_1DescribeProvisioningTemplateVersionComm
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -13691,19 +14103,22 @@ async function deserializeAws_restJson1_1DescribeRoleAliasCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRoleAliasCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13711,9 +14126,10 @@ async function deserializeAws_restJson1_1DescribeRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13721,9 +14137,10 @@ async function deserializeAws_restJson1_1DescribeRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13731,9 +14148,10 @@ async function deserializeAws_restJson1_1DescribeRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13741,9 +14159,10 @@ async function deserializeAws_restJson1_1DescribeRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13751,14 +14170,15 @@ async function deserializeAws_restJson1_1DescribeRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -13792,19 +14212,22 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachPolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13812,9 +14235,10 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13822,9 +14246,10 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13832,9 +14257,10 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13842,9 +14268,10 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13852,14 +14279,15 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -13896,19 +14324,22 @@ async function deserializeAws_restJson1_1DetachPrincipalPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachPrincipalPolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13916,9 +14347,10 @@ async function deserializeAws_restJson1_1DetachPrincipalPolicyCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13926,9 +14358,10 @@ async function deserializeAws_restJson1_1DetachPrincipalPolicyCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13936,9 +14369,10 @@ async function deserializeAws_restJson1_1DetachPrincipalPolicyCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13946,9 +14380,10 @@ async function deserializeAws_restJson1_1DetachPrincipalPolicyCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -13956,14 +14391,15 @@ async function deserializeAws_restJson1_1DetachPrincipalPolicyCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -14008,19 +14444,22 @@ async function deserializeAws_restJson1_1GetEffectivePoliciesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEffectivePoliciesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14028,9 +14467,10 @@ async function deserializeAws_restJson1_1GetEffectivePoliciesCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14038,9 +14478,10 @@ async function deserializeAws_restJson1_1GetEffectivePoliciesCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14048,9 +14489,10 @@ async function deserializeAws_restJson1_1GetEffectivePoliciesCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14058,9 +14500,10 @@ async function deserializeAws_restJson1_1GetEffectivePoliciesCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14068,9 +14511,10 @@ async function deserializeAws_restJson1_1GetEffectivePoliciesCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14078,14 +14522,15 @@ async function deserializeAws_restJson1_1GetEffectivePoliciesCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -14150,19 +14595,22 @@ async function deserializeAws_restJson1_1GetPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14170,9 +14618,10 @@ async function deserializeAws_restJson1_1GetPolicyCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14180,9 +14629,10 @@ async function deserializeAws_restJson1_1GetPolicyCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14190,9 +14640,10 @@ async function deserializeAws_restJson1_1GetPolicyCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14200,9 +14651,10 @@ async function deserializeAws_restJson1_1GetPolicyCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14210,14 +14662,15 @@ async function deserializeAws_restJson1_1GetPolicyCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -14289,19 +14742,22 @@ async function deserializeAws_restJson1_1GetPolicyVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPolicyVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14309,9 +14765,10 @@ async function deserializeAws_restJson1_1GetPolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14319,9 +14776,10 @@ async function deserializeAws_restJson1_1GetPolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14329,9 +14787,10 @@ async function deserializeAws_restJson1_1GetPolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14339,9 +14798,10 @@ async function deserializeAws_restJson1_1GetPolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14349,14 +14809,15 @@ async function deserializeAws_restJson1_1GetPolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -14398,19 +14859,22 @@ async function deserializeAws_restJson1_1GetRegistrationCodeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRegistrationCodeCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14418,9 +14882,10 @@ async function deserializeAws_restJson1_1GetRegistrationCodeCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14428,9 +14893,10 @@ async function deserializeAws_restJson1_1GetRegistrationCodeCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14438,9 +14904,10 @@ async function deserializeAws_restJson1_1GetRegistrationCodeCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14448,14 +14915,15 @@ async function deserializeAws_restJson1_1GetRegistrationCodeCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -14504,19 +14972,22 @@ async function deserializeAws_restJson1_1ListAttachedPoliciesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttachedPoliciesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14524,9 +14995,10 @@ async function deserializeAws_restJson1_1ListAttachedPoliciesCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14534,9 +15006,10 @@ async function deserializeAws_restJson1_1ListAttachedPoliciesCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14544,9 +15017,10 @@ async function deserializeAws_restJson1_1ListAttachedPoliciesCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14554,9 +15028,10 @@ async function deserializeAws_restJson1_1ListAttachedPoliciesCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14564,9 +15039,10 @@ async function deserializeAws_restJson1_1ListAttachedPoliciesCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14574,14 +15050,15 @@ async function deserializeAws_restJson1_1ListAttachedPoliciesCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -14630,19 +15107,22 @@ async function deserializeAws_restJson1_1ListAuthorizersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAuthorizersCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14650,9 +15130,10 @@ async function deserializeAws_restJson1_1ListAuthorizersCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14660,9 +15141,10 @@ async function deserializeAws_restJson1_1ListAuthorizersCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14670,9 +15152,10 @@ async function deserializeAws_restJson1_1ListAuthorizersCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14680,14 +15163,15 @@ async function deserializeAws_restJson1_1ListAuthorizersCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -14736,19 +15220,22 @@ async function deserializeAws_restJson1_1ListCACertificatesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCACertificatesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14756,9 +15243,10 @@ async function deserializeAws_restJson1_1ListCACertificatesCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14766,9 +15254,10 @@ async function deserializeAws_restJson1_1ListCACertificatesCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14776,9 +15265,10 @@ async function deserializeAws_restJson1_1ListCACertificatesCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14786,14 +15276,15 @@ async function deserializeAws_restJson1_1ListCACertificatesCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -14842,19 +15333,22 @@ async function deserializeAws_restJson1_1ListCertificatesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCertificatesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14862,9 +15356,10 @@ async function deserializeAws_restJson1_1ListCertificatesCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14872,9 +15367,10 @@ async function deserializeAws_restJson1_1ListCertificatesCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14882,9 +15378,10 @@ async function deserializeAws_restJson1_1ListCertificatesCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14892,14 +15389,15 @@ async function deserializeAws_restJson1_1ListCertificatesCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -14948,19 +15446,22 @@ async function deserializeAws_restJson1_1ListCertificatesByCACommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCertificatesByCACommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14968,9 +15469,10 @@ async function deserializeAws_restJson1_1ListCertificatesByCACommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14978,9 +15480,10 @@ async function deserializeAws_restJson1_1ListCertificatesByCACommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14988,9 +15491,10 @@ async function deserializeAws_restJson1_1ListCertificatesByCACommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -14998,14 +15502,15 @@ async function deserializeAws_restJson1_1ListCertificatesByCACommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -15057,19 +15562,22 @@ async function deserializeAws_restJson1_1ListDomainConfigurationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainConfigurationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15077,9 +15585,10 @@ async function deserializeAws_restJson1_1ListDomainConfigurationsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15087,9 +15596,10 @@ async function deserializeAws_restJson1_1ListDomainConfigurationsCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15097,9 +15607,10 @@ async function deserializeAws_restJson1_1ListDomainConfigurationsCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15107,14 +15618,15 @@ async function deserializeAws_restJson1_1ListDomainConfigurationsCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -15166,19 +15678,22 @@ async function deserializeAws_restJson1_1ListOutgoingCertificatesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOutgoingCertificatesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15186,9 +15701,10 @@ async function deserializeAws_restJson1_1ListOutgoingCertificatesCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15196,9 +15712,10 @@ async function deserializeAws_restJson1_1ListOutgoingCertificatesCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15206,9 +15723,10 @@ async function deserializeAws_restJson1_1ListOutgoingCertificatesCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15216,14 +15734,15 @@ async function deserializeAws_restJson1_1ListOutgoingCertificatesCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -15269,19 +15788,22 @@ async function deserializeAws_restJson1_1ListPoliciesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoliciesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15289,9 +15811,10 @@ async function deserializeAws_restJson1_1ListPoliciesCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15299,9 +15822,10 @@ async function deserializeAws_restJson1_1ListPoliciesCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15309,9 +15833,10 @@ async function deserializeAws_restJson1_1ListPoliciesCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15319,14 +15844,15 @@ async function deserializeAws_restJson1_1ListPoliciesCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -15375,19 +15901,22 @@ async function deserializeAws_restJson1_1ListPolicyPrincipalsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPolicyPrincipalsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15395,9 +15924,10 @@ async function deserializeAws_restJson1_1ListPolicyPrincipalsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15405,9 +15935,10 @@ async function deserializeAws_restJson1_1ListPolicyPrincipalsCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15415,9 +15946,10 @@ async function deserializeAws_restJson1_1ListPolicyPrincipalsCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15425,9 +15957,10 @@ async function deserializeAws_restJson1_1ListPolicyPrincipalsCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15435,14 +15968,15 @@ async function deserializeAws_restJson1_1ListPolicyPrincipalsCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -15487,19 +16021,22 @@ async function deserializeAws_restJson1_1ListPolicyVersionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPolicyVersionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15507,9 +16044,10 @@ async function deserializeAws_restJson1_1ListPolicyVersionsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15517,9 +16055,10 @@ async function deserializeAws_restJson1_1ListPolicyVersionsCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15527,9 +16066,10 @@ async function deserializeAws_restJson1_1ListPolicyVersionsCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15537,9 +16077,10 @@ async function deserializeAws_restJson1_1ListPolicyVersionsCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15547,14 +16088,15 @@ async function deserializeAws_restJson1_1ListPolicyVersionsCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -15603,19 +16145,22 @@ async function deserializeAws_restJson1_1ListPrincipalPoliciesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPrincipalPoliciesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15623,9 +16168,10 @@ async function deserializeAws_restJson1_1ListPrincipalPoliciesCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15633,9 +16179,10 @@ async function deserializeAws_restJson1_1ListPrincipalPoliciesCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15643,9 +16190,10 @@ async function deserializeAws_restJson1_1ListPrincipalPoliciesCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15653,9 +16201,10 @@ async function deserializeAws_restJson1_1ListPrincipalPoliciesCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15663,14 +16212,15 @@ async function deserializeAws_restJson1_1ListPrincipalPoliciesCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -15719,19 +16269,22 @@ async function deserializeAws_restJson1_1ListProvisioningTemplateVersionsCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisioningTemplateVersionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15739,9 +16292,10 @@ async function deserializeAws_restJson1_1ListProvisioningTemplateVersionsCommand
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15749,9 +16303,10 @@ async function deserializeAws_restJson1_1ListProvisioningTemplateVersionsCommand
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15759,9 +16314,10 @@ async function deserializeAws_restJson1_1ListProvisioningTemplateVersionsCommand
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15769,14 +16325,15 @@ async function deserializeAws_restJson1_1ListProvisioningTemplateVersionsCommand
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -15825,19 +16382,22 @@ async function deserializeAws_restJson1_1ListProvisioningTemplatesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisioningTemplatesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15845,9 +16405,10 @@ async function deserializeAws_restJson1_1ListProvisioningTemplatesCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15855,9 +16416,10 @@ async function deserializeAws_restJson1_1ListProvisioningTemplatesCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15865,14 +16427,15 @@ async function deserializeAws_restJson1_1ListProvisioningTemplatesCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -15921,19 +16484,22 @@ async function deserializeAws_restJson1_1ListRoleAliasesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRoleAliasesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15941,9 +16507,10 @@ async function deserializeAws_restJson1_1ListRoleAliasesCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15951,9 +16518,10 @@ async function deserializeAws_restJson1_1ListRoleAliasesCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15961,9 +16529,10 @@ async function deserializeAws_restJson1_1ListRoleAliasesCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -15971,14 +16540,15 @@ async function deserializeAws_restJson1_1ListRoleAliasesCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -16027,19 +16597,22 @@ async function deserializeAws_restJson1_1ListTargetsForPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTargetsForPolicyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16047,9 +16620,10 @@ async function deserializeAws_restJson1_1ListTargetsForPolicyCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16057,9 +16631,10 @@ async function deserializeAws_restJson1_1ListTargetsForPolicyCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16067,9 +16642,10 @@ async function deserializeAws_restJson1_1ListTargetsForPolicyCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16077,9 +16653,10 @@ async function deserializeAws_restJson1_1ListTargetsForPolicyCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16087,9 +16664,10 @@ async function deserializeAws_restJson1_1ListTargetsForPolicyCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16097,14 +16675,15 @@ async function deserializeAws_restJson1_1ListTargetsForPolicyCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -16150,19 +16729,22 @@ async function deserializeAws_restJson1_1RegisterCACertificateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterCACertificateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iot.common.types#CertificateValidationException":
       response = {
         ...(await deserializeAws_restJson1_1CertificateValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16170,9 +16752,10 @@ async function deserializeAws_restJson1_1RegisterCACertificateCommandError(
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16180,9 +16763,10 @@ async function deserializeAws_restJson1_1RegisterCACertificateCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16190,9 +16774,10 @@ async function deserializeAws_restJson1_1RegisterCACertificateCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16200,9 +16785,10 @@ async function deserializeAws_restJson1_1RegisterCACertificateCommandError(
     case "com.amazonaws.iot.common.types#RegistrationCodeValidationException":
       response = {
         ...(await deserializeAws_restJson1_1RegistrationCodeValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16210,9 +16796,10 @@ async function deserializeAws_restJson1_1RegisterCACertificateCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16220,9 +16807,10 @@ async function deserializeAws_restJson1_1RegisterCACertificateCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16230,9 +16818,10 @@ async function deserializeAws_restJson1_1RegisterCACertificateCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16240,14 +16829,15 @@ async function deserializeAws_restJson1_1RegisterCACertificateCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -16293,19 +16883,22 @@ async function deserializeAws_restJson1_1RegisterCertificateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterCertificateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateConflictException":
     case "com.amazonaws.iot.common.types#CertificateConflictException":
       response = {
         ...(await deserializeAws_restJson1_1CertificateConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16313,9 +16906,10 @@ async function deserializeAws_restJson1_1RegisterCertificateCommandError(
     case "com.amazonaws.iot.common.types#CertificateStateException":
       response = {
         ...(await deserializeAws_restJson1_1CertificateStateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16323,9 +16917,10 @@ async function deserializeAws_restJson1_1RegisterCertificateCommandError(
     case "com.amazonaws.iot.common.types#CertificateValidationException":
       response = {
         ...(await deserializeAws_restJson1_1CertificateValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16333,9 +16928,10 @@ async function deserializeAws_restJson1_1RegisterCertificateCommandError(
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16343,9 +16939,10 @@ async function deserializeAws_restJson1_1RegisterCertificateCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16353,9 +16950,10 @@ async function deserializeAws_restJson1_1RegisterCertificateCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16363,9 +16961,10 @@ async function deserializeAws_restJson1_1RegisterCertificateCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16373,9 +16972,10 @@ async function deserializeAws_restJson1_1RegisterCertificateCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16383,14 +16983,15 @@ async function deserializeAws_restJson1_1RegisterCertificateCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -16436,19 +17037,22 @@ async function deserializeAws_restJson1_1RegisterThingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterThingCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16456,9 +17060,10 @@ async function deserializeAws_restJson1_1RegisterThingCommandError(
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16466,9 +17071,10 @@ async function deserializeAws_restJson1_1RegisterThingCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16476,9 +17082,10 @@ async function deserializeAws_restJson1_1RegisterThingCommandError(
     case "com.amazonaws.iot.common.types#ResourceRegistrationFailureException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceRegistrationFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16486,9 +17093,10 @@ async function deserializeAws_restJson1_1RegisterThingCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16496,9 +17104,10 @@ async function deserializeAws_restJson1_1RegisterThingCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16506,14 +17115,15 @@ async function deserializeAws_restJson1_1RegisterThingCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -16550,19 +17160,22 @@ async function deserializeAws_restJson1_1RejectCertificateTransferCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectCertificateTransferCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16570,9 +17183,10 @@ async function deserializeAws_restJson1_1RejectCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16580,9 +17194,10 @@ async function deserializeAws_restJson1_1RejectCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16590,9 +17205,10 @@ async function deserializeAws_restJson1_1RejectCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16600,9 +17216,10 @@ async function deserializeAws_restJson1_1RejectCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16610,9 +17227,10 @@ async function deserializeAws_restJson1_1RejectCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#TransferAlreadyCompletedException":
       response = {
         ...(await deserializeAws_restJson1_1TransferAlreadyCompletedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16620,14 +17238,15 @@ async function deserializeAws_restJson1_1RejectCertificateTransferCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -16673,19 +17292,22 @@ async function deserializeAws_restJson1_1SetDefaultAuthorizerCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetDefaultAuthorizerCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16693,9 +17315,10 @@ async function deserializeAws_restJson1_1SetDefaultAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16703,9 +17326,10 @@ async function deserializeAws_restJson1_1SetDefaultAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16713,9 +17337,10 @@ async function deserializeAws_restJson1_1SetDefaultAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16723,9 +17348,10 @@ async function deserializeAws_restJson1_1SetDefaultAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16733,9 +17359,10 @@ async function deserializeAws_restJson1_1SetDefaultAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16743,14 +17370,15 @@ async function deserializeAws_restJson1_1SetDefaultAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -16787,19 +17415,22 @@ async function deserializeAws_restJson1_1SetDefaultPolicyVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetDefaultPolicyVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16807,9 +17438,10 @@ async function deserializeAws_restJson1_1SetDefaultPolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16817,9 +17449,10 @@ async function deserializeAws_restJson1_1SetDefaultPolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16827,9 +17460,10 @@ async function deserializeAws_restJson1_1SetDefaultPolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16837,9 +17471,10 @@ async function deserializeAws_restJson1_1SetDefaultPolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16847,14 +17482,15 @@ async function deserializeAws_restJson1_1SetDefaultPolicyVersionCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -16899,19 +17535,22 @@ async function deserializeAws_restJson1_1TestAuthorizationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestAuthorizationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16919,9 +17558,10 @@ async function deserializeAws_restJson1_1TestAuthorizationCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16929,9 +17569,10 @@ async function deserializeAws_restJson1_1TestAuthorizationCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16939,9 +17580,10 @@ async function deserializeAws_restJson1_1TestAuthorizationCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16949,9 +17591,10 @@ async function deserializeAws_restJson1_1TestAuthorizationCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16959,9 +17602,10 @@ async function deserializeAws_restJson1_1TestAuthorizationCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -16969,14 +17613,15 @@ async function deserializeAws_restJson1_1TestAuthorizationCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -17043,19 +17688,22 @@ async function deserializeAws_restJson1_1TestInvokeAuthorizerCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestInvokeAuthorizerCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17063,9 +17711,10 @@ async function deserializeAws_restJson1_1TestInvokeAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17073,9 +17722,10 @@ async function deserializeAws_restJson1_1TestInvokeAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#InvalidResponseException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidResponseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17083,9 +17733,10 @@ async function deserializeAws_restJson1_1TestInvokeAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17093,9 +17744,10 @@ async function deserializeAws_restJson1_1TestInvokeAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17103,9 +17755,10 @@ async function deserializeAws_restJson1_1TestInvokeAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17113,14 +17766,15 @@ async function deserializeAws_restJson1_1TestInvokeAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -17165,19 +17819,22 @@ async function deserializeAws_restJson1_1TransferCertificateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TransferCertificateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateStateException":
     case "com.amazonaws.iot.common.types#CertificateStateException":
       response = {
         ...(await deserializeAws_restJson1_1CertificateStateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17185,9 +17842,10 @@ async function deserializeAws_restJson1_1TransferCertificateCommandError(
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17195,9 +17853,10 @@ async function deserializeAws_restJson1_1TransferCertificateCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17205,9 +17864,10 @@ async function deserializeAws_restJson1_1TransferCertificateCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17215,9 +17875,10 @@ async function deserializeAws_restJson1_1TransferCertificateCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17225,9 +17886,10 @@ async function deserializeAws_restJson1_1TransferCertificateCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17235,9 +17897,10 @@ async function deserializeAws_restJson1_1TransferCertificateCommandError(
     case "com.amazonaws.iot.common.types#TransferConflictException":
       response = {
         ...(await deserializeAws_restJson1_1TransferConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17245,14 +17908,15 @@ async function deserializeAws_restJson1_1TransferCertificateCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -17298,19 +17962,22 @@ async function deserializeAws_restJson1_1UpdateAuthorizerCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAuthorizerCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17318,9 +17985,10 @@ async function deserializeAws_restJson1_1UpdateAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17328,9 +17996,10 @@ async function deserializeAws_restJson1_1UpdateAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17338,9 +18007,10 @@ async function deserializeAws_restJson1_1UpdateAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17348,9 +18018,10 @@ async function deserializeAws_restJson1_1UpdateAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17358,9 +18029,10 @@ async function deserializeAws_restJson1_1UpdateAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17368,14 +18040,15 @@ async function deserializeAws_restJson1_1UpdateAuthorizerCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -17412,19 +18085,22 @@ async function deserializeAws_restJson1_1UpdateCACertificateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCACertificateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17432,9 +18108,10 @@ async function deserializeAws_restJson1_1UpdateCACertificateCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17442,9 +18119,10 @@ async function deserializeAws_restJson1_1UpdateCACertificateCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17452,9 +18130,10 @@ async function deserializeAws_restJson1_1UpdateCACertificateCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17462,9 +18141,10 @@ async function deserializeAws_restJson1_1UpdateCACertificateCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17472,14 +18152,15 @@ async function deserializeAws_restJson1_1UpdateCACertificateCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -17516,19 +18197,22 @@ async function deserializeAws_restJson1_1UpdateCertificateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCertificateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateStateException":
     case "com.amazonaws.iot.common.types#CertificateStateException":
       response = {
         ...(await deserializeAws_restJson1_1CertificateStateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17536,9 +18220,10 @@ async function deserializeAws_restJson1_1UpdateCertificateCommandError(
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17546,9 +18231,10 @@ async function deserializeAws_restJson1_1UpdateCertificateCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17556,9 +18242,10 @@ async function deserializeAws_restJson1_1UpdateCertificateCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17566,9 +18253,10 @@ async function deserializeAws_restJson1_1UpdateCertificateCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17576,9 +18264,10 @@ async function deserializeAws_restJson1_1UpdateCertificateCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17586,14 +18275,15 @@ async function deserializeAws_restJson1_1UpdateCertificateCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -17645,19 +18335,22 @@ async function deserializeAws_restJson1_1UpdateDomainConfigurationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iot.common.types#CertificateValidationException":
       response = {
         ...(await deserializeAws_restJson1_1CertificateValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17665,9 +18358,10 @@ async function deserializeAws_restJson1_1UpdateDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17675,9 +18369,10 @@ async function deserializeAws_restJson1_1UpdateDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17685,9 +18380,10 @@ async function deserializeAws_restJson1_1UpdateDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17695,9 +18391,10 @@ async function deserializeAws_restJson1_1UpdateDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17705,9 +18402,10 @@ async function deserializeAws_restJson1_1UpdateDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17715,14 +18413,15 @@ async function deserializeAws_restJson1_1UpdateDomainConfigurationCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -17760,19 +18459,22 @@ async function deserializeAws_restJson1_1UpdateProvisioningTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProvisioningTemplateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17780,9 +18482,10 @@ async function deserializeAws_restJson1_1UpdateProvisioningTemplateCommandError(
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17790,9 +18493,10 @@ async function deserializeAws_restJson1_1UpdateProvisioningTemplateCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17800,9 +18504,10 @@ async function deserializeAws_restJson1_1UpdateProvisioningTemplateCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17810,14 +18515,15 @@ async function deserializeAws_restJson1_1UpdateProvisioningTemplateCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -17863,19 +18569,22 @@ async function deserializeAws_restJson1_1UpdateRoleAliasCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRoleAliasCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17883,9 +18592,10 @@ async function deserializeAws_restJson1_1UpdateRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17893,9 +18603,10 @@ async function deserializeAws_restJson1_1UpdateRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17903,9 +18614,10 @@ async function deserializeAws_restJson1_1UpdateRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17913,9 +18625,10 @@ async function deserializeAws_restJson1_1UpdateRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17923,14 +18636,15 @@ async function deserializeAws_restJson1_1UpdateRoleAliasCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -17977,19 +18691,22 @@ async function deserializeAws_restJson1_1DescribeIndexCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIndexCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -17997,9 +18714,10 @@ async function deserializeAws_restJson1_1DescribeIndexCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18007,9 +18725,10 @@ async function deserializeAws_restJson1_1DescribeIndexCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18017,9 +18736,10 @@ async function deserializeAws_restJson1_1DescribeIndexCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18027,9 +18747,10 @@ async function deserializeAws_restJson1_1DescribeIndexCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18037,14 +18758,15 @@ async function deserializeAws_restJson1_1DescribeIndexCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -18086,19 +18808,22 @@ async function deserializeAws_restJson1_1GetCardinalityCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCardinalityCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18106,9 +18831,10 @@ async function deserializeAws_restJson1_1GetCardinalityCommandError(
     case "com.amazonaws.iot.common.types#InvalidAggregationException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidAggregationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18116,9 +18842,10 @@ async function deserializeAws_restJson1_1GetCardinalityCommandError(
     case "com.amazonaws.iot.common.types#InvalidQueryException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18126,9 +18853,10 @@ async function deserializeAws_restJson1_1GetCardinalityCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18136,9 +18864,10 @@ async function deserializeAws_restJson1_1GetCardinalityCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18146,9 +18875,10 @@ async function deserializeAws_restJson1_1GetCardinalityCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18156,9 +18886,10 @@ async function deserializeAws_restJson1_1GetCardinalityCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18166,9 +18897,10 @@ async function deserializeAws_restJson1_1GetCardinalityCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18176,14 +18908,15 @@ async function deserializeAws_restJson1_1GetCardinalityCommandError(
     case "com.amazonaws.iot.indexing#IndexNotReadyException":
       response = {
         ...(await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -18241,19 +18974,22 @@ async function deserializeAws_restJson1_1GetIndexingConfigurationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIndexingConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18261,9 +18997,10 @@ async function deserializeAws_restJson1_1GetIndexingConfigurationCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18271,9 +19008,10 @@ async function deserializeAws_restJson1_1GetIndexingConfigurationCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18281,9 +19019,10 @@ async function deserializeAws_restJson1_1GetIndexingConfigurationCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18291,14 +19030,15 @@ async function deserializeAws_restJson1_1GetIndexingConfigurationCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -18343,19 +19083,22 @@ async function deserializeAws_restJson1_1GetPercentilesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPercentilesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18363,9 +19106,10 @@ async function deserializeAws_restJson1_1GetPercentilesCommandError(
     case "com.amazonaws.iot.common.types#InvalidAggregationException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidAggregationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18373,9 +19117,10 @@ async function deserializeAws_restJson1_1GetPercentilesCommandError(
     case "com.amazonaws.iot.common.types#InvalidQueryException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18383,9 +19128,10 @@ async function deserializeAws_restJson1_1GetPercentilesCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18393,9 +19139,10 @@ async function deserializeAws_restJson1_1GetPercentilesCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18403,9 +19150,10 @@ async function deserializeAws_restJson1_1GetPercentilesCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18413,9 +19161,10 @@ async function deserializeAws_restJson1_1GetPercentilesCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18423,9 +19172,10 @@ async function deserializeAws_restJson1_1GetPercentilesCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18433,14 +19183,15 @@ async function deserializeAws_restJson1_1GetPercentilesCommandError(
     case "com.amazonaws.iot.indexing#IndexNotReadyException":
       response = {
         ...(await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -18482,19 +19233,22 @@ async function deserializeAws_restJson1_1GetStatisticsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStatisticsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18502,9 +19256,10 @@ async function deserializeAws_restJson1_1GetStatisticsCommandError(
     case "com.amazonaws.iot.common.types#InvalidAggregationException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidAggregationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18512,9 +19267,10 @@ async function deserializeAws_restJson1_1GetStatisticsCommandError(
     case "com.amazonaws.iot.common.types#InvalidQueryException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18522,9 +19278,10 @@ async function deserializeAws_restJson1_1GetStatisticsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18532,9 +19289,10 @@ async function deserializeAws_restJson1_1GetStatisticsCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18542,9 +19300,10 @@ async function deserializeAws_restJson1_1GetStatisticsCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18552,9 +19311,10 @@ async function deserializeAws_restJson1_1GetStatisticsCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18562,9 +19322,10 @@ async function deserializeAws_restJson1_1GetStatisticsCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18572,14 +19333,15 @@ async function deserializeAws_restJson1_1GetStatisticsCommandError(
     case "com.amazonaws.iot.indexing#IndexNotReadyException":
       response = {
         ...(await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -18625,19 +19387,22 @@ async function deserializeAws_restJson1_1ListIndicesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIndicesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18645,9 +19410,10 @@ async function deserializeAws_restJson1_1ListIndicesCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18655,9 +19421,10 @@ async function deserializeAws_restJson1_1ListIndicesCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18665,9 +19432,10 @@ async function deserializeAws_restJson1_1ListIndicesCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18675,14 +19443,15 @@ async function deserializeAws_restJson1_1ListIndicesCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -18735,19 +19504,22 @@ async function deserializeAws_restJson1_1SearchIndexCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchIndexCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18755,9 +19527,10 @@ async function deserializeAws_restJson1_1SearchIndexCommandError(
     case "com.amazonaws.iot.common.types#InvalidQueryException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18765,9 +19538,10 @@ async function deserializeAws_restJson1_1SearchIndexCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18775,9 +19549,10 @@ async function deserializeAws_restJson1_1SearchIndexCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18785,9 +19560,10 @@ async function deserializeAws_restJson1_1SearchIndexCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18795,9 +19571,10 @@ async function deserializeAws_restJson1_1SearchIndexCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18805,9 +19582,10 @@ async function deserializeAws_restJson1_1SearchIndexCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18815,14 +19593,15 @@ async function deserializeAws_restJson1_1SearchIndexCommandError(
     case "com.amazonaws.iot.indexing#IndexNotReadyException":
       response = {
         ...(await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -18860,19 +19639,22 @@ async function deserializeAws_restJson1_1UpdateIndexingConfigurationCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIndexingConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18880,9 +19662,10 @@ async function deserializeAws_restJson1_1UpdateIndexingConfigurationCommandError
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18890,9 +19673,10 @@ async function deserializeAws_restJson1_1UpdateIndexingConfigurationCommandError
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18900,9 +19684,10 @@ async function deserializeAws_restJson1_1UpdateIndexingConfigurationCommandError
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18910,14 +19695,15 @@ async function deserializeAws_restJson1_1UpdateIndexingConfigurationCommandError
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -18967,19 +19753,22 @@ async function deserializeAws_restJson1_1AssociateTargetsWithJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateTargetsWithJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18987,9 +19776,10 @@ async function deserializeAws_restJson1_1AssociateTargetsWithJobCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -18997,9 +19787,10 @@ async function deserializeAws_restJson1_1AssociateTargetsWithJobCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19007,9 +19798,10 @@ async function deserializeAws_restJson1_1AssociateTargetsWithJobCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19017,14 +19809,15 @@ async function deserializeAws_restJson1_1AssociateTargetsWithJobCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -19071,19 +19864,22 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19091,9 +19887,10 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19101,9 +19898,10 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19111,14 +19909,15 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -19155,19 +19954,22 @@ async function deserializeAws_restJson1_1CancelJobExecutionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelJobExecutionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19175,9 +19977,10 @@ async function deserializeAws_restJson1_1CancelJobExecutionCommandError(
     case "com.amazonaws.iot.common.types#InvalidStateTransitionException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19185,9 +19988,10 @@ async function deserializeAws_restJson1_1CancelJobExecutionCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19195,9 +19999,10 @@ async function deserializeAws_restJson1_1CancelJobExecutionCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19205,9 +20010,10 @@ async function deserializeAws_restJson1_1CancelJobExecutionCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19215,14 +20021,15 @@ async function deserializeAws_restJson1_1CancelJobExecutionCommandError(
     case "com.amazonaws.iot.common.types#VersionConflictException":
       response = {
         ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -19269,19 +20076,22 @@ async function deserializeAws_restJson1_1CreateJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19289,9 +20099,10 @@ async function deserializeAws_restJson1_1CreateJobCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19299,9 +20110,10 @@ async function deserializeAws_restJson1_1CreateJobCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19309,9 +20121,10 @@ async function deserializeAws_restJson1_1CreateJobCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19319,9 +20132,10 @@ async function deserializeAws_restJson1_1CreateJobCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19329,14 +20143,15 @@ async function deserializeAws_restJson1_1CreateJobCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -19370,19 +20185,22 @@ async function deserializeAws_restJson1_1DeleteJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19390,9 +20208,10 @@ async function deserializeAws_restJson1_1DeleteJobCommandError(
     case "com.amazonaws.iot.common.types#InvalidStateTransitionException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19400,9 +20219,10 @@ async function deserializeAws_restJson1_1DeleteJobCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19410,9 +20230,10 @@ async function deserializeAws_restJson1_1DeleteJobCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19420,9 +20241,10 @@ async function deserializeAws_restJson1_1DeleteJobCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19430,14 +20252,15 @@ async function deserializeAws_restJson1_1DeleteJobCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -19474,19 +20297,22 @@ async function deserializeAws_restJson1_1DeleteJobExecutionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteJobExecutionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19494,9 +20320,10 @@ async function deserializeAws_restJson1_1DeleteJobExecutionCommandError(
     case "com.amazonaws.iot.common.types#InvalidStateTransitionException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19504,9 +20331,10 @@ async function deserializeAws_restJson1_1DeleteJobExecutionCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19514,9 +20342,10 @@ async function deserializeAws_restJson1_1DeleteJobExecutionCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19524,14 +20353,15 @@ async function deserializeAws_restJson1_1DeleteJobExecutionCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -19574,19 +20404,22 @@ async function deserializeAws_restJson1_1DescribeJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19594,9 +20427,10 @@ async function deserializeAws_restJson1_1DescribeJobCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19604,9 +20438,10 @@ async function deserializeAws_restJson1_1DescribeJobCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19614,14 +20449,15 @@ async function deserializeAws_restJson1_1DescribeJobCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -19666,19 +20502,22 @@ async function deserializeAws_restJson1_1DescribeJobExecutionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobExecutionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19686,9 +20525,10 @@ async function deserializeAws_restJson1_1DescribeJobExecutionCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19696,9 +20536,10 @@ async function deserializeAws_restJson1_1DescribeJobExecutionCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19706,14 +20547,15 @@ async function deserializeAws_restJson1_1DescribeJobExecutionCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -19755,19 +20597,22 @@ async function deserializeAws_restJson1_1GetJobDocumentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJobDocumentCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19775,9 +20620,10 @@ async function deserializeAws_restJson1_1GetJobDocumentCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19785,9 +20631,10 @@ async function deserializeAws_restJson1_1GetJobDocumentCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19795,14 +20642,15 @@ async function deserializeAws_restJson1_1GetJobDocumentCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -19854,19 +20702,22 @@ async function deserializeAws_restJson1_1ListJobExecutionsForJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobExecutionsForJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19874,9 +20725,10 @@ async function deserializeAws_restJson1_1ListJobExecutionsForJobCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19884,9 +20736,10 @@ async function deserializeAws_restJson1_1ListJobExecutionsForJobCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19894,14 +20747,15 @@ async function deserializeAws_restJson1_1ListJobExecutionsForJobCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -19953,19 +20807,22 @@ async function deserializeAws_restJson1_1ListJobExecutionsForThingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobExecutionsForThingCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19973,9 +20830,10 @@ async function deserializeAws_restJson1_1ListJobExecutionsForThingCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19983,9 +20841,10 @@ async function deserializeAws_restJson1_1ListJobExecutionsForThingCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -19993,14 +20852,15 @@ async function deserializeAws_restJson1_1ListJobExecutionsForThingCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -20046,19 +20906,22 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20066,9 +20929,10 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20076,9 +20940,10 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20086,14 +20951,15 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -20127,19 +20993,22 @@ async function deserializeAws_restJson1_1UpdateJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJobCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20147,9 +21016,10 @@ async function deserializeAws_restJson1_1UpdateJobCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20157,9 +21027,10 @@ async function deserializeAws_restJson1_1UpdateJobCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20167,14 +21038,15 @@ async function deserializeAws_restJson1_1UpdateJobCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -20232,19 +21104,22 @@ async function deserializeAws_restJson1_1CreateOTAUpdateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOTAUpdateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20252,9 +21127,10 @@ async function deserializeAws_restJson1_1CreateOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20262,9 +21138,10 @@ async function deserializeAws_restJson1_1CreateOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20272,9 +21149,10 @@ async function deserializeAws_restJson1_1CreateOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20282,9 +21160,10 @@ async function deserializeAws_restJson1_1CreateOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20292,9 +21171,10 @@ async function deserializeAws_restJson1_1CreateOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20302,9 +21182,10 @@ async function deserializeAws_restJson1_1CreateOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20312,14 +21193,15 @@ async function deserializeAws_restJson1_1CreateOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -20357,19 +21239,22 @@ async function deserializeAws_restJson1_1DeleteOTAUpdateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOTAUpdateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20377,9 +21262,10 @@ async function deserializeAws_restJson1_1DeleteOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20387,9 +21273,10 @@ async function deserializeAws_restJson1_1DeleteOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20397,9 +21284,10 @@ async function deserializeAws_restJson1_1DeleteOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20407,9 +21295,10 @@ async function deserializeAws_restJson1_1DeleteOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20417,9 +21306,10 @@ async function deserializeAws_restJson1_1DeleteOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20427,14 +21317,15 @@ async function deserializeAws_restJson1_1DeleteOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#VersionConflictException":
       response = {
         ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -20476,19 +21367,22 @@ async function deserializeAws_restJson1_1GetOTAUpdateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOTAUpdateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20496,9 +21390,10 @@ async function deserializeAws_restJson1_1GetOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20506,9 +21401,10 @@ async function deserializeAws_restJson1_1GetOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20516,9 +21412,10 @@ async function deserializeAws_restJson1_1GetOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20526,9 +21423,10 @@ async function deserializeAws_restJson1_1GetOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20536,14 +21434,15 @@ async function deserializeAws_restJson1_1GetOTAUpdateCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -20592,19 +21491,22 @@ async function deserializeAws_restJson1_1ListOTAUpdatesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOTAUpdatesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20612,9 +21514,10 @@ async function deserializeAws_restJson1_1ListOTAUpdatesCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20622,9 +21525,10 @@ async function deserializeAws_restJson1_1ListOTAUpdatesCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20632,9 +21536,10 @@ async function deserializeAws_restJson1_1ListOTAUpdatesCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20642,14 +21547,15 @@ async function deserializeAws_restJson1_1ListOTAUpdatesCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -20687,19 +21593,22 @@ async function deserializeAws_restJson1_1AddThingToBillingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddThingToBillingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20707,9 +21616,10 @@ async function deserializeAws_restJson1_1AddThingToBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20717,9 +21627,10 @@ async function deserializeAws_restJson1_1AddThingToBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20727,14 +21638,15 @@ async function deserializeAws_restJson1_1AddThingToBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -20772,19 +21684,22 @@ async function deserializeAws_restJson1_1AddThingToThingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddThingToThingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20792,9 +21707,10 @@ async function deserializeAws_restJson1_1AddThingToThingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20802,9 +21718,10 @@ async function deserializeAws_restJson1_1AddThingToThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20812,14 +21729,15 @@ async function deserializeAws_restJson1_1AddThingToThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -20857,19 +21775,22 @@ async function deserializeAws_restJson1_1AttachThingPrincipalCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachThingPrincipalCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20877,9 +21798,10 @@ async function deserializeAws_restJson1_1AttachThingPrincipalCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20887,9 +21809,10 @@ async function deserializeAws_restJson1_1AttachThingPrincipalCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20897,9 +21820,10 @@ async function deserializeAws_restJson1_1AttachThingPrincipalCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20907,9 +21831,10 @@ async function deserializeAws_restJson1_1AttachThingPrincipalCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20917,14 +21842,15 @@ async function deserializeAws_restJson1_1AttachThingPrincipalCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -20974,19 +21900,22 @@ async function deserializeAws_restJson1_1CreateBillingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBillingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -20994,9 +21923,10 @@ async function deserializeAws_restJson1_1CreateBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21004,9 +21934,10 @@ async function deserializeAws_restJson1_1CreateBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21014,14 +21945,15 @@ async function deserializeAws_restJson1_1CreateBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -21083,19 +22015,22 @@ async function deserializeAws_restJson1_1CreateDynamicThingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDynamicThingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21103,9 +22038,10 @@ async function deserializeAws_restJson1_1CreateDynamicThingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidQueryException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21113,9 +22049,10 @@ async function deserializeAws_restJson1_1CreateDynamicThingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21123,9 +22060,10 @@ async function deserializeAws_restJson1_1CreateDynamicThingGroupCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21133,9 +22071,10 @@ async function deserializeAws_restJson1_1CreateDynamicThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21143,9 +22082,10 @@ async function deserializeAws_restJson1_1CreateDynamicThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21153,14 +22093,15 @@ async function deserializeAws_restJson1_1CreateDynamicThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -21207,19 +22148,22 @@ async function deserializeAws_restJson1_1CreateThingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateThingCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21227,9 +22171,10 @@ async function deserializeAws_restJson1_1CreateThingCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21237,9 +22182,10 @@ async function deserializeAws_restJson1_1CreateThingCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21247,9 +22193,10 @@ async function deserializeAws_restJson1_1CreateThingCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21257,9 +22204,10 @@ async function deserializeAws_restJson1_1CreateThingCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21267,9 +22215,10 @@ async function deserializeAws_restJson1_1CreateThingCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21277,14 +22226,15 @@ async function deserializeAws_restJson1_1CreateThingCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -21334,19 +22284,22 @@ async function deserializeAws_restJson1_1CreateThingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateThingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21354,9 +22307,10 @@ async function deserializeAws_restJson1_1CreateThingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21364,9 +22318,10 @@ async function deserializeAws_restJson1_1CreateThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21374,14 +22329,15 @@ async function deserializeAws_restJson1_1CreateThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -21431,19 +22387,22 @@ async function deserializeAws_restJson1_1CreateThingTypeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateThingTypeCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21451,9 +22410,10 @@ async function deserializeAws_restJson1_1CreateThingTypeCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21461,9 +22421,10 @@ async function deserializeAws_restJson1_1CreateThingTypeCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21471,9 +22432,10 @@ async function deserializeAws_restJson1_1CreateThingTypeCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21481,9 +22443,10 @@ async function deserializeAws_restJson1_1CreateThingTypeCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21491,14 +22454,15 @@ async function deserializeAws_restJson1_1CreateThingTypeCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -21536,19 +22500,22 @@ async function deserializeAws_restJson1_1DeleteBillingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBillingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21556,9 +22523,10 @@ async function deserializeAws_restJson1_1DeleteBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21566,9 +22534,10 @@ async function deserializeAws_restJson1_1DeleteBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21576,14 +22545,15 @@ async function deserializeAws_restJson1_1DeleteBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#VersionConflictException":
       response = {
         ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -21621,19 +22591,22 @@ async function deserializeAws_restJson1_1DeleteDynamicThingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDynamicThingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21641,9 +22614,10 @@ async function deserializeAws_restJson1_1DeleteDynamicThingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21651,9 +22625,10 @@ async function deserializeAws_restJson1_1DeleteDynamicThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21661,14 +22636,15 @@ async function deserializeAws_restJson1_1DeleteDynamicThingGroupCommandError(
     case "com.amazonaws.iot.common.types#VersionConflictException":
       response = {
         ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -21703,19 +22679,22 @@ async function deserializeAws_restJson1_1DeleteThingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteThingCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21723,9 +22702,10 @@ async function deserializeAws_restJson1_1DeleteThingCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21733,9 +22713,10 @@ async function deserializeAws_restJson1_1DeleteThingCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21743,9 +22724,10 @@ async function deserializeAws_restJson1_1DeleteThingCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21753,9 +22735,10 @@ async function deserializeAws_restJson1_1DeleteThingCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21763,9 +22746,10 @@ async function deserializeAws_restJson1_1DeleteThingCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21773,14 +22757,15 @@ async function deserializeAws_restJson1_1DeleteThingCommandError(
     case "com.amazonaws.iot.common.types#VersionConflictException":
       response = {
         ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -21818,19 +22803,22 @@ async function deserializeAws_restJson1_1DeleteThingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteThingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21838,9 +22826,10 @@ async function deserializeAws_restJson1_1DeleteThingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21848,9 +22837,10 @@ async function deserializeAws_restJson1_1DeleteThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21858,14 +22848,15 @@ async function deserializeAws_restJson1_1DeleteThingGroupCommandError(
     case "com.amazonaws.iot.common.types#VersionConflictException":
       response = {
         ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -21903,19 +22894,22 @@ async function deserializeAws_restJson1_1DeleteThingTypeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteThingTypeCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21923,9 +22917,10 @@ async function deserializeAws_restJson1_1DeleteThingTypeCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21933,9 +22928,10 @@ async function deserializeAws_restJson1_1DeleteThingTypeCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21943,9 +22939,10 @@ async function deserializeAws_restJson1_1DeleteThingTypeCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21953,9 +22950,10 @@ async function deserializeAws_restJson1_1DeleteThingTypeCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -21963,14 +22961,15 @@ async function deserializeAws_restJson1_1DeleteThingTypeCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -22008,19 +23007,22 @@ async function deserializeAws_restJson1_1DeprecateThingTypeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeprecateThingTypeCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22028,9 +23030,10 @@ async function deserializeAws_restJson1_1DeprecateThingTypeCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22038,9 +23041,10 @@ async function deserializeAws_restJson1_1DeprecateThingTypeCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22048,9 +23052,10 @@ async function deserializeAws_restJson1_1DeprecateThingTypeCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22058,9 +23063,10 @@ async function deserializeAws_restJson1_1DeprecateThingTypeCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22068,14 +23074,15 @@ async function deserializeAws_restJson1_1DeprecateThingTypeCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -22149,19 +23156,22 @@ async function deserializeAws_restJson1_1DescribeBillingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBillingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22169,9 +23179,10 @@ async function deserializeAws_restJson1_1DescribeBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22179,9 +23190,10 @@ async function deserializeAws_restJson1_1DescribeBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22189,14 +23201,15 @@ async function deserializeAws_restJson1_1DescribeBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -22254,19 +23267,22 @@ async function deserializeAws_restJson1_1DescribeEventConfigurationsCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventConfigurationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22274,14 +23290,15 @@ async function deserializeAws_restJson1_1DescribeEventConfigurationsCommandError
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -22351,19 +23368,22 @@ async function deserializeAws_restJson1_1DescribeThingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeThingCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22371,9 +23391,10 @@ async function deserializeAws_restJson1_1DescribeThingCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22381,9 +23402,10 @@ async function deserializeAws_restJson1_1DescribeThingCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22391,9 +23413,10 @@ async function deserializeAws_restJson1_1DescribeThingCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22401,9 +23424,10 @@ async function deserializeAws_restJson1_1DescribeThingCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22411,14 +23435,15 @@ async function deserializeAws_restJson1_1DescribeThingCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -22508,19 +23533,22 @@ async function deserializeAws_restJson1_1DescribeThingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeThingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22528,9 +23556,10 @@ async function deserializeAws_restJson1_1DescribeThingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22538,9 +23567,10 @@ async function deserializeAws_restJson1_1DescribeThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22548,14 +23578,15 @@ async function deserializeAws_restJson1_1DescribeThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -22646,19 +23677,22 @@ async function deserializeAws_restJson1_1DescribeThingRegistrationTaskCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeThingRegistrationTaskCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22666,9 +23700,10 @@ async function deserializeAws_restJson1_1DescribeThingRegistrationTaskCommandErr
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22676,9 +23711,10 @@ async function deserializeAws_restJson1_1DescribeThingRegistrationTaskCommandErr
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22686,9 +23722,10 @@ async function deserializeAws_restJson1_1DescribeThingRegistrationTaskCommandErr
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22696,14 +23733,15 @@ async function deserializeAws_restJson1_1DescribeThingRegistrationTaskCommandErr
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -22770,19 +23808,22 @@ async function deserializeAws_restJson1_1DescribeThingTypeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeThingTypeCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22790,9 +23831,10 @@ async function deserializeAws_restJson1_1DescribeThingTypeCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22800,9 +23842,10 @@ async function deserializeAws_restJson1_1DescribeThingTypeCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22810,9 +23853,10 @@ async function deserializeAws_restJson1_1DescribeThingTypeCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22820,9 +23864,10 @@ async function deserializeAws_restJson1_1DescribeThingTypeCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22830,14 +23875,15 @@ async function deserializeAws_restJson1_1DescribeThingTypeCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -22875,19 +23921,22 @@ async function deserializeAws_restJson1_1DetachThingPrincipalCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachThingPrincipalCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22895,9 +23944,10 @@ async function deserializeAws_restJson1_1DetachThingPrincipalCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22905,9 +23955,10 @@ async function deserializeAws_restJson1_1DetachThingPrincipalCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22915,9 +23966,10 @@ async function deserializeAws_restJson1_1DetachThingPrincipalCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22925,9 +23977,10 @@ async function deserializeAws_restJson1_1DetachThingPrincipalCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -22935,14 +23988,15 @@ async function deserializeAws_restJson1_1DetachThingPrincipalCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -22991,19 +24045,22 @@ async function deserializeAws_restJson1_1ListBillingGroupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBillingGroupsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23011,9 +24068,10 @@ async function deserializeAws_restJson1_1ListBillingGroupsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23021,9 +24079,10 @@ async function deserializeAws_restJson1_1ListBillingGroupsCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23031,14 +24090,15 @@ async function deserializeAws_restJson1_1ListBillingGroupsCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -23087,19 +24147,22 @@ async function deserializeAws_restJson1_1ListPrincipalThingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPrincipalThingsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23107,9 +24170,10 @@ async function deserializeAws_restJson1_1ListPrincipalThingsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23117,9 +24181,10 @@ async function deserializeAws_restJson1_1ListPrincipalThingsCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23127,9 +24192,10 @@ async function deserializeAws_restJson1_1ListPrincipalThingsCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23137,9 +24203,10 @@ async function deserializeAws_restJson1_1ListPrincipalThingsCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23147,14 +24214,15 @@ async function deserializeAws_restJson1_1ListPrincipalThingsCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -23200,19 +24268,22 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23220,9 +24291,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23230,9 +24302,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23240,14 +24313,15 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -23296,19 +24370,22 @@ async function deserializeAws_restJson1_1ListThingGroupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListThingGroupsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23316,9 +24393,10 @@ async function deserializeAws_restJson1_1ListThingGroupsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23326,14 +24404,15 @@ async function deserializeAws_restJson1_1ListThingGroupsCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -23382,19 +24461,22 @@ async function deserializeAws_restJson1_1ListThingGroupsForThingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListThingGroupsForThingCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23402,9 +24484,10 @@ async function deserializeAws_restJson1_1ListThingGroupsForThingCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23412,14 +24495,15 @@ async function deserializeAws_restJson1_1ListThingGroupsForThingCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -23464,19 +24548,22 @@ async function deserializeAws_restJson1_1ListThingPrincipalsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListThingPrincipalsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23484,9 +24571,10 @@ async function deserializeAws_restJson1_1ListThingPrincipalsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23494,9 +24582,10 @@ async function deserializeAws_restJson1_1ListThingPrincipalsCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23504,9 +24593,10 @@ async function deserializeAws_restJson1_1ListThingPrincipalsCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23514,9 +24604,10 @@ async function deserializeAws_restJson1_1ListThingPrincipalsCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23524,14 +24615,15 @@ async function deserializeAws_restJson1_1ListThingPrincipalsCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -23584,19 +24676,22 @@ async function deserializeAws_restJson1_1ListThingRegistrationTaskReportsCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListThingRegistrationTaskReportsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23604,9 +24699,10 @@ async function deserializeAws_restJson1_1ListThingRegistrationTaskReportsCommand
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23614,9 +24710,10 @@ async function deserializeAws_restJson1_1ListThingRegistrationTaskReportsCommand
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23624,14 +24721,15 @@ async function deserializeAws_restJson1_1ListThingRegistrationTaskReportsCommand
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -23680,19 +24778,22 @@ async function deserializeAws_restJson1_1ListThingRegistrationTasksCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListThingRegistrationTasksCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23700,9 +24801,10 @@ async function deserializeAws_restJson1_1ListThingRegistrationTasksCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23710,9 +24812,10 @@ async function deserializeAws_restJson1_1ListThingRegistrationTasksCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23720,14 +24823,15 @@ async function deserializeAws_restJson1_1ListThingRegistrationTasksCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -23776,19 +24880,22 @@ async function deserializeAws_restJson1_1ListThingTypesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListThingTypesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23796,9 +24903,10 @@ async function deserializeAws_restJson1_1ListThingTypesCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23806,9 +24914,10 @@ async function deserializeAws_restJson1_1ListThingTypesCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23816,9 +24925,10 @@ async function deserializeAws_restJson1_1ListThingTypesCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23826,14 +24936,15 @@ async function deserializeAws_restJson1_1ListThingTypesCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -23879,19 +24990,22 @@ async function deserializeAws_restJson1_1ListThingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListThingsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23899,9 +25013,10 @@ async function deserializeAws_restJson1_1ListThingsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23909,9 +25024,10 @@ async function deserializeAws_restJson1_1ListThingsCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23919,9 +25035,10 @@ async function deserializeAws_restJson1_1ListThingsCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -23929,14 +25046,15 @@ async function deserializeAws_restJson1_1ListThingsCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -23985,19 +25103,22 @@ async function deserializeAws_restJson1_1ListThingsInBillingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListThingsInBillingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24005,9 +25126,10 @@ async function deserializeAws_restJson1_1ListThingsInBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24015,9 +25137,10 @@ async function deserializeAws_restJson1_1ListThingsInBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24025,14 +25148,15 @@ async function deserializeAws_restJson1_1ListThingsInBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -24081,19 +25205,22 @@ async function deserializeAws_restJson1_1ListThingsInThingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListThingsInThingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24101,9 +25228,10 @@ async function deserializeAws_restJson1_1ListThingsInThingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24111,14 +25239,15 @@ async function deserializeAws_restJson1_1ListThingsInThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -24156,19 +25285,22 @@ async function deserializeAws_restJson1_1RemoveThingFromBillingGroupCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveThingFromBillingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24176,9 +25308,10 @@ async function deserializeAws_restJson1_1RemoveThingFromBillingGroupCommandError
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24186,9 +25319,10 @@ async function deserializeAws_restJson1_1RemoveThingFromBillingGroupCommandError
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24196,14 +25330,15 @@ async function deserializeAws_restJson1_1RemoveThingFromBillingGroupCommandError
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -24241,19 +25376,22 @@ async function deserializeAws_restJson1_1RemoveThingFromThingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveThingFromThingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24261,9 +25399,10 @@ async function deserializeAws_restJson1_1RemoveThingFromThingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24271,9 +25410,10 @@ async function deserializeAws_restJson1_1RemoveThingFromThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24281,14 +25421,15 @@ async function deserializeAws_restJson1_1RemoveThingFromThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -24330,19 +25471,22 @@ async function deserializeAws_restJson1_1StartThingRegistrationTaskCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartThingRegistrationTaskCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24350,9 +25494,10 @@ async function deserializeAws_restJson1_1StartThingRegistrationTaskCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24360,9 +25505,10 @@ async function deserializeAws_restJson1_1StartThingRegistrationTaskCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24370,14 +25516,15 @@ async function deserializeAws_restJson1_1StartThingRegistrationTaskCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -24415,19 +25562,22 @@ async function deserializeAws_restJson1_1StopThingRegistrationTaskCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopThingRegistrationTaskCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24435,9 +25585,10 @@ async function deserializeAws_restJson1_1StopThingRegistrationTaskCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24445,9 +25596,10 @@ async function deserializeAws_restJson1_1StopThingRegistrationTaskCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24455,9 +25607,10 @@ async function deserializeAws_restJson1_1StopThingRegistrationTaskCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24465,14 +25618,15 @@ async function deserializeAws_restJson1_1StopThingRegistrationTaskCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -24507,19 +25661,22 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24527,9 +25684,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24537,9 +25695,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24547,9 +25706,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24557,14 +25717,15 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -24599,19 +25760,22 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24619,9 +25783,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24629,9 +25794,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24639,14 +25805,15 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -24688,19 +25855,22 @@ async function deserializeAws_restJson1_1UpdateBillingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBillingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24708,9 +25878,10 @@ async function deserializeAws_restJson1_1UpdateBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24718,9 +25889,10 @@ async function deserializeAws_restJson1_1UpdateBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24728,9 +25900,10 @@ async function deserializeAws_restJson1_1UpdateBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24738,14 +25911,15 @@ async function deserializeAws_restJson1_1UpdateBillingGroupCommandError(
     case "com.amazonaws.iot.common.types#VersionConflictException":
       response = {
         ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -24787,19 +25961,22 @@ async function deserializeAws_restJson1_1UpdateDynamicThingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDynamicThingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24807,9 +25984,10 @@ async function deserializeAws_restJson1_1UpdateDynamicThingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidQueryException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24817,9 +25995,10 @@ async function deserializeAws_restJson1_1UpdateDynamicThingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24827,9 +26006,10 @@ async function deserializeAws_restJson1_1UpdateDynamicThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24837,9 +26017,10 @@ async function deserializeAws_restJson1_1UpdateDynamicThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24847,14 +26028,15 @@ async function deserializeAws_restJson1_1UpdateDynamicThingGroupCommandError(
     case "com.amazonaws.iot.common.types#VersionConflictException":
       response = {
         ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -24892,19 +26074,22 @@ async function deserializeAws_restJson1_1UpdateEventConfigurationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEventConfigurationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24912,9 +26097,10 @@ async function deserializeAws_restJson1_1UpdateEventConfigurationsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24922,14 +26108,15 @@ async function deserializeAws_restJson1_1UpdateEventConfigurationsCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -24964,19 +26151,22 @@ async function deserializeAws_restJson1_1UpdateThingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateThingCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24984,9 +26174,10 @@ async function deserializeAws_restJson1_1UpdateThingCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -24994,9 +26185,10 @@ async function deserializeAws_restJson1_1UpdateThingCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25004,9 +26196,10 @@ async function deserializeAws_restJson1_1UpdateThingCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25014,9 +26207,10 @@ async function deserializeAws_restJson1_1UpdateThingCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25024,9 +26218,10 @@ async function deserializeAws_restJson1_1UpdateThingCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25034,14 +26229,15 @@ async function deserializeAws_restJson1_1UpdateThingCommandError(
     case "com.amazonaws.iot.common.types#VersionConflictException":
       response = {
         ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -25083,19 +26279,22 @@ async function deserializeAws_restJson1_1UpdateThingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateThingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25103,9 +26302,10 @@ async function deserializeAws_restJson1_1UpdateThingGroupCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25113,9 +26313,10 @@ async function deserializeAws_restJson1_1UpdateThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25123,9 +26324,10 @@ async function deserializeAws_restJson1_1UpdateThingGroupCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25133,14 +26335,15 @@ async function deserializeAws_restJson1_1UpdateThingGroupCommandError(
     case "com.amazonaws.iot.common.types#VersionConflictException":
       response = {
         ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -25178,19 +26381,22 @@ async function deserializeAws_restJson1_1UpdateThingGroupsForThingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateThingGroupsForThingCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25198,9 +26404,10 @@ async function deserializeAws_restJson1_1UpdateThingGroupsForThingCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25208,9 +26415,10 @@ async function deserializeAws_restJson1_1UpdateThingGroupsForThingCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25218,14 +26426,15 @@ async function deserializeAws_restJson1_1UpdateThingGroupsForThingCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -25263,19 +26472,22 @@ async function deserializeAws_restJson1_1AttachSecurityProfileCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachSecurityProfileCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25283,9 +26495,10 @@ async function deserializeAws_restJson1_1AttachSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25293,9 +26506,10 @@ async function deserializeAws_restJson1_1AttachSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25303,9 +26517,10 @@ async function deserializeAws_restJson1_1AttachSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25313,9 +26528,10 @@ async function deserializeAws_restJson1_1AttachSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25323,14 +26539,15 @@ async function deserializeAws_restJson1_1AttachSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#VersionConflictException":
       response = {
         ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -25368,19 +26585,22 @@ async function deserializeAws_restJson1_1CancelAuditMitigationActionsTaskCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelAuditMitigationActionsTaskCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25388,9 +26608,10 @@ async function deserializeAws_restJson1_1CancelAuditMitigationActionsTaskCommand
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25398,9 +26619,10 @@ async function deserializeAws_restJson1_1CancelAuditMitigationActionsTaskCommand
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25408,14 +26630,15 @@ async function deserializeAws_restJson1_1CancelAuditMitigationActionsTaskCommand
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -25453,19 +26676,22 @@ async function deserializeAws_restJson1_1CancelAuditTaskCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelAuditTaskCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25473,9 +26699,10 @@ async function deserializeAws_restJson1_1CancelAuditTaskCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25483,9 +26710,10 @@ async function deserializeAws_restJson1_1CancelAuditTaskCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25493,14 +26721,15 @@ async function deserializeAws_restJson1_1CancelAuditTaskCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -25546,19 +26775,22 @@ async function deserializeAws_restJson1_1CreateMitigationActionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMitigationActionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25566,9 +26798,10 @@ async function deserializeAws_restJson1_1CreateMitigationActionCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25576,9 +26809,10 @@ async function deserializeAws_restJson1_1CreateMitigationActionCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25586,9 +26820,10 @@ async function deserializeAws_restJson1_1CreateMitigationActionCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25596,14 +26831,15 @@ async function deserializeAws_restJson1_1CreateMitigationActionCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -25645,19 +26881,22 @@ async function deserializeAws_restJson1_1CreateScheduledAuditCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateScheduledAuditCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25665,9 +26904,10 @@ async function deserializeAws_restJson1_1CreateScheduledAuditCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25675,9 +26915,10 @@ async function deserializeAws_restJson1_1CreateScheduledAuditCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25685,9 +26926,10 @@ async function deserializeAws_restJson1_1CreateScheduledAuditCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25695,14 +26937,15 @@ async function deserializeAws_restJson1_1CreateScheduledAuditCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -25754,19 +26997,22 @@ async function deserializeAws_restJson1_1CreateSecurityProfileCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSecurityProfileCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25774,9 +27020,10 @@ async function deserializeAws_restJson1_1CreateSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25784,9 +27031,10 @@ async function deserializeAws_restJson1_1CreateSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25794,14 +27042,15 @@ async function deserializeAws_restJson1_1CreateSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -25839,19 +27088,22 @@ async function deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccountAuditConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25859,9 +27111,10 @@ async function deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommandE
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25869,9 +27122,10 @@ async function deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommandE
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25879,14 +27133,15 @@ async function deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommandE
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -25924,19 +27179,22 @@ async function deserializeAws_restJson1_1DeleteMitigationActionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMitigationActionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25944,9 +27202,10 @@ async function deserializeAws_restJson1_1DeleteMitigationActionCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -25954,14 +27213,15 @@ async function deserializeAws_restJson1_1DeleteMitigationActionCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -25999,19 +27259,22 @@ async function deserializeAws_restJson1_1DeleteScheduledAuditCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteScheduledAuditCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26019,9 +27282,10 @@ async function deserializeAws_restJson1_1DeleteScheduledAuditCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26029,9 +27293,10 @@ async function deserializeAws_restJson1_1DeleteScheduledAuditCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26039,14 +27304,15 @@ async function deserializeAws_restJson1_1DeleteScheduledAuditCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -26084,19 +27350,22 @@ async function deserializeAws_restJson1_1DeleteSecurityProfileCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSecurityProfileCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26104,9 +27373,10 @@ async function deserializeAws_restJson1_1DeleteSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26114,9 +27384,10 @@ async function deserializeAws_restJson1_1DeleteSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26124,14 +27395,15 @@ async function deserializeAws_restJson1_1DeleteSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#VersionConflictException":
       response = {
         ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -26193,19 +27465,22 @@ async function deserializeAws_restJson1_1DescribeAccountAuditConfigurationComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountAuditConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26213,14 +27488,15 @@ async function deserializeAws_restJson1_1DescribeAccountAuditConfigurationComman
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -26265,19 +27541,22 @@ async function deserializeAws_restJson1_1DescribeAuditFindingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAuditFindingCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26285,9 +27564,10 @@ async function deserializeAws_restJson1_1DescribeAuditFindingCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26295,9 +27575,10 @@ async function deserializeAws_restJson1_1DescribeAuditFindingCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26305,14 +27586,15 @@ async function deserializeAws_restJson1_1DescribeAuditFindingCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -26393,19 +27675,22 @@ async function deserializeAws_restJson1_1DescribeAuditMitigationActionsTaskComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAuditMitigationActionsTaskCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26413,9 +27698,10 @@ async function deserializeAws_restJson1_1DescribeAuditMitigationActionsTaskComma
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26423,9 +27709,10 @@ async function deserializeAws_restJson1_1DescribeAuditMitigationActionsTaskComma
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26433,14 +27720,15 @@ async function deserializeAws_restJson1_1DescribeAuditMitigationActionsTaskComma
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -26511,19 +27799,22 @@ async function deserializeAws_restJson1_1DescribeAuditTaskCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAuditTaskCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26531,9 +27822,10 @@ async function deserializeAws_restJson1_1DescribeAuditTaskCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26541,9 +27833,10 @@ async function deserializeAws_restJson1_1DescribeAuditTaskCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26551,14 +27844,15 @@ async function deserializeAws_restJson1_1DescribeAuditTaskCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -26633,19 +27927,22 @@ async function deserializeAws_restJson1_1DescribeMitigationActionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMitigationActionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26653,9 +27950,10 @@ async function deserializeAws_restJson1_1DescribeMitigationActionCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26663,9 +27961,10 @@ async function deserializeAws_restJson1_1DescribeMitigationActionCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26673,14 +27972,15 @@ async function deserializeAws_restJson1_1DescribeMitigationActionCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -26748,19 +28048,22 @@ async function deserializeAws_restJson1_1DescribeScheduledAuditCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScheduledAuditCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26768,9 +28071,10 @@ async function deserializeAws_restJson1_1DescribeScheduledAuditCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26778,9 +28082,10 @@ async function deserializeAws_restJson1_1DescribeScheduledAuditCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26788,14 +28093,15 @@ async function deserializeAws_restJson1_1DescribeScheduledAuditCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -26892,19 +28198,22 @@ async function deserializeAws_restJson1_1DescribeSecurityProfileCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSecurityProfileCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26912,9 +28221,10 @@ async function deserializeAws_restJson1_1DescribeSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26922,9 +28232,10 @@ async function deserializeAws_restJson1_1DescribeSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26932,14 +28243,15 @@ async function deserializeAws_restJson1_1DescribeSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -26977,19 +28289,22 @@ async function deserializeAws_restJson1_1DetachSecurityProfileCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachSecurityProfileCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -26997,9 +28312,10 @@ async function deserializeAws_restJson1_1DetachSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27007,9 +28323,10 @@ async function deserializeAws_restJson1_1DetachSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27017,14 +28334,15 @@ async function deserializeAws_restJson1_1DetachSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -27073,19 +28391,22 @@ async function deserializeAws_restJson1_1ListActiveViolationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListActiveViolationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27093,9 +28414,10 @@ async function deserializeAws_restJson1_1ListActiveViolationsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27103,9 +28425,10 @@ async function deserializeAws_restJson1_1ListActiveViolationsCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27113,14 +28436,15 @@ async function deserializeAws_restJson1_1ListActiveViolationsCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -27169,19 +28493,22 @@ async function deserializeAws_restJson1_1ListAuditFindingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAuditFindingsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27189,9 +28516,10 @@ async function deserializeAws_restJson1_1ListAuditFindingsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27199,14 +28527,15 @@ async function deserializeAws_restJson1_1ListAuditFindingsCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -27255,19 +28584,22 @@ async function deserializeAws_restJson1_1ListAuditMitigationActionsExecutionsCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAuditMitigationActionsExecutionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27275,9 +28607,10 @@ async function deserializeAws_restJson1_1ListAuditMitigationActionsExecutionsCom
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27285,14 +28618,15 @@ async function deserializeAws_restJson1_1ListAuditMitigationActionsExecutionsCom
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -27341,19 +28675,22 @@ async function deserializeAws_restJson1_1ListAuditMitigationActionsTasksCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAuditMitigationActionsTasksCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27361,9 +28698,10 @@ async function deserializeAws_restJson1_1ListAuditMitigationActionsTasksCommandE
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27371,14 +28709,15 @@ async function deserializeAws_restJson1_1ListAuditMitigationActionsTasksCommandE
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -27427,19 +28766,22 @@ async function deserializeAws_restJson1_1ListAuditTasksCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAuditTasksCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27447,9 +28789,10 @@ async function deserializeAws_restJson1_1ListAuditTasksCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27457,14 +28800,15 @@ async function deserializeAws_restJson1_1ListAuditTasksCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -27513,19 +28857,22 @@ async function deserializeAws_restJson1_1ListMitigationActionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMitigationActionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27533,9 +28880,10 @@ async function deserializeAws_restJson1_1ListMitigationActionsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27543,14 +28891,15 @@ async function deserializeAws_restJson1_1ListMitigationActionsCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -27599,19 +28948,22 @@ async function deserializeAws_restJson1_1ListScheduledAuditsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListScheduledAuditsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27619,9 +28971,10 @@ async function deserializeAws_restJson1_1ListScheduledAuditsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27629,14 +28982,15 @@ async function deserializeAws_restJson1_1ListScheduledAuditsCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -27688,19 +29042,22 @@ async function deserializeAws_restJson1_1ListSecurityProfilesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecurityProfilesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27708,9 +29065,10 @@ async function deserializeAws_restJson1_1ListSecurityProfilesCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27718,14 +29076,15 @@ async function deserializeAws_restJson1_1ListSecurityProfilesCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -27777,19 +29136,22 @@ async function deserializeAws_restJson1_1ListSecurityProfilesForTargetCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecurityProfilesForTargetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27797,9 +29159,10 @@ async function deserializeAws_restJson1_1ListSecurityProfilesForTargetCommandErr
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27807,9 +29170,10 @@ async function deserializeAws_restJson1_1ListSecurityProfilesForTargetCommandErr
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27817,14 +29181,15 @@ async function deserializeAws_restJson1_1ListSecurityProfilesForTargetCommandErr
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -27876,19 +29241,22 @@ async function deserializeAws_restJson1_1ListTargetsForSecurityProfileCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTargetsForSecurityProfileCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27896,9 +29264,10 @@ async function deserializeAws_restJson1_1ListTargetsForSecurityProfileCommandErr
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27906,9 +29275,10 @@ async function deserializeAws_restJson1_1ListTargetsForSecurityProfileCommandErr
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27916,14 +29286,15 @@ async function deserializeAws_restJson1_1ListTargetsForSecurityProfileCommandErr
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -27972,19 +29343,22 @@ async function deserializeAws_restJson1_1ListViolationEventsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListViolationEventsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -27992,9 +29366,10 @@ async function deserializeAws_restJson1_1ListViolationEventsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28002,14 +29377,15 @@ async function deserializeAws_restJson1_1ListViolationEventsCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -28051,19 +29427,22 @@ async function deserializeAws_restJson1_1StartAuditMitigationActionsTaskCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartAuditMitigationActionsTaskCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28071,9 +29450,10 @@ async function deserializeAws_restJson1_1StartAuditMitigationActionsTaskCommandE
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28081,9 +29461,10 @@ async function deserializeAws_restJson1_1StartAuditMitigationActionsTaskCommandE
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28091,9 +29472,10 @@ async function deserializeAws_restJson1_1StartAuditMitigationActionsTaskCommandE
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28101,14 +29483,15 @@ async function deserializeAws_restJson1_1StartAuditMitigationActionsTaskCommandE
     case "com.amazonaws.iot.sepio.types.audit#TaskAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1TaskAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -28150,19 +29533,22 @@ async function deserializeAws_restJson1_1StartOnDemandAuditTaskCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartOnDemandAuditTaskCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28170,9 +29556,10 @@ async function deserializeAws_restJson1_1StartOnDemandAuditTaskCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28180,9 +29567,10 @@ async function deserializeAws_restJson1_1StartOnDemandAuditTaskCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28190,14 +29578,15 @@ async function deserializeAws_restJson1_1StartOnDemandAuditTaskCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -28235,19 +29624,22 @@ async function deserializeAws_restJson1_1UpdateAccountAuditConfigurationCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccountAuditConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28255,9 +29647,10 @@ async function deserializeAws_restJson1_1UpdateAccountAuditConfigurationCommandE
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28265,14 +29658,15 @@ async function deserializeAws_restJson1_1UpdateAccountAuditConfigurationCommandE
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -28318,19 +29712,22 @@ async function deserializeAws_restJson1_1UpdateMitigationActionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMitigationActionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28338,9 +29735,10 @@ async function deserializeAws_restJson1_1UpdateMitigationActionCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28348,9 +29746,10 @@ async function deserializeAws_restJson1_1UpdateMitigationActionCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28358,14 +29757,15 @@ async function deserializeAws_restJson1_1UpdateMitigationActionCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -28407,19 +29807,22 @@ async function deserializeAws_restJson1_1UpdateScheduledAuditCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateScheduledAuditCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28427,9 +29830,10 @@ async function deserializeAws_restJson1_1UpdateScheduledAuditCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28437,9 +29841,10 @@ async function deserializeAws_restJson1_1UpdateScheduledAuditCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28447,14 +29852,15 @@ async function deserializeAws_restJson1_1UpdateScheduledAuditCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -28551,19 +29957,22 @@ async function deserializeAws_restJson1_1UpdateSecurityProfileCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSecurityProfileCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28571,9 +29980,10 @@ async function deserializeAws_restJson1_1UpdateSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28581,9 +29991,10 @@ async function deserializeAws_restJson1_1UpdateSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28591,9 +30002,10 @@ async function deserializeAws_restJson1_1UpdateSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28601,14 +30013,15 @@ async function deserializeAws_restJson1_1UpdateSecurityProfileCommandError(
     case "com.amazonaws.iot.common.types#VersionConflictException":
       response = {
         ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -28657,19 +30070,22 @@ async function deserializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ValidateSecurityProfileBehaviorsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28677,9 +30093,10 @@ async function deserializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommand
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28687,14 +30104,15 @@ async function deserializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommand
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -28745,19 +30163,22 @@ async function deserializeAws_restJson1_1CreateStreamCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28765,9 +30186,10 @@ async function deserializeAws_restJson1_1CreateStreamCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28775,9 +30197,10 @@ async function deserializeAws_restJson1_1CreateStreamCommandError(
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28785,9 +30208,10 @@ async function deserializeAws_restJson1_1CreateStreamCommandError(
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28795,9 +30219,10 @@ async function deserializeAws_restJson1_1CreateStreamCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28805,9 +30230,10 @@ async function deserializeAws_restJson1_1CreateStreamCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28815,9 +30241,10 @@ async function deserializeAws_restJson1_1CreateStreamCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28825,14 +30252,15 @@ async function deserializeAws_restJson1_1CreateStreamCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -28867,19 +30295,22 @@ async function deserializeAws_restJson1_1DeleteStreamCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStreamCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
       response = {
         ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28887,9 +30318,10 @@ async function deserializeAws_restJson1_1DeleteStreamCommandError(
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28897,9 +30329,10 @@ async function deserializeAws_restJson1_1DeleteStreamCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28907,9 +30340,10 @@ async function deserializeAws_restJson1_1DeleteStreamCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28917,9 +30351,10 @@ async function deserializeAws_restJson1_1DeleteStreamCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28927,9 +30362,10 @@ async function deserializeAws_restJson1_1DeleteStreamCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -28937,14 +30373,15 @@ async function deserializeAws_restJson1_1DeleteStreamCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -28989,19 +30426,22 @@ async function deserializeAws_restJson1_1DescribeStreamCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStreamCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -29009,9 +30449,10 @@ async function deserializeAws_restJson1_1DescribeStreamCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -29019,9 +30460,10 @@ async function deserializeAws_restJson1_1DescribeStreamCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -29029,9 +30471,10 @@ async function deserializeAws_restJson1_1DescribeStreamCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -29039,9 +30482,10 @@ async function deserializeAws_restJson1_1DescribeStreamCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -29049,14 +30493,15 @@ async function deserializeAws_restJson1_1DescribeStreamCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -29102,19 +30547,22 @@ async function deserializeAws_restJson1_1ListStreamsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -29122,9 +30570,10 @@ async function deserializeAws_restJson1_1ListStreamsCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -29132,9 +30581,10 @@ async function deserializeAws_restJson1_1ListStreamsCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -29142,9 +30592,10 @@ async function deserializeAws_restJson1_1ListStreamsCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -29152,14 +30603,15 @@ async function deserializeAws_restJson1_1ListStreamsCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -29210,19 +30662,22 @@ async function deserializeAws_restJson1_1UpdateStreamCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStreamCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -29230,9 +30685,10 @@ async function deserializeAws_restJson1_1UpdateStreamCommandError(
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -29240,9 +30696,10 @@ async function deserializeAws_restJson1_1UpdateStreamCommandError(
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -29250,9 +30707,10 @@ async function deserializeAws_restJson1_1UpdateStreamCommandError(
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -29260,9 +30718,10 @@ async function deserializeAws_restJson1_1UpdateStreamCommandError(
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -29270,14 +30729,15 @@ async function deserializeAws_restJson1_1UpdateStreamCommandError(
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -29294,16 +30754,16 @@ async function deserializeAws_restJson1_1UpdateStreamCommandError(
 }
 
 const deserializeAws_restJson1_1CertificateConflictExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<CertificateConflictException> => {
   const contents: CertificateConflictException = {
     name: "CertificateConflictException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29311,16 +30771,16 @@ const deserializeAws_restJson1_1CertificateConflictExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1CertificateStateExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<CertificateStateException> => {
   const contents: CertificateStateException = {
     name: "CertificateStateException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29328,16 +30788,16 @@ const deserializeAws_restJson1_1CertificateStateExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1CertificateValidationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<CertificateValidationException> => {
   const contents: CertificateValidationException = {
     name: "CertificateValidationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29345,16 +30805,16 @@ const deserializeAws_restJson1_1CertificateValidationExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConflictingResourceUpdateException> => {
   const contents: ConflictingResourceUpdateException = {
     name: "ConflictingResourceUpdateException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29362,16 +30822,16 @@ const deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse = asy
 };
 
 const deserializeAws_restJson1_1DeleteConflictExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeleteConflictException> => {
   const contents: DeleteConflictException = {
     name: "DeleteConflictException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29379,16 +30839,16 @@ const deserializeAws_restJson1_1DeleteConflictExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InternalExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalException> => {
   const contents: InternalException = {
     name: "InternalException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29396,16 +30856,16 @@ const deserializeAws_restJson1_1InternalExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
   const contents: InternalFailureException = {
     name: "InternalFailureException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29413,16 +30873,16 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidAggregationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidAggregationException> => {
   const contents: InvalidAggregationException = {
     name: "InvalidAggregationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29430,16 +30890,16 @@ const deserializeAws_restJson1_1InvalidAggregationExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidQueryExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidQueryException> => {
   const contents: InvalidQueryException = {
     name: "InvalidQueryException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29447,16 +30907,16 @@ const deserializeAws_restJson1_1InvalidQueryExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29464,16 +30924,16 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidResponseExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidResponseException> => {
   const contents: InvalidResponseException = {
     name: "InvalidResponseException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29481,16 +30941,16 @@ const deserializeAws_restJson1_1InvalidResponseExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidStateTransitionException> => {
   const contents: InvalidStateTransitionException = {
     name: "InvalidStateTransitionException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29498,16 +30958,16 @@ const deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse = async 
 };
 
 const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29515,16 +30975,16 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1MalformedPolicyExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<MalformedPolicyException> => {
   const contents: MalformedPolicyException = {
     name: "MalformedPolicyException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29532,16 +30992,16 @@ const deserializeAws_restJson1_1MalformedPolicyExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1NotConfiguredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotConfiguredException> => {
   const contents: NotConfiguredException = {
     name: "NotConfiguredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29549,16 +31009,16 @@ const deserializeAws_restJson1_1NotConfiguredExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1RegistrationCodeValidationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<RegistrationCodeValidationException> => {
   const contents: RegistrationCodeValidationException = {
     name: "RegistrationCodeValidationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29566,18 +31026,18 @@ const deserializeAws_restJson1_1RegistrationCodeValidationExceptionResponse = as
 };
 
 const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
     resourceArn: undefined,
     resourceId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29591,16 +31051,16 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29608,16 +31068,16 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceRegistrationFailureExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceRegistrationFailureException> => {
   const contents: ResourceRegistrationFailureException = {
     name: "ResourceRegistrationFailureException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29625,16 +31085,16 @@ const deserializeAws_restJson1_1ResourceRegistrationFailureExceptionResponse = a
 };
 
 const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29642,16 +31102,16 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1SqlParseExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<SqlParseException> => {
   const contents: SqlParseException = {
     name: "SqlParseException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29659,16 +31119,16 @@ const deserializeAws_restJson1_1SqlParseExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
     name: "ThrottlingException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29676,16 +31136,16 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1TransferAlreadyCompletedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TransferAlreadyCompletedException> => {
   const contents: TransferAlreadyCompletedException = {
     name: "TransferAlreadyCompletedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29693,16 +31153,16 @@ const deserializeAws_restJson1_1TransferAlreadyCompletedExceptionResponse = asyn
 };
 
 const deserializeAws_restJson1_1TransferConflictExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TransferConflictException> => {
   const contents: TransferConflictException = {
     name: "TransferConflictException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29710,16 +31170,16 @@ const deserializeAws_restJson1_1TransferConflictExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnauthorizedException> => {
   const contents: UnauthorizedException = {
     name: "UnauthorizedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29727,16 +31187,16 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1VersionConflictExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<VersionConflictException> => {
   const contents: VersionConflictException = {
     name: "VersionConflictException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29744,16 +31204,16 @@ const deserializeAws_restJson1_1VersionConflictExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1VersionsLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<VersionsLimitExceededException> => {
   const contents: VersionsLimitExceededException = {
     name: "VersionsLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29761,16 +31221,16 @@ const deserializeAws_restJson1_1VersionsLimitExceededExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1IndexNotReadyExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<IndexNotReadyException> => {
   const contents: IndexNotReadyException = {
     name: "IndexNotReadyException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -29778,16 +31238,16 @@ const deserializeAws_restJson1_1IndexNotReadyExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1TaskAlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TaskAlreadyExistsException> => {
   const contents: TaskAlreadyExistsException = {
     name: "TaskAlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -37244,4 +38704,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

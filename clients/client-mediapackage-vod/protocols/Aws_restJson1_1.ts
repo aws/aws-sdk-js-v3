@@ -494,19 +494,22 @@ async function deserializeAws_restJson1_1CreateAssetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAssetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -514,9 +517,10 @@ async function deserializeAws_restJson1_1CreateAssetCommandError(
     case "com.amazonaws.mediapackage_vod#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -524,9 +528,10 @@ async function deserializeAws_restJson1_1CreateAssetCommandError(
     case "com.amazonaws.mediapackage_vod#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -534,9 +539,10 @@ async function deserializeAws_restJson1_1CreateAssetCommandError(
     case "com.amazonaws.mediapackage_vod#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -544,9 +550,10 @@ async function deserializeAws_restJson1_1CreateAssetCommandError(
     case "com.amazonaws.mediapackage_vod#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -554,14 +561,15 @@ async function deserializeAws_restJson1_1CreateAssetCommandError(
     case "com.amazonaws.mediapackage_vod#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -639,19 +647,22 @@ async function deserializeAws_restJson1_1CreatePackagingConfigurationCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePackagingConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -659,9 +670,10 @@ async function deserializeAws_restJson1_1CreatePackagingConfigurationCommandErro
     case "com.amazonaws.mediapackage_vod#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -669,9 +681,10 @@ async function deserializeAws_restJson1_1CreatePackagingConfigurationCommandErro
     case "com.amazonaws.mediapackage_vod#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -679,9 +692,10 @@ async function deserializeAws_restJson1_1CreatePackagingConfigurationCommandErro
     case "com.amazonaws.mediapackage_vod#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -689,9 +703,10 @@ async function deserializeAws_restJson1_1CreatePackagingConfigurationCommandErro
     case "com.amazonaws.mediapackage_vod#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -699,14 +714,15 @@ async function deserializeAws_restJson1_1CreatePackagingConfigurationCommandErro
     case "com.amazonaws.mediapackage_vod#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -756,19 +772,22 @@ async function deserializeAws_restJson1_1CreatePackagingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePackagingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -776,9 +795,10 @@ async function deserializeAws_restJson1_1CreatePackagingGroupCommandError(
     case "com.amazonaws.mediapackage_vod#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -786,9 +806,10 @@ async function deserializeAws_restJson1_1CreatePackagingGroupCommandError(
     case "com.amazonaws.mediapackage_vod#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -796,9 +817,10 @@ async function deserializeAws_restJson1_1CreatePackagingGroupCommandError(
     case "com.amazonaws.mediapackage_vod#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -806,9 +828,10 @@ async function deserializeAws_restJson1_1CreatePackagingGroupCommandError(
     case "com.amazonaws.mediapackage_vod#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -816,14 +839,15 @@ async function deserializeAws_restJson1_1CreatePackagingGroupCommandError(
     case "com.amazonaws.mediapackage_vod#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -858,19 +882,22 @@ async function deserializeAws_restJson1_1DeleteAssetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -878,9 +905,10 @@ async function deserializeAws_restJson1_1DeleteAssetCommandError(
     case "com.amazonaws.mediapackage_vod#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -888,9 +916,10 @@ async function deserializeAws_restJson1_1DeleteAssetCommandError(
     case "com.amazonaws.mediapackage_vod#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -898,9 +927,10 @@ async function deserializeAws_restJson1_1DeleteAssetCommandError(
     case "com.amazonaws.mediapackage_vod#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -908,9 +938,10 @@ async function deserializeAws_restJson1_1DeleteAssetCommandError(
     case "com.amazonaws.mediapackage_vod#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -918,14 +949,15 @@ async function deserializeAws_restJson1_1DeleteAssetCommandError(
     case "com.amazonaws.mediapackage_vod#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -963,19 +995,22 @@ async function deserializeAws_restJson1_1DeletePackagingConfigurationCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePackagingConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -983,9 +1018,10 @@ async function deserializeAws_restJson1_1DeletePackagingConfigurationCommandErro
     case "com.amazonaws.mediapackage_vod#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -993,9 +1029,10 @@ async function deserializeAws_restJson1_1DeletePackagingConfigurationCommandErro
     case "com.amazonaws.mediapackage_vod#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1003,9 +1040,10 @@ async function deserializeAws_restJson1_1DeletePackagingConfigurationCommandErro
     case "com.amazonaws.mediapackage_vod#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1013,9 +1051,10 @@ async function deserializeAws_restJson1_1DeletePackagingConfigurationCommandErro
     case "com.amazonaws.mediapackage_vod#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1023,14 +1062,15 @@ async function deserializeAws_restJson1_1DeletePackagingConfigurationCommandErro
     case "com.amazonaws.mediapackage_vod#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1068,19 +1108,22 @@ async function deserializeAws_restJson1_1DeletePackagingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePackagingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1088,9 +1131,10 @@ async function deserializeAws_restJson1_1DeletePackagingGroupCommandError(
     case "com.amazonaws.mediapackage_vod#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1098,9 +1142,10 @@ async function deserializeAws_restJson1_1DeletePackagingGroupCommandError(
     case "com.amazonaws.mediapackage_vod#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1108,9 +1153,10 @@ async function deserializeAws_restJson1_1DeletePackagingGroupCommandError(
     case "com.amazonaws.mediapackage_vod#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1118,9 +1164,10 @@ async function deserializeAws_restJson1_1DeletePackagingGroupCommandError(
     case "com.amazonaws.mediapackage_vod#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1128,14 +1175,15 @@ async function deserializeAws_restJson1_1DeletePackagingGroupCommandError(
     case "com.amazonaws.mediapackage_vod#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1205,19 +1253,22 @@ async function deserializeAws_restJson1_1DescribeAssetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAssetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1225,9 +1276,10 @@ async function deserializeAws_restJson1_1DescribeAssetCommandError(
     case "com.amazonaws.mediapackage_vod#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1235,9 +1287,10 @@ async function deserializeAws_restJson1_1DescribeAssetCommandError(
     case "com.amazonaws.mediapackage_vod#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1245,9 +1298,10 @@ async function deserializeAws_restJson1_1DescribeAssetCommandError(
     case "com.amazonaws.mediapackage_vod#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1255,9 +1309,10 @@ async function deserializeAws_restJson1_1DescribeAssetCommandError(
     case "com.amazonaws.mediapackage_vod#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1265,14 +1320,15 @@ async function deserializeAws_restJson1_1DescribeAssetCommandError(
     case "com.amazonaws.mediapackage_vod#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1350,19 +1406,22 @@ async function deserializeAws_restJson1_1DescribePackagingConfigurationCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePackagingConfigurationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1370,9 +1429,10 @@ async function deserializeAws_restJson1_1DescribePackagingConfigurationCommandEr
     case "com.amazonaws.mediapackage_vod#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1380,9 +1440,10 @@ async function deserializeAws_restJson1_1DescribePackagingConfigurationCommandEr
     case "com.amazonaws.mediapackage_vod#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1390,9 +1451,10 @@ async function deserializeAws_restJson1_1DescribePackagingConfigurationCommandEr
     case "com.amazonaws.mediapackage_vod#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1400,9 +1462,10 @@ async function deserializeAws_restJson1_1DescribePackagingConfigurationCommandEr
     case "com.amazonaws.mediapackage_vod#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1410,14 +1473,15 @@ async function deserializeAws_restJson1_1DescribePackagingConfigurationCommandEr
     case "com.amazonaws.mediapackage_vod#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1467,19 +1531,22 @@ async function deserializeAws_restJson1_1DescribePackagingGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePackagingGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1487,9 +1554,10 @@ async function deserializeAws_restJson1_1DescribePackagingGroupCommandError(
     case "com.amazonaws.mediapackage_vod#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1497,9 +1565,10 @@ async function deserializeAws_restJson1_1DescribePackagingGroupCommandError(
     case "com.amazonaws.mediapackage_vod#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1507,9 +1576,10 @@ async function deserializeAws_restJson1_1DescribePackagingGroupCommandError(
     case "com.amazonaws.mediapackage_vod#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1517,9 +1587,10 @@ async function deserializeAws_restJson1_1DescribePackagingGroupCommandError(
     case "com.amazonaws.mediapackage_vod#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1527,14 +1598,15 @@ async function deserializeAws_restJson1_1DescribePackagingGroupCommandError(
     case "com.amazonaws.mediapackage_vod#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1580,19 +1652,22 @@ async function deserializeAws_restJson1_1ListAssetsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssetsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1600,9 +1675,10 @@ async function deserializeAws_restJson1_1ListAssetsCommandError(
     case "com.amazonaws.mediapackage_vod#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1610,9 +1686,10 @@ async function deserializeAws_restJson1_1ListAssetsCommandError(
     case "com.amazonaws.mediapackage_vod#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1620,9 +1697,10 @@ async function deserializeAws_restJson1_1ListAssetsCommandError(
     case "com.amazonaws.mediapackage_vod#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1630,9 +1708,10 @@ async function deserializeAws_restJson1_1ListAssetsCommandError(
     case "com.amazonaws.mediapackage_vod#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1640,14 +1719,15 @@ async function deserializeAws_restJson1_1ListAssetsCommandError(
     case "com.amazonaws.mediapackage_vod#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1699,19 +1779,22 @@ async function deserializeAws_restJson1_1ListPackagingConfigurationsCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPackagingConfigurationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1719,9 +1802,10 @@ async function deserializeAws_restJson1_1ListPackagingConfigurationsCommandError
     case "com.amazonaws.mediapackage_vod#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1729,9 +1813,10 @@ async function deserializeAws_restJson1_1ListPackagingConfigurationsCommandError
     case "com.amazonaws.mediapackage_vod#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1739,9 +1824,10 @@ async function deserializeAws_restJson1_1ListPackagingConfigurationsCommandError
     case "com.amazonaws.mediapackage_vod#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1749,9 +1835,10 @@ async function deserializeAws_restJson1_1ListPackagingConfigurationsCommandError
     case "com.amazonaws.mediapackage_vod#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1759,14 +1846,15 @@ async function deserializeAws_restJson1_1ListPackagingConfigurationsCommandError
     case "com.amazonaws.mediapackage_vod#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1815,19 +1903,22 @@ async function deserializeAws_restJson1_1ListPackagingGroupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPackagingGroupsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1835,9 +1926,10 @@ async function deserializeAws_restJson1_1ListPackagingGroupsCommandError(
     case "com.amazonaws.mediapackage_vod#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1845,9 +1937,10 @@ async function deserializeAws_restJson1_1ListPackagingGroupsCommandError(
     case "com.amazonaws.mediapackage_vod#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1855,9 +1948,10 @@ async function deserializeAws_restJson1_1ListPackagingGroupsCommandError(
     case "com.amazonaws.mediapackage_vod#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1865,9 +1959,10 @@ async function deserializeAws_restJson1_1ListPackagingGroupsCommandError(
     case "com.amazonaws.mediapackage_vod#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1875,14 +1970,15 @@ async function deserializeAws_restJson1_1ListPackagingGroupsCommandError(
     case "com.amazonaws.mediapackage_vod#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1899,16 +1995,16 @@ async function deserializeAws_restJson1_1ListPackagingGroupsCommandError(
 }
 
 const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ForbiddenException> => {
   const contents: ForbiddenException = {
     name: "ForbiddenException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -1916,16 +2012,16 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
   const contents: InternalServerErrorException = {
     name: "InternalServerErrorException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -1933,16 +2029,16 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -1950,16 +2046,16 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -1967,16 +2063,16 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -1984,16 +2080,16 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1UnprocessableEntityExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnprocessableEntityException> => {
   const contents: UnprocessableEntityException = {
     name: "UnprocessableEntityException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -2927,4 +3023,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

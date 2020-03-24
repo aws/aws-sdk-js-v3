@@ -421,7 +421,7 @@ async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -433,6 +433,7 @@ async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -443,6 +444,7 @@ async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -453,6 +455,7 @@ async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -463,6 +466,7 @@ async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -473,6 +477,7 @@ async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -483,6 +488,7 @@ async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -493,6 +499,7 @@ async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -503,6 +510,7 @@ async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -556,7 +564,7 @@ async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTempla
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -568,6 +576,7 @@ async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTempla
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -578,6 +587,7 @@ async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTempla
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -588,6 +598,7 @@ async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTempla
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -598,6 +609,7 @@ async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTempla
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -608,6 +620,7 @@ async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTempla
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -618,6 +631,7 @@ async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTempla
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -628,6 +642,7 @@ async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTempla
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -638,6 +653,7 @@ async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTempla
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -648,6 +664,7 @@ async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTempla
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -701,7 +718,7 @@ async function deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandErro
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -713,6 +730,7 @@ async function deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -723,6 +741,7 @@ async function deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -733,6 +752,7 @@ async function deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -743,6 +763,7 @@ async function deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -753,6 +774,7 @@ async function deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -763,6 +785,7 @@ async function deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -773,6 +796,7 @@ async function deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -783,6 +807,7 @@ async function deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandErro
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -836,7 +861,7 @@ async function deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -848,6 +873,7 @@ async function deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -858,6 +884,7 @@ async function deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -868,6 +895,7 @@ async function deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -878,6 +906,7 @@ async function deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -888,6 +917,7 @@ async function deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -941,7 +971,7 @@ async function deserializeAws_json1_1GetAssociationForServiceQuotaTemplateComman
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -953,6 +983,7 @@ async function deserializeAws_json1_1GetAssociationForServiceQuotaTemplateComman
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -963,6 +994,7 @@ async function deserializeAws_json1_1GetAssociationForServiceQuotaTemplateComman
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -973,6 +1005,7 @@ async function deserializeAws_json1_1GetAssociationForServiceQuotaTemplateComman
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -983,6 +1016,7 @@ async function deserializeAws_json1_1GetAssociationForServiceQuotaTemplateComman
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -993,6 +1027,7 @@ async function deserializeAws_json1_1GetAssociationForServiceQuotaTemplateComman
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1003,6 +1038,7 @@ async function deserializeAws_json1_1GetAssociationForServiceQuotaTemplateComman
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1013,6 +1049,7 @@ async function deserializeAws_json1_1GetAssociationForServiceQuotaTemplateComman
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1023,6 +1060,7 @@ async function deserializeAws_json1_1GetAssociationForServiceQuotaTemplateComman
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1076,7 +1114,7 @@ async function deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1088,6 +1126,7 @@ async function deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1098,6 +1137,7 @@ async function deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1108,6 +1148,7 @@ async function deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1118,6 +1159,7 @@ async function deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1128,6 +1170,7 @@ async function deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1175,7 +1218,7 @@ async function deserializeAws_json1_1GetServiceQuotaCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1187,6 +1230,7 @@ async function deserializeAws_json1_1GetServiceQuotaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1197,6 +1241,7 @@ async function deserializeAws_json1_1GetServiceQuotaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1207,6 +1252,7 @@ async function deserializeAws_json1_1GetServiceQuotaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1217,6 +1263,7 @@ async function deserializeAws_json1_1GetServiceQuotaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1227,6 +1274,7 @@ async function deserializeAws_json1_1GetServiceQuotaCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1280,7 +1328,7 @@ async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateC
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1292,6 +1340,7 @@ async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1302,6 +1351,7 @@ async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1312,6 +1362,7 @@ async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1322,6 +1373,7 @@ async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1332,6 +1384,7 @@ async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1342,6 +1395,7 @@ async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1352,6 +1406,7 @@ async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1362,6 +1417,7 @@ async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1372,6 +1428,7 @@ async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1425,7 +1482,7 @@ async function deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1437,6 +1494,7 @@ async function deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1447,6 +1505,7 @@ async function deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1457,6 +1516,7 @@ async function deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1467,6 +1527,7 @@ async function deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1477,6 +1538,7 @@ async function deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1487,6 +1549,7 @@ async function deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1540,7 +1603,7 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryComma
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1552,6 +1615,7 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1562,6 +1626,7 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1572,6 +1637,7 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1582,6 +1648,7 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1592,6 +1659,7 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1602,6 +1670,7 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryComma
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1655,7 +1724,7 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuo
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1667,6 +1736,7 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuo
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1677,6 +1747,7 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuo
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1687,6 +1758,7 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuo
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1697,6 +1769,7 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuo
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1707,6 +1780,7 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuo
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1717,6 +1791,7 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuo
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1770,7 +1845,7 @@ async function deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateC
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1782,6 +1857,7 @@ async function deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1792,6 +1868,7 @@ async function deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1802,6 +1879,7 @@ async function deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1812,6 +1890,7 @@ async function deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1822,6 +1901,7 @@ async function deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1832,6 +1912,7 @@ async function deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1842,6 +1923,7 @@ async function deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1852,6 +1934,7 @@ async function deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1899,7 +1982,7 @@ async function deserializeAws_json1_1ListServiceQuotasCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1911,6 +1994,7 @@ async function deserializeAws_json1_1ListServiceQuotasCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1921,6 +2005,7 @@ async function deserializeAws_json1_1ListServiceQuotasCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1931,6 +2016,7 @@ async function deserializeAws_json1_1ListServiceQuotasCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1941,6 +2027,7 @@ async function deserializeAws_json1_1ListServiceQuotasCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1951,6 +2038,7 @@ async function deserializeAws_json1_1ListServiceQuotasCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1961,6 +2049,7 @@ async function deserializeAws_json1_1ListServiceQuotasCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2008,7 +2097,7 @@ async function deserializeAws_json1_1ListServicesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2020,6 +2109,7 @@ async function deserializeAws_json1_1ListServicesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2030,6 +2120,7 @@ async function deserializeAws_json1_1ListServicesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2040,6 +2131,7 @@ async function deserializeAws_json1_1ListServicesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2050,6 +2142,7 @@ async function deserializeAws_json1_1ListServicesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2060,6 +2153,7 @@ async function deserializeAws_json1_1ListServicesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2113,7 +2207,7 @@ async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateC
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2125,6 +2219,7 @@ async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2135,6 +2230,7 @@ async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2145,6 +2241,7 @@ async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2155,6 +2252,7 @@ async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2165,6 +2263,7 @@ async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2175,6 +2274,7 @@ async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2185,6 +2285,7 @@ async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2195,6 +2296,7 @@ async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2205,6 +2307,7 @@ async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2215,6 +2318,7 @@ async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2268,7 +2372,7 @@ async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2280,6 +2384,7 @@ async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2290,6 +2395,7 @@ async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2300,6 +2406,7 @@ async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2310,6 +2417,7 @@ async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2320,6 +2428,7 @@ async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2330,6 +2439,7 @@ async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2340,6 +2450,7 @@ async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2350,6 +2461,7 @@ async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2360,6 +2472,7 @@ async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;

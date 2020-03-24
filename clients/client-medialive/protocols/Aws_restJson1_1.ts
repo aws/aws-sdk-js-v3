@@ -974,7 +974,7 @@ export async function serializeAws_restJson1_1DeleteTagsCommand(
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2075,19 +2075,22 @@ async function deserializeAws_restJson1_1BatchUpdateScheduleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchUpdateScheduleCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2095,9 +2098,10 @@ async function deserializeAws_restJson1_1BatchUpdateScheduleCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2105,9 +2109,10 @@ async function deserializeAws_restJson1_1BatchUpdateScheduleCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2115,9 +2120,10 @@ async function deserializeAws_restJson1_1BatchUpdateScheduleCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2125,9 +2131,10 @@ async function deserializeAws_restJson1_1BatchUpdateScheduleCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2135,9 +2142,10 @@ async function deserializeAws_restJson1_1BatchUpdateScheduleCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2145,9 +2153,10 @@ async function deserializeAws_restJson1_1BatchUpdateScheduleCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2155,14 +2164,15 @@ async function deserializeAws_restJson1_1BatchUpdateScheduleCommandError(
     case "com.amazonaws.medialive#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2201,19 +2211,22 @@ async function deserializeAws_restJson1_1CreateChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2221,9 +2234,10 @@ async function deserializeAws_restJson1_1CreateChannelCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2231,9 +2245,10 @@ async function deserializeAws_restJson1_1CreateChannelCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2241,9 +2256,10 @@ async function deserializeAws_restJson1_1CreateChannelCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2251,9 +2267,10 @@ async function deserializeAws_restJson1_1CreateChannelCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2261,9 +2278,10 @@ async function deserializeAws_restJson1_1CreateChannelCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2271,9 +2289,10 @@ async function deserializeAws_restJson1_1CreateChannelCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2281,14 +2300,15 @@ async function deserializeAws_restJson1_1CreateChannelCommandError(
     case "com.amazonaws.medialive#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2327,19 +2347,22 @@ async function deserializeAws_restJson1_1CreateInputCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInputCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2347,9 +2370,10 @@ async function deserializeAws_restJson1_1CreateInputCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2357,9 +2381,10 @@ async function deserializeAws_restJson1_1CreateInputCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2367,9 +2392,10 @@ async function deserializeAws_restJson1_1CreateInputCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2377,9 +2403,10 @@ async function deserializeAws_restJson1_1CreateInputCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2387,14 +2414,15 @@ async function deserializeAws_restJson1_1CreateInputCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2439,19 +2467,22 @@ async function deserializeAws_restJson1_1CreateInputSecurityGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInputSecurityGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2459,9 +2490,10 @@ async function deserializeAws_restJson1_1CreateInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2469,9 +2501,10 @@ async function deserializeAws_restJson1_1CreateInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2479,9 +2512,10 @@ async function deserializeAws_restJson1_1CreateInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2489,9 +2523,10 @@ async function deserializeAws_restJson1_1CreateInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2499,14 +2534,15 @@ async function deserializeAws_restJson1_1CreateInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2551,19 +2587,22 @@ async function deserializeAws_restJson1_1CreateMultiplexCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMultiplexCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2571,9 +2610,10 @@ async function deserializeAws_restJson1_1CreateMultiplexCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2581,9 +2621,10 @@ async function deserializeAws_restJson1_1CreateMultiplexCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2591,9 +2632,10 @@ async function deserializeAws_restJson1_1CreateMultiplexCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2601,9 +2643,10 @@ async function deserializeAws_restJson1_1CreateMultiplexCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2611,9 +2654,10 @@ async function deserializeAws_restJson1_1CreateMultiplexCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2621,9 +2665,10 @@ async function deserializeAws_restJson1_1CreateMultiplexCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2631,14 +2676,15 @@ async function deserializeAws_restJson1_1CreateMultiplexCommandError(
     case "com.amazonaws.medialive#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2683,19 +2729,22 @@ async function deserializeAws_restJson1_1CreateMultiplexProgramCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMultiplexProgramCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2703,9 +2752,10 @@ async function deserializeAws_restJson1_1CreateMultiplexProgramCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2713,9 +2763,10 @@ async function deserializeAws_restJson1_1CreateMultiplexProgramCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2723,9 +2774,10 @@ async function deserializeAws_restJson1_1CreateMultiplexProgramCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2733,9 +2785,10 @@ async function deserializeAws_restJson1_1CreateMultiplexProgramCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2743,9 +2796,10 @@ async function deserializeAws_restJson1_1CreateMultiplexProgramCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2753,9 +2807,10 @@ async function deserializeAws_restJson1_1CreateMultiplexProgramCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2763,14 +2818,15 @@ async function deserializeAws_restJson1_1CreateMultiplexProgramCommandError(
     case "com.amazonaws.medialive#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2804,19 +2860,22 @@ async function deserializeAws_restJson1_1CreateTagsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTagsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2824,9 +2883,10 @@ async function deserializeAws_restJson1_1CreateTagsCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2834,9 +2894,10 @@ async function deserializeAws_restJson1_1CreateTagsCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2844,14 +2905,15 @@ async function deserializeAws_restJson1_1CreateTagsCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2970,19 +3032,22 @@ async function deserializeAws_restJson1_1DeleteChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2990,9 +3055,10 @@ async function deserializeAws_restJson1_1DeleteChannelCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3000,9 +3066,10 @@ async function deserializeAws_restJson1_1DeleteChannelCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3010,9 +3077,10 @@ async function deserializeAws_restJson1_1DeleteChannelCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3020,9 +3088,10 @@ async function deserializeAws_restJson1_1DeleteChannelCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3030,9 +3099,10 @@ async function deserializeAws_restJson1_1DeleteChannelCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3040,9 +3110,10 @@ async function deserializeAws_restJson1_1DeleteChannelCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3050,14 +3121,15 @@ async function deserializeAws_restJson1_1DeleteChannelCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3092,19 +3164,22 @@ async function deserializeAws_restJson1_1DeleteInputCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInputCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3112,9 +3187,10 @@ async function deserializeAws_restJson1_1DeleteInputCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3122,9 +3198,10 @@ async function deserializeAws_restJson1_1DeleteInputCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3132,9 +3209,10 @@ async function deserializeAws_restJson1_1DeleteInputCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3142,9 +3220,10 @@ async function deserializeAws_restJson1_1DeleteInputCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3152,9 +3231,10 @@ async function deserializeAws_restJson1_1DeleteInputCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3162,9 +3242,10 @@ async function deserializeAws_restJson1_1DeleteInputCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3172,14 +3253,15 @@ async function deserializeAws_restJson1_1DeleteInputCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3217,19 +3299,22 @@ async function deserializeAws_restJson1_1DeleteInputSecurityGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInputSecurityGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3237,9 +3322,10 @@ async function deserializeAws_restJson1_1DeleteInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3247,9 +3333,10 @@ async function deserializeAws_restJson1_1DeleteInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3257,9 +3344,10 @@ async function deserializeAws_restJson1_1DeleteInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3267,9 +3355,10 @@ async function deserializeAws_restJson1_1DeleteInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3277,9 +3366,10 @@ async function deserializeAws_restJson1_1DeleteInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3287,14 +3377,15 @@ async function deserializeAws_restJson1_1DeleteInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3384,19 +3475,22 @@ async function deserializeAws_restJson1_1DeleteMultiplexCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMultiplexCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3404,9 +3498,10 @@ async function deserializeAws_restJson1_1DeleteMultiplexCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3414,9 +3509,10 @@ async function deserializeAws_restJson1_1DeleteMultiplexCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3424,9 +3520,10 @@ async function deserializeAws_restJson1_1DeleteMultiplexCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3434,9 +3531,10 @@ async function deserializeAws_restJson1_1DeleteMultiplexCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3444,9 +3542,10 @@ async function deserializeAws_restJson1_1DeleteMultiplexCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3454,9 +3553,10 @@ async function deserializeAws_restJson1_1DeleteMultiplexCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3464,14 +3564,15 @@ async function deserializeAws_restJson1_1DeleteMultiplexCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3537,19 +3638,22 @@ async function deserializeAws_restJson1_1DeleteMultiplexProgramCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMultiplexProgramCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3557,9 +3661,10 @@ async function deserializeAws_restJson1_1DeleteMultiplexProgramCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3567,9 +3672,10 @@ async function deserializeAws_restJson1_1DeleteMultiplexProgramCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3577,9 +3683,10 @@ async function deserializeAws_restJson1_1DeleteMultiplexProgramCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3587,9 +3694,10 @@ async function deserializeAws_restJson1_1DeleteMultiplexProgramCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3597,9 +3705,10 @@ async function deserializeAws_restJson1_1DeleteMultiplexProgramCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3607,9 +3716,10 @@ async function deserializeAws_restJson1_1DeleteMultiplexProgramCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3617,14 +3727,15 @@ async function deserializeAws_restJson1_1DeleteMultiplexProgramCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3743,19 +3854,22 @@ async function deserializeAws_restJson1_1DeleteReservationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReservationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3763,9 +3877,10 @@ async function deserializeAws_restJson1_1DeleteReservationCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3773,9 +3888,10 @@ async function deserializeAws_restJson1_1DeleteReservationCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3783,9 +3899,10 @@ async function deserializeAws_restJson1_1DeleteReservationCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3793,9 +3910,10 @@ async function deserializeAws_restJson1_1DeleteReservationCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3803,9 +3921,10 @@ async function deserializeAws_restJson1_1DeleteReservationCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3813,9 +3932,10 @@ async function deserializeAws_restJson1_1DeleteReservationCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3823,14 +3943,15 @@ async function deserializeAws_restJson1_1DeleteReservationCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3868,19 +3989,22 @@ async function deserializeAws_restJson1_1DeleteScheduleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteScheduleCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3888,9 +4012,10 @@ async function deserializeAws_restJson1_1DeleteScheduleCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3898,9 +4023,10 @@ async function deserializeAws_restJson1_1DeleteScheduleCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3908,9 +4034,10 @@ async function deserializeAws_restJson1_1DeleteScheduleCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3918,9 +4045,10 @@ async function deserializeAws_restJson1_1DeleteScheduleCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3928,9 +4056,10 @@ async function deserializeAws_restJson1_1DeleteScheduleCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3938,14 +4067,15 @@ async function deserializeAws_restJson1_1DeleteScheduleCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3979,19 +4109,22 @@ async function deserializeAws_restJson1_1DeleteTagsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTagsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3999,9 +4132,10 @@ async function deserializeAws_restJson1_1DeleteTagsCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4009,9 +4143,10 @@ async function deserializeAws_restJson1_1DeleteTagsCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4019,14 +4154,15 @@ async function deserializeAws_restJson1_1DeleteTagsCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4148,19 +4284,22 @@ async function deserializeAws_restJson1_1DescribeChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4168,9 +4307,10 @@ async function deserializeAws_restJson1_1DescribeChannelCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4178,9 +4318,10 @@ async function deserializeAws_restJson1_1DescribeChannelCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4188,9 +4329,10 @@ async function deserializeAws_restJson1_1DescribeChannelCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4198,9 +4340,10 @@ async function deserializeAws_restJson1_1DescribeChannelCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4208,9 +4351,10 @@ async function deserializeAws_restJson1_1DescribeChannelCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4218,14 +4362,15 @@ async function deserializeAws_restJson1_1DescribeChannelCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4331,19 +4476,22 @@ async function deserializeAws_restJson1_1DescribeInputCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInputCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4351,9 +4499,10 @@ async function deserializeAws_restJson1_1DescribeInputCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4361,9 +4510,10 @@ async function deserializeAws_restJson1_1DescribeInputCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4371,9 +4521,10 @@ async function deserializeAws_restJson1_1DescribeInputCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4381,9 +4532,10 @@ async function deserializeAws_restJson1_1DescribeInputCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4391,9 +4543,10 @@ async function deserializeAws_restJson1_1DescribeInputCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4401,14 +4554,15 @@ async function deserializeAws_restJson1_1DescribeInputCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4476,19 +4630,22 @@ async function deserializeAws_restJson1_1DescribeInputSecurityGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInputSecurityGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4496,9 +4653,10 @@ async function deserializeAws_restJson1_1DescribeInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4506,9 +4664,10 @@ async function deserializeAws_restJson1_1DescribeInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4516,9 +4675,10 @@ async function deserializeAws_restJson1_1DescribeInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4526,9 +4686,10 @@ async function deserializeAws_restJson1_1DescribeInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4536,9 +4697,10 @@ async function deserializeAws_restJson1_1DescribeInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4546,14 +4708,15 @@ async function deserializeAws_restJson1_1DescribeInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4643,19 +4806,22 @@ async function deserializeAws_restJson1_1DescribeMultiplexCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMultiplexCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4663,9 +4829,10 @@ async function deserializeAws_restJson1_1DescribeMultiplexCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4673,9 +4840,10 @@ async function deserializeAws_restJson1_1DescribeMultiplexCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4683,9 +4851,10 @@ async function deserializeAws_restJson1_1DescribeMultiplexCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4693,9 +4862,10 @@ async function deserializeAws_restJson1_1DescribeMultiplexCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4703,9 +4873,10 @@ async function deserializeAws_restJson1_1DescribeMultiplexCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4713,14 +4884,15 @@ async function deserializeAws_restJson1_1DescribeMultiplexCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4786,19 +4958,22 @@ async function deserializeAws_restJson1_1DescribeMultiplexProgramCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMultiplexProgramCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4806,9 +4981,10 @@ async function deserializeAws_restJson1_1DescribeMultiplexProgramCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4816,9 +4992,10 @@ async function deserializeAws_restJson1_1DescribeMultiplexProgramCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4826,9 +5003,10 @@ async function deserializeAws_restJson1_1DescribeMultiplexProgramCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4836,9 +5014,10 @@ async function deserializeAws_restJson1_1DescribeMultiplexProgramCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4846,9 +5025,10 @@ async function deserializeAws_restJson1_1DescribeMultiplexProgramCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4856,14 +5036,15 @@ async function deserializeAws_restJson1_1DescribeMultiplexProgramCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4954,19 +5135,22 @@ async function deserializeAws_restJson1_1DescribeOfferingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOfferingCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4974,9 +5158,10 @@ async function deserializeAws_restJson1_1DescribeOfferingCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4984,9 +5169,10 @@ async function deserializeAws_restJson1_1DescribeOfferingCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4994,9 +5180,10 @@ async function deserializeAws_restJson1_1DescribeOfferingCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5004,9 +5191,10 @@ async function deserializeAws_restJson1_1DescribeOfferingCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5014,9 +5202,10 @@ async function deserializeAws_restJson1_1DescribeOfferingCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5024,14 +5213,15 @@ async function deserializeAws_restJson1_1DescribeOfferingCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5150,19 +5340,22 @@ async function deserializeAws_restJson1_1DescribeReservationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5170,9 +5363,10 @@ async function deserializeAws_restJson1_1DescribeReservationCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5180,9 +5374,10 @@ async function deserializeAws_restJson1_1DescribeReservationCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5190,9 +5385,10 @@ async function deserializeAws_restJson1_1DescribeReservationCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5200,9 +5396,10 @@ async function deserializeAws_restJson1_1DescribeReservationCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5210,9 +5407,10 @@ async function deserializeAws_restJson1_1DescribeReservationCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5220,14 +5418,15 @@ async function deserializeAws_restJson1_1DescribeReservationCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5276,19 +5475,22 @@ async function deserializeAws_restJson1_1DescribeScheduleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScheduleCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5296,9 +5498,10 @@ async function deserializeAws_restJson1_1DescribeScheduleCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5306,9 +5509,10 @@ async function deserializeAws_restJson1_1DescribeScheduleCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5316,9 +5520,10 @@ async function deserializeAws_restJson1_1DescribeScheduleCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5326,9 +5531,10 @@ async function deserializeAws_restJson1_1DescribeScheduleCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5336,9 +5542,10 @@ async function deserializeAws_restJson1_1DescribeScheduleCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5346,14 +5553,15 @@ async function deserializeAws_restJson1_1DescribeScheduleCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5399,19 +5607,22 @@ async function deserializeAws_restJson1_1ListChannelsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5419,9 +5630,10 @@ async function deserializeAws_restJson1_1ListChannelsCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5429,9 +5641,10 @@ async function deserializeAws_restJson1_1ListChannelsCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5439,9 +5652,10 @@ async function deserializeAws_restJson1_1ListChannelsCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5449,9 +5663,10 @@ async function deserializeAws_restJson1_1ListChannelsCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5459,14 +5674,15 @@ async function deserializeAws_restJson1_1ListChannelsCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5518,19 +5734,22 @@ async function deserializeAws_restJson1_1ListInputSecurityGroupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInputSecurityGroupsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5538,9 +5757,10 @@ async function deserializeAws_restJson1_1ListInputSecurityGroupsCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5548,9 +5768,10 @@ async function deserializeAws_restJson1_1ListInputSecurityGroupsCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5558,9 +5779,10 @@ async function deserializeAws_restJson1_1ListInputSecurityGroupsCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5568,9 +5790,10 @@ async function deserializeAws_restJson1_1ListInputSecurityGroupsCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5578,14 +5801,15 @@ async function deserializeAws_restJson1_1ListInputSecurityGroupsCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5631,19 +5855,22 @@ async function deserializeAws_restJson1_1ListInputsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInputsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5651,9 +5878,10 @@ async function deserializeAws_restJson1_1ListInputsCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5661,9 +5889,10 @@ async function deserializeAws_restJson1_1ListInputsCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5671,9 +5900,10 @@ async function deserializeAws_restJson1_1ListInputsCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5681,9 +5911,10 @@ async function deserializeAws_restJson1_1ListInputsCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5691,14 +5922,15 @@ async function deserializeAws_restJson1_1ListInputsCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5747,19 +5979,22 @@ async function deserializeAws_restJson1_1ListMultiplexProgramsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMultiplexProgramsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5767,9 +6002,10 @@ async function deserializeAws_restJson1_1ListMultiplexProgramsCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5777,9 +6013,10 @@ async function deserializeAws_restJson1_1ListMultiplexProgramsCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5787,9 +6024,10 @@ async function deserializeAws_restJson1_1ListMultiplexProgramsCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5797,9 +6035,10 @@ async function deserializeAws_restJson1_1ListMultiplexProgramsCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5807,9 +6046,10 @@ async function deserializeAws_restJson1_1ListMultiplexProgramsCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5817,14 +6057,15 @@ async function deserializeAws_restJson1_1ListMultiplexProgramsCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5873,19 +6114,22 @@ async function deserializeAws_restJson1_1ListMultiplexesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMultiplexesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5893,9 +6137,10 @@ async function deserializeAws_restJson1_1ListMultiplexesCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5903,9 +6148,10 @@ async function deserializeAws_restJson1_1ListMultiplexesCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5913,9 +6159,10 @@ async function deserializeAws_restJson1_1ListMultiplexesCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5923,9 +6170,10 @@ async function deserializeAws_restJson1_1ListMultiplexesCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5933,14 +6181,15 @@ async function deserializeAws_restJson1_1ListMultiplexesCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5986,19 +6235,22 @@ async function deserializeAws_restJson1_1ListOfferingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOfferingsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6006,9 +6258,10 @@ async function deserializeAws_restJson1_1ListOfferingsCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6016,9 +6269,10 @@ async function deserializeAws_restJson1_1ListOfferingsCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6026,9 +6280,10 @@ async function deserializeAws_restJson1_1ListOfferingsCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6036,9 +6291,10 @@ async function deserializeAws_restJson1_1ListOfferingsCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6046,14 +6302,15 @@ async function deserializeAws_restJson1_1ListOfferingsCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6102,19 +6359,22 @@ async function deserializeAws_restJson1_1ListReservationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReservationsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6122,9 +6382,10 @@ async function deserializeAws_restJson1_1ListReservationsCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6132,9 +6393,10 @@ async function deserializeAws_restJson1_1ListReservationsCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6142,9 +6404,10 @@ async function deserializeAws_restJson1_1ListReservationsCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6152,9 +6415,10 @@ async function deserializeAws_restJson1_1ListReservationsCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6162,14 +6426,15 @@ async function deserializeAws_restJson1_1ListReservationsCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6211,19 +6476,22 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6231,9 +6499,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6241,9 +6510,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6251,14 +6521,15 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6303,19 +6574,22 @@ async function deserializeAws_restJson1_1PurchaseOfferingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PurchaseOfferingCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6323,9 +6597,10 @@ async function deserializeAws_restJson1_1PurchaseOfferingCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6333,9 +6608,10 @@ async function deserializeAws_restJson1_1PurchaseOfferingCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6343,9 +6619,10 @@ async function deserializeAws_restJson1_1PurchaseOfferingCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6353,9 +6630,10 @@ async function deserializeAws_restJson1_1PurchaseOfferingCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6363,9 +6641,10 @@ async function deserializeAws_restJson1_1PurchaseOfferingCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6373,9 +6652,10 @@ async function deserializeAws_restJson1_1PurchaseOfferingCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6383,14 +6663,15 @@ async function deserializeAws_restJson1_1PurchaseOfferingCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6509,19 +6790,22 @@ async function deserializeAws_restJson1_1StartChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartChannelCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6529,9 +6813,10 @@ async function deserializeAws_restJson1_1StartChannelCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6539,9 +6824,10 @@ async function deserializeAws_restJson1_1StartChannelCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6549,9 +6835,10 @@ async function deserializeAws_restJson1_1StartChannelCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6559,9 +6846,10 @@ async function deserializeAws_restJson1_1StartChannelCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6569,9 +6857,10 @@ async function deserializeAws_restJson1_1StartChannelCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6579,9 +6868,10 @@ async function deserializeAws_restJson1_1StartChannelCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6589,14 +6879,15 @@ async function deserializeAws_restJson1_1StartChannelCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6686,19 +6977,22 @@ async function deserializeAws_restJson1_1StartMultiplexCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMultiplexCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6706,9 +7000,10 @@ async function deserializeAws_restJson1_1StartMultiplexCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6716,9 +7011,10 @@ async function deserializeAws_restJson1_1StartMultiplexCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6726,9 +7022,10 @@ async function deserializeAws_restJson1_1StartMultiplexCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6736,9 +7033,10 @@ async function deserializeAws_restJson1_1StartMultiplexCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6746,9 +7044,10 @@ async function deserializeAws_restJson1_1StartMultiplexCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6756,9 +7055,10 @@ async function deserializeAws_restJson1_1StartMultiplexCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6766,14 +7066,15 @@ async function deserializeAws_restJson1_1StartMultiplexCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6892,19 +7193,22 @@ async function deserializeAws_restJson1_1StopChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopChannelCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6912,9 +7216,10 @@ async function deserializeAws_restJson1_1StopChannelCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6922,9 +7227,10 @@ async function deserializeAws_restJson1_1StopChannelCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6932,9 +7238,10 @@ async function deserializeAws_restJson1_1StopChannelCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6942,9 +7249,10 @@ async function deserializeAws_restJson1_1StopChannelCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6952,9 +7260,10 @@ async function deserializeAws_restJson1_1StopChannelCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6962,9 +7271,10 @@ async function deserializeAws_restJson1_1StopChannelCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6972,14 +7282,15 @@ async function deserializeAws_restJson1_1StopChannelCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7066,19 +7377,22 @@ async function deserializeAws_restJson1_1StopMultiplexCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopMultiplexCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7086,9 +7400,10 @@ async function deserializeAws_restJson1_1StopMultiplexCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7096,9 +7411,10 @@ async function deserializeAws_restJson1_1StopMultiplexCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7106,9 +7422,10 @@ async function deserializeAws_restJson1_1StopMultiplexCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7116,9 +7433,10 @@ async function deserializeAws_restJson1_1StopMultiplexCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7126,9 +7444,10 @@ async function deserializeAws_restJson1_1StopMultiplexCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7136,9 +7455,10 @@ async function deserializeAws_restJson1_1StopMultiplexCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7146,14 +7466,15 @@ async function deserializeAws_restJson1_1StopMultiplexCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7192,19 +7513,22 @@ async function deserializeAws_restJson1_1UpdateChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChannelCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7212,9 +7536,10 @@ async function deserializeAws_restJson1_1UpdateChannelCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7222,9 +7547,10 @@ async function deserializeAws_restJson1_1UpdateChannelCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7232,9 +7558,10 @@ async function deserializeAws_restJson1_1UpdateChannelCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7242,9 +7569,10 @@ async function deserializeAws_restJson1_1UpdateChannelCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7252,9 +7580,10 @@ async function deserializeAws_restJson1_1UpdateChannelCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7262,14 +7591,15 @@ async function deserializeAws_restJson1_1UpdateChannelCommandError(
     case "com.amazonaws.medialive#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7311,19 +7641,22 @@ async function deserializeAws_restJson1_1UpdateChannelClassCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChannelClassCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7331,9 +7664,10 @@ async function deserializeAws_restJson1_1UpdateChannelClassCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7341,9 +7675,10 @@ async function deserializeAws_restJson1_1UpdateChannelClassCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7351,9 +7686,10 @@ async function deserializeAws_restJson1_1UpdateChannelClassCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7361,9 +7697,10 @@ async function deserializeAws_restJson1_1UpdateChannelClassCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7371,9 +7708,10 @@ async function deserializeAws_restJson1_1UpdateChannelClassCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7381,9 +7719,10 @@ async function deserializeAws_restJson1_1UpdateChannelClassCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7391,9 +7730,10 @@ async function deserializeAws_restJson1_1UpdateChannelClassCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7401,14 +7741,15 @@ async function deserializeAws_restJson1_1UpdateChannelClassCommandError(
     case "com.amazonaws.medialive#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7447,19 +7788,22 @@ async function deserializeAws_restJson1_1UpdateInputCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateInputCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7467,9 +7811,10 @@ async function deserializeAws_restJson1_1UpdateInputCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7477,9 +7822,10 @@ async function deserializeAws_restJson1_1UpdateInputCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7487,9 +7833,10 @@ async function deserializeAws_restJson1_1UpdateInputCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7497,9 +7844,10 @@ async function deserializeAws_restJson1_1UpdateInputCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7507,9 +7855,10 @@ async function deserializeAws_restJson1_1UpdateInputCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7517,14 +7866,15 @@ async function deserializeAws_restJson1_1UpdateInputCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7569,19 +7919,22 @@ async function deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateInputSecurityGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7589,9 +7942,10 @@ async function deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7599,9 +7953,10 @@ async function deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7609,9 +7964,10 @@ async function deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7619,9 +7975,10 @@ async function deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7629,9 +7986,10 @@ async function deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7639,14 +7997,15 @@ async function deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7691,19 +8050,22 @@ async function deserializeAws_restJson1_1UpdateMultiplexCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMultiplexCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7711,9 +8073,10 @@ async function deserializeAws_restJson1_1UpdateMultiplexCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7721,9 +8084,10 @@ async function deserializeAws_restJson1_1UpdateMultiplexCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7731,9 +8095,10 @@ async function deserializeAws_restJson1_1UpdateMultiplexCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7741,9 +8106,10 @@ async function deserializeAws_restJson1_1UpdateMultiplexCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7751,9 +8117,10 @@ async function deserializeAws_restJson1_1UpdateMultiplexCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7761,9 +8128,10 @@ async function deserializeAws_restJson1_1UpdateMultiplexCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7771,14 +8139,15 @@ async function deserializeAws_restJson1_1UpdateMultiplexCommandError(
     case "com.amazonaws.medialive#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7823,19 +8192,22 @@ async function deserializeAws_restJson1_1UpdateMultiplexProgramCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMultiplexProgramCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7843,9 +8215,10 @@ async function deserializeAws_restJson1_1UpdateMultiplexProgramCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7853,9 +8226,10 @@ async function deserializeAws_restJson1_1UpdateMultiplexProgramCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7863,9 +8237,10 @@ async function deserializeAws_restJson1_1UpdateMultiplexProgramCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7873,9 +8248,10 @@ async function deserializeAws_restJson1_1UpdateMultiplexProgramCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7883,9 +8259,10 @@ async function deserializeAws_restJson1_1UpdateMultiplexProgramCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7893,9 +8270,10 @@ async function deserializeAws_restJson1_1UpdateMultiplexProgramCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7903,14 +8281,15 @@ async function deserializeAws_restJson1_1UpdateMultiplexProgramCommandError(
     case "com.amazonaws.medialive#UnprocessableEntityException":
       response = {
         ...(await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7955,19 +8334,22 @@ async function deserializeAws_restJson1_1UpdateReservationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateReservationCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
         ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7975,9 +8357,10 @@ async function deserializeAws_restJson1_1UpdateReservationCommandError(
     case "com.amazonaws.medialive#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7985,9 +8368,10 @@ async function deserializeAws_restJson1_1UpdateReservationCommandError(
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7995,9 +8379,10 @@ async function deserializeAws_restJson1_1UpdateReservationCommandError(
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8005,9 +8390,10 @@ async function deserializeAws_restJson1_1UpdateReservationCommandError(
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
         ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8015,9 +8401,10 @@ async function deserializeAws_restJson1_1UpdateReservationCommandError(
     case "com.amazonaws.medialive#InternalServerErrorException":
       response = {
         ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8025,9 +8412,10 @@ async function deserializeAws_restJson1_1UpdateReservationCommandError(
     case "com.amazonaws.medialive#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8035,14 +8423,15 @@ async function deserializeAws_restJson1_1UpdateReservationCommandError(
     case "com.amazonaws.medialive#TooManyRequestsException":
       response = {
         ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8059,16 +8448,16 @@ async function deserializeAws_restJson1_1UpdateReservationCommandError(
 }
 
 const deserializeAws_restJson1_1BadGatewayExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<BadGatewayException> => {
   const contents: BadGatewayException = {
     name: "BadGatewayException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -8076,16 +8465,16 @@ const deserializeAws_restJson1_1BadGatewayExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
     name: "BadRequestException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -8093,16 +8482,16 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ConflictExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConflictException> => {
   const contents: ConflictException = {
     name: "ConflictException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -8110,16 +8499,16 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ForbiddenException> => {
   const contents: ForbiddenException = {
     name: "ForbiddenException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -8127,16 +8516,16 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1GatewayTimeoutExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<GatewayTimeoutException> => {
   const contents: GatewayTimeoutException = {
     name: "GatewayTimeoutException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -8144,16 +8533,16 @@ const deserializeAws_restJson1_1GatewayTimeoutExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
   const contents: InternalServerErrorException = {
     name: "InternalServerErrorException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -8161,16 +8550,16 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
     name: "NotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -8178,16 +8567,16 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -8195,17 +8584,17 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1UnprocessableEntityExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnprocessableEntityException> => {
   const contents: UnprocessableEntityException = {
     name: "UnprocessableEntityException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     ValidationErrors: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.Message = data.message;
   }
@@ -18769,4 +19158,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

@@ -264,7 +264,7 @@ async function deserializeAws_json1_1CreateEnvironmentEC2CommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -276,6 +276,7 @@ async function deserializeAws_json1_1CreateEnvironmentEC2CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -286,6 +287,7 @@ async function deserializeAws_json1_1CreateEnvironmentEC2CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -296,6 +298,7 @@ async function deserializeAws_json1_1CreateEnvironmentEC2CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -306,6 +309,7 @@ async function deserializeAws_json1_1CreateEnvironmentEC2CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -316,6 +320,7 @@ async function deserializeAws_json1_1CreateEnvironmentEC2CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -326,6 +331,7 @@ async function deserializeAws_json1_1CreateEnvironmentEC2CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -336,6 +342,7 @@ async function deserializeAws_json1_1CreateEnvironmentEC2CommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -389,7 +396,7 @@ async function deserializeAws_json1_1CreateEnvironmentMembershipCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -401,6 +408,7 @@ async function deserializeAws_json1_1CreateEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -411,6 +419,7 @@ async function deserializeAws_json1_1CreateEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -421,6 +430,7 @@ async function deserializeAws_json1_1CreateEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -431,6 +441,7 @@ async function deserializeAws_json1_1CreateEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -441,6 +452,7 @@ async function deserializeAws_json1_1CreateEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -451,6 +463,7 @@ async function deserializeAws_json1_1CreateEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -461,6 +474,7 @@ async function deserializeAws_json1_1CreateEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -508,7 +522,7 @@ async function deserializeAws_json1_1DeleteEnvironmentCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -520,6 +534,7 @@ async function deserializeAws_json1_1DeleteEnvironmentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -530,6 +545,7 @@ async function deserializeAws_json1_1DeleteEnvironmentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -540,6 +556,7 @@ async function deserializeAws_json1_1DeleteEnvironmentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -550,6 +567,7 @@ async function deserializeAws_json1_1DeleteEnvironmentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -560,6 +578,7 @@ async function deserializeAws_json1_1DeleteEnvironmentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -570,6 +589,7 @@ async function deserializeAws_json1_1DeleteEnvironmentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -580,6 +600,7 @@ async function deserializeAws_json1_1DeleteEnvironmentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -633,7 +654,7 @@ async function deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -645,6 +666,7 @@ async function deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -655,6 +677,7 @@ async function deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -665,6 +688,7 @@ async function deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -675,6 +699,7 @@ async function deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -685,6 +710,7 @@ async function deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -695,6 +721,7 @@ async function deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -705,6 +732,7 @@ async function deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -758,7 +786,7 @@ async function deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -770,6 +798,7 @@ async function deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -780,6 +809,7 @@ async function deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -790,6 +820,7 @@ async function deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -800,6 +831,7 @@ async function deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -810,6 +842,7 @@ async function deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -820,6 +853,7 @@ async function deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -830,6 +864,7 @@ async function deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -883,7 +918,7 @@ async function deserializeAws_json1_1DescribeEnvironmentStatusCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -895,6 +930,7 @@ async function deserializeAws_json1_1DescribeEnvironmentStatusCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -905,6 +941,7 @@ async function deserializeAws_json1_1DescribeEnvironmentStatusCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -915,6 +952,7 @@ async function deserializeAws_json1_1DescribeEnvironmentStatusCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -925,6 +963,7 @@ async function deserializeAws_json1_1DescribeEnvironmentStatusCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -935,6 +974,7 @@ async function deserializeAws_json1_1DescribeEnvironmentStatusCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -945,6 +985,7 @@ async function deserializeAws_json1_1DescribeEnvironmentStatusCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -955,6 +996,7 @@ async function deserializeAws_json1_1DescribeEnvironmentStatusCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1005,7 +1047,7 @@ async function deserializeAws_json1_1DescribeEnvironmentsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1017,6 +1059,7 @@ async function deserializeAws_json1_1DescribeEnvironmentsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1027,6 +1070,7 @@ async function deserializeAws_json1_1DescribeEnvironmentsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1037,6 +1081,7 @@ async function deserializeAws_json1_1DescribeEnvironmentsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1047,6 +1092,7 @@ async function deserializeAws_json1_1DescribeEnvironmentsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1057,6 +1103,7 @@ async function deserializeAws_json1_1DescribeEnvironmentsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1067,6 +1114,7 @@ async function deserializeAws_json1_1DescribeEnvironmentsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1077,6 +1125,7 @@ async function deserializeAws_json1_1DescribeEnvironmentsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1124,7 +1173,7 @@ async function deserializeAws_json1_1ListEnvironmentsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1136,6 +1185,7 @@ async function deserializeAws_json1_1ListEnvironmentsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1146,6 +1196,7 @@ async function deserializeAws_json1_1ListEnvironmentsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1156,6 +1207,7 @@ async function deserializeAws_json1_1ListEnvironmentsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1166,6 +1218,7 @@ async function deserializeAws_json1_1ListEnvironmentsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1176,6 +1229,7 @@ async function deserializeAws_json1_1ListEnvironmentsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1186,6 +1240,7 @@ async function deserializeAws_json1_1ListEnvironmentsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1196,6 +1251,7 @@ async function deserializeAws_json1_1ListEnvironmentsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1243,7 +1299,7 @@ async function deserializeAws_json1_1UpdateEnvironmentCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1255,6 +1311,7 @@ async function deserializeAws_json1_1UpdateEnvironmentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1265,6 +1322,7 @@ async function deserializeAws_json1_1UpdateEnvironmentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1275,6 +1333,7 @@ async function deserializeAws_json1_1UpdateEnvironmentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1285,6 +1344,7 @@ async function deserializeAws_json1_1UpdateEnvironmentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1295,6 +1355,7 @@ async function deserializeAws_json1_1UpdateEnvironmentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1305,6 +1366,7 @@ async function deserializeAws_json1_1UpdateEnvironmentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1315,6 +1377,7 @@ async function deserializeAws_json1_1UpdateEnvironmentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1368,7 +1431,7 @@ async function deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1380,6 +1443,7 @@ async function deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1390,6 +1454,7 @@ async function deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1400,6 +1465,7 @@ async function deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1410,6 +1476,7 @@ async function deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1420,6 +1487,7 @@ async function deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1430,6 +1498,7 @@ async function deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1440,6 +1509,7 @@ async function deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;

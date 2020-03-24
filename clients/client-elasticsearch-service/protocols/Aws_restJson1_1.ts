@@ -947,19 +947,22 @@ async function deserializeAws_restJson1_1AddTagsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -967,9 +970,10 @@ async function deserializeAws_restJson1_1AddTagsCommandError(
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -977,9 +981,10 @@ async function deserializeAws_restJson1_1AddTagsCommandError(
     case "com.a9.es.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -987,14 +992,15 @@ async function deserializeAws_restJson1_1AddTagsCommandError(
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1042,19 +1048,22 @@ async function deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdat
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1062,9 +1071,10 @@ async function deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdat
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1072,9 +1082,10 @@ async function deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdat
     case "com.a9.es.exceptions#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1082,14 +1093,15 @@ async function deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdat
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1134,19 +1146,22 @@ async function deserializeAws_restJson1_1CreateElasticsearchDomainCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateElasticsearchDomainCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1154,9 +1169,10 @@ async function deserializeAws_restJson1_1CreateElasticsearchDomainCommandError(
     case "com.a9.es.exceptions#DisabledOperationException":
       response = {
         ...(await deserializeAws_restJson1_1DisabledOperationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1164,9 +1180,10 @@ async function deserializeAws_restJson1_1CreateElasticsearchDomainCommandError(
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1174,9 +1191,10 @@ async function deserializeAws_restJson1_1CreateElasticsearchDomainCommandError(
     case "com.a9.es.exceptions#InvalidTypeException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidTypeExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1184,9 +1202,10 @@ async function deserializeAws_restJson1_1CreateElasticsearchDomainCommandError(
     case "com.a9.es.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1194,9 +1213,10 @@ async function deserializeAws_restJson1_1CreateElasticsearchDomainCommandError(
     case "com.a9.es.exceptions#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1204,14 +1224,15 @@ async function deserializeAws_restJson1_1CreateElasticsearchDomainCommandError(
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1256,19 +1277,22 @@ async function deserializeAws_restJson1_1DeleteElasticsearchDomainCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteElasticsearchDomainCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1276,9 +1300,10 @@ async function deserializeAws_restJson1_1DeleteElasticsearchDomainCommandError(
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1286,9 +1311,10 @@ async function deserializeAws_restJson1_1DeleteElasticsearchDomainCommandError(
     case "com.a9.es.exceptions#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1296,14 +1322,15 @@ async function deserializeAws_restJson1_1DeleteElasticsearchDomainCommandError(
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1340,19 +1367,22 @@ async function deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteElasticsearchServiceRoleCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1360,9 +1390,10 @@ async function deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommandEr
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1370,14 +1401,15 @@ async function deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommandEr
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1422,19 +1454,22 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeElasticsearchDomainCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1442,9 +1477,10 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainCommandError
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1452,9 +1488,10 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainCommandError
     case "com.a9.es.exceptions#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1462,14 +1499,15 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainCommandError
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1514,19 +1552,22 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainConfigComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeElasticsearchDomainConfigCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1534,9 +1575,10 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainConfigComman
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1544,9 +1586,10 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainConfigComman
     case "com.a9.es.exceptions#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1554,14 +1597,15 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainConfigComman
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1606,19 +1650,22 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainsCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeElasticsearchDomainsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1626,9 +1673,10 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainsCommandErro
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1636,14 +1684,15 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainsCommandErro
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1688,19 +1737,22 @@ async function deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimits
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeElasticsearchInstanceTypeLimitsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1708,9 +1760,10 @@ async function deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimits
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1718,9 +1771,10 @@ async function deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimits
     case "com.a9.es.exceptions#InvalidTypeException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidTypeExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1728,9 +1782,10 @@ async function deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimits
     case "com.a9.es.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1738,9 +1793,10 @@ async function deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimits
     case "com.a9.es.exceptions#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1748,14 +1804,15 @@ async function deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimits
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1807,19 +1864,22 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstanceOf
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservedElasticsearchInstanceOfferingsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.a9.es.exceptions#DisabledOperationException":
       response = {
         ...(await deserializeAws_restJson1_1DisabledOperationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1827,9 +1887,10 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstanceOf
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1837,9 +1898,10 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstanceOf
     case "com.a9.es.exceptions#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1847,14 +1909,15 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstanceOf
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -1906,19 +1969,22 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservedElasticsearchInstancesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.a9.es.exceptions#DisabledOperationException":
       response = {
         ...(await deserializeAws_restJson1_1DisabledOperationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1926,9 +1992,10 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesC
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1936,9 +2003,10 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesC
     case "com.a9.es.exceptions#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1946,14 +2014,15 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesC
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2001,19 +2070,22 @@ async function deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCompatibleElasticsearchVersionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2021,9 +2093,10 @@ async function deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsComma
     case "com.a9.es.exceptions#DisabledOperationException":
       response = {
         ...(await deserializeAws_restJson1_1DisabledOperationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2031,9 +2104,10 @@ async function deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsComma
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2041,9 +2115,10 @@ async function deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsComma
     case "com.a9.es.exceptions#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2051,14 +2126,15 @@ async function deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsComma
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2107,19 +2183,22 @@ async function deserializeAws_restJson1_1GetUpgradeHistoryCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUpgradeHistoryCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2127,9 +2206,10 @@ async function deserializeAws_restJson1_1GetUpgradeHistoryCommandError(
     case "com.a9.es.exceptions#DisabledOperationException":
       response = {
         ...(await deserializeAws_restJson1_1DisabledOperationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2137,9 +2217,10 @@ async function deserializeAws_restJson1_1GetUpgradeHistoryCommandError(
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2147,9 +2228,10 @@ async function deserializeAws_restJson1_1GetUpgradeHistoryCommandError(
     case "com.a9.es.exceptions#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2157,14 +2239,15 @@ async function deserializeAws_restJson1_1GetUpgradeHistoryCommandError(
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2214,19 +2297,22 @@ async function deserializeAws_restJson1_1GetUpgradeStatusCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUpgradeStatusCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2234,9 +2320,10 @@ async function deserializeAws_restJson1_1GetUpgradeStatusCommandError(
     case "com.a9.es.exceptions#DisabledOperationException":
       response = {
         ...(await deserializeAws_restJson1_1DisabledOperationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2244,9 +2331,10 @@ async function deserializeAws_restJson1_1GetUpgradeStatusCommandError(
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2254,9 +2342,10 @@ async function deserializeAws_restJson1_1GetUpgradeStatusCommandError(
     case "com.a9.es.exceptions#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2264,14 +2353,15 @@ async function deserializeAws_restJson1_1GetUpgradeStatusCommandError(
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2316,19 +2406,22 @@ async function deserializeAws_restJson1_1ListDomainNamesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainNamesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2336,14 +2429,15 @@ async function deserializeAws_restJson1_1ListDomainNamesCommandError(
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2395,19 +2489,22 @@ async function deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListElasticsearchInstanceTypesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2415,9 +2512,10 @@ async function deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommandEr
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2425,9 +2523,10 @@ async function deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommandEr
     case "com.a9.es.exceptions#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2435,14 +2534,15 @@ async function deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommandEr
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2494,19 +2594,22 @@ async function deserializeAws_restJson1_1ListElasticsearchVersionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListElasticsearchVersionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2514,9 +2617,10 @@ async function deserializeAws_restJson1_1ListElasticsearchVersionsCommandError(
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2524,9 +2628,10 @@ async function deserializeAws_restJson1_1ListElasticsearchVersionsCommandError(
     case "com.a9.es.exceptions#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2534,14 +2639,15 @@ async function deserializeAws_restJson1_1ListElasticsearchVersionsCommandError(
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2580,19 +2686,22 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2600,9 +2709,10 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2610,9 +2720,10 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
     case "com.a9.es.exceptions#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2620,14 +2731,15 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2677,19 +2789,22 @@ async function deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOf
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PurchaseReservedElasticsearchInstanceOfferingCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.a9.es.exceptions#DisabledOperationException":
       response = {
         ...(await deserializeAws_restJson1_1DisabledOperationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2697,9 +2812,10 @@ async function deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOf
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2707,9 +2823,10 @@ async function deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOf
     case "com.a9.es.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2717,9 +2834,10 @@ async function deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOf
     case "com.a9.es.exceptions#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2727,9 +2845,10 @@ async function deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOf
     case "com.a9.es.exceptions#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2737,14 +2856,15 @@ async function deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOf
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2778,19 +2898,22 @@ async function deserializeAws_restJson1_1RemoveTagsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2798,9 +2921,10 @@ async function deserializeAws_restJson1_1RemoveTagsCommandError(
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2808,14 +2932,15 @@ async function deserializeAws_restJson1_1RemoveTagsCommandError(
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2863,19 +2988,22 @@ async function deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdate
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2883,9 +3011,10 @@ async function deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdate
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2893,9 +3022,10 @@ async function deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdate
     case "com.a9.es.exceptions#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2903,14 +3033,15 @@ async function deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdate
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -2955,19 +3086,22 @@ async function deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateElasticsearchDomainConfigCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2975,9 +3109,10 @@ async function deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandE
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2985,9 +3120,10 @@ async function deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandE
     case "com.a9.es.exceptions#InvalidTypeException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidTypeExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -2995,9 +3131,10 @@ async function deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandE
     case "com.a9.es.exceptions#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3005,9 +3142,10 @@ async function deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandE
     case "com.a9.es.exceptions#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3015,14 +3153,15 @@ async function deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandE
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3072,19 +3211,22 @@ async function deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpgradeElasticsearchDomainCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
         ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3092,9 +3234,10 @@ async function deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError(
     case "com.a9.es.exceptions#DisabledOperationException":
       response = {
         ...(await deserializeAws_restJson1_1DisabledOperationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3102,9 +3245,10 @@ async function deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError(
     case "com.a9.es.exceptions#InternalException":
       response = {
         ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3112,9 +3256,10 @@ async function deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError(
     case "com.a9.es.exceptions#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3122,9 +3267,10 @@ async function deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError(
     case "com.a9.es.exceptions#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -3132,14 +3278,15 @@ async function deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError(
     case "com.a9.es.exceptions#ValidationException":
       response = {
         ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -3156,16 +3303,16 @@ async function deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError(
 }
 
 const deserializeAws_restJson1_1BaseExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<BaseException> => {
   const contents: BaseException = {
     name: "BaseException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -3173,16 +3320,16 @@ const deserializeAws_restJson1_1BaseExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1DisabledOperationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DisabledOperationException> => {
   const contents: DisabledOperationException = {
     name: "DisabledOperationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -3190,16 +3337,16 @@ const deserializeAws_restJson1_1DisabledOperationExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InternalExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalException> => {
   const contents: InternalException = {
     name: "InternalException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -3207,16 +3354,16 @@ const deserializeAws_restJson1_1InternalExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidTypeExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTypeException> => {
   const contents: InvalidTypeException = {
     name: "InvalidTypeException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -3224,16 +3371,16 @@ const deserializeAws_restJson1_1InvalidTypeExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -3241,16 +3388,16 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -3258,16 +3405,16 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -3275,16 +3422,16 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ValidationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ValidationException> => {
   const contents: ValidationException = {
     name: "ValidationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
@@ -5089,4 +5236,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

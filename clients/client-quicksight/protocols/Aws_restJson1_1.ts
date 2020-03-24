@@ -3141,7 +3141,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["keys"] = input.TagKeys;
+    query["keys"] = (input.TagKeys || []).map(_entry => _entry);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -4053,19 +4053,22 @@ async function deserializeAws_restJson1_1CancelIngestionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelIngestionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4073,9 +4076,10 @@ async function deserializeAws_restJson1_1CancelIngestionCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4083,9 +4087,10 @@ async function deserializeAws_restJson1_1CancelIngestionCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4093,9 +4098,10 @@ async function deserializeAws_restJson1_1CancelIngestionCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4103,9 +4109,10 @@ async function deserializeAws_restJson1_1CancelIngestionCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4113,14 +4120,15 @@ async function deserializeAws_restJson1_1CancelIngestionCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4178,19 +4186,22 @@ async function deserializeAws_restJson1_1CreateDashboardCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDashboardCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4198,9 +4209,10 @@ async function deserializeAws_restJson1_1CreateDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4208,9 +4220,10 @@ async function deserializeAws_restJson1_1CreateDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4218,9 +4231,10 @@ async function deserializeAws_restJson1_1CreateDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4228,9 +4242,10 @@ async function deserializeAws_restJson1_1CreateDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4238,9 +4253,10 @@ async function deserializeAws_restJson1_1CreateDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4248,14 +4264,15 @@ async function deserializeAws_restJson1_1CreateDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4310,19 +4327,22 @@ async function deserializeAws_restJson1_1CreateDataSetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataSetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4330,9 +4350,10 @@ async function deserializeAws_restJson1_1CreateDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4340,9 +4361,10 @@ async function deserializeAws_restJson1_1CreateDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4350,9 +4372,10 @@ async function deserializeAws_restJson1_1CreateDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4360,9 +4383,10 @@ async function deserializeAws_restJson1_1CreateDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4370,9 +4394,10 @@ async function deserializeAws_restJson1_1CreateDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4380,9 +4405,10 @@ async function deserializeAws_restJson1_1CreateDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4390,9 +4416,10 @@ async function deserializeAws_restJson1_1CreateDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4400,14 +4427,15 @@ async function deserializeAws_restJson1_1CreateDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4461,19 +4489,22 @@ async function deserializeAws_restJson1_1CreateDataSourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataSourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4481,9 +4512,10 @@ async function deserializeAws_restJson1_1CreateDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4491,9 +4523,10 @@ async function deserializeAws_restJson1_1CreateDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4501,9 +4534,10 @@ async function deserializeAws_restJson1_1CreateDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4511,9 +4545,10 @@ async function deserializeAws_restJson1_1CreateDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4521,9 +4556,10 @@ async function deserializeAws_restJson1_1CreateDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4531,9 +4567,10 @@ async function deserializeAws_restJson1_1CreateDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4541,14 +4578,15 @@ async function deserializeAws_restJson1_1CreateDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4591,19 +4629,22 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4611,9 +4652,10 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4621,9 +4663,10 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4631,9 +4674,10 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4641,9 +4685,10 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4651,9 +4696,10 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4661,9 +4707,10 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4671,9 +4718,10 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4681,14 +4729,15 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4737,19 +4786,22 @@ async function deserializeAws_restJson1_1CreateGroupMembershipCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupMembershipCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4757,9 +4809,10 @@ async function deserializeAws_restJson1_1CreateGroupMembershipCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4767,9 +4820,10 @@ async function deserializeAws_restJson1_1CreateGroupMembershipCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4777,9 +4831,10 @@ async function deserializeAws_restJson1_1CreateGroupMembershipCommandError(
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4787,9 +4842,10 @@ async function deserializeAws_restJson1_1CreateGroupMembershipCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4797,9 +4853,10 @@ async function deserializeAws_restJson1_1CreateGroupMembershipCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4807,14 +4864,15 @@ async function deserializeAws_restJson1_1CreateGroupMembershipCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -4879,19 +4937,22 @@ async function deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIAMPolicyAssignmentCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentUpdatingException":
     case "com.amazonaws.services.quicksight#ConcurrentUpdatingException":
       response = {
         ...(await deserializeAws_restJson1_1ConcurrentUpdatingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4899,9 +4960,10 @@ async function deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4909,9 +4971,10 @@ async function deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4919,9 +4982,10 @@ async function deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4929,9 +4993,10 @@ async function deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4939,9 +5004,10 @@ async function deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -4949,14 +5015,15 @@ async function deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5010,19 +5077,22 @@ async function deserializeAws_restJson1_1CreateIngestionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIngestionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5030,9 +5100,10 @@ async function deserializeAws_restJson1_1CreateIngestionCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5040,9 +5111,10 @@ async function deserializeAws_restJson1_1CreateIngestionCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5050,9 +5122,10 @@ async function deserializeAws_restJson1_1CreateIngestionCommandError(
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5060,9 +5133,10 @@ async function deserializeAws_restJson1_1CreateIngestionCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5070,9 +5144,10 @@ async function deserializeAws_restJson1_1CreateIngestionCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5080,14 +5155,15 @@ async function deserializeAws_restJson1_1CreateIngestionCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5145,19 +5221,22 @@ async function deserializeAws_restJson1_1CreateTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTemplateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5165,9 +5244,10 @@ async function deserializeAws_restJson1_1CreateTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5175,9 +5255,10 @@ async function deserializeAws_restJson1_1CreateTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5185,9 +5266,10 @@ async function deserializeAws_restJson1_1CreateTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5195,9 +5277,10 @@ async function deserializeAws_restJson1_1CreateTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5205,9 +5288,10 @@ async function deserializeAws_restJson1_1CreateTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5215,9 +5299,10 @@ async function deserializeAws_restJson1_1CreateTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5225,14 +5310,15 @@ async function deserializeAws_restJson1_1CreateTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5281,19 +5367,22 @@ async function deserializeAws_restJson1_1CreateTemplateAliasCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTemplateAliasCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5301,9 +5390,10 @@ async function deserializeAws_restJson1_1CreateTemplateAliasCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5311,9 +5401,10 @@ async function deserializeAws_restJson1_1CreateTemplateAliasCommandError(
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5321,9 +5412,10 @@ async function deserializeAws_restJson1_1CreateTemplateAliasCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5331,9 +5423,10 @@ async function deserializeAws_restJson1_1CreateTemplateAliasCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5341,9 +5434,10 @@ async function deserializeAws_restJson1_1CreateTemplateAliasCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5351,14 +5445,15 @@ async function deserializeAws_restJson1_1CreateTemplateAliasCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5408,19 +5503,22 @@ async function deserializeAws_restJson1_1DeleteDashboardCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDashboardCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5428,9 +5526,10 @@ async function deserializeAws_restJson1_1DeleteDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5438,9 +5537,10 @@ async function deserializeAws_restJson1_1DeleteDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5448,9 +5548,10 @@ async function deserializeAws_restJson1_1DeleteDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5458,9 +5559,10 @@ async function deserializeAws_restJson1_1DeleteDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5468,14 +5570,15 @@ async function deserializeAws_restJson1_1DeleteDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5522,19 +5625,22 @@ async function deserializeAws_restJson1_1DeleteDataSetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDataSetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5542,9 +5648,10 @@ async function deserializeAws_restJson1_1DeleteDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5552,9 +5659,10 @@ async function deserializeAws_restJson1_1DeleteDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5562,9 +5670,10 @@ async function deserializeAws_restJson1_1DeleteDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5572,14 +5681,15 @@ async function deserializeAws_restJson1_1DeleteDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5629,19 +5739,22 @@ async function deserializeAws_restJson1_1DeleteDataSourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDataSourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5649,9 +5762,10 @@ async function deserializeAws_restJson1_1DeleteDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5659,9 +5773,10 @@ async function deserializeAws_restJson1_1DeleteDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5669,9 +5784,10 @@ async function deserializeAws_restJson1_1DeleteDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5679,14 +5795,15 @@ async function deserializeAws_restJson1_1DeleteDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5725,19 +5842,22 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5745,9 +5865,10 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5755,9 +5876,10 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5765,9 +5887,10 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5775,9 +5898,10 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5785,9 +5909,10 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5795,14 +5920,15 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5844,19 +5970,22 @@ async function deserializeAws_restJson1_1DeleteGroupMembershipCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupMembershipCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5864,9 +5993,10 @@ async function deserializeAws_restJson1_1DeleteGroupMembershipCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5874,9 +6004,10 @@ async function deserializeAws_restJson1_1DeleteGroupMembershipCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5884,9 +6015,10 @@ async function deserializeAws_restJson1_1DeleteGroupMembershipCommandError(
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5894,9 +6026,10 @@ async function deserializeAws_restJson1_1DeleteGroupMembershipCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5904,9 +6037,10 @@ async function deserializeAws_restJson1_1DeleteGroupMembershipCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5914,14 +6048,15 @@ async function deserializeAws_restJson1_1DeleteGroupMembershipCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -5967,19 +6102,22 @@ async function deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIAMPolicyAssignmentCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentUpdatingException":
     case "com.amazonaws.services.quicksight#ConcurrentUpdatingException":
       response = {
         ...(await deserializeAws_restJson1_1ConcurrentUpdatingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5987,9 +6125,10 @@ async function deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -5997,9 +6136,10 @@ async function deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6007,9 +6147,10 @@ async function deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6017,9 +6158,10 @@ async function deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6027,9 +6169,10 @@ async function deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6037,14 +6180,15 @@ async function deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6094,19 +6238,22 @@ async function deserializeAws_restJson1_1DeleteTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTemplateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6114,9 +6261,10 @@ async function deserializeAws_restJson1_1DeleteTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6124,9 +6272,10 @@ async function deserializeAws_restJson1_1DeleteTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6134,9 +6283,10 @@ async function deserializeAws_restJson1_1DeleteTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6144,9 +6294,10 @@ async function deserializeAws_restJson1_1DeleteTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6154,9 +6305,10 @@ async function deserializeAws_restJson1_1DeleteTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6164,14 +6316,15 @@ async function deserializeAws_restJson1_1DeleteTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6225,19 +6378,22 @@ async function deserializeAws_restJson1_1DeleteTemplateAliasCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTemplateAliasCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6245,9 +6401,10 @@ async function deserializeAws_restJson1_1DeleteTemplateAliasCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6255,9 +6412,10 @@ async function deserializeAws_restJson1_1DeleteTemplateAliasCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6265,14 +6423,15 @@ async function deserializeAws_restJson1_1DeleteTemplateAliasCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6311,19 +6470,22 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6331,9 +6493,10 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6341,9 +6504,10 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6351,9 +6515,10 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6361,9 +6526,10 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6371,14 +6537,15 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6420,19 +6587,22 @@ async function deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserByPrincipalIdCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6440,9 +6610,10 @@ async function deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6450,9 +6621,10 @@ async function deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6460,9 +6632,10 @@ async function deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6470,9 +6643,10 @@ async function deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6480,14 +6654,15 @@ async function deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6536,19 +6711,22 @@ async function deserializeAws_restJson1_1DescribeDashboardCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDashboardCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6556,9 +6734,10 @@ async function deserializeAws_restJson1_1DescribeDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6566,9 +6745,10 @@ async function deserializeAws_restJson1_1DescribeDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6576,9 +6756,10 @@ async function deserializeAws_restJson1_1DescribeDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6586,9 +6767,10 @@ async function deserializeAws_restJson1_1DescribeDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6596,14 +6778,15 @@ async function deserializeAws_restJson1_1DescribeDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6660,19 +6843,22 @@ async function deserializeAws_restJson1_1DescribeDashboardPermissionsCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDashboardPermissionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6680,9 +6866,10 @@ async function deserializeAws_restJson1_1DescribeDashboardPermissionsCommandErro
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6690,9 +6877,10 @@ async function deserializeAws_restJson1_1DescribeDashboardPermissionsCommandErro
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6700,9 +6888,10 @@ async function deserializeAws_restJson1_1DescribeDashboardPermissionsCommandErro
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6710,14 +6899,15 @@ async function deserializeAws_restJson1_1DescribeDashboardPermissionsCommandErro
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6763,19 +6953,22 @@ async function deserializeAws_restJson1_1DescribeDataSetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDataSetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6783,9 +6976,10 @@ async function deserializeAws_restJson1_1DescribeDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6793,9 +6987,10 @@ async function deserializeAws_restJson1_1DescribeDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6803,9 +6998,10 @@ async function deserializeAws_restJson1_1DescribeDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6813,14 +7009,15 @@ async function deserializeAws_restJson1_1DescribeDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6877,19 +7074,22 @@ async function deserializeAws_restJson1_1DescribeDataSetPermissionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDataSetPermissionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6897,9 +7097,10 @@ async function deserializeAws_restJson1_1DescribeDataSetPermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6907,9 +7108,10 @@ async function deserializeAws_restJson1_1DescribeDataSetPermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6917,9 +7119,10 @@ async function deserializeAws_restJson1_1DescribeDataSetPermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -6927,14 +7130,15 @@ async function deserializeAws_restJson1_1DescribeDataSetPermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -6983,19 +7187,22 @@ async function deserializeAws_restJson1_1DescribeDataSourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDataSourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7003,9 +7210,10 @@ async function deserializeAws_restJson1_1DescribeDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7013,9 +7221,10 @@ async function deserializeAws_restJson1_1DescribeDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7023,9 +7232,10 @@ async function deserializeAws_restJson1_1DescribeDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7033,14 +7243,15 @@ async function deserializeAws_restJson1_1DescribeDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7097,19 +7308,22 @@ async function deserializeAws_restJson1_1DescribeDataSourcePermissionsCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDataSourcePermissionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7117,9 +7331,10 @@ async function deserializeAws_restJson1_1DescribeDataSourcePermissionsCommandErr
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7127,9 +7342,10 @@ async function deserializeAws_restJson1_1DescribeDataSourcePermissionsCommandErr
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7137,9 +7353,10 @@ async function deserializeAws_restJson1_1DescribeDataSourcePermissionsCommandErr
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7147,14 +7364,15 @@ async function deserializeAws_restJson1_1DescribeDataSourcePermissionsCommandErr
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7197,19 +7415,22 @@ async function deserializeAws_restJson1_1DescribeGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7217,9 +7438,10 @@ async function deserializeAws_restJson1_1DescribeGroupCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7227,9 +7449,10 @@ async function deserializeAws_restJson1_1DescribeGroupCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7237,9 +7460,10 @@ async function deserializeAws_restJson1_1DescribeGroupCommandError(
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7247,9 +7471,10 @@ async function deserializeAws_restJson1_1DescribeGroupCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7257,9 +7482,10 @@ async function deserializeAws_restJson1_1DescribeGroupCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7267,14 +7493,15 @@ async function deserializeAws_restJson1_1DescribeGroupCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7326,19 +7553,22 @@ async function deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIAMPolicyAssignmentCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7346,9 +7576,10 @@ async function deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7356,9 +7587,10 @@ async function deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7366,9 +7598,10 @@ async function deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7376,9 +7609,10 @@ async function deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7386,14 +7620,15 @@ async function deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7442,19 +7677,22 @@ async function deserializeAws_restJson1_1DescribeIngestionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIngestionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7462,9 +7700,10 @@ async function deserializeAws_restJson1_1DescribeIngestionCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7472,9 +7711,10 @@ async function deserializeAws_restJson1_1DescribeIngestionCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7482,9 +7722,10 @@ async function deserializeAws_restJson1_1DescribeIngestionCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7492,9 +7733,10 @@ async function deserializeAws_restJson1_1DescribeIngestionCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7502,14 +7744,15 @@ async function deserializeAws_restJson1_1DescribeIngestionCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7554,19 +7797,22 @@ async function deserializeAws_restJson1_1DescribeTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTemplateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7574,9 +7820,10 @@ async function deserializeAws_restJson1_1DescribeTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7584,9 +7831,10 @@ async function deserializeAws_restJson1_1DescribeTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7594,9 +7842,10 @@ async function deserializeAws_restJson1_1DescribeTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7604,9 +7853,10 @@ async function deserializeAws_restJson1_1DescribeTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7614,9 +7864,10 @@ async function deserializeAws_restJson1_1DescribeTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7624,9 +7875,10 @@ async function deserializeAws_restJson1_1DescribeTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7634,14 +7886,15 @@ async function deserializeAws_restJson1_1DescribeTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7690,19 +7943,22 @@ async function deserializeAws_restJson1_1DescribeTemplateAliasCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTemplateAliasCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7710,9 +7966,10 @@ async function deserializeAws_restJson1_1DescribeTemplateAliasCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7720,9 +7977,10 @@ async function deserializeAws_restJson1_1DescribeTemplateAliasCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7730,14 +7988,15 @@ async function deserializeAws_restJson1_1DescribeTemplateAliasCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7794,19 +8053,22 @@ async function deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTemplatePermissionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7814,9 +8076,10 @@ async function deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7824,9 +8087,10 @@ async function deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7834,9 +8098,10 @@ async function deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7844,9 +8109,10 @@ async function deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7854,14 +8120,15 @@ async function deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -7904,19 +8171,22 @@ async function deserializeAws_restJson1_1DescribeUserCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7924,9 +8194,10 @@ async function deserializeAws_restJson1_1DescribeUserCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7934,9 +8205,10 @@ async function deserializeAws_restJson1_1DescribeUserCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7944,9 +8216,10 @@ async function deserializeAws_restJson1_1DescribeUserCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7954,9 +8227,10 @@ async function deserializeAws_restJson1_1DescribeUserCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -7964,14 +8238,15 @@ async function deserializeAws_restJson1_1DescribeUserCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8017,19 +8292,22 @@ async function deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDashboardEmbedUrlCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DomainNotWhitelistedException":
     case "com.amazonaws.services.quicksight#DomainNotWhitelistedException":
       response = {
         ...(await deserializeAws_restJson1_1DomainNotWhitelistedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8037,9 +8315,10 @@ async function deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError(
     case "com.amazonaws.services.quicksight#IdentityTypeNotSupportedException":
       response = {
         ...(await deserializeAws_restJson1_1IdentityTypeNotSupportedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8047,9 +8326,10 @@ async function deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError(
     case "com.amazonaws.services.quicksight#QuickSightUserNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1QuickSightUserNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8057,9 +8337,10 @@ async function deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError(
     case "com.amazonaws.services.quicksight#SessionLifetimeInMinutesInvalidException":
       response = {
         ...(await deserializeAws_restJson1_1SessionLifetimeInMinutesInvalidExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8067,9 +8348,10 @@ async function deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError(
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8077,9 +8359,10 @@ async function deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8087,9 +8370,10 @@ async function deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8097,9 +8381,10 @@ async function deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8107,9 +8392,10 @@ async function deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8117,9 +8403,10 @@ async function deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8127,14 +8414,15 @@ async function deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8190,19 +8478,22 @@ async function deserializeAws_restJson1_1ListDashboardVersionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDashboardVersionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8210,9 +8501,10 @@ async function deserializeAws_restJson1_1ListDashboardVersionsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8220,9 +8512,10 @@ async function deserializeAws_restJson1_1ListDashboardVersionsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8230,9 +8523,10 @@ async function deserializeAws_restJson1_1ListDashboardVersionsCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8240,9 +8534,10 @@ async function deserializeAws_restJson1_1ListDashboardVersionsCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8250,14 +8545,15 @@ async function deserializeAws_restJson1_1ListDashboardVersionsCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8313,19 +8609,22 @@ async function deserializeAws_restJson1_1ListDashboardsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDashboardsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8333,9 +8632,10 @@ async function deserializeAws_restJson1_1ListDashboardsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8343,9 +8643,10 @@ async function deserializeAws_restJson1_1ListDashboardsCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8353,14 +8654,15 @@ async function deserializeAws_restJson1_1ListDashboardsCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8410,19 +8712,22 @@ async function deserializeAws_restJson1_1ListDataSetsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataSetsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8430,9 +8735,10 @@ async function deserializeAws_restJson1_1ListDataSetsCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8440,9 +8746,10 @@ async function deserializeAws_restJson1_1ListDataSetsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8450,9 +8757,10 @@ async function deserializeAws_restJson1_1ListDataSetsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8460,14 +8768,15 @@ async function deserializeAws_restJson1_1ListDataSetsCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8520,19 +8829,22 @@ async function deserializeAws_restJson1_1ListDataSourcesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataSourcesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8540,9 +8852,10 @@ async function deserializeAws_restJson1_1ListDataSourcesCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8550,9 +8863,10 @@ async function deserializeAws_restJson1_1ListDataSourcesCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8560,9 +8874,10 @@ async function deserializeAws_restJson1_1ListDataSourcesCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8570,14 +8885,15 @@ async function deserializeAws_restJson1_1ListDataSourcesCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8630,19 +8946,22 @@ async function deserializeAws_restJson1_1ListGroupMembershipsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupMembershipsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8650,9 +8969,10 @@ async function deserializeAws_restJson1_1ListGroupMembershipsCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8660,9 +8980,10 @@ async function deserializeAws_restJson1_1ListGroupMembershipsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8670,9 +8991,10 @@ async function deserializeAws_restJson1_1ListGroupMembershipsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8680,9 +9002,10 @@ async function deserializeAws_restJson1_1ListGroupMembershipsCommandError(
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8690,9 +9013,10 @@ async function deserializeAws_restJson1_1ListGroupMembershipsCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8700,9 +9024,10 @@ async function deserializeAws_restJson1_1ListGroupMembershipsCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8710,14 +9035,15 @@ async function deserializeAws_restJson1_1ListGroupMembershipsCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8767,19 +9093,22 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8787,9 +9116,10 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8797,9 +9127,10 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8807,9 +9138,10 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8817,9 +9149,10 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8827,9 +9160,10 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8837,9 +9171,10 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8847,14 +9182,15 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -8910,19 +9246,22 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIAMPolicyAssignmentsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8930,9 +9269,10 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8940,9 +9280,10 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8950,9 +9291,10 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8960,9 +9302,10 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -8970,14 +9313,15 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9030,19 +9374,22 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIAMPolicyAssignmentsForUserCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentUpdatingException":
     case "com.amazonaws.services.quicksight#ConcurrentUpdatingException":
       response = {
         ...(await deserializeAws_restJson1_1ConcurrentUpdatingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9050,9 +9397,10 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandE
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9060,9 +9408,10 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandE
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9070,9 +9419,10 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandE
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9080,9 +9430,10 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandE
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9090,9 +9441,10 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandE
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9100,14 +9452,15 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandE
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9160,19 +9513,22 @@ async function deserializeAws_restJson1_1ListIngestionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIngestionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9180,9 +9536,10 @@ async function deserializeAws_restJson1_1ListIngestionsCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9190,9 +9547,10 @@ async function deserializeAws_restJson1_1ListIngestionsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9200,9 +9558,10 @@ async function deserializeAws_restJson1_1ListIngestionsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9210,9 +9569,10 @@ async function deserializeAws_restJson1_1ListIngestionsCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9220,9 +9580,10 @@ async function deserializeAws_restJson1_1ListIngestionsCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9230,14 +9591,15 @@ async function deserializeAws_restJson1_1ListIngestionsCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9283,19 +9645,22 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9303,9 +9668,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9313,9 +9679,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9323,9 +9690,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9333,14 +9701,15 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9393,19 +9762,22 @@ async function deserializeAws_restJson1_1ListTemplateAliasesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplateAliasesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9413,9 +9785,10 @@ async function deserializeAws_restJson1_1ListTemplateAliasesCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9423,9 +9796,10 @@ async function deserializeAws_restJson1_1ListTemplateAliasesCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9433,14 +9807,15 @@ async function deserializeAws_restJson1_1ListTemplateAliasesCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9496,19 +9871,22 @@ async function deserializeAws_restJson1_1ListTemplateVersionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplateVersionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9516,9 +9894,10 @@ async function deserializeAws_restJson1_1ListTemplateVersionsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9526,9 +9905,10 @@ async function deserializeAws_restJson1_1ListTemplateVersionsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9536,9 +9916,10 @@ async function deserializeAws_restJson1_1ListTemplateVersionsCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9546,9 +9927,10 @@ async function deserializeAws_restJson1_1ListTemplateVersionsCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9556,14 +9938,15 @@ async function deserializeAws_restJson1_1ListTemplateVersionsCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9616,19 +9999,22 @@ async function deserializeAws_restJson1_1ListTemplatesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplatesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9636,9 +10022,10 @@ async function deserializeAws_restJson1_1ListTemplatesCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9646,9 +10033,10 @@ async function deserializeAws_restJson1_1ListTemplatesCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9656,9 +10044,10 @@ async function deserializeAws_restJson1_1ListTemplatesCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9666,9 +10055,10 @@ async function deserializeAws_restJson1_1ListTemplatesCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9676,14 +10066,15 @@ async function deserializeAws_restJson1_1ListTemplatesCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9736,19 +10127,22 @@ async function deserializeAws_restJson1_1ListUserGroupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserGroupsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9756,9 +10150,10 @@ async function deserializeAws_restJson1_1ListUserGroupsCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9766,9 +10161,10 @@ async function deserializeAws_restJson1_1ListUserGroupsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9776,9 +10172,10 @@ async function deserializeAws_restJson1_1ListUserGroupsCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9786,9 +10183,10 @@ async function deserializeAws_restJson1_1ListUserGroupsCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9796,14 +10194,15 @@ async function deserializeAws_restJson1_1ListUserGroupsCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9853,19 +10252,22 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9873,9 +10275,10 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9883,9 +10286,10 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9893,9 +10297,10 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9903,9 +10308,10 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9913,9 +10319,10 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9923,14 +10330,15 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -9977,19 +10385,22 @@ async function deserializeAws_restJson1_1RegisterUserCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterUserCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -9997,9 +10408,10 @@ async function deserializeAws_restJson1_1RegisterUserCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10007,9 +10419,10 @@ async function deserializeAws_restJson1_1RegisterUserCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10017,9 +10430,10 @@ async function deserializeAws_restJson1_1RegisterUserCommandError(
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10027,9 +10441,10 @@ async function deserializeAws_restJson1_1RegisterUserCommandError(
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10037,9 +10452,10 @@ async function deserializeAws_restJson1_1RegisterUserCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10047,9 +10463,10 @@ async function deserializeAws_restJson1_1RegisterUserCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10057,9 +10474,10 @@ async function deserializeAws_restJson1_1RegisterUserCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10067,14 +10485,15 @@ async function deserializeAws_restJson1_1RegisterUserCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10113,19 +10532,22 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10133,9 +10555,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10143,9 +10566,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10153,9 +10577,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10163,9 +10588,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10173,14 +10599,15 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10219,19 +10646,22 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10239,9 +10669,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10249,9 +10680,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10259,9 +10691,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10269,14 +10702,15 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10338,19 +10772,22 @@ async function deserializeAws_restJson1_1UpdateDashboardCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDashboardCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10358,9 +10795,10 @@ async function deserializeAws_restJson1_1UpdateDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10368,9 +10806,10 @@ async function deserializeAws_restJson1_1UpdateDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10378,9 +10817,10 @@ async function deserializeAws_restJson1_1UpdateDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10388,9 +10828,10 @@ async function deserializeAws_restJson1_1UpdateDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10398,9 +10839,10 @@ async function deserializeAws_restJson1_1UpdateDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10408,14 +10850,15 @@ async function deserializeAws_restJson1_1UpdateDashboardCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10472,19 +10915,22 @@ async function deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDashboardPermissionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10492,9 +10938,10 @@ async function deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10502,9 +10949,10 @@ async function deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10512,9 +10960,10 @@ async function deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10522,9 +10971,10 @@ async function deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10532,14 +10982,15 @@ async function deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10589,19 +11040,22 @@ async function deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDashboardPublishedVersionCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10609,9 +11063,10 @@ async function deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandE
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10619,9 +11074,10 @@ async function deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandE
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10629,9 +11085,10 @@ async function deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandE
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10639,9 +11096,10 @@ async function deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandE
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10649,14 +11107,15 @@ async function deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandE
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10711,19 +11170,22 @@ async function deserializeAws_restJson1_1UpdateDataSetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataSetCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10731,9 +11193,10 @@ async function deserializeAws_restJson1_1UpdateDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10741,9 +11204,10 @@ async function deserializeAws_restJson1_1UpdateDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10751,9 +11215,10 @@ async function deserializeAws_restJson1_1UpdateDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10761,9 +11226,10 @@ async function deserializeAws_restJson1_1UpdateDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10771,9 +11237,10 @@ async function deserializeAws_restJson1_1UpdateDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10781,9 +11248,10 @@ async function deserializeAws_restJson1_1UpdateDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10791,14 +11259,15 @@ async function deserializeAws_restJson1_1UpdateDataSetCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10848,19 +11317,22 @@ async function deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataSetPermissionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10868,9 +11340,10 @@ async function deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10878,9 +11351,10 @@ async function deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10888,9 +11362,10 @@ async function deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10898,9 +11373,10 @@ async function deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10908,14 +11384,15 @@ async function deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -10969,19 +11446,22 @@ async function deserializeAws_restJson1_1UpdateDataSourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataSourceCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10989,9 +11469,10 @@ async function deserializeAws_restJson1_1UpdateDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -10999,9 +11480,10 @@ async function deserializeAws_restJson1_1UpdateDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11009,9 +11491,10 @@ async function deserializeAws_restJson1_1UpdateDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11019,9 +11502,10 @@ async function deserializeAws_restJson1_1UpdateDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11029,14 +11513,15 @@ async function deserializeAws_restJson1_1UpdateDataSourceCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11086,19 +11571,22 @@ async function deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataSourcePermissionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11106,9 +11594,10 @@ async function deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11116,9 +11605,10 @@ async function deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11126,9 +11616,10 @@ async function deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11136,9 +11627,10 @@ async function deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11146,14 +11638,15 @@ async function deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11196,19 +11689,22 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11216,9 +11712,10 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11226,9 +11723,10 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11236,9 +11734,10 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
         ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11246,9 +11745,10 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11256,9 +11756,10 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11266,14 +11767,15 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11338,19 +11840,22 @@ async function deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIAMPolicyAssignmentCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentUpdatingException":
     case "com.amazonaws.services.quicksight#ConcurrentUpdatingException":
       response = {
         ...(await deserializeAws_restJson1_1ConcurrentUpdatingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11358,9 +11863,10 @@ async function deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11368,9 +11874,10 @@ async function deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11378,9 +11885,10 @@ async function deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11388,9 +11896,10 @@ async function deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11398,9 +11907,10 @@ async function deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11408,14 +11918,15 @@ async function deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11473,19 +11984,22 @@ async function deserializeAws_restJson1_1UpdateTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTemplateCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11493,9 +12007,10 @@ async function deserializeAws_restJson1_1UpdateTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11503,9 +12018,10 @@ async function deserializeAws_restJson1_1UpdateTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11513,9 +12029,10 @@ async function deserializeAws_restJson1_1UpdateTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11523,9 +12040,10 @@ async function deserializeAws_restJson1_1UpdateTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11533,9 +12051,10 @@ async function deserializeAws_restJson1_1UpdateTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11543,9 +12062,10 @@ async function deserializeAws_restJson1_1UpdateTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11553,14 +12073,15 @@ async function deserializeAws_restJson1_1UpdateTemplateCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11609,19 +12130,22 @@ async function deserializeAws_restJson1_1UpdateTemplateAliasCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTemplateAliasCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11629,9 +12153,10 @@ async function deserializeAws_restJson1_1UpdateTemplateAliasCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11639,9 +12164,10 @@ async function deserializeAws_restJson1_1UpdateTemplateAliasCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11649,9 +12175,10 @@ async function deserializeAws_restJson1_1UpdateTemplateAliasCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11659,14 +12186,15 @@ async function deserializeAws_restJson1_1UpdateTemplateAliasCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11723,19 +12251,22 @@ async function deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTemplatePermissionsCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
         ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11743,9 +12274,10 @@ async function deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11753,9 +12285,10 @@ async function deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11763,9 +12296,10 @@ async function deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11773,9 +12307,10 @@ async function deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11783,14 +12318,15 @@ async function deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError(
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
         ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11833,19 +12369,22 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
-  if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
-  }
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11853,9 +12392,10 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
         ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11863,9 +12403,10 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11873,9 +12414,10 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11883,9 +12425,10 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -11893,14 +12436,15 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          output,
+          parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
     default:
-      const parsedBody = await parseBody(output.body, context);
+      const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
       response = {
         ...parsedBody,
@@ -11917,17 +12461,17 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
 }
 
 const deserializeAws_restJson1_1ConcurrentUpdatingExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentUpdatingException> => {
   const contents: ConcurrentUpdatingException = {
     name: "ConcurrentUpdatingException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -11938,17 +12482,17 @@ const deserializeAws_restJson1_1ConcurrentUpdatingExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1DomainNotWhitelistedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DomainNotWhitelistedException> => {
   const contents: DomainNotWhitelistedException = {
     name: "DomainNotWhitelistedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -11959,17 +12503,17 @@ const deserializeAws_restJson1_1DomainNotWhitelistedExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1IdentityTypeNotSupportedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<IdentityTypeNotSupportedException> => {
   const contents: IdentityTypeNotSupportedException = {
     name: "IdentityTypeNotSupportedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -11980,17 +12524,17 @@ const deserializeAws_restJson1_1IdentityTypeNotSupportedExceptionResponse = asyn
 };
 
 const deserializeAws_restJson1_1QuickSightUserNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<QuickSightUserNotFoundException> => {
   const contents: QuickSightUserNotFoundException = {
     name: "QuickSightUserNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12001,17 +12545,17 @@ const deserializeAws_restJson1_1QuickSightUserNotFoundExceptionResponse = async 
 };
 
 const deserializeAws_restJson1_1SessionLifetimeInMinutesInvalidExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<SessionLifetimeInMinutesInvalidException> => {
   const contents: SessionLifetimeInMinutesInvalidException = {
     name: "SessionLifetimeInMinutesInvalidException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12022,17 +12566,17 @@ const deserializeAws_restJson1_1SessionLifetimeInMinutesInvalidExceptionResponse
 };
 
 const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12043,17 +12587,17 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ConflictExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConflictException> => {
   const contents: ConflictException = {
     name: "ConflictException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12064,17 +12608,17 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
   const contents: InternalFailureException = {
     name: "InternalFailureException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12085,17 +12629,17 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12106,17 +12650,17 @@ const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
   const contents: InvalidParameterValueException = {
     name: "InvalidParameterValueException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12127,18 +12671,18 @@ const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RequestId: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12152,17 +12696,17 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1PreconditionNotMetExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<PreconditionNotMetException> => {
   const contents: PreconditionNotMetException = {
     name: "PreconditionNotMetException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12173,18 +12717,18 @@ const deserializeAws_restJson1_1PreconditionNotMetExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceExistsException> => {
   const contents: ResourceExistsException = {
     name: "ResourceExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RequestId: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12198,18 +12742,18 @@ const deserializeAws_restJson1_1ResourceExistsExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RequestId: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12223,18 +12767,18 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ResourceUnavailableExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceUnavailableException> => {
   const contents: ResourceUnavailableException = {
     name: "ResourceUnavailableException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RequestId: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12248,17 +12792,17 @@ const deserializeAws_restJson1_1ResourceUnavailableExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
     name: "ThrottlingException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -12269,17 +12813,17 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
 };
 
 const deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedUserEditionException> => {
   const contents: UnsupportedUserEditionException = {
     name: "UnsupportedUserEditionException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
@@ -16306,4 +16850,38 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
     }
     return {};
   });
+};
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) =>
+    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
 };

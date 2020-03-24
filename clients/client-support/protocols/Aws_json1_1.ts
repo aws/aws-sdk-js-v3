@@ -353,7 +353,7 @@ async function deserializeAws_json1_1AddAttachmentsToSetCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -365,6 +365,7 @@ async function deserializeAws_json1_1AddAttachmentsToSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -375,6 +376,7 @@ async function deserializeAws_json1_1AddAttachmentsToSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -385,6 +387,7 @@ async function deserializeAws_json1_1AddAttachmentsToSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -395,6 +398,7 @@ async function deserializeAws_json1_1AddAttachmentsToSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -405,6 +409,7 @@ async function deserializeAws_json1_1AddAttachmentsToSetCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -458,7 +463,7 @@ async function deserializeAws_json1_1AddCommunicationToCaseCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -470,6 +475,7 @@ async function deserializeAws_json1_1AddCommunicationToCaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -480,6 +486,7 @@ async function deserializeAws_json1_1AddCommunicationToCaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -490,6 +497,7 @@ async function deserializeAws_json1_1AddCommunicationToCaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -500,6 +508,7 @@ async function deserializeAws_json1_1AddCommunicationToCaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -547,7 +556,7 @@ async function deserializeAws_json1_1CreateCaseCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -559,6 +568,7 @@ async function deserializeAws_json1_1CreateCaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -569,6 +579,7 @@ async function deserializeAws_json1_1CreateCaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -579,6 +590,7 @@ async function deserializeAws_json1_1CreateCaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -589,6 +601,7 @@ async function deserializeAws_json1_1CreateCaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -639,7 +652,7 @@ async function deserializeAws_json1_1DescribeAttachmentCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -651,6 +664,7 @@ async function deserializeAws_json1_1DescribeAttachmentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -661,6 +675,7 @@ async function deserializeAws_json1_1DescribeAttachmentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -671,6 +686,7 @@ async function deserializeAws_json1_1DescribeAttachmentCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -718,7 +734,7 @@ async function deserializeAws_json1_1DescribeCasesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -730,6 +746,7 @@ async function deserializeAws_json1_1DescribeCasesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -740,6 +757,7 @@ async function deserializeAws_json1_1DescribeCasesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -793,7 +811,7 @@ async function deserializeAws_json1_1DescribeCommunicationsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -805,6 +823,7 @@ async function deserializeAws_json1_1DescribeCommunicationsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -815,6 +834,7 @@ async function deserializeAws_json1_1DescribeCommunicationsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -862,7 +882,7 @@ async function deserializeAws_json1_1DescribeServicesCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -874,6 +894,7 @@ async function deserializeAws_json1_1DescribeServicesCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -927,7 +948,7 @@ async function deserializeAws_json1_1DescribeSeverityLevelsCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -939,6 +960,7 @@ async function deserializeAws_json1_1DescribeSeverityLevelsCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -986,7 +1008,7 @@ async function deserializeAws_json1_1ResolveCaseCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -998,6 +1020,7 @@ async function deserializeAws_json1_1ResolveCaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1008,6 +1031,7 @@ async function deserializeAws_json1_1ResolveCaseCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1061,7 +1085,7 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesC
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1073,6 +1097,7 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesC
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1126,7 +1151,7 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandErr
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1138,6 +1163,7 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandErr
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1191,7 +1217,7 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1203,6 +1229,7 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1256,7 +1283,7 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1268,6 +1295,7 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1321,7 +1349,7 @@ async function deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError(
     body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: String = "UnknownError";
+  let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1333,6 +1361,7 @@ async function deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError(
           parsedOutput,
           context
         )),
+        name: errorCode,
         $metadata: deserializeMetadata(output)
       };
       break;
@@ -1518,7 +1547,7 @@ const serializeAws_json1_1Attachment = (
 ): any => {
   const bodyParams: any = {};
   if (input.data !== undefined) {
-    bodyParams["data"] = context.base64Encoder(input.data);
+    bodyParams["data"] = Buffer.from(input.data).toString("utf-8");
   }
   if (input.fileName !== undefined) {
     bodyParams["fileName"] = input.fileName;
@@ -1844,7 +1873,7 @@ const deserializeAws_json1_1Attachment = (
     fileName: undefined
   };
   if (output.data !== undefined && output.data !== null) {
-    contents.data = context.base64Decoder(output.data);
+    contents.data = Uint8Array.from(output.data);
   }
   if (output.fileName !== undefined && output.fileName !== null) {
     contents.fileName = output.fileName;
