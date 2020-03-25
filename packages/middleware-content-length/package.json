@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-content-length",
-  "version": "1.0.0-alpha.8",
+  "version": "1.0.0-beta.0",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -14,8 +14,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/protocol-http": "^1.0.0-alpha.8",
-    "@aws-sdk/types": "^1.0.0-alpha.6",
+    "@aws-sdk/protocol-http": "^1.0.0-beta.0",
+    "@aws-sdk/types": "^1.0.0-beta.0",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
