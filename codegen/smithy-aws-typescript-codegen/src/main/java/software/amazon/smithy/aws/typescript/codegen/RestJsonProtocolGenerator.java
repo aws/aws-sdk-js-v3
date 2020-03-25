@@ -95,8 +95,14 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
             OperationShape operation,
             List<HttpBinding> documentBindings
     ) {
-        SymbolProvider symbolProvider = context.getSymbolProvider();
+        // Short circuit when we have no bindings.
         TypeScriptWriter writer = context.getWriter();
+        if (documentBindings.isEmpty()) {
+            writer.write("body = \"{}\";");
+            return;
+        }
+
+        SymbolProvider symbolProvider = context.getSymbolProvider();
 
         writer.write("const bodyParams: any = {};");
         for (HttpBinding binding : documentBindings) {
