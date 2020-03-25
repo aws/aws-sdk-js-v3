@@ -142,8 +142,14 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             OperationShape operation,
             List<HttpBinding> documentBindings
     ) {
-        SymbolProvider symbolProvider = context.getSymbolProvider();
+        // Short circuit when we have no bindings.
         TypeScriptWriter writer = context.getWriter();
+        if (documentBindings.isEmpty()) {
+            writer.write("body = \"\";");
+            return;
+        }
+
+        SymbolProvider symbolProvider = context.getSymbolProvider();
 
         // Start with the XML declaration.
         writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
