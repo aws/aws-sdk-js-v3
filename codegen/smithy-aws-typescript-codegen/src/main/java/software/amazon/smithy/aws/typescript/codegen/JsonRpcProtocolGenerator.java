@@ -35,8 +35,8 @@ import software.amazon.smithy.typescript.codegen.integration.HttpRpcProtocolGene
  *
  * @see JsonShapeSerVisitor
  * @see JsonShapeDeserVisitor
- * @see JsonRpcMemberSerVisitor
- * @see JsonRpcMemberDeserVisitor
+ * @see JsonMemberSerVisitor
+ * @see JsonMemberDeserVisitor
  * @see AwsProtocolUtils
  */
 abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
@@ -60,14 +60,12 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
 
     @Override
     protected void generateDocumentBodyShapeSerializers(GenerationContext context, Set<Shape> shapes) {
-        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes,
-                new JsonShapeSerVisitor(context, dataSource -> getMemberSerVisitor(context, dataSource)));
+        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new JsonShapeSerVisitor(context));
     }
 
     @Override
     protected void generateDocumentBodyShapeDeserializers(GenerationContext context, Set<Shape> shapes) {
-        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes,
-                new JsonShapeDeserVisitor(context, dataSource -> getMemberDeserVisitor(context, dataSource)));
+        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new JsonShapeDeserVisitor(context));
     }
 
     @Override
@@ -101,7 +99,7 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     }
 
     private DocumentMemberSerVisitor getMemberSerVisitor(GenerationContext context, String dataSource) {
-        return new JsonRpcMemberSerVisitor(context, dataSource, getDocumentTimestampFormat());
+        return new JsonMemberSerVisitor(context, dataSource, getDocumentTimestampFormat());
     }
 
     @Override
@@ -124,6 +122,6 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     }
 
     private DocumentMemberDeserVisitor getMemberDeserVisitor(GenerationContext context, String dataSource) {
-        return new JsonRpcMemberDeserVisitor(context, dataSource, getDocumentTimestampFormat());
+        return new JsonMemberDeserVisitor(context, dataSource, getDocumentTimestampFormat());
     }
 }
