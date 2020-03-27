@@ -2627,11 +2627,10 @@ const serializeAws_restXmlS3UserMetadata = (
         .addChildNode(new __XmlText(key))
         .withName("key")
     );
-    entryNode.addChildNode(
-      new __XmlNode("MaxLength1024String")
-        .addChildNode(new __XmlText(input[key]))
-        .withName("value")
+    const node = new __XmlNode("MaxLength1024String").addChildNode(
+      new __XmlText(input[key])
     );
+    entryNode.addChildNode(node.withName("value"));
     collectedNodes.push(entryNode);
   });
   return collectedNodes;
