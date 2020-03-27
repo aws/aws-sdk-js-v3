@@ -16,11 +16,4 @@
 rootProject.name = "codegen"
 include(":smithy-aws-typescript-codegen")
 include(":sdk-codegen")
-
-// TODO: remove once smithy-gradle-plugin:0.4.0 is published.
-pluginManagement {
-    repositories {
-        mavenLocal()
-        gradlePluginPortal()
-    }
-}
+include(":protocol-test-codegen")

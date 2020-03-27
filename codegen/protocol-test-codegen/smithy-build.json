@@ -1,0 +1,100 @@
+{
+  "version": "1.0",
+  "projections": {
+    "aws-ec2": {
+      "transforms": [
+        {"name": "includeServices", "args": ["aws.protocols.tests.ec2#AwsEc2"]}
+      ],
+      "plugins": {
+        "typescript-codegen": {
+          "package": "@aws-sdk/protocol-tests-aws-ec2",
+          "packageVersion": "1.0.0-alpha.1",
+          "packageJson": {
+            "author": {
+              "name": "AWS SDK for JavaScript Team",
+              "url": "https://aws.amazon.com/javascript/"
+            },
+            "license": "Apache-2.0"
+          },
+          "protocol": "aws.ec2"
+        }
+      }
+    },
+    "aws-json": {
+      "transforms": [
+        {"name": "includeServices", "args": ["aws.protocols.tests.json#JsonProtocol"]}
+      ],
+      "plugins": {
+        "typescript-codegen": {
+          "package": "@aws-sdk/protocol-tests-aws-json",
+          "packageVersion": "1.0.0-alpha.1",
+          "packageJson": {
+            "author": {
+              "name": "AWS SDK for JavaScript Team",
+              "url": "https://aws.amazon.com/javascript/"
+            },
+            "license": "Apache-2.0"
+          },
+          "protocol": "aws.json-1.1"
+        }
+      }
+    },
+    "aws-query": {
+      "transforms": [
+        {"name": "includeServices", "args": ["aws.protocols.tests.query#AwsQuery"]}
+      ],
+      "plugins": {
+        "typescript-codegen": {
+          "package": "@aws-sdk/protocol-tests-aws-query",
+          "packageVersion": "1.0.0-alpha.1",
+          "packageJson": {
+            "author": {
+              "name": "AWS SDK for JavaScript Team",
+              "url": "https://aws.amazon.com/javascript/"
+            },
+            "license": "Apache-2.0"
+          },
+          "protocol": "aws.query"
+        }
+      }
+    },
+    "aws-restjson": {
+      "transforms": [
+        {"name": "includeServices", "args": ["aws.protocols.tests.restjson#RestJson"]}
+      ],
+      "plugins": {
+        "typescript-codegen": {
+          "package": "@aws-sdk/protocol-tests-aws-restjson",
+          "packageVersion": "1.0.0-alpha.1",
+          "packageJson": {
+            "author": {
+              "name": "AWS SDK for JavaScript Team",
+              "url": "https://aws.amazon.com/javascript/"
+            },
+            "license": "Apache-2.0"
+          },
+          "protocol": "aws.rest-json-1.1"
+        }
+      }
+    },
+    "aws-restxml": {
+      "transforms": [
+        {"name": "includeServices", "args": ["aws.protocols.tests.restxml#RestXml"]}
+      ],
+      "plugins": {
+        "typescript-codegen": {
+          "package": "@aws-sdk/protocol-tests-aws-restxml",
+          "packageVersion": "1.0.0-alpha.1",
+          "packageJson": {
+            "author": {
+              "name": "AWS SDK for JavaScript Team",
+              "url": "https://aws.amazon.com/javascript/"
+            },
+            "license": "Apache-2.0"
+          },
+          "protocol": "aws.rest-xml"
+        }
+      }
+    }
+  }
+}
