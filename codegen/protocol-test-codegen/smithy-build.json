@@ -16,7 +16,8 @@
             },
             "license": "Apache-2.0"
           },
-          "protocol": "aws.ec2"
+          "protocol": "aws.ec2",
+          "private": true
         }
       }
     },
@@ -35,7 +36,8 @@
             },
             "license": "Apache-2.0"
           },
-          "protocol": "aws.json-1.1"
+          "protocol": "aws.json-1.1",
+          "private": true
         }
       }
     },
@@ -54,7 +56,8 @@
             },
             "license": "Apache-2.0"
           },
-          "protocol": "aws.query"
+          "protocol": "aws.query",
+          "private": true
         }
       }
     },
@@ -73,7 +76,8 @@
             },
             "license": "Apache-2.0"
           },
-          "protocol": "aws.rest-json-1.1"
+          "protocol": "aws.rest-json-1.1",
+          "private": true
         }
       }
     },
@@ -92,7 +96,8 @@
             },
             "license": "Apache-2.0"
           },
-          "protocol": "aws.rest-xml"
+          "protocol": "aws.rest-xml",
+          "private": true
         }
       }
     }

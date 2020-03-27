@@ -11,12 +11,14 @@
     "clear-build-cache": "rimraf ./packages/*/build/* ./clients/*/*/build/*",
     "clear-build-info": "rimraf ./packages/*/*.tsbuildinfo ./clients/*/*/*.tsbuildinfo",
     "build:crypto-dependencies": "lerna run --scope '@aws-sdk/types' --scope '@aws-sdk/util-utf8-browser' --scope '@aws-sdk/util-locate-window' --scope '@aws-sdk/hash-node' --include-dependencies pretest",
+    "build:protocols": "yarn build:crypto-dependencies && lerna run --scope '@aws-sdk/protocol-tests-*' --include-dependencies pretest",
     "build:smithy-client": "yarn build:crypto-dependencies && lerna run --scope '@aws-sdk/client-rds-data' --include-dependencies pretest",
     "build:all": "yarn build:crypto-dependencies && lerna run pretest --include-dependencies --include-dependents",
     "pretest:all": "yarn build:all",
     "test:all": "jest --coverage --passWithNoTests && lerna run test --scope @aws-sdk/stream-collector-browser --scope @aws-sdk/hash-blob-browser",
     "test:functional": "jest --config tests/functional/jest.config.js --passWithNoTests",
-    "test:integration": "cucumber-js"
+    "test:integration": "cucumber-js",
+    "test:protocols": "yarn build:protocols && lerna run test --scope '@aws-sdk/protocol-tests-*'"
   },
   "repository": {
     "type": "git",
@@ -53,7 +55,8 @@
   "workspaces": {
     "packages": [
       "packages/*",
-      "clients/*"
+      "clients/*",
+      "protocol_tests/*"
     ],
     "nohoist": [
       "**/karma*",
