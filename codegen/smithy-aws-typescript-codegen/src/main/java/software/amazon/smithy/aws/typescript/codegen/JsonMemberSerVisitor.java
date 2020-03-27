@@ -29,12 +29,12 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
  *
  * TODO: Work out support for BigDecimal and BigInteger, natively or through a library.
  */
-final class RestJsonMemberSerVisitor extends DocumentMemberSerVisitor {
+final class JsonMemberSerVisitor extends DocumentMemberSerVisitor {
 
     /**
      * @inheritDoc
      */
-    RestJsonMemberSerVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
+    JsonMemberSerVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
     }
 

@@ -17,7 +17,6 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.function.Function;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.CollectionShape;
 import software.amazon.smithy.model.shapes.DocumentShape;
@@ -45,18 +44,13 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
  */
 final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
     private static final Format TIMESTAMP_FORMAT = Format.EPOCH_SECONDS;
-    private final Function<String, DocumentMemberSerVisitor> memberSerVisitorSupplier;
 
-    JsonShapeSerVisitor(
-            GenerationContext context,
-            Function<String, DocumentMemberSerVisitor> memberSerVisitorSupplier
-    ) {
+    JsonShapeSerVisitor(GenerationContext context) {
         super(context);
-        this.memberSerVisitorSupplier = memberSerVisitorSupplier;
     }
 
     private DocumentMemberSerVisitor getMemberVisitor(String dataSource) {
-        return memberSerVisitorSupplier.apply(dataSource);
+        return new JsonMemberSerVisitor(getContext(), dataSource, TIMESTAMP_FORMAT);
     }
 
     @Override

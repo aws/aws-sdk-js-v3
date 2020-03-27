@@ -27,12 +27,12 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
  * Overrides the default implementation of BigDecimal and BigInteger shape
  * deserialization to throw when encountered in AWS REST JSON based protocols.
  */
-final class RestJsonMemberDeserVisitor extends DocumentMemberDeserVisitor {
+final class JsonMemberDeserVisitor extends DocumentMemberDeserVisitor {
 
     /**
      * @inheritDoc
      */
-    RestJsonMemberDeserVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
+    JsonMemberDeserVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
     }
 
