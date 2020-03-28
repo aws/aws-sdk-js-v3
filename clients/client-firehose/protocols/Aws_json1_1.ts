@@ -2365,7 +2365,7 @@ const serializeAws_json1_1_Record = (
 ): any => {
   const bodyParams: any = {};
   if (input.Data !== undefined) {
-    bodyParams["Data"] = Buffer.from(input.Data).toString("utf-8");
+    bodyParams["Data"] = context.base64Encoder(input.Data);
   }
   return bodyParams;
 };

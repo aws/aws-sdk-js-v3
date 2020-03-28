@@ -297,13 +297,15 @@ export async function serializeAws_restJson1_1DeleteResourceShareCommand(
   if (input.resourceShareArn !== undefined) {
     query["resourceShareArn"] = input.resourceShareArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -381,12 +383,15 @@ export async function serializeAws_restJson1_1EnableSharingWithAwsOrganizationCo
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/enablesharingwithawsorganization";
+  let body: any;
+  body = "{}";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -784,13 +789,15 @@ export async function serializeAws_restJson1_1PromoteResourceShareCreatedFromPol
   if (input.resourceShareArn !== undefined) {
     query["resourceShareArn"] = input.resourceShareArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

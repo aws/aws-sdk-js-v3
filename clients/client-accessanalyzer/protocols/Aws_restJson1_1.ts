@@ -220,13 +220,15 @@ export async function serializeAws_restJson1_1DeleteAnalyzerCommand(
   if (input.clientToken !== undefined) {
     query["clientToken"] = input.clientToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -267,13 +269,15 @@ export async function serializeAws_restJson1_1DeleteArchiveRuleCommand(
   if (input.clientToken !== undefined) {
     query["clientToken"] = input.clientToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -291,13 +295,15 @@ export async function serializeAws_restJson1_1GetAnalyzedResourceCommand(
   if (input.resourceArn !== undefined) {
     query["resourceArn"] = input.resourceArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -322,12 +328,14 @@ export async function serializeAws_restJson1_1GetAnalyzerCommand(
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -364,12 +372,14 @@ export async function serializeAws_restJson1_1GetArchiveRuleCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -396,13 +406,15 @@ export async function serializeAws_restJson1_1GetFindingCommand(
   if (input.analyzerArn !== undefined) {
     query["analyzerArn"] = input.analyzerArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -455,13 +467,15 @@ export async function serializeAws_restJson1_1ListAnalyzersCommand(
   if (input.type !== undefined) {
     query["type"] = input.type;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -493,13 +507,15 @@ export async function serializeAws_restJson1_1ListArchiveRulesCommand(
   if (input.nextToken !== undefined) {
     query["nextToken"] = input.nextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -565,12 +581,14 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -662,13 +680,15 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   if (input.tagKeys !== undefined) {
     query["tagKeys"] = (input.tagKeys || []).map(_entry => _entry);
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

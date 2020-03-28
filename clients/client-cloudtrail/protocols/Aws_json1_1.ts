@@ -5261,7 +5261,7 @@ const deserializeAws_json1_1PublicKey = (
     );
   }
   if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = Uint8Array.from(output.Value);
+    contents.Value = context.base64Decoder(output.Value);
   }
   return contents;
 };

@@ -115,12 +115,14 @@ export async function serializeAws_restJson1_1DeleteProjectCommand(
   } else {
     throw new Error("No value provided for input HTTP label: projectId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -143,12 +145,14 @@ export async function serializeAws_restJson1_1DescribeBundleCommand(
   } else {
     throw new Error("No value provided for input HTTP label: bundleId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -166,13 +170,15 @@ export async function serializeAws_restJson1_1DescribeProjectCommand(
   if (input.syncFromResources !== undefined) {
     query["syncFromResources"] = input.syncFromResources.toString();
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -202,13 +208,15 @@ export async function serializeAws_restJson1_1ExportBundleCommand(
   if (input.projectId !== undefined) {
     query["projectId"] = input.projectId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -231,12 +239,14 @@ export async function serializeAws_restJson1_1ExportProjectCommand(
   } else {
     throw new Error("No value provided for input HTTP label: projectId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -254,13 +264,15 @@ export async function serializeAws_restJson1_1ListBundlesCommand(
   if (input.nextToken !== undefined) {
     query["nextToken"] = input.nextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -278,13 +290,15 @@ export async function serializeAws_restJson1_1ListProjectsCommand(
   if (input.nextToken !== undefined) {
     query["nextToken"] = input.nextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

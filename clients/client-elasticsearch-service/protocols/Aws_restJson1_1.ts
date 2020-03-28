@@ -327,12 +327,14 @@ export async function serializeAws_restJson1_1DeleteElasticsearchDomainCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -343,12 +345,15 @@ export async function serializeAws_restJson1_1DeleteElasticsearchServiceRoleComm
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/es/role";
+  let body: any;
+  body = "{}";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -371,12 +376,14 @@ export async function serializeAws_restJson1_1DescribeElasticsearchDomainCommand
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -399,12 +406,14 @@ export async function serializeAws_restJson1_1DescribeElasticsearchDomainConfigC
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -476,13 +485,15 @@ export async function serializeAws_restJson1_1DescribeElasticsearchInstanceTypeL
   if (input.DomainName !== undefined) {
     query["domainName"] = input.DomainName;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -503,13 +514,15 @@ export async function serializeAws_restJson1_1DescribeReservedElasticsearchInsta
   if (input.ReservedElasticsearchInstanceOfferingId !== undefined) {
     query["offeringId"] = input.ReservedElasticsearchInstanceOfferingId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -530,13 +543,15 @@ export async function serializeAws_restJson1_1DescribeReservedElasticsearchInsta
   if (input.ReservedElasticsearchInstanceId !== undefined) {
     query["reservationId"] = input.ReservedElasticsearchInstanceId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -551,13 +566,15 @@ export async function serializeAws_restJson1_1GetCompatibleElasticsearchVersions
   if (input.DomainName !== undefined) {
     query["domainName"] = input.DomainName;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -587,13 +604,15 @@ export async function serializeAws_restJson1_1GetUpgradeHistoryCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -616,12 +635,14 @@ export async function serializeAws_restJson1_1GetUpgradeStatusCommand(
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -632,12 +653,15 @@ export async function serializeAws_restJson1_1ListDomainNamesCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-01-01/domain";
+  let body: any;
+  body = "{}";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -674,13 +698,15 @@ export async function serializeAws_restJson1_1ListElasticsearchInstanceTypesComm
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -698,13 +724,15 @@ export async function serializeAws_restJson1_1ListElasticsearchVersionsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -719,13 +747,15 @@ export async function serializeAws_restJson1_1ListTagsCommand(
   if (input.ARN !== undefined) {
     query["arn"] = input.ARN;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

@@ -451,12 +451,14 @@ export async function serializeAws_restJson1_1DeleteDeviceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -481,12 +483,14 @@ export async function serializeAws_restJson1_1DeleteGlobalNetworkCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -523,12 +527,14 @@ export async function serializeAws_restJson1_1DeleteLinkCommand(
   } else {
     throw new Error("No value provided for input HTTP label: LinkId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -565,12 +571,14 @@ export async function serializeAws_restJson1_1DeleteSiteCommand(
   } else {
     throw new Error("No value provided for input HTTP label: SiteId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -612,12 +620,14 @@ export async function serializeAws_restJson1_1DeregisterTransitGatewayCommand(
       "No value provided for input HTTP label: TransitGatewayArn."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -640,13 +650,15 @@ export async function serializeAws_restJson1_1DescribeGlobalNetworksCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -688,12 +700,14 @@ export async function serializeAws_restJson1_1DisassociateCustomerGatewayCommand
   } else {
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -725,13 +739,15 @@ export async function serializeAws_restJson1_1DisassociateLinkCommand(
   if (input.LinkId !== undefined) {
     query["linkId"] = input.LinkId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -769,13 +785,15 @@ export async function serializeAws_restJson1_1GetCustomerGatewayAssociationsComm
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -813,13 +831,15 @@ export async function serializeAws_restJson1_1GetDevicesCommand(
   if (input.SiteId !== undefined) {
     query["siteId"] = input.SiteId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -857,13 +877,15 @@ export async function serializeAws_restJson1_1GetLinkAssociationsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -907,13 +929,15 @@ export async function serializeAws_restJson1_1GetLinksCommand(
   if (input.Type !== undefined) {
     query["type"] = input.Type;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -948,13 +972,15 @@ export async function serializeAws_restJson1_1GetSitesCommand(
   if (input.SiteIds !== undefined) {
     query["siteIds"] = (input.SiteIds || []).map(_entry => _entry);
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -992,13 +1018,15 @@ export async function serializeAws_restJson1_1GetTransitGatewayRegistrationsComm
       _entry => _entry
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1023,12 +1051,14 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1132,13 +1162,15 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   if (input.TagKeys !== undefined) {
     query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

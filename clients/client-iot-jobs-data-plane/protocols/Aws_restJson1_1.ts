@@ -79,13 +79,15 @@ export async function serializeAws_restJson1_1DescribeJobExecutionCommand(
   if (input.includeJobDocument !== undefined) {
     query["includeJobDocument"] = input.includeJobDocument.toString();
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -108,12 +110,14 @@ export async function serializeAws_restJson1_1GetPendingJobExecutionsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 

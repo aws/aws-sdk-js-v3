@@ -128,13 +128,15 @@ export async function serializeAws_restJson1_1DescribeDetectorCommand(
   if (input.keyValue !== undefined) {
     query["keyValue"] = input.keyValue;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -171,13 +173,15 @@ export async function serializeAws_restJson1_1ListDetectorsCommand(
   if (input.stateName !== undefined) {
     query["stateName"] = input.stateName;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

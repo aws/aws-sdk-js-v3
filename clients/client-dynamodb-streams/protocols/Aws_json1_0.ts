@@ -1000,7 +1000,7 @@ const deserializeAws_json1_0AttributeValue = (
     SS: undefined
   };
   if (output.B !== undefined && output.B !== null) {
-    contents.B = Uint8Array.from(output.B);
+    contents.B = context.base64Decoder(output.B);
   }
   if (output.BOOL !== undefined && output.BOOL !== null) {
     contents.BOOL = output.BOOL;
@@ -1045,7 +1045,7 @@ const deserializeAws_json1_0BinarySetAttributeValue = (
   output: any,
   context: __SerdeContext
 ): Array<Uint8Array> => {
-  return (output || []).map((entry: any) => Uint8Array.from(entry));
+  return (output || []).map((entry: any) => context.base64Decoder(entry));
 };
 
 const deserializeAws_json1_0InternalServerError = (

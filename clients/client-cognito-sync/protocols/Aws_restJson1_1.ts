@@ -125,12 +125,14 @@ export async function serializeAws_restJson1_1BulkPublishCommand(
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -182,12 +184,14 @@ export async function serializeAws_restJson1_1DeleteDatasetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -239,12 +243,14 @@ export async function serializeAws_restJson1_1DescribeDatasetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -269,12 +275,14 @@ export async function serializeAws_restJson1_1DescribeIdentityPoolUsageCommand(
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -311,12 +319,14 @@ export async function serializeAws_restJson1_1DescribeIdentityUsageCommand(
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -341,12 +351,14 @@ export async function serializeAws_restJson1_1GetBulkPublishDetailsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -371,12 +383,14 @@ export async function serializeAws_restJson1_1GetCognitoEventsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -401,12 +415,14 @@ export async function serializeAws_restJson1_1GetIdentityPoolConfigurationComman
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -451,13 +467,15 @@ export async function serializeAws_restJson1_1ListDatasetsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -475,13 +493,15 @@ export async function serializeAws_restJson1_1ListIdentityPoolUsageCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -546,13 +566,15 @@ export async function serializeAws_restJson1_1ListRecordsCommand(
   if (input.SyncSessionToken !== undefined) {
     query["syncSessionToken"] = input.SyncSessionToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -755,12 +777,14 @@ export async function serializeAws_restJson1_1SubscribeToDatasetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -824,12 +848,14 @@ export async function serializeAws_restJson1_1UnsubscribeFromDatasetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 

@@ -377,12 +377,14 @@ export async function serializeAws_restJson1_1DeleteBrokerCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -411,13 +413,15 @@ export async function serializeAws_restJson1_1DeleteTagsCommand(
   if (input.TagKeys !== undefined) {
     query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -452,12 +456,14 @@ export async function serializeAws_restJson1_1DeleteUserCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -480,12 +486,14 @@ export async function serializeAws_restJson1_1DescribeBrokerCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -506,13 +514,15 @@ export async function serializeAws_restJson1_1DescribeBrokerEngineTypesCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -539,13 +549,15 @@ export async function serializeAws_restJson1_1DescribeBrokerInstanceOptionsComma
   if (input.StorageType !== undefined) {
     query["storageType"] = input.StorageType;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -570,12 +582,14 @@ export async function serializeAws_restJson1_1DescribeConfigurationCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -617,12 +631,14 @@ export async function serializeAws_restJson1_1DescribeConfigurationRevisionComma
       "No value provided for input HTTP label: ConfigurationRevision."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -657,12 +673,14 @@ export async function serializeAws_restJson1_1DescribeUserCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -680,13 +698,15 @@ export async function serializeAws_restJson1_1ListBrokersCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -718,13 +738,15 @@ export async function serializeAws_restJson1_1ListConfigurationRevisionsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -742,13 +764,15 @@ export async function serializeAws_restJson1_1ListConfigurationsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -773,12 +797,14 @@ export async function serializeAws_restJson1_1ListTagsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -808,13 +834,15 @@ export async function serializeAws_restJson1_1ListUsersCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -837,12 +865,14 @@ export async function serializeAws_restJson1_1RebootBrokerCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 

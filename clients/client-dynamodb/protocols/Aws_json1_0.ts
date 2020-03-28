@@ -5523,7 +5523,7 @@ const serializeAws_json1_0AttributeValue = (
 ): any => {
   const bodyParams: any = {};
   if (input.B !== undefined) {
-    bodyParams["B"] = Buffer.from(input.B).toString("utf-8");
+    bodyParams["B"] = context.base64Encoder(input.B);
   }
   if (input.BOOL !== undefined) {
     bodyParams["BOOL"] = input.BOOL;
@@ -5725,7 +5725,7 @@ const serializeAws_json1_0BinarySetAttributeValue = (
 ): any => {
   const contents = [];
   for (let entry of input) {
-    contents.push(Buffer.from(entry).toString("utf-8"));
+    contents.push(context.base64Encoder(entry));
   }
   return contents;
 };
@@ -8219,7 +8219,7 @@ const deserializeAws_json1_0AttributeValue = (
     SS: undefined
   };
   if (output.B !== undefined && output.B !== null) {
-    contents.B = Uint8Array.from(output.B);
+    contents.B = context.base64Decoder(output.B);
   }
   if (output.BOOL !== undefined && output.BOOL !== null) {
     contents.BOOL = output.BOOL;
@@ -8680,7 +8680,7 @@ const deserializeAws_json1_0BinarySetAttributeValue = (
   output: any,
   context: __SerdeContext
 ): Array<Uint8Array> => {
-  return (output || []).map((entry: any) => Uint8Array.from(entry));
+  return (output || []).map((entry: any) => context.base64Decoder(entry));
 };
 
 const deserializeAws_json1_0CancellationReason = (

@@ -7098,9 +7098,7 @@ const serializeAws_json1_1DecryptRequest = (
 ): any => {
   const bodyParams: any = {};
   if (input.CiphertextBlob !== undefined) {
-    bodyParams["CiphertextBlob"] = Buffer.from(input.CiphertextBlob).toString(
-      "utf-8"
-    );
+    bodyParams["CiphertextBlob"] = context.base64Encoder(input.CiphertextBlob);
   }
   if (input.EncryptionAlgorithm !== undefined) {
     bodyParams["EncryptionAlgorithm"] = input.EncryptionAlgorithm;
@@ -7272,7 +7270,7 @@ const serializeAws_json1_1EncryptRequest = (
     bodyParams["KeyId"] = input.KeyId;
   }
   if (input.Plaintext !== undefined) {
-    bodyParams["Plaintext"] = Buffer.from(input.Plaintext).toString("utf-8");
+    bodyParams["Plaintext"] = context.base64Encoder(input.Plaintext);
   }
   return bodyParams;
 };
@@ -7523,17 +7521,15 @@ const serializeAws_json1_1ImportKeyMaterialRequest = (
 ): any => {
   const bodyParams: any = {};
   if (input.EncryptedKeyMaterial !== undefined) {
-    bodyParams["EncryptedKeyMaterial"] = Buffer.from(
+    bodyParams["EncryptedKeyMaterial"] = context.base64Encoder(
       input.EncryptedKeyMaterial
-    ).toString("utf-8");
+    );
   }
   if (input.ExpirationModel !== undefined) {
     bodyParams["ExpirationModel"] = input.ExpirationModel;
   }
   if (input.ImportToken !== undefined) {
-    bodyParams["ImportToken"] = Buffer.from(input.ImportToken).toString(
-      "utf-8"
-    );
+    bodyParams["ImportToken"] = context.base64Encoder(input.ImportToken);
   }
   if (input.KeyId !== undefined) {
     bodyParams["KeyId"] = input.KeyId;
@@ -7670,9 +7666,7 @@ const serializeAws_json1_1ReEncryptRequest = (
 ): any => {
   const bodyParams: any = {};
   if (input.CiphertextBlob !== undefined) {
-    bodyParams["CiphertextBlob"] = Buffer.from(input.CiphertextBlob).toString(
-      "utf-8"
-    );
+    bodyParams["CiphertextBlob"] = context.base64Encoder(input.CiphertextBlob);
   }
   if (input.DestinationEncryptionAlgorithm !== undefined) {
     bodyParams["DestinationEncryptionAlgorithm"] =
@@ -7772,7 +7766,7 @@ const serializeAws_json1_1SignRequest = (
     bodyParams["KeyId"] = input.KeyId;
   }
   if (input.Message !== undefined) {
-    bodyParams["Message"] = Buffer.from(input.Message).toString("utf-8");
+    bodyParams["Message"] = context.base64Encoder(input.Message);
   }
   if (input.MessageType !== undefined) {
     bodyParams["MessageType"] = input.MessageType;
@@ -7910,13 +7904,13 @@ const serializeAws_json1_1VerifyRequest = (
     bodyParams["KeyId"] = input.KeyId;
   }
   if (input.Message !== undefined) {
-    bodyParams["Message"] = Buffer.from(input.Message).toString("utf-8");
+    bodyParams["Message"] = context.base64Encoder(input.Message);
   }
   if (input.MessageType !== undefined) {
     bodyParams["MessageType"] = input.MessageType;
   }
   if (input.Signature !== undefined) {
-    bodyParams["Signature"] = Buffer.from(input.Signature).toString("utf-8");
+    bodyParams["Signature"] = context.base64Encoder(input.Signature);
   }
   if (input.SigningAlgorithm !== undefined) {
     bodyParams["SigningAlgorithm"] = input.SigningAlgorithm;
@@ -8253,7 +8247,7 @@ const deserializeAws_json1_1DecryptResponse = (
     contents.KeyId = output.KeyId;
   }
   if (output.Plaintext !== undefined && output.Plaintext !== null) {
-    contents.Plaintext = Uint8Array.from(output.Plaintext);
+    contents.Plaintext = context.base64Decoder(output.Plaintext);
   }
   return contents;
 };
@@ -8359,7 +8353,7 @@ const deserializeAws_json1_1EncryptResponse = (
     KeyId: undefined
   };
   if (output.CiphertextBlob !== undefined && output.CiphertextBlob !== null) {
-    contents.CiphertextBlob = Uint8Array.from(output.CiphertextBlob);
+    contents.CiphertextBlob = context.base64Decoder(output.CiphertextBlob);
   }
   if (
     output.EncryptionAlgorithm !== undefined &&
@@ -8427,7 +8421,7 @@ const deserializeAws_json1_1GenerateDataKeyPairResponse = (
     output.PrivateKeyCiphertextBlob !== undefined &&
     output.PrivateKeyCiphertextBlob !== null
   ) {
-    contents.PrivateKeyCiphertextBlob = Uint8Array.from(
+    contents.PrivateKeyCiphertextBlob = context.base64Decoder(
       output.PrivateKeyCiphertextBlob
     );
   }
@@ -8435,10 +8429,12 @@ const deserializeAws_json1_1GenerateDataKeyPairResponse = (
     output.PrivateKeyPlaintext !== undefined &&
     output.PrivateKeyPlaintext !== null
   ) {
-    contents.PrivateKeyPlaintext = Uint8Array.from(output.PrivateKeyPlaintext);
+    contents.PrivateKeyPlaintext = context.base64Decoder(
+      output.PrivateKeyPlaintext
+    );
   }
   if (output.PublicKey !== undefined && output.PublicKey !== null) {
-    contents.PublicKey = Uint8Array.from(output.PublicKey);
+    contents.PublicKey = context.base64Decoder(output.PublicKey);
   }
   return contents;
 };
@@ -8464,12 +8460,12 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextResponse = (
     output.PrivateKeyCiphertextBlob !== undefined &&
     output.PrivateKeyCiphertextBlob !== null
   ) {
-    contents.PrivateKeyCiphertextBlob = Uint8Array.from(
+    contents.PrivateKeyCiphertextBlob = context.base64Decoder(
       output.PrivateKeyCiphertextBlob
     );
   }
   if (output.PublicKey !== undefined && output.PublicKey !== null) {
-    contents.PublicKey = Uint8Array.from(output.PublicKey);
+    contents.PublicKey = context.base64Decoder(output.PublicKey);
   }
   return contents;
 };
@@ -8485,13 +8481,13 @@ const deserializeAws_json1_1GenerateDataKeyResponse = (
     Plaintext: undefined
   };
   if (output.CiphertextBlob !== undefined && output.CiphertextBlob !== null) {
-    contents.CiphertextBlob = Uint8Array.from(output.CiphertextBlob);
+    contents.CiphertextBlob = context.base64Decoder(output.CiphertextBlob);
   }
   if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
   }
   if (output.Plaintext !== undefined && output.Plaintext !== null) {
-    contents.Plaintext = Uint8Array.from(output.Plaintext);
+    contents.Plaintext = context.base64Decoder(output.Plaintext);
   }
   return contents;
 };
@@ -8506,7 +8502,7 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextResponse = (
     KeyId: undefined
   };
   if (output.CiphertextBlob !== undefined && output.CiphertextBlob !== null) {
-    contents.CiphertextBlob = Uint8Array.from(output.CiphertextBlob);
+    contents.CiphertextBlob = context.base64Decoder(output.CiphertextBlob);
   }
   if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
@@ -8523,7 +8519,7 @@ const deserializeAws_json1_1GenerateRandomResponse = (
     Plaintext: undefined
   };
   if (output.Plaintext !== undefined && output.Plaintext !== null) {
-    contents.Plaintext = Uint8Array.from(output.Plaintext);
+    contents.Plaintext = context.base64Decoder(output.Plaintext);
   }
   return contents;
 };
@@ -8571,7 +8567,7 @@ const deserializeAws_json1_1GetParametersForImportResponse = (
     PublicKey: undefined
   };
   if (output.ImportToken !== undefined && output.ImportToken !== null) {
-    contents.ImportToken = Uint8Array.from(output.ImportToken);
+    contents.ImportToken = context.base64Decoder(output.ImportToken);
   }
   if (output.KeyId !== undefined && output.KeyId !== null) {
     contents.KeyId = output.KeyId;
@@ -8585,7 +8581,7 @@ const deserializeAws_json1_1GetParametersForImportResponse = (
     );
   }
   if (output.PublicKey !== undefined && output.PublicKey !== null) {
-    contents.PublicKey = Uint8Array.from(output.PublicKey);
+    contents.PublicKey = context.base64Decoder(output.PublicKey);
   }
   return contents;
 };
@@ -8625,7 +8621,7 @@ const deserializeAws_json1_1GetPublicKeyResponse = (
     contents.KeyUsage = output.KeyUsage;
   }
   if (output.PublicKey !== undefined && output.PublicKey !== null) {
-    contents.PublicKey = Uint8Array.from(output.PublicKey);
+    contents.PublicKey = context.base64Decoder(output.PublicKey);
   }
   if (
     output.SigningAlgorithms !== undefined &&
@@ -9268,7 +9264,7 @@ const deserializeAws_json1_1ReEncryptResponse = (
     SourceKeyId: undefined
   };
   if (output.CiphertextBlob !== undefined && output.CiphertextBlob !== null) {
-    contents.CiphertextBlob = Uint8Array.from(output.CiphertextBlob);
+    contents.CiphertextBlob = context.base64Decoder(output.CiphertextBlob);
   }
   if (
     output.DestinationEncryptionAlgorithm !== undefined &&
@@ -9324,7 +9320,7 @@ const deserializeAws_json1_1SignResponse = (
     contents.KeyId = output.KeyId;
   }
   if (output.Signature !== undefined && output.Signature !== null) {
-    contents.Signature = Uint8Array.from(output.Signature);
+    contents.Signature = context.base64Decoder(output.Signature);
   }
   if (
     output.SigningAlgorithm !== undefined &&

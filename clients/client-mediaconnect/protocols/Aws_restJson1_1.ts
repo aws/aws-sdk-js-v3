@@ -208,12 +208,14 @@ export async function serializeAws_restJson1_1DeleteFlowCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -236,12 +238,14 @@ export async function serializeAws_restJson1_1DescribeFlowCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -299,13 +303,15 @@ export async function serializeAws_restJson1_1ListEntitlementsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -323,13 +329,15 @@ export async function serializeAws_restJson1_1ListFlowsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -354,12 +362,14 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -394,12 +404,14 @@ export async function serializeAws_restJson1_1RemoveFlowOutputCommand(
   } else {
     throw new Error("No value provided for input HTTP label: OutputArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -436,12 +448,14 @@ export async function serializeAws_restJson1_1RevokeFlowEntitlementCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -464,12 +478,14 @@ export async function serializeAws_restJson1_1StartFlowCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -492,12 +508,14 @@ export async function serializeAws_restJson1_1StopFlowCommand(
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -566,13 +584,15 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   if (input.TagKeys !== undefined) {
     query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

@@ -688,12 +688,14 @@ export async function serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCo
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -719,12 +721,14 @@ export async function serializeAws_restXmlDeleteDistributionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -750,12 +754,14 @@ export async function serializeAws_restXmlDeleteFieldLevelEncryptionConfigComman
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -781,12 +787,14 @@ export async function serializeAws_restXmlDeleteFieldLevelEncryptionProfileComma
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -812,12 +820,14 @@ export async function serializeAws_restXmlDeletePublicKeyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -843,12 +853,14 @@ export async function serializeAws_restXmlDeleteStreamingDistributionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -871,12 +883,14 @@ export async function serializeAws_restXmlGetCloudFrontOriginAccessIdentityComma
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -900,12 +914,14 @@ export async function serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfi
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -928,12 +944,14 @@ export async function serializeAws_restXmlGetDistributionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -956,12 +974,14 @@ export async function serializeAws_restXmlGetDistributionConfigCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -984,12 +1004,14 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1012,12 +1034,14 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionConfigCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1040,12 +1064,14 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionProfileCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1068,12 +1094,14 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCo
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1111,12 +1139,14 @@ export async function serializeAws_restXmlGetInvalidationCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1139,12 +1169,14 @@ export async function serializeAws_restXmlGetPublicKeyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1167,12 +1199,14 @@ export async function serializeAws_restXmlGetPublicKeyConfigCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1195,12 +1229,14 @@ export async function serializeAws_restXmlGetStreamingDistributionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1223,12 +1259,14 @@ export async function serializeAws_restXmlGetStreamingDistributionConfigCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1246,13 +1284,15 @@ export async function serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCo
   if (input.MaxItems !== undefined) {
     query["MaxItems"] = input.MaxItems;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1270,13 +1310,15 @@ export async function serializeAws_restXmlListDistributionsCommand(
   if (input.MaxItems !== undefined) {
     query["MaxItems"] = input.MaxItems;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1306,13 +1348,15 @@ export async function serializeAws_restXmlListDistributionsByWebACLIdCommand(
   if (input.MaxItems !== undefined) {
     query["MaxItems"] = input.MaxItems;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1330,13 +1374,15 @@ export async function serializeAws_restXmlListFieldLevelEncryptionConfigsCommand
   if (input.MaxItems !== undefined) {
     query["MaxItems"] = input.MaxItems;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1354,13 +1400,15 @@ export async function serializeAws_restXmlListFieldLevelEncryptionProfilesComman
   if (input.MaxItems !== undefined) {
     query["MaxItems"] = input.MaxItems;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1392,13 +1440,15 @@ export async function serializeAws_restXmlListInvalidationsCommand(
   if (input.MaxItems !== undefined) {
     query["MaxItems"] = input.MaxItems;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1416,13 +1466,15 @@ export async function serializeAws_restXmlListPublicKeysCommand(
   if (input.MaxItems !== undefined) {
     query["MaxItems"] = input.MaxItems;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1440,13 +1492,15 @@ export async function serializeAws_restXmlListStreamingDistributionsCommand(
   if (input.MaxItems !== undefined) {
     query["MaxItems"] = input.MaxItems;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1461,13 +1515,15 @@ export async function serializeAws_restXmlListTagsForResourceCommand(
   if (input.Resource !== undefined) {
     query["Resource"] = input.Resource;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

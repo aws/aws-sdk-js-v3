@@ -21768,9 +21768,7 @@ const serializeAws_json1_1PutFileEntry = (
 ): any => {
   const bodyParams: any = {};
   if (input.fileContent !== undefined) {
-    bodyParams["fileContent"] = Buffer.from(input.fileContent).toString(
-      "utf-8"
-    );
+    bodyParams["fileContent"] = context.base64Encoder(input.fileContent);
   }
   if (input.fileMode !== undefined) {
     bodyParams["fileMode"] = input.fileMode;
@@ -21802,9 +21800,7 @@ const serializeAws_json1_1PutFileInput = (
     bodyParams["email"] = input.email;
   }
   if (input.fileContent !== undefined) {
-    bodyParams["fileContent"] = Buffer.from(input.fileContent).toString(
-      "utf-8"
-    );
+    bodyParams["fileContent"] = context.base64Encoder(input.fileContent);
   }
   if (input.fileMode !== undefined) {
     bodyParams["fileMode"] = input.fileMode;
@@ -21858,7 +21854,7 @@ const serializeAws_json1_1ReplaceContentEntry = (
 ): any => {
   const bodyParams: any = {};
   if (input.content !== undefined) {
-    bodyParams["content"] = Buffer.from(input.content).toString("utf-8");
+    bodyParams["content"] = context.base64Encoder(input.content);
   }
   if (input.fileMode !== undefined) {
     bodyParams["fileMode"] = input.fileMode;
@@ -24493,7 +24489,7 @@ const deserializeAws_json1_1GetBlobOutput = (
     content: undefined
   };
   if (output.content !== undefined && output.content !== null) {
-    contents.content = Uint8Array.from(output.content);
+    contents.content = context.base64Decoder(output.content);
   }
   return contents;
 };
@@ -24629,7 +24625,7 @@ const deserializeAws_json1_1GetFileOutput = (
     contents.commitId = output.commitId;
   }
   if (output.fileContent !== undefined && output.fileContent !== null) {
-    contents.fileContent = Uint8Array.from(output.fileContent);
+    contents.fileContent = context.base64Decoder(output.fileContent);
   }
   if (output.fileMode !== undefined && output.fileMode !== null) {
     contents.fileMode = output.fileMode;

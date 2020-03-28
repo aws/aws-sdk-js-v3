@@ -68,12 +68,14 @@ export async function serializeAws_restJson1_1DeleteHumanLoopCommand(
   } else {
     throw new Error("No value provided for input HTTP label: HumanLoopName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -98,12 +100,14 @@ export async function serializeAws_restJson1_1DescribeHumanLoopCommand(
   } else {
     throw new Error("No value provided for input HTTP label: HumanLoopName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -134,13 +138,15 @@ export async function serializeAws_restJson1_1ListHumanLoopsCommand(
   if (input.SortOrder !== undefined) {
     query["SortOrder"] = input.SortOrder;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

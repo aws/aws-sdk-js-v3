@@ -362,12 +362,14 @@ export async function serializeAws_restJson1_1DeleteApplicationCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -396,13 +398,15 @@ export async function serializeAws_restJson1_1GetApplicationCommand(
   if (input.SemanticVersion !== undefined) {
     query["semanticVersion"] = input.SemanticVersion;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -427,12 +431,14 @@ export async function serializeAws_restJson1_1GetApplicationPolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -469,12 +475,14 @@ export async function serializeAws_restJson1_1GetCloudFormationTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -509,13 +517,15 @@ export async function serializeAws_restJson1_1ListApplicationDependenciesCommand
   if (input.SemanticVersion !== undefined) {
     query["semanticVersion"] = input.SemanticVersion;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -547,13 +557,15 @@ export async function serializeAws_restJson1_1ListApplicationVersionsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -571,13 +583,15 @@ export async function serializeAws_restJson1_1ListApplicationsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

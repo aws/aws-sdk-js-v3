@@ -97,12 +97,14 @@ export async function serializeAws_restJson1_1GetOutpostCommand(
   } else {
     throw new Error("No value provided for input HTTP label: OutpostId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -132,13 +134,15 @@ export async function serializeAws_restJson1_1GetOutpostInstanceTypesCommand(
   if (input.NextToken !== undefined) {
     query["NextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -156,13 +160,15 @@ export async function serializeAws_restJson1_1ListOutpostsCommand(
   if (input.NextToken !== undefined) {
     query["NextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -180,13 +186,15 @@ export async function serializeAws_restJson1_1ListSitesCommand(
   if (input.NextToken !== undefined) {
     query["NextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

@@ -140,12 +140,14 @@ export async function serializeAws_restJson1_1CancelJobCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -332,12 +334,14 @@ export async function serializeAws_restJson1_1DeletePipelineCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -360,12 +364,14 @@ export async function serializeAws_restJson1_1DeletePresetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -395,13 +401,15 @@ export async function serializeAws_restJson1_1ListJobsByPipelineCommand(
   if (input.PageToken !== undefined) {
     query["PageToken"] = input.PageToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -431,13 +439,15 @@ export async function serializeAws_restJson1_1ListJobsByStatusCommand(
   if (input.PageToken !== undefined) {
     query["PageToken"] = input.PageToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -455,13 +465,15 @@ export async function serializeAws_restJson1_1ListPipelinesCommand(
   if (input.PageToken !== undefined) {
     query["PageToken"] = input.PageToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -479,13 +491,15 @@ export async function serializeAws_restJson1_1ListPresetsCommand(
   if (input.PageToken !== undefined) {
     query["PageToken"] = input.PageToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -508,12 +522,14 @@ export async function serializeAws_restJson1_1ReadJobCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -536,12 +552,14 @@ export async function serializeAws_restJson1_1ReadPipelineCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -564,12 +582,14 @@ export async function serializeAws_restJson1_1ReadPresetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 

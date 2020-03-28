@@ -213,12 +213,14 @@ export async function serializeAws_restJson1_1DeleteAssetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -241,12 +243,14 @@ export async function serializeAws_restJson1_1DeletePackagingConfigurationComman
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -269,12 +273,14 @@ export async function serializeAws_restJson1_1DeletePackagingGroupCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -297,12 +303,14 @@ export async function serializeAws_restJson1_1DescribeAssetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -325,12 +333,14 @@ export async function serializeAws_restJson1_1DescribePackagingConfigurationComm
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -353,12 +363,14 @@ export async function serializeAws_restJson1_1DescribePackagingGroupCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -379,13 +391,15 @@ export async function serializeAws_restJson1_1ListAssetsCommand(
   if (input.PackagingGroupId !== undefined) {
     query["packagingGroupId"] = input.PackagingGroupId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -406,13 +420,15 @@ export async function serializeAws_restJson1_1ListPackagingConfigurationsCommand
   if (input.PackagingGroupId !== undefined) {
     query["packagingGroupId"] = input.PackagingGroupId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -430,13 +446,15 @@ export async function serializeAws_restJson1_1ListPackagingGroupsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

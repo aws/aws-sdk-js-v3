@@ -18943,7 +18943,7 @@ const serializeAws_json1_1MaintenanceWindowLambdaParameters = (
     bodyParams["ClientContext"] = input.ClientContext;
   }
   if (input.Payload !== undefined) {
-    bodyParams["Payload"] = Buffer.from(input.Payload).toString("utf-8");
+    bodyParams["Payload"] = context.base64Encoder(input.Payload);
   }
   if (input.Qualifier !== undefined) {
     bodyParams["Qualifier"] = input.Qualifier;
@@ -27470,7 +27470,7 @@ const deserializeAws_json1_1MaintenanceWindowLambdaParameters = (
     contents.ClientContext = output.ClientContext;
   }
   if (output.Payload !== undefined && output.Payload !== null) {
-    contents.Payload = Uint8Array.from(output.Payload);
+    contents.Payload = context.base64Decoder(output.Payload);
   }
   if (output.Qualifier !== undefined && output.Qualifier !== null) {
     contents.Qualifier = output.Qualifier;

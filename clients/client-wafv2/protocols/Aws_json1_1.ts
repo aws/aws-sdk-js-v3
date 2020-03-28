@@ -4716,9 +4716,7 @@ const serializeAws_json1_1ByteMatchStatement = (
     bodyParams["PositionalConstraint"] = input.PositionalConstraint;
   }
   if (input.SearchString !== undefined) {
-    bodyParams["SearchString"] = Buffer.from(input.SearchString).toString(
-      "utf-8"
-    );
+    bodyParams["SearchString"] = context.base64Encoder(input.SearchString);
   }
   if (input.TextTransformations !== undefined) {
     bodyParams["TextTransformations"] = serializeAws_json1_1TextTransformations(
@@ -6228,7 +6226,7 @@ const deserializeAws_json1_1ByteMatchStatement = (
     contents.PositionalConstraint = output.PositionalConstraint;
   }
   if (output.SearchString !== undefined && output.SearchString !== null) {
-    contents.SearchString = Uint8Array.from(output.SearchString);
+    contents.SearchString = context.base64Decoder(output.SearchString);
   }
   if (
     output.TextTransformations !== undefined &&

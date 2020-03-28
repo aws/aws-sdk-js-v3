@@ -914,12 +914,14 @@ export async function serializeAws_restJson1_1DeleteDirectoryCommand(
     headers["x-amz-data-partition"] = input.DirectoryArn;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory";
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "PUT",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -988,12 +990,14 @@ export async function serializeAws_restJson1_1DeleteSchemaCommand(
     headers["x-amz-data-partition"] = input.SchemaArn;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema";
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "PUT",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1166,12 +1170,14 @@ export async function serializeAws_restJson1_1DisableDirectoryCommand(
     headers["x-amz-data-partition"] = input.DirectoryArn;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/disable";
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "PUT",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1185,12 +1191,14 @@ export async function serializeAws_restJson1_1EnableDirectoryCommand(
     headers["x-amz-data-partition"] = input.DirectoryArn;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/enable";
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "PUT",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1227,12 +1235,14 @@ export async function serializeAws_restJson1_1GetDirectoryCommand(
     headers["x-amz-data-partition"] = input.DirectoryArn;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/get";
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1389,12 +1399,14 @@ export async function serializeAws_restJson1_1GetSchemaAsJsonCommand(
     headers["x-amz-data-partition"] = input.SchemaArn;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/json";
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 

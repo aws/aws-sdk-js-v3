@@ -62,12 +62,14 @@ export async function serializeAws_restJson1_1DeleteObjectCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Path.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -93,12 +95,14 @@ export async function serializeAws_restJson1_1DescribeObjectCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Path.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "HEAD",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -127,12 +131,14 @@ export async function serializeAws_restJson1_1GetObjectCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Path.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -153,13 +159,15 @@ export async function serializeAws_restJson1_1ListItemsCommand(
   if (input.Path !== undefined) {
     query["Path"] = input.Path;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

@@ -222,12 +222,14 @@ export async function serializeAws_restJson1_1DeleteDetectorModelCommand(
       "No value provided for input HTTP label: detectorModelName."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -250,12 +252,14 @@ export async function serializeAws_restJson1_1DeleteInputCommand(
   } else {
     throw new Error("No value provided for input HTTP label: inputName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -286,13 +290,15 @@ export async function serializeAws_restJson1_1DescribeDetectorModelCommand(
   if (input.detectorModelVersion !== undefined) {
     query["version"] = input.detectorModelVersion;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -315,12 +321,14 @@ export async function serializeAws_restJson1_1DescribeInputCommand(
   } else {
     throw new Error("No value provided for input HTTP label: inputName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -331,12 +339,15 @@ export async function serializeAws_restJson1_1DescribeLoggingOptionsCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/logging";
+  let body: any;
+  body = "{}";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -370,13 +381,15 @@ export async function serializeAws_restJson1_1ListDetectorModelVersionsCommand(
   if (input.nextToken !== undefined) {
     query["nextToken"] = input.nextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -394,13 +407,15 @@ export async function serializeAws_restJson1_1ListDetectorModelsCommand(
   if (input.nextToken !== undefined) {
     query["nextToken"] = input.nextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -418,13 +433,15 @@ export async function serializeAws_restJson1_1ListInputsCommand(
   if (input.nextToken !== undefined) {
     query["nextToken"] = input.nextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -439,13 +456,15 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   if (input.resourceArn !== undefined) {
     query["resourceArn"] = input.resourceArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -517,13 +536,15 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   if (input.tagKeys !== undefined) {
     query["tagKeys"] = (input.tagKeys || []).map(_entry => _entry);
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

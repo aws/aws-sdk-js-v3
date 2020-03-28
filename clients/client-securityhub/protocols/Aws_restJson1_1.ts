@@ -487,12 +487,14 @@ export async function serializeAws_restJson1_1DeleteActionTargetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ActionTargetArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -518,12 +520,14 @@ export async function serializeAws_restJson1_1DeleteInsightCommand(
   } else {
     throw new Error("No value provided for input HTTP label: InsightArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -622,13 +626,15 @@ export async function serializeAws_restJson1_1DescribeHubCommand(
   if (input.HubArn !== undefined) {
     query["HubArn"] = input.HubArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -646,13 +652,15 @@ export async function serializeAws_restJson1_1DescribeProductsCommand(
   if (input.NextToken !== undefined) {
     query["NextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -689,13 +697,15 @@ export async function serializeAws_restJson1_1DescribeStandardsControlsCommand(
   if (input.NextToken !== undefined) {
     query["NextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -725,12 +735,14 @@ export async function serializeAws_restJson1_1DisableImportFindingsForProductCom
       "No value provided for input HTTP label: ProductSubscriptionArn."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -741,12 +753,15 @@ export async function serializeAws_restJson1_1DisableSecurityHubCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/accounts";
+  let body: any;
+  body = "{}";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -757,12 +772,15 @@ export async function serializeAws_restJson1_1DisassociateFromMasterAccountComma
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/master/disassociate";
+  let body: any;
+  body = "{}";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -932,12 +950,14 @@ export async function serializeAws_restJson1_1GetInsightResultsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: InsightArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -980,12 +1000,15 @@ export async function serializeAws_restJson1_1GetInvitationsCountCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/invitations/count";
+  let body: any;
+  body = "{}";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -996,12 +1019,15 @@ export async function serializeAws_restJson1_1GetMasterAccountCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/master";
+  let body: any;
+  body = "{}";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1071,13 +1097,15 @@ export async function serializeAws_restJson1_1ListEnabledProductsForImportComman
   if (input.NextToken !== undefined) {
     query["NextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1095,13 +1123,15 @@ export async function serializeAws_restJson1_1ListInvitationsCommand(
   if (input.NextToken !== undefined) {
     query["NextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1122,13 +1152,15 @@ export async function serializeAws_restJson1_1ListMembersCommand(
   if (input.OnlyAssociated !== undefined) {
     query["OnlyAssociated"] = input.OnlyAssociated.toString();
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1153,12 +1185,14 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1224,13 +1258,15 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   if (input.TagKeys !== undefined) {
     query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

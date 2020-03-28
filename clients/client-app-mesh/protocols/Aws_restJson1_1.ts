@@ -464,12 +464,14 @@ export async function serializeAws_restJson1_1DeleteMeshCommand(
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -521,12 +523,14 @@ export async function serializeAws_restJson1_1DeleteRouteCommand(
       "No value provided for input HTTP label: virtualRouterName."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -564,12 +568,14 @@ export async function serializeAws_restJson1_1DeleteVirtualNodeCommand(
   } else {
     throw new Error("No value provided for input HTTP label: virtualNodeName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -609,12 +615,14 @@ export async function serializeAws_restJson1_1DeleteVirtualRouterCommand(
       "No value provided for input HTTP label: virtualRouterName."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -654,12 +662,14 @@ export async function serializeAws_restJson1_1DeleteVirtualServiceCommand(
       "No value provided for input HTTP label: virtualServiceName."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -682,12 +692,14 @@ export async function serializeAws_restJson1_1DescribeMeshCommand(
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -739,12 +751,14 @@ export async function serializeAws_restJson1_1DescribeRouteCommand(
       "No value provided for input HTTP label: virtualRouterName."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -782,12 +796,14 @@ export async function serializeAws_restJson1_1DescribeVirtualNodeCommand(
   } else {
     throw new Error("No value provided for input HTTP label: virtualNodeName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -827,12 +843,14 @@ export async function serializeAws_restJson1_1DescribeVirtualRouterCommand(
       "No value provided for input HTTP label: virtualRouterName."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -872,12 +890,14 @@ export async function serializeAws_restJson1_1DescribeVirtualServiceCommand(
       "No value provided for input HTTP label: virtualServiceName."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -895,13 +915,15 @@ export async function serializeAws_restJson1_1ListMeshesCommand(
   if (input.nextToken !== undefined) {
     query["nextToken"] = input.nextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -948,13 +970,15 @@ export async function serializeAws_restJson1_1ListRoutesCommand(
   if (input.nextToken !== undefined) {
     query["nextToken"] = input.nextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -975,13 +999,15 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   if (input.resourceArn !== undefined) {
     query["resourceArn"] = input.resourceArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1011,13 +1037,15 @@ export async function serializeAws_restJson1_1ListVirtualNodesCommand(
   if (input.nextToken !== undefined) {
     query["nextToken"] = input.nextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1047,13 +1075,15 @@ export async function serializeAws_restJson1_1ListVirtualRoutersCommand(
   if (input.nextToken !== undefined) {
     query["nextToken"] = input.nextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1083,13 +1113,15 @@ export async function serializeAws_restJson1_1ListVirtualServicesCommand(
   if (input.nextToken !== undefined) {
     query["nextToken"] = input.nextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

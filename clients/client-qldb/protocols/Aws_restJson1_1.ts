@@ -137,12 +137,14 @@ export async function serializeAws_restJson1_1DeleteLedgerCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -177,12 +179,14 @@ export async function serializeAws_restJson1_1DescribeJournalS3ExportCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -205,12 +209,14 @@ export async function serializeAws_restJson1_1DescribeLedgerCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -330,12 +336,14 @@ export async function serializeAws_restJson1_1GetDigestCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -400,13 +408,15 @@ export async function serializeAws_restJson1_1ListJournalS3ExportsCommand(
   if (input.NextToken !== undefined) {
     query["next_token"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -436,13 +446,15 @@ export async function serializeAws_restJson1_1ListJournalS3ExportsForLedgerComma
   if (input.NextToken !== undefined) {
     query["next_token"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -460,13 +472,15 @@ export async function serializeAws_restJson1_1ListLedgersCommand(
   if (input.NextToken !== undefined) {
     query["next_token"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -491,12 +505,14 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -562,13 +578,15 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   if (input.TagKeys !== undefined) {
     query["tagKeys"] = (input.TagKeys || []).map(_entry => _entry);
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

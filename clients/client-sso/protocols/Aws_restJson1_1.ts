@@ -55,13 +55,15 @@ export async function serializeAws_restJson1_1GetRoleCredentialsCommand(
   if (input.roleName !== undefined) {
     query["role_name"] = input.roleName;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -85,13 +87,15 @@ export async function serializeAws_restJson1_1ListAccountRolesCommand(
   if (input.nextToken !== undefined) {
     query["next_token"] = input.nextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -112,13 +116,15 @@ export async function serializeAws_restJson1_1ListAccountsCommand(
   if (input.nextToken !== undefined) {
     query["next_token"] = input.nextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -132,12 +138,14 @@ export async function serializeAws_restJson1_1LogoutCommand(
     headers["x-amz-sso_bearer_token"] = input.accessToken;
   }
   let resolvedPath = "/logout";
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 

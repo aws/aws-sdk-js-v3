@@ -290,12 +290,14 @@ export async function serializeAws_restXmlDeleteAccessPointCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -321,12 +323,14 @@ export async function serializeAws_restXmlDeleteAccessPointPolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -340,12 +344,14 @@ export async function serializeAws_restXmlDeletePublicAccessBlockCommand(
     headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/configuration/publicAccessBlock";
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -371,12 +377,14 @@ export async function serializeAws_restXmlDescribeJobCommand(
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -402,12 +410,14 @@ export async function serializeAws_restXmlGetAccessPointCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -433,12 +443,14 @@ export async function serializeAws_restXmlGetAccessPointPolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -464,12 +476,14 @@ export async function serializeAws_restXmlGetAccessPointPolicyStatusCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -483,12 +497,14 @@ export async function serializeAws_restXmlGetPublicAccessBlockCommand(
     headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/configuration/publicAccessBlock";
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -512,13 +528,15 @@ export async function serializeAws_restXmlListAccessPointsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -542,13 +560,15 @@ export async function serializeAws_restXmlListJobsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -659,13 +679,15 @@ export async function serializeAws_restXmlUpdateJobPriorityCommand(
   if (input.Priority !== undefined) {
     query["priority"] = input.Priority.toString();
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -698,13 +720,15 @@ export async function serializeAws_restXmlUpdateJobStatusCommand(
   if (input.StatusUpdateReason !== undefined) {
     query["statusUpdateReason"] = input.StatusUpdateReason;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
