@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/types",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "description": "Types for the AWS SDK",

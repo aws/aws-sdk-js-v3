@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-hex-encoding",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "Converts binary buffers to and from lowercase hexadecimal encoding",
   "scripts": {
     "prepublishOnly": "tsc",
