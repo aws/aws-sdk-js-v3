@@ -890,12 +890,14 @@ export async function serializeAws_restXmlDeleteHealthCheckCommand(
   } else {
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -918,12 +920,14 @@ export async function serializeAws_restXmlDeleteHostedZoneCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -946,12 +950,14 @@ export async function serializeAws_restXmlDeleteQueryLoggingConfigCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -974,12 +980,14 @@ export async function serializeAws_restXmlDeleteReusableDelegationSetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1014,12 +1022,14 @@ export async function serializeAws_restXmlDeleteTrafficPolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Version.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1042,12 +1052,14 @@ export async function serializeAws_restXmlDeleteTrafficPolicyInstanceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1166,12 +1178,14 @@ export async function serializeAws_restXmlGetAccountLimitCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Type.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1194,12 +1208,14 @@ export async function serializeAws_restXmlGetChangeCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1210,12 +1226,15 @@ export async function serializeAws_restXmlGetCheckerIpRangesCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/checkeripranges";
+  let body: any;
+  body = "";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1236,13 +1255,15 @@ export async function serializeAws_restXmlGetGeoLocationCommand(
   if (input.SubdivisionCode !== undefined) {
     query["subdivisioncode"] = input.SubdivisionCode;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1267,12 +1288,14 @@ export async function serializeAws_restXmlGetHealthCheckCommand(
   } else {
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1283,12 +1306,15 @@ export async function serializeAws_restXmlGetHealthCheckCountCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/healthcheckcount";
+  let body: any;
+  body = "";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1314,12 +1340,14 @@ export async function serializeAws_restXmlGetHealthCheckLastFailureReasonCommand
   } else {
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1344,12 +1372,14 @@ export async function serializeAws_restXmlGetHealthCheckStatusCommand(
   } else {
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1372,12 +1402,14 @@ export async function serializeAws_restXmlGetHostedZoneCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1388,12 +1420,15 @@ export async function serializeAws_restXmlGetHostedZoneCountCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/hostedzonecount";
+  let body: any;
+  body = "";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1430,12 +1465,14 @@ export async function serializeAws_restXmlGetHostedZoneLimitCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Type.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1458,12 +1495,14 @@ export async function serializeAws_restXmlGetQueryLoggingConfigCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1486,12 +1525,14 @@ export async function serializeAws_restXmlGetReusableDelegationSetCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1529,12 +1570,14 @@ export async function serializeAws_restXmlGetReusableDelegationSetLimitCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Type.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1569,12 +1612,14 @@ export async function serializeAws_restXmlGetTrafficPolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Version.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1597,12 +1642,14 @@ export async function serializeAws_restXmlGetTrafficPolicyInstanceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1613,12 +1660,15 @@ export async function serializeAws_restXmlGetTrafficPolicyInstanceCountCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/2013-04-01/trafficpolicyinstancecount";
+  let body: any;
+  body = "";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1642,13 +1692,15 @@ export async function serializeAws_restXmlListGeoLocationsCommand(
   if (input.StartSubdivisionCode !== undefined) {
     query["startsubdivisioncode"] = input.StartSubdivisionCode;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1666,13 +1718,15 @@ export async function serializeAws_restXmlListHealthChecksCommand(
   if (input.MaxItems !== undefined) {
     query["maxitems"] = input.MaxItems;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1693,13 +1747,15 @@ export async function serializeAws_restXmlListHostedZonesCommand(
   if (input.MaxItems !== undefined) {
     query["maxitems"] = input.MaxItems;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1720,13 +1776,15 @@ export async function serializeAws_restXmlListHostedZonesByNameCommand(
   if (input.MaxItems !== undefined) {
     query["maxitems"] = input.MaxItems;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1747,13 +1805,15 @@ export async function serializeAws_restXmlListQueryLoggingConfigsCommand(
   if (input.NextToken !== undefined) {
     query["nexttoken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1791,13 +1851,15 @@ export async function serializeAws_restXmlListResourceRecordSetsCommand(
   if (input.StartRecordType !== undefined) {
     query["type"] = input.StartRecordType;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1815,13 +1877,15 @@ export async function serializeAws_restXmlListReusableDelegationSetsCommand(
   if (input.MaxItems !== undefined) {
     query["maxitems"] = input.MaxItems;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1858,12 +1922,14 @@ export async function serializeAws_restXmlListTagsForResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceType.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1931,13 +1997,15 @@ export async function serializeAws_restXmlListTrafficPoliciesCommand(
   if (input.TrafficPolicyIdMarker !== undefined) {
     query["trafficpolicyid"] = input.TrafficPolicyIdMarker;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1961,13 +2029,15 @@ export async function serializeAws_restXmlListTrafficPolicyInstancesCommand(
   if (input.TrafficPolicyInstanceTypeMarker !== undefined) {
     query["trafficpolicyinstancetype"] = input.TrafficPolicyInstanceTypeMarker;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1991,13 +2061,15 @@ export async function serializeAws_restXmlListTrafficPolicyInstancesByHostedZone
   if (input.TrafficPolicyInstanceTypeMarker !== undefined) {
     query["trafficpolicyinstancetype"] = input.TrafficPolicyInstanceTypeMarker;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2027,13 +2099,15 @@ export async function serializeAws_restXmlListTrafficPolicyInstancesByPolicyComm
   if (input.TrafficPolicyVersion !== undefined) {
     query["version"] = input.TrafficPolicyVersion.toString();
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2063,13 +2137,15 @@ export async function serializeAws_restXmlListTrafficPolicyVersionsCommand(
   if (input.TrafficPolicyVersionMarker !== undefined) {
     query["trafficpolicyversion"] = input.TrafficPolicyVersionMarker;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2102,13 +2178,15 @@ export async function serializeAws_restXmlListVPCAssociationAuthorizationsComman
   if (input.NextToken !== undefined) {
     query["nexttoken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2138,13 +2216,15 @@ export async function serializeAws_restXmlTestDNSAnswerCommand(
   if (input.ResolverIP !== undefined) {
     query["resolverip"] = input.ResolverIP;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

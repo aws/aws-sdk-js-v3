@@ -157,12 +157,14 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetCommand(
       "No value provided for input HTTP label: ConfigurationSetName."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -206,12 +208,14 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
       "No value provided for input HTTP label: EventDestinationName."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -239,12 +243,14 @@ export async function serializeAws_restJson1_1GetConfigurationSetEventDestinatio
       "No value provided for input HTTP label: ConfigurationSetName."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -262,13 +268,15 @@ export async function serializeAws_restJson1_1ListConfigurationSetsCommand(
   if (input.PageSize !== undefined) {
     query["PageSize"] = input.PageSize;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

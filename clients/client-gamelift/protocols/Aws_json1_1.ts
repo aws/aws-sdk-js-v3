@@ -9870,7 +9870,7 @@ const serializeAws_json1_1CreateScriptInput = (
     bodyParams["Version"] = input.Version;
   }
   if (input.ZipFile !== undefined) {
-    bodyParams["ZipFile"] = Buffer.from(input.ZipFile).toString("utf-8");
+    bodyParams["ZipFile"] = context.base64Encoder(input.ZipFile);
   }
   return bodyParams;
 };
@@ -11532,7 +11532,7 @@ const serializeAws_json1_1UpdateScriptInput = (
     bodyParams["Version"] = input.Version;
   }
   if (input.ZipFile !== undefined) {
-    bodyParams["ZipFile"] = Buffer.from(input.ZipFile).toString("utf-8");
+    bodyParams["ZipFile"] = context.base64Encoder(input.ZipFile);
   }
   return bodyParams;
 };

@@ -1779,7 +1779,7 @@ const serializeAws_json1_1ExportCertificateRequest = (
     bodyParams["CertificateArn"] = input.CertificateArn;
   }
   if (input.Passphrase !== undefined) {
-    bodyParams["Passphrase"] = Buffer.from(input.Passphrase).toString("utf-8");
+    bodyParams["Passphrase"] = context.base64Encoder(input.Passphrase);
   }
   return bodyParams;
 };
@@ -1840,20 +1840,18 @@ const serializeAws_json1_1ImportCertificateRequest = (
 ): any => {
   const bodyParams: any = {};
   if (input.Certificate !== undefined) {
-    bodyParams["Certificate"] = Buffer.from(input.Certificate).toString(
-      "utf-8"
-    );
+    bodyParams["Certificate"] = context.base64Encoder(input.Certificate);
   }
   if (input.CertificateArn !== undefined) {
     bodyParams["CertificateArn"] = input.CertificateArn;
   }
   if (input.CertificateChain !== undefined) {
-    bodyParams["CertificateChain"] = Buffer.from(
+    bodyParams["CertificateChain"] = context.base64Encoder(
       input.CertificateChain
-    ).toString("utf-8");
+    );
   }
   if (input.PrivateKey !== undefined) {
-    bodyParams["PrivateKey"] = Buffer.from(input.PrivateKey).toString("utf-8");
+    bodyParams["PrivateKey"] = context.base64Encoder(input.PrivateKey);
   }
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);

@@ -19024,7 +19024,7 @@ const serializeAws_json1_1SetUICustomizationRequest = (
     bodyParams["ClientId"] = input.ClientId;
   }
   if (input.ImageFile !== undefined) {
-    bodyParams["ImageFile"] = Buffer.from(input.ImageFile).toString("utf-8");
+    bodyParams["ImageFile"] = context.base64Encoder(input.ImageFile);
   }
   if (input.UserPoolId !== undefined) {
     bodyParams["UserPoolId"] = input.UserPoolId;

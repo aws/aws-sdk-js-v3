@@ -69,13 +69,15 @@ export async function serializeAws_restJson1_1CancelChangeSetCommand(
   if (input.ChangeSetId !== undefined) {
     query["changeSetId"] = input.ChangeSetId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "PATCH",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -93,13 +95,15 @@ export async function serializeAws_restJson1_1DescribeChangeSetCommand(
   if (input.ChangeSetId !== undefined) {
     query["changeSetId"] = input.ChangeSetId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -117,13 +121,15 @@ export async function serializeAws_restJson1_1DescribeEntityCommand(
   if (input.EntityId !== undefined) {
     query["entityId"] = input.EntityId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

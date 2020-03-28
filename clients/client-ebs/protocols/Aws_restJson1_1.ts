@@ -66,13 +66,15 @@ export async function serializeAws_restJson1_1GetSnapshotBlockCommand(
   if (input.BlockToken !== undefined) {
     query["blockToken"] = input.BlockToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -112,13 +114,15 @@ export async function serializeAws_restJson1_1ListChangedBlocksCommand(
   if (input.StartingBlockIndex !== undefined) {
     query["startingBlockIndex"] = input.StartingBlockIndex.toString();
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -151,13 +155,15 @@ export async function serializeAws_restJson1_1ListSnapshotBlocksCommand(
   if (input.StartingBlockIndex !== undefined) {
     query["startingBlockIndex"] = input.StartingBlockIndex.toString();
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

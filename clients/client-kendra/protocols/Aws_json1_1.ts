@@ -3408,7 +3408,7 @@ const serializeAws_json1_1Document = (
     );
   }
   if (input.Blob !== undefined) {
-    bodyParams["Blob"] = Buffer.from(input.Blob).toString("utf-8");
+    bodyParams["Blob"] = context.base64Encoder(input.Blob);
   }
   if (input.ContentType !== undefined) {
     bodyParams["ContentType"] = input.ContentType;

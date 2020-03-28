@@ -4608,9 +4608,7 @@ const serializeAws_json1_1UploadLayerPartRequest = (
 ): any => {
   const bodyParams: any = {};
   if (input.layerPartBlob !== undefined) {
-    bodyParams["layerPartBlob"] = Buffer.from(input.layerPartBlob).toString(
-      "utf-8"
-    );
+    bodyParams["layerPartBlob"] = context.base64Encoder(input.layerPartBlob);
   }
   if (input.partFirstByte !== undefined) {
     bodyParams["partFirstByte"] = input.partFirstByte;

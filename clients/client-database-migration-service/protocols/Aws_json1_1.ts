@@ -6084,9 +6084,9 @@ const serializeAws_json1_1ImportCertificateMessage = (
     bodyParams["CertificatePem"] = input.CertificatePem;
   }
   if (input.CertificateWallet !== undefined) {
-    bodyParams["CertificateWallet"] = Buffer.from(
+    bodyParams["CertificateWallet"] = context.base64Encoder(
       input.CertificateWallet
-    ).toString("utf-8");
+    );
   }
   if (input.Tags !== undefined) {
     bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
@@ -7173,7 +7173,9 @@ const deserializeAws_json1_1Certificate = (
     output.CertificateWallet !== undefined &&
     output.CertificateWallet !== null
   ) {
-    contents.CertificateWallet = Uint8Array.from(output.CertificateWallet);
+    contents.CertificateWallet = context.base64Decoder(
+      output.CertificateWallet
+    );
   }
   if (output.KeyLength !== undefined && output.KeyLength !== null) {
     contents.KeyLength = output.KeyLength;

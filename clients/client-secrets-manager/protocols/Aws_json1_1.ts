@@ -2393,9 +2393,7 @@ const serializeAws_json1_1CreateSecretRequest = (
     bodyParams["Name"] = input.Name;
   }
   if (input.SecretBinary !== undefined) {
-    bodyParams["SecretBinary"] = Buffer.from(input.SecretBinary).toString(
-      "utf-8"
-    );
+    bodyParams["SecretBinary"] = context.base64Encoder(input.SecretBinary);
   }
   if (input.SecretString !== undefined) {
     bodyParams["SecretString"] = input.SecretString;
@@ -2565,9 +2563,7 @@ const serializeAws_json1_1PutSecretValueRequest = (
     bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
   if (input.SecretBinary !== undefined) {
-    bodyParams["SecretBinary"] = Buffer.from(input.SecretBinary).toString(
-      "utf-8"
-    );
+    bodyParams["SecretBinary"] = context.base64Encoder(input.SecretBinary);
   }
   if (input.SecretId !== undefined) {
     bodyParams["SecretId"] = input.SecretId;
@@ -2725,9 +2721,7 @@ const serializeAws_json1_1UpdateSecretRequest = (
     bodyParams["KmsKeyId"] = input.KmsKeyId;
   }
   if (input.SecretBinary !== undefined) {
-    bodyParams["SecretBinary"] = Buffer.from(input.SecretBinary).toString(
-      "utf-8"
-    );
+    bodyParams["SecretBinary"] = context.base64Encoder(input.SecretBinary);
   }
   if (input.SecretId !== undefined) {
     bodyParams["SecretId"] = input.SecretId;
@@ -3017,7 +3011,7 @@ const deserializeAws_json1_1GetSecretValueResponse = (
     contents.Name = output.Name;
   }
   if (output.SecretBinary !== undefined && output.SecretBinary !== null) {
-    contents.SecretBinary = Uint8Array.from(output.SecretBinary);
+    contents.SecretBinary = context.base64Decoder(output.SecretBinary);
   }
   if (output.SecretString !== undefined && output.SecretString !== null) {
     contents.SecretString = output.SecretString;

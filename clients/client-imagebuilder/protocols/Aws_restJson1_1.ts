@@ -594,13 +594,15 @@ export async function serializeAws_restJson1_1DeleteComponentCommand(
   if (input.componentBuildVersionArn !== undefined) {
     query["componentBuildVersionArn"] = input.componentBuildVersionArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -615,13 +617,15 @@ export async function serializeAws_restJson1_1DeleteDistributionConfigurationCom
   if (input.distributionConfigurationArn !== undefined) {
     query["distributionConfigurationArn"] = input.distributionConfigurationArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -636,13 +640,15 @@ export async function serializeAws_restJson1_1DeleteImageCommand(
   if (input.imageBuildVersionArn !== undefined) {
     query["imageBuildVersionArn"] = input.imageBuildVersionArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -657,13 +663,15 @@ export async function serializeAws_restJson1_1DeleteImagePipelineCommand(
   if (input.imagePipelineArn !== undefined) {
     query["imagePipelineArn"] = input.imagePipelineArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -678,13 +686,15 @@ export async function serializeAws_restJson1_1DeleteImageRecipeCommand(
   if (input.imageRecipeArn !== undefined) {
     query["imageRecipeArn"] = input.imageRecipeArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -700,13 +710,15 @@ export async function serializeAws_restJson1_1DeleteInfrastructureConfigurationC
     query["infrastructureConfigurationArn"] =
       input.infrastructureConfigurationArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -721,13 +733,15 @@ export async function serializeAws_restJson1_1GetComponentCommand(
   if (input.componentBuildVersionArn !== undefined) {
     query["componentBuildVersionArn"] = input.componentBuildVersionArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -742,13 +756,15 @@ export async function serializeAws_restJson1_1GetComponentPolicyCommand(
   if (input.componentArn !== undefined) {
     query["componentArn"] = input.componentArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -763,13 +779,15 @@ export async function serializeAws_restJson1_1GetDistributionConfigurationComman
   if (input.distributionConfigurationArn !== undefined) {
     query["distributionConfigurationArn"] = input.distributionConfigurationArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -784,13 +802,15 @@ export async function serializeAws_restJson1_1GetImageCommand(
   if (input.imageBuildVersionArn !== undefined) {
     query["imageBuildVersionArn"] = input.imageBuildVersionArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -805,13 +825,15 @@ export async function serializeAws_restJson1_1GetImagePipelineCommand(
   if (input.imagePipelineArn !== undefined) {
     query["imagePipelineArn"] = input.imagePipelineArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -826,13 +848,15 @@ export async function serializeAws_restJson1_1GetImagePolicyCommand(
   if (input.imageArn !== undefined) {
     query["imageArn"] = input.imageArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -847,13 +871,15 @@ export async function serializeAws_restJson1_1GetImageRecipeCommand(
   if (input.imageRecipeArn !== undefined) {
     query["imageRecipeArn"] = input.imageRecipeArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -868,13 +894,15 @@ export async function serializeAws_restJson1_1GetImageRecipePolicyCommand(
   if (input.imageRecipeArn !== undefined) {
     query["imageRecipeArn"] = input.imageRecipeArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -890,13 +918,15 @@ export async function serializeAws_restJson1_1GetInfrastructureConfigurationComm
     query["infrastructureConfigurationArn"] =
       input.infrastructureConfigurationArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1280,12 +1310,14 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1458,13 +1490,15 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   if (input.tagKeys !== undefined) {
     query["tagKeys"] = (input.tagKeys || []).map(_entry => _entry);
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

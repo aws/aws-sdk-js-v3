@@ -96,12 +96,14 @@ export async function serializeAws_restJson1_1DeleteSessionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -152,13 +154,15 @@ export async function serializeAws_restJson1_1GetSessionCommand(
   if (input.checkpointLabelFilter !== undefined) {
     query["checkpointLabelFilter"] = input.checkpointLabelFilter;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

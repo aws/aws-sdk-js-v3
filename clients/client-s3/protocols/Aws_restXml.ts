@@ -528,13 +528,15 @@ export async function serializeAws_restXmlAbortMultipartUploadCommand(
   if (input.UploadId !== undefined) {
     query["uploadId"] = input.UploadId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -757,13 +759,15 @@ export async function serializeAws_restXmlCopyObjectCommand(
   const query: any = {
     "x-id": "CopyObject"
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -949,13 +953,15 @@ export async function serializeAws_restXmlCreateMultipartUploadCommand(
   const query: any = {
     uploads: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -978,12 +984,14 @@ export async function serializeAws_restXmlDeleteBucketCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1012,13 +1020,15 @@ export async function serializeAws_restXmlDeleteBucketAnalyticsConfigurationComm
   if (input.Id !== undefined) {
     query["id"] = input.Id;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1044,13 +1054,15 @@ export async function serializeAws_restXmlDeleteBucketCorsCommand(
   const query: any = {
     cors: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1076,13 +1088,15 @@ export async function serializeAws_restXmlDeleteBucketEncryptionCommand(
   const query: any = {
     encryption: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1111,13 +1125,15 @@ export async function serializeAws_restXmlDeleteBucketInventoryConfigurationComm
   if (input.Id !== undefined) {
     query["id"] = input.Id;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1143,13 +1159,15 @@ export async function serializeAws_restXmlDeleteBucketLifecycleCommand(
   const query: any = {
     lifecycle: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1178,13 +1196,15 @@ export async function serializeAws_restXmlDeleteBucketMetricsConfigurationComman
   if (input.Id !== undefined) {
     query["id"] = input.Id;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1210,13 +1230,15 @@ export async function serializeAws_restXmlDeleteBucketPolicyCommand(
   const query: any = {
     policy: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1242,13 +1264,15 @@ export async function serializeAws_restXmlDeleteBucketReplicationCommand(
   const query: any = {
     replication: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1274,13 +1298,15 @@ export async function serializeAws_restXmlDeleteBucketTaggingCommand(
   const query: any = {
     tagging: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1306,13 +1332,15 @@ export async function serializeAws_restXmlDeleteBucketWebsiteCommand(
   const query: any = {
     website: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1367,13 +1395,15 @@ export async function serializeAws_restXmlDeleteObjectCommand(
   if (input.VersionId !== undefined) {
     query["versionId"] = input.VersionId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1417,13 +1447,15 @@ export async function serializeAws_restXmlDeleteObjectTaggingCommand(
   if (input.VersionId !== undefined) {
     query["versionId"] = input.VersionId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1501,13 +1533,15 @@ export async function serializeAws_restXmlDeletePublicAccessBlockCommand(
   const query: any = {
     publicAccessBlock: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1533,13 +1567,15 @@ export async function serializeAws_restXmlGetBucketAccelerateConfigurationComman
   const query: any = {
     accelerate: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1565,13 +1601,15 @@ export async function serializeAws_restXmlGetBucketAclCommand(
   const query: any = {
     acl: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1601,13 +1639,15 @@ export async function serializeAws_restXmlGetBucketAnalyticsConfigurationCommand
   if (input.Id !== undefined) {
     query["id"] = input.Id;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1633,13 +1673,15 @@ export async function serializeAws_restXmlGetBucketCorsCommand(
   const query: any = {
     cors: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1665,13 +1707,15 @@ export async function serializeAws_restXmlGetBucketEncryptionCommand(
   const query: any = {
     encryption: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1701,13 +1745,15 @@ export async function serializeAws_restXmlGetBucketInventoryConfigurationCommand
   if (input.Id !== undefined) {
     query["id"] = input.Id;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1733,13 +1779,15 @@ export async function serializeAws_restXmlGetBucketLifecycleConfigurationCommand
   const query: any = {
     lifecycle: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1765,13 +1813,15 @@ export async function serializeAws_restXmlGetBucketLocationCommand(
   const query: any = {
     location: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1797,13 +1847,15 @@ export async function serializeAws_restXmlGetBucketLoggingCommand(
   const query: any = {
     logging: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1833,13 +1885,15 @@ export async function serializeAws_restXmlGetBucketMetricsConfigurationCommand(
   if (input.Id !== undefined) {
     query["id"] = input.Id;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1865,13 +1919,15 @@ export async function serializeAws_restXmlGetBucketNotificationConfigurationComm
   const query: any = {
     notification: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1897,13 +1953,15 @@ export async function serializeAws_restXmlGetBucketPolicyCommand(
   const query: any = {
     policy: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1929,13 +1987,15 @@ export async function serializeAws_restXmlGetBucketPolicyStatusCommand(
   const query: any = {
     policyStatus: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1961,13 +2021,15 @@ export async function serializeAws_restXmlGetBucketReplicationCommand(
   const query: any = {
     replication: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1993,13 +2055,15 @@ export async function serializeAws_restXmlGetBucketRequestPaymentCommand(
   const query: any = {
     requestPayment: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2025,13 +2089,15 @@ export async function serializeAws_restXmlGetBucketTaggingCommand(
   const query: any = {
     tagging: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2057,13 +2123,15 @@ export async function serializeAws_restXmlGetBucketVersioningCommand(
   const query: any = {
     versioning: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2089,13 +2157,15 @@ export async function serializeAws_restXmlGetBucketWebsiteCommand(
   const query: any = {
     website: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2195,13 +2265,15 @@ export async function serializeAws_restXmlGetObjectCommand(
   if (input.VersionId !== undefined) {
     query["versionId"] = input.VersionId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2248,13 +2320,15 @@ export async function serializeAws_restXmlGetObjectAclCommand(
   if (input.VersionId !== undefined) {
     query["versionId"] = input.VersionId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2301,13 +2375,15 @@ export async function serializeAws_restXmlGetObjectLegalHoldCommand(
   if (input.VersionId !== undefined) {
     query["versionId"] = input.VersionId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2333,13 +2409,15 @@ export async function serializeAws_restXmlGetObjectLockConfigurationCommand(
   const query: any = {
     "object-lock": ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2386,13 +2464,15 @@ export async function serializeAws_restXmlGetObjectRetentionCommand(
   if (input.VersionId !== undefined) {
     query["versionId"] = input.VersionId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2436,13 +2516,15 @@ export async function serializeAws_restXmlGetObjectTaggingCommand(
   if (input.VersionId !== undefined) {
     query["versionId"] = input.VersionId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2486,13 +2568,15 @@ export async function serializeAws_restXmlGetObjectTorrentCommand(
   const query: any = {
     torrent: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2518,13 +2602,15 @@ export async function serializeAws_restXmlGetPublicAccessBlockCommand(
   const query: any = {
     publicAccessBlock: ""
   };
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2547,12 +2633,14 @@ export async function serializeAws_restXmlHeadBucketCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "HEAD",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -2630,13 +2718,15 @@ export async function serializeAws_restXmlHeadObjectCommand(
   if (input.VersionId !== undefined) {
     query["versionId"] = input.VersionId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "HEAD",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2666,13 +2756,15 @@ export async function serializeAws_restXmlListBucketAnalyticsConfigurationsComma
   if (input.ContinuationToken !== undefined) {
     query["continuation-token"] = input.ContinuationToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2702,13 +2794,15 @@ export async function serializeAws_restXmlListBucketInventoryConfigurationsComma
   if (input.ContinuationToken !== undefined) {
     query["continuation-token"] = input.ContinuationToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2738,13 +2832,15 @@ export async function serializeAws_restXmlListBucketMetricsConfigurationsCommand
   if (input.ContinuationToken !== undefined) {
     query["continuation-token"] = input.ContinuationToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2755,12 +2851,15 @@ export async function serializeAws_restXmlListBucketsCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/";
+  let body: any;
+  body = "";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -2804,13 +2903,15 @@ export async function serializeAws_restXmlListMultipartUploadsCommand(
   if (input.UploadIdMarker !== undefined) {
     query["upload-id-marker"] = input.UploadIdMarker;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2854,13 +2955,15 @@ export async function serializeAws_restXmlListObjectVersionsCommand(
   if (input.VersionIdMarker !== undefined) {
     query["version-id-marker"] = input.VersionIdMarker;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2902,13 +3005,15 @@ export async function serializeAws_restXmlListObjectsCommand(
   if (input.Prefix !== undefined) {
     query["prefix"] = input.Prefix;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -2958,13 +3063,15 @@ export async function serializeAws_restXmlListObjectsV2Command(
   if (input.StartAfter !== undefined) {
     query["start-after"] = input.StartAfter;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -3017,13 +3124,15 @@ export async function serializeAws_restXmlListPartsCommand(
   if (input.UploadId !== undefined) {
     query["uploadId"] = input.UploadId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -4674,13 +4783,15 @@ export async function serializeAws_restXmlUploadPartCopyCommand(
   if (input.UploadId !== undefined) {
     query["uploadId"] = input.UploadId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

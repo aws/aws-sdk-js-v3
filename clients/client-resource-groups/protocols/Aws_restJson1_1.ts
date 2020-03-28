@@ -129,12 +129,14 @@ export async function serializeAws_restJson1_1DeleteGroupCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -157,12 +159,14 @@ export async function serializeAws_restJson1_1GetGroupCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -185,12 +189,14 @@ export async function serializeAws_restJson1_1GetGroupQueryCommand(
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -213,12 +219,14 @@ export async function serializeAws_restJson1_1GetTagsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Arn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 

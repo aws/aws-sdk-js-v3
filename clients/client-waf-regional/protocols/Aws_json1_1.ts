@@ -10504,9 +10504,7 @@ const serializeAws_json1_1ByteMatchTuple = (
     bodyParams["PositionalConstraint"] = input.PositionalConstraint;
   }
   if (input.TargetString !== undefined) {
-    bodyParams["TargetString"] = Buffer.from(input.TargetString).toString(
-      "utf-8"
-    );
+    bodyParams["TargetString"] = context.base64Encoder(input.TargetString);
   }
   if (input.TextTransformation !== undefined) {
     bodyParams["TextTransformation"] = input.TextTransformation;
@@ -12392,7 +12390,7 @@ const deserializeAws_json1_1ByteMatchTuple = (
     contents.PositionalConstraint = output.PositionalConstraint;
   }
   if (output.TargetString !== undefined && output.TargetString !== null) {
-    contents.TargetString = Uint8Array.from(output.TargetString);
+    contents.TargetString = context.base64Decoder(output.TargetString);
   }
   if (
     output.TextTransformation !== undefined &&

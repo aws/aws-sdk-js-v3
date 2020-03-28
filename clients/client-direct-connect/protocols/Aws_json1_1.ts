@@ -7779,7 +7779,7 @@ const deserializeAws_json1_1Loa = (
     loaContentType: undefined
   };
   if (output.loaContent !== undefined && output.loaContent !== null) {
-    contents.loaContent = Uint8Array.from(output.loaContent);
+    contents.loaContent = context.base64Decoder(output.loaContent);
   }
   if (output.loaContentType !== undefined && output.loaContentType !== null) {
     contents.loaContentType = output.loaContentType;

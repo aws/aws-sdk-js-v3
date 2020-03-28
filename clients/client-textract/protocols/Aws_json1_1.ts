@@ -1355,7 +1355,7 @@ const serializeAws_json1_1Document = (
 ): any => {
   const bodyParams: any = {};
   if (input.Bytes !== undefined) {
-    bodyParams["Bytes"] = Buffer.from(input.Bytes).toString("utf-8");
+    bodyParams["Bytes"] = context.base64Encoder(input.Bytes);
   }
   if (input.S3Object !== undefined) {
     bodyParams["S3Object"] = serializeAws_json1_1S3Object(

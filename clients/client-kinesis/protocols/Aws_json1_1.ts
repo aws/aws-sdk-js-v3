@@ -3814,7 +3814,7 @@ const serializeAws_json1_1PutRecordInput = (
 ): any => {
   const bodyParams: any = {};
   if (input.Data !== undefined) {
-    bodyParams["Data"] = Buffer.from(input.Data).toString("utf-8");
+    bodyParams["Data"] = context.base64Encoder(input.Data);
   }
   if (input.ExplicitHashKey !== undefined) {
     bodyParams["ExplicitHashKey"] = input.ExplicitHashKey;
@@ -3854,7 +3854,7 @@ const serializeAws_json1_1PutRecordsRequestEntry = (
 ): any => {
   const bodyParams: any = {};
   if (input.Data !== undefined) {
-    bodyParams["Data"] = Buffer.from(input.Data).toString("utf-8");
+    bodyParams["Data"] = context.base64Encoder(input.Data);
   }
   if (input.ExplicitHashKey !== undefined) {
     bodyParams["ExplicitHashKey"] = input.ExplicitHashKey;
@@ -4672,7 +4672,7 @@ const deserializeAws_json1_1_Record = (
     );
   }
   if (output.Data !== undefined && output.Data !== null) {
-    contents.Data = Uint8Array.from(output.Data);
+    contents.Data = context.base64Decoder(output.Data);
   }
   if (output.EncryptionType !== undefined && output.EncryptionType !== null) {
     contents.EncryptionType = output.EncryptionType;

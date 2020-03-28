@@ -438,12 +438,14 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetCommand(
       "No value provided for input HTTP label: ConfigurationSetName."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -487,12 +489,14 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
       "No value provided for input HTTP label: EventDestinationName."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -515,12 +519,14 @@ export async function serializeAws_restJson1_1DeleteDedicatedIpPoolCommand(
   } else {
     throw new Error("No value provided for input HTTP label: PoolName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -545,12 +551,14 @@ export async function serializeAws_restJson1_1DeleteEmailIdentityCommand(
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -561,12 +569,15 @@ export async function serializeAws_restJson1_1GetAccountCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/email/account";
+  let body: any;
+  body = "{}";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -583,13 +594,15 @@ export async function serializeAws_restJson1_1GetBlacklistReportsCommand(
       _entry => _entry
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -616,12 +629,14 @@ export async function serializeAws_restJson1_1GetConfigurationSetCommand(
       "No value provided for input HTTP label: ConfigurationSetName."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -649,12 +664,14 @@ export async function serializeAws_restJson1_1GetConfigurationSetEventDestinatio
       "No value provided for input HTTP label: ConfigurationSetName."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -677,12 +694,14 @@ export async function serializeAws_restJson1_1GetDedicatedIpCommand(
   } else {
     throw new Error("No value provided for input HTTP label: Ip.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -703,13 +722,15 @@ export async function serializeAws_restJson1_1GetDedicatedIpsCommand(
   if (input.PoolName !== undefined) {
     query["PoolName"] = input.PoolName;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -720,12 +741,15 @@ export async function serializeAws_restJson1_1GetDeliverabilityDashboardOptionsC
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/email/deliverability-dashboard";
+  let body: any;
+  body = "{}";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -749,12 +773,14 @@ export async function serializeAws_restJson1_1GetDeliverabilityTestReportCommand
   } else {
     throw new Error("No value provided for input HTTP label: ReportId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -778,12 +804,14 @@ export async function serializeAws_restJson1_1GetDomainDeliverabilityCampaignCom
   } else {
     throw new Error("No value provided for input HTTP label: CampaignId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -818,13 +846,15 @@ export async function serializeAws_restJson1_1GetDomainStatisticsReportCommand(
       input.StartDate.toISOString().split(".")[0] + "Z"
     ).toString();
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -849,12 +879,14 @@ export async function serializeAws_restJson1_1GetEmailIdentityCommand(
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -872,13 +904,15 @@ export async function serializeAws_restJson1_1ListConfigurationSetsCommand(
   if (input.PageSize !== undefined) {
     query["PageSize"] = input.PageSize.toString();
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -896,13 +930,15 @@ export async function serializeAws_restJson1_1ListDedicatedIpPoolsCommand(
   if (input.PageSize !== undefined) {
     query["PageSize"] = input.PageSize.toString();
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -920,13 +956,15 @@ export async function serializeAws_restJson1_1ListDeliverabilityTestReportsComma
   if (input.PageSize !== undefined) {
     query["PageSize"] = input.PageSize.toString();
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -971,13 +1009,15 @@ export async function serializeAws_restJson1_1ListDomainDeliverabilityCampaignsC
       input.StartDate.toISOString().split(".")[0] + "Z"
     ).toString();
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -995,13 +1035,15 @@ export async function serializeAws_restJson1_1ListEmailIdentitiesCommand(
   if (input.PageSize !== undefined) {
     query["PageSize"] = input.PageSize.toString();
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1016,13 +1058,15 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   if (input.ResourceArn !== undefined) {
     query["ResourceArn"] = input.ResourceArn;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1544,13 +1588,15 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   if (input.TagKeys !== undefined) {
     query["TagKeys"] = (input.TagKeys || []).map(_entry => _entry);
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

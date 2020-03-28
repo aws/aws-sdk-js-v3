@@ -37,12 +37,14 @@ export async function serializeAws_restJson1_1GetRawMessageContentCommand(
   } else {
     throw new Error("No value provided for input HTTP label: messageId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 

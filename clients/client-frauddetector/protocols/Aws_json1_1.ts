@@ -3860,7 +3860,7 @@ const serializeAws_json1_1ModelEndpointDataBlob = (
 ): any => {
   const bodyParams: any = {};
   if (input.byteBuffer !== undefined) {
-    bodyParams["byteBuffer"] = Buffer.from(input.byteBuffer).toString("utf-8");
+    bodyParams["byteBuffer"] = context.base64Encoder(input.byteBuffer);
   }
   if (input.contentType !== undefined) {
     bodyParams["contentType"] = input.contentType;

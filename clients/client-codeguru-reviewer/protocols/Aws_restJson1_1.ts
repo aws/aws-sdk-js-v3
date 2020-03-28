@@ -95,12 +95,14 @@ export async function serializeAws_restJson1_1DescribeRepositoryAssociationComma
   } else {
     throw new Error("No value provided for input HTTP label: AssociationArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -125,12 +127,14 @@ export async function serializeAws_restJson1_1DisassociateRepositoryCommand(
   } else {
     throw new Error("No value provided for input HTTP label: AssociationArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -160,13 +164,15 @@ export async function serializeAws_restJson1_1ListRepositoryAssociationsCommand(
   if (input.States !== undefined) {
     query["State"] = (input.States || []).map(_entry => _entry);
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

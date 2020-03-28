@@ -92,13 +92,15 @@ export async function serializeAws_restJson1_1SearchCommand(
   if (input.stats !== undefined) {
     query["stats"] = input.stats;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -122,13 +124,15 @@ export async function serializeAws_restJson1_1SuggestCommand(
   if (input.suggester !== undefined) {
     query["suggester"] = input.suggester;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

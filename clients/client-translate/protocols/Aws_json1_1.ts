@@ -1514,7 +1514,7 @@ const serializeAws_json1_1TerminologyData = (
 ): any => {
   const bodyParams: any = {};
   if (input.File !== undefined) {
-    bodyParams["File"] = Buffer.from(input.File).toString("utf-8");
+    bodyParams["File"] = context.base64Encoder(input.File);
   }
   if (input.Format !== undefined) {
     bodyParams["Format"] = input.Format;

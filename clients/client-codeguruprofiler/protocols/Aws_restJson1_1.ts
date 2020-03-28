@@ -162,12 +162,14 @@ export async function serializeAws_restJson1_1DeleteProfilingGroupCommand(
       "No value provided for input HTTP label: profilingGroupName."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -194,12 +196,14 @@ export async function serializeAws_restJson1_1DescribeProfilingGroupCommand(
       "No value provided for input HTTP label: profilingGroupName."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -220,13 +224,15 @@ export async function serializeAws_restJson1_1ListProfilingGroupsCommand(
   if (input.nextToken !== undefined) {
     query["nextToken"] = input.nextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -317,13 +323,15 @@ export async function serializeAws_restJson1_1GetProfileCommand(
       input.startTime.toISOString().split(".")[0] + "Z"
     ).toString();
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -373,13 +381,15 @@ export async function serializeAws_restJson1_1ListProfileTimesCommand(
       input.startTime.toISOString().split(".")[0] + "Z"
     ).toString();
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 

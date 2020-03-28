@@ -3068,17 +3068,15 @@ const serializeAws_json1_1ImportCertificateAuthorityCertificateRequest = (
 ): any => {
   const bodyParams: any = {};
   if (input.Certificate !== undefined) {
-    bodyParams["Certificate"] = Buffer.from(input.Certificate).toString(
-      "utf-8"
-    );
+    bodyParams["Certificate"] = context.base64Encoder(input.Certificate);
   }
   if (input.CertificateAuthorityArn !== undefined) {
     bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
   }
   if (input.CertificateChain !== undefined) {
-    bodyParams["CertificateChain"] = Buffer.from(
+    bodyParams["CertificateChain"] = context.base64Encoder(
       input.CertificateChain
-    ).toString("utf-8");
+    );
   }
   return bodyParams;
 };
@@ -3092,7 +3090,7 @@ const serializeAws_json1_1IssueCertificateRequest = (
     bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
   }
   if (input.Csr !== undefined) {
-    bodyParams["Csr"] = Buffer.from(input.Csr).toString("utf-8");
+    bodyParams["Csr"] = context.base64Encoder(input.Csr);
   }
   if (input.IdempotencyToken !== undefined) {
     bodyParams["IdempotencyToken"] = input.IdempotencyToken;

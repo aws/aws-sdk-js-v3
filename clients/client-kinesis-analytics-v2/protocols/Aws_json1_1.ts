@@ -4057,9 +4057,7 @@ const serializeAws_json1_1CodeContent = (
     bodyParams["TextContent"] = input.TextContent;
   }
   if (input.ZipFileContent !== undefined) {
-    bodyParams["ZipFileContent"] = Buffer.from(input.ZipFileContent).toString(
-      "utf-8"
-    );
+    bodyParams["ZipFileContent"] = context.base64Encoder(input.ZipFileContent);
   }
   return bodyParams;
 };
@@ -4081,9 +4079,9 @@ const serializeAws_json1_1CodeContentUpdate = (
     bodyParams["TextContentUpdate"] = input.TextContentUpdate;
   }
   if (input.ZipFileContentUpdate !== undefined) {
-    bodyParams["ZipFileContentUpdate"] = Buffer.from(
+    bodyParams["ZipFileContentUpdate"] = context.base64Encoder(
       input.ZipFileContentUpdate
-    ).toString("utf-8");
+    );
   }
   return bodyParams;
 };

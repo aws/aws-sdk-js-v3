@@ -222,12 +222,14 @@ export async function serializeAws_restJson1_1AbortMultipartUploadCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -262,12 +264,14 @@ export async function serializeAws_restJson1_1AbortVaultLockCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -372,12 +376,14 @@ export async function serializeAws_restJson1_1CompleteMultipartUploadCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -424,12 +430,14 @@ export async function serializeAws_restJson1_1CompleteVaultLockCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -464,12 +472,14 @@ export async function serializeAws_restJson1_1CreateVaultCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "PUT",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -516,12 +526,14 @@ export async function serializeAws_restJson1_1DeleteArchiveCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -556,12 +568,14 @@ export async function serializeAws_restJson1_1DeleteVaultCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -596,12 +610,14 @@ export async function serializeAws_restJson1_1DeleteVaultAccessPolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -637,12 +653,14 @@ export async function serializeAws_restJson1_1DeleteVaultNotificationsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -689,12 +707,14 @@ export async function serializeAws_restJson1_1DescribeJobCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -729,12 +749,14 @@ export async function serializeAws_restJson1_1DescribeVaultCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -757,12 +779,14 @@ export async function serializeAws_restJson1_1GetDataRetrievalPolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -812,12 +836,14 @@ export async function serializeAws_restJson1_1GetJobOutputCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -852,12 +878,14 @@ export async function serializeAws_restJson1_1GetVaultAccessPolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -892,12 +920,14 @@ export async function serializeAws_restJson1_1GetVaultLockCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -933,12 +963,14 @@ export async function serializeAws_restJson1_1GetVaultNotificationsCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1028,12 +1060,14 @@ export async function serializeAws_restJson1_1InitiateMultipartUploadCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1130,13 +1164,15 @@ export async function serializeAws_restJson1_1ListJobsCommand(
   if (input.statuscode !== undefined) {
     query["statuscode"] = input.statuscode;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1178,13 +1214,15 @@ export async function serializeAws_restJson1_1ListMultipartUploadsCommand(
   if (input.marker !== undefined) {
     query["marker"] = input.marker;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1239,13 +1277,15 @@ export async function serializeAws_restJson1_1ListPartsCommand(
   if (input.marker !== undefined) {
     query["marker"] = input.marker;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1268,12 +1308,14 @@ export async function serializeAws_restJson1_1ListProvisionedCapacityCommand(
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1308,12 +1350,14 @@ export async function serializeAws_restJson1_1ListTagsForVaultCommand(
   } else {
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1343,13 +1387,15 @@ export async function serializeAws_restJson1_1ListVaultsCommand(
   if (input.marker !== undefined) {
     query["marker"] = input.marker;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1372,12 +1418,14 @@ export async function serializeAws_restJson1_1PurchaseProvisionedCapacityCommand
   } else {
     throw new Error("No value provided for input HTTP label: accountId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 

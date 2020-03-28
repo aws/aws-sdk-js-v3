@@ -1547,7 +1547,7 @@ const serializeAws_json1_1Attachment = (
 ): any => {
   const bodyParams: any = {};
   if (input.data !== undefined) {
-    bodyParams["data"] = Buffer.from(input.data).toString("utf-8");
+    bodyParams["data"] = context.base64Encoder(input.data);
   }
   if (input.fileName !== undefined) {
     bodyParams["fileName"] = input.fileName;
@@ -1873,7 +1873,7 @@ const deserializeAws_json1_1Attachment = (
     fileName: undefined
   };
   if (output.data !== undefined && output.data !== null) {
-    contents.data = Uint8Array.from(output.data);
+    contents.data = context.base64Decoder(output.data);
   }
   if (output.fileName !== undefined && output.fileName !== null) {
     contents.fileName = output.fileName;

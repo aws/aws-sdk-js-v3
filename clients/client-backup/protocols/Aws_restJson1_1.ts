@@ -373,12 +373,14 @@ export async function serializeAws_restJson1_1DeleteBackupPlanCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -417,12 +419,14 @@ export async function serializeAws_restJson1_1DeleteBackupSelectionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: SelectionId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -447,12 +451,14 @@ export async function serializeAws_restJson1_1DeleteBackupVaultCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -477,12 +483,14 @@ export async function serializeAws_restJson1_1DeleteBackupVaultAccessPolicyComma
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -508,12 +516,14 @@ export async function serializeAws_restJson1_1DeleteBackupVaultNotificationsComm
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -555,12 +565,14 @@ export async function serializeAws_restJson1_1DeleteRecoveryPointCommand(
       "No value provided for input HTTP label: RecoveryPointArn."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -585,12 +597,14 @@ export async function serializeAws_restJson1_1DescribeBackupJobCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BackupJobId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -615,12 +629,14 @@ export async function serializeAws_restJson1_1DescribeBackupVaultCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -643,12 +659,14 @@ export async function serializeAws_restJson1_1DescribeCopyJobCommand(
   } else {
     throw new Error("No value provided for input HTTP label: CopyJobId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -673,12 +691,14 @@ export async function serializeAws_restJson1_1DescribeProtectedResourceCommand(
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -720,12 +740,14 @@ export async function serializeAws_restJson1_1DescribeRecoveryPointCommand(
       "No value provided for input HTTP label: RecoveryPointArn."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -750,12 +772,14 @@ export async function serializeAws_restJson1_1DescribeRestoreJobCommand(
   } else {
     throw new Error("No value provided for input HTTP label: RestoreJobId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -780,12 +804,14 @@ export async function serializeAws_restJson1_1ExportBackupPlanTemplateCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -814,13 +840,15 @@ export async function serializeAws_restJson1_1GetBackupPlanCommand(
   if (input.VersionId !== undefined) {
     query["versionId"] = input.VersionId;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -870,12 +898,14 @@ export async function serializeAws_restJson1_1GetBackupPlanFromTemplateCommand(
       "No value provided for input HTTP label: BackupPlanTemplateId."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -914,12 +944,14 @@ export async function serializeAws_restJson1_1GetBackupSelectionCommand(
   } else {
     throw new Error("No value provided for input HTTP label: SelectionId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -944,12 +976,14 @@ export async function serializeAws_restJson1_1GetBackupVaultAccessPolicyCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -975,12 +1009,14 @@ export async function serializeAws_restJson1_1GetBackupVaultNotificationsCommand
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1022,12 +1058,14 @@ export async function serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCom
       "No value provided for input HTTP label: RecoveryPointArn."
     );
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1038,12 +1076,15 @@ export async function serializeAws_restJson1_1GetSupportedResourceTypesCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/supported-resource-types";
+  let body: any;
+  body = "{}";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -1083,13 +1124,15 @@ export async function serializeAws_restJson1_1ListBackupJobsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1107,13 +1150,15 @@ export async function serializeAws_restJson1_1ListBackupPlanTemplatesCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1145,13 +1190,15 @@ export async function serializeAws_restJson1_1ListBackupPlanVersionsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1172,13 +1219,15 @@ export async function serializeAws_restJson1_1ListBackupPlansCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1210,13 +1259,15 @@ export async function serializeAws_restJson1_1ListBackupSelectionsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1234,13 +1285,15 @@ export async function serializeAws_restJson1_1ListBackupVaultsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1280,13 +1333,15 @@ export async function serializeAws_restJson1_1ListCopyJobsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1304,13 +1359,15 @@ export async function serializeAws_restJson1_1ListProtectedResourcesCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1361,13 +1418,15 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCom
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1399,13 +1458,15 @@ export async function serializeAws_restJson1_1ListRecoveryPointsByResourceComman
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1423,13 +1484,15 @@ export async function serializeAws_restJson1_1ListRestoreJobsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1461,13 +1524,15 @@ export async function serializeAws_restJson1_1ListTagsCommand(
   if (input.NextToken !== undefined) {
     query["nextToken"] = input.NextToken;
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
+    body: body
   });
 }
 
@@ -1702,12 +1767,14 @@ export async function serializeAws_restJson1_1StopBackupJobCommand(
   } else {
     throw new Error("No value provided for input HTTP label: BackupJobId.");
   }
+  let body: any;
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
+    body: body
   });
 }
 
