@@ -15,15 +15,21 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.Collections;
+import java.util.Map;
 import java.util.Set;
+import java.util.function.Consumer;
+
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SetUtils;
 
 /**
@@ -50,29 +56,32 @@ public class AddMd5HashDependency implements TypeScriptIntegration {
     }
 
     @Override
-    public void addRuntimeConfigValues(
+    public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
             TypeScriptSettings settings,
             Model model,
             SymbolProvider symbolProvider,
-            TypeScriptWriter writer,
             LanguageTarget target
     ) {
         if (!needsMd5Dep(settings.getService(model))) {
-            return;
+            return Collections.emptyMap();
         }
 
         switch (target) {
             case NODE:
-                writer.addImport("HashConstructor", "__HashConstructor", "@aws-sdk/types");
-                writer.write("md5: Hash.bind(null, \"md5\"),");
-                break;
+                return MapUtils.of("md5", writer -> {
+                    writer.addDependency(TypeScriptDependency.AWS_SDK_TYPES);
+                    writer.addImport("HashConstructor", "__HashConstructor",
+                            TypeScriptDependency.AWS_SDK_TYPES.packageName);
+                    writer.write("md5: Hash.bind(null, \"md5\"),");
+                });
             case BROWSER:
-                writer.addDependency(AwsDependency.MD5_BROWSER);
-                writer.addImport("Md5", "Md5", AwsDependency.MD5_BROWSER.packageName);
-                writer.write("md5: Md5,");
-                break;
+                return MapUtils.of("md5", writer -> {
+                    writer.addDependency(AwsDependency.MD5_BROWSER);
+                    writer.addImport("Md5", "Md5", AwsDependency.MD5_BROWSER.packageName);
+                    writer.write("md5: Md5,");
+                });
             default:
-                // do nothing
+                return Collections.emptyMap();
         }
     }
 

@@ -15,6 +15,8 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.Collections;
+import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import software.amazon.smithy.codegen.core.SymbolProvider;
@@ -24,6 +26,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.MapUtils;
 
 /**
  * Generates an endpoint resolver from endpoints.json.
@@ -54,20 +57,20 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
     }
 
     @Override
-    public void addRuntimeConfigValues(
+    public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
             TypeScriptSettings settings,
             Model model,
             SymbolProvider symbolProvider,
-            TypeScriptWriter writer,
             LanguageTarget target
     ) {
         switch (target) {
             case SHARED:
-                writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider", "./endpoints");
-                writer.write("regionInfoProvider: defaultRegionInfoProvider,");
-                break;
+                return MapUtils.of("regionInfoProvider", writer -> {
+                    writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider", "./endpoints");
+                    writer.write("regionInfoProvider: defaultRegionInfoProvider,");
+                });
             default:
-                //do nothing
+                return Collections.emptyMap();
         }
     }
 }

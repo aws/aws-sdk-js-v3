@@ -15,6 +15,9 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.ServiceTrait;
@@ -26,6 +29,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.MapUtils;
 
 /**
  * AWS clients need to know the service name used to sign requests,
@@ -87,61 +91,71 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
     }
 
     @Override
-    public void addRuntimeConfigValues(
+    public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
             TypeScriptSettings settings,
             Model model,
             SymbolProvider symbolProvider,
-            TypeScriptWriter writer,
             LanguageTarget target
     ) {
         ServiceShape service = settings.getService(model);
+        Map<String, Consumer<TypeScriptWriter>> runtimeConfigs = new HashMap();
         if (target.equals(LanguageTarget.SHARED)) {
             String signingName = service.getTrait(ServiceTrait.class)
                     .map(ServiceTrait::getArnNamespace)
                     .orElse(null);
             if (signingName != null) {
-                writer.write("signingName: $S,", signingName);
+                runtimeConfigs.put("signingName", writer -> {
+                    writer.write("signingName: $S,", signingName);
+                });
             } else {
                 LOGGER.info("Cannot generate a signing name for the client because no aws.api#Service "
                         + "trait was found on " + service.getId());
             }
         }
-
-        getRuntimeConfig(writer, service, target);
+        runtimeConfigs.putAll(getRuntimeConfig(service, target));
+        return runtimeConfigs;
     }
 
-    private void getRuntimeConfig(TypeScriptWriter writer, ServiceShape service, LanguageTarget target) {
+    private Map<String, Consumer<TypeScriptWriter>> getRuntimeConfig(ServiceShape service, LanguageTarget target) {
         String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
         if (serviceId.equals("Cognito Identity")) {
-            getCognitoIdentityConfig(target).accept(writer);
+            return getCognitoIdentityConfig(target);
         } else {
-            getDefaultConfig(target).accept(writer);
+            return getDefaultConfig(target);
         }
     }
 
-    private Consumer<TypeScriptWriter> getDefaultConfig(LanguageTarget target) {
+    private Map<String, Consumer<TypeScriptWriter>> getDefaultConfig(LanguageTarget target) {
         switch (target) {
             case BROWSER:
-                return writer -> {
-                    writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
-                    writer.addImport("invalidFunction", "invalidFunction",
-                            TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                    writer.write("credentialDefaultProvider: invalidFunction(\"Credential is missing\") as any,");
-                    writer.write("regionDefaultProvider: invalidFunction(\"Region is missing\") as any,");
-                };
+                return MapUtils.of(
+                        "credentialDefaultProvider", writer -> {
+                            writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
+                            writer.addImport("invalidFunction", "invalidFunction",
+                                    TypeScriptDependency.INVALID_DEPENDENCY.packageName);
+                            writer.write(
+                                    "credentialDefaultProvider: invalidFunction(\"Credential is missing\") as any,");
+                        },
+                        "regionDefaultProvider", writer -> {
+                            writer.write("regionDefaultProvider: invalidFunction(\"Region is missing\") as any,");
+                        });
             case NODE:
-                return  writer -> {
-                    writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
-                    writer.addDependency(AwsDependency.REGION_PROVIDER);
-                    writer.addImport("defaultProvider", "credentialDefaultProvider",
-                            AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
-                    writer.addImport("defaultProvider", "regionDefaultProvider",
-                            AwsDependency.REGION_PROVIDER.packageName);
-                    writer.write("credentialDefaultProvider,");
-                    writer.write("regionDefaultProvider,");
-                };
+                return MapUtils.of(
+                        "credentialDefaultProvider", writer -> {
+                            writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
+                            writer.addImport("defaultProvider", "credentialDefaultProvider",
+                                    AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
+                            writer.write("credentialDefaultProvider,");
+                        },
+                        "regionDefaultProvider", writer -> {
+                            writer.addDependency(AwsDependency.REGION_PROVIDER);
+                            writer.addImport("defaultProvider", "regionDefaultProvider",
+                                    AwsDependency.REGION_PROVIDER.packageName);
+                            writer.write("regionDefaultProvider,");
+                        }
+                );
             default:
-                return writer -> LOGGER.info("Unknown JavaScript target: " + target);
+                return Collections.emptyMap();
         }
     }
 
@@ -149,35 +163,41 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
      * Cognito Identity client doesn't require signing for some commands, so we are tolerant to
      * credential config resolver failure.
      */
-    private Consumer<TypeScriptWriter> getCognitoIdentityConfig(LanguageTarget target) {
+    private Map<String, Consumer<TypeScriptWriter>> getCognitoIdentityConfig(LanguageTarget target) {
         switch (target) {
             case BROWSER:
-                return writer -> {
-                    writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
-                    writer.addImport("invalidFunction", "invalidFunction",
-                            TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                    writer.write("credentialDefaultProvider: (() => {}) as any,");
-                    writer.write("regionDefaultProvider: invalidFunction(\"Region is missing\") as any,");
-                };
+                return MapUtils.of(
+                        "credentialDefaultProvider", writer -> {
+                            writer.write("credentialDefaultProvider: (() => {}) as any,");
+                        },
+                        "regionDefaultProvider", writer -> {
+                            writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
+                            writer.addImport("invalidFunction", "invalidFunction",
+                                    TypeScriptDependency.INVALID_DEPENDENCY.packageName);
+                            writer.write("regionDefaultProvider: invalidFunction(\"Region is missing\") as any,");
+                        });
             case NODE:
-                return writer -> {
-                    writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
-                    writer.addImport("defaultProvider", "credentialDefaultProvider",
-                            AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
-                    writer.addDependency(AwsDependency.REGION_PROVIDER);
-                    writer.addImport("defaultProvider", "regionDefaultProvider",
-                            AwsDependency.REGION_PROVIDER.packageName);
-                    writer.openBlock(
-                            "credentialDefaultProvider: ((options: any) => {", "}) as any,", () -> {
-                        writer.write("try {").indent();
-                            writer.write("return credentialDefaultProvider(options);");
-                        writer.dedent().write("} catch(e){}");
-                        writer.write("return {}");
-                    });
-                    writer.write("regionDefaultProvider,");
-                };
+                return MapUtils.of(
+                        "credentialDefaultProvider", writer -> {
+                            writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
+                            writer.addImport("defaultProvider", "credentialDefaultProvider",
+                                    AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
+                            writer.openBlock("credentialDefaultProvider: ((options: any) => {", "}) as any,", () -> {
+                                        writer.write("try {").indent();
+                                        writer.write("return credentialDefaultProvider(options);");
+                                        writer.dedent().write("} catch(e){}");
+                                        writer.write("return {}");
+                                    });
+                        },
+                        "regionDefaultProvider", writer -> {
+                            writer.addDependency(AwsDependency.REGION_PROVIDER);
+                            writer.addImport("defaultProvider", "regionDefaultProvider",
+                                    AwsDependency.REGION_PROVIDER.packageName);
+                            writer.write("regionDefaultProvider,");
+                        }
+                );
             default:
-                return writer -> LOGGER.info("Unknown JavaScript target: " + target);
+                return Collections.emptyMap();
         }
     }
 }
