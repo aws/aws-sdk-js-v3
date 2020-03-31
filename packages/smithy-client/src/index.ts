@@ -6,3 +6,4 @@ export * from "./isa";
 export * from "./lazy-json";
 export * from "./extended-encode-uri-component";
 export * from "./date-utils";
+export * from "./split-every";
