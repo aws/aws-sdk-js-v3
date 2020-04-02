@@ -1,7 +1,7 @@
 var { CloudSearch } = require("../../../clients/client-cloudsearch");
 
 module.exports = function() {
-  this.Before("@cloudsearch", function(callback) {
+  this.Before({ tags: ["@cloudsearch"] }, function(scenario, callback) {
     this.service = new CloudSearch({});
     callback();
   });

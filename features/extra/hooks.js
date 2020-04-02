@@ -8,9 +8,10 @@ const isType = (obj, type) => {
 };
 
 module.exports = function() {
+  this.setDefaultTimeout(100 * 1000);
   this.World = require("./world.js").World;
 
-  this.Before(function(callback) {
+  this.Before(function(scenario, callback) {
     this.params = {};
     callback();
   });
@@ -27,7 +28,7 @@ module.exports = function() {
     ) {
       this.cacheBucketName(this.sharedBucket);
       if (err) {
-        callback.fail(err);
+        callback(err);
       } else {
         if (err) {
           return callback(err);
@@ -136,11 +137,6 @@ module.exports = function() {
   });
 
   this.Then(/^the status code should be (\d+)$/, function(status, callback) {
-    this.assert.equal(this.response.httpResponse.statusCode, parseInt(status));
-    callback();
-  });
-
-  this.Then(/^the status code should be (\d+)$/, function(status, callback) {
     this.assert.equal(this.data.$metadata.httpStatusCode, parseInt(status));
     callback();
   });
@@ -187,7 +183,7 @@ module.exports = function() {
         this.params[this.paginationConfig.limitKey] = limit;
       }
       this.service[operation](this.params).eachPage(function(err, data) {
-        if (err) callback.fail(err);
+        if (err) callback(err);
         else if (data === null) callback();
         else if (maxPages && world.numPages === maxPages) {
           callback();

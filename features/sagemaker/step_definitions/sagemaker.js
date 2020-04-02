@@ -1,7 +1,7 @@
 var { SageMaker } = require("../../../clients/client-sagemaker");
 
 module.exports = function() {
-  this.Before("@sagemaker", function(callback) {
+  this.Before({ tags: ["@sagemaker"] }, function(scenario, callback) {
     this.service = new SageMaker({});
     callback();
   });

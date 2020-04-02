@@ -3,7 +3,7 @@ var http = require("http");
 var { S3 } = require("../../../clients/client-s3");
 
 module.exports = function() {
-  this.Before("@s3", "@proxy", function(callback) {
+  this.Before({ tags: ["@s3", "@proxy"] }, function(scenario, callback) {
     setupProxyServer.call(this);
 
     this.service = this.s3 = new S3({

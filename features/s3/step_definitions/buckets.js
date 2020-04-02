@@ -56,7 +56,7 @@ module.exports = function() {
           Bucket: self.bucket
         },
         function(err, data) {
-          if (err) callback.fail(err);
+          if (err) callback(err);
           self.assert.equal(data.LocationConstraint, loc);
           callback();
         }

@@ -13,7 +13,7 @@ const waitForVolumeAvailable = (ec2, volumeId, callback) => {
     currentAttempt++;
     ec2.describeVolumes({ VolumeIds: [volumeId] }, (err, data) => {
       if (currentAttempt > maxAttempts) {
-        callback.fail();
+        callback(new Error("waitForVolumeAvailable: max attempts exceeded"));
       } else if (data && data.Volumes) {
         if (data.Volumes[0].State === "available") {
           callback();
@@ -39,7 +39,7 @@ const waitForVolumeAvailable = (ec2, volumeId, callback) => {
 };
 
 module.exports = function() {
-  this.Before("@ec2", function(callback) {
+  this.Before({ tags: ["@ec2"] }, function(scenario, callback) {
     this.service = new EC2({});
     callback();
   });

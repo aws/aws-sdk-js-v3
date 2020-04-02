@@ -246,7 +246,7 @@ module.exports = function() {
           })
           .on("end", callback);
       })
-      .on("error", callback.fail);
+      .on("error", callback);
   });
 
   this.Given(
@@ -287,7 +287,7 @@ module.exports = function() {
           })
           .on("end", callback);
       })
-      .on("error", callback.fail)
+      .on("error", callback)
       .end(data);
   });
 
@@ -353,7 +353,7 @@ module.exports = function() {
           })
           .on("end", callback);
       })
-      .on("error", callback.fail)
+      .on("error", callback)
       .end(this.postBody);
   });
 

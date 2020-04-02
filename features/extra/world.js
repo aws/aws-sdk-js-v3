@@ -9,9 +9,8 @@ try {
   process.env["CONFIGURED_REGION"] = "us-west-2";
 }
 
-var WorldConstructor = function WorldConstructor(callback) {
-  callback(world);
+var WorldConstructor = function WorldConstructor() {
+  return world;
 };
 
 exports.World = WorldConstructor;
-exports.WorldInstance = world;

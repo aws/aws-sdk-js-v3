@@ -1,7 +1,7 @@
 var { Route53 } = require("../../../clients/client-route-53");
 
 module.exports = function() {
-  this.Before("@route53", function(callback) {
+  this.Before({ tags: ["@route53"] }, function(scenario, callback) {
     this.service = new Route53({});
     callback();
   });
