@@ -10,7 +10,7 @@ const isType = (obj, type) => {
 module.exports = function() {
   this.World = require("./world.js").World;
 
-  this.Before(function(callback) {
+  this.Before(function(scenario, callback) {
     this.params = {};
     callback();
   });
