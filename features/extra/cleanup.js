@@ -1,13 +1,13 @@
 var { S3 } = require("../../clients/client-s3");
 var { defineSupportCode } = require("cucumber");
 
-defineSupportCode(function({ Before, Given, Then, When }) {
+defineSupportCode(function({ registerHandler }) {
   /**
    * Cleanup fixtures and resources. The world does not exist when
    * this handler is executed. Only resource cleanup and shutdown
    * should happen here.
    */
-  this.registerHandler("AfterFeatures", function(event, callback) {
+  registerHandler("AfterFeatures", function(event, callback) {
     var path = require("path");
     var fs = require("fs");
 

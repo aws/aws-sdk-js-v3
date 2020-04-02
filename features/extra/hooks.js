@@ -8,9 +8,16 @@ const isType = (obj, type) => {
 };
 var { defineSupportCode } = require("cucumber");
 
-defineSupportCode(function({ Before, Given, Then, When }) {
-  this.setDefaultTimeout(100 * 1000);
-  this.World = require("./world.js").World;
+defineSupportCode(function({
+  Before,
+  Given,
+  Then,
+  When,
+  setDefaultTimeout,
+  setWorldConstructor
+}) {
+  setDefaultTimeout(100 * 1000);
+  setWorldConstructor(require("./world.js").World);
 
   Before(function(scenario, callback) {
     this.params = {};
