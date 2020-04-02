@@ -26,7 +26,6 @@ defineSupportCode(function({ Before, Given, Then, When }) {
       var member = jmespath.search(this.data, path);
       var containDefault = false;
       member.forEach(function(config) {
-        console.log(config[key], value);
         if (config[key] === value) {
           containDefault = true;
         }
