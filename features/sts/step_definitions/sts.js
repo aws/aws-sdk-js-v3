@@ -1,4 +1,4 @@
-var { STS } = require("../../../clients/client-sts");
+const { STS } = require("../../../clients/client-sts");
 const { Before, Given } = require("cucumber");
 
 Before({ tags: "@sts" }, function(scenario, callback) {
@@ -22,7 +22,7 @@ Given(/^I get an STS session token with a duration of (\d+) seconds$/, function(
 });
 
 Given(/^I try to assume role with web identity$/, function(callback) {
-  var params = {
+  const params = {
     RoleArn: "arn:aws:iam::123456789:role/WebIdentity",
     RoleSessionName: "name",
     WebIdentityToken: "token"
@@ -31,9 +31,9 @@ Given(/^I try to assume role with web identity$/, function(callback) {
 });
 
 Given(/^I try to assume role with SAML$/, function(callback) {
-  var arn = "arn:aws:iam::123456789:role/Role";
-  var token = "TOKENVALUETOKENVALUETOKENVALUETOKENVALUE";
-  var params = {
+  const arn = "arn:aws:iam::123456789:role/Role";
+  const token = "TOKENVALUETOKENVALUETOKENVALUETOKENVALUE";
+  const params = {
     RoleArn: arn,
     PrincipalArn: arn,
     SAMLAssertion: token

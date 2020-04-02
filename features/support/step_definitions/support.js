@@ -1,4 +1,4 @@
-var { Support } = require("../../../clients/client-support");
+const { Support } = require("../../../clients/client-support");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@support" }, function(scenario, callback) {
@@ -31,7 +31,7 @@ Then(
 );
 
 Given(/^I create a case with an invalid category$/, function(callback) {
-  var params = {
+  const params = {
     subject: "Subject",
     serviceCode: "INVALID-CODE",
     categoryCode: "INVALID-CATEGORY",

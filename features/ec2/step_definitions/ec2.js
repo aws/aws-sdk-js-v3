@@ -1,4 +1,5 @@
-var { EC2 } = require("../../../clients/client-ec2");
+const { EC2 } = require("../../../clients/client-ec2");
+const { Before, Given, Then } = require("cucumber");
 
 /**
  * Waits for the volumeAvailable state by periodically calling the underlying
@@ -37,7 +38,6 @@ const waitForVolumeAvailable = (ec2, volumeId, callback) => {
   };
   checkForVolumeAvailable();
 };
-const { Before, Given, Then, When } = require("cucumber");
 
 Before({ tags: "@ec2" }, function(scenario, callback) {
   this.service = new EC2({});
@@ -76,12 +76,12 @@ Given(/^I describe the EC2 instance "([^"]*)"$/, function(
 Given(/^I attempt to copy an encrypted snapshot across regions$/, function(
   callback
 ) {
-  var self = this;
-  var volId, srcSnapId, dstSnapId, params;
-  var sourceRegion = "us-west-2";
-  var destRegion = "us-east-1";
-  var srcEc2 = new EC2({ region: sourceRegion });
-  var dstEc2 = new EC2({ region: destRegion });
+  const self = this;
+  let volId, srcSnapId, dstSnapId, params;
+  const sourceRegion = "us-west-2";
+  const destRegion = "us-east-1";
+  const srcEc2 = new EC2({ region: sourceRegion });
+  const dstEc2 = new EC2({ region: destRegion });
 
   function teardown() {
     if (volId) srcEc2.deleteVolume({ VolumeId: volId }).send();

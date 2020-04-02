@@ -1,4 +1,4 @@
-var { DataPipeline } = require("../../../clients/client-data-pipeline");
+const { DataPipeline } = require("../../../clients/client-data-pipeline");
 const { Before, Given } = require("cucumber");
 
 Before({ tags: "@datapipeline" }, function(scenario, callback) {
@@ -10,7 +10,7 @@ Given(/^I create a Data Pipeline with name prefix "([^"]*)"$/, function(
   prefix,
   callback
 ) {
-  var params = {
+  const params = {
     name: this.uniqueName(prefix),
     uniqueId: this.uniqueName("aws-js-sdk")
   };

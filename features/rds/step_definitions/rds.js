@@ -1,5 +1,5 @@
-var jmespath = require("jmespath");
-var { RDS } = require("../../../clients/client-rds");
+const jmespath = require("jmespath");
+const { RDS } = require("../../../clients/client-rds");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@rds" }, function(scenario, callback) {
@@ -12,7 +12,7 @@ Given(/^I create a RDS security group with prefix name "([^"]*)"$/, function(
   callback
 ) {
   this.dbGroupName = this.uniqueName(prefix);
-  var params = {
+  const params = {
     DBSecurityGroupDescription: "Description",
     DBSecurityGroupName: this.dbGroupName
   };
@@ -25,8 +25,8 @@ Then(/the value at "([^"]*)" should contain "([^"]*)" with "([^"]*)"/, function(
   value,
   callback
 ) {
-  var member = jmespath.search(this.data, path);
-  var containDefault = false;
+  const member = jmespath.search(this.data, path);
+  const containDefault = false;
   member.forEach(function(config) {
     if (config[key] === value) {
       containDefault = true;
@@ -42,10 +42,10 @@ Then(/the value at "([^"]*)" should contain "([^"]*)" with "([^"]*)"/, function(
 Given(
   /^I paginate the "([^"]*)" operation asynchronously with limit (\d+)$/,
   function(operation, limit, callback) {
-    var maxPages = 3;
+    const maxPages = 3;
     limit = parseInt(limit);
 
-    var world = this;
+    const world = this;
     this.numPages = 0;
     this.numMarkers = 0;
     this.operation = operation;
@@ -53,7 +53,7 @@ Given(
     this.params = this.params || {};
     this.finishedPagination = false;
 
-    var marker = this.paginationConfig.outputToken;
+    const marker = this.paginationConfig.outputToken;
     if (this.paginationConfig.limitKey) {
       this.params[this.paginationConfig.limitKey] = limit;
     }

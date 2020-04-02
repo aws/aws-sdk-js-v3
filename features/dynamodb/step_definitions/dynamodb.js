@@ -1,5 +1,5 @@
-var jmespath = require("jmespath");
-var { DynamoDB } = require("../../../clients/client-dynamodb");
+const jmespath = require("jmespath");
+const { DynamoDB } = require("../../../clients/client-dynamodb");
 
 /**
  * Waits for the tableExists state by periodically calling the underlying
@@ -70,7 +70,7 @@ Before({ tags: "@dynamodb" }, function(scenario, next) {
 });
 
 function createTable(world, callback) {
-  var params = {
+  const params = {
     TableName: world.tableName,
     AttributeDefinitions: [{ AttributeName: "id", AttributeType: "S" }],
     KeySchema: [{ AttributeName: "id", KeyType: "HASH" }],
@@ -90,9 +90,9 @@ function createTable(world, callback) {
 }
 
 Given(/^I have a table$/, function(callback) {
-  var world = this;
+  const world = this;
   this.service.listTables({}, function(err, data) {
-    for (var i = 0; i < data.TableNames.length; i++) {
+    for (const i = 0; i < data.TableNames.length; i++) {
       if (data.TableNames[i] == world.tableName) {
         callback();
         return;
@@ -103,10 +103,10 @@ Given(/^I have a table$/, function(callback) {
 });
 
 When(/^I create a table$/, function(callback) {
-  var world = this;
+  const world = this;
   this.tableName = this.uniqueName("aws-sdk-js-integration");
   this.service.listTables({}, function(err, data) {
-    for (var i = 0; i < data.TableNames.length; i++) {
+    for (const i = 0; i < data.TableNames.length; i++) {
       if (data.TableNames[i] == world.tableName) {
         callback();
         return;
@@ -117,12 +117,12 @@ When(/^I create a table$/, function(callback) {
 });
 
 When(/^I put the item:$/, function(string, next) {
-  var params = { TableName: this.tableName, Item: JSON.parse(string) };
+  const params = { TableName: this.tableName, Item: JSON.parse(string) };
   this.request(null, "putItem", params, next);
 });
 
 When(/^I put a recursive item$/, function(next) {
-  var params = {
+  const params = {
     TableName: this.tableName,
     Item: {
       id: { S: "fooRecursive" },
@@ -147,7 +147,7 @@ When(/^I put a recursive item$/, function(next) {
 });
 
 Then(/^the item with id "([^"]*)" should exist$/, function(key, next) {
-  var params = { TableName: this.tableName, Key: { id: { S: key } } };
+  const params = { TableName: this.tableName, Key: { id: { S: key } } };
   this.request(null, "getItem", params, next);
 });
 
@@ -161,7 +161,7 @@ Then(/^it should have attribute "([^"]*)" containing "([^"]*)"$/, function(
 });
 
 When(/^I delete the table$/, function(next) {
-  var params = { TableName: this.tableName };
+  const params = { TableName: this.tableName };
   this.request(null, "deleteTable", params, next);
 });
 
@@ -177,9 +177,9 @@ Given(/^my first request is corrupted with CRC checking (ON|OFF)$/, function(
   toggle,
   callback
 ) {
-  var world = this;
+  const world = this;
   this.service.config.dynamoDbCrc32 = toggle == "ON" ? true : false;
-  var req = this.service.listTables();
+  const req = this.service.listTables();
   this.service.config.dynamoDbCrc32 = true;
   req.removeAllListeners("httpData");
   req.on("httpData", function(chunk, resp) {
@@ -209,8 +209,8 @@ Then(/^the request should( not)? be retried$/, function(retry, callback) {
 Given(/^all of my requests are corrupted with CRC checking ON$/, function(
   callback
 ) {
-  var world = this;
-  var req = this.service.listTables();
+  const world = this;
+  const req = this.service.listTables();
   req.removeAllListeners("httpData");
   req.on("httpData", function(chunk, resp) {
     resp.httpResponse.body = Buffer.from('{"invalid":"response"}');
@@ -244,7 +244,7 @@ Then(/^the request should( not)? fail with a CRC checking error$/, function(
 Given(
   /^I try to delete an item with key "([^"]*)" from table "([^"]*)"$/,
   function(key, table, callback) {
-    var params = { TableName: table, Key: { id: { S: key } } };
+    const params = { TableName: table, Key: { id: { S: key } } };
     this.request(null, "deleteItem", params, callback, false);
   }
 );

@@ -1,4 +1,4 @@
-var { CloudWatch } = require("../../../clients/client-cloudwatch");
+const { CloudWatch } = require("../../../clients/client-cloudwatch");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@cloudwatch" }, function(scenario, callback) {
@@ -11,7 +11,7 @@ Given(/^I create a CloudWatch alarm with (prefix|name) "([^"]*)"$/, function(
   name,
   callback
 ) {
-  var timestamp = new Date().getTime();
+  const timestamp = new Date().getTime();
   this.cloudWatchAlarm = {
     AlarmName: name,
     MetricName: "aws-sdk-js-metric-" + timestamp,
@@ -37,7 +37,7 @@ Given(/^I create a CloudWatch alarm with (prefix|name) "([^"]*)"$/, function(
 });
 
 Given(/^I list the CloudWatch alarms$/, function(callback) {
-  var params = {
+  const params = {
     MetricName: this.cloudWatchAlarm.MetricName,
     Namespace: this.cloudWatchAlarm.Namespace
   };
@@ -45,7 +45,7 @@ Given(/^I list the CloudWatch alarms$/, function(callback) {
 });
 
 Then(/^the list should contain the CloudWatch alarm$/, function(callback) {
-  var name = this.cloudWatchAlarm.AlarmName;
+  const name = this.cloudWatchAlarm.AlarmName;
   this.assert.contains(this.data.MetricAlarms, function(alarm) {
     return alarm.AlarmName === name;
   });

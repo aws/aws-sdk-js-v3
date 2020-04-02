@@ -1,4 +1,4 @@
-var { SNS } = require("../../../clients/client-sns");
+const { SNS } = require("../../../clients/client-sns");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@sns" }, function(scenario, callback) {
@@ -7,7 +7,7 @@ Before({ tags: "@sns" }, function(scenario, callback) {
 });
 
 Given(/^I create an SNS topic with name "([^"]*)"$/, function(name, callback) {
-  var world = this;
+  const world = this;
   this.request(
     null,
     "createTopic",
@@ -26,7 +26,7 @@ Given(/^I list the SNS topics$/, function(callback) {
 });
 
 Then(/^the list should contain the topic ARN$/, function(callback) {
-  var arn = this.topicArn;
+  const arn = this.topicArn;
   this.assert.contains(this.data.Topics, function(topic) {
     return topic.TopicArn === arn;
   });

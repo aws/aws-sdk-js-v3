@@ -1,4 +1,4 @@
-var { Route53 } = require("../../../clients/client-route-53");
+const { Route53 } = require("../../../clients/client-route-53");
 const { Before, Then, When } = require("cucumber");
 
 Before({ tags: "@route53" }, function(scenario, callback) {
@@ -11,7 +11,7 @@ When(/^I create a Route53 hosted zone with name prefix "([^"]*)"$/, function(
   callback
 ) {
   this.zoneName = "zone1.example.com";
-  var params = {
+  const params = {
     Name: this.zoneName,
     CallerReference: this.uniqueName(prefix),
     HostedZoneConfig: {
@@ -85,7 +85,7 @@ Then(/^I delete the Route53 hosted zone$/, function(callback) {
 When(
   /^I create a Route53 TCP health check with name prefix "([^"]*)"$/,
   function(prefix, callback) {
-    var params = {
+    const params = {
       CallerReference: this.uniqueName(prefix),
       HealthCheckConfig: {
         IPAddress: "192.0.43.10", // example.com
@@ -110,7 +110,7 @@ Then(/^the result should contain the health check ID$/, function(callback) {
 });
 
 When(/^I get information about the health check ID$/, function(callback) {
-  var params = {
+  const params = {
     HealthCheckId: this.healthCheckId
   };
   this.request(null, "getHealthCheck", params, callback);
@@ -125,7 +125,7 @@ Then(
 );
 
 Then(/^I delete the Route53 TCP health check$/, function(callback) {
-  var params = {
+  const params = {
     HealthCheckId: this.healthCheckId
   };
   this.request(null, "deleteHealthCheck", params, callback);

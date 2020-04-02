@@ -1,4 +1,4 @@
-var { Kinesis } = require("../../../clients/client-kinesis");
+const { Kinesis } = require("../../../clients/client-kinesis");
 const { Before, Given } = require("cucumber");
 
 Before({ tags: "@kinesis" }, function(scenario, callback) {

@@ -1,4 +1,4 @@
-var { IoT } = require("../../../clients/client-iot");
+const { IoT } = require("../../../clients/client-iot");
 const { Before } = require("cucumber");
 
 Before({ tags: "@iot" }, function(scenario, callback) {

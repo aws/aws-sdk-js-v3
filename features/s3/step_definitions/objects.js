@@ -1,11 +1,11 @@
-var {
+const {
   S3,
   GetObjectCommand,
   PutObjectCommand
 } = require("../../../clients/client-s3");
-var { streamCollector } = require("../../../packages/stream-collector-node");
-var { toUtf8 } = require("../../../packages/util-utf8-node");
-var { Md5 } = require("../../../packages/md5-js");
+const { streamCollector } = require("../../../packages/stream-collector-node");
+const { toUtf8 } = require("../../../packages/util-utf8-node");
+const { Md5 } = require("../../../packages/md5-js");
 
 const {
   S3RequestPresigner
@@ -38,7 +38,7 @@ When(/^I put "([^"]*)" to the(?: invalid)? key "([^"]*)"$/, function(
   key,
   next
 ) {
-  var params = {
+  const params = {
     Bucket: this.sharedBucket,
     Key: key,
     Body: data
@@ -47,7 +47,7 @@ When(/^I put "([^"]*)" to the(?: invalid)? key "([^"]*)"$/, function(
 });
 
 When(/^I get the object "([^"]*)"$/, function(key, next) {
-  var params = {
+  const params = {
     Bucket: this.sharedBucket,
     Key: key
   };
@@ -57,8 +57,8 @@ When(/^I get the object "([^"]*)"$/, function(key, next) {
 When(
   /^I put (?:a |an )(empty|small|large|\d+KB|\d+MB) buffer to the key "([^"]*)"$/,
   function(size, key, next) {
-    var body = this.createBuffer(size);
-    var params = {
+    const body = this.createBuffer(size);
+    const params = {
       Bucket: this.sharedBucket,
       Key: key,
       Body: body
@@ -70,9 +70,9 @@ When(
 When(
   /^I put (?:a |an )(empty|small|large) file to the key "([^"]*)"$/,
   function(size, key, next) {
-    var fs = require("fs");
-    var filename = this.createFile(size, key);
-    var params = {
+    const fs = require("fs");
+    const filename = this.createFile(size, key);
+    const params = {
       Bucket: this.sharedBucket,
       Key: key,
       Body: fs.createReadStream(filename)
@@ -84,7 +84,7 @@ When(
 When(
   /^I put "([^"]*)" to the key "([^"]*)" with ContentLength (\d+)$/,
   function(contents, key, contentLength, next) {
-    var params = {
+    const params = {
       Bucket: this.sharedBucket,
       Key: key,
       Body: contents,
@@ -117,7 +117,7 @@ Then(/^the HTTP response should have a content length of (\d+)$/, function(
 });
 
 When(/^I copy the object "([^"]*)" to "([^"]*)"$/, function(key1, key2, next) {
-  var params = {
+  const params = {
     Bucket: this.sharedBucket,
     Key: key2,
     CopySource: "/" + this.sharedBucket + "/" + key1
@@ -126,7 +126,7 @@ When(/^I copy the object "([^"]*)" to "([^"]*)"$/, function(key1, key2, next) {
 });
 
 When(/^I delete the object "([^"]*)"$/, function(key, next) {
-  var params = {
+  const params = {
     Bucket: this.sharedBucket,
     Key: key
   };
@@ -138,7 +138,7 @@ Then(/^the object "([^"]*)" should (not )?exist$/, function(
   shouldNotExist,
   next
 ) {
-  var params = {
+  const params = {
     Bucket: this.sharedBucket,
     Key: key
   };
@@ -155,13 +155,13 @@ Then(/^the object "([^"]*)" should (not )?exist$/, function(
 });
 
 When(/^I stream key "([^"]*)"$/, function(key, callback) {
-  var params = {
+  const params = {
     Bucket: this.sharedBucket,
     Key: key
   };
-  var world = this;
+  const world = this;
   this.result = "";
-  var s = this.service.getObject(params);
+  const s = this.service.getObject(params);
 
   setTimeout(function() {
     s.on("end", function() {
@@ -175,19 +175,19 @@ When(/^I stream key "([^"]*)"$/, function(key, callback) {
 
 When(/^I stream2 key "([^"]*)"$/, function(key, callback) {
   if (!require("stream").Readable) return callback();
-  var params = {
+  const params = {
     Bucket: this.sharedBucket,
     Key: key
   };
-  var world = this;
+  const world = this;
   this.result = "";
-  var stream = this.service.getObject(params).createReadStream();
+  const stream = this.service.getObject(params).createReadStream();
   setTimeout(function() {
     stream.on("end", function() {
       callback();
     });
     stream.on("readable", function() {
-      var v = stream.read();
+      const v = stream.read();
       if (v) world.result += v;
     });
   }, 2000); // delay streaming to ensure it is buffered
@@ -210,7 +210,7 @@ When(/^I get a pre\-signed URL to GET the key "([^"]*)"$/, function(
   key,
   callback
 ) {
-  var world = this;
+  const world = this;
   getSignedUrl(
     this.s3,
     GetObjectCommand,
@@ -226,7 +226,7 @@ When(/^I get a pre\-signed URL to GET the key "([^"]*)"$/, function(
 });
 
 When(/^I access the URL via HTTP GET$/, function(callback) {
-  var world = this;
+  const world = this;
   this.data = "";
   require("https")
     .get(this.signedUrl, function(res) {
@@ -242,8 +242,8 @@ When(/^I access the URL via HTTP GET$/, function(callback) {
 Given(
   /^I get a pre\-signed URL to PUT the key "([^"]*)"(?: with data "([^"]*)")?$/,
   function(key, body, callback) {
-    var world = this;
-    var params = {
+    const world = this;
+    const params = {
       Bucket: this.sharedBucket,
       Key: key
     };
@@ -259,11 +259,11 @@ Given(/^I access the URL via HTTP PUT with data "([^"]*)"$/, function(
   body,
   callback
 ) {
-  var world = this;
+  const world = this;
   this.data = "";
 
-  var data = body;
-  var options = require("url").parse(this.signedUrl);
+  const data = body;
+  const options = require("url").parse(this.signedUrl);
   options.method = "PUT";
   options.headers = {
     "Content-Length": data.length
@@ -284,10 +284,10 @@ Given(/^I access the URL via HTTP PUT with data "([^"]*)"$/, function(
 Given(
   /^I create a presigned form to POST the key "([^"]*)" with the data "([^"]*)"$/,
   function(key, data, callback) {
-    var world = this;
-    var boundary = (this.postBoundary =
+    const world = this;
+    const boundary = (this.postBoundary =
       "----WebKitFormBoundaryLL0mBKIuuLUKr7be");
-    var conditions = [
+    const conditions = [
         ["content-length-range", data.length - 1, data.length + 1]
       ],
       params = {
@@ -298,12 +298,16 @@ Given(
         Conditions: conditions
       };
     this.s3.createPresignedPost(params, function(err, postData) {
-      var body = Object.keys(postData.fields).reduce(function(body, fieldName) {
+      const body = Object.keys(postData.fields).reduce(function(
+        body,
+        fieldName
+      ) {
         body += "--" + boundary + "\r\n";
         body +=
           'Content-Disposition: form-data; name="' + fieldName + '"\r\n\r\n';
         return body + postData.fields[fieldName] + "\r\n";
-      }, "");
+      },
+      "");
       body += "--" + world.postBoundary + "\r\n";
       body +=
         'Content-Disposition: form-data; name="file"; filename="' +
@@ -324,8 +328,8 @@ Given(
 );
 
 Given(/^I POST the form$/, function(callback) {
-  var world = this;
-  var options = require("url").parse(this.postAction);
+  const world = this;
+  const options = require("url").parse(this.postAction);
   options.method = "POST";
   options.headers = {
     "Content-Type": "multipart/form-data; boundary=" + this.postBoundary,
@@ -365,10 +369,10 @@ Given(/^I setup the listObjects request for the bucket$/, function(callback) {
 When(
   /^I put (?:a |an )(empty|small|large|\d+KB|\d+MB) buffer to the key "([^"]*)" with progress events$/,
   function(size, key, callback) {
-    var self = this;
-    var body = self.createBuffer(size);
+    const self = this;
+    const body = self.createBuffer(size);
     this.progress = [];
-    var req = this.s3.putObject({
+    const req = this.s3.putObject({
       Bucket: this.sharedBucket,
       Key: key,
       Body: body
@@ -409,9 +413,9 @@ When(/^I read the key "([^"]*)" with progress events$/, function(
   key,
   callback
 ) {
-  var self = this;
+  const self = this;
   this.progress = [];
-  var req = this.s3.getObject({
+  const req = this.s3.getObject({
     Bucket: this.sharedBucket,
     Key: key
   });
@@ -427,10 +431,10 @@ When(/^I put "([^"]*)" to the (public|private) key "([^"]*)"$/, function(
   key,
   next
 ) {
-  var acl;
+  let acl;
   if (access === "public") acl = "public-read";
   else if (access === "private") acl = access;
-  var params = {
+  const params = {
     Bucket: this.sharedBucket,
     Key: key,
     Body: data,
@@ -444,7 +448,7 @@ When(/^I put "([^"]*)" to the key "([^"]*)" with an AES key$/, function(
   key,
   next
 ) {
-  var params = {
+  const params = {
     Bucket: this.sharedBucket,
     Key: key,
     Body: data,
@@ -455,7 +459,7 @@ When(/^I put "([^"]*)" to the key "([^"]*)" with an AES key$/, function(
 });
 
 When(/^I read the object "([^"]*)" with the AES key$/, function(key, next) {
-  var params = {
+  const params = {
     Bucket: this.sharedBucket,
     Key: key,
     SSECustomerAlgorithm: "AES256",
@@ -468,7 +472,7 @@ Then(/^I make an unauthenticated request to read object "([^"]*)"$/, function(
   key,
   next
 ) {
-  var params = {
+  const params = {
     Bucket: this.sharedBucket,
     Key: key
   };
@@ -503,8 +507,8 @@ Then(
 );
 
 Given(/^an empty bucket$/, function(next) {
-  var self = this;
-  var params = {
+  const self = this;
+  const params = {
     Bucket: this.sharedBucket
   };
   self.s3.listObjects(params, function(err, data) {

@@ -1,4 +1,4 @@
-var {
+const {
   ElasticLoadBalancing
 } = require("../../../clients/client-elastic-load-balancing");
 const { Before, Given, Then } = require("cucumber");
@@ -14,7 +14,7 @@ Given(/^I create a load balancer with name prefix "([^"]*)"$/, function(
 ) {
   this.loadBalancerName = prefix + "-" + new Date().getTime();
 
-  var params = {
+  const params = {
     LoadBalancerName: this.loadBalancerName,
     Listeners: [
       {
@@ -31,20 +31,20 @@ Given(/^I create a load balancer with name prefix "([^"]*)"$/, function(
 Given(/^I describe load balancers with the load balancer name$/, function(
   callback
 ) {
-  var params = {
+  const params = {
     LoadBalancerNames: [this.loadBalancerName]
   };
   this.request(null, "describeLoadBalancers", params, callback);
 });
 
 Then(/^the load balancer should be in the list$/, function(callback) {
-  var name = this.data.LoadBalancerDescriptions[0].LoadBalancerName;
+  const name = this.data.LoadBalancerDescriptions[0].LoadBalancerName;
   this.assert.equal(name, this.loadBalancerName);
   callback();
 });
 
 Then(/^I delete the load balancer$/, function(callback) {
-  var params = {
+  const params = {
     LoadBalancerName: this.loadBalancerName
   };
   this.request(null, "deleteLoadBalancer", params, callback);

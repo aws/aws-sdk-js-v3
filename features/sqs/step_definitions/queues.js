@@ -4,7 +4,7 @@ Given(/^I create a queue with the prefix name "([^"]*)"$/, function(
   prefix,
   callback
 ) {
-  var name = this.uniqueName(prefix);
+  const name = this.uniqueName(prefix);
   this.request(null, "createQueue", { QueueName: name }, callback, function() {
     this.queueUrl = this.data.QueueUrl;
     this.createdQueues.push(this.queueUrl);
@@ -18,9 +18,9 @@ Then(/^list queues should eventually return the queue urls$/, function(
     callback,
     function(next) {
       next.condition = function() {
-        var matchingCount = 0;
-        for (var i = 0; i < this.createdQueues.length; ++i) {
-          for (var j = 0; j < this.data.QueueUrls.length; ++j) {
+        const matchingCount = 0;
+        for (const i = 0; i < this.createdQueues.length; ++i) {
+          for (const j = 0; j < this.data.QueueUrls.length; ++j) {
             if (this.createdQueues[i] == this.data.QueueUrls[j]) {
               matchingCount++;
             }
@@ -35,6 +35,6 @@ Then(/^list queues should eventually return the queue urls$/, function(
 });
 
 Then(/^I delete the SQS queue$/, function(callback) {
-  var url = this.createdQueues.pop();
+  const url = this.createdQueues.pop();
   this.request(null, "deleteQueue", { QueueUrl: url }, callback);
 });

@@ -1,4 +1,4 @@
-var {
+const {
   ElasticsearchService
 } = require("../../../clients/client-elasticsearch-service");
 const { Before } = require("cucumber");

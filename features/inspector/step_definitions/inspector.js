@@ -1,4 +1,4 @@
-var { Inspector } = require("../../../clients/client-inspector");
+const { Inspector } = require("../../../clients/client-inspector");
 const { Before } = require("cucumber");
 
 Before({ tags: "@inspector" }, function(scenario, callback) {

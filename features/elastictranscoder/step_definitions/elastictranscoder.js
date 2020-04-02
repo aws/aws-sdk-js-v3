@@ -1,8 +1,8 @@
-var {
+const {
   ElasticTranscoder
 } = require("../../../clients/client-elastic-transcoder");
-var { S3 } = require("../../../clients/client-s3");
-var { IAM } = require("../../../clients/client-iam");
+const { S3 } = require("../../../clients/client-s3");
+const { IAM } = require("../../../clients/client-iam");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@elastictranscoder" }, function(scenario, callback) {
@@ -16,7 +16,7 @@ Given(
   /^I create an Elastic Transcoder pipeline with name prefix "([^"]*)"$/,
   function(prefix, callback) {
     this.pipelineName = this.uniqueName(prefix);
-    var params = {
+    const params = {
       Name: this.pipelineName,
       InputBucket: this.bucket,
       OutputBucket: this.bucket,
@@ -29,8 +29,8 @@ Given(
       }
     };
 
-    var world = this;
-    var next = function() {
+    const world = this;
+    const next = function() {
       if (world.data) world.pipelineId = world.data.Pipeline.Id;
       callback();
     };
@@ -44,7 +44,7 @@ Given(/^I list pipelines$/, function(callback) {
 });
 
 Then(/^the list should contain the pipeline$/, function(callback) {
-  var id = this.pipelineId;
+  const id = this.pipelineId;
   this.assert.contains(this.data.Pipelines, function(pipeline) {
     return pipeline.Id === id;
   });

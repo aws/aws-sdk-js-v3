@@ -1,4 +1,4 @@
-var { Pinpoint } = require("../../../clients/client-pinpoint");
+const { Pinpoint } = require("../../../clients/client-pinpoint");
 const { Before, Given } = require("cucumber");
 
 Before({ tags: "@pinpoint" }, function(scenario, callback) {

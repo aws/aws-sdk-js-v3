@@ -1,5 +1,5 @@
-var util = require("util");
-var jmespath = require("jmespath");
+const util = require("util");
+const jmespath = require("jmespath");
 
 const isType = (obj, type) => {
   // handle cross-"frame" objects
@@ -28,7 +28,7 @@ Before(function(scenario, callback) {
 Given(/^I create a shared bucket$/, function(callback) {
   if (this.sharedBucket) return callback();
 
-  var bucket = (this.sharedBucket = this.uniqueName(
+  const bucket = (this.sharedBucket = this.uniqueName(
     "aws-sdk-js-shared-integration"
   ));
   this.request("s3", "createBucket", { Bucket: this.sharedBucket }, function(
@@ -47,7 +47,7 @@ Given(/^I create a shared bucket$/, function(callback) {
 });
 
 Given(/^I create a bucket$/, function(callback) {
-  var bucket = (this.bucket = this.uniqueName("aws-sdk-js-integration"));
+  const bucket = (this.bucket = this.uniqueName("aws-sdk-js-integration"));
   this.request("s3", "createBucket", { Bucket: this.bucket }, function(
     err,
     data
@@ -91,7 +91,7 @@ Then(/^the request should be successful$/, function(callback) {
 });
 
 Then(/^the value at "([^"]*)" should be a list$/, function(path, callback) {
-  var value = jmespath.search(this.data, path);
+  const value = jmespath.search(this.data, path);
   this.assert.ok(
     Array.isArray(value),
     "expected " + util.inspect(value) + " to be a list"
@@ -100,7 +100,7 @@ Then(/^the value at "([^"]*)" should be a list$/, function(path, callback) {
 });
 
 Then(/^the value at "([^"]*)" should be a number$/, function(path, callback) {
-  var value = jmespath.search(this.data, path);
+  const value = jmespath.search(this.data, path);
   this.assert.ok(
     typeof value === "number",
     "expected " + util.inspect(value) + " to be a number"
@@ -109,7 +109,7 @@ Then(/^the value at "([^"]*)" should be a number$/, function(path, callback) {
 });
 
 Then(/^the value at "([^"]*)" should be a string$/, function(path, callback) {
-  var value = jmespath.search(this.data, path);
+  const value = jmespath.search(this.data, path);
   this.assert.ok(
     typeof value === "string",
     "expected " + util.inspect(value) + " to be a string"
@@ -146,7 +146,7 @@ Then(/^the error status code should be (\d+)$/, function(status, callback) {
 });
 
 Then(/^I should get the error:$/, function(table, callback) {
-  var err = table.hashes()[0];
+  const err = table.hashes()[0];
   this.assert.equal(this.error.name, err.name);
   this.assert.equal(this.error.message, err.message);
   callback();
@@ -167,14 +167,14 @@ Given(
     limit = parseInt(limit);
     if (maxPages) maxPages = parseInt(maxPages);
 
-    var world = this;
+    const world = this;
     this.numPages = 0;
     this.numMarkers = 0;
     this.operation = operation;
     this.paginationConfig = this.service.paginationConfig(operation);
     this.params = this.params || {};
 
-    var marker = this.paginationConfig.outputToken;
+    const marker = this.paginationConfig.outputToken;
     if (this.paginationConfig.limitKey) {
       this.params[this.paginationConfig.limitKey] = limit;
     }
@@ -214,7 +214,7 @@ Then(/^I should get numPages - 1 markers$/, function(callback) {
 });
 
 Then(/^the last page should not contain a marker$/, function(callback) {
-  var marker = this.paginationConfig.outputToken;
+  const marker = this.paginationConfig.outputToken;
   this.assert.equal(this.data[marker], null);
   callback();
 });

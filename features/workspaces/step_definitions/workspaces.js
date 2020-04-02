@@ -1,4 +1,4 @@
-var { WorkSpaces } = require("../../../clients/client-workspaces");
+const { WorkSpaces } = require("../../../clients/client-workspaces");
 const { Before } = require("cucumber");
 
 Before({ tags: "@workspaces" }, function(scenario, callback) {

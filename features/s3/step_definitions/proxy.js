@@ -1,6 +1,6 @@
-var url = require("url");
-var http = require("http");
-var { S3 } = require("../../../clients/client-s3");
+const url = require("url");
+const http = require("http");
+const { S3 } = require("../../../clients/client-s3");
 const { Before, Then } = require("cucumber");
 
 Before({ tags: "@s3 or @proxy" }, function(scenario, callback) {
@@ -24,8 +24,8 @@ function setupProxyServer() {
   if (this.proxyServer) return;
   this.proxyPort = 8000 + parseInt(Math.random() * 100);
   this.proxyServer = http.createServer(function(req, res) {
-    var uri = url.parse(req.url);
-    var options = {
+    const uri = url.parse(req.url);
+    const options = {
       host: uri.hostname,
       port: uri.port || 80,
       method: req.method,
@@ -34,7 +34,7 @@ function setupProxyServer() {
     };
     options.headers.host = uri.hostname;
 
-    var s = http.request(options, function(res2) {
+    const s = http.request(options, function(res2) {
       res.writeHead(res2.statusCode, res2.headers);
       res2
         .on("data", function(ch) {

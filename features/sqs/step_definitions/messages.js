@@ -38,7 +38,7 @@ When(/^I send the message "([^"]*)" with a binary attribute$/, function(
   message,
   callback
 ) {
-  var params = {
+  const params = {
     QueueUrl: this.queueUrl,
     MessageBody: message,
     MessageAttributes: {
@@ -58,7 +58,7 @@ Then(
           "1,2,3"
         );
       };
-      var params = {
+      const params = {
         QueueUrl: this.queueUrl,
         MessageAttributeNames: ["binary"]
       };

@@ -1,4 +1,4 @@
-var { WAF } = require("../../../clients/client-waf");
+const { WAF } = require("../../../clients/client-waf");
 const { Before } = require("cucumber");
 
 Before({ tags: "@waf" }, function(scenario, callback) {

@@ -35,16 +35,16 @@ module.exports = {
     if (!options.backoff) options.backoff = 500;
     if (!options.maxTime) options.maxTime = 5;
 
-    var delay = options.delay;
+    const delay = options.delay;
     //TODO: apply clock offset
-    var started = new Date();
+    const started = new Date();
 
-    var self = this;
-    var retry = function() {
+    const self = this;
+    const retry = function() {
       callback();
     };
     retry.fail = function(err) {
-      var now = self.AWS.util.date.getDate();
+      const now = self.AWS.util.date.getDate();
       if (now - started < options.maxTime * 1000) {
         setTimeout(function() {
           delay += options.backoff;
@@ -63,7 +63,7 @@ module.exports = {
    * finish execution before moving onto the next step in the scenario.
    */
   request: function request(svc, operation, params, next, extra) {
-    var world = this;
+    const world = this;
 
     if (!svc) svc = this.service;
     if (typeof svc === "string") svc = this[svc];
@@ -75,7 +75,7 @@ module.exports = {
 
       try {
         if (typeof next.condition === "function") {
-          var condition = next.condition.call(world, world);
+          const condition = next.condition.call(world, world);
           if (!condition) {
             next.fail(new Error("Request success condition failed"));
             return;
@@ -117,10 +117,10 @@ module.exports = {
    * Cache bucket names used for cleanup after all features have run.
    */
   cacheBucketName: function(bucket) {
-    var fs = require("fs");
-    var path = require("path");
-    var filePath = path.resolve("integ.buckets.json");
-    var cache;
+    const fs = require("fs");
+    const path = require("path");
+    const filePath = path.resolve("integ.buckets.json");
+    let cache;
     if (fs.existsSync(filePath)) {
       try {
         cache = JSON.parse(fs.readFileSync(filePath));
@@ -140,15 +140,15 @@ module.exports = {
    * Creates a fixture file of given size and returns the path.
    */
   createFile: function(size, name) {
-    var fs = require("fs");
-    var path = require("path");
+    const fs = require("fs");
+    const path = require("path");
     name = this.uniqueName(name);
     // Cannot set this as a world property because the world
     // is cleaned up before the AfterFeatures hook is fired.
-    var fixturePath = path.resolve("./features/extra/fixtures/tmp");
+    const fixturePath = path.resolve("./features/extra/fixtures/tmp");
     if (!fs.existsSync(fixturePath)) fs.mkdirSync(fixturePath);
-    var filename = path.join(fixturePath, name);
-    var body;
+    const filename = path.join(fixturePath, name);
+    let body;
     if (typeof size === "string") {
       switch (size) {
         case "empty":
@@ -173,8 +173,8 @@ module.exports = {
    * Creates and returns a buffer of given size
    */
   createBuffer: function(size) {
-    var match;
-    var buffer;
+    let match;
+    let buffer;
     if ((match = size.match(/(\d+)KB/))) {
       buffer = Buffer.alloc(parseInt(match[1]) * 1024);
     } else if ((match = size.match(/(\d+)MB/))) {

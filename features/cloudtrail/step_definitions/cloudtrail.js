@@ -1,4 +1,4 @@
-var { CloudTrail } = require("../../../clients/client-cloudtrail");
+const { CloudTrail } = require("../../../clients/client-cloudtrail");
 const { Before, Given } = require("cucumber");
 
 Before({ tags: "@cloudtrail" }, function(scenario, callback) {

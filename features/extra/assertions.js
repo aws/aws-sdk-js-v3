@@ -1,4 +1,4 @@
-var assert = require("assert");
+const assert = require("assert");
 
 assert.match = function assertMatches(string, matcher, message) {
   assert.ok(
@@ -8,8 +8,8 @@ assert.match = function assertMatches(string, matcher, message) {
 };
 
 assert.contains = function assertContains(list, matcher, message) {
-  var found = false;
-  for (var i in list) {
+  const found = false;
+  for (const i in list) {
     if (!list.hasOwnProperty(i)) continue;
     if (typeof matcher === "function") {
       found = matcher(list[i]);
@@ -27,7 +27,7 @@ assert.compare = function assertComparison(
   expected,
   message
 ) {
-  var compare = actual + " " + operator + " " + expected;
+  const compare = actual + " " + operator + " " + expected;
   assert.ok(eval(compare), message || compare);
 };
 

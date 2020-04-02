@@ -1,4 +1,4 @@
-var { EFS } = require("../../../clients/client-efs");
+const { EFS } = require("../../../clients/client-efs");
 const { Before } = require("cucumber");
 
 Before({ tags: "@efs" }, function(scenario, callback) {

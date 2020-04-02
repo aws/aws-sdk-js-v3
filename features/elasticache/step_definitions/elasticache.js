@@ -1,4 +1,4 @@
-var { ElastiCache } = require("../../../clients/client-elasticache");
+const { ElastiCache } = require("../../../clients/client-elasticache");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@elasticache" }, function(scenario, callback) {
@@ -11,7 +11,7 @@ Given(/^I create a cache parameter group with name prefix "([^"]*)"$/, function(
   callback
 ) {
   this.cacheGroupName = this.uniqueName(prefix);
-  var params = {
+  const params = {
     Description: "Description",
     CacheParameterGroupName: this.cacheGroupName,
     CacheParameterGroupFamily: "memcached1.4"
@@ -20,26 +20,26 @@ Given(/^I create a cache parameter group with name prefix "([^"]*)"$/, function(
 });
 
 Given(/^the cache parameter group name is in the result$/, function(callback) {
-  var name = this.data.CacheParameterGroup.CacheParameterGroupName;
+  const name = this.data.CacheParameterGroup.CacheParameterGroupName;
   this.assert.equal(name, this.cacheGroupName);
   callback();
 });
 
 Given(/^I describe the cache parameter groups$/, function(callback) {
-  var params = {
+  const params = {
     CacheParameterGroupName: this.cacheGroupName
   };
   this.request(null, "describeCacheParameterGroups", params, callback);
 });
 
 Then(/^the cache parameter group should be described$/, function(callback) {
-  var item = this.data.CacheParameterGroups[0];
+  const item = this.data.CacheParameterGroups[0];
   this.assert.equal(item.CacheParameterGroupName, this.cacheGroupName);
   callback();
 });
 
 Then(/^I delete the cache parameter group$/, function(callback) {
-  var params = {
+  const params = {
     CacheParameterGroupName: this.cacheGroupName
   };
   this.request(null, "deleteCacheParameterGroup", params, callback);

@@ -1,4 +1,4 @@
-var {
+const {
   ElasticLoadBalancingv2
 } = require("../../../clients/client-elastic-load-balancing-v2");
 const { Before } = require("cucumber");

@@ -1,4 +1,4 @@
-var { StorageGateway } = require("../../../clients/client-storage-gateway");
+const { StorageGateway } = require("../../../clients/client-storage-gateway");
 const { Before, When } = require("cucumber");
 
 Before({ tags: "@storagegateway" }, function(scenario, callback) {
@@ -7,7 +7,7 @@ Before({ tags: "@storagegateway" }, function(scenario, callback) {
 });
 
 When(/^I try to activate a Storage Gateway$/, function(callback) {
-  var params = {
+  const params = {
     ActivationKey: "INVALIDKEY",
     GatewayName: this.uniqueName("aws-sdk-js"),
     GatewayTimezone: "GMT-5:00",

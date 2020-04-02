@@ -1,4 +1,4 @@
-var { SQS } = require("../../../clients/client-sqs");
+const { SQS } = require("../../../clients/client-sqs");
 const { Before } = require("cucumber");
 
 Before({ tags: "@sqs" }, function(scenario, callback) {

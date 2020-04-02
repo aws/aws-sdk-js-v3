@@ -1,4 +1,4 @@
-var { CognitoIdentity } = require("../../../clients/client-cognito-identity");
+const { CognitoIdentity } = require("../../../clients/client-cognito-identity");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@cognitoidentity" }, function(scenario, callback) {
@@ -10,8 +10,8 @@ Given(/^I create a Cognito identity pool with prefix "([^"]*)"$/, function(
   prefix,
   callback
 ) {
-  var expectError = prefix === "" ? false : undefined;
-  var params = {
+  const expectError = prefix === "" ? false : undefined;
+  const params = {
     IdentityPoolName: this.uniqueName(prefix, ""),
     AllowUnauthenticatedIdentities: true
   };

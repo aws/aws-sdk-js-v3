@@ -1,4 +1,4 @@
-var { CognitoSync } = require("../../../clients/client-cognito-sync");
+const { CognitoSync } = require("../../../clients/client-cognito-sync");
 const { Before, Given } = require("cucumber");
 
 Before({ tags: "@cognitosync" }, function(scenario, callback) {
@@ -13,7 +13,7 @@ Given(/^I list Cognito identity pool usage$/, function(callback) {
 Given(
   /^I list Cognito data sets with identity pool id "([^"]*)" and identity id "([^"]*)"$/,
   function(idpid, idid, callback) {
-    var params = { IdentityPoolId: idpid, IdentityId: idid };
+    const params = { IdentityPoolId: idpid, IdentityId: idid };
     this.request(null, "listDatasets", params, callback, false);
   }
 );

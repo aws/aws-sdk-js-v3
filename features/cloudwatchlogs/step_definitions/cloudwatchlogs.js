@@ -1,4 +1,4 @@
-var { CloudWatchLogs } = require("../../../clients/client-cloudwatch-logs");
+const { CloudWatchLogs } = require("../../../clients/client-cloudwatch-logs");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@cloudwatchlogs" }, function(scenario, callback) {
@@ -10,7 +10,7 @@ Given(/^I create a CloudWatch logGroup with prefix "([^"]*)"$/, function(
   prefix,
   callback
 ) {
-  var expectErr = prefix === "" ? false : undefined;
+  const expectErr = prefix === "" ? false : undefined;
   this.logGroupName = this.uniqueName(prefix);
   this.request(
     null,
@@ -26,7 +26,7 @@ Given(/^I list the CloudWatch logGroups$/, function(callback) {
 });
 
 Then(/^the list should contain the CloudWatch logGroup$/, function(callback) {
-  var name = this.logGroupName;
+  const name = this.logGroupName;
   this.assert.contains(this.data.logGroups, function(alarm) {
     return alarm.logGroupName === name;
   });

@@ -1,4 +1,4 @@
-var { EMR } = require("../../../clients/client-emr");
+const { EMR } = require("../../../clients/client-emr");
 const { Before, Given } = require("cucumber");
 
 Before({ tags: "@emr" }, function(scenario, callback) {
@@ -8,6 +8,6 @@ Before({ tags: "@emr" }, function(scenario, callback) {
 
 Given(/^I run an EMR job flow with invalid parameters$/, function(callback) {
   this.service = new EMR({});
-  var params = { Name: "", Instances: { MasterInstanceType: "invalid" } };
+  const params = { Name: "", Instances: { MasterInstanceType: "invalid" } };
   this.request(null, "runJobFlow", params, callback, false);
 });

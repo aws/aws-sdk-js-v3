@@ -1,4 +1,4 @@
-var {
+const {
   DatabaseMigrationService
 } = require("../../../clients/client-database-migration-service");
 const { Before } = require("cucumber");

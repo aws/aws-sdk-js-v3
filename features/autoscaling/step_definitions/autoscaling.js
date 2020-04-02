@@ -1,4 +1,4 @@
-var { AutoScaling } = require("../../../clients/client-auto-scaling");
+const { AutoScaling } = require("../../../clients/client-auto-scaling");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@autoscaling" }, function(scenario, callback) {
@@ -10,7 +10,7 @@ Given(/^I create a launch configuration with name "([^"]*)"$/, function(
   name,
   callback
 ) {
-  var params = {
+  const params = {
     ImageId: "ami-1624987f",
     InstanceType: "m1.small",
     LaunchConfigurationName: name
@@ -33,6 +33,6 @@ Then(/^the list should contain the launch configuration "([^"]*)"$/, function(
 });
 
 Then(/^I delete the launch configuration "([^"]*)"$/, function(name, callback) {
-  var params = { LaunchConfigurationName: name };
+  const params = { LaunchConfigurationName: name };
   this.request(null, "deleteLaunchConfiguration", params, callback);
 });

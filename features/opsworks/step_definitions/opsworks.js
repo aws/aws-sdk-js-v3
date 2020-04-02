@@ -1,5 +1,5 @@
-var { IAM } = require("../../../clients/client-iam");
-var { OpsWorks } = require("../../../clients/client-opsworks");
+const { IAM } = require("../../../clients/client-iam");
+const { OpsWorks } = require("../../../clients/client-opsworks");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@opsworks" }, function(scenario, callback) {
@@ -11,7 +11,7 @@ Before({ tags: "@opsworks" }, function(scenario, callback) {
 Given(/^I create an OpsWorks user profile with the IAM user ARN$/, function(
   callback
 ) {
-  var params = {
+  const params = {
     IamUserArn: this.iamUserArn
   };
   this.request(null, "createUserProfile", params, callback, false);
@@ -23,7 +23,7 @@ Given(/^the IAM user ARN is in the result$/, function(callback) {
 });
 
 Given(/^I describe the OpsWorks user profiles$/, function(callback) {
-  var params = {
+  const params = {
     IamUserArns: [this.iamUserArn]
   };
   this.request(null, "describeUserProfiles", params, callback);
@@ -47,7 +47,7 @@ Then(/^the SSH username should be equal to the IAM username$/, function(
 });
 
 Then(/^I delete the OpsWorks user profile$/, function(callback) {
-  var params = {
+  const params = {
     IamUserArn: this.iamUserArn
   };
   this.request(null, "deleteUserProfile", params, callback, false);

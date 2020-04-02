@@ -1,4 +1,4 @@
-var { Redshift } = require("../../../clients/client-redshift");
+const { Redshift } = require("../../../clients/client-redshift");
 const { Before, Given } = require("cucumber");
 
 Before({ tags: "@redshift" }, function(scenario, callback) {
@@ -10,7 +10,7 @@ Given(
   /^I create a Redshift cluster parameter group with prefix name "([^"]*)"$/,
   function(prefix, callback) {
     this.parameterGroupName = this.uniqueName(prefix);
-    var params = {
+    const params = {
       Description: "Description",
       ParameterGroupName: this.parameterGroupName,
       ParameterGroupFamily: "redshift-1.0"

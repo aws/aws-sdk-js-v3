@@ -1,4 +1,4 @@
-var { SageMaker } = require("../../../clients/client-sagemaker");
+const { SageMaker } = require("../../../clients/client-sagemaker");
 const { Before } = require("cucumber");
 
 Before({ tags: "@sagemaker" }, function(scenario, callback) {

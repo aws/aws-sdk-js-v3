@@ -1,4 +1,4 @@
-var { APIGateway } = require("../../../clients/client-api-gateway");
+const { APIGateway } = require("../../../clients/client-api-gateway");
 const { Before } = require("cucumber");
 
 Before({ tags: "@apigateway" }, function(scenario, callback) {

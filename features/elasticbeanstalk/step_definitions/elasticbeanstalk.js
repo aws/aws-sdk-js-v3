@@ -1,4 +1,6 @@
-var { ElasticBeanstalk } = require("../../../clients/client-elastic-beanstalk");
+const {
+  ElasticBeanstalk
+} = require("../../../clients/client-elastic-beanstalk");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@elasticbeanstalk" }, function(scenario, callback) {
@@ -10,7 +12,7 @@ Given(
   /^I create an Elastic Beanstalk application with name prefix "([^"]*)"$/,
   function(prefix, callback) {
     this.appName = this.uniqueName(prefix);
-    var params = { ApplicationName: this.appName };
+    const params = { ApplicationName: this.appName };
     this.request(null, "createApplication", params, callback, false);
   }
 );
@@ -19,7 +21,7 @@ Given(
   /^I create an Elastic Beanstalk application version with label "([^"]*)"$/,
   function(label, callback) {
     this.appVersion = label;
-    var params = {
+    const params = {
       ApplicationName: this.appName,
       VersionLabel: this.appVersion
     };
@@ -28,7 +30,7 @@ Given(
 );
 
 Given(/^I describe the Elastic Beanstalk application$/, function(callback) {
-  var params = { ApplicationNames: [this.appName] };
+  const params = { ApplicationNames: [this.appName] };
   this.request(null, "describeApplications", params, callback);
 });
 
@@ -51,6 +53,6 @@ Then(
 );
 
 Then(/^I delete the Elastic Beanstalk application$/, function(callback) {
-  var params = { ApplicationName: this.appName };
+  const params = { ApplicationName: this.appName };
   this.request(null, "deleteApplication", params, callback);
 });

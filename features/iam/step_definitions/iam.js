@@ -1,4 +1,4 @@
-var { IAM } = require("../../../clients/client-iam");
+const { IAM } = require("../../../clients/client-iam");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@iam" }, function(scenario, callback) {
@@ -13,8 +13,8 @@ Given(/^I have an IAM username "([^"]*)"$/, function(name, callback) {
 });
 
 Given(/^I create an IAM user with the username$/, function(callback) {
-  var world = this;
-  var next = function() {
+  const world = this;
+  const next = function() {
     if (world.data) this.iamUserArn = world.data.User.Arn;
     else this.iamUserArn = null;
     callback();
@@ -36,7 +36,7 @@ Given(/^I list the IAM users$/, function(callback) {
 });
 
 Then(/^the list should contain the user$/, function(callback) {
-  var name = this.iamUser;
+  const name = this.iamUser;
   this.assert.contains(this.data.Users, function(user) {
     return user.UserName === name;
   });
@@ -60,16 +60,16 @@ Given(/^I create an IAM role with name prefix "([^"]*)"$/, function(
 ) {
   this.iamRoleName = this.uniqueName(name);
 
-  var world = this;
-  var assumeRolePolicyDocument =
+  const world = this;
+  const assumeRolePolicyDocument =
     '{"Version":"2008-10-17","Statement":[' +
     '{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},' +
     '"Action":["sts:AssumeRole"]}]}';
-  var params = {
+  const params = {
     RoleName: this.iamRoleName,
     AssumeRolePolicyDocument: assumeRolePolicyDocument
   };
-  var next = function() {
+  const next = function() {
     world.iamRoleArn = world.data.Role.Arn;
     callback();
   };

@@ -1,4 +1,4 @@
-var { CodePipeline } = require("../../../clients/client-codepipeline");
+const { CodePipeline } = require("../../../clients/client-codepipeline");
 const { Before } = require("cucumber");
 
 Before({ tags: "@codepipeline" }, function(scenario, callback) {

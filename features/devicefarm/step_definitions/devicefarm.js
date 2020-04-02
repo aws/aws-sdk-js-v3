@@ -1,4 +1,4 @@
-var { DeviceFarm } = require("../../../clients/client-device-farm");
+const { DeviceFarm } = require("../../../clients/client-device-farm");
 const { Before } = require("cucumber");
 
 Before({ tags: "@devicefarm" }, function(scenario, callback) {

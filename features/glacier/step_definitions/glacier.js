@@ -1,4 +1,4 @@
-var { Glacier } = require("../../../clients/client-glacier");
+const { Glacier } = require("../../../clients/client-glacier");
 const { Before, Given, Then, When } = require("cucumber");
 
 Before({ tags: "@glacier" }, function(scenario, callback) {
@@ -8,7 +8,7 @@ Before({ tags: "@glacier" }, function(scenario, callback) {
 
 Given(/^I have a Glacier vault$/, function(callback) {
   this.vaultName = "aws-sdk-js-integration";
-  var params = {
+  const params = {
     vaultName: this.vaultName
   };
   this.request(null, "createVault", params, callback, false);
@@ -17,9 +17,9 @@ Given(/^I have a Glacier vault$/, function(callback) {
 Given(
   /^I upload a (\d+(?:\.\d+)?)MB Glacier archive to the vault( with (?:invalid|incorrect) checksum)?$/,
   function(size, invalid, callback) {
-    var data = Buffer.alloc(parseFloat(size) * 1024 * 1024);
+    const data = Buffer.alloc(parseFloat(size) * 1024 * 1024);
     data.fill("0");
-    var params = {
+    const params = {
       vaultName: this.vaultName,
       body: data
     };
@@ -39,20 +39,20 @@ Then(/^the result should contain the Glacier archive ID$/, function(callback) {
 Then(/^the result should contain the same tree hash checksum$/, function(
   callback
 ) {
-  var hash = this.data.$metadata.httpHeaders["x-amz-sha256-tree-hash"];
+  const hash = this.data.$metadata.httpHeaders["x-amz-sha256-tree-hash"];
   this.assert.equal(this.data.checksum, hash);
   callback();
 });
 
 When(/^I describe the Glacier vault$/, function(callback) {
-  var params = {
+  const params = {
     vaultName: this.vaultName
   };
   this.request(null, "describeVault", params, callback);
 });
 
 Then(/^I delete the Glacier archive$/, function(callback) {
-  var params = {
+  const params = {
     vaultName: this.vaultName,
     archiveId: this.archiveId
   };
@@ -60,7 +60,7 @@ Then(/^I delete the Glacier archive$/, function(callback) {
 });
 
 Then(/^I delete the Glacier vault$/, function(callback) {
-  var params = {
+  const params = {
     vaultName: this.vaultName
   };
   this.eventually(callback, function(next) {
@@ -80,7 +80,7 @@ When(
     this.partCounter = 0;
     this.partSize = partSize * 1024 * 1024;
 
-    var params = {
+    const params = {
       vaultName: this.vaultName,
       partSize: this.partSize.toString()
     };
@@ -96,11 +96,11 @@ Then(/^the result should contain the Glacier multi-part upload ID$/, function(
 });
 
 Then(/^I send the next part$/, function(callback) {
-  var start = this.partCounter;
-  var end = Math.min(start + this.partSize, this.uploadData.length);
-  var buf = this.uploadData.slice(start, end);
-  var range = "bytes " + start + "-" + (end - 1) + "/*";
-  var params = {
+  const start = this.partCounter;
+  const end = Math.min(start + this.partSize, this.uploadData.length);
+  const buf = this.uploadData.slice(start, end);
+  const range = "bytes " + start + "-" + (end - 1) + "/*";
+  const params = {
     vaultName: this.vaultName,
     uploadId: this.uploadId,
     range: range,
@@ -111,12 +111,12 @@ Then(/^I send the next part$/, function(callback) {
 });
 
 Then(/^I send the Glacier archive data in chunks$/, function(callback) {
-  var numPartsLeft = Math.ceil(this.uploadData.length / this.partSize);
-  for (var i = 0; i < this.uploadData.length; i += this.partSize) {
-    var end = Math.min(i + this.partSize, this.uploadData.length);
-    var buf = this.uploadData.slice(i, end);
-    var range = "bytes " + i + "-" + (end - 1) + "/*";
-    var params = {
+  const numPartsLeft = Math.ceil(this.uploadData.length / this.partSize);
+  for (const i = 0; i < this.uploadData.length; i += this.partSize) {
+    const end = Math.min(i + this.partSize, this.uploadData.length);
+    const buf = this.uploadData.slice(i, end);
+    const range = "bytes " + i + "-" + (end - 1) + "/*";
+    const params = {
       vaultName: this.vaultName,
       uploadId: this.uploadId,
       range: range,
@@ -129,7 +129,7 @@ Then(/^I send the Glacier archive data in chunks$/, function(callback) {
 });
 
 Then(/^I complete the Glacier multi-part upload$/, function(callback) {
-  var params = {
+  const params = {
     vaultName: this.vaultName,
     uploadId: this.uploadId,
     archiveSize: this.uploadData.length.toString(),

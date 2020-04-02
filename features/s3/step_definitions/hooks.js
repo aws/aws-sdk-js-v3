@@ -1,4 +1,4 @@
-var { S3 } = require("../../../clients/client-s3");
+const { S3 } = require("../../../clients/client-s3");
 const { Before } = require("cucumber");
 
 Before({ tags: "@s3" }, function(scenario, callback) {

@@ -1,4 +1,4 @@
-var { SSM } = require("../../../clients/client-ssm");
+const { SSM } = require("../../../clients/client-ssm");
 const { Before } = require("cucumber");
 
 Before({ tags: "@ssm" }, function(scenario, callback) {

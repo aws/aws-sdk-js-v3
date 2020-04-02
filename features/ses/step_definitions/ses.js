@@ -1,4 +1,4 @@
-var { SES } = require("../../../clients/client-ses");
+const { SES } = require("../../../clients/client-ses");
 const { Before, Then, When } = require("cucumber");
 
 Before({ tags: "@ses" }, function(scenario, callback) {

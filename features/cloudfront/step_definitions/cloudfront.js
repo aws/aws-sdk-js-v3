@@ -1,7 +1,7 @@
-var { CloudFront } = require("../../../clients/client-cloudfront");
+const { CloudFront } = require("../../../clients/client-cloudfront");
 const { Before, Given, Then, When } = require("cucumber");
 
-var createParams = {
+const createParams = {
   CallerReference: "",
   Aliases: {
     Quantity: 0

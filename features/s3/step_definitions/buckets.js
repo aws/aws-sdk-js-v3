@@ -1,4 +1,4 @@
-var { S3 } = require("../../../clients/client-s3");
+const { S3 } = require("../../../clients/client-s3");
 const { Given, Then, When } = require("cucumber");
 
 Given(/^I am using the S3 "([^"]*)" region$/, function(region, callback) {
@@ -23,8 +23,8 @@ When(/^I create a bucket with the location constraint "([^"]*)"$/, function(
   location,
   callback
 ) {
-  var bucket = (this.bucket = this.uniqueName("aws-sdk-js-integration"));
-  var params = {
+  const bucket = (this.bucket = this.uniqueName("aws-sdk-js-integration"));
+  const params = {
     Bucket: this.bucket,
     CreateBucketConfiguration: {
       LocationConstraint: location
@@ -48,7 +48,7 @@ Then(/^the bucket should have a location constraint of "([^"]*)"$/, function(
   loc,
   callback
 ) {
-  var self = this;
+  const self = this;
   self.s3.getBucketLocation(
     {
       Bucket: self.bucket
@@ -64,7 +64,7 @@ Then(/^the bucket should have a location constraint of "([^"]*)"$/, function(
 When(
   /^I put a transition lifecycle configuration on the bucket with prefix "([^"]*)"$/,
   function(prefix, callback) {
-    var params = {
+    const params = {
       Bucket: this.bucket,
       LifecycleConfiguration: {
         Rules: [
@@ -119,7 +119,7 @@ Then(
 );
 
 When(/^I put a bucket CORS configuration$/, function(callback) {
-  var params = {
+  const params = {
     Bucket: this.bucket,
     CORSConfiguration: {
       CORSRules: [
@@ -192,7 +192,7 @@ When(/^I put a bucket tag with key "([^"]*)" and value "([^"]*)"$/, function(
   value,
   callback
 ) {
-  var params = {
+  const params = {
     Bucket: this.bucket,
     Tagging: {
       TagSet: [
@@ -230,7 +230,7 @@ Then(
 When(
   /^I create a bucket with a DNS compatible name that contains a dot$/,
   function(callback) {
-    var bucket = (this.bucket = this.uniqueName("aws-sdk-js.integration"));
+    const bucket = (this.bucket = this.uniqueName("aws-sdk-js.integration"));
     this.request(
       "s3",
       "createBucket",
@@ -261,13 +261,13 @@ Given(/^I force path style requests$/, function(callback) {
 });
 
 Then(/^the bucket name should be in the request path$/, function(callback) {
-  var path = this.data.Body.req.path.split("/");
+  const path = this.data.Body.req.path.split("/");
   this.assert.equal(path[1], this.bucket);
   callback();
 });
 
 Then(/^the bucket name should not be in the request host$/, function(callback) {
-  var host = this.data.Body.client.servername;
+  const host = this.data.Body.client.servername;
   this.assert.compare(host.indexOf(this.bucket), "<", 0);
   callback();
 });
@@ -277,7 +277,7 @@ When(/^I put "([^"]*)" to the key "([^"]*)" in the bucket$/, function(
   key,
   next
 ) {
-  var params = {
+  const params = {
     Bucket: this.bucket,
     Key: key,
     Body: data
@@ -286,7 +286,7 @@ When(/^I put "([^"]*)" to the key "([^"]*)" in the bucket$/, function(
 });
 
 When(/^I get the key "([^"]*)" in the bucket$/, function(key, next) {
-  var params = {
+  const params = {
     Bucket: this.bucket,
     Key: key
   };
@@ -294,7 +294,7 @@ When(/^I get the key "([^"]*)" in the bucket$/, function(key, next) {
 });
 
 Then(/^I delete the object "([^"]*)" from the bucket$/, function(key, next) {
-  var params = {
+  const params = {
     Bucket: this.bucket,
     Key: key
   };
@@ -304,8 +304,8 @@ Then(/^I delete the object "([^"]*)" from the bucket$/, function(key, next) {
 When(
   /^I put a (small|large) buffer to the key "([^"]*)" in the bucket$/,
   function(size, key, next) {
-    var body = this.createBuffer(size);
-    var params = {
+    const body = this.createBuffer(size);
+    const params = {
       Bucket: this.bucket,
       Key: key,
       Body: body
@@ -319,7 +319,7 @@ Then(/^the object "([^"]*)" should (not )?exist in the bucket$/, function(
   shouldNotExist,
   next
 ) {
-  var params = {
+  const params = {
     Bucket: this.bucket,
     Key: key
   };

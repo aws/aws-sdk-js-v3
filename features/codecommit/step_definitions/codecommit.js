@@ -1,4 +1,4 @@
-var { CodeCommit } = require("../../../clients/client-codecommit");
+const { CodeCommit } = require("../../../clients/client-codecommit");
 const { Before } = require("cucumber");
 
 Before({ tags: "@codecommit" }, function(scenario, callback) {
