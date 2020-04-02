@@ -4,7 +4,7 @@ var {
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@elbv2"] }, function(scenario, callback) {
+  Before({ tags: "@elbv2" }, function(scenario, callback) {
     this.service = new ElasticLoadBalancingv2({});
     callback();
   });

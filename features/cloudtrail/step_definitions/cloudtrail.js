@@ -2,7 +2,7 @@ var { CloudTrail } = require("../../../clients/client-cloudtrail");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@cloudtrail"] }, function(scenario, callback) {
+  Before({ tags: "@cloudtrail" }, function(scenario, callback) {
     this.service = new CloudTrail({});
     callback();
   });

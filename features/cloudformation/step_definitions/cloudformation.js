@@ -2,7 +2,7 @@ var { CloudFormation } = require("../../../clients/client-cloudformation");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@cloudformation"] }, function(scenario, callback) {
+  Before({ tags: "@cloudformation" }, function(scenario, callback) {
     this.service = new CloudFormation({});
     callback();
   });

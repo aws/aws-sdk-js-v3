@@ -2,7 +2,7 @@ var { Support } = require("../../../clients/client-support");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@support"] }, function(scenario, callback) {
+  Before({ tags: "@support" }, function(scenario, callback) {
     this.service = new Support({ region: "us-east-1" });
     callback();
   });

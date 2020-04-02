@@ -2,7 +2,7 @@ var { CodeDeploy } = require("../../../clients/client-codedeploy");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@codedeploy"] }, function(scenario, callback) {
+  Before({ tags: "@codedeploy" }, function(scenario, callback) {
     this.service = new CodeDeploy({});
     callback();
   });

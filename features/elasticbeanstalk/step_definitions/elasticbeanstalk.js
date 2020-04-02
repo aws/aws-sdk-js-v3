@@ -2,7 +2,7 @@ var { ElasticBeanstalk } = require("../../../clients/client-elastic-beanstalk");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@elasticbeanstalk"] }, function(scenario, callback) {
+  Before({ tags: "@elasticbeanstalk" }, function(scenario, callback) {
     this.service = new ElasticBeanstalk({});
     callback();
   });

@@ -63,7 +63,7 @@ function waitForTableNotExists(world, callback) {
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@dynamodb"] }, function(scenario, next) {
+  Before({ tags: "@dynamodb" }, function(scenario, next) {
     this.service = new DynamoDB({
       maxRetries: 2
     });

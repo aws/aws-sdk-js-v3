@@ -2,7 +2,7 @@ var { STS } = require("../../../clients/client-sts");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@sts"] }, function(scenario, callback) {
+  Before({ tags: "@sts" }, function(scenario, callback) {
     this.service = new STS({});
     callback();
   });

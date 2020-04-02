@@ -2,7 +2,7 @@ var { EMR } = require("../../../clients/client-emr");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@emr"] }, function(scenario, callback) {
+  Before({ tags: "@emr" }, function(scenario, callback) {
     this.service = new EMR({});
     callback();
   });

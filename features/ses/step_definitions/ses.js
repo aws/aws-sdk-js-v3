@@ -2,7 +2,7 @@ var { SES } = require("../../../clients/client-ses");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@ses"] }, function(scenario, callback) {
+  Before({ tags: "@ses" }, function(scenario, callback) {
     this.service = new SES({});
     callback();
   });

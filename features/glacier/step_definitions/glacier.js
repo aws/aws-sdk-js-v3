@@ -2,7 +2,7 @@ var { Glacier } = require("../../../clients/client-glacier");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@glacier"] }, function(scenario, callback) {
+  Before({ tags: "@glacier" }, function(scenario, callback) {
     this.service = new Glacier({});
     callback();
   });

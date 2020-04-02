@@ -4,7 +4,7 @@ var {
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@es"] }, function(scenario, callback) {
+  Before({ tags: "@es" }, function(scenario, callback) {
     this.service = new ElasticsearchService({});
     callback();
   });

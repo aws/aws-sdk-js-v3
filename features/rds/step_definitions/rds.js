@@ -3,7 +3,7 @@ var { RDS } = require("../../../clients/client-rds");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@rds"] }, function(scenario, callback) {
+  Before({ tags: "@rds" }, function(scenario, callback) {
     this.service = new RDS({});
     callback();
   });

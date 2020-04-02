@@ -2,7 +2,7 @@ var { IAM } = require("../../../clients/client-iam");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@iam"] }, function(scenario, callback) {
+  Before({ tags: "@iam" }, function(scenario, callback) {
     this.iam = new IAM({});
     callback();
   });

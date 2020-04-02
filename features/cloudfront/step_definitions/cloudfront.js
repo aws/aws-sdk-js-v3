@@ -53,7 +53,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     Enabled: false
   };
 
-  Before({ tags: ["@cloudfront"] }, function(scenario, callback) {
+  Before({ tags: "@cloudfront" }, function(scenario, callback) {
     this.service = new CloudFront({});
     this.cfCreateParams = createParams;
     callback();

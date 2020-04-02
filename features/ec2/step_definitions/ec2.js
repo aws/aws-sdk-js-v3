@@ -40,7 +40,7 @@ const waitForVolumeAvailable = (ec2, volumeId, callback) => {
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@ec2"] }, function(scenario, callback) {
+  Before({ tags: "@ec2" }, function(scenario, callback) {
     this.service = new EC2({});
     callback();
   });

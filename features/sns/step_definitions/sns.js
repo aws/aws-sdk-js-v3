@@ -2,7 +2,7 @@ var { SNS } = require("../../../clients/client-sns");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@sns"] }, function(scenario, callback) {
+  Before({ tags: "@sns" }, function(scenario, callback) {
     this.service = new SNS({});
     callback();
   });

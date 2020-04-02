@@ -2,7 +2,7 @@ var { CloudWatch } = require("../../../clients/client-cloudwatch");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@cloudwatch"] }, function(scenario, callback) {
+  Before({ tags: "@cloudwatch" }, function(scenario, callback) {
     this.service = new CloudWatch({});
     callback();
   });

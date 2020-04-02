@@ -3,7 +3,7 @@ var { OpsWorks } = require("../../../clients/client-opsworks");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@opsworks"] }, function(scenario, callback) {
+  Before({ tags: "@opsworks" }, function(scenario, callback) {
     this.iam = new IAM({});
     this.service = new OpsWorks({});
     callback();

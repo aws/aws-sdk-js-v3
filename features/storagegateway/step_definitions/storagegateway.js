@@ -2,7 +2,7 @@ var { StorageGateway } = require("../../../clients/client-storage-gateway");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@storagegateway"] }, function(scenario, callback) {
+  Before({ tags: "@storagegateway" }, function(scenario, callback) {
     this.service = new StorageGateway({ region: "us-east-1" });
     callback();
   });

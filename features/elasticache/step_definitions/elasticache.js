@@ -2,7 +2,7 @@ var { ElastiCache } = require("../../../clients/client-elasticache");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@elasticache"] }, function(scenario, callback) {
+  Before({ tags: "@elasticache" }, function(scenario, callback) {
     this.service = new ElastiCache({});
     callback();
   });

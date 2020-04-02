@@ -2,7 +2,7 @@ var { Pinpoint } = require("../../../clients/client-pinpoint");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@pinpoint"] }, function(scenario, callback) {
+  Before({ tags: "@pinpoint" }, function(scenario, callback) {
     this.service = new Pinpoint({});
     callback();
   });

@@ -2,7 +2,7 @@ var { Route53Domains } = require("../../../clients/client-route-53-domains");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@route53domains"] }, function(scenario, callback) {
+  Before({ tags: "@route53domains" }, function(scenario, callback) {
     this.service = new Route53Domains({ region: "us-east-1" });
     callback();
   });

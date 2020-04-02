@@ -2,7 +2,7 @@ var { Kinesis } = require("../../../clients/client-kinesis");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@kinesis"] }, function(scenario, callback) {
+  Before({ tags: "@kinesis" }, function(scenario, callback) {
     this.service = new Kinesis({});
     callback();
   });

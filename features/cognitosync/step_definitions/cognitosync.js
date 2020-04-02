@@ -2,7 +2,7 @@ var { CognitoSync } = require("../../../clients/client-cognito-sync");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@cognitosync"] }, function(scenario, callback) {
+  Before({ tags: "@cognitosync" }, function(scenario, callback) {
     this.service = new CognitoSync({});
     callback();
   });

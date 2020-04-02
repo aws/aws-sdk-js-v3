@@ -6,7 +6,7 @@ var { IAM } = require("../../../clients/client-iam");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@elastictranscoder"] }, function(scenario, callback) {
+  Before({ tags: "@elastictranscoder" }, function(scenario, callback) {
     this.iam = new IAM({});
     this.s3 = new S3({});
     this.service = new ElasticTranscoder({});

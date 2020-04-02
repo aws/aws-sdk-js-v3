@@ -2,7 +2,7 @@ var { CloudSearch } = require("../../../clients/client-cloudsearch");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@cloudsearch"] }, function(scenario, callback) {
+  Before({ tags: "@cloudsearch" }, function(scenario, callback) {
     this.service = new CloudSearch({});
     callback();
   });

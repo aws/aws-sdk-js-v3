@@ -2,7 +2,7 @@ var { Route53 } = require("../../../clients/client-route-53");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@route53"] }, function(scenario, callback) {
+  Before({ tags: "@route53" }, function(scenario, callback) {
     this.service = new Route53({});
     callback();
   });

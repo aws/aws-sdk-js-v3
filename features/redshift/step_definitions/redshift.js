@@ -2,7 +2,7 @@ var { Redshift } = require("../../../clients/client-redshift");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@redshift"] }, function(scenario, callback) {
+  Before({ tags: "@redshift" }, function(scenario, callback) {
     this.service = new Redshift({});
     callback();
   });

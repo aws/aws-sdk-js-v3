@@ -2,7 +2,7 @@ var { AutoScaling } = require("../../../clients/client-auto-scaling");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@autoscaling"] }, function(scenario, callback) {
+  Before({ tags: "@autoscaling" }, function(scenario, callback) {
     this.service = new AutoScaling({ region: "us-east-1" });
     callback();
   });
