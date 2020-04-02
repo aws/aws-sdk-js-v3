@@ -4,7 +4,7 @@ var { S3 } = require("../../../clients/client-s3");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: ["@s3", "@proxy"] }, function(scenario, callback) {
+  Before({ tags: "@s3 or @proxy" }, function(scenario, callback) {
     setupProxyServer.call(this);
 
     this.service = this.s3 = new S3({
