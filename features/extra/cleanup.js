@@ -1,32 +1,32 @@
 var { S3 } = require("../../clients/client-s3");
 var { defineSupportCode } = require("cucumber");
 
-defineSupportCode(function({ registerHandler }) {
+defineSupportCode(function({ AfterAll }) {
   /**
    * Cleanup fixtures and resources. The world does not exist when
    * this handler is executed. Only resource cleanup and shutdown
    * should happen here.
    */
-  registerHandler("AfterFeatures", function(event, callback) {
+  AfterAll(function() {
     var path = require("path");
     var fs = require("fs");
 
     try {
       var filePath = path.resolve("integ.buckets.json");
-      if (!fs.existsSync(filePath)) return callback();
+      if (!fs.existsSync(filePath)) return Promise.resolve();
       deleteFixtures();
       var cache = JSON.parse(fs.readFileSync(filePath));
       var buckets = cache.buckets;
       if (buckets.length) {
         eachSeries(buckets, cleanBucket, function(err) {
           fs.unlinkSync(filePath);
-          callback(err);
+          return Promise.reject(err);
         });
       } else {
-        callback();
+        return Promise.resolve();
       }
     } catch (fileErr) {
-      callback(fileErr);
+      return Promise.reject(fileErr);
     }
   });
 
