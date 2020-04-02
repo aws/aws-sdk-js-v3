@@ -51,7 +51,7 @@ module.exports = {
           block.call(self, retry);
         }, delay);
       } else {
-        callback.fail(err || new Error("Eventually block timed out"));
+        callback(err || new Error("Eventually block timed out"));
       }
     };
 
@@ -211,7 +211,7 @@ module.exports = {
       currentAttempt++;
       s3client.headBucket(params, function(err, data) {
         if (currentAttempt > maxAttempts) {
-          callback.fail();
+          callback();
         } else if (data) {
           callback();
         } else {
@@ -237,7 +237,7 @@ module.exports = {
       currentAttempt++;
       s3client.headBucket(params, function(err, data) {
         if (currentAttempt > maxAttempts) {
-          callback.fail();
+          callback();
         } else if (err && err.name === "NotFound") {
           callback();
         } else {

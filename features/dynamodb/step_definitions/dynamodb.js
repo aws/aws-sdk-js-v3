@@ -18,7 +18,7 @@ function waitForTableExists(world, callback) {
     currentAttempt++;
     world.service.describeTable(params, function(err, data) {
       if (currentAttempt > maxAttempts) {
-        callback.fail();
+        callback();
       } else if (data && data.Table && data.Table.TableStatus === "ACTIVE") {
         callback();
       } else {
@@ -48,7 +48,7 @@ function waitForTableNotExists(world, callback) {
     currentAttempt++;
     world.service.describeTable(params, function(err, data) {
       if (currentAttempt > maxAttempts) {
-        callback.fail();
+        callback();
       } else if (err && err.name === "ResourceNotFoundException") {
         callback();
       } else {
@@ -82,7 +82,7 @@ module.exports = function() {
 
     world.service.createTable(params, function(err, data) {
       if (err) {
-        callback.fail(err);
+        callback(err);
         return;
       }
       waitForTableExists(world, callback);
@@ -190,7 +190,7 @@ module.exports = function() {
       req.on("complete", function(resp) {
         world.error = resp.error;
         world.response = resp;
-        if (resp.error) callback.fail(resp.error);
+        if (resp.error) callback(resp.error);
         else callback();
       });
       req.send();
@@ -202,9 +202,9 @@ module.exports = function() {
     callback
   ) {
     if (retry && this.response.retryCount > 0)
-      callback.fail("Request was incorrectly retried");
+      callback("Request was incorrectly retried");
     if (!retry && this.response.retryCount == 0)
-      callback.fail("Request was incorrectly retried");
+      callback("Request was incorrectly retried");
     callback();
   });
 
@@ -229,16 +229,15 @@ module.exports = function() {
   this.When(/^the request is retried the maximum number of times$/, function(
     callback
   ) {
-    if (this.response.retryCount != 2) callback.fail("Incorrect retry count");
+    if (this.response.retryCount != 2) callback("Incorrect retry count");
     callback();
   });
 
   this.Then(
     /^the request should( not)? fail with a CRC checking error$/,
     function(failed, callback) {
-      if (failed && this.error) callback.fail(this.error);
-      if (!failed && !this.error)
-        callback.fail("Did not fail when should have");
+      if (failed && this.error) callback(this.error);
+      if (!failed && !this.error) callback("Did not fail when should have");
       callback();
     }
   );

@@ -19,7 +19,7 @@ module.exports = function() {
       else this.iamUserArn = null;
       callback();
     };
-    next.fail = callback.fail;
+    next.fail = callback;
     this.request(
       "iam",
       "createUser",
@@ -73,7 +73,7 @@ module.exports = function() {
       world.iamRoleArn = world.data.Role.Arn;
       callback();
     };
-    next.fail = callback.fail;
+    next.fail = callback;
 
     this.request("iam", "createRole", params, next);
   });
