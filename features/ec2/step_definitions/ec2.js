@@ -13,7 +13,7 @@ const waitForVolumeAvailable = (ec2, volumeId, callback) => {
     currentAttempt++;
     ec2.describeVolumes({ VolumeIds: [volumeId] }, (err, data) => {
       if (currentAttempt > maxAttempts) {
-        callback();
+        callback(new Error("waitForVolumeAvailable: max attempts exceeded"));
       } else if (data && data.Volumes) {
         if (data.Volumes[0].State === "available") {
           callback();

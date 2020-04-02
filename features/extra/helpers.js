@@ -211,7 +211,7 @@ module.exports = {
       currentAttempt++;
       s3client.headBucket(params, function(err, data) {
         if (currentAttempt > maxAttempts) {
-          callback();
+          callback(new Error("waitForBucketExists: max attempts exceeded"));
         } else if (data) {
           callback();
         } else {
@@ -237,7 +237,7 @@ module.exports = {
       currentAttempt++;
       s3client.headBucket(params, function(err, data) {
         if (currentAttempt > maxAttempts) {
-          callback();
+          callback(new Error("waitForBucketNotExists: max attempts exceeded"));
         } else if (err && err.name === "NotFound") {
           callback();
         } else {

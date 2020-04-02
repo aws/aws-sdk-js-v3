@@ -18,7 +18,7 @@ function waitForTableExists(world, callback) {
     currentAttempt++;
     world.service.describeTable(params, function(err, data) {
       if (currentAttempt > maxAttempts) {
-        callback();
+        callback(new Error("waitForTableExists: max attempts exceeded"));
       } else if (data && data.Table && data.Table.TableStatus === "ACTIVE") {
         callback();
       } else {
@@ -48,7 +48,7 @@ function waitForTableNotExists(world, callback) {
     currentAttempt++;
     world.service.describeTable(params, function(err, data) {
       if (currentAttempt > maxAttempts) {
-        callback();
+        callback(new Error("waitForTableNotExists: max attempts exceeded"));
       } else if (err && err.name === "ResourceNotFoundException") {
         callback();
       } else {
@@ -202,9 +202,9 @@ module.exports = function() {
     callback
   ) {
     if (retry && this.response.retryCount > 0)
-      callback("Request was incorrectly retried");
+      callback(new Error("Request was incorrectly retried"));
     if (!retry && this.response.retryCount == 0)
-      callback("Request was incorrectly retried");
+      callback(new Error("Request was incorrectly retried"));
     callback();
   });
 
@@ -229,7 +229,8 @@ module.exports = function() {
   this.When(/^the request is retried the maximum number of times$/, function(
     callback
   ) {
-    if (this.response.retryCount != 2) callback("Incorrect retry count");
+    if (this.response.retryCount != 2)
+      callback(new Error("Incorrect retry count"));
     callback();
   });
 
@@ -237,7 +238,8 @@ module.exports = function() {
     /^the request should( not)? fail with a CRC checking error$/,
     function(failed, callback) {
       if (failed && this.error) callback(this.error);
-      if (!failed && !this.error) callback("Did not fail when should have");
+      if (!failed && !this.error)
+        callback(new Error("Did not fail when should have"));
       callback();
     }
   );
