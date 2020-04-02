@@ -2,7 +2,7 @@ var { Lambda } = require("../../../clients/client-lambda");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  this.Before({ tags: ["@lambda"] }, function(scenario, callback) {
+  Before({ tags: ["@lambda"] }, function(scenario, callback) {
     this.service = new Lambda({});
     callback();
   });

@@ -4,7 +4,7 @@ var {
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  this.Before({ tags: ["@dms"] }, function(scenario, callback) {
+  Before({ tags: ["@dms"] }, function(scenario, callback) {
     this.service = new DatabaseMigrationService({});
     callback();
   });

@@ -2,12 +2,12 @@ var { Pinpoint } = require("../../../clients/client-pinpoint");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  this.Before({ tags: ["@pinpoint"] }, function(scenario, callback) {
+  Before({ tags: ["@pinpoint"] }, function(scenario, callback) {
     this.service = new Pinpoint({});
     callback();
   });
 
-  this.Given(/^I create an application$/, function(callback) {
+  Given(/^I create an application$/, function(callback) {
     const params = {
       CreateApplicationRequest: {
         Name: this.uniqueName("aws-sdk-js-integration")
@@ -22,7 +22,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     });
   });
 
-  this.Given(/^I run the "putEvents" operation with EventsRequest:$/, function(
+  Given(/^I run the "putEvents" operation with EventsRequest:$/, function(
     eventsRequest,
     callback
   ) {
@@ -38,7 +38,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     );
   });
 
-  this.Given(/^I delete the application$/, function(callback) {
+  Given(/^I delete the application$/, function(callback) {
     this.request(
       null,
       "deleteApp",

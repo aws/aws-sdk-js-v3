@@ -53,13 +53,13 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     Enabled: false
   };
 
-  this.Before({ tags: ["@cloudfront"] }, function(scenario, callback) {
+  Before({ tags: ["@cloudfront"] }, function(scenario, callback) {
     this.service = new CloudFront({});
     this.cfCreateParams = createParams;
     callback();
   });
 
-  this.Given(
+  Given(
     /^I create a CloudFront distribution with name prefix "([^"]*)"$/,
     function(prefix, callback) {
       this.cfName = this.uniqueName(prefix);
@@ -76,7 +76,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     }
   );
 
-  this.Given(/^I list CloudFront distributions$/, function(callback) {
+  Given(/^I list CloudFront distributions$/, function(callback) {
     this.request(null, "listDistributions", {}, callback);
   });
 });

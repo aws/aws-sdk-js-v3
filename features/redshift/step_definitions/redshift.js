@@ -2,12 +2,12 @@ var { Redshift } = require("../../../clients/client-redshift");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  this.Before({ tags: ["@redshift"] }, function(scenario, callback) {
+  Before({ tags: ["@redshift"] }, function(scenario, callback) {
     this.service = new Redshift({});
     callback();
   });
 
-  this.Given(
+  Given(
     /^I create a Redshift cluster parameter group with prefix name "([^"]*)"$/,
     function(prefix, callback) {
       this.parameterGroupName = this.uniqueName(prefix);

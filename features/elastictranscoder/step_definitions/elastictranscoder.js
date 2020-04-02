@@ -6,14 +6,14 @@ var { IAM } = require("../../../clients/client-iam");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  this.Before({ tags: ["@elastictranscoder"] }, function(scenario, callback) {
+  Before({ tags: ["@elastictranscoder"] }, function(scenario, callback) {
     this.iam = new IAM({});
     this.s3 = new S3({});
     this.service = new ElasticTranscoder({});
     callback();
   });
 
-  this.Given(
+  Given(
     /^I create an Elastic Transcoder pipeline with name prefix "([^"]*)"$/,
     function(prefix, callback) {
       this.pipelineName = this.uniqueName(prefix);
@@ -40,11 +40,11 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     }
   );
 
-  this.Given(/^I list pipelines$/, function(callback) {
+  Given(/^I list pipelines$/, function(callback) {
     this.request(null, "listPipelines", {}, callback);
   });
 
-  this.Then(/^the list should contain the pipeline$/, function(callback) {
+  Then(/^the list should contain the pipeline$/, function(callback) {
     var id = this.pipelineId;
     this.assert.contains(this.data.Pipelines, function(pipeline) {
       return pipeline.Id === id;
@@ -52,7 +52,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     callback();
   });
 
-  this.Then(/^I pause the pipeline$/, function(callback) {
+  Then(/^I pause the pipeline$/, function(callback) {
     this.request(
       null,
       "updatePipelineStatus",
@@ -64,7 +64,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     );
   });
 
-  this.Then(/^I read the pipeline$/, function(callback) {
+  Then(/^I read the pipeline$/, function(callback) {
     this.request(
       null,
       "readPipeline",
@@ -75,15 +75,12 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     );
   });
 
-  this.Then(/^the pipeline status should be "([^"]*)"$/, function(
-    status,
-    callback
-  ) {
+  Then(/^the pipeline status should be "([^"]*)"$/, function(status, callback) {
     this.assert.equal(this.data.Pipeline.Status, status);
     callback();
   });
 
-  this.Then(/^I delete the pipeline$/, function(callback) {
+  Then(/^I delete the pipeline$/, function(callback) {
     this.request(
       null,
       "deletePipeline",

@@ -34,7 +34,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
       });
   }
 
-  this.When(/^I put "([^"]*)" to the(?: invalid)? key "([^"]*)"$/, function(
+  When(/^I put "([^"]*)" to the(?: invalid)? key "([^"]*)"$/, function(
     data,
     key,
     next
@@ -47,7 +47,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     this.request("s3", "putObject", params, next, false);
   });
 
-  this.When(/^I get the object "([^"]*)"$/, function(key, next) {
+  When(/^I get the object "([^"]*)"$/, function(key, next) {
     var params = {
       Bucket: this.sharedBucket,
       Key: key
@@ -55,7 +55,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     this.request("s3", "getObject", params, next, false);
   });
 
-  this.When(
+  When(
     /^I put (?:a |an )(empty|small|large|\d+KB|\d+MB) buffer to the key "([^"]*)"$/,
     function(size, key, next) {
       var body = this.createBuffer(size);
@@ -68,7 +68,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     }
   );
 
-  this.When(
+  When(
     /^I put (?:a |an )(empty|small|large) file to the key "([^"]*)"$/,
     function(size, key, next) {
       var fs = require("fs");
@@ -82,7 +82,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     }
   );
 
-  this.When(
+  When(
     /^I put "([^"]*)" to the key "([^"]*)" with ContentLength (\d+)$/,
     function(contents, key, contentLength, next) {
       var params = {
@@ -98,7 +98,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     }
   );
 
-  this.Then(/^the object "([^"]*)" should contain "([^"]*)"$/, function(
+  Then(/^the object "([^"]*)" should contain "([^"]*)"$/, function(
     key,
     contents,
     next
@@ -109,18 +109,15 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     });
   });
 
-  this.Then(
-    /^the HTTP response should have a content length of (\d+)$/,
-    function(contentLength, next) {
-      this.assert.equal(
-        this.data.Body.headers["content-length"],
-        contentLength
-      );
-      next();
-    }
-  );
+  Then(/^the HTTP response should have a content length of (\d+)$/, function(
+    contentLength,
+    next
+  ) {
+    this.assert.equal(this.data.Body.headers["content-length"], contentLength);
+    next();
+  });
 
-  this.When(/^I copy the object "([^"]*)" to "([^"]*)"$/, function(
+  When(/^I copy the object "([^"]*)" to "([^"]*)"$/, function(
     key1,
     key2,
     next
@@ -133,7 +130,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     this.request("s3", "copyObject", params, next);
   });
 
-  this.When(/^I delete the object "([^"]*)"$/, function(key, next) {
+  When(/^I delete the object "([^"]*)"$/, function(key, next) {
     var params = {
       Bucket: this.sharedBucket,
       Key: key
@@ -141,7 +138,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     this.request("s3", "deleteObject", params, next);
   });
 
-  this.Then(/^the object "([^"]*)" should (not )?exist$/, function(
+  Then(/^the object "([^"]*)" should (not )?exist$/, function(
     key,
     shouldNotExist,
     next
@@ -162,7 +159,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     });
   });
 
-  this.When(/^I stream key "([^"]*)"$/, function(key, callback) {
+  When(/^I stream key "([^"]*)"$/, function(key, callback) {
     var params = {
       Bucket: this.sharedBucket,
       Key: key
@@ -181,7 +178,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     }, 2000); // delay streaming to ensure it is buffered
   });
 
-  this.When(/^I stream2 key "([^"]*)"$/, function(key, callback) {
+  When(/^I stream2 key "([^"]*)"$/, function(key, callback) {
     if (!require("stream").Readable) return callback();
     var params = {
       Bucket: this.sharedBucket,
@@ -201,7 +198,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     }, 2000); // delay streaming to ensure it is buffered
   });
 
-  this.Then(/^the streamed data should contain "([^"]*)"$/, function(
+  Then(/^the streamed data should contain "([^"]*)"$/, function(
     data,
     callback
   ) {
@@ -209,7 +206,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     callback();
   });
 
-  this.Then(/^the streamed data content length should equal (\d+)$/, function(
+  Then(/^the streamed data content length should equal (\d+)$/, function(
     length,
     callback
   ) {
@@ -217,7 +214,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     callback();
   });
 
-  this.When(/^I get a pre\-signed URL to GET the key "([^"]*)"$/, function(
+  When(/^I get a pre\-signed URL to GET the key "([^"]*)"$/, function(
     key,
     callback
   ) {
@@ -236,7 +233,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     );
   });
 
-  this.When(/^I access the URL via HTTP GET$/, function(callback) {
+  When(/^I access the URL via HTTP GET$/, function(callback) {
     var world = this;
     this.data = "";
     require("https")
@@ -250,7 +247,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
       .on("error", callback);
   });
 
-  this.Given(
+  Given(
     /^I get a pre\-signed URL to PUT the key "([^"]*)"(?: with data "([^"]*)")?$/,
     function(key, body, callback) {
       var world = this;
@@ -266,7 +263,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     }
   );
 
-  this.Given(/^I access the URL via HTTP PUT with data "([^"]*)"$/, function(
+  Given(/^I access the URL via HTTP PUT with data "([^"]*)"$/, function(
     body,
     callback
   ) {
@@ -292,7 +289,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
       .end(data);
   });
 
-  this.Given(
+  Given(
     /^I create a presigned form to POST the key "([^"]*)" with the data "([^"]*)"$/,
     function(key, data, callback) {
       var world = this;
@@ -338,7 +335,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     }
   );
 
-  this.Given(/^I POST the form$/, function(callback) {
+  Given(/^I POST the form$/, function(callback) {
     var world = this;
     var options = require("url").parse(this.postAction);
     options.method = "POST";
@@ -358,15 +355,12 @@ defineSupportCode(function({ Before, Given, Then, When }) {
       .end(this.postBody);
   });
 
-  this.Then(/^the HTTP response should equal "([^"]*)"$/, function(
-    data,
-    callback
-  ) {
+  Then(/^the HTTP response should equal "([^"]*)"$/, function(data, callback) {
     this.assert.equal(this.data, data);
     callback();
   });
 
-  this.Then(/^the HTTP response should contain "([^"]*|)"$/, function(
+  Then(/^the HTTP response should contain "([^"]*|)"$/, function(
     data,
     callback
   ) {
@@ -374,9 +368,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     callback();
   });
 
-  this.Given(/^I setup the listObjects request for the bucket$/, function(
-    callback
-  ) {
+  Given(/^I setup the listObjects request for the bucket$/, function(callback) {
     this.params = {
       Bucket: this.sharedBucket
     };
@@ -385,7 +377,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
 
   // progress events
 
-  this.When(
+  When(
     /^I put (?:a |an )(empty|small|large|\d+KB|\d+MB) buffer to the key "([^"]*)" with progress events$/,
     function(size, key, callback) {
       var self = this;
@@ -403,7 +395,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     }
   );
 
-  this.Then(/^more than (\d+) "([^"]*)" event should fire$/, function(
+  Then(/^more than (\d+) "([^"]*)" event should fire$/, function(
     numEvents,
     eventName,
     callback
@@ -412,7 +404,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     callback();
   });
 
-  this.Then(
+  Then(
     /^the "([^"]*)" value of the progress event should equal (\d+)MB$/,
     function(prop, mb, callback) {
       this.assert.equal(this.progress[0][prop], mb * 1024 * 1024);
@@ -420,7 +412,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     }
   );
 
-  this.Then(
+  Then(
     /^the "([^"]*)" value of the first progress event should be greater than (\d+) bytes$/,
     function(prop, bytes, callback) {
       this.assert.compare(this.progress[0][prop], ">", bytes);
@@ -428,7 +420,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     }
   );
 
-  this.When(/^I read the key "([^"]*)" with progress events$/, function(
+  When(/^I read the key "([^"]*)" with progress events$/, function(
     key,
     callback
   ) {
@@ -444,7 +436,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     req.send(callback);
   });
 
-  this.When(/^I put "([^"]*)" to the (public|private) key "([^"]*)"$/, function(
+  When(/^I put "([^"]*)" to the (public|private) key "([^"]*)"$/, function(
     data,
     access,
     key,
@@ -462,7 +454,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     this.request("s3", "putObject", params, next);
   });
 
-  this.When(/^I put "([^"]*)" to the key "([^"]*)" with an AES key$/, function(
+  When(/^I put "([^"]*)" to the key "([^"]*)" with an AES key$/, function(
     data,
     key,
     next
@@ -477,10 +469,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     this.request("s3", "putObject", params, next);
   });
 
-  this.When(/^I read the object "([^"]*)" with the AES key$/, function(
-    key,
-    next
-  ) {
+  When(/^I read the object "([^"]*)" with the AES key$/, function(key, next) {
     var params = {
       Bucket: this.sharedBucket,
       Key: key,
@@ -490,36 +479,33 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     this.request("s3", "getObject", params, next);
   });
 
-  this.Then(
-    /^I make an unauthenticated request to read object "([^"]*)"$/,
-    function(key, next) {
-      var params = {
-        Bucket: this.sharedBucket,
-        Key: key
-      };
-      this.s3.makeUnauthenticatedRequest(
-        "getObject",
-        params,
-        function(err, data) {
-          if (err) return next(err);
-          this.data = data;
-          next();
-        }.bind(this)
-      );
-    }
-  );
-
-  this.Given(/^I generate the MD5 checksum of "([^"]*)"$/, function(
-    data,
+  Then(/^I make an unauthenticated request to read object "([^"]*)"$/, function(
+    key,
     next
   ) {
+    var params = {
+      Bucket: this.sharedBucket,
+      Key: key
+    };
+    this.s3.makeUnauthenticatedRequest(
+      "getObject",
+      params,
+      function(err, data) {
+        if (err) return next(err);
+        this.data = data;
+        next();
+      }.bind(this)
+    );
+  });
+
+  Given(/^I generate the MD5 checksum of "([^"]*)"$/, function(data, next) {
     const hash = new Md5();
     hash.update(data);
     this.sentContentMD5 = hash.digest().toString();
     next();
   });
 
-  this.Then(
+  Then(
     /^the MD5 checksum of the response data should equal the generated checksum$/,
     function(next) {
       const hash = new Md5();
@@ -531,7 +517,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     }
   );
 
-  this.Given(/^an empty bucket$/, function(next) {
+  Given(/^an empty bucket$/, function(next) {
     var self = this;
     var params = {
       Bucket: this.sharedBucket

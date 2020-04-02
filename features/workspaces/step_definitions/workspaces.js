@@ -2,7 +2,7 @@ var { WorkSpaces } = require("../../../clients/client-workspaces");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  this.Before({ tags: ["@workspaces"] }, function(scenario, callback) {
+  Before({ tags: ["@workspaces"] }, function(scenario, callback) {
     this.service = new WorkSpaces({});
     callback();
   });

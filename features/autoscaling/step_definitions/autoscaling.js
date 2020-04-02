@@ -2,12 +2,12 @@ var { AutoScaling } = require("../../../clients/client-auto-scaling");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  this.Before({ tags: ["@autoscaling"] }, function(scenario, callback) {
+  Before({ tags: ["@autoscaling"] }, function(scenario, callback) {
     this.service = new AutoScaling({ region: "us-east-1" });
     callback();
   });
 
-  this.Given(/^I create a launch configuration with name "([^"]*)"$/, function(
+  Given(/^I create a launch configuration with name "([^"]*)"$/, function(
     name,
     callback
   ) {
@@ -19,23 +19,23 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     this.request(null, "createLaunchConfiguration", params, callback, false);
   });
 
-  this.Given(/^I describe launch configurations$/, function(callback) {
+  Given(/^I describe launch configurations$/, function(callback) {
     this.request(null, "describeLaunchConfigurations", {}, callback);
   });
 
-  this.Then(
-    /^the list should contain the launch configuration "([^"]*)"$/,
-    function(name, callback) {
-      this.assert.contains(this.data.LaunchConfigurations, function(
-        configuration
-      ) {
-        return configuration.LaunchConfigurationName === name;
-      });
-      callback();
-    }
-  );
+  Then(/^the list should contain the launch configuration "([^"]*)"$/, function(
+    name,
+    callback
+  ) {
+    this.assert.contains(this.data.LaunchConfigurations, function(
+      configuration
+    ) {
+      return configuration.LaunchConfigurationName === name;
+    });
+    callback();
+  });
 
-  this.Then(/^I delete the launch configuration "([^"]*)"$/, function(
+  Then(/^I delete the launch configuration "([^"]*)"$/, function(
     name,
     callback
   ) {

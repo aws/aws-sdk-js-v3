@@ -2,12 +2,12 @@ var { DirectConnect } = require("../../../clients/client-direct-connect");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  this.Before({ tags: ["@directconnect"] }, function(scenario, callback) {
+  Before({ tags: ["@directconnect"] }, function(scenario, callback) {
     this.service = new DirectConnect({});
     callback();
   });
 
-  this.Given(
+  Given(
     /^I create a Direct Connect connection with an invalid location$/,
     function(callback) {
       var params = {

@@ -2,12 +2,12 @@ var { DataPipeline } = require("../../../clients/client-data-pipeline");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  this.Before({ tags: ["@datapipeline"] }, function(scenario, callback) {
+  Before({ tags: ["@datapipeline"] }, function(scenario, callback) {
     this.service = new DataPipeline({});
     callback();
   });
 
-  this.Given(/^I create a Data Pipeline with name prefix "([^"]*)"$/, function(
+  Given(/^I create a Data Pipeline with name prefix "([^"]*)"$/, function(
     prefix,
     callback
   ) {

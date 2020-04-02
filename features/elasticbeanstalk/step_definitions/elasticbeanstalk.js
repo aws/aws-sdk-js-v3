@@ -2,12 +2,12 @@ var { ElasticBeanstalk } = require("../../../clients/client-elastic-beanstalk");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  this.Before({ tags: ["@elasticbeanstalk"] }, function(scenario, callback) {
+  Before({ tags: ["@elasticbeanstalk"] }, function(scenario, callback) {
     this.service = new ElasticBeanstalk({});
     callback();
   });
 
-  this.Given(
+  Given(
     /^I create an Elastic Beanstalk application with name prefix "([^"]*)"$/,
     function(prefix, callback) {
       this.appName = this.uniqueName(prefix);
@@ -16,7 +16,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     }
   );
 
-  this.Given(
+  Given(
     /^I create an Elastic Beanstalk application version with label "([^"]*)"$/,
     function(label, callback) {
       this.appVersion = label;
@@ -28,14 +28,12 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     }
   );
 
-  this.Given(/^I describe the Elastic Beanstalk application$/, function(
-    callback
-  ) {
+  Given(/^I describe the Elastic Beanstalk application$/, function(callback) {
     var params = { ApplicationNames: [this.appName] };
     this.request(null, "describeApplications", params, callback);
   });
 
-  this.Then(
+  Then(
     /^the result should contain the Elastic Beanstalk application version$/,
     function(callback) {
       this.assert.deepEqual(this.data.Applications[0].Versions, [
@@ -45,7 +43,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     }
   );
 
-  this.Then(
+  Then(
     /^the result should contain the Elastic Beanstalk application name$/,
     function(callback) {
       this.assert.equal(
@@ -56,7 +54,7 @@ defineSupportCode(function({ Before, Given, Then, When }) {
     }
   );
 
-  this.Then(/^I delete the Elastic Beanstalk application$/, function(callback) {
+  Then(/^I delete the Elastic Beanstalk application$/, function(callback) {
     var params = { ApplicationName: this.appName };
     this.request(null, "deleteApplication", params, callback);
   });

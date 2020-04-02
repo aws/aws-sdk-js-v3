@@ -2,16 +2,16 @@ var { CognitoSync } = require("../../../clients/client-cognito-sync");
 var { defineSupportCode } = require("cucumber");
 
 defineSupportCode(function({ Before, Given, Then, When }) {
-  this.Before({ tags: ["@cognitosync"] }, function(scenario, callback) {
+  Before({ tags: ["@cognitosync"] }, function(scenario, callback) {
     this.service = new CognitoSync({});
     callback();
   });
 
-  this.Given(/^I list Cognito identity pool usage$/, function(callback) {
+  Given(/^I list Cognito identity pool usage$/, function(callback) {
     this.request(null, "listIdentityPoolUsage", {}, callback);
   });
 
-  this.Given(
+  Given(
     /^I list Cognito data sets with identity pool id "([^"]*)" and identity id "([^"]*)"$/,
     function(idpid, idid, callback) {
       var params = { IdentityPoolId: idpid, IdentityId: idid };
