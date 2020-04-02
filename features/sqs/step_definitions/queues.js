@@ -1,3 +1,5 @@
+var { defineSupportCode } = require("cucumber");
+
 defineSupportCode(function({ Before, Given, Then, When }) {
   Given(/^I create a queue with the prefix name "([^"]*)"$/, function(
     prefix,

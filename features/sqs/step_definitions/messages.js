@@ -1,3 +1,5 @@
+var { defineSupportCode } = require("cucumber");
+
 defineSupportCode(function({ Before, Given, Then, When }) {
   When(/^I send the message "([^"]*)"$/, function(message, callback) {
     this.request(
