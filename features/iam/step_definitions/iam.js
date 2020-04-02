@@ -1,7 +1,7 @@
 var { IAM } = require("../../../clients/client-iam");
 
 module.exports = function() {
-  this.Before("@iam", function(callback) {
+  this.Before("@iam", function(scenario, callback) {
     this.iam = new IAM({});
     callback();
   });

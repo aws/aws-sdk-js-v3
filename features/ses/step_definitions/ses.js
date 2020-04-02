@@ -1,7 +1,7 @@
 var { SES } = require("../../../clients/client-ses");
 
 module.exports = function() {
-  this.Before("@ses", function(callback) {
+  this.Before("@ses", function(scenario, callback) {
     this.service = new SES({});
     callback();
   });

@@ -1,7 +1,7 @@
 var { CodeCommit } = require("../../../clients/client-codecommit");
 
 module.exports = function() {
-  this.Before("@codecommit", function(callback) {
+  this.Before("@codecommit", function(scenario, callback) {
     this.service = new CodeCommit({ region: "us-east-1" });
     callback();
   });

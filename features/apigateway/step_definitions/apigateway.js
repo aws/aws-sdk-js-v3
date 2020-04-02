@@ -1,7 +1,7 @@
 var { APIGateway } = require("../../../clients/client-api-gateway");
 
 module.exports = function() {
-  this.Before("@apigateway", function(callback) {
+  this.Before("@apigateway", function(scenario, callback) {
     this.service = new APIGateway({});
     callback();
   });
