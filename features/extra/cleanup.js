@@ -1,3 +1,5 @@
+var { S3 } = require("../../clients/client-s3");
+
 module.exports = function() {
   /**
    * Cleanup fixtures and resources. The world does not exist when
@@ -71,7 +73,7 @@ module.exports = function() {
    * Delete bucket
    */
   var deleteBucket = function(bucket, callback) {
-    var s3 = new AWS.S3({ maxRetries: 100 });
+    var s3 = new S3({ maxRetries: 100 });
     s3.deleteBucket({ Bucket: bucket }, function(err, data) {
       callback(err);
     });
@@ -81,14 +83,14 @@ module.exports = function() {
    * Delete objects.
    */
   var deleteObjects = function(bucket, callback) {
-    var s3 = new AWS.S3({ maxRetries: 100 });
+    var s3 = new S3({ maxRetries: 100 });
     var params = {
       Bucket: bucket
     };
 
     s3.listObjects(params, function(err, data) {
       if (err) return callback(err);
-      if (data.Contents.length > 0) {
+      if (data.Contents && data.Contents.length > 0) {
         params.Delete = { Objects: [] };
         data.Contents.forEach(function(item) {
           params.Delete.Objects.push({ Key: item.Key });
