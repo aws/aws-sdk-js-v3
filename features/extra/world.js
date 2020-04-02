@@ -1,6 +1,6 @@
-var world = require("./helpers");
-var fs = require("fs");
-var path = require("path");
+const world = require("./helpers");
+const fs = require("fs");
+const path = require("path");
 
 try {
   world.config = JSON.parse(fs.readFileSync(path.resolve("./configuration")));
@@ -9,7 +9,7 @@ try {
   process.env["CONFIGURED_REGION"] = "us-west-2";
 }
 
-var WorldConstructor = function WorldConstructor() {
+const WorldConstructor = function WorldConstructor() {
   return world;
 };
 

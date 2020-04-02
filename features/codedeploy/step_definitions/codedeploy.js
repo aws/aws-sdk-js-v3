@@ -1,11 +1,7 @@
-var { CodeDeploy } = require("../../../clients/client-codedeploy");
-var { defineSupportCode } = require("cucumber");
+const { CodeDeploy } = require("../../../clients/client-codedeploy");
+const { Before } = require("cucumber");
 
-defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: "@codedeploy" }, function(scenario, callback) {
-    this.service = new CodeDeploy({});
-    callback();
-  });
-
-  // Add step definitions
+Before({ tags: "@codedeploy" }, function(scenario, callback) {
+  this.service = new CodeDeploy({});
+  callback();
 });

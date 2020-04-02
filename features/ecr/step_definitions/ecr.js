@@ -1,11 +1,7 @@
-var { ECR } = require("../../../clients/client-ecr");
-var { defineSupportCode } = require("cucumber");
+const { ECR } = require("../../../clients/client-ecr");
+const { Before } = require("cucumber");
 
-defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: "@ecr" }, function(scenario, callback) {
-    this.service = new ECR({});
-    callback();
-  });
-
-  // Add step definitions
+Before({ tags: "@ecr" }, function(scenario, callback) {
+  this.service = new ECR({});
+  callback();
 });

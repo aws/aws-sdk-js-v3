@@ -1,11 +1,7 @@
-var { ConfigService } = require("../../../clients/client-config-service");
-var { defineSupportCode } = require("cucumber");
+const { ConfigService } = require("../../../clients/client-config-service");
+const { Before } = require("cucumber");
 
-defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: "@configservice" }, function(scenario, callback) {
-    this.service = new ConfigService({});
-    callback();
-  });
-
-  // Add step definitions
+Before({ tags: "@configservice" }, function(scenario, callback) {
+  this.service = new ConfigService({});
+  callback();
 });

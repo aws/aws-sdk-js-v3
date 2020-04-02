@@ -1,64 +1,62 @@
-var { CloudWatch } = require("../../../clients/client-cloudwatch");
-var { defineSupportCode } = require("cucumber");
+const { CloudWatch } = require("../../../clients/client-cloudwatch");
+const { Before, Given, Then } = require("cucumber");
 
-defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: "@cloudwatch" }, function(scenario, callback) {
-    this.service = new CloudWatch({});
-    callback();
+Before({ tags: "@cloudwatch" }, function(scenario, callback) {
+  this.service = new CloudWatch({});
+  callback();
+});
+
+Given(/^I create a CloudWatch alarm with (prefix|name) "([^"]*)"$/, function(
+  prefix,
+  name,
+  callback
+) {
+  const timestamp = new Date().getTime();
+  this.cloudWatchAlarm = {
+    AlarmName: name,
+    MetricName: "aws-sdk-js-metric-" + timestamp,
+    Namespace: "aws-sdk-js-namespace" + timestamp,
+    ComparisonOperator: "GreaterThanThreshold",
+    EvaluationPeriods: 5,
+    Period: 60,
+    Statistic: "Average",
+    Threshold: 50.0
+  };
+
+  if (prefix === "prefix") {
+    this.cloudWatchAlarm.AlarmName += "-" + timestamp;
+  }
+
+  this.request(
+    null,
+    "putMetricAlarm",
+    this.cloudWatchAlarm,
+    callback,
+    prefix === "name" ? false : undefined
+  );
+});
+
+Given(/^I list the CloudWatch alarms$/, function(callback) {
+  const params = {
+    MetricName: this.cloudWatchAlarm.MetricName,
+    Namespace: this.cloudWatchAlarm.Namespace
+  };
+  this.request(null, "describeAlarmsForMetric", params, callback);
+});
+
+Then(/^the list should contain the CloudWatch alarm$/, function(callback) {
+  const name = this.cloudWatchAlarm.AlarmName;
+  this.assert.contains(this.data.MetricAlarms, function(alarm) {
+    return alarm.AlarmName === name;
   });
+  callback();
+});
 
-  Given(/^I create a CloudWatch alarm with (prefix|name) "([^"]*)"$/, function(
-    prefix,
-    name,
+Then(/^I delete the CloudWatch alarm$/, function(callback) {
+  this.request(
+    null,
+    "deleteAlarms",
+    { AlarmNames: [this.cloudWatchAlarm.AlarmName] },
     callback
-  ) {
-    var timestamp = new Date().getTime();
-    this.cloudWatchAlarm = {
-      AlarmName: name,
-      MetricName: "aws-sdk-js-metric-" + timestamp,
-      Namespace: "aws-sdk-js-namespace" + timestamp,
-      ComparisonOperator: "GreaterThanThreshold",
-      EvaluationPeriods: 5,
-      Period: 60,
-      Statistic: "Average",
-      Threshold: 50.0
-    };
-
-    if (prefix === "prefix") {
-      this.cloudWatchAlarm.AlarmName += "-" + timestamp;
-    }
-
-    this.request(
-      null,
-      "putMetricAlarm",
-      this.cloudWatchAlarm,
-      callback,
-      prefix === "name" ? false : undefined
-    );
-  });
-
-  Given(/^I list the CloudWatch alarms$/, function(callback) {
-    var params = {
-      MetricName: this.cloudWatchAlarm.MetricName,
-      Namespace: this.cloudWatchAlarm.Namespace
-    };
-    this.request(null, "describeAlarmsForMetric", params, callback);
-  });
-
-  Then(/^the list should contain the CloudWatch alarm$/, function(callback) {
-    var name = this.cloudWatchAlarm.AlarmName;
-    this.assert.contains(this.data.MetricAlarms, function(alarm) {
-      return alarm.AlarmName === name;
-    });
-    callback();
-  });
-
-  Then(/^I delete the CloudWatch alarm$/, function(callback) {
-    this.request(
-      null,
-      "deleteAlarms",
-      { AlarmNames: [this.cloudWatchAlarm.AlarmName] },
-      callback
-    );
-  });
+  );
 });

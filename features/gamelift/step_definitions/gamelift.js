@@ -1,11 +1,7 @@
-var { GameLift } = require("../../../clients/client-gamelift");
-var { defineSupportCode } = require("cucumber");
+const { GameLift } = require("../../../clients/client-gamelift");
+const { Before } = require("cucumber");
 
-defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: "@gamelift" }, function(scenario, callback) {
-    this.service = new GameLift({});
-    callback();
-  });
-
-  // Add step definitions
+Before({ tags: "@gamelift" }, function(scenario, callback) {
+  this.service = new GameLift({});
+  callback();
 });

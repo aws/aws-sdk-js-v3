@@ -1,13 +1,9 @@
-var {
+const {
   DatabaseMigrationService
 } = require("../../../clients/client-database-migration-service");
-var { defineSupportCode } = require("cucumber");
+const { Before } = require("cucumber");
 
-defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: "@dms" }, function(scenario, callback) {
-    this.service = new DatabaseMigrationService({});
-    callback();
-  });
-
-  // Add step definitions
+Before({ tags: "@dms" }, function(scenario, callback) {
+  this.service = new DatabaseMigrationService({});
+  callback();
 });

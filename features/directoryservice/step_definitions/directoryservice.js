@@ -1,11 +1,9 @@
-var { DirectoryService } = require("../../../clients/client-directory-service");
-var { defineSupportCode } = require("cucumber");
+const {
+  DirectoryService
+} = require("../../../clients/client-directory-service");
+const { Before } = require("cucumber");
 
-defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: "@directoryservice" }, function(scenario, callback) {
-    this.service = new DirectoryService({});
-    callback();
-  });
-
-  // Add step definitions
+Before({ tags: "@directoryservice" }, function(scenario, callback) {
+  this.service = new DirectoryService({});
+  callback();
 });

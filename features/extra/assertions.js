@@ -1,4 +1,4 @@
-var assert = require("assert");
+const assert = require("assert");
 
 assert.match = function assertMatches(string, matcher, message) {
   assert.ok(
@@ -8,13 +8,13 @@ assert.match = function assertMatches(string, matcher, message) {
 };
 
 assert.contains = function assertContains(list, matcher, message) {
-  var found = false;
-  for (var i in list) {
-    if (!list.hasOwnProperty(i)) continue;
+  let found = false;
+  for (const itemIndex in list) {
+    if (!list.hasOwnProperty(itemIndex)) continue;
     if (typeof matcher === "function") {
-      found = matcher(list[i]);
+      found = matcher(list[itemIndex]);
     } else {
-      found = list[i] === matcher;
+      found = list[itemIndex] === matcher;
     }
     if (found) return;
   }
@@ -27,7 +27,7 @@ assert.compare = function assertComparison(
   expected,
   message
 ) {
-  var compare = actual + " " + operator + " " + expected;
+  const compare = actual + " " + operator + " " + expected;
   assert.ok(eval(compare), message || compare);
 };
 

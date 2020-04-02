@@ -1,19 +1,17 @@
-var { Kinesis } = require("../../../clients/client-kinesis");
-var { defineSupportCode } = require("cucumber");
+const { Kinesis } = require("../../../clients/client-kinesis");
+const { Before, Given } = require("cucumber");
 
-defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: "@kinesis" }, function(scenario, callback) {
-    this.service = new Kinesis({});
-    callback();
-  });
+Before({ tags: "@kinesis" }, function(scenario, callback) {
+  this.service = new Kinesis({});
+  callback();
+});
 
-  Given(/^I try to describe a stream in Kinesis$/, function(callback) {
-    this.request(
-      null,
-      "describeStream",
-      { StreamName: "XXINVALIDXX" },
-      callback,
-      false
-    );
-  });
+Given(/^I try to describe a stream in Kinesis$/, function(callback) {
+  this.request(
+    null,
+    "describeStream",
+    { StreamName: "XXINVALIDXX" },
+    callback,
+    false
+  );
 });

@@ -1,12 +1,10 @@
-var { SQS } = require("../../../clients/client-sqs");
-var { defineSupportCode } = require("cucumber");
+const { SQS } = require("../../../clients/client-sqs");
+const { Before } = require("cucumber");
 
-defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: "@sqs" }, function(scenario, callback) {
-    this.service = new SQS({
-      region: "us-east-1"
-    });
-    this.createdQueues = [];
-    callback();
+Before({ tags: "@sqs" }, function(scenario, callback) {
+  this.service = new SQS({
+    region: "us-east-1"
   });
+  this.createdQueues = [];
+  callback();
 });
