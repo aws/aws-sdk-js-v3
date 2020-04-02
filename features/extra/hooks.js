@@ -137,11 +137,6 @@ module.exports = function() {
   });
 
   this.Then(/^the status code should be (\d+)$/, function(status, callback) {
-    this.assert.equal(this.response.httpResponse.statusCode, parseInt(status));
-    callback();
-  });
-
-  this.Then(/^the status code should be (\d+)$/, function(status, callback) {
     this.assert.equal(this.data.$metadata.httpStatusCode, parseInt(status));
     callback();
   });
