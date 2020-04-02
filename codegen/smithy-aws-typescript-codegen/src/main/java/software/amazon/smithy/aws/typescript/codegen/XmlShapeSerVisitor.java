@@ -78,10 +78,16 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             // Handle proper unwrapping of target nodes.
             if (serializationReturnsArray(target)) {
                 writer.write("const container = new __XmlNode($S);", locationName);
-                writer.openBlock("for (let index in node) {", "}",
-                        () -> writer.write("container.addChildNode(node[index]);"));
+                writer.openBlock("for (let index in node) {", "}", () -> {
+                    writer.write("const workingNode = node[index];");
+                    // Add @xmlNamespace value of the target member.
+                    AwsProtocolUtils.writeXmlNamespace(context, memberShape, "workingNode");
+                    writer.write("container.addChildNode(workingNode);");
+                });
                 writer.write("collectedNodes.push(container);");
             } else {
+                // Add @xmlNamespace value of the target member.
+                AwsProtocolUtils.writeXmlNamespace(context, memberShape, "node");
                 writer.write("collectedNodes.push(node.withName($S));", locationName);
             }
         });
@@ -115,8 +121,10 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             String keyName = keyMember.getTrait(XmlNameTrait.class)
                     .map(XmlNameTrait::getValue)
                     .orElse("key");
-            writer.write("entryNode.addChildNode($L.withName($S));",
-                    keyTarget.accept(getMemberVisitor("key")), keyName);
+            writer.write("const keyNode = $L.withName($S);", keyTarget.accept(getMemberVisitor("key")), keyName);
+            // Add @xmlNamespace value of the key member.
+            AwsProtocolUtils.writeXmlNamespace(context, keyMember, "workingNode");
+            writer.write("entryNode.addChildNode(keyNode);");
 
             // Prepare the value's node.
             // Use the @xmlName trait if present on the member, otherwise use "value".
@@ -130,10 +138,16 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             // Handle proper unwrapping of target nodes.
             if (serializationReturnsArray(valueTarget)) {
                 writer.write("const container = new __XmlNode($S);", valueName);
-                writer.openBlock("for (let index in node) {", "}",
-                        () -> writer.write("container.addChildNode(node[index]);"));
+                writer.openBlock("for (let index in node) {", "}", () -> {
+                    writer.write("const workingNode = node[index];");
+                    // Add @xmlNamespace value of the value member.
+                    AwsProtocolUtils.writeXmlNamespace(context, valueMember, "workingNode");
+                    writer.write("container.addChildNode(workingNode);");
+                });
                 writer.write("entryNode.addChildNode(container);");
             } else {
+                // Add @xmlNamespace value of the target member.
+                AwsProtocolUtils.writeXmlNamespace(context, valueMember, "node");
                 writer.write("entryNode.addChildNode(node.withName($S));", valueName);
             }
 
@@ -156,9 +170,6 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
 
         // Create the structure's node.
         writer.write("const bodyNode = new __XmlNode($S);", nodeName);
-
-        // Add @xmlNamespace value of the structure to the node.
-        AwsProtocolUtils.writeXmlNamespace(context, shape, "bodyNode");
 
         // Serialize every member of the structure if present.
         Map<String, MemberShape> members = shape.getAllMembers();
@@ -212,7 +223,10 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
                 }
 
                 // Standard members are added as children after updating their names.
-                writer.write("bodyNode.addChildNode($L.withName($S));", valueProvider, locationName);
+                writer.write("const node = $L.withName($S);", valueProvider, locationName);
+                // Add @xmlNamespace value of the target member.
+                AwsProtocolUtils.writeXmlNamespace(context, memberShape, "node");
+                writer.write("bodyNode.addChildNode(node);");
             }
         }
     }
@@ -235,6 +249,8 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
         // Prepare a containing node to hold the nodes if not flattened.
         if (!isFlattened) {
             writer.write("const containerNode = new __XmlNode($S);", locationName);
+            // Add @xmlNamespace value of the target member.
+            AwsProtocolUtils.writeXmlNamespace(context, memberShape, "containerNode");
         }
 
         // Add every node to the target node.
@@ -270,9 +286,6 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
 
         // Create the union's node.
         writer.write("const bodyNode = new __XmlNode($S);", nodeName);
-
-        // Add @xmlNamespace value of the structure to the node.
-        AwsProtocolUtils.writeXmlNamespace(context, shape, "bodyNode");
 
         // Visit over the union type, then get the right serialization for the member.
         writer.openBlock("$L.visit(input, {", "});", shape.getId().getName(), () -> {

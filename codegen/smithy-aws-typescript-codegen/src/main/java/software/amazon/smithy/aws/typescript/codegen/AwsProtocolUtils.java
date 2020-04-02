@@ -195,17 +195,24 @@ final class AwsProtocolUtils {
      * @param context The generation context.
      * @param shape The shape to apply the namespace attribute to, if present on it.
      * @param nodeName The node to apply the namespace attribute to.
+     * @return Returns if an XML namespace attribute was written.
      */
-    static void writeXmlNamespace(GenerationContext context, Shape shape, String nodeName) {
-        shape.getTrait(XmlNamespaceTrait.class).ifPresent(trait -> {
-            TypeScriptWriter writer = context.getWriter();
-            String xmlns = "xmlns";
-            Optional<String> prefix = trait.getPrefix();
-            if (prefix.isPresent()) {
-                xmlns += ":" + prefix.get();
-            }
-            writer.write("$L.addAttribute($S, $S);", nodeName, xmlns, trait.getUri());
-        });
+    static boolean writeXmlNamespace(GenerationContext context, Shape shape, String nodeName) {
+        Optional<XmlNamespaceTrait> traitOptional = shape.getTrait(XmlNamespaceTrait.class);
+
+        if (!traitOptional.isPresent()) {
+            return false;
+        }
+
+        XmlNamespaceTrait trait = traitOptional.get();
+        TypeScriptWriter writer = context.getWriter();
+        String xmlns = "xmlns";
+        Optional<String> prefix = trait.getPrefix();
+        if (prefix.isPresent()) {
+            xmlns += ":" + prefix.get();
+        }
+        writer.write("$L.addAttribute($S, $S);", nodeName, xmlns, trait.getUri());
+        return true;
     }
 
     /**
