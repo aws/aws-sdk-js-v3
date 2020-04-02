@@ -2,7 +2,7 @@ var jmespath = require("jmespath");
 var { RDS } = require("../../../clients/client-rds");
 
 module.exports = function() {
-  this.Before({ tags: ["@rds"] }, function(scenario, callback) {
+  this.Before("@rds", function(callback) {
     this.service = new RDS({});
     callback();
   });
@@ -58,7 +58,7 @@ module.exports = function() {
       }
       this.service[operation](this.params).eachPage(function(err, data, done) {
         process.nextTick(function() {
-          if (err) callback(err);
+          if (err) callback.fail(err);
           else if (data === null || world.numPages === maxPages) {
             world.finishedPagination = true;
             callback();

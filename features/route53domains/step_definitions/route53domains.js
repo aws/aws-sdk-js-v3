@@ -1,7 +1,7 @@
 var { Route53Domains } = require("../../../clients/client-route-53-domains");
 
 module.exports = function() {
-  this.Before({ tags: ["@route53domains"] }, function(scenario, callback) {
+  this.Before("@route53domains", function(callback) {
     this.service = new Route53Domains({ region: "us-east-1" });
     callback();
   });

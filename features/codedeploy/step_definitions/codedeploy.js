@@ -1,7 +1,7 @@
 var { CodeDeploy } = require("../../../clients/client-codedeploy");
 
 module.exports = function() {
-  this.Before({ tags: ["@codedeploy"] }, function(scenario, callback) {
+  this.Before("@codedeploy", function(callback) {
     this.service = new CodeDeploy({});
     callback();
   });

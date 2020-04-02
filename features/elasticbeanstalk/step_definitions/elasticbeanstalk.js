@@ -1,7 +1,7 @@
 var { ElasticBeanstalk } = require("../../../clients/client-elastic-beanstalk");
 
 module.exports = function() {
-  this.Before({ tags: ["@elasticbeanstalk"] }, function(scenario, callback) {
+  this.Before("@elasticbeanstalk", function(callback) {
     this.service = new ElasticBeanstalk({});
     callback();
   });

@@ -1,7 +1,7 @@
 var { IAM } = require("../../../clients/client-iam");
 
 module.exports = function() {
-  this.Before({ tags: ["@iam"] }, function(scenario, callback) {
+  this.Before("@iam", function(callback) {
     this.iam = new IAM({});
     callback();
   });
@@ -19,7 +19,7 @@ module.exports = function() {
       else this.iamUserArn = null;
       callback();
     };
-    next.fail = callback;
+    next.fail = callback.fail;
     this.request(
       "iam",
       "createUser",
@@ -73,7 +73,7 @@ module.exports = function() {
       world.iamRoleArn = world.data.Role.Arn;
       callback();
     };
-    next.fail = callback;
+    next.fail = callback.fail;
 
     this.request("iam", "createRole", params, next);
   });

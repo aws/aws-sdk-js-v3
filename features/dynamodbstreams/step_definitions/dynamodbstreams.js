@@ -1,7 +1,7 @@
 var { DynamoDBStreams } = require("../../../clients/client-dynamodb-streams");
 
 module.exports = function() {
-  this.Before({ tags: ["@dynamodbstreams"] }, function(scenario, callback) {
+  this.Before("@dynamodbstreams", function(callback) {
     this.service = new DynamoDBStreams({});
     callback();
   });

@@ -1,7 +1,7 @@
 var { DataPipeline } = require("../../../clients/client-data-pipeline");
 
 module.exports = function() {
-  this.Before({ tags: ["@datapipeline"] }, function(scenario, callback) {
+  this.Before("@datapipeline", function(callback) {
     this.service = new DataPipeline({});
     callback();
   });

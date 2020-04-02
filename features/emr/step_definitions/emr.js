@@ -1,7 +1,7 @@
 var { EMR } = require("../../../clients/client-emr");
 
 module.exports = function() {
-  this.Before({ tags: ["@emr"] }, function(scenario, callback) {
+  this.Before("@emr", function(callback) {
     this.service = new EMR({});
     callback();
   });

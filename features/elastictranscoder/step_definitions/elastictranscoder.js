@@ -5,7 +5,7 @@ var { S3 } = require("../../../clients/client-s3");
 var { IAM } = require("../../../clients/client-iam");
 
 module.exports = function() {
-  this.Before({ tags: ["@elastictranscoder"] }, function(scenario, callback) {
+  this.Before("@elastictranscoder", function(callback) {
     this.iam = new IAM({});
     this.s3 = new S3({});
     this.service = new ElasticTranscoder({});

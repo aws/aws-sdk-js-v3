@@ -1,7 +1,7 @@
 var { Redshift } = require("../../../clients/client-redshift");
 
 module.exports = function() {
-  this.Before({ tags: ["@redshift"] }, function(scenario, callback) {
+  this.Before("@redshift", function(callback) {
     this.service = new Redshift({});
     callback();
   });

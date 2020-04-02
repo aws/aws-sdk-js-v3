@@ -1,7 +1,7 @@
 var { GameLift } = require("../../../clients/client-gamelift");
 
 module.exports = function() {
-  this.Before({ tags: ["@gamelift"] }, function(scenario, callback) {
+  this.Before("@gamelift", function(callback) {
     this.service = new GameLift({});
     callback();
   });

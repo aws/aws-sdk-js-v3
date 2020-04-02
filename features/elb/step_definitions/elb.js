@@ -3,7 +3,7 @@ var {
 } = require("../../../clients/client-elastic-load-balancing");
 
 module.exports = function() {
-  this.Before({ tags: ["@elb"] }, function(scenario, callback) {
+  this.Before("@elb", function(callback) {
     this.service = new ElasticLoadBalancing({});
     callback();
   });

@@ -1,7 +1,7 @@
 var { CognitoSync } = require("../../../clients/client-cognito-sync");
 
 module.exports = function() {
-  this.Before({ tags: ["@cognitosync"] }, function(scenario, callback) {
+  this.Before("@cognitosync", function(callback) {
     this.service = new CognitoSync({});
     callback();
   });

@@ -1,7 +1,7 @@
 var { CognitoIdentity } = require("../../../clients/client-cognito-identity");
 
 module.exports = function() {
-  this.Before({ tags: ["@cognitoidentity"] }, function(scenario, callback) {
+  this.Before("@cognitoidentity", function(callback) {
     this.service = new CognitoIdentity({});
     callback();
   });

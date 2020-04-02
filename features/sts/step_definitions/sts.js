@@ -1,7 +1,7 @@
 var { STS } = require("../../../clients/client-sts");
 
 module.exports = function() {
-  this.Before({ tags: ["@sts"] }, function(scenario, callback) {
+  this.Before("@sts", function(callback) {
     this.service = new STS({});
     callback();
   });

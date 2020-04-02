@@ -1,7 +1,7 @@
 var { Kinesis } = require("../../../clients/client-kinesis");
 
 module.exports = function() {
-  this.Before({ tags: ["@kinesis"] }, function(scenario, callback) {
+  this.Before("@kinesis", function(callback) {
     this.service = new Kinesis({});
     callback();
   });

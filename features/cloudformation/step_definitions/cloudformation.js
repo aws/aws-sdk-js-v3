@@ -1,7 +1,7 @@
 var { CloudFormation } = require("../../../clients/client-cloudformation");
 
 module.exports = function() {
-  this.Before({ tags: ["@cloudformation"] }, function(scenario, callback) {
+  this.Before("@cloudformation", function(callback) {
     this.service = new CloudFormation({});
     callback();
   });

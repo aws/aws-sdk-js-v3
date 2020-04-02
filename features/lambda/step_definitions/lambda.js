@@ -1,7 +1,7 @@
 var { Lambda } = require("../../../clients/client-lambda");
 
 module.exports = function() {
-  this.Before({ tags: ["@lambda"] }, function(scenario, callback) {
+  this.Before("@lambda", function(callback) {
     this.service = new Lambda({});
     callback();
   });

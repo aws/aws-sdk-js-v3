@@ -1,7 +1,7 @@
 var { ECR } = require("../../../clients/client-ecr");
 
 module.exports = function() {
-  this.Before({ tags: ["@ecr"] }, function(scenario, callback) {
+  this.Before("@ecr", function(callback) {
     this.service = new ECR({});
     callback();
   });
