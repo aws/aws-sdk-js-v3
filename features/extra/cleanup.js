@@ -27,7 +27,9 @@ defineSupportCode(function({ AfterAll }) {
     } catch (fileErr) {
       return Promise.reject(fileErr);
     } finally {
-      fs.unlinkSync(filePath);
+      if (fs.existsSync(filePath)) {
+        fs.unlinkSync(filePath);
+      }
     }
   });
 
