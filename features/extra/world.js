@@ -14,4 +14,3 @@ var WorldConstructor = function WorldConstructor(callback) {
 };
 
 exports.World = WorldConstructor;
-exports.WorldInstance = world;
