@@ -1,11 +1,7 @@
 var { CloudWatchEvents } = require("../../../clients/client-cloudwatch-events");
-var { defineSupportCode } = require("cucumber");
+const { Before } = require("cucumber");
 
-defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: "@cloudwatchevents" }, function(scenario, callback) {
-    this.service = new CloudWatchEvents({});
-    callback();
-  });
-
-  // Add step definitions
+Before({ tags: "@cloudwatchevents" }, function(scenario, callback) {
+  this.service = new CloudWatchEvents({});
+  callback();
 });

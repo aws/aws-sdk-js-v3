@@ -37,103 +37,101 @@ const waitForVolumeAvailable = (ec2, volumeId, callback) => {
   };
   checkForVolumeAvailable();
 };
-var { defineSupportCode } = require("cucumber");
+const { Before, Given, Then, When } = require("cucumber");
 
-defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: "@ec2" }, function(scenario, callback) {
-    this.service = new EC2({});
-    callback();
+Before({ tags: "@ec2" }, function(scenario, callback) {
+  this.service = new EC2({});
+  callback();
+});
+
+Given(/^I describe EC2 regions "([^"]*)"$/, function(regions, callback) {
+  regions = regions.split(/\s*,\s*/);
+  this.request(null, "describeRegions", { RegionNames: regions }, callback);
+});
+
+Then(/^the EC2 endpoint for "([^"]*)" should be "([^"]*)"$/, function(
+  region,
+  endpoint,
+  callback
+) {
+  this.assert.contains(this.data.Regions, function(region) {
+    return region.Endpoint === endpoint;
   });
+  callback();
+});
 
-  Given(/^I describe EC2 regions "([^"]*)"$/, function(regions, callback) {
-    regions = regions.split(/\s*,\s*/);
-    this.request(null, "describeRegions", { RegionNames: regions }, callback);
-  });
+Given(/^I describe the EC2 instance "([^"]*)"$/, function(
+  instanceId,
+  callback
+) {
+  this.request(
+    null,
+    "describeInstances",
+    { InstanceIds: [instanceId] },
+    callback,
+    false
+  );
+});
 
-  Then(/^the EC2 endpoint for "([^"]*)" should be "([^"]*)"$/, function(
-    region,
-    endpoint,
-    callback
-  ) {
-    this.assert.contains(this.data.Regions, function(region) {
-      return region.Endpoint === endpoint;
-    });
-    callback();
-  });
+Given(/^I attempt to copy an encrypted snapshot across regions$/, function(
+  callback
+) {
+  var self = this;
+  var volId, srcSnapId, dstSnapId, params;
+  var sourceRegion = "us-west-2";
+  var destRegion = "us-east-1";
+  var srcEc2 = new EC2({ region: sourceRegion });
+  var dstEc2 = new EC2({ region: destRegion });
 
-  Given(/^I describe the EC2 instance "([^"]*)"$/, function(
-    instanceId,
-    callback
-  ) {
-    this.request(
-      null,
-      "describeInstances",
-      { InstanceIds: [instanceId] },
-      callback,
-      false
-    );
-  });
+  function teardown() {
+    if (volId) srcEc2.deleteVolume({ VolumeId: volId }).send();
+    if (srcSnapId) srcEc2.deleteSnapshot({ SnapshotId: srcSnapId }).send();
+    if (dstSnapId) dstEc2.deleteSnapshot({ SnapshotId: dstSnapId }).send();
+  }
 
-  Given(/^I attempt to copy an encrypted snapshot across regions$/, function(
-    callback
-  ) {
-    var self = this;
-    var volId, srcSnapId, dstSnapId, params;
-    var sourceRegion = "us-west-2";
-    var destRegion = "us-east-1";
-    var srcEc2 = new EC2({ region: sourceRegion });
-    var dstEc2 = new EC2({ region: destRegion });
-
-    function teardown() {
-      if (volId) srcEc2.deleteVolume({ VolumeId: volId }).send();
-      if (srcSnapId) srcEc2.deleteSnapshot({ SnapshotId: srcSnapId }).send();
-      if (dstSnapId) dstEc2.deleteSnapshot({ SnapshotId: dstSnapId }).send();
+  params = {
+    AvailabilityZone: sourceRegion + "a",
+    Size: 10,
+    Encrypted: true
+  };
+  srcEc2.createVolume(params, function(err, data) {
+    if (err) {
+      teardown();
+      return callback(err);
     }
+    volId = data.VolumeId;
 
-    params = {
-      AvailabilityZone: sourceRegion + "a",
-      Size: 10,
-      Encrypted: true
-    };
-    srcEc2.createVolume(params, function(err, data) {
+    waitForVolumeAvailable(srcEc2, volId, function(err) {
       if (err) {
         teardown();
         return callback(err);
       }
-      volId = data.VolumeId;
 
-      waitForVolumeAvailable(srcEc2, volId, function(err) {
+      srcEc2.createSnapshot({ VolumeId: volId }, function(err, data) {
         if (err) {
           teardown();
           return callback(err);
         }
+        srcSnapId = data.SnapshotId;
 
-        srcEc2.createSnapshot({ VolumeId: volId }, function(err, data) {
-          if (err) {
+        setTimeout(function() {
+          params = {
+            SourceRegion: sourceRegion,
+            SourceSnapshotId: srcSnapId
+          };
+          dstEc2.copySnapshot(params, function(err, data) {
+            if (data) dstSnapId = data.SnapshotId;
+            self.success = true;
+            callback();
             teardown();
-            return callback(err);
-          }
-          srcSnapId = data.SnapshotId;
-
-          setTimeout(function() {
-            params = {
-              SourceRegion: sourceRegion,
-              SourceSnapshotId: srcSnapId
-            };
-            dstEc2.copySnapshot(params, function(err, data) {
-              if (data) dstSnapId = data.SnapshotId;
-              self.success = true;
-              callback();
-              teardown();
-            });
-          }, 5000);
-        });
+          });
+        }, 5000);
       });
     });
   });
+});
 
-  Then(/^the copy snapshot attempt should be successful$/, function(callback) {
-    this.assert.equal(this.success, true);
-    callback();
-  });
+Then(/^the copy snapshot attempt should be successful$/, function(callback) {
+  this.assert.equal(this.success, true);
+  callback();
 });

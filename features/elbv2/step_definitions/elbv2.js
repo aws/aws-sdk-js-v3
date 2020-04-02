@@ -1,13 +1,9 @@
 var {
   ElasticLoadBalancingv2
 } = require("../../../clients/client-elastic-load-balancing-v2");
-var { defineSupportCode } = require("cucumber");
+const { Before } = require("cucumber");
 
-defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: "@elbv2" }, function(scenario, callback) {
-    this.service = new ElasticLoadBalancingv2({});
-    callback();
-  });
-
-  // Add step definitions
+Before({ tags: "@elbv2" }, function(scenario, callback) {
+  this.service = new ElasticLoadBalancingv2({});
+  callback();
 });

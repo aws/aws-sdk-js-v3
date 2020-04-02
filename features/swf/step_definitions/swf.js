@@ -1,9 +1,7 @@
 var { SWF } = require("../../../clients/client-swf");
-var { defineSupportCode } = require("cucumber");
+const { Before, Given, Then, When } = require("cucumber");
 
-defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: "@swf" }, function(scenario, callback) {
-    this.service = new SWF({});
-    callback();
-  });
+Before({ tags: "@swf" }, function(scenario, callback) {
+  this.service = new SWF({});
+  callback();
 });

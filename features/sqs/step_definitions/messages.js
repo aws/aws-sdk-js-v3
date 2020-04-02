@@ -1,70 +1,68 @@
-var { defineSupportCode } = require("cucumber");
+const { Then, When } = require("cucumber");
 
-defineSupportCode(function({ Before, Given, Then, When }) {
-  When(/^I send the message "([^"]*)"$/, function(message, callback) {
-    this.request(
-      null,
-      "sendMessage",
-      { QueueUrl: this.queueUrl, MessageBody: message },
-      callback
-    );
-  });
-
-  Then(/^the result should include a message ID$/, function(callback) {
-    this.assert.compare(this.data.MessageId.length, ">", 0);
-    callback();
-  });
-
-  Then(/^the result should have an MD5 digest of "([^"]*)"$/, function(
-    digest,
+When(/^I send the message "([^"]*)"$/, function(message, callback) {
+  this.request(
+    null,
+    "sendMessage",
+    { QueueUrl: this.queueUrl, MessageBody: message },
     callback
-  ) {
-    this.assert.equal(this.data.MD5OfMessageBody, digest);
-    callback();
-  });
-
-  Then(
-    /^I should eventually be able to receive "([^"]*)" from the queue$/,
-    function(message, callback) {
-      this.eventually(callback, function(next) {
-        next.condition = function() {
-          return this.data.Messages[0].Body === message;
-        };
-        this.request(null, "receiveMessage", { QueueUrl: this.queueUrl }, next);
-      });
-    }
-  );
-
-  When(/^I send the message "([^"]*)" with a binary attribute$/, function(
-    message,
-    callback
-  ) {
-    var params = {
-      QueueUrl: this.queueUrl,
-      MessageBody: message,
-      MessageAttributes: {
-        binary: { DataType: "Binary", BinaryValue: Buffer.from([1, 2, 3]) }
-      }
-    };
-    this.request(null, "sendMessage", params, callback);
-  });
-
-  Then(
-    /^I should eventually be able to receive "([^"]*)" from the queue with a binary attribute$/,
-    function(message, callback) {
-      this.eventually(callback, function(next) {
-        next.condition = function() {
-          return (
-            this.data.Messages[0].MessageAttributes.binary.BinaryValue.toString() ===
-            "1,2,3"
-          );
-        };
-        var params = {
-          QueueUrl: this.queueUrl,
-          MessageAttributeNames: ["binary"]
-        };
-        this.request(null, "receiveMessage", params, next);
-      });
-    }
   );
 });
+
+Then(/^the result should include a message ID$/, function(callback) {
+  this.assert.compare(this.data.MessageId.length, ">", 0);
+  callback();
+});
+
+Then(/^the result should have an MD5 digest of "([^"]*)"$/, function(
+  digest,
+  callback
+) {
+  this.assert.equal(this.data.MD5OfMessageBody, digest);
+  callback();
+});
+
+Then(
+  /^I should eventually be able to receive "([^"]*)" from the queue$/,
+  function(message, callback) {
+    this.eventually(callback, function(next) {
+      next.condition = function() {
+        return this.data.Messages[0].Body === message;
+      };
+      this.request(null, "receiveMessage", { QueueUrl: this.queueUrl }, next);
+    });
+  }
+);
+
+When(/^I send the message "([^"]*)" with a binary attribute$/, function(
+  message,
+  callback
+) {
+  var params = {
+    QueueUrl: this.queueUrl,
+    MessageBody: message,
+    MessageAttributes: {
+      binary: { DataType: "Binary", BinaryValue: Buffer.from([1, 2, 3]) }
+    }
+  };
+  this.request(null, "sendMessage", params, callback);
+});
+
+Then(
+  /^I should eventually be able to receive "([^"]*)" from the queue with a binary attribute$/,
+  function(message, callback) {
+    this.eventually(callback, function(next) {
+      next.condition = function() {
+        return (
+          this.data.Messages[0].MessageAttributes.binary.BinaryValue.toString() ===
+          "1,2,3"
+        );
+      };
+      var params = {
+        QueueUrl: this.queueUrl,
+        MessageAttributeNames: ["binary"]
+      };
+      this.request(null, "receiveMessage", params, next);
+    });
+  }
+);

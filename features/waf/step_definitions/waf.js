@@ -1,11 +1,7 @@
 var { WAF } = require("../../../clients/client-waf");
-var { defineSupportCode } = require("cucumber");
+const { Before } = require("cucumber");
 
-defineSupportCode(function({ Before, Given, Then, When }) {
-  Before({ tags: "@waf" }, function(scenario, callback) {
-    this.service = new WAF({});
-    callback();
-  });
-
-  // Add step definitions
+Before({ tags: "@waf" }, function(scenario, callback) {
+  this.service = new WAF({});
+  callback();
 });
