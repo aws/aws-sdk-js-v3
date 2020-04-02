@@ -3070,10 +3070,10 @@ cucumber-html@0.2.3:
   resolved "https://registry.yarnpkg.com/cucumber-html/-/cucumber-html-0.2.3.tgz#7b2a9fed21572c5d25d4bd4cbc7537a272b16a93"
   integrity sha1-eyqf7SFXLF0l1L1MvHU3onKxapM=
 
-cucumber@0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/cucumber/-/cucumber-0.7.0.tgz#30b9d4417cb4f6df453088e97ac3f2cc24094bed"
-  integrity sha1-MLnUQXy09t9FMIjpesPyzCQJS+0=
+cucumber@0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/cucumber/-/cucumber-0.8.0.tgz#9d0cdcb9e3eda9f6f8c77d10e48a837e8c48e6dc"
+  integrity sha1-nQzcuePtqfb4x30Q5IqDfoxI5tw=
   dependencies:
     colors "1.1.2"
     cucumber-html "0.2.3"
