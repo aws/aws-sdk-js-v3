@@ -1,6 +1,7 @@
 var { DataPipeline } = require("../../../clients/client-data-pipeline");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@datapipeline"] }, function(scenario, callback) {
     this.service = new DataPipeline({});
     callback();
@@ -16,4 +17,4 @@ module.exports = function() {
     };
     this.request(null, "createPipeline", params, callback, false);
   });
-};
+});

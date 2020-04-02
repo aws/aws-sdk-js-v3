@@ -1,6 +1,7 @@
 var { AutoScaling } = require("../../../clients/client-auto-scaling");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@autoscaling"] }, function(scenario, callback) {
     this.service = new AutoScaling({ region: "us-east-1" });
     callback();
@@ -41,4 +42,4 @@ module.exports = function() {
     var params = { LaunchConfigurationName: name };
     this.request(null, "deleteLaunchConfiguration", params, callback);
   });
-};
+});

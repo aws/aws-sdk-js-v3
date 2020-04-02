@@ -1,6 +1,7 @@
 var { IAM } = require("../../../clients/client-iam");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@iam"] }, function(scenario, callback) {
     this.iam = new IAM({});
     callback();
@@ -93,4 +94,4 @@ module.exports = function() {
       callback
     );
   });
-};
+});

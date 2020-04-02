@@ -1,6 +1,7 @@
 var { STS } = require("../../../clients/client-sts");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@sts"] }, function(scenario, callback) {
     this.service = new STS({});
     callback();
@@ -40,4 +41,4 @@ module.exports = function() {
     };
     this.request(null, "assumeRoleWithSAML", params, callback, false);
   });
-};
+});

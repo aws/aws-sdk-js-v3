@@ -1,6 +1,7 @@
 var { CloudFront } = require("../../../clients/client-cloudfront");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   var createParams = {
     CallerReference: "",
     Aliases: {
@@ -78,4 +79,4 @@ module.exports = function() {
   this.Given(/^I list CloudFront distributions$/, function(callback) {
     this.request(null, "listDistributions", {}, callback);
   });
-};
+});

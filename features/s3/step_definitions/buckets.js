@@ -1,6 +1,7 @@
 var { S3 } = require("../../../clients/client-s3");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Given(/^I am using the S3 "([^"]*)" region$/, function(
     region,
     callback
@@ -346,4 +347,4 @@ module.exports = function() {
       });
     }
   );
-};
+});

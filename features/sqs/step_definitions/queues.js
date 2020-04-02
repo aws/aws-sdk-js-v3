@@ -1,4 +1,4 @@
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Given(/^I create a queue with the prefix name "([^"]*)"$/, function(
     prefix,
     callback
@@ -43,4 +43,4 @@ module.exports = function() {
     var url = this.createdQueues.pop();
     this.request(null, "deleteQueue", { QueueUrl: url }, callback);
   });
-};
+});

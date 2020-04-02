@@ -1,8 +1,9 @@
 var {
   ElasticLoadBalancing
 } = require("../../../clients/client-elastic-load-balancing");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@elb"] }, function(scenario, callback) {
     this.service = new ElasticLoadBalancing({});
     callback();
@@ -56,4 +57,4 @@ module.exports = function() {
   ) {
     this.request(null, "createLoadBalancer", {}, callback);
   });
-};
+});

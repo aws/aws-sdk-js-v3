@@ -1,6 +1,7 @@
 var { S3 } = require("../../clients/client-s3");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   /**
    * Cleanup fixtures and resources. The world does not exist when
    * this handler is executed. Only resource cleanup and shutdown
@@ -101,4 +102,4 @@ module.exports = function() {
       }
     });
   };
-};
+});

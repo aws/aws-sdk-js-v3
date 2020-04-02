@@ -1,6 +1,7 @@
 var { Pinpoint } = require("../../../clients/client-pinpoint");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@pinpoint"] }, function(scenario, callback) {
     this.service = new Pinpoint({});
     callback();
@@ -48,4 +49,4 @@ module.exports = function() {
       false
     );
   });
-};
+});

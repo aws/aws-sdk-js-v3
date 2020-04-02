@@ -1,6 +1,7 @@
 var { CloudSearch } = require("../../../clients/client-cloudsearch");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@cloudsearch"] }, function(scenario, callback) {
     this.service = new CloudSearch({});
     callback();
@@ -19,4 +20,4 @@ module.exports = function() {
       false
     );
   });
-};
+});

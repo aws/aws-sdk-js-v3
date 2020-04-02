@@ -1,6 +1,7 @@
 var { CognitoSync } = require("../../../clients/client-cognito-sync");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@cognitosync"] }, function(scenario, callback) {
     this.service = new CognitoSync({});
     callback();
@@ -17,4 +18,4 @@ module.exports = function() {
       this.request(null, "listDatasets", params, callback, false);
     }
   );
-};
+});

@@ -60,8 +60,9 @@ function waitForTableNotExists(world, callback) {
   };
   checkForTableNotExists();
 }
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@dynamodb"] }, function(scenario, next) {
     this.service = new DynamoDB({
       maxRetries: 2
@@ -258,4 +259,4 @@ module.exports = function() {
       this.request(null, "deleteTable", { TableName: "" }, callback, false);
     }
   );
-};
+});

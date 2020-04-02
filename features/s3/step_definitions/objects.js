@@ -12,8 +12,9 @@ const {
 } = require("../../../packages/s3-request-presigner");
 const { createRequest } = require("../../../packages/util-create-request");
 const { formatUrl } = require("../../../packages/util-format-url");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   function getSignedUrl(client, command, params, callback) {
     const signer = new S3RequestPresigner({ ...client.config });
     createRequest(client, new command(params))
@@ -552,4 +553,4 @@ module.exports = function() {
       }
     });
   });
-};
+});

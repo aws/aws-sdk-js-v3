@@ -1,6 +1,7 @@
 var { SES } = require("../../../clients/client-ses");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@ses"] }, function(scenario, callback) {
     this.service = new SES({});
     callback();
@@ -36,4 +37,4 @@ module.exports = function() {
       }
     );
   });
-};
+});

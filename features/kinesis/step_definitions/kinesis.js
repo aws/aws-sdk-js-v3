@@ -1,6 +1,7 @@
 var { Kinesis } = require("../../../clients/client-kinesis");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@kinesis"] }, function(scenario, callback) {
     this.service = new Kinesis({});
     callback();
@@ -15,4 +16,4 @@ module.exports = function() {
       false
     );
   });
-};
+});

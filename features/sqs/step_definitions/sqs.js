@@ -1,6 +1,7 @@
 var { SQS } = require("../../../clients/client-sqs");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@sqs"] }, function(scenario, callback) {
     this.service = new SQS({
       region: "us-east-1"
@@ -8,4 +9,4 @@ module.exports = function() {
     this.createdQueues = [];
     callback();
   });
-};
+});

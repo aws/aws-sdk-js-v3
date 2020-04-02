@@ -1,6 +1,7 @@
 var { Route53 } = require("../../../clients/client-route-53");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@route53"] }, function(scenario, callback) {
     this.service = new Route53({});
     callback();
@@ -148,4 +149,4 @@ module.exports = function() {
   this.When(/^I list Route53 hosted zones$/, function(callback) {
     this.request(null, "listHostedZones", {}, callback);
   });
-};
+});

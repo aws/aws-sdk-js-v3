@@ -37,8 +37,9 @@ const waitForVolumeAvailable = (ec2, volumeId, callback) => {
   };
   checkForVolumeAvailable();
 };
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@ec2"] }, function(scenario, callback) {
     this.service = new EC2({});
     callback();
@@ -138,4 +139,4 @@ module.exports = function() {
     this.assert.equal(this.success, true);
     callback();
   });
-};
+});

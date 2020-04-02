@@ -1,6 +1,7 @@
 var { EMR } = require("../../../clients/client-emr");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@emr"] }, function(scenario, callback) {
     this.service = new EMR({});
     callback();
@@ -13,4 +14,4 @@ module.exports = function() {
     var params = { Name: "", Instances: { MasterInstanceType: "invalid" } };
     this.request(null, "runJobFlow", params, callback, false);
   });
-};
+});

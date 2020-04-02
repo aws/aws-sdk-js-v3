@@ -6,8 +6,9 @@ const isType = (obj, type) => {
   if (typeof type === "function") type = util.typeName(type);
   return Object.prototype.toString.call(obj) === "[object " + type + "]";
 };
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.setDefaultTimeout(100 * 1000);
   this.World = require("./world.js").World;
 
@@ -246,4 +247,4 @@ module.exports = function() {
       callback();
     }
   );
-};
+});

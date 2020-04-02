@@ -1,4 +1,4 @@
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.When(/^I send the message "([^"]*)"$/, function(message, callback) {
     this.request(
       null,
@@ -65,4 +65,4 @@ module.exports = function() {
       });
     }
   );
-};
+});

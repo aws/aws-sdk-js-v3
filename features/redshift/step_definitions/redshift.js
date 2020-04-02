@@ -1,6 +1,7 @@
 var { Redshift } = require("../../../clients/client-redshift");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@redshift"] }, function(scenario, callback) {
     this.service = new Redshift({});
     callback();
@@ -24,4 +25,4 @@ module.exports = function() {
       );
     }
   );
-};
+});

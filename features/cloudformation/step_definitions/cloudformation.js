@@ -1,6 +1,7 @@
 var { CloudFormation } = require("../../../clients/client-cloudformation");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@cloudformation"] }, function(scenario, callback) {
     this.service = new CloudFormation({});
     callback();
@@ -18,4 +19,4 @@ module.exports = function() {
       this.request(null, "createStack", params, callback, false);
     }
   );
-};
+});

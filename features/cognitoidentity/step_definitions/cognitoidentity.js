@@ -1,6 +1,7 @@
 var { CognitoIdentity } = require("../../../clients/client-cognito-identity");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@cognitoidentity"] }, function(scenario, callback) {
     this.service = new CognitoIdentity({});
     callback();
@@ -36,4 +37,4 @@ module.exports = function() {
       callback
     );
   });
-};
+});

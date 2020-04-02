@@ -1,6 +1,7 @@
 var { ElasticBeanstalk } = require("../../../clients/client-elastic-beanstalk");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@elasticbeanstalk"] }, function(scenario, callback) {
     this.service = new ElasticBeanstalk({});
     callback();
@@ -59,4 +60,4 @@ module.exports = function() {
     var params = { ApplicationName: this.appName };
     this.request(null, "deleteApplication", params, callback);
   });
-};
+});

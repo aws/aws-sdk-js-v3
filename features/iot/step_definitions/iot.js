@@ -1,10 +1,11 @@
 var { IoT } = require("../../../clients/client-iot");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@iot"] }, function(scenario, callback) {
     this.service = new IoT({});
     callback();
   });
 
   // Add step definitions
-};
+});

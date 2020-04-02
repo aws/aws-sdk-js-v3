@@ -1,10 +1,11 @@
 var { SageMaker } = require("../../../clients/client-sagemaker");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@sagemaker"] }, function(scenario, callback) {
     this.service = new SageMaker({});
     callback();
   });
 
   // Add step definitions
-};
+});

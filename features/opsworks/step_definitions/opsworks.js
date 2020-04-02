@@ -1,7 +1,8 @@
 var { IAM } = require("../../../clients/client-iam");
 var { OpsWorks } = require("../../../clients/client-opsworks");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@opsworks"] }, function(scenario, callback) {
     this.iam = new IAM({});
     this.service = new OpsWorks({});
@@ -55,4 +56,4 @@ module.exports = function() {
     };
     this.request(null, "deleteUserProfile", params, callback, false);
   });
-};
+});

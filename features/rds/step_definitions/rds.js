@@ -1,7 +1,8 @@
 var jmespath = require("jmespath");
 var { RDS } = require("../../../clients/client-rds");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@rds"] }, function(scenario, callback) {
     this.service = new RDS({});
     callback();
@@ -81,4 +82,4 @@ module.exports = function() {
     this.assert.equal(this.finishedPagination, true);
     callback();
   });
-};
+});

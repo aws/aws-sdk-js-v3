@@ -1,6 +1,7 @@
 var { SNS } = require("../../../clients/client-sns");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@sns"] }, function(scenario, callback) {
     this.service = new SNS({});
     callback();
@@ -60,4 +61,4 @@ module.exports = function() {
       false
     );
   });
-};
+});

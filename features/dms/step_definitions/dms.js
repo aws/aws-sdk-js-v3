@@ -1,12 +1,13 @@
 var {
   DatabaseMigrationService
 } = require("../../../clients/client-database-migration-service");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@dms"] }, function(scenario, callback) {
     this.service = new DatabaseMigrationService({});
     callback();
   });
 
   // Add step definitions
-};
+});

@@ -1,6 +1,7 @@
 var { Glacier } = require("../../../clients/client-glacier");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@glacier"] }, function(scenario, callback) {
     this.service = new Glacier({});
     callback();
@@ -140,4 +141,4 @@ module.exports = function() {
     };
     this.request(null, "completeMultipartUpload", params, callback);
   });
-};
+});

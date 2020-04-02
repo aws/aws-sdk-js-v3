@@ -1,6 +1,7 @@
 var { StorageGateway } = require("../../../clients/client-storage-gateway");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@storagegateway"] }, function(scenario, callback) {
     this.service = new StorageGateway({ region: "us-east-1" });
     callback();
@@ -15,4 +16,4 @@ module.exports = function() {
     };
     this.request(null, "activateGateway", params, callback, false);
   });
-};
+});

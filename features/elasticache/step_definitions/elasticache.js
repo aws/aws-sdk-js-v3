@@ -1,6 +1,7 @@
 var { ElastiCache } = require("../../../clients/client-elasticache");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@elasticache"] }, function(scenario, callback) {
     this.service = new ElastiCache({});
     callback();
@@ -48,4 +49,4 @@ module.exports = function() {
     };
     this.request(null, "deleteCacheParameterGroup", params, callback);
   });
-};
+});

@@ -1,10 +1,11 @@
 var { CloudWatchEvents } = require("../../../clients/client-cloudwatch-events");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@cloudwatchevents"] }, function(scenario, callback) {
     this.service = new CloudWatchEvents({});
     callback();
   });
 
   // Add step definitions
-};
+});

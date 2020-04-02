@@ -1,6 +1,7 @@
 var { DirectConnect } = require("../../../clients/client-direct-connect");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@directconnect"] }, function(scenario, callback) {
     this.service = new DirectConnect({});
     callback();
@@ -17,4 +18,4 @@ module.exports = function() {
       this.request(null, "createConnection", params, callback, false);
     }
   );
-};
+});

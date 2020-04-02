@@ -1,6 +1,7 @@
 var { Support } = require("../../../clients/client-support");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@support"] }, function(scenario, callback) {
     this.service = new Support({ region: "us-east-1" });
     callback();
@@ -40,4 +41,4 @@ module.exports = function() {
 
     this.request(null, "createCase", params, callback, false);
   });
-};
+});

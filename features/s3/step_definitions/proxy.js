@@ -1,8 +1,9 @@
 var url = require("url");
 var http = require("http");
 var { S3 } = require("../../../clients/client-s3");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ Before, Given, Then, When }) {
   this.Before({ tags: ["@s3", "@proxy"] }, function(scenario, callback) {
     setupProxyServer.call(this);
 
@@ -48,4 +49,4 @@ module.exports = function() {
     });
     this.proxyServer.listen(this.proxyPort);
   }
-};
+});
