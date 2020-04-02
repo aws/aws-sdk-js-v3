@@ -1,10 +1,11 @@
 var { APIGateway } = require("../../../clients/client-api-gateway");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@apigateway"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@apigateway" }, function(scenario, callback) {
     this.service = new APIGateway({});
     callback();
   });
 
   // Add step definitions
-};
+});

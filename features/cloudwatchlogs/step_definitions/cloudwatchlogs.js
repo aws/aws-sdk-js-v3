@@ -1,12 +1,13 @@
 var { CloudWatchLogs } = require("../../../clients/client-cloudwatch-logs");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@cloudwatchlogs"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@cloudwatchlogs" }, function(scenario, callback) {
     this.service = new CloudWatchLogs({});
     callback();
   });
 
-  this.Given(/^I create a CloudWatch logGroup with prefix "([^"]*)"$/, function(
+  Given(/^I create a CloudWatch logGroup with prefix "([^"]*)"$/, function(
     prefix,
     callback
   ) {
@@ -21,13 +22,11 @@ module.exports = function() {
     );
   });
 
-  this.Given(/^I list the CloudWatch logGroups$/, function(callback) {
+  Given(/^I list the CloudWatch logGroups$/, function(callback) {
     this.request(null, "describeLogGroups", {}, callback);
   });
 
-  this.Then(/^the list should contain the CloudWatch logGroup$/, function(
-    callback
-  ) {
+  Then(/^the list should contain the CloudWatch logGroup$/, function(callback) {
     var name = this.logGroupName;
     this.assert.contains(this.data.logGroups, function(alarm) {
       return alarm.logGroupName === name;
@@ -35,7 +34,7 @@ module.exports = function() {
     callback();
   });
 
-  this.Then(/^I delete the CloudWatch logGroup$/, function(callback) {
+  Then(/^I delete the CloudWatch logGroup$/, function(callback) {
     this.request(
       null,
       "deleteLogGroup",
@@ -43,4 +42,4 @@ module.exports = function() {
       callback
     );
   });
-};
+});

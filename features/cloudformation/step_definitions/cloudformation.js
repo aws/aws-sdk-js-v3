@@ -1,12 +1,13 @@
 var { CloudFormation } = require("../../../clients/client-cloudformation");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@cloudformation"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@cloudformation" }, function(scenario, callback) {
     this.service = new CloudFormation({});
     callback();
   });
 
-  this.Given(
+  Given(
     /^I create a CloudFormation stack with name prefix "([^"]*)"$/,
     function(prefix, callback) {
       this.stackName = this.uniqueName(prefix);
@@ -18,4 +19,4 @@ module.exports = function() {
       this.request(null, "createStack", params, callback, false);
     }
   );
-};
+});

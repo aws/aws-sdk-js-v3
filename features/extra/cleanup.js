@@ -1,41 +1,45 @@
-var { S3 } = require("../../clients/client-s3");
+const { S3 } = require("../../clients/client-s3");
+const { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
+defineSupportCode(function({ AfterAll }) {
   /**
    * Cleanup fixtures and resources. The world does not exist when
    * this handler is executed. Only resource cleanup and shutdown
    * should happen here.
    */
-  this.registerHandler("AfterFeatures", function(event, callback) {
-    var path = require("path");
-    var fs = require("fs");
+  AfterAll(async () => {
+    const path = require("path");
+    const fs = require("fs");
+    const filePath = path.resolve("integ.buckets.json");
 
     try {
-      var filePath = path.resolve("integ.buckets.json");
-      if (!fs.existsSync(filePath)) return callback();
+      if (!fs.existsSync(filePath)) return Promise.resolve();
       deleteFixtures();
-      var cache = JSON.parse(fs.readFileSync(filePath));
-      var buckets = cache.buckets;
+      const cache = JSON.parse(fs.readFileSync(filePath));
+      const buckets = cache.buckets;
       if (buckets.length) {
-        eachSeries(buckets, cleanBucket, function(err) {
-          fs.unlinkSync(filePath);
-          callback(err);
-        });
+        for (let i = 0; i < buckets.length; i++) {
+          await cleanBucket(buckets[i]);
+        }
       } else {
-        callback();
+        return Promise.resolve();
       }
     } catch (fileErr) {
-      callback(fileErr);
+      return Promise.reject(fileErr);
+    } finally {
+      if (fs.existsSync(filePath)) {
+        fs.unlinkSync(filePath);
+      }
     }
   });
 
   /**
    * Delete fixtures
    */
-  var deleteFixtures = function() {
-    var fs = require("fs");
-    var path = require("path");
-    var fixturePath = path.resolve("./features/extra/fixtures/tmp");
+  const deleteFixtures = function() {
+    const fs = require("fs");
+    const path = require("path");
+    const fixturePath = path.resolve("./features/extra/fixtures/tmp");
     if (fs.existsSync(fixturePath)) {
       fs.readdirSync(fixturePath).forEach(function(file) {
         fs.unlinkSync(path.join(fixturePath, file));
@@ -43,62 +47,39 @@ module.exports = function() {
       fs.rmdirSync(fixturePath);
     }
   };
-  /**
-   * Run bucket cleanup serially.
-   *
-   */
-  var eachSeries = function(list, iter, callback) {
-    var item = list.shift();
-    iter(item, function(err) {
-      if (err) return callback(err);
-      else if (list.length) {
-        eachSeries(list, iter, callback);
-      } else {
-        return callback();
-      }
-    });
-  };
 
   /*
    * Delete objects and then bucket.
    */
-  var cleanBucket = function(bucket, callback) {
-    deleteObjects(bucket, function(err, data) {
-      if (err) callback(err);
-      deleteBucket(bucket, callback);
-    });
+  const cleanBucket = async bucket => {
+    await deleteObjects(bucket);
+    await deleteBucket(bucket);
   };
 
   /*
    * Delete bucket
    */
-  var deleteBucket = function(bucket, callback) {
-    var s3 = new S3({ maxRetries: 100 });
-    s3.deleteBucket({ Bucket: bucket }, function(err, data) {
-      callback(err);
-    });
+  const deleteBucket = async bucket => {
+    const s3 = new S3({ maxRetries: 100 });
+    return s3.deleteBucket({ Bucket: bucket });
   };
 
   /**
    * Delete objects.
    */
-  var deleteObjects = function(bucket, callback) {
-    var s3 = new S3({ maxRetries: 100 });
-    var params = {
+  const deleteObjects = async bucket => {
+    const s3 = new S3({ maxRetries: 100 });
+    const params = {
       Bucket: bucket
     };
 
-    s3.listObjects(params, function(err, data) {
-      if (err) return callback(err);
-      if (data.Contents && data.Contents.length > 0) {
-        params.Delete = { Objects: [] };
-        data.Contents.forEach(function(item) {
-          params.Delete.Objects.push({ Key: item.Key });
-        });
-        s3.deleteObjects(params, callback);
-      } else {
-        callback();
-      }
-    });
+    const data = await s3.listObjects(params);
+    if (data.Contents && data.Contents.length > 0) {
+      params.Delete = { Objects: [] };
+      data.Contents.forEach(function(item) {
+        params.Delete.Objects.push({ Key: item.Key });
+      });
+      await s3.deleteObjects(params);
+    }
   };
-};
+});

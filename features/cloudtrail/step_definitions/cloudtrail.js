@@ -1,16 +1,17 @@
 var { CloudTrail } = require("../../../clients/client-cloudtrail");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@cloudtrail"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@cloudtrail" }, function(scenario, callback) {
     this.service = new CloudTrail({});
     callback();
   });
 
-  this.Given(/^I describe trails$/, function(callback) {
+  Given(/^I describe trails$/, function(callback) {
     this.request(null, "describeTrails", {}, callback);
   });
 
-  this.Given(/^I create a trail with an invalid name$/, function(callback) {
+  Given(/^I create a trail with an invalid name$/, function(callback) {
     this.request(
       null,
       "createTrail",
@@ -19,4 +20,4 @@ module.exports = function() {
       false
     );
   });
-};
+});

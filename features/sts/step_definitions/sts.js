@@ -1,12 +1,13 @@
 var { STS } = require("../../../clients/client-sts");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@sts"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@sts" }, function(scenario, callback) {
     this.service = new STS({});
     callback();
   });
 
-  this.Given(
+  Given(
     /^I get an STS session token with a duration of (\d+) seconds$/,
     function(duration, callback) {
       this.request(
@@ -21,7 +22,7 @@ module.exports = function() {
     }
   );
 
-  this.Given(/^I try to assume role with web identity$/, function(callback) {
+  Given(/^I try to assume role with web identity$/, function(callback) {
     var params = {
       RoleArn: "arn:aws:iam::123456789:role/WebIdentity",
       RoleSessionName: "name",
@@ -30,7 +31,7 @@ module.exports = function() {
     this.request(null, "assumeRoleWithWebIdentity", params, callback, false);
   });
 
-  this.Given(/^I try to assume role with SAML$/, function(callback) {
+  Given(/^I try to assume role with SAML$/, function(callback) {
     var arn = "arn:aws:iam::123456789:role/Role";
     var token = "TOKENVALUETOKENVALUETOKENVALUETOKENVALUE";
     var params = {
@@ -40,4 +41,4 @@ module.exports = function() {
     };
     this.request(null, "assumeRoleWithSAML", params, callback, false);
   });
-};
+});

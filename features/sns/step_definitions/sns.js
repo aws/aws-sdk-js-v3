@@ -1,12 +1,13 @@
 var { SNS } = require("../../../clients/client-sns");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@sns"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@sns" }, function(scenario, callback) {
     this.service = new SNS({});
     callback();
   });
 
-  this.Given(/^I create an SNS topic with name "([^"]*)"$/, function(
+  Given(/^I create an SNS topic with name "([^"]*)"$/, function(
     name,
     callback
   ) {
@@ -24,11 +25,11 @@ module.exports = function() {
     );
   });
 
-  this.Given(/^I list the SNS topics$/, function(callback) {
+  Given(/^I list the SNS topics$/, function(callback) {
     this.request(null, "listTopics", {}, callback);
   });
 
-  this.Then(/^the list should contain the topic ARN$/, function(callback) {
+  Then(/^the list should contain the topic ARN$/, function(callback) {
     var arn = this.topicArn;
     this.assert.contains(this.data.Topics, function(topic) {
       return topic.TopicArn === arn;
@@ -36,7 +37,7 @@ module.exports = function() {
     callback();
   });
 
-  this.Then(/^I delete the SNS topic$/, function(callback) {
+  Then(/^I delete the SNS topic$/, function(callback) {
     this.request(
       null,
       "deleteTopic",
@@ -47,9 +48,7 @@ module.exports = function() {
     );
   });
 
-  this.Given(/^I get SNS topic attributes with an invalid ARN$/, function(
-    callback
-  ) {
+  Given(/^I get SNS topic attributes with an invalid ARN$/, function(callback) {
     this.request(
       null,
       "getTopicAttributes",
@@ -60,4 +59,4 @@ module.exports = function() {
       false
     );
   });
-};
+});

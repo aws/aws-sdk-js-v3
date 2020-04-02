@@ -1,16 +1,17 @@
 var { SES } = require("../../../clients/client-ses");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@ses"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@ses" }, function(scenario, callback) {
     this.service = new SES({});
     callback();
   });
 
-  this.When(/^I check quota$/, function(next) {
+  When(/^I check quota$/, function(next) {
     this.request(null, "getSendQuota", {}, next);
   });
 
-  this.Then(/^the result should include (\S+) "([^"]*)"$/, function(
+  Then(/^the result should include (\S+) "([^"]*)"$/, function(
     type,
     attr,
     next
@@ -20,10 +21,7 @@ module.exports = function() {
     next();
   });
 
-  this.When(/^I ask to verify the email address "([^"]*)"$/, function(
-    email,
-    next
-  ) {
+  When(/^I ask to verify the email address "([^"]*)"$/, function(email, next) {
     this.request(
       null,
       "verifyEmailAddress",
@@ -36,4 +34,4 @@ module.exports = function() {
       }
     );
   });
-};
+});

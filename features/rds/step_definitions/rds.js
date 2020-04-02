@@ -1,31 +1,31 @@
 var jmespath = require("jmespath");
 var { RDS } = require("../../../clients/client-rds");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@rds"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@rds" }, function(scenario, callback) {
     this.service = new RDS({});
     callback();
   });
 
-  this.Given(
-    /^I create a RDS security group with prefix name "([^"]*)"$/,
-    function(prefix, callback) {
-      this.dbGroupName = this.uniqueName(prefix);
-      var params = {
-        DBSecurityGroupDescription: "Description",
-        DBSecurityGroupName: this.dbGroupName
-      };
-      this.request(null, "createDBSecurityGroup", params, callback, false);
-    }
-  );
+  Given(/^I create a RDS security group with prefix name "([^"]*)"$/, function(
+    prefix,
+    callback
+  ) {
+    this.dbGroupName = this.uniqueName(prefix);
+    var params = {
+      DBSecurityGroupDescription: "Description",
+      DBSecurityGroupName: this.dbGroupName
+    };
+    this.request(null, "createDBSecurityGroup", params, callback, false);
+  });
 
-  this.Then(
+  Then(
     /the value at "([^"]*)" should contain "([^"]*)" with "([^"]*)"/,
     function(path, key, value, callback) {
       var member = jmespath.search(this.data, path);
       var containDefault = false;
       member.forEach(function(config) {
-        console.log(config[key], value);
         if (config[key] === value) {
           containDefault = true;
         }
@@ -38,7 +38,7 @@ module.exports = function() {
     }
   );
 
-  this.Given(
+  Given(
     /^I paginate the "([^"]*)" operation asynchronously with limit (\d+)$/,
     function(operation, limit, callback) {
       var maxPages = 3;
@@ -75,10 +75,10 @@ module.exports = function() {
     }
   );
 
-  this.Then(/^I should be able to asynchronously paginate all pages$/, function(
+  Then(/^I should be able to asynchronously paginate all pages$/, function(
     callback
   ) {
     this.assert.equal(this.finishedPagination, true);
     callback();
   });
-};
+});

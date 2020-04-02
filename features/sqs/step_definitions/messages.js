@@ -1,5 +1,7 @@
-module.exports = function() {
-  this.When(/^I send the message "([^"]*)"$/, function(message, callback) {
+var { defineSupportCode } = require("cucumber");
+
+defineSupportCode(function({ Before, Given, Then, When }) {
+  When(/^I send the message "([^"]*)"$/, function(message, callback) {
     this.request(
       null,
       "sendMessage",
@@ -8,12 +10,12 @@ module.exports = function() {
     );
   });
 
-  this.Then(/^the result should include a message ID$/, function(callback) {
+  Then(/^the result should include a message ID$/, function(callback) {
     this.assert.compare(this.data.MessageId.length, ">", 0);
     callback();
   });
 
-  this.Then(/^the result should have an MD5 digest of "([^"]*)"$/, function(
+  Then(/^the result should have an MD5 digest of "([^"]*)"$/, function(
     digest,
     callback
   ) {
@@ -21,7 +23,7 @@ module.exports = function() {
     callback();
   });
 
-  this.Then(
+  Then(
     /^I should eventually be able to receive "([^"]*)" from the queue$/,
     function(message, callback) {
       this.eventually(callback, function(next) {
@@ -33,7 +35,7 @@ module.exports = function() {
     }
   );
 
-  this.When(/^I send the message "([^"]*)" with a binary attribute$/, function(
+  When(/^I send the message "([^"]*)" with a binary attribute$/, function(
     message,
     callback
   ) {
@@ -47,7 +49,7 @@ module.exports = function() {
     this.request(null, "sendMessage", params, callback);
   });
 
-  this.Then(
+  Then(
     /^I should eventually be able to receive "([^"]*)" from the queue with a binary attribute$/,
     function(message, callback) {
       this.eventually(callback, function(next) {
@@ -65,4 +67,4 @@ module.exports = function() {
       });
     }
   );
-};
+});

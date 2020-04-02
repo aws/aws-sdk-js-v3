@@ -1,10 +1,11 @@
 var { SSM } = require("../../../clients/client-ssm");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@ssm"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@ssm" }, function(scenario, callback) {
     this.service = new SSM({});
     callback();
   });
 
   // Add step definitions
-};
+});

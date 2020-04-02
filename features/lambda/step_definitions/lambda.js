@@ -1,10 +1,11 @@
 var { Lambda } = require("../../../clients/client-lambda");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@lambda"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@lambda" }, function(scenario, callback) {
     this.service = new Lambda({});
     callback();
   });
 
   // Add step definitions
-};
+});

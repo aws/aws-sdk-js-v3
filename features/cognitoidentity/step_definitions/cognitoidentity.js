@@ -1,24 +1,25 @@
 var { CognitoIdentity } = require("../../../clients/client-cognito-identity");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@cognitoidentity"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@cognitoidentity" }, function(scenario, callback) {
     this.service = new CognitoIdentity({});
     callback();
   });
 
-  this.Given(
-    /^I create a Cognito identity pool with prefix "([^"]*)"$/,
-    function(prefix, callback) {
-      var expectError = prefix === "" ? false : undefined;
-      var params = {
-        IdentityPoolName: this.uniqueName(prefix, ""),
-        AllowUnauthenticatedIdentities: true
-      };
-      this.request(null, "createIdentityPool", params, callback, expectError);
-    }
-  );
+  Given(/^I create a Cognito identity pool with prefix "([^"]*)"$/, function(
+    prefix,
+    callback
+  ) {
+    var expectError = prefix === "" ? false : undefined;
+    var params = {
+      IdentityPoolName: this.uniqueName(prefix, ""),
+      AllowUnauthenticatedIdentities: true
+    };
+    this.request(null, "createIdentityPool", params, callback, expectError);
+  });
 
-  this.Given(/^I describe the Cognito identity pool ID$/, function(callback) {
+  Given(/^I describe the Cognito identity pool ID$/, function(callback) {
     this.identityPoolId = this.data.IdentityPoolId;
     this.request(
       null,
@@ -28,7 +29,7 @@ module.exports = function() {
     );
   });
 
-  this.Then(/^I delete the Cognito identity pool$/, function(callback) {
+  Then(/^I delete the Cognito identity pool$/, function(callback) {
     this.request(
       null,
       "deleteIdentityPool",
@@ -36,4 +37,4 @@ module.exports = function() {
       callback
     );
   });
-};
+});

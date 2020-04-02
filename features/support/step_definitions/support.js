@@ -1,16 +1,17 @@
 var { Support } = require("../../../clients/client-support");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@support"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@support" }, function(scenario, callback) {
     this.service = new Support({ region: "us-east-1" });
     callback();
   });
 
-  this.Given(/^I describe Support services$/, function(callback) {
+  Given(/^I describe Support services$/, function(callback) {
     this.request(null, "describeServices", {}, callback);
   });
 
-  this.Then(
+  Then(
     /^the Supported services list should contain a service with code "([^"]*)"$/,
     function(code, callback) {
       this.assert.contains(this.data.services, function(svc) {
@@ -20,7 +21,7 @@ module.exports = function() {
     }
   );
 
-  this.Then(
+  Then(
     /^the Supported services list should contain a service with name "([^"]*)"$/,
     function(name, callback) {
       this.assert.contains(this.data.services, function(svc) {
@@ -30,7 +31,7 @@ module.exports = function() {
     }
   );
 
-  this.Given(/^I create a case with an invalid category$/, function(callback) {
+  Given(/^I create a case with an invalid category$/, function(callback) {
     var params = {
       subject: "Subject",
       serviceCode: "INVALID-CODE",
@@ -40,4 +41,4 @@ module.exports = function() {
 
     this.request(null, "createCase", params, callback, false);
   });
-};
+});

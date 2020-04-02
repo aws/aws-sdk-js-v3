@@ -1,10 +1,11 @@
 var { WorkSpaces } = require("../../../clients/client-workspaces");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@workspaces"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@workspaces" }, function(scenario, callback) {
     this.service = new WorkSpaces({});
     callback();
   });
 
   // Add step definitions
-};
+});

@@ -1,12 +1,13 @@
 var { Glacier } = require("../../../clients/client-glacier");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@glacier"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@glacier" }, function(scenario, callback) {
     this.service = new Glacier({});
     callback();
   });
 
-  this.Given(/^I have a Glacier vault$/, function(callback) {
+  Given(/^I have a Glacier vault$/, function(callback) {
     this.vaultName = "aws-sdk-js-integration";
     var params = {
       vaultName: this.vaultName
@@ -14,7 +15,7 @@ module.exports = function() {
     this.request(null, "createVault", params, callback, false);
   });
 
-  this.Given(
+  Given(
     /^I upload a (\d+(?:\.\d+)?)MB Glacier archive to the vault( with (?:invalid|incorrect) checksum)?$/,
     function(size, invalid, callback) {
       var data = Buffer.alloc(parseFloat(size) * 1024 * 1024);
@@ -31,14 +32,14 @@ module.exports = function() {
     }
   );
 
-  this.Then(/^the result should contain the Glacier archive ID$/, function(
+  Then(/^the result should contain the Glacier archive ID$/, function(
     callback
   ) {
     this.archiveId = this.data.archiveId;
     callback();
   });
 
-  this.Then(/^the result should contain the same tree hash checksum$/, function(
+  Then(/^the result should contain the same tree hash checksum$/, function(
     callback
   ) {
     var hash = this.data.$metadata.httpHeaders["x-amz-sha256-tree-hash"];
@@ -46,14 +47,14 @@ module.exports = function() {
     callback();
   });
 
-  this.When(/^I describe the Glacier vault$/, function(callback) {
+  When(/^I describe the Glacier vault$/, function(callback) {
     var params = {
       vaultName: this.vaultName
     };
     this.request(null, "describeVault", params, callback);
   });
 
-  this.Then(/^I delete the Glacier archive$/, function(callback) {
+  Then(/^I delete the Glacier archive$/, function(callback) {
     var params = {
       vaultName: this.vaultName,
       archiveId: this.archiveId
@@ -61,7 +62,7 @@ module.exports = function() {
     this.request(null, "deleteArchive", params, callback);
   });
 
-  this.Then(/^I delete the Glacier vault$/, function(callback) {
+  Then(/^I delete the Glacier vault$/, function(callback) {
     var params = {
       vaultName: this.vaultName
     };
@@ -70,7 +71,7 @@ module.exports = function() {
     });
   });
 
-  this.When(
+  When(
     /^I initiate a Glacier multi-part upload on a (\d+(?:\.\d+)?)MB archive in (\d+)MB chunks$/,
     function(totalSize, partSize, callback) {
       // setup multi-part upload
@@ -90,15 +91,14 @@ module.exports = function() {
     }
   );
 
-  this.Then(
-    /^the result should contain the Glacier multi-part upload ID$/,
-    function(callback) {
-      this.uploadId = this.data.uploadId;
-      callback();
-    }
-  );
+  Then(/^the result should contain the Glacier multi-part upload ID$/, function(
+    callback
+  ) {
+    this.uploadId = this.data.uploadId;
+    callback();
+  });
 
-  this.Then(/^I send the next part$/, function(callback) {
+  Then(/^I send the next part$/, function(callback) {
     var start = this.partCounter;
     var end = Math.min(start + this.partSize, this.uploadData.length);
     var buf = this.uploadData.slice(start, end);
@@ -113,7 +113,7 @@ module.exports = function() {
     this.partCounter += this.partSize;
   });
 
-  this.Then(/^I send the Glacier archive data in chunks$/, function(callback) {
+  Then(/^I send the Glacier archive data in chunks$/, function(callback) {
     var numPartsLeft = Math.ceil(this.uploadData.length / this.partSize);
     for (var i = 0; i < this.uploadData.length; i += this.partSize) {
       var end = Math.min(i + this.partSize, this.uploadData.length);
@@ -131,7 +131,7 @@ module.exports = function() {
     }
   });
 
-  this.Then(/^I complete the Glacier multi-part upload$/, function(callback) {
+  Then(/^I complete the Glacier multi-part upload$/, function(callback) {
     var params = {
       vaultName: this.vaultName,
       uploadId: this.uploadId,
@@ -140,4 +140,4 @@ module.exports = function() {
     };
     this.request(null, "completeMultipartUpload", params, callback);
   });
-};
+});

@@ -1,18 +1,19 @@
 var { IAM } = require("../../../clients/client-iam");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@iam"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@iam" }, function(scenario, callback) {
     this.iam = new IAM({});
     callback();
   });
 
-  this.Given(/^I have an IAM username "([^"]*)"$/, function(name, callback) {
+  Given(/^I have an IAM username "([^"]*)"$/, function(name, callback) {
     this.iamUserArn = "";
     this.iamUser = this.uniqueName(name);
     callback();
   });
 
-  this.Given(/^I create an IAM user with the username$/, function(callback) {
+  Given(/^I create an IAM user with the username$/, function(callback) {
     var world = this;
     var next = function() {
       if (world.data) this.iamUserArn = world.data.User.Arn;
@@ -31,11 +32,11 @@ module.exports = function() {
     );
   });
 
-  this.Given(/^I list the IAM users$/, function(callback) {
+  Given(/^I list the IAM users$/, function(callback) {
     this.request("iam", "listUsers", {}, callback);
   });
 
-  this.Then(/^the list should contain the user$/, function(callback) {
+  Then(/^the list should contain the user$/, function(callback) {
     var name = this.iamUser;
     this.assert.contains(this.data.Users, function(user) {
       return user.UserName === name;
@@ -43,7 +44,7 @@ module.exports = function() {
     callback();
   });
 
-  this.Then(/^I delete the IAM user$/, function(callback) {
+  Then(/^I delete the IAM user$/, function(callback) {
     this.request(
       "iam",
       "deleteUser",
@@ -54,7 +55,7 @@ module.exports = function() {
     );
   });
 
-  this.Given(/^I create an IAM role with name prefix "([^"]*)"$/, function(
+  Given(/^I create an IAM role with name prefix "([^"]*)"$/, function(
     name,
     callback
   ) {
@@ -78,12 +79,12 @@ module.exports = function() {
     this.request("iam", "createRole", params, next);
   });
 
-  this.Then(/^the IAM role should exist$/, function(callback) {
+  Then(/^the IAM role should exist$/, function(callback) {
     this.assert.compare(this.iamRoleArn.length, ">", 0);
     callback();
   });
 
-  this.Then(/^I delete the IAM role$/, function(callback) {
+  Then(/^I delete the IAM role$/, function(callback) {
     this.request(
       "iam",
       "deleteRole",
@@ -93,4 +94,4 @@ module.exports = function() {
       callback
     );
   });
-};
+});

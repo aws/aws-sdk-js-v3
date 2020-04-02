@@ -1,10 +1,11 @@
 var { WAF } = require("../../../clients/client-waf");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@waf"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@waf" }, function(scenario, callback) {
     this.service = new WAF({});
     callback();
   });
 
   // Add step definitions
-};
+});

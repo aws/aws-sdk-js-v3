@@ -1,12 +1,13 @@
 var { CloudSearch } = require("../../../clients/client-cloudsearch");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@cloudsearch"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@cloudsearch" }, function(scenario, callback) {
     this.service = new CloudSearch({});
     callback();
   });
 
-  this.Given(/^I create a domain with name prefix "([^"]*)"$/, function(
+  Given(/^I create a domain with name prefix "([^"]*)"$/, function(
     prefix,
     callback
   ) {
@@ -19,4 +20,4 @@ module.exports = function() {
       false
     );
   });
-};
+});

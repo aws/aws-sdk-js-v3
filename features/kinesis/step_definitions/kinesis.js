@@ -1,12 +1,13 @@
 var { Kinesis } = require("../../../clients/client-kinesis");
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.Before({ tags: ["@kinesis"] }, function(scenario, callback) {
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Before({ tags: "@kinesis" }, function(scenario, callback) {
     this.service = new Kinesis({});
     callback();
   });
 
-  this.Given(/^I try to describe a stream in Kinesis$/, function(callback) {
+  Given(/^I try to describe a stream in Kinesis$/, function(callback) {
     this.request(
       null,
       "describeStream",
@@ -15,4 +16,4 @@ module.exports = function() {
       false
     );
   });
-};
+});

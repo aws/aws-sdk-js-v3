@@ -1,5 +1,7 @@
-module.exports = function() {
-  this.Given(/^I create a queue with the prefix name "([^"]*)"$/, function(
+var { defineSupportCode } = require("cucumber");
+
+defineSupportCode(function({ Before, Given, Then, When }) {
+  Given(/^I create a queue with the prefix name "([^"]*)"$/, function(
     prefix,
     callback
   ) {
@@ -16,7 +18,7 @@ module.exports = function() {
     );
   });
 
-  this.Then(/^list queues should eventually return the queue urls$/, function(
+  Then(/^list queues should eventually return the queue urls$/, function(
     callback
   ) {
     this.eventually(
@@ -39,8 +41,8 @@ module.exports = function() {
     );
   });
 
-  this.Then(/^I delete the SQS queue$/, function(callback) {
+  Then(/^I delete the SQS queue$/, function(callback) {
     var url = this.createdQueues.pop();
     this.request(null, "deleteQueue", { QueueUrl: url }, callback);
   });
-};
+});

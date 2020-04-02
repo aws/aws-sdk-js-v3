@@ -6,18 +6,26 @@ const isType = (obj, type) => {
   if (typeof type === "function") type = util.typeName(type);
   return Object.prototype.toString.call(obj) === "[object " + type + "]";
 };
+var { defineSupportCode } = require("cucumber");
 
-module.exports = function() {
-  this.setDefaultTimeout(100 * 1000);
-  this.World = require("./world.js").World;
+defineSupportCode(function({
+  Before,
+  Given,
+  Then,
+  When,
+  setDefaultTimeout,
+  setWorldConstructor
+}) {
+  setDefaultTimeout(100 * 1000);
+  setWorldConstructor(require("./world.js").World);
 
-  this.Before(function(scenario, callback) {
+  Before(function(scenario, callback) {
     this.params = {};
     callback();
   });
 
   /* Global S3 steps */
-  this.Given(/^I create a shared bucket$/, function(callback) {
+  Given(/^I create a shared bucket$/, function(callback) {
     if (this.sharedBucket) return callback();
 
     var bucket = (this.sharedBucket = this.uniqueName(
@@ -38,7 +46,7 @@ module.exports = function() {
     });
   });
 
-  this.Given(/^I create a bucket$/, function(callback) {
+  Given(/^I create a bucket$/, function(callback) {
     var bucket = (this.bucket = this.uniqueName("aws-sdk-js-integration"));
     this.request("s3", "createBucket", { Bucket: this.bucket }, function(
       err,
@@ -51,25 +59,25 @@ module.exports = function() {
     });
   });
 
-  this.When(/^I delete the bucket$/, function(callback) {
+  When(/^I delete the bucket$/, function(callback) {
     this.request("s3", "deleteBucket", { Bucket: this.bucket }, callback);
   });
 
-  this.Then(/^the bucket should exist$/, function(next) {
+  Then(/^the bucket should exist$/, function(next) {
     this.waitForBucketExists(this.s3, { Bucket: this.bucket }, next);
   });
 
-  this.Then(/^the bucket should not exist$/, function(callback) {
+  Then(/^the bucket should not exist$/, function(callback) {
     this.waitForBucketNotExists(this.s3, { Bucket: this.bucket }, callback);
   });
 
   /* Global error code steps */
 
-  this.Given(/^I run the "([^"]*)" operation$/, function(operation, callback) {
+  Given(/^I run the "([^"]*)" operation$/, function(operation, callback) {
     this.request(null, operation, {}, callback, false);
   });
 
-  this.Given(/^I run the "([^"]*)" operation with params:$/, function(
+  Given(/^I run the "([^"]*)" operation with params:$/, function(
     operation,
     params,
     callback
@@ -77,15 +85,12 @@ module.exports = function() {
     this.request(null, operation, JSON.parse(params), callback, false);
   });
 
-  this.Then(/^the request should be successful$/, function(callback) {
+  Then(/^the request should be successful$/, function(callback) {
     this.assert.ok(!this.error, "Response was not successful");
     callback();
   });
 
-  this.Then(/^the value at "([^"]*)" should be a list$/, function(
-    path,
-    callback
-  ) {
+  Then(/^the value at "([^"]*)" should be a list$/, function(path, callback) {
     var value = jmespath.search(this.data, path);
     this.assert.ok(
       Array.isArray(value),
@@ -94,10 +99,7 @@ module.exports = function() {
     callback();
   });
 
-  this.Then(/^the value at "([^"]*)" should be a number$/, function(
-    path,
-    callback
-  ) {
+  Then(/^the value at "([^"]*)" should be a number$/, function(path, callback) {
     var value = jmespath.search(this.data, path);
     this.assert.ok(
       typeof value === "number",
@@ -106,10 +108,7 @@ module.exports = function() {
     callback();
   });
 
-  this.Then(/^the value at "([^"]*)" should be a string$/, function(
-    path,
-    callback
-  ) {
+  Then(/^the value at "([^"]*)" should be a string$/, function(path, callback) {
     var value = jmespath.search(this.data, path);
     this.assert.ok(
       typeof value === "string",
@@ -118,13 +117,13 @@ module.exports = function() {
     callback();
   });
 
-  this.Then(/^the error code should be "([^"]*)"$/, function(code, callback) {
+  Then(/^the error code should be "([^"]*)"$/, function(code, callback) {
     this.assert.ok(this.error, "Response does not contain an error");
     this.assert.equal(this.error.name, code);
     callback();
   });
 
-  this.Then(/^the error message should (be|equal|match|contain):$/, function(
+  Then(/^the error message should (be|equal|match|contain):$/, function(
     matcher,
     message,
     callback
@@ -136,27 +135,24 @@ module.exports = function() {
     callback();
   });
 
-  this.Then(/^the status code should be (\d+)$/, function(status, callback) {
+  Then(/^the status code should be (\d+)$/, function(status, callback) {
     this.assert.equal(this.data.$metadata.httpStatusCode, parseInt(status));
     callback();
   });
 
-  this.Then(/^the error status code should be (\d+)$/, function(
-    status,
-    callback
-  ) {
+  Then(/^the error status code should be (\d+)$/, function(status, callback) {
     this.assert.equal(this.error.$metadata.httpStatusCode, parseInt(status));
     callback();
   });
 
-  this.Then(/^I should get the error:$/, function(table, callback) {
+  Then(/^I should get the error:$/, function(table, callback) {
     var err = table.hashes()[0];
     this.assert.equal(this.error.name, err.name);
     this.assert.equal(this.error.message, err.message);
     callback();
   });
 
-  this.Given(/^I have a "([^"]*)" service in the "([^"]*)" region$/, function(
+  Given(/^I have a "([^"]*)" service in the "([^"]*)" region$/, function(
     svc,
     region,
     callback
@@ -165,7 +161,7 @@ module.exports = function() {
     callback();
   });
 
-  this.Given(
+  Given(
     /^I paginate the "([^"]*)" operation(?: with limit (\d+))?(?: and max pages (\d+))?$/,
     function(operation, limit, maxPages, callback) {
       limit = parseInt(limit);
@@ -197,33 +193,33 @@ module.exports = function() {
     }
   );
 
-  this.Then(/^I should get more than one page$/, function(callback) {
+  Then(/^I should get more than one page$/, function(callback) {
     this.assert.compare(this.numPages, ">", 1);
     callback();
   });
 
-  this.Then(/^I should get at least one page$/, function(callback) {
+  Then(/^I should get at least one page$/, function(callback) {
     this.assert.compare(this.numPages, ">=", 1);
     callback();
   });
 
-  this.Then(/^I should get (\d+) pages$/, function(numPages, callback) {
+  Then(/^I should get (\d+) pages$/, function(numPages, callback) {
     this.assert.equal(this.numPages, parseInt(numPages));
     callback();
   });
 
-  this.Then(/^I should get numPages - 1 markers$/, function(callback) {
+  Then(/^I should get numPages - 1 markers$/, function(callback) {
     this.assert.equal(this.numMarkers, this.numPages - 1);
     callback();
   });
 
-  this.Then(/^the last page should not contain a marker$/, function(callback) {
+  Then(/^the last page should not contain a marker$/, function(callback) {
     var marker = this.paginationConfig.outputToken;
     this.assert.equal(this.data[marker], null);
     callback();
   });
 
-  this.Then(
+  Then(
     /^the result at (\w+) should contain a property (\w+) with an? (\w+)$/,
     function(wrapper, property, type, callback) {
       if (type === "Array" || type === "Date") {
@@ -235,15 +231,16 @@ module.exports = function() {
     }
   );
 
-  this.Then(
-    /^the result should contain a property (\w+) with an? (\w+)$/,
-    function(property, type, callback) {
-      if (type === "Array" || type === "Date") {
-        this.assert.equal(isType(this.data[property], type), true);
-      } else {
-        this.assert.equal(typeof this.data[property], type);
-      }
-      callback();
+  Then(/^the result should contain a property (\w+) with an? (\w+)$/, function(
+    property,
+    type,
+    callback
+  ) {
+    if (type === "Array" || type === "Date") {
+      this.assert.equal(isType(this.data[property], type), true);
+    } else {
+      this.assert.equal(typeof this.data[property], type);
     }
-  );
-};
+    callback();
+  });
+});
