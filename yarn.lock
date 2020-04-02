@@ -3080,10 +3080,10 @@ cssstyle@^2.0.0:
   dependencies:
     cssom "~0.3.6"
 
-cucumber@1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/cucumber/-/cucumber-1.3.1.tgz#48b1f0a5e7e6aab781140748b5d1098f5385a526"
-  integrity sha1-SLHwpefmqreBFAdItdEJj1OFpSY=
+cucumber@1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/cucumber/-/cucumber-1.3.3.tgz#65afb65f2f93f72dad78df2ab5eacf14609fec2f"
+  integrity sha1-Za+2Xy+T9y2teN8qterPFGCf7C8=
   dependencies:
     camel-case "^3.0.0"
     cli-table "^0.3.1"
@@ -3092,7 +3092,7 @@ cucumber@1.3.1:
     commander "^2.9.0"
     duration "^0.2.0"
     figures "1.7.0"
-    gherkin "^4.0.0"
+    gherkin "^4.1.0"
     glob "^7.0.0"
     is-generator "^1.0.2"
     lodash "^4.0.0"
@@ -4154,7 +4154,7 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-gherkin@^4.0.0:
+gherkin@^4.1.0:
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/gherkin/-/gherkin-4.1.3.tgz#11687db93976df97633125a6b2228a1a4bfdfa24"
   integrity sha1-EWh9uTl235djMSWmsiKKGkv9+iQ=
