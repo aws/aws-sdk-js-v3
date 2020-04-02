@@ -8,7 +8,7 @@ assert.match = function assertMatches(string, matcher, message) {
 };
 
 assert.contains = function assertContains(list, matcher, message) {
-  const found = false;
+  let found = false;
   for (const i in list) {
     if (!list.hasOwnProperty(i)) continue;
     if (typeof matcher === "function") {

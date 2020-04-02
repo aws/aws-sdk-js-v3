@@ -111,8 +111,8 @@ Then(/^I send the next part$/, function(callback) {
 });
 
 Then(/^I send the Glacier archive data in chunks$/, function(callback) {
-  const numPartsLeft = Math.ceil(this.uploadData.length / this.partSize);
-  for (const i = 0; i < this.uploadData.length; i += this.partSize) {
+  let numPartsLeft = Math.ceil(this.uploadData.length / this.partSize);
+  for (let i = 0; i < this.uploadData.length; i += this.partSize) {
     const end = Math.min(i + this.partSize, this.uploadData.length);
     const buf = this.uploadData.slice(i, end);
     const range = "bytes " + i + "-" + (end - 1) + "/*";

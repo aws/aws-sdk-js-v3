@@ -26,7 +26,7 @@ Then(/the value at "([^"]*)" should contain "([^"]*)" with "([^"]*)"/, function(
   callback
 ) {
   const member = jmespath.search(this.data, path);
-  const containDefault = false;
+  let containDefault = false;
   member.forEach(function(config) {
     if (config[key] === value) {
       containDefault = true;
