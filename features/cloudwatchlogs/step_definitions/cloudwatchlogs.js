@@ -1,7 +1,7 @@
 var { CloudWatchLogs } = require("../../../clients/client-cloudwatch-logs");
 
 module.exports = function() {
-  this.Before("@cloudwatchlogs", function(scenario, callback) {
+  this.Before({ tags: ["@cloudwatchlogs"] }, function(scenario, callback) {
     this.service = new CloudWatchLogs({});
     callback();
   });

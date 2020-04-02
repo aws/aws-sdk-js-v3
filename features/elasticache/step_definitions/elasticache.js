@@ -1,7 +1,7 @@
 var { ElastiCache } = require("../../../clients/client-elasticache");
 
 module.exports = function() {
-  this.Before("@elasticache", function(scenario, callback) {
+  this.Before({ tags: ["@elasticache"] }, function(scenario, callback) {
     this.service = new ElastiCache({});
     callback();
   });

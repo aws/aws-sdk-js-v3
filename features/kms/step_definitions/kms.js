@@ -1,7 +1,7 @@
 var { KMS } = require("../../../clients/client-kms");
 
 module.exports = function() {
-  this.Before("@kms", function(scenario, callback) {
+  this.Before({ tags: ["@kms"] }, function(scenario, callback) {
     this.service = new KMS({});
     callback();
   });

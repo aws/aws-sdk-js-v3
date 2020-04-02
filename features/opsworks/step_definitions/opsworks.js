@@ -2,7 +2,7 @@ var { IAM } = require("../../../clients/client-iam");
 var { OpsWorks } = require("../../../clients/client-opsworks");
 
 module.exports = function() {
-  this.Before("@opsworks", function(scenario, callback) {
+  this.Before({ tags: ["@opsworks"] }, function(scenario, callback) {
     this.iam = new IAM({});
     this.service = new OpsWorks({});
     callback();

@@ -1,7 +1,7 @@
 var { DirectConnect } = require("../../../clients/client-direct-connect");
 
 module.exports = function() {
-  this.Before("@directconnect", function(scenario, callback) {
+  this.Before({ tags: ["@directconnect"] }, function(scenario, callback) {
     this.service = new DirectConnect({});
     callback();
   });

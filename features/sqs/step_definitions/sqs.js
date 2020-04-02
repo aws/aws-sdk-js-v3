@@ -1,7 +1,7 @@
 var { SQS } = require("../../../clients/client-sqs");
 
 module.exports = function() {
-  this.Before("@sqs", function(scenario, callback) {
+  this.Before({ tags: ["@sqs"] }, function(scenario, callback) {
     this.service = new SQS({
       region: "us-east-1"
     });

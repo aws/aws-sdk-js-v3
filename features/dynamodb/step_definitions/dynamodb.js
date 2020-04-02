@@ -62,7 +62,7 @@ function waitForTableNotExists(world, callback) {
 }
 
 module.exports = function() {
-  this.Before("@dynamodb", function(scenario, next) {
+  this.Before({ tags: ["@dynamodb"] }, function(scenario, next) {
     this.service = new DynamoDB({
       maxRetries: 2
     });

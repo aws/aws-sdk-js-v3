@@ -1,7 +1,7 @@
 var { Glacier } = require("../../../clients/client-glacier");
 
 module.exports = function() {
-  this.Before("@glacier", function(scenario, callback) {
+  this.Before({ tags: ["@glacier"] }, function(scenario, callback) {
     this.service = new Glacier({});
     callback();
   });

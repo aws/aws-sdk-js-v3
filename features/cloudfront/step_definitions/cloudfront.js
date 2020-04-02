@@ -52,7 +52,7 @@ module.exports = function() {
     Enabled: false
   };
 
-  this.Before("@cloudfront", function(scenario, callback) {
+  this.Before({ tags: ["@cloudfront"] }, function(scenario, callback) {
     this.service = new CloudFront({});
     this.cfCreateParams = createParams;
     callback();

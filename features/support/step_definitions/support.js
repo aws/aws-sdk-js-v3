@@ -1,7 +1,7 @@
 var { Support } = require("../../../clients/client-support");
 
 module.exports = function() {
-  this.Before("@support", function(scenario, callback) {
+  this.Before({ tags: ["@support"] }, function(scenario, callback) {
     this.service = new Support({ region: "us-east-1" });
     callback();
   });

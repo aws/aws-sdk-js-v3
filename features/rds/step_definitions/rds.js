@@ -2,7 +2,7 @@ var jmespath = require("jmespath");
 var { RDS } = require("../../../clients/client-rds");
 
 module.exports = function() {
-  this.Before("@rds", function(scenario, callback) {
+  this.Before({ tags: ["@rds"] }, function(scenario, callback) {
     this.service = new RDS({});
     callback();
   });

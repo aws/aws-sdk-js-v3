@@ -39,7 +39,7 @@ const waitForVolumeAvailable = (ec2, volumeId, callback) => {
 };
 
 module.exports = function() {
-  this.Before("@ec2", function(scenario, callback) {
+  this.Before({ tags: ["@ec2"] }, function(scenario, callback) {
     this.service = new EC2({});
     callback();
   });
