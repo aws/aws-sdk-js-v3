@@ -8,6 +8,7 @@ const isType = (obj, type) => {
 };
 
 module.exports = function() {
+  this.setDefaultTimeout(60 * 1000);
   this.World = require("./world.js").World;
 
   this.Before(function(scenario, callback) {
