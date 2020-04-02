@@ -9,12 +9,12 @@ assert.match = function assertMatches(string, matcher, message) {
 
 assert.contains = function assertContains(list, matcher, message) {
   let found = false;
-  for (const i in list) {
-    if (!list.hasOwnProperty(i)) continue;
+  for (const itemIndex in list) {
+    if (!list.hasOwnProperty(itemIndex)) continue;
     if (typeof matcher === "function") {
-      found = matcher(list[i]);
+      found = matcher(list[itemIndex]);
     } else {
-      found = list[i] === matcher;
+      found = list[itemIndex] === matcher;
     }
     if (found) return;
   }

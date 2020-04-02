@@ -18,9 +18,9 @@ Then(/^list queues should eventually return the queue urls$/, function(
     callback,
     function(next) {
       next.condition = function() {
-        const matchingCount = 0;
-        for (const i = 0; i < this.createdQueues.length; ++i) {
-          for (const j = 0; j < this.data.QueueUrls.length; ++j) {
+        let matchingCount = 0;
+        for (let i = 0; i < this.createdQueues.length; ++i) {
+          for (let j = 0; j < this.data.QueueUrls.length; ++j) {
             if (this.createdQueues[i] == this.data.QueueUrls[j]) {
               matchingCount++;
             }

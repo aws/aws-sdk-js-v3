@@ -92,7 +92,7 @@ function createTable(world, callback) {
 Given(/^I have a table$/, function(callback) {
   const world = this;
   this.service.listTables({}, function(err, data) {
-    for (const i = 0; i < data.TableNames.length; i++) {
+    for (let i = 0; i < data.TableNames.length; i++) {
       if (data.TableNames[i] == world.tableName) {
         callback();
         return;
@@ -106,7 +106,7 @@ When(/^I create a table$/, function(callback) {
   const world = this;
   this.tableName = this.uniqueName("aws-sdk-js-integration");
   this.service.listTables({}, function(err, data) {
-    for (const i = 0; i < data.TableNames.length; i++) {
+    for (let i = 0; i < data.TableNames.length; i++) {
       if (data.TableNames[i] == world.tableName) {
         callback();
         return;
