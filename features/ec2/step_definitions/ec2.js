@@ -60,10 +60,7 @@ Then(/^the EC2 endpoint for "([^"]*)" should be "([^"]*)"$/, function(
   callback();
 });
 
-Given(/^I describe the EC2 instance "([^"]*)"$/, function(
-  instanceId,
-  callback
-) {
+Given("I describe the EC2 instance {string}", function(instanceId, callback) {
   this.request(
     null,
     "describeInstances",

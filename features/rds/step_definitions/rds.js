@@ -7,7 +7,7 @@ Before({ tags: "@rds" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I create a RDS security group with prefix name "([^"]*)"$/, function(
+Given("I create a RDS security group with prefix name {string}", function(
   prefix,
   callback
 ) {

@@ -58,22 +58,22 @@ Before({ tags: "@cloudfront" }, function(scenario, callback) {
   callback();
 });
 
-Given(
-  /^I create a CloudFront distribution with name prefix "([^"]*)"$/,
-  function(prefix, callback) {
-    this.cfName = this.uniqueName(prefix);
-    this.cfCreateParams.CallerReference = this.cfName;
-    this.cfCreateParams.Origins.Items[0].Id =
-      this.cfName === "" ? "origin" : "InvalidOrigin";
-    this.request(
-      null,
-      "createDistribution",
-      { DistributionConfig: this.cfCreateParams },
-      callback,
-      false
-    );
-  }
-);
+Given("I create a CloudFront distribution with name prefix {string}", function(
+  prefix,
+  callback
+) {
+  this.cfName = this.uniqueName(prefix);
+  this.cfCreateParams.CallerReference = this.cfName;
+  this.cfCreateParams.Origins.Items[0].Id =
+    this.cfName === "" ? "origin" : "InvalidOrigin";
+  this.request(
+    null,
+    "createDistribution",
+    { DistributionConfig: this.cfCreateParams },
+    callback,
+    false
+  );
+});
 
 Given(/^I list CloudFront distributions$/, function(callback) {
   this.request(null, "listDistributions", {}, callback);

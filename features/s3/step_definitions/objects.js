@@ -33,11 +33,7 @@ function getSignedUrl(client, command, params, callback) {
     });
 }
 
-When(/^I put "([^"]*)" to the(?: invalid)? key "([^"]*)"$/, function(
-  data,
-  key,
-  next
-) {
+When("I put {string} to the key {string}", function(data, key, next) {
   const params = {
     Bucket: this.sharedBucket,
     Key: key,
@@ -97,7 +93,7 @@ When(
   }
 );
 
-Then(/^the object "([^"]*)" should contain "([^"]*)"$/, function(
+Then("the object {string} should contain {string}", function(
   key,
   contents,
   next

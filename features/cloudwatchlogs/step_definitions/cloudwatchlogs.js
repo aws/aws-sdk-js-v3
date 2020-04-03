@@ -6,7 +6,7 @@ Before({ tags: "@cloudwatchlogs" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I create a CloudWatch logGroup with prefix "([^"]*)"$/, function(
+Given("I create a CloudWatch logGroup with prefix {string}", function(
   prefix,
   callback
 ) {

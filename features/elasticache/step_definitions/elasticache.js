@@ -6,7 +6,7 @@ Before({ tags: "@elasticache" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I create a cache parameter group with name prefix "([^"]*)"$/, function(
+Given("I create a cache parameter group with name prefix {string}", function(
   prefix,
   callback
 ) {

@@ -9,7 +9,7 @@ Before({ tags: "@elasticbeanstalk" }, function(scenario, callback) {
 });
 
 Given(
-  /^I create an Elastic Beanstalk application with name prefix "([^"]*)"$/,
+  "I create an Elastic Beanstalk application with name prefix {string}",
   function(prefix, callback) {
     this.appName = this.uniqueName(prefix);
     const params = { ApplicationName: this.appName };
@@ -18,7 +18,7 @@ Given(
 );
 
 Given(
-  /^I create an Elastic Beanstalk application version with label "([^"]*)"$/,
+  "I create an Elastic Beanstalk application version with label {string}",
   function(label, callback) {
     this.appVersion = label;
     const params = {

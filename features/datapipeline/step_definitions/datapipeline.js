@@ -6,7 +6,7 @@ Before({ tags: "@datapipeline" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I create a Data Pipeline with name prefix "([^"]*)"$/, function(
+Given("I create a Data Pipeline with name prefix {string}", function(
   prefix,
   callback
 ) {
