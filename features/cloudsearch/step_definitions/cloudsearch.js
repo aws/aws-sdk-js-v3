@@ -6,7 +6,7 @@ Before({ tags: "@cloudsearch" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I create a domain with name prefix "([^"]*)"$/, function(
+Given("I create a domain with name prefix {string}", function(
   prefix,
   callback
 ) {

@@ -149,7 +149,7 @@ Feature: Working with Objects in S3
 
   @error
   Scenario: Error handling
-    Given I put "data" to the invalid key ""
+    Given I put "data" to the key ""
     Then the error message should be:
     """
     Empty value provided for input HTTP label: Key.

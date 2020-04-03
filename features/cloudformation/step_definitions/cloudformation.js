@@ -6,7 +6,7 @@ Before({ tags: "@cloudformation" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I create a CloudFormation stack with name prefix "([^"]*)"$/, function(
+Given("I create a CloudFormation stack with name prefix {string}", function(
   prefix,
   callback
 ) {

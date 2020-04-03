@@ -6,7 +6,7 @@ Before({ tags: "@autoscaling" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I create a launch configuration with name "([^"]*)"$/, function(
+Given("I create a launch configuration with name {string}", function(
   name,
   callback
 ) {

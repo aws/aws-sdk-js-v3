@@ -7,7 +7,7 @@ Before({ tags: "@redshift" }, function(scenario, callback) {
 });
 
 Given(
-  /^I create a Redshift cluster parameter group with prefix name "([^"]*)"$/,
+  "I create a Redshift cluster parameter group with prefix name {string}",
   function(prefix, callback) {
     this.parameterGroupName = this.uniqueName(prefix);
     const params = {

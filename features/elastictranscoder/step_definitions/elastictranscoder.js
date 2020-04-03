@@ -13,7 +13,7 @@ Before({ tags: "@elastictranscoder" }, function(scenario, callback) {
 });
 
 Given(
-  /^I create an Elastic Transcoder pipeline with name prefix "([^"]*)"$/,
+  "I create an Elastic Transcoder pipeline with name prefix {string}",
   function(prefix, callback) {
     this.pipelineName = this.uniqueName(prefix);
     const params = {

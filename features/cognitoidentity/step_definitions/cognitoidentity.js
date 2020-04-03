@@ -6,7 +6,7 @@ Before({ tags: "@cognitoidentity" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I create a Cognito identity pool with prefix "([^"]*)"$/, function(
+Given("I create a Cognito identity pool with prefix {string}", function(
   prefix,
   callback
 ) {

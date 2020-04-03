@@ -6,8 +6,7 @@ Before({ tags: "@cloudwatch" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I create a CloudWatch alarm with (prefix|name) "([^"]*)"$/, function(
-  prefix,
+Given("I create a CloudWatch alarm with prefix {string}", function(
   name,
   callback
 ) {
@@ -23,17 +22,34 @@ Given(/^I create a CloudWatch alarm with (prefix|name) "([^"]*)"$/, function(
     Threshold: 50.0
   };
 
-  if (prefix === "prefix") {
-    this.cloudWatchAlarm.AlarmName += "-" + timestamp;
-  }
+  this.cloudWatchAlarm.AlarmName += "-" + timestamp;
 
   this.request(
     null,
     "putMetricAlarm",
     this.cloudWatchAlarm,
     callback,
-    prefix === "name" ? false : undefined
+    undefined
   );
+});
+
+Given("I create a CloudWatch alarm with name {string}", function(
+  name,
+  callback
+) {
+  const timestamp = new Date().getTime();
+  this.cloudWatchAlarm = {
+    AlarmName: name,
+    MetricName: "aws-sdk-js-metric-" + timestamp,
+    Namespace: "aws-sdk-js-namespace" + timestamp,
+    ComparisonOperator: "GreaterThanThreshold",
+    EvaluationPeriods: 5,
+    Period: 60,
+    Statistic: "Average",
+    Threshold: 50.0
+  };
+
+  this.request(null, "putMetricAlarm", this.cloudWatchAlarm, callback, false);
 });
 
 Given(/^I list the CloudWatch alarms$/, function(callback) {
