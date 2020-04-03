@@ -22,7 +22,7 @@ export class MockEventMessageSource extends Readable {
     const self = this;
     if (this.readCount === this.data.length) {
       if (this.throwError) {
-        process.nextTick(function() {
+        process.nextTick(function () {
           self.emit("error", new Error("Throwing an error!"));
         });
         return;

@@ -28,11 +28,8 @@ export const fileStreamHasher: StreamHasher<Readable> = function fileStreamHashe
       reject(err);
     });
     hashCalculator.on("error", reject);
-    hashCalculator.on("finish", function(this: HashCalculator) {
-      hash
-        .digest()
-        .then(resolve)
-        .catch(reject);
+    hashCalculator.on("finish", function (this: HashCalculator) {
+      hash.digest().then(resolve).catch(reject);
     });
   });
 };

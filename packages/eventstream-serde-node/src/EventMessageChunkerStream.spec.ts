@@ -23,7 +23,7 @@ describe("EventMessageChunkerStream", () => {
     chunkerStream.on("data", msg => {
       messages.push(msg);
     });
-    chunkerStream.on("end", function() {
+    chunkerStream.on("end", function () {
       expect(messages.length).toBe(3);
       done();
     });
@@ -46,7 +46,7 @@ describe("EventMessageChunkerStream", () => {
     chunkerStream.on("data", msg => {
       messages.push(msg);
     });
-    chunkerStream.on("end", function() {
+    chunkerStream.on("end", function () {
       expect(messages.length).toBe(4);
       for (let i = 0; i < mockMessages.length; i++) {
         expect(messages[i].toString("base64")).toEqual(
@@ -75,7 +75,7 @@ describe("EventMessageChunkerStream", () => {
     chunkerStream.on("data", msg => {
       messages.push(msg);
     });
-    chunkerStream.on("end", function() {
+    chunkerStream.on("end", function () {
       expect(messages.length).toBe(3);
       done();
     });
@@ -97,7 +97,7 @@ describe("EventMessageChunkerStream", () => {
     chunkerStream.on("data", msg => {
       messages.push(msg);
     });
-    chunkerStream.on("end", function() {
+    chunkerStream.on("end", function () {
       expect(messages.length).toBe(3);
       done();
     });
@@ -119,7 +119,7 @@ describe("EventMessageChunkerStream", () => {
     chunkerStream.on("data", msg => {
       messages.push(msg);
     });
-    chunkerStream.on("end", function() {
+    chunkerStream.on("end", function () {
       expect(messages.length).toBe(3);
       done();
     });

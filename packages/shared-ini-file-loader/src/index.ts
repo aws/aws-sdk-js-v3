@@ -51,9 +51,7 @@ export function loadSharedConfigFiles(
       .then(parseIni)
       .then(normalizeConfigFile)
       .catch(swallowError),
-    slurpFile(filepath)
-      .then(parseIni)
-      .catch(swallowError)
+    slurpFile(filepath).then(parseIni).catch(swallowError)
   ]).then((parsedFiles: Array<ParsedIniData>) => {
     const [configFile, credentialsFile] = parsedFiles;
     return {

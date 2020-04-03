@@ -14,7 +14,7 @@ export const streamCollector: StreamCollector = (
       reject(err);
     });
     collector.on("error", reject);
-    collector.on("finish", function(this: Collector) {
+    collector.on("finish", function (this: Collector) {
       const bytes = new Uint8Array(Buffer.concat(this.bufferedBytes));
       resolve(bytes);
     });

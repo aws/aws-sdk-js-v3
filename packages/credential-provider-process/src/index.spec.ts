@@ -32,10 +32,10 @@ jest.mock("fs", () => {
     callback(new Error("ENOENT: no such file or directory"));
   }
 
-  fs.__addFsMatcher = function(toMatch: string, toReturn: string): void {
+  fs.__addFsMatcher = function (toMatch: string, toReturn: string): void {
     matchers.set(toMatch, toReturn);
   };
-  fs.__clearFsMatchers = function(): void {
+  fs.__clearFsMatchers = function (): void {
     matchers.clear();
   };
   fs.readFile = readFile;
@@ -86,13 +86,13 @@ jest.mock("child_process", () => {
     callback(new Error("ENOENT: no such file or directory"));
   }
 
-  child_process.__addChildProcessMatcher = function(
+  child_process.__addChildProcessMatcher = function (
     command: string,
     json: string
   ): void {
     matchers.set(command, json);
   };
-  child_process.__clearChildProcessMatchers = function(): void {
+  child_process.__clearChildProcessMatchers = function (): void {
     matchers.clear();
   };
 

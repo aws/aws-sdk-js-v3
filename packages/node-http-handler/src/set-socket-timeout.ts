@@ -5,7 +5,7 @@ export function setSocketTimeout(
   reject: (err: Error) => void,
   timeoutInMs: number = 0
 ) {
-  request.setTimeout(timeoutInMs, function(this: ClientRequest) {
+  request.setTimeout(timeoutInMs, function (this: ClientRequest) {
     // abort the request to destroy it
     this.abort();
     const timeoutError = new Error(
