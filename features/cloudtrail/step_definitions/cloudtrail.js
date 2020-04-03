@@ -6,11 +6,11 @@ Before({ tags: "@cloudtrail" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I describe trails$/, function(callback) {
+Given("I describe trails", function(callback) {
   this.request(null, "describeTrails", {}, callback);
 });
 
-Given(/^I create a trail with an invalid name$/, function(callback) {
+Given("I create a trail with an invalid name", function(callback) {
   this.request(
     null,
     "createTrail",

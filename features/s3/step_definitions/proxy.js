@@ -15,7 +15,7 @@ Before({ tags: "@s3 or @proxy" }, function(scenario, callback) {
   callback();
 });
 
-Then(/^I teardown the local proxy server$/, function(callback) {
+Then("I teardown the local proxy server", function(callback) {
   this.service = this.s3 = new S3();
   this.proxyServer.close(callback);
 });

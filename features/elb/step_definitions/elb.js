@@ -8,7 +8,7 @@ Before({ tags: "@elb" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I create a load balancer with name prefix "([^"]*)"$/, function(
+Given("I create a load balancer with name prefix {string}", function(
   prefix,
   callback
 ) {
@@ -28,7 +28,7 @@ Given(/^I create a load balancer with name prefix "([^"]*)"$/, function(
   this.request(null, "createLoadBalancer", params, callback, false);
 });
 
-Given(/^I describe load balancers with the load balancer name$/, function(
+Given("I describe load balancers with the load balancer name", function(
   callback
 ) {
   const params = {
@@ -37,19 +37,19 @@ Given(/^I describe load balancers with the load balancer name$/, function(
   this.request(null, "describeLoadBalancers", params, callback);
 });
 
-Then(/^the load balancer should be in the list$/, function(callback) {
+Then("the load balancer should be in the list", function(callback) {
   const name = this.data.LoadBalancerDescriptions[0].LoadBalancerName;
   this.assert.equal(name, this.loadBalancerName);
   callback();
 });
 
-Then(/^I delete the load balancer$/, function(callback) {
+Then("I delete the load balancer", function(callback) {
   const params = {
     LoadBalancerName: this.loadBalancerName
   };
   this.request(null, "deleteLoadBalancer", params, callback);
 });
 
-Given(/^I try to create a load balancer with no name$/, function(callback) {
+Given("I try to create a load balancer with no name", function(callback) {
   this.request(null, "createLoadBalancer", {}, callback);
 });

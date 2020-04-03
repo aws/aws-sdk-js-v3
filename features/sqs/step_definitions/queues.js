@@ -1,6 +1,6 @@
 const { Given, Then } = require("cucumber");
 
-Given(/^I create a queue with the prefix name "([^"]*)"$/, function(
+Given("I create a queue with the prefix name {string}", function(
   prefix,
   callback
 ) {
@@ -11,9 +11,7 @@ Given(/^I create a queue with the prefix name "([^"]*)"$/, function(
   });
 });
 
-Then(/^list queues should eventually return the queue urls$/, function(
-  callback
-) {
+Then("list queues should eventually return the queue urls", function(callback) {
   this.eventually(
     callback,
     function(next) {
@@ -34,7 +32,7 @@ Then(/^list queues should eventually return the queue urls$/, function(
   );
 });
 
-Then(/^I delete the SQS queue$/, function(callback) {
+Then("I delete the SQS queue", function(callback) {
   const url = this.createdQueues.pop();
   this.request(null, "deleteQueue", { QueueUrl: url }, callback);
 });

@@ -113,7 +113,7 @@ Feature: Working with Objects in S3
 
   @presigned
   Scenario: Putting to a pre-signed URL
-    Given I get a pre-signed URL to PUT the key "presigned"
+    Given I get a pre-signed URL to PUT the key "presigned" with data ""
     And I access the URL via HTTP PUT with data "PRESIGNED BODY CONTENTS"
     Then I get a pre-signed URL to GET the key "presigned"
     And I access the URL via HTTP GET

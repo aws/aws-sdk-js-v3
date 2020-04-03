@@ -44,12 +44,12 @@ Before({ tags: "@ec2" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I describe EC2 regions "([^"]*)"$/, function(regions, callback) {
+Given("I describe EC2 regions {string}", function(regions, callback) {
   regions = regions.split(/\s*,\s*/);
   this.request(null, "describeRegions", { RegionNames: regions }, callback);
 });
 
-Then(/^the EC2 endpoint for "([^"]*)" should be "([^"]*)"$/, function(
+Then("the EC2 endpoint for {string} should be {string}", function(
   region,
   endpoint,
   callback
@@ -70,7 +70,7 @@ Given("I describe the EC2 instance {string}", function(instanceId, callback) {
   );
 });
 
-Given(/^I attempt to copy an encrypted snapshot across regions$/, function(
+Given("I attempt to copy an encrypted snapshot across regions", function(
   callback
 ) {
   const self = this;
@@ -128,7 +128,7 @@ Given(/^I attempt to copy an encrypted snapshot across regions$/, function(
   });
 });
 
-Then(/^the copy snapshot attempt should be successful$/, function(callback) {
+Then("the copy snapshot attempt should be successful", function(callback) {
   this.assert.equal(this.success, true);
   callback();
 });

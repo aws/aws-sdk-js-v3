@@ -6,7 +6,7 @@ Before({ tags: "@sns" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I create an SNS topic with name "([^"]*)"$/, function(name, callback) {
+Given("I create an SNS topic with name {string}", function(name, callback) {
   const world = this;
   this.request(
     null,
@@ -21,11 +21,11 @@ Given(/^I create an SNS topic with name "([^"]*)"$/, function(name, callback) {
   );
 });
 
-Given(/^I list the SNS topics$/, function(callback) {
+Given("I list the SNS topics", function(callback) {
   this.request(null, "listTopics", {}, callback);
 });
 
-Then(/^the list should contain the topic ARN$/, function(callback) {
+Then("the list should contain the topic ARN", function(callback) {
   const arn = this.topicArn;
   this.assert.contains(this.data.Topics, function(topic) {
     return topic.TopicArn === arn;
@@ -33,7 +33,7 @@ Then(/^the list should contain the topic ARN$/, function(callback) {
   callback();
 });
 
-Then(/^I delete the SNS topic$/, function(callback) {
+Then("I delete the SNS topic", function(callback) {
   this.request(
     null,
     "deleteTopic",
@@ -44,7 +44,7 @@ Then(/^I delete the SNS topic$/, function(callback) {
   );
 });
 
-Given(/^I get SNS topic attributes with an invalid ARN$/, function(callback) {
+Given("I get SNS topic attributes with an invalid ARN", function(callback) {
   this.request(
     null,
     "getTopicAttributes",

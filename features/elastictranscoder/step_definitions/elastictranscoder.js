@@ -39,11 +39,11 @@ Given(
   }
 );
 
-Given(/^I list pipelines$/, function(callback) {
+Given("I list pipelines", function(callback) {
   this.request(null, "listPipelines", {}, callback);
 });
 
-Then(/^the list should contain the pipeline$/, function(callback) {
+Then("the list should contain the pipeline", function(callback) {
   const id = this.pipelineId;
   this.assert.contains(this.data.Pipelines, function(pipeline) {
     return pipeline.Id === id;
@@ -51,7 +51,7 @@ Then(/^the list should contain the pipeline$/, function(callback) {
   callback();
 });
 
-Then(/^I pause the pipeline$/, function(callback) {
+Then("I pause the pipeline", function(callback) {
   this.request(
     null,
     "updatePipelineStatus",
@@ -63,7 +63,7 @@ Then(/^I pause the pipeline$/, function(callback) {
   );
 });
 
-Then(/^I read the pipeline$/, function(callback) {
+Then("I read the pipeline", function(callback) {
   this.request(
     null,
     "readPipeline",
@@ -74,12 +74,12 @@ Then(/^I read the pipeline$/, function(callback) {
   );
 });
 
-Then(/^the pipeline status should be "([^"]*)"$/, function(status, callback) {
+Then("the pipeline status should be {string}", function(status, callback) {
   this.assert.equal(this.data.Pipeline.Status, status);
   callback();
 });
 
-Then(/^I delete the pipeline$/, function(callback) {
+Then("I delete the pipeline", function(callback) {
   this.request(
     null,
     "deletePipeline",
