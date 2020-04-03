@@ -78,7 +78,7 @@ When("I put (?:a |an )(empty|small|large) file to the key {string}", function(
   this.request("s3", "putObject", params, next);
 });
 
-When("I put {string} to the key {string} with ContentLength (d+)", function(
+When("I put {string} to the key {string} with ContentLength {int}", function(
   contents,
   key,
   contentLength,
@@ -107,7 +107,7 @@ Then("the object {string} should contain {string}", function(
   });
 });
 
-Then("the HTTP response should have a content length of (d+)", function(
+Then("the HTTP response should have a content length of {int}", function(
   contentLength,
   next
 ) {
@@ -197,7 +197,7 @@ Then("the streamed data should contain {string}", function(data, callback) {
   callback();
 });
 
-Then("the streamed data content length should equal (d+)", function(
+Then("the streamed data content length should equal {int}", function(
   length,
   callback
 ) {
@@ -380,7 +380,7 @@ When(
   }
 );
 
-Then("more than (d+) {string} event should fire", function(
+Then("more than {int} {string} event should fire", function(
   numEvents,
   eventName,
   callback
@@ -389,7 +389,7 @@ Then("more than (d+) {string} event should fire", function(
   callback();
 });
 
-Then("the {string} value of the progress event should equal (d+)MB", function(
+Then("the {string} value of the progress event should equal {int}MB", function(
   prop,
   mb,
   callback
@@ -399,7 +399,7 @@ Then("the {string} value of the progress event should equal (d+)MB", function(
 });
 
 Then(
-  "the {string} value of the first progress event should be greater than (d+) bytes",
+  "the {string} value of the first progress event should be greater than {int} bytes",
   function(prop, bytes, callback) {
     this.assert.compare(this.progress[0][prop], ">", bytes);
     callback();

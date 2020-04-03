@@ -6,7 +6,7 @@ Before({ tags: "@sts" }, function(scenario, callback) {
   callback();
 });
 
-Given("I get an STS session token with a duration of (d+) seconds", function(
+Given("I get an STS session token with a duration of {int} seconds", function(
   duration,
   callback
 ) {

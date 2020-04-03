@@ -40,7 +40,7 @@ Then(/the value at {string} should contain {string} with {string}/, function(
 });
 
 Given(
-  "I paginate the {string} operation asynchronously with limit (d+)",
+  "I paginate the {string} operation asynchronously with limit {int}",
   function(operation, limit, callback) {
     const maxPages = 3;
     limit = parseInt(limit);

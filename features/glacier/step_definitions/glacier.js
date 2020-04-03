@@ -69,7 +69,7 @@ Then("I delete the Glacier vault", function(callback) {
 });
 
 When(
-  "I initiate a Glacier multi-part upload on a (d+(?:.d+)?)MB archive in (d+)MB chunks",
+  "I initiate a Glacier multi-part upload on a (d+(?:.d+)?)MB archive in {int}MB chunks",
   function(totalSize, partSize, callback) {
     // setup multi-part upload
     this.uploadData = Buffer.alloc(totalSize * 1024 * 1024);

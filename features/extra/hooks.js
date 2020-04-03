@@ -131,12 +131,12 @@ Then("the error message should {word}:", function(matcher, message, callback) {
   callback();
 });
 
-Then("the status code should be (d+)", function(status, callback) {
+Then("the status code should be {int}", function(status, callback) {
   this.assert.equal(this.data.$metadata.httpStatusCode, parseInt(status));
   callback();
 });
 
-Then("the error status code should be (d+)", function(status, callback) {
+Then("the error status code should be {int}", function(status, callback) {
   this.assert.equal(this.error.$metadata.httpStatusCode, parseInt(status));
   callback();
 });
@@ -158,7 +158,7 @@ Given("I have a {string} service in the {string} region", function(
 });
 
 Given(
-  "I paginate the {string} operation(?: with limit (d+))?(?: and max pages (d+))?",
+  "I paginate the {string} operation(?: with limit {int})?(?: and max pages {int})?",
   function(operation, limit, maxPages, callback) {
     limit = parseInt(limit);
     if (maxPages) maxPages = parseInt(maxPages);
@@ -199,7 +199,7 @@ Then("I should get at least one page", function(callback) {
   callback();
 });
 
-Then("I should get (d+) pages", function(numPages, callback) {
+Then("I should get {int} pages", function(numPages, callback) {
   this.assert.equal(this.numPages, parseInt(numPages));
   callback();
 });

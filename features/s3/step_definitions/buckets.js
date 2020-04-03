@@ -103,7 +103,7 @@ When("I get the transition lifecycle configuration on the bucket", function(
 });
 
 Then(
-  "the lifecycle configuration should have transition days of (d+)",
+  "the lifecycle configuration should have transition days of {int}",
   function(days, callback) {
     this.assert.equal(this.data.Rules[0].Transitions[0].Days, 0);
     callback();
@@ -179,7 +179,7 @@ Then("the ExposeHeader value should equal {string}", function(value, callback) {
   callback();
 });
 
-Then("the MaxAgeSeconds value should equal (d+)", function(value, callback) {
+Then("the MaxAgeSeconds value should equal {int}", function(value, callback) {
   this.assert.equal(this.data.CORSRules[0].MaxAgeSeconds, parseInt(value));
   callback();
 });
