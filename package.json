@@ -24,6 +24,7 @@
     "type": "git",
     "url": "git@github.com:aws/aws-sdk-js-v3.git"
   },
+  "prettier": "@aws-sdk/prettier-config",
   "author": {
     "name": "Amazon Web Services",
     "url": "http://aws.amazon.com"

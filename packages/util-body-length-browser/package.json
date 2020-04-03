@@ -9,6 +9,7 @@
   },
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
+  "prettier": "@aws-sdk/prettier-config",
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"

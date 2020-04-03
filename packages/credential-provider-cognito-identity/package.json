@@ -12,6 +12,7 @@
   "module": "./dist/es/index.js",
   "types": "./dist/cjs/index.d.ts",
   "sideEffects": false,
+  "prettier": "@aws-sdk/prettier-config",
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"

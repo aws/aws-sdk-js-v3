@@ -12,6 +12,7 @@
     "pretest": "tsc",
     "test": "exit 0"
   },
+  "prettier": "@aws-sdk/prettier-config",
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "email": "",
