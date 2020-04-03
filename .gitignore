@@ -19,6 +19,8 @@ jspm_packages
 *.tgz
 .yarn-integrity
 
+.vscode/launch.json
+
 lerna-debug.log
 package-lock.json
 
@@ -30,3 +32,7 @@ codegen/sdk-codegen/smithy-build.json
 .gradle
 */out/
 */*/out/
+
+protocol_tests/*/coverage
+protocol_tests/*/dist
+protocol_tests/*/types
