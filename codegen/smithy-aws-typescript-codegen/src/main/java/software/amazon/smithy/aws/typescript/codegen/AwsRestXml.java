@@ -25,10 +25,10 @@ import software.amazon.smithy.model.knowledge.HttpBinding.Location;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
-import software.amazon.smithy.model.traits.XmlNamespaceTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocolGenerator;
 
@@ -150,17 +150,21 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         }
 
         SymbolProvider symbolProvider = context.getSymbolProvider();
+        ShapeId inputShapeId = documentBindings.get(0).getMember().getContainer();
 
         // Start with the XML declaration.
         writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
 
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
-        writer.write("const bodyNode = new __XmlNode($S);",
-                documentBindings.get(0).getMember().getContainer().getName());
+        writer.write("const bodyNode = new __XmlNode($S);", inputShapeId.getName());
 
-        // Always add @xmlNamespace value of the service to the root node, since we're
-        // creating a wrapper node not based on a structure.
-        AwsProtocolUtils.writeXmlNamespace(context, context.getService(), "bodyNode");
+        // Add @xmlNamespace value of the service to the root node,
+        // fall back to one from the input shape.
+        boolean serviceXmlns = AwsProtocolUtils.writeXmlNamespace(context, context.getService(), "bodyNode");
+        if (!serviceXmlns) {
+            StructureShape inputShape = context.getModel().expectShape(inputShapeId, StructureShape.class);
+            AwsProtocolUtils.writeXmlNamespace(context, inputShape, "bodyNode");
+        }
 
         XmlShapeSerVisitor shapeSerVisitor = new XmlShapeSerVisitor(context);
 
@@ -207,10 +211,11 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
                 // Start with the XML declaration.
                 writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
 
-                // Add @xmlNamespace value of the service to the root structure if one doesn't
-                // exist on the target we're serializing.
-                if (!target.hasTrait(XmlNamespaceTrait.class)) {
-                    AwsProtocolUtils.writeXmlNamespace(context, context.getService(), "contents");
+                // Add @xmlNamespace value of the service to the root node,
+                // fall back to one from the payload target.
+                boolean serviceXmlns = AwsProtocolUtils.writeXmlNamespace(context, context.getService(), "contents");
+                if (!serviceXmlns) {
+                    AwsProtocolUtils.writeXmlNamespace(context, target, "contents");
                 }
 
                 // Append the generated XML to the body.

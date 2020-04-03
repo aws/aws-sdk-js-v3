@@ -2493,7 +2493,7 @@ it("QueryQueryXmlMapsXmlName:Response", async () => {
 /**
  * Serializes XML namespaces
  */
-test.skip("QueryXmlNamespaces:Response", async () => {
+it("QueryXmlNamespaces:Response", async () => {
   const client = new QueryProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
       true,
