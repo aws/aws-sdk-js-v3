@@ -2,7 +2,7 @@
   "name": "@aws-sdk/prettier-config",
   "version": "1.0.0",
   "private": true,
-  "description": "Prettier config to be used for as-sdk-js-v3 repo",
+  "description": "Prettier config to be used in as-sdk-js-v3 repo",
   "main": "index.json",
   "author": {
     "name": "AWS SDK for JavaScript Team",
