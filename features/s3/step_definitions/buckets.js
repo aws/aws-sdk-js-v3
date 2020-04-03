@@ -298,21 +298,20 @@ Then("I delete the object {string} from the bucket", function(key, next) {
   this.request("s3", "deleteObject", params, next);
 });
 
-When("I put a (small|large) buffer to the key {string} in the bucket", function(
-  size,
-  key,
-  next
-) {
-  const body = this.createBuffer(size);
-  const params = {
-    Bucket: this.bucket,
-    Key: key,
-    Body: body
-  };
-  this.request("s3", "putObject", params, next);
-});
+When(
+  /^I put a (small|large) buffer to the key "([^"]*)" in the bucket$/,
+  function(size, key, next) {
+    const body = this.createBuffer(size);
+    const params = {
+      Bucket: this.bucket,
+      Key: key,
+      Body: body
+    };
+    this.request("s3", "putObject", params, next);
+  }
+);
 
-Then("the object {string} should (not )?exist in the bucket", function(
+Then(/^the object "([^"]*)" should (not )?exist in the bucket$/, function(
   key,
   shouldNotExist,
   next

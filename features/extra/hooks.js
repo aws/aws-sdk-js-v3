@@ -158,7 +158,7 @@ Given("I have a {string} service in the {string} region", function(
 });
 
 Given(
-  "I paginate the {string} operation(?: with limit {int})?(?: and max pages {int})?",
+  /^I paginate the "([^"]*)" operation(?: with limit (\d+))?(?: and max pages (\d+))?$/,
   function(operation, limit, maxPages, callback) {
     limit = parseInt(limit);
     if (maxPages) maxPages = parseInt(maxPages);

@@ -51,7 +51,7 @@ When("I get the object {string}", function(key, next) {
 });
 
 When(
-  "I put (?:a |an )(empty|small|large|d+KB|d+MB) buffer to the key {string}",
+  /^I put (?:a |an )(empty|small|large|\d+KB|\d+MB) buffer to the key "([^"]*)"$/,
   function(size, key, next) {
     const body = this.createBuffer(size);
     const params = {
@@ -63,20 +63,19 @@ When(
   }
 );
 
-When("I put (?:a |an )(empty|small|large) file to the key {string}", function(
-  size,
-  key,
-  next
-) {
-  const fs = require("fs");
-  const filename = this.createFile(size, key);
-  const params = {
-    Bucket: this.sharedBucket,
-    Key: key,
-    Body: fs.createReadStream(filename)
-  };
-  this.request("s3", "putObject", params, next);
-});
+When(
+  /^I put (?:a |an )(empty|small|large) file to the key "([^"]*)"$/,
+  function(size, key, next) {
+    const fs = require("fs");
+    const filename = this.createFile(size, key);
+    const params = {
+      Bucket: this.sharedBucket,
+      Key: key,
+      Body: fs.createReadStream(filename)
+    };
+    this.request("s3", "putObject", params, next);
+  }
+);
 
 When("I put {string} to the key {string} with ContentLength {int}", function(
   contents,
@@ -132,7 +131,7 @@ When("I delete the object {string}", function(key, next) {
   this.request("s3", "deleteObject", params, next);
 });
 
-Then("the object {string} should (not )exist", function(
+Then(/^the object "([^"]*)" should (not )?exist$/, function(
   key,
   shouldNotExist,
   next
@@ -363,7 +362,7 @@ Given("I setup the listObjects request for the bucket", function(callback) {
 // progress events
 
 When(
-  "I put (?:a |an )(empty|small|large|d+KB|d+MB) buffer to the key {string} with progress events",
+  /^I put (?:a |an )(empty|small|large|\d+KB|\d+MB) buffer to the key "([^"]*)" with progress events$/,
   function(size, key, callback) {
     const self = this;
     const body = self.createBuffer(size);
