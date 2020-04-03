@@ -18,6 +18,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.model.shapes.BigDecimalShape;
 import software.amazon.smithy.model.shapes.BigIntegerShape;
+import software.amazon.smithy.model.shapes.BlobShape;
 import software.amazon.smithy.model.shapes.BooleanShape;
 import software.amazon.smithy.model.shapes.ByteShape;
 import software.amazon.smithy.model.shapes.DoubleShape;
@@ -26,6 +27,7 @@ import software.amazon.smithy.model.shapes.IntegerShape;
 import software.amazon.smithy.model.shapes.LongShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShortShape;
+import software.amazon.smithy.model.shapes.StringShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
@@ -50,8 +52,30 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
     }
 
     @Override
+    public String stringShape(StringShape shape) {
+        return getSafeDataSource();
+    }
+
+    /**
+     * Provides a data source safety mechanism to handle nodes that are
+     * expected to have only a value but were loaded from a node with
+     * a namespace.
+     *
+     * @return The node's value having handled a potential namespace.
+     */
+    private String getSafeDataSource() {
+        String dataSource = getDataSource();
+        return "((" + dataSource + "['#text'] !== undefined) ? " + dataSource + "['#text'] : " + dataSource + ")";
+    }
+
+    @Override
+    public String blobShape(BlobShape shape) {
+        return "context.base64Decoder(" + getSafeDataSource() + ")";
+    }
+
+    @Override
     public String booleanShape(BooleanShape shape) {
-        return getDataSource() + " == 'true'";
+        return getSafeDataSource() + " == 'true'";
     }
 
     @Override
@@ -75,7 +99,7 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
     }
 
     private String deserializeInt() {
-        return "parseInt(" + getDataSource() + ")";
+        return "parseInt(" + getSafeDataSource() + ")";
     }
 
     @Override
@@ -89,7 +113,7 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
     }
 
     private String deserializeFloat() {
-        return "parseFloat(" + getDataSource() + ")";
+        return "parseFloat(" + getSafeDataSource() + ")";
     }
 
     @Override
