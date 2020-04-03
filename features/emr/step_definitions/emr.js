@@ -6,7 +6,7 @@ Before({ tags: "@emr" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I run an EMR job flow with invalid parameters$/, function(callback) {
+Given("I run an EMR job flow with invalid parameters", function(callback) {
   this.service = new EMR({});
   const params = { Name: "", Instances: { MasterInstanceType: "invalid" } };
   this.request(null, "runJobFlow", params, callback, false);

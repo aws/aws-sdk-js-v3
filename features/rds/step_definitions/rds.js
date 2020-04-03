@@ -40,7 +40,7 @@ Then(/the value at "([^"]*)" should contain "([^"]*)" with "([^"]*)"/, function(
 });
 
 Given(
-  /^I paginate the "([^"]*)" operation asynchronously with limit (\d+)$/,
+  "I paginate the "([^"]*)" operation asynchronously with limit (\d+)",
   function(operation, limit, callback) {
     const maxPages = 3;
     limit = parseInt(limit);
@@ -76,7 +76,7 @@ Given(
   }
 );
 
-Then(/^I should be able to asynchronously paginate all pages$/, function(
+Then("I should be able to asynchronously paginate all pages", function(
   callback
 ) {
   this.assert.equal(this.finishedPagination, true);

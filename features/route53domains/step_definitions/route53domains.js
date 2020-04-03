@@ -6,11 +6,11 @@ Before({ tags: "@route53domains" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I list Route53 domains$/, function(callback) {
+Given("I list Route53 domains", function(callback) {
   this.request(null, "listDomains", {}, callback);
 });
 
-Given(/^I try to register a Route53 domain with invalid parameters$/, function(
+Given("I try to register a Route53 domain with invalid parameters", function(
   callback
 ) {
   const params = {

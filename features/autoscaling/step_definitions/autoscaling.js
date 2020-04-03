@@ -18,11 +18,11 @@ Given("I create a launch configuration with name {string}", function(
   this.request(null, "createLaunchConfiguration", params, callback, false);
 });
 
-Given(/^I describe launch configurations$/, function(callback) {
+Given("I describe launch configurations", function(callback) {
   this.request(null, "describeLaunchConfigurations", {}, callback);
 });
 
-Then(/^the list should contain the launch configuration "([^"]*)"$/, function(
+Then("the list should contain the launch configuration {string}", function(
   name,
   callback
 ) {
@@ -32,7 +32,7 @@ Then(/^the list should contain the launch configuration "([^"]*)"$/, function(
   callback();
 });
 
-Then(/^I delete the launch configuration "([^"]*)"$/, function(name, callback) {
+Then("I delete the launch configuration {string}", function(name, callback) {
   const params = { LaunchConfigurationName: name };
   this.request(null, "deleteLaunchConfiguration", params, callback);
 });

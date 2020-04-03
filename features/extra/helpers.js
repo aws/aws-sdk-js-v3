@@ -11,7 +11,7 @@ module.exports = {
    * Call this function with a block that will be executed multiple times
    * to deal with eventually consistent conditions.
    *
-   *   When(/^I something is eventually consistent$/, function(callback) {
+   *   When("I something is eventually consistent", function(callback) {
    *     this.eventually(callback, function(next) {
    *       doSomething(function(response) {
    *         if (response != notWhatIExpect) {

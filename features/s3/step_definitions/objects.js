@@ -42,7 +42,7 @@ When("I put {string} to the key {string}", function(data, key, next) {
   this.request("s3", "putObject", params, next, false);
 });
 
-When(/^I get the object "([^"]*)"$/, function(key, next) {
+When("I get the object "([^"]*)"", function(key, next) {
   const params = {
     Bucket: this.sharedBucket,
     Key: key
@@ -51,7 +51,7 @@ When(/^I get the object "([^"]*)"$/, function(key, next) {
 });
 
 When(
-  /^I put (?:a |an )(empty|small|large|\d+KB|\d+MB) buffer to the key "([^"]*)"$/,
+  "I put (?:a |an )(empty|small|large|\d+KB|\d+MB) buffer to the key "([^"]*)"",
   function(size, key, next) {
     const body = this.createBuffer(size);
     const params = {
@@ -64,7 +64,7 @@ When(
 );
 
 When(
-  /^I put (?:a |an )(empty|small|large) file to the key "([^"]*)"$/,
+  "I put (?:a |an )(empty|small|large) file to the key "([^"]*)"",
   function(size, key, next) {
     const fs = require("fs");
     const filename = this.createFile(size, key);
@@ -78,7 +78,7 @@ When(
 );
 
 When(
-  /^I put "([^"]*)" to the key "([^"]*)" with ContentLength (\d+)$/,
+  "I put "([^"]*)" to the key "([^"]*)" with ContentLength (\d+)",
   function(contents, key, contentLength, next) {
     const params = {
       Bucket: this.sharedBucket,
@@ -104,7 +104,7 @@ Then("the object {string} should contain {string}", function(
   });
 });
 
-Then(/^the HTTP response should have a content length of (\d+)$/, function(
+Then("the HTTP response should have a content length of (\d+)", function(
   contentLength,
   next
 ) {
@@ -112,7 +112,7 @@ Then(/^the HTTP response should have a content length of (\d+)$/, function(
   next();
 });
 
-When(/^I copy the object "([^"]*)" to "([^"]*)"$/, function(key1, key2, next) {
+When("I copy the object "([^"]*)" to "([^"]*)"", function(key1, key2, next) {
   const params = {
     Bucket: this.sharedBucket,
     Key: key2,
@@ -121,7 +121,7 @@ When(/^I copy the object "([^"]*)" to "([^"]*)"$/, function(key1, key2, next) {
   this.request("s3", "copyObject", params, next);
 });
 
-When(/^I delete the object "([^"]*)"$/, function(key, next) {
+When("I delete the object "([^"]*)"", function(key, next) {
   const params = {
     Bucket: this.sharedBucket,
     Key: key
@@ -129,7 +129,7 @@ When(/^I delete the object "([^"]*)"$/, function(key, next) {
   this.request("s3", "deleteObject", params, next);
 });
 
-Then(/^the object "([^"]*)" should (not )?exist$/, function(
+Then("the object "([^"]*)" should (not )?exist", function(
   key,
   shouldNotExist,
   next
@@ -150,7 +150,7 @@ Then(/^the object "([^"]*)" should (not )?exist$/, function(
   });
 });
 
-When(/^I stream key "([^"]*)"$/, function(key, callback) {
+When("I stream key "([^"]*)"", function(key, callback) {
   const params = {
     Bucket: this.sharedBucket,
     Key: key
@@ -169,7 +169,7 @@ When(/^I stream key "([^"]*)"$/, function(key, callback) {
   }, 2000); // delay streaming to ensure it is buffered
 });
 
-When(/^I stream2 key "([^"]*)"$/, function(key, callback) {
+When("I stream2 key "([^"]*)"", function(key, callback) {
   if (!require("stream").Readable) return callback();
   const params = {
     Bucket: this.sharedBucket,
@@ -189,12 +189,12 @@ When(/^I stream2 key "([^"]*)"$/, function(key, callback) {
   }, 2000); // delay streaming to ensure it is buffered
 });
 
-Then(/^the streamed data should contain "([^"]*)"$/, function(data, callback) {
+Then("the streamed data should contain "([^"]*)"", function(data, callback) {
   this.assert.equal(this.result.replace("\n", ""), data);
   callback();
 });
 
-Then(/^the streamed data content length should equal (\d+)$/, function(
+Then("the streamed data content length should equal (\d+)", function(
   length,
   callback
 ) {
@@ -202,7 +202,7 @@ Then(/^the streamed data content length should equal (\d+)$/, function(
   callback();
 });
 
-When(/^I get a pre\-signed URL to GET the key "([^"]*)"$/, function(
+When("I get a pre\-signed URL to GET the key "([^"]*)"", function(
   key,
   callback
 ) {
@@ -221,7 +221,7 @@ When(/^I get a pre\-signed URL to GET the key "([^"]*)"$/, function(
   );
 });
 
-When(/^I access the URL via HTTP GET$/, function(callback) {
+When("I access the URL via HTTP GET", function(callback) {
   const world = this;
   this.data = "";
   require("https")
@@ -236,7 +236,7 @@ When(/^I access the URL via HTTP GET$/, function(callback) {
 });
 
 Given(
-  /^I get a pre\-signed URL to PUT the key "([^"]*)"(?: with data "([^"]*)")?$/,
+  "I get a pre\-signed URL to PUT the key "([^"]*)"(?: with data "([^"]*)")?",
   function(key, body, callback) {
     const world = this;
     const params = {
@@ -251,7 +251,7 @@ Given(
   }
 );
 
-Given(/^I access the URL via HTTP PUT with data "([^"]*)"$/, function(
+Given("I access the URL via HTTP PUT with data "([^"]*)"", function(
   body,
   callback
 ) {
@@ -278,7 +278,7 @@ Given(/^I access the URL via HTTP PUT with data "([^"]*)"$/, function(
 });
 
 Given(
-  /^I create a presigned form to POST the key "([^"]*)" with the data "([^"]*)"$/,
+  "I create a presigned form to POST the key "([^"]*)" with the data "([^"]*)"",
   function(key, data, callback) {
     const world = this;
     const boundary = (this.postBoundary =
@@ -323,7 +323,7 @@ Given(
   }
 );
 
-Given(/^I POST the form$/, function(callback) {
+Given("I POST the form", function(callback) {
   const world = this;
   const options = require("url").parse(this.postAction);
   options.method = "POST";
@@ -343,17 +343,17 @@ Given(/^I POST the form$/, function(callback) {
     .end(this.postBody);
 });
 
-Then(/^the HTTP response should equal "([^"]*)"$/, function(data, callback) {
+Then("the HTTP response should equal "([^"]*)"", function(data, callback) {
   this.assert.equal(this.data, data);
   callback();
 });
 
-Then(/^the HTTP response should contain "([^"]*|)"$/, function(data, callback) {
+Then("the HTTP response should contain "([^"]*|)"", function(data, callback) {
   this.assert.match(this.data, data);
   callback();
 });
 
-Given(/^I setup the listObjects request for the bucket$/, function(callback) {
+Given("I setup the listObjects request for the bucket", function(callback) {
   this.params = {
     Bucket: this.sharedBucket
   };
@@ -363,7 +363,7 @@ Given(/^I setup the listObjects request for the bucket$/, function(callback) {
 // progress events
 
 When(
-  /^I put (?:a |an )(empty|small|large|\d+KB|\d+MB) buffer to the key "([^"]*)" with progress events$/,
+  "I put (?:a |an )(empty|small|large|\d+KB|\d+MB) buffer to the key "([^"]*)" with progress events",
   function(size, key, callback) {
     const self = this;
     const body = self.createBuffer(size);
@@ -380,7 +380,7 @@ When(
   }
 );
 
-Then(/^more than (\d+) "([^"]*)" event should fire$/, function(
+Then("more than (\d+) "([^"]*)" event should fire", function(
   numEvents,
   eventName,
   callback
@@ -390,7 +390,7 @@ Then(/^more than (\d+) "([^"]*)" event should fire$/, function(
 });
 
 Then(
-  /^the "([^"]*)" value of the progress event should equal (\d+)MB$/,
+  "the "([^"]*)" value of the progress event should equal (\d+)MB",
   function(prop, mb, callback) {
     this.assert.equal(this.progress[0][prop], mb * 1024 * 1024);
     callback();
@@ -398,14 +398,14 @@ Then(
 );
 
 Then(
-  /^the "([^"]*)" value of the first progress event should be greater than (\d+) bytes$/,
+  "the "([^"]*)" value of the first progress event should be greater than (\d+) bytes",
   function(prop, bytes, callback) {
     this.assert.compare(this.progress[0][prop], ">", bytes);
     callback();
   }
 );
 
-When(/^I read the key "([^"]*)" with progress events$/, function(
+When("I read the key "([^"]*)" with progress events", function(
   key,
   callback
 ) {
@@ -421,7 +421,7 @@ When(/^I read the key "([^"]*)" with progress events$/, function(
   req.send(callback);
 });
 
-When(/^I put "([^"]*)" to the (public|private) key "([^"]*)"$/, function(
+When("I put "([^"]*)" to the (public|private) key "([^"]*)"", function(
   data,
   access,
   key,
@@ -439,7 +439,7 @@ When(/^I put "([^"]*)" to the (public|private) key "([^"]*)"$/, function(
   this.request("s3", "putObject", params, next);
 });
 
-When(/^I put "([^"]*)" to the key "([^"]*)" with an AES key$/, function(
+When("I put "([^"]*)" to the key "([^"]*)" with an AES key", function(
   data,
   key,
   next
@@ -454,7 +454,7 @@ When(/^I put "([^"]*)" to the key "([^"]*)" with an AES key$/, function(
   this.request("s3", "putObject", params, next);
 });
 
-When(/^I read the object "([^"]*)" with the AES key$/, function(key, next) {
+When("I read the object "([^"]*)" with the AES key", function(key, next) {
   const params = {
     Bucket: this.sharedBucket,
     Key: key,
@@ -464,7 +464,7 @@ When(/^I read the object "([^"]*)" with the AES key$/, function(key, next) {
   this.request("s3", "getObject", params, next);
 });
 
-Then(/^I make an unauthenticated request to read object "([^"]*)"$/, function(
+Then("I make an unauthenticated request to read object "([^"]*)"", function(
   key,
   next
 ) {
@@ -483,7 +483,7 @@ Then(/^I make an unauthenticated request to read object "([^"]*)"$/, function(
   );
 });
 
-Given(/^I generate the MD5 checksum of "([^"]*)"$/, function(data, next) {
+Given("I generate the MD5 checksum of "([^"]*)"", function(data, next) {
   const hash = new Md5();
   hash.update(data);
   this.sentContentMD5 = hash.digest().toString();
@@ -491,7 +491,7 @@ Given(/^I generate the MD5 checksum of "([^"]*)"$/, function(data, next) {
 });
 
 Then(
-  /^the MD5 checksum of the response data should equal the generated checksum$/,
+  "the MD5 checksum of the response data should equal the generated checksum",
   function(next) {
     const hash = new Md5();
     streamCollector(this.data.Body).then(body => {
@@ -502,7 +502,7 @@ Then(
   }
 );
 
-Given(/^an empty bucket$/, function(next) {
+Given("an empty bucket", function(next) {
   const self = this;
   const params = {
     Bucket: this.sharedBucket

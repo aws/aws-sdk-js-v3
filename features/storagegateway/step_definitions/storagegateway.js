@@ -6,7 +6,7 @@ Before({ tags: "@storagegateway" }, function(scenario, callback) {
   callback();
 });
 
-When(/^I try to activate a Storage Gateway$/, function(callback) {
+When("I try to activate a Storage Gateway", function(callback) {
   const params = {
     ActivationKey: "INVALIDKEY",
     GatewayName: this.uniqueName("aws-sdk-js"),

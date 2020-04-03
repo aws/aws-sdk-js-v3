@@ -6,7 +6,7 @@ Before({ tags: "@pinpoint" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I create an application$/, function(callback) {
+Given("I create an application", function(callback) {
   const params = {
     CreateApplicationRequest: {
       Name: this.uniqueName("aws-sdk-js-integration")
@@ -21,7 +21,7 @@ Given(/^I create an application$/, function(callback) {
   });
 });
 
-Given(/^I run the "putEvents" operation with EventsRequest:$/, function(
+Given("I run the "putEvents" operation with EventsRequest:", function(
   eventsRequest,
   callback
 ) {
@@ -37,7 +37,7 @@ Given(/^I run the "putEvents" operation with EventsRequest:$/, function(
   );
 });
 
-Given(/^I delete the application$/, function(callback) {
+Given("I delete the application", function(callback) {
   this.request(
     null,
     "deleteApp",

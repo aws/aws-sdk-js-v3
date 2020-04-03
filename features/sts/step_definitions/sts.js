@@ -6,7 +6,7 @@ Before({ tags: "@sts" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I get an STS session token with a duration of (\d+) seconds$/, function(
+Given("I get an STS session token with a duration of (d+) seconds", function(
   duration,
   callback
 ) {
@@ -21,7 +21,7 @@ Given(/^I get an STS session token with a duration of (\d+) seconds$/, function(
   );
 });
 
-Given(/^I try to assume role with web identity$/, function(callback) {
+Given("I try to assume role with web identity", function(callback) {
   const params = {
     RoleArn: "arn:aws:iam::123456789:role/WebIdentity",
     RoleSessionName: "name",
@@ -30,7 +30,7 @@ Given(/^I try to assume role with web identity$/, function(callback) {
   this.request(null, "assumeRoleWithWebIdentity", params, callback, false);
 });
 
-Given(/^I try to assume role with SAML$/, function(callback) {
+Given("I try to assume role with SAML", function(callback) {
   const arn = "arn:aws:iam::123456789:role/Role";
   const token = "TOKENVALUETOKENVALUETOKENVALUETOKENVALUE";
   const params = {

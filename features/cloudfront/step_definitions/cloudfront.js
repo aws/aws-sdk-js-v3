@@ -1,5 +1,5 @@
 const { CloudFront } = require("../../../clients/client-cloudfront");
-const { Before, Given, Then, When } = require("cucumber");
+const { Before, Given } = require("cucumber");
 
 const createParams = {
   CallerReference: "",
@@ -75,6 +75,6 @@ Given("I create a CloudFront distribution with name prefix {string}", function(
   );
 });
 
-Given(/^I list CloudFront distributions$/, function(callback) {
+Given("I list CloudFront distributions", function(callback) {
   this.request(null, "listDistributions", {}, callback);
 });

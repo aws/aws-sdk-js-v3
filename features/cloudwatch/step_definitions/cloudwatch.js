@@ -52,7 +52,7 @@ Given("I create a CloudWatch alarm with name {string}", function(
   this.request(null, "putMetricAlarm", this.cloudWatchAlarm, callback, false);
 });
 
-Given(/^I list the CloudWatch alarms$/, function(callback) {
+Given("I list the CloudWatch alarms", function(callback) {
   const params = {
     MetricName: this.cloudWatchAlarm.MetricName,
     Namespace: this.cloudWatchAlarm.Namespace
@@ -60,7 +60,7 @@ Given(/^I list the CloudWatch alarms$/, function(callback) {
   this.request(null, "describeAlarmsForMetric", params, callback);
 });
 
-Then(/^the list should contain the CloudWatch alarm$/, function(callback) {
+Then("the list should contain the CloudWatch alarm", function(callback) {
   const name = this.cloudWatchAlarm.AlarmName;
   this.assert.contains(this.data.MetricAlarms, function(alarm) {
     return alarm.AlarmName === name;
@@ -68,7 +68,7 @@ Then(/^the list should contain the CloudWatch alarm$/, function(callback) {
   callback();
 });
 
-Then(/^I delete the CloudWatch alarm$/, function(callback) {
+Then("I delete the CloudWatch alarm", function(callback) {
   this.request(
     null,
     "deleteAlarms",

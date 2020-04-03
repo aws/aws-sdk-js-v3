@@ -6,7 +6,7 @@ Before({ tags: "@glacier" }, function(scenario, callback) {
   callback();
 });
 
-Given(/^I have a Glacier vault$/, function(callback) {
+Given("I have a Glacier vault", function(callback) {
   this.vaultName = "aws-sdk-js-integration";
   const params = {
     vaultName: this.vaultName
@@ -15,7 +15,7 @@ Given(/^I have a Glacier vault$/, function(callback) {
 });
 
 Given(
-  /^I upload a (\d+(?:\.\d+)?)MB Glacier archive to the vault( with (?:invalid|incorrect) checksum)?$/,
+  "I upload a (d+(?:.d+)?)MB Glacier archive to the vault( with (?:invalid|incorrect) checksum)?",
   function(size, invalid, callback) {
     const data = Buffer.alloc(parseFloat(size) * 1024 * 1024);
     data.fill("0");
@@ -31,12 +31,12 @@ Given(
   }
 );
 
-Then(/^the result should contain the Glacier archive ID$/, function(callback) {
+Then("the result should contain the Glacier archive ID", function(callback) {
   this.archiveId = this.data.archiveId;
   callback();
 });
 
-Then(/^the result should contain the same tree hash checksum$/, function(
+Then("the result should contain the same tree hash checksum", function(
   callback
 ) {
   const hash = this.data.$metadata.httpHeaders["x-amz-sha256-tree-hash"];
@@ -44,14 +44,14 @@ Then(/^the result should contain the same tree hash checksum$/, function(
   callback();
 });
 
-When(/^I describe the Glacier vault$/, function(callback) {
+When("I describe the Glacier vault", function(callback) {
   const params = {
     vaultName: this.vaultName
   };
   this.request(null, "describeVault", params, callback);
 });
 
-Then(/^I delete the Glacier archive$/, function(callback) {
+Then("I delete the Glacier archive", function(callback) {
   const params = {
     vaultName: this.vaultName,
     archiveId: this.archiveId
@@ -59,7 +59,7 @@ Then(/^I delete the Glacier archive$/, function(callback) {
   this.request(null, "deleteArchive", params, callback);
 });
 
-Then(/^I delete the Glacier vault$/, function(callback) {
+Then("I delete the Glacier vault", function(callback) {
   const params = {
     vaultName: this.vaultName
   };
@@ -69,7 +69,7 @@ Then(/^I delete the Glacier vault$/, function(callback) {
 });
 
 When(
-  /^I initiate a Glacier multi-part upload on a (\d+(?:\.\d+)?)MB archive in (\d+)MB chunks$/,
+  "I initiate a Glacier multi-part upload on a (d+(?:.d+)?)MB archive in (d+)MB chunks",
   function(totalSize, partSize, callback) {
     // setup multi-part upload
     this.uploadData = Buffer.alloc(totalSize * 1024 * 1024);
@@ -88,14 +88,14 @@ When(
   }
 );
 
-Then(/^the result should contain the Glacier multi-part upload ID$/, function(
+Then("the result should contain the Glacier multi-part upload ID", function(
   callback
 ) {
   this.uploadId = this.data.uploadId;
   callback();
 });
 
-Then(/^I send the next part$/, function(callback) {
+Then("I send the next part", function(callback) {
   const start = this.partCounter;
   const end = Math.min(start + this.partSize, this.uploadData.length);
   const buf = this.uploadData.slice(start, end);
@@ -110,7 +110,7 @@ Then(/^I send the next part$/, function(callback) {
   this.partCounter += this.partSize;
 });
 
-Then(/^I send the Glacier archive data in chunks$/, function(callback) {
+Then("I send the Glacier archive data in chunks", function(callback) {
   let numPartsLeft = Math.ceil(this.uploadData.length / this.partSize);
   for (let i = 0; i < this.uploadData.length; i += this.partSize) {
     const end = Math.min(i + this.partSize, this.uploadData.length);
@@ -128,7 +128,7 @@ Then(/^I send the Glacier archive data in chunks$/, function(callback) {
   }
 });
 
-Then(/^I complete the Glacier multi-part upload$/, function(callback) {
+Then("I complete the Glacier multi-part upload", function(callback) {
   const params = {
     vaultName: this.vaultName,
     uploadId: this.uploadId,

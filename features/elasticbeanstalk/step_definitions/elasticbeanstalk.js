@@ -29,13 +29,13 @@ Given(
   }
 );
 
-Given(/^I describe the Elastic Beanstalk application$/, function(callback) {
+Given("I describe the Elastic Beanstalk application", function(callback) {
   const params = { ApplicationNames: [this.appName] };
   this.request(null, "describeApplications", params, callback);
 });
 
 Then(
-  /^the result should contain the Elastic Beanstalk application version$/,
+  "the result should contain the Elastic Beanstalk application version",
   function(callback) {
     this.assert.deepEqual(this.data.Applications[0].Versions, [
       this.appVersion
@@ -45,14 +45,14 @@ Then(
 );
 
 Then(
-  /^the result should contain the Elastic Beanstalk application name$/,
+  "the result should contain the Elastic Beanstalk application name",
   function(callback) {
     this.assert.equal(this.data.Applications[0].ApplicationName, this.appName);
     callback();
   }
 );
 
-Then(/^I delete the Elastic Beanstalk application$/, function(callback) {
+Then("I delete the Elastic Beanstalk application", function(callback) {
   const params = { ApplicationName: this.appName };
   this.request(null, "deleteApplication", params, callback);
 });
