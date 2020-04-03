@@ -123,11 +123,7 @@ Then("the error code should be {string}", function(code, callback) {
   callback();
 });
 
-Then("the error message should (be|equal|match|contain):", function(
-  matcher,
-  message,
-  callback
-) {
+Then("the error message should {word}:", function(matcher, message, callback) {
   if (matcher === "be") matcher = "equal";
   if (matcher === "contain") matcher = "match";
   this.assert.ok(this.error, "Response does not contain an error");

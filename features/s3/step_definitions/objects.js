@@ -132,7 +132,7 @@ When("I delete the object {string}", function(key, next) {
   this.request("s3", "deleteObject", params, next);
 });
 
-Then("the object {string} should (not )?exist", function(
+Then("the object {string} should (not )exist", function(
   key,
   shouldNotExist,
   next
@@ -236,7 +236,7 @@ When("I access the URL via HTTP GET", function(callback) {
 });
 
 Given(
-  "I get a pre-signed URL to PUT the key {string}(?: with data {string})?",
+  "I get a pre-signed URL to PUT the key {string} with data {string}",
   function(key, body, callback) {
     const world = this;
     const params = {
