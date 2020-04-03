@@ -1836,7 +1836,7 @@ const deserializeAws_queryComplexError = (
     contents.Nested = deserializeAws_queryComplexNestedErrorData(output['Nested'], context);
   }
   if (output['TopLevel'] !== undefined) {
-    contents.TopLevel = output['TopLevel'];
+    contents.TopLevel = ((output['TopLevel']['#text'] !== undefined) ? output['TopLevel']['#text'] : output['TopLevel']);
   }
   return contents;
 }
@@ -1850,7 +1850,7 @@ const deserializeAws_queryComplexNestedErrorData = (
     Foo: undefined,
   };
   if (output['Foo'] !== undefined) {
-    contents.Foo = output['Foo'];
+    contents.Foo = ((output['Foo']['#text'] !== undefined) ? output['Foo']['#text'] : output['Foo']);
   }
   return contents;
 }
@@ -1907,7 +1907,7 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNameOutputMap = (
 ): { [key: string]: string } => {
   const mapParams: any = {};
   output.forEach((pair: any) => {
-    mapParams[pair["K"]] = pair["V"];
+    mapParams[pair["K"]] = ((pair["V"]['#text'] !== undefined) ? pair["V"]['#text'] : pair["V"]);
   });
   return mapParams;
 }
@@ -1921,7 +1921,7 @@ const deserializeAws_queryGreetingWithErrorsOutput = (
     greeting: undefined,
   };
   if (output['greeting'] !== undefined) {
-    contents.greeting = output['greeting'];
+    contents.greeting = ((output['greeting']['#text'] !== undefined) ? output['greeting']['#text'] : output['greeting']);
   }
   return contents;
 }
@@ -1935,7 +1935,7 @@ const deserializeAws_queryIgnoresWrappingXmlNameOutput = (
     foo: undefined,
   };
   if (output['foo'] !== undefined) {
-    contents.foo = output['foo'];
+    contents.foo = ((output['foo']['#text'] !== undefined) ? output['foo']['#text'] : output['foo']);
   }
   return contents;
 }
@@ -1949,7 +1949,7 @@ const deserializeAws_queryInvalidGreeting = (
     Message: undefined,
   };
   if (output['Message'] !== undefined) {
-    contents.Message = output['Message'];
+    contents.Message = ((output['Message']['#text'] !== undefined) ? output['Message']['#text'] : output['Message']);
   }
   return contents;
 }
@@ -1978,7 +1978,7 @@ const deserializeAws_queryRecursiveXmlShapesOutputNested1 = (
     nested: undefined,
   };
   if (output['foo'] !== undefined) {
-    contents.foo = output['foo'];
+    contents.foo = ((output['foo']['#text'] !== undefined) ? output['foo']['#text'] : output['foo']);
   }
   if (output['nested'] !== undefined) {
     contents.nested = deserializeAws_queryRecursiveXmlShapesOutputNested2(output['nested'], context);
@@ -1996,7 +1996,7 @@ const deserializeAws_queryRecursiveXmlShapesOutputNested2 = (
     recursiveMember: undefined,
   };
   if (output['bar'] !== undefined) {
-    contents.bar = output['bar'];
+    contents.bar = ((output['bar']['#text'] !== undefined) ? output['bar']['#text'] : output['bar']);
   }
   if (output['recursiveMember'] !== undefined) {
     contents.recursiveMember = deserializeAws_queryRecursiveXmlShapesOutputNested1(output['recursiveMember'], context);
@@ -2010,7 +2010,7 @@ const deserializeAws_queryRenamedListMembers = (
 ): Array<string> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry);
+    contents.push(((entry['#text'] !== undefined) ? entry['#text'] : entry));
   });
   return contents;
 }
@@ -2033,34 +2033,34 @@ const deserializeAws_querySimpleScalarXmlPropertiesOutput = (
     trueBooleanValue: undefined,
   };
   if (output['byteValue'] !== undefined) {
-    contents.byteValue = parseInt(output['byteValue']);
+    contents.byteValue = parseInt(((output['byteValue']['#text'] !== undefined) ? output['byteValue']['#text'] : output['byteValue']));
   }
   if (output['DoubleDribble'] !== undefined) {
-    contents.doubleValue = parseFloat(output['DoubleDribble']);
+    contents.doubleValue = parseFloat(((output['DoubleDribble']['#text'] !== undefined) ? output['DoubleDribble']['#text'] : output['DoubleDribble']));
   }
   if (output['emptyStringValue'] !== undefined) {
-    contents.emptyStringValue = output['emptyStringValue'];
+    contents.emptyStringValue = ((output['emptyStringValue']['#text'] !== undefined) ? output['emptyStringValue']['#text'] : output['emptyStringValue']);
   }
   if (output['falseBooleanValue'] !== undefined) {
-    contents.falseBooleanValue = output['falseBooleanValue'] == 'true';
+    contents.falseBooleanValue = ((output['falseBooleanValue']['#text'] !== undefined) ? output['falseBooleanValue']['#text'] : output['falseBooleanValue']) == 'true';
   }
   if (output['floatValue'] !== undefined) {
-    contents.floatValue = parseFloat(output['floatValue']);
+    contents.floatValue = parseFloat(((output['floatValue']['#text'] !== undefined) ? output['floatValue']['#text'] : output['floatValue']));
   }
   if (output['integerValue'] !== undefined) {
-    contents.integerValue = parseInt(output['integerValue']);
+    contents.integerValue = parseInt(((output['integerValue']['#text'] !== undefined) ? output['integerValue']['#text'] : output['integerValue']));
   }
   if (output['longValue'] !== undefined) {
-    contents.longValue = parseInt(output['longValue']);
+    contents.longValue = parseInt(((output['longValue']['#text'] !== undefined) ? output['longValue']['#text'] : output['longValue']));
   }
   if (output['shortValue'] !== undefined) {
-    contents.shortValue = parseInt(output['shortValue']);
+    contents.shortValue = parseInt(((output['shortValue']['#text'] !== undefined) ? output['shortValue']['#text'] : output['shortValue']));
   }
   if (output['stringValue'] !== undefined) {
-    contents.stringValue = output['stringValue'];
+    contents.stringValue = ((output['stringValue']['#text'] !== undefined) ? output['stringValue']['#text'] : output['stringValue']);
   }
   if (output['trueBooleanValue'] !== undefined) {
-    contents.trueBooleanValue = output['trueBooleanValue'] == 'true';
+    contents.trueBooleanValue = ((output['trueBooleanValue']['#text'] !== undefined) ? output['trueBooleanValue']['#text'] : output['trueBooleanValue']) == 'true';
   }
   return contents;
 }
@@ -2086,10 +2086,10 @@ const deserializeAws_queryStructureListMember = (
     b: undefined,
   };
   if (output['value'] !== undefined) {
-    contents.a = output['value'];
+    contents.a = ((output['value']['#text'] !== undefined) ? output['value']['#text'] : output['value']);
   }
   if (output['other'] !== undefined) {
-    contents.b = output['other'];
+    contents.b = ((output['other']['#text'] !== undefined) ? output['other']['#text'] : output['other']);
   }
   return contents;
 }
@@ -2103,7 +2103,7 @@ const deserializeAws_queryXmlBlobsOutput = (
     data: undefined,
   };
   if (output['data'] !== undefined) {
-    contents.data = context.base64Decoder(output['data']);
+    contents.data = context.base64Decoder(((output['data']['#text'] !== undefined) ? output['data']['#text'] : output['data']));
   }
   return contents;
 }
@@ -2122,13 +2122,13 @@ const deserializeAws_queryXmlEnumsOutput = (
     fooEnumSet: undefined,
   };
   if (output['fooEnum1'] !== undefined) {
-    contents.fooEnum1 = output['fooEnum1'];
+    contents.fooEnum1 = ((output['fooEnum1']['#text'] !== undefined) ? output['fooEnum1']['#text'] : output['fooEnum1']);
   }
   if (output['fooEnum2'] !== undefined) {
-    contents.fooEnum2 = output['fooEnum2'];
+    contents.fooEnum2 = ((output['fooEnum2']['#text'] !== undefined) ? output['fooEnum2']['#text'] : output['fooEnum2']);
   }
   if (output['fooEnum3'] !== undefined) {
-    contents.fooEnum3 = output['fooEnum3'];
+    contents.fooEnum3 = ((output['fooEnum3']['#text'] !== undefined) ? output['fooEnum3']['#text'] : output['fooEnum3']);
   }
   if (output.fooEnumList === "") {
     contents.fooEnumList = [];
@@ -2320,7 +2320,7 @@ const deserializeAws_queryXmlNamespaceNested = (
     values: undefined,
   };
   if (output['foo'] !== undefined) {
-    contents.foo = output['foo'];
+    contents.foo = ((output['foo']['#text'] !== undefined) ? output['foo']['#text'] : output['foo']);
   }
   if (output.values === "") {
     contents.values = [];
@@ -2338,7 +2338,7 @@ const deserializeAws_queryXmlNamespacedList = (
 ): Array<string> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry);
+    contents.push(((entry['#text'] !== undefined) ? entry['#text'] : entry));
   });
   return contents;
 }
@@ -2389,7 +2389,7 @@ const deserializeAws_queryBooleanList = (
 ): Array<boolean> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry == 'true');
+    contents.push(((entry['#text'] !== undefined) ? entry['#text'] : entry) == 'true');
   });
   return contents;
 }
@@ -2400,7 +2400,7 @@ const deserializeAws_queryFooEnumList = (
 ): Array<FooEnum | string> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry);
+    contents.push(((entry['#text'] !== undefined) ? entry['#text'] : entry));
   });
   return contents;
 }
@@ -2411,7 +2411,7 @@ const deserializeAws_queryFooEnumMap = (
 ): { [key: string]: FooEnum | string } => {
   const mapParams: any = {};
   output.forEach((pair: any) => {
-    mapParams[pair["key"]] = pair["value"];
+    mapParams[pair["key"]] = ((pair["value"]['#text'] !== undefined) ? pair["value"]['#text'] : pair["value"]);
   });
   return mapParams;
 }
@@ -2422,7 +2422,7 @@ const deserializeAws_queryFooEnumSet = (
 ): Set<FooEnum | string> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry);
+    contents.push(((entry['#text'] !== undefined) ? entry['#text'] : entry));
   });
   return contents;
 }
@@ -2436,7 +2436,7 @@ const deserializeAws_queryGreetingStruct = (
     hi: undefined,
   };
   if (output['hi'] !== undefined) {
-    contents.hi = output['hi'];
+    contents.hi = ((output['hi']['#text'] !== undefined) ? output['hi']['#text'] : output['hi']);
   }
   return contents;
 }
@@ -2447,7 +2447,7 @@ const deserializeAws_queryIntegerList = (
 ): Array<number> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(parseInt(entry));
+    contents.push(parseInt(((entry['#text'] !== undefined) ? entry['#text'] : entry)));
   });
   return contents;
 }
@@ -2470,7 +2470,7 @@ const deserializeAws_queryStringList = (
 ): Array<string> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry);
+    contents.push(((entry['#text'] !== undefined) ? entry['#text'] : entry));
   });
   return contents;
 }
@@ -2481,7 +2481,7 @@ const deserializeAws_queryStringSet = (
 ): Set<string> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry);
+    contents.push(((entry['#text'] !== undefined) ? entry['#text'] : entry));
   });
   return contents;
 }

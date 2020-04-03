@@ -1830,7 +1830,7 @@ it("Ec2XmlLists:Response", async () => {
 /**
  * Serializes XML namespaces
  */
-test.skip("Ec2XmlNamespaces:Response", async () => {
+it("Ec2XmlNamespaces:Response", async () => {
   const client = new EC2ProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
       true,

@@ -4360,7 +4360,7 @@ it("XmlMapsXmlName:Response", async () => {
 /**
  * Serializes XML namespaces
  */
-test.skip("XmlNamespaces:Request", async () => {
+it("XmlNamespaces:Request", async () => {
   const client = new RestXmlProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
@@ -4421,7 +4421,7 @@ test.skip("XmlNamespaces:Request", async () => {
 /**
  * Serializes XML namespaces
  */
-test.skip("XmlNamespaces:Response", async () => {
+it("XmlNamespaces:Response", async () => {
   const client = new RestXmlProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
       true,

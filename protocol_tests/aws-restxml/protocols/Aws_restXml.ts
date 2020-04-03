@@ -525,6 +525,7 @@ export async function serializeAws_restXmlHttpPayloadWithXmlNamespaceCommand(
   if (input.nested !== undefined) {
     contents = serializeAws_restXmlPayloadWithXmlNamespace(input.nested, context);
     body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
+    contents.addAttribute("xmlns", "http://foo.com");
     body += contents.toString();
   }
   return new __HttpRequest({
@@ -549,6 +550,7 @@ export async function serializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCo
   if (input.nested !== undefined) {
     contents = serializeAws_restXmlPayloadWithXmlNamespaceAndPrefix(input.nested, context);
     body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
+    contents.addAttribute("xmlns:baz", "http://foo.com");
     body += contents.toString();
   }
   return new __HttpRequest({
@@ -1031,7 +1033,8 @@ export async function serializeAws_restXmlRecursiveShapesCommand(
   body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
   const bodyNode = new __XmlNode("RecursiveShapesInputOutput");
   if (input.nested !== undefined) {
-    bodyNode.addChildNode(serializeAws_restXmlRecursiveShapesInputOutputNested1(input.nested, context).withName("nested"));
+    const node = serializeAws_restXmlRecursiveShapesInputOutputNested1(input.nested, context).withName("nested");
+    bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -1058,31 +1061,40 @@ export async function serializeAws_restXmlSimpleScalarPropertiesCommand(
   body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
   const bodyNode = new __XmlNode("SimpleScalarPropertiesInputOutput");
   if (input.byteValue !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("Byte").addChildNode(new __XmlText(String(input.byteValue))).withName("byteValue"));
+    const node = new __XmlNode("Byte").addChildNode(new __XmlText(String(input.byteValue))).withName("byteValue");
+    bodyNode.addChildNode(node);
   }
   if (input.doubleValue !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("Double").addChildNode(new __XmlText(String(input.doubleValue))).withName("DoubleDribble"));
+    const node = new __XmlNode("Double").addChildNode(new __XmlText(String(input.doubleValue))).withName("DoubleDribble");
+    bodyNode.addChildNode(node);
   }
   if (input.falseBooleanValue !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("Boolean").addChildNode(new __XmlText(String(input.falseBooleanValue))).withName("falseBooleanValue"));
+    const node = new __XmlNode("Boolean").addChildNode(new __XmlText(String(input.falseBooleanValue))).withName("falseBooleanValue");
+    bodyNode.addChildNode(node);
   }
   if (input.floatValue !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("Float").addChildNode(new __XmlText(String(input.floatValue))).withName("floatValue"));
+    const node = new __XmlNode("Float").addChildNode(new __XmlText(String(input.floatValue))).withName("floatValue");
+    bodyNode.addChildNode(node);
   }
   if (input.integerValue !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("Integer").addChildNode(new __XmlText(String(input.integerValue))).withName("integerValue"));
+    const node = new __XmlNode("Integer").addChildNode(new __XmlText(String(input.integerValue))).withName("integerValue");
+    bodyNode.addChildNode(node);
   }
   if (input.longValue !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("Long").addChildNode(new __XmlText(String(input.longValue))).withName("longValue"));
+    const node = new __XmlNode("Long").addChildNode(new __XmlText(String(input.longValue))).withName("longValue");
+    bodyNode.addChildNode(node);
   }
   if (input.shortValue !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("Short").addChildNode(new __XmlText(String(input.shortValue))).withName("shortValue"));
+    const node = new __XmlNode("Short").addChildNode(new __XmlText(String(input.shortValue))).withName("shortValue");
+    bodyNode.addChildNode(node);
   }
   if (input.stringValue !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(input.stringValue)).withName("stringValue"));
+    const node = new __XmlNode("String").addChildNode(new __XmlText(input.stringValue)).withName("stringValue");
+    bodyNode.addChildNode(node);
   }
   if (input.trueBooleanValue !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("Boolean").addChildNode(new __XmlText(String(input.trueBooleanValue))).withName("trueBooleanValue"));
+    const node = new __XmlNode("Boolean").addChildNode(new __XmlText(String(input.trueBooleanValue))).withName("trueBooleanValue");
+    bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -1148,7 +1160,8 @@ export async function serializeAws_restXmlXmlAttributesCommand(
     bodyNode.addAttribute("test", input.attr);
   }
   if (input.foo !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(input.foo)).withName("foo"));
+    const node = new __XmlNode("String").addChildNode(new __XmlText(input.foo)).withName("foo");
+    bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -1196,7 +1209,8 @@ export async function serializeAws_restXmlXmlBlobsCommand(
   body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
   const bodyNode = new __XmlNode("XmlBlobsInputOutput");
   if (input.data !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("Blob").addChildNode(new __XmlText(context.base64Encoder(input.data))).withName("data"));
+    const node = new __XmlNode("Blob").addChildNode(new __XmlText(context.base64Encoder(input.data))).withName("data");
+    bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -1220,13 +1234,16 @@ export async function serializeAws_restXmlXmlEnumsCommand(
   body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
   const bodyNode = new __XmlNode("XmlEnumsInputOutput");
   if (input.fooEnum1 !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("FooEnum").addChildNode(new __XmlText(input.fooEnum1)).withName("fooEnum1"));
+    const node = new __XmlNode("FooEnum").addChildNode(new __XmlText(input.fooEnum1)).withName("fooEnum1");
+    bodyNode.addChildNode(node);
   }
   if (input.fooEnum2 !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("FooEnum").addChildNode(new __XmlText(input.fooEnum2)).withName("fooEnum2"));
+    const node = new __XmlNode("FooEnum").addChildNode(new __XmlText(input.fooEnum2)).withName("fooEnum2");
+    bodyNode.addChildNode(node);
   }
   if (input.fooEnum3 !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("FooEnum").addChildNode(new __XmlText(input.fooEnum3)).withName("fooEnum3"));
+    const node = new __XmlNode("FooEnum").addChildNode(new __XmlText(input.fooEnum3)).withName("fooEnum3");
+    bodyNode.addChildNode(node);
   }
   if (input.fooEnumList !== undefined) {
     const nodes = serializeAws_restXmlFooEnumList(input.fooEnumList, context);
@@ -1438,8 +1455,10 @@ export async function serializeAws_restXmlXmlNamespacesCommand(
   let body: any;
   body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
   const bodyNode = new __XmlNode("XmlNamespacesInputOutput");
+  bodyNode.addAttribute("xmlns", "http://foo.com");
   if (input.nested !== undefined) {
-    bodyNode.addChildNode(serializeAws_restXmlXmlNamespaceNested(input.nested, context).withName("nested"));
+    const node = serializeAws_restXmlXmlNamespaceNested(input.nested, context).withName("nested");
+    bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -1463,16 +1482,20 @@ export async function serializeAws_restXmlXmlTimestampsCommand(
   body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
   const bodyNode = new __XmlNode("XmlTimestampsInputOutput");
   if (input.dateTime !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("Timestamp").addChildNode(new __XmlText((input.dateTime.toISOString().split('.')[0]+"Z").toString())).withName("dateTime"));
+    const node = new __XmlNode("Timestamp").addChildNode(new __XmlText((input.dateTime.toISOString().split('.')[0]+"Z").toString())).withName("dateTime");
+    bodyNode.addChildNode(node);
   }
   if (input.epochSeconds !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("Timestamp").addChildNode(new __XmlText(Math.round(input.epochSeconds.getTime() / 1000).toString())).withName("epochSeconds"));
+    const node = new __XmlNode("Timestamp").addChildNode(new __XmlText(Math.round(input.epochSeconds.getTime() / 1000).toString())).withName("epochSeconds");
+    bodyNode.addChildNode(node);
   }
   if (input.httpDate !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("Timestamp").addChildNode(new __XmlText(__dateToUtcString(input.httpDate).toString())).withName("httpDate"));
+    const node = new __XmlNode("Timestamp").addChildNode(new __XmlText(__dateToUtcString(input.httpDate).toString())).withName("httpDate");
+    bodyNode.addChildNode(node);
   }
   if (input.normal !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("Timestamp").addChildNode(new __XmlText((input.normal.toISOString().split('.')[0]+"Z"))).withName("normal"));
+    const node = new __XmlNode("Timestamp").addChildNode(new __XmlText((input.normal.toISOString().split('.')[0]+"Z"))).withName("normal");
+    bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
   return new __HttpRequest({
@@ -2310,7 +2333,7 @@ export async function deserializeAws_restXmlIgnoreQueryParamsInResponseCommand(
   };
   const data: any = (await parseBody(output.body, context));
   if (data['baz'] !== undefined) {
-    contents.baz = data['baz'];
+    contents.baz = ((data['baz']['#text'] !== undefined) ? data['baz']['#text'] : data['baz']);
   }
   return Promise.resolve(contents);
 }
@@ -2811,31 +2834,31 @@ export async function deserializeAws_restXmlSimpleScalarPropertiesCommand(
   }
   const data: any = (await parseBody(output.body, context));
   if (data['byteValue'] !== undefined) {
-    contents.byteValue = parseInt(data['byteValue']);
+    contents.byteValue = parseInt(((data['byteValue']['#text'] !== undefined) ? data['byteValue']['#text'] : data['byteValue']));
   }
   if (data['DoubleDribble'] !== undefined) {
-    contents.doubleValue = parseFloat(data['DoubleDribble']);
+    contents.doubleValue = parseFloat(((data['DoubleDribble']['#text'] !== undefined) ? data['DoubleDribble']['#text'] : data['DoubleDribble']));
   }
   if (data['falseBooleanValue'] !== undefined) {
-    contents.falseBooleanValue = data['falseBooleanValue'] == 'true';
+    contents.falseBooleanValue = ((data['falseBooleanValue']['#text'] !== undefined) ? data['falseBooleanValue']['#text'] : data['falseBooleanValue']) == 'true';
   }
   if (data['floatValue'] !== undefined) {
-    contents.floatValue = parseFloat(data['floatValue']);
+    contents.floatValue = parseFloat(((data['floatValue']['#text'] !== undefined) ? data['floatValue']['#text'] : data['floatValue']));
   }
   if (data['integerValue'] !== undefined) {
-    contents.integerValue = parseInt(data['integerValue']);
+    contents.integerValue = parseInt(((data['integerValue']['#text'] !== undefined) ? data['integerValue']['#text'] : data['integerValue']));
   }
   if (data['longValue'] !== undefined) {
-    contents.longValue = parseInt(data['longValue']);
+    contents.longValue = parseInt(((data['longValue']['#text'] !== undefined) ? data['longValue']['#text'] : data['longValue']));
   }
   if (data['shortValue'] !== undefined) {
-    contents.shortValue = parseInt(data['shortValue']);
+    contents.shortValue = parseInt(((data['shortValue']['#text'] !== undefined) ? data['shortValue']['#text'] : data['shortValue']));
   }
   if (data['stringValue'] !== undefined) {
-    contents.stringValue = data['stringValue'];
+    contents.stringValue = ((data['stringValue']['#text'] !== undefined) ? data['stringValue']['#text'] : data['stringValue']);
   }
   if (data['trueBooleanValue'] !== undefined) {
-    contents.trueBooleanValue = data['trueBooleanValue'] == 'true';
+    contents.trueBooleanValue = ((data['trueBooleanValue']['#text'] !== undefined) ? data['trueBooleanValue']['#text'] : data['trueBooleanValue']) == 'true';
   }
   return Promise.resolve(contents);
 }
@@ -2956,10 +2979,10 @@ export async function deserializeAws_restXmlXmlAttributesCommand(
   };
   const data: any = (await parseBody(output.body, context));
   if (data['test'] !== undefined) {
-    contents.attr = data['test'];
+    contents.attr = ((data['test']['#text'] !== undefined) ? data['test']['#text'] : data['test']);
   }
   if (data['foo'] !== undefined) {
-    contents.foo = data['foo'];
+    contents.foo = ((data['foo']['#text'] !== undefined) ? data['foo']['#text'] : data['foo']);
   }
   return Promise.resolve(contents);
 }
@@ -3053,7 +3076,7 @@ export async function deserializeAws_restXmlXmlBlobsCommand(
   };
   const data: any = (await parseBody(output.body, context));
   if (data['data'] !== undefined) {
-    contents.data = context.base64Decoder(data['data']);
+    contents.data = context.base64Decoder(((data['data']['#text'] !== undefined) ? data['data']['#text'] : data['data']));
   }
   return Promise.resolve(contents);
 }
@@ -3106,13 +3129,13 @@ export async function deserializeAws_restXmlXmlEnumsCommand(
   };
   const data: any = (await parseBody(output.body, context));
   if (data['fooEnum1'] !== undefined) {
-    contents.fooEnum1 = data['fooEnum1'];
+    contents.fooEnum1 = ((data['fooEnum1']['#text'] !== undefined) ? data['fooEnum1']['#text'] : data['fooEnum1']);
   }
   if (data['fooEnum2'] !== undefined) {
-    contents.fooEnum2 = data['fooEnum2'];
+    contents.fooEnum2 = ((data['fooEnum2']['#text'] !== undefined) ? data['fooEnum2']['#text'] : data['fooEnum2']);
   }
   if (data['fooEnum3'] !== undefined) {
-    contents.fooEnum3 = data['fooEnum3'];
+    contents.fooEnum3 = ((data['fooEnum3']['#text'] !== undefined) ? data['fooEnum3']['#text'] : data['fooEnum3']);
   }
   if (data.fooEnumList === "") {
     contents.fooEnumList = [];
@@ -3531,7 +3554,7 @@ const deserializeAws_restXmlComplexErrorResponse = async (
     contents.Nested = deserializeAws_restXmlComplexNestedErrorData(data['Nested'], context);
   }
   if (data['TopLevel'] !== undefined) {
-    contents.TopLevel = data['TopLevel'];
+    contents.TopLevel = ((data['TopLevel']['#text'] !== undefined) ? data['TopLevel']['#text'] : data['TopLevel']);
   }
   return contents;
 };
@@ -3548,7 +3571,7 @@ const deserializeAws_restXmlInvalidGreetingResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data['Message'] !== undefined) {
-    contents.Message = data['Message'];
+    contents.Message = ((data['Message']['#text'] !== undefined) ? data['Message']['#text'] : data['Message']);
   }
   return contents;
 };
@@ -3560,7 +3583,8 @@ const serializeAws_restXmlFlattenedXmlMapWithXmlNameInputOutputMap = (
   const collectedNodes: any = [];
   Object.keys(input).forEach(key => {
     const entryNode = new __XmlNode("entry");
-    entryNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(key)).withName("K"));
+    const keyNode = new __XmlNode("String").addChildNode(new __XmlText(key)).withName("K");
+    entryNode.addChildNode(keyNode);
     const node = new __XmlNode("String").addChildNode(new __XmlText(input[key]));
     entryNode.addChildNode(node.withName("V"));
     collectedNodes.push(entryNode);
@@ -3574,10 +3598,12 @@ const serializeAws_restXmlNestedPayload = (
 ): any => {
   const bodyNode = new __XmlNode("NestedPayload");
   if (input.greeting !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(input.greeting)).withName("greeting"));
+    const node = new __XmlNode("String").addChildNode(new __XmlText(input.greeting)).withName("greeting");
+    bodyNode.addChildNode(node);
   }
   if (input.name !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(input.name)).withName("name"));
+    const node = new __XmlNode("String").addChildNode(new __XmlText(input.name)).withName("name");
+    bodyNode.addChildNode(node);
   }
   return bodyNode;
 }
@@ -3588,7 +3614,8 @@ const serializeAws_restXmlPayloadWithXmlName = (
 ): any => {
   const bodyNode = new __XmlNode("Hello");
   if (input.name !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(input.name)).withName("name"));
+    const node = new __XmlNode("String").addChildNode(new __XmlText(input.name)).withName("name");
+    bodyNode.addChildNode(node);
   }
   return bodyNode;
 }
@@ -3598,9 +3625,9 @@ const serializeAws_restXmlPayloadWithXmlNamespace = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("PayloadWithXmlNamespace");
-  bodyNode.addAttribute("xmlns", "http://foo.com");
   if (input.name !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(input.name)).withName("name"));
+    const node = new __XmlNode("String").addChildNode(new __XmlText(input.name)).withName("name");
+    bodyNode.addChildNode(node);
   }
   return bodyNode;
 }
@@ -3610,9 +3637,9 @@ const serializeAws_restXmlPayloadWithXmlNamespaceAndPrefix = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("PayloadWithXmlNamespaceAndPrefix");
-  bodyNode.addAttribute("xmlns:baz", "http://foo.com");
   if (input.name !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(input.name)).withName("name"));
+    const node = new __XmlNode("String").addChildNode(new __XmlText(input.name)).withName("name");
+    bodyNode.addChildNode(node);
   }
   return bodyNode;
 }
@@ -3623,10 +3650,12 @@ const serializeAws_restXmlRecursiveShapesInputOutputNested1 = (
 ): any => {
   const bodyNode = new __XmlNode("RecursiveShapesInputOutputNested1");
   if (input.foo !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(input.foo)).withName("foo"));
+    const node = new __XmlNode("String").addChildNode(new __XmlText(input.foo)).withName("foo");
+    bodyNode.addChildNode(node);
   }
   if (input.nested !== undefined) {
-    bodyNode.addChildNode(serializeAws_restXmlRecursiveShapesInputOutputNested2(input.nested, context).withName("nested"));
+    const node = serializeAws_restXmlRecursiveShapesInputOutputNested2(input.nested, context).withName("nested");
+    bodyNode.addChildNode(node);
   }
   return bodyNode;
 }
@@ -3637,10 +3666,12 @@ const serializeAws_restXmlRecursiveShapesInputOutputNested2 = (
 ): any => {
   const bodyNode = new __XmlNode("RecursiveShapesInputOutputNested2");
   if (input.bar !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(input.bar)).withName("bar"));
+    const node = new __XmlNode("String").addChildNode(new __XmlText(input.bar)).withName("bar");
+    bodyNode.addChildNode(node);
   }
   if (input.recursiveMember !== undefined) {
-    bodyNode.addChildNode(serializeAws_restXmlRecursiveShapesInputOutputNested1(input.recursiveMember, context).withName("recursiveMember"));
+    const node = serializeAws_restXmlRecursiveShapesInputOutputNested1(input.recursiveMember, context).withName("recursiveMember");
+    bodyNode.addChildNode(node);
   }
   return bodyNode;
 }
@@ -3675,10 +3706,12 @@ const serializeAws_restXmlStructureListMember = (
 ): any => {
   const bodyNode = new __XmlNode("StructureListMember");
   if (input.a !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(input.a)).withName("value"));
+    const node = new __XmlNode("String").addChildNode(new __XmlText(input.a)).withName("value");
+    bodyNode.addChildNode(node);
   }
   if (input.b !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(input.b)).withName("other"));
+    const node = new __XmlNode("String").addChildNode(new __XmlText(input.b)).withName("other");
+    bodyNode.addChildNode(node);
   }
   return bodyNode;
 }
@@ -3692,7 +3725,8 @@ const serializeAws_restXmlXmlAttributesInputOutput = (
     bodyNode.addAttribute("test", input.attr);
   }
   if (input.foo !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(input.foo)).withName("foo"));
+    const node = new __XmlNode("String").addChildNode(new __XmlText(input.foo)).withName("foo");
+    bodyNode.addChildNode(node);
   }
   return bodyNode;
 }
@@ -3704,7 +3738,8 @@ const serializeAws_restXmlXmlMapsInputOutputMap = (
   const collectedNodes: any = [];
   Object.keys(input).forEach(key => {
     const entryNode = new __XmlNode("entry");
-    entryNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(key)).withName("key"));
+    const keyNode = new __XmlNode("String").addChildNode(new __XmlText(key)).withName("key");
+    entryNode.addChildNode(keyNode);
     const node = serializeAws_restXmlGreetingStruct(input[key], context);
     entryNode.addChildNode(node.withName("value"));
     collectedNodes.push(entryNode);
@@ -3719,7 +3754,8 @@ const serializeAws_restXmlXmlMapsXmlNameInputOutputMap = (
   const collectedNodes: any = [];
   Object.keys(input).forEach(key => {
     const entryNode = new __XmlNode("entry");
-    entryNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(key)).withName("Attribute"));
+    const keyNode = new __XmlNode("String").addChildNode(new __XmlText(key)).withName("Attribute");
+    entryNode.addChildNode(keyNode);
     const node = serializeAws_restXmlGreetingStruct(input[key], context);
     entryNode.addChildNode(node.withName("Setting"));
     collectedNodes.push(entryNode);
@@ -3732,13 +3768,15 @@ const serializeAws_restXmlXmlNamespaceNested = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("XmlNamespaceNested");
-  bodyNode.addAttribute("xmlns", "http://foo.com");
   if (input.foo !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(input.foo)).withName("foo"));
+    const node = new __XmlNode("String").addChildNode(new __XmlText(input.foo)).withName("foo");
+    node.addAttribute("xmlns:baz", "http://baz.com");
+    bodyNode.addChildNode(node);
   }
   if (input.values !== undefined) {
     const nodes = serializeAws_restXmlXmlNamespacedList(input.values, context);
     const containerNode = new __XmlNode("values");
+    containerNode.addAttribute("xmlns", "http://qux.com");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -3754,6 +3792,7 @@ const serializeAws_restXmlXmlNamespacedList = (
   const collectedNodes: any = [];
   for (let entry of input) {
     const node = new __XmlNode("String").addChildNode(new __XmlText(entry));
+    node.addAttribute("xmlns", "http://bux.com");
     collectedNodes.push(node.withName("member"));
   }
   return collectedNodes;
@@ -3790,7 +3829,8 @@ const serializeAws_restXmlFooEnumMap = (
   const collectedNodes: any = [];
   Object.keys(input).forEach(key => {
     const entryNode = new __XmlNode("entry");
-    entryNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(key)).withName("key"));
+    const keyNode = new __XmlNode("String").addChildNode(new __XmlText(key)).withName("key");
+    entryNode.addChildNode(keyNode);
     const node = new __XmlNode("FooEnum").addChildNode(new __XmlText(input[key]));
     entryNode.addChildNode(node.withName("value"));
     collectedNodes.push(entryNode);
@@ -3816,7 +3856,8 @@ const serializeAws_restXmlGreetingStruct = (
 ): any => {
   const bodyNode = new __XmlNode("GreetingStruct");
   if (input.hi !== undefined) {
-    bodyNode.addChildNode(new __XmlNode("String").addChildNode(new __XmlText(input.hi)).withName("hi"));
+    const node = new __XmlNode("String").addChildNode(new __XmlText(input.hi)).withName("hi");
+    bodyNode.addChildNode(node);
   }
   return bodyNode;
 }
@@ -3842,7 +3883,8 @@ const serializeAws_restXmlNestedStringList = (
     const node = serializeAws_restXmlStringList(entry, context);
     const container = new __XmlNode("member");
     for (let index in node) {
-      container.addChildNode(node[index]);
+      const workingNode = node[index];
+      container.addChildNode(workingNode);
     }
     collectedNodes.push(container);
   }
@@ -3894,7 +3936,7 @@ const deserializeAws_restXmlComplexNestedErrorData = (
     Foo: undefined,
   };
   if (output['Foo'] !== undefined) {
-    contents.Foo = output['Foo'];
+    contents.Foo = ((output['Foo']['#text'] !== undefined) ? output['Foo']['#text'] : output['Foo']);
   }
   return contents;
 }
@@ -3905,7 +3947,7 @@ const deserializeAws_restXmlFlattenedXmlMapWithXmlNameInputOutputMap = (
 ): { [key: string]: string } => {
   const mapParams: any = {};
   output.forEach((pair: any) => {
-    mapParams[pair["K"]] = pair["V"];
+    mapParams[pair["K"]] = ((pair["V"]['#text'] !== undefined) ? pair["V"]['#text'] : pair["V"]);
   });
   return mapParams;
 }
@@ -3920,10 +3962,10 @@ const deserializeAws_restXmlNestedPayload = (
     name: undefined,
   };
   if (output['greeting'] !== undefined) {
-    contents.greeting = output['greeting'];
+    contents.greeting = ((output['greeting']['#text'] !== undefined) ? output['greeting']['#text'] : output['greeting']);
   }
   if (output['name'] !== undefined) {
-    contents.name = output['name'];
+    contents.name = ((output['name']['#text'] !== undefined) ? output['name']['#text'] : output['name']);
   }
   return contents;
 }
@@ -3937,7 +3979,7 @@ const deserializeAws_restXmlPayloadWithXmlName = (
     name: undefined,
   };
   if (output['name'] !== undefined) {
-    contents.name = output['name'];
+    contents.name = ((output['name']['#text'] !== undefined) ? output['name']['#text'] : output['name']);
   }
   return contents;
 }
@@ -3951,7 +3993,7 @@ const deserializeAws_restXmlPayloadWithXmlNamespace = (
     name: undefined,
   };
   if (output['name'] !== undefined) {
-    contents.name = output['name'];
+    contents.name = ((output['name']['#text'] !== undefined) ? output['name']['#text'] : output['name']);
   }
   return contents;
 }
@@ -3965,7 +4007,7 @@ const deserializeAws_restXmlPayloadWithXmlNamespaceAndPrefix = (
     name: undefined,
   };
   if (output['name'] !== undefined) {
-    contents.name = output['name'];
+    contents.name = ((output['name']['#text'] !== undefined) ? output['name']['#text'] : output['name']);
   }
   return contents;
 }
@@ -3980,7 +4022,7 @@ const deserializeAws_restXmlRecursiveShapesInputOutputNested1 = (
     nested: undefined,
   };
   if (output['foo'] !== undefined) {
-    contents.foo = output['foo'];
+    contents.foo = ((output['foo']['#text'] !== undefined) ? output['foo']['#text'] : output['foo']);
   }
   if (output['nested'] !== undefined) {
     contents.nested = deserializeAws_restXmlRecursiveShapesInputOutputNested2(output['nested'], context);
@@ -3998,7 +4040,7 @@ const deserializeAws_restXmlRecursiveShapesInputOutputNested2 = (
     recursiveMember: undefined,
   };
   if (output['bar'] !== undefined) {
-    contents.bar = output['bar'];
+    contents.bar = ((output['bar']['#text'] !== undefined) ? output['bar']['#text'] : output['bar']);
   }
   if (output['recursiveMember'] !== undefined) {
     contents.recursiveMember = deserializeAws_restXmlRecursiveShapesInputOutputNested1(output['recursiveMember'], context);
@@ -4012,7 +4054,7 @@ const deserializeAws_restXmlRenamedListMembers = (
 ): Array<string> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry);
+    contents.push(((entry['#text'] !== undefined) ? entry['#text'] : entry));
   });
   return contents;
 }
@@ -4038,10 +4080,10 @@ const deserializeAws_restXmlStructureListMember = (
     b: undefined,
   };
   if (output['value'] !== undefined) {
-    contents.a = output['value'];
+    contents.a = ((output['value']['#text'] !== undefined) ? output['value']['#text'] : output['value']);
   }
   if (output['other'] !== undefined) {
-    contents.b = output['other'];
+    contents.b = ((output['other']['#text'] !== undefined) ? output['other']['#text'] : output['other']);
   }
   return contents;
 }
@@ -4056,10 +4098,10 @@ const deserializeAws_restXmlXmlAttributesInputOutput = (
     foo: undefined,
   };
   if (output['test'] !== undefined) {
-    contents.attr = output['test'];
+    contents.attr = ((output['test']['#text'] !== undefined) ? output['test']['#text'] : output['test']);
   }
   if (output['foo'] !== undefined) {
-    contents.foo = output['foo'];
+    contents.foo = ((output['foo']['#text'] !== undefined) ? output['foo']['#text'] : output['foo']);
   }
   return contents;
 }
@@ -4096,7 +4138,7 @@ const deserializeAws_restXmlXmlNamespaceNested = (
     values: undefined,
   };
   if (output['foo'] !== undefined) {
-    contents.foo = output['foo'];
+    contents.foo = ((output['foo']['#text'] !== undefined) ? output['foo']['#text'] : output['foo']);
   }
   if (output.values === "") {
     contents.values = [];
@@ -4114,7 +4156,7 @@ const deserializeAws_restXmlXmlNamespacedList = (
 ): Array<string> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry);
+    contents.push(((entry['#text'] !== undefined) ? entry['#text'] : entry));
   });
   return contents;
 }
@@ -4125,7 +4167,7 @@ const deserializeAws_restXmlBooleanList = (
 ): Array<boolean> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry == 'true');
+    contents.push(((entry['#text'] !== undefined) ? entry['#text'] : entry) == 'true');
   });
   return contents;
 }
@@ -4136,7 +4178,7 @@ const deserializeAws_restXmlFooEnumList = (
 ): Array<FooEnum | string> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry);
+    contents.push(((entry['#text'] !== undefined) ? entry['#text'] : entry));
   });
   return contents;
 }
@@ -4147,7 +4189,7 @@ const deserializeAws_restXmlFooEnumMap = (
 ): { [key: string]: FooEnum | string } => {
   const mapParams: any = {};
   output.forEach((pair: any) => {
-    mapParams[pair["key"]] = pair["value"];
+    mapParams[pair["key"]] = ((pair["value"]['#text'] !== undefined) ? pair["value"]['#text'] : pair["value"]);
   });
   return mapParams;
 }
@@ -4158,7 +4200,7 @@ const deserializeAws_restXmlFooEnumSet = (
 ): Set<FooEnum | string> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry);
+    contents.push(((entry['#text'] !== undefined) ? entry['#text'] : entry));
   });
   return contents;
 }
@@ -4172,7 +4214,7 @@ const deserializeAws_restXmlGreetingStruct = (
     hi: undefined,
   };
   if (output['hi'] !== undefined) {
-    contents.hi = output['hi'];
+    contents.hi = ((output['hi']['#text'] !== undefined) ? output['hi']['#text'] : output['hi']);
   }
   return contents;
 }
@@ -4183,7 +4225,7 @@ const deserializeAws_restXmlIntegerList = (
 ): Array<number> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(parseInt(entry));
+    contents.push(parseInt(((entry['#text'] !== undefined) ? entry['#text'] : entry)));
   });
   return contents;
 }
@@ -4206,7 +4248,7 @@ const deserializeAws_restXmlStringList = (
 ): Array<string> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry);
+    contents.push(((entry['#text'] !== undefined) ? entry['#text'] : entry));
   });
   return contents;
 }
@@ -4217,7 +4259,7 @@ const deserializeAws_restXmlStringSet = (
 ): Set<string> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry);
+    contents.push(((entry['#text'] !== undefined) ? entry['#text'] : entry));
   });
   return contents;
 }
