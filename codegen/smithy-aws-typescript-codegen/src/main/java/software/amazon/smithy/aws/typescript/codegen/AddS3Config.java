@@ -15,6 +15,10 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.Collections;
+import java.util.Map;
+import java.util.function.Consumer;
+
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
@@ -23,6 +27,7 @@ import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.MapUtils;
 
 /**
  * AWS S3 client configuration.
@@ -44,22 +49,22 @@ public final class AddS3Config implements TypeScriptIntegration {
     }
 
     @Override
-    public void addRuntimeConfigValues(
+    public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
             TypeScriptSettings settings,
             Model model,
             SymbolProvider symbolProvider,
-            TypeScriptWriter writer,
             LanguageTarget target
     ) {
         if (!needsS3Config(settings.getService(model))) {
-            return;
+            return Collections.emptyMap();
         }
         switch (target) {
             case SHARED:
-                writer.write("signingEscapePath: false,");
-                break;
+                return MapUtils.of("signingEscapePath", writer -> {
+                    writer.write("signingEscapePath: false,");
+                });
             default:
-                //do nothing
+                return Collections.emptyMap();
         }
     }
 

@@ -15,7 +15,10 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.Collections;
+import java.util.Map;
 import java.util.Set;
+import java.util.function.Consumer;
 import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
@@ -26,6 +29,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SetUtils;
 
 /**
@@ -53,41 +57,34 @@ public class AddBodyChecksumGeneratorDependency implements TypeScriptIntegration
 }
 
     @Override
-    public void addRuntimeConfigValues(
+    public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
             TypeScriptSettings settings,
             Model model,
             SymbolProvider symbolProvider,
-            TypeScriptWriter writer,
             LanguageTarget target
     ) {
         if (!needsBodyChecksumGeneratorDep(settings.getService(model))) {
-            return;
+            return Collections.emptyMap();
         }
 
         switch (target) {
             case NODE:
-                writeNodeConfig(writer);
-                break;
+                return MapUtils.of("bodyChecksumGenerator", writer -> {
+                    writer.addDependency(AwsDependency.BODY_CHECKSUM_GENERATOR_NODE);
+                    writer.addImport("bodyChecksumGenerator", "bodyChecksumGenerator",
+                            AwsDependency.BODY_CHECKSUM_GENERATOR_NODE.packageName);
+                    writer.write("bodyChecksumGenerator,");
+                });
             case BROWSER:
-                writeBrowserConfig(writer);
-                break;
+                return MapUtils.of("bodyChecksumGenerator", writer -> {
+                    writer.addDependency(AwsDependency.BODY_CHECKSUM_GENERATOR_BROWSER);
+                    writer.addImport("bodyChecksumGenerator", "bodyChecksumGenerator",
+                            AwsDependency.BODY_CHECKSUM_GENERATOR_BROWSER.packageName);
+                    writer.write("bodyChecksumGenerator,");
+                });
             default:
-                LOGGER.info("Unknown JavaScript target: " + target);
+                return Collections.emptyMap();
         }
-    }
-
-    private void writeNodeConfig(TypeScriptWriter writer) {
-        writer.addDependency(AwsDependency.BODY_CHECKSUM_GENERATOR_NODE);
-        writer.addImport("bodyChecksumGenerator", "bodyChecksumGenerator",
-                AwsDependency.BODY_CHECKSUM_GENERATOR_NODE.packageName);
-        writer.write("bodyChecksumGenerator,");
-    }
-
-    private void writeBrowserConfig(TypeScriptWriter writer) {
-        writer.addDependency(AwsDependency.BODY_CHECKSUM_GENERATOR_BROWSER);
-        writer.addImport("bodyChecksumGenerator", "bodyChecksumGenerator",
-                AwsDependency.BODY_CHECKSUM_GENERATOR_BROWSER.packageName);
-        writer.write("bodyChecksumGenerator,");
     }
 
     private static boolean needsBodyChecksumGeneratorDep(ServiceShape service) {

@@ -15,6 +15,10 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.Collections;
+import java.util.Map;
+import java.util.function.Consumer;
+
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
@@ -23,6 +27,7 @@ import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.MapUtils;
 
 /**
  * Adds StreamHasher if needed.
@@ -48,30 +53,31 @@ public class AddStreamHasherDependency implements TypeScriptIntegration {
     }
 
     @Override
-    public void addRuntimeConfigValues(
+    public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
             TypeScriptSettings settings,
             Model model,
             SymbolProvider symbolProvider,
-            TypeScriptWriter writer,
             LanguageTarget target
     ) {
         if (!needsStreamHasher(settings.getService(model))) {
-            return;
+            return Collections.emptyMap();
         }
 
         switch (target) {
             case NODE:
-                writer.addDependency(AwsDependency.STREAM_HASHER_NODE);
-                writer.addImport("fileStreamHasher", "streamHasher", AwsDependency.STREAM_HASHER_NODE.packageName);
-                writer.write("streamHasher,");
-                break;
+                return MapUtils.of("streamHasher", writer -> {
+                    writer.addDependency(AwsDependency.STREAM_HASHER_NODE);
+                    writer.addImport("fileStreamHasher", "streamHasher", AwsDependency.STREAM_HASHER_NODE.packageName);
+                    writer.write("streamHasher,");
+                });
             case BROWSER:
-                writer.addDependency(AwsDependency.STREAM_HASHER_BROWSER);
-                writer.addImport("blobHasher", "streamHasher", AwsDependency.STREAM_HASHER_BROWSER.packageName);
-                writer.write("streamHasher,");
-                break;
+                return MapUtils.of("streamHasher", writer -> {
+                    writer.addDependency(AwsDependency.STREAM_HASHER_BROWSER);
+                    writer.addImport("blobHasher", "streamHasher", AwsDependency.STREAM_HASHER_BROWSER.packageName);
+                    writer.write("streamHasher,");
+                });
             default:
-                // do nothing
+                return Collections.emptyMap();
         }
     }
 

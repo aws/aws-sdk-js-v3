@@ -1,29 +1,29 @@
-import { invalidFunction } from "@aws-sdk/invalid-dependency";
+import { name, version } from "./package.json";
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { FetchHttpHandler } from "@aws-sdk/fetch-http-handler";
-import { parseUrl } from "@aws-sdk/url-parser-browser";
-import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
+import { invalidFunction } from "@aws-sdk/invalid-dependency";
 import { streamCollector } from "@aws-sdk/stream-collector-browser";
-import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
+import { parseUrl } from "@aws-sdk/url-parser-browser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
+import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
-import { name, version } from "./package.json";
+import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
 import { ClientDefaults } from "./BudgetsClient";
 import { ClientSharedValues } from "./runtimeConfig.shared";
 
 export const ClientDefaultValues: Required<ClientDefaults> = {
   ...ClientSharedValues,
-  requestHandler: new FetchHttpHandler(),
-  sha256: Sha256,
-  urlParser: parseUrl,
-  bodyLengthChecker: calculateBodyLength,
-  streamCollector,
+  runtime: "browser",
   base64Decoder: fromBase64,
   base64Encoder: toBase64,
-  utf8Decoder: fromUtf8,
-  utf8Encoder: toUtf8,
-  defaultUserAgent: defaultUserAgent(name, version),
-  runtime: "browser",
+  bodyLengthChecker: calculateBodyLength,
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
-  regionDefaultProvider: invalidFunction("Region is missing") as any
+  defaultUserAgent: defaultUserAgent(name, version),
+  regionDefaultProvider: invalidFunction("Region is missing") as any,
+  requestHandler: new FetchHttpHandler(),
+  sha256: Sha256,
+  streamCollector,
+  urlParser: parseUrl,
+  utf8Decoder: fromUtf8,
+  utf8Encoder: toUtf8
 };
