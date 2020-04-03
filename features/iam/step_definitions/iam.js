@@ -6,7 +6,7 @@ Before({ tags: "@iam" }, function(scenario, callback) {
   callback();
 });
 
-Given("I have an IAM username "([^"]*)"", function(name, callback) {
+Given("I have an IAM username {string}", function(name, callback) {
   this.iamUserArn = "";
   this.iamUser = this.uniqueName(name);
   callback();
@@ -54,7 +54,7 @@ Then("I delete the IAM user", function(callback) {
   );
 });
 
-Given("I create an IAM role with name prefix "([^"]*)"", function(
+Given("I create an IAM role with name prefix {string}", function(
   name,
   callback
 ) {

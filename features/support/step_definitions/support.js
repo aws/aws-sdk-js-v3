@@ -11,7 +11,7 @@ Given("I describe Support services", function(callback) {
 });
 
 Then(
-  "the Supported services list should contain a service with code "([^"]*)"",
+  "the Supported services list should contain a service with code {string}",
   function(code, callback) {
     this.assert.contains(this.data.services, function(svc) {
       return svc.code == code;
@@ -21,7 +21,7 @@ Then(
 );
 
 Then(
-  "the Supported services list should contain a service with name "([^"]*)"",
+  "the Supported services list should contain a service with name {string}",
   function(name, callback) {
     this.assert.contains(this.data.services, function(svc) {
       return svc.name == name;

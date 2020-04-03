@@ -8,7 +8,7 @@ Before({ tags: "@elb" }, function(scenario, callback) {
   callback();
 });
 
-Given("I create a load balancer with name prefix "([^"]*)"", function(
+Given("I create a load balancer with name prefix {string}", function(
   prefix,
   callback
 ) {

@@ -6,7 +6,7 @@ Before({ tags: "@sns" }, function(scenario, callback) {
   callback();
 });
 
-Given("I create an SNS topic with name "([^"]*)"", function(name, callback) {
+Given("I create an SNS topic with name {string}", function(name, callback) {
   const world = this;
   this.request(
     null,

@@ -1,6 +1,6 @@
 const { Then, When } = require("cucumber");
 
-When("I send the message "([^"]*)"", function(message, callback) {
+When("I send the message {string}", function(message, callback) {
   this.request(
     null,
     "sendMessage",
@@ -14,7 +14,7 @@ Then("the result should include a message ID", function(callback) {
   callback();
 });
 
-Then("the result should have an MD5 digest of "([^"]*)"", function(
+Then("the result should have an MD5 digest of {string}", function(
   digest,
   callback
 ) {
@@ -22,19 +22,19 @@ Then("the result should have an MD5 digest of "([^"]*)"", function(
   callback();
 });
 
-Then(
-  "I should eventually be able to receive "([^"]*)" from the queue",
-  function(message, callback) {
-    this.eventually(callback, function(next) {
-      next.condition = function() {
-        return this.data.Messages[0].Body === message;
-      };
-      this.request(null, "receiveMessage", { QueueUrl: this.queueUrl }, next);
-    });
-  }
-);
+Then("I should eventually be able to receive {string} from the queue", function(
+  message,
+  callback
+) {
+  this.eventually(callback, function(next) {
+    next.condition = function() {
+      return this.data.Messages[0].Body === message;
+    };
+    this.request(null, "receiveMessage", { QueueUrl: this.queueUrl }, next);
+  });
+});
 
-When("I send the message "([^"]*)" with a binary attribute", function(
+When("I send the message {string} with a binary attribute", function(
   message,
   callback
 ) {
@@ -49,7 +49,7 @@ When("I send the message "([^"]*)" with a binary attribute", function(
 });
 
 Then(
-  "I should eventually be able to receive "([^"]*)" from the queue with a binary attribute",
+  "I should eventually be able to receive {string} from the queue with a binary attribute",
   function(message, callback) {
     this.eventually(callback, function(next) {
       next.condition = function() {

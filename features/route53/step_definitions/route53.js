@@ -6,7 +6,7 @@ Before({ tags: "@route53" }, function(scenario, callback) {
   callback();
 });
 
-When("I create a Route53 hosted zone with name prefix "([^"]*)"", function(
+When("I create a Route53 hosted zone with name prefix {string}", function(
   prefix,
   callback
 ) {
@@ -52,9 +52,7 @@ Then("the change status should be PENDING or INSYNC", function(callback) {
   callback();
 });
 
-When("I get information about the Route53 hosted zone ID", function(
-  callback
-) {
+When("I get information about the Route53 hosted zone ID", function(callback) {
   this.request(
     null,
     "getHostedZone",
@@ -82,24 +80,22 @@ Then("I delete the Route53 hosted zone", function(callback) {
   );
 });
 
-When(
-  "I create a Route53 TCP health check with name prefix "([^"]*)"",
-  function(prefix, callback) {
-    const params = {
-      CallerReference: this.uniqueName(prefix),
-      HealthCheckConfig: {
-        IPAddress: "192.0.43.10", // example.com
-        Port: 80,
-        Type: "TCP"
-      }
-    };
-    this.request(null, "createHealthCheck", params, callback);
-  }
-);
-
-Then("the result should contain health check information", function(
+When("I create a Route53 TCP health check with name prefix {string}", function(
+  prefix,
   callback
 ) {
+  const params = {
+    CallerReference: this.uniqueName(prefix),
+    HealthCheckConfig: {
+      IPAddress: "192.0.43.10", // example.com
+      Port: 80,
+      Type: "TCP"
+    }
+  };
+  this.request(null, "createHealthCheck", params, callback);
+});
+
+Then("the result should contain health check information", function(callback) {
   this.healthCheckInfo = this.data.HealthCheck;
   callback();
 });

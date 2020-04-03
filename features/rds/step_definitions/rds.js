@@ -19,7 +19,7 @@ Given("I create a RDS security group with prefix name {string}", function(
   this.request(null, "createDBSecurityGroup", params, callback, false);
 });
 
-Then(/the value at "([^"]*)" should contain "([^"]*)" with "([^"]*)"/, function(
+Then(/the value at {string} should contain {string} with {string}/, function(
   path,
   key,
   value,
@@ -40,7 +40,7 @@ Then(/the value at "([^"]*)" should contain "([^"]*)" with "([^"]*)"/, function(
 });
 
 Given(
-  "I paginate the "([^"]*)" operation asynchronously with limit (\d+)",
+  "I paginate the {string} operation asynchronously with limit (d+)",
   function(operation, limit, callback) {
     const maxPages = 3;
     limit = parseInt(limit);

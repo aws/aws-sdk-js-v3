@@ -74,7 +74,7 @@ Then("I read the pipeline", function(callback) {
   );
 });
 
-Then("the pipeline status should be "([^"]*)"", function(status, callback) {
+Then("the pipeline status should be {string}", function(status, callback) {
   this.assert.equal(this.data.Pipeline.Status, status);
   callback();
 });

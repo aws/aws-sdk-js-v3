@@ -73,11 +73,11 @@ Then("the bucket should not exist", function(callback) {
 
 /* Global error code steps */
 
-Given("I run the "([^"]*)" operation", function(operation, callback) {
+Given("I run the {string} operation", function(operation, callback) {
   this.request(null, operation, {}, callback, false);
 });
 
-Given("I run the "([^"]*)" operation with params:", function(
+Given("I run the {string} operation with params:", function(
   operation,
   params,
   callback
@@ -90,7 +90,7 @@ Then("the request should be successful", function(callback) {
   callback();
 });
 
-Then("the value at "([^"]*)" should be a list", function(path, callback) {
+Then("the value at {string} should be a list", function(path, callback) {
   const value = jmespath.search(this.data, path);
   this.assert.ok(
     Array.isArray(value),
@@ -99,7 +99,7 @@ Then("the value at "([^"]*)" should be a list", function(path, callback) {
   callback();
 });
 
-Then("the value at "([^"]*)" should be a number", function(path, callback) {
+Then("the value at {string} should be a number", function(path, callback) {
   const value = jmespath.search(this.data, path);
   this.assert.ok(
     typeof value === "number",
@@ -108,7 +108,7 @@ Then("the value at "([^"]*)" should be a number", function(path, callback) {
   callback();
 });
 
-Then("the value at "([^"]*)" should be a string", function(path, callback) {
+Then("the value at {string} should be a string", function(path, callback) {
   const value = jmespath.search(this.data, path);
   this.assert.ok(
     typeof value === "string",
@@ -117,7 +117,7 @@ Then("the value at "([^"]*)" should be a string", function(path, callback) {
   callback();
 });
 
-Then("the error code should be "([^"]*)"", function(code, callback) {
+Then("the error code should be {string}", function(code, callback) {
   this.assert.ok(this.error, "Response does not contain an error");
   this.assert.equal(this.error.name, code);
   callback();
@@ -135,12 +135,12 @@ Then("the error message should (be|equal|match|contain):", function(
   callback();
 });
 
-Then("the status code should be (\d+)", function(status, callback) {
+Then("the status code should be (d+)", function(status, callback) {
   this.assert.equal(this.data.$metadata.httpStatusCode, parseInt(status));
   callback();
 });
 
-Then("the error status code should be (\d+)", function(status, callback) {
+Then("the error status code should be (d+)", function(status, callback) {
   this.assert.equal(this.error.$metadata.httpStatusCode, parseInt(status));
   callback();
 });
@@ -152,7 +152,7 @@ Then("I should get the error:", function(table, callback) {
   callback();
 });
 
-Given("I have a "([^"]*)" service in the "([^"]*)" region", function(
+Given("I have a {string} service in the {string} region", function(
   svc,
   region,
   callback
@@ -162,7 +162,7 @@ Given("I have a "([^"]*)" service in the "([^"]*)" region", function(
 });
 
 Given(
-  "I paginate the "([^"]*)" operation(?: with limit (\d+))?(?: and max pages (\d+))?",
+  "I paginate the {string} operation(?: with limit (d+))?(?: and max pages (d+))?",
   function(operation, limit, maxPages, callback) {
     limit = parseInt(limit);
     if (maxPages) maxPages = parseInt(maxPages);
@@ -203,7 +203,7 @@ Then("I should get at least one page", function(callback) {
   callback();
 });
 
-Then("I should get (\d+) pages", function(numPages, callback) {
+Then("I should get (d+) pages", function(numPages, callback) {
   this.assert.equal(this.numPages, parseInt(numPages));
   callback();
 });
@@ -220,7 +220,7 @@ Then("the last page should not contain a marker", function(callback) {
 });
 
 Then(
-  "the result at (\w+) should contain a property (\w+) with an? (\w+)",
+  "the result at (w+) should contain a property (w+) with an? (w+)",
   function(wrapper, property, type, callback) {
     if (type === "Array" || type === "Date") {
       this.assert.equal(isType(this.data[wrapper][property], type), true);
@@ -231,7 +231,7 @@ Then(
   }
 );
 
-Then("the result should contain a property (\w+) with an? (\w+)", function(
+Then("the result should contain a property (w+) with an? (w+)", function(
   property,
   type,
   callback
