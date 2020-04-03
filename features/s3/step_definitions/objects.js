@@ -51,7 +51,7 @@ When("I get the object {string}", function(key, next) {
 });
 
 When(
-  "I put (?:a |an )(empty|small|large|\d+KB|\d+MB) buffer to the key {string}",
+  "I put (?:a |an )(empty|small|large|d+KB|d+MB) buffer to the key {string}",
   function(size, key, next) {
     const body = this.createBuffer(size);
     const params = {
@@ -63,35 +63,38 @@ When(
   }
 );
 
-When(
-  "I put (?:a |an )(empty|small|large) file to the key {string}",
-  function(size, key, next) {
-    const fs = require("fs");
-    const filename = this.createFile(size, key);
-    const params = {
-      Bucket: this.sharedBucket,
-      Key: key,
-      Body: fs.createReadStream(filename)
-    };
-    this.request("s3", "putObject", params, next);
-  }
-);
+When("I put (?:a |an )(empty|small|large) file to the key {string}", function(
+  size,
+  key,
+  next
+) {
+  const fs = require("fs");
+  const filename = this.createFile(size, key);
+  const params = {
+    Bucket: this.sharedBucket,
+    Key: key,
+    Body: fs.createReadStream(filename)
+  };
+  this.request("s3", "putObject", params, next);
+});
 
-When(
-  "I put {string} to the key {string} with ContentLength (\d+)",
-  function(contents, key, contentLength, next) {
-    const params = {
-      Bucket: this.sharedBucket,
-      Key: key,
-      Body: contents,
-      ContentLength: parseInt(contentLength)
-    };
-    this.s3nochecksums = new S3({
-      computeChecksums: false
-    });
-    this.request("s3nochecksums", "putObject", params, next);
-  }
-);
+When("I put {string} to the key {string} with ContentLength (d+)", function(
+  contents,
+  key,
+  contentLength,
+  next
+) {
+  const params = {
+    Bucket: this.sharedBucket,
+    Key: key,
+    Body: contents,
+    ContentLength: parseInt(contentLength)
+  };
+  this.s3nochecksums = new S3({
+    computeChecksums: false
+  });
+  this.request("s3nochecksums", "putObject", params, next);
+});
 
 Then("the object {string} should contain {string}", function(
   key,
@@ -104,7 +107,7 @@ Then("the object {string} should contain {string}", function(
   });
 });
 
-Then("the HTTP response should have a content length of (\d+)", function(
+Then("the HTTP response should have a content length of (d+)", function(
   contentLength,
   next
 ) {
@@ -194,7 +197,7 @@ Then("the streamed data should contain {string}", function(data, callback) {
   callback();
 });
 
-Then("the streamed data content length should equal (\d+)", function(
+Then("the streamed data content length should equal (d+)", function(
   length,
   callback
 ) {
@@ -202,10 +205,7 @@ Then("the streamed data content length should equal (\d+)", function(
   callback();
 });
 
-When("I get a pre\-signed URL to GET the key {string}", function(
-  key,
-  callback
-) {
+When("I get a pre-signed URL to GET the key {string}", function(key, callback) {
   const world = this;
   getSignedUrl(
     this.s3,
@@ -236,7 +236,7 @@ When("I access the URL via HTTP GET", function(callback) {
 });
 
 Given(
-  "I get a pre\-signed URL to PUT the key {string}(?: with data {string})?",
+  "I get a pre-signed URL to PUT the key {string}(?: with data {string})?",
   function(key, body, callback) {
     const world = this;
     const params = {
@@ -348,7 +348,7 @@ Then("the HTTP response should equal {string}", function(data, callback) {
   callback();
 });
 
-Then("the HTTP response should contain "([^"]*|)"", function(data, callback) {
+Then("the HTTP response should contain {string}", function(data, callback) {
   this.assert.match(this.data, data);
   callback();
 });
@@ -363,7 +363,7 @@ Given("I setup the listObjects request for the bucket", function(callback) {
 // progress events
 
 When(
-  "I put (?:a |an )(empty|small|large|\d+KB|\d+MB) buffer to the key {string} with progress events",
+  "I put (?:a |an )(empty|small|large|d+KB|d+MB) buffer to the key {string} with progress events",
   function(size, key, callback) {
     const self = this;
     const body = self.createBuffer(size);
@@ -380,7 +380,7 @@ When(
   }
 );
 
-Then("more than (\d+) {string} event should fire", function(
+Then("more than (d+) {string} event should fire", function(
   numEvents,
   eventName,
   callback
@@ -389,26 +389,24 @@ Then("more than (\d+) {string} event should fire", function(
   callback();
 });
 
-Then(
-  "the {string} value of the progress event should equal (\d+)MB",
-  function(prop, mb, callback) {
-    this.assert.equal(this.progress[0][prop], mb * 1024 * 1024);
-    callback();
-  }
-);
+Then("the {string} value of the progress event should equal (d+)MB", function(
+  prop,
+  mb,
+  callback
+) {
+  this.assert.equal(this.progress[0][prop], mb * 1024 * 1024);
+  callback();
+});
 
 Then(
-  "the {string} value of the first progress event should be greater than (\d+) bytes",
+  "the {string} value of the first progress event should be greater than (d+) bytes",
   function(prop, bytes, callback) {
     this.assert.compare(this.progress[0][prop], ">", bytes);
     callback();
   }
 );
 
-When("I read the key {string} with progress events", function(
-  key,
-  callback
-) {
+When("I read the key {string} with progress events", function(key, callback) {
   const self = this;
   this.progress = [];
   const req = this.s3.getObject({

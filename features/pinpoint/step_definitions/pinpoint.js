@@ -21,7 +21,7 @@ Given("I create an application", function(callback) {
   });
 });
 
-Given("I run the "putEvents" operation with EventsRequest:", function(
+Given('I run the "putEvents" operation with EventsRequest:', function(
   eventsRequest,
   callback
 ) {
