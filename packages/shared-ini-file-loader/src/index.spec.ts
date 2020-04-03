@@ -32,10 +32,10 @@ jest.mock("fs", () => {
     callback(new Error("ENOENT: no such file or directory"));
   }
 
-  fs.__addMatcher = function(toMatch: string, toReturn: string): void {
+  fs.__addMatcher = function (toMatch: string, toReturn: string): void {
     matchers.set(toMatch, toReturn);
   };
-  fs.__clearMatchers = function(): void {
+  fs.__clearMatchers = function (): void {
     matchers.clear();
   };
   fs.readFile = readFile;

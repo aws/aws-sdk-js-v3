@@ -120,7 +120,7 @@ async function resolveProcessCredentials(
 }
 
 function execPromise(command: string) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     exec(command, (error, stdout, stderr) => {
       if (error) {
         reject(error);

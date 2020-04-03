@@ -18,7 +18,7 @@ import { HttpResponse } from "@aws-sdk/types";
 const fixturesDir = join(__dirname, "..", "fixtures");
 
 export function createResponseFunction(httpResp: HttpResponse) {
-  return function(request: IncomingMessage, response: ServerResponse) {
+  return function (request: IncomingMessage, response: ServerResponse) {
     response.statusCode = httpResp.statusCode;
     for (let name of Object.keys(httpResp.headers)) {
       let values = httpResp.headers[name];
@@ -33,7 +33,7 @@ export function createResponseFunction(httpResp: HttpResponse) {
 }
 
 export function createContinueResponseFunction(httpResp: HttpResponse) {
-  return function(request: IncomingMessage, response: ServerResponse) {
+  return function (request: IncomingMessage, response: ServerResponse) {
     response.writeContinue();
     setTimeout(() => {
       createResponseFunction(httpResp)(request, response);

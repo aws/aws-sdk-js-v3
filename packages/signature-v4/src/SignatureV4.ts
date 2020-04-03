@@ -383,7 +383,5 @@ function formatDate(now: DateInput): { longDate: string; shortDate: string } {
 }
 
 function getCanonicalHeaderList(headers: object): string {
-  return Object.keys(headers)
-    .sort()
-    .join(";");
+  return Object.keys(headers).sort().join(";");
 }
