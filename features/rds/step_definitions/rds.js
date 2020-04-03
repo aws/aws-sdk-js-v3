@@ -19,7 +19,7 @@ Given("I create a RDS security group with prefix name {string}", function(
   this.request(null, "createDBSecurityGroup", params, callback, false);
 });
 
-Then(/the value at {string} should contain {string} with {string}/, function(
+Then("the value at {string} should contain {string} with {string}", function(
   path,
   key,
   value,

@@ -15,7 +15,7 @@ Given("I have a Glacier vault", function(callback) {
 });
 
 Given(
-  "I upload a (d+(?:.d+)?)MB Glacier archive to the vault( with (?:invalid|incorrect) checksum)?",
+  /^I upload a (\d+(?:\.\d+)?)MB Glacier archive to the vault( with (?:invalid|incorrect) checksum)?$/,
   function(size, invalid, callback) {
     const data = Buffer.alloc(parseFloat(size) * 1024 * 1024);
     data.fill("0");
@@ -69,7 +69,7 @@ Then("I delete the Glacier vault", function(callback) {
 });
 
 When(
-  "I initiate a Glacier multi-part upload on a (d+(?:.d+)?)MB archive in {int}MB chunks",
+  /^I initiate a Glacier multi-part upload on a (\d+(?:\.\d+)?)MB archive in (\d+)MB chunks$/,
   function(totalSize, partSize, callback) {
     // setup multi-part upload
     this.uploadData = Buffer.alloc(totalSize * 1024 * 1024);

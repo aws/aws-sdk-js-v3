@@ -216,7 +216,7 @@ Then("the last page should not contain a marker", function(callback) {
 });
 
 Then(
-  "the result at {word} should contain a property {word} with an? {word}",
+  "the result at {word} should contain a property {word} with a(n) {word}",
   function(wrapper, property, type, callback) {
     if (type === "Array" || type === "Date") {
       this.assert.equal(isType(this.data[wrapper][property], type), true);
@@ -227,7 +227,7 @@ Then(
   }
 );
 
-Then("the result should contain a property {word} with an? {word}", function(
+Then("the result should contain a property {word} with a(n) {word}", function(
   property,
   type,
   callback

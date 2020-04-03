@@ -10,7 +10,7 @@ When("I check quota", function(next) {
   this.request(null, "getSendQuota", {}, next);
 });
 
-Then("the result should include (S+) {string}", function(type, attr, next) {
+Then("the result should include {word} {string}", function(type, attr, next) {
   if (this.data[attr] === undefined) next.fail("Missing " + attr);
   if (typeof this.data[attr] !== type) next.fail("Incorrect type " + attr);
   next();
