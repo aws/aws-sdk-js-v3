@@ -45,17 +45,17 @@ describe("splitEvery", () => {
     expect(splitEvery(m3, delim, count)).toMatchObject(["foo, bar", "baz"]);
     expect(splitEvery(m4, delim, count)).toMatchObject([
       "foo, bar",
-      "baz, qux",
+      "baz, qux"
     ]);
     expect(splitEvery(m5, delim, count)).toMatchObject([
       "foo, bar",
       "baz, qux",
-      "coo",
+      "coo"
     ]);
     expect(splitEvery(m6, delim, count)).toMatchObject([
       "foo, bar",
       "baz, qux",
-      "coo, tan",
+      "coo, tan"
     ]);
   });
 
@@ -66,15 +66,15 @@ describe("splitEvery", () => {
     expect(splitEvery(m3, delim, count)).toMatchObject(["foo, bar, baz"]);
     expect(splitEvery(m4, delim, count)).toMatchObject([
       "foo, bar, baz",
-      "qux",
+      "qux"
     ]);
     expect(splitEvery(m5, delim, count)).toMatchObject([
       "foo, bar, baz",
-      "qux, coo",
+      "qux, coo"
     ]);
     expect(splitEvery(m6, delim, count)).toMatchObject([
       "foo, bar, baz",
-      "qux, coo, tan",
+      "qux, coo, tan"
     ]);
   });
 });
