@@ -95,4 +95,9 @@ export class Client<
       return handler(command).then(result => result.output);
     }
   }
+
+  destroy() {
+    if (this.config.requestHandler.destroy)
+      this.config.requestHandler.destroy();
+  }
 }
