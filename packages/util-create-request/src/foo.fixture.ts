@@ -36,7 +36,8 @@ export const fooClient: Client<any, InputTypesUnion, OutputTypesUnion, any> = {
       this.middlewareStack,
       this.config,
       undefined
-    )({ input })
+    )({ input }),
+  destroy: () => {}
 };
 
 export const operationCommand: Command<
