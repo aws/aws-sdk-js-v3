@@ -28,6 +28,7 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.EventStreamTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocolGenerator;
@@ -207,7 +208,8 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
                     getInputValue(context, Location.PAYLOAD, "input." + memberName, member, target));
 
             // Structure and Union payloads will serialize as XML documents via XmlNode.
-            if (target instanceof StructureShape || target instanceof UnionShape) {
+            if ((target instanceof StructureShape || target instanceof UnionShape)
+                    && member.hasTrait(EventStreamTrait.class)) {
                 // Start with the XML declaration.
                 writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
 
