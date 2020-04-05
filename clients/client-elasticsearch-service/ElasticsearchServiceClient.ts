@@ -336,5 +336,7 @@ export class ElasticsearchServiceClient extends __Client<
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
   }
 
-  destroy(): void {}
+  destroy(): void {
+    super.destroy();
+  }
 }
