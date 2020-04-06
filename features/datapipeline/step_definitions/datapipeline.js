@@ -1,12 +1,12 @@
 const { DataPipeline } = require("../../../clients/client-data-pipeline");
 const { Before, Given } = require("cucumber");
 
-Before({ tags: "@datapipeline" }, function(scenario, callback) {
+Before({ tags: "@datapipeline" }, function (scenario, callback) {
   this.service = new DataPipeline({});
   callback();
 });
 
-Given("I create a Data Pipeline with name prefix {string}", function(
+Given("I create a Data Pipeline with name prefix {string}", function (
   prefix,
   callback
 ) {

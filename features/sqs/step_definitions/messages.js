@@ -1,6 +1,6 @@
 const { Then, When } = require("cucumber");
 
-When("I send the message {string}", function(message, callback) {
+When("I send the message {string}", function (message, callback) {
   this.request(
     null,
     "sendMessage",
@@ -9,12 +9,12 @@ When("I send the message {string}", function(message, callback) {
   );
 });
 
-Then("the result should include a message ID", function(callback) {
+Then("the result should include a message ID", function (callback) {
   this.assert.compare(this.data.MessageId.length, ">", 0);
   callback();
 });
 
-Then("the result should have an MD5 digest of {string}", function(
+Then("the result should have an MD5 digest of {string}", function (
   digest,
   callback
 ) {
@@ -22,19 +22,19 @@ Then("the result should have an MD5 digest of {string}", function(
   callback();
 });
 
-Then("I should eventually be able to receive {string} from the queue", function(
-  message,
-  callback
-) {
-  this.eventually(callback, function(next) {
-    next.condition = function() {
-      return this.data.Messages[0].Body === message;
-    };
-    this.request(null, "receiveMessage", { QueueUrl: this.queueUrl }, next);
-  });
-});
+Then(
+  "I should eventually be able to receive {string} from the queue",
+  function (message, callback) {
+    this.eventually(callback, function (next) {
+      next.condition = function () {
+        return this.data.Messages[0].Body === message;
+      };
+      this.request(null, "receiveMessage", { QueueUrl: this.queueUrl }, next);
+    });
+  }
+);
 
-When("I send the message {string} with a binary attribute", function(
+When("I send the message {string} with a binary attribute", function (
   message,
   callback
 ) {
@@ -50,9 +50,9 @@ When("I send the message {string} with a binary attribute", function(
 
 Then(
   "I should eventually be able to receive {string} from the queue with a binary attribute",
-  function(message, callback) {
-    this.eventually(callback, function(next) {
-      next.condition = function() {
+  function (message, callback) {
+    this.eventually(callback, function (next) {
+      next.condition = function () {
         return (
           this.data.Messages[0].MessageAttributes.binary.BinaryValue.toString() ===
           "1,2,3"

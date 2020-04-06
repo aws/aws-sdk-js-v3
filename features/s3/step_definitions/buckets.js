@@ -1,7 +1,7 @@
 const { S3 } = require("../../../clients/client-s3");
 const { Given, Then, When } = require("cucumber");
 
-Given("I am using the S3 {string} region", function(region, callback) {
+Given("I am using the S3 {string} region", function (region, callback) {
   this.s3 = new S3({
     region: region
   });
@@ -10,7 +10,7 @@ Given("I am using the S3 {string} region", function(region, callback) {
 
 Given(
   "I am using the S3 {string} region with signatureVersion {string}",
-  function(region, signatureVersion, callback) {
+  function (region, signatureVersion, callback) {
     this.s3 = new S3({
       region: region,
       signatureVersion: signatureVersion
@@ -19,7 +19,7 @@ Given(
   }
 );
 
-When("I create a bucket with the location constraint {string}", function(
+When("I create a bucket with the location constraint {string}", function (
   location,
   callback
 ) {
@@ -30,7 +30,7 @@ When("I create a bucket with the location constraint {string}", function(
       LocationConstraint: location
     }
   };
-  this.request("s3", "createBucket", params, function(err, data) {
+  this.request("s3", "createBucket", params, function (err, data) {
     if (err) {
       return callback(err);
     }
@@ -44,7 +44,7 @@ When("I create a bucket with the location constraint {string}", function(
   });
 });
 
-Then("the bucket should have a location constraint of {string}", function(
+Then("the bucket should have a location constraint of {string}", function (
   loc,
   callback
 ) {
@@ -53,7 +53,7 @@ Then("the bucket should have a location constraint of {string}", function(
     {
       Bucket: self.bucket
     },
-    function(err, data) {
+    function (err, data) {
       if (err) callback(err);
       self.assert.equal(data.LocationConstraint, loc);
       callback();
@@ -63,7 +63,7 @@ Then("the bucket should have a location constraint of {string}", function(
 
 When(
   "I put a transition lifecycle configuration on the bucket with prefix {string}",
-  function(prefix, callback) {
+  function (prefix, callback) {
     const params = {
       Bucket: this.bucket,
       LifecycleConfiguration: {
@@ -87,10 +87,10 @@ When(
   }
 );
 
-When("I get the transition lifecycle configuration on the bucket", function(
+When("I get the transition lifecycle configuration on the bucket", function (
   callback
 ) {
-  this.eventually(callback, function(next) {
+  this.eventually(callback, function (next) {
     this.request(
       "s3",
       "getBucketLifecycleConfiguration",
@@ -104,7 +104,7 @@ When("I get the transition lifecycle configuration on the bucket", function(
 
 Then(
   "the lifecycle configuration should have transition days of {int}",
-  function(days, callback) {
+  function (days, callback) {
     this.assert.equal(this.data.Rules[0].Transitions[0].Days, 0);
     callback();
   }
@@ -112,13 +112,13 @@ Then(
 
 Then(
   "the lifecycle configuration should have transition storage class of {string}",
-  function(value, callback) {
+  function (value, callback) {
     this.assert.equal(this.data.Rules[0].Transitions[0].StorageClass, value);
     callback();
   }
 );
 
-When("I put a bucket CORS configuration", function(callback) {
+When("I put a bucket CORS configuration", function (callback) {
   const params = {
     Bucket: this.bucket,
     CORSConfiguration: {
@@ -136,7 +136,7 @@ When("I put a bucket CORS configuration", function(callback) {
   this.request("s3", "putBucketCors", params, callback);
 });
 
-When("I get the bucket CORS configuration", function(callback) {
+When("I get the bucket CORS configuration", function (callback) {
   this.request(
     "s3",
     "getBucketCors",
@@ -147,7 +147,7 @@ When("I get the bucket CORS configuration", function(callback) {
   );
 });
 
-Then("the AllowedMethods list should inclue {string}", function(
+Then("the AllowedMethods list should inclue {string}", function (
   value,
   callback
 ) {
@@ -158,7 +158,7 @@ Then("the AllowedMethods list should inclue {string}", function(
   callback();
 });
 
-Then("the AllowedOrigin value should equal {string}", function(
+Then("the AllowedOrigin value should equal {string}", function (
   value,
   callback
 ) {
@@ -166,7 +166,7 @@ Then("the AllowedOrigin value should equal {string}", function(
   callback();
 });
 
-Then("the AllowedHeader value should equal {string}", function(
+Then("the AllowedHeader value should equal {string}", function (
   value,
   callback
 ) {
@@ -174,17 +174,20 @@ Then("the AllowedHeader value should equal {string}", function(
   callback();
 });
 
-Then("the ExposeHeader value should equal {string}", function(value, callback) {
+Then("the ExposeHeader value should equal {string}", function (
+  value,
+  callback
+) {
   this.assert.equal(this.data.CORSRules[0].ExposeHeaders[0], value);
   callback();
 });
 
-Then("the MaxAgeSeconds value should equal {int}", function(value, callback) {
+Then("the MaxAgeSeconds value should equal {int}", function (value, callback) {
   this.assert.equal(this.data.CORSRules[0].MaxAgeSeconds, parseInt(value));
   callback();
 });
 
-When("I put a bucket tag with key {string} and value {string}", function(
+When("I put a bucket tag with key {string} and value {string}", function (
   key,
   value,
   callback
@@ -204,7 +207,7 @@ When("I put a bucket tag with key {string} and value {string}", function(
   this.request("s3", "putBucketTagging", params, callback);
 });
 
-When("I get the bucket tagging", function(callback) {
+When("I get the bucket tagging", function (callback) {
   this.request(
     "s3",
     "getBucketTagging",
@@ -217,7 +220,7 @@ When("I get the bucket tagging", function(callback) {
 
 Then(
   "the first tag in the tag set should have key and value {string}, {string}",
-  function(key, value, callback) {
+  function (key, value, callback) {
     this.assert.equal(this.data.TagSet[0].Key, key);
     this.assert.equal(this.data.TagSet[0].Value, value);
     callback();
@@ -226,7 +229,7 @@ Then(
 
 When(
   "I create a bucket with a DNS compatible name that contains a dot",
-  function(callback) {
+  function (callback) {
     const bucket = (this.bucket = this.uniqueName("aws-sdk-js.integration"));
     this.request(
       "s3",
@@ -234,7 +237,7 @@ When(
       {
         Bucket: this.bucket
       },
-      function(err, data) {
+      function (err, data) {
         if (err) {
           return callback(err);
         }
@@ -250,26 +253,26 @@ When(
   }
 );
 
-Given("I force path style requests", function(callback) {
+Given("I force path style requests", function (callback) {
   this.s3 = new S3({
     forcePathStyle: true
   });
   callback();
 });
 
-Then("the bucket name should be in the request path", function(callback) {
+Then("the bucket name should be in the request path", function (callback) {
   const path = this.data.Body.req.path.split("/");
   this.assert.equal(path[1], this.bucket);
   callback();
 });
 
-Then("the bucket name should not be in the request host", function(callback) {
+Then("the bucket name should not be in the request host", function (callback) {
   const host = this.data.Body.client.servername;
   this.assert.compare(host.indexOf(this.bucket), "<", 0);
   callback();
 });
 
-When("I put {string} to the key {string} in the bucket", function(
+When("I put {string} to the key {string} in the bucket", function (
   data,
   key,
   next
@@ -282,7 +285,7 @@ When("I put {string} to the key {string} in the bucket", function(
   this.request("s3", "putObject", params, next, false);
 });
 
-When("I get the key {string} in the bucket", function(key, next) {
+When("I get the key {string} in the bucket", function (key, next) {
   const params = {
     Bucket: this.bucket,
     Key: key
@@ -290,7 +293,7 @@ When("I get the key {string} in the bucket", function(key, next) {
   this.request("s3", "getObject", params, next, false);
 });
 
-Then("I delete the object {string} from the bucket", function(key, next) {
+Then("I delete the object {string} from the bucket", function (key, next) {
   const params = {
     Bucket: this.bucket,
     Key: key
@@ -300,7 +303,7 @@ Then("I delete the object {string} from the bucket", function(key, next) {
 
 When(
   /^I put a (small|large) buffer to the key "([^"]*)" in the bucket$/,
-  function(size, key, next) {
+  function (size, key, next) {
     const body = this.createBuffer(size);
     const params = {
       Bucket: this.bucket,
@@ -311,7 +314,7 @@ When(
   }
 );
 
-Then(/^the object "([^"]*)" should (not )?exist in the bucket$/, function(
+Then(/^the object "([^"]*)" should (not )?exist in the bucket$/, function (
   key,
   shouldNotExist,
   next
@@ -320,8 +323,8 @@ Then(/^the object "([^"]*)" should (not )?exist in the bucket$/, function(
     Bucket: this.bucket,
     Key: key
   };
-  this.eventually(next, function(retry) {
-    retry.condition = function() {
+  this.eventually(next, function (retry) {
+    retry.condition = function () {
       if (shouldNotExist) {
         return this.error && this.error.code === "NotFound";
       } else {
