@@ -7,7 +7,6 @@
     "pretest": "tsc -p tsconfig.test.json",
     "test": "jest"
   },
-  "prettier": "@aws-sdk/prettier-config",
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"

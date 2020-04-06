@@ -76,7 +76,6 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "prettier": "@aws-sdk/prettier-config",
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
