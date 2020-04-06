@@ -35,12 +35,12 @@ AfterAll(async () => {
 /**
  * Delete fixtures
  */
-const deleteFixtures = function() {
+const deleteFixtures = function () {
   const fs = require("fs");
   const path = require("path");
   const fixturePath = path.resolve("./features/extra/fixtures/tmp");
   if (fs.existsSync(fixturePath)) {
-    fs.readdirSync(fixturePath).forEach(function(file) {
+    fs.readdirSync(fixturePath).forEach(function (file) {
       fs.unlinkSync(path.join(fixturePath, file));
     });
     fs.rmdirSync(fixturePath);
@@ -75,7 +75,7 @@ const deleteObjects = async bucket => {
   const data = await s3.listObjects(params);
   if (data.Contents && data.Contents.length > 0) {
     params.Delete = { Objects: [] };
-    data.Contents.forEach(function(item) {
+    data.Contents.forEach(function (item) {
       params.Delete.Objects.push({ Key: item.Key });
     });
     await s3.deleteObjects(params);

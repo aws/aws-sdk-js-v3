@@ -1,12 +1,12 @@
 const { CloudWatch } = require("../../../clients/client-cloudwatch");
 const { Before, Given, Then } = require("cucumber");
 
-Before({ tags: "@cloudwatch" }, function(scenario, callback) {
+Before({ tags: "@cloudwatch" }, function (scenario, callback) {
   this.service = new CloudWatch({});
   callback();
 });
 
-Given("I create a CloudWatch alarm with prefix {string}", function(
+Given("I create a CloudWatch alarm with prefix {string}", function (
   name,
   callback
 ) {
@@ -33,7 +33,7 @@ Given("I create a CloudWatch alarm with prefix {string}", function(
   );
 });
 
-Given("I create a CloudWatch alarm with name {string}", function(
+Given("I create a CloudWatch alarm with name {string}", function (
   name,
   callback
 ) {
@@ -52,7 +52,7 @@ Given("I create a CloudWatch alarm with name {string}", function(
   this.request(null, "putMetricAlarm", this.cloudWatchAlarm, callback, false);
 });
 
-Given("I list the CloudWatch alarms", function(callback) {
+Given("I list the CloudWatch alarms", function (callback) {
   const params = {
     MetricName: this.cloudWatchAlarm.MetricName,
     Namespace: this.cloudWatchAlarm.Namespace
@@ -60,15 +60,15 @@ Given("I list the CloudWatch alarms", function(callback) {
   this.request(null, "describeAlarmsForMetric", params, callback);
 });
 
-Then("the list should contain the CloudWatch alarm", function(callback) {
+Then("the list should contain the CloudWatch alarm", function (callback) {
   const name = this.cloudWatchAlarm.AlarmName;
-  this.assert.contains(this.data.MetricAlarms, function(alarm) {
+  this.assert.contains(this.data.MetricAlarms, function (alarm) {
     return alarm.AlarmName === name;
   });
   callback();
 });
 
-Then("I delete the CloudWatch alarm", function(callback) {
+Then("I delete the CloudWatch alarm", function (callback) {
   this.request(
     null,
     "deleteAlarms",

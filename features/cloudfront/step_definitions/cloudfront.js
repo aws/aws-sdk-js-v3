@@ -52,13 +52,13 @@ const createParams = {
   Enabled: false
 };
 
-Before({ tags: "@cloudfront" }, function(scenario, callback) {
+Before({ tags: "@cloudfront" }, function (scenario, callback) {
   this.service = new CloudFront({});
   this.cfCreateParams = createParams;
   callback();
 });
 
-Given("I create a CloudFront distribution with name prefix {string}", function(
+Given("I create a CloudFront distribution with name prefix {string}", function (
   prefix,
   callback
 ) {
@@ -75,6 +75,6 @@ Given("I create a CloudFront distribution with name prefix {string}", function(
   );
 });
 
-Given("I list CloudFront distributions", function(callback) {
+Given("I list CloudFront distributions", function (callback) {
   this.request(null, "listDistributions", {}, callback);
 });

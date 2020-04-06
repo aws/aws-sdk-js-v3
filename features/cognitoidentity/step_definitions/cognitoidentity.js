@@ -1,12 +1,12 @@
 const { CognitoIdentity } = require("../../../clients/client-cognito-identity");
 const { Before, Given, Then } = require("cucumber");
 
-Before({ tags: "@cognitoidentity" }, function(scenario, callback) {
+Before({ tags: "@cognitoidentity" }, function (scenario, callback) {
   this.service = new CognitoIdentity({});
   callback();
 });
 
-Given("I create a Cognito identity pool with prefix {string}", function(
+Given("I create a Cognito identity pool with prefix {string}", function (
   prefix,
   callback
 ) {
@@ -18,7 +18,7 @@ Given("I create a Cognito identity pool with prefix {string}", function(
   this.request(null, "createIdentityPool", params, callback, expectError);
 });
 
-Given("I describe the Cognito identity pool ID", function(callback) {
+Given("I describe the Cognito identity pool ID", function (callback) {
   this.identityPoolId = this.data.IdentityPoolId;
   this.request(
     null,
@@ -28,7 +28,7 @@ Given("I describe the Cognito identity pool ID", function(callback) {
   );
 });
 
-Then("I delete the Cognito identity pool", function(callback) {
+Then("I delete the Cognito identity pool", function (callback) {
   this.request(
     null,
     "deleteIdentityPool",

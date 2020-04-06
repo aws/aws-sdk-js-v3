@@ -1,21 +1,23 @@
 const { Given, Then } = require("cucumber");
 
-Given("I create a queue with the prefix name {string}", function(
+Given("I create a queue with the prefix name {string}", function (
   prefix,
   callback
 ) {
   const name = this.uniqueName(prefix);
-  this.request(null, "createQueue", { QueueName: name }, callback, function() {
+  this.request(null, "createQueue", { QueueName: name }, callback, function () {
     this.queueUrl = this.data.QueueUrl;
     this.createdQueues.push(this.queueUrl);
   });
 });
 
-Then("list queues should eventually return the queue urls", function(callback) {
+Then("list queues should eventually return the queue urls", function (
+  callback
+) {
   this.eventually(
     callback,
-    function(next) {
-      next.condition = function() {
+    function (next) {
+      next.condition = function () {
         let matchingCount = 0;
         for (let i = 0; i < this.createdQueues.length; ++i) {
           for (let j = 0; j < this.data.QueueUrls.length; ++j) {
@@ -32,7 +34,7 @@ Then("list queues should eventually return the queue urls", function(callback) {
   );
 });
 
-Then("I delete the SQS queue", function(callback) {
+Then("I delete the SQS queue", function (callback) {
   const url = this.createdQueues.pop();
   this.request(null, "deleteQueue", { QueueUrl: url }, callback);
 });
