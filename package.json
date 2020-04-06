@@ -48,7 +48,7 @@
     "jmespath": "^0.15.0",
     "lerna": "3.20.2",
     "lint-staged": "^10.0.1",
-    "prettier": "1.19.1",
+    "prettier": "2.0.3",
     "typescript": "~3.8.3",
     "yarn": "1.22.4"
   },
