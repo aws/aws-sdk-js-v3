@@ -102,10 +102,7 @@ public class AddEventStreamSigningDependency implements TypeScriptIntegration {
         }
     }
 
-    private static boolean hasEventStreamInput(
-            Model model,
-            ServiceShape service
-    ) {
+    private static boolean hasEventStreamInput(Model model, ServiceShape service) {
         TopDownIndex topDownIndex = model.getKnowledge(TopDownIndex.class);
         Set<OperationShape> operations = topDownIndex.getContainedOperations(service);
         EventStreamIndex eventStreamIndex = model.getKnowledge(EventStreamIndex.class);

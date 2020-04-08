@@ -144,11 +144,11 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         MemberShape payloadMember = payloadBinding.getMember();
         Shape target = context.getModel().expectShape(payloadMember.getTarget());
 
-        // When payload is not event stream and the target is a structure or union, default to an
-        // empty JSON body instead of an undefined body and make sure any structure or union
+        // When payload target is a structure or union but payload is not an event stream, default
+        // to an empty JSON body instead of an undefined body and make sure any structure or union
         // content ends up as a JSON string.
-        if (!payloadMember.hasTrait(EventStreamTrait.class)
-                && (target instanceof StructureShape || target instanceof UnionShape)) {
+        if ((target instanceof StructureShape || target instanceof UnionShape)
+                && !payloadMember.hasTrait(EventStreamTrait.class)) {
             writer.openBlock("if (body === undefined) {", "}", () -> writer.write("body = {};"));
             writer.write("body = JSON.stringify(body);");
         }

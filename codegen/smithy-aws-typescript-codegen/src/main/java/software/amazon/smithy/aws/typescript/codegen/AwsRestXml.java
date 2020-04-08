@@ -207,9 +207,9 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             writer.write("contents = $L;",
                     getInputValue(context, Location.PAYLOAD, "input." + memberName, member, target));
 
-            // Structure and Union payloads will serialize as XML documents via XmlNode.
+            // Structure and Union payloads that's not events stream will serialize as XML documents via XmlNode.
             if ((target instanceof StructureShape || target instanceof UnionShape)
-                    && member.hasTrait(EventStreamTrait.class)) {
+                    && !member.hasTrait(EventStreamTrait.class)) {
                 // Start with the XML declaration.
                 writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
 
