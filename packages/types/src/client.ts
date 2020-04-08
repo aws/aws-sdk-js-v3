@@ -46,6 +46,8 @@ interface InvokeFunction<
 
 /**
  * A general interface for service clients, idempotent to browser or node clients
+ * This type corresponds to SmithyClient(https://github.com/aws/aws-sdk-js-v3/blob/master/packages/smithy-client/src/client.ts).
+ * It's provided for using without importing the SmithyClient class.
  */
 export interface Client<
   Input extends object,
@@ -55,4 +57,5 @@ export interface Client<
   readonly config: ResolvedClientConfiguration;
   middlewareStack: MiddlewareStack<Input, Output>;
   send: InvokeFunction<Input, Output, ResolvedClientConfiguration>;
+  destroy: () => void;
 }
