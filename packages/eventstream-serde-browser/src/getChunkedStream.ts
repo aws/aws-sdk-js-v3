@@ -6,7 +6,7 @@ export function getChunkedStream(
   let currentMessagePendingLength = 0;
   let currentMessage: Uint8Array | null = null;
   let messageLengthBuffer: Uint8Array | null = null;
-  const allocateMessage = function(size: number) {
+  const allocateMessage = function (size: number) {
     if (typeof size !== "number") {
       throw new Error(
         "Attempted to allocate an event message where size was not a number: " +

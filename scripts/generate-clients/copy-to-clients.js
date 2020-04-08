@@ -23,12 +23,14 @@ const getOverwritablePredicate = packageName => pathName => {
     "endpoints.ts"
   ];
   return (
-    pathName.toLowerCase().indexOf(
-      packageName
-        .toLowerCase()
-        .replace("@aws-sdk/client-", "")
-        .replace(/-/g, "")
-    ) >= 0 || overwritablePathnames.indexOf(pathName) >= 0
+    pathName
+      .toLowerCase()
+      .indexOf(
+        packageName
+          .toLowerCase()
+          .replace("@aws-sdk/client-", "")
+          .replace(/-/g, "")
+      ) >= 0 || overwritablePathnames.indexOf(pathName) >= 0
   );
 };
 

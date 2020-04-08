@@ -23,7 +23,7 @@ export function awsAuthMiddleware<Input extends object, Output extends object>(
   return (
     next: FinalizeHandler<Input, Output>
   ): FinalizeHandler<Input, Output> =>
-    async function(
+    async function (
       args: FinalizeHandlerArguments<Input>
     ): Promise<FinalizeHandlerOutput<Output>> {
       if (!HttpRequest.isInstance(args.request)) return next(args);

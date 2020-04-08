@@ -1,18 +1,18 @@
 const { Pinpoint } = require("../../../clients/client-pinpoint");
 const { Before, Given } = require("cucumber");
 
-Before({ tags: "@pinpoint" }, function(scenario, callback) {
+Before({ tags: "@pinpoint" }, function (scenario, callback) {
   this.service = new Pinpoint({});
   callback();
 });
 
-Given("I create an application", function(callback) {
+Given("I create an application", function (callback) {
   const params = {
     CreateApplicationRequest: {
       Name: this.uniqueName("aws-sdk-js-integration")
     }
   };
-  this.request(null, "createApp", params, function(err, data) {
+  this.request(null, "createApp", params, function (err, data) {
     if (err) {
       callback(err);
     }
@@ -21,7 +21,7 @@ Given("I create an application", function(callback) {
   });
 });
 
-Given('I run the "putEvents" operation with EventsRequest:', function(
+Given('I run the "putEvents" operation with EventsRequest:', function (
   eventsRequest,
   callback
 ) {
@@ -37,7 +37,7 @@ Given('I run the "putEvents" operation with EventsRequest:', function(
   );
 });
 
-Given("I delete the application", function(callback) {
+Given("I delete the application", function (callback) {
   this.request(
     null,
     "deleteApp",

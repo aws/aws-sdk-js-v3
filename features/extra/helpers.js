@@ -40,13 +40,13 @@ module.exports = {
     const started = new Date();
 
     const self = this;
-    const retry = function() {
+    const retry = function () {
       callback();
     };
-    retry.fail = function(err) {
+    retry.fail = function (err) {
       const now = self.AWS.util.date.getDate();
       if (now - started < options.maxTime * 1000) {
-        setTimeout(function() {
+        setTimeout(function () {
           delay += options.backoff;
           block.call(self, retry);
         }, delay);
@@ -68,7 +68,7 @@ module.exports = {
     if (!svc) svc = this.service;
     if (typeof svc === "string") svc = this[svc];
 
-    svc[operation](params, function(err, data) {
+    svc[operation](params, function (err, data) {
       world.response = this;
       world.error = err;
       world.data = data;
@@ -116,7 +116,7 @@ module.exports = {
   /**
    * Cache bucket names used for cleanup after all features have run.
    */
-  cacheBucketName: function(bucket) {
+  cacheBucketName: function (bucket) {
     const fs = require("fs");
     const path = require("path");
     const filePath = path.resolve("integ.buckets.json");
@@ -139,7 +139,7 @@ module.exports = {
   /**
    * Creates a fixture file of given size and returns the path.
    */
-  createFile: function(size, name) {
+  createFile: function (size, name) {
     const fs = require("fs");
     const path = require("path");
     name = this.uniqueName(name);
@@ -172,7 +172,7 @@ module.exports = {
   /**
    * Creates and returns a buffer of given size
    */
-  createBuffer: function(size) {
+  createBuffer: function (size) {
     let match;
     let buffer;
     if ((match = size.match(/(\d+)KB/))) {
@@ -202,20 +202,20 @@ module.exports = {
    * Waits for the bucketExists state by periodically calling the underlying S3.headBucket() operation
    * every 5 seconds (at most 20 times).
    */
-  waitForBucketExists: function(s3client, params, callback) {
+  waitForBucketExists: function (s3client, params, callback) {
     const maxAttempts = 20;
     let currentAttempt = 0;
     const delay = 5000;
 
     const checkForBucketExists = () => {
       currentAttempt++;
-      s3client.headBucket(params, function(err, data) {
+      s3client.headBucket(params, function (err, data) {
         if (currentAttempt > maxAttempts) {
           callback(new Error("waitForBucketExists: max attempts exceeded"));
         } else if (data) {
           callback();
         } else {
-          setTimeout(function() {
+          setTimeout(function () {
             checkForBucketExists();
           }, delay);
         }
@@ -228,20 +228,20 @@ module.exports = {
    * Waits for the bucketNotExists state by periodically calling the underlying S3.headBucket() operation
    * every 5 seconds (at most 20 times).
    */
-  waitForBucketNotExists: function(s3client, params, callback) {
+  waitForBucketNotExists: function (s3client, params, callback) {
     const maxAttempts = 20;
     let currentAttempt = 0;
     const delay = 5000;
 
     const checkForBucketNotExists = () => {
       currentAttempt++;
-      s3client.headBucket(params, function(err, data) {
+      s3client.headBucket(params, function (err, data) {
         if (currentAttempt > maxAttempts) {
           callback(new Error("waitForBucketNotExists: max attempts exceeded"));
         } else if (err && err.name === "NotFound") {
           callback();
         } else {
-          setTimeout(function() {
+          setTimeout(function () {
             checkForBucketNotExists();
           }, delay);
         }

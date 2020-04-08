@@ -10,7 +10,7 @@ export function setConnectionTimeout(
     return;
   }
 
-  request.on("socket", function(this: ClientRequest, socket: Socket) {
+  request.on("socket", function (this: ClientRequest, socket: Socket) {
     if (socket.connecting) {
       // Throw a connecting timeout error unless a connection is made within x time
       let timeoutId = setTimeout(() => {

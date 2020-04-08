@@ -25,12 +25,12 @@ const waitForVolumeAvailable = (ec2, volumeId, callback) => {
             )
           );
         } else {
-          setTimeout(function() {
+          setTimeout(function () {
             checkForVolumeAvailable();
           }, delay);
         }
       } else {
-        setTimeout(function() {
+        setTimeout(function () {
           checkForVolumeAvailable();
         }, delay);
       }
@@ -39,28 +39,28 @@ const waitForVolumeAvailable = (ec2, volumeId, callback) => {
   checkForVolumeAvailable();
 };
 
-Before({ tags: "@ec2" }, function(scenario, callback) {
+Before({ tags: "@ec2" }, function (scenario, callback) {
   this.service = new EC2({});
   callback();
 });
 
-Given("I describe EC2 regions {string}", function(regions, callback) {
+Given("I describe EC2 regions {string}", function (regions, callback) {
   regions = regions.split(/\s*,\s*/);
   this.request(null, "describeRegions", { RegionNames: regions }, callback);
 });
 
-Then("the EC2 endpoint for {string} should be {string}", function(
+Then("the EC2 endpoint for {string} should be {string}", function (
   region,
   endpoint,
   callback
 ) {
-  this.assert.contains(this.data.Regions, function(region) {
+  this.assert.contains(this.data.Regions, function (region) {
     return region.Endpoint === endpoint;
   });
   callback();
 });
 
-Given("I describe the EC2 instance {string}", function(instanceId, callback) {
+Given("I describe the EC2 instance {string}", function (instanceId, callback) {
   this.request(
     null,
     "describeInstances",
@@ -70,7 +70,7 @@ Given("I describe the EC2 instance {string}", function(instanceId, callback) {
   );
 });
 
-Given("I attempt to copy an encrypted snapshot across regions", function(
+Given("I attempt to copy an encrypted snapshot across regions", function (
   callback
 ) {
   const self = this;
@@ -91,32 +91,32 @@ Given("I attempt to copy an encrypted snapshot across regions", function(
     Size: 10,
     Encrypted: true
   };
-  srcEc2.createVolume(params, function(err, data) {
+  srcEc2.createVolume(params, function (err, data) {
     if (err) {
       teardown();
       return callback(err);
     }
     volId = data.VolumeId;
 
-    waitForVolumeAvailable(srcEc2, volId, function(err) {
+    waitForVolumeAvailable(srcEc2, volId, function (err) {
       if (err) {
         teardown();
         return callback(err);
       }
 
-      srcEc2.createSnapshot({ VolumeId: volId }, function(err, data) {
+      srcEc2.createSnapshot({ VolumeId: volId }, function (err, data) {
         if (err) {
           teardown();
           return callback(err);
         }
         srcSnapId = data.SnapshotId;
 
-        setTimeout(function() {
+        setTimeout(function () {
           params = {
             SourceRegion: sourceRegion,
             SourceSnapshotId: srcSnapId
           };
-          dstEc2.copySnapshot(params, function(err, data) {
+          dstEc2.copySnapshot(params, function (err, data) {
             if (data) dstSnapId = data.SnapshotId;
             self.success = true;
             callback();
@@ -128,7 +128,7 @@ Given("I attempt to copy an encrypted snapshot across regions", function(
   });
 });
 
-Then("the copy snapshot attempt should be successful", function(callback) {
+Then("the copy snapshot attempt should be successful", function (callback) {
   this.assert.equal(this.success, true);
   callback();
 });

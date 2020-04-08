@@ -8,7 +8,7 @@ describe("changeResourceRecordSetsMiddleware", () => {
       const next = jest.fn();
       const input = {
         ChangeBatch: {
-          Changes: (function*() {
+          Changes: (function* () {
             for (let i = 0; i < 6; i++) {
               yield {
                 ResourceRecordSet: {

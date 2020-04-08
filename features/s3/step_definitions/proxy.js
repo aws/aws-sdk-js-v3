@@ -3,7 +3,7 @@ const http = require("http");
 const { S3 } = require("../../../clients/client-s3");
 const { Before, Then } = require("cucumber");
 
-Before({ tags: "@s3 or @proxy" }, function(scenario, callback) {
+Before({ tags: "@s3 or @proxy" }, function (scenario, callback) {
   setupProxyServer.call(this);
 
   this.service = this.s3 = new S3({
@@ -15,7 +15,7 @@ Before({ tags: "@s3 or @proxy" }, function(scenario, callback) {
   callback();
 });
 
-Then("I teardown the local proxy server", function(callback) {
+Then("I teardown the local proxy server", function (callback) {
   this.service = this.s3 = new S3();
   this.proxyServer.close(callback);
 });
@@ -23,7 +23,7 @@ Then("I teardown the local proxy server", function(callback) {
 function setupProxyServer() {
   if (this.proxyServer) return;
   this.proxyPort = 8000 + parseInt(Math.random() * 100);
-  this.proxyServer = http.createServer(function(req, res) {
+  this.proxyServer = http.createServer(function (req, res) {
     const uri = url.parse(req.url);
     const options = {
       host: uri.hostname,
@@ -34,13 +34,13 @@ function setupProxyServer() {
     };
     options.headers.host = uri.hostname;
 
-    const s = http.request(options, function(res2) {
+    const s = http.request(options, function (res2) {
       res.writeHead(res2.statusCode, res2.headers);
       res2
-        .on("data", function(ch) {
+        .on("data", function (ch) {
           res.write(ch);
         })
-        .on("end", function() {
+        .on("end", function () {
           res.end();
         });
     });

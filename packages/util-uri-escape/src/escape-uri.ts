@@ -8,8 +8,5 @@ export function escapeUri(uri: string): string {
 }
 
 function hexEncode(c: string) {
-  return `%${c
-    .charCodeAt(0)
-    .toString(16)
-    .toUpperCase()}`;
+  return `%${c.charCodeAt(0).toString(16).toUpperCase()}`;
 }
