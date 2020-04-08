@@ -13,7 +13,7 @@ interface StringWrapper {
  * class including its prototype chain. So we can extend from here.
  */
 // @ts-ignore StringWrapper implementation is not a simple constructor
-export const StringWrapper: StringWrapper = function() {
+export const StringWrapper: StringWrapper = function () {
   //@ts-ignore 'this' cannot be assigned to any, but Object.getPrototypeOf accepts any
   const Class = Object.getPrototypeOf(this).constructor;
   const Constructor = Function.bind.apply(String, [null as any, ...arguments]);
