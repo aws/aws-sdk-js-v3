@@ -313,7 +313,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 
   /**
-   * The function that provides necessary utilities for generating and signing event stream
+   * The function that provides necessary utilities for generating and parsing event stream
    */
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
 }
