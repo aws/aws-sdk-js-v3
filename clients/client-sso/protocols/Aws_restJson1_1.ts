@@ -44,8 +44,8 @@ export async function serializeAws_restJson1_1GetRoleCredentialsCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.accessToken !== undefined) {
-    headers["x-amz-sso_bearer_token"] = input.accessToken;
+  if (isSerializableHeaderValue(input.accessToken)) {
+    headers["x-amz-sso_bearer_token"] = input.accessToken!;
   }
   let resolvedPath = "/federation/credentials";
   const query: any = {};
@@ -73,8 +73,8 @@ export async function serializeAws_restJson1_1ListAccountRolesCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.accessToken !== undefined) {
-    headers["x-amz-sso_bearer_token"] = input.accessToken;
+  if (isSerializableHeaderValue(input.accessToken)) {
+    headers["x-amz-sso_bearer_token"] = input.accessToken!;
   }
   let resolvedPath = "/assignment/roles";
   const query: any = {};
@@ -105,8 +105,8 @@ export async function serializeAws_restJson1_1ListAccountsCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.accessToken !== undefined) {
-    headers["x-amz-sso_bearer_token"] = input.accessToken;
+  if (isSerializableHeaderValue(input.accessToken)) {
+    headers["x-amz-sso_bearer_token"] = input.accessToken!;
   }
   let resolvedPath = "/assignment/accounts";
   const query: any = {};
@@ -134,8 +134,8 @@ export async function serializeAws_restJson1_1LogoutCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.accessToken !== undefined) {
-    headers["x-amz-sso_bearer_token"] = input.accessToken;
+  if (isSerializableHeaderValue(input.accessToken)) {
+    headers["x-amz-sso_bearer_token"] = input.accessToken!;
   }
   let resolvedPath = "/logout";
   let body: any;
@@ -704,6 +704,16 @@ const collectBodyString = (
     context.utf8Encoder(body)
   );
 };
+
+function isSerializableHeaderValue(value: any): boolean {
+  return (
+    value !== undefined &&
+    value !== "" &&
+    (!Object.getOwnPropertyNames(value).includes("length") ||
+      value.length != 0) &&
+    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
+  );
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {

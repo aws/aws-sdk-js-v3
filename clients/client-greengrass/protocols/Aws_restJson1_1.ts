@@ -481,8 +481,8 @@ export async function serializeAws_restJson1_1CreateConnectorDefinitionCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath = "/greengrass/definition/connectors";
   let body: any;
@@ -518,8 +518,8 @@ export async function serializeAws_restJson1_1CreateConnectorDefinitionVersionCo
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath =
     "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions";
@@ -564,8 +564,8 @@ export async function serializeAws_restJson1_1CreateCoreDefinitionCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath = "/greengrass/definition/cores";
   let body: any;
@@ -601,8 +601,8 @@ export async function serializeAws_restJson1_1CreateCoreDefinitionVersionCommand
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}/versions";
   if (input.CoreDefinitionId !== undefined) {
@@ -646,8 +646,8 @@ export async function serializeAws_restJson1_1CreateDeploymentCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath = "/greengrass/groups/{GroupId}/deployments";
   if (input.GroupId !== undefined) {
@@ -690,8 +690,8 @@ export async function serializeAws_restJson1_1CreateDeviceDefinitionCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath = "/greengrass/definition/devices";
   let body: any;
@@ -727,8 +727,8 @@ export async function serializeAws_restJson1_1CreateDeviceDefinitionVersionComma
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath =
     "/greengrass/definition/devices/{DeviceDefinitionId}/versions";
@@ -773,8 +773,8 @@ export async function serializeAws_restJson1_1CreateFunctionDefinitionCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath = "/greengrass/definition/functions";
   let body: any;
@@ -810,8 +810,8 @@ export async function serializeAws_restJson1_1CreateFunctionDefinitionVersionCom
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath =
     "/greengrass/definition/functions/{FunctionDefinitionId}/versions";
@@ -862,8 +862,8 @@ export async function serializeAws_restJson1_1CreateGroupCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath = "/greengrass/groups";
   let body: any;
@@ -897,8 +897,8 @@ export async function serializeAws_restJson1_1CreateGroupCertificateAuthorityCom
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities";
   if (input.GroupId !== undefined) {
@@ -930,8 +930,8 @@ export async function serializeAws_restJson1_1CreateGroupVersionCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath = "/greengrass/groups/{GroupId}/versions";
   if (input.GroupId !== undefined) {
@@ -990,8 +990,8 @@ export async function serializeAws_restJson1_1CreateLoggerDefinitionCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath = "/greengrass/definition/loggers";
   let body: any;
@@ -1027,8 +1027,8 @@ export async function serializeAws_restJson1_1CreateLoggerDefinitionVersionComma
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath =
     "/greengrass/definition/loggers/{LoggerDefinitionId}/versions";
@@ -1073,8 +1073,8 @@ export async function serializeAws_restJson1_1CreateResourceDefinitionCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath = "/greengrass/definition/resources";
   let body: any;
@@ -1110,8 +1110,8 @@ export async function serializeAws_restJson1_1CreateResourceDefinitionVersionCom
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath =
     "/greengrass/definition/resources/{ResourceDefinitionId}/versions";
@@ -1156,8 +1156,8 @@ export async function serializeAws_restJson1_1CreateSoftwareUpdateJobCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath = "/greengrass/updates";
   let body: any;
@@ -1201,8 +1201,8 @@ export async function serializeAws_restJson1_1CreateSubscriptionDefinitionComman
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath = "/greengrass/definition/subscriptions";
   let body: any;
@@ -1238,8 +1238,8 @@ export async function serializeAws_restJson1_1CreateSubscriptionDefinitionVersio
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath =
     "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions";
@@ -3250,8 +3250,8 @@ export async function serializeAws_restJson1_1ResetDeploymentsCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath = "/greengrass/groups/{GroupId}/deployments/$reset";
   if (input.GroupId !== undefined) {
@@ -3288,8 +3288,8 @@ export async function serializeAws_restJson1_1StartBulkDeploymentCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.AmznClientToken !== undefined) {
-    headers["X-Amzn-Client-Token"] = input.AmznClientToken;
+  if (isSerializableHeaderValue(input.AmznClientToken)) {
+    headers["X-Amzn-Client-Token"] = input.AmznClientToken!;
   }
   let resolvedPath = "/greengrass/bulk/deployments";
   let body: any;
@@ -12487,6 +12487,16 @@ const collectBodyString = (
     context.utf8Encoder(body)
   );
 };
+
+function isSerializableHeaderValue(value: any): boolean {
+  return (
+    value !== undefined &&
+    value !== "" &&
+    (!Object.getOwnPropertyNames(value).includes("length") ||
+      value.length != 0) &&
+    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
+  );
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {

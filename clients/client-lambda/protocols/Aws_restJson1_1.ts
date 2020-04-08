@@ -1282,14 +1282,14 @@ export async function serializeAws_restJson1_1InvokeCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
-  if (input.ClientContext !== undefined) {
-    headers["X-Amz-Client-Context"] = input.ClientContext;
+  if (isSerializableHeaderValue(input.ClientContext)) {
+    headers["X-Amz-Client-Context"] = input.ClientContext!;
   }
-  if (input.InvocationType !== undefined) {
-    headers["X-Amz-Invocation-Type"] = input.InvocationType;
+  if (isSerializableHeaderValue(input.InvocationType)) {
+    headers["X-Amz-Invocation-Type"] = input.InvocationType!;
   }
-  if (input.LogType !== undefined) {
-    headers["X-Amz-Log-Type"] = input.LogType;
+  if (isSerializableHeaderValue(input.LogType)) {
+    headers["X-Amz-Log-Type"] = input.LogType!;
   }
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/invocations";
   if (input.FunctionName !== undefined) {
@@ -10562,6 +10562,16 @@ const collectBodyString = (
     context.utf8Encoder(body)
   );
 };
+
+function isSerializableHeaderValue(value: any): boolean {
+  return (
+    value !== undefined &&
+    value !== "" &&
+    (!Object.getOwnPropertyNames(value).includes("length") ||
+      value.length != 0) &&
+    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
+  );
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {

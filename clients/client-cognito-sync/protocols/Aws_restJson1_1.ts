@@ -865,8 +865,8 @@ export async function serializeAws_restJson1_1UpdateRecordsCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.ClientContext !== undefined) {
-    headers["x-amz-Client-Context"] = input.ClientContext;
+  if (isSerializableHeaderValue(input.ClientContext)) {
+    headers["x-amz-Client-Context"] = input.ClientContext!;
   }
   let resolvedPath =
     "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
@@ -3539,6 +3539,16 @@ const collectBodyString = (
     context.utf8Encoder(body)
   );
 };
+
+function isSerializableHeaderValue(value: any): boolean {
+  return (
+    value !== undefined &&
+    value !== "" &&
+    (!Object.getOwnPropertyNames(value).includes("length") ||
+      value.length != 0) &&
+    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
+  );
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {

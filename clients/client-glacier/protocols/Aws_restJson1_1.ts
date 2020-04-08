@@ -332,11 +332,11 @@ export async function serializeAws_restJson1_1CompleteMultipartUploadCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.archiveSize !== undefined) {
-    headers["x-amz-archive-size"] = input.archiveSize;
+  if (isSerializableHeaderValue(input.archiveSize)) {
+    headers["x-amz-archive-size"] = input.archiveSize!;
   }
-  if (input.checksum !== undefined) {
-    headers["x-amz-sha256-tree-hash"] = input.checksum;
+  if (isSerializableHeaderValue(input.checksum)) {
+    headers["x-amz-sha256-tree-hash"] = input.checksum!;
   }
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
@@ -796,8 +796,8 @@ export async function serializeAws_restJson1_1GetJobOutputCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.range !== undefined) {
-    headers["Range"] = input.range;
+  if (isSerializableHeaderValue(input.range)) {
+    headers["Range"] = input.range!;
   }
   let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs/{jobId}/output";
   if (input.accountId !== undefined) {
@@ -1029,11 +1029,11 @@ export async function serializeAws_restJson1_1InitiateMultipartUploadCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.archiveDescription !== undefined) {
-    headers["x-amz-archive-description"] = input.archiveDescription;
+  if (isSerializableHeaderValue(input.archiveDescription)) {
+    headers["x-amz-archive-description"] = input.archiveDescription!;
   }
-  if (input.partSize !== undefined) {
-    headers["x-amz-part-size"] = input.partSize;
+  if (isSerializableHeaderValue(input.partSize)) {
+    headers["x-amz-part-size"] = input.partSize!;
   }
   let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads";
   if (input.accountId !== undefined) {
@@ -1629,11 +1629,11 @@ export async function serializeAws_restJson1_1UploadArchiveCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
-  if (input.archiveDescription !== undefined) {
-    headers["x-amz-archive-description"] = input.archiveDescription;
+  if (isSerializableHeaderValue(input.archiveDescription)) {
+    headers["x-amz-archive-description"] = input.archiveDescription!;
   }
-  if (input.checksum !== undefined) {
-    headers["x-amz-sha256-tree-hash"] = input.checksum;
+  if (isSerializableHeaderValue(input.checksum)) {
+    headers["x-amz-sha256-tree-hash"] = input.checksum!;
   }
   let resolvedPath = "/{accountId}/vaults/{vaultName}/archives";
   if (input.accountId !== undefined) {
@@ -1680,11 +1680,11 @@ export async function serializeAws_restJson1_1UploadMultipartPartCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
-  if (input.checksum !== undefined) {
-    headers["x-amz-sha256-tree-hash"] = input.checksum;
+  if (isSerializableHeaderValue(input.checksum)) {
+    headers["x-amz-sha256-tree-hash"] = input.checksum!;
   }
-  if (input.range !== undefined) {
-    headers["Content-Range"] = input.range;
+  if (isSerializableHeaderValue(input.range)) {
+    headers["Content-Range"] = input.range!;
   }
   let resolvedPath =
     "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
@@ -6388,6 +6388,16 @@ const collectBodyString = (
     context.utf8Encoder(body)
   );
 };
+
+function isSerializableHeaderValue(value: any): boolean {
+  return (
+    value !== undefined &&
+    value !== "" &&
+    (!Object.getOwnPropertyNames(value).includes("length") ||
+      value.length != 0) &&
+    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
+  );
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {

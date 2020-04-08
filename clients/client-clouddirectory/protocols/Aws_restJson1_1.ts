@@ -412,8 +412,8 @@ export async function serializeAws_restJson1_1AddFacetToObjectCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/facets";
   let body: any;
@@ -455,8 +455,8 @@ export async function serializeAws_restJson1_1ApplySchemaCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/apply";
   let body: any;
@@ -481,8 +481,8 @@ export async function serializeAws_restJson1_1AttachObjectCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attach";
   let body: any;
@@ -519,8 +519,8 @@ export async function serializeAws_restJson1_1AttachPolicyCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/attach";
   let body: any;
@@ -554,8 +554,8 @@ export async function serializeAws_restJson1_1AttachToIndexCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index/attach";
   let body: any;
@@ -589,8 +589,8 @@ export async function serializeAws_restJson1_1AttachTypedLinkCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/attach";
   let body: any;
@@ -644,11 +644,11 @@ export async function serializeAws_restJson1_1BatchReadCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.ConsistencyLevel !== undefined) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel;
+  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
+    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
   }
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/batchread";
   let body: any;
@@ -676,8 +676,8 @@ export async function serializeAws_restJson1_1BatchWriteCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/batchwrite";
   let body: any;
@@ -705,8 +705,8 @@ export async function serializeAws_restJson1_1CreateDirectoryCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.SchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.SchemaArn;
+  if (isSerializableHeaderValue(input.SchemaArn)) {
+    headers["x-amz-data-partition"] = input.SchemaArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/create";
   let body: any;
@@ -731,8 +731,8 @@ export async function serializeAws_restJson1_1CreateFacetCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.SchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.SchemaArn;
+  if (isSerializableHeaderValue(input.SchemaArn)) {
+    headers["x-amz-data-partition"] = input.SchemaArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/create";
   let body: any;
@@ -769,8 +769,8 @@ export async function serializeAws_restJson1_1CreateIndexCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index";
   let body: any;
@@ -812,8 +812,8 @@ export async function serializeAws_restJson1_1CreateObjectCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object";
   let body: any;
@@ -881,8 +881,8 @@ export async function serializeAws_restJson1_1CreateTypedLinkFacetCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.SchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.SchemaArn;
+  if (isSerializableHeaderValue(input.SchemaArn)) {
+    headers["x-amz-data-partition"] = input.SchemaArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/create";
   let body: any;
@@ -910,8 +910,8 @@ export async function serializeAws_restJson1_1DeleteDirectoryCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory";
   let body: any;
@@ -931,8 +931,8 @@ export async function serializeAws_restJson1_1DeleteFacetCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.SchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.SchemaArn;
+  if (isSerializableHeaderValue(input.SchemaArn)) {
+    headers["x-amz-data-partition"] = input.SchemaArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/delete";
   let body: any;
@@ -957,8 +957,8 @@ export async function serializeAws_restJson1_1DeleteObjectCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/delete";
   let body: any;
@@ -986,8 +986,8 @@ export async function serializeAws_restJson1_1DeleteSchemaCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.SchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.SchemaArn;
+  if (isSerializableHeaderValue(input.SchemaArn)) {
+    headers["x-amz-data-partition"] = input.SchemaArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema";
   let body: any;
@@ -1007,8 +1007,8 @@ export async function serializeAws_restJson1_1DeleteTypedLinkFacetCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.SchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.SchemaArn;
+  if (isSerializableHeaderValue(input.SchemaArn)) {
+    headers["x-amz-data-partition"] = input.SchemaArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/delete";
   let body: any;
@@ -1033,8 +1033,8 @@ export async function serializeAws_restJson1_1DetachFromIndexCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index/detach";
   let body: any;
@@ -1068,8 +1068,8 @@ export async function serializeAws_restJson1_1DetachObjectCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/detach";
   let body: any;
@@ -1100,8 +1100,8 @@ export async function serializeAws_restJson1_1DetachPolicyCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/detach";
   let body: any;
@@ -1135,8 +1135,8 @@ export async function serializeAws_restJson1_1DetachTypedLinkCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/detach";
   let body: any;
@@ -1166,8 +1166,8 @@ export async function serializeAws_restJson1_1DisableDirectoryCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/disable";
   let body: any;
@@ -1187,8 +1187,8 @@ export async function serializeAws_restJson1_1EnableDirectoryCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/enable";
   let body: any;
@@ -1231,8 +1231,8 @@ export async function serializeAws_restJson1_1GetDirectoryCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/get";
   let body: any;
@@ -1252,8 +1252,8 @@ export async function serializeAws_restJson1_1GetFacetCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.SchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.SchemaArn;
+  if (isSerializableHeaderValue(input.SchemaArn)) {
+    headers["x-amz-data-partition"] = input.SchemaArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
@@ -1278,8 +1278,8 @@ export async function serializeAws_restJson1_1GetLinkAttributesCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath =
     "/amazonclouddirectory/2017-01-11/typedlink/attributes/get";
@@ -1319,11 +1319,11 @@ export async function serializeAws_restJson1_1GetObjectAttributesCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.ConsistencyLevel !== undefined) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel;
+  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
+    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
   }
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes/get";
   let body: any;
@@ -1363,11 +1363,11 @@ export async function serializeAws_restJson1_1GetObjectInformationCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.ConsistencyLevel !== undefined) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel;
+  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
+    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
   }
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/information";
   let body: any;
@@ -1395,8 +1395,8 @@ export async function serializeAws_restJson1_1GetSchemaAsJsonCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.SchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.SchemaArn;
+  if (isSerializableHeaderValue(input.SchemaArn)) {
+    headers["x-amz-data-partition"] = input.SchemaArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/json";
   let body: any;
@@ -1416,8 +1416,8 @@ export async function serializeAws_restJson1_1GetTypedLinkFacetInformationComman
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.SchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.SchemaArn;
+  if (isSerializableHeaderValue(input.SchemaArn)) {
+    headers["x-amz-data-partition"] = input.SchemaArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/get";
   let body: any;
@@ -1474,11 +1474,11 @@ export async function serializeAws_restJson1_1ListAttachedIndicesCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.ConsistencyLevel !== undefined) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel;
+  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
+    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
   }
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/indices";
   let body: any;
@@ -1567,8 +1567,8 @@ export async function serializeAws_restJson1_1ListFacetAttributesCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.SchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.SchemaArn;
+  if (isSerializableHeaderValue(input.SchemaArn)) {
+    headers["x-amz-data-partition"] = input.SchemaArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/attributes";
   let body: any;
@@ -1599,8 +1599,8 @@ export async function serializeAws_restJson1_1ListFacetNamesCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.SchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.SchemaArn;
+  if (isSerializableHeaderValue(input.SchemaArn)) {
+    headers["x-amz-data-partition"] = input.SchemaArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/list";
   let body: any;
@@ -1628,8 +1628,8 @@ export async function serializeAws_restJson1_1ListIncomingTypedLinksCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/incoming";
   let body: any;
@@ -1682,11 +1682,11 @@ export async function serializeAws_restJson1_1ListIndexCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.ConsistencyLevel !== undefined) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel;
+  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
+    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
   }
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index/targets";
   let body: any;
@@ -1757,11 +1757,11 @@ export async function serializeAws_restJson1_1ListObjectAttributesCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.ConsistencyLevel !== undefined) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel;
+  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
+    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
   }
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes";
   let body: any;
@@ -1801,11 +1801,11 @@ export async function serializeAws_restJson1_1ListObjectChildrenCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.ConsistencyLevel !== undefined) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel;
+  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
+    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
   }
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/children";
   let body: any;
@@ -1839,8 +1839,8 @@ export async function serializeAws_restJson1_1ListObjectParentPathsCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/parentpaths";
   let body: any;
@@ -1874,11 +1874,11 @@ export async function serializeAws_restJson1_1ListObjectParentsCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.ConsistencyLevel !== undefined) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel;
+  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
+    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
   }
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/parent";
   let body: any;
@@ -1916,11 +1916,11 @@ export async function serializeAws_restJson1_1ListObjectPoliciesCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.ConsistencyLevel !== undefined) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel;
+  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
+    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
   }
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/policy";
   let body: any;
@@ -1954,8 +1954,8 @@ export async function serializeAws_restJson1_1ListOutgoingTypedLinksCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/outgoing";
   let body: any;
@@ -2008,11 +2008,11 @@ export async function serializeAws_restJson1_1ListPolicyAttachmentsCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.ConsistencyLevel !== undefined) {
-    headers["x-amz-consistency-level"] = input.ConsistencyLevel;
+  if (isSerializableHeaderValue(input.ConsistencyLevel)) {
+    headers["x-amz-consistency-level"] = input.ConsistencyLevel!;
   }
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/attachment";
   let body: any;
@@ -2104,8 +2104,8 @@ export async function serializeAws_restJson1_1ListTypedLinkFacetAttributesComman
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.SchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.SchemaArn;
+  if (isSerializableHeaderValue(input.SchemaArn)) {
+    headers["x-amz-data-partition"] = input.SchemaArn!;
   }
   let resolvedPath =
     "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes";
@@ -2137,8 +2137,8 @@ export async function serializeAws_restJson1_1ListTypedLinkFacetNamesCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.SchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.SchemaArn;
+  if (isSerializableHeaderValue(input.SchemaArn)) {
+    headers["x-amz-data-partition"] = input.SchemaArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/list";
   let body: any;
@@ -2166,8 +2166,8 @@ export async function serializeAws_restJson1_1LookupPolicyCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/lookup";
   let body: any;
@@ -2201,8 +2201,8 @@ export async function serializeAws_restJson1_1PublishSchemaCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DevelopmentSchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DevelopmentSchemaArn;
+  if (isSerializableHeaderValue(input.DevelopmentSchemaArn)) {
+    headers["x-amz-data-partition"] = input.DevelopmentSchemaArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/publish";
   let body: any;
@@ -2233,8 +2233,8 @@ export async function serializeAws_restJson1_1PutSchemaFromJsonCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.SchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.SchemaArn;
+  if (isSerializableHeaderValue(input.SchemaArn)) {
+    headers["x-amz-data-partition"] = input.SchemaArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/json";
   let body: any;
@@ -2259,8 +2259,8 @@ export async function serializeAws_restJson1_1RemoveFacetFromObjectCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/facets/delete";
   let body: any;
@@ -2349,8 +2349,8 @@ export async function serializeAws_restJson1_1UpdateFacetCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.SchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.SchemaArn;
+  if (isSerializableHeaderValue(input.SchemaArn)) {
+    headers["x-amz-data-partition"] = input.SchemaArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
@@ -2386,8 +2386,8 @@ export async function serializeAws_restJson1_1UpdateLinkAttributesCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath =
     "/amazonclouddirectory/2017-01-11/typedlink/attributes/update";
@@ -2426,8 +2426,8 @@ export async function serializeAws_restJson1_1UpdateObjectAttributesCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.DirectoryArn !== undefined) {
-    headers["x-amz-data-partition"] = input.DirectoryArn;
+  if (isSerializableHeaderValue(input.DirectoryArn)) {
+    headers["x-amz-data-partition"] = input.DirectoryArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/update";
   let body: any;
@@ -2463,8 +2463,8 @@ export async function serializeAws_restJson1_1UpdateSchemaCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.SchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.SchemaArn;
+  if (isSerializableHeaderValue(input.SchemaArn)) {
+    headers["x-amz-data-partition"] = input.SchemaArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/update";
   let body: any;
@@ -2489,8 +2489,8 @@ export async function serializeAws_restJson1_1UpdateTypedLinkFacetCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.SchemaArn !== undefined) {
-    headers["x-amz-data-partition"] = input.SchemaArn;
+  if (isSerializableHeaderValue(input.SchemaArn)) {
+    headers["x-amz-data-partition"] = input.SchemaArn!;
   }
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet";
   let body: any;
@@ -16295,6 +16295,16 @@ const collectBodyString = (
     context.utf8Encoder(body)
   );
 };
+
+function isSerializableHeaderValue(value: any): boolean {
+  return (
+    value !== undefined &&
+    value !== "" &&
+    (!Object.getOwnPropertyNames(value).includes("length") ||
+      value.length != 0) &&
+    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
+  );
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {

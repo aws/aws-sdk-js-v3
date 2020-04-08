@@ -286,8 +286,8 @@ export async function serializeAws_restJson1_1GetProfileCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.accept !== undefined) {
-    headers["Accept"] = input.accept;
+  if (isSerializableHeaderValue(input.accept)) {
+    headers["Accept"] = input.accept!;
   }
   let resolvedPath = "/profilingGroups/{profilingGroupName}/profile";
   if (input.profilingGroupName !== undefined) {
@@ -399,8 +399,8 @@ export async function serializeAws_restJson1_1PostAgentProfileCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
-  if (input.contentType !== undefined) {
-    headers["Content-Type"] = input.contentType;
+  if (isSerializableHeaderValue(input.contentType)) {
+    headers["Content-Type"] = input.contentType!;
   }
   let resolvedPath = "/profilingGroups/{profilingGroupName}/agentProfile";
   if (input.profilingGroupName !== undefined) {
@@ -1630,6 +1630,16 @@ const collectBodyString = (
     context.utf8Encoder(body)
   );
 };
+
+function isSerializableHeaderValue(value: any): boolean {
+  return (
+    value !== undefined &&
+    value !== "" &&
+    (!Object.getOwnPropertyNames(value).includes("length") ||
+      value.length != 0) &&
+    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
+  );
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {

@@ -173,20 +173,20 @@ export async function serializeAws_restJson1_1PostContentCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   headers["x-amz-content-sha256"] = "UNSIGNED_PAYLOAD";
-  if (input.accept !== undefined) {
-    headers["Accept"] = input.accept;
+  if (isSerializableHeaderValue(input.accept)) {
+    headers["Accept"] = input.accept!;
   }
-  if (input.contentType !== undefined) {
-    headers["Content-Type"] = input.contentType;
+  if (isSerializableHeaderValue(input.contentType)) {
+    headers["Content-Type"] = input.contentType!;
   }
-  if (input.requestAttributes !== undefined) {
+  if (isSerializableHeaderValue(input.requestAttributes)) {
     headers["x-amz-lex-request-attributes"] = __LazyJsonString.fromObject(
-      input.requestAttributes
+      input.requestAttributes!
     );
   }
-  if (input.sessionAttributes !== undefined) {
+  if (isSerializableHeaderValue(input.sessionAttributes)) {
     headers["x-amz-lex-session-attributes"] = __LazyJsonString.fromObject(
-      input.sessionAttributes
+      input.sessionAttributes!
     );
   }
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/content";
@@ -317,8 +317,8 @@ export async function serializeAws_restJson1_1PutSessionCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.accept !== undefined) {
-    headers["Accept"] = input.accept;
+  if (isSerializableHeaderValue(input.accept)) {
+    headers["Accept"] = input.accept!;
   }
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
   if (input.botAlias !== undefined) {
@@ -1718,6 +1718,16 @@ const collectBodyString = (
     context.utf8Encoder(body)
   );
 };
+
+function isSerializableHeaderValue(value: any): boolean {
+  return (
+    value !== undefined &&
+    value !== "" &&
+    (!Object.getOwnPropertyNames(value).includes("length") ||
+      value.length != 0) &&
+    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
+  );
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {

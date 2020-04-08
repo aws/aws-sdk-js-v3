@@ -4297,7 +4297,10 @@ const deserializeAws_queryInvalidParameterCombinationException = (
     message: undefined
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message =
+      output["message"]["#text"] !== undefined
+        ? output["message"]["#text"]
+        : output["message"];
   }
   return contents;
 };
@@ -4311,7 +4314,10 @@ const deserializeAws_queryInvalidParameterValueException = (
     message: undefined
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message =
+      output["message"]["#text"] !== undefined
+        ? output["message"]["#text"]
+        : output["message"];
   }
   return contents;
 };
@@ -4325,7 +4331,10 @@ const deserializeAws_queryMissingRequiredParameterException = (
     message: undefined
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message =
+      output["message"]["#text"] !== undefined
+        ? output["message"]["#text"]
+        : output["message"];
   }
   return contents;
 };
@@ -4343,16 +4352,28 @@ const deserializeAws_queryAlarmHistoryItem = (
     Timestamp: undefined
   };
   if (output["AlarmName"] !== undefined) {
-    contents.AlarmName = output["AlarmName"];
+    contents.AlarmName =
+      output["AlarmName"]["#text"] !== undefined
+        ? output["AlarmName"]["#text"]
+        : output["AlarmName"];
   }
   if (output["HistoryData"] !== undefined) {
-    contents.HistoryData = output["HistoryData"];
+    contents.HistoryData =
+      output["HistoryData"]["#text"] !== undefined
+        ? output["HistoryData"]["#text"]
+        : output["HistoryData"];
   }
   if (output["HistoryItemType"] !== undefined) {
-    contents.HistoryItemType = output["HistoryItemType"];
+    contents.HistoryItemType =
+      output["HistoryItemType"]["#text"] !== undefined
+        ? output["HistoryItemType"]["#text"]
+        : output["HistoryItemType"];
   }
   if (output["HistorySummary"] !== undefined) {
-    contents.HistorySummary = output["HistorySummary"];
+    contents.HistorySummary =
+      output["HistorySummary"]["#text"] !== undefined
+        ? output["HistorySummary"]["#text"]
+        : output["HistorySummary"];
   }
   if (output["Timestamp"] !== undefined) {
     contents.Timestamp = new Date(output["Timestamp"]);
@@ -4404,16 +4425,28 @@ const deserializeAws_queryAnomalyDetector = (
     contents.Dimensions = deserializeAws_queryDimensions(wrappedItem, context);
   }
   if (output["MetricName"] !== undefined) {
-    contents.MetricName = output["MetricName"];
+    contents.MetricName =
+      output["MetricName"]["#text"] !== undefined
+        ? output["MetricName"]["#text"]
+        : output["MetricName"];
   }
   if (output["Namespace"] !== undefined) {
-    contents.Namespace = output["Namespace"];
+    contents.Namespace =
+      output["Namespace"]["#text"] !== undefined
+        ? output["Namespace"]["#text"]
+        : output["Namespace"];
   }
   if (output["Stat"] !== undefined) {
-    contents.Stat = output["Stat"];
+    contents.Stat =
+      output["Stat"]["#text"] !== undefined
+        ? output["Stat"]["#text"]
+        : output["Stat"];
   }
   if (output["StateValue"] !== undefined) {
-    contents.StateValue = output["StateValue"];
+    contents.StateValue =
+      output["StateValue"]["#text"] !== undefined
+        ? output["StateValue"]["#text"]
+        : output["StateValue"];
   }
   return contents;
 };
@@ -4444,7 +4477,10 @@ const deserializeAws_queryAnomalyDetectorConfiguration = (
     );
   }
   if (output["MetricTimezone"] !== undefined) {
-    contents.MetricTimezone = output["MetricTimezone"];
+    contents.MetricTimezone =
+      output["MetricTimezone"]["#text"] !== undefined
+        ? output["MetricTimezone"]["#text"]
+        : output["MetricTimezone"];
   }
   return contents;
 };
@@ -4491,7 +4527,10 @@ const deserializeAws_queryConcurrentModificationException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message =
+      output["Message"]["#text"] !== undefined
+        ? output["Message"]["#text"]
+        : output["Message"];
   }
   return contents;
 };
@@ -4519,16 +4558,26 @@ const deserializeAws_queryDashboardEntry = (
     Size: undefined
   };
   if (output["DashboardArn"] !== undefined) {
-    contents.DashboardArn = output["DashboardArn"];
+    contents.DashboardArn =
+      output["DashboardArn"]["#text"] !== undefined
+        ? output["DashboardArn"]["#text"]
+        : output["DashboardArn"];
   }
   if (output["DashboardName"] !== undefined) {
-    contents.DashboardName = output["DashboardName"];
+    contents.DashboardName =
+      output["DashboardName"]["#text"] !== undefined
+        ? output["DashboardName"]["#text"]
+        : output["DashboardName"];
   }
   if (output["LastModified"] !== undefined) {
     contents.LastModified = new Date(output["LastModified"]);
   }
   if (output["Size"] !== undefined) {
-    contents.Size = parseInt(output["Size"]);
+    contents.Size = parseInt(
+      output["Size"]["#text"] !== undefined
+        ? output["Size"]["#text"]
+        : output["Size"]
+    );
   }
   return contents;
 };
@@ -4559,7 +4608,10 @@ const deserializeAws_queryDashboardInvalidInputError = (
     );
   }
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message =
+      output["message"]["#text"] !== undefined
+        ? output["message"]["#text"]
+        : output["message"];
   }
   return contents;
 };
@@ -4573,7 +4625,10 @@ const deserializeAws_queryDashboardNotFoundError = (
     message: undefined
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message =
+      output["message"]["#text"] !== undefined
+        ? output["message"]["#text"]
+        : output["message"];
   }
   return contents;
 };
@@ -4588,10 +4643,16 @@ const deserializeAws_queryDashboardValidationMessage = (
     Message: undefined
   };
   if (output["DataPath"] !== undefined) {
-    contents.DataPath = output["DataPath"];
+    contents.DataPath =
+      output["DataPath"]["#text"] !== undefined
+        ? output["DataPath"]["#text"]
+        : output["DataPath"];
   }
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message =
+      output["Message"]["#text"] !== undefined
+        ? output["Message"]["#text"]
+        : output["Message"];
   }
   return contents;
 };
@@ -4625,7 +4686,11 @@ const deserializeAws_queryDatapoint = (
     Unit: undefined
   };
   if (output["Average"] !== undefined) {
-    contents.Average = parseFloat(output["Average"]);
+    contents.Average = parseFloat(
+      output["Average"]["#text"] !== undefined
+        ? output["Average"]["#text"]
+        : output["Average"]
+    );
   }
   if (output.ExtendedStatistics === "") {
     contents.ExtendedStatistics = {};
@@ -4644,22 +4709,41 @@ const deserializeAws_queryDatapoint = (
     );
   }
   if (output["Maximum"] !== undefined) {
-    contents.Maximum = parseFloat(output["Maximum"]);
+    contents.Maximum = parseFloat(
+      output["Maximum"]["#text"] !== undefined
+        ? output["Maximum"]["#text"]
+        : output["Maximum"]
+    );
   }
   if (output["Minimum"] !== undefined) {
-    contents.Minimum = parseFloat(output["Minimum"]);
+    contents.Minimum = parseFloat(
+      output["Minimum"]["#text"] !== undefined
+        ? output["Minimum"]["#text"]
+        : output["Minimum"]
+    );
   }
   if (output["SampleCount"] !== undefined) {
-    contents.SampleCount = parseFloat(output["SampleCount"]);
+    contents.SampleCount = parseFloat(
+      output["SampleCount"]["#text"] !== undefined
+        ? output["SampleCount"]["#text"]
+        : output["SampleCount"]
+    );
   }
   if (output["Sum"] !== undefined) {
-    contents.Sum = parseFloat(output["Sum"]);
+    contents.Sum = parseFloat(
+      output["Sum"]["#text"] !== undefined
+        ? output["Sum"]["#text"]
+        : output["Sum"]
+    );
   }
   if (output["Timestamp"] !== undefined) {
     contents.Timestamp = new Date(output["Timestamp"]);
   }
   if (output["Unit"] !== undefined) {
-    contents.Unit = output["Unit"];
+    contents.Unit =
+      output["Unit"]["#text"] !== undefined
+        ? output["Unit"]["#text"]
+        : output["Unit"];
   }
   return contents;
 };
@@ -4670,7 +4754,11 @@ const deserializeAws_queryDatapointValueMap = (
 ): { [key: string]: number } => {
   const mapParams: any = {};
   output.forEach((pair: any) => {
-    mapParams[pair["key"]] = parseFloat(pair["value"]);
+    mapParams[pair["key"]] = parseFloat(
+      pair["value"]["#text"] !== undefined
+        ? pair["value"]["#text"]
+        : pair["value"]
+    );
   });
   return mapParams;
 };
@@ -4681,7 +4769,9 @@ const deserializeAws_queryDatapointValues = (
 ): Array<number> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(parseFloat(entry));
+    contents.push(
+      parseFloat(entry["#text"] !== undefined ? entry["#text"] : entry)
+    );
   });
   return contents;
 };
@@ -4767,7 +4857,10 @@ const deserializeAws_queryDescribeAlarmHistoryOutput = (
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken =
+      output["NextToken"]["#text"] !== undefined
+        ? output["NextToken"]["#text"]
+        : output["NextToken"];
   }
   return contents;
 };
@@ -4825,7 +4918,10 @@ const deserializeAws_queryDescribeAlarmsOutput = (
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken =
+      output["NextToken"]["#text"] !== undefined
+        ? output["NextToken"]["#text"]
+        : output["NextToken"];
   }
   return contents;
 };
@@ -4856,7 +4952,10 @@ const deserializeAws_queryDescribeAnomalyDetectorsOutput = (
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken =
+      output["NextToken"]["#text"] !== undefined
+        ? output["NextToken"]["#text"]
+        : output["NextToken"];
   }
   return contents;
 };
@@ -4887,7 +4986,10 @@ const deserializeAws_queryDescribeInsightRulesOutput = (
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken =
+      output["NextToken"]["#text"] !== undefined
+        ? output["NextToken"]["#text"]
+        : output["NextToken"];
   }
   return contents;
 };
@@ -4902,10 +5004,16 @@ const deserializeAws_queryDimension = (
     Value: undefined
   };
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name =
+      output["Name"]["#text"] !== undefined
+        ? output["Name"]["#text"]
+        : output["Name"];
   }
   if (output["Value"] !== undefined) {
-    contents.Value = output["Value"];
+    contents.Value =
+      output["Value"]["#text"] !== undefined
+        ? output["Value"]["#text"]
+        : output["Value"];
   }
   return contents;
 };
@@ -4980,13 +5088,22 @@ const deserializeAws_queryGetDashboardOutput = (
     DashboardName: undefined
   };
   if (output["DashboardArn"] !== undefined) {
-    contents.DashboardArn = output["DashboardArn"];
+    contents.DashboardArn =
+      output["DashboardArn"]["#text"] !== undefined
+        ? output["DashboardArn"]["#text"]
+        : output["DashboardArn"];
   }
   if (output["DashboardBody"] !== undefined) {
-    contents.DashboardBody = output["DashboardBody"];
+    contents.DashboardBody =
+      output["DashboardBody"]["#text"] !== undefined
+        ? output["DashboardBody"]["#text"]
+        : output["DashboardBody"];
   }
   if (output["DashboardName"] !== undefined) {
-    contents.DashboardName = output["DashboardName"];
+    contents.DashboardName =
+      output["DashboardName"]["#text"] !== undefined
+        ? output["DashboardName"]["#text"]
+        : output["DashboardName"];
   }
   return contents;
 };
@@ -5005,14 +5122,23 @@ const deserializeAws_queryGetInsightRuleReportOutput = (
     MetricDatapoints: undefined
   };
   if (output["AggregateValue"] !== undefined) {
-    contents.AggregateValue = parseFloat(output["AggregateValue"]);
+    contents.AggregateValue = parseFloat(
+      output["AggregateValue"]["#text"] !== undefined
+        ? output["AggregateValue"]["#text"]
+        : output["AggregateValue"]
+    );
   }
   if (output["AggregationStatistic"] !== undefined) {
-    contents.AggregationStatistic = output["AggregationStatistic"];
+    contents.AggregationStatistic =
+      output["AggregationStatistic"]["#text"] !== undefined
+        ? output["AggregationStatistic"]["#text"]
+        : output["AggregationStatistic"];
   }
   if (output["ApproximateUniqueCount"] !== undefined) {
     contents.ApproximateUniqueCount = parseInt(
-      output["ApproximateUniqueCount"]
+      output["ApproximateUniqueCount"]["#text"] !== undefined
+        ? output["ApproximateUniqueCount"]["#text"]
+        : output["ApproximateUniqueCount"]
     );
   }
   if (output.Contributors === "") {
@@ -5109,7 +5235,10 @@ const deserializeAws_queryGetMetricDataOutput = (
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken =
+      output["NextToken"]["#text"] !== undefined
+        ? output["NextToken"]["#text"]
+        : output["NextToken"];
   }
   return contents;
 };
@@ -5137,7 +5266,10 @@ const deserializeAws_queryGetMetricStatisticsOutput = (
     contents.Datapoints = deserializeAws_queryDatapoints(wrappedItem, context);
   }
   if (output["Label"] !== undefined) {
-    contents.Label = output["Label"];
+    contents.Label =
+      output["Label"]["#text"] !== undefined
+        ? output["Label"]["#text"]
+        : output["Label"];
   }
   return contents;
 };
@@ -5152,7 +5284,9 @@ const deserializeAws_queryGetMetricWidgetImageOutput = (
   };
   if (output["MetricWidgetImage"] !== undefined) {
     contents.MetricWidgetImage = context.base64Decoder(
-      output["MetricWidgetImage"]
+      output["MetricWidgetImage"]["#text"] !== undefined
+        ? output["MetricWidgetImage"]["#text"]
+        : output["MetricWidgetImage"]
     );
   }
   return contents;
@@ -5170,16 +5304,28 @@ const deserializeAws_queryInsightRule = (
     State: undefined
   };
   if (output["Definition"] !== undefined) {
-    contents.Definition = output["Definition"];
+    contents.Definition =
+      output["Definition"]["#text"] !== undefined
+        ? output["Definition"]["#text"]
+        : output["Definition"];
   }
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name =
+      output["Name"]["#text"] !== undefined
+        ? output["Name"]["#text"]
+        : output["Name"];
   }
   if (output["Schema"] !== undefined) {
-    contents.Schema = output["Schema"];
+    contents.Schema =
+      output["Schema"]["#text"] !== undefined
+        ? output["Schema"]["#text"]
+        : output["Schema"];
   }
   if (output["State"] !== undefined) {
-    contents.State = output["State"];
+    contents.State =
+      output["State"]["#text"] !== undefined
+        ? output["State"]["#text"]
+        : output["State"];
   }
   return contents;
 };
@@ -5196,7 +5342,9 @@ const deserializeAws_queryInsightRuleContributor = (
   };
   if (output["ApproximateAggregateValue"] !== undefined) {
     contents.ApproximateAggregateValue = parseFloat(
-      output["ApproximateAggregateValue"]
+      output["ApproximateAggregateValue"]["#text"] !== undefined
+        ? output["ApproximateAggregateValue"]["#text"]
+        : output["ApproximateAggregateValue"]
     );
   }
   if (output.Datapoints === "") {
@@ -5241,7 +5389,11 @@ const deserializeAws_queryInsightRuleContributorDatapoint = (
     Timestamp: undefined
   };
   if (output["ApproximateValue"] !== undefined) {
-    contents.ApproximateValue = parseFloat(output["ApproximateValue"]);
+    contents.ApproximateValue = parseFloat(
+      output["ApproximateValue"]["#text"] !== undefined
+        ? output["ApproximateValue"]["#text"]
+        : output["ApproximateValue"]
+    );
   }
   if (output["Timestamp"] !== undefined) {
     contents.Timestamp = new Date(output["Timestamp"]);
@@ -5268,7 +5420,7 @@ const deserializeAws_queryInsightRuleContributorKeyLabels = (
 ): Array<string> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry);
+    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
   });
   return contents;
 };
@@ -5279,7 +5431,7 @@ const deserializeAws_queryInsightRuleContributorKeys = (
 ): Array<string> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry);
+    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
   });
   return contents;
 };
@@ -5311,28 +5463,56 @@ const deserializeAws_queryInsightRuleMetricDatapoint = (
     UniqueContributors: undefined
   };
   if (output["Average"] !== undefined) {
-    contents.Average = parseFloat(output["Average"]);
+    contents.Average = parseFloat(
+      output["Average"]["#text"] !== undefined
+        ? output["Average"]["#text"]
+        : output["Average"]
+    );
   }
   if (output["MaxContributorValue"] !== undefined) {
-    contents.MaxContributorValue = parseFloat(output["MaxContributorValue"]);
+    contents.MaxContributorValue = parseFloat(
+      output["MaxContributorValue"]["#text"] !== undefined
+        ? output["MaxContributorValue"]["#text"]
+        : output["MaxContributorValue"]
+    );
   }
   if (output["Maximum"] !== undefined) {
-    contents.Maximum = parseFloat(output["Maximum"]);
+    contents.Maximum = parseFloat(
+      output["Maximum"]["#text"] !== undefined
+        ? output["Maximum"]["#text"]
+        : output["Maximum"]
+    );
   }
   if (output["Minimum"] !== undefined) {
-    contents.Minimum = parseFloat(output["Minimum"]);
+    contents.Minimum = parseFloat(
+      output["Minimum"]["#text"] !== undefined
+        ? output["Minimum"]["#text"]
+        : output["Minimum"]
+    );
   }
   if (output["SampleCount"] !== undefined) {
-    contents.SampleCount = parseFloat(output["SampleCount"]);
+    contents.SampleCount = parseFloat(
+      output["SampleCount"]["#text"] !== undefined
+        ? output["SampleCount"]["#text"]
+        : output["SampleCount"]
+    );
   }
   if (output["Sum"] !== undefined) {
-    contents.Sum = parseFloat(output["Sum"]);
+    contents.Sum = parseFloat(
+      output["Sum"]["#text"] !== undefined
+        ? output["Sum"]["#text"]
+        : output["Sum"]
+    );
   }
   if (output["Timestamp"] !== undefined) {
     contents.Timestamp = new Date(output["Timestamp"]);
   }
   if (output["UniqueContributors"] !== undefined) {
-    contents.UniqueContributors = parseFloat(output["UniqueContributors"]);
+    contents.UniqueContributors = parseFloat(
+      output["UniqueContributors"]["#text"] !== undefined
+        ? output["UniqueContributors"]["#text"]
+        : output["UniqueContributors"]
+    );
   }
   return contents;
 };
@@ -5370,7 +5550,10 @@ const deserializeAws_queryInternalServiceFault = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message =
+      output["Message"]["#text"] !== undefined
+        ? output["Message"]["#text"]
+        : output["Message"];
   }
   return contents;
 };
@@ -5384,7 +5567,10 @@ const deserializeAws_queryInvalidFormatFault = (
     message: undefined
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message =
+      output["message"]["#text"] !== undefined
+        ? output["message"]["#text"]
+        : output["message"];
   }
   return contents;
 };
@@ -5398,7 +5584,10 @@ const deserializeAws_queryInvalidNextToken = (
     message: undefined
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message =
+      output["message"]["#text"] !== undefined
+        ? output["message"]["#text"]
+        : output["message"];
   }
   return contents;
 };
@@ -5412,7 +5601,10 @@ const deserializeAws_queryLimitExceededException = (
     Message: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message =
+      output["Message"]["#text"] !== undefined
+        ? output["Message"]["#text"]
+        : output["Message"];
   }
   return contents;
 };
@@ -5426,7 +5618,10 @@ const deserializeAws_queryLimitExceededFault = (
     message: undefined
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message =
+      output["message"]["#text"] !== undefined
+        ? output["message"]["#text"]
+        : output["message"];
   }
   return contents;
 };
@@ -5457,7 +5652,10 @@ const deserializeAws_queryListDashboardsOutput = (
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken =
+      output["NextToken"]["#text"] !== undefined
+        ? output["NextToken"]["#text"]
+        : output["NextToken"];
   }
   return contents;
 };
@@ -5485,7 +5683,10 @@ const deserializeAws_queryListMetricsOutput = (
     contents.Metrics = deserializeAws_queryMetrics(wrappedItem, context);
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken =
+      output["NextToken"]["#text"] !== undefined
+        ? output["NextToken"]["#text"]
+        : output["NextToken"];
   }
   return contents;
 };
@@ -5521,10 +5722,16 @@ const deserializeAws_queryMessageData = (
     Value: undefined
   };
   if (output["Code"] !== undefined) {
-    contents.Code = output["Code"];
+    contents.Code =
+      output["Code"]["#text"] !== undefined
+        ? output["Code"]["#text"]
+        : output["Code"];
   }
   if (output["Value"] !== undefined) {
-    contents.Value = output["Value"];
+    contents.Value =
+      output["Value"]["#text"] !== undefined
+        ? output["Value"]["#text"]
+        : output["Value"];
   }
   return contents;
 };
@@ -5553,10 +5760,16 @@ const deserializeAws_queryMetric = (
     contents.Dimensions = deserializeAws_queryDimensions(wrappedItem, context);
   }
   if (output["MetricName"] !== undefined) {
-    contents.MetricName = output["MetricName"];
+    contents.MetricName =
+      output["MetricName"]["#text"] !== undefined
+        ? output["MetricName"]["#text"]
+        : output["MetricName"];
   }
   if (output["Namespace"] !== undefined) {
-    contents.Namespace = output["Namespace"];
+    contents.Namespace =
+      output["Namespace"]["#text"] !== undefined
+        ? output["Namespace"]["#text"]
+        : output["Namespace"];
   }
   return contents;
 };
@@ -5596,7 +5809,10 @@ const deserializeAws_queryMetricAlarm = (
     Unit: undefined
   };
   if (output["ActionsEnabled"] !== undefined) {
-    contents.ActionsEnabled = output["ActionsEnabled"] == "true";
+    contents.ActionsEnabled =
+      (output["ActionsEnabled"]["#text"] !== undefined
+        ? output["ActionsEnabled"]["#text"]
+        : output["ActionsEnabled"]) == "true";
   }
   if (output.AlarmActions === "") {
     contents.AlarmActions = [];
@@ -5615,7 +5831,10 @@ const deserializeAws_queryMetricAlarm = (
     );
   }
   if (output["AlarmArn"] !== undefined) {
-    contents.AlarmArn = output["AlarmArn"];
+    contents.AlarmArn =
+      output["AlarmArn"]["#text"] !== undefined
+        ? output["AlarmArn"]["#text"]
+        : output["AlarmArn"];
   }
   if (output["AlarmConfigurationUpdatedTimestamp"] !== undefined) {
     contents.AlarmConfigurationUpdatedTimestamp = new Date(
@@ -5623,16 +5842,29 @@ const deserializeAws_queryMetricAlarm = (
     );
   }
   if (output["AlarmDescription"] !== undefined) {
-    contents.AlarmDescription = output["AlarmDescription"];
+    contents.AlarmDescription =
+      output["AlarmDescription"]["#text"] !== undefined
+        ? output["AlarmDescription"]["#text"]
+        : output["AlarmDescription"];
   }
   if (output["AlarmName"] !== undefined) {
-    contents.AlarmName = output["AlarmName"];
+    contents.AlarmName =
+      output["AlarmName"]["#text"] !== undefined
+        ? output["AlarmName"]["#text"]
+        : output["AlarmName"];
   }
   if (output["ComparisonOperator"] !== undefined) {
-    contents.ComparisonOperator = output["ComparisonOperator"];
+    contents.ComparisonOperator =
+      output["ComparisonOperator"]["#text"] !== undefined
+        ? output["ComparisonOperator"]["#text"]
+        : output["ComparisonOperator"];
   }
   if (output["DatapointsToAlarm"] !== undefined) {
-    contents.DatapointsToAlarm = parseInt(output["DatapointsToAlarm"]);
+    contents.DatapointsToAlarm = parseInt(
+      output["DatapointsToAlarm"]["#text"] !== undefined
+        ? output["DatapointsToAlarm"]["#text"]
+        : output["DatapointsToAlarm"]
+    );
   }
   if (output.Dimensions === "") {
     contents.Dimensions = [];
@@ -5649,13 +5881,22 @@ const deserializeAws_queryMetricAlarm = (
   }
   if (output["EvaluateLowSampleCountPercentile"] !== undefined) {
     contents.EvaluateLowSampleCountPercentile =
-      output["EvaluateLowSampleCountPercentile"];
+      output["EvaluateLowSampleCountPercentile"]["#text"] !== undefined
+        ? output["EvaluateLowSampleCountPercentile"]["#text"]
+        : output["EvaluateLowSampleCountPercentile"];
   }
   if (output["EvaluationPeriods"] !== undefined) {
-    contents.EvaluationPeriods = parseInt(output["EvaluationPeriods"]);
+    contents.EvaluationPeriods = parseInt(
+      output["EvaluationPeriods"]["#text"] !== undefined
+        ? output["EvaluationPeriods"]["#text"]
+        : output["EvaluationPeriods"]
+    );
   }
   if (output["ExtendedStatistic"] !== undefined) {
-    contents.ExtendedStatistic = output["ExtendedStatistic"];
+    contents.ExtendedStatistic =
+      output["ExtendedStatistic"]["#text"] !== undefined
+        ? output["ExtendedStatistic"]["#text"]
+        : output["ExtendedStatistic"];
   }
   if (output.InsufficientDataActions === "") {
     contents.InsufficientDataActions = [];
@@ -5674,7 +5915,10 @@ const deserializeAws_queryMetricAlarm = (
     );
   }
   if (output["MetricName"] !== undefined) {
-    contents.MetricName = output["MetricName"];
+    contents.MetricName =
+      output["MetricName"]["#text"] !== undefined
+        ? output["MetricName"]["#text"]
+        : output["MetricName"];
   }
   if (output.Metrics === "") {
     contents.Metrics = [];
@@ -5693,7 +5937,10 @@ const deserializeAws_queryMetricAlarm = (
     );
   }
   if (output["Namespace"] !== undefined) {
-    contents.Namespace = output["Namespace"];
+    contents.Namespace =
+      output["Namespace"]["#text"] !== undefined
+        ? output["Namespace"]["#text"]
+        : output["Namespace"];
   }
   if (output.OKActions === "") {
     contents.OKActions = [];
@@ -5709,34 +5956,63 @@ const deserializeAws_queryMetricAlarm = (
     contents.OKActions = deserializeAws_queryResourceList(wrappedItem, context);
   }
   if (output["Period"] !== undefined) {
-    contents.Period = parseInt(output["Period"]);
+    contents.Period = parseInt(
+      output["Period"]["#text"] !== undefined
+        ? output["Period"]["#text"]
+        : output["Period"]
+    );
   }
   if (output["StateReason"] !== undefined) {
-    contents.StateReason = output["StateReason"];
+    contents.StateReason =
+      output["StateReason"]["#text"] !== undefined
+        ? output["StateReason"]["#text"]
+        : output["StateReason"];
   }
   if (output["StateReasonData"] !== undefined) {
-    contents.StateReasonData = output["StateReasonData"];
+    contents.StateReasonData =
+      output["StateReasonData"]["#text"] !== undefined
+        ? output["StateReasonData"]["#text"]
+        : output["StateReasonData"];
   }
   if (output["StateUpdatedTimestamp"] !== undefined) {
     contents.StateUpdatedTimestamp = new Date(output["StateUpdatedTimestamp"]);
   }
   if (output["StateValue"] !== undefined) {
-    contents.StateValue = output["StateValue"];
+    contents.StateValue =
+      output["StateValue"]["#text"] !== undefined
+        ? output["StateValue"]["#text"]
+        : output["StateValue"];
   }
   if (output["Statistic"] !== undefined) {
-    contents.Statistic = output["Statistic"];
+    contents.Statistic =
+      output["Statistic"]["#text"] !== undefined
+        ? output["Statistic"]["#text"]
+        : output["Statistic"];
   }
   if (output["Threshold"] !== undefined) {
-    contents.Threshold = parseFloat(output["Threshold"]);
+    contents.Threshold = parseFloat(
+      output["Threshold"]["#text"] !== undefined
+        ? output["Threshold"]["#text"]
+        : output["Threshold"]
+    );
   }
   if (output["ThresholdMetricId"] !== undefined) {
-    contents.ThresholdMetricId = output["ThresholdMetricId"];
+    contents.ThresholdMetricId =
+      output["ThresholdMetricId"]["#text"] !== undefined
+        ? output["ThresholdMetricId"]["#text"]
+        : output["ThresholdMetricId"];
   }
   if (output["TreatMissingData"] !== undefined) {
-    contents.TreatMissingData = output["TreatMissingData"];
+    contents.TreatMissingData =
+      output["TreatMissingData"]["#text"] !== undefined
+        ? output["TreatMissingData"]["#text"]
+        : output["TreatMissingData"];
   }
   if (output["Unit"] !== undefined) {
-    contents.Unit = output["Unit"];
+    contents.Unit =
+      output["Unit"]["#text"] !== undefined
+        ? output["Unit"]["#text"]
+        : output["Unit"];
   }
   return contents;
 };
@@ -5777,13 +6053,22 @@ const deserializeAws_queryMetricDataQuery = (
     ReturnData: undefined
   };
   if (output["Expression"] !== undefined) {
-    contents.Expression = output["Expression"];
+    contents.Expression =
+      output["Expression"]["#text"] !== undefined
+        ? output["Expression"]["#text"]
+        : output["Expression"];
   }
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id =
+      output["Id"]["#text"] !== undefined
+        ? output["Id"]["#text"]
+        : output["Id"];
   }
   if (output["Label"] !== undefined) {
-    contents.Label = output["Label"];
+    contents.Label =
+      output["Label"]["#text"] !== undefined
+        ? output["Label"]["#text"]
+        : output["Label"];
   }
   if (output["MetricStat"] !== undefined) {
     contents.MetricStat = deserializeAws_queryMetricStat(
@@ -5792,10 +6077,17 @@ const deserializeAws_queryMetricDataQuery = (
     );
   }
   if (output["Period"] !== undefined) {
-    contents.Period = parseInt(output["Period"]);
+    contents.Period = parseInt(
+      output["Period"]["#text"] !== undefined
+        ? output["Period"]["#text"]
+        : output["Period"]
+    );
   }
   if (output["ReturnData"] !== undefined) {
-    contents.ReturnData = output["ReturnData"] == "true";
+    contents.ReturnData =
+      (output["ReturnData"]["#text"] !== undefined
+        ? output["ReturnData"]["#text"]
+        : output["ReturnData"]) == "true";
   }
   return contents;
 };
@@ -5814,10 +6106,16 @@ const deserializeAws_queryMetricDataResult = (
     Values: undefined
   };
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id =
+      output["Id"]["#text"] !== undefined
+        ? output["Id"]["#text"]
+        : output["Id"];
   }
   if (output["Label"] !== undefined) {
-    contents.Label = output["Label"];
+    contents.Label =
+      output["Label"]["#text"] !== undefined
+        ? output["Label"]["#text"]
+        : output["Label"];
   }
   if (output.Messages === "") {
     contents.Messages = [];
@@ -5836,7 +6134,10 @@ const deserializeAws_queryMetricDataResult = (
     );
   }
   if (output["StatusCode"] !== undefined) {
-    contents.StatusCode = output["StatusCode"];
+    contents.StatusCode =
+      output["StatusCode"]["#text"] !== undefined
+        ? output["StatusCode"]["#text"]
+        : output["StatusCode"];
   }
   if (output.Timestamps === "") {
     contents.Timestamps = [];
@@ -5904,13 +6205,23 @@ const deserializeAws_queryMetricStat = (
     contents.Metric = deserializeAws_queryMetric(output["Metric"], context);
   }
   if (output["Period"] !== undefined) {
-    contents.Period = parseInt(output["Period"]);
+    contents.Period = parseInt(
+      output["Period"]["#text"] !== undefined
+        ? output["Period"]["#text"]
+        : output["Period"]
+    );
   }
   if (output["Stat"] !== undefined) {
-    contents.Stat = output["Stat"];
+    contents.Stat =
+      output["Stat"]["#text"] !== undefined
+        ? output["Stat"]["#text"]
+        : output["Stat"];
   }
   if (output["Unit"] !== undefined) {
-    contents.Unit = output["Unit"];
+    contents.Unit =
+      output["Unit"]["#text"] !== undefined
+        ? output["Unit"]["#text"]
+        : output["Unit"];
   }
   return contents;
 };
@@ -5938,16 +6249,28 @@ const deserializeAws_queryPartialFailure = (
     FailureResource: undefined
   };
   if (output["ExceptionType"] !== undefined) {
-    contents.ExceptionType = output["ExceptionType"];
+    contents.ExceptionType =
+      output["ExceptionType"]["#text"] !== undefined
+        ? output["ExceptionType"]["#text"]
+        : output["ExceptionType"];
   }
   if (output["FailureCode"] !== undefined) {
-    contents.FailureCode = output["FailureCode"];
+    contents.FailureCode =
+      output["FailureCode"]["#text"] !== undefined
+        ? output["FailureCode"]["#text"]
+        : output["FailureCode"];
   }
   if (output["FailureDescription"] !== undefined) {
-    contents.FailureDescription = output["FailureDescription"];
+    contents.FailureDescription =
+      output["FailureDescription"]["#text"] !== undefined
+        ? output["FailureDescription"]["#text"]
+        : output["FailureDescription"];
   }
   if (output["FailureResource"] !== undefined) {
-    contents.FailureResource = output["FailureResource"];
+    contents.FailureResource =
+      output["FailureResource"]["#text"] !== undefined
+        ? output["FailureResource"]["#text"]
+        : output["FailureResource"];
   }
   return contents;
 };
@@ -6023,7 +6346,7 @@ const deserializeAws_queryResourceList = (
 ): Array<string> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry);
+    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
   });
   return contents;
 };
@@ -6037,7 +6360,10 @@ const deserializeAws_queryResourceNotFound = (
     message: undefined
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message =
+      output["message"]["#text"] !== undefined
+        ? output["message"]["#text"]
+        : output["message"];
   }
   return contents;
 };
@@ -6053,13 +6379,22 @@ const deserializeAws_queryResourceNotFoundException = (
     ResourceType: undefined
   };
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message =
+      output["Message"]["#text"] !== undefined
+        ? output["Message"]["#text"]
+        : output["Message"];
   }
   if (output["ResourceId"] !== undefined) {
-    contents.ResourceId = output["ResourceId"];
+    contents.ResourceId =
+      output["ResourceId"]["#text"] !== undefined
+        ? output["ResourceId"]["#text"]
+        : output["ResourceId"];
   }
   if (output["ResourceType"] !== undefined) {
-    contents.ResourceType = output["ResourceType"];
+    contents.ResourceType =
+      output["ResourceType"]["#text"] !== undefined
+        ? output["ResourceType"]["#text"]
+        : output["ResourceType"];
   }
   return contents;
 };
@@ -6071,10 +6406,16 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
     Value: undefined
   };
   if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
+    contents.Key =
+      output["Key"]["#text"] !== undefined
+        ? output["Key"]["#text"]
+        : output["Key"];
   }
   if (output["Value"] !== undefined) {
-    contents.Value = output["Value"];
+    contents.Value =
+      output["Value"]["#text"] !== undefined
+        ? output["Value"]["#text"]
+        : output["Value"];
   }
   return contents;
 };

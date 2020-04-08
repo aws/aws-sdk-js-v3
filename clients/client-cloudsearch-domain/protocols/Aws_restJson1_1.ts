@@ -142,8 +142,8 @@ export async function serializeAws_restJson1_1UploadDocumentsCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
-  if (input.contentType !== undefined) {
-    headers["Content-Type"] = input.contentType;
+  if (isSerializableHeaderValue(input.contentType)) {
+    headers["Content-Type"] = input.contentType!;
   }
   let resolvedPath = "/2013-01-01/documents/batch";
   const query: any = {
@@ -777,6 +777,16 @@ const collectBodyString = (
     context.utf8Encoder(body)
   );
 };
+
+function isSerializableHeaderValue(value: any): boolean {
+  return (
+    value !== undefined &&
+    value !== "" &&
+    (!Object.getOwnPropertyNames(value).includes("length") ||
+      value.length != 0) &&
+    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
+  );
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
