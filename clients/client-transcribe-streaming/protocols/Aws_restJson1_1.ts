@@ -36,22 +36,22 @@ export async function serializeAws_restJson1_1StartStreamTranscriptionCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.LanguageCode !== undefined) {
-    headers["x-amzn-transcribe-language-code"] = input.LanguageCode;
+  if (isSerializableHeaderValue(input.LanguageCode)) {
+    headers["x-amzn-transcribe-language-code"] = input.LanguageCode!;
   }
-  if (input.MediaEncoding !== undefined) {
-    headers["x-amzn-transcribe-media-encoding"] = input.MediaEncoding;
+  if (isSerializableHeaderValue(input.MediaEncoding)) {
+    headers["x-amzn-transcribe-media-encoding"] = input.MediaEncoding!;
   }
-  if (input.MediaSampleRateHertz !== undefined) {
+  if (isSerializableHeaderValue(input.MediaSampleRateHertz)) {
     headers[
       "x-amzn-transcribe-sample-rate"
-    ] = input.MediaSampleRateHertz.toString();
+    ] = input.MediaSampleRateHertz!.toString();
   }
-  if (input.SessionId !== undefined) {
-    headers["x-amzn-transcribe-session-id"] = input.SessionId;
+  if (isSerializableHeaderValue(input.SessionId)) {
+    headers["x-amzn-transcribe-session-id"] = input.SessionId!;
   }
-  if (input.VocabularyName !== undefined) {
-    headers["x-amzn-transcribe-vocabulary-name"] = input.VocabularyName;
+  if (isSerializableHeaderValue(input.VocabularyName)) {
+    headers["x-amzn-transcribe-vocabulary-name"] = input.VocabularyName!;
   }
   let resolvedPath = "/stream-transcription";
   let body: any;
@@ -609,6 +609,16 @@ const collectBodyString = (
     context.utf8Encoder(body)
   );
 };
+
+function isSerializableHeaderValue(value: any): boolean {
+  return (
+    value !== undefined &&
+    value !== "" &&
+    (!Object.getOwnPropertyNames(value).includes("length") ||
+      value.length != 0) &&
+    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
+  );
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {

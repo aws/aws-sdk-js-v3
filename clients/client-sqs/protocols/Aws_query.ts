@@ -2868,16 +2868,28 @@ const deserializeAws_queryBatchResultErrorEntry = (
     SenderFault: undefined
   };
   if (output["Code"] !== undefined) {
-    contents.Code = output["Code"];
+    contents.Code =
+      output["Code"]["#text"] !== undefined
+        ? output["Code"]["#text"]
+        : output["Code"];
   }
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id =
+      output["Id"]["#text"] !== undefined
+        ? output["Id"]["#text"]
+        : output["Id"];
   }
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message =
+      output["Message"]["#text"] !== undefined
+        ? output["Message"]["#text"]
+        : output["Message"];
   }
   if (output["SenderFault"] !== undefined) {
-    contents.SenderFault = output["SenderFault"] == "true";
+    contents.SenderFault =
+      (output["SenderFault"]["#text"] !== undefined
+        ? output["SenderFault"]["#text"]
+        : output["SenderFault"]) == "true";
   }
   return contents;
 };
@@ -2899,7 +2911,11 @@ const deserializeAws_queryBinaryList = (
 ): Array<Uint8Array> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(context.base64Decoder(entry));
+    contents.push(
+      context.base64Decoder(
+        entry["#text"] !== undefined ? entry["#text"] : entry
+      )
+    );
   });
   return contents;
 };
@@ -2951,7 +2967,10 @@ const deserializeAws_queryChangeMessageVisibilityBatchResultEntry = (
     Id: undefined
   };
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id =
+      output["Id"]["#text"] !== undefined
+        ? output["Id"]["#text"]
+        : output["Id"];
   }
   return contents;
 };
@@ -2981,7 +3000,10 @@ const deserializeAws_queryCreateQueueResult = (
     QueueUrl: undefined
   };
   if (output["QueueUrl"] !== undefined) {
-    contents.QueueUrl = output["QueueUrl"];
+    contents.QueueUrl =
+      output["QueueUrl"]["#text"] !== undefined
+        ? output["QueueUrl"]["#text"]
+        : output["QueueUrl"];
   }
   return contents;
 };
@@ -3033,7 +3055,10 @@ const deserializeAws_queryDeleteMessageBatchResultEntry = (
     Id: undefined
   };
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id =
+      output["Id"]["#text"] !== undefined
+        ? output["Id"]["#text"]
+        : output["Id"];
   }
   return contents;
 };
@@ -3094,7 +3119,10 @@ const deserializeAws_queryGetQueueUrlResult = (
     QueueUrl: undefined
   };
   if (output["QueueUrl"] !== undefined) {
-    contents.QueueUrl = output["QueueUrl"];
+    contents.QueueUrl =
+      output["QueueUrl"]["#text"] !== undefined
+        ? output["QueueUrl"]["#text"]
+        : output["QueueUrl"];
   }
   return contents;
 };
@@ -3228,13 +3256,22 @@ const deserializeAws_queryMessage = (
     );
   }
   if (output["Body"] !== undefined) {
-    contents.Body = output["Body"];
+    contents.Body =
+      output["Body"]["#text"] !== undefined
+        ? output["Body"]["#text"]
+        : output["Body"];
   }
   if (output["MD5OfBody"] !== undefined) {
-    contents.MD5OfBody = output["MD5OfBody"];
+    contents.MD5OfBody =
+      output["MD5OfBody"]["#text"] !== undefined
+        ? output["MD5OfBody"]["#text"]
+        : output["MD5OfBody"];
   }
   if (output["MD5OfMessageAttributes"] !== undefined) {
-    contents.MD5OfMessageAttributes = output["MD5OfMessageAttributes"];
+    contents.MD5OfMessageAttributes =
+      output["MD5OfMessageAttributes"]["#text"] !== undefined
+        ? output["MD5OfMessageAttributes"]["#text"]
+        : output["MD5OfMessageAttributes"];
   }
   if (output.MessageAttribute === "") {
     contents.MessageAttributes = {};
@@ -3250,10 +3287,16 @@ const deserializeAws_queryMessage = (
     );
   }
   if (output["MessageId"] !== undefined) {
-    contents.MessageId = output["MessageId"];
+    contents.MessageId =
+      output["MessageId"]["#text"] !== undefined
+        ? output["MessageId"]["#text"]
+        : output["MessageId"];
   }
   if (output["ReceiptHandle"] !== undefined) {
-    contents.ReceiptHandle = output["ReceiptHandle"];
+    contents.ReceiptHandle =
+      output["ReceiptHandle"]["#text"] !== undefined
+        ? output["ReceiptHandle"]["#text"]
+        : output["ReceiptHandle"];
   }
   return contents;
 };
@@ -3284,10 +3327,17 @@ const deserializeAws_queryMessageAttributeValue = (
     );
   }
   if (output["BinaryValue"] !== undefined) {
-    contents.BinaryValue = context.base64Decoder(output["BinaryValue"]);
+    contents.BinaryValue = context.base64Decoder(
+      output["BinaryValue"]["#text"] !== undefined
+        ? output["BinaryValue"]["#text"]
+        : output["BinaryValue"]
+    );
   }
   if (output["DataType"] !== undefined) {
-    contents.DataType = output["DataType"];
+    contents.DataType =
+      output["DataType"]["#text"] !== undefined
+        ? output["DataType"]["#text"]
+        : output["DataType"];
   }
   if (output.StringListValue === "") {
     contents.StringListValues = [];
@@ -3303,7 +3353,10 @@ const deserializeAws_queryMessageAttributeValue = (
     );
   }
   if (output["StringValue"] !== undefined) {
-    contents.StringValue = output["StringValue"];
+    contents.StringValue =
+      output["StringValue"]["#text"] !== undefined
+        ? output["StringValue"]["#text"]
+        : output["StringValue"];
   }
   return contents;
 };
@@ -3349,7 +3402,10 @@ const deserializeAws_queryMessageSystemAttributeMap = (
 ): { [key: string]: string } => {
   const mapParams: any = {};
   output.forEach((pair: any) => {
-    mapParams[pair["Name"]] = pair["Value"];
+    mapParams[pair["Name"]] =
+      pair["Value"]["#text"] !== undefined
+        ? pair["Value"]["#text"]
+        : pair["Value"];
   });
   return mapParams;
 };
@@ -3380,7 +3436,10 @@ const deserializeAws_queryQueueAttributeMap = (
 ): { [key: string]: string } => {
   const mapParams: any = {};
   output.forEach((pair: any) => {
-    mapParams[pair["Name"]] = pair["Value"];
+    mapParams[pair["Name"]] =
+      pair["Value"]["#text"] !== undefined
+        ? pair["Value"]["#text"]
+        : pair["Value"];
   });
   return mapParams;
 };
@@ -3421,7 +3480,7 @@ const deserializeAws_queryQueueUrlList = (
 ): Array<string> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry);
+    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
   });
   return contents;
 };
@@ -3509,23 +3568,40 @@ const deserializeAws_querySendMessageBatchResultEntry = (
     SequenceNumber: undefined
   };
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id =
+      output["Id"]["#text"] !== undefined
+        ? output["Id"]["#text"]
+        : output["Id"];
   }
   if (output["MD5OfMessageAttributes"] !== undefined) {
-    contents.MD5OfMessageAttributes = output["MD5OfMessageAttributes"];
+    contents.MD5OfMessageAttributes =
+      output["MD5OfMessageAttributes"]["#text"] !== undefined
+        ? output["MD5OfMessageAttributes"]["#text"]
+        : output["MD5OfMessageAttributes"];
   }
   if (output["MD5OfMessageBody"] !== undefined) {
-    contents.MD5OfMessageBody = output["MD5OfMessageBody"];
+    contents.MD5OfMessageBody =
+      output["MD5OfMessageBody"]["#text"] !== undefined
+        ? output["MD5OfMessageBody"]["#text"]
+        : output["MD5OfMessageBody"];
   }
   if (output["MD5OfMessageSystemAttributes"] !== undefined) {
     contents.MD5OfMessageSystemAttributes =
-      output["MD5OfMessageSystemAttributes"];
+      output["MD5OfMessageSystemAttributes"]["#text"] !== undefined
+        ? output["MD5OfMessageSystemAttributes"]["#text"]
+        : output["MD5OfMessageSystemAttributes"];
   }
   if (output["MessageId"] !== undefined) {
-    contents.MessageId = output["MessageId"];
+    contents.MessageId =
+      output["MessageId"]["#text"] !== undefined
+        ? output["MessageId"]["#text"]
+        : output["MessageId"];
   }
   if (output["SequenceNumber"] !== undefined) {
-    contents.SequenceNumber = output["SequenceNumber"];
+    contents.SequenceNumber =
+      output["SequenceNumber"]["#text"] !== undefined
+        ? output["SequenceNumber"]["#text"]
+        : output["SequenceNumber"];
   }
   return contents;
 };
@@ -3556,20 +3632,34 @@ const deserializeAws_querySendMessageResult = (
     SequenceNumber: undefined
   };
   if (output["MD5OfMessageAttributes"] !== undefined) {
-    contents.MD5OfMessageAttributes = output["MD5OfMessageAttributes"];
+    contents.MD5OfMessageAttributes =
+      output["MD5OfMessageAttributes"]["#text"] !== undefined
+        ? output["MD5OfMessageAttributes"]["#text"]
+        : output["MD5OfMessageAttributes"];
   }
   if (output["MD5OfMessageBody"] !== undefined) {
-    contents.MD5OfMessageBody = output["MD5OfMessageBody"];
+    contents.MD5OfMessageBody =
+      output["MD5OfMessageBody"]["#text"] !== undefined
+        ? output["MD5OfMessageBody"]["#text"]
+        : output["MD5OfMessageBody"];
   }
   if (output["MD5OfMessageSystemAttributes"] !== undefined) {
     contents.MD5OfMessageSystemAttributes =
-      output["MD5OfMessageSystemAttributes"];
+      output["MD5OfMessageSystemAttributes"]["#text"] !== undefined
+        ? output["MD5OfMessageSystemAttributes"]["#text"]
+        : output["MD5OfMessageSystemAttributes"];
   }
   if (output["MessageId"] !== undefined) {
-    contents.MessageId = output["MessageId"];
+    contents.MessageId =
+      output["MessageId"]["#text"] !== undefined
+        ? output["MessageId"]["#text"]
+        : output["MessageId"];
   }
   if (output["SequenceNumber"] !== undefined) {
-    contents.SequenceNumber = output["SequenceNumber"];
+    contents.SequenceNumber =
+      output["SequenceNumber"]["#text"] !== undefined
+        ? output["SequenceNumber"]["#text"]
+        : output["SequenceNumber"];
   }
   return contents;
 };
@@ -3580,7 +3670,7 @@ const deserializeAws_queryStringList = (
 ): Array<string> => {
   const contents: any = [];
   (output || []).map((entry: any) => {
-    contents.push(entry);
+    contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
   });
   return contents;
 };
@@ -3591,7 +3681,10 @@ const deserializeAws_queryTagMap = (
 ): { [key: string]: string } => {
   const mapParams: any = {};
   output.forEach((pair: any) => {
-    mapParams[pair["Key"]] = pair["Value"];
+    mapParams[pair["Key"]] =
+      pair["Value"]["#text"] !== undefined
+        ? pair["Value"]["#text"]
+        : pair["Value"];
   });
   return mapParams;
 };

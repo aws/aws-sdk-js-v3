@@ -29,17 +29,17 @@ export async function serializeAws_restJson1_1InvokeEndpointCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
-  if (input.Accept !== undefined) {
-    headers["Accept"] = input.Accept;
+  if (isSerializableHeaderValue(input.Accept)) {
+    headers["Accept"] = input.Accept!;
   }
-  if (input.ContentType !== undefined) {
-    headers["Content-Type"] = input.ContentType;
+  if (isSerializableHeaderValue(input.ContentType)) {
+    headers["Content-Type"] = input.ContentType!;
   }
-  if (input.CustomAttributes !== undefined) {
-    headers["X-Amzn-SageMaker-Custom-Attributes"] = input.CustomAttributes;
+  if (isSerializableHeaderValue(input.CustomAttributes)) {
+    headers["X-Amzn-SageMaker-Custom-Attributes"] = input.CustomAttributes!;
   }
-  if (input.TargetModel !== undefined) {
-    headers["X-Amzn-SageMaker-Target-Model"] = input.TargetModel;
+  if (isSerializableHeaderValue(input.TargetModel)) {
+    headers["X-Amzn-SageMaker-Target-Model"] = input.TargetModel!;
   }
   let resolvedPath = "/endpoints/{EndpointName}/invocations";
   if (input.EndpointName !== undefined) {
@@ -288,6 +288,16 @@ const collectBodyString = (
     context.utf8Encoder(body)
   );
 };
+
+function isSerializableHeaderValue(value: any): boolean {
+  return (
+    value !== undefined &&
+    value !== "" &&
+    (!Object.getOwnPropertyNames(value).includes("length") ||
+      value.length != 0) &&
+    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
+  );
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {

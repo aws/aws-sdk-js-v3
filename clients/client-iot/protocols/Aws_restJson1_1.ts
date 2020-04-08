@@ -1051,8 +1051,8 @@ export async function serializeAws_restJson1_1CreateTopicRuleCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.tags !== undefined) {
-    headers["x-amz-tagging"] = input.tags;
+  if (isSerializableHeaderValue(input.tags)) {
+    headers["x-amz-tagging"] = input.tags!;
   }
   let resolvedPath = "/rules/{ruleName}";
   if (input.ruleName !== undefined) {
@@ -1683,8 +1683,8 @@ export async function serializeAws_restJson1_1AttachPrincipalPolicyCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.principal !== undefined) {
-    headers["x-amzn-iot-principal"] = input.principal;
+  if (isSerializableHeaderValue(input.principal)) {
+    headers["x-amzn-iot-principal"] = input.principal!;
   }
   let resolvedPath = "/principal-policies/{policyName}";
   if (input.policyName !== undefined) {
@@ -2804,8 +2804,8 @@ export async function serializeAws_restJson1_1DetachPrincipalPolicyCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.principal !== undefined) {
-    headers["x-amzn-iot-principal"] = input.principal;
+  if (isSerializableHeaderValue(input.principal)) {
+    headers["x-amzn-iot-principal"] = input.principal!;
   }
   let resolvedPath = "/principal-policies/{policyName}";
   if (input.policyName !== undefined) {
@@ -3222,8 +3222,8 @@ export async function serializeAws_restJson1_1ListPolicyPrincipalsCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.policyName !== undefined) {
-    headers["x-amzn-iot-policy"] = input.policyName;
+  if (isSerializableHeaderValue(input.policyName)) {
+    headers["x-amzn-iot-policy"] = input.policyName!;
   }
   let resolvedPath = "/policy-principals";
   const query: any = {};
@@ -3284,8 +3284,8 @@ export async function serializeAws_restJson1_1ListPrincipalPoliciesCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.principal !== undefined) {
-    headers["x-amzn-iot-principal"] = input.principal;
+  if (isSerializableHeaderValue(input.principal)) {
+    headers["x-amzn-iot-principal"] = input.principal!;
   }
   let resolvedPath = "/principal-policies";
   const query: any = {};
@@ -5192,8 +5192,8 @@ export async function serializeAws_restJson1_1AttachThingPrincipalCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.principal !== undefined) {
-    headers["x-amzn-principal"] = input.principal;
+  if (isSerializableHeaderValue(input.principal)) {
+    headers["x-amzn-principal"] = input.principal!;
   }
   let resolvedPath = "/things/{thingName}/principals";
   if (input.thingName !== undefined) {
@@ -5857,8 +5857,8 @@ export async function serializeAws_restJson1_1DetachThingPrincipalCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.principal !== undefined) {
-    headers["x-amzn-principal"] = input.principal;
+  if (isSerializableHeaderValue(input.principal)) {
+    headers["x-amzn-principal"] = input.principal!;
   }
   let resolvedPath = "/things/{thingName}/principals";
   if (input.thingName !== undefined) {
@@ -5919,8 +5919,8 @@ export async function serializeAws_restJson1_1ListPrincipalThingsCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.principal !== undefined) {
-    headers["x-amzn-principal"] = input.principal;
+  if (isSerializableHeaderValue(input.principal)) {
+    headers["x-amzn-principal"] = input.principal!;
   }
   let resolvedPath = "/principals/things";
   const query: any = {};
@@ -38959,6 +38959,16 @@ const collectBodyString = (
     context.utf8Encoder(body)
   );
 };
+
+function isSerializableHeaderValue(value: any): boolean {
+  return (
+    value !== undefined &&
+    value !== "" &&
+    (!Object.getOwnPropertyNames(value).includes("length") ||
+      value.length != 0) &&
+    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
+  );
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {

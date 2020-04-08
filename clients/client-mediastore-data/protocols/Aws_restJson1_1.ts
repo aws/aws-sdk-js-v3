@@ -112,8 +112,8 @@ export async function serializeAws_restJson1_1GetObjectCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
-  if (input.Range !== undefined) {
-    headers["Range"] = input.Range;
+  if (isSerializableHeaderValue(input.Range)) {
+    headers["Range"] = input.Range!;
   }
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
@@ -178,14 +178,14 @@ export async function serializeAws_restJson1_1PutObjectCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   headers["x-amz-content-sha256"] = "UNSIGNED_PAYLOAD";
-  if (input.CacheControl !== undefined) {
-    headers["Cache-Control"] = input.CacheControl;
+  if (isSerializableHeaderValue(input.CacheControl)) {
+    headers["Cache-Control"] = input.CacheControl!;
   }
-  if (input.ContentType !== undefined) {
-    headers["Content-Type"] = input.ContentType;
+  if (isSerializableHeaderValue(input.ContentType)) {
+    headers["Content-Type"] = input.ContentType!;
   }
-  if (input.StorageClass !== undefined) {
-    headers["x-amz-storage-class"] = input.StorageClass;
+  if (isSerializableHeaderValue(input.StorageClass)) {
+    headers["x-amz-storage-class"] = input.StorageClass!;
   }
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
@@ -799,6 +799,16 @@ const collectBodyString = (
     context.utf8Encoder(body)
   );
 };
+
+function isSerializableHeaderValue(value: any): boolean {
+  return (
+    value !== undefined &&
+    value !== "" &&
+    (!Object.getOwnPropertyNames(value).includes("length") ||
+      value.length != 0) &&
+    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
+  );
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {

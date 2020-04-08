@@ -48,8 +48,8 @@ export async function serializeAws_restJson1_1CreateParticipantConnectionCommand
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.ParticipantToken !== undefined) {
-    headers["X-Amz-Bearer"] = input.ParticipantToken;
+  if (isSerializableHeaderValue(input.ParticipantToken)) {
+    headers["X-Amz-Bearer"] = input.ParticipantToken!;
   }
   let resolvedPath = "/participant/connection";
   let body: any;
@@ -77,8 +77,8 @@ export async function serializeAws_restJson1_1DisconnectParticipantCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.ConnectionToken !== undefined) {
-    headers["X-Amz-Bearer"] = input.ConnectionToken;
+  if (isSerializableHeaderValue(input.ConnectionToken)) {
+    headers["X-Amz-Bearer"] = input.ConnectionToken!;
   }
   let resolvedPath = "/participant/disconnect";
   let body: any;
@@ -106,8 +106,8 @@ export async function serializeAws_restJson1_1GetTranscriptCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.ConnectionToken !== undefined) {
-    headers["X-Amz-Bearer"] = input.ConnectionToken;
+  if (isSerializableHeaderValue(input.ConnectionToken)) {
+    headers["X-Amz-Bearer"] = input.ConnectionToken!;
   }
   let resolvedPath = "/participant/transcript";
   let body: any;
@@ -150,8 +150,8 @@ export async function serializeAws_restJson1_1SendEventCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.ConnectionToken !== undefined) {
-    headers["X-Amz-Bearer"] = input.ConnectionToken;
+  if (isSerializableHeaderValue(input.ConnectionToken)) {
+    headers["X-Amz-Bearer"] = input.ConnectionToken!;
   }
   let resolvedPath = "/participant/event";
   let body: any;
@@ -185,8 +185,8 @@ export async function serializeAws_restJson1_1SendMessageCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.ConnectionToken !== undefined) {
-    headers["X-Amz-Bearer"] = input.ConnectionToken;
+  if (isSerializableHeaderValue(input.ConnectionToken)) {
+    headers["X-Amz-Bearer"] = input.ConnectionToken!;
   }
   let resolvedPath = "/participant/message";
   let body: any;
@@ -922,6 +922,16 @@ const collectBodyString = (
     context.utf8Encoder(body)
   );
 };
+
+function isSerializableHeaderValue(value: any): boolean {
+  return (
+    value !== undefined &&
+    value !== "" &&
+    (!Object.getOwnPropertyNames(value).includes("length") ||
+      value.length != 0) &&
+    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
+  );
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {

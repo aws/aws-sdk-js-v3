@@ -3861,8 +3861,8 @@ export async function serializeAws_restJson1_1GetExportCommand(
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "application/json";
-  if (input.accepts !== undefined) {
-    headers["Accept"] = input.accepts;
+  if (isSerializableHeaderValue(input.accepts)) {
+    headers["Accept"] = input.accepts!;
   }
   let resolvedPath =
     "/restapis/{restApiId}/stages/{stageName}/exports/{exportType}";
@@ -24447,6 +24447,16 @@ const collectBodyString = (
     context.utf8Encoder(body)
   );
 };
+
+function isSerializableHeaderValue(value: any): boolean {
+  return (
+    value !== undefined &&
+    value !== "" &&
+    (!Object.getOwnPropertyNames(value).includes("length") ||
+      value.length != 0) &&
+    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
+  );
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
