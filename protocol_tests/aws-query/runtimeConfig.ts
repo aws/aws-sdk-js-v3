@@ -26,5 +26,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   defaultUserAgent: defaultUserAgent(name, version),
   runtime: "node",
   credentialDefaultProvider,
-  regionDefaultProvider,
+  regionDefaultProvider
 };

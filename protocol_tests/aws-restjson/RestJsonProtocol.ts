@@ -2,142 +2,142 @@ import { RestJsonProtocolClient } from "./RestJsonProtocolClient";
 import {
   AllQueryStringTypesCommand,
   AllQueryStringTypesCommandInput,
-  AllQueryStringTypesCommandOutput,
+  AllQueryStringTypesCommandOutput
 } from "./commands/AllQueryStringTypesCommand";
 import {
   ConstantAndVariableQueryStringCommand,
   ConstantAndVariableQueryStringCommandInput,
-  ConstantAndVariableQueryStringCommandOutput,
+  ConstantAndVariableQueryStringCommandOutput
 } from "./commands/ConstantAndVariableQueryStringCommand";
 import {
   ConstantQueryStringCommand,
   ConstantQueryStringCommandInput,
-  ConstantQueryStringCommandOutput,
+  ConstantQueryStringCommandOutput
 } from "./commands/ConstantQueryStringCommand";
 import {
   EmptyInputAndEmptyOutputCommand,
   EmptyInputAndEmptyOutputCommandInput,
-  EmptyInputAndEmptyOutputCommandOutput,
+  EmptyInputAndEmptyOutputCommandOutput
 } from "./commands/EmptyInputAndEmptyOutputCommand";
 import {
   GreetingWithErrorsCommand,
   GreetingWithErrorsCommandInput,
-  GreetingWithErrorsCommandOutput,
+  GreetingWithErrorsCommandOutput
 } from "./commands/GreetingWithErrorsCommand";
 import {
   HttpPayloadTraitsCommand,
   HttpPayloadTraitsCommandInput,
-  HttpPayloadTraitsCommandOutput,
+  HttpPayloadTraitsCommandOutput
 } from "./commands/HttpPayloadTraitsCommand";
 import {
   HttpPayloadTraitsWithMediaTypeCommand,
   HttpPayloadTraitsWithMediaTypeCommandInput,
-  HttpPayloadTraitsWithMediaTypeCommandOutput,
+  HttpPayloadTraitsWithMediaTypeCommandOutput
 } from "./commands/HttpPayloadTraitsWithMediaTypeCommand";
 import {
   HttpPayloadWithStructureCommand,
   HttpPayloadWithStructureCommandInput,
-  HttpPayloadWithStructureCommandOutput,
+  HttpPayloadWithStructureCommandOutput
 } from "./commands/HttpPayloadWithStructureCommand";
 import {
   HttpPrefixHeadersCommand,
   HttpPrefixHeadersCommandInput,
-  HttpPrefixHeadersCommandOutput,
+  HttpPrefixHeadersCommandOutput
 } from "./commands/HttpPrefixHeadersCommand";
 import {
   HttpRequestWithGreedyLabelInPathCommand,
   HttpRequestWithGreedyLabelInPathCommandInput,
-  HttpRequestWithGreedyLabelInPathCommandOutput,
+  HttpRequestWithGreedyLabelInPathCommandOutput
 } from "./commands/HttpRequestWithGreedyLabelInPathCommand";
 import {
   HttpRequestWithLabelsAndTimestampFormatCommand,
   HttpRequestWithLabelsAndTimestampFormatCommandInput,
-  HttpRequestWithLabelsAndTimestampFormatCommandOutput,
+  HttpRequestWithLabelsAndTimestampFormatCommandOutput
 } from "./commands/HttpRequestWithLabelsAndTimestampFormatCommand";
 import {
   HttpRequestWithLabelsCommand,
   HttpRequestWithLabelsCommandInput,
-  HttpRequestWithLabelsCommandOutput,
+  HttpRequestWithLabelsCommandOutput
 } from "./commands/HttpRequestWithLabelsCommand";
 import {
   IgnoreQueryParamsInResponseCommand,
   IgnoreQueryParamsInResponseCommandInput,
-  IgnoreQueryParamsInResponseCommandOutput,
+  IgnoreQueryParamsInResponseCommandOutput
 } from "./commands/IgnoreQueryParamsInResponseCommand";
 import {
   InputAndOutputWithHeadersCommand,
   InputAndOutputWithHeadersCommandInput,
-  InputAndOutputWithHeadersCommandOutput,
+  InputAndOutputWithHeadersCommandOutput
 } from "./commands/InputAndOutputWithHeadersCommand";
 import {
   JsonBlobsCommand,
   JsonBlobsCommandInput,
-  JsonBlobsCommandOutput,
+  JsonBlobsCommandOutput
 } from "./commands/JsonBlobsCommand";
 import {
   JsonEnumsCommand,
   JsonEnumsCommandInput,
-  JsonEnumsCommandOutput,
+  JsonEnumsCommandOutput
 } from "./commands/JsonEnumsCommand";
 import {
   JsonListsCommand,
   JsonListsCommandInput,
-  JsonListsCommandOutput,
+  JsonListsCommandOutput
 } from "./commands/JsonListsCommand";
 import {
   JsonMapsCommand,
   JsonMapsCommandInput,
-  JsonMapsCommandOutput,
+  JsonMapsCommandOutput
 } from "./commands/JsonMapsCommand";
 import {
   JsonTimestampsCommand,
   JsonTimestampsCommandInput,
-  JsonTimestampsCommandOutput,
+  JsonTimestampsCommandOutput
 } from "./commands/JsonTimestampsCommand";
 import {
   NoInputAndNoOutputCommand,
   NoInputAndNoOutputCommandInput,
-  NoInputAndNoOutputCommandOutput,
+  NoInputAndNoOutputCommandOutput
 } from "./commands/NoInputAndNoOutputCommand";
 import {
   NoInputAndOutputCommand,
   NoInputAndOutputCommandInput,
-  NoInputAndOutputCommandOutput,
+  NoInputAndOutputCommandOutput
 } from "./commands/NoInputAndOutputCommand";
 import {
   NullAndEmptyHeadersClientCommand,
   NullAndEmptyHeadersClientCommandInput,
-  NullAndEmptyHeadersClientCommandOutput,
+  NullAndEmptyHeadersClientCommandOutput
 } from "./commands/NullAndEmptyHeadersClientCommand";
 import {
   NullAndEmptyHeadersServerCommand,
   NullAndEmptyHeadersServerCommandInput,
-  NullAndEmptyHeadersServerCommandOutput,
+  NullAndEmptyHeadersServerCommandOutput
 } from "./commands/NullAndEmptyHeadersServerCommand";
 import {
   OmitsNullSerializesEmptyStringCommand,
   OmitsNullSerializesEmptyStringCommandInput,
-  OmitsNullSerializesEmptyStringCommandOutput,
+  OmitsNullSerializesEmptyStringCommandOutput
 } from "./commands/OmitsNullSerializesEmptyStringCommand";
 import {
   QueryIdempotencyTokenAutoFillCommand,
   QueryIdempotencyTokenAutoFillCommandInput,
-  QueryIdempotencyTokenAutoFillCommandOutput,
+  QueryIdempotencyTokenAutoFillCommandOutput
 } from "./commands/QueryIdempotencyTokenAutoFillCommand";
 import {
   RecursiveShapesCommand,
   RecursiveShapesCommandInput,
-  RecursiveShapesCommandOutput,
+  RecursiveShapesCommandOutput
 } from "./commands/RecursiveShapesCommand";
 import {
   SimpleScalarPropertiesCommand,
   SimpleScalarPropertiesCommandInput,
-  SimpleScalarPropertiesCommandOutput,
+  SimpleScalarPropertiesCommandOutput
 } from "./commands/SimpleScalarPropertiesCommand";
 import {
   TimestampFormatHeadersCommand,
   TimestampFormatHeadersCommandInput,
-  TimestampFormatHeadersCommandOutput,
+  TimestampFormatHeadersCommandOutput
 } from "./commands/TimestampFormatHeadersCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -150,7 +150,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public allQueryStringTypes(
     args: AllQueryStringTypesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AllQueryStringTypesCommandOutput>;
   public allQueryStringTypes(
     args: AllQueryStringTypesCommandInput,
@@ -163,16 +163,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public allQueryStringTypes(
     args: AllQueryStringTypesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AllQueryStringTypesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AllQueryStringTypesCommandOutput) => void),
     cb?: (err: any, data?: AllQueryStringTypesCommandOutput) => void
   ): Promise<AllQueryStringTypesCommandOutput> | void {
     const command = new AllQueryStringTypesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -185,7 +187,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public constantAndVariableQueryString(
     args: ConstantAndVariableQueryStringCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ConstantAndVariableQueryStringCommandOutput>;
   public constantAndVariableQueryString(
     args: ConstantAndVariableQueryStringCommandInput,
@@ -198,16 +200,21 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public constantAndVariableQueryString(
     args: ConstantAndVariableQueryStringCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConstantAndVariableQueryStringCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ConstantAndVariableQueryStringCommandOutput
+        ) => void),
     cb?: (err: any, data?: ConstantAndVariableQueryStringCommandOutput) => void
   ): Promise<ConstantAndVariableQueryStringCommandOutput> | void {
     const command = new ConstantAndVariableQueryStringCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -221,7 +228,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public constantQueryString(
     args: ConstantQueryStringCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ConstantQueryStringCommandOutput>;
   public constantQueryString(
     args: ConstantQueryStringCommandInput,
@@ -234,16 +241,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public constantQueryString(
     args: ConstantQueryStringCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConstantQueryStringCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ConstantQueryStringCommandOutput) => void),
     cb?: (err: any, data?: ConstantQueryStringCommandOutput) => void
   ): Promise<ConstantQueryStringCommandOutput> | void {
     const command = new ConstantQueryStringCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -257,7 +266,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public emptyInputAndEmptyOutput(
     args: EmptyInputAndEmptyOutputCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<EmptyInputAndEmptyOutputCommandOutput>;
   public emptyInputAndEmptyOutput(
     args: EmptyInputAndEmptyOutputCommandInput,
@@ -270,16 +279,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public emptyInputAndEmptyOutput(
     args: EmptyInputAndEmptyOutputCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EmptyInputAndEmptyOutputCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EmptyInputAndEmptyOutputCommandOutput) => void),
     cb?: (err: any, data?: EmptyInputAndEmptyOutputCommandOutput) => void
   ): Promise<EmptyInputAndEmptyOutputCommandOutput> | void {
     const command = new EmptyInputAndEmptyOutputCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -299,7 +310,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GreetingWithErrorsCommandOutput>;
   public greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
@@ -312,16 +323,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GreetingWithErrorsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GreetingWithErrorsCommandOutput) => void),
     cb?: (err: any, data?: GreetingWithErrorsCommandOutput) => void
   ): Promise<GreetingWithErrorsCommandOutput> | void {
     const command = new GreetingWithErrorsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -335,7 +348,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public httpPayloadTraits(
     args: HttpPayloadTraitsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<HttpPayloadTraitsCommandOutput>;
   public httpPayloadTraits(
     args: HttpPayloadTraitsCommandInput,
@@ -348,16 +361,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public httpPayloadTraits(
     args: HttpPayloadTraitsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpPayloadTraitsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: HttpPayloadTraitsCommandOutput) => void),
     cb?: (err: any, data?: HttpPayloadTraitsCommandOutput) => void
   ): Promise<HttpPayloadTraitsCommandOutput> | void {
     const command = new HttpPayloadTraitsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -369,7 +384,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public httpPayloadTraitsWithMediaType(
     args: HttpPayloadTraitsWithMediaTypeCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput>;
   public httpPayloadTraitsWithMediaType(
     args: HttpPayloadTraitsWithMediaTypeCommandInput,
@@ -382,16 +397,21 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public httpPayloadTraitsWithMediaType(
     args: HttpPayloadTraitsWithMediaTypeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpPayloadTraitsWithMediaTypeCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: HttpPayloadTraitsWithMediaTypeCommandOutput
+        ) => void),
     cb?: (err: any, data?: HttpPayloadTraitsWithMediaTypeCommandOutput) => void
   ): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput> | void {
     const command = new HttpPayloadTraitsWithMediaTypeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -405,7 +425,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public httpPayloadWithStructure(
     args: HttpPayloadWithStructureCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<HttpPayloadWithStructureCommandOutput>;
   public httpPayloadWithStructure(
     args: HttpPayloadWithStructureCommandInput,
@@ -418,16 +438,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public httpPayloadWithStructure(
     args: HttpPayloadWithStructureCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpPayloadWithStructureCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: HttpPayloadWithStructureCommandOutput) => void),
     cb?: (err: any, data?: HttpPayloadWithStructureCommandOutput) => void
   ): Promise<HttpPayloadWithStructureCommandOutput> | void {
     const command = new HttpPayloadWithStructureCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -438,7 +460,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public httpPrefixHeaders(
     args: HttpPrefixHeadersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<HttpPrefixHeadersCommandOutput>;
   public httpPrefixHeaders(
     args: HttpPrefixHeadersCommandInput,
@@ -451,16 +473,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public httpPrefixHeaders(
     args: HttpPrefixHeadersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpPrefixHeadersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: HttpPrefixHeadersCommandOutput) => void),
     cb?: (err: any, data?: HttpPrefixHeadersCommandOutput) => void
   ): Promise<HttpPrefixHeadersCommandOutput> | void {
     const command = new HttpPrefixHeadersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -468,7 +492,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
 
   public httpRequestWithGreedyLabelInPath(
     args: HttpRequestWithGreedyLabelInPathCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<HttpRequestWithGreedyLabelInPathCommandOutput>;
   public httpRequestWithGreedyLabelInPath(
     args: HttpRequestWithGreedyLabelInPathCommandInput,
@@ -481,16 +505,24 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public httpRequestWithGreedyLabelInPath(
     args: HttpRequestWithGreedyLabelInPathCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpRequestWithGreedyLabelInPathCommandOutput) => void),
-    cb?: (err: any, data?: HttpRequestWithGreedyLabelInPathCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: HttpRequestWithGreedyLabelInPathCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: HttpRequestWithGreedyLabelInPathCommandOutput
+    ) => void
   ): Promise<HttpRequestWithGreedyLabelInPathCommandOutput> | void {
     const command = new HttpRequestWithGreedyLabelInPathCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -502,7 +534,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public httpRequestWithLabels(
     args: HttpRequestWithLabelsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<HttpRequestWithLabelsCommandOutput>;
   public httpRequestWithLabels(
     args: HttpRequestWithLabelsCommandInput,
@@ -515,16 +547,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public httpRequestWithLabels(
     args: HttpRequestWithLabelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpRequestWithLabelsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: HttpRequestWithLabelsCommandOutput) => void),
     cb?: (err: any, data?: HttpRequestWithLabelsCommandOutput) => void
   ): Promise<HttpRequestWithLabelsCommandOutput> | void {
     const command = new HttpRequestWithLabelsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -536,29 +570,43 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public httpRequestWithLabelsAndTimestampFormat(
     args: HttpRequestWithLabelsAndTimestampFormatCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput>;
   public httpRequestWithLabelsAndTimestampFormat(
     args: HttpRequestWithLabelsAndTimestampFormatCommandInput,
-    cb: (err: any, data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput) => void
+    cb: (
+      err: any,
+      data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput
+    ) => void
   ): void;
   public httpRequestWithLabelsAndTimestampFormat(
     args: HttpRequestWithLabelsAndTimestampFormatCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput) => void
+    cb: (
+      err: any,
+      data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput
+    ) => void
   ): void;
   public httpRequestWithLabelsAndTimestampFormat(
     args: HttpRequestWithLabelsAndTimestampFormatCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput) => void),
-    cb?: (err: any, data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput
+    ) => void
   ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput> | void {
     const command = new HttpRequestWithLabelsAndTimestampFormatCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -571,7 +619,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public ignoreQueryParamsInResponse(
     args: IgnoreQueryParamsInResponseCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<IgnoreQueryParamsInResponseCommandOutput>;
   public ignoreQueryParamsInResponse(
     args: IgnoreQueryParamsInResponseCommandInput,
@@ -584,16 +632,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public ignoreQueryParamsInResponse(
     args: IgnoreQueryParamsInResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: IgnoreQueryParamsInResponseCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: IgnoreQueryParamsInResponseCommandOutput) => void),
     cb?: (err: any, data?: IgnoreQueryParamsInResponseCommandOutput) => void
   ): Promise<IgnoreQueryParamsInResponseCommandOutput> | void {
     const command = new IgnoreQueryParamsInResponseCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -605,7 +655,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public inputAndOutputWithHeaders(
     args: InputAndOutputWithHeadersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<InputAndOutputWithHeadersCommandOutput>;
   public inputAndOutputWithHeaders(
     args: InputAndOutputWithHeadersCommandInput,
@@ -618,16 +668,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public inputAndOutputWithHeaders(
     args: InputAndOutputWithHeadersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InputAndOutputWithHeadersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: InputAndOutputWithHeadersCommandOutput) => void),
     cb?: (err: any, data?: InputAndOutputWithHeadersCommandOutput) => void
   ): Promise<InputAndOutputWithHeadersCommandOutput> | void {
     const command = new InputAndOutputWithHeadersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -638,7 +690,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public jsonBlobs(
     args: JsonBlobsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<JsonBlobsCommandOutput>;
   public jsonBlobs(
     args: JsonBlobsCommandInput,
@@ -651,16 +703,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public jsonBlobs(
     args: JsonBlobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: JsonBlobsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: JsonBlobsCommandOutput) => void),
     cb?: (err: any, data?: JsonBlobsCommandOutput) => void
   ): Promise<JsonBlobsCommandOutput> | void {
     const command = new JsonBlobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -671,7 +725,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public jsonEnums(
     args: JsonEnumsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<JsonEnumsCommandOutput>;
   public jsonEnums(
     args: JsonEnumsCommandInput,
@@ -684,16 +738,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public jsonEnums(
     args: JsonEnumsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: JsonEnumsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: JsonEnumsCommandOutput) => void),
     cb?: (err: any, data?: JsonEnumsCommandOutput) => void
   ): Promise<JsonEnumsCommandOutput> | void {
     const command = new JsonEnumsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -710,7 +766,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public jsonLists(
     args: JsonListsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<JsonListsCommandOutput>;
   public jsonLists(
     args: JsonListsCommandInput,
@@ -723,16 +779,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public jsonLists(
     args: JsonListsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: JsonListsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: JsonListsCommandOutput) => void),
     cb?: (err: any, data?: JsonListsCommandOutput) => void
   ): Promise<JsonListsCommandOutput> | void {
     const command = new JsonListsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -743,7 +801,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public jsonMaps(
     args: JsonMapsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<JsonMapsCommandOutput>;
   public jsonMaps(
     args: JsonMapsCommandInput,
@@ -756,16 +814,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public jsonMaps(
     args: JsonMapsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: JsonMapsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: JsonMapsCommandOutput) => void),
     cb?: (err: any, data?: JsonMapsCommandOutput) => void
   ): Promise<JsonMapsCommandOutput> | void {
     const command = new JsonMapsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -778,7 +838,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public jsonTimestamps(
     args: JsonTimestampsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<JsonTimestampsCommandOutput>;
   public jsonTimestamps(
     args: JsonTimestampsCommandInput,
@@ -791,16 +851,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public jsonTimestamps(
     args: JsonTimestampsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: JsonTimestampsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: JsonTimestampsCommandOutput) => void),
     cb?: (err: any, data?: JsonTimestampsCommandOutput) => void
   ): Promise<JsonTimestampsCommandOutput> | void {
     const command = new JsonTimestampsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -813,7 +875,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public noInputAndNoOutput(
     args: NoInputAndNoOutputCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<NoInputAndNoOutputCommandOutput>;
   public noInputAndNoOutput(
     args: NoInputAndNoOutputCommandInput,
@@ -826,16 +888,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public noInputAndNoOutput(
     args: NoInputAndNoOutputCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: NoInputAndNoOutputCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: NoInputAndNoOutputCommandOutput) => void),
     cb?: (err: any, data?: NoInputAndNoOutputCommandOutput) => void
   ): Promise<NoInputAndNoOutputCommandOutput> | void {
     const command = new NoInputAndNoOutputCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -849,7 +913,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public noInputAndOutput(
     args: NoInputAndOutputCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<NoInputAndOutputCommandOutput>;
   public noInputAndOutput(
     args: NoInputAndOutputCommandInput,
@@ -862,16 +926,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public noInputAndOutput(
     args: NoInputAndOutputCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: NoInputAndOutputCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: NoInputAndOutputCommandOutput) => void),
     cb?: (err: any, data?: NoInputAndOutputCommandOutput) => void
   ): Promise<NoInputAndOutputCommandOutput> | void {
     const command = new NoInputAndOutputCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -882,7 +948,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public nullAndEmptyHeadersClient(
     args: NullAndEmptyHeadersClientCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<NullAndEmptyHeadersClientCommandOutput>;
   public nullAndEmptyHeadersClient(
     args: NullAndEmptyHeadersClientCommandInput,
@@ -895,16 +961,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public nullAndEmptyHeadersClient(
     args: NullAndEmptyHeadersClientCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: NullAndEmptyHeadersClientCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: NullAndEmptyHeadersClientCommandOutput) => void),
     cb?: (err: any, data?: NullAndEmptyHeadersClientCommandOutput) => void
   ): Promise<NullAndEmptyHeadersClientCommandOutput> | void {
     const command = new NullAndEmptyHeadersClientCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -915,7 +983,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public nullAndEmptyHeadersServer(
     args: NullAndEmptyHeadersServerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<NullAndEmptyHeadersServerCommandOutput>;
   public nullAndEmptyHeadersServer(
     args: NullAndEmptyHeadersServerCommandInput,
@@ -928,16 +996,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public nullAndEmptyHeadersServer(
     args: NullAndEmptyHeadersServerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: NullAndEmptyHeadersServerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: NullAndEmptyHeadersServerCommandOutput) => void),
     cb?: (err: any, data?: NullAndEmptyHeadersServerCommandOutput) => void
   ): Promise<NullAndEmptyHeadersServerCommandOutput> | void {
     const command = new NullAndEmptyHeadersServerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -948,7 +1018,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public omitsNullSerializesEmptyString(
     args: OmitsNullSerializesEmptyStringCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<OmitsNullSerializesEmptyStringCommandOutput>;
   public omitsNullSerializesEmptyString(
     args: OmitsNullSerializesEmptyStringCommandInput,
@@ -961,16 +1031,21 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public omitsNullSerializesEmptyString(
     args: OmitsNullSerializesEmptyStringCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: OmitsNullSerializesEmptyStringCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: OmitsNullSerializesEmptyStringCommandOutput
+        ) => void),
     cb?: (err: any, data?: OmitsNullSerializesEmptyStringCommandOutput) => void
   ): Promise<OmitsNullSerializesEmptyStringCommandOutput> | void {
     const command = new OmitsNullSerializesEmptyStringCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -981,7 +1056,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public queryIdempotencyTokenAutoFill(
     args: QueryIdempotencyTokenAutoFillCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<QueryIdempotencyTokenAutoFillCommandOutput>;
   public queryIdempotencyTokenAutoFill(
     args: QueryIdempotencyTokenAutoFillCommandInput,
@@ -994,16 +1069,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public queryIdempotencyTokenAutoFill(
     args: QueryIdempotencyTokenAutoFillCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: QueryIdempotencyTokenAutoFillCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: QueryIdempotencyTokenAutoFillCommandOutput) => void),
     cb?: (err: any, data?: QueryIdempotencyTokenAutoFillCommandOutput) => void
   ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> | void {
     const command = new QueryIdempotencyTokenAutoFillCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1014,7 +1091,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public recursiveShapes(
     args: RecursiveShapesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RecursiveShapesCommandOutput>;
   public recursiveShapes(
     args: RecursiveShapesCommandInput,
@@ -1027,16 +1104,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public recursiveShapes(
     args: RecursiveShapesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RecursiveShapesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RecursiveShapesCommandOutput) => void),
     cb?: (err: any, data?: RecursiveShapesCommandOutput) => void
   ): Promise<RecursiveShapesCommandOutput> | void {
     const command = new RecursiveShapesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1044,7 +1123,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
 
   public simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<SimpleScalarPropertiesCommandOutput>;
   public simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
@@ -1057,16 +1136,18 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SimpleScalarPropertiesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SimpleScalarPropertiesCommandOutput) => void),
     cb?: (err: any, data?: SimpleScalarPropertiesCommandOutput) => void
   ): Promise<SimpleScalarPropertiesCommandOutput> | void {
     const command = new SimpleScalarPropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1077,7 +1158,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
    */
   public timestampFormatHeaders(
     args: TimestampFormatHeadersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<TimestampFormatHeadersCommandOutput>;
   public timestampFormatHeaders(
     args: TimestampFormatHeadersCommandInput,
@@ -1090,19 +1171,20 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public timestampFormatHeaders(
     args: TimestampFormatHeadersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TimestampFormatHeadersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TimestampFormatHeadersCommandOutput) => void),
     cb?: (err: any, data?: TimestampFormatHeadersCommandOutput) => void
   ): Promise<TimestampFormatHeadersCommandOutput> | void {
     const command = new TimestampFormatHeadersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

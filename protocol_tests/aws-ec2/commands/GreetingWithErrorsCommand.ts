@@ -1,17 +1,17 @@
 import {
   EC2ProtocolClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../EC2ProtocolClient";
 import { GreetingWithErrorsOutput } from "../models/index";
 import {
   deserializeAws_ec2GreetingWithErrorsCommand,
-  serializeAws_ec2GreetingWithErrorsCommand,
+  serializeAws_ec2GreetingWithErrorsCommand
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,18 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export type GreetingWithErrorsCommandInput = {}
-export type GreetingWithErrorsCommandOutput = GreetingWithErrorsOutput & __MetadataBearer;
+export type GreetingWithErrorsCommandInput = {};
+export type GreetingWithErrorsCommandOutput = GreetingWithErrorsOutput &
+  __MetadataBearer;
 
-export class GreetingWithErrorsCommand extends $Command<GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput, EC2ProtocolClientResolvedConfig> {
+export class GreetingWithErrorsCommand extends $Command<
+  GreetingWithErrorsCommandInput,
+  GreetingWithErrorsCommandOutput,
+  EC2ProtocolClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,13 +47,15 @@ export class GreetingWithErrorsCommand extends $Command<GreetingWithErrorsComman
     configuration: EC2ProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,17 +1,17 @@
 import {
   RestXmlProtocolClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../RestXmlProtocolClient";
 import { HttpPayloadWithXmlNameInputOutput } from "../models/index";
 import {
   deserializeAws_restXmlHttpPayloadWithXmlNameCommand,
-  serializeAws_restXmlHttpPayloadWithXmlNameCommand,
+  serializeAws_restXmlHttpPayloadWithXmlNameCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,18 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type HttpPayloadWithXmlNameCommandInput = HttpPayloadWithXmlNameInputOutput;
-export type HttpPayloadWithXmlNameCommandOutput = HttpPayloadWithXmlNameInputOutput & __MetadataBearer;
+export type HttpPayloadWithXmlNameCommandOutput = HttpPayloadWithXmlNameInputOutput &
+  __MetadataBearer;
 
-export class HttpPayloadWithXmlNameCommand extends $Command<HttpPayloadWithXmlNameCommandInput, HttpPayloadWithXmlNameCommandOutput, RestXmlProtocolClientResolvedConfig> {
+export class HttpPayloadWithXmlNameCommand extends $Command<
+  HttpPayloadWithXmlNameCommandInput,
+  HttpPayloadWithXmlNameCommandOutput,
+  RestXmlProtocolClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +46,19 @@ export class HttpPayloadWithXmlNameCommand extends $Command<HttpPayloadWithXmlNa
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<HttpPayloadWithXmlNameCommandInput, HttpPayloadWithXmlNameCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    HttpPayloadWithXmlNameCommandInput,
+    HttpPayloadWithXmlNameCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

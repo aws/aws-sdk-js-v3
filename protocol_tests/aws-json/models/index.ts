@@ -1,7 +1,7 @@
 import {
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
-  isa as __isa,
+  isa as __isa
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
@@ -36,7 +36,9 @@ export namespace ErrorWithMembers {
   }
 }
 
-export interface ErrorWithoutMembers extends __SmithyException, $MetadataBearer {
+export interface ErrorWithoutMembers
+  extends __SmithyException,
+    $MetadataBearer {
   name: "ErrorWithoutMembers";
   $fault: "server";
 }

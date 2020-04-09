@@ -1,17 +1,17 @@
 import {
   RestXmlProtocolClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../RestXmlProtocolClient";
 import { HttpPayloadTraitsInputOutput } from "../models/index";
 import {
   deserializeAws_restXmlHttpPayloadTraitsCommand,
-  serializeAws_restXmlHttpPayloadTraitsCommand,
+  serializeAws_restXmlHttpPayloadTraitsCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,18 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type HttpPayloadTraitsCommandInput = HttpPayloadTraitsInputOutput;
-export type HttpPayloadTraitsCommandOutput = HttpPayloadTraitsInputOutput & __MetadataBearer;
+export type HttpPayloadTraitsCommandOutput = HttpPayloadTraitsInputOutput &
+  __MetadataBearer;
 
-export class HttpPayloadTraitsCommand extends $Command<HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput, RestXmlProtocolClientResolvedConfig> {
+export class HttpPayloadTraitsCommand extends $Command<
+  HttpPayloadTraitsCommandInput,
+  HttpPayloadTraitsCommandOutput,
+  RestXmlProtocolClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,13 +47,15 @@ export class HttpPayloadTraitsCommand extends $Command<HttpPayloadTraitsCommandI
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,6 +1,6 @@
 import {
   SmithyException as __SmithyException,
-  isa as __isa,
+  isa as __isa
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
@@ -336,7 +336,7 @@ export namespace XmlTimestampsOutput {
   }
 }
 
-export type FooEnum = "0" | "1" | "Bar" | "Baz" | "Foo"
+export type FooEnum = "0" | "1" | "Bar" | "Baz" | "Foo";
 
 export interface GreetingStruct {
   __type?: "GreetingStruct";

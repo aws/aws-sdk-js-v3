@@ -15,19 +15,16 @@ import { XmlEnumsCommand } from "../../commands/XmlEnumsCommand";
 import { XmlListsCommand } from "../../commands/XmlListsCommand";
 import { XmlNamespacesCommand } from "../../commands/XmlNamespacesCommand";
 import { XmlTimestampsCommand } from "../../commands/XmlTimestampsCommand";
-import {
-  ComplexError,
-  InvalidGreeting,
-} from "../../models/index";
+import { ComplexError, InvalidGreeting } from "../../models/index";
 import { HttpHandlerOptions, HeaderBag } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import { Readable } from 'stream';
+import { Readable } from "stream";
 
 /**
  * Throws an expected exception that contains the serialized request.
  */
 class EXPECTED_REQUEST_SERIALIZATION_ERROR {
-  constructor(readonly request: HttpRequest) { }
+  constructor(readonly request: HttpRequest) {}
 }
 
 /**
@@ -86,13 +83,16 @@ class ResponseDeserializationTestHandler implements HttpHandler {
 }
 
 interface comparableParts {
-  [key: string]: string
+  [key: string]: string;
 }
 
 /**
  * Generates a standard map of un-equal values given input parts.
  */
-const compareParts = (expectedParts: comparableParts, generatedParts: comparableParts) => {
+const compareParts = (
+  expectedParts: comparableParts,
+  generatedParts: comparableParts
+) => {
   const unequalParts: any = {};
   Object.keys(expectedParts).forEach(key => {
     if (generatedParts[key] === undefined) {
@@ -134,12 +134,16 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   // If a test fails with an issue in the below 6 lines, it's likely
   // due to an issue in the nestedness or existence of the property
   // being compared.
-  delete localExpected['__type'];
-  delete generated['__type'];
-  delete localExpected['$metadata'];
-  delete generated['$metadata'];
-  Object.keys(localExpected).forEach(key => localExpected[key] === undefined && delete localExpected[key])
-  Object.keys(generated).forEach(key => generated[key] === undefined && delete generated[key])
+  delete localExpected["__type"];
+  delete generated["__type"];
+  delete localExpected["$metadata"];
+  delete generated["$metadata"];
+  Object.keys(localExpected).forEach(
+    key => localExpected[key] === undefined && delete localExpected[key]
+  );
+  Object.keys(generated).forEach(
+    key => generated[key] === undefined && delete generated[key]
+  );
 
   const expectedProperties = Object.getOwnPropertyNames(localExpected);
   const generatedProperties = Object.getOwnPropertyNames(generated);
@@ -152,13 +156,15 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   // Compare properties directly.
   for (var index = 0; index < expectedProperties.length; index++) {
     const propertyName = expectedProperties[index];
-    if (!equivalentContents(localExpected[propertyName], generated[propertyName])) {
+    if (
+      !equivalentContents(localExpected[propertyName], generated[propertyName])
+    ) {
       return false;
     }
   }
 
   return true;
-}
+};
 
 /**
  * Empty input serializes no extra query params
@@ -168,14 +174,10 @@ it("Ec2QueryEmptyInputAndEmptyOutput:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new EmptyInputAndEmptyOutputCommand(
-    {
-    } as any,
-
-  );
+  const command = new EmptyInputAndEmptyOutputCommand({} as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -192,7 +194,10 @@ it("Ec2QueryEmptyInputAndEmptyOutput:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=EmptyInputAndEmptyOutput
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -211,7 +216,7 @@ it("Ec2QueryEmptyInputAndEmptyOutput:Response", async () => {
       `<EmptyInputAndEmptyOutputResponse xmlns="https://example.com/">
           <RequestId>requestid</RequestId>
       </EmptyInputAndEmptyOutputResponse>
-      `,
+      `
     )
   });
 
@@ -222,10 +227,10 @@ it("Ec2QueryEmptyInputAndEmptyOutput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
 });
 
 /**
@@ -243,7 +248,7 @@ it("Ec2GreetingWithErrors:Response", async () => {
           <greeting>Hello</greeting>
           <RequestId>requestid</RequestId>
       </GreetingWithErrorsResponse>
-      `,
+      `
     )
   });
 
@@ -254,17 +259,14 @@ it("Ec2GreetingWithErrors:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "greeting":
-        "Hello",
-
-    },
-
+      greeting: "Hello"
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -292,7 +294,7 @@ it("Ec2InvalidGreetingError:Error:GreetingWithErrors", async () => {
           </Errors>
           <RequestId>foo-id</RequestId>
       </Response>
-      `,
+      `
     )
   });
 
@@ -308,14 +310,11 @@ it("Ec2InvalidGreetingError:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r['$metadata'].httpStatusCode).toBe(400);
+    expect(r["$metadata"].httpStatusCode).toBe(400);
     const paramsToValidate: any = [
       {
-        "message":
-          "Hi",
-
-      },
-
+        message: "Hi"
+      }
     ][0];
     Object.keys(paramsToValidate).forEach(param => {
       expect(r[param]).toBeDefined();
@@ -323,7 +322,7 @@ it("Ec2InvalidGreetingError:Error:GreetingWithErrors", async () => {
     });
     return;
   }
-  fail('Expected an exception to be thrown from response');
+  fail("Expected an exception to be thrown from response");
 });
 
 it("Ec2ComplexError:Error:GreetingWithErrors", async () => {
@@ -347,7 +346,7 @@ it("Ec2ComplexError:Error:GreetingWithErrors", async () => {
           </Errors>
           <RequestId>foo-id</RequestId>
       </Response>
-      `,
+      `
     )
   });
 
@@ -363,21 +362,15 @@ it("Ec2ComplexError:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r['$metadata'].httpStatusCode).toBe(400);
+    expect(r["$metadata"].httpStatusCode).toBe(400);
     const paramsToValidate: any = [
       {
-        "TopLevel":
-          "Top level",
+        TopLevel: "Top level",
 
-        "Nested":
-        {
-          "Foo":
-            "bar",
-
-        },
-
-      },
-
+        Nested: {
+          Foo: "bar"
+        }
+      }
     ][0];
     Object.keys(paramsToValidate).forEach(param => {
       expect(r[param]).toBeDefined();
@@ -385,7 +378,7 @@ it("Ec2ComplexError:Error:GreetingWithErrors", async () => {
     });
     return;
   }
-  fail('Expected an exception to be thrown from response');
+  fail("Expected an exception to be thrown from response");
 });
 
 /**
@@ -403,7 +396,7 @@ it("Ec2IgnoresWrappingXmlName:Response", async () => {
           <foo>bar</foo>
           <RequestId>requestid</RequestId>
       </IgnoresWrappingXmlNameResponse>
-      `,
+      `
     )
   });
 
@@ -414,17 +407,14 @@ it("Ec2IgnoresWrappingXmlName:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "foo":
-        "bar",
-
-    },
-
+      foo: "bar"
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -440,31 +430,20 @@ it("Ec2NestedStructures:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new NestedStructuresCommand(
-    {
-      Nested:
-        {
-          StringArg:
-            "foo",
+  const command = new NestedStructuresCommand({
+    Nested: {
+      StringArg: "foo",
 
-          OtherArg:
-            true,
+      OtherArg: true,
 
-          RecursiveArg:
-            {
-              StringArg:
-                "baz",
-
-            } as any,
-
-        } as any,
-
-    } as any,
-
-  );
+      RecursiveArg: {
+        StringArg: "baz"
+      } as any
+    } as any
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -484,7 +463,10 @@ it("Ec2NestedStructures:Request", async () => {
     &Nested.StringArg=foo
     &Nested.OtherArg=true
     &Nested.RecursiveArg.StringArg=baz`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -500,7 +482,7 @@ it("Ec2QueryNoInputAndOutput:Request", async () => {
   const command = new NoInputAndOutputCommand({});
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -517,7 +499,10 @@ it("Ec2QueryNoInputAndOutput:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=NoInputAndOutput
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -536,7 +521,7 @@ it("Ec2QueryNoInputAndOutput:Response", async () => {
       `<NoInputAndOutputResponse xmlns="https://example.com/">
           <RequestId>requestid</RequestId>
       </NoInputAndOutputResponse>
-      `,
+      `
     )
   });
 
@@ -547,10 +532,10 @@ it("Ec2QueryNoInputAndOutput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
 });
 
 /**
@@ -561,15 +546,12 @@ it("Ec2ProtocolIdempotencyTokenAutoFill:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new QueryIdempotencyTokenAutoFillCommand(
-    {
-      token: "00000000-0000-4000-8000-000000000000",
-    } as any,
-
-  );
+  const command = new QueryIdempotencyTokenAutoFillCommand({
+    token: "00000000-0000-4000-8000-000000000000"
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -587,7 +569,10 @@ it("Ec2ProtocolIdempotencyTokenAutoFill:Request", async () => {
     const bodyString = `Action=QueryIdempotencyTokenAutoFill
     &Version=2020-01-08
     &Token=00000000-0000-4000-8000-000000000000`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -600,17 +585,12 @@ it("Ec2ProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new QueryIdempotencyTokenAutoFillCommand(
-    {
-      token:
-        "00000000-0000-4000-8000-000000000123",
-
-    } as any,
-
-  );
+  const command = new QueryIdempotencyTokenAutoFillCommand({
+    token: "00000000-0000-4000-8000-000000000123"
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -628,7 +608,10 @@ it("Ec2ProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
     const bodyString = `Action=QueryIdempotencyTokenAutoFill
     &Version=2020-01-08
     &Token=00000000-0000-4000-8000-000000000123`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -641,42 +624,22 @@ it("Ec2Lists:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new QueryListsCommand(
-    {
-      ListArg:
-        [
+  const command = new QueryListsCommand({
+    ListArg: ["foo", "bar", "baz"],
 
-          "foo",
+    ComplexListArg: [
+      {
+        hi: "hello"
+      } as any,
 
-          "bar",
-
-          "baz",
-
-        ],
-
-      ComplexListArg:
-        [
-
-          {
-            hi:
-              "hello",
-
-          } as any,
-
-          {
-            hi:
-              "hola",
-
-          } as any,
-
-        ],
-
-    } as any,
-
-  );
+      {
+        hi: "hola"
+      } as any
+    ]
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -698,7 +661,10 @@ it("Ec2Lists:Request", async () => {
     &ListArg.3=baz
     &ComplexListArg.1.Hi=hello
     &ComplexListArg.2.Hi=hola`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -711,19 +677,12 @@ it("Ec2EmptyQueryLists:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new QueryListsCommand(
-    {
-      ListArg:
-        [
-
-        ],
-
-    } as any,
-
-  );
+  const command = new QueryListsCommand({
+    ListArg: []
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -740,7 +699,10 @@ it("Ec2EmptyQueryLists:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryLists
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -753,23 +715,12 @@ it("Ec2ListArgWithXmlNameMember:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new QueryListsCommand(
-    {
-      ListArgWithXmlNameMember:
-        [
-
-          "A",
-
-          "B",
-
-        ],
-
-    } as any,
-
-  );
+  const command = new QueryListsCommand({
+    ListArgWithXmlNameMember: ["A", "B"]
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -788,7 +739,10 @@ it("Ec2ListArgWithXmlNameMember:Request", async () => {
     &Version=2020-01-08
     &ListArgWithXmlNameMember.1=A
     &ListArgWithXmlNameMember.2=B`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -801,23 +755,12 @@ it("Ec2ListMemberWithXmlName:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new QueryListsCommand(
-    {
-      ListArgWithXmlName:
-        [
-
-          "A",
-
-          "B",
-
-        ],
-
-    } as any,
-
-  );
+  const command = new QueryListsCommand({
+    ListArgWithXmlName: ["A", "B"]
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -836,7 +779,10 @@ it("Ec2ListMemberWithXmlName:Request", async () => {
     &Version=2020-01-08
     &Hi.1=A
     &Hi.2=B`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -849,23 +795,16 @@ it("Ec2TimestampsInput:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new QueryTimestampsCommand(
-    {
-      normalFormat:
-        new Date(1422172800000),
+  const command = new QueryTimestampsCommand({
+    normalFormat: new Date(1422172800000),
 
-      epochMember:
-        new Date(1422172800000),
+    epochMember: new Date(1422172800000),
 
-      epochTarget:
-        new Date(1422172800000),
-
-    } as any,
-
-  );
+    epochTarget: new Date(1422172800000)
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -885,7 +824,10 @@ it("Ec2TimestampsInput:Request", async () => {
     &NormalFormat=2015-01-25T08%3A00%3A00Z
     &EpochMember=1422172800
     &EpochTarget=1422172800`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -916,7 +858,7 @@ it("Ec2RecursiveShapes:Response", async () => {
           </nested>
           <RequestId>requestid</RequestId>
       </RecursiveXmlShapesResponse>
-      `,
+      `
     )
   });
 
@@ -927,42 +869,28 @@ it("Ec2RecursiveShapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "nested":
-      {
-        "foo":
-          "Foo1",
+      nested: {
+        foo: "Foo1",
 
-        "nested":
-        {
-          "bar":
-            "Bar1",
+        nested: {
+          bar: "Bar1",
 
-          "recursiveMember":
-          {
-            "foo":
-              "Foo2",
+          recursiveMember: {
+            foo: "Foo2",
 
-            "nested":
-            {
-              "bar":
-                "Bar2",
-
-            },
-
-          },
-
-        },
-
-      },
-
-    },
-
+            nested: {
+              bar: "Bar2"
+            }
+          }
+        }
+      }
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -978,20 +906,14 @@ it("Ec2SimpleInputParamsStrings:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new SimpleInputParamsCommand(
-    {
-      Foo:
-        "val1",
+  const command = new SimpleInputParamsCommand({
+    Foo: "val1",
 
-      Bar:
-        "val2",
-
-    } as any,
-
-  );
+    Bar: "val2"
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1010,7 +932,10 @@ it("Ec2SimpleInputParamsStrings:Request", async () => {
     &Version=2020-01-08
     &Foo=val1
     &Bar=val2`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1023,20 +948,14 @@ it("Ec2SimpleInputParamsStringAndBooleanTrue:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new SimpleInputParamsCommand(
-    {
-      Foo:
-        "val1",
+  const command = new SimpleInputParamsCommand({
+    Foo: "val1",
 
-      Baz:
-        true,
-
-    } as any,
-
-  );
+    Baz: true
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1055,7 +974,10 @@ it("Ec2SimpleInputParamsStringAndBooleanTrue:Request", async () => {
     &Version=2020-01-08
     &Foo=val1
     &Baz=true`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1068,17 +990,12 @@ it("Ec2SimpleInputParamsStringsAndBooleanFalse:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new SimpleInputParamsCommand(
-    {
-      Baz:
-        false,
-
-    } as any,
-
-  );
+  const command = new SimpleInputParamsCommand({
+    Baz: false
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1096,7 +1013,10 @@ it("Ec2SimpleInputParamsStringsAndBooleanFalse:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Baz=false`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1109,17 +1029,12 @@ it("Ec2SimpleInputParamsInteger:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new SimpleInputParamsCommand(
-    {
-      Bam:
-        10,
-
-    } as any,
-
-  );
+  const command = new SimpleInputParamsCommand({
+    Bam: 10
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1137,7 +1052,10 @@ it("Ec2SimpleInputParamsInteger:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Bam=10`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1150,17 +1068,12 @@ it("Ec2SimpleInputParamsFloat:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new SimpleInputParamsCommand(
-    {
-      Boo:
-        10.8,
-
-    } as any,
-
-  );
+  const command = new SimpleInputParamsCommand({
+    Boo: 10.8
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1178,7 +1091,10 @@ it("Ec2SimpleInputParamsFloat:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Boo=10.8`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1191,17 +1107,12 @@ it("Ec2SimpleInputParamsBlob:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new SimpleInputParamsCommand(
-    {
-      Qux:
-        Uint8Array.from("value", c => c.charCodeAt(0)),
-
-    } as any,
-
-  );
+  const command = new SimpleInputParamsCommand({
+    Qux: Uint8Array.from("value", c => c.charCodeAt(0))
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1219,7 +1130,10 @@ it("Ec2SimpleInputParamsBlob:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Qux=dmFsdWU%3D`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1232,17 +1146,12 @@ it("Ec2Enums:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new SimpleInputParamsCommand(
-    {
-      FooEnum:
-        "Foo",
-
-    } as any,
-
-  );
+  const command = new SimpleInputParamsCommand({
+    FooEnum: "Foo"
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1260,7 +1169,10 @@ it("Ec2Enums:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &FooEnum=Foo`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1273,17 +1185,12 @@ it("Ec2Query:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new SimpleInputParamsCommand(
-    {
-      HasQueryName:
-        "Hi",
-
-    } as any,
-
-  );
+  const command = new SimpleInputParamsCommand({
+    HasQueryName: "Hi"
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1301,7 +1208,10 @@ it("Ec2Query:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &A=Hi`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1314,17 +1224,12 @@ it("Ec2QueryIsPreferred:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new SimpleInputParamsCommand(
-    {
-      HasQueryAndXmlName:
-        "Hi",
-
-    } as any,
-
-  );
+  const command = new SimpleInputParamsCommand({
+    HasQueryAndXmlName: "Hi"
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1342,7 +1247,10 @@ it("Ec2QueryIsPreferred:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &B=Hi`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1355,17 +1263,12 @@ it("Ec2XmlNameIsUppercased:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new SimpleInputParamsCommand(
-    {
-      UsesXmlName:
-        "Hi",
-
-    } as any,
-
-  );
+  const command = new SimpleInputParamsCommand({
+    UsesXmlName: "Hi"
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1383,7 +1286,10 @@ it("Ec2XmlNameIsUppercased:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &C=Hi`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1412,7 +1318,7 @@ it("Ec2SimpleScalarProperties:Response", async () => {
           <DoubleDribble>6.5</DoubleDribble>
           <RequestId>requestid</RequestId>
       </SimpleScalarXmlPropertiesResponse>
-      `,
+      `
     )
   });
 
@@ -1423,44 +1329,32 @@ it("Ec2SimpleScalarProperties:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "stringValue":
-        "string",
+      stringValue: "string",
 
-      "emptyStringValue":
-        "",
+      emptyStringValue: "",
 
-      "trueBooleanValue":
-        true,
+      trueBooleanValue: true,
 
-      "falseBooleanValue":
-        false,
+      falseBooleanValue: false,
 
-      "byteValue":
-        1,
+      byteValue: 1,
 
-      "shortValue":
-        2,
+      shortValue: 2,
 
-      "integerValue":
-        3,
+      integerValue: 3,
 
-      "longValue":
-        4,
+      longValue: 4,
 
-      "floatValue":
-        5.5,
+      floatValue: 5.5,
 
-      "doubleValue":
-        6.5,
-
-    },
-
+      doubleValue: 6.5
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1483,7 +1377,7 @@ it("Ec2XmlBlobs:Response", async () => {
           <data>dmFsdWU=</data>
           <RequestId>requestid</RequestId>
       </XmlBlobsResponse>
-      `,
+      `
     )
   });
 
@@ -1494,17 +1388,14 @@ it("Ec2XmlBlobs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "data":
-        Uint8Array.from("value", c => c.charCodeAt(0)),
-
-    },
-
+      data: Uint8Array.from("value", c => c.charCodeAt(0))
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1547,7 +1438,7 @@ it("Ec2XmlEnums:Response", async () => {
           </fooEnumMap>
           <RequestId>requestid</RequestId>
       </XmlEnumsResponse>
-      `,
+      `
     )
   });
 
@@ -1558,51 +1449,28 @@ it("Ec2XmlEnums:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "fooEnum1":
-        "Foo",
+      fooEnum1: "Foo",
 
-      "fooEnum2":
-        "0",
+      fooEnum2: "0",
 
-      "fooEnum3":
-        "1",
+      fooEnum3: "1",
 
-      "fooEnumList":
-        [
+      fooEnumList: ["Foo", "0"],
 
-          "Foo",
+      fooEnumSet: ["Foo", "0"],
 
-          "0",
+      fooEnumMap: {
+        hi: "Foo",
 
-        ],
-
-      "fooEnumSet":
-        [
-
-          "Foo",
-
-          "0",
-
-        ],
-
-      "fooEnumMap":
-      {
-        "hi":
-          "Foo",
-
-        "zero":
-          "0",
-
-      },
-
-    },
-
+        zero: "0"
+      }
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1676,7 +1544,7 @@ it("Ec2XmlLists:Response", async () => {
           </myStructureList>
           <RequestId>requestid</RequestId>
       </XmlListsResponse>
-      `,
+      `
     )
   });
 
@@ -1687,139 +1555,50 @@ it("Ec2XmlLists:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "stringList":
-        [
+      stringList: ["foo", "bar"],
 
-          "foo",
+      stringSet: ["foo", "bar"],
 
-          "bar",
+      integerList: [1, 2],
 
-        ],
+      booleanList: [true, false],
 
-      "stringSet":
-        [
+      timestampList: [new Date(1398796238000), new Date(1398796238000)],
 
-          "foo",
+      enumList: ["Foo", "0"],
 
-          "bar",
+      nestedStringList: [
+        ["foo", "bar"],
 
-        ],
+        ["baz", "qux"]
+      ],
 
-      "integerList":
-        [
+      renamedListMembers: ["foo", "bar"],
 
-          1,
+      flattenedList: ["hi", "bye"],
 
-          2,
+      flattenedList2: ["yep", "nope"],
 
-        ],
+      structureList: [
+        {
+          a: "1",
 
-      "booleanList":
-        [
+          b: "2"
+        },
 
-          true,
+        {
+          a: "3",
 
-          false,
-
-        ],
-
-      "timestampList":
-        [
-
-          new Date(1398796238000),
-
-          new Date(1398796238000),
-
-        ],
-
-      "enumList":
-        [
-
-          "Foo",
-
-          "0",
-
-        ],
-
-      "nestedStringList":
-        [
-
-          [
-
-            "foo",
-
-            "bar",
-
-          ],
-
-          [
-
-            "baz",
-
-            "qux",
-
-          ],
-
-        ],
-
-      "renamedListMembers":
-        [
-
-          "foo",
-
-          "bar",
-
-        ],
-
-      "flattenedList":
-        [
-
-          "hi",
-
-          "bye",
-
-        ],
-
-      "flattenedList2":
-        [
-
-          "yep",
-
-          "nope",
-
-        ],
-
-      "structureList":
-        [
-
-          {
-            "a":
-              "1",
-
-            "b":
-              "2",
-
-          },
-
-          {
-            "a":
-              "3",
-
-            "b":
-              "4",
-
-          },
-
-        ],
-
-    },
-
+          b: "4"
+        }
+      ]
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1848,7 +1627,7 @@ it("Ec2XmlNamespaces:Response", async () => {
           </nested>
           <RequestId>requestid</RequestId>
       </XmlNamespacesResponse>
-      `,
+      `
     )
   });
 
@@ -1859,30 +1638,18 @@ it("Ec2XmlNamespaces:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "nested":
-      {
-        "foo":
-          "Foo",
+      nested: {
+        foo: "Foo",
 
-        "values":
-          [
-
-            "Bar",
-
-            "Baz",
-
-          ],
-
-      },
-
-    },
-
+        values: ["Bar", "Baz"]
+      }
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1905,7 +1672,7 @@ it("Ec2XmlTimestamps:Response", async () => {
           <normal>2014-04-29T18:30:38Z</normal>
           <RequestId>requestid</RequestId>
       </XmlTimestampsResponse>
-      `,
+      `
     )
   });
 
@@ -1916,17 +1683,14 @@ it("Ec2XmlTimestamps:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "normal":
-        new Date(1398796238000),
-
-    },
-
+      normal: new Date(1398796238000)
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1949,7 +1713,7 @@ it("Ec2XmlTimestampsWithDateTimeFormat:Response", async () => {
           <dateTime>2014-04-29T18:30:38Z</dateTime>
           <RequestId>requestid</RequestId>
       </XmlTimestampsResponse>
-      `,
+      `
     )
   });
 
@@ -1960,17 +1724,14 @@ it("Ec2XmlTimestampsWithDateTimeFormat:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "dateTime":
-        new Date(1398796238000),
-
-    },
-
+      dateTime: new Date(1398796238000)
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1993,7 +1754,7 @@ it("Ec2XmlTimestampsWithEpochSecondsFormat:Response", async () => {
           <epochSeconds>1398796238</epochSeconds>
           <RequestId>requestid</RequestId>
       </XmlTimestampsResponse>
-      `,
+      `
     )
   });
 
@@ -2004,17 +1765,14 @@ it("Ec2XmlTimestampsWithEpochSecondsFormat:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "epochSeconds":
-        new Date(1398796238000),
-
-    },
-
+      epochSeconds: new Date(1398796238000)
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -2037,7 +1795,7 @@ it("Ec2XmlTimestampsWithHttpDateFormat:Response", async () => {
           <httpDate>Tue, 29 Apr 2014 18:30:38 GMT</httpDate>
           <RequestId>requestid</RequestId>
       </XmlTimestampsResponse>
-      `,
+      `
     )
   });
 
@@ -2048,17 +1806,14 @@ it("Ec2XmlTimestampsWithHttpDateFormat:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "httpDate":
-        new Date(1398796238000),
-
-    },
-
+      httpDate: new Date(1398796238000)
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -2070,7 +1825,10 @@ it("Ec2XmlTimestampsWithHttpDateFormat:Response", async () => {
  * Returns a map of key names that were un-equal to value objects showing the
  * discrepancies between the components.
  */
-const compareEquivalentBodies = (expectedBody: string, generatedBody: string): Object => {
+const compareEquivalentBodies = (
+  expectedBody: string,
+  generatedBody: string
+): Object => {
   const fromEntries = (components: string[][]): { [key: string]: string } => {
     const parts: { [key: string]: string } = {};
 
@@ -2082,8 +1840,12 @@ const compareEquivalentBodies = (expectedBody: string, generatedBody: string): O
   };
 
   // Generate to k:v maps from query components
-  const expectedParts = fromEntries(expectedBody.split("&").map(part => part.trim().split("=")));
-  const generatedParts = fromEntries(generatedBody.split("&").map(part => part.trim().split("=")));
+  const expectedParts = fromEntries(
+    expectedBody.split("&").map(part => part.trim().split("="))
+  );
+  const generatedParts = fromEntries(
+    generatedBody.split("&").map(part => part.trim().split("="))
+  );
 
   return compareParts(expectedParts, generatedParts);
-}
+};

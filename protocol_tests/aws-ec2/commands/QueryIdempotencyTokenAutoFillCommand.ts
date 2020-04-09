@@ -1,17 +1,17 @@
 import {
   EC2ProtocolClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../EC2ProtocolClient";
 import { QueryIdempotencyTokenAutoFillInput } from "../models/index";
 import {
   deserializeAws_ec2QueryIdempotencyTokenAutoFillCommand,
-  serializeAws_ec2QueryIdempotencyTokenAutoFillCommand,
+  serializeAws_ec2QueryIdempotencyTokenAutoFillCommand
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type QueryIdempotencyTokenAutoFillCommandInput = QueryIdempotencyTokenAutoFillInput;
-export type QueryIdempotencyTokenAutoFillCommandOutput = __MetadataBearer
+export type QueryIdempotencyTokenAutoFillCommandOutput = __MetadataBearer;
 
-export class QueryIdempotencyTokenAutoFillCommand extends $Command<QueryIdempotencyTokenAutoFillCommandInput, QueryIdempotencyTokenAutoFillCommandOutput, EC2ProtocolClientResolvedConfig> {
+export class QueryIdempotencyTokenAutoFillCommand extends $Command<
+  QueryIdempotencyTokenAutoFillCommandInput,
+  QueryIdempotencyTokenAutoFillCommandOutput,
+  EC2ProtocolClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<QueryIdempote
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<QueryIdempotencyTokenAutoFillCommandInput, QueryIdempotencyTokenAutoFillCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    QueryIdempotencyTokenAutoFillCommandInput,
+    QueryIdempotencyTokenAutoFillCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -68,7 +77,10 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<QueryIdempote
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> {
-    return deserializeAws_ec2QueryIdempotencyTokenAutoFillCommand(output, context);
+    return deserializeAws_ec2QueryIdempotencyTokenAutoFillCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

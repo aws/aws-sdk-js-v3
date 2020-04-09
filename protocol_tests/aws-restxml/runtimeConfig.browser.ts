@@ -25,5 +25,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   defaultUserAgent: defaultUserAgent(name, version),
   runtime: "browser",
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
-  regionDefaultProvider: invalidFunction("Region is missing") as any,
+  regionDefaultProvider: invalidFunction("Region is missing") as any
 };

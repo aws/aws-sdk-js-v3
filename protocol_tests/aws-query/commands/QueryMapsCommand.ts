@@ -1,17 +1,17 @@
 import {
   QueryProtocolClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../QueryProtocolClient";
 import { QueryMapsInput } from "../models/index";
 import {
   deserializeAws_queryQueryMapsCommand,
-  serializeAws_queryQueryMapsCommand,
+  serializeAws_queryQueryMapsCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type QueryMapsCommandInput = QueryMapsInput;
-export type QueryMapsCommandOutput = __MetadataBearer
+export type QueryMapsCommandOutput = __MetadataBearer;
 
-export class QueryMapsCommand extends $Command<QueryMapsCommandInput, QueryMapsCommandOutput, QueryProtocolClientResolvedConfig> {
+export class QueryMapsCommand extends $Command<
+  QueryMapsCommandInput,
+  QueryMapsCommandOutput,
+  QueryProtocolClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,13 +46,15 @@ export class QueryMapsCommand extends $Command<QueryMapsCommandInput, QueryMapsC
     configuration: QueryProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<QueryMapsCommandInput, QueryMapsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

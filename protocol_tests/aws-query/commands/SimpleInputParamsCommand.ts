@@ -1,17 +1,17 @@
 import {
   QueryProtocolClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../QueryProtocolClient";
 import { SimpleInputParamsInput } from "../models/index";
 import {
   deserializeAws_querySimpleInputParamsCommand,
-  serializeAws_querySimpleInputParamsCommand,
+  serializeAws_querySimpleInputParamsCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SimpleInputParamsCommandInput = SimpleInputParamsInput;
-export type SimpleInputParamsCommandOutput = __MetadataBearer
+export type SimpleInputParamsCommandOutput = __MetadataBearer;
 
-export class SimpleInputParamsCommand extends $Command<SimpleInputParamsCommandInput, SimpleInputParamsCommandOutput, QueryProtocolClientResolvedConfig> {
+export class SimpleInputParamsCommand extends $Command<
+  SimpleInputParamsCommandInput,
+  SimpleInputParamsCommandOutput,
+  QueryProtocolClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,13 +46,15 @@ export class SimpleInputParamsCommand extends $Command<SimpleInputParamsCommandI
     configuration: QueryProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SimpleInputParamsCommandInput, SimpleInputParamsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
