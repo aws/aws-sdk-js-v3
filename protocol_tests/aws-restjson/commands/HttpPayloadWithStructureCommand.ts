@@ -1,17 +1,17 @@
 import {
   RestJsonProtocolClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../RestJsonProtocolClient";
 import { HttpPayloadWithStructureInputOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1HttpPayloadWithStructureCommand,
-  serializeAws_restJson1_1HttpPayloadWithStructureCommand,
+  serializeAws_restJson1_1HttpPayloadWithStructureCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,18 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type HttpPayloadWithStructureCommandInput = HttpPayloadWithStructureInputOutput;
-export type HttpPayloadWithStructureCommandOutput = HttpPayloadWithStructureInputOutput & __MetadataBearer;
+export type HttpPayloadWithStructureCommandOutput = HttpPayloadWithStructureInputOutput &
+  __MetadataBearer;
 
-export class HttpPayloadWithStructureCommand extends $Command<HttpPayloadWithStructureCommandInput, HttpPayloadWithStructureCommandOutput, RestJsonProtocolClientResolvedConfig> {
+export class HttpPayloadWithStructureCommand extends $Command<
+  HttpPayloadWithStructureCommandInput,
+  HttpPayloadWithStructureCommandOutput,
+  RestJsonProtocolClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +46,19 @@ export class HttpPayloadWithStructureCommand extends $Command<HttpPayloadWithStr
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<HttpPayloadWithStructureCommandInput, HttpPayloadWithStructureCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    HttpPayloadWithStructureCommandInput,
+    HttpPayloadWithStructureCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -61,14 +71,20 @@ export class HttpPayloadWithStructureCommand extends $Command<HttpPayloadWithStr
     input: HttpPayloadWithStructureCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1HttpPayloadWithStructureCommand(input, context);
+    return serializeAws_restJson1_1HttpPayloadWithStructureCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpPayloadWithStructureCommandOutput> {
-    return deserializeAws_restJson1_1HttpPayloadWithStructureCommand(output, context);
+    return deserializeAws_restJson1_1HttpPayloadWithStructureCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

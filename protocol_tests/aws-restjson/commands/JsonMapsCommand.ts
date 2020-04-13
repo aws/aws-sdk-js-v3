@@ -1,17 +1,17 @@
 import {
   RestJsonProtocolClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../RestJsonProtocolClient";
 import { JsonMapsInputOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1JsonMapsCommand,
-  serializeAws_restJson1_1JsonMapsCommand,
+  serializeAws_restJson1_1JsonMapsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type JsonMapsCommandInput = JsonMapsInputOutput;
 export type JsonMapsCommandOutput = JsonMapsInputOutput & __MetadataBearer;
 
-export class JsonMapsCommand extends $Command<JsonMapsCommandInput, JsonMapsCommandOutput, RestJsonProtocolClientResolvedConfig> {
+export class JsonMapsCommand extends $Command<
+  JsonMapsCommandInput,
+  JsonMapsCommandOutput,
+  RestJsonProtocolClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,13 +46,15 @@ export class JsonMapsCommand extends $Command<JsonMapsCommandInput, JsonMapsComm
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<JsonMapsCommandInput, JsonMapsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

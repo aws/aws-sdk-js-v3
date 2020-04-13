@@ -4,13 +4,13 @@ import { KitchenSinkOperationCommand } from "../../commands/KitchenSinkOperation
 import { OperationWithOptionalInputOutputCommand } from "../../commands/OperationWithOptionalInputOutputCommand";
 import { HttpHandlerOptions, HeaderBag } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import { Readable } from 'stream';
+import { Readable } from "stream";
 
 /**
  * Throws an expected exception that contains the serialized request.
  */
 class EXPECTED_REQUEST_SERIALIZATION_ERROR {
-  constructor(readonly request: HttpRequest) { }
+  constructor(readonly request: HttpRequest) {}
 }
 
 /**
@@ -69,13 +69,16 @@ class ResponseDeserializationTestHandler implements HttpHandler {
 }
 
 interface comparableParts {
-  [key: string]: string
+  [key: string]: string;
 }
 
 /**
  * Generates a standard map of un-equal values given input parts.
  */
-const compareParts = (expectedParts: comparableParts, generatedParts: comparableParts) => {
+const compareParts = (
+  expectedParts: comparableParts,
+  generatedParts: comparableParts
+) => {
   const unequalParts: any = {};
   Object.keys(expectedParts).forEach(key => {
     if (generatedParts[key] === undefined) {
@@ -117,12 +120,16 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   // If a test fails with an issue in the below 6 lines, it's likely
   // due to an issue in the nestedness or existence of the property
   // being compared.
-  delete localExpected['__type'];
-  delete generated['__type'];
-  delete localExpected['$metadata'];
-  delete generated['$metadata'];
-  Object.keys(localExpected).forEach(key => localExpected[key] === undefined && delete localExpected[key])
-  Object.keys(generated).forEach(key => generated[key] === undefined && delete generated[key])
+  delete localExpected["__type"];
+  delete generated["__type"];
+  delete localExpected["$metadata"];
+  delete generated["$metadata"];
+  Object.keys(localExpected).forEach(
+    key => localExpected[key] === undefined && delete localExpected[key]
+  );
+  Object.keys(generated).forEach(
+    key => generated[key] === undefined && delete generated[key]
+  );
 
   const expectedProperties = Object.getOwnPropertyNames(localExpected);
   const generatedProperties = Object.getOwnPropertyNames(generated);
@@ -135,13 +142,15 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   // Compare properties directly.
   for (var index = 0; index < expectedProperties.length; index++) {
     const propertyName = expectedProperties[index];
-    if (!equivalentContents(localExpected[propertyName], generated[propertyName])) {
+    if (
+      !equivalentContents(localExpected[propertyName], generated[propertyName])
+    ) {
       return false;
     }
   }
 
   return true;
-}
+};
 
 /**
  * Sends requests to /
@@ -154,7 +163,7 @@ it("sends_requests_to_slash:Request", async () => {
   const command = new EmptyOperationCommand({});
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -164,7 +173,6 @@ it("sends_requests_to_slash:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
-
   }
 });
 
@@ -179,7 +187,7 @@ it("includes_x_amz_target_and_content_type:Request", async () => {
   const command = new EmptyOperationCommand({});
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -194,7 +202,6 @@ it("includes_x_amz_target_and_content_type:Request", async () => {
     expect(r.headers["Content-Type"]).toBe("application/x-amz-json-1.1");
     expect(r.headers["X-Amz-Target"]).toBeDefined();
     expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.EmptyOperation");
-
   }
 });
 
@@ -209,7 +216,7 @@ it("handles_empty_output_shape:Response", async () => {
       {
         "content-type": "application/x-amz-json-1.1"
       },
-      `{}`,
+      `{}`
     )
   });
 
@@ -220,10 +227,10 @@ it("handles_empty_output_shape:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
 });
 
 /**
@@ -234,17 +241,12 @@ it("serializes_string_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      String:
-        "abc xyz",
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    String: "abc xyz"
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -257,7 +259,10 @@ it("serializes_string_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"String\":\"abc xyz\"}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -270,17 +275,13 @@ it("serializes_string_shapes_with_jsonvalue_trait:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      JsonValue:
-        "{\"string\":\"value\",\"number\":1234.5,\"boolTrue\":true,\"boolFalse\":false,\"array\":[1,2,3,4],\"object\":{\"key\":\"value\"},\"null\":null}",
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    JsonValue:
+      '{"string":"value","number":1234.5,"boolTrue":true,"boolFalse":false,"array":[1,2,3,4],"object":{"key":"value"},"null":null}'
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -293,7 +294,10 @@ it("serializes_string_shapes_with_jsonvalue_trait:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"JsonValue\":\"{\\"string\\":\\"value\\",\\"number\\":1234.5,\\"boolTrue\\":true,\\"boolFalse\\":false,\\"array\\":[1,2,3,4],\\"object\\":{\\"key\\":\\"value\\"},\\"null\\":null}\"}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -306,17 +310,12 @@ it("serializes_integer_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      Integer:
-        1234,
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    Integer: 1234
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -329,7 +328,10 @@ it("serializes_integer_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Integer\":1234}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -342,17 +344,12 @@ it("serializes_long_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      Long:
-        999999999999,
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    Long: 999999999999
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -365,7 +362,10 @@ it("serializes_long_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Long\":999999999999}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -378,17 +378,12 @@ it("serializes_float_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      Float:
-        1234.5,
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    Float: 1234.5
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -401,7 +396,10 @@ it("serializes_float_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Float\":1234.5}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -414,17 +412,12 @@ it("serializes_double_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      Double:
-        1234.5,
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    Double: 1234.5
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -437,7 +430,10 @@ it("serializes_double_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Double\":1234.5}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -450,17 +446,12 @@ it("serializes_blob_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      Blob:
-        Uint8Array.from("binary-value", c => c.charCodeAt(0)),
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    Blob: Uint8Array.from("binary-value", c => c.charCodeAt(0))
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -473,7 +464,10 @@ it("serializes_blob_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Blob\":\"YmluYXJ5LXZhbHVl\"}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -486,17 +480,12 @@ it("serializes_boolean_shapes_true:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      Boolean:
-        true,
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    Boolean: true
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -509,7 +498,10 @@ it("serializes_boolean_shapes_true:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Boolean\":true}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -522,17 +514,12 @@ it("serializes_boolean_shapes_false:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      Boolean:
-        false,
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    Boolean: false
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -545,7 +532,10 @@ it("serializes_boolean_shapes_false:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Boolean\":false}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -558,17 +548,12 @@ it("serializes_timestamp_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      Timestamp:
-        new Date(946845296000),
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    Timestamp: new Date(946845296000)
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -581,7 +566,10 @@ it("serializes_timestamp_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Timestamp\":946845296}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -594,17 +582,12 @@ it("serializes_timestamp_shapes_with_iso8601_timestampformat:Request", async () 
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      Iso8601Timestamp:
-        new Date(946845296000),
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    Iso8601Timestamp: new Date(946845296000)
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -617,7 +600,10 @@ it("serializes_timestamp_shapes_with_iso8601_timestampformat:Request", async () 
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Iso8601Timestamp\":\"2000-01-02T20:34:56Z\"}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -630,17 +616,12 @@ it("serializes_timestamp_shapes_with_httpdate_timestampformat:Request", async ()
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      HttpdateTimestamp:
-        new Date(946845296000),
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    HttpdateTimestamp: new Date(946845296000)
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -653,7 +634,10 @@ it("serializes_timestamp_shapes_with_httpdate_timestampformat:Request", async ()
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"HttpdateTimestamp\":\"Sun, 02 Jan 2000 20:34:56 GMT\"}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -666,17 +650,12 @@ it("serializes_timestamp_shapes_with_unixtimestamp_timestampformat:Request", asy
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      UnixTimestamp:
-        new Date(946845296000),
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    UnixTimestamp: new Date(946845296000)
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -689,7 +668,10 @@ it("serializes_timestamp_shapes_with_unixtimestamp_timestampformat:Request", asy
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"UnixTimestamp\":946845296}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -702,25 +684,12 @@ it("serializes_list_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      ListOfStrings:
-        [
-
-          "abc",
-
-          "mno",
-
-          "xyz",
-
-        ],
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    ListOfStrings: ["abc", "mno", "xyz"]
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -733,7 +702,10 @@ it("serializes_list_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"ListOfStrings\":[\"abc\",\"mno\",\"xyz\"]}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -746,19 +718,12 @@ it("serializes_empty_list_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      ListOfStrings:
-        [
-
-        ],
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    ListOfStrings: []
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -771,7 +736,10 @@ it("serializes_empty_list_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"ListOfStrings\":[]}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -784,37 +752,24 @@ it("serializes_list_of_map_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      ListOfMapsOfStrings:
-        [
+  const command = new KitchenSinkOperationCommand({
+    ListOfMapsOfStrings: [
+      {
+        foo: "bar"
+      } as any,
 
-          {
-            foo:
-              "bar",
+      {
+        abc: "xyz"
+      } as any,
 
-          } as any,
-
-          {
-            abc:
-              "xyz",
-
-          } as any,
-
-          {
-            red:
-              "blue",
-
-          } as any,
-
-        ],
-
-    } as any,
-
-  );
+      {
+        red: "blue"
+      } as any
+    ]
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -827,7 +782,10 @@ it("serializes_list_of_map_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"ListOfMapsOfStrings\":[{\"foo\":\"bar\"},{\"abc\":\"xyz\"},{\"red\":\"blue\"}]}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -840,37 +798,24 @@ it("serializes_list_of_structure_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      ListOfStructs:
-        [
+  const command = new KitchenSinkOperationCommand({
+    ListOfStructs: [
+      {
+        Value: "abc"
+      } as any,
 
-          {
-            Value:
-              "abc",
+      {
+        Value: "mno"
+      } as any,
 
-          } as any,
-
-          {
-            Value:
-              "mno",
-
-          } as any,
-
-          {
-            Value:
-              "xyz",
-
-          } as any,
-
-        ],
-
-    } as any,
-
-  );
+      {
+        Value: "xyz"
+      } as any
+    ]
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -883,7 +828,10 @@ it("serializes_list_of_structure_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"ListOfStructs\":[{\"Value\":\"abc\"},{\"Value\":\"mno\"},{\"Value\":\"xyz\"}]}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -896,41 +844,24 @@ it("serializes_list_of_recursive_structure_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      RecursiveList:
-        [
-
+  const command = new KitchenSinkOperationCommand({
+    RecursiveList: [
+      {
+        RecursiveList: [
           {
-            RecursiveList:
-              [
-
-                {
-                  RecursiveList:
-                    [
-
-                      {
-                        Integer:
-                          123,
-
-                      } as any,
-
-                    ],
-
-                } as any,
-
-              ],
-
-          } as any,
-
-        ],
-
-    } as any,
-
-  );
+            RecursiveList: [
+              {
+                Integer: 123
+              } as any
+            ]
+          } as any
+        ]
+      } as any
+    ]
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -943,7 +874,10 @@ it("serializes_list_of_recursive_structure_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"RecursiveList\":[{\"RecursiveList\":[{\"RecursiveList\":[{\"Integer\":123}]}]}]}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -956,24 +890,16 @@ it("serializes_map_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      MapOfStrings:
-        {
-          abc:
-            "xyz",
+  const command = new KitchenSinkOperationCommand({
+    MapOfStrings: {
+      abc: "xyz",
 
-          mno:
-            "hjk",
-
-        } as any,
-
-    } as any,
-
-  );
+      mno: "hjk"
+    } as any
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -986,7 +912,10 @@ it("serializes_map_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"MapOfStrings\":{\"abc\":\"xyz\",\"mno\":\"hjk\"}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -999,18 +928,12 @@ it("serializes_empty_map_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      MapOfStrings:
-        {
-        } as any,
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    MapOfStrings: {} as any
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1023,7 +946,10 @@ it("serializes_empty_map_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"MapOfStrings\":{}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1036,36 +962,16 @@ it("serializes_map_of_list_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      MapOfListsOfStrings:
-        {
-          abc:
-            [
+  const command = new KitchenSinkOperationCommand({
+    MapOfListsOfStrings: {
+      abc: ["abc", "xyz"],
 
-              "abc",
-
-              "xyz",
-
-            ],
-
-          mno:
-            [
-
-              "xyz",
-
-              "abc",
-
-            ],
-
-        } as any,
-
-    } as any,
-
-  );
+      mno: ["xyz", "abc"]
+    } as any
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1078,7 +984,10 @@ it("serializes_map_of_list_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"MapOfListsOfStrings\":{\"abc\":[\"abc\",\"xyz\"],\"mno\":[\"xyz\",\"abc\"]}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1091,32 +1000,20 @@ it("serializes_map_of_structure_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      MapOfStructs:
-        {
-          key1:
-            {
-              Value:
-                "value-1",
+  const command = new KitchenSinkOperationCommand({
+    MapOfStructs: {
+      key1: {
+        Value: "value-1"
+      } as any,
 
-            } as any,
-
-          key2:
-            {
-              Value:
-                "value-2",
-
-            } as any,
-
-        } as any,
-
-    } as any,
-
-  );
+      key2: {
+        Value: "value-2"
+      } as any
+    } as any
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1129,7 +1026,10 @@ it("serializes_map_of_structure_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"MapOfStructs\":{\"key1\":{\"Value\":\"value-1\"},\"key2\":{\"Value\":\"value-2\"}}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1142,41 +1042,24 @@ it("serializes_map_of_recursive_structure_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      RecursiveMap:
-        {
-          key1:
-            {
-              RecursiveMap:
-                {
-                  key2:
-                    {
-                      RecursiveMap:
-                        {
-                          key3:
-                            {
-                              Boolean:
-                                false,
-
-                            } as any,
-
-                        } as any,
-
-                    } as any,
-
-                } as any,
-
-            } as any,
-
-        } as any,
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    RecursiveMap: {
+      key1: {
+        RecursiveMap: {
+          key2: {
+            RecursiveMap: {
+              key3: {
+                Boolean: false
+              } as any
+            } as any
+          } as any
+        } as any
+      } as any
+    } as any
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1189,7 +1072,10 @@ it("serializes_map_of_recursive_structure_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"RecursiveMap\":{\"key1\":{\"RecursiveMap\":{\"key2\":{\"RecursiveMap\":{\"key3\":{\"Boolean\":false}}}}}}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1202,21 +1088,14 @@ it("serializes_structure_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      SimpleStruct:
-        {
-          Value:
-            "abc",
-
-        } as any,
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    SimpleStruct: {
+      Value: "abc"
+    } as any
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1229,7 +1108,10 @@ it("serializes_structure_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"SimpleStruct\":{\"Value\":\"abc\"}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1242,21 +1124,14 @@ it("serializes_structure_members_with_locationname_traits:Request", async () => 
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      StructWithLocationName:
-        {
-          Value:
-            "some-value",
-
-        } as any,
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    StructWithLocationName: {
+      Value: "some-value"
+    } as any
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1269,7 +1144,10 @@ it("serializes_structure_members_with_locationname_traits:Request", async () => 
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"StructWithLocationName\":{\"RenamedMember\":\"some-value\"}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1282,18 +1160,12 @@ it("serializes_empty_structure_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      SimpleStruct:
-        {
-        } as any,
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    SimpleStruct: {} as any
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1306,7 +1178,10 @@ it("serializes_empty_structure_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"SimpleStruct\":{}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1319,18 +1194,12 @@ it("serializes_structure_which_have_no_members:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      EmptyStruct:
-        {
-        } as any,
-
-    } as any,
-
-  );
+  const command = new KitchenSinkOperationCommand({
+    EmptyStruct: {} as any
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1343,7 +1212,10 @@ it("serializes_structure_which_have_no_members:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"EmptyStruct\":{}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1356,58 +1228,36 @@ it("serializes_recursive_structure_shapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new KitchenSinkOperationCommand(
-    {
-      String:
-        "top-value",
+  const command = new KitchenSinkOperationCommand({
+    String: "top-value",
 
-      Boolean:
-        false,
+    Boolean: false,
 
-      RecursiveStruct:
+    RecursiveStruct: {
+      String: "nested-value",
+
+      Boolean: true,
+
+      RecursiveList: [
         {
-          String:
-            "nested-value",
-
-          Boolean:
-            true,
-
-          RecursiveList:
-            [
-
-              {
-                String:
-                  "string-only",
-
-              } as any,
-
-              {
-                RecursiveStruct:
-                  {
-                    MapOfStrings:
-                      {
-                        color:
-                          "red",
-
-                        size:
-                          "large",
-
-                      } as any,
-
-                  } as any,
-
-              } as any,
-
-            ],
-
+          String: "string-only"
         } as any,
 
-    } as any,
+        {
+          RecursiveStruct: {
+            MapOfStrings: {
+              color: "red",
 
-  );
+              size: "large"
+            } as any
+          } as any
+        } as any
+      ]
+    } as any
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1420,7 +1270,10 @@ it("serializes_recursive_structure_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"String\":\"top-value\",\"Boolean\":false,\"RecursiveStruct\":{\"String\":\"nested-value\",\"Boolean\":true,\"RecursiveList\":[{\"String\":\"string-only\"},{\"RecursiveStruct\":{\"MapOfStrings\":{\"color\":\"red\",\"size\":\"large\"}}}]}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1434,7 +1287,7 @@ it("parses_operations_with_empty_json_bodies:Response", async () => {
       true,
       200,
       undefined,
-      `{}`,
+      `{}`
     )
   });
 
@@ -1445,10 +1298,10 @@ it("parses_operations_with_empty_json_bodies:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
 });
 
 /**
@@ -1460,7 +1313,7 @@ it("parses_string_shapes:Response", async () => {
       true,
       200,
       undefined,
-      `{"String":"string-value"}`,
+      `{"String":"string-value"}`
     )
   });
 
@@ -1471,17 +1324,14 @@ it("parses_string_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "String":
-        "string-value",
-
-    },
-
+      String: "string-value"
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1498,7 +1348,7 @@ it("parses_integer_shapes:Response", async () => {
       true,
       200,
       undefined,
-      `{"Integer":1234}`,
+      `{"Integer":1234}`
     )
   });
 
@@ -1509,17 +1359,14 @@ it("parses_integer_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "Integer":
-        1234,
-
-    },
-
+      Integer: 1234
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1536,7 +1383,7 @@ it("parses_long_shapes:Response", async () => {
       true,
       200,
       undefined,
-      `{"Long":1234567890123456789}`,
+      `{"Long":1234567890123456789}`
     )
   });
 
@@ -1547,17 +1394,14 @@ it("parses_long_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "Long":
-        1234567890123456789,
-
-    },
-
+      Long: 1234567890123456789
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1574,7 +1418,7 @@ it("parses_float_shapes:Response", async () => {
       true,
       200,
       undefined,
-      `{"Float":1234.5}`,
+      `{"Float":1234.5}`
     )
   });
 
@@ -1585,17 +1429,14 @@ it("parses_float_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "Float":
-        1234.5,
-
-    },
-
+      Float: 1234.5
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1612,7 +1453,7 @@ it("parses_double_shapes:Response", async () => {
       true,
       200,
       undefined,
-      `{"Double":123456789.12345679}`,
+      `{"Double":123456789.12345679}`
     )
   });
 
@@ -1623,17 +1464,14 @@ it("parses_double_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "Double":
-        1.2345678912345679E8,
-
-    },
-
+      Double: 1.2345678912345679e8
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1650,7 +1488,7 @@ it("parses_boolean_shapes_true:Response", async () => {
       true,
       200,
       undefined,
-      `{"Boolean":true}`,
+      `{"Boolean":true}`
     )
   });
 
@@ -1661,17 +1499,14 @@ it("parses_boolean_shapes_true:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "Boolean":
-        true,
-
-    },
-
+      Boolean: true
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1688,7 +1523,7 @@ it("parses_boolean_false:Response", async () => {
       true,
       200,
       undefined,
-      `{"Boolean":false}`,
+      `{"Boolean":false}`
     )
   });
 
@@ -1699,17 +1534,14 @@ it("parses_boolean_false:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "Boolean":
-        false,
-
-    },
-
+      Boolean: false
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1726,7 +1558,7 @@ it("parses_blob_shapes:Response", async () => {
       true,
       200,
       undefined,
-      `{"Blob":"YmluYXJ5LXZhbHVl"}`,
+      `{"Blob":"YmluYXJ5LXZhbHVl"}`
     )
   });
 
@@ -1737,17 +1569,14 @@ it("parses_blob_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "Blob":
-        Uint8Array.from("binary-value", c => c.charCodeAt(0)),
-
-    },
-
+      Blob: Uint8Array.from("binary-value", c => c.charCodeAt(0))
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1764,7 +1593,7 @@ it("parses_timestamp_shapes:Response", async () => {
       true,
       200,
       undefined,
-      `{"Timestamp":946845296}`,
+      `{"Timestamp":946845296}`
     )
   });
 
@@ -1775,17 +1604,14 @@ it("parses_timestamp_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "Timestamp":
-        new Date(946845296000),
-
-    },
-
+      Timestamp: new Date(946845296000)
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1802,7 +1628,7 @@ it("parses_iso8601_timestamps:Response", async () => {
       true,
       200,
       undefined,
-      `{"Timestamp":"2000-01-02T20:34:56.000Z"}`,
+      `{"Timestamp":"2000-01-02T20:34:56.000Z"}`
     )
   });
 
@@ -1813,17 +1639,14 @@ it("parses_iso8601_timestamps:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "Timestamp":
-        new Date(946845296000),
-
-    },
-
+      Timestamp: new Date(946845296000)
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1840,7 +1663,7 @@ it("parses_httpdate_timestamps:Response", async () => {
       true,
       200,
       undefined,
-      `{"Timestamp":"Sun, 02 Jan 2000 20:34:56.000 GMT"}`,
+      `{"Timestamp":"Sun, 02 Jan 2000 20:34:56.000 GMT"}`
     )
   });
 
@@ -1851,17 +1674,14 @@ it("parses_httpdate_timestamps:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "Timestamp":
-        new Date(946845296000),
-
-    },
-
+      Timestamp: new Date(946845296000)
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1878,7 +1698,7 @@ it("parses_list_shapes:Response", async () => {
       true,
       200,
       undefined,
-      `{"ListOfStrings":["abc","mno","xyz"]}`,
+      `{"ListOfStrings":["abc","mno","xyz"]}`
     )
   });
 
@@ -1889,25 +1709,14 @@ it("parses_list_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "ListOfStrings":
-        [
-
-          "abc",
-
-          "mno",
-
-          "xyz",
-
-        ],
-
-    },
-
+      ListOfStrings: ["abc", "mno", "xyz"]
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1924,7 +1733,7 @@ it("parses_list_of_map_shapes:Response", async () => {
       true,
       200,
       undefined,
-      `{"ListOfMapsOfStrings":[{"size":"large"},{"color":"red"}]}`,
+      `{"ListOfMapsOfStrings":[{"size":"large"},{"color":"red"}]}`
     )
   });
 
@@ -1935,31 +1744,22 @@ it("parses_list_of_map_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "ListOfMapsOfStrings":
-        [
+      ListOfMapsOfStrings: [
+        {
+          size: "large"
+        },
 
-          {
-            "size":
-              "large",
-
-          },
-
-          {
-            "color":
-              "red",
-
-          },
-
-        ],
-
-    },
-
+        {
+          color: "red"
+        }
+      ]
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1976,7 +1776,7 @@ it("parses_list_of_list_shapes:Response", async () => {
       true,
       200,
       undefined,
-      `{"ListOfLists":[["abc","mno","xyz"],["hjk","qrs","tuv"]]}`,
+      `{"ListOfLists":[["abc","mno","xyz"],["hjk","qrs","tuv"]]}`
     )
   });
 
@@ -1987,39 +1787,18 @@ it("parses_list_of_list_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "ListOfLists":
-        [
+      ListOfLists: [
+        ["abc", "mno", "xyz"],
 
-          [
-
-            "abc",
-
-            "mno",
-
-            "xyz",
-
-          ],
-
-          [
-
-            "hjk",
-
-            "qrs",
-
-            "tuv",
-
-          ],
-
-        ],
-
-    },
-
+        ["hjk", "qrs", "tuv"]
+      ]
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -2036,7 +1815,7 @@ it("parses_list_of_structure_shapes:Response", async () => {
       true,
       200,
       undefined,
-      `{"ListOfStructs":[{"Value":"value-1"},{"Value":"value-2"}]}`,
+      `{"ListOfStructs":[{"Value":"value-1"},{"Value":"value-2"}]}`
     )
   });
 
@@ -2047,31 +1826,22 @@ it("parses_list_of_structure_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "ListOfStructs":
-        [
+      ListOfStructs: [
+        {
+          Value: "value-1"
+        },
 
-          {
-            "Value":
-              "value-1",
-
-          },
-
-          {
-            "Value":
-              "value-2",
-
-          },
-
-        ],
-
-    },
-
+        {
+          Value: "value-2"
+        }
+      ]
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -2088,7 +1858,7 @@ it("parses_list_of_recursive_structure_shapes:Response", async () => {
       true,
       200,
       undefined,
-      `{"RecursiveList":[{"RecursiveList":[{"RecursiveList":[{"String":"value"}]}]}]}`,
+      `{"RecursiveList":[{"RecursiveList":[{"RecursiveList":[{"String":"value"}]}]}]}`
     )
   });
 
@@ -2099,41 +1869,26 @@ it("parses_list_of_recursive_structure_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "RecursiveList":
-        [
-
-          {
-            "RecursiveList":
-              [
-
+      RecursiveList: [
+        {
+          RecursiveList: [
+            {
+              RecursiveList: [
                 {
-                  "RecursiveList":
-                    [
-
-                      {
-                        "String":
-                          "value",
-
-                      },
-
-                    ],
-
-                },
-
-              ],
-
-          },
-
-        ],
-
-    },
-
+                  String: "value"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -2150,7 +1905,7 @@ it("parses_map_shapes:Response", async () => {
       true,
       200,
       undefined,
-      `{"MapOfStrings":{"size":"large","color":"red"}}`,
+      `{"MapOfStrings":{"size":"large","color":"red"}}`
     )
   });
 
@@ -2161,24 +1916,18 @@ it("parses_map_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "MapOfStrings":
-      {
-        "size":
-          "large",
+      MapOfStrings: {
+        size: "large",
 
-        "color":
-          "red",
-
-      },
-
-    },
-
+        color: "red"
+      }
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -2195,7 +1944,7 @@ it("parses_map_of_list_shapes:Response", async () => {
       true,
       200,
       undefined,
-      `{"MapOfListsOfStrings":{"sizes":["large","small"],"colors":["red","green"]}}`,
+      `{"MapOfListsOfStrings":{"sizes":["large","small"],"colors":["red","green"]}}`
     )
   });
 
@@ -2206,36 +1955,18 @@ it("parses_map_of_list_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "MapOfListsOfStrings":
-      {
-        "sizes":
-          [
+      MapOfListsOfStrings: {
+        sizes: ["large", "small"],
 
-            "large",
-
-            "small",
-
-          ],
-
-        "colors":
-          [
-
-            "red",
-
-            "green",
-
-          ],
-
-      },
-
-    },
-
+        colors: ["red", "green"]
+      }
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -2252,7 +1983,7 @@ it("parses_map_of_map_shapes:Response", async () => {
       true,
       200,
       undefined,
-      `{"MapOfMaps":{"sizes":{"large":"L","medium":"M"},"colors":{"red":"R","blue":"B"}}}`,
+      `{"MapOfMaps":{"sizes":{"large":"L","medium":"M"},"colors":{"red":"R","blue":"B"}}}`
     )
   });
 
@@ -2263,38 +1994,26 @@ it("parses_map_of_map_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "MapOfMaps":
-      {
-        "sizes":
-        {
-          "large":
-            "L",
+      MapOfMaps: {
+        sizes: {
+          large: "L",
 
-          "medium":
-            "M",
-
+          medium: "M"
         },
 
-        "colors":
-        {
-          "red":
-            "R",
+        colors: {
+          red: "R",
 
-          "blue":
-            "B",
-
-        },
-
-      },
-
-    },
-
+          blue: "B"
+        }
+      }
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -2311,7 +2030,7 @@ it("parses_map_of_structure_shapes:Response", async () => {
       true,
       200,
       undefined,
-      `{"MapOfStructs":{"size":{"Value":"small"},"color":{"Value":"red"}}}`,
+      `{"MapOfStructs":{"size":{"Value":"small"},"color":{"Value":"red"}}}`
     )
   });
 
@@ -2322,32 +2041,22 @@ it("parses_map_of_structure_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "MapOfStructs":
-      {
-        "size":
-        {
-          "Value":
-            "small",
-
+      MapOfStructs: {
+        size: {
+          Value: "small"
         },
 
-        "color":
-        {
-          "Value":
-            "red",
-
-        },
-
-      },
-
-    },
-
+        color: {
+          Value: "red"
+        }
+      }
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -2364,7 +2073,7 @@ it("parses_map_of_recursive_structure_shapes:Response", async () => {
       true,
       200,
       undefined,
-      `{"RecursiveMap":{"key-1":{"RecursiveMap":{"key-2":{"RecursiveMap":{"key-3":{"String":"value"}}}}}}}`,
+      `{"RecursiveMap":{"key-1":{"RecursiveMap":{"key-2":{"RecursiveMap":{"key-3":{"String":"value"}}}}}}}`
     )
   });
 
@@ -2375,41 +2084,26 @@ it("parses_map_of_recursive_structure_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "RecursiveMap":
-      {
-        "key-1":
-        {
-          "RecursiveMap":
-          {
-            "key-2":
-            {
-              "RecursiveMap":
-              {
-                "key-3":
-                {
-                  "String":
-                    "value",
-
-                },
-
-              },
-
-            },
-
-          },
-
-        },
-
-      },
-
-    },
-
+      RecursiveMap: {
+        "key-1": {
+          RecursiveMap: {
+            "key-2": {
+              RecursiveMap: {
+                "key-3": {
+                  String: "value"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -2428,7 +2122,7 @@ it("parses_the_request_id_from_the_response:Response", async () => {
       {
         "x-amzn-requestid": "amazon-uniq-request-id"
       },
-      `{}`,
+      `{}`
     )
   });
 
@@ -2439,10 +2133,10 @@ it("parses_the_request_id_from_the_response:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
 });
 
 /**
@@ -2453,14 +2147,10 @@ it("can_call_operation_with_no_input_or_output:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new OperationWithOptionalInputOutputCommand(
-    {
-    } as any,
-
-  );
+  const command = new OperationWithOptionalInputOutputCommand({} as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -2474,11 +2164,16 @@ it("can_call_operation_with_no_input_or_output:Request", async () => {
     expect(r.headers["Content-Type"]).toBeDefined();
     expect(r.headers["Content-Type"]).toBe("application/x-amz-json-1.1");
     expect(r.headers["X-Amz-Target"]).toBeDefined();
-    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.OperationWithOptionalInputOutput");
+    expect(r.headers["X-Amz-Target"]).toBe(
+      "JsonProtocol.OperationWithOptionalInputOutput"
+    );
 
     expect(r.body).toBeDefined();
     const bodyString = `{}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2491,17 +2186,12 @@ it("can_call_operation_with_optional_input:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new OperationWithOptionalInputOutputCommand(
-    {
-      Value:
-        "Hi",
-
-    } as any,
-
-  );
+  const command = new OperationWithOptionalInputOutputCommand({
+    Value: "Hi"
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -2515,11 +2205,16 @@ it("can_call_operation_with_optional_input:Request", async () => {
     expect(r.headers["Content-Type"]).toBeDefined();
     expect(r.headers["Content-Type"]).toBe("application/x-amz-json-1.1");
     expect(r.headers["X-Amz-Target"]).toBeDefined();
-    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.OperationWithOptionalInputOutput");
+    expect(r.headers["X-Amz-Target"]).toBe(
+      "JsonProtocol.OperationWithOptionalInputOutput"
+    );
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Value\":\"Hi\"}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2528,9 +2223,12 @@ it("can_call_operation_with_optional_input:Request", async () => {
  * Returns a map of key names that were un-equal to value objects showing the
  * discrepancies between the components.
  */
-const compareEquivalentBodies = (expectedBody: string, generatedBody: string): Object => {
+const compareEquivalentBodies = (
+  expectedBody: string,
+  generatedBody: string
+): Object => {
   const expectedParts = JSON.parse(expectedBody);
   const generatedParts = JSON.parse(generatedBody);
 
   return compareParts(expectedParts, generatedParts);
-}
+};

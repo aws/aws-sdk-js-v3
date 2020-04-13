@@ -1,17 +1,17 @@
 import {
   QueryProtocolClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../QueryProtocolClient";
 import { XmlBlobsOutput } from "../models/index";
 import {
   deserializeAws_queryXmlBlobsCommand,
-  serializeAws_queryXmlBlobsCommand,
+  serializeAws_queryXmlBlobsCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export type XmlBlobsCommandInput = {}
+export type XmlBlobsCommandInput = {};
 export type XmlBlobsCommandOutput = XmlBlobsOutput & __MetadataBearer;
 
-export class XmlBlobsCommand extends $Command<XmlBlobsCommandInput, XmlBlobsCommandOutput, QueryProtocolClientResolvedConfig> {
+export class XmlBlobsCommand extends $Command<
+  XmlBlobsCommandInput,
+  XmlBlobsCommandOutput,
+  QueryProtocolClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,13 +46,15 @@ export class XmlBlobsCommand extends $Command<XmlBlobsCommandInput, XmlBlobsComm
     configuration: QueryProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<XmlBlobsCommandInput, XmlBlobsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,17 +1,17 @@
 import {
   RestJsonProtocolClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../RestJsonProtocolClient";
 import { HttpRequestWithLabelsInput } from "../models/index";
 import {
   deserializeAws_restJson1_1HttpRequestWithLabelsCommand,
-  serializeAws_restJson1_1HttpRequestWithLabelsCommand,
+  serializeAws_restJson1_1HttpRequestWithLabelsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type HttpRequestWithLabelsCommandInput = HttpRequestWithLabelsInput;
-export type HttpRequestWithLabelsCommandOutput = __MetadataBearer
+export type HttpRequestWithLabelsCommandOutput = __MetadataBearer;
 
-export class HttpRequestWithLabelsCommand extends $Command<HttpRequestWithLabelsCommandInput, HttpRequestWithLabelsCommandOutput, RestJsonProtocolClientResolvedConfig> {
+export class HttpRequestWithLabelsCommand extends $Command<
+  HttpRequestWithLabelsCommandInput,
+  HttpRequestWithLabelsCommandOutput,
+  RestJsonProtocolClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class HttpRequestWithLabelsCommand extends $Command<HttpRequestWithLabels
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<HttpRequestWithLabelsCommandInput, HttpRequestWithLabelsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    HttpRequestWithLabelsCommandInput,
+    HttpRequestWithLabelsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -68,7 +77,10 @@ export class HttpRequestWithLabelsCommand extends $Command<HttpRequestWithLabels
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpRequestWithLabelsCommandOutput> {
-    return deserializeAws_restJson1_1HttpRequestWithLabelsCommand(output, context);
+    return deserializeAws_restJson1_1HttpRequestWithLabelsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

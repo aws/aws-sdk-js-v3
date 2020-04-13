@@ -1,17 +1,17 @@
 import {
   RestXmlProtocolClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../RestXmlProtocolClient";
 import { AllQueryStringTypesInput } from "../models/index";
 import {
   deserializeAws_restXmlAllQueryStringTypesCommand,
-  serializeAws_restXmlAllQueryStringTypesCommand,
+  serializeAws_restXmlAllQueryStringTypesCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AllQueryStringTypesCommandInput = AllQueryStringTypesInput;
-export type AllQueryStringTypesCommandOutput = __MetadataBearer
+export type AllQueryStringTypesCommandOutput = __MetadataBearer;
 
-export class AllQueryStringTypesCommand extends $Command<AllQueryStringTypesCommandInput, AllQueryStringTypesCommandOutput, RestXmlProtocolClientResolvedConfig> {
+export class AllQueryStringTypesCommand extends $Command<
+  AllQueryStringTypesCommandInput,
+  AllQueryStringTypesCommandOutput,
+  RestXmlProtocolClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class AllQueryStringTypesCommand extends $Command<AllQueryStringTypesComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<AllQueryStringTypesCommandInput, AllQueryStringTypesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    AllQueryStringTypesCommandInput,
+    AllQueryStringTypesCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

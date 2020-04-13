@@ -26,21 +26,17 @@ import { QueryIdempotencyTokenAutoFillCommand } from "../../commands/QueryIdempo
 import { RecursiveShapesCommand } from "../../commands/RecursiveShapesCommand";
 import { SimpleScalarPropertiesCommand } from "../../commands/SimpleScalarPropertiesCommand";
 import { TimestampFormatHeadersCommand } from "../../commands/TimestampFormatHeadersCommand";
-import {
-  ComplexError,
-  FooError,
-  InvalidGreeting,
-} from "../../models/index";
+import { ComplexError, FooError, InvalidGreeting } from "../../models/index";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { HttpHandlerOptions, HeaderBag } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import { Readable } from 'stream';
+import { Readable } from "stream";
 
 /**
  * Throws an expected exception that contains the serialized request.
  */
 class EXPECTED_REQUEST_SERIALIZATION_ERROR {
-  constructor(readonly request: HttpRequest) { }
+  constructor(readonly request: HttpRequest) {}
 }
 
 /**
@@ -99,13 +95,16 @@ class ResponseDeserializationTestHandler implements HttpHandler {
 }
 
 interface comparableParts {
-  [key: string]: string
+  [key: string]: string;
 }
 
 /**
  * Generates a standard map of un-equal values given input parts.
  */
-const compareParts = (expectedParts: comparableParts, generatedParts: comparableParts) => {
+const compareParts = (
+  expectedParts: comparableParts,
+  generatedParts: comparableParts
+) => {
   const unequalParts: any = {};
   Object.keys(expectedParts).forEach(key => {
     if (generatedParts[key] === undefined) {
@@ -147,12 +146,16 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   // If a test fails with an issue in the below 6 lines, it's likely
   // due to an issue in the nestedness or existence of the property
   // being compared.
-  delete localExpected['__type'];
-  delete generated['__type'];
-  delete localExpected['$metadata'];
-  delete generated['$metadata'];
-  Object.keys(localExpected).forEach(key => localExpected[key] === undefined && delete localExpected[key])
-  Object.keys(generated).forEach(key => generated[key] === undefined && delete generated[key])
+  delete localExpected["__type"];
+  delete generated["__type"];
+  delete localExpected["$metadata"];
+  delete generated["$metadata"];
+  Object.keys(localExpected).forEach(
+    key => localExpected[key] === undefined && delete localExpected[key]
+  );
+  Object.keys(generated).forEach(
+    key => generated[key] === undefined && delete generated[key]
+  );
 
   const expectedProperties = Object.getOwnPropertyNames(localExpected);
   const generatedProperties = Object.getOwnPropertyNames(generated);
@@ -165,13 +168,15 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   // Compare properties directly.
   for (var index = 0; index < expectedProperties.length; index++) {
     const propertyName = expectedProperties[index];
-    if (!equivalentContents(localExpected[propertyName], generated[propertyName])) {
+    if (
+      !equivalentContents(localExpected[propertyName], generated[propertyName])
+    ) {
       return false;
     }
   }
 
   return true;
-}
+};
 
 /**
  * Serializes query string parameters with all supported types
@@ -181,132 +186,46 @@ it("RestJsonAllQueryStringTypes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new AllQueryStringTypesCommand(
-    {
-      queryString:
-        "Hello there",
+  const command = new AllQueryStringTypesCommand({
+    queryString: "Hello there",
 
-      queryStringList:
-        [
+    queryStringList: ["a", "b", "c"],
 
-          "a",
+    queryStringSet: new Set(["a", "b", "c"]),
 
-          "b",
+    queryByte: 1,
 
-          "c",
+    queryShort: 2,
 
-        ],
+    queryInteger: 3,
 
-      queryStringSet:
-        new Set([
+    queryIntegerList: [1, 2, 3],
 
-          "a",
+    queryIntegerSet: new Set([1, 2, 3]),
 
-          "b",
+    queryLong: 4,
 
-          "c",
+    queryFloat: 1,
 
-        ]),
+    queryDouble: 1,
 
-      queryByte:
-        1,
+    queryDoubleList: [1.0, 2.0, 3.0],
 
-      queryShort:
-        2,
+    queryBoolean: true,
 
-      queryInteger:
-        3,
+    queryBooleanList: [true, false, true],
 
-      queryIntegerList:
-        [
+    queryTimestamp: new Date(1000),
 
-          1,
+    queryTimestampList: [new Date(1000), new Date(2000), new Date(3000)],
 
-          2,
+    queryEnum: "Foo",
 
-          3,
-
-        ],
-
-      queryIntegerSet:
-        new Set([
-
-          1,
-
-          2,
-
-          3,
-
-        ]),
-
-      queryLong:
-        4,
-
-      queryFloat:
-        1,
-
-      queryDouble:
-        1,
-
-      queryDoubleList:
-        [
-
-          1.0,
-
-          2.0,
-
-          3.0,
-
-        ],
-
-      queryBoolean:
-        true,
-
-      queryBooleanList:
-        [
-
-          true,
-
-          false,
-
-          true,
-
-        ],
-
-      queryTimestamp:
-        new Date(1000),
-
-      queryTimestampList:
-        [
-
-          new Date(1000),
-
-          new Date(2000),
-
-          new Date(3000),
-
-        ],
-
-      queryEnum:
-        "Foo",
-
-      queryEnumList:
-        [
-
-          "Foo",
-
-          "Baz",
-
-          "Bar",
-
-        ],
-
-    } as any,
-
-  );
+    queryEnumList: ["Foo", "Baz", "Bar"]
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -365,17 +284,12 @@ it("RestJsonConstantAndVariableQueryStringMissingOneValue:Request", async () => 
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new ConstantAndVariableQueryStringCommand(
-    {
-      baz:
-        "bam",
-
-    } as any,
-
-  );
+  const command = new ConstantAndVariableQueryStringCommand({
+    baz: "bam"
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -404,20 +318,14 @@ it("RestJsonConstantAndVariableQueryStringAllValues:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new ConstantAndVariableQueryStringCommand(
-    {
-      baz:
-        "bam",
+  const command = new ConstantAndVariableQueryStringCommand({
+    baz: "bam",
 
-      maybeSet:
-        "yes",
-
-    } as any,
-
-  );
+    maybeSet: "yes"
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -445,17 +353,12 @@ it("RestJsonConstantQueryString:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new ConstantQueryStringCommand(
-    {
-      hello:
-        "hi",
-
-    } as any,
-
-  );
+  const command = new ConstantQueryStringCommand({
+    hello: "hi"
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -482,14 +385,10 @@ it("RestJsonEmptyInputAndEmptyOutput:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new EmptyInputAndEmptyOutputCommand(
-    {
-    } as any,
-
-  );
+  const command = new EmptyInputAndEmptyOutputCommand({} as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -502,7 +401,10 @@ it("RestJsonEmptyInputAndEmptyOutput:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -516,7 +418,7 @@ it("RestJsonEmptyInputAndEmptyOutput:Response", async () => {
       true,
       200,
       undefined,
-      `{}`,
+      `{}`
     )
   });
 
@@ -527,10 +429,10 @@ it("RestJsonEmptyInputAndEmptyOutput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
 });
 
 /**
@@ -547,7 +449,7 @@ it("RestJsonGreetingWithErrors:Response", async () => {
       },
       `{
           "greeting": "Hello"
-      }`,
+      }`
     )
   });
 
@@ -558,17 +460,14 @@ it("RestJsonGreetingWithErrors:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "greeting":
-        "Hello",
-
-    },
-
+      greeting: "Hello"
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -590,7 +489,7 @@ it("RestJsonInvalidGreetingError:Error:GreetingWithErrors", async () => {
       },
       `{
           "Message": "Hi"
-      }`,
+      }`
     )
   });
 
@@ -606,14 +505,11 @@ it("RestJsonInvalidGreetingError:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r['$metadata'].httpStatusCode).toBe(400);
+    expect(r["$metadata"].httpStatusCode).toBe(400);
     const paramsToValidate: any = [
       {
-        "message":
-          "Hi",
-
-      },
-
+        message: "Hi"
+      }
     ][0];
     Object.keys(paramsToValidate).forEach(param => {
       expect(r[param]).toBeDefined();
@@ -621,7 +517,7 @@ it("RestJsonInvalidGreetingError:Error:GreetingWithErrors", async () => {
     });
     return;
   }
-  fail('Expected an exception to be thrown from response');
+  fail("Expected an exception to be thrown from response");
 });
 
 /**
@@ -629,13 +525,9 @@ it("RestJsonInvalidGreetingError:Error:GreetingWithErrors", async () => {
  */
 it("RestJsonFooErrorUsingXAmznErrorType:Error:GreetingWithErrors", async () => {
   const client = new RestJsonProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(
-      false,
-      500,
-      {
-        "x-amzn-errortype": "FooError"
-      },
-    )
+    requestHandler: new ResponseDeserializationTestHandler(false, 500, {
+      "x-amzn-errortype": "FooError"
+    })
   });
 
   const params: any = {};
@@ -650,10 +542,10 @@ it("RestJsonFooErrorUsingXAmznErrorType:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r['$metadata'].httpStatusCode).toBe(500);
+    expect(r["$metadata"].httpStatusCode).toBe(500);
     return;
   }
-  fail('Expected an exception to be thrown from response');
+  fail("Expected an exception to be thrown from response");
 });
 
 /**
@@ -664,13 +556,10 @@ it("RestJsonFooErrorUsingXAmznErrorType:Error:GreetingWithErrors", async () => {
  */
 it("RestJsonFooErrorUsingXAmznErrorTypeWithUri:Error:GreetingWithErrors", async () => {
   const client = new RestJsonProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(
-      false,
-      500,
-      {
-        "x-amzn-errortype": "FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
-      },
-    )
+    requestHandler: new ResponseDeserializationTestHandler(false, 500, {
+      "x-amzn-errortype":
+        "FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
+    })
   });
 
   const params: any = {};
@@ -685,10 +574,10 @@ it("RestJsonFooErrorUsingXAmznErrorTypeWithUri:Error:GreetingWithErrors", async 
       return;
     }
     const r: any = err;
-    expect(r['$metadata'].httpStatusCode).toBe(500);
+    expect(r["$metadata"].httpStatusCode).toBe(500);
     return;
   }
-  fail('Expected an exception to be thrown from response');
+  fail("Expected an exception to be thrown from response");
 });
 
 /**
@@ -696,13 +585,10 @@ it("RestJsonFooErrorUsingXAmznErrorTypeWithUri:Error:GreetingWithErrors", async 
  */
 it("RestJsonFooErrorUsingXAmznErrorTypeWithUriAndNamespace:Error:GreetingWithErrors", async () => {
   const client = new RestJsonProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(
-      false,
-      500,
-      {
-        "x-amzn-errortype": "aws.protocols.tests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
-      },
-    )
+    requestHandler: new ResponseDeserializationTestHandler(false, 500, {
+      "x-amzn-errortype":
+        "aws.protocols.tests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
+    })
   });
 
   const params: any = {};
@@ -717,10 +603,10 @@ it("RestJsonFooErrorUsingXAmznErrorTypeWithUriAndNamespace:Error:GreetingWithErr
       return;
     }
     const r: any = err;
-    expect(r['$metadata'].httpStatusCode).toBe(500);
+    expect(r["$metadata"].httpStatusCode).toBe(500);
     return;
   }
-  fail('Expected an exception to be thrown from response');
+  fail("Expected an exception to be thrown from response");
 });
 
 /**
@@ -738,7 +624,7 @@ it("RestJsonFooErrorUsingCode:Error:GreetingWithErrors", async () => {
       },
       `{
           "code": "FooError"
-      }`,
+      }`
     )
   });
 
@@ -754,10 +640,10 @@ it("RestJsonFooErrorUsingCode:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r['$metadata'].httpStatusCode).toBe(500);
+    expect(r["$metadata"].httpStatusCode).toBe(500);
     return;
   }
-  fail('Expected an exception to be thrown from response');
+  fail("Expected an exception to be thrown from response");
 });
 
 /**
@@ -773,7 +659,7 @@ it("RestJsonFooErrorUsingCodeAndNamespace:Error:GreetingWithErrors", async () =>
       },
       `{
           "code": "aws.protocols.tests.restjson#FooError"
-      }`,
+      }`
     )
   });
 
@@ -789,10 +675,10 @@ it("RestJsonFooErrorUsingCodeAndNamespace:Error:GreetingWithErrors", async () =>
       return;
     }
     const r: any = err;
-    expect(r['$metadata'].httpStatusCode).toBe(500);
+    expect(r["$metadata"].httpStatusCode).toBe(500);
     return;
   }
-  fail('Expected an exception to be thrown from response');
+  fail("Expected an exception to be thrown from response");
 });
 
 /**
@@ -808,7 +694,7 @@ it("RestJsonFooErrorUsingCodeUriAndNamespace:Error:GreetingWithErrors", async ()
       },
       `{
           "code": "aws.protocols.tests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
-      }`,
+      }`
     )
   });
 
@@ -824,10 +710,10 @@ it("RestJsonFooErrorUsingCodeUriAndNamespace:Error:GreetingWithErrors", async ()
       return;
     }
     const r: any = err;
-    expect(r['$metadata'].httpStatusCode).toBe(500);
+    expect(r["$metadata"].httpStatusCode).toBe(500);
     return;
   }
-  fail('Expected an exception to be thrown from response');
+  fail("Expected an exception to be thrown from response");
 });
 
 /**
@@ -843,7 +729,7 @@ it("RestJsonFooErrorWithDunderType:Error:GreetingWithErrors", async () => {
       },
       `{
           "__type": "FooError"
-      }`,
+      }`
     )
   });
 
@@ -859,10 +745,10 @@ it("RestJsonFooErrorWithDunderType:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r['$metadata'].httpStatusCode).toBe(500);
+    expect(r["$metadata"].httpStatusCode).toBe(500);
     return;
   }
-  fail('Expected an exception to be thrown from response');
+  fail("Expected an exception to be thrown from response");
 });
 
 /**
@@ -878,7 +764,7 @@ it("RestJsonFooErrorWithDunderTypeAndNamespace:Error:GreetingWithErrors", async 
       },
       `{
           "__type": "aws.protocols.tests.restjson#FooError"
-      }`,
+      }`
     )
   });
 
@@ -894,10 +780,10 @@ it("RestJsonFooErrorWithDunderTypeAndNamespace:Error:GreetingWithErrors", async 
       return;
     }
     const r: any = err;
-    expect(r['$metadata'].httpStatusCode).toBe(500);
+    expect(r["$metadata"].httpStatusCode).toBe(500);
     return;
   }
-  fail('Expected an exception to be thrown from response');
+  fail("Expected an exception to be thrown from response");
 });
 
 /**
@@ -913,7 +799,7 @@ it("RestJsonFooErrorWithDunderTypeUriAndNamespace:Error:GreetingWithErrors", asy
       },
       `{
           "__type": "aws.protocols.tests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
-      }`,
+      }`
     )
   });
 
@@ -929,10 +815,10 @@ it("RestJsonFooErrorWithDunderTypeUriAndNamespace:Error:GreetingWithErrors", asy
       return;
     }
     const r: any = err;
-    expect(r['$metadata'].httpStatusCode).toBe(500);
+    expect(r["$metadata"].httpStatusCode).toBe(500);
     return;
   }
-  fail('Expected an exception to be thrown from response');
+  fail("Expected an exception to be thrown from response");
 });
 
 /**
@@ -953,7 +839,7 @@ it("RestJsonComplexErrorWithNoMessage:Error:GreetingWithErrors", async () => {
           "Nested": {
               "Fooooo": "bar"
           }
-      }`,
+      }`
     )
   });
 
@@ -969,24 +855,17 @@ it("RestJsonComplexErrorWithNoMessage:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r['$metadata'].httpStatusCode).toBe(403);
+    expect(r["$metadata"].httpStatusCode).toBe(403);
     const paramsToValidate: any = [
       {
-        "Header":
-          "Header",
+        Header: "Header",
 
-        "TopLevel":
-          "Top level",
+        TopLevel: "Top level",
 
-        "Nested":
-        {
-          "Foo":
-            "bar",
-
-        },
-
-      },
-
+        Nested: {
+          Foo: "bar"
+        }
+      }
     ][0];
     Object.keys(paramsToValidate).forEach(param => {
       expect(r[param]).toBeDefined();
@@ -994,7 +873,7 @@ it("RestJsonComplexErrorWithNoMessage:Error:GreetingWithErrors", async () => {
     });
     return;
   }
-  fail('Expected an exception to be thrown from response');
+  fail("Expected an exception to be thrown from response");
 });
 
 it("RestJsonEmptyComplexErrorWithNoMessage:Error:GreetingWithErrors", async () => {
@@ -1006,7 +885,7 @@ it("RestJsonEmptyComplexErrorWithNoMessage:Error:GreetingWithErrors", async () =
         "x-amzn-errortype": "ComplexError",
         "content-type": "application/json"
       },
-      `{}`,
+      `{}`
     )
   });
 
@@ -1022,10 +901,10 @@ it("RestJsonEmptyComplexErrorWithNoMessage:Error:GreetingWithErrors", async () =
       return;
     }
     const r: any = err;
-    expect(r['$metadata'].httpStatusCode).toBe(403);
+    expect(r["$metadata"].httpStatusCode).toBe(403);
     return;
   }
-  fail('Expected an exception to be thrown from response');
+  fail("Expected an exception to be thrown from response");
 });
 
 /**
@@ -1036,20 +915,14 @@ it("RestJsonHttpPayloadTraitsWithBlob:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new HttpPayloadTraitsCommand(
-    {
-      foo:
-        "Foo",
+  const command = new HttpPayloadTraitsCommand({
+    foo: "Foo",
 
-      blob:
-        Uint8Array.from("blobby blob blob", c => c.charCodeAt(0)),
-
-    } as any,
-
-  );
+    blob: Uint8Array.from("blobby blob blob", c => c.charCodeAt(0))
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1064,7 +937,9 @@ it("RestJsonHttpPayloadTraitsWithBlob:Request", async () => {
     expect(r.headers["X-Foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
-    expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", c => c.charCodeAt(0)));
+    expect(r.body).toMatchObject(
+      Uint8Array.from("blobby blob blob", c => c.charCodeAt(0))
+    );
   }
 });
 
@@ -1076,17 +951,12 @@ it("RestJsonHttpPayloadTraitsWithNoBlobBody:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new HttpPayloadTraitsCommand(
-    {
-      foo:
-        "Foo",
-
-    } as any,
-
-  );
+  const command = new HttpPayloadTraitsCommand({
+    foo: "Foo"
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1115,7 +985,7 @@ it("RestJsonHttpPayloadTraitsWithBlob:Response", async () => {
       {
         "x-foo": "Foo"
       },
-      `blobby blob blob`,
+      `blobby blob blob`
     )
   });
 
@@ -1126,20 +996,16 @@ it("RestJsonHttpPayloadTraitsWithBlob:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "foo":
-        "Foo",
+      foo: "Foo",
 
-      "blob":
-        Uint8Array.from("blobby blob blob", c => c.charCodeAt(0)),
-
-    },
-
+      blob: Uint8Array.from("blobby blob blob", c => c.charCodeAt(0))
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1158,7 +1024,7 @@ it("RestJsonHttpPayloadTraitsWithNoBlobBody:Response", async () => {
       {
         "x-foo": "Foo"
       },
-      ``,
+      ``
     )
   });
 
@@ -1169,17 +1035,14 @@ it("RestJsonHttpPayloadTraitsWithNoBlobBody:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "foo":
-        "Foo",
-
-    },
-
+      foo: "Foo"
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1195,20 +1058,14 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new HttpPayloadTraitsWithMediaTypeCommand(
-    {
-      foo:
-        "Foo",
+  const command = new HttpPayloadTraitsWithMediaTypeCommand({
+    foo: "Foo",
 
-      blob:
-        Uint8Array.from("blobby blob blob", c => c.charCodeAt(0)),
-
-    } as any,
-
-  );
+    blob: Uint8Array.from("blobby blob blob", c => c.charCodeAt(0))
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1225,7 +1082,9 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:Request", async () => {
     expect(r.headers["X-Foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
-    expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", c => c.charCodeAt(0)));
+    expect(r.body).toMatchObject(
+      Uint8Array.from("blobby blob blob", c => c.charCodeAt(0))
+    );
   }
 });
 
@@ -1241,7 +1100,7 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:Response", async () => {
         "x-foo": "Foo",
         "content-type": "text/plain"
       },
-      `blobby blob blob`,
+      `blobby blob blob`
     )
   });
 
@@ -1252,20 +1111,16 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "foo":
-        "Foo",
+      foo: "Foo",
 
-      "blob":
-        Uint8Array.from("blobby blob blob", c => c.charCodeAt(0)),
-
-    },
-
+      blob: Uint8Array.from("blobby blob blob", c => c.charCodeAt(0))
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1281,24 +1136,16 @@ it("RestJsonHttpPayloadWithStructure:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new HttpPayloadWithStructureCommand(
-    {
-      nested:
-        {
-          greeting:
-            "hello",
+  const command = new HttpPayloadWithStructureCommand({
+    nested: {
+      greeting: "hello",
 
-          name:
-            "Phreddy",
-
-        } as any,
-
-    } as any,
-
-  );
+      name: "Phreddy"
+    } as any
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1317,7 +1164,10 @@ it("RestJsonHttpPayloadWithStructure:Request", async () => {
         \"greeting\": \"hello\",
         \"name\": \"Phreddy\"
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1336,7 +1186,7 @@ it("RestJsonHttpPayloadWithStructure:Response", async () => {
       `{
           "greeting": "hello",
           "name": "Phreddy"
-      }`,
+      }`
     )
   });
 
@@ -1347,24 +1197,18 @@ it("RestJsonHttpPayloadWithStructure:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "nested":
-      {
-        "greeting":
-          "hello",
+      nested: {
+        greeting: "hello",
 
-        "name":
-          "Phreddy",
-
-      },
-
-    },
-
+        name: "Phreddy"
+      }
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1380,27 +1224,18 @@ it("RestJsonHttpPrefixHeadersArePresent:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new HttpPrefixHeadersCommand(
-    {
-      foo:
-        "Foo",
+  const command = new HttpPrefixHeadersCommand({
+    foo: "Foo",
 
-      fooMap:
-        {
-          Abc:
-            "Abc value",
+    fooMap: {
+      Abc: "Abc value",
 
-          Def:
-            "Def value",
-
-        } as any,
-
-    } as any,
-
-  );
+      Def: "Def value"
+    } as any
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1430,21 +1265,14 @@ it("RestJsonHttpPrefixHeadersAreNotPresent:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new HttpPrefixHeadersCommand(
-    {
-      foo:
-        "Foo",
+  const command = new HttpPrefixHeadersCommand({
+    foo: "Foo",
 
-      fooMap:
-        {
-        } as any,
-
-    } as any,
-
-  );
+    fooMap: {} as any
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1475,7 +1303,7 @@ it("RestJsonHttpPrefixHeadersArePresent:Response", async () => {
         "x-foo-abc": "Abc value",
         "x-foo-def": "Def value"
       },
-      ``,
+      ``
     )
   });
 
@@ -1486,27 +1314,20 @@ it("RestJsonHttpPrefixHeadersArePresent:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "foo":
-        "Foo",
+      foo: "Foo",
 
-      "fooMap":
-      {
-        "abc":
-          "Abc value",
+      fooMap: {
+        abc: "Abc value",
 
-        "def":
-          "Def value",
-
-      },
-
-    },
-
+        def: "Def value"
+      }
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1525,7 +1346,7 @@ it("RestJsonHttpPrefixHeadersAreNotPresent:Response", async () => {
       {
         "x-foo": "Foo"
       },
-      ``,
+      ``
     )
   });
 
@@ -1536,21 +1357,16 @@ it("RestJsonHttpPrefixHeadersAreNotPresent:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "foo":
-        "Foo",
+      foo: "Foo",
 
-      "fooMap":
-      {
-      },
-
-    },
-
+      fooMap: {}
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -1566,20 +1382,14 @@ it("RestJsonHttpRequestWithGreedyLabelInPath:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new HttpRequestWithGreedyLabelInPathCommand(
-    {
-      foo:
-        "hello",
+  const command = new HttpRequestWithGreedyLabelInPathCommand({
+    foo: "hello",
 
-      baz:
-        "there/guy",
-
-    } as any,
-
-  );
+    baz: "there/guy"
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1588,7 +1398,9 @@ it("RestJsonHttpRequestWithGreedyLabelInPath:Request", async () => {
     }
     const r = err.request;
     expect(r.method).toBe("GET");
-    expect(r.path).toBe("/HttpRequestWithGreedyLabelInPath/foo/hello/baz/there/guy");
+    expect(r.path).toBe(
+      "/HttpRequestWithGreedyLabelInPath/foo/hello/baz/there/guy"
+    );
 
     expect(r.body).toBeFalsy();
   }
@@ -1602,38 +1414,26 @@ it("RestJsonInputWithHeadersAndAllParams:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new HttpRequestWithLabelsCommand(
-    {
-      string:
-        "string",
+  const command = new HttpRequestWithLabelsCommand({
+    string: "string",
 
-      short:
-        1,
+    short: 1,
 
-      integer:
-        2,
+    integer: 2,
 
-      long:
-        3,
+    long: 3,
 
-      float:
-        4.0,
+    float: 4.0,
 
-      double:
-        5.0,
+    double: 5.0,
 
-      boolean:
-        true,
+    boolean: true,
 
-      timestamp:
-        new Date(1576540098000),
-
-    } as any,
-
-  );
+    timestamp: new Date(1576540098000)
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1642,7 +1442,9 @@ it("RestJsonInputWithHeadersAndAllParams:Request", async () => {
     }
     const r = err.request;
     expect(r.method).toBe("GET");
-    expect(r.path).toBe("/HttpRequestWithLabels/string/1/2/3/4.0/5.0/true/2019-12-16T23%3A48%3A18Z");
+    expect(r.path).toBe(
+      "/HttpRequestWithLabels/string/1/2/3/4.0/5.0/true/2019-12-16T23%3A48%3A18Z"
+    );
 
     expect(r.body).toBeFalsy();
   }
@@ -1656,35 +1458,24 @@ it("RestJsonHttpRequestWithLabelsAndTimestampFormat:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new HttpRequestWithLabelsAndTimestampFormatCommand(
-    {
-      memberEpochSeconds:
-        new Date(1576540098000),
+  const command = new HttpRequestWithLabelsAndTimestampFormatCommand({
+    memberEpochSeconds: new Date(1576540098000),
 
-      memberHttpDate:
-        new Date(1576540098000),
+    memberHttpDate: new Date(1576540098000),
 
-      memberDateTime:
-        new Date(1576540098000),
+    memberDateTime: new Date(1576540098000),
 
-      defaultFormat:
-        new Date(1576540098000),
+    defaultFormat: new Date(1576540098000),
 
-      targetEpochSeconds:
-        new Date(1576540098000),
+    targetEpochSeconds: new Date(1576540098000),
 
-      targetHttpDate:
-        new Date(1576540098000),
+    targetHttpDate: new Date(1576540098000),
 
-      targetDateTime:
-        new Date(1576540098000),
-
-    } as any,
-
-  );
+    targetDateTime: new Date(1576540098000)
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1693,7 +1484,9 @@ it("RestJsonHttpRequestWithLabelsAndTimestampFormat:Request", async () => {
     }
     const r = err.request;
     expect(r.method).toBe("GET");
-    expect(r.path).toBe("/HttpRequestWithLabelsAndTimestampFormat/1576540098/Mon%2C%2016%20Dec%202019%2023%3A48%3A18%20GMT/2019-12-16T23%3A48%3A18Z/2019-12-16T23%3A48%3A18Z/1576540098/Mon%2C%2016%20Dec%202019%2023%3A48%3A18%20GMT/2019-12-16T23%3A48%3A18Z");
+    expect(r.path).toBe(
+      "/HttpRequestWithLabelsAndTimestampFormat/1576540098/Mon%2C%2016%20Dec%202019%2023%3A48%3A18%20GMT/2019-12-16T23%3A48%3A18Z/2019-12-16T23%3A48%3A18Z/1576540098/Mon%2C%2016%20Dec%202019%2023%3A48%3A18%20GMT/2019-12-16T23%3A48%3A18Z"
+    );
 
     expect(r.body).toBeFalsy();
   }
@@ -1710,7 +1503,7 @@ it("RestJsonIgnoreQueryParamsInResponse:Response", async () => {
       {
         "content-type": "application/json"
       },
-      ``,
+      ``
     )
   });
 
@@ -1721,10 +1514,10 @@ it("RestJsonIgnoreQueryParamsInResponse:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
 });
 
 /**
@@ -1735,39 +1528,16 @@ it("RestJsonInputAndOutputWithStringHeaders:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new InputAndOutputWithHeadersCommand(
-    {
-      headerString:
-        "Hello",
+  const command = new InputAndOutputWithHeadersCommand({
+    headerString: "Hello",
 
-      headerStringList:
-        [
+    headerStringList: ["a", "b", "c"],
 
-          "a",
-
-          "b",
-
-          "c",
-
-        ],
-
-      headerStringSet:
-        new Set([
-
-          "a",
-
-          "b",
-
-          "c",
-
-        ]),
-
-    } as any,
-
-  );
+    headerStringSet: new Set(["a", "b", "c"])
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1797,43 +1567,24 @@ it("RestJsonInputAndOutputWithNumericHeaders:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new InputAndOutputWithHeadersCommand(
-    {
-      headerByte:
-        1,
+  const command = new InputAndOutputWithHeadersCommand({
+    headerByte: 1,
 
-      headerShort:
-        123,
+    headerShort: 123,
 
-      headerInteger:
-        123,
+    headerInteger: 123,
 
-      headerLong:
-        123,
+    headerLong: 123,
 
-      headerFloat:
-        1.0,
+    headerFloat: 1.0,
 
-      headerDouble:
-        1.0,
+    headerDouble: 1.0,
 
-      headerIntegerList:
-        [
-
-          1,
-
-          2,
-
-          3,
-
-        ],
-
-    } as any,
-
-  );
+    headerIntegerList: [1, 2, 3]
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1871,31 +1622,16 @@ it("RestJsonInputAndOutputWithBooleanHeaders:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new InputAndOutputWithHeadersCommand(
-    {
-      headerTrueBool:
-        true,
+  const command = new InputAndOutputWithHeadersCommand({
+    headerTrueBool: true,
 
-      headerFalseBool:
-        false,
+    headerFalseBool: false,
 
-      headerBooleanList:
-        [
-
-          true,
-
-          false,
-
-          true,
-
-        ],
-
-    } as any,
-
-  );
+    headerBooleanList: [true, false, true]
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1925,23 +1661,12 @@ it("RestJsonInputAndOutputWithTimestampHeaders:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new InputAndOutputWithHeadersCommand(
-    {
-      headerTimestampList:
-        [
-
-          new Date(1576540098000),
-
-          new Date(1576540098000),
-
-        ],
-
-    } as any,
-
-  );
+  const command = new InputAndOutputWithHeadersCommand({
+    headerTimestampList: [new Date(1576540098000), new Date(1576540098000)]
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -1953,7 +1678,9 @@ it("RestJsonInputAndOutputWithTimestampHeaders:Request", async () => {
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
     expect(r.headers["X-TimestampList"]).toBeDefined();
-    expect(r.headers["X-TimestampList"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT");
+    expect(r.headers["X-TimestampList"]).toBe(
+      "Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT"
+    );
 
     expect(r.body).toBeFalsy();
   }
@@ -1967,28 +1694,14 @@ it("RestJsonInputAndOutputWithEnumHeaders:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new InputAndOutputWithHeadersCommand(
-    {
-      headerEnum:
-        "Foo",
+  const command = new InputAndOutputWithHeadersCommand({
+    headerEnum: "Foo",
 
-      headerEnumList:
-        [
-
-          "Foo",
-
-          "Bar",
-
-          "Baz",
-
-        ],
-
-    } as any,
-
-  );
+    headerEnumList: ["Foo", "Bar", "Baz"]
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -2021,7 +1734,7 @@ it("RestJsonInputAndOutputWithStringHeaders:Response", async () => {
         "x-stringset": "a, b, c",
         "x-string": "Hello"
       },
-      ``,
+      ``
     )
   });
 
@@ -2032,39 +1745,18 @@ it("RestJsonInputAndOutputWithStringHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "headerString":
-        "Hello",
+      headerString: "Hello",
 
-      "headerStringList":
-        [
+      headerStringList: ["a", "b", "c"],
 
-          "a",
-
-          "b",
-
-          "c",
-
-        ],
-
-      "headerStringSet":
-        [
-
-          "a",
-
-          "b",
-
-          "c",
-
-        ],
-
-    },
-
+      headerStringSet: ["a", "b", "c"]
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -2089,7 +1781,7 @@ it("RestJsonInputAndOutputWithNumericHeaders:Response", async () => {
         "x-double": "1.0",
         "x-short": "123"
       },
-      ``,
+      ``
     )
   });
 
@@ -2100,43 +1792,26 @@ it("RestJsonInputAndOutputWithNumericHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "headerByte":
-        1,
+      headerByte: 1,
 
-      "headerShort":
-        123,
+      headerShort: 123,
 
-      "headerInteger":
-        123,
+      headerInteger: 123,
 
-      "headerLong":
-        123,
+      headerLong: 123,
 
-      "headerFloat":
-        1.0,
+      headerFloat: 1.0,
 
-      "headerDouble":
-        1.0,
+      headerDouble: 1.0,
 
-      "headerIntegerList":
-        [
-
-          1,
-
-          2,
-
-          3,
-
-        ],
-
-    },
-
+      headerIntegerList: [1, 2, 3]
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -2157,7 +1832,7 @@ it("RestJsonInputAndOutputWithBooleanHeaders:Response", async () => {
         "x-boolean1": "true",
         "x-boolean2": "false"
       },
-      ``,
+      ``
     )
   });
 
@@ -2168,31 +1843,18 @@ it("RestJsonInputAndOutputWithBooleanHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "headerTrueBool":
-        true,
+      headerTrueBool: true,
 
-      "headerFalseBool":
-        false,
+      headerFalseBool: false,
 
-      "headerBooleanList":
-        [
-
-          true,
-
-          false,
-
-          true,
-
-        ],
-
-    },
-
+      headerBooleanList: [true, false, true]
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -2209,9 +1871,10 @@ it("RestJsonInputAndOutputWithTimestampHeaders:Response", async () => {
       true,
       200,
       {
-        "x-timestamplist": "Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT"
+        "x-timestamplist":
+          "Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT"
       },
-      ``,
+      ``
     )
   });
 
@@ -2222,23 +1885,14 @@ it("RestJsonInputAndOutputWithTimestampHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "headerTimestampList":
-        [
-
-          new Date(1576540098000),
-
-          new Date(1576540098000),
-
-        ],
-
-    },
-
+      headerTimestampList: [new Date(1576540098000), new Date(1576540098000)]
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -2258,7 +1912,7 @@ it("RestJsonInputAndOutputWithEnumHeaders:Response", async () => {
         "x-enumlist": "Foo, Bar, Baz",
         "x-enum": "Foo"
       },
-      ``,
+      ``
     )
   });
 
@@ -2269,28 +1923,16 @@ it("RestJsonInputAndOutputWithEnumHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "headerEnum":
-        "Foo",
+      headerEnum: "Foo",
 
-      "headerEnumList":
-        [
-
-          "Foo",
-
-          "Bar",
-
-          "Baz",
-
-        ],
-
-    },
-
+      headerEnumList: ["Foo", "Bar", "Baz"]
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -2306,17 +1948,12 @@ it("RestJsonJsonBlobs:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new JsonBlobsCommand(
-    {
-      data:
-        Uint8Array.from("value", c => c.charCodeAt(0)),
-
-    } as any,
-
-  );
+  const command = new JsonBlobsCommand({
+    data: Uint8Array.from("value", c => c.charCodeAt(0))
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -2334,7 +1971,10 @@ it("RestJsonJsonBlobs:Request", async () => {
     const bodyString = `{
         \"data\": \"dmFsdWU=\"
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2352,7 +1992,7 @@ it("RestJsonJsonBlobs:Response", async () => {
       },
       `{
           "data": "dmFsdWU="
-      }`,
+      }`
     )
   });
 
@@ -2363,17 +2003,14 @@ it("RestJsonJsonBlobs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "data":
-        Uint8Array.from("value", c => c.charCodeAt(0)),
-
-    },
-
+      data: Uint8Array.from("value", c => c.charCodeAt(0))
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -2389,51 +2026,26 @@ it("RestJsonJsonEnums:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new JsonEnumsCommand(
-    {
-      fooEnum1:
-        "Foo",
+  const command = new JsonEnumsCommand({
+    fooEnum1: "Foo",
 
-      fooEnum2:
-        "0",
+    fooEnum2: "0",
 
-      fooEnum3:
-        "1",
+    fooEnum3: "1",
 
-      fooEnumList:
-        [
+    fooEnumList: ["Foo", "0"],
 
-          "Foo",
+    fooEnumSet: new Set(["Foo", "0"]),
 
-          "0",
+    fooEnumMap: {
+      hi: "Foo",
 
-        ],
-
-      fooEnumSet:
-        new Set([
-
-          "Foo",
-
-          "0",
-
-        ]),
-
-      fooEnumMap:
-        {
-          hi:
-            "Foo",
-
-          zero:
-            "0",
-
-        } as any,
-
-    } as any,
-
-  );
+      zero: "0"
+    } as any
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -2465,7 +2077,10 @@ it("RestJsonJsonEnums:Request", async () => {
             \"zero\": \"0\"
         }
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2497,7 +2112,7 @@ it("RestJsonJsonEnums:Response", async () => {
               "hi": "Foo",
               "zero": "0"
           }
-      }`,
+      }`
     )
   });
 
@@ -2508,51 +2123,28 @@ it("RestJsonJsonEnums:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "fooEnum1":
-        "Foo",
+      fooEnum1: "Foo",
 
-      "fooEnum2":
-        "0",
+      fooEnum2: "0",
 
-      "fooEnum3":
-        "1",
+      fooEnum3: "1",
 
-      "fooEnumList":
-        [
+      fooEnumList: ["Foo", "0"],
 
-          "Foo",
+      fooEnumSet: ["Foo", "0"],
 
-          "0",
+      fooEnumMap: {
+        hi: "Foo",
 
-        ],
-
-      "fooEnumSet":
-        [
-
-          "Foo",
-
-          "0",
-
-        ],
-
-      "fooEnumMap":
-      {
-        "hi":
-          "Foo",
-
-        "zero":
-          "0",
-
-      },
-
-    },
-
+        zero: "0"
+      }
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -2568,112 +2160,42 @@ it("RestJsonLists:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new JsonListsCommand(
-    {
-      stringList:
-        [
+  const command = new JsonListsCommand({
+    stringList: ["foo", "bar"],
 
-          "foo",
+    stringSet: new Set(["foo", "bar"]),
 
-          "bar",
+    integerList: [1, 2],
 
-        ],
+    booleanList: [true, false],
 
-      stringSet:
-        new Set([
+    timestampList: [new Date(1398796238000), new Date(1398796238000)],
 
-          "foo",
+    enumList: ["Foo", "0"],
 
-          "bar",
+    nestedStringList: [
+      ["foo", "bar"],
 
-        ]),
+      ["baz", "qux"]
+    ],
 
-      integerList:
-        [
+    structureList: [
+      {
+        a: "1",
 
-          1,
+        b: "2"
+      } as any,
 
-          2,
+      {
+        a: "3",
 
-        ],
-
-      booleanList:
-        [
-
-          true,
-
-          false,
-
-        ],
-
-      timestampList:
-        [
-
-          new Date(1398796238000),
-
-          new Date(1398796238000),
-
-        ],
-
-      enumList:
-        [
-
-          "Foo",
-
-          "0",
-
-        ],
-
-      nestedStringList:
-        [
-
-          [
-
-            "foo",
-
-            "bar",
-
-          ],
-
-          [
-
-            "baz",
-
-            "qux",
-
-          ],
-
-        ],
-
-      structureList:
-        [
-
-          {
-            a:
-              "1",
-
-            b:
-              "2",
-
-          } as any,
-
-          {
-            a:
-              "3",
-
-            b:
-              "4",
-
-          } as any,
-
-        ],
-
-    } as any,
-
-  );
+        b: "4"
+      } as any
+    ]
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -2734,7 +2256,10 @@ it("RestJsonLists:Request", async () => {
             }
         ]
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2747,19 +2272,12 @@ it("RestJsonListsEmpty:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new JsonListsCommand(
-    {
-      stringList:
-        [
-
-        ],
-
-    } as any,
-
-  );
+  const command = new JsonListsCommand({
+    stringList: []
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -2777,7 +2295,10 @@ it("RestJsonListsEmpty:Request", async () => {
     const bodyString = `{
         \"stringList\": []
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2790,21 +2311,12 @@ it("RestJsonListsSerializeNull:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new JsonListsCommand(
-    {
-      stringList:
-        [
-
-          undefined,
-
-        ],
-
-    } as any,
-
-  );
+  const command = new JsonListsCommand({
+    stringList: [undefined]
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -2824,7 +2336,10 @@ it("RestJsonListsSerializeNull:Request", async () => {
             null
         ]
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2885,7 +2400,7 @@ it("RestJsonLists:Response", async () => {
                   "other": "4"
               }
           ]
-      }`,
+      }`
     )
   });
 
@@ -2896,112 +2411,44 @@ it("RestJsonLists:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "stringList":
-        [
+      stringList: ["foo", "bar"],
 
-          "foo",
+      stringSet: ["foo", "bar"],
 
-          "bar",
+      integerList: [1, 2],
 
-        ],
+      booleanList: [true, false],
 
-      "stringSet":
-        [
+      timestampList: [new Date(1398796238000), new Date(1398796238000)],
 
-          "foo",
+      enumList: ["Foo", "0"],
 
-          "bar",
+      nestedStringList: [
+        ["foo", "bar"],
 
-        ],
+        ["baz", "qux"]
+      ],
 
-      "integerList":
-        [
+      structureList: [
+        {
+          a: "1",
 
-          1,
+          b: "2"
+        },
 
-          2,
+        {
+          a: "3",
 
-        ],
-
-      "booleanList":
-        [
-
-          true,
-
-          false,
-
-        ],
-
-      "timestampList":
-        [
-
-          new Date(1398796238000),
-
-          new Date(1398796238000),
-
-        ],
-
-      "enumList":
-        [
-
-          "Foo",
-
-          "0",
-
-        ],
-
-      "nestedStringList":
-        [
-
-          [
-
-            "foo",
-
-            "bar",
-
-          ],
-
-          [
-
-            "baz",
-
-            "qux",
-
-          ],
-
-        ],
-
-      "structureList":
-        [
-
-          {
-            "a":
-              "1",
-
-            "b":
-              "2",
-
-          },
-
-          {
-            "a":
-              "3",
-
-            "b":
-              "4",
-
-          },
-
-        ],
-
-    },
-
+          b: "4"
+        }
+      ]
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -3022,7 +2469,7 @@ it("RestJsonListsEmpty:Response", async () => {
       },
       `{
           "stringList": []
-      }`,
+      }`
     )
   });
 
@@ -3033,19 +2480,14 @@ it("RestJsonListsEmpty:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "stringList":
-        [
-
-        ],
-
-    },
-
+      stringList: []
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -3068,7 +2510,7 @@ it("RestJsonListsSerializeNull:Response", async () => {
           "stringList": [
               null
           ]
-      }`,
+      }`
     )
   });
 
@@ -3079,21 +2521,14 @@ it("RestJsonListsSerializeNull:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "stringList":
-        [
-
-          null,
-
-        ],
-
-    },
-
+      stringList: [null]
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -3109,32 +2544,20 @@ it("RestJsonJsonMaps:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new JsonMapsCommand(
-    {
-      myMap:
-        {
-          foo:
-            {
-              hi:
-                "there",
+  const command = new JsonMapsCommand({
+    myMap: {
+      foo: {
+        hi: "there"
+      } as any,
 
-            } as any,
-
-          baz:
-            {
-              hi:
-                "bye",
-
-            } as any,
-
-        } as any,
-
-    } as any,
-
-  );
+      baz: {
+        hi: "bye"
+      } as any
+    } as any
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -3159,7 +2582,10 @@ it("RestJsonJsonMaps:Request", async () => {
             }
         }
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3184,7 +2610,7 @@ it("RestJsonJsonMaps:Response", async () => {
                   "hi": "bye"
               }
           }
-      }`,
+      }`
     )
   });
 
@@ -3195,32 +2621,22 @@ it("RestJsonJsonMaps:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "myMap":
-      {
-        "foo":
-        {
-          "hi":
-            "there",
-
+      myMap: {
+        foo: {
+          hi: "there"
         },
 
-        "baz":
-        {
-          "hi":
-            "bye",
-
-        },
-
-      },
-
-    },
-
+        baz: {
+          hi: "bye"
+        }
+      }
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -3236,17 +2652,12 @@ it("RestJsonJsonTimestamps:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new JsonTimestampsCommand(
-    {
-      normal:
-        new Date(1398796238000),
-
-    } as any,
-
-  );
+  const command = new JsonTimestampsCommand({
+    normal: new Date(1398796238000)
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -3264,7 +2675,10 @@ it("RestJsonJsonTimestamps:Request", async () => {
     const bodyString = `{
         \"normal\": 1398796238
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3277,17 +2691,12 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new JsonTimestampsCommand(
-    {
-      dateTime:
-        new Date(1398796238000),
-
-    } as any,
-
-  );
+  const command = new JsonTimestampsCommand({
+    dateTime: new Date(1398796238000)
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -3305,7 +2714,10 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:Request", async () => {
     const bodyString = `{
         \"dateTime\": \"2014-04-29T18:30:38Z\"
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3318,17 +2730,12 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new JsonTimestampsCommand(
-    {
-      epochSeconds:
-        new Date(1398796238000),
-
-    } as any,
-
-  );
+  const command = new JsonTimestampsCommand({
+    epochSeconds: new Date(1398796238000)
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -3346,7 +2753,10 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:Request", async () => {
     const bodyString = `{
         \"epochSeconds\": 1398796238
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3359,17 +2769,12 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new JsonTimestampsCommand(
-    {
-      httpDate:
-        new Date(1398796238000),
-
-    } as any,
-
-  );
+  const command = new JsonTimestampsCommand({
+    httpDate: new Date(1398796238000)
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -3387,7 +2792,10 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:Request", async () => {
     const bodyString = `{
         \"httpDate\": \"Tue, 29 Apr 2014 18:30:38 GMT\"
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3405,7 +2813,7 @@ it("RestJsonJsonTimestamps:Response", async () => {
       },
       `{
           "normal": 1398796238
-      }`,
+      }`
     )
   });
 
@@ -3416,17 +2824,14 @@ it("RestJsonJsonTimestamps:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "normal":
-        new Date(1398796238000),
-
-    },
-
+      normal: new Date(1398796238000)
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -3447,7 +2852,7 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:Response", async () => {
       },
       `{
           "dateTime": "2014-04-29T18:30:38Z"
-      }`,
+      }`
     )
   });
 
@@ -3458,17 +2863,14 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "dateTime":
-        new Date(1398796238000),
-
-    },
-
+      dateTime: new Date(1398796238000)
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -3489,7 +2891,7 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:Response", async () => {
       },
       `{
           "epochSeconds": 1398796238
-      }`,
+      }`
     )
   });
 
@@ -3500,17 +2902,14 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "epochSeconds":
-        new Date(1398796238000),
-
-    },
-
+      epochSeconds: new Date(1398796238000)
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -3531,7 +2930,7 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:Response", async () => {
       },
       `{
           "httpDate": "Tue, 29 Apr 2014 18:30:38 GMT"
-      }`,
+      }`
     )
   });
 
@@ -3542,17 +2941,14 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "httpDate":
-        new Date(1398796238000),
-
-    },
-
+      httpDate: new Date(1398796238000)
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -3571,7 +2967,7 @@ it("RestJsonNoInputAndNoOutput:Request", async () => {
   const command = new NoInputAndNoOutputCommand({});
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -3581,7 +2977,6 @@ it("RestJsonNoInputAndNoOutput:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/NoInputAndNoOutput");
-
   }
 });
 
@@ -3590,11 +2985,7 @@ it("RestJsonNoInputAndNoOutput:Request", async () => {
  */
 it("RestJsonNoInputAndNoOutput:Response", async () => {
   const client = new RestJsonProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      undefined,
-    )
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined)
   });
 
   const params: any = {};
@@ -3604,10 +2995,10 @@ it("RestJsonNoInputAndNoOutput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
 });
 
 /**
@@ -3621,7 +3012,7 @@ it("RestJsonNoInputAndOutput:Request", async () => {
   const command = new NoInputAndOutputCommand({});
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -3631,7 +3022,6 @@ it("RestJsonNoInputAndOutput:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/NoInputAndOutputOutput");
-
   }
 });
 
@@ -3640,11 +3030,7 @@ it("RestJsonNoInputAndOutput:Request", async () => {
  */
 it("RestJsonNoInputAndOutput:Response", async () => {
   const client = new RestJsonProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      undefined,
-    )
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined)
   });
 
   const params: any = {};
@@ -3654,10 +3040,10 @@ it("RestJsonNoInputAndOutput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
 });
 
 /**
@@ -3668,25 +3054,16 @@ it("RestJsonNullAndEmptyHeaders:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new NullAndEmptyHeadersClientCommand(
-    {
-      a:
-        undefined,
+  const command = new NullAndEmptyHeadersClientCommand({
+    a: undefined,
 
-      b:
-        "",
+    b: "",
 
-      c:
-        [
-
-        ],
-
-    } as any,
-
-  );
+    c: []
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -3713,20 +3090,14 @@ it("RestJsonOmitsNullSerializesEmptyString:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new OmitsNullSerializesEmptyStringCommand(
-    {
-      nullValue:
-        undefined,
+  const command = new OmitsNullSerializesEmptyStringCommand({
+    nullValue: undefined,
 
-      emptyString:
-        "",
-
-    } as any,
-
-  );
+    emptyString: ""
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -3752,15 +3123,12 @@ it("RestJsonQueryIdempotencyTokenAutoFill:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new QueryIdempotencyTokenAutoFillCommand(
-    {
-      token: "00000000-0000-4000-8000-000000000000",
-    } as any,
-
-  );
+  const command = new QueryIdempotencyTokenAutoFillCommand({
+    token: "00000000-0000-4000-8000-000000000000"
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -3786,17 +3154,12 @@ it("RestJsonQueryIdempotencyTokenAutoFillIsSet:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new QueryIdempotencyTokenAutoFillCommand(
-    {
-      token:
-        "00000000-0000-4000-8000-000000000000",
-
-    } as any,
-
-  );
+  const command = new QueryIdempotencyTokenAutoFillCommand({
+    token: "00000000-0000-4000-8000-000000000000"
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -3822,42 +3185,26 @@ it("RestJsonRecursiveShapes:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new RecursiveShapesCommand(
-    {
-      nested:
-        {
-          foo:
-            "Foo1",
+  const command = new RecursiveShapesCommand({
+    nested: {
+      foo: "Foo1",
 
-          nested:
-            {
-              bar:
-                "Bar1",
+      nested: {
+        bar: "Bar1",
 
-              recursiveMember:
-                {
-                  foo:
-                    "Foo2",
+        recursiveMember: {
+          foo: "Foo2",
 
-                  nested:
-                    {
-                      bar:
-                        "Bar2",
-
-                    } as any,
-
-                } as any,
-
-            } as any,
-
-        } as any,
-
-    } as any,
-
-  );
+          nested: {
+            bar: "Bar2"
+          } as any
+        } as any
+      } as any
+    } as any
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -3886,7 +3233,10 @@ it("RestJsonRecursiveShapes:Request", async () => {
             }
         }
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3915,7 +3265,7 @@ it("RestJsonRecursiveShapes:Response", async () => {
                   }
               }
           }
-      }`,
+      }`
     )
   });
 
@@ -3926,42 +3276,28 @@ it("RestJsonRecursiveShapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "nested":
-      {
-        "foo":
-          "Foo1",
+      nested: {
+        foo: "Foo1",
 
-        "nested":
-        {
-          "bar":
-            "Bar1",
+        nested: {
+          bar: "Bar1",
 
-          "recursiveMember":
-          {
-            "foo":
-              "Foo2",
+          recursiveMember: {
+            foo: "Foo2",
 
-            "nested":
-            {
-              "bar":
-                "Bar2",
-
-            },
-
-          },
-
-        },
-
-      },
-
-    },
-
+            nested: {
+              bar: "Bar2"
+            }
+          }
+        }
+      }
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -3977,44 +3313,30 @@ it("RestJsonSimpleScalarProperties:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new SimpleScalarPropertiesCommand(
-    {
-      foo:
-        "Foo",
+  const command = new SimpleScalarPropertiesCommand({
+    foo: "Foo",
 
-      stringValue:
-        "string",
+    stringValue: "string",
 
-      trueBooleanValue:
-        true,
+    trueBooleanValue: true,
 
-      falseBooleanValue:
-        false,
+    falseBooleanValue: false,
 
-      byteValue:
-        1,
+    byteValue: 1,
 
-      shortValue:
-        2,
+    shortValue: 2,
 
-      integerValue:
-        3,
+    integerValue: 3,
 
-      longValue:
-        4,
+    longValue: 4,
 
-      floatValue:
-        5.5,
+    floatValue: 5.5,
 
-      doubleValue:
-        6.5,
-
-    } as any,
-
-  );
+    doubleValue: 6.5
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -4042,7 +3364,10 @@ it("RestJsonSimpleScalarProperties:Request", async () => {
         \"floatValue\": 5.5,
         \"DoubleDribble\": 6.5
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -4069,7 +3394,7 @@ it("RestJsonSimpleScalarProperties:Response", async () => {
           "longValue": 4,
           "floatValue": 5.5,
           "DoubleDribble": 6.5
-      }`,
+      }`
     )
   });
 
@@ -4080,44 +3405,32 @@ it("RestJsonSimpleScalarProperties:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "foo":
-        "Foo",
+      foo: "Foo",
 
-      "stringValue":
-        "string",
+      stringValue: "string",
 
-      "trueBooleanValue":
-        true,
+      trueBooleanValue: true,
 
-      "falseBooleanValue":
-        false,
+      falseBooleanValue: false,
 
-      "byteValue":
-        1,
+      byteValue: 1,
 
-      "shortValue":
-        2,
+      shortValue: 2,
 
-      "integerValue":
-        3,
+      integerValue: 3,
 
-      "longValue":
-        4,
+      longValue: 4,
 
-      "floatValue":
-        5.5,
+      floatValue: 5.5,
 
-      "doubleValue":
-        6.5,
-
-    },
-
+      doubleValue: 6.5
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -4133,35 +3446,24 @@ it("RestJsonTimestampFormatHeaders:Request", async () => {
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new TimestampFormatHeadersCommand(
-    {
-      memberEpochSeconds:
-        new Date(1576540098000),
+  const command = new TimestampFormatHeadersCommand({
+    memberEpochSeconds: new Date(1576540098000),
 
-      memberHttpDate:
-        new Date(1576540098000),
+    memberHttpDate: new Date(1576540098000),
 
-      memberDateTime:
-        new Date(1576540098000),
+    memberDateTime: new Date(1576540098000),
 
-      defaultFormat:
-        new Date(1576540098000),
+    defaultFormat: new Date(1576540098000),
 
-      targetEpochSeconds:
-        new Date(1576540098000),
+    targetEpochSeconds: new Date(1576540098000),
 
-      targetHttpDate:
-        new Date(1576540098000),
+    targetHttpDate: new Date(1576540098000),
 
-      targetDateTime:
-        new Date(1576540098000),
-
-    } as any,
-
-  );
+    targetDateTime: new Date(1576540098000)
+  } as any);
   try {
     await client.send(command);
-    fail('Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown');
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     return;
   } catch (err) {
     if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
@@ -4208,7 +3510,7 @@ it("RestJsonTimestampFormatHeaders:Response", async () => {
         "x-memberhttpdate": "Mon, 16 Dec 2019 23:48:18 GMT",
         "x-targetdatetime": "2019-12-16T23:48:18Z"
       },
-      ``,
+      ``
     )
   });
 
@@ -4219,35 +3521,26 @@ it("RestJsonTimestampFormatHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail('Expected a valid response to be returned, got err.');
+    fail("Expected a valid response to be returned, got err.");
     return;
   }
-  expect(r['$metadata'].httpStatusCode).toBe(200);
+  expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      "memberEpochSeconds":
-        new Date(1576540098000),
+      memberEpochSeconds: new Date(1576540098000),
 
-      "memberHttpDate":
-        new Date(1576540098000),
+      memberHttpDate: new Date(1576540098000),
 
-      "memberDateTime":
-        new Date(1576540098000),
+      memberDateTime: new Date(1576540098000),
 
-      "defaultFormat":
-        new Date(1576540098000),
+      defaultFormat: new Date(1576540098000),
 
-      "targetEpochSeconds":
-        new Date(1576540098000),
+      targetEpochSeconds: new Date(1576540098000),
 
-      "targetHttpDate":
-        new Date(1576540098000),
+      targetHttpDate: new Date(1576540098000),
 
-      "targetDateTime":
-        new Date(1576540098000),
-
-    },
-
+      targetDateTime: new Date(1576540098000)
+    }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {
     expect(r[param]).toBeDefined();
@@ -4259,9 +3552,12 @@ it("RestJsonTimestampFormatHeaders:Response", async () => {
  * Returns a map of key names that were un-equal to value objects showing the
  * discrepancies between the components.
  */
-const compareEquivalentBodies = (expectedBody: string, generatedBody: string): Object => {
+const compareEquivalentBodies = (
+  expectedBody: string,
+  generatedBody: string
+): Object => {
   const expectedParts = JSON.parse(expectedBody);
   const generatedParts = JSON.parse(generatedBody);
 
   return compareParts(expectedParts, generatedParts);
-}
+};

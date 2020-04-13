@@ -1,17 +1,17 @@
 import {
   RestJsonProtocolClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../RestJsonProtocolClient";
 import { RecursiveShapesInputOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1RecursiveShapesCommand,
-  serializeAws_restJson1_1RecursiveShapesCommand,
+  serializeAws_restJson1_1RecursiveShapesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,18 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RecursiveShapesCommandInput = RecursiveShapesInputOutput;
-export type RecursiveShapesCommandOutput = RecursiveShapesInputOutput & __MetadataBearer;
+export type RecursiveShapesCommandOutput = RecursiveShapesInputOutput &
+  __MetadataBearer;
 
-export class RecursiveShapesCommand extends $Command<RecursiveShapesCommandInput, RecursiveShapesCommandOutput, RestJsonProtocolClientResolvedConfig> {
+export class RecursiveShapesCommand extends $Command<
+  RecursiveShapesCommandInput,
+  RecursiveShapesCommandOutput,
+  RestJsonProtocolClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,13 +47,15 @@ export class RecursiveShapesCommand extends $Command<RecursiveShapesCommandInput
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RecursiveShapesCommandInput, RecursiveShapesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

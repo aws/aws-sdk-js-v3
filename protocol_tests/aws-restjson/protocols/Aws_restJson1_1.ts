@@ -1,114 +1,114 @@
 import {
   AllQueryStringTypesCommandInput,
-  AllQueryStringTypesCommandOutput,
+  AllQueryStringTypesCommandOutput
 } from "../commands/AllQueryStringTypesCommand";
 import {
   ConstantAndVariableQueryStringCommandInput,
-  ConstantAndVariableQueryStringCommandOutput,
+  ConstantAndVariableQueryStringCommandOutput
 } from "../commands/ConstantAndVariableQueryStringCommand";
 import {
   ConstantQueryStringCommandInput,
-  ConstantQueryStringCommandOutput,
+  ConstantQueryStringCommandOutput
 } from "../commands/ConstantQueryStringCommand";
 import {
   EmptyInputAndEmptyOutputCommandInput,
-  EmptyInputAndEmptyOutputCommandOutput,
+  EmptyInputAndEmptyOutputCommandOutput
 } from "../commands/EmptyInputAndEmptyOutputCommand";
 import {
   GreetingWithErrorsCommandInput,
-  GreetingWithErrorsCommandOutput,
+  GreetingWithErrorsCommandOutput
 } from "../commands/GreetingWithErrorsCommand";
 import {
   HttpPayloadTraitsCommandInput,
-  HttpPayloadTraitsCommandOutput,
+  HttpPayloadTraitsCommandOutput
 } from "../commands/HttpPayloadTraitsCommand";
 import {
   HttpPayloadTraitsWithMediaTypeCommandInput,
-  HttpPayloadTraitsWithMediaTypeCommandOutput,
+  HttpPayloadTraitsWithMediaTypeCommandOutput
 } from "../commands/HttpPayloadTraitsWithMediaTypeCommand";
 import {
   HttpPayloadWithStructureCommandInput,
-  HttpPayloadWithStructureCommandOutput,
+  HttpPayloadWithStructureCommandOutput
 } from "../commands/HttpPayloadWithStructureCommand";
 import {
   HttpPrefixHeadersCommandInput,
-  HttpPrefixHeadersCommandOutput,
+  HttpPrefixHeadersCommandOutput
 } from "../commands/HttpPrefixHeadersCommand";
 import {
   HttpRequestWithGreedyLabelInPathCommandInput,
-  HttpRequestWithGreedyLabelInPathCommandOutput,
+  HttpRequestWithGreedyLabelInPathCommandOutput
 } from "../commands/HttpRequestWithGreedyLabelInPathCommand";
 import {
   HttpRequestWithLabelsAndTimestampFormatCommandInput,
-  HttpRequestWithLabelsAndTimestampFormatCommandOutput,
+  HttpRequestWithLabelsAndTimestampFormatCommandOutput
 } from "../commands/HttpRequestWithLabelsAndTimestampFormatCommand";
 import {
   HttpRequestWithLabelsCommandInput,
-  HttpRequestWithLabelsCommandOutput,
+  HttpRequestWithLabelsCommandOutput
 } from "../commands/HttpRequestWithLabelsCommand";
 import {
   IgnoreQueryParamsInResponseCommandInput,
-  IgnoreQueryParamsInResponseCommandOutput,
+  IgnoreQueryParamsInResponseCommandOutput
 } from "../commands/IgnoreQueryParamsInResponseCommand";
 import {
   InputAndOutputWithHeadersCommandInput,
-  InputAndOutputWithHeadersCommandOutput,
+  InputAndOutputWithHeadersCommandOutput
 } from "../commands/InputAndOutputWithHeadersCommand";
 import {
   JsonBlobsCommandInput,
-  JsonBlobsCommandOutput,
+  JsonBlobsCommandOutput
 } from "../commands/JsonBlobsCommand";
 import {
   JsonEnumsCommandInput,
-  JsonEnumsCommandOutput,
+  JsonEnumsCommandOutput
 } from "../commands/JsonEnumsCommand";
 import {
   JsonListsCommandInput,
-  JsonListsCommandOutput,
+  JsonListsCommandOutput
 } from "../commands/JsonListsCommand";
 import {
   JsonMapsCommandInput,
-  JsonMapsCommandOutput,
+  JsonMapsCommandOutput
 } from "../commands/JsonMapsCommand";
 import {
   JsonTimestampsCommandInput,
-  JsonTimestampsCommandOutput,
+  JsonTimestampsCommandOutput
 } from "../commands/JsonTimestampsCommand";
 import {
   NoInputAndNoOutputCommandInput,
-  NoInputAndNoOutputCommandOutput,
+  NoInputAndNoOutputCommandOutput
 } from "../commands/NoInputAndNoOutputCommand";
 import {
   NoInputAndOutputCommandInput,
-  NoInputAndOutputCommandOutput,
+  NoInputAndOutputCommandOutput
 } from "../commands/NoInputAndOutputCommand";
 import {
   NullAndEmptyHeadersClientCommandInput,
-  NullAndEmptyHeadersClientCommandOutput,
+  NullAndEmptyHeadersClientCommandOutput
 } from "../commands/NullAndEmptyHeadersClientCommand";
 import {
   NullAndEmptyHeadersServerCommandInput,
-  NullAndEmptyHeadersServerCommandOutput,
+  NullAndEmptyHeadersServerCommandOutput
 } from "../commands/NullAndEmptyHeadersServerCommand";
 import {
   OmitsNullSerializesEmptyStringCommandInput,
-  OmitsNullSerializesEmptyStringCommandOutput,
+  OmitsNullSerializesEmptyStringCommandOutput
 } from "../commands/OmitsNullSerializesEmptyStringCommand";
 import {
   QueryIdempotencyTokenAutoFillCommandInput,
-  QueryIdempotencyTokenAutoFillCommandOutput,
+  QueryIdempotencyTokenAutoFillCommandOutput
 } from "../commands/QueryIdempotencyTokenAutoFillCommand";
 import {
   RecursiveShapesCommandInput,
-  RecursiveShapesCommandOutput,
+  RecursiveShapesCommandOutput
 } from "../commands/RecursiveShapesCommand";
 import {
   SimpleScalarPropertiesCommandInput,
-  SimpleScalarPropertiesCommandOutput,
+  SimpleScalarPropertiesCommandOutput
 } from "../commands/SimpleScalarPropertiesCommand";
 import {
   TimestampFormatHeadersCommandInput,
-  TimestampFormatHeadersCommandOutput,
+  TimestampFormatHeadersCommandOutput
 } from "../commands/TimestampFormatHeadersCommand";
 import {
   ComplexError,
@@ -120,23 +120,23 @@ import {
   NestedPayload,
   RecursiveShapesInputOutputNested1,
   RecursiveShapesInputOutputNested2,
-  StructureListMember,
+  StructureListMember
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   dateToUtcString as __dateToUtcString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  splitEvery as __splitEvery,
+  splitEvery as __splitEvery
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
@@ -145,23 +145,30 @@ export async function serializeAws_restJson1_1AllQueryStringTypesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/AllQueryStringTypesInput";
   const query: any = {};
   if (input.queryBoolean !== undefined) {
     query["Boolean"] = input.queryBoolean.toString();
   }
   if (input.queryBooleanList !== undefined) {
-    query["BooleanList"] = (input.queryBooleanList || []).map(_entry => _entry.toString());
+    query["BooleanList"] = (input.queryBooleanList || []).map(_entry =>
+      _entry.toString()
+    );
   }
   if (input.queryByte !== undefined) {
     query["Byte"] = input.queryByte.toString();
   }
   if (input.queryDouble !== undefined) {
-    query["Double"] = ((input.queryDouble % 1 == 0) ? input.queryDouble + ".0" : input.queryDouble.toString());
+    query["Double"] =
+      input.queryDouble % 1 == 0
+        ? input.queryDouble + ".0"
+        : input.queryDouble.toString();
   }
   if (input.queryDoubleList !== undefined) {
-    query["DoubleList"] = (input.queryDoubleList || []).map(_entry => ((_entry % 1 == 0) ? _entry + ".0" : _entry.toString()));
+    query["DoubleList"] = (input.queryDoubleList || []).map(_entry =>
+      _entry % 1 == 0 ? _entry + ".0" : _entry.toString()
+    );
   }
   if (input.queryEnum !== undefined) {
     query["Enum"] = input.queryEnum;
@@ -170,16 +177,23 @@ export async function serializeAws_restJson1_1AllQueryStringTypesCommand(
     query["EnumList"] = (input.queryEnumList || []).map(_entry => _entry);
   }
   if (input.queryFloat !== undefined) {
-    query["Float"] = ((input.queryFloat % 1 == 0) ? input.queryFloat + ".0" : input.queryFloat.toString());
+    query["Float"] =
+      input.queryFloat % 1 == 0
+        ? input.queryFloat + ".0"
+        : input.queryFloat.toString();
   }
   if (input.queryInteger !== undefined) {
     query["Integer"] = input.queryInteger.toString();
   }
   if (input.queryIntegerList !== undefined) {
-    query["IntegerList"] = (input.queryIntegerList || []).map(_entry => _entry.toString());
+    query["IntegerList"] = (input.queryIntegerList || []).map(_entry =>
+      _entry.toString()
+    );
   }
   if (input.queryIntegerSet !== undefined) {
-    query["IntegerSet"] = (Array.from(input.queryIntegerSet.values()) || []).map(_entry => _entry.toString());
+    query["IntegerSet"] = (
+      Array.from(input.queryIntegerSet.values()) || []
+    ).map(_entry => _entry.toString());
   }
   if (input.queryLong !== undefined) {
     query["Long"] = input.queryLong.toString();
@@ -194,13 +208,19 @@ export async function serializeAws_restJson1_1AllQueryStringTypesCommand(
     query["StringList"] = (input.queryStringList || []).map(_entry => _entry);
   }
   if (input.queryStringSet !== undefined) {
-    query["StringSet"] = (Array.from(input.queryStringSet.values()) || []).map(_entry => _entry);
+    query["StringSet"] = (Array.from(input.queryStringSet.values()) || []).map(
+      _entry => _entry
+    );
   }
   if (input.queryTimestamp !== undefined) {
-    query["Timestamp"] = (input.queryTimestamp.toISOString().split('.')[0]+"Z").toString();
+    query["Timestamp"] = (
+      input.queryTimestamp.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (input.queryTimestampList !== undefined) {
-    query["TimestampList"] = (input.queryTimestampList || []).map(_entry => (_entry.toISOString().split('.')[0]+"Z").toString());
+    query["TimestampList"] = (input.queryTimestampList || []).map(_entry =>
+      (_entry.toISOString().split(".")[0] + "Z").toString()
+    );
   }
   let body: any;
   return new __HttpRequest({
@@ -210,7 +230,7 @@ export async function serializeAws_restJson1_1AllQueryStringTypesCommand(
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body,
+    body: body
   });
 }
 
@@ -219,10 +239,10 @@ export async function serializeAws_restJson1_1ConstantAndVariableQueryStringComm
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/ConstantAndVariableQueryString";
   const query: any = {
-    "foo": "bar",
+    foo: "bar"
   };
   if (input.baz !== undefined) {
     query["baz"] = input.baz;
@@ -238,7 +258,7 @@ export async function serializeAws_restJson1_1ConstantAndVariableQueryStringComm
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body,
+    body: body
   });
 }
 
@@ -247,20 +267,23 @@ export async function serializeAws_restJson1_1ConstantQueryStringCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/ConstantQueryString/{hello}";
   if (input.hello !== undefined) {
     const labelValue: string = input.hello;
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: hello.');
+      throw new Error("Empty value provided for input HTTP label: hello.");
     }
-    resolvedPath = resolvedPath.replace("{hello}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{hello}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: hello.');
+    throw new Error("No value provided for input HTTP label: hello.");
   }
   const query: any = {
-    "foo": "bar",
-    "hello": "",
+    foo: "bar",
+    hello: ""
   };
   let body: any;
   return new __HttpRequest({
@@ -270,7 +293,7 @@ export async function serializeAws_restJson1_1ConstantQueryStringCommand(
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body,
+    body: body
   });
 }
 
@@ -279,7 +302,7 @@ export async function serializeAws_restJson1_1EmptyInputAndEmptyOutputCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/EmptyInputAndEmptyOutput";
   let body: any;
   body = "{}";
@@ -289,7 +312,7 @@ export async function serializeAws_restJson1_1EmptyInputAndEmptyOutputCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -298,7 +321,7 @@ export async function serializeAws_restJson1_1GreetingWithErrorsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/GreetingWithErrors";
   let body: any;
   body = "{}";
@@ -308,7 +331,7 @@ export async function serializeAws_restJson1_1GreetingWithErrorsCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -317,7 +340,7 @@ export async function serializeAws_restJson1_1HttpPayloadTraitsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/octet-stream";
+  headers["Content-Type"] = "application/octet-stream";
   if (isSerializableHeaderValue(input.foo)) {
     headers["X-Foo"] = input.foo!;
   }
@@ -332,7 +355,7 @@ export async function serializeAws_restJson1_1HttpPayloadTraitsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -341,7 +364,7 @@ export async function serializeAws_restJson1_1HttpPayloadTraitsWithMediaTypeComm
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "text/plain";
+  headers["Content-Type"] = "text/plain";
   if (isSerializableHeaderValue(input.foo)) {
     headers["X-Foo"] = input.foo!;
   }
@@ -356,7 +379,7 @@ export async function serializeAws_restJson1_1HttpPayloadTraitsWithMediaTypeComm
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -365,7 +388,7 @@ export async function serializeAws_restJson1_1HttpPayloadWithStructureCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/HttpPayloadWithStructure";
   let body: any;
   if (input.nested !== undefined) {
@@ -381,7 +404,7 @@ export async function serializeAws_restJson1_1HttpPayloadWithStructureCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -390,7 +413,7 @@ export async function serializeAws_restJson1_1HttpPrefixHeadersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.foo)) {
     headers["X-Foo"] = input.foo!;
   }
@@ -407,7 +430,7 @@ export async function serializeAws_restJson1_1HttpPrefixHeadersCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -416,25 +439,34 @@ export async function serializeAws_restJson1_1HttpRequestWithGreedyLabelInPathCo
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}";
   if (input.baz !== undefined) {
     const labelValue: string = input.baz;
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: baz.');
+      throw new Error("Empty value provided for input HTTP label: baz.");
     }
-    resolvedPath = resolvedPath.replace("{baz+}", labelValue.split("/").map(segment => __extendedEncodeURIComponent(segment)).join("/"));
+    resolvedPath = resolvedPath.replace(
+      "{baz+}",
+      labelValue
+        .split("/")
+        .map(segment => __extendedEncodeURIComponent(segment))
+        .join("/")
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: baz.');
+    throw new Error("No value provided for input HTTP label: baz.");
   }
   if (input.foo !== undefined) {
     const labelValue: string = input.foo;
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: foo.');
+      throw new Error("Empty value provided for input HTTP label: foo.");
     }
-    resolvedPath = resolvedPath.replace("{foo}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{foo}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: foo.');
+    throw new Error("No value provided for input HTTP label: foo.");
   }
   let body: any;
   return new __HttpRequest({
@@ -443,7 +475,7 @@ export async function serializeAws_restJson1_1HttpRequestWithGreedyLabelInPathCo
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -452,79 +484,108 @@ export async function serializeAws_restJson1_1HttpRequestWithLabelsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
-  let resolvedPath = "/HttpRequestWithLabels/{string}/{short}/{integer}/{long}/{float}/{double}/{boolean}/{timestamp}";
+  headers["Content-Type"] = "";
+  let resolvedPath =
+    "/HttpRequestWithLabels/{string}/{short}/{integer}/{long}/{float}/{double}/{boolean}/{timestamp}";
   if (input.boolean !== undefined) {
     const labelValue: string = input.boolean.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: boolean.');
+      throw new Error("Empty value provided for input HTTP label: boolean.");
     }
-    resolvedPath = resolvedPath.replace("{boolean}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{boolean}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: boolean.');
+    throw new Error("No value provided for input HTTP label: boolean.");
   }
   if (input.double !== undefined) {
-    const labelValue: string = ((input.double % 1 == 0) ? input.double + ".0" : input.double.toString());
+    const labelValue: string =
+      input.double % 1 == 0 ? input.double + ".0" : input.double.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: double.');
+      throw new Error("Empty value provided for input HTTP label: double.");
     }
-    resolvedPath = resolvedPath.replace("{double}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{double}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: double.');
+    throw new Error("No value provided for input HTTP label: double.");
   }
   if (input.float !== undefined) {
-    const labelValue: string = ((input.float % 1 == 0) ? input.float + ".0" : input.float.toString());
+    const labelValue: string =
+      input.float % 1 == 0 ? input.float + ".0" : input.float.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: float.');
+      throw new Error("Empty value provided for input HTTP label: float.");
     }
-    resolvedPath = resolvedPath.replace("{float}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{float}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: float.');
+    throw new Error("No value provided for input HTTP label: float.");
   }
   if (input.integer !== undefined) {
     const labelValue: string = input.integer.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: integer.');
+      throw new Error("Empty value provided for input HTTP label: integer.");
     }
-    resolvedPath = resolvedPath.replace("{integer}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{integer}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: integer.');
+    throw new Error("No value provided for input HTTP label: integer.");
   }
   if (input.long !== undefined) {
     const labelValue: string = input.long.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: long.');
+      throw new Error("Empty value provided for input HTTP label: long.");
     }
-    resolvedPath = resolvedPath.replace("{long}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{long}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: long.');
+    throw new Error("No value provided for input HTTP label: long.");
   }
   if (input.short !== undefined) {
     const labelValue: string = input.short.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: short.');
+      throw new Error("Empty value provided for input HTTP label: short.");
     }
-    resolvedPath = resolvedPath.replace("{short}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{short}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: short.');
+    throw new Error("No value provided for input HTTP label: short.");
   }
   if (input.string !== undefined) {
     const labelValue: string = input.string;
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: string.');
+      throw new Error("Empty value provided for input HTTP label: string.");
     }
-    resolvedPath = resolvedPath.replace("{string}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{string}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: string.');
+    throw new Error("No value provided for input HTTP label: string.");
   }
   if (input.timestamp !== undefined) {
-    const labelValue: string = (input.timestamp.toISOString().split('.')[0]+"Z").toString();
+    const labelValue: string = (
+      input.timestamp.toISOString().split(".")[0] + "Z"
+    ).toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: timestamp.');
+      throw new Error("Empty value provided for input HTTP label: timestamp.");
     }
-    resolvedPath = resolvedPath.replace("{timestamp}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{timestamp}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: timestamp.');
+    throw new Error("No value provided for input HTTP label: timestamp.");
   }
   let body: any;
   return new __HttpRequest({
@@ -533,7 +594,7 @@ export async function serializeAws_restJson1_1HttpRequestWithLabelsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -542,70 +603,124 @@ export async function serializeAws_restJson1_1HttpRequestWithLabelsAndTimestampF
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
-  let resolvedPath = "/HttpRequestWithLabelsAndTimestampFormat/{memberEpochSeconds}/{memberHttpDate}/{memberDateTime}/{defaultFormat}/{targetEpochSeconds}/{targetHttpDate}/{targetDateTime}";
+  headers["Content-Type"] = "";
+  let resolvedPath =
+    "/HttpRequestWithLabelsAndTimestampFormat/{memberEpochSeconds}/{memberHttpDate}/{memberDateTime}/{defaultFormat}/{targetEpochSeconds}/{targetHttpDate}/{targetDateTime}";
   if (input.defaultFormat !== undefined) {
-    const labelValue: string = (input.defaultFormat.toISOString().split('.')[0]+"Z").toString();
+    const labelValue: string = (
+      input.defaultFormat.toISOString().split(".")[0] + "Z"
+    ).toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: defaultFormat.');
+      throw new Error(
+        "Empty value provided for input HTTP label: defaultFormat."
+      );
     }
-    resolvedPath = resolvedPath.replace("{defaultFormat}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{defaultFormat}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: defaultFormat.');
+    throw new Error("No value provided for input HTTP label: defaultFormat.");
   }
   if (input.memberDateTime !== undefined) {
-    const labelValue: string = (input.memberDateTime.toISOString().split('.')[0]+"Z").toString();
+    const labelValue: string = (
+      input.memberDateTime.toISOString().split(".")[0] + "Z"
+    ).toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: memberDateTime.');
+      throw new Error(
+        "Empty value provided for input HTTP label: memberDateTime."
+      );
     }
-    resolvedPath = resolvedPath.replace("{memberDateTime}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{memberDateTime}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: memberDateTime.');
+    throw new Error("No value provided for input HTTP label: memberDateTime.");
   }
   if (input.memberEpochSeconds !== undefined) {
-    const labelValue: string = Math.round(input.memberEpochSeconds.getTime() / 1000).toString();
+    const labelValue: string = Math.round(
+      input.memberEpochSeconds.getTime() / 1000
+    ).toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: memberEpochSeconds.');
+      throw new Error(
+        "Empty value provided for input HTTP label: memberEpochSeconds."
+      );
     }
-    resolvedPath = resolvedPath.replace("{memberEpochSeconds}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{memberEpochSeconds}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: memberEpochSeconds.');
+    throw new Error(
+      "No value provided for input HTTP label: memberEpochSeconds."
+    );
   }
   if (input.memberHttpDate !== undefined) {
-    const labelValue: string = __dateToUtcString(input.memberHttpDate).toString();
+    const labelValue: string = __dateToUtcString(
+      input.memberHttpDate
+    ).toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: memberHttpDate.');
+      throw new Error(
+        "Empty value provided for input HTTP label: memberHttpDate."
+      );
     }
-    resolvedPath = resolvedPath.replace("{memberHttpDate}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{memberHttpDate}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: memberHttpDate.');
+    throw new Error("No value provided for input HTTP label: memberHttpDate.");
   }
   if (input.targetDateTime !== undefined) {
-    const labelValue: string = (input.targetDateTime.toISOString().split('.')[0]+"Z").toString();
+    const labelValue: string = (
+      input.targetDateTime.toISOString().split(".")[0] + "Z"
+    ).toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: targetDateTime.');
+      throw new Error(
+        "Empty value provided for input HTTP label: targetDateTime."
+      );
     }
-    resolvedPath = resolvedPath.replace("{targetDateTime}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{targetDateTime}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: targetDateTime.');
+    throw new Error("No value provided for input HTTP label: targetDateTime.");
   }
   if (input.targetEpochSeconds !== undefined) {
-    const labelValue: string = Math.round(input.targetEpochSeconds.getTime() / 1000).toString();
+    const labelValue: string = Math.round(
+      input.targetEpochSeconds.getTime() / 1000
+    ).toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: targetEpochSeconds.');
+      throw new Error(
+        "Empty value provided for input HTTP label: targetEpochSeconds."
+      );
     }
-    resolvedPath = resolvedPath.replace("{targetEpochSeconds}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{targetEpochSeconds}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: targetEpochSeconds.');
+    throw new Error(
+      "No value provided for input HTTP label: targetEpochSeconds."
+    );
   }
   if (input.targetHttpDate !== undefined) {
-    const labelValue: string = __dateToUtcString(input.targetHttpDate).toString();
+    const labelValue: string = __dateToUtcString(
+      input.targetHttpDate
+    ).toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: targetHttpDate.');
+      throw new Error(
+        "Empty value provided for input HTTP label: targetHttpDate."
+      );
     }
-    resolvedPath = resolvedPath.replace("{targetHttpDate}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{targetHttpDate}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
-    throw new Error('No value provided for input HTTP label: targetHttpDate.');
+    throw new Error("No value provided for input HTTP label: targetHttpDate.");
   }
   let body: any;
   return new __HttpRequest({
@@ -614,7 +729,7 @@ export async function serializeAws_restJson1_1HttpRequestWithLabelsAndTimestampF
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -623,7 +738,7 @@ export async function serializeAws_restJson1_1IgnoreQueryParamsInResponseCommand
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/IgnoreQueryParamsInResponse";
   let body: any;
   body = "{}";
@@ -633,7 +748,7 @@ export async function serializeAws_restJson1_1IgnoreQueryParamsInResponseCommand
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -642,33 +757,45 @@ export async function serializeAws_restJson1_1InputAndOutputWithHeadersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.headerBooleanList)) {
-    headers["X-BooleanList"] = (input.headerBooleanList! || []).map(_entry => _entry.toString()).join(', ');
+    headers["X-BooleanList"] = (input.headerBooleanList! || [])
+      .map(_entry => _entry.toString())
+      .join(", ");
   }
   if (isSerializableHeaderValue(input.headerByte)) {
     headers["X-Byte"] = input.headerByte!.toString();
   }
   if (isSerializableHeaderValue(input.headerDouble)) {
-    headers["X-Double"] = ((input.headerDouble! % 1 == 0) ? input.headerDouble! + ".0" : input.headerDouble!.toString());
+    headers["X-Double"] =
+      input.headerDouble! % 1 == 0
+        ? input.headerDouble! + ".0"
+        : input.headerDouble!.toString();
   }
   if (isSerializableHeaderValue(input.headerEnum)) {
     headers["X-Enum"] = input.headerEnum!;
   }
   if (isSerializableHeaderValue(input.headerEnumList)) {
-    headers["X-EnumList"] = (input.headerEnumList! || []).map(_entry => _entry).join(', ');
+    headers["X-EnumList"] = (input.headerEnumList! || [])
+      .map(_entry => _entry)
+      .join(", ");
   }
   if (isSerializableHeaderValue(input.headerFalseBool)) {
     headers["X-Boolean2"] = input.headerFalseBool!.toString();
   }
   if (isSerializableHeaderValue(input.headerFloat)) {
-    headers["X-Float"] = ((input.headerFloat! % 1 == 0) ? input.headerFloat! + ".0" : input.headerFloat!.toString());
+    headers["X-Float"] =
+      input.headerFloat! % 1 == 0
+        ? input.headerFloat! + ".0"
+        : input.headerFloat!.toString();
   }
   if (isSerializableHeaderValue(input.headerInteger)) {
     headers["X-Integer"] = input.headerInteger!.toString();
   }
   if (isSerializableHeaderValue(input.headerIntegerList)) {
-    headers["X-IntegerList"] = (input.headerIntegerList! || []).map(_entry => _entry.toString()).join(', ');
+    headers["X-IntegerList"] = (input.headerIntegerList! || [])
+      .map(_entry => _entry.toString())
+      .join(", ");
   }
   if (isSerializableHeaderValue(input.headerLong)) {
     headers["X-Long"] = input.headerLong!.toString();
@@ -680,13 +807,19 @@ export async function serializeAws_restJson1_1InputAndOutputWithHeadersCommand(
     headers["X-String"] = input.headerString!;
   }
   if (isSerializableHeaderValue(input.headerStringList)) {
-    headers["X-StringList"] = (input.headerStringList! || []).map(_entry => _entry).join(', ');
+    headers["X-StringList"] = (input.headerStringList! || [])
+      .map(_entry => _entry)
+      .join(", ");
   }
   if (isSerializableHeaderValue(input.headerStringSet)) {
-    headers["X-StringSet"] = (Array.from(input.headerStringSet!.values()) || []).map(_entry => _entry).join(', ');
+    headers["X-StringSet"] = (Array.from(input.headerStringSet!.values()) || [])
+      .map(_entry => _entry)
+      .join(", ");
   }
   if (isSerializableHeaderValue(input.headerTimestampList)) {
-    headers["X-TimestampList"] = (input.headerTimestampList! || []).map(_entry => __dateToUtcString(_entry).toString()).join(', ');
+    headers["X-TimestampList"] = (input.headerTimestampList! || [])
+      .map(_entry => __dateToUtcString(_entry).toString())
+      .join(", ");
   }
   if (isSerializableHeaderValue(input.headerTrueBool)) {
     headers["X-Boolean1"] = input.headerTrueBool!.toString();
@@ -699,7 +832,7 @@ export async function serializeAws_restJson1_1InputAndOutputWithHeadersCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -708,12 +841,12 @@ export async function serializeAws_restJson1_1JsonBlobsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/JsonBlobs";
   let body: any;
   const bodyParams: any = {};
   if (input.data !== undefined) {
-    bodyParams['data'] = context.base64Encoder(input.data);
+    bodyParams["data"] = context.base64Encoder(input.data);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -722,7 +855,7 @@ export async function serializeAws_restJson1_1JsonBlobsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -731,27 +864,36 @@ export async function serializeAws_restJson1_1JsonEnumsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/JsonEnums";
   let body: any;
   const bodyParams: any = {};
   if (input.fooEnum1 !== undefined) {
-    bodyParams['fooEnum1'] = input.fooEnum1;
+    bodyParams["fooEnum1"] = input.fooEnum1;
   }
   if (input.fooEnum2 !== undefined) {
-    bodyParams['fooEnum2'] = input.fooEnum2;
+    bodyParams["fooEnum2"] = input.fooEnum2;
   }
   if (input.fooEnum3 !== undefined) {
-    bodyParams['fooEnum3'] = input.fooEnum3;
+    bodyParams["fooEnum3"] = input.fooEnum3;
   }
   if (input.fooEnumList !== undefined) {
-    bodyParams['fooEnumList'] = serializeAws_restJson1_1FooEnumList(input.fooEnumList, context);
+    bodyParams["fooEnumList"] = serializeAws_restJson1_1FooEnumList(
+      input.fooEnumList,
+      context
+    );
   }
   if (input.fooEnumMap !== undefined) {
-    bodyParams['fooEnumMap'] = serializeAws_restJson1_1FooEnumMap(input.fooEnumMap, context);
+    bodyParams["fooEnumMap"] = serializeAws_restJson1_1FooEnumMap(
+      input.fooEnumMap,
+      context
+    );
   }
   if (input.fooEnumSet !== undefined) {
-    bodyParams['fooEnumSet'] = serializeAws_restJson1_1FooEnumSet(input.fooEnumSet, context);
+    bodyParams["fooEnumSet"] = serializeAws_restJson1_1FooEnumSet(
+      input.fooEnumSet,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -760,7 +902,7 @@ export async function serializeAws_restJson1_1JsonEnumsCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -769,33 +911,57 @@ export async function serializeAws_restJson1_1JsonListsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/JsonLists";
   let body: any;
   const bodyParams: any = {};
   if (input.booleanList !== undefined) {
-    bodyParams['booleanList'] = serializeAws_restJson1_1BooleanList(input.booleanList, context);
+    bodyParams["booleanList"] = serializeAws_restJson1_1BooleanList(
+      input.booleanList,
+      context
+    );
   }
   if (input.enumList !== undefined) {
-    bodyParams['enumList'] = serializeAws_restJson1_1FooEnumList(input.enumList, context);
+    bodyParams["enumList"] = serializeAws_restJson1_1FooEnumList(
+      input.enumList,
+      context
+    );
   }
   if (input.integerList !== undefined) {
-    bodyParams['integerList'] = serializeAws_restJson1_1IntegerList(input.integerList, context);
+    bodyParams["integerList"] = serializeAws_restJson1_1IntegerList(
+      input.integerList,
+      context
+    );
   }
   if (input.nestedStringList !== undefined) {
-    bodyParams['nestedStringList'] = serializeAws_restJson1_1NestedStringList(input.nestedStringList, context);
+    bodyParams["nestedStringList"] = serializeAws_restJson1_1NestedStringList(
+      input.nestedStringList,
+      context
+    );
   }
   if (input.stringList !== undefined) {
-    bodyParams['stringList'] = serializeAws_restJson1_1StringList(input.stringList, context);
+    bodyParams["stringList"] = serializeAws_restJson1_1StringList(
+      input.stringList,
+      context
+    );
   }
   if (input.stringSet !== undefined) {
-    bodyParams['stringSet'] = serializeAws_restJson1_1StringSet(input.stringSet, context);
+    bodyParams["stringSet"] = serializeAws_restJson1_1StringSet(
+      input.stringSet,
+      context
+    );
   }
   if (input.structureList !== undefined) {
-    bodyParams['myStructureList'] = serializeAws_restJson1_1StructureList(input.structureList, context);
+    bodyParams["myStructureList"] = serializeAws_restJson1_1StructureList(
+      input.structureList,
+      context
+    );
   }
   if (input.timestampList !== undefined) {
-    bodyParams['timestampList'] = serializeAws_restJson1_1TimestampList(input.timestampList, context);
+    bodyParams["timestampList"] = serializeAws_restJson1_1TimestampList(
+      input.timestampList,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -804,7 +970,7 @@ export async function serializeAws_restJson1_1JsonListsCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -813,12 +979,15 @@ export async function serializeAws_restJson1_1JsonMapsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/JsonMaps";
   let body: any;
   const bodyParams: any = {};
   if (input.myMap !== undefined) {
-    bodyParams['myMap'] = serializeAws_restJson1_1JsonMapsInputOutputMap(input.myMap, context);
+    bodyParams["myMap"] = serializeAws_restJson1_1JsonMapsInputOutputMap(
+      input.myMap,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -827,7 +996,7 @@ export async function serializeAws_restJson1_1JsonMapsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -836,21 +1005,23 @@ export async function serializeAws_restJson1_1JsonTimestampsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/JsonTimestamps";
   let body: any;
   const bodyParams: any = {};
   if (input.dateTime !== undefined) {
-    bodyParams['dateTime'] = (input.dateTime.toISOString().split('.')[0]+"Z");
+    bodyParams["dateTime"] = input.dateTime.toISOString().split(".")[0] + "Z";
   }
   if (input.epochSeconds !== undefined) {
-    bodyParams['epochSeconds'] = Math.round(input.epochSeconds.getTime() / 1000);
+    bodyParams["epochSeconds"] = Math.round(
+      input.epochSeconds.getTime() / 1000
+    );
   }
   if (input.httpDate !== undefined) {
-    bodyParams['httpDate'] = __dateToUtcString(input.httpDate);
+    bodyParams["httpDate"] = __dateToUtcString(input.httpDate);
   }
   if (input.normal !== undefined) {
-    bodyParams['normal'] = Math.round(input.normal.getTime() / 1000);
+    bodyParams["normal"] = Math.round(input.normal.getTime() / 1000);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -859,7 +1030,7 @@ export async function serializeAws_restJson1_1JsonTimestampsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -868,7 +1039,7 @@ export async function serializeAws_restJson1_1NoInputAndNoOutputCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/NoInputAndNoOutput";
   let body: any;
   body = "{}";
@@ -878,7 +1049,7 @@ export async function serializeAws_restJson1_1NoInputAndNoOutputCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -887,7 +1058,7 @@ export async function serializeAws_restJson1_1NoInputAndOutputCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/NoInputAndOutputOutput";
   let body: any;
   body = "{}";
@@ -897,7 +1068,7 @@ export async function serializeAws_restJson1_1NoInputAndOutputCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -906,7 +1077,7 @@ export async function serializeAws_restJson1_1NullAndEmptyHeadersClientCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.a)) {
     headers["X-A"] = input.a!;
   }
@@ -914,7 +1085,7 @@ export async function serializeAws_restJson1_1NullAndEmptyHeadersClientCommand(
     headers["X-B"] = input.b!;
   }
   if (isSerializableHeaderValue(input.c)) {
-    headers["X-C"] = (input.c! || []).map(_entry => _entry).join(', ');
+    headers["X-C"] = (input.c! || []).map(_entry => _entry).join(", ");
   }
   let resolvedPath = "/NullAndEmptyHeadersClient";
   let body: any;
@@ -924,7 +1095,7 @@ export async function serializeAws_restJson1_1NullAndEmptyHeadersClientCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -933,7 +1104,7 @@ export async function serializeAws_restJson1_1NullAndEmptyHeadersServerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.a)) {
     headers["X-A"] = input.a!;
   }
@@ -941,7 +1112,7 @@ export async function serializeAws_restJson1_1NullAndEmptyHeadersServerCommand(
     headers["X-B"] = input.b!;
   }
   if (isSerializableHeaderValue(input.c)) {
-    headers["X-C"] = (input.c! || []).map(_entry => _entry).join(', ');
+    headers["X-C"] = (input.c! || []).map(_entry => _entry).join(", ");
   }
   let resolvedPath = "/NullAndEmptyHeadersServer";
   let body: any;
@@ -951,7 +1122,7 @@ export async function serializeAws_restJson1_1NullAndEmptyHeadersServerCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -960,7 +1131,7 @@ export async function serializeAws_restJson1_1OmitsNullSerializesEmptyStringComm
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/OmitsNullSerializesEmptyString";
   const query: any = {};
   if (input.emptyString !== undefined) {
@@ -977,7 +1148,7 @@ export async function serializeAws_restJson1_1OmitsNullSerializesEmptyStringComm
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body,
+    body: body
   });
 }
 
@@ -986,7 +1157,7 @@ export async function serializeAws_restJson1_1QueryIdempotencyTokenAutoFillComma
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/QueryIdempotencyTokenAutoFill";
   const query: any = {};
   if (input.token !== undefined) {
@@ -1000,7 +1171,7 @@ export async function serializeAws_restJson1_1QueryIdempotencyTokenAutoFillComma
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body,
+    body: body
   });
 }
 
@@ -1009,12 +1180,17 @@ export async function serializeAws_restJson1_1RecursiveShapesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/RecursiveShapes";
   let body: any;
   const bodyParams: any = {};
   if (input.nested !== undefined) {
-    bodyParams['nested'] = serializeAws_restJson1_1RecursiveShapesInputOutputNested1(input.nested, context);
+    bodyParams[
+      "nested"
+    ] = serializeAws_restJson1_1RecursiveShapesInputOutputNested1(
+      input.nested,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1023,7 +1199,7 @@ export async function serializeAws_restJson1_1RecursiveShapesCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1032,7 +1208,7 @@ export async function serializeAws_restJson1_1SimpleScalarPropertiesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   if (isSerializableHeaderValue(input.foo)) {
     headers["X-Foo"] = input.foo!;
   }
@@ -1040,31 +1216,31 @@ export async function serializeAws_restJson1_1SimpleScalarPropertiesCommand(
   let body: any;
   const bodyParams: any = {};
   if (input.byteValue !== undefined) {
-    bodyParams['byteValue'] = input.byteValue;
+    bodyParams["byteValue"] = input.byteValue;
   }
   if (input.doubleValue !== undefined) {
-    bodyParams['DoubleDribble'] = input.doubleValue;
+    bodyParams["DoubleDribble"] = input.doubleValue;
   }
   if (input.falseBooleanValue !== undefined) {
-    bodyParams['falseBooleanValue'] = input.falseBooleanValue;
+    bodyParams["falseBooleanValue"] = input.falseBooleanValue;
   }
   if (input.floatValue !== undefined) {
-    bodyParams['floatValue'] = input.floatValue;
+    bodyParams["floatValue"] = input.floatValue;
   }
   if (input.integerValue !== undefined) {
-    bodyParams['integerValue'] = input.integerValue;
+    bodyParams["integerValue"] = input.integerValue;
   }
   if (input.longValue !== undefined) {
-    bodyParams['longValue'] = input.longValue;
+    bodyParams["longValue"] = input.longValue;
   }
   if (input.shortValue !== undefined) {
-    bodyParams['shortValue'] = input.shortValue;
+    bodyParams["shortValue"] = input.shortValue;
   }
   if (input.stringValue !== undefined) {
-    bodyParams['stringValue'] = input.stringValue;
+    bodyParams["stringValue"] = input.stringValue;
   }
   if (input.trueBooleanValue !== undefined) {
-    bodyParams['trueBooleanValue'] = input.trueBooleanValue;
+    bodyParams["trueBooleanValue"] = input.trueBooleanValue;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1073,7 +1249,7 @@ export async function serializeAws_restJson1_1SimpleScalarPropertiesCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1082,27 +1258,41 @@ export async function serializeAws_restJson1_1TimestampFormatHeadersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (isSerializableHeaderValue(input.defaultFormat)) {
-    headers["X-defaultFormat"] = __dateToUtcString(input.defaultFormat!).toString();
+    headers["X-defaultFormat"] = __dateToUtcString(
+      input.defaultFormat!
+    ).toString();
   }
   if (isSerializableHeaderValue(input.memberDateTime)) {
-    headers["X-memberDateTime"] = (input.memberDateTime!.toISOString().split('.')[0]+"Z").toString();
+    headers["X-memberDateTime"] = (
+      input.memberDateTime!.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (isSerializableHeaderValue(input.memberEpochSeconds)) {
-    headers["X-memberEpochSeconds"] = Math.round(input.memberEpochSeconds!.getTime() / 1000).toString();
+    headers["X-memberEpochSeconds"] = Math.round(
+      input.memberEpochSeconds!.getTime() / 1000
+    ).toString();
   }
   if (isSerializableHeaderValue(input.memberHttpDate)) {
-    headers["X-memberHttpDate"] = __dateToUtcString(input.memberHttpDate!).toString();
+    headers["X-memberHttpDate"] = __dateToUtcString(
+      input.memberHttpDate!
+    ).toString();
   }
   if (isSerializableHeaderValue(input.targetDateTime)) {
-    headers["X-targetDateTime"] = (input.targetDateTime!.toISOString().split('.')[0]+"Z").toString();
+    headers["X-targetDateTime"] = (
+      input.targetDateTime!.toISOString().split(".")[0] + "Z"
+    ).toString();
   }
   if (isSerializableHeaderValue(input.targetEpochSeconds)) {
-    headers["X-targetEpochSeconds"] = Math.round(input.targetEpochSeconds!.getTime() / 1000).toString();
+    headers["X-targetEpochSeconds"] = Math.round(
+      input.targetEpochSeconds!.getTime() / 1000
+    ).toString();
   }
   if (isSerializableHeaderValue(input.targetHttpDate)) {
-    headers["X-targetHttpDate"] = __dateToUtcString(input.targetHttpDate!).toString();
+    headers["X-targetHttpDate"] = __dateToUtcString(
+      input.targetHttpDate!
+    ).toString();
   }
   let resolvedPath = "/TimestampFormatHeaders";
   let body: any;
@@ -1112,7 +1302,7 @@ export async function serializeAws_restJson1_1TimestampFormatHeadersCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1121,10 +1311,13 @@ export async function deserializeAws_restJson1_1AllQueryStringTypesCommand(
   context: __SerdeContext
 ): Promise<AllQueryStringTypesCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1AllQueryStringTypesCommandError(output, context);
+    return deserializeAws_restJson1_1AllQueryStringTypesCommandError(
+      output,
+      context
+    );
   }
   const contents: AllQueryStringTypesCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1132,13 +1325,13 @@ export async function deserializeAws_restJson1_1AllQueryStringTypesCommand(
 
 async function deserializeAws_restJson1_1AllQueryStringTypesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<AllQueryStringTypesCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1164,10 +1357,13 @@ export async function deserializeAws_restJson1_1ConstantAndVariableQueryStringCo
   context: __SerdeContext
 ): Promise<ConstantAndVariableQueryStringCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ConstantAndVariableQueryStringCommandError(output, context);
+    return deserializeAws_restJson1_1ConstantAndVariableQueryStringCommandError(
+      output,
+      context
+    );
   }
   const contents: ConstantAndVariableQueryStringCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1175,13 +1371,13 @@ export async function deserializeAws_restJson1_1ConstantAndVariableQueryStringCo
 
 async function deserializeAws_restJson1_1ConstantAndVariableQueryStringCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ConstantAndVariableQueryStringCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1207,10 +1403,13 @@ export async function deserializeAws_restJson1_1ConstantQueryStringCommand(
   context: __SerdeContext
 ): Promise<ConstantQueryStringCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ConstantQueryStringCommandError(output, context);
+    return deserializeAws_restJson1_1ConstantQueryStringCommandError(
+      output,
+      context
+    );
   }
   const contents: ConstantQueryStringCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1218,13 +1417,13 @@ export async function deserializeAws_restJson1_1ConstantQueryStringCommand(
 
 async function deserializeAws_restJson1_1ConstantQueryStringCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ConstantQueryStringCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1250,11 +1449,14 @@ export async function deserializeAws_restJson1_1EmptyInputAndEmptyOutputCommand(
   context: __SerdeContext
 ): Promise<EmptyInputAndEmptyOutputCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1EmptyInputAndEmptyOutputCommandError(output, context);
+    return deserializeAws_restJson1_1EmptyInputAndEmptyOutputCommandError(
+      output,
+      context
+    );
   }
   const contents: EmptyInputAndEmptyOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EmptyInputAndEmptyOutputOutput",
+    __type: "EmptyInputAndEmptyOutputOutput"
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1262,13 +1464,13 @@ export async function deserializeAws_restJson1_1EmptyInputAndEmptyOutputCommand(
 
 async function deserializeAws_restJson1_1EmptyInputAndEmptyOutputCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<EmptyInputAndEmptyOutputCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1294,15 +1496,18 @@ export async function deserializeAws_restJson1_1GreetingWithErrorsCommand(
   context: __SerdeContext
 ): Promise<GreetingWithErrorsCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GreetingWithErrorsCommandError(output, context);
+    return deserializeAws_restJson1_1GreetingWithErrorsCommandError(
+      output,
+      context
+    );
   }
   const contents: GreetingWithErrorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GreetingWithErrorsOutput",
-    greeting: undefined,
+    greeting: undefined
   };
   if (output.headers["x-greeting"] !== undefined) {
-    contents.greeting = output.headers['x-greeting'];
+    contents.greeting = output.headers["x-greeting"];
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1310,39 +1515,48 @@ export async function deserializeAws_restJson1_1GreetingWithErrorsCommand(
 
 async function deserializeAws_restJson1_1GreetingWithErrorsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GreetingWithErrorsCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ComplexError":
     case "aws.protocols.tests.restjson#ComplexError":
       response = {
-        ...await deserializeAws_restJson1_1ComplexErrorResponse(parsedOutput, context),
+        ...(await deserializeAws_restJson1_1ComplexErrorResponse(
+          parsedOutput,
+          context
+        )),
         name: errorCode,
-        $metadata: deserializeMetadata(output),
-      }
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FooError":
     case "aws.protocols.tests.restjson#FooError":
       response = {
-        ...await deserializeAws_restJson1_1FooErrorResponse(parsedOutput, context),
+        ...(await deserializeAws_restJson1_1FooErrorResponse(
+          parsedOutput,
+          context
+        )),
         name: errorCode,
-        $metadata: deserializeMetadata(output),
-      }
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidGreeting":
     case "aws.protocols.tests.restjson#InvalidGreeting":
       response = {
-        ...await deserializeAws_restJson1_1InvalidGreetingResponse(parsedOutput, context),
+        ...(await deserializeAws_restJson1_1InvalidGreetingResponse(
+          parsedOutput,
+          context
+        )),
         name: errorCode,
-        $metadata: deserializeMetadata(output),
-      }
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1366,16 +1580,19 @@ export async function deserializeAws_restJson1_1HttpPayloadTraitsCommand(
   context: __SerdeContext
 ): Promise<HttpPayloadTraitsCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1HttpPayloadTraitsCommandError(output, context);
+    return deserializeAws_restJson1_1HttpPayloadTraitsCommandError(
+      output,
+      context
+    );
   }
   const contents: HttpPayloadTraitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "HttpPayloadTraitsInputOutput",
     blob: undefined,
-    foo: undefined,
+    foo: undefined
   };
   if (output.headers["x-foo"] !== undefined) {
-    contents.foo = output.headers['x-foo'];
+    contents.foo = output.headers["x-foo"];
   }
   const data: any = await collectBody(output.body, context);
   contents.blob = data;
@@ -1384,13 +1601,13 @@ export async function deserializeAws_restJson1_1HttpPayloadTraitsCommand(
 
 async function deserializeAws_restJson1_1HttpPayloadTraitsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<HttpPayloadTraitsCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1416,16 +1633,19 @@ export async function deserializeAws_restJson1_1HttpPayloadTraitsWithMediaTypeCo
   context: __SerdeContext
 ): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1HttpPayloadTraitsWithMediaTypeCommandError(output, context);
+    return deserializeAws_restJson1_1HttpPayloadTraitsWithMediaTypeCommandError(
+      output,
+      context
+    );
   }
   const contents: HttpPayloadTraitsWithMediaTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "HttpPayloadTraitsWithMediaTypeInputOutput",
     blob: undefined,
-    foo: undefined,
+    foo: undefined
   };
   if (output.headers["x-foo"] !== undefined) {
-    contents.foo = output.headers['x-foo'];
+    contents.foo = output.headers["x-foo"];
   }
   const data: any = await collectBody(output.body, context);
   contents.blob = data;
@@ -1434,13 +1654,13 @@ export async function deserializeAws_restJson1_1HttpPayloadTraitsWithMediaTypeCo
 
 async function deserializeAws_restJson1_1HttpPayloadTraitsWithMediaTypeCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1466,12 +1686,15 @@ export async function deserializeAws_restJson1_1HttpPayloadWithStructureCommand(
   context: __SerdeContext
 ): Promise<HttpPayloadWithStructureCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1HttpPayloadWithStructureCommandError(output, context);
+    return deserializeAws_restJson1_1HttpPayloadWithStructureCommandError(
+      output,
+      context
+    );
   }
   const contents: HttpPayloadWithStructureCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "HttpPayloadWithStructureInputOutput",
-    nested: undefined,
+    nested: undefined
   };
   const data: any = await parseBody(output.body, context);
   contents.nested = deserializeAws_restJson1_1NestedPayload(data, context);
@@ -1480,13 +1703,13 @@ export async function deserializeAws_restJson1_1HttpPayloadWithStructureCommand(
 
 async function deserializeAws_restJson1_1HttpPayloadWithStructureCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<HttpPayloadWithStructureCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1512,16 +1735,19 @@ export async function deserializeAws_restJson1_1HttpPrefixHeadersCommand(
   context: __SerdeContext
 ): Promise<HttpPrefixHeadersCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1HttpPrefixHeadersCommandError(output, context);
+    return deserializeAws_restJson1_1HttpPrefixHeadersCommandError(
+      output,
+      context
+    );
   }
   const contents: HttpPrefixHeadersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "HttpPrefixHeadersInputOutput",
     foo: undefined,
-    fooMap: undefined,
+    fooMap: undefined
   };
   if (output.headers["x-foo"] !== undefined) {
-    contents.foo = output.headers['x-foo'];
+    contents.foo = output.headers["x-foo"];
   }
   Object.keys(output.headers).forEach(header => {
     if (contents.fooMap === undefined) {
@@ -1537,13 +1763,13 @@ export async function deserializeAws_restJson1_1HttpPrefixHeadersCommand(
 
 async function deserializeAws_restJson1_1HttpPrefixHeadersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<HttpPrefixHeadersCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1569,10 +1795,13 @@ export async function deserializeAws_restJson1_1HttpRequestWithGreedyLabelInPath
   context: __SerdeContext
 ): Promise<HttpRequestWithGreedyLabelInPathCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1HttpRequestWithGreedyLabelInPathCommandError(output, context);
+    return deserializeAws_restJson1_1HttpRequestWithGreedyLabelInPathCommandError(
+      output,
+      context
+    );
   }
   const contents: HttpRequestWithGreedyLabelInPathCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1580,13 +1809,13 @@ export async function deserializeAws_restJson1_1HttpRequestWithGreedyLabelInPath
 
 async function deserializeAws_restJson1_1HttpRequestWithGreedyLabelInPathCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<HttpRequestWithGreedyLabelInPathCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1612,10 +1841,13 @@ export async function deserializeAws_restJson1_1HttpRequestWithLabelsCommand(
   context: __SerdeContext
 ): Promise<HttpRequestWithLabelsCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1HttpRequestWithLabelsCommandError(output, context);
+    return deserializeAws_restJson1_1HttpRequestWithLabelsCommandError(
+      output,
+      context
+    );
   }
   const contents: HttpRequestWithLabelsCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1623,13 +1855,13 @@ export async function deserializeAws_restJson1_1HttpRequestWithLabelsCommand(
 
 async function deserializeAws_restJson1_1HttpRequestWithLabelsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<HttpRequestWithLabelsCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1655,10 +1887,13 @@ export async function deserializeAws_restJson1_1HttpRequestWithLabelsAndTimestam
   context: __SerdeContext
 ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1HttpRequestWithLabelsAndTimestampFormatCommandError(output, context);
+    return deserializeAws_restJson1_1HttpRequestWithLabelsAndTimestampFormatCommandError(
+      output,
+      context
+    );
   }
   const contents: HttpRequestWithLabelsAndTimestampFormatCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1666,13 +1901,13 @@ export async function deserializeAws_restJson1_1HttpRequestWithLabelsAndTimestam
 
 async function deserializeAws_restJson1_1HttpRequestWithLabelsAndTimestampFormatCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1698,14 +1933,17 @@ export async function deserializeAws_restJson1_1IgnoreQueryParamsInResponseComma
   context: __SerdeContext
 ): Promise<IgnoreQueryParamsInResponseCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1IgnoreQueryParamsInResponseCommandError(output, context);
+    return deserializeAws_restJson1_1IgnoreQueryParamsInResponseCommandError(
+      output,
+      context
+    );
   }
   const contents: IgnoreQueryParamsInResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "IgnoreQueryParamsInResponseOutput",
-    baz: undefined,
+    baz: undefined
   };
-  const data: any = (await parseBody(output.body, context));
+  const data: any = await parseBody(output.body, context);
   if (data.baz !== undefined && data.baz !== null) {
     contents.baz = data.baz;
   }
@@ -1714,13 +1952,13 @@ export async function deserializeAws_restJson1_1IgnoreQueryParamsInResponseComma
 
 async function deserializeAws_restJson1_1IgnoreQueryParamsInResponseCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<IgnoreQueryParamsInResponseCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1746,7 +1984,10 @@ export async function deserializeAws_restJson1_1InputAndOutputWithHeadersCommand
   context: __SerdeContext
 ): Promise<InputAndOutputWithHeadersCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1InputAndOutputWithHeadersCommandError(output, context);
+    return deserializeAws_restJson1_1InputAndOutputWithHeadersCommandError(
+      output,
+      context
+    );
   }
   const contents: InputAndOutputWithHeadersCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1766,55 +2007,71 @@ export async function deserializeAws_restJson1_1InputAndOutputWithHeadersCommand
     headerStringList: undefined,
     headerStringSet: undefined,
     headerTimestampList: undefined,
-    headerTrueBool: undefined,
+    headerTrueBool: undefined
   };
   if (output.headers["x-booleanlist"] !== undefined) {
-    contents.headerBooleanList = (output.headers['x-booleanlist'] || "").split(',').map(_entry => _entry.trim() === 'true');
+    contents.headerBooleanList = (output.headers["x-booleanlist"] || "")
+      .split(",")
+      .map(_entry => _entry.trim() === "true");
   }
   if (output.headers["x-byte"] !== undefined) {
-    contents.headerByte = parseInt(output.headers['x-byte'], 10);
+    contents.headerByte = parseInt(output.headers["x-byte"], 10);
   }
   if (output.headers["x-double"] !== undefined) {
-    contents.headerDouble = parseFloat(output.headers['x-double']);
+    contents.headerDouble = parseFloat(output.headers["x-double"]);
   }
   if (output.headers["x-enum"] !== undefined) {
-    contents.headerEnum = output.headers['x-enum'];
+    contents.headerEnum = output.headers["x-enum"];
   }
   if (output.headers["x-enumlist"] !== undefined) {
-    contents.headerEnumList = (output.headers['x-enumlist'] || "").split(',').map(_entry => _entry.trim());
+    contents.headerEnumList = (output.headers["x-enumlist"] || "")
+      .split(",")
+      .map(_entry => _entry.trim());
   }
   if (output.headers["x-boolean2"] !== undefined) {
-    contents.headerFalseBool = output.headers['x-boolean2'] === 'true';
+    contents.headerFalseBool = output.headers["x-boolean2"] === "true";
   }
   if (output.headers["x-float"] !== undefined) {
-    contents.headerFloat = parseFloat(output.headers['x-float']);
+    contents.headerFloat = parseFloat(output.headers["x-float"]);
   }
   if (output.headers["x-integer"] !== undefined) {
-    contents.headerInteger = parseInt(output.headers['x-integer'], 10);
+    contents.headerInteger = parseInt(output.headers["x-integer"], 10);
   }
   if (output.headers["x-integerlist"] !== undefined) {
-    contents.headerIntegerList = (output.headers['x-integerlist'] || "").split(',').map(_entry => parseInt(_entry.trim(), 10));
+    contents.headerIntegerList = (output.headers["x-integerlist"] || "")
+      .split(",")
+      .map(_entry => parseInt(_entry.trim(), 10));
   }
   if (output.headers["x-long"] !== undefined) {
-    contents.headerLong = parseInt(output.headers['x-long'], 10);
+    contents.headerLong = parseInt(output.headers["x-long"], 10);
   }
   if (output.headers["x-short"] !== undefined) {
-    contents.headerShort = parseInt(output.headers['x-short'], 10);
+    contents.headerShort = parseInt(output.headers["x-short"], 10);
   }
   if (output.headers["x-string"] !== undefined) {
-    contents.headerString = output.headers['x-string'];
+    contents.headerString = output.headers["x-string"];
   }
   if (output.headers["x-stringlist"] !== undefined) {
-    contents.headerStringList = (output.headers['x-stringlist'] || "").split(',').map(_entry => _entry.trim());
+    contents.headerStringList = (output.headers["x-stringlist"] || "")
+      .split(",")
+      .map(_entry => _entry.trim());
   }
   if (output.headers["x-stringset"] !== undefined) {
-    contents.headerStringSet = new Set((output.headers['x-stringset'] || "").split(',').map(_entry => _entry.trim()));
+    contents.headerStringSet = new Set(
+      (output.headers["x-stringset"] || "")
+        .split(",")
+        .map(_entry => _entry.trim())
+    );
   }
   if (output.headers["x-timestamplist"] !== undefined) {
-    contents.headerTimestampList = __splitEvery((output.headers['x-timestamplist'] || ""), ',', 2).map(_entry => new Date(_entry.trim()));
+    contents.headerTimestampList = __splitEvery(
+      output.headers["x-timestamplist"] || "",
+      ",",
+      2
+    ).map(_entry => new Date(_entry.trim()));
   }
   if (output.headers["x-boolean1"] !== undefined) {
-    contents.headerTrueBool = output.headers['x-boolean1'] === 'true';
+    contents.headerTrueBool = output.headers["x-boolean1"] === "true";
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1822,13 +2079,13 @@ export async function deserializeAws_restJson1_1InputAndOutputWithHeadersCommand
 
 async function deserializeAws_restJson1_1InputAndOutputWithHeadersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<InputAndOutputWithHeadersCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1859,9 +2116,9 @@ export async function deserializeAws_restJson1_1JsonBlobsCommand(
   const contents: JsonBlobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "JsonBlobsInputOutput",
-    data: undefined,
+    data: undefined
   };
-  const data: any = (await parseBody(output.body, context));
+  const data: any = await parseBody(output.body, context);
   if (data.data !== undefined && data.data !== null) {
     contents.data = context.base64Decoder(data.data);
   }
@@ -1870,13 +2127,13 @@ export async function deserializeAws_restJson1_1JsonBlobsCommand(
 
 async function deserializeAws_restJson1_1JsonBlobsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<JsonBlobsCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1912,9 +2169,9 @@ export async function deserializeAws_restJson1_1JsonEnumsCommand(
     fooEnum3: undefined,
     fooEnumList: undefined,
     fooEnumMap: undefined,
-    fooEnumSet: undefined,
+    fooEnumSet: undefined
   };
-  const data: any = (await parseBody(output.body, context));
+  const data: any = await parseBody(output.body, context);
   if (data.fooEnum1 !== undefined && data.fooEnum1 !== null) {
     contents.fooEnum1 = data.fooEnum1;
   }
@@ -1925,26 +2182,35 @@ export async function deserializeAws_restJson1_1JsonEnumsCommand(
     contents.fooEnum3 = data.fooEnum3;
   }
   if (data.fooEnumList !== undefined && data.fooEnumList !== null) {
-    contents.fooEnumList = deserializeAws_restJson1_1FooEnumList(data.fooEnumList, context);
+    contents.fooEnumList = deserializeAws_restJson1_1FooEnumList(
+      data.fooEnumList,
+      context
+    );
   }
   if (data.fooEnumMap !== undefined && data.fooEnumMap !== null) {
-    contents.fooEnumMap = deserializeAws_restJson1_1FooEnumMap(data.fooEnumMap, context);
+    contents.fooEnumMap = deserializeAws_restJson1_1FooEnumMap(
+      data.fooEnumMap,
+      context
+    );
   }
   if (data.fooEnumSet !== undefined && data.fooEnumSet !== null) {
-    contents.fooEnumSet = deserializeAws_restJson1_1FooEnumSet(data.fooEnumSet, context);
+    contents.fooEnumSet = deserializeAws_restJson1_1FooEnumSet(
+      data.fooEnumSet,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1JsonEnumsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<JsonEnumsCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -1982,45 +2248,69 @@ export async function deserializeAws_restJson1_1JsonListsCommand(
     stringList: undefined,
     stringSet: undefined,
     structureList: undefined,
-    timestampList: undefined,
+    timestampList: undefined
   };
-  const data: any = (await parseBody(output.body, context));
+  const data: any = await parseBody(output.body, context);
   if (data.booleanList !== undefined && data.booleanList !== null) {
-    contents.booleanList = deserializeAws_restJson1_1BooleanList(data.booleanList, context);
+    contents.booleanList = deserializeAws_restJson1_1BooleanList(
+      data.booleanList,
+      context
+    );
   }
   if (data.enumList !== undefined && data.enumList !== null) {
-    contents.enumList = deserializeAws_restJson1_1FooEnumList(data.enumList, context);
+    contents.enumList = deserializeAws_restJson1_1FooEnumList(
+      data.enumList,
+      context
+    );
   }
   if (data.integerList !== undefined && data.integerList !== null) {
-    contents.integerList = deserializeAws_restJson1_1IntegerList(data.integerList, context);
+    contents.integerList = deserializeAws_restJson1_1IntegerList(
+      data.integerList,
+      context
+    );
   }
   if (data.nestedStringList !== undefined && data.nestedStringList !== null) {
-    contents.nestedStringList = deserializeAws_restJson1_1NestedStringList(data.nestedStringList, context);
+    contents.nestedStringList = deserializeAws_restJson1_1NestedStringList(
+      data.nestedStringList,
+      context
+    );
   }
   if (data.stringList !== undefined && data.stringList !== null) {
-    contents.stringList = deserializeAws_restJson1_1StringList(data.stringList, context);
+    contents.stringList = deserializeAws_restJson1_1StringList(
+      data.stringList,
+      context
+    );
   }
   if (data.stringSet !== undefined && data.stringSet !== null) {
-    contents.stringSet = deserializeAws_restJson1_1StringSet(data.stringSet, context);
+    contents.stringSet = deserializeAws_restJson1_1StringSet(
+      data.stringSet,
+      context
+    );
   }
   if (data.myStructureList !== undefined && data.myStructureList !== null) {
-    contents.structureList = deserializeAws_restJson1_1StructureList(data.myStructureList, context);
+    contents.structureList = deserializeAws_restJson1_1StructureList(
+      data.myStructureList,
+      context
+    );
   }
   if (data.timestampList !== undefined && data.timestampList !== null) {
-    contents.timestampList = deserializeAws_restJson1_1TimestampList(data.timestampList, context);
+    contents.timestampList = deserializeAws_restJson1_1TimestampList(
+      data.timestampList,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1JsonListsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<JsonListsCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2051,24 +2341,27 @@ export async function deserializeAws_restJson1_1JsonMapsCommand(
   const contents: JsonMapsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "JsonMapsInputOutput",
-    myMap: undefined,
+    myMap: undefined
   };
-  const data: any = (await parseBody(output.body, context));
+  const data: any = await parseBody(output.body, context);
   if (data.myMap !== undefined && data.myMap !== null) {
-    contents.myMap = deserializeAws_restJson1_1JsonMapsInputOutputMap(data.myMap, context);
+    contents.myMap = deserializeAws_restJson1_1JsonMapsInputOutputMap(
+      data.myMap,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1JsonMapsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<JsonMapsCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2094,7 +2387,10 @@ export async function deserializeAws_restJson1_1JsonTimestampsCommand(
   context: __SerdeContext
 ): Promise<JsonTimestampsCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1JsonTimestampsCommandError(output, context);
+    return deserializeAws_restJson1_1JsonTimestampsCommandError(
+      output,
+      context
+    );
   }
   const contents: JsonTimestampsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2102,9 +2398,9 @@ export async function deserializeAws_restJson1_1JsonTimestampsCommand(
     dateTime: undefined,
     epochSeconds: undefined,
     httpDate: undefined,
-    normal: undefined,
+    normal: undefined
   };
-  const data: any = (await parseBody(output.body, context));
+  const data: any = await parseBody(output.body, context);
   if (data.dateTime !== undefined && data.dateTime !== null) {
     contents.dateTime = new Date(Math.round(data.dateTime * 1000));
   }
@@ -2122,13 +2418,13 @@ export async function deserializeAws_restJson1_1JsonTimestampsCommand(
 
 async function deserializeAws_restJson1_1JsonTimestampsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<JsonTimestampsCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2154,10 +2450,13 @@ export async function deserializeAws_restJson1_1NoInputAndNoOutputCommand(
   context: __SerdeContext
 ): Promise<NoInputAndNoOutputCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1NoInputAndNoOutputCommandError(output, context);
+    return deserializeAws_restJson1_1NoInputAndNoOutputCommandError(
+      output,
+      context
+    );
   }
   const contents: NoInputAndNoOutputCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2165,13 +2464,13 @@ export async function deserializeAws_restJson1_1NoInputAndNoOutputCommand(
 
 async function deserializeAws_restJson1_1NoInputAndNoOutputCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<NoInputAndNoOutputCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2197,11 +2496,14 @@ export async function deserializeAws_restJson1_1NoInputAndOutputCommand(
   context: __SerdeContext
 ): Promise<NoInputAndOutputCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1NoInputAndOutputCommandError(output, context);
+    return deserializeAws_restJson1_1NoInputAndOutputCommandError(
+      output,
+      context
+    );
   }
   const contents: NoInputAndOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "NoInputAndOutputOutput",
+    __type: "NoInputAndOutputOutput"
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2209,13 +2511,13 @@ export async function deserializeAws_restJson1_1NoInputAndOutputCommand(
 
 async function deserializeAws_restJson1_1NoInputAndOutputCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<NoInputAndOutputCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2241,23 +2543,28 @@ export async function deserializeAws_restJson1_1NullAndEmptyHeadersClientCommand
   context: __SerdeContext
 ): Promise<NullAndEmptyHeadersClientCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1NullAndEmptyHeadersClientCommandError(output, context);
+    return deserializeAws_restJson1_1NullAndEmptyHeadersClientCommandError(
+      output,
+      context
+    );
   }
   const contents: NullAndEmptyHeadersClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "NullAndEmptyHeadersIO",
     a: undefined,
     b: undefined,
-    c: undefined,
+    c: undefined
   };
   if (output.headers["x-a"] !== undefined) {
-    contents.a = output.headers['x-a'];
+    contents.a = output.headers["x-a"];
   }
   if (output.headers["x-b"] !== undefined) {
-    contents.b = output.headers['x-b'];
+    contents.b = output.headers["x-b"];
   }
   if (output.headers["x-c"] !== undefined) {
-    contents.c = (output.headers['x-c'] || "").split(',').map(_entry => _entry.trim());
+    contents.c = (output.headers["x-c"] || "")
+      .split(",")
+      .map(_entry => _entry.trim());
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2265,13 +2572,13 @@ export async function deserializeAws_restJson1_1NullAndEmptyHeadersClientCommand
 
 async function deserializeAws_restJson1_1NullAndEmptyHeadersClientCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<NullAndEmptyHeadersClientCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2297,23 +2604,28 @@ export async function deserializeAws_restJson1_1NullAndEmptyHeadersServerCommand
   context: __SerdeContext
 ): Promise<NullAndEmptyHeadersServerCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1NullAndEmptyHeadersServerCommandError(output, context);
+    return deserializeAws_restJson1_1NullAndEmptyHeadersServerCommandError(
+      output,
+      context
+    );
   }
   const contents: NullAndEmptyHeadersServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "NullAndEmptyHeadersIO",
     a: undefined,
     b: undefined,
-    c: undefined,
+    c: undefined
   };
   if (output.headers["x-a"] !== undefined) {
-    contents.a = output.headers['x-a'];
+    contents.a = output.headers["x-a"];
   }
   if (output.headers["x-b"] !== undefined) {
-    contents.b = output.headers['x-b'];
+    contents.b = output.headers["x-b"];
   }
   if (output.headers["x-c"] !== undefined) {
-    contents.c = (output.headers['x-c'] || "").split(',').map(_entry => _entry.trim());
+    contents.c = (output.headers["x-c"] || "")
+      .split(",")
+      .map(_entry => _entry.trim());
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2321,13 +2633,13 @@ export async function deserializeAws_restJson1_1NullAndEmptyHeadersServerCommand
 
 async function deserializeAws_restJson1_1NullAndEmptyHeadersServerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<NullAndEmptyHeadersServerCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2353,10 +2665,13 @@ export async function deserializeAws_restJson1_1OmitsNullSerializesEmptyStringCo
   context: __SerdeContext
 ): Promise<OmitsNullSerializesEmptyStringCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1OmitsNullSerializesEmptyStringCommandError(output, context);
+    return deserializeAws_restJson1_1OmitsNullSerializesEmptyStringCommandError(
+      output,
+      context
+    );
   }
   const contents: OmitsNullSerializesEmptyStringCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2364,13 +2679,13 @@ export async function deserializeAws_restJson1_1OmitsNullSerializesEmptyStringCo
 
 async function deserializeAws_restJson1_1OmitsNullSerializesEmptyStringCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<OmitsNullSerializesEmptyStringCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2396,10 +2711,13 @@ export async function deserializeAws_restJson1_1QueryIdempotencyTokenAutoFillCom
   context: __SerdeContext
 ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommandError(output, context);
+    return deserializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommandError(
+      output,
+      context
+    );
   }
   const contents: QueryIdempotencyTokenAutoFillCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2407,13 +2725,13 @@ export async function deserializeAws_restJson1_1QueryIdempotencyTokenAutoFillCom
 
 async function deserializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2439,29 +2757,35 @@ export async function deserializeAws_restJson1_1RecursiveShapesCommand(
   context: __SerdeContext
 ): Promise<RecursiveShapesCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1RecursiveShapesCommandError(output, context);
+    return deserializeAws_restJson1_1RecursiveShapesCommandError(
+      output,
+      context
+    );
   }
   const contents: RecursiveShapesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RecursiveShapesInputOutput",
-    nested: undefined,
+    nested: undefined
   };
-  const data: any = (await parseBody(output.body, context));
+  const data: any = await parseBody(output.body, context);
   if (data.nested !== undefined && data.nested !== null) {
-    contents.nested = deserializeAws_restJson1_1RecursiveShapesInputOutputNested1(data.nested, context);
+    contents.nested = deserializeAws_restJson1_1RecursiveShapesInputOutputNested1(
+      data.nested,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1RecursiveShapesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RecursiveShapesCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2487,7 +2811,10 @@ export async function deserializeAws_restJson1_1SimpleScalarPropertiesCommand(
   context: __SerdeContext
 ): Promise<SimpleScalarPropertiesCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1SimpleScalarPropertiesCommandError(output, context);
+    return deserializeAws_restJson1_1SimpleScalarPropertiesCommandError(
+      output,
+      context
+    );
   }
   const contents: SimpleScalarPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2501,12 +2828,12 @@ export async function deserializeAws_restJson1_1SimpleScalarPropertiesCommand(
     longValue: undefined,
     shortValue: undefined,
     stringValue: undefined,
-    trueBooleanValue: undefined,
+    trueBooleanValue: undefined
   };
   if (output.headers["x-foo"] !== undefined) {
-    contents.foo = output.headers['x-foo'];
+    contents.foo = output.headers["x-foo"];
   }
-  const data: any = (await parseBody(output.body, context));
+  const data: any = await parseBody(output.body, context);
   if (data.byteValue !== undefined && data.byteValue !== null) {
     contents.byteValue = data.byteValue;
   }
@@ -2539,13 +2866,13 @@ export async function deserializeAws_restJson1_1SimpleScalarPropertiesCommand(
 
 async function deserializeAws_restJson1_1SimpleScalarPropertiesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<SimpleScalarPropertiesCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2571,7 +2898,10 @@ export async function deserializeAws_restJson1_1TimestampFormatHeadersCommand(
   context: __SerdeContext
 ): Promise<TimestampFormatHeadersCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1TimestampFormatHeadersCommandError(output, context);
+    return deserializeAws_restJson1_1TimestampFormatHeadersCommandError(
+      output,
+      context
+    );
   }
   const contents: TimestampFormatHeadersCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2582,28 +2912,32 @@ export async function deserializeAws_restJson1_1TimestampFormatHeadersCommand(
     memberHttpDate: undefined,
     targetDateTime: undefined,
     targetEpochSeconds: undefined,
-    targetHttpDate: undefined,
+    targetHttpDate: undefined
   };
   if (output.headers["x-defaultformat"] !== undefined) {
-    contents.defaultFormat = new Date(output.headers['x-defaultformat']);
+    contents.defaultFormat = new Date(output.headers["x-defaultformat"]);
   }
   if (output.headers["x-memberdatetime"] !== undefined) {
-    contents.memberDateTime = new Date(output.headers['x-memberdatetime']);
+    contents.memberDateTime = new Date(output.headers["x-memberdatetime"]);
   }
   if (output.headers["x-memberepochseconds"] !== undefined) {
-    contents.memberEpochSeconds = new Date(Math.round(parseInt(output.headers['x-memberepochseconds'], 10) * 1000));
+    contents.memberEpochSeconds = new Date(
+      Math.round(parseInt(output.headers["x-memberepochseconds"], 10) * 1000)
+    );
   }
   if (output.headers["x-memberhttpdate"] !== undefined) {
-    contents.memberHttpDate = new Date(output.headers['x-memberhttpdate']);
+    contents.memberHttpDate = new Date(output.headers["x-memberhttpdate"]);
   }
   if (output.headers["x-targetdatetime"] !== undefined) {
-    contents.targetDateTime = new Date(output.headers['x-targetdatetime']);
+    contents.targetDateTime = new Date(output.headers["x-targetdatetime"]);
   }
   if (output.headers["x-targetepochseconds"] !== undefined) {
-    contents.targetEpochSeconds = new Date(Math.round(parseInt(output.headers['x-targetepochseconds'], 10) * 1000));
+    contents.targetEpochSeconds = new Date(
+      Math.round(parseInt(output.headers["x-targetepochseconds"], 10) * 1000)
+    );
   }
   if (output.headers["x-targethttpdate"] !== undefined) {
-    contents.targetHttpDate = new Date(output.headers['x-targethttpdate']);
+    contents.targetHttpDate = new Date(output.headers["x-targethttpdate"]);
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2611,13 +2945,13 @@ export async function deserializeAws_restJson1_1TimestampFormatHeadersCommand(
 
 async function deserializeAws_restJson1_1TimestampFormatHeadersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<TimestampFormatHeadersCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -2648,14 +2982,17 @@ const deserializeAws_restJson1_1ComplexErrorResponse = async (
     $metadata: deserializeMetadata(parsedOutput),
     Header: undefined,
     Nested: undefined,
-    TopLevel: undefined,
+    TopLevel: undefined
   };
   if (parsedOutput.headers["x-header"] !== undefined) {
-    contents.Header = parsedOutput.headers['x-header'];
+    contents.Header = parsedOutput.headers["x-header"];
   }
   const data: any = parsedOutput.body;
   if (data.Nested !== undefined && data.Nested !== null) {
-    contents.Nested = deserializeAws_restJson1_1ComplexNestedErrorData(data.Nested, context);
+    contents.Nested = deserializeAws_restJson1_1ComplexNestedErrorData(
+      data.Nested,
+      context
+    );
   }
   if (data.TopLevel !== undefined && data.TopLevel !== null) {
     contents.TopLevel = data.TopLevel;
@@ -2670,7 +3007,7 @@ const deserializeAws_restJson1_1FooErrorResponse = async (
   const contents: FooError = {
     name: "FooError",
     $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
+    $metadata: deserializeMetadata(parsedOutput)
   };
   const data: any = parsedOutput.body;
   return contents;
@@ -2684,7 +3021,7 @@ const deserializeAws_restJson1_1InvalidGreetingResponse = async (
     name: "InvalidGreeting",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
@@ -2699,10 +3036,13 @@ const serializeAws_restJson1_1JsonMapsInputOutputMap = (
 ): any => {
   const mapParams: any = {};
   Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_restJson1_1GreetingStruct(input[key], context);
+    mapParams[key] = serializeAws_restJson1_1GreetingStruct(
+      input[key],
+      context
+    );
   });
   return mapParams;
-}
+};
 
 const serializeAws_restJson1_1NestedPayload = (
   input: NestedPayload,
@@ -2710,13 +3050,13 @@ const serializeAws_restJson1_1NestedPayload = (
 ): any => {
   const bodyParams: any = {};
   if (input.greeting !== undefined) {
-    bodyParams['greeting'] = input.greeting;
+    bodyParams["greeting"] = input.greeting;
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1RecursiveShapesInputOutputNested1 = (
   input: RecursiveShapesInputOutputNested1,
@@ -2724,13 +3064,18 @@ const serializeAws_restJson1_1RecursiveShapesInputOutputNested1 = (
 ): any => {
   const bodyParams: any = {};
   if (input.foo !== undefined) {
-    bodyParams['foo'] = input.foo;
+    bodyParams["foo"] = input.foo;
   }
   if (input.nested !== undefined) {
-    bodyParams['nested'] = serializeAws_restJson1_1RecursiveShapesInputOutputNested2(input.nested, context);
+    bodyParams[
+      "nested"
+    ] = serializeAws_restJson1_1RecursiveShapesInputOutputNested2(
+      input.nested,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1RecursiveShapesInputOutputNested2 = (
   input: RecursiveShapesInputOutputNested2,
@@ -2738,13 +3083,18 @@ const serializeAws_restJson1_1RecursiveShapesInputOutputNested2 = (
 ): any => {
   const bodyParams: any = {};
   if (input.bar !== undefined) {
-    bodyParams['bar'] = input.bar;
+    bodyParams["bar"] = input.bar;
   }
   if (input.recursiveMember !== undefined) {
-    bodyParams['recursiveMember'] = serializeAws_restJson1_1RecursiveShapesInputOutputNested1(input.recursiveMember, context);
+    bodyParams[
+      "recursiveMember"
+    ] = serializeAws_restJson1_1RecursiveShapesInputOutputNested1(
+      input.recursiveMember,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1StructureList = (
   input: Array<StructureListMember>,
@@ -2755,7 +3105,7 @@ const serializeAws_restJson1_1StructureList = (
     contents.push(serializeAws_restJson1_1StructureListMember(entry, context));
   }
   return contents;
-}
+};
 
 const serializeAws_restJson1_1StructureListMember = (
   input: StructureListMember,
@@ -2763,13 +3113,13 @@ const serializeAws_restJson1_1StructureListMember = (
 ): any => {
   const bodyParams: any = {};
   if (input.a !== undefined) {
-    bodyParams['value'] = input.a;
+    bodyParams["value"] = input.a;
   }
   if (input.b !== undefined) {
-    bodyParams['other'] = input.b;
+    bodyParams["other"] = input.b;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1BooleanList = (
   input: Array<boolean>,
@@ -2780,7 +3130,7 @@ const serializeAws_restJson1_1BooleanList = (
     contents.push(entry);
   }
   return contents;
-}
+};
 
 const serializeAws_restJson1_1FooEnumList = (
   input: Array<FooEnum | string>,
@@ -2791,7 +3141,7 @@ const serializeAws_restJson1_1FooEnumList = (
     contents.push(entry);
   }
   return contents;
-}
+};
 
 const serializeAws_restJson1_1FooEnumMap = (
   input: { [key: string]: FooEnum | string },
@@ -2802,7 +3152,7 @@ const serializeAws_restJson1_1FooEnumMap = (
     mapParams[key] = input[key];
   });
   return mapParams;
-}
+};
 
 const serializeAws_restJson1_1FooEnumSet = (
   input: Set<FooEnum | string>,
@@ -2813,7 +3163,7 @@ const serializeAws_restJson1_1FooEnumSet = (
     contents.push(entry);
   }
   return contents;
-}
+};
 
 const serializeAws_restJson1_1GreetingStruct = (
   input: GreetingStruct,
@@ -2821,10 +3171,10 @@ const serializeAws_restJson1_1GreetingStruct = (
 ): any => {
   const bodyParams: any = {};
   if (input.hi !== undefined) {
-    bodyParams['hi'] = input.hi;
+    bodyParams["hi"] = input.hi;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1IntegerList = (
   input: Array<number>,
@@ -2835,7 +3185,7 @@ const serializeAws_restJson1_1IntegerList = (
     contents.push(entry);
   }
   return contents;
-}
+};
 
 const serializeAws_restJson1_1NestedStringList = (
   input: Array<Array<string>>,
@@ -2846,7 +3196,7 @@ const serializeAws_restJson1_1NestedStringList = (
     contents.push(serializeAws_restJson1_1StringList(entry, context));
   }
   return contents;
-}
+};
 
 const serializeAws_restJson1_1StringList = (
   input: Array<string>,
@@ -2857,7 +3207,7 @@ const serializeAws_restJson1_1StringList = (
     contents.push(entry);
   }
   return contents;
-}
+};
 
 const serializeAws_restJson1_1StringSet = (
   input: Set<string>,
@@ -2868,7 +3218,7 @@ const serializeAws_restJson1_1StringSet = (
     contents.push(entry);
   }
   return contents;
-}
+};
 
 const serializeAws_restJson1_1TimestampList = (
   input: Array<Date>,
@@ -2879,7 +3229,7 @@ const serializeAws_restJson1_1TimestampList = (
     contents.push(Math.round(entry.getTime() / 1000));
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ComplexNestedErrorData = (
   output: any,
@@ -2887,13 +3237,13 @@ const deserializeAws_restJson1_1ComplexNestedErrorData = (
 ): ComplexNestedErrorData => {
   let contents: any = {
     __type: "ComplexNestedErrorData",
-    Foo: undefined,
+    Foo: undefined
   };
   if (output.Fooooo !== undefined && output.Fooooo !== null) {
     contents.Foo = output.Fooooo;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1JsonMapsInputOutputMap = (
   output: any,
@@ -2901,10 +3251,13 @@ const deserializeAws_restJson1_1JsonMapsInputOutputMap = (
 ): { [key: string]: GreetingStruct } => {
   const mapParams: any = {};
   Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1GreetingStruct(output[key], context);
+    mapParams[key] = deserializeAws_restJson1_1GreetingStruct(
+      output[key],
+      context
+    );
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1NestedPayload = (
   output: any,
@@ -2913,7 +3266,7 @@ const deserializeAws_restJson1_1NestedPayload = (
   let contents: any = {
     __type: "NestedPayload",
     greeting: undefined,
-    name: undefined,
+    name: undefined
   };
   if (output.greeting !== undefined && output.greeting !== null) {
     contents.greeting = output.greeting;
@@ -2922,7 +3275,7 @@ const deserializeAws_restJson1_1NestedPayload = (
     contents.name = output.name;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1RecursiveShapesInputOutputNested1 = (
   output: any,
@@ -2931,16 +3284,19 @@ const deserializeAws_restJson1_1RecursiveShapesInputOutputNested1 = (
   let contents: any = {
     __type: "RecursiveShapesInputOutputNested1",
     foo: undefined,
-    nested: undefined,
+    nested: undefined
   };
   if (output.foo !== undefined && output.foo !== null) {
     contents.foo = output.foo;
   }
   if (output.nested !== undefined && output.nested !== null) {
-    contents.nested = deserializeAws_restJson1_1RecursiveShapesInputOutputNested2(output.nested, context);
+    contents.nested = deserializeAws_restJson1_1RecursiveShapesInputOutputNested2(
+      output.nested,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1RecursiveShapesInputOutputNested2 = (
   output: any,
@@ -2949,16 +3305,19 @@ const deserializeAws_restJson1_1RecursiveShapesInputOutputNested2 = (
   let contents: any = {
     __type: "RecursiveShapesInputOutputNested2",
     bar: undefined,
-    recursiveMember: undefined,
+    recursiveMember: undefined
   };
   if (output.bar !== undefined && output.bar !== null) {
     contents.bar = output.bar;
   }
   if (output.recursiveMember !== undefined && output.recursiveMember !== null) {
-    contents.recursiveMember = deserializeAws_restJson1_1RecursiveShapesInputOutputNested1(output.recursiveMember, context);
+    contents.recursiveMember = deserializeAws_restJson1_1RecursiveShapesInputOutputNested1(
+      output.recursiveMember,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1StructureList = (
   output: any,
@@ -2967,7 +3326,7 @@ const deserializeAws_restJson1_1StructureList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1StructureListMember(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1StructureListMember = (
   output: any,
@@ -2976,7 +3335,7 @@ const deserializeAws_restJson1_1StructureListMember = (
   let contents: any = {
     __type: "StructureListMember",
     a: undefined,
-    b: undefined,
+    b: undefined
   };
   if (output.value !== undefined && output.value !== null) {
     contents.a = output.value;
@@ -2985,25 +3344,21 @@ const deserializeAws_restJson1_1StructureListMember = (
     contents.b = output.other;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1BooleanList = (
   output: any,
   context: __SerdeContext
 ): Array<boolean> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1FooEnumList = (
   output: any,
   context: __SerdeContext
 ): Array<FooEnum | string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1FooEnumMap = (
   output: any,
@@ -3014,16 +3369,14 @@ const deserializeAws_restJson1_1FooEnumMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1FooEnumSet = (
   output: any,
   context: __SerdeContext
 ): Set<FooEnum | string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1GreetingStruct = (
   output: any,
@@ -3031,22 +3384,20 @@ const deserializeAws_restJson1_1GreetingStruct = (
 ): GreetingStruct => {
   let contents: any = {
     __type: "GreetingStruct",
-    hi: undefined,
+    hi: undefined
   };
   if (output.hi !== undefined && output.hi !== null) {
     contents.hi = output.hi;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1IntegerList = (
   output: any,
   context: __SerdeContext
 ): Array<number> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1NestedStringList = (
   output: any,
@@ -3055,34 +3406,28 @@ const deserializeAws_restJson1_1NestedStringList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1StringList(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1StringList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1StringSet = (
   output: any,
   context: __SerdeContext
 ): Set<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1TimestampList = (
   output: any,
   context: __SerdeContext
 ): Array<Date> => {
-  return (output || []).map((entry: any) =>
-    new Date(Math.round(entry * 1000))
-  );
-}
+  return (output || []).map((entry: any) => new Date(Math.round(entry * 1000)));
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -3091,23 +3436,36 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any, context: __SerdeContext): Promise<Uint8Array> => {
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
+  return (
+    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
+  );
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> => {
-  return collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
 };
 
 function isSerializableHeaderValue(value: any): boolean {
-  return value !== undefined
-      && value !== ""
-      && (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0)
-      && (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+  return (
+    value !== undefined &&
+    value !== "" &&
+    (!Object.getOwnPropertyNames(value).includes("length") ||
+      value.length != 0) &&
+    (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0)
+  );
 }
 
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
@@ -3122,20 +3480,17 @@ const parseBody = (streamBody: any, context: __SerdeContext): any => {
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (
-  output: __HttpResponse,
-  data: any
-): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   const findKey = (object: any, key: string) =>
     Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;
-    if (cleanValue.indexOf(':') >= 0) {
-      cleanValue = cleanValue.split(':')[0];
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
     }
-    if (cleanValue.indexOf('#') >= 0) {
-      cleanValue = cleanValue.split('#')[1];
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
     }
     return cleanValue;
   };
@@ -3149,9 +3504,9 @@ const loadRestJsonErrorCode = (
     return sanitizeErrorCode(data.code);
   }
 
-  if (data['__type'] !== undefined) {
-    return sanitizeErrorCode(data['__type']);
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
   }
 
-  return '';
-}
+  return "";
+};

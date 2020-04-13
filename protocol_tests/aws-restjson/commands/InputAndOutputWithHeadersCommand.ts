@@ -1,17 +1,17 @@
 import {
   RestJsonProtocolClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../RestJsonProtocolClient";
 import { InputAndOutputWithHeadersIO } from "../models/index";
 import {
   deserializeAws_restJson1_1InputAndOutputWithHeadersCommand,
-  serializeAws_restJson1_1InputAndOutputWithHeadersCommand,
+  serializeAws_restJson1_1InputAndOutputWithHeadersCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,18 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type InputAndOutputWithHeadersCommandInput = InputAndOutputWithHeadersIO;
-export type InputAndOutputWithHeadersCommandOutput = InputAndOutputWithHeadersIO & __MetadataBearer;
+export type InputAndOutputWithHeadersCommandOutput = InputAndOutputWithHeadersIO &
+  __MetadataBearer;
 
-export class InputAndOutputWithHeadersCommand extends $Command<InputAndOutputWithHeadersCommandInput, InputAndOutputWithHeadersCommandOutput, RestJsonProtocolClientResolvedConfig> {
+export class InputAndOutputWithHeadersCommand extends $Command<
+  InputAndOutputWithHeadersCommandInput,
+  InputAndOutputWithHeadersCommandOutput,
+  RestJsonProtocolClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +46,19 @@ export class InputAndOutputWithHeadersCommand extends $Command<InputAndOutputWit
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<InputAndOutputWithHeadersCommandInput, InputAndOutputWithHeadersCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    InputAndOutputWithHeadersCommandInput,
+    InputAndOutputWithHeadersCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -61,14 +71,20 @@ export class InputAndOutputWithHeadersCommand extends $Command<InputAndOutputWit
     input: InputAndOutputWithHeadersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1InputAndOutputWithHeadersCommand(input, context);
+    return serializeAws_restJson1_1InputAndOutputWithHeadersCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InputAndOutputWithHeadersCommandOutput> {
-    return deserializeAws_restJson1_1InputAndOutputWithHeadersCommand(output, context);
+    return deserializeAws_restJson1_1InputAndOutputWithHeadersCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

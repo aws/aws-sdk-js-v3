@@ -1,90 +1,90 @@
 import {
   EmptyInputAndEmptyOutputCommandInput,
-  EmptyInputAndEmptyOutputCommandOutput,
+  EmptyInputAndEmptyOutputCommandOutput
 } from "./commands/EmptyInputAndEmptyOutputCommand";
 import {
   FlattenedXmlMapCommandInput,
-  FlattenedXmlMapCommandOutput,
+  FlattenedXmlMapCommandOutput
 } from "./commands/FlattenedXmlMapCommand";
 import {
   FlattenedXmlMapWithXmlNameCommandInput,
-  FlattenedXmlMapWithXmlNameCommandOutput,
+  FlattenedXmlMapWithXmlNameCommandOutput
 } from "./commands/FlattenedXmlMapWithXmlNameCommand";
 import {
   GreetingWithErrorsCommandInput,
-  GreetingWithErrorsCommandOutput,
+  GreetingWithErrorsCommandOutput
 } from "./commands/GreetingWithErrorsCommand";
 import {
   IgnoresWrappingXmlNameCommandInput,
-  IgnoresWrappingXmlNameCommandOutput,
+  IgnoresWrappingXmlNameCommandOutput
 } from "./commands/IgnoresWrappingXmlNameCommand";
 import {
   NestedStructuresCommandInput,
-  NestedStructuresCommandOutput,
+  NestedStructuresCommandOutput
 } from "./commands/NestedStructuresCommand";
 import {
   NoInputAndNoOutputCommandInput,
-  NoInputAndNoOutputCommandOutput,
+  NoInputAndNoOutputCommandOutput
 } from "./commands/NoInputAndNoOutputCommand";
 import {
   NoInputAndOutputCommandInput,
-  NoInputAndOutputCommandOutput,
+  NoInputAndOutputCommandOutput
 } from "./commands/NoInputAndOutputCommand";
 import {
   QueryIdempotencyTokenAutoFillCommandInput,
-  QueryIdempotencyTokenAutoFillCommandOutput,
+  QueryIdempotencyTokenAutoFillCommandOutput
 } from "./commands/QueryIdempotencyTokenAutoFillCommand";
 import {
   QueryListsCommandInput,
-  QueryListsCommandOutput,
+  QueryListsCommandOutput
 } from "./commands/QueryListsCommand";
 import {
   QueryMapsCommandInput,
-  QueryMapsCommandOutput,
+  QueryMapsCommandOutput
 } from "./commands/QueryMapsCommand";
 import {
   QueryTimestampsCommandInput,
-  QueryTimestampsCommandOutput,
+  QueryTimestampsCommandOutput
 } from "./commands/QueryTimestampsCommand";
 import {
   RecursiveXmlShapesCommandInput,
-  RecursiveXmlShapesCommandOutput,
+  RecursiveXmlShapesCommandOutput
 } from "./commands/RecursiveXmlShapesCommand";
 import {
   SimpleInputParamsCommandInput,
-  SimpleInputParamsCommandOutput,
+  SimpleInputParamsCommandOutput
 } from "./commands/SimpleInputParamsCommand";
 import {
   SimpleScalarXmlPropertiesCommandInput,
-  SimpleScalarXmlPropertiesCommandOutput,
+  SimpleScalarXmlPropertiesCommandOutput
 } from "./commands/SimpleScalarXmlPropertiesCommand";
 import {
   XmlBlobsCommandInput,
-  XmlBlobsCommandOutput,
+  XmlBlobsCommandOutput
 } from "./commands/XmlBlobsCommand";
 import {
   XmlEnumsCommandInput,
-  XmlEnumsCommandOutput,
+  XmlEnumsCommandOutput
 } from "./commands/XmlEnumsCommand";
 import {
   XmlListsCommandInput,
-  XmlListsCommandOutput,
+  XmlListsCommandOutput
 } from "./commands/XmlListsCommand";
 import {
   XmlMapsCommandInput,
-  XmlMapsCommandOutput,
+  XmlMapsCommandOutput
 } from "./commands/XmlMapsCommand";
 import {
   XmlMapsXmlNameCommandInput,
-  XmlMapsXmlNameCommandOutput,
+  XmlMapsXmlNameCommandOutput
 } from "./commands/XmlMapsXmlNameCommand";
 import {
   XmlNamespacesCommandInput,
-  XmlNamespacesCommandOutput,
+  XmlNamespacesCommandOutput
 } from "./commands/XmlNamespacesCommand";
 import {
   XmlTimestampsCommandInput,
-  XmlTimestampsCommandOutput,
+  XmlTimestampsCommandOutput
 } from "./commands/XmlTimestampsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -93,38 +93,38 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig,
+  resolveRegionConfig
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig,
+  resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
 import {
   RetryInputConfig,
   RetryResolvedConfig,
   getRetryPlugin,
-  resolveRetryConfig,
+  resolveRetryConfig
 } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig,
+  resolveAwsAuthConfig
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig,
+  resolveUserAgentConfig
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -135,7 +135,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser,
+  UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -269,26 +269,29 @@ export interface ClientDefaults
    * Fetch related hostname, signing name or signing region with given region.
    */
   regionInfoProvider?: RegionInfoProvider;
-
 }
 
-export type QueryProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>>
-  & ClientDefaults
-  & RegionInputConfig
-  & EndpointsInputConfig
-  & AwsAuthInputConfig
-  & RetryInputConfig
-  & UserAgentInputConfig
-  & HostHeaderInputConfig
+export type QueryProtocolClientConfig = Partial<
+  __SmithyConfiguration<__HttpHandlerOptions>
+> &
+  ClientDefaults &
+  RegionInputConfig &
+  EndpointsInputConfig &
+  AwsAuthInputConfig &
+  RetryInputConfig &
+  UserAgentInputConfig &
+  HostHeaderInputConfig;
 
-export type QueryProtocolClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions>
-  & Required<ClientDefaults>
-  & RegionResolvedConfig
-  & EndpointsResolvedConfig
-  & AwsAuthResolvedConfig
-  & RetryResolvedConfig
-  & UserAgentResolvedConfig
-  & HostHeaderResolvedConfig
+export type QueryProtocolClientResolvedConfig = __SmithyResolvedConfiguration<
+  __HttpHandlerOptions
+> &
+  Required<ClientDefaults> &
+  RegionResolvedConfig &
+  EndpointsResolvedConfig &
+  AwsAuthResolvedConfig &
+  RetryResolvedConfig &
+  UserAgentResolvedConfig &
+  HostHeaderResolvedConfig;
 
 /**
  * A query service that sends query requests and XML responses.
@@ -321,6 +324,5 @@ export class QueryProtocolClient extends __Client<
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
   }
 
-  destroy(): void {
-  }
+  destroy(): void {}
 }

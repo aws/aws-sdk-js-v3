@@ -1,16 +1,16 @@
 import {
   JsonProtocolClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../JsonProtocolClient";
 import {
   deserializeAws_json1_1EmptyOperationCommand,
-  serializeAws_json1_1EmptyOperationCommand,
+  serializeAws_json1_1EmptyOperationCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,13 +20,17 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export type EmptyOperationCommandInput = {}
-export type EmptyOperationCommandOutput = __MetadataBearer
+export type EmptyOperationCommandInput = {};
+export type EmptyOperationCommandOutput = __MetadataBearer;
 
-export class EmptyOperationCommand extends $Command<EmptyOperationCommandInput, EmptyOperationCommandOutput, JsonProtocolClientResolvedConfig> {
+export class EmptyOperationCommand extends $Command<
+  EmptyOperationCommandInput,
+  EmptyOperationCommandOutput,
+  JsonProtocolClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,13 +45,15 @@ export class EmptyOperationCommand extends $Command<EmptyOperationCommandInput, 
     configuration: JsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<EmptyOperationCommandInput, EmptyOperationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

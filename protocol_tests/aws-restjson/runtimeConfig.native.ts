@@ -13,6 +13,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   streamCollector,
   urlParser: parseUrl,
   defaultUserAgent: `aws-sdk-js-v3-react-native-${name}/${version}`,
-  runtime: "react-native",
-
+  runtime: "react-native"
 };

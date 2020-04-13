@@ -1,17 +1,17 @@
 import {
   RestJsonProtocolClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../RestJsonProtocolClient";
 import { HttpRequestWithGreedyLabelInPathInput } from "../models/index";
 import {
   deserializeAws_restJson1_1HttpRequestWithGreedyLabelInPathCommand,
-  serializeAws_restJson1_1HttpRequestWithGreedyLabelInPathCommand,
+  serializeAws_restJson1_1HttpRequestWithGreedyLabelInPathCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type HttpRequestWithGreedyLabelInPathCommandInput = HttpRequestWithGreedyLabelInPathInput;
-export type HttpRequestWithGreedyLabelInPathCommandOutput = __MetadataBearer
+export type HttpRequestWithGreedyLabelInPathCommandOutput = __MetadataBearer;
 
-export class HttpRequestWithGreedyLabelInPathCommand extends $Command<HttpRequestWithGreedyLabelInPathCommandInput, HttpRequestWithGreedyLabelInPathCommandOutput, RestJsonProtocolClientResolvedConfig> {
+export class HttpRequestWithGreedyLabelInPathCommand extends $Command<
+  HttpRequestWithGreedyLabelInPathCommandInput,
+  HttpRequestWithGreedyLabelInPathCommandOutput,
+  RestJsonProtocolClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class HttpRequestWithGreedyLabelInPathCommand extends $Command<HttpReques
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<HttpRequestWithGreedyLabelInPathCommandInput, HttpRequestWithGreedyLabelInPathCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    HttpRequestWithGreedyLabelInPathCommandInput,
+    HttpRequestWithGreedyLabelInPathCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -61,14 +70,20 @@ export class HttpRequestWithGreedyLabelInPathCommand extends $Command<HttpReques
     input: HttpRequestWithGreedyLabelInPathCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1HttpRequestWithGreedyLabelInPathCommand(input, context);
+    return serializeAws_restJson1_1HttpRequestWithGreedyLabelInPathCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpRequestWithGreedyLabelInPathCommandOutput> {
-    return deserializeAws_restJson1_1HttpRequestWithGreedyLabelInPathCommand(output, context);
+    return deserializeAws_restJson1_1HttpRequestWithGreedyLabelInPathCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

@@ -1,17 +1,17 @@
 import {
   QueryProtocolClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../QueryProtocolClient";
 import { XmlMapsXmlNameOutput } from "../models/index";
 import {
   deserializeAws_queryXmlMapsXmlNameCommand,
-  serializeAws_queryXmlMapsXmlNameCommand,
+  serializeAws_queryXmlMapsXmlNameCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,18 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export type XmlMapsXmlNameCommandInput = {}
-export type XmlMapsXmlNameCommandOutput = XmlMapsXmlNameOutput & __MetadataBearer;
+export type XmlMapsXmlNameCommandInput = {};
+export type XmlMapsXmlNameCommandOutput = XmlMapsXmlNameOutput &
+  __MetadataBearer;
 
-export class XmlMapsXmlNameCommand extends $Command<XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput, QueryProtocolClientResolvedConfig> {
+export class XmlMapsXmlNameCommand extends $Command<
+  XmlMapsXmlNameCommandInput,
+  XmlMapsXmlNameCommandOutput,
+  QueryProtocolClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,13 +47,15 @@ export class XmlMapsXmlNameCommand extends $Command<XmlMapsXmlNameCommandInput, 
     configuration: QueryProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

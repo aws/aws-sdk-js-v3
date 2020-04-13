@@ -1,14 +1,14 @@
 import {
   EmptyOperationCommandInput,
-  EmptyOperationCommandOutput,
+  EmptyOperationCommandOutput
 } from "../commands/EmptyOperationCommand";
 import {
   KitchenSinkOperationCommandInput,
-  KitchenSinkOperationCommandOutput,
+  KitchenSinkOperationCommandOutput
 } from "../commands/KitchenSinkOperationCommand";
 import {
   OperationWithOptionalInputOutputCommandInput,
-  OperationWithOptionalInputOutputCommandOutput,
+  OperationWithOptionalInputOutputCommandOutput
 } from "../commands/OperationWithOptionalInputOutputCommand";
 import {
   EmptyStruct,
@@ -16,23 +16,23 @@ import {
   ErrorWithoutMembers,
   KitchenSink,
   SimpleStruct,
-  StructWithLocationName,
+  StructWithLocationName
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import {
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
-  dateToUtcString as __dateToUtcString,
+  dateToUtcString as __dateToUtcString
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
@@ -41,8 +41,8 @@ export async function serializeAws_json1_1EmptyOperationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "JsonProtocol.EmptyOperation";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "JsonProtocol.EmptyOperation";
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 }
 
@@ -51,8 +51,8 @@ export async function serializeAws_json1_1KitchenSinkOperationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "JsonProtocol.KitchenSinkOperation";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "JsonProtocol.KitchenSinkOperation";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1KitchenSink(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -63,8 +63,8 @@ export async function serializeAws_json1_1OperationWithOptionalInputOutputComman
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: __HeaderBag = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "JsonProtocol.OperationWithOptionalInputOutput";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "JsonProtocol.OperationWithOptionalInputOutput";
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SimpleStruct(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -79,23 +79,24 @@ export async function deserializeAws_json1_1EmptyOperationCommand(
   }
   await collectBody(output.body, context);
   const response: EmptyOperationCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1EmptyOperationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<EmptyOperationCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -119,47 +120,57 @@ export async function deserializeAws_json1_1KitchenSinkOperationCommand(
   context: __SerdeContext
 ): Promise<KitchenSinkOperationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1KitchenSinkOperationCommandError(output, context);
+    return deserializeAws_json1_1KitchenSinkOperationCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1KitchenSink(data, context);
   const response: KitchenSinkOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "KitchenSink",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1KitchenSinkOperationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<KitchenSinkOperationCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ErrorWithMembers":
     case "aws.protocols.tests.json#ErrorWithMembers":
       response = {
-        ...await deserializeAws_json1_1ErrorWithMembersResponse(parsedOutput, context),
+        ...(await deserializeAws_json1_1ErrorWithMembersResponse(
+          parsedOutput,
+          context
+        )),
         name: errorCode,
-        $metadata: deserializeMetadata(output),
-      }
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ErrorWithoutMembers":
     case "aws.protocols.tests.json#ErrorWithoutMembers":
       response = {
-        ...await deserializeAws_json1_1ErrorWithoutMembersResponse(parsedOutput, context),
+        ...(await deserializeAws_json1_1ErrorWithoutMembersResponse(
+          parsedOutput,
+          context
+        )),
         name: errorCode,
-        $metadata: deserializeMetadata(output),
-      }
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -183,31 +194,35 @@ export async function deserializeAws_json1_1OperationWithOptionalInputOutputComm
   context: __SerdeContext
 ): Promise<OperationWithOptionalInputOutputCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1OperationWithOptionalInputOutputCommandError(output, context);
+    return deserializeAws_json1_1OperationWithOptionalInputOutputCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1SimpleStruct(data, context);
   const response: OperationWithOptionalInputOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SimpleStruct",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1OperationWithOptionalInputOutputCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<OperationWithOptionalInputOutputCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
   };
-  let response: __SmithyException & __MetadataBearer & {[key: string]: any};
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -230,13 +245,16 @@ const deserializeAws_json1_1ErrorWithMembersResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ErrorWithMembers> => {
-  const body = parsedOutput.body
-  const deserialized: any = deserializeAws_json1_1ErrorWithMembers(body, context);
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ErrorWithMembers(
+    body,
+    context
+  );
   const contents: ErrorWithMembers = {
     name: "ErrorWithMembers",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -245,13 +263,16 @@ const deserializeAws_json1_1ErrorWithoutMembersResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ErrorWithoutMembers> => {
-  const body = parsedOutput.body
-  const deserialized: any = deserializeAws_json1_1ErrorWithoutMembers(body, context);
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ErrorWithoutMembers(
+    body,
+    context
+  );
   const contents: ErrorWithoutMembers = {
     name: "ErrorWithoutMembers",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -262,7 +283,7 @@ const serializeAws_json1_1EmptyStruct = (
 ): any => {
   const bodyParams: any = {};
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1KitchenSink = (
   input: KitchenSink,
@@ -270,85 +291,134 @@ const serializeAws_json1_1KitchenSink = (
 ): any => {
   const bodyParams: any = {};
   if (input.Blob !== undefined) {
-    bodyParams['Blob'] = context.base64Encoder(input.Blob);
+    bodyParams["Blob"] = context.base64Encoder(input.Blob);
   }
   if (input.Boolean !== undefined) {
-    bodyParams['Boolean'] = input.Boolean;
+    bodyParams["Boolean"] = input.Boolean;
   }
   if (input.Double !== undefined) {
-    bodyParams['Double'] = input.Double;
+    bodyParams["Double"] = input.Double;
   }
   if (input.EmptyStruct !== undefined) {
-    bodyParams['EmptyStruct'] = serializeAws_json1_1EmptyStruct(input.EmptyStruct, context);
+    bodyParams["EmptyStruct"] = serializeAws_json1_1EmptyStruct(
+      input.EmptyStruct,
+      context
+    );
   }
   if (input.Float !== undefined) {
-    bodyParams['Float'] = input.Float;
+    bodyParams["Float"] = input.Float;
   }
   if (input.HttpdateTimestamp !== undefined) {
-    bodyParams['HttpdateTimestamp'] = __dateToUtcString(input.HttpdateTimestamp);
+    bodyParams["HttpdateTimestamp"] = __dateToUtcString(
+      input.HttpdateTimestamp
+    );
   }
   if (input.Integer !== undefined) {
-    bodyParams['Integer'] = input.Integer;
+    bodyParams["Integer"] = input.Integer;
   }
   if (input.Iso8601Timestamp !== undefined) {
-    bodyParams['Iso8601Timestamp'] = (input.Iso8601Timestamp.toISOString().split('.')[0]+"Z");
+    bodyParams["Iso8601Timestamp"] =
+      input.Iso8601Timestamp.toISOString().split(".")[0] + "Z";
   }
   if (input.JsonValue !== undefined) {
-    bodyParams['JsonValue'] = __LazyJsonString.fromObject(input.JsonValue);
+    bodyParams["JsonValue"] = __LazyJsonString.fromObject(input.JsonValue);
   }
   if (input.ListOfLists !== undefined) {
-    bodyParams['ListOfLists'] = serializeAws_json1_1ListOfListOfStrings(input.ListOfLists, context);
+    bodyParams["ListOfLists"] = serializeAws_json1_1ListOfListOfStrings(
+      input.ListOfLists,
+      context
+    );
   }
   if (input.ListOfMapsOfStrings !== undefined) {
-    bodyParams['ListOfMapsOfStrings'] = serializeAws_json1_1ListOfMapsOfStrings(input.ListOfMapsOfStrings, context);
+    bodyParams["ListOfMapsOfStrings"] = serializeAws_json1_1ListOfMapsOfStrings(
+      input.ListOfMapsOfStrings,
+      context
+    );
   }
   if (input.ListOfStrings !== undefined) {
-    bodyParams['ListOfStrings'] = serializeAws_json1_1ListOfStrings(input.ListOfStrings, context);
+    bodyParams["ListOfStrings"] = serializeAws_json1_1ListOfStrings(
+      input.ListOfStrings,
+      context
+    );
   }
   if (input.ListOfStructs !== undefined) {
-    bodyParams['ListOfStructs'] = serializeAws_json1_1ListOfStructs(input.ListOfStructs, context);
+    bodyParams["ListOfStructs"] = serializeAws_json1_1ListOfStructs(
+      input.ListOfStructs,
+      context
+    );
   }
   if (input.Long !== undefined) {
-    bodyParams['Long'] = input.Long;
+    bodyParams["Long"] = input.Long;
   }
   if (input.MapOfListsOfStrings !== undefined) {
-    bodyParams['MapOfListsOfStrings'] = serializeAws_json1_1MapOfListsOfStrings(input.MapOfListsOfStrings, context);
+    bodyParams["MapOfListsOfStrings"] = serializeAws_json1_1MapOfListsOfStrings(
+      input.MapOfListsOfStrings,
+      context
+    );
   }
   if (input.MapOfMaps !== undefined) {
-    bodyParams['MapOfMaps'] = serializeAws_json1_1MapOfMapOfStrings(input.MapOfMaps, context);
+    bodyParams["MapOfMaps"] = serializeAws_json1_1MapOfMapOfStrings(
+      input.MapOfMaps,
+      context
+    );
   }
   if (input.MapOfStrings !== undefined) {
-    bodyParams['MapOfStrings'] = serializeAws_json1_1MapOfStrings(input.MapOfStrings, context);
+    bodyParams["MapOfStrings"] = serializeAws_json1_1MapOfStrings(
+      input.MapOfStrings,
+      context
+    );
   }
   if (input.MapOfStructs !== undefined) {
-    bodyParams['MapOfStructs'] = serializeAws_json1_1MapOfStructs(input.MapOfStructs, context);
+    bodyParams["MapOfStructs"] = serializeAws_json1_1MapOfStructs(
+      input.MapOfStructs,
+      context
+    );
   }
   if (input.RecursiveList !== undefined) {
-    bodyParams['RecursiveList'] = serializeAws_json1_1ListOfKitchenSinks(input.RecursiveList, context);
+    bodyParams["RecursiveList"] = serializeAws_json1_1ListOfKitchenSinks(
+      input.RecursiveList,
+      context
+    );
   }
   if (input.RecursiveMap !== undefined) {
-    bodyParams['RecursiveMap'] = serializeAws_json1_1MapOfKitchenSinks(input.RecursiveMap, context);
+    bodyParams["RecursiveMap"] = serializeAws_json1_1MapOfKitchenSinks(
+      input.RecursiveMap,
+      context
+    );
   }
   if (input.RecursiveStruct !== undefined) {
-    bodyParams['RecursiveStruct'] = serializeAws_json1_1KitchenSink(input.RecursiveStruct, context);
+    bodyParams["RecursiveStruct"] = serializeAws_json1_1KitchenSink(
+      input.RecursiveStruct,
+      context
+    );
   }
   if (input.SimpleStruct !== undefined) {
-    bodyParams['SimpleStruct'] = serializeAws_json1_1SimpleStruct(input.SimpleStruct, context);
+    bodyParams["SimpleStruct"] = serializeAws_json1_1SimpleStruct(
+      input.SimpleStruct,
+      context
+    );
   }
   if (input.String !== undefined) {
-    bodyParams['String'] = input.String;
+    bodyParams["String"] = input.String;
   }
   if (input.StructWithLocationName !== undefined) {
-    bodyParams['StructWithLocationName'] = serializeAws_json1_1StructWithLocationName(input.StructWithLocationName, context);
+    bodyParams[
+      "StructWithLocationName"
+    ] = serializeAws_json1_1StructWithLocationName(
+      input.StructWithLocationName,
+      context
+    );
   }
   if (input.Timestamp !== undefined) {
-    bodyParams['Timestamp'] = Math.round(input.Timestamp.getTime() / 1000);
+    bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
   }
   if (input.UnixTimestamp !== undefined) {
-    bodyParams['UnixTimestamp'] = Math.round(input.UnixTimestamp.getTime() / 1000);
+    bodyParams["UnixTimestamp"] = Math.round(
+      input.UnixTimestamp.getTime() / 1000
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListOfKitchenSinks = (
   input: Array<KitchenSink>,
@@ -359,7 +429,7 @@ const serializeAws_json1_1ListOfKitchenSinks = (
     contents.push(serializeAws_json1_1KitchenSink(entry, context));
   }
   return contents;
-}
+};
 
 const serializeAws_json1_1ListOfListOfStrings = (
   input: Array<Array<string>>,
@@ -370,7 +440,7 @@ const serializeAws_json1_1ListOfListOfStrings = (
     contents.push(serializeAws_json1_1ListOfStrings(entry, context));
   }
   return contents;
-}
+};
 
 const serializeAws_json1_1ListOfMapsOfStrings = (
   input: Array<{ [key: string]: string }>,
@@ -381,7 +451,7 @@ const serializeAws_json1_1ListOfMapsOfStrings = (
     contents.push(serializeAws_json1_1MapOfStrings(entry, context));
   }
   return contents;
-}
+};
 
 const serializeAws_json1_1ListOfStrings = (
   input: Array<string>,
@@ -392,7 +462,7 @@ const serializeAws_json1_1ListOfStrings = (
     contents.push(entry);
   }
   return contents;
-}
+};
 
 const serializeAws_json1_1ListOfStructs = (
   input: Array<SimpleStruct>,
@@ -403,7 +473,7 @@ const serializeAws_json1_1ListOfStructs = (
     contents.push(serializeAws_json1_1SimpleStruct(entry, context));
   }
   return contents;
-}
+};
 
 const serializeAws_json1_1MapOfKitchenSinks = (
   input: { [key: string]: KitchenSink },
@@ -414,7 +484,7 @@ const serializeAws_json1_1MapOfKitchenSinks = (
     mapParams[key] = serializeAws_json1_1KitchenSink(input[key], context);
   });
   return mapParams;
-}
+};
 
 const serializeAws_json1_1MapOfListsOfStrings = (
   input: { [key: string]: Array<string> },
@@ -425,7 +495,7 @@ const serializeAws_json1_1MapOfListsOfStrings = (
     mapParams[key] = serializeAws_json1_1ListOfStrings(input[key], context);
   });
   return mapParams;
-}
+};
 
 const serializeAws_json1_1MapOfMapOfStrings = (
   input: { [key: string]: { [key: string]: string } },
@@ -436,7 +506,7 @@ const serializeAws_json1_1MapOfMapOfStrings = (
     mapParams[key] = serializeAws_json1_1MapOfStrings(input[key], context);
   });
   return mapParams;
-}
+};
 
 const serializeAws_json1_1MapOfStrings = (
   input: { [key: string]: string },
@@ -447,7 +517,7 @@ const serializeAws_json1_1MapOfStrings = (
     mapParams[key] = input[key];
   });
   return mapParams;
-}
+};
 
 const serializeAws_json1_1MapOfStructs = (
   input: { [key: string]: SimpleStruct },
@@ -458,7 +528,7 @@ const serializeAws_json1_1MapOfStructs = (
     mapParams[key] = serializeAws_json1_1SimpleStruct(input[key], context);
   });
   return mapParams;
-}
+};
 
 const serializeAws_json1_1SimpleStruct = (
   input: SimpleStruct,
@@ -466,10 +536,10 @@ const serializeAws_json1_1SimpleStruct = (
 ): any => {
   const bodyParams: any = {};
   if (input.Value !== undefined) {
-    bodyParams['Value'] = input.Value;
+    bodyParams["Value"] = input.Value;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1StructWithLocationName = (
   input: StructWithLocationName,
@@ -477,20 +547,20 @@ const serializeAws_json1_1StructWithLocationName = (
 ): any => {
   const bodyParams: any = {};
   if (input.Value !== undefined) {
-    bodyParams['RenamedMember'] = input.Value;
+    bodyParams["RenamedMember"] = input.Value;
   }
   return bodyParams;
-}
+};
 
 const deserializeAws_json1_1EmptyStruct = (
   output: any,
   context: __SerdeContext
 ): EmptyStruct => {
   let contents: any = {
-    __type: "EmptyStruct",
+    __type: "EmptyStruct"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1ErrorWithMembers = (
   output: any,
@@ -504,22 +574,31 @@ const deserializeAws_json1_1ErrorWithMembers = (
     ListField: undefined,
     MapField: undefined,
     Message: undefined,
-    StringField: undefined,
+    StringField: undefined
   };
   if (output.Code !== undefined && output.Code !== null) {
     contents.Code = output.Code;
   }
   if (output.ComplexData !== undefined && output.ComplexData !== null) {
-    contents.ComplexData = deserializeAws_json1_1KitchenSink(output.ComplexData, context);
+    contents.ComplexData = deserializeAws_json1_1KitchenSink(
+      output.ComplexData,
+      context
+    );
   }
   if (output.IntegerField !== undefined && output.IntegerField !== null) {
     contents.IntegerField = output.IntegerField;
   }
   if (output.ListField !== undefined && output.ListField !== null) {
-    contents.ListField = deserializeAws_json1_1ListOfStrings(output.ListField, context);
+    contents.ListField = deserializeAws_json1_1ListOfStrings(
+      output.ListField,
+      context
+    );
   }
   if (output.MapField !== undefined && output.MapField !== null) {
-    contents.MapField = deserializeAws_json1_1MapOfStrings(output.MapField, context);
+    contents.MapField = deserializeAws_json1_1MapOfStrings(
+      output.MapField,
+      context
+    );
   }
   if (output.Message !== undefined && output.Message !== null) {
     contents.Message = output.Message;
@@ -528,17 +607,17 @@ const deserializeAws_json1_1ErrorWithMembers = (
     contents.StringField = output.StringField;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ErrorWithoutMembers = (
   output: any,
   context: __SerdeContext
 ): ErrorWithoutMembers => {
   let contents: any = {
-    __type: "ErrorWithoutMembers",
+    __type: "ErrorWithoutMembers"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1KitchenSink = (
   output: any,
@@ -571,7 +650,7 @@ const deserializeAws_json1_1KitchenSink = (
     String: undefined,
     StructWithLocationName: undefined,
     Timestamp: undefined,
-    UnixTimestamp: undefined,
+    UnixTimestamp: undefined
   };
   if (output.Blob !== undefined && output.Blob !== null) {
     contents.Blob = context.base64Decoder(output.Blob);
@@ -583,67 +662,128 @@ const deserializeAws_json1_1KitchenSink = (
     contents.Double = output.Double;
   }
   if (output.EmptyStruct !== undefined && output.EmptyStruct !== null) {
-    contents.EmptyStruct = deserializeAws_json1_1EmptyStruct(output.EmptyStruct, context);
+    contents.EmptyStruct = deserializeAws_json1_1EmptyStruct(
+      output.EmptyStruct,
+      context
+    );
   }
   if (output.Float !== undefined && output.Float !== null) {
     contents.Float = output.Float;
   }
-  if (output.HttpdateTimestamp !== undefined && output.HttpdateTimestamp !== null) {
-    contents.HttpdateTimestamp = new Date(Math.round(output.HttpdateTimestamp * 1000));
+  if (
+    output.HttpdateTimestamp !== undefined &&
+    output.HttpdateTimestamp !== null
+  ) {
+    contents.HttpdateTimestamp = new Date(
+      Math.round(output.HttpdateTimestamp * 1000)
+    );
   }
   if (output.Integer !== undefined && output.Integer !== null) {
     contents.Integer = output.Integer;
   }
-  if (output.Iso8601Timestamp !== undefined && output.Iso8601Timestamp !== null) {
-    contents.Iso8601Timestamp = new Date(Math.round(output.Iso8601Timestamp * 1000));
+  if (
+    output.Iso8601Timestamp !== undefined &&
+    output.Iso8601Timestamp !== null
+  ) {
+    contents.Iso8601Timestamp = new Date(
+      Math.round(output.Iso8601Timestamp * 1000)
+    );
   }
   if (output.JsonValue !== undefined && output.JsonValue !== null) {
     contents.JsonValue = new __LazyJsonString(output.JsonValue);
   }
   if (output.ListOfLists !== undefined && output.ListOfLists !== null) {
-    contents.ListOfLists = deserializeAws_json1_1ListOfListOfStrings(output.ListOfLists, context);
+    contents.ListOfLists = deserializeAws_json1_1ListOfListOfStrings(
+      output.ListOfLists,
+      context
+    );
   }
-  if (output.ListOfMapsOfStrings !== undefined && output.ListOfMapsOfStrings !== null) {
-    contents.ListOfMapsOfStrings = deserializeAws_json1_1ListOfMapsOfStrings(output.ListOfMapsOfStrings, context);
+  if (
+    output.ListOfMapsOfStrings !== undefined &&
+    output.ListOfMapsOfStrings !== null
+  ) {
+    contents.ListOfMapsOfStrings = deserializeAws_json1_1ListOfMapsOfStrings(
+      output.ListOfMapsOfStrings,
+      context
+    );
   }
   if (output.ListOfStrings !== undefined && output.ListOfStrings !== null) {
-    contents.ListOfStrings = deserializeAws_json1_1ListOfStrings(output.ListOfStrings, context);
+    contents.ListOfStrings = deserializeAws_json1_1ListOfStrings(
+      output.ListOfStrings,
+      context
+    );
   }
   if (output.ListOfStructs !== undefined && output.ListOfStructs !== null) {
-    contents.ListOfStructs = deserializeAws_json1_1ListOfStructs(output.ListOfStructs, context);
+    contents.ListOfStructs = deserializeAws_json1_1ListOfStructs(
+      output.ListOfStructs,
+      context
+    );
   }
   if (output.Long !== undefined && output.Long !== null) {
     contents.Long = output.Long;
   }
-  if (output.MapOfListsOfStrings !== undefined && output.MapOfListsOfStrings !== null) {
-    contents.MapOfListsOfStrings = deserializeAws_json1_1MapOfListsOfStrings(output.MapOfListsOfStrings, context);
+  if (
+    output.MapOfListsOfStrings !== undefined &&
+    output.MapOfListsOfStrings !== null
+  ) {
+    contents.MapOfListsOfStrings = deserializeAws_json1_1MapOfListsOfStrings(
+      output.MapOfListsOfStrings,
+      context
+    );
   }
   if (output.MapOfMaps !== undefined && output.MapOfMaps !== null) {
-    contents.MapOfMaps = deserializeAws_json1_1MapOfMapOfStrings(output.MapOfMaps, context);
+    contents.MapOfMaps = deserializeAws_json1_1MapOfMapOfStrings(
+      output.MapOfMaps,
+      context
+    );
   }
   if (output.MapOfStrings !== undefined && output.MapOfStrings !== null) {
-    contents.MapOfStrings = deserializeAws_json1_1MapOfStrings(output.MapOfStrings, context);
+    contents.MapOfStrings = deserializeAws_json1_1MapOfStrings(
+      output.MapOfStrings,
+      context
+    );
   }
   if (output.MapOfStructs !== undefined && output.MapOfStructs !== null) {
-    contents.MapOfStructs = deserializeAws_json1_1MapOfStructs(output.MapOfStructs, context);
+    contents.MapOfStructs = deserializeAws_json1_1MapOfStructs(
+      output.MapOfStructs,
+      context
+    );
   }
   if (output.RecursiveList !== undefined && output.RecursiveList !== null) {
-    contents.RecursiveList = deserializeAws_json1_1ListOfKitchenSinks(output.RecursiveList, context);
+    contents.RecursiveList = deserializeAws_json1_1ListOfKitchenSinks(
+      output.RecursiveList,
+      context
+    );
   }
   if (output.RecursiveMap !== undefined && output.RecursiveMap !== null) {
-    contents.RecursiveMap = deserializeAws_json1_1MapOfKitchenSinks(output.RecursiveMap, context);
+    contents.RecursiveMap = deserializeAws_json1_1MapOfKitchenSinks(
+      output.RecursiveMap,
+      context
+    );
   }
   if (output.RecursiveStruct !== undefined && output.RecursiveStruct !== null) {
-    contents.RecursiveStruct = deserializeAws_json1_1KitchenSink(output.RecursiveStruct, context);
+    contents.RecursiveStruct = deserializeAws_json1_1KitchenSink(
+      output.RecursiveStruct,
+      context
+    );
   }
   if (output.SimpleStruct !== undefined && output.SimpleStruct !== null) {
-    contents.SimpleStruct = deserializeAws_json1_1SimpleStruct(output.SimpleStruct, context);
+    contents.SimpleStruct = deserializeAws_json1_1SimpleStruct(
+      output.SimpleStruct,
+      context
+    );
   }
   if (output.String !== undefined && output.String !== null) {
     contents.String = output.String;
   }
-  if (output.StructWithLocationName !== undefined && output.StructWithLocationName !== null) {
-    contents.StructWithLocationName = deserializeAws_json1_1StructWithLocationName(output.StructWithLocationName, context);
+  if (
+    output.StructWithLocationName !== undefined &&
+    output.StructWithLocationName !== null
+  ) {
+    contents.StructWithLocationName = deserializeAws_json1_1StructWithLocationName(
+      output.StructWithLocationName,
+      context
+    );
   }
   if (output.Timestamp !== undefined && output.Timestamp !== null) {
     contents.Timestamp = new Date(Math.round(output.Timestamp * 1000));
@@ -652,7 +792,7 @@ const deserializeAws_json1_1KitchenSink = (
     contents.UnixTimestamp = new Date(Math.round(output.UnixTimestamp * 1000));
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListOfKitchenSinks = (
   output: any,
@@ -661,7 +801,7 @@ const deserializeAws_json1_1ListOfKitchenSinks = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1KitchenSink(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ListOfListOfStrings = (
   output: any,
@@ -670,7 +810,7 @@ const deserializeAws_json1_1ListOfListOfStrings = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ListOfStrings(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ListOfMapsOfStrings = (
   output: any,
@@ -679,16 +819,14 @@ const deserializeAws_json1_1ListOfMapsOfStrings = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MapOfStrings(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ListOfStrings = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1ListOfStructs = (
   output: any,
@@ -697,7 +835,7 @@ const deserializeAws_json1_1ListOfStructs = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SimpleStruct(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1MapOfKitchenSinks = (
   output: any,
@@ -708,7 +846,7 @@ const deserializeAws_json1_1MapOfKitchenSinks = (
     mapParams[key] = deserializeAws_json1_1KitchenSink(output[key], context);
   });
   return mapParams;
-}
+};
 
 const deserializeAws_json1_1MapOfListsOfStrings = (
   output: any,
@@ -719,7 +857,7 @@ const deserializeAws_json1_1MapOfListsOfStrings = (
     mapParams[key] = deserializeAws_json1_1ListOfStrings(output[key], context);
   });
   return mapParams;
-}
+};
 
 const deserializeAws_json1_1MapOfMapOfStrings = (
   output: any,
@@ -730,7 +868,7 @@ const deserializeAws_json1_1MapOfMapOfStrings = (
     mapParams[key] = deserializeAws_json1_1MapOfStrings(output[key], context);
   });
   return mapParams;
-}
+};
 
 const deserializeAws_json1_1MapOfStrings = (
   output: any,
@@ -741,7 +879,7 @@ const deserializeAws_json1_1MapOfStrings = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_json1_1MapOfStructs = (
   output: any,
@@ -752,7 +890,7 @@ const deserializeAws_json1_1MapOfStructs = (
     mapParams[key] = deserializeAws_json1_1SimpleStruct(output[key], context);
   });
   return mapParams;
-}
+};
 
 const deserializeAws_json1_1SimpleStruct = (
   output: any,
@@ -760,13 +898,13 @@ const deserializeAws_json1_1SimpleStruct = (
 ): SimpleStruct => {
   let contents: any = {
     __type: "SimpleStruct",
-    Value: undefined,
+    Value: undefined
   };
   if (output.Value !== undefined && output.Value !== null) {
     contents.Value = output.Value;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1StructWithLocationName = (
   output: any,
@@ -774,13 +912,13 @@ const deserializeAws_json1_1StructWithLocationName = (
 ): StructWithLocationName => {
   let contents: any = {
     __type: "StructWithLocationName",
-    Value: undefined,
+    Value: undefined
   };
   if (output.RenamedMember !== undefined && output.RenamedMember !== null) {
     contents.Value = output.RenamedMember;
   }
   return contents;
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -789,16 +927,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any, context: __SerdeContext): Promise<Uint8Array> => {
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
+  return (
+    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
+  );
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> => {
-  return collectBody(streamBody, context).then(body => context.utf8Encoder(body));
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
 };
 
 const buildHttpRpcRequest = (
@@ -806,14 +954,14 @@ const buildHttpRpcRequest = (
   headers: __HeaderBag,
   path: string,
   resolvedHostname: string | undefined,
-  body: any,
+  body: any
 ): __HttpRequest => {
   const contents: any = {
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     path: path,
-    headers: headers,
+    headers: headers
   };
   if (resolvedHostname !== undefined) {
     contents.hostname = resolvedHostname;
