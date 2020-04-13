@@ -69,7 +69,6 @@ module.exports = {
     if (typeof svc === "string") svc = this[svc];
 
     svc[operation](params, function (err, data) {
-      world.response = this;
       world.error = err;
       world.data = data;
 

@@ -199,9 +199,9 @@ Given("my first request is corrupted with CRC checking (ON|OFF)", function (
 });
 
 Then("the request should( not)? be retried", function (retry, callback) {
-  if (retry && this.response.retryCount > 0)
+  if (retry && this.data.$metadata.retries > 0)
     callback(new Error("Request was incorrectly retried"));
-  if (!retry && this.response.retryCount == 0)
+  if (!retry && this.data.$metadata.retries == 0)
     callback(new Error("Request was incorrectly retried"));
   callback();
 });
@@ -224,7 +224,7 @@ Given("all of my requests are corrupted with CRC checking ON", function (
 });
 
 When("the request is retried the maximum number of times", function (callback) {
-  if (this.response.retryCount != 2)
+  if (this.data.$metadata.retries != 2)
     callback(new Error("Incorrect retry count"));
   callback();
 });
