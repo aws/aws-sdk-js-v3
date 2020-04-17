@@ -2790,11 +2790,11 @@ const buildHttpRpcRequest = (
   body: any
 ): __HttpRequest => {
   const contents: any = {
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     path: path,
-    headers: headers
+    headers: headers,
+    ...context.endpoint
   };
   if (resolvedHostname !== undefined) {
     contents.hostname = resolvedHostname;
