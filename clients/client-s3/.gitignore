@@ -11,4 +11,5 @@ package-lock.json
 
 *.d.ts
 *.js
+!jest.config.js
 *.js.map
