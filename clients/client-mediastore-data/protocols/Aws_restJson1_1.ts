@@ -64,12 +64,12 @@ export async function serializeAws_restJson1_1DeleteObjectCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -97,12 +97,12 @@ export async function serializeAws_restJson1_1DescribeObjectCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "HEAD",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -133,12 +133,12 @@ export async function serializeAws_restJson1_1GetObjectCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -161,13 +161,13 @@ export async function serializeAws_restJson1_1ListItemsCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -208,12 +208,12 @@ export async function serializeAws_restJson1_1PutObjectCommand(
     body = input.Body;
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 

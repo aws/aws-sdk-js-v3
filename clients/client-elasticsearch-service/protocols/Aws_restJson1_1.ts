@@ -177,12 +177,12 @@ export async function serializeAws_restJson1_1AddTagsCommand(
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -200,12 +200,12 @@ export async function serializeAws_restJson1_1CancelElasticsearchServiceSoftware
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -299,12 +299,12 @@ export async function serializeAws_restJson1_1CreateElasticsearchDomainCommand(
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -329,12 +329,12 @@ export async function serializeAws_restJson1_1DeleteElasticsearchDomainCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -348,12 +348,12 @@ export async function serializeAws_restJson1_1DeleteElasticsearchServiceRoleComm
   let body: any;
   body = "{}";
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -378,12 +378,12 @@ export async function serializeAws_restJson1_1DescribeElasticsearchDomainCommand
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -408,12 +408,12 @@ export async function serializeAws_restJson1_1DescribeElasticsearchDomainConfigC
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -434,12 +434,12 @@ export async function serializeAws_restJson1_1DescribeElasticsearchDomainsComman
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -487,13 +487,13 @@ export async function serializeAws_restJson1_1DescribeElasticsearchInstanceTypeL
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -516,13 +516,13 @@ export async function serializeAws_restJson1_1DescribeReservedElasticsearchInsta
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -545,13 +545,13 @@ export async function serializeAws_restJson1_1DescribeReservedElasticsearchInsta
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -568,13 +568,13 @@ export async function serializeAws_restJson1_1GetCompatibleElasticsearchVersions
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -606,13 +606,13 @@ export async function serializeAws_restJson1_1GetUpgradeHistoryCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -637,12 +637,12 @@ export async function serializeAws_restJson1_1GetUpgradeStatusCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -656,12 +656,12 @@ export async function serializeAws_restJson1_1ListDomainNamesCommand(
   let body: any;
   body = "{}";
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -700,13 +700,13 @@ export async function serializeAws_restJson1_1ListElasticsearchInstanceTypesComm
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -726,13 +726,13 @@ export async function serializeAws_restJson1_1ListElasticsearchVersionsCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -749,13 +749,13 @@ export async function serializeAws_restJson1_1ListTagsCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -780,12 +780,12 @@ export async function serializeAws_restJson1_1PurchaseReservedElasticsearchInsta
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -809,12 +809,12 @@ export async function serializeAws_restJson1_1RemoveTagsCommand(
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -832,12 +832,12 @@ export async function serializeAws_restJson1_1StartElasticsearchServiceSoftwareU
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -921,12 +921,12 @@ export async function serializeAws_restJson1_1UpdateElasticsearchDomainConfigCom
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -950,12 +950,12 @@ export async function serializeAws_restJson1_1UpgradeElasticsearchDomainCommand(
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 

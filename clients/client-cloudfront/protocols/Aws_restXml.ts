@@ -387,12 +387,12 @@ export async function serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCo
     body += contents.toString();
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -418,12 +418,12 @@ export async function serializeAws_restXmlCreateDistributionCommand(
     body += contents.toString();
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -452,13 +452,13 @@ export async function serializeAws_restXmlCreateDistributionWithTagsCommand(
     body += contents.toString();
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -484,12 +484,12 @@ export async function serializeAws_restXmlCreateFieldLevelEncryptionConfigComman
     body += contents.toString();
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -515,12 +515,12 @@ export async function serializeAws_restXmlCreateFieldLevelEncryptionProfileComma
     body += contents.toString();
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -560,12 +560,12 @@ export async function serializeAws_restXmlCreateInvalidationCommand(
     body += contents.toString();
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -591,12 +591,12 @@ export async function serializeAws_restXmlCreatePublicKeyCommand(
     body += contents.toString();
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -622,12 +622,12 @@ export async function serializeAws_restXmlCreateStreamingDistributionCommand(
     body += contents.toString();
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -656,13 +656,13 @@ export async function serializeAws_restXmlCreateStreamingDistributionWithTagsCom
     body += contents.toString();
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -690,12 +690,12 @@ export async function serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCo
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -723,12 +723,12 @@ export async function serializeAws_restXmlDeleteDistributionCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -756,12 +756,12 @@ export async function serializeAws_restXmlDeleteFieldLevelEncryptionConfigComman
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -789,12 +789,12 @@ export async function serializeAws_restXmlDeleteFieldLevelEncryptionProfileComma
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -822,12 +822,12 @@ export async function serializeAws_restXmlDeletePublicKeyCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -855,12 +855,12 @@ export async function serializeAws_restXmlDeleteStreamingDistributionCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -885,12 +885,12 @@ export async function serializeAws_restXmlGetCloudFrontOriginAccessIdentityComma
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -916,12 +916,12 @@ export async function serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfi
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -946,12 +946,12 @@ export async function serializeAws_restXmlGetDistributionCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -976,12 +976,12 @@ export async function serializeAws_restXmlGetDistributionConfigCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1006,12 +1006,12 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1036,12 +1036,12 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionConfigCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1066,12 +1066,12 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionProfileCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1096,12 +1096,12 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCo
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1141,12 +1141,12 @@ export async function serializeAws_restXmlGetInvalidationCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1171,12 +1171,12 @@ export async function serializeAws_restXmlGetPublicKeyCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1201,12 +1201,12 @@ export async function serializeAws_restXmlGetPublicKeyConfigCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1231,12 +1231,12 @@ export async function serializeAws_restXmlGetStreamingDistributionCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1261,12 +1261,12 @@ export async function serializeAws_restXmlGetStreamingDistributionConfigCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1286,13 +1286,13 @@ export async function serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCo
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1312,13 +1312,13 @@ export async function serializeAws_restXmlListDistributionsCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1350,13 +1350,13 @@ export async function serializeAws_restXmlListDistributionsByWebACLIdCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1376,13 +1376,13 @@ export async function serializeAws_restXmlListFieldLevelEncryptionConfigsCommand
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1402,13 +1402,13 @@ export async function serializeAws_restXmlListFieldLevelEncryptionProfilesComman
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1442,13 +1442,13 @@ export async function serializeAws_restXmlListInvalidationsCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1468,13 +1468,13 @@ export async function serializeAws_restXmlListPublicKeysCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1494,13 +1494,13 @@ export async function serializeAws_restXmlListStreamingDistributionsCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1517,13 +1517,13 @@ export async function serializeAws_restXmlListTagsForResourceCommand(
   }
   let body: any;
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1552,13 +1552,13 @@ export async function serializeAws_restXmlTagResourceCommand(
     body += contents.toString();
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1587,13 +1587,13 @@ export async function serializeAws_restXmlUntagResourceCommand(
     body += contents.toString();
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1635,12 +1635,12 @@ export async function serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCo
     body += contents.toString();
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1681,12 +1681,12 @@ export async function serializeAws_restXmlUpdateDistributionCommand(
     body += contents.toString();
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1727,12 +1727,12 @@ export async function serializeAws_restXmlUpdateFieldLevelEncryptionConfigComman
     body += contents.toString();
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1773,12 +1773,12 @@ export async function serializeAws_restXmlUpdateFieldLevelEncryptionProfileComma
     body += contents.toString();
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1819,12 +1819,12 @@ export async function serializeAws_restXmlUpdatePublicKeyCommand(
     body += contents.toString();
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
@@ -1865,12 +1865,12 @@ export async function serializeAws_restXmlUpdateStreamingDistributionCommand(
     body += contents.toString();
   }
   return new __HttpRequest({
-    ...context.endpoint,
     protocol: "https",
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
+    ...context.endpoint
   });
 }
 
