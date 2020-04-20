@@ -389,7 +389,7 @@ export class MiddlewareStack<Input extends object, Output extends object> {
    * 2. if `toMiddleware` doesn't exist in the specific `step`, the middleware will be appended
    *     to specific `step` with priority of `normal`
    */
-  private geMiddlewareList(): Array<MiddlewareType<Input, Output>> {
+  private getMiddlewareList(): Array<MiddlewareType<Input, Output>> {
     let middlewareList: Array<MiddlewareType<Input, Output>> = [];
     const [orphanedRelativeEntries, anchors] = this.normalizeRelativeEntries();
     let entryList = [...this.absoluteEntries, ...orphanedRelativeEntries];
@@ -427,7 +427,7 @@ export class MiddlewareStack<Input extends object, Output extends object> {
     handler: DeserializeHandler<InputType, OutputType>,
     context: HandlerExecutionContext
   ): Handler<InputType, OutputType> {
-    for (const middleware of this.geMiddlewareList()) {
+    for (const middleware of this.getMiddlewareList()) {
       handler = middleware(
         handler as Handler<Input, OutputType>,
         context
