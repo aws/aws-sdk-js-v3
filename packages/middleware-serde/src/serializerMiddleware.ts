@@ -20,11 +20,7 @@ export function serializerMiddleware<
   ): SerializeHandler<Input, Output> => async (
     args: SerializeHandlerArguments<Input>
   ): Promise<SerializeHandlerOutput<Output>> => {
-    const endpointResolvedOptions = {
-      ...options,
-      endpoint: await options.endpoint()
-    };
-    const request = await serializer(args.input, endpointResolvedOptions);
+    const request = await serializer(args.input, options);
     return next({
       ...args,
       request

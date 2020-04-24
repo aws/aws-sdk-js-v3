@@ -60,13 +60,15 @@ export async function serializeAws_restJson1_1InvokeEndpointCommand(
   if (input.Body !== undefined) {
     body = input.Body;
   }
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 

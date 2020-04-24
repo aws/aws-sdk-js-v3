@@ -11,8 +11,9 @@ describe("endpoint", () => {
       expect(request.protocol).toEqual("http:");
       expect(request.hostname).toEqual("localhost");
       expect(request.port).toEqual(8080);
-      expect(request.query).toEqual({ foo: "bar" });
-      expect(request.path).toEqual("/path");
+      //query and path should not be overwritten
+      expect(request.query).not.toContainEqual({ foo: "bar" });
+      expect(request.path).not.toEqual("/path");
       return Promise.resolve({ output: {} as any, response: {} as any });
     };
     const client = new S3({ endpoint: "http://localhost:8080/path?foo=bar" });

@@ -93,14 +93,16 @@ export async function serializeAws_restJson1_1SearchCommand(
     query["stats"] = input.stats;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -125,14 +127,16 @@ export async function serializeAws_restJson1_1SuggestCommand(
     query["suggester"] = input.suggester;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -153,14 +157,16 @@ export async function serializeAws_restJson1_1UploadDocumentsCommand(
   if (input.documents !== undefined) {
     body = input.documents;
   }
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 

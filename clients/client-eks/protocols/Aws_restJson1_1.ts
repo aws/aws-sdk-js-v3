@@ -173,13 +173,15 @@ export async function serializeAws_restJson1_1CreateClusterCommand(
     bodyParams["version"] = input.version;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -234,13 +236,15 @@ export async function serializeAws_restJson1_1CreateFargateProfileCommand(
     bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -327,13 +331,15 @@ export async function serializeAws_restJson1_1CreateNodegroupCommand(
     bodyParams["version"] = input.version;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -357,13 +363,15 @@ export async function serializeAws_restJson1_1DeleteClusterCommand(
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "DELETE",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -406,13 +414,15 @@ export async function serializeAws_restJson1_1DeleteFargateProfileCommand(
     );
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "DELETE",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -452,13 +462,15 @@ export async function serializeAws_restJson1_1DeleteNodegroupCommand(
     throw new Error("No value provided for input HTTP label: nodegroupName.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "DELETE",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -482,13 +494,15 @@ export async function serializeAws_restJson1_1DescribeClusterCommand(
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -531,13 +545,15 @@ export async function serializeAws_restJson1_1DescribeFargateProfileCommand(
     );
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -577,13 +593,15 @@ export async function serializeAws_restJson1_1DescribeNodegroupCommand(
     throw new Error("No value provided for input HTTP label: nodegroupName.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -623,14 +641,16 @@ export async function serializeAws_restJson1_1DescribeUpdateCommand(
     query["nodegroupName"] = input.nodegroupName;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -649,14 +669,16 @@ export async function serializeAws_restJson1_1ListClustersCommand(
     query["nextToken"] = input.nextToken;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -689,14 +711,16 @@ export async function serializeAws_restJson1_1ListFargateProfilesCommand(
     query["nextToken"] = input.nextToken;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -729,14 +753,16 @@ export async function serializeAws_restJson1_1ListNodegroupsCommand(
     query["nextToken"] = input.nextToken;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -762,13 +788,15 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -802,14 +830,16 @@ export async function serializeAws_restJson1_1ListUpdatesCommand(
     query["nodegroupName"] = input.nodegroupName;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -840,13 +870,15 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -876,14 +908,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     query["tagKeys"] = (input.tagKeys || []).map(_entry => _entry);
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "DELETE",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -927,13 +961,15 @@ export async function serializeAws_restJson1_1UpdateClusterConfigCommand(
     );
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -968,13 +1004,15 @@ export async function serializeAws_restJson1_1UpdateClusterVersionCommand(
     bodyParams["version"] = input.version;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1037,13 +1075,15 @@ export async function serializeAws_restJson1_1UpdateNodegroupConfigCommand(
     );
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1101,13 +1141,15 @@ export async function serializeAws_restJson1_1UpdateNodegroupVersionCommand(
     bodyParams["version"] = input.version;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 

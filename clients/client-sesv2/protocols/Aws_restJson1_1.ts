@@ -314,13 +314,15 @@ export async function serializeAws_restJson1_1CreateConfigurationSetCommand(
     );
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -362,13 +364,15 @@ export async function serializeAws_restJson1_1CreateConfigurationSetEventDestina
     bodyParams["EventDestinationName"] = input.EventDestinationName;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -388,13 +392,15 @@ export async function serializeAws_restJson1_1CreateDedicatedIpPoolCommand(
     bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -423,13 +429,15 @@ export async function serializeAws_restJson1_1CreateDeliverabilityTestReportComm
     bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -457,13 +465,15 @@ export async function serializeAws_restJson1_1CreateEmailIdentityCommand(
     bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -491,13 +501,15 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetCommand(
     );
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "DELETE",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -542,13 +554,15 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
     );
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "DELETE",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -572,13 +586,15 @@ export async function serializeAws_restJson1_1DeleteDedicatedIpPoolCommand(
     throw new Error("No value provided for input HTTP label: PoolName.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "DELETE",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -604,13 +620,15 @@ export async function serializeAws_restJson1_1DeleteEmailIdentityCommand(
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "DELETE",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -636,13 +654,15 @@ export async function serializeAws_restJson1_1DeleteSuppressedDestinationCommand
     throw new Error("No value provided for input HTTP label: EmailAddress.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "DELETE",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -655,13 +675,15 @@ export async function serializeAws_restJson1_1GetAccountCommand(
   let resolvedPath = "/v2/email/account";
   let body: any;
   body = "{}";
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -679,14 +701,16 @@ export async function serializeAws_restJson1_1GetBlacklistReportsCommand(
     );
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -714,13 +738,15 @@ export async function serializeAws_restJson1_1GetConfigurationSetCommand(
     );
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -749,13 +775,15 @@ export async function serializeAws_restJson1_1GetConfigurationSetEventDestinatio
     );
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -779,13 +807,15 @@ export async function serializeAws_restJson1_1GetDedicatedIpCommand(
     throw new Error("No value provided for input HTTP label: Ip.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -807,14 +837,16 @@ export async function serializeAws_restJson1_1GetDedicatedIpsCommand(
     query["PoolName"] = input.PoolName;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -827,13 +859,15 @@ export async function serializeAws_restJson1_1GetDeliverabilityDashboardOptionsC
   let resolvedPath = "/v2/email/deliverability-dashboard";
   let body: any;
   body = "{}";
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -858,13 +892,15 @@ export async function serializeAws_restJson1_1GetDeliverabilityTestReportCommand
     throw new Error("No value provided for input HTTP label: ReportId.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -889,13 +925,15 @@ export async function serializeAws_restJson1_1GetDomainDeliverabilityCampaignCom
     throw new Error("No value provided for input HTTP label: CampaignId.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -931,14 +969,16 @@ export async function serializeAws_restJson1_1GetDomainStatisticsReportCommand(
     ).toString();
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -964,13 +1004,15 @@ export async function serializeAws_restJson1_1GetEmailIdentityCommand(
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -996,13 +1038,15 @@ export async function serializeAws_restJson1_1GetSuppressedDestinationCommand(
     throw new Error("No value provided for input HTTP label: EmailAddress.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1021,14 +1065,16 @@ export async function serializeAws_restJson1_1ListConfigurationSetsCommand(
     query["PageSize"] = input.PageSize.toString();
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -1047,14 +1093,16 @@ export async function serializeAws_restJson1_1ListDedicatedIpPoolsCommand(
     query["PageSize"] = input.PageSize.toString();
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -1073,14 +1121,16 @@ export async function serializeAws_restJson1_1ListDeliverabilityTestReportsComma
     query["PageSize"] = input.PageSize.toString();
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -1126,14 +1176,16 @@ export async function serializeAws_restJson1_1ListDomainDeliverabilityCampaignsC
     ).toString();
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -1152,14 +1204,16 @@ export async function serializeAws_restJson1_1ListEmailIdentitiesCommand(
     query["PageSize"] = input.PageSize.toString();
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -1191,14 +1245,16 @@ export async function serializeAws_restJson1_1ListSuppressedDestinationsCommand(
     ).toString();
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -1214,14 +1270,16 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     query["ResourceArn"] = input.ResourceArn;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -1238,13 +1296,15 @@ export async function serializeAws_restJson1_1PutAccountDedicatedIpWarmupAttribu
     bodyParams["AutoWarmupEnabled"] = input.AutoWarmupEnabled;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1261,13 +1321,15 @@ export async function serializeAws_restJson1_1PutAccountSendingAttributesCommand
     bodyParams["SendingEnabled"] = input.SendingEnabled;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1289,13 +1351,15 @@ export async function serializeAws_restJson1_1PutAccountSuppressionAttributesCom
     );
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1332,13 +1396,15 @@ export async function serializeAws_restJson1_1PutConfigurationSetDeliveryOptions
     bodyParams["TlsPolicy"] = input.TlsPolicy;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1372,13 +1438,15 @@ export async function serializeAws_restJson1_1PutConfigurationSetReputationOptio
     bodyParams["ReputationMetricsEnabled"] = input.ReputationMetricsEnabled;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1412,13 +1480,15 @@ export async function serializeAws_restJson1_1PutConfigurationSetSendingOptionsC
     bodyParams["SendingEnabled"] = input.SendingEnabled;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1457,13 +1527,15 @@ export async function serializeAws_restJson1_1PutConfigurationSetSuppressionOpti
     );
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1497,13 +1569,15 @@ export async function serializeAws_restJson1_1PutConfigurationSetTrackingOptions
     bodyParams["CustomRedirectDomain"] = input.CustomRedirectDomain;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1532,13 +1606,15 @@ export async function serializeAws_restJson1_1PutDedicatedIpInPoolCommand(
     bodyParams["DestinationPoolName"] = input.DestinationPoolName;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1567,13 +1643,15 @@ export async function serializeAws_restJson1_1PutDedicatedIpWarmupAttributesComm
     bodyParams["WarmupPercentage"] = input.WarmupPercentage;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1598,13 +1676,15 @@ export async function serializeAws_restJson1_1PutDeliverabilityDashboardOptionCo
     );
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1635,13 +1715,15 @@ export async function serializeAws_restJson1_1PutEmailIdentityDkimAttributesComm
     bodyParams["SigningEnabled"] = input.SigningEnabled;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1680,13 +1762,15 @@ export async function serializeAws_restJson1_1PutEmailIdentityDkimSigningAttribu
     bodyParams["SigningAttributesOrigin"] = input.SigningAttributesOrigin;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1717,13 +1801,15 @@ export async function serializeAws_restJson1_1PutEmailIdentityFeedbackAttributes
     bodyParams["EmailForwardingEnabled"] = input.EmailForwardingEnabled;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1757,13 +1843,15 @@ export async function serializeAws_restJson1_1PutEmailIdentityMailFromAttributes
     bodyParams["MailFromDomain"] = input.MailFromDomain;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1783,13 +1871,15 @@ export async function serializeAws_restJson1_1PutSuppressedDestinationCommand(
     bodyParams["Reason"] = input.Reason;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1837,13 +1927,15 @@ export async function serializeAws_restJson1_1SendEmailCommand(
     );
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1863,13 +1955,15 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1888,14 +1982,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     query["TagKeys"] = (input.TagKeys || []).map(_entry => _entry);
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "DELETE",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -1950,13 +2046,15 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
     );
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 

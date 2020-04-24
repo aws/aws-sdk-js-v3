@@ -131,13 +131,15 @@ export async function serializeAws_restJson1_1CancelJobCommand(
     bodyParams["reason"] = input.reason;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -169,13 +171,15 @@ export async function serializeAws_restJson1_1CreateComputeEnvironmentCommand(
     bodyParams["type"] = input.type;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -206,13 +210,15 @@ export async function serializeAws_restJson1_1CreateJobQueueCommand(
     bodyParams["state"] = input.state;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -229,13 +235,15 @@ export async function serializeAws_restJson1_1DeleteComputeEnvironmentCommand(
     bodyParams["computeEnvironment"] = input.computeEnvironment;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -252,13 +260,15 @@ export async function serializeAws_restJson1_1DeleteJobQueueCommand(
     bodyParams["jobQueue"] = input.jobQueue;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -275,13 +285,15 @@ export async function serializeAws_restJson1_1DeregisterJobDefinitionCommand(
     bodyParams["jobDefinition"] = input.jobDefinition;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -307,13 +319,15 @@ export async function serializeAws_restJson1_1DescribeComputeEnvironmentsCommand
     bodyParams["nextToken"] = input.nextToken;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -345,13 +359,15 @@ export async function serializeAws_restJson1_1DescribeJobDefinitionsCommand(
     bodyParams["status"] = input.status;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -377,13 +393,15 @@ export async function serializeAws_restJson1_1DescribeJobQueuesCommand(
     bodyParams["nextToken"] = input.nextToken;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -403,13 +421,15 @@ export async function serializeAws_restJson1_1DescribeJobsCommand(
     );
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -441,13 +461,15 @@ export async function serializeAws_restJson1_1ListJobsCommand(
     bodyParams["nextToken"] = input.nextToken;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -499,13 +521,15 @@ export async function serializeAws_restJson1_1RegisterJobDefinitionCommand(
     bodyParams["type"] = input.type;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -572,13 +596,15 @@ export async function serializeAws_restJson1_1SubmitJobCommand(
     );
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -598,13 +624,15 @@ export async function serializeAws_restJson1_1TerminateJobCommand(
     bodyParams["reason"] = input.reason;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -635,13 +663,15 @@ export async function serializeAws_restJson1_1UpdateComputeEnvironmentCommand(
     bodyParams["state"] = input.state;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -672,13 +702,15 @@ export async function serializeAws_restJson1_1UpdateJobQueueCommand(
     bodyParams["state"] = input.state;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 

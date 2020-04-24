@@ -69,13 +69,15 @@ export async function serializeAws_restJson1_1DeleteHumanLoopCommand(
     throw new Error("No value provided for input HTTP label: HumanLoopName.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "DELETE",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -101,13 +103,15 @@ export async function serializeAws_restJson1_1DescribeHumanLoopCommand(
     throw new Error("No value provided for input HTTP label: HumanLoopName.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -139,14 +143,16 @@ export async function serializeAws_restJson1_1ListHumanLoopsCommand(
     query["SortOrder"] = input.SortOrder;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -182,13 +188,15 @@ export async function serializeAws_restJson1_1StartHumanLoopCommand(
     bodyParams["HumanLoopName"] = input.HumanLoopName;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -205,13 +213,15 @@ export async function serializeAws_restJson1_1StopHumanLoopCommand(
     bodyParams["HumanLoopName"] = input.HumanLoopName;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
