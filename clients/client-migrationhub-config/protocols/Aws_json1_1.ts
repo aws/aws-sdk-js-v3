@@ -743,19 +743,21 @@ const collectBodyString = (
   );
 };
 
-const buildHttpRpcRequest = (
+const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
   path: string,
   resolvedHostname: string | undefined,
   body: any
-): __HttpRequest => {
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port } = await context.endpoint();
   const contents: any = {
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    path: path,
-    headers: headers,
-    ...context.endpoint
+    path,
+    headers
   };
   if (resolvedHostname !== undefined) {
     contents.hostname = resolvedHostname;

@@ -80,14 +80,16 @@ export async function serializeAws_restJson1_1DescribeJobExecutionCommand(
     query["includeJobDocument"] = input.includeJobDocument.toString();
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -111,13 +113,15 @@ export async function serializeAws_restJson1_1GetPendingJobExecutionsCommand(
     throw new Error("No value provided for input HTTP label: thingName.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -152,13 +156,15 @@ export async function serializeAws_restJson1_1StartNextPendingJobExecutionComman
     bodyParams["stepTimeoutInMinutes"] = input.stepTimeoutInMinutes;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "PUT",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -220,13 +226,15 @@ export async function serializeAws_restJson1_1UpdateJobExecutionCommand(
     bodyParams["stepTimeoutInMinutes"] = input.stepTimeoutInMinutes;
   }
   body = JSON.stringify(bodyParams);
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 

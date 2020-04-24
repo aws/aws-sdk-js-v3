@@ -365,13 +365,15 @@ export async function serializeAws_restXmlAssociateVPCWithHostedZoneCommand(
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -411,13 +413,15 @@ export async function serializeAws_restXmlChangeResourceRecordSetsCommand(
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -478,13 +482,15 @@ export async function serializeAws_restXmlChangeTagsForResourceCommand(
     bodyNode.addChildNode(containerNode);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -516,13 +522,15 @@ export async function serializeAws_restXmlCreateHealthCheckCommand(
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -570,13 +578,15 @@ export async function serializeAws_restXmlCreateHostedZoneCommand(
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -607,13 +617,15 @@ export async function serializeAws_restXmlCreateQueryLoggingConfigCommand(
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -644,13 +656,15 @@ export async function serializeAws_restXmlCreateReusableDelegationSetCommand(
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -687,13 +701,15 @@ export async function serializeAws_restXmlCreateTrafficPolicyCommand(
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -742,13 +758,15 @@ export async function serializeAws_restXmlCreateTrafficPolicyInstanceCommand(
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -791,13 +809,15 @@ export async function serializeAws_restXmlCreateTrafficPolicyVersionCommand(
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -835,13 +855,15 @@ export async function serializeAws_restXmlCreateVPCAssociationAuthorizationComma
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -867,13 +889,15 @@ export async function serializeAws_restXmlDeleteHealthCheckCommand(
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "DELETE",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -897,13 +921,15 @@ export async function serializeAws_restXmlDeleteHostedZoneCommand(
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "DELETE",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -927,13 +953,15 @@ export async function serializeAws_restXmlDeleteQueryLoggingConfigCommand(
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "DELETE",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -957,13 +985,15 @@ export async function serializeAws_restXmlDeleteReusableDelegationSetCommand(
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "DELETE",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -999,13 +1029,15 @@ export async function serializeAws_restXmlDeleteTrafficPolicyCommand(
     throw new Error("No value provided for input HTTP label: Version.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "DELETE",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1029,13 +1061,15 @@ export async function serializeAws_restXmlDeleteTrafficPolicyInstanceCommand(
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "DELETE",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1073,13 +1107,15 @@ export async function serializeAws_restXmlDeleteVPCAssociationAuthorizationComma
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1122,13 +1158,15 @@ export async function serializeAws_restXmlDisassociateVPCFromHostedZoneCommand(
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1152,13 +1190,15 @@ export async function serializeAws_restXmlGetAccountLimitCommand(
     throw new Error("No value provided for input HTTP label: Type.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1182,13 +1222,15 @@ export async function serializeAws_restXmlGetChangeCommand(
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1201,13 +1243,15 @@ export async function serializeAws_restXmlGetCheckerIpRangesCommand(
   let resolvedPath = "/2013-04-01/checkeripranges";
   let body: any;
   body = "";
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1229,14 +1273,16 @@ export async function serializeAws_restXmlGetGeoLocationCommand(
     query["subdivisioncode"] = input.SubdivisionCode;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -1262,13 +1308,15 @@ export async function serializeAws_restXmlGetHealthCheckCommand(
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1281,13 +1329,15 @@ export async function serializeAws_restXmlGetHealthCheckCountCommand(
   let resolvedPath = "/2013-04-01/healthcheckcount";
   let body: any;
   body = "";
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1314,13 +1364,15 @@ export async function serializeAws_restXmlGetHealthCheckLastFailureReasonCommand
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1346,13 +1398,15 @@ export async function serializeAws_restXmlGetHealthCheckStatusCommand(
     throw new Error("No value provided for input HTTP label: HealthCheckId.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1376,13 +1430,15 @@ export async function serializeAws_restXmlGetHostedZoneCommand(
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1395,13 +1451,15 @@ export async function serializeAws_restXmlGetHostedZoneCountCommand(
   let resolvedPath = "/2013-04-01/hostedzonecount";
   let body: any;
   body = "";
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1439,13 +1497,15 @@ export async function serializeAws_restXmlGetHostedZoneLimitCommand(
     throw new Error("No value provided for input HTTP label: Type.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1469,13 +1529,15 @@ export async function serializeAws_restXmlGetQueryLoggingConfigCommand(
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1499,13 +1561,15 @@ export async function serializeAws_restXmlGetReusableDelegationSetCommand(
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1544,13 +1608,15 @@ export async function serializeAws_restXmlGetReusableDelegationSetLimitCommand(
     throw new Error("No value provided for input HTTP label: Type.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1586,13 +1652,15 @@ export async function serializeAws_restXmlGetTrafficPolicyCommand(
     throw new Error("No value provided for input HTTP label: Version.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1616,13 +1684,15 @@ export async function serializeAws_restXmlGetTrafficPolicyInstanceCommand(
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1635,13 +1705,15 @@ export async function serializeAws_restXmlGetTrafficPolicyInstanceCountCommand(
   let resolvedPath = "/2013-04-01/trafficpolicyinstancecount";
   let body: any;
   body = "";
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1666,14 +1738,16 @@ export async function serializeAws_restXmlListGeoLocationsCommand(
     query["startsubdivisioncode"] = input.StartSubdivisionCode;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -1692,14 +1766,16 @@ export async function serializeAws_restXmlListHealthChecksCommand(
     query["maxitems"] = input.MaxItems;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -1721,14 +1797,16 @@ export async function serializeAws_restXmlListHostedZonesCommand(
     query["maxitems"] = input.MaxItems;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -1750,14 +1828,16 @@ export async function serializeAws_restXmlListHostedZonesByNameCommand(
     query["maxitems"] = input.MaxItems;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -1779,14 +1859,16 @@ export async function serializeAws_restXmlListQueryLoggingConfigsCommand(
     query["nexttoken"] = input.NextToken;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -1825,14 +1907,16 @@ export async function serializeAws_restXmlListResourceRecordSetsCommand(
     query["type"] = input.StartRecordType;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -1851,14 +1935,16 @@ export async function serializeAws_restXmlListReusableDelegationSetsCommand(
     query["maxitems"] = input.MaxItems;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -1896,13 +1982,15 @@ export async function serializeAws_restXmlListTagsForResourceCommand(
     throw new Error("No value provided for input HTTP label: ResourceType.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1946,13 +2034,15 @@ export async function serializeAws_restXmlListTagsForResourcesCommand(
     bodyNode.addChildNode(containerNode);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -1971,14 +2061,16 @@ export async function serializeAws_restXmlListTrafficPoliciesCommand(
     query["trafficpolicyid"] = input.TrafficPolicyIdMarker;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -2003,14 +2095,16 @@ export async function serializeAws_restXmlListTrafficPolicyInstancesCommand(
     query["trafficpolicyinstancetype"] = input.TrafficPolicyInstanceTypeMarker;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -2035,14 +2129,16 @@ export async function serializeAws_restXmlListTrafficPolicyInstancesByHostedZone
     query["trafficpolicyinstancetype"] = input.TrafficPolicyInstanceTypeMarker;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -2073,14 +2169,16 @@ export async function serializeAws_restXmlListTrafficPolicyInstancesByPolicyComm
     query["version"] = input.TrafficPolicyVersion.toString();
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -2111,14 +2209,16 @@ export async function serializeAws_restXmlListTrafficPolicyVersionsCommand(
     query["trafficpolicyversion"] = input.TrafficPolicyVersionMarker;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -2152,14 +2252,16 @@ export async function serializeAws_restXmlListVPCAssociationAuthorizationsComman
     query["nexttoken"] = input.NextToken;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -2190,14 +2292,16 @@ export async function serializeAws_restXmlTestDNSAnswerCommand(
     query["resolverip"] = input.ResolverIP;
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "GET",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    query: query,
-    body: body,
-    ...context.endpoint
+    query,
+    body
   });
 }
 
@@ -2342,13 +2446,15 @@ export async function serializeAws_restXmlUpdateHealthCheckCommand(
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -2385,13 +2491,15 @@ export async function serializeAws_restXmlUpdateHostedZoneCommentCommand(
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -2440,13 +2548,15 @@ export async function serializeAws_restXmlUpdateTrafficPolicyCommentCommand(
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
@@ -2495,13 +2605,15 @@ export async function serializeAws_restXmlUpdateTrafficPolicyInstanceCommand(
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
-    protocol: "https",
+    protocol,
+    hostname,
+    port,
     method: "POST",
-    headers: headers,
+    headers,
     path: resolvedPath,
-    body: body,
-    ...context.endpoint
+    body
   });
 }
 
