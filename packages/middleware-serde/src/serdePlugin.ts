@@ -5,7 +5,6 @@ import {
   MetadataBearer,
   MiddlewareStack,
   EndpointBearer,
-  RequestHandler,
   DeserializeHandlerOptions,
   SerializeHandlerOptions
 } from "@aws-sdk/types";
