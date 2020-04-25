@@ -3,6 +3,64 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.0.0-beta.3 (2020-04-25)
+
+
+
+# 1.0.0-beta.2 (2020-03-28)
+
+
+
+# 1.0.0-beta.1 (2020-03-25)
+
+
+### Features
+
+* bump packages to beta ([#1050](https://github.com/aws/aws-sdk-js-v3/issues/1050)) ([40501d4](https://github.com/aws/aws-sdk-js-v3/commit/40501d4394d04bc1bc91c10136fa48b1d3a67d8f))
+
+
+
+# 1.0.0-alpha.28 (2020-03-20)
+
+
+
+# 1.0.0-alpha.24 (2020-02-19)
+
+
+
+# 1.0.0-alpha.13 (2020-01-24)
+
+
+
+# 1.0.0-alpha.12 (2020-01-22)
+
+
+
+# 1.0.0-alpha.8 (2020-01-16)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Bug Fixes
+
+* fix casing in mw-apply-body-checksum ([86b3622](https://github.com/aws/aws-sdk-js-v3/commit/86b3622cfb8b19e54b60c9daa1e2db1487a162bf))
+
+
+### Features
+
+* Migrate and apply ApplyMd5BodyChecksumMiddleware ([#493](https://github.com/aws/aws-sdk-js-v3/issues/493)) ([87b5549](https://github.com/aws/aws-sdk-js-v3/commit/87b5549f335671e11ac9625d21037bbab0a7a693))
+* remove headerName config option ([#561](https://github.com/aws/aws-sdk-js-v3/issues/561)) ([9a9a601](https://github.com/aws/aws-sdk-js-v3/commit/9a9a601ef7d6e42dd31259a8d6bc79f21b56c180))
+
+
+
+
+
 # 1.0.0-beta.2 (2020-03-28)
 
 
