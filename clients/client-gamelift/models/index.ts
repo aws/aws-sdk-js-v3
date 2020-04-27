@@ -28,9 +28,8 @@ export interface AcceptMatchInput {
 }
 
 export namespace AcceptMatchInput {
-  export function isa(o: any): o is AcceptMatchInput {
-    return __isa(o, "AcceptMatchInput");
-  }
+  export const isa = (o: any): o is AcceptMatchInput =>
+    __isa(o, "AcceptMatchInput");
 }
 
 export interface AcceptMatchOutput {
@@ -38,9 +37,8 @@ export interface AcceptMatchOutput {
 }
 
 export namespace AcceptMatchOutput {
-  export function isa(o: any): o is AcceptMatchOutput {
-    return __isa(o, "AcceptMatchOutput");
-  }
+  export const isa = (o: any): o is AcceptMatchOutput =>
+    __isa(o, "AcceptMatchOutput");
 }
 
 export type AcceptanceType = "ACCEPT" | "REJECT";
@@ -119,9 +117,7 @@ export interface Alias {
 }
 
 export namespace Alias {
-  export function isa(o: any): o is Alias {
-    return __isa(o, "Alias");
-  }
+  export const isa = (o: any): o is Alias => __isa(o, "Alias");
 }
 
 /**
@@ -157,9 +153,8 @@ export interface AttributeValue {
 }
 
 export namespace AttributeValue {
-  export function isa(o: any): o is AttributeValue {
-    return __isa(o, "AttributeValue");
-  }
+  export const isa = (o: any): o is AttributeValue =>
+    __isa(o, "AttributeValue");
 }
 
 /**
@@ -187,9 +182,8 @@ export interface AwsCredentials {
 }
 
 export namespace AwsCredentials {
-  export function isa(o: any): o is AwsCredentials {
-    return __isa(o, "AwsCredentials");
-  }
+  export const isa = (o: any): o is AwsCredentials =>
+    __isa(o, "AwsCredentials");
 }
 
 export enum BackfillMode {
@@ -297,9 +291,7 @@ export interface Build {
 }
 
 export namespace Build {
-  export function isa(o: any): o is Build {
-    return __isa(o, "Build");
-  }
+  export const isa = (o: any): o is Build => __isa(o, "Build");
 }
 
 export enum BuildStatus {
@@ -325,9 +317,8 @@ export interface CertificateConfiguration {
 }
 
 export namespace CertificateConfiguration {
-  export function isa(o: any): o is CertificateConfiguration {
-    return __isa(o, "CertificateConfiguration");
-  }
+  export const isa = (o: any): o is CertificateConfiguration =>
+    __isa(o, "CertificateConfiguration");
 }
 
 export enum CertificateType {
@@ -354,9 +345,8 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export function isa(o: any): o is ConflictException {
-    return __isa(o, "ConflictException");
-  }
+  export const isa = (o: any): o is ConflictException =>
+    __isa(o, "ConflictException");
 }
 
 /**
@@ -394,9 +384,8 @@ export interface CreateAliasInput {
 }
 
 export namespace CreateAliasInput {
-  export function isa(o: any): o is CreateAliasInput {
-    return __isa(o, "CreateAliasInput");
-  }
+  export const isa = (o: any): o is CreateAliasInput =>
+    __isa(o, "CreateAliasInput");
 }
 
 /**
@@ -411,9 +400,8 @@ export interface CreateAliasOutput {
 }
 
 export namespace CreateAliasOutput {
-  export function isa(o: any): o is CreateAliasOutput {
-    return __isa(o, "CreateAliasOutput");
-  }
+  export const isa = (o: any): o is CreateAliasOutput =>
+    __isa(o, "CreateAliasOutput");
 }
 
 /**
@@ -466,9 +454,8 @@ export interface CreateBuildInput {
 }
 
 export namespace CreateBuildInput {
-  export function isa(o: any): o is CreateBuildInput {
-    return __isa(o, "CreateBuildInput");
-  }
+  export const isa = (o: any): o is CreateBuildInput =>
+    __isa(o, "CreateBuildInput");
 }
 
 /**
@@ -497,9 +484,8 @@ export interface CreateBuildOutput {
 }
 
 export namespace CreateBuildOutput {
-  export function isa(o: any): o is CreateBuildOutput {
-    return __isa(o, "CreateBuildOutput");
-  }
+  export const isa = (o: any): o is CreateBuildOutput =>
+    __isa(o, "CreateBuildOutput");
 }
 
 /**
@@ -700,9 +686,8 @@ export interface CreateFleetInput {
 }
 
 export namespace CreateFleetInput {
-  export function isa(o: any): o is CreateFleetInput {
-    return __isa(o, "CreateFleetInput");
-  }
+  export const isa = (o: any): o is CreateFleetInput =>
+    __isa(o, "CreateFleetInput");
 }
 
 /**
@@ -717,9 +702,8 @@ export interface CreateFleetOutput {
 }
 
 export namespace CreateFleetOutput {
-  export function isa(o: any): o is CreateFleetOutput {
-    return __isa(o, "CreateFleetOutput");
-  }
+  export const isa = (o: any): o is CreateFleetOutput =>
+    __isa(o, "CreateFleetOutput");
 }
 
 /**
@@ -791,9 +775,8 @@ export interface CreateGameSessionInput {
 }
 
 export namespace CreateGameSessionInput {
-  export function isa(o: any): o is CreateGameSessionInput {
-    return __isa(o, "CreateGameSessionInput");
-  }
+  export const isa = (o: any): o is CreateGameSessionInput =>
+    __isa(o, "CreateGameSessionInput");
 }
 
 /**
@@ -808,9 +791,8 @@ export interface CreateGameSessionOutput {
 }
 
 export namespace CreateGameSessionOutput {
-  export function isa(o: any): o is CreateGameSessionOutput {
-    return __isa(o, "CreateGameSessionOutput");
-  }
+  export const isa = (o: any): o is CreateGameSessionOutput =>
+    __isa(o, "CreateGameSessionOutput");
 }
 
 /**
@@ -861,9 +843,8 @@ export interface CreateGameSessionQueueInput {
 }
 
 export namespace CreateGameSessionQueueInput {
-  export function isa(o: any): o is CreateGameSessionQueueInput {
-    return __isa(o, "CreateGameSessionQueueInput");
-  }
+  export const isa = (o: any): o is CreateGameSessionQueueInput =>
+    __isa(o, "CreateGameSessionQueueInput");
 }
 
 /**
@@ -878,9 +859,8 @@ export interface CreateGameSessionQueueOutput {
 }
 
 export namespace CreateGameSessionQueueOutput {
-  export function isa(o: any): o is CreateGameSessionQueueOutput {
-    return __isa(o, "CreateGameSessionQueueOutput");
-  }
+  export const isa = (o: any): o is CreateGameSessionQueueOutput =>
+    __isa(o, "CreateGameSessionQueueOutput");
 }
 
 /**
@@ -989,9 +969,8 @@ export interface CreateMatchmakingConfigurationInput {
 }
 
 export namespace CreateMatchmakingConfigurationInput {
-  export function isa(o: any): o is CreateMatchmakingConfigurationInput {
-    return __isa(o, "CreateMatchmakingConfigurationInput");
-  }
+  export const isa = (o: any): o is CreateMatchmakingConfigurationInput =>
+    __isa(o, "CreateMatchmakingConfigurationInput");
 }
 
 /**
@@ -1006,9 +985,8 @@ export interface CreateMatchmakingConfigurationOutput {
 }
 
 export namespace CreateMatchmakingConfigurationOutput {
-  export function isa(o: any): o is CreateMatchmakingConfigurationOutput {
-    return __isa(o, "CreateMatchmakingConfigurationOutput");
-  }
+  export const isa = (o: any): o is CreateMatchmakingConfigurationOutput =>
+    __isa(o, "CreateMatchmakingConfigurationOutput");
 }
 
 /**
@@ -1044,9 +1022,8 @@ export interface CreateMatchmakingRuleSetInput {
 }
 
 export namespace CreateMatchmakingRuleSetInput {
-  export function isa(o: any): o is CreateMatchmakingRuleSetInput {
-    return __isa(o, "CreateMatchmakingRuleSetInput");
-  }
+  export const isa = (o: any): o is CreateMatchmakingRuleSetInput =>
+    __isa(o, "CreateMatchmakingRuleSetInput");
 }
 
 /**
@@ -1061,9 +1038,8 @@ export interface CreateMatchmakingRuleSetOutput {
 }
 
 export namespace CreateMatchmakingRuleSetOutput {
-  export function isa(o: any): o is CreateMatchmakingRuleSetOutput {
-    return __isa(o, "CreateMatchmakingRuleSetOutput");
-  }
+  export const isa = (o: any): o is CreateMatchmakingRuleSetOutput =>
+    __isa(o, "CreateMatchmakingRuleSetOutput");
 }
 
 /**
@@ -1088,9 +1064,8 @@ export interface CreatePlayerSessionInput {
 }
 
 export namespace CreatePlayerSessionInput {
-  export function isa(o: any): o is CreatePlayerSessionInput {
-    return __isa(o, "CreatePlayerSessionInput");
-  }
+  export const isa = (o: any): o is CreatePlayerSessionInput =>
+    __isa(o, "CreatePlayerSessionInput");
 }
 
 /**
@@ -1105,9 +1080,8 @@ export interface CreatePlayerSessionOutput {
 }
 
 export namespace CreatePlayerSessionOutput {
-  export function isa(o: any): o is CreatePlayerSessionOutput {
-    return __isa(o, "CreatePlayerSessionOutput");
-  }
+  export const isa = (o: any): o is CreatePlayerSessionOutput =>
+    __isa(o, "CreatePlayerSessionOutput");
 }
 
 /**
@@ -1135,9 +1109,8 @@ export interface CreatePlayerSessionsInput {
 }
 
 export namespace CreatePlayerSessionsInput {
-  export function isa(o: any): o is CreatePlayerSessionsInput {
-    return __isa(o, "CreatePlayerSessionsInput");
-  }
+  export const isa = (o: any): o is CreatePlayerSessionsInput =>
+    __isa(o, "CreatePlayerSessionsInput");
 }
 
 /**
@@ -1152,9 +1125,8 @@ export interface CreatePlayerSessionsOutput {
 }
 
 export namespace CreatePlayerSessionsOutput {
-  export function isa(o: any): o is CreatePlayerSessionsOutput {
-    return __isa(o, "CreatePlayerSessionsOutput");
-  }
+  export const isa = (o: any): o is CreatePlayerSessionsOutput =>
+    __isa(o, "CreatePlayerSessionsOutput");
 }
 
 export interface CreateScriptInput {
@@ -1205,9 +1177,8 @@ export interface CreateScriptInput {
 }
 
 export namespace CreateScriptInput {
-  export function isa(o: any): o is CreateScriptInput {
-    return __isa(o, "CreateScriptInput");
-  }
+  export const isa = (o: any): o is CreateScriptInput =>
+    __isa(o, "CreateScriptInput");
 }
 
 export interface CreateScriptOutput {
@@ -1224,9 +1195,8 @@ export interface CreateScriptOutput {
 }
 
 export namespace CreateScriptOutput {
-  export function isa(o: any): o is CreateScriptOutput {
-    return __isa(o, "CreateScriptOutput");
-  }
+  export const isa = (o: any): o is CreateScriptOutput =>
+    __isa(o, "CreateScriptOutput");
 }
 
 /**
@@ -1250,9 +1220,8 @@ export interface CreateVpcPeeringAuthorizationInput {
 }
 
 export namespace CreateVpcPeeringAuthorizationInput {
-  export function isa(o: any): o is CreateVpcPeeringAuthorizationInput {
-    return __isa(o, "CreateVpcPeeringAuthorizationInput");
-  }
+  export const isa = (o: any): o is CreateVpcPeeringAuthorizationInput =>
+    __isa(o, "CreateVpcPeeringAuthorizationInput");
 }
 
 /**
@@ -1267,9 +1236,8 @@ export interface CreateVpcPeeringAuthorizationOutput {
 }
 
 export namespace CreateVpcPeeringAuthorizationOutput {
-  export function isa(o: any): o is CreateVpcPeeringAuthorizationOutput {
-    return __isa(o, "CreateVpcPeeringAuthorizationOutput");
-  }
+  export const isa = (o: any): o is CreateVpcPeeringAuthorizationOutput =>
+    __isa(o, "CreateVpcPeeringAuthorizationOutput");
 }
 
 /**
@@ -1300,9 +1268,8 @@ export interface CreateVpcPeeringConnectionInput {
 }
 
 export namespace CreateVpcPeeringConnectionInput {
-  export function isa(o: any): o is CreateVpcPeeringConnectionInput {
-    return __isa(o, "CreateVpcPeeringConnectionInput");
-  }
+  export const isa = (o: any): o is CreateVpcPeeringConnectionInput =>
+    __isa(o, "CreateVpcPeeringConnectionInput");
 }
 
 export interface CreateVpcPeeringConnectionOutput {
@@ -1310,9 +1277,8 @@ export interface CreateVpcPeeringConnectionOutput {
 }
 
 export namespace CreateVpcPeeringConnectionOutput {
-  export function isa(o: any): o is CreateVpcPeeringConnectionOutput {
-    return __isa(o, "CreateVpcPeeringConnectionOutput");
-  }
+  export const isa = (o: any): o is CreateVpcPeeringConnectionOutput =>
+    __isa(o, "CreateVpcPeeringConnectionOutput");
 }
 
 /**
@@ -1328,9 +1294,8 @@ export interface DeleteAliasInput {
 }
 
 export namespace DeleteAliasInput {
-  export function isa(o: any): o is DeleteAliasInput {
-    return __isa(o, "DeleteAliasInput");
-  }
+  export const isa = (o: any): o is DeleteAliasInput =>
+    __isa(o, "DeleteAliasInput");
 }
 
 /**
@@ -1345,9 +1310,8 @@ export interface DeleteBuildInput {
 }
 
 export namespace DeleteBuildInput {
-  export function isa(o: any): o is DeleteBuildInput {
-    return __isa(o, "DeleteBuildInput");
-  }
+  export const isa = (o: any): o is DeleteBuildInput =>
+    __isa(o, "DeleteBuildInput");
 }
 
 /**
@@ -1362,9 +1326,8 @@ export interface DeleteFleetInput {
 }
 
 export namespace DeleteFleetInput {
-  export function isa(o: any): o is DeleteFleetInput {
-    return __isa(o, "DeleteFleetInput");
-  }
+  export const isa = (o: any): o is DeleteFleetInput =>
+    __isa(o, "DeleteFleetInput");
 }
 
 /**
@@ -1379,9 +1342,8 @@ export interface DeleteGameSessionQueueInput {
 }
 
 export namespace DeleteGameSessionQueueInput {
-  export function isa(o: any): o is DeleteGameSessionQueueInput {
-    return __isa(o, "DeleteGameSessionQueueInput");
-  }
+  export const isa = (o: any): o is DeleteGameSessionQueueInput =>
+    __isa(o, "DeleteGameSessionQueueInput");
 }
 
 export interface DeleteGameSessionQueueOutput {
@@ -1389,9 +1351,8 @@ export interface DeleteGameSessionQueueOutput {
 }
 
 export namespace DeleteGameSessionQueueOutput {
-  export function isa(o: any): o is DeleteGameSessionQueueOutput {
-    return __isa(o, "DeleteGameSessionQueueOutput");
-  }
+  export const isa = (o: any): o is DeleteGameSessionQueueOutput =>
+    __isa(o, "DeleteGameSessionQueueOutput");
 }
 
 /**
@@ -1406,9 +1367,8 @@ export interface DeleteMatchmakingConfigurationInput {
 }
 
 export namespace DeleteMatchmakingConfigurationInput {
-  export function isa(o: any): o is DeleteMatchmakingConfigurationInput {
-    return __isa(o, "DeleteMatchmakingConfigurationInput");
-  }
+  export const isa = (o: any): o is DeleteMatchmakingConfigurationInput =>
+    __isa(o, "DeleteMatchmakingConfigurationInput");
 }
 
 export interface DeleteMatchmakingConfigurationOutput {
@@ -1416,9 +1376,8 @@ export interface DeleteMatchmakingConfigurationOutput {
 }
 
 export namespace DeleteMatchmakingConfigurationOutput {
-  export function isa(o: any): o is DeleteMatchmakingConfigurationOutput {
-    return __isa(o, "DeleteMatchmakingConfigurationOutput");
-  }
+  export const isa = (o: any): o is DeleteMatchmakingConfigurationOutput =>
+    __isa(o, "DeleteMatchmakingConfigurationOutput");
 }
 
 /**
@@ -1434,9 +1393,8 @@ export interface DeleteMatchmakingRuleSetInput {
 }
 
 export namespace DeleteMatchmakingRuleSetInput {
-  export function isa(o: any): o is DeleteMatchmakingRuleSetInput {
-    return __isa(o, "DeleteMatchmakingRuleSetInput");
-  }
+  export const isa = (o: any): o is DeleteMatchmakingRuleSetInput =>
+    __isa(o, "DeleteMatchmakingRuleSetInput");
 }
 
 /**
@@ -1447,9 +1405,8 @@ export interface DeleteMatchmakingRuleSetOutput {
 }
 
 export namespace DeleteMatchmakingRuleSetOutput {
-  export function isa(o: any): o is DeleteMatchmakingRuleSetOutput {
-    return __isa(o, "DeleteMatchmakingRuleSetOutput");
-  }
+  export const isa = (o: any): o is DeleteMatchmakingRuleSetOutput =>
+    __isa(o, "DeleteMatchmakingRuleSetOutput");
 }
 
 /**
@@ -1469,9 +1426,8 @@ export interface DeleteScalingPolicyInput {
 }
 
 export namespace DeleteScalingPolicyInput {
-  export function isa(o: any): o is DeleteScalingPolicyInput {
-    return __isa(o, "DeleteScalingPolicyInput");
-  }
+  export const isa = (o: any): o is DeleteScalingPolicyInput =>
+    __isa(o, "DeleteScalingPolicyInput");
 }
 
 export interface DeleteScriptInput {
@@ -1483,9 +1439,8 @@ export interface DeleteScriptInput {
 }
 
 export namespace DeleteScriptInput {
-  export function isa(o: any): o is DeleteScriptInput {
-    return __isa(o, "DeleteScriptInput");
-  }
+  export const isa = (o: any): o is DeleteScriptInput =>
+    __isa(o, "DeleteScriptInput");
 }
 
 /**
@@ -1509,9 +1464,8 @@ export interface DeleteVpcPeeringAuthorizationInput {
 }
 
 export namespace DeleteVpcPeeringAuthorizationInput {
-  export function isa(o: any): o is DeleteVpcPeeringAuthorizationInput {
-    return __isa(o, "DeleteVpcPeeringAuthorizationInput");
-  }
+  export const isa = (o: any): o is DeleteVpcPeeringAuthorizationInput =>
+    __isa(o, "DeleteVpcPeeringAuthorizationInput");
 }
 
 export interface DeleteVpcPeeringAuthorizationOutput {
@@ -1519,9 +1473,8 @@ export interface DeleteVpcPeeringAuthorizationOutput {
 }
 
 export namespace DeleteVpcPeeringAuthorizationOutput {
-  export function isa(o: any): o is DeleteVpcPeeringAuthorizationOutput {
-    return __isa(o, "DeleteVpcPeeringAuthorizationOutput");
-  }
+  export const isa = (o: any): o is DeleteVpcPeeringAuthorizationOutput =>
+    __isa(o, "DeleteVpcPeeringAuthorizationOutput");
 }
 
 /**
@@ -1542,9 +1495,8 @@ export interface DeleteVpcPeeringConnectionInput {
 }
 
 export namespace DeleteVpcPeeringConnectionInput {
-  export function isa(o: any): o is DeleteVpcPeeringConnectionInput {
-    return __isa(o, "DeleteVpcPeeringConnectionInput");
-  }
+  export const isa = (o: any): o is DeleteVpcPeeringConnectionInput =>
+    __isa(o, "DeleteVpcPeeringConnectionInput");
 }
 
 export interface DeleteVpcPeeringConnectionOutput {
@@ -1552,9 +1504,8 @@ export interface DeleteVpcPeeringConnectionOutput {
 }
 
 export namespace DeleteVpcPeeringConnectionOutput {
-  export function isa(o: any): o is DeleteVpcPeeringConnectionOutput {
-    return __isa(o, "DeleteVpcPeeringConnectionOutput");
-  }
+  export const isa = (o: any): o is DeleteVpcPeeringConnectionOutput =>
+    __isa(o, "DeleteVpcPeeringConnectionOutput");
 }
 
 /**
@@ -1570,9 +1521,8 @@ export interface DescribeAliasInput {
 }
 
 export namespace DescribeAliasInput {
-  export function isa(o: any): o is DescribeAliasInput {
-    return __isa(o, "DescribeAliasInput");
-  }
+  export const isa = (o: any): o is DescribeAliasInput =>
+    __isa(o, "DescribeAliasInput");
 }
 
 /**
@@ -1587,9 +1537,8 @@ export interface DescribeAliasOutput {
 }
 
 export namespace DescribeAliasOutput {
-  export function isa(o: any): o is DescribeAliasOutput {
-    return __isa(o, "DescribeAliasOutput");
-  }
+  export const isa = (o: any): o is DescribeAliasOutput =>
+    __isa(o, "DescribeAliasOutput");
 }
 
 /**
@@ -1604,9 +1553,8 @@ export interface DescribeBuildInput {
 }
 
 export namespace DescribeBuildInput {
-  export function isa(o: any): o is DescribeBuildInput {
-    return __isa(o, "DescribeBuildInput");
-  }
+  export const isa = (o: any): o is DescribeBuildInput =>
+    __isa(o, "DescribeBuildInput");
 }
 
 /**
@@ -1621,9 +1569,8 @@ export interface DescribeBuildOutput {
 }
 
 export namespace DescribeBuildOutput {
-  export function isa(o: any): o is DescribeBuildOutput {
-    return __isa(o, "DescribeBuildOutput");
-  }
+  export const isa = (o: any): o is DescribeBuildOutput =>
+    __isa(o, "DescribeBuildOutput");
 }
 
 /**
@@ -1643,9 +1590,8 @@ export interface DescribeEC2InstanceLimitsInput {
 }
 
 export namespace DescribeEC2InstanceLimitsInput {
-  export function isa(o: any): o is DescribeEC2InstanceLimitsInput {
-    return __isa(o, "DescribeEC2InstanceLimitsInput");
-  }
+  export const isa = (o: any): o is DescribeEC2InstanceLimitsInput =>
+    __isa(o, "DescribeEC2InstanceLimitsInput");
 }
 
 /**
@@ -1661,9 +1607,8 @@ export interface DescribeEC2InstanceLimitsOutput {
 }
 
 export namespace DescribeEC2InstanceLimitsOutput {
-  export function isa(o: any): o is DescribeEC2InstanceLimitsOutput {
-    return __isa(o, "DescribeEC2InstanceLimitsOutput");
-  }
+  export const isa = (o: any): o is DescribeEC2InstanceLimitsOutput =>
+    __isa(o, "DescribeEC2InstanceLimitsOutput");
 }
 
 /**
@@ -1691,9 +1636,8 @@ export interface DescribeFleetAttributesInput {
 }
 
 export namespace DescribeFleetAttributesInput {
-  export function isa(o: any): o is DescribeFleetAttributesInput {
-    return __isa(o, "DescribeFleetAttributesInput");
-  }
+  export const isa = (o: any): o is DescribeFleetAttributesInput =>
+    __isa(o, "DescribeFleetAttributesInput");
 }
 
 /**
@@ -1714,9 +1658,8 @@ export interface DescribeFleetAttributesOutput {
 }
 
 export namespace DescribeFleetAttributesOutput {
-  export function isa(o: any): o is DescribeFleetAttributesOutput {
-    return __isa(o, "DescribeFleetAttributesOutput");
-  }
+  export const isa = (o: any): o is DescribeFleetAttributesOutput =>
+    __isa(o, "DescribeFleetAttributesOutput");
 }
 
 /**
@@ -1744,9 +1687,8 @@ export interface DescribeFleetCapacityInput {
 }
 
 export namespace DescribeFleetCapacityInput {
-  export function isa(o: any): o is DescribeFleetCapacityInput {
-    return __isa(o, "DescribeFleetCapacityInput");
-  }
+  export const isa = (o: any): o is DescribeFleetCapacityInput =>
+    __isa(o, "DescribeFleetCapacityInput");
 }
 
 /**
@@ -1767,9 +1709,8 @@ export interface DescribeFleetCapacityOutput {
 }
 
 export namespace DescribeFleetCapacityOutput {
-  export function isa(o: any): o is DescribeFleetCapacityOutput {
-    return __isa(o, "DescribeFleetCapacityOutput");
-  }
+  export const isa = (o: any): o is DescribeFleetCapacityOutput =>
+    __isa(o, "DescribeFleetCapacityOutput");
 }
 
 /**
@@ -1809,9 +1750,8 @@ export interface DescribeFleetEventsInput {
 }
 
 export namespace DescribeFleetEventsInput {
-  export function isa(o: any): o is DescribeFleetEventsInput {
-    return __isa(o, "DescribeFleetEventsInput");
-  }
+  export const isa = (o: any): o is DescribeFleetEventsInput =>
+    __isa(o, "DescribeFleetEventsInput");
 }
 
 /**
@@ -1832,9 +1772,8 @@ export interface DescribeFleetEventsOutput {
 }
 
 export namespace DescribeFleetEventsOutput {
-  export function isa(o: any): o is DescribeFleetEventsOutput {
-    return __isa(o, "DescribeFleetEventsOutput");
-  }
+  export const isa = (o: any): o is DescribeFleetEventsOutput =>
+    __isa(o, "DescribeFleetEventsOutput");
 }
 
 /**
@@ -1850,9 +1789,8 @@ export interface DescribeFleetPortSettingsInput {
 }
 
 export namespace DescribeFleetPortSettingsInput {
-  export function isa(o: any): o is DescribeFleetPortSettingsInput {
-    return __isa(o, "DescribeFleetPortSettingsInput");
-  }
+  export const isa = (o: any): o is DescribeFleetPortSettingsInput =>
+    __isa(o, "DescribeFleetPortSettingsInput");
 }
 
 /**
@@ -1867,9 +1805,8 @@ export interface DescribeFleetPortSettingsOutput {
 }
 
 export namespace DescribeFleetPortSettingsOutput {
-  export function isa(o: any): o is DescribeFleetPortSettingsOutput {
-    return __isa(o, "DescribeFleetPortSettingsOutput");
-  }
+  export const isa = (o: any): o is DescribeFleetPortSettingsOutput =>
+    __isa(o, "DescribeFleetPortSettingsOutput");
 }
 
 /**
@@ -1897,9 +1834,8 @@ export interface DescribeFleetUtilizationInput {
 }
 
 export namespace DescribeFleetUtilizationInput {
-  export function isa(o: any): o is DescribeFleetUtilizationInput {
-    return __isa(o, "DescribeFleetUtilizationInput");
-  }
+  export const isa = (o: any): o is DescribeFleetUtilizationInput =>
+    __isa(o, "DescribeFleetUtilizationInput");
 }
 
 /**
@@ -1920,9 +1856,8 @@ export interface DescribeFleetUtilizationOutput {
 }
 
 export namespace DescribeFleetUtilizationOutput {
-  export function isa(o: any): o is DescribeFleetUtilizationOutput {
-    return __isa(o, "DescribeFleetUtilizationOutput");
-  }
+  export const isa = (o: any): o is DescribeFleetUtilizationOutput =>
+    __isa(o, "DescribeFleetUtilizationOutput");
 }
 
 /**
@@ -1966,9 +1901,8 @@ export interface DescribeGameSessionDetailsInput {
 }
 
 export namespace DescribeGameSessionDetailsInput {
-  export function isa(o: any): o is DescribeGameSessionDetailsInput {
-    return __isa(o, "DescribeGameSessionDetailsInput");
-  }
+  export const isa = (o: any): o is DescribeGameSessionDetailsInput =>
+    __isa(o, "DescribeGameSessionDetailsInput");
 }
 
 /**
@@ -1989,9 +1923,8 @@ export interface DescribeGameSessionDetailsOutput {
 }
 
 export namespace DescribeGameSessionDetailsOutput {
-  export function isa(o: any): o is DescribeGameSessionDetailsOutput {
-    return __isa(o, "DescribeGameSessionDetailsOutput");
-  }
+  export const isa = (o: any): o is DescribeGameSessionDetailsOutput =>
+    __isa(o, "DescribeGameSessionDetailsOutput");
 }
 
 /**
@@ -2006,9 +1939,8 @@ export interface DescribeGameSessionPlacementInput {
 }
 
 export namespace DescribeGameSessionPlacementInput {
-  export function isa(o: any): o is DescribeGameSessionPlacementInput {
-    return __isa(o, "DescribeGameSessionPlacementInput");
-  }
+  export const isa = (o: any): o is DescribeGameSessionPlacementInput =>
+    __isa(o, "DescribeGameSessionPlacementInput");
 }
 
 /**
@@ -2023,9 +1955,8 @@ export interface DescribeGameSessionPlacementOutput {
 }
 
 export namespace DescribeGameSessionPlacementOutput {
-  export function isa(o: any): o is DescribeGameSessionPlacementOutput {
-    return __isa(o, "DescribeGameSessionPlacementOutput");
-  }
+  export const isa = (o: any): o is DescribeGameSessionPlacementOutput =>
+    __isa(o, "DescribeGameSessionPlacementOutput");
 }
 
 /**
@@ -2051,9 +1982,8 @@ export interface DescribeGameSessionQueuesInput {
 }
 
 export namespace DescribeGameSessionQueuesInput {
-  export function isa(o: any): o is DescribeGameSessionQueuesInput {
-    return __isa(o, "DescribeGameSessionQueuesInput");
-  }
+  export const isa = (o: any): o is DescribeGameSessionQueuesInput =>
+    __isa(o, "DescribeGameSessionQueuesInput");
 }
 
 /**
@@ -2073,9 +2003,8 @@ export interface DescribeGameSessionQueuesOutput {
 }
 
 export namespace DescribeGameSessionQueuesOutput {
-  export function isa(o: any): o is DescribeGameSessionQueuesOutput {
-    return __isa(o, "DescribeGameSessionQueuesOutput");
-  }
+  export const isa = (o: any): o is DescribeGameSessionQueuesOutput =>
+    __isa(o, "DescribeGameSessionQueuesOutput");
 }
 
 /**
@@ -2118,9 +2047,8 @@ export interface DescribeGameSessionsInput {
 }
 
 export namespace DescribeGameSessionsInput {
-  export function isa(o: any): o is DescribeGameSessionsInput {
-    return __isa(o, "DescribeGameSessionsInput");
-  }
+  export const isa = (o: any): o is DescribeGameSessionsInput =>
+    __isa(o, "DescribeGameSessionsInput");
 }
 
 /**
@@ -2141,9 +2069,8 @@ export interface DescribeGameSessionsOutput {
 }
 
 export namespace DescribeGameSessionsOutput {
-  export function isa(o: any): o is DescribeGameSessionsOutput {
-    return __isa(o, "DescribeGameSessionsOutput");
-  }
+  export const isa = (o: any): o is DescribeGameSessionsOutput =>
+    __isa(o, "DescribeGameSessionsOutput");
 }
 
 /**
@@ -2175,9 +2102,8 @@ export interface DescribeInstancesInput {
 }
 
 export namespace DescribeInstancesInput {
-  export function isa(o: any): o is DescribeInstancesInput {
-    return __isa(o, "DescribeInstancesInput");
-  }
+  export const isa = (o: any): o is DescribeInstancesInput =>
+    __isa(o, "DescribeInstancesInput");
 }
 
 /**
@@ -2197,9 +2123,8 @@ export interface DescribeInstancesOutput {
 }
 
 export namespace DescribeInstancesOutput {
-  export function isa(o: any): o is DescribeInstancesOutput {
-    return __isa(o, "DescribeInstancesOutput");
-  }
+  export const isa = (o: any): o is DescribeInstancesOutput =>
+    __isa(o, "DescribeInstancesOutput");
 }
 
 /**
@@ -2231,9 +2156,8 @@ export interface DescribeMatchmakingConfigurationsInput {
 }
 
 export namespace DescribeMatchmakingConfigurationsInput {
-  export function isa(o: any): o is DescribeMatchmakingConfigurationsInput {
-    return __isa(o, "DescribeMatchmakingConfigurationsInput");
-  }
+  export const isa = (o: any): o is DescribeMatchmakingConfigurationsInput =>
+    __isa(o, "DescribeMatchmakingConfigurationsInput");
 }
 
 /**
@@ -2253,9 +2177,8 @@ export interface DescribeMatchmakingConfigurationsOutput {
 }
 
 export namespace DescribeMatchmakingConfigurationsOutput {
-  export function isa(o: any): o is DescribeMatchmakingConfigurationsOutput {
-    return __isa(o, "DescribeMatchmakingConfigurationsOutput");
-  }
+  export const isa = (o: any): o is DescribeMatchmakingConfigurationsOutput =>
+    __isa(o, "DescribeMatchmakingConfigurationsOutput");
 }
 
 /**
@@ -2270,9 +2193,8 @@ export interface DescribeMatchmakingInput {
 }
 
 export namespace DescribeMatchmakingInput {
-  export function isa(o: any): o is DescribeMatchmakingInput {
-    return __isa(o, "DescribeMatchmakingInput");
-  }
+  export const isa = (o: any): o is DescribeMatchmakingInput =>
+    __isa(o, "DescribeMatchmakingInput");
 }
 
 /**
@@ -2287,9 +2209,8 @@ export interface DescribeMatchmakingOutput {
 }
 
 export namespace DescribeMatchmakingOutput {
-  export function isa(o: any): o is DescribeMatchmakingOutput {
-    return __isa(o, "DescribeMatchmakingOutput");
-  }
+  export const isa = (o: any): o is DescribeMatchmakingOutput =>
+    __isa(o, "DescribeMatchmakingOutput");
 }
 
 /**
@@ -2316,9 +2237,8 @@ export interface DescribeMatchmakingRuleSetsInput {
 }
 
 export namespace DescribeMatchmakingRuleSetsInput {
-  export function isa(o: any): o is DescribeMatchmakingRuleSetsInput {
-    return __isa(o, "DescribeMatchmakingRuleSetsInput");
-  }
+  export const isa = (o: any): o is DescribeMatchmakingRuleSetsInput =>
+    __isa(o, "DescribeMatchmakingRuleSetsInput");
 }
 
 /**
@@ -2338,9 +2258,8 @@ export interface DescribeMatchmakingRuleSetsOutput {
 }
 
 export namespace DescribeMatchmakingRuleSetsOutput {
-  export function isa(o: any): o is DescribeMatchmakingRuleSetsOutput {
-    return __isa(o, "DescribeMatchmakingRuleSetsOutput");
-  }
+  export const isa = (o: any): o is DescribeMatchmakingRuleSetsOutput =>
+    __isa(o, "DescribeMatchmakingRuleSetsOutput");
 }
 
 /**
@@ -2405,9 +2324,8 @@ export interface DescribePlayerSessionsInput {
 }
 
 export namespace DescribePlayerSessionsInput {
-  export function isa(o: any): o is DescribePlayerSessionsInput {
-    return __isa(o, "DescribePlayerSessionsInput");
-  }
+  export const isa = (o: any): o is DescribePlayerSessionsInput =>
+    __isa(o, "DescribePlayerSessionsInput");
 }
 
 /**
@@ -2428,9 +2346,8 @@ export interface DescribePlayerSessionsOutput {
 }
 
 export namespace DescribePlayerSessionsOutput {
-  export function isa(o: any): o is DescribePlayerSessionsOutput {
-    return __isa(o, "DescribePlayerSessionsOutput");
-  }
+  export const isa = (o: any): o is DescribePlayerSessionsOutput =>
+    __isa(o, "DescribePlayerSessionsOutput");
 }
 
 /**
@@ -2446,9 +2363,8 @@ export interface DescribeRuntimeConfigurationInput {
 }
 
 export namespace DescribeRuntimeConfigurationInput {
-  export function isa(o: any): o is DescribeRuntimeConfigurationInput {
-    return __isa(o, "DescribeRuntimeConfigurationInput");
-  }
+  export const isa = (o: any): o is DescribeRuntimeConfigurationInput =>
+    __isa(o, "DescribeRuntimeConfigurationInput");
 }
 
 /**
@@ -2464,9 +2380,8 @@ export interface DescribeRuntimeConfigurationOutput {
 }
 
 export namespace DescribeRuntimeConfigurationOutput {
-  export function isa(o: any): o is DescribeRuntimeConfigurationOutput {
-    return __isa(o, "DescribeRuntimeConfigurationOutput");
-  }
+  export const isa = (o: any): o is DescribeRuntimeConfigurationOutput =>
+    __isa(o, "DescribeRuntimeConfigurationOutput");
 }
 
 /**
@@ -2535,9 +2450,8 @@ export interface DescribeScalingPoliciesInput {
 }
 
 export namespace DescribeScalingPoliciesInput {
-  export function isa(o: any): o is DescribeScalingPoliciesInput {
-    return __isa(o, "DescribeScalingPoliciesInput");
-  }
+  export const isa = (o: any): o is DescribeScalingPoliciesInput =>
+    __isa(o, "DescribeScalingPoliciesInput");
 }
 
 /**
@@ -2558,9 +2472,8 @@ export interface DescribeScalingPoliciesOutput {
 }
 
 export namespace DescribeScalingPoliciesOutput {
-  export function isa(o: any): o is DescribeScalingPoliciesOutput {
-    return __isa(o, "DescribeScalingPoliciesOutput");
-  }
+  export const isa = (o: any): o is DescribeScalingPoliciesOutput =>
+    __isa(o, "DescribeScalingPoliciesOutput");
 }
 
 export interface DescribeScriptInput {
@@ -2573,9 +2486,8 @@ export interface DescribeScriptInput {
 }
 
 export namespace DescribeScriptInput {
-  export function isa(o: any): o is DescribeScriptInput {
-    return __isa(o, "DescribeScriptInput");
-  }
+  export const isa = (o: any): o is DescribeScriptInput =>
+    __isa(o, "DescribeScriptInput");
 }
 
 export interface DescribeScriptOutput {
@@ -2587,9 +2499,8 @@ export interface DescribeScriptOutput {
 }
 
 export namespace DescribeScriptOutput {
-  export function isa(o: any): o is DescribeScriptOutput {
-    return __isa(o, "DescribeScriptOutput");
-  }
+  export const isa = (o: any): o is DescribeScriptOutput =>
+    __isa(o, "DescribeScriptOutput");
 }
 
 export interface DescribeVpcPeeringAuthorizationsInput {
@@ -2597,9 +2508,8 @@ export interface DescribeVpcPeeringAuthorizationsInput {
 }
 
 export namespace DescribeVpcPeeringAuthorizationsInput {
-  export function isa(o: any): o is DescribeVpcPeeringAuthorizationsInput {
-    return __isa(o, "DescribeVpcPeeringAuthorizationsInput");
-  }
+  export const isa = (o: any): o is DescribeVpcPeeringAuthorizationsInput =>
+    __isa(o, "DescribeVpcPeeringAuthorizationsInput");
 }
 
 export interface DescribeVpcPeeringAuthorizationsOutput {
@@ -2612,9 +2522,8 @@ export interface DescribeVpcPeeringAuthorizationsOutput {
 }
 
 export namespace DescribeVpcPeeringAuthorizationsOutput {
-  export function isa(o: any): o is DescribeVpcPeeringAuthorizationsOutput {
-    return __isa(o, "DescribeVpcPeeringAuthorizationsOutput");
-  }
+  export const isa = (o: any): o is DescribeVpcPeeringAuthorizationsOutput =>
+    __isa(o, "DescribeVpcPeeringAuthorizationsOutput");
 }
 
 /**
@@ -2629,9 +2538,8 @@ export interface DescribeVpcPeeringConnectionsInput {
 }
 
 export namespace DescribeVpcPeeringConnectionsInput {
-  export function isa(o: any): o is DescribeVpcPeeringConnectionsInput {
-    return __isa(o, "DescribeVpcPeeringConnectionsInput");
-  }
+  export const isa = (o: any): o is DescribeVpcPeeringConnectionsInput =>
+    __isa(o, "DescribeVpcPeeringConnectionsInput");
 }
 
 /**
@@ -2646,9 +2554,8 @@ export interface DescribeVpcPeeringConnectionsOutput {
 }
 
 export namespace DescribeVpcPeeringConnectionsOutput {
-  export function isa(o: any): o is DescribeVpcPeeringConnectionsOutput {
-    return __isa(o, "DescribeVpcPeeringConnectionsOutput");
-  }
+  export const isa = (o: any): o is DescribeVpcPeeringConnectionsOutput =>
+    __isa(o, "DescribeVpcPeeringConnectionsOutput");
 }
 
 /**
@@ -2669,9 +2576,8 @@ export interface DesiredPlayerSession {
 }
 
 export namespace DesiredPlayerSession {
-  export function isa(o: any): o is DesiredPlayerSession {
-    return __isa(o, "DesiredPlayerSession");
-  }
+  export const isa = (o: any): o is DesiredPlayerSession =>
+    __isa(o, "DesiredPlayerSession");
 }
 
 /**
@@ -2763,9 +2669,8 @@ export interface EC2InstanceCounts {
 }
 
 export namespace EC2InstanceCounts {
-  export function isa(o: any): o is EC2InstanceCounts {
-    return __isa(o, "EC2InstanceCounts");
-  }
+  export const isa = (o: any): o is EC2InstanceCounts =>
+    __isa(o, "EC2InstanceCounts");
 }
 
 /**
@@ -2796,9 +2701,8 @@ export interface EC2InstanceLimit {
 }
 
 export namespace EC2InstanceLimit {
-  export function isa(o: any): o is EC2InstanceLimit {
-    return __isa(o, "EC2InstanceLimit");
-  }
+  export const isa = (o: any): o is EC2InstanceLimit =>
+    __isa(o, "EC2InstanceLimit");
 }
 
 export type EC2InstanceType =
@@ -3036,9 +2940,7 @@ export interface Event {
 }
 
 export namespace Event {
-  export function isa(o: any): o is Event {
-    return __isa(o, "Event");
-  }
+  export const isa = (o: any): o is Event => __isa(o, "Event");
 }
 
 export enum EventCode {
@@ -3321,9 +3223,8 @@ export interface FleetAttributes {
 }
 
 export namespace FleetAttributes {
-  export function isa(o: any): o is FleetAttributes {
-    return __isa(o, "FleetAttributes");
-  }
+  export const isa = (o: any): o is FleetAttributes =>
+    __isa(o, "FleetAttributes");
 }
 
 /**
@@ -3397,9 +3298,7 @@ export interface FleetCapacity {
 }
 
 export namespace FleetCapacity {
-  export function isa(o: any): o is FleetCapacity {
-    return __isa(o, "FleetCapacity");
-  }
+  export const isa = (o: any): o is FleetCapacity => __isa(o, "FleetCapacity");
 }
 
 /**
@@ -3416,9 +3315,8 @@ export interface FleetCapacityExceededException
 }
 
 export namespace FleetCapacityExceededException {
-  export function isa(o: any): o is FleetCapacityExceededException {
-    return __isa(o, "FleetCapacityExceededException");
-  }
+  export const isa = (o: any): o is FleetCapacityExceededException =>
+    __isa(o, "FleetCapacityExceededException");
 }
 
 export enum FleetStatus {
@@ -3517,9 +3415,8 @@ export interface FleetUtilization {
 }
 
 export namespace FleetUtilization {
-  export function isa(o: any): o is FleetUtilization {
-    return __isa(o, "FleetUtilization");
-  }
+  export const isa = (o: any): o is FleetUtilization =>
+    __isa(o, "FleetUtilization");
 }
 
 /**
@@ -3543,9 +3440,7 @@ export interface GameProperty {
 }
 
 export namespace GameProperty {
-  export function isa(o: any): o is GameProperty {
-    return __isa(o, "GameProperty");
-  }
+  export const isa = (o: any): o is GameProperty => __isa(o, "GameProperty");
 }
 
 /**
@@ -3728,9 +3623,7 @@ export interface GameSession {
 }
 
 export namespace GameSession {
-  export function isa(o: any): o is GameSession {
-    return __isa(o, "GameSession");
-  }
+  export const isa = (o: any): o is GameSession => __isa(o, "GameSession");
 }
 
 /**
@@ -3782,9 +3675,8 @@ export interface GameSessionConnectionInfo {
 }
 
 export namespace GameSessionConnectionInfo {
-  export function isa(o: any): o is GameSessionConnectionInfo {
-    return __isa(o, "GameSessionConnectionInfo");
-  }
+  export const isa = (o: any): o is GameSessionConnectionInfo =>
+    __isa(o, "GameSessionConnectionInfo");
 }
 
 /**
@@ -3818,9 +3710,8 @@ export interface GameSessionDetail {
 }
 
 export namespace GameSessionDetail {
-  export function isa(o: any): o is GameSessionDetail {
-    return __isa(o, "GameSessionDetail");
-  }
+  export const isa = (o: any): o is GameSessionDetail =>
+    __isa(o, "GameSessionDetail");
 }
 
 /**
@@ -3836,9 +3727,8 @@ export interface GameSessionFullException
 }
 
 export namespace GameSessionFullException {
-  export function isa(o: any): o is GameSessionFullException {
-    return __isa(o, "GameSessionFullException");
-  }
+  export const isa = (o: any): o is GameSessionFullException =>
+    __isa(o, "GameSessionFullException");
 }
 
 /**
@@ -4020,9 +3910,8 @@ export interface GameSessionPlacement {
 }
 
 export namespace GameSessionPlacement {
-  export function isa(o: any): o is GameSessionPlacement {
-    return __isa(o, "GameSessionPlacement");
-  }
+  export const isa = (o: any): o is GameSessionPlacement =>
+    __isa(o, "GameSessionPlacement");
 }
 
 export enum GameSessionPlacementState {
@@ -4113,9 +4002,8 @@ export interface GameSessionQueue {
 }
 
 export namespace GameSessionQueue {
-  export function isa(o: any): o is GameSessionQueue {
-    return __isa(o, "GameSessionQueue");
-  }
+  export const isa = (o: any): o is GameSessionQueue =>
+    __isa(o, "GameSessionQueue");
 }
 
 /**
@@ -4156,9 +4044,8 @@ export interface GameSessionQueueDestination {
 }
 
 export namespace GameSessionQueueDestination {
-  export function isa(o: any): o is GameSessionQueueDestination {
-    return __isa(o, "GameSessionQueueDestination");
-  }
+  export const isa = (o: any): o is GameSessionQueueDestination =>
+    __isa(o, "GameSessionQueueDestination");
 }
 
 export enum GameSessionStatus {
@@ -4185,9 +4072,8 @@ export interface GetGameSessionLogUrlInput {
 }
 
 export namespace GetGameSessionLogUrlInput {
-  export function isa(o: any): o is GetGameSessionLogUrlInput {
-    return __isa(o, "GetGameSessionLogUrlInput");
-  }
+  export const isa = (o: any): o is GetGameSessionLogUrlInput =>
+    __isa(o, "GetGameSessionLogUrlInput");
 }
 
 /**
@@ -4205,9 +4091,8 @@ export interface GetGameSessionLogUrlOutput {
 }
 
 export namespace GetGameSessionLogUrlOutput {
-  export function isa(o: any): o is GetGameSessionLogUrlOutput {
-    return __isa(o, "GetGameSessionLogUrlOutput");
-  }
+  export const isa = (o: any): o is GetGameSessionLogUrlOutput =>
+    __isa(o, "GetGameSessionLogUrlOutput");
 }
 
 /**
@@ -4232,9 +4117,8 @@ export interface GetInstanceAccessInput {
 }
 
 export namespace GetInstanceAccessInput {
-  export function isa(o: any): o is GetInstanceAccessInput {
-    return __isa(o, "GetInstanceAccessInput");
-  }
+  export const isa = (o: any): o is GetInstanceAccessInput =>
+    __isa(o, "GetInstanceAccessInput");
 }
 
 /**
@@ -4250,9 +4134,8 @@ export interface GetInstanceAccessOutput {
 }
 
 export namespace GetInstanceAccessOutput {
-  export function isa(o: any): o is GetInstanceAccessOutput {
-    return __isa(o, "GetInstanceAccessOutput");
-  }
+  export const isa = (o: any): o is GetInstanceAccessOutput =>
+    __isa(o, "GetInstanceAccessOutput");
 }
 
 /**
@@ -4268,9 +4151,8 @@ export interface IdempotentParameterMismatchException
 }
 
 export namespace IdempotentParameterMismatchException {
-  export function isa(o: any): o is IdempotentParameterMismatchException {
-    return __isa(o, "IdempotentParameterMismatchException");
-  }
+  export const isa = (o: any): o is IdempotentParameterMismatchException =>
+    __isa(o, "IdempotentParameterMismatchException");
 }
 
 /**
@@ -4354,9 +4236,7 @@ export interface Instance {
 }
 
 export namespace Instance {
-  export function isa(o: any): o is Instance {
-    return __isa(o, "Instance");
-  }
+  export const isa = (o: any): o is Instance => __isa(o, "Instance");
 }
 
 /**
@@ -4392,9 +4272,8 @@ export interface InstanceAccess {
 }
 
 export namespace InstanceAccess {
-  export function isa(o: any): o is InstanceAccess {
-    return __isa(o, "InstanceAccess");
-  }
+  export const isa = (o: any): o is InstanceAccess =>
+    __isa(o, "InstanceAccess");
 }
 
 /**
@@ -4417,9 +4296,8 @@ export interface InstanceCredentials {
 }
 
 export namespace InstanceCredentials {
-  export function isa(o: any): o is InstanceCredentials {
-    return __isa(o, "InstanceCredentials");
-  }
+  export const isa = (o: any): o is InstanceCredentials =>
+    __isa(o, "InstanceCredentials");
 }
 
 export enum InstanceStatus {
@@ -4442,9 +4320,8 @@ export interface InternalServiceException
 }
 
 export namespace InternalServiceException {
-  export function isa(o: any): o is InternalServiceException {
-    return __isa(o, "InternalServiceException");
-  }
+  export const isa = (o: any): o is InternalServiceException =>
+    __isa(o, "InternalServiceException");
 }
 
 /**
@@ -4461,9 +4338,8 @@ export interface InvalidFleetStatusException
 }
 
 export namespace InvalidFleetStatusException {
-  export function isa(o: any): o is InvalidFleetStatusException {
-    return __isa(o, "InvalidFleetStatusException");
-  }
+  export const isa = (o: any): o is InvalidFleetStatusException =>
+    __isa(o, "InvalidFleetStatusException");
 }
 
 /**
@@ -4480,9 +4356,8 @@ export interface InvalidGameSessionStatusException
 }
 
 export namespace InvalidGameSessionStatusException {
-  export function isa(o: any): o is InvalidGameSessionStatusException {
-    return __isa(o, "InvalidGameSessionStatusException");
-  }
+  export const isa = (o: any): o is InvalidGameSessionStatusException =>
+    __isa(o, "InvalidGameSessionStatusException");
 }
 
 /**
@@ -4498,9 +4373,8 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return __isa(o, "InvalidRequestException");
-  }
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -4538,9 +4412,7 @@ export interface IpPermission {
 }
 
 export namespace IpPermission {
-  export function isa(o: any): o is IpPermission {
-    return __isa(o, "IpPermission");
-  }
+  export const isa = (o: any): o is IpPermission => __isa(o, "IpPermission");
 }
 
 export enum IpProtocol {
@@ -4561,9 +4433,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 /**
@@ -4608,9 +4479,8 @@ export interface ListAliasesInput {
 }
 
 export namespace ListAliasesInput {
-  export function isa(o: any): o is ListAliasesInput {
-    return __isa(o, "ListAliasesInput");
-  }
+  export const isa = (o: any): o is ListAliasesInput =>
+    __isa(o, "ListAliasesInput");
 }
 
 /**
@@ -4630,9 +4500,8 @@ export interface ListAliasesOutput {
 }
 
 export namespace ListAliasesOutput {
-  export function isa(o: any): o is ListAliasesOutput {
-    return __isa(o, "ListAliasesOutput");
-  }
+  export const isa = (o: any): o is ListAliasesOutput =>
+    __isa(o, "ListAliasesOutput");
 }
 
 /**
@@ -4678,9 +4547,8 @@ export interface ListBuildsInput {
 }
 
 export namespace ListBuildsInput {
-  export function isa(o: any): o is ListBuildsInput {
-    return __isa(o, "ListBuildsInput");
-  }
+  export const isa = (o: any): o is ListBuildsInput =>
+    __isa(o, "ListBuildsInput");
 }
 
 /**
@@ -4700,9 +4568,8 @@ export interface ListBuildsOutput {
 }
 
 export namespace ListBuildsOutput {
-  export function isa(o: any): o is ListBuildsOutput {
-    return __isa(o, "ListBuildsOutput");
-  }
+  export const isa = (o: any): o is ListBuildsOutput =>
+    __isa(o, "ListBuildsOutput");
 }
 
 /**
@@ -4736,9 +4603,8 @@ export interface ListFleetsInput {
 }
 
 export namespace ListFleetsInput {
-  export function isa(o: any): o is ListFleetsInput {
-    return __isa(o, "ListFleetsInput");
-  }
+  export const isa = (o: any): o is ListFleetsInput =>
+    __isa(o, "ListFleetsInput");
 }
 
 /**
@@ -4760,9 +4626,8 @@ export interface ListFleetsOutput {
 }
 
 export namespace ListFleetsOutput {
-  export function isa(o: any): o is ListFleetsOutput {
-    return __isa(o, "ListFleetsOutput");
-  }
+  export const isa = (o: any): o is ListFleetsOutput =>
+    __isa(o, "ListFleetsOutput");
 }
 
 export interface ListScriptsInput {
@@ -4779,9 +4644,8 @@ export interface ListScriptsInput {
 }
 
 export namespace ListScriptsInput {
-  export function isa(o: any): o is ListScriptsInput {
-    return __isa(o, "ListScriptsInput");
-  }
+  export const isa = (o: any): o is ListScriptsInput =>
+    __isa(o, "ListScriptsInput");
 }
 
 export interface ListScriptsOutput {
@@ -4798,9 +4662,8 @@ export interface ListScriptsOutput {
 }
 
 export namespace ListScriptsOutput {
-  export function isa(o: any): o is ListScriptsOutput {
-    return __isa(o, "ListScriptsOutput");
-  }
+  export const isa = (o: any): o is ListScriptsOutput =>
+    __isa(o, "ListScriptsOutput");
 }
 
 export interface ListTagsForResourceRequest {
@@ -4817,9 +4680,8 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export function isa(o: any): o is ListTagsForResourceRequest {
-    return __isa(o, "ListTagsForResourceRequest");
-  }
+  export const isa = (o: any): o is ListTagsForResourceRequest =>
+    __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -4833,9 +4695,8 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export function isa(o: any): o is ListTagsForResourceResponse {
-    return __isa(o, "ListTagsForResourceResponse");
-  }
+  export const isa = (o: any): o is ListTagsForResourceResponse =>
+    __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -4859,9 +4720,8 @@ export interface MatchedPlayerSession {
 }
 
 export namespace MatchedPlayerSession {
-  export function isa(o: any): o is MatchedPlayerSession {
-    return __isa(o, "MatchedPlayerSession");
-  }
+  export const isa = (o: any): o is MatchedPlayerSession =>
+    __isa(o, "MatchedPlayerSession");
 }
 
 /**
@@ -4970,9 +4830,8 @@ export interface MatchmakingConfiguration {
 }
 
 export namespace MatchmakingConfiguration {
-  export function isa(o: any): o is MatchmakingConfiguration {
-    return __isa(o, "MatchmakingConfiguration");
-  }
+  export const isa = (o: any): o is MatchmakingConfiguration =>
+    __isa(o, "MatchmakingConfiguration");
 }
 
 export type MatchmakingConfigurationStatus =
@@ -5050,9 +4909,8 @@ export interface MatchmakingRuleSet {
 }
 
 export namespace MatchmakingRuleSet {
-  export function isa(o: any): o is MatchmakingRuleSet {
-    return __isa(o, "MatchmakingRuleSet");
-  }
+  export const isa = (o: any): o is MatchmakingRuleSet =>
+    __isa(o, "MatchmakingRuleSet");
 }
 
 /**
@@ -5184,9 +5042,8 @@ export interface MatchmakingTicket {
 }
 
 export namespace MatchmakingTicket {
-  export function isa(o: any): o is MatchmakingTicket {
-    return __isa(o, "MatchmakingTicket");
-  }
+  export const isa = (o: any): o is MatchmakingTicket =>
+    __isa(o, "MatchmakingTicket");
 }
 
 export type MetricName =
@@ -5213,9 +5070,8 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return __isa(o, "NotFoundException");
-  }
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
 }
 
 export enum OperatingSystem {
@@ -5279,9 +5135,8 @@ export interface PlacedPlayerSession {
 }
 
 export namespace PlacedPlayerSession {
-  export function isa(o: any): o is PlacedPlayerSession {
-    return __isa(o, "PlacedPlayerSession");
-  }
+  export const isa = (o: any): o is PlacedPlayerSession =>
+    __isa(o, "PlacedPlayerSession");
 }
 
 /**
@@ -5322,9 +5177,7 @@ export interface Player {
 }
 
 export namespace Player {
-  export function isa(o: any): o is Player {
-    return __isa(o, "Player");
-  }
+  export const isa = (o: any): o is Player => __isa(o, "Player");
 }
 
 /**
@@ -5355,9 +5208,7 @@ export interface PlayerLatency {
 }
 
 export namespace PlayerLatency {
-  export function isa(o: any): o is PlayerLatency {
-    return __isa(o, "PlayerLatency");
-  }
+  export const isa = (o: any): o is PlayerLatency => __isa(o, "PlayerLatency");
 }
 
 /**
@@ -5406,9 +5257,8 @@ export interface PlayerLatencyPolicy {
 }
 
 export namespace PlayerLatencyPolicy {
-  export function isa(o: any): o is PlayerLatencyPolicy {
-    return __isa(o, "PlayerLatencyPolicy");
-  }
+  export const isa = (o: any): o is PlayerLatencyPolicy =>
+    __isa(o, "PlayerLatencyPolicy");
 }
 
 /**
@@ -5563,9 +5413,7 @@ export interface PlayerSession {
 }
 
 export namespace PlayerSession {
-  export function isa(o: any): o is PlayerSession {
-    return __isa(o, "PlayerSession");
-  }
+  export const isa = (o: any): o is PlayerSession => __isa(o, "PlayerSession");
 }
 
 export enum PlayerSessionCreationPolicy {
@@ -5742,9 +5590,8 @@ export interface PutScalingPolicyInput {
 }
 
 export namespace PutScalingPolicyInput {
-  export function isa(o: any): o is PutScalingPolicyInput {
-    return __isa(o, "PutScalingPolicyInput");
-  }
+  export const isa = (o: any): o is PutScalingPolicyInput =>
+    __isa(o, "PutScalingPolicyInput");
 }
 
 /**
@@ -5759,9 +5606,8 @@ export interface PutScalingPolicyOutput {
 }
 
 export namespace PutScalingPolicyOutput {
-  export function isa(o: any): o is PutScalingPolicyOutput {
-    return __isa(o, "PutScalingPolicyOutput");
-  }
+  export const isa = (o: any): o is PutScalingPolicyOutput =>
+    __isa(o, "PutScalingPolicyOutput");
 }
 
 /**
@@ -5776,9 +5622,8 @@ export interface RequestUploadCredentialsInput {
 }
 
 export namespace RequestUploadCredentialsInput {
-  export function isa(o: any): o is RequestUploadCredentialsInput {
-    return __isa(o, "RequestUploadCredentialsInput");
-  }
+  export const isa = (o: any): o is RequestUploadCredentialsInput =>
+    __isa(o, "RequestUploadCredentialsInput");
 }
 
 /**
@@ -5801,9 +5646,8 @@ export interface RequestUploadCredentialsOutput {
 }
 
 export namespace RequestUploadCredentialsOutput {
-  export function isa(o: any): o is RequestUploadCredentialsOutput {
-    return __isa(o, "RequestUploadCredentialsOutput");
-  }
+  export const isa = (o: any): o is RequestUploadCredentialsOutput =>
+    __isa(o, "RequestUploadCredentialsOutput");
 }
 
 /**
@@ -5819,9 +5663,8 @@ export interface ResolveAliasInput {
 }
 
 export namespace ResolveAliasInput {
-  export function isa(o: any): o is ResolveAliasInput {
-    return __isa(o, "ResolveAliasInput");
-  }
+  export const isa = (o: any): o is ResolveAliasInput =>
+    __isa(o, "ResolveAliasInput");
 }
 
 /**
@@ -5843,9 +5686,8 @@ export interface ResolveAliasOutput {
 }
 
 export namespace ResolveAliasOutput {
-  export function isa(o: any): o is ResolveAliasOutput {
-    return __isa(o, "ResolveAliasOutput");
-  }
+  export const isa = (o: any): o is ResolveAliasOutput =>
+    __isa(o, "ResolveAliasOutput");
 }
 
 /**
@@ -5875,9 +5717,8 @@ export interface ResourceCreationLimitPolicy {
 }
 
 export namespace ResourceCreationLimitPolicy {
-  export function isa(o: any): o is ResourceCreationLimitPolicy {
-    return __isa(o, "ResourceCreationLimitPolicy");
-  }
+  export const isa = (o: any): o is ResourceCreationLimitPolicy =>
+    __isa(o, "ResourceCreationLimitPolicy");
 }
 
 /**
@@ -5948,9 +5789,8 @@ export interface RoutingStrategy {
 }
 
 export namespace RoutingStrategy {
-  export function isa(o: any): o is RoutingStrategy {
-    return __isa(o, "RoutingStrategy");
-  }
+  export const isa = (o: any): o is RoutingStrategy =>
+    __isa(o, "RoutingStrategy");
 }
 
 export enum RoutingStrategyType {
@@ -6039,9 +5879,8 @@ export interface RuntimeConfiguration {
 }
 
 export namespace RuntimeConfiguration {
-  export function isa(o: any): o is RuntimeConfiguration {
-    return __isa(o, "RuntimeConfiguration");
-  }
+  export const isa = (o: any): o is RuntimeConfiguration =>
+    __isa(o, "RuntimeConfiguration");
 }
 
 /**
@@ -6077,9 +5916,7 @@ export interface S3Location {
 }
 
 export namespace S3Location {
-  export function isa(o: any): o is S3Location {
-    return __isa(o, "S3Location");
-  }
+  export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
 }
 
 export enum ScalingAdjustmentType {
@@ -6333,9 +6170,7 @@ export interface ScalingPolicy {
 }
 
 export namespace ScalingPolicy {
-  export function isa(o: any): o is ScalingPolicy {
-    return __isa(o, "ScalingPolicy");
-  }
+  export const isa = (o: any): o is ScalingPolicy => __isa(o, "ScalingPolicy");
 }
 
 export enum ScalingStatusType {
@@ -6424,9 +6259,7 @@ export interface Script {
 }
 
 export namespace Script {
-  export function isa(o: any): o is Script {
-    return __isa(o, "Script");
-  }
+  export const isa = (o: any): o is Script => __isa(o, "Script");
 }
 
 /**
@@ -6550,9 +6383,8 @@ export interface SearchGameSessionsInput {
 }
 
 export namespace SearchGameSessionsInput {
-  export function isa(o: any): o is SearchGameSessionsInput {
-    return __isa(o, "SearchGameSessionsInput");
-  }
+  export const isa = (o: any): o is SearchGameSessionsInput =>
+    __isa(o, "SearchGameSessionsInput");
 }
 
 /**
@@ -6573,9 +6405,8 @@ export interface SearchGameSessionsOutput {
 }
 
 export namespace SearchGameSessionsOutput {
-  export function isa(o: any): o is SearchGameSessionsOutput {
-    return __isa(o, "SearchGameSessionsOutput");
-  }
+  export const isa = (o: any): o is SearchGameSessionsOutput =>
+    __isa(o, "SearchGameSessionsOutput");
 }
 
 /**
@@ -6621,9 +6452,7 @@ export interface ServerProcess {
 }
 
 export namespace ServerProcess {
-  export function isa(o: any): o is ServerProcess {
-    return __isa(o, "ServerProcess");
-  }
+  export const isa = (o: any): o is ServerProcess => __isa(o, "ServerProcess");
 }
 
 export interface StartFleetActionsInput {
@@ -6640,9 +6469,8 @@ export interface StartFleetActionsInput {
 }
 
 export namespace StartFleetActionsInput {
-  export function isa(o: any): o is StartFleetActionsInput {
-    return __isa(o, "StartFleetActionsInput");
-  }
+  export const isa = (o: any): o is StartFleetActionsInput =>
+    __isa(o, "StartFleetActionsInput");
 }
 
 export interface StartFleetActionsOutput {
@@ -6650,9 +6478,8 @@ export interface StartFleetActionsOutput {
 }
 
 export namespace StartFleetActionsOutput {
-  export function isa(o: any): o is StartFleetActionsOutput {
-    return __isa(o, "StartFleetActionsOutput");
-  }
+  export const isa = (o: any): o is StartFleetActionsOutput =>
+    __isa(o, "StartFleetActionsOutput");
 }
 
 /**
@@ -6708,9 +6535,8 @@ export interface StartGameSessionPlacementInput {
 }
 
 export namespace StartGameSessionPlacementInput {
-  export function isa(o: any): o is StartGameSessionPlacementInput {
-    return __isa(o, "StartGameSessionPlacementInput");
-  }
+  export const isa = (o: any): o is StartGameSessionPlacementInput =>
+    __isa(o, "StartGameSessionPlacementInput");
 }
 
 /**
@@ -6727,9 +6553,8 @@ export interface StartGameSessionPlacementOutput {
 }
 
 export namespace StartGameSessionPlacementOutput {
-  export function isa(o: any): o is StartGameSessionPlacementOutput {
-    return __isa(o, "StartGameSessionPlacementOutput");
-  }
+  export const isa = (o: any): o is StartGameSessionPlacementOutput =>
+    __isa(o, "StartGameSessionPlacementOutput");
 }
 
 /**
@@ -6780,9 +6605,8 @@ export interface StartMatchBackfillInput {
 }
 
 export namespace StartMatchBackfillInput {
-  export function isa(o: any): o is StartMatchBackfillInput {
-    return __isa(o, "StartMatchBackfillInput");
-  }
+  export const isa = (o: any): o is StartMatchBackfillInput =>
+    __isa(o, "StartMatchBackfillInput");
 }
 
 /**
@@ -6799,9 +6623,8 @@ export interface StartMatchBackfillOutput {
 }
 
 export namespace StartMatchBackfillOutput {
-  export function isa(o: any): o is StartMatchBackfillOutput {
-    return __isa(o, "StartMatchBackfillOutput");
-  }
+  export const isa = (o: any): o is StartMatchBackfillOutput =>
+    __isa(o, "StartMatchBackfillOutput");
 }
 
 /**
@@ -6833,9 +6656,8 @@ export interface StartMatchmakingInput {
 }
 
 export namespace StartMatchmakingInput {
-  export function isa(o: any): o is StartMatchmakingInput {
-    return __isa(o, "StartMatchmakingInput");
-  }
+  export const isa = (o: any): o is StartMatchmakingInput =>
+    __isa(o, "StartMatchmakingInput");
 }
 
 /**
@@ -6852,9 +6674,8 @@ export interface StartMatchmakingOutput {
 }
 
 export namespace StartMatchmakingOutput {
-  export function isa(o: any): o is StartMatchmakingOutput {
-    return __isa(o, "StartMatchmakingOutput");
-  }
+  export const isa = (o: any): o is StartMatchmakingOutput =>
+    __isa(o, "StartMatchmakingOutput");
 }
 
 export interface StopFleetActionsInput {
@@ -6871,9 +6692,8 @@ export interface StopFleetActionsInput {
 }
 
 export namespace StopFleetActionsInput {
-  export function isa(o: any): o is StopFleetActionsInput {
-    return __isa(o, "StopFleetActionsInput");
-  }
+  export const isa = (o: any): o is StopFleetActionsInput =>
+    __isa(o, "StopFleetActionsInput");
 }
 
 export interface StopFleetActionsOutput {
@@ -6881,9 +6701,8 @@ export interface StopFleetActionsOutput {
 }
 
 export namespace StopFleetActionsOutput {
-  export function isa(o: any): o is StopFleetActionsOutput {
-    return __isa(o, "StopFleetActionsOutput");
-  }
+  export const isa = (o: any): o is StopFleetActionsOutput =>
+    __isa(o, "StopFleetActionsOutput");
 }
 
 /**
@@ -6898,9 +6717,8 @@ export interface StopGameSessionPlacementInput {
 }
 
 export namespace StopGameSessionPlacementInput {
-  export function isa(o: any): o is StopGameSessionPlacementInput {
-    return __isa(o, "StopGameSessionPlacementInput");
-  }
+  export const isa = (o: any): o is StopGameSessionPlacementInput =>
+    __isa(o, "StopGameSessionPlacementInput");
 }
 
 /**
@@ -6916,9 +6734,8 @@ export interface StopGameSessionPlacementOutput {
 }
 
 export namespace StopGameSessionPlacementOutput {
-  export function isa(o: any): o is StopGameSessionPlacementOutput {
-    return __isa(o, "StopGameSessionPlacementOutput");
-  }
+  export const isa = (o: any): o is StopGameSessionPlacementOutput =>
+    __isa(o, "StopGameSessionPlacementOutput");
 }
 
 /**
@@ -6933,9 +6750,8 @@ export interface StopMatchmakingInput {
 }
 
 export namespace StopMatchmakingInput {
-  export function isa(o: any): o is StopMatchmakingInput {
-    return __isa(o, "StopMatchmakingInput");
-  }
+  export const isa = (o: any): o is StopMatchmakingInput =>
+    __isa(o, "StopMatchmakingInput");
 }
 
 export interface StopMatchmakingOutput {
@@ -6943,9 +6759,8 @@ export interface StopMatchmakingOutput {
 }
 
 export namespace StopMatchmakingOutput {
-  export function isa(o: any): o is StopMatchmakingOutput {
-    return __isa(o, "StopMatchmakingOutput");
-  }
+  export const isa = (o: any): o is StopMatchmakingOutput =>
+    __isa(o, "StopMatchmakingOutput");
 }
 
 /**
@@ -7002,9 +6817,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
@@ -7029,9 +6842,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -7039,9 +6851,8 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export function isa(o: any): o is TagResourceResponse {
-    return __isa(o, "TagResourceResponse");
-  }
+  export const isa = (o: any): o is TagResourceResponse =>
+    __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -7059,9 +6870,8 @@ export interface TaggingFailedException
 }
 
 export namespace TaggingFailedException {
-  export function isa(o: any): o is TaggingFailedException {
-    return __isa(o, "TaggingFailedException");
-  }
+  export const isa = (o: any): o is TaggingFailedException =>
+    __isa(o, "TaggingFailedException");
 }
 
 /**
@@ -7133,9 +6943,8 @@ export interface TargetConfiguration {
 }
 
 export namespace TargetConfiguration {
-  export function isa(o: any): o is TargetConfiguration {
-    return __isa(o, "TargetConfiguration");
-  }
+  export const isa = (o: any): o is TargetConfiguration =>
+    __isa(o, "TargetConfiguration");
 }
 
 /**
@@ -7154,9 +6963,8 @@ export interface TerminalRoutingStrategyException
 }
 
 export namespace TerminalRoutingStrategyException {
-  export function isa(o: any): o is TerminalRoutingStrategyException {
-    return __isa(o, "TerminalRoutingStrategyException");
-  }
+  export const isa = (o: any): o is TerminalRoutingStrategyException =>
+    __isa(o, "TerminalRoutingStrategyException");
 }
 
 /**
@@ -7171,9 +6979,8 @@ export interface UnauthorizedException
 }
 
 export namespace UnauthorizedException {
-  export function isa(o: any): o is UnauthorizedException {
-    return __isa(o, "UnauthorizedException");
-  }
+  export const isa = (o: any): o is UnauthorizedException =>
+    __isa(o, "UnauthorizedException");
 }
 
 /**
@@ -7188,9 +6995,8 @@ export interface UnsupportedRegionException
 }
 
 export namespace UnsupportedRegionException {
-  export function isa(o: any): o is UnsupportedRegionException {
-    return __isa(o, "UnsupportedRegionException");
-  }
+  export const isa = (o: any): o is UnsupportedRegionException =>
+    __isa(o, "UnsupportedRegionException");
 }
 
 export interface UntagResourceRequest {
@@ -7213,9 +7019,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -7223,9 +7028,8 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export function isa(o: any): o is UntagResourceResponse {
-    return __isa(o, "UntagResourceResponse");
-  }
+  export const isa = (o: any): o is UntagResourceResponse =>
+    __isa(o, "UntagResourceResponse");
 }
 
 /**
@@ -7257,9 +7061,8 @@ export interface UpdateAliasInput {
 }
 
 export namespace UpdateAliasInput {
-  export function isa(o: any): o is UpdateAliasInput {
-    return __isa(o, "UpdateAliasInput");
-  }
+  export const isa = (o: any): o is UpdateAliasInput =>
+    __isa(o, "UpdateAliasInput");
 }
 
 /**
@@ -7274,9 +7077,8 @@ export interface UpdateAliasOutput {
 }
 
 export namespace UpdateAliasOutput {
-  export function isa(o: any): o is UpdateAliasOutput {
-    return __isa(o, "UpdateAliasOutput");
-  }
+  export const isa = (o: any): o is UpdateAliasOutput =>
+    __isa(o, "UpdateAliasOutput");
 }
 
 /**
@@ -7301,9 +7103,8 @@ export interface UpdateBuildInput {
 }
 
 export namespace UpdateBuildInput {
-  export function isa(o: any): o is UpdateBuildInput {
-    return __isa(o, "UpdateBuildInput");
-  }
+  export const isa = (o: any): o is UpdateBuildInput =>
+    __isa(o, "UpdateBuildInput");
 }
 
 /**
@@ -7318,9 +7119,8 @@ export interface UpdateBuildOutput {
 }
 
 export namespace UpdateBuildOutput {
-  export function isa(o: any): o is UpdateBuildOutput {
-    return __isa(o, "UpdateBuildOutput");
-  }
+  export const isa = (o: any): o is UpdateBuildOutput =>
+    __isa(o, "UpdateBuildOutput");
 }
 
 /**
@@ -7380,9 +7180,8 @@ export interface UpdateFleetAttributesInput {
 }
 
 export namespace UpdateFleetAttributesInput {
-  export function isa(o: any): o is UpdateFleetAttributesInput {
-    return __isa(o, "UpdateFleetAttributesInput");
-  }
+  export const isa = (o: any): o is UpdateFleetAttributesInput =>
+    __isa(o, "UpdateFleetAttributesInput");
 }
 
 /**
@@ -7397,9 +7196,8 @@ export interface UpdateFleetAttributesOutput {
 }
 
 export namespace UpdateFleetAttributesOutput {
-  export function isa(o: any): o is UpdateFleetAttributesOutput {
-    return __isa(o, "UpdateFleetAttributesOutput");
-  }
+  export const isa = (o: any): o is UpdateFleetAttributesOutput =>
+    __isa(o, "UpdateFleetAttributesOutput");
 }
 
 /**
@@ -7431,9 +7229,8 @@ export interface UpdateFleetCapacityInput {
 }
 
 export namespace UpdateFleetCapacityInput {
-  export function isa(o: any): o is UpdateFleetCapacityInput {
-    return __isa(o, "UpdateFleetCapacityInput");
-  }
+  export const isa = (o: any): o is UpdateFleetCapacityInput =>
+    __isa(o, "UpdateFleetCapacityInput");
 }
 
 /**
@@ -7448,9 +7245,8 @@ export interface UpdateFleetCapacityOutput {
 }
 
 export namespace UpdateFleetCapacityOutput {
-  export function isa(o: any): o is UpdateFleetCapacityOutput {
-    return __isa(o, "UpdateFleetCapacityOutput");
-  }
+  export const isa = (o: any): o is UpdateFleetCapacityOutput =>
+    __isa(o, "UpdateFleetCapacityOutput");
 }
 
 /**
@@ -7476,9 +7272,8 @@ export interface UpdateFleetPortSettingsInput {
 }
 
 export namespace UpdateFleetPortSettingsInput {
-  export function isa(o: any): o is UpdateFleetPortSettingsInput {
-    return __isa(o, "UpdateFleetPortSettingsInput");
-  }
+  export const isa = (o: any): o is UpdateFleetPortSettingsInput =>
+    __isa(o, "UpdateFleetPortSettingsInput");
 }
 
 /**
@@ -7493,9 +7288,8 @@ export interface UpdateFleetPortSettingsOutput {
 }
 
 export namespace UpdateFleetPortSettingsOutput {
-  export function isa(o: any): o is UpdateFleetPortSettingsOutput {
-    return __isa(o, "UpdateFleetPortSettingsOutput");
-  }
+  export const isa = (o: any): o is UpdateFleetPortSettingsOutput =>
+    __isa(o, "UpdateFleetPortSettingsOutput");
 }
 
 /**
@@ -7543,9 +7337,8 @@ export interface UpdateGameSessionInput {
 }
 
 export namespace UpdateGameSessionInput {
-  export function isa(o: any): o is UpdateGameSessionInput {
-    return __isa(o, "UpdateGameSessionInput");
-  }
+  export const isa = (o: any): o is UpdateGameSessionInput =>
+    __isa(o, "UpdateGameSessionInput");
 }
 
 /**
@@ -7560,9 +7353,8 @@ export interface UpdateGameSessionOutput {
 }
 
 export namespace UpdateGameSessionOutput {
-  export function isa(o: any): o is UpdateGameSessionOutput {
-    return __isa(o, "UpdateGameSessionOutput");
-  }
+  export const isa = (o: any): o is UpdateGameSessionOutput =>
+    __isa(o, "UpdateGameSessionOutput");
 }
 
 /**
@@ -7599,9 +7391,8 @@ export interface UpdateGameSessionQueueInput {
 }
 
 export namespace UpdateGameSessionQueueInput {
-  export function isa(o: any): o is UpdateGameSessionQueueInput {
-    return __isa(o, "UpdateGameSessionQueueInput");
-  }
+  export const isa = (o: any): o is UpdateGameSessionQueueInput =>
+    __isa(o, "UpdateGameSessionQueueInput");
 }
 
 /**
@@ -7616,9 +7407,8 @@ export interface UpdateGameSessionQueueOutput {
 }
 
 export namespace UpdateGameSessionQueueOutput {
-  export function isa(o: any): o is UpdateGameSessionQueueOutput {
-    return __isa(o, "UpdateGameSessionQueueOutput");
-  }
+  export const isa = (o: any): o is UpdateGameSessionQueueOutput =>
+    __isa(o, "UpdateGameSessionQueueOutput");
 }
 
 /**
@@ -7712,9 +7502,8 @@ export interface UpdateMatchmakingConfigurationInput {
 }
 
 export namespace UpdateMatchmakingConfigurationInput {
-  export function isa(o: any): o is UpdateMatchmakingConfigurationInput {
-    return __isa(o, "UpdateMatchmakingConfigurationInput");
-  }
+  export const isa = (o: any): o is UpdateMatchmakingConfigurationInput =>
+    __isa(o, "UpdateMatchmakingConfigurationInput");
 }
 
 /**
@@ -7729,9 +7518,8 @@ export interface UpdateMatchmakingConfigurationOutput {
 }
 
 export namespace UpdateMatchmakingConfigurationOutput {
-  export function isa(o: any): o is UpdateMatchmakingConfigurationOutput {
-    return __isa(o, "UpdateMatchmakingConfigurationOutput");
-  }
+  export const isa = (o: any): o is UpdateMatchmakingConfigurationOutput =>
+    __isa(o, "UpdateMatchmakingConfigurationOutput");
 }
 
 /**
@@ -7758,9 +7546,8 @@ export interface UpdateRuntimeConfigurationInput {
 }
 
 export namespace UpdateRuntimeConfigurationInput {
-  export function isa(o: any): o is UpdateRuntimeConfigurationInput {
-    return __isa(o, "UpdateRuntimeConfigurationInput");
-  }
+  export const isa = (o: any): o is UpdateRuntimeConfigurationInput =>
+    __isa(o, "UpdateRuntimeConfigurationInput");
 }
 
 /**
@@ -7776,9 +7563,8 @@ export interface UpdateRuntimeConfigurationOutput {
 }
 
 export namespace UpdateRuntimeConfigurationOutput {
-  export function isa(o: any): o is UpdateRuntimeConfigurationOutput {
-    return __isa(o, "UpdateRuntimeConfigurationOutput");
-  }
+  export const isa = (o: any): o is UpdateRuntimeConfigurationOutput =>
+    __isa(o, "UpdateRuntimeConfigurationOutput");
 }
 
 export interface UpdateScriptInput {
@@ -7821,9 +7607,8 @@ export interface UpdateScriptInput {
 }
 
 export namespace UpdateScriptInput {
-  export function isa(o: any): o is UpdateScriptInput {
-    return __isa(o, "UpdateScriptInput");
-  }
+  export const isa = (o: any): o is UpdateScriptInput =>
+    __isa(o, "UpdateScriptInput");
 }
 
 export interface UpdateScriptOutput {
@@ -7840,9 +7625,8 @@ export interface UpdateScriptOutput {
 }
 
 export namespace UpdateScriptOutput {
-  export function isa(o: any): o is UpdateScriptOutput {
-    return __isa(o, "UpdateScriptOutput");
-  }
+  export const isa = (o: any): o is UpdateScriptOutput =>
+    __isa(o, "UpdateScriptOutput");
 }
 
 /**
@@ -7857,9 +7641,8 @@ export interface ValidateMatchmakingRuleSetInput {
 }
 
 export namespace ValidateMatchmakingRuleSetInput {
-  export function isa(o: any): o is ValidateMatchmakingRuleSetInput {
-    return __isa(o, "ValidateMatchmakingRuleSetInput");
-  }
+  export const isa = (o: any): o is ValidateMatchmakingRuleSetInput =>
+    __isa(o, "ValidateMatchmakingRuleSetInput");
 }
 
 /**
@@ -7874,9 +7657,8 @@ export interface ValidateMatchmakingRuleSetOutput {
 }
 
 export namespace ValidateMatchmakingRuleSetOutput {
-  export function isa(o: any): o is ValidateMatchmakingRuleSetOutput {
-    return __isa(o, "ValidateMatchmakingRuleSetOutput");
-  }
+  export const isa = (o: any): o is ValidateMatchmakingRuleSetOutput =>
+    __isa(o, "ValidateMatchmakingRuleSetOutput");
 }
 
 /**
@@ -7951,9 +7733,8 @@ export interface VpcPeeringAuthorization {
 }
 
 export namespace VpcPeeringAuthorization {
-  export function isa(o: any): o is VpcPeeringAuthorization {
-    return __isa(o, "VpcPeeringAuthorization");
-  }
+  export const isa = (o: any): o is VpcPeeringAuthorization =>
+    __isa(o, "VpcPeeringAuthorization");
 }
 
 /**
@@ -8044,9 +7825,8 @@ export interface VpcPeeringConnection {
 }
 
 export namespace VpcPeeringConnection {
-  export function isa(o: any): o is VpcPeeringConnection {
-    return __isa(o, "VpcPeeringConnection");
-  }
+  export const isa = (o: any): o is VpcPeeringConnection =>
+    __isa(o, "VpcPeeringConnection");
 }
 
 /**
@@ -8069,7 +7849,6 @@ export interface VpcPeeringConnectionStatus {
 }
 
 export namespace VpcPeeringConnectionStatus {
-  export function isa(o: any): o is VpcPeeringConnectionStatus {
-    return __isa(o, "VpcPeeringConnectionStatus");
-  }
+  export const isa = (o: any): o is VpcPeeringConnectionStatus =>
+    __isa(o, "VpcPeeringConnectionStatus");
 }

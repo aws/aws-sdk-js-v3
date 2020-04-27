@@ -14,9 +14,8 @@ export interface GetRawMessageContentRequest {
 }
 
 export namespace GetRawMessageContentRequest {
-  export function isa(o: any): o is GetRawMessageContentRequest {
-    return __isa(o, "GetRawMessageContentRequest");
-  }
+  export const isa = (o: any): o is GetRawMessageContentRequest =>
+    __isa(o, "GetRawMessageContentRequest");
 }
 
 export interface GetRawMessageContentResponse {
@@ -28,9 +27,8 @@ export interface GetRawMessageContentResponse {
 }
 
 export namespace GetRawMessageContentResponse {
-  export function isa(o: any): o is GetRawMessageContentResponse {
-    return __isa(o, "GetRawMessageContentResponse");
-  }
+  export const isa = (o: any): o is GetRawMessageContentResponse =>
+    __isa(o, "GetRawMessageContentResponse");
 }
 
 /**
@@ -45,7 +43,6 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }

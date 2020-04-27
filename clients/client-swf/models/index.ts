@@ -41,9 +41,7 @@ export interface ActivityTask {
 }
 
 export namespace ActivityTask {
-  export function isa(o: any): o is ActivityTask {
-    return __isa(o, "ActivityTask");
-  }
+  export const isa = (o: any): o is ActivityTask => __isa(o, "ActivityTask");
 }
 
 /**
@@ -64,9 +62,10 @@ export interface ActivityTaskCancelRequestedEventAttributes {
 }
 
 export namespace ActivityTaskCancelRequestedEventAttributes {
-  export function isa(o: any): o is ActivityTaskCancelRequestedEventAttributes {
-    return __isa(o, "ActivityTaskCancelRequestedEventAttributes");
-  }
+  export const isa = (
+    o: any
+  ): o is ActivityTaskCancelRequestedEventAttributes =>
+    __isa(o, "ActivityTaskCancelRequestedEventAttributes");
 }
 
 /**
@@ -98,9 +97,8 @@ export interface ActivityTaskCanceledEventAttributes {
 }
 
 export namespace ActivityTaskCanceledEventAttributes {
-  export function isa(o: any): o is ActivityTaskCanceledEventAttributes {
-    return __isa(o, "ActivityTaskCanceledEventAttributes");
-  }
+  export const isa = (o: any): o is ActivityTaskCanceledEventAttributes =>
+    __isa(o, "ActivityTaskCanceledEventAttributes");
 }
 
 /**
@@ -127,9 +125,8 @@ export interface ActivityTaskCompletedEventAttributes {
 }
 
 export namespace ActivityTaskCompletedEventAttributes {
-  export function isa(o: any): o is ActivityTaskCompletedEventAttributes {
-    return __isa(o, "ActivityTaskCompletedEventAttributes");
-  }
+  export const isa = (o: any): o is ActivityTaskCompletedEventAttributes =>
+    __isa(o, "ActivityTaskCompletedEventAttributes");
 }
 
 /**
@@ -161,9 +158,8 @@ export interface ActivityTaskFailedEventAttributes {
 }
 
 export namespace ActivityTaskFailedEventAttributes {
-  export function isa(o: any): o is ActivityTaskFailedEventAttributes {
-    return __isa(o, "ActivityTaskFailedEventAttributes");
-  }
+  export const isa = (o: any): o is ActivityTaskFailedEventAttributes =>
+    __isa(o, "ActivityTaskFailedEventAttributes");
 }
 
 /**
@@ -235,9 +231,8 @@ export interface ActivityTaskScheduledEventAttributes {
 }
 
 export namespace ActivityTaskScheduledEventAttributes {
-  export function isa(o: any): o is ActivityTaskScheduledEventAttributes {
-    return __isa(o, "ActivityTaskScheduledEventAttributes");
-  }
+  export const isa = (o: any): o is ActivityTaskScheduledEventAttributes =>
+    __isa(o, "ActivityTaskScheduledEventAttributes");
 }
 
 /**
@@ -257,9 +252,8 @@ export interface ActivityTaskStartedEventAttributes {
 }
 
 export namespace ActivityTaskStartedEventAttributes {
-  export function isa(o: any): o is ActivityTaskStartedEventAttributes {
-    return __isa(o, "ActivityTaskStartedEventAttributes");
-  }
+  export const isa = (o: any): o is ActivityTaskStartedEventAttributes =>
+    __isa(o, "ActivityTaskStartedEventAttributes");
 }
 
 /**
@@ -274,9 +268,8 @@ export interface ActivityTaskStatus {
 }
 
 export namespace ActivityTaskStatus {
-  export function isa(o: any): o is ActivityTaskStatus {
-    return __isa(o, "ActivityTaskStatus");
-  }
+  export const isa = (o: any): o is ActivityTaskStatus =>
+    __isa(o, "ActivityTaskStatus");
 }
 
 /**
@@ -309,9 +302,8 @@ export interface ActivityTaskTimedOutEventAttributes {
 }
 
 export namespace ActivityTaskTimedOutEventAttributes {
-  export function isa(o: any): o is ActivityTaskTimedOutEventAttributes {
-    return __isa(o, "ActivityTaskTimedOutEventAttributes");
-  }
+  export const isa = (o: any): o is ActivityTaskTimedOutEventAttributes =>
+    __isa(o, "ActivityTaskTimedOutEventAttributes");
 }
 
 export type ActivityTaskTimeoutType =
@@ -343,9 +335,7 @@ export interface ActivityType {
 }
 
 export namespace ActivityType {
-  export function isa(o: any): o is ActivityType {
-    return __isa(o, "ActivityType");
-  }
+  export const isa = (o: any): o is ActivityType => __isa(o, "ActivityType");
 }
 
 /**
@@ -418,9 +408,8 @@ export interface ActivityTypeConfiguration {
 }
 
 export namespace ActivityTypeConfiguration {
-  export function isa(o: any): o is ActivityTypeConfiguration {
-    return __isa(o, "ActivityTypeConfiguration");
-  }
+  export const isa = (o: any): o is ActivityTypeConfiguration =>
+    __isa(o, "ActivityTypeConfiguration");
 }
 
 /**
@@ -456,9 +445,8 @@ export interface ActivityTypeDetail {
 }
 
 export namespace ActivityTypeDetail {
-  export function isa(o: any): o is ActivityTypeDetail {
-    return __isa(o, "ActivityTypeDetail");
-  }
+  export const isa = (o: any): o is ActivityTypeDetail =>
+    __isa(o, "ActivityTypeDetail");
 }
 
 /**
@@ -493,9 +481,8 @@ export interface ActivityTypeInfo {
 }
 
 export namespace ActivityTypeInfo {
-  export function isa(o: any): o is ActivityTypeInfo {
-    return __isa(o, "ActivityTypeInfo");
-  }
+  export const isa = (o: any): o is ActivityTypeInfo =>
+    __isa(o, "ActivityTypeInfo");
 }
 
 /**
@@ -518,9 +505,8 @@ export interface ActivityTypeInfos {
 }
 
 export namespace ActivityTypeInfos {
-  export function isa(o: any): o is ActivityTypeInfos {
-    return __isa(o, "ActivityTypeInfos");
-  }
+  export const isa = (o: any): o is ActivityTypeInfos =>
+    __isa(o, "ActivityTypeInfos");
 }
 
 /**
@@ -556,9 +542,8 @@ export interface CancelTimerDecisionAttributes {
 }
 
 export namespace CancelTimerDecisionAttributes {
-  export function isa(o: any): o is CancelTimerDecisionAttributes {
-    return __isa(o, "CancelTimerDecisionAttributes");
-  }
+  export const isa = (o: any): o is CancelTimerDecisionAttributes =>
+    __isa(o, "CancelTimerDecisionAttributes");
 }
 
 export type CancelTimerFailedCause =
@@ -592,9 +577,8 @@ export interface CancelTimerFailedEventAttributes {
 }
 
 export namespace CancelTimerFailedEventAttributes {
-  export function isa(o: any): o is CancelTimerFailedEventAttributes {
-    return __isa(o, "CancelTimerFailedEventAttributes");
-  }
+  export const isa = (o: any): o is CancelTimerFailedEventAttributes =>
+    __isa(o, "CancelTimerFailedEventAttributes");
 }
 
 /**
@@ -630,9 +614,8 @@ export interface CancelWorkflowExecutionDecisionAttributes {
 }
 
 export namespace CancelWorkflowExecutionDecisionAttributes {
-  export function isa(o: any): o is CancelWorkflowExecutionDecisionAttributes {
-    return __isa(o, "CancelWorkflowExecutionDecisionAttributes");
-  }
+  export const isa = (o: any): o is CancelWorkflowExecutionDecisionAttributes =>
+    __isa(o, "CancelWorkflowExecutionDecisionAttributes");
 }
 
 export type CancelWorkflowExecutionFailedCause =
@@ -661,11 +644,10 @@ export interface CancelWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace CancelWorkflowExecutionFailedEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is CancelWorkflowExecutionFailedEventAttributes {
-    return __isa(o, "CancelWorkflowExecutionFailedEventAttributes");
-  }
+  ): o is CancelWorkflowExecutionFailedEventAttributes =>
+    __isa(o, "CancelWorkflowExecutionFailedEventAttributes");
 }
 
 export type ChildPolicy = "ABANDON" | "REQUEST_CANCEL" | "TERMINATE";
@@ -708,11 +690,10 @@ export interface ChildWorkflowExecutionCanceledEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionCanceledEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ChildWorkflowExecutionCanceledEventAttributes {
-    return __isa(o, "ChildWorkflowExecutionCanceledEventAttributes");
-  }
+  ): o is ChildWorkflowExecutionCanceledEventAttributes =>
+    __isa(o, "ChildWorkflowExecutionCanceledEventAttributes");
 }
 
 /**
@@ -750,11 +731,10 @@ export interface ChildWorkflowExecutionCompletedEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionCompletedEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ChildWorkflowExecutionCompletedEventAttributes {
-    return __isa(o, "ChildWorkflowExecutionCompletedEventAttributes");
-  }
+  ): o is ChildWorkflowExecutionCompletedEventAttributes =>
+    __isa(o, "ChildWorkflowExecutionCompletedEventAttributes");
 }
 
 /**
@@ -800,11 +780,10 @@ export interface ChildWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionFailedEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ChildWorkflowExecutionFailedEventAttributes {
-    return __isa(o, "ChildWorkflowExecutionFailedEventAttributes");
-  }
+  ): o is ChildWorkflowExecutionFailedEventAttributes =>
+    __isa(o, "ChildWorkflowExecutionFailedEventAttributes");
 }
 
 /**
@@ -833,11 +812,10 @@ export interface ChildWorkflowExecutionStartedEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionStartedEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ChildWorkflowExecutionStartedEventAttributes {
-    return __isa(o, "ChildWorkflowExecutionStartedEventAttributes");
-  }
+  ): o is ChildWorkflowExecutionStartedEventAttributes =>
+    __isa(o, "ChildWorkflowExecutionStartedEventAttributes");
 }
 
 /**
@@ -873,11 +851,10 @@ export interface ChildWorkflowExecutionTerminatedEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionTerminatedEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ChildWorkflowExecutionTerminatedEventAttributes {
-    return __isa(o, "ChildWorkflowExecutionTerminatedEventAttributes");
-  }
+  ): o is ChildWorkflowExecutionTerminatedEventAttributes =>
+    __isa(o, "ChildWorkflowExecutionTerminatedEventAttributes");
 }
 
 /**
@@ -917,11 +894,10 @@ export interface ChildWorkflowExecutionTimedOutEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionTimedOutEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ChildWorkflowExecutionTimedOutEventAttributes {
-    return __isa(o, "ChildWorkflowExecutionTimedOutEventAttributes");
-  }
+  ): o is ChildWorkflowExecutionTimedOutEventAttributes =>
+    __isa(o, "ChildWorkflowExecutionTimedOutEventAttributes");
 }
 
 export type CloseStatus =
@@ -946,9 +922,8 @@ export interface CloseStatusFilter {
 }
 
 export namespace CloseStatusFilter {
-  export function isa(o: any): o is CloseStatusFilter {
-    return __isa(o, "CloseStatusFilter");
-  }
+  export const isa = (o: any): o is CloseStatusFilter =>
+    __isa(o, "CloseStatusFilter");
 }
 
 /**
@@ -983,11 +958,10 @@ export interface CompleteWorkflowExecutionDecisionAttributes {
 }
 
 export namespace CompleteWorkflowExecutionDecisionAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is CompleteWorkflowExecutionDecisionAttributes {
-    return __isa(o, "CompleteWorkflowExecutionDecisionAttributes");
-  }
+  ): o is CompleteWorkflowExecutionDecisionAttributes =>
+    __isa(o, "CompleteWorkflowExecutionDecisionAttributes");
 }
 
 export type CompleteWorkflowExecutionFailedCause =
@@ -1018,11 +992,10 @@ export interface CompleteWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace CompleteWorkflowExecutionFailedEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is CompleteWorkflowExecutionFailedEventAttributes {
-    return __isa(o, "CompleteWorkflowExecutionFailedEventAttributes");
-  }
+  ): o is CompleteWorkflowExecutionFailedEventAttributes =>
+    __isa(o, "CompleteWorkflowExecutionFailedEventAttributes");
 }
 
 /**
@@ -1154,11 +1127,10 @@ export interface ContinueAsNewWorkflowExecutionDecisionAttributes {
 }
 
 export namespace ContinueAsNewWorkflowExecutionDecisionAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ContinueAsNewWorkflowExecutionDecisionAttributes {
-    return __isa(o, "ContinueAsNewWorkflowExecutionDecisionAttributes");
-  }
+  ): o is ContinueAsNewWorkflowExecutionDecisionAttributes =>
+    __isa(o, "ContinueAsNewWorkflowExecutionDecisionAttributes");
 }
 
 export type ContinueAsNewWorkflowExecutionFailedCause =
@@ -1196,11 +1168,10 @@ export interface ContinueAsNewWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace ContinueAsNewWorkflowExecutionFailedEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ContinueAsNewWorkflowExecutionFailedEventAttributes {
-    return __isa(o, "ContinueAsNewWorkflowExecutionFailedEventAttributes");
-  }
+  ): o is ContinueAsNewWorkflowExecutionFailedEventAttributes =>
+    __isa(o, "ContinueAsNewWorkflowExecutionFailedEventAttributes");
 }
 
 /**
@@ -1555,9 +1526,7 @@ export interface Decision {
 }
 
 export namespace Decision {
-  export function isa(o: any): o is Decision {
-    return __isa(o, "Decision");
-  }
+  export const isa = (o: any): o is Decision => __isa(o, "Decision");
 }
 
 /**
@@ -1605,9 +1574,7 @@ export interface DecisionTask {
 }
 
 export namespace DecisionTask {
-  export function isa(o: any): o is DecisionTask {
-    return __isa(o, "DecisionTask");
-  }
+  export const isa = (o: any): o is DecisionTask => __isa(o, "DecisionTask");
 }
 
 /**
@@ -1636,9 +1603,8 @@ export interface DecisionTaskCompletedEventAttributes {
 }
 
 export namespace DecisionTaskCompletedEventAttributes {
-  export function isa(o: any): o is DecisionTaskCompletedEventAttributes {
-    return __isa(o, "DecisionTaskCompletedEventAttributes");
-  }
+  export const isa = (o: any): o is DecisionTaskCompletedEventAttributes =>
+    __isa(o, "DecisionTaskCompletedEventAttributes");
 }
 
 /**
@@ -1668,9 +1634,8 @@ export interface DecisionTaskScheduledEventAttributes {
 }
 
 export namespace DecisionTaskScheduledEventAttributes {
-  export function isa(o: any): o is DecisionTaskScheduledEventAttributes {
-    return __isa(o, "DecisionTaskScheduledEventAttributes");
-  }
+  export const isa = (o: any): o is DecisionTaskScheduledEventAttributes =>
+    __isa(o, "DecisionTaskScheduledEventAttributes");
 }
 
 /**
@@ -1692,9 +1657,8 @@ export interface DecisionTaskStartedEventAttributes {
 }
 
 export namespace DecisionTaskStartedEventAttributes {
-  export function isa(o: any): o is DecisionTaskStartedEventAttributes {
-    return __isa(o, "DecisionTaskStartedEventAttributes");
-  }
+  export const isa = (o: any): o is DecisionTaskStartedEventAttributes =>
+    __isa(o, "DecisionTaskStartedEventAttributes");
 }
 
 /**
@@ -1723,9 +1687,8 @@ export interface DecisionTaskTimedOutEventAttributes {
 }
 
 export namespace DecisionTaskTimedOutEventAttributes {
-  export function isa(o: any): o is DecisionTaskTimedOutEventAttributes {
-    return __isa(o, "DecisionTaskTimedOutEventAttributes");
-  }
+  export const isa = (o: any): o is DecisionTaskTimedOutEventAttributes =>
+    __isa(o, "DecisionTaskTimedOutEventAttributes");
 }
 
 export type DecisionTaskTimeoutType = "START_TO_CLOSE";
@@ -1767,9 +1730,8 @@ export interface DefaultUndefinedFault
 }
 
 export namespace DefaultUndefinedFault {
-  export function isa(o: any): o is DefaultUndefinedFault {
-    return __isa(o, "DefaultUndefinedFault");
-  }
+  export const isa = (o: any): o is DefaultUndefinedFault =>
+    __isa(o, "DefaultUndefinedFault");
 }
 
 /**
@@ -1787,9 +1749,8 @@ export interface DomainAlreadyExistsFault
 }
 
 export namespace DomainAlreadyExistsFault {
-  export function isa(o: any): o is DomainAlreadyExistsFault {
-    return __isa(o, "DomainAlreadyExistsFault");
-  }
+  export const isa = (o: any): o is DomainAlreadyExistsFault =>
+    __isa(o, "DomainAlreadyExistsFault");
 }
 
 /**
@@ -1804,9 +1765,8 @@ export interface DomainConfiguration {
 }
 
 export namespace DomainConfiguration {
-  export function isa(o: any): o is DomainConfiguration {
-    return __isa(o, "DomainConfiguration");
-  }
+  export const isa = (o: any): o is DomainConfiguration =>
+    __isa(o, "DomainConfiguration");
 }
 
 /**
@@ -1824,9 +1784,8 @@ export interface DomainDeprecatedFault
 }
 
 export namespace DomainDeprecatedFault {
-  export function isa(o: any): o is DomainDeprecatedFault {
-    return __isa(o, "DomainDeprecatedFault");
-  }
+  export const isa = (o: any): o is DomainDeprecatedFault =>
+    __isa(o, "DomainDeprecatedFault");
 }
 
 /**
@@ -1848,9 +1807,7 @@ export interface DomainDetail {
 }
 
 export namespace DomainDetail {
-  export function isa(o: any): o is DomainDetail {
-    return __isa(o, "DomainDetail");
-  }
+  export const isa = (o: any): o is DomainDetail => __isa(o, "DomainDetail");
 }
 
 /**
@@ -1894,9 +1851,7 @@ export interface DomainInfo {
 }
 
 export namespace DomainInfo {
-  export function isa(o: any): o is DomainInfo {
-    return __isa(o, "DomainInfo");
-  }
+  export const isa = (o: any): o is DomainInfo => __isa(o, "DomainInfo");
 }
 
 /**
@@ -1919,9 +1874,7 @@ export interface DomainInfos {
 }
 
 export namespace DomainInfos {
-  export function isa(o: any): o is DomainInfos {
-    return __isa(o, "DomainInfos");
-  }
+  export const isa = (o: any): o is DomainInfos => __isa(o, "DomainInfos");
 }
 
 export type EventType =
@@ -2002,9 +1955,8 @@ export interface ExecutionTimeFilter {
 }
 
 export namespace ExecutionTimeFilter {
-  export function isa(o: any): o is ExecutionTimeFilter {
-    return __isa(o, "ExecutionTimeFilter");
-  }
+  export const isa = (o: any): o is ExecutionTimeFilter =>
+    __isa(o, "ExecutionTimeFilter");
 }
 
 /**
@@ -2027,11 +1979,10 @@ export interface ExternalWorkflowExecutionCancelRequestedEventAttributes {
 }
 
 export namespace ExternalWorkflowExecutionCancelRequestedEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ExternalWorkflowExecutionCancelRequestedEventAttributes {
-    return __isa(o, "ExternalWorkflowExecutionCancelRequestedEventAttributes");
-  }
+  ): o is ExternalWorkflowExecutionCancelRequestedEventAttributes =>
+    __isa(o, "ExternalWorkflowExecutionCancelRequestedEventAttributes");
 }
 
 /**
@@ -2053,11 +2004,10 @@ export interface ExternalWorkflowExecutionSignaledEventAttributes {
 }
 
 export namespace ExternalWorkflowExecutionSignaledEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ExternalWorkflowExecutionSignaledEventAttributes {
-    return __isa(o, "ExternalWorkflowExecutionSignaledEventAttributes");
-  }
+  ): o is ExternalWorkflowExecutionSignaledEventAttributes =>
+    __isa(o, "ExternalWorkflowExecutionSignaledEventAttributes");
 }
 
 /**
@@ -2099,9 +2049,8 @@ export interface FailWorkflowExecutionDecisionAttributes {
 }
 
 export namespace FailWorkflowExecutionDecisionAttributes {
-  export function isa(o: any): o is FailWorkflowExecutionDecisionAttributes {
-    return __isa(o, "FailWorkflowExecutionDecisionAttributes");
-  }
+  export const isa = (o: any): o is FailWorkflowExecutionDecisionAttributes =>
+    __isa(o, "FailWorkflowExecutionDecisionAttributes");
 }
 
 export type FailWorkflowExecutionFailedCause =
@@ -2132,9 +2081,10 @@ export interface FailWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace FailWorkflowExecutionFailedEventAttributes {
-  export function isa(o: any): o is FailWorkflowExecutionFailedEventAttributes {
-    return __isa(o, "FailWorkflowExecutionFailedEventAttributes");
-  }
+  export const isa = (
+    o: any
+  ): o is FailWorkflowExecutionFailedEventAttributes =>
+    __isa(o, "FailWorkflowExecutionFailedEventAttributes");
 }
 
 /**
@@ -2157,9 +2107,7 @@ export interface History {
 }
 
 export namespace History {
-  export function isa(o: any): o is History {
-    return __isa(o, "History");
-  }
+  export const isa = (o: any): o is History => __isa(o, "History");
 }
 
 /**
@@ -2725,9 +2673,7 @@ export interface HistoryEvent {
 }
 
 export namespace HistoryEvent {
-  export function isa(o: any): o is HistoryEvent {
-    return __isa(o, "HistoryEvent");
-  }
+  export const isa = (o: any): o is HistoryEvent => __isa(o, "HistoryEvent");
 }
 
 /**
@@ -2755,9 +2701,8 @@ export interface LambdaFunctionCompletedEventAttributes {
 }
 
 export namespace LambdaFunctionCompletedEventAttributes {
-  export function isa(o: any): o is LambdaFunctionCompletedEventAttributes {
-    return __isa(o, "LambdaFunctionCompletedEventAttributes");
-  }
+  export const isa = (o: any): o is LambdaFunctionCompletedEventAttributes =>
+    __isa(o, "LambdaFunctionCompletedEventAttributes");
 }
 
 /**
@@ -2790,9 +2735,8 @@ export interface LambdaFunctionFailedEventAttributes {
 }
 
 export namespace LambdaFunctionFailedEventAttributes {
-  export function isa(o: any): o is LambdaFunctionFailedEventAttributes {
-    return __isa(o, "LambdaFunctionFailedEventAttributes");
-  }
+  export const isa = (o: any): o is LambdaFunctionFailedEventAttributes =>
+    __isa(o, "LambdaFunctionFailedEventAttributes");
 }
 
 /**
@@ -2835,9 +2779,8 @@ export interface LambdaFunctionScheduledEventAttributes {
 }
 
 export namespace LambdaFunctionScheduledEventAttributes {
-  export function isa(o: any): o is LambdaFunctionScheduledEventAttributes {
-    return __isa(o, "LambdaFunctionScheduledEventAttributes");
-  }
+  export const isa = (o: any): o is LambdaFunctionScheduledEventAttributes =>
+    __isa(o, "LambdaFunctionScheduledEventAttributes");
 }
 
 /**
@@ -2854,9 +2797,8 @@ export interface LambdaFunctionStartedEventAttributes {
 }
 
 export namespace LambdaFunctionStartedEventAttributes {
-  export function isa(o: any): o is LambdaFunctionStartedEventAttributes {
-    return __isa(o, "LambdaFunctionStartedEventAttributes");
-  }
+  export const isa = (o: any): o is LambdaFunctionStartedEventAttributes =>
+    __isa(o, "LambdaFunctionStartedEventAttributes");
 }
 
 /**
@@ -2883,9 +2825,8 @@ export interface LambdaFunctionTimedOutEventAttributes {
 }
 
 export namespace LambdaFunctionTimedOutEventAttributes {
-  export function isa(o: any): o is LambdaFunctionTimedOutEventAttributes {
-    return __isa(o, "LambdaFunctionTimedOutEventAttributes");
-  }
+  export const isa = (o: any): o is LambdaFunctionTimedOutEventAttributes =>
+    __isa(o, "LambdaFunctionTimedOutEventAttributes");
 }
 
 export type LambdaFunctionTimeoutType = "START_TO_CLOSE";
@@ -2903,9 +2844,8 @@ export interface LimitExceededFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace LimitExceededFault {
-  export function isa(o: any): o is LimitExceededFault {
-    return __isa(o, "LimitExceededFault");
-  }
+  export const isa = (o: any): o is LimitExceededFault =>
+    __isa(o, "LimitExceededFault");
 }
 
 /**
@@ -2932,9 +2872,8 @@ export interface MarkerRecordedEventAttributes {
 }
 
 export namespace MarkerRecordedEventAttributes {
-  export function isa(o: any): o is MarkerRecordedEventAttributes {
-    return __isa(o, "MarkerRecordedEventAttributes");
-  }
+  export const isa = (o: any): o is MarkerRecordedEventAttributes =>
+    __isa(o, "MarkerRecordedEventAttributes");
 }
 
 /**
@@ -2952,9 +2891,8 @@ export interface OperationNotPermittedFault
 }
 
 export namespace OperationNotPermittedFault {
-  export function isa(o: any): o is OperationNotPermittedFault {
-    return __isa(o, "OperationNotPermittedFault");
-  }
+  export const isa = (o: any): o is OperationNotPermittedFault =>
+    __isa(o, "OperationNotPermittedFault");
 }
 
 /**
@@ -2974,9 +2912,8 @@ export interface PendingTaskCount {
 }
 
 export namespace PendingTaskCount {
-  export function isa(o: any): o is PendingTaskCount {
-    return __isa(o, "PendingTaskCount");
-  }
+  export const isa = (o: any): o is PendingTaskCount =>
+    __isa(o, "PendingTaskCount");
 }
 
 /**
@@ -3018,9 +2955,8 @@ export interface RecordMarkerDecisionAttributes {
 }
 
 export namespace RecordMarkerDecisionAttributes {
-  export function isa(o: any): o is RecordMarkerDecisionAttributes {
-    return __isa(o, "RecordMarkerDecisionAttributes");
-  }
+  export const isa = (o: any): o is RecordMarkerDecisionAttributes =>
+    __isa(o, "RecordMarkerDecisionAttributes");
 }
 
 export type RecordMarkerFailedCause = "OPERATION_NOT_PERMITTED";
@@ -3054,9 +2990,8 @@ export interface RecordMarkerFailedEventAttributes {
 }
 
 export namespace RecordMarkerFailedEventAttributes {
-  export function isa(o: any): o is RecordMarkerFailedEventAttributes {
-    return __isa(o, "RecordMarkerFailedEventAttributes");
-  }
+  export const isa = (o: any): o is RecordMarkerFailedEventAttributes =>
+    __isa(o, "RecordMarkerFailedEventAttributes");
 }
 
 export type RegistrationStatus = "DEPRECATED" | "REGISTERED";
@@ -3094,11 +3029,10 @@ export interface RequestCancelActivityTaskDecisionAttributes {
 }
 
 export namespace RequestCancelActivityTaskDecisionAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is RequestCancelActivityTaskDecisionAttributes {
-    return __isa(o, "RequestCancelActivityTaskDecisionAttributes");
-  }
+  ): o is RequestCancelActivityTaskDecisionAttributes =>
+    __isa(o, "RequestCancelActivityTaskDecisionAttributes");
 }
 
 export type RequestCancelActivityTaskFailedCause =
@@ -3134,11 +3068,10 @@ export interface RequestCancelActivityTaskFailedEventAttributes {
 }
 
 export namespace RequestCancelActivityTaskFailedEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is RequestCancelActivityTaskFailedEventAttributes {
-    return __isa(o, "RequestCancelActivityTaskFailedEventAttributes");
-  }
+  ): o is RequestCancelActivityTaskFailedEventAttributes =>
+    __isa(o, "RequestCancelActivityTaskFailedEventAttributes");
 }
 
 /**
@@ -3184,11 +3117,10 @@ export interface RequestCancelExternalWorkflowExecutionDecisionAttributes {
 }
 
 export namespace RequestCancelExternalWorkflowExecutionDecisionAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is RequestCancelExternalWorkflowExecutionDecisionAttributes {
-    return __isa(o, "RequestCancelExternalWorkflowExecutionDecisionAttributes");
-  }
+  ): o is RequestCancelExternalWorkflowExecutionDecisionAttributes =>
+    __isa(o, "RequestCancelExternalWorkflowExecutionDecisionAttributes");
 }
 
 export type RequestCancelExternalWorkflowExecutionFailedCause =
@@ -3244,14 +3176,10 @@ export interface RequestCancelExternalWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace RequestCancelExternalWorkflowExecutionFailedEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is RequestCancelExternalWorkflowExecutionFailedEventAttributes {
-    return __isa(
-      o,
-      "RequestCancelExternalWorkflowExecutionFailedEventAttributes"
-    );
-  }
+  ): o is RequestCancelExternalWorkflowExecutionFailedEventAttributes =>
+    __isa(o, "RequestCancelExternalWorkflowExecutionFailedEventAttributes");
 }
 
 /**
@@ -3284,14 +3212,10 @@ export interface RequestCancelExternalWorkflowExecutionInitiatedEventAttributes 
 }
 
 export namespace RequestCancelExternalWorkflowExecutionInitiatedEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is RequestCancelExternalWorkflowExecutionInitiatedEventAttributes {
-    return __isa(
-      o,
-      "RequestCancelExternalWorkflowExecutionInitiatedEventAttributes"
-    );
-  }
+  ): o is RequestCancelExternalWorkflowExecutionInitiatedEventAttributes =>
+    __isa(o, "RequestCancelExternalWorkflowExecutionInitiatedEventAttributes");
 }
 
 /**
@@ -3313,9 +3237,7 @@ export interface ResourceTag {
 }
 
 export namespace ResourceTag {
-  export function isa(o: any): o is ResourceTag {
-    return __isa(o, "ResourceTag");
-  }
+  export const isa = (o: any): o is ResourceTag => __isa(o, "ResourceTag");
 }
 
 /**
@@ -3447,9 +3369,8 @@ export interface ScheduleActivityTaskDecisionAttributes {
 }
 
 export namespace ScheduleActivityTaskDecisionAttributes {
-  export function isa(o: any): o is ScheduleActivityTaskDecisionAttributes {
-    return __isa(o, "ScheduleActivityTaskDecisionAttributes");
-  }
+  export const isa = (o: any): o is ScheduleActivityTaskDecisionAttributes =>
+    __isa(o, "ScheduleActivityTaskDecisionAttributes");
 }
 
 export type ScheduleActivityTaskFailedCause =
@@ -3499,9 +3420,8 @@ export interface ScheduleActivityTaskFailedEventAttributes {
 }
 
 export namespace ScheduleActivityTaskFailedEventAttributes {
-  export function isa(o: any): o is ScheduleActivityTaskFailedEventAttributes {
-    return __isa(o, "ScheduleActivityTaskFailedEventAttributes");
-  }
+  export const isa = (o: any): o is ScheduleActivityTaskFailedEventAttributes =>
+    __isa(o, "ScheduleActivityTaskFailedEventAttributes");
 }
 
 /**
@@ -3538,9 +3458,8 @@ export interface ScheduleLambdaFunctionDecisionAttributes {
 }
 
 export namespace ScheduleLambdaFunctionDecisionAttributes {
-  export function isa(o: any): o is ScheduleLambdaFunctionDecisionAttributes {
-    return __isa(o, "ScheduleLambdaFunctionDecisionAttributes");
-  }
+  export const isa = (o: any): o is ScheduleLambdaFunctionDecisionAttributes =>
+    __isa(o, "ScheduleLambdaFunctionDecisionAttributes");
 }
 
 export type ScheduleLambdaFunctionFailedCause =
@@ -3586,11 +3505,10 @@ export interface ScheduleLambdaFunctionFailedEventAttributes {
 }
 
 export namespace ScheduleLambdaFunctionFailedEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ScheduleLambdaFunctionFailedEventAttributes {
-    return __isa(o, "ScheduleLambdaFunctionFailedEventAttributes");
-  }
+  ): o is ScheduleLambdaFunctionFailedEventAttributes =>
+    __isa(o, "ScheduleLambdaFunctionFailedEventAttributes");
 }
 
 /**
@@ -3650,11 +3568,10 @@ export interface SignalExternalWorkflowExecutionDecisionAttributes {
 }
 
 export namespace SignalExternalWorkflowExecutionDecisionAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is SignalExternalWorkflowExecutionDecisionAttributes {
-    return __isa(o, "SignalExternalWorkflowExecutionDecisionAttributes");
-  }
+  ): o is SignalExternalWorkflowExecutionDecisionAttributes =>
+    __isa(o, "SignalExternalWorkflowExecutionDecisionAttributes");
 }
 
 export type SignalExternalWorkflowExecutionFailedCause =
@@ -3709,11 +3626,10 @@ export interface SignalExternalWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace SignalExternalWorkflowExecutionFailedEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is SignalExternalWorkflowExecutionFailedEventAttributes {
-    return __isa(o, "SignalExternalWorkflowExecutionFailedEventAttributes");
-  }
+  ): o is SignalExternalWorkflowExecutionFailedEventAttributes =>
+    __isa(o, "SignalExternalWorkflowExecutionFailedEventAttributes");
 }
 
 /**
@@ -3755,11 +3671,10 @@ export interface SignalExternalWorkflowExecutionInitiatedEventAttributes {
 }
 
 export namespace SignalExternalWorkflowExecutionInitiatedEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is SignalExternalWorkflowExecutionInitiatedEventAttributes {
-    return __isa(o, "SignalExternalWorkflowExecutionInitiatedEventAttributes");
-  }
+  ): o is SignalExternalWorkflowExecutionInitiatedEventAttributes =>
+    __isa(o, "SignalExternalWorkflowExecutionInitiatedEventAttributes");
 }
 
 /**
@@ -3914,11 +3829,10 @@ export interface StartChildWorkflowExecutionDecisionAttributes {
 }
 
 export namespace StartChildWorkflowExecutionDecisionAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is StartChildWorkflowExecutionDecisionAttributes {
-    return __isa(o, "StartChildWorkflowExecutionDecisionAttributes");
-  }
+  ): o is StartChildWorkflowExecutionDecisionAttributes =>
+    __isa(o, "StartChildWorkflowExecutionDecisionAttributes");
 }
 
 export type StartChildWorkflowExecutionFailedCause =
@@ -3984,11 +3898,10 @@ export interface StartChildWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace StartChildWorkflowExecutionFailedEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is StartChildWorkflowExecutionFailedEventAttributes {
-    return __isa(o, "StartChildWorkflowExecutionFailedEventAttributes");
-  }
+  ): o is StartChildWorkflowExecutionFailedEventAttributes =>
+    __isa(o, "StartChildWorkflowExecutionFailedEventAttributes");
 }
 
 /**
@@ -4085,11 +3998,10 @@ export interface StartChildWorkflowExecutionInitiatedEventAttributes {
 }
 
 export namespace StartChildWorkflowExecutionInitiatedEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is StartChildWorkflowExecutionInitiatedEventAttributes {
-    return __isa(o, "StartChildWorkflowExecutionInitiatedEventAttributes");
-  }
+  ): o is StartChildWorkflowExecutionInitiatedEventAttributes =>
+    __isa(o, "StartChildWorkflowExecutionInitiatedEventAttributes");
 }
 
 export type StartLambdaFunctionFailedCause = "ASSUME_ROLE_FAILED";
@@ -4124,9 +4036,8 @@ export interface StartLambdaFunctionFailedEventAttributes {
 }
 
 export namespace StartLambdaFunctionFailedEventAttributes {
-  export function isa(o: any): o is StartLambdaFunctionFailedEventAttributes {
-    return __isa(o, "StartLambdaFunctionFailedEventAttributes");
-  }
+  export const isa = (o: any): o is StartLambdaFunctionFailedEventAttributes =>
+    __isa(o, "StartLambdaFunctionFailedEventAttributes");
 }
 
 /**
@@ -4176,9 +4087,8 @@ export interface StartTimerDecisionAttributes {
 }
 
 export namespace StartTimerDecisionAttributes {
-  export function isa(o: any): o is StartTimerDecisionAttributes {
-    return __isa(o, "StartTimerDecisionAttributes");
-  }
+  export const isa = (o: any): o is StartTimerDecisionAttributes =>
+    __isa(o, "StartTimerDecisionAttributes");
 }
 
 export type StartTimerFailedCause =
@@ -4216,9 +4126,8 @@ export interface StartTimerFailedEventAttributes {
 }
 
 export namespace StartTimerFailedEventAttributes {
-  export function isa(o: any): o is StartTimerFailedEventAttributes {
-    return __isa(o, "StartTimerFailedEventAttributes");
-  }
+  export const isa = (o: any): o is StartTimerFailedEventAttributes =>
+    __isa(o, "StartTimerFailedEventAttributes");
 }
 
 /**
@@ -4236,9 +4145,7 @@ export interface TagFilter {
 }
 
 export namespace TagFilter {
-  export function isa(o: any): o is TagFilter {
-    return __isa(o, "TagFilter");
-  }
+  export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
 }
 
 /**
@@ -4253,9 +4160,7 @@ export interface TaskList {
 }
 
 export namespace TaskList {
-  export function isa(o: any): o is TaskList {
-    return __isa(o, "TaskList");
-  }
+  export const isa = (o: any): o is TaskList => __isa(o, "TaskList");
 }
 
 /**
@@ -4286,9 +4191,8 @@ export interface TimerCanceledEventAttributes {
 }
 
 export namespace TimerCanceledEventAttributes {
-  export function isa(o: any): o is TimerCanceledEventAttributes {
-    return __isa(o, "TimerCanceledEventAttributes");
-  }
+  export const isa = (o: any): o is TimerCanceledEventAttributes =>
+    __isa(o, "TimerCanceledEventAttributes");
 }
 
 /**
@@ -4310,9 +4214,8 @@ export interface TimerFiredEventAttributes {
 }
 
 export namespace TimerFiredEventAttributes {
-  export function isa(o: any): o is TimerFiredEventAttributes {
-    return __isa(o, "TimerFiredEventAttributes");
-  }
+  export const isa = (o: any): o is TimerFiredEventAttributes =>
+    __isa(o, "TimerFiredEventAttributes");
 }
 
 /**
@@ -4345,9 +4248,8 @@ export interface TimerStartedEventAttributes {
 }
 
 export namespace TimerStartedEventAttributes {
-  export function isa(o: any): o is TimerStartedEventAttributes {
-    return __isa(o, "TimerStartedEventAttributes");
-  }
+  export const isa = (o: any): o is TimerStartedEventAttributes =>
+    __isa(o, "TimerStartedEventAttributes");
 }
 
 /**
@@ -4360,9 +4262,8 @@ export interface TooManyTagsFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TooManyTagsFault {
-  export function isa(o: any): o is TooManyTagsFault {
-    return __isa(o, "TooManyTagsFault");
-  }
+  export const isa = (o: any): o is TooManyTagsFault =>
+    __isa(o, "TooManyTagsFault");
 }
 
 /**
@@ -4380,9 +4281,8 @@ export interface TypeAlreadyExistsFault
 }
 
 export namespace TypeAlreadyExistsFault {
-  export function isa(o: any): o is TypeAlreadyExistsFault {
-    return __isa(o, "TypeAlreadyExistsFault");
-  }
+  export const isa = (o: any): o is TypeAlreadyExistsFault =>
+    __isa(o, "TypeAlreadyExistsFault");
 }
 
 /**
@@ -4400,9 +4300,8 @@ export interface TypeDeprecatedFault
 }
 
 export namespace TypeDeprecatedFault {
-  export function isa(o: any): o is TypeDeprecatedFault {
-    return __isa(o, "TypeDeprecatedFault");
-  }
+  export const isa = (o: any): o is TypeDeprecatedFault =>
+    __isa(o, "TypeDeprecatedFault");
 }
 
 /**
@@ -4420,9 +4319,8 @@ export interface UnknownResourceFault
 }
 
 export namespace UnknownResourceFault {
-  export function isa(o: any): o is UnknownResourceFault {
-    return __isa(o, "UnknownResourceFault");
-  }
+  export const isa = (o: any): o is UnknownResourceFault =>
+    __isa(o, "UnknownResourceFault");
 }
 
 /**
@@ -4442,9 +4340,8 @@ export interface WorkflowExecution {
 }
 
 export namespace WorkflowExecution {
-  export function isa(o: any): o is WorkflowExecution {
-    return __isa(o, "WorkflowExecution");
-  }
+  export const isa = (o: any): o is WorkflowExecution =>
+    __isa(o, "WorkflowExecution");
 }
 
 /**
@@ -4463,9 +4360,8 @@ export interface WorkflowExecutionAlreadyStartedFault
 }
 
 export namespace WorkflowExecutionAlreadyStartedFault {
-  export function isa(o: any): o is WorkflowExecutionAlreadyStartedFault {
-    return __isa(o, "WorkflowExecutionAlreadyStartedFault");
-  }
+  export const isa = (o: any): o is WorkflowExecutionAlreadyStartedFault =>
+    __isa(o, "WorkflowExecutionAlreadyStartedFault");
 }
 
 export type WorkflowExecutionCancelRequestedCause = "CHILD_POLICY_APPLIED";
@@ -4495,11 +4391,10 @@ export interface WorkflowExecutionCancelRequestedEventAttributes {
 }
 
 export namespace WorkflowExecutionCancelRequestedEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is WorkflowExecutionCancelRequestedEventAttributes {
-    return __isa(o, "WorkflowExecutionCancelRequestedEventAttributes");
-  }
+  ): o is WorkflowExecutionCancelRequestedEventAttributes =>
+    __isa(o, "WorkflowExecutionCancelRequestedEventAttributes");
 }
 
 /**
@@ -4521,9 +4416,8 @@ export interface WorkflowExecutionCanceledEventAttributes {
 }
 
 export namespace WorkflowExecutionCanceledEventAttributes {
-  export function isa(o: any): o is WorkflowExecutionCanceledEventAttributes {
-    return __isa(o, "WorkflowExecutionCanceledEventAttributes");
-  }
+  export const isa = (o: any): o is WorkflowExecutionCanceledEventAttributes =>
+    __isa(o, "WorkflowExecutionCanceledEventAttributes");
 }
 
 /**
@@ -4545,9 +4439,8 @@ export interface WorkflowExecutionCompletedEventAttributes {
 }
 
 export namespace WorkflowExecutionCompletedEventAttributes {
-  export function isa(o: any): o is WorkflowExecutionCompletedEventAttributes {
-    return __isa(o, "WorkflowExecutionCompletedEventAttributes");
-  }
+  export const isa = (o: any): o is WorkflowExecutionCompletedEventAttributes =>
+    __isa(o, "WorkflowExecutionCompletedEventAttributes");
 }
 
 /**
@@ -4609,9 +4502,8 @@ export interface WorkflowExecutionConfiguration {
 }
 
 export namespace WorkflowExecutionConfiguration {
-  export function isa(o: any): o is WorkflowExecutionConfiguration {
-    return __isa(o, "WorkflowExecutionConfiguration");
-  }
+  export const isa = (o: any): o is WorkflowExecutionConfiguration =>
+    __isa(o, "WorkflowExecutionConfiguration");
 }
 
 /**
@@ -4700,11 +4592,10 @@ export interface WorkflowExecutionContinuedAsNewEventAttributes {
 }
 
 export namespace WorkflowExecutionContinuedAsNewEventAttributes {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is WorkflowExecutionContinuedAsNewEventAttributes {
-    return __isa(o, "WorkflowExecutionContinuedAsNewEventAttributes");
-  }
+  ): o is WorkflowExecutionContinuedAsNewEventAttributes =>
+    __isa(o, "WorkflowExecutionContinuedAsNewEventAttributes");
 }
 
 /**
@@ -4726,9 +4617,8 @@ export interface WorkflowExecutionCount {
 }
 
 export namespace WorkflowExecutionCount {
-  export function isa(o: any): o is WorkflowExecutionCount {
-    return __isa(o, "WorkflowExecutionCount");
-  }
+  export const isa = (o: any): o is WorkflowExecutionCount =>
+    __isa(o, "WorkflowExecutionCount");
 }
 
 /**
@@ -4764,9 +4654,8 @@ export interface WorkflowExecutionDetail {
 }
 
 export namespace WorkflowExecutionDetail {
-  export function isa(o: any): o is WorkflowExecutionDetail {
-    return __isa(o, "WorkflowExecutionDetail");
-  }
+  export const isa = (o: any): o is WorkflowExecutionDetail =>
+    __isa(o, "WorkflowExecutionDetail");
 }
 
 /**
@@ -4793,9 +4682,8 @@ export interface WorkflowExecutionFailedEventAttributes {
 }
 
 export namespace WorkflowExecutionFailedEventAttributes {
-  export function isa(o: any): o is WorkflowExecutionFailedEventAttributes {
-    return __isa(o, "WorkflowExecutionFailedEventAttributes");
-  }
+  export const isa = (o: any): o is WorkflowExecutionFailedEventAttributes =>
+    __isa(o, "WorkflowExecutionFailedEventAttributes");
 }
 
 /**
@@ -4810,9 +4698,8 @@ export interface WorkflowExecutionFilter {
 }
 
 export namespace WorkflowExecutionFilter {
-  export function isa(o: any): o is WorkflowExecutionFilter {
-    return __isa(o, "WorkflowExecutionFilter");
-  }
+  export const isa = (o: any): o is WorkflowExecutionFilter =>
+    __isa(o, "WorkflowExecutionFilter");
 }
 
 /**
@@ -4896,9 +4783,8 @@ export interface WorkflowExecutionInfo {
 }
 
 export namespace WorkflowExecutionInfo {
-  export function isa(o: any): o is WorkflowExecutionInfo {
-    return __isa(o, "WorkflowExecutionInfo");
-  }
+  export const isa = (o: any): o is WorkflowExecutionInfo =>
+    __isa(o, "WorkflowExecutionInfo");
 }
 
 /**
@@ -4921,9 +4807,8 @@ export interface WorkflowExecutionInfos {
 }
 
 export namespace WorkflowExecutionInfos {
-  export function isa(o: any): o is WorkflowExecutionInfos {
-    return __isa(o, "WorkflowExecutionInfos");
-  }
+  export const isa = (o: any): o is WorkflowExecutionInfos =>
+    __isa(o, "WorkflowExecutionInfos");
 }
 
 /**
@@ -4958,9 +4843,8 @@ export interface WorkflowExecutionOpenCounts {
 }
 
 export namespace WorkflowExecutionOpenCounts {
-  export function isa(o: any): o is WorkflowExecutionOpenCounts {
-    return __isa(o, "WorkflowExecutionOpenCounts");
-  }
+  export const isa = (o: any): o is WorkflowExecutionOpenCounts =>
+    __isa(o, "WorkflowExecutionOpenCounts");
 }
 
 /**
@@ -4994,9 +4878,8 @@ export interface WorkflowExecutionSignaledEventAttributes {
 }
 
 export namespace WorkflowExecutionSignaledEventAttributes {
-  export function isa(o: any): o is WorkflowExecutionSignaledEventAttributes {
-    return __isa(o, "WorkflowExecutionSignaledEventAttributes");
-  }
+  export const isa = (o: any): o is WorkflowExecutionSignaledEventAttributes =>
+    __isa(o, "WorkflowExecutionSignaledEventAttributes");
 }
 
 /**
@@ -5092,9 +4975,8 @@ export interface WorkflowExecutionStartedEventAttributes {
 }
 
 export namespace WorkflowExecutionStartedEventAttributes {
-  export function isa(o: any): o is WorkflowExecutionStartedEventAttributes {
-    return __isa(o, "WorkflowExecutionStartedEventAttributes");
-  }
+  export const isa = (o: any): o is WorkflowExecutionStartedEventAttributes =>
+    __isa(o, "WorkflowExecutionStartedEventAttributes");
 }
 
 export type WorkflowExecutionTerminatedCause =
@@ -5146,9 +5028,10 @@ export interface WorkflowExecutionTerminatedEventAttributes {
 }
 
 export namespace WorkflowExecutionTerminatedEventAttributes {
-  export function isa(o: any): o is WorkflowExecutionTerminatedEventAttributes {
-    return __isa(o, "WorkflowExecutionTerminatedEventAttributes");
-  }
+  export const isa = (
+    o: any
+  ): o is WorkflowExecutionTerminatedEventAttributes =>
+    __isa(o, "WorkflowExecutionTerminatedEventAttributes");
 }
 
 /**
@@ -5185,9 +5068,8 @@ export interface WorkflowExecutionTimedOutEventAttributes {
 }
 
 export namespace WorkflowExecutionTimedOutEventAttributes {
-  export function isa(o: any): o is WorkflowExecutionTimedOutEventAttributes {
-    return __isa(o, "WorkflowExecutionTimedOutEventAttributes");
-  }
+  export const isa = (o: any): o is WorkflowExecutionTimedOutEventAttributes =>
+    __isa(o, "WorkflowExecutionTimedOutEventAttributes");
 }
 
 export type WorkflowExecutionTimeoutType = "START_TO_CLOSE";
@@ -5217,9 +5099,7 @@ export interface WorkflowType {
 }
 
 export namespace WorkflowType {
-  export function isa(o: any): o is WorkflowType {
-    return __isa(o, "WorkflowType");
-  }
+  export const isa = (o: any): o is WorkflowType => __isa(o, "WorkflowType");
 }
 
 /**
@@ -5309,9 +5189,8 @@ export interface WorkflowTypeConfiguration {
 }
 
 export namespace WorkflowTypeConfiguration {
-  export function isa(o: any): o is WorkflowTypeConfiguration {
-    return __isa(o, "WorkflowTypeConfiguration");
-  }
+  export const isa = (o: any): o is WorkflowTypeConfiguration =>
+    __isa(o, "WorkflowTypeConfiguration");
 }
 
 /**
@@ -5344,9 +5223,8 @@ export interface WorkflowTypeDetail {
 }
 
 export namespace WorkflowTypeDetail {
-  export function isa(o: any): o is WorkflowTypeDetail {
-    return __isa(o, "WorkflowTypeDetail");
-  }
+  export const isa = (o: any): o is WorkflowTypeDetail =>
+    __isa(o, "WorkflowTypeDetail");
 }
 
 /**
@@ -5367,9 +5245,8 @@ export interface WorkflowTypeFilter {
 }
 
 export namespace WorkflowTypeFilter {
-  export function isa(o: any): o is WorkflowTypeFilter {
-    return __isa(o, "WorkflowTypeFilter");
-  }
+  export const isa = (o: any): o is WorkflowTypeFilter =>
+    __isa(o, "WorkflowTypeFilter");
 }
 
 /**
@@ -5404,9 +5281,8 @@ export interface WorkflowTypeInfo {
 }
 
 export namespace WorkflowTypeInfo {
-  export function isa(o: any): o is WorkflowTypeInfo {
-    return __isa(o, "WorkflowTypeInfo");
-  }
+  export const isa = (o: any): o is WorkflowTypeInfo =>
+    __isa(o, "WorkflowTypeInfo");
 }
 
 /**
@@ -5429,9 +5305,8 @@ export interface WorkflowTypeInfos {
 }
 
 export namespace WorkflowTypeInfos {
-  export function isa(o: any): o is WorkflowTypeInfos {
-    return __isa(o, "WorkflowTypeInfos");
-  }
+  export const isa = (o: any): o is WorkflowTypeInfos =>
+    __isa(o, "WorkflowTypeInfos");
 }
 
 export interface CountClosedWorkflowExecutionsInput {
@@ -5513,9 +5388,8 @@ export interface CountClosedWorkflowExecutionsInput {
 }
 
 export namespace CountClosedWorkflowExecutionsInput {
-  export function isa(o: any): o is CountClosedWorkflowExecutionsInput {
-    return __isa(o, "CountClosedWorkflowExecutionsInput");
-  }
+  export const isa = (o: any): o is CountClosedWorkflowExecutionsInput =>
+    __isa(o, "CountClosedWorkflowExecutionsInput");
 }
 
 export interface CountOpenWorkflowExecutionsInput {
@@ -5565,9 +5439,8 @@ export interface CountOpenWorkflowExecutionsInput {
 }
 
 export namespace CountOpenWorkflowExecutionsInput {
-  export function isa(o: any): o is CountOpenWorkflowExecutionsInput {
-    return __isa(o, "CountOpenWorkflowExecutionsInput");
-  }
+  export const isa = (o: any): o is CountOpenWorkflowExecutionsInput =>
+    __isa(o, "CountOpenWorkflowExecutionsInput");
 }
 
 export interface CountPendingActivityTasksInput {
@@ -5584,9 +5457,8 @@ export interface CountPendingActivityTasksInput {
 }
 
 export namespace CountPendingActivityTasksInput {
-  export function isa(o: any): o is CountPendingActivityTasksInput {
-    return __isa(o, "CountPendingActivityTasksInput");
-  }
+  export const isa = (o: any): o is CountPendingActivityTasksInput =>
+    __isa(o, "CountPendingActivityTasksInput");
 }
 
 export interface CountPendingDecisionTasksInput {
@@ -5603,9 +5475,8 @@ export interface CountPendingDecisionTasksInput {
 }
 
 export namespace CountPendingDecisionTasksInput {
-  export function isa(o: any): o is CountPendingDecisionTasksInput {
-    return __isa(o, "CountPendingDecisionTasksInput");
-  }
+  export const isa = (o: any): o is CountPendingDecisionTasksInput =>
+    __isa(o, "CountPendingDecisionTasksInput");
 }
 
 export interface DeprecateActivityTypeInput {
@@ -5622,9 +5493,8 @@ export interface DeprecateActivityTypeInput {
 }
 
 export namespace DeprecateActivityTypeInput {
-  export function isa(o: any): o is DeprecateActivityTypeInput {
-    return __isa(o, "DeprecateActivityTypeInput");
-  }
+  export const isa = (o: any): o is DeprecateActivityTypeInput =>
+    __isa(o, "DeprecateActivityTypeInput");
 }
 
 export interface DeprecateDomainInput {
@@ -5636,9 +5506,8 @@ export interface DeprecateDomainInput {
 }
 
 export namespace DeprecateDomainInput {
-  export function isa(o: any): o is DeprecateDomainInput {
-    return __isa(o, "DeprecateDomainInput");
-  }
+  export const isa = (o: any): o is DeprecateDomainInput =>
+    __isa(o, "DeprecateDomainInput");
 }
 
 export interface DeprecateWorkflowTypeInput {
@@ -5655,9 +5524,8 @@ export interface DeprecateWorkflowTypeInput {
 }
 
 export namespace DeprecateWorkflowTypeInput {
-  export function isa(o: any): o is DeprecateWorkflowTypeInput {
-    return __isa(o, "DeprecateWorkflowTypeInput");
-  }
+  export const isa = (o: any): o is DeprecateWorkflowTypeInput =>
+    __isa(o, "DeprecateWorkflowTypeInput");
 }
 
 export interface DescribeActivityTypeInput {
@@ -5676,9 +5544,8 @@ export interface DescribeActivityTypeInput {
 }
 
 export namespace DescribeActivityTypeInput {
-  export function isa(o: any): o is DescribeActivityTypeInput {
-    return __isa(o, "DescribeActivityTypeInput");
-  }
+  export const isa = (o: any): o is DescribeActivityTypeInput =>
+    __isa(o, "DescribeActivityTypeInput");
 }
 
 export interface DescribeDomainInput {
@@ -5690,9 +5557,8 @@ export interface DescribeDomainInput {
 }
 
 export namespace DescribeDomainInput {
-  export function isa(o: any): o is DescribeDomainInput {
-    return __isa(o, "DescribeDomainInput");
-  }
+  export const isa = (o: any): o is DescribeDomainInput =>
+    __isa(o, "DescribeDomainInput");
 }
 
 export interface DescribeWorkflowExecutionInput {
@@ -5709,9 +5575,8 @@ export interface DescribeWorkflowExecutionInput {
 }
 
 export namespace DescribeWorkflowExecutionInput {
-  export function isa(o: any): o is DescribeWorkflowExecutionInput {
-    return __isa(o, "DescribeWorkflowExecutionInput");
-  }
+  export const isa = (o: any): o is DescribeWorkflowExecutionInput =>
+    __isa(o, "DescribeWorkflowExecutionInput");
 }
 
 export interface DescribeWorkflowTypeInput {
@@ -5728,9 +5593,8 @@ export interface DescribeWorkflowTypeInput {
 }
 
 export namespace DescribeWorkflowTypeInput {
-  export function isa(o: any): o is DescribeWorkflowTypeInput {
-    return __isa(o, "DescribeWorkflowTypeInput");
-  }
+  export const isa = (o: any): o is DescribeWorkflowTypeInput =>
+    __isa(o, "DescribeWorkflowTypeInput");
 }
 
 export interface GetWorkflowExecutionHistoryInput {
@@ -5772,9 +5636,8 @@ export interface GetWorkflowExecutionHistoryInput {
 }
 
 export namespace GetWorkflowExecutionHistoryInput {
-  export function isa(o: any): o is GetWorkflowExecutionHistoryInput {
-    return __isa(o, "GetWorkflowExecutionHistoryInput");
-  }
+  export const isa = (o: any): o is GetWorkflowExecutionHistoryInput =>
+    __isa(o, "GetWorkflowExecutionHistoryInput");
 }
 
 export interface ListActivityTypesInput {
@@ -5821,9 +5684,8 @@ export interface ListActivityTypesInput {
 }
 
 export namespace ListActivityTypesInput {
-  export function isa(o: any): o is ListActivityTypesInput {
-    return __isa(o, "ListActivityTypesInput");
-  }
+  export const isa = (o: any): o is ListActivityTypesInput =>
+    __isa(o, "ListActivityTypesInput");
 }
 
 export interface ListClosedWorkflowExecutionsInput {
@@ -5932,9 +5794,8 @@ export interface ListClosedWorkflowExecutionsInput {
 }
 
 export namespace ListClosedWorkflowExecutionsInput {
-  export function isa(o: any): o is ListClosedWorkflowExecutionsInput {
-    return __isa(o, "ListClosedWorkflowExecutionsInput");
-  }
+  export const isa = (o: any): o is ListClosedWorkflowExecutionsInput =>
+    __isa(o, "ListClosedWorkflowExecutionsInput");
 }
 
 export interface ListDomainsInput {
@@ -5971,9 +5832,8 @@ export interface ListDomainsInput {
 }
 
 export namespace ListDomainsInput {
-  export function isa(o: any): o is ListDomainsInput {
-    return __isa(o, "ListDomainsInput");
-  }
+  export const isa = (o: any): o is ListDomainsInput =>
+    __isa(o, "ListDomainsInput");
 }
 
 export interface ListOpenWorkflowExecutionsInput {
@@ -6047,9 +5907,8 @@ export interface ListOpenWorkflowExecutionsInput {
 }
 
 export namespace ListOpenWorkflowExecutionsInput {
-  export function isa(o: any): o is ListOpenWorkflowExecutionsInput {
-    return __isa(o, "ListOpenWorkflowExecutionsInput");
-  }
+  export const isa = (o: any): o is ListOpenWorkflowExecutionsInput =>
+    __isa(o, "ListOpenWorkflowExecutionsInput");
 }
 
 export interface ListTagsForResourceInput {
@@ -6061,9 +5920,8 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
-  export function isa(o: any): o is ListTagsForResourceInput {
-    return __isa(o, "ListTagsForResourceInput");
-  }
+  export const isa = (o: any): o is ListTagsForResourceInput =>
+    __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceOutput {
@@ -6075,9 +5933,8 @@ export interface ListTagsForResourceOutput {
 }
 
 export namespace ListTagsForResourceOutput {
-  export function isa(o: any): o is ListTagsForResourceOutput {
-    return __isa(o, "ListTagsForResourceOutput");
-  }
+  export const isa = (o: any): o is ListTagsForResourceOutput =>
+    __isa(o, "ListTagsForResourceOutput");
 }
 
 export interface ListWorkflowTypesInput {
@@ -6124,9 +5981,8 @@ export interface ListWorkflowTypesInput {
 }
 
 export namespace ListWorkflowTypesInput {
-  export function isa(o: any): o is ListWorkflowTypesInput {
-    return __isa(o, "ListWorkflowTypesInput");
-  }
+  export const isa = (o: any): o is ListWorkflowTypesInput =>
+    __isa(o, "ListWorkflowTypesInput");
 }
 
 export interface PollForActivityTaskInput {
@@ -6155,9 +6011,8 @@ export interface PollForActivityTaskInput {
 }
 
 export namespace PollForActivityTaskInput {
-  export function isa(o: any): o is PollForActivityTaskInput {
-    return __isa(o, "PollForActivityTaskInput");
-  }
+  export const isa = (o: any): o is PollForActivityTaskInput =>
+    __isa(o, "PollForActivityTaskInput");
 }
 
 export interface PollForDecisionTaskInput {
@@ -6219,9 +6074,8 @@ export interface PollForDecisionTaskInput {
 }
 
 export namespace PollForDecisionTaskInput {
-  export function isa(o: any): o is PollForDecisionTaskInput {
-    return __isa(o, "PollForDecisionTaskInput");
-  }
+  export const isa = (o: any): o is PollForDecisionTaskInput =>
+    __isa(o, "PollForDecisionTaskInput");
 }
 
 export interface RecordActivityTaskHeartbeatInput {
@@ -6244,9 +6098,8 @@ export interface RecordActivityTaskHeartbeatInput {
 }
 
 export namespace RecordActivityTaskHeartbeatInput {
-  export function isa(o: any): o is RecordActivityTaskHeartbeatInput {
-    return __isa(o, "RecordActivityTaskHeartbeatInput");
-  }
+  export const isa = (o: any): o is RecordActivityTaskHeartbeatInput =>
+    __isa(o, "RecordActivityTaskHeartbeatInput");
 }
 
 export interface RegisterActivityTypeInput {
@@ -6350,9 +6203,8 @@ export interface RegisterActivityTypeInput {
 }
 
 export namespace RegisterActivityTypeInput {
-  export function isa(o: any): o is RegisterActivityTypeInput {
-    return __isa(o, "RegisterActivityTypeInput");
-  }
+  export const isa = (o: any): o is RegisterActivityTypeInput =>
+    __isa(o, "RegisterActivityTypeInput");
 }
 
 export interface RegisterDomainInput {
@@ -6394,9 +6246,8 @@ export interface RegisterDomainInput {
 }
 
 export namespace RegisterDomainInput {
-  export function isa(o: any): o is RegisterDomainInput {
-    return __isa(o, "RegisterDomainInput");
-  }
+  export const isa = (o: any): o is RegisterDomainInput =>
+    __isa(o, "RegisterDomainInput");
 }
 
 export interface RegisterWorkflowTypeInput {
@@ -6517,9 +6368,8 @@ export interface RegisterWorkflowTypeInput {
 }
 
 export namespace RegisterWorkflowTypeInput {
-  export function isa(o: any): o is RegisterWorkflowTypeInput {
-    return __isa(o, "RegisterWorkflowTypeInput");
-  }
+  export const isa = (o: any): o is RegisterWorkflowTypeInput =>
+    __isa(o, "RegisterWorkflowTypeInput");
 }
 
 export interface RequestCancelWorkflowExecutionInput {
@@ -6541,9 +6391,8 @@ export interface RequestCancelWorkflowExecutionInput {
 }
 
 export namespace RequestCancelWorkflowExecutionInput {
-  export function isa(o: any): o is RequestCancelWorkflowExecutionInput {
-    return __isa(o, "RequestCancelWorkflowExecutionInput");
-  }
+  export const isa = (o: any): o is RequestCancelWorkflowExecutionInput =>
+    __isa(o, "RequestCancelWorkflowExecutionInput");
 }
 
 export interface RespondActivityTaskCanceledInput {
@@ -6566,9 +6415,8 @@ export interface RespondActivityTaskCanceledInput {
 }
 
 export namespace RespondActivityTaskCanceledInput {
-  export function isa(o: any): o is RespondActivityTaskCanceledInput {
-    return __isa(o, "RespondActivityTaskCanceledInput");
-  }
+  export const isa = (o: any): o is RespondActivityTaskCanceledInput =>
+    __isa(o, "RespondActivityTaskCanceledInput");
 }
 
 export interface RespondActivityTaskCompletedInput {
@@ -6592,9 +6440,8 @@ export interface RespondActivityTaskCompletedInput {
 }
 
 export namespace RespondActivityTaskCompletedInput {
-  export function isa(o: any): o is RespondActivityTaskCompletedInput {
-    return __isa(o, "RespondActivityTaskCompletedInput");
-  }
+  export const isa = (o: any): o is RespondActivityTaskCompletedInput =>
+    __isa(o, "RespondActivityTaskCompletedInput");
 }
 
 export interface RespondActivityTaskFailedInput {
@@ -6623,9 +6470,8 @@ export interface RespondActivityTaskFailedInput {
 }
 
 export namespace RespondActivityTaskFailedInput {
-  export function isa(o: any): o is RespondActivityTaskFailedInput {
-    return __isa(o, "RespondActivityTaskFailedInput");
-  }
+  export const isa = (o: any): o is RespondActivityTaskFailedInput =>
+    __isa(o, "RespondActivityTaskFailedInput");
 }
 
 /**
@@ -6658,9 +6504,8 @@ export interface RespondDecisionTaskCompletedInput {
 }
 
 export namespace RespondDecisionTaskCompletedInput {
-  export function isa(o: any): o is RespondDecisionTaskCompletedInput {
-    return __isa(o, "RespondDecisionTaskCompletedInput");
-  }
+  export const isa = (o: any): o is RespondDecisionTaskCompletedInput =>
+    __isa(o, "RespondDecisionTaskCompletedInput");
 }
 
 /**
@@ -6676,9 +6521,7 @@ export interface Run {
 }
 
 export namespace Run {
-  export function isa(o: any): o is Run {
-    return __isa(o, "Run");
-  }
+  export const isa = (o: any): o is Run => __isa(o, "Run");
 }
 
 export interface SignalWorkflowExecutionInput {
@@ -6711,9 +6554,8 @@ export interface SignalWorkflowExecutionInput {
 }
 
 export namespace SignalWorkflowExecutionInput {
-  export function isa(o: any): o is SignalWorkflowExecutionInput {
-    return __isa(o, "SignalWorkflowExecutionInput");
-  }
+  export const isa = (o: any): o is SignalWorkflowExecutionInput =>
+    __isa(o, "SignalWorkflowExecutionInput");
 }
 
 export interface StartWorkflowExecutionInput {
@@ -6862,9 +6704,8 @@ export interface StartWorkflowExecutionInput {
 }
 
 export namespace StartWorkflowExecutionInput {
-  export function isa(o: any): o is StartWorkflowExecutionInput {
-    return __isa(o, "StartWorkflowExecutionInput");
-  }
+  export const isa = (o: any): o is StartWorkflowExecutionInput =>
+    __isa(o, "StartWorkflowExecutionInput");
 }
 
 export interface TagResourceInput {
@@ -6882,9 +6723,8 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
-  export function isa(o: any): o is TagResourceInput {
-    return __isa(o, "TagResourceInput");
-  }
+  export const isa = (o: any): o is TagResourceInput =>
+    __isa(o, "TagResourceInput");
 }
 
 export interface TerminateWorkflowExecutionInput {
@@ -6947,9 +6787,8 @@ export interface TerminateWorkflowExecutionInput {
 }
 
 export namespace TerminateWorkflowExecutionInput {
-  export function isa(o: any): o is TerminateWorkflowExecutionInput {
-    return __isa(o, "TerminateWorkflowExecutionInput");
-  }
+  export const isa = (o: any): o is TerminateWorkflowExecutionInput =>
+    __isa(o, "TerminateWorkflowExecutionInput");
 }
 
 export interface UndeprecateActivityTypeInput {
@@ -6966,9 +6805,8 @@ export interface UndeprecateActivityTypeInput {
 }
 
 export namespace UndeprecateActivityTypeInput {
-  export function isa(o: any): o is UndeprecateActivityTypeInput {
-    return __isa(o, "UndeprecateActivityTypeInput");
-  }
+  export const isa = (o: any): o is UndeprecateActivityTypeInput =>
+    __isa(o, "UndeprecateActivityTypeInput");
 }
 
 export interface UndeprecateDomainInput {
@@ -6980,9 +6818,8 @@ export interface UndeprecateDomainInput {
 }
 
 export namespace UndeprecateDomainInput {
-  export function isa(o: any): o is UndeprecateDomainInput {
-    return __isa(o, "UndeprecateDomainInput");
-  }
+  export const isa = (o: any): o is UndeprecateDomainInput =>
+    __isa(o, "UndeprecateDomainInput");
 }
 
 export interface UndeprecateWorkflowTypeInput {
@@ -6999,9 +6836,8 @@ export interface UndeprecateWorkflowTypeInput {
 }
 
 export namespace UndeprecateWorkflowTypeInput {
-  export function isa(o: any): o is UndeprecateWorkflowTypeInput {
-    return __isa(o, "UndeprecateWorkflowTypeInput");
-  }
+  export const isa = (o: any): o is UndeprecateWorkflowTypeInput =>
+    __isa(o, "UndeprecateWorkflowTypeInput");
 }
 
 export interface UntagResourceInput {
@@ -7018,7 +6854,6 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
-  export function isa(o: any): o is UntagResourceInput {
-    return __isa(o, "UntagResourceInput");
-  }
+  export const isa = (o: any): o is UntagResourceInput =>
+    __isa(o, "UntagResourceInput");
 }

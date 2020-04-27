@@ -19,9 +19,8 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
-  export function isa(o: any): o is InternalFailureException {
-    return __isa(o, "InternalFailureException");
-  }
+  export const isa = (o: any): o is InternalFailureException =>
+    __isa(o, "InternalFailureException");
 }
 
 /**
@@ -39,9 +38,8 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return __isa(o, "InvalidRequestException");
-  }
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -59,9 +57,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -79,9 +76,8 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return __isa(o, "ServiceUnavailableException");
-  }
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -99,9 +95,8 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return __isa(o, "ThrottlingException");
-  }
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 /**
@@ -119,9 +114,8 @@ export interface UnauthorizedException
 }
 
 export namespace UnauthorizedException {
-  export function isa(o: any): o is UnauthorizedException {
-    return __isa(o, "UnauthorizedException");
-  }
+  export const isa = (o: any): o is UnauthorizedException =>
+    __isa(o, "UnauthorizedException");
 }
 
 /**
@@ -139,9 +133,8 @@ export interface UnsupportedDocumentEncodingException
 }
 
 export namespace UnsupportedDocumentEncodingException {
-  export function isa(o: any): o is UnsupportedDocumentEncodingException {
-    return __isa(o, "UnsupportedDocumentEncodingException");
-  }
+  export const isa = (o: any): o is UnsupportedDocumentEncodingException =>
+    __isa(o, "UnsupportedDocumentEncodingException");
 }
 
 /**
@@ -157,9 +150,8 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export function isa(o: any): o is ConflictException {
-    return __isa(o, "ConflictException");
-  }
+  export const isa = (o: any): o is ConflictException =>
+    __isa(o, "ConflictException");
 }
 
 /**
@@ -174,9 +166,8 @@ export interface DeleteThingShadowRequest {
 }
 
 export namespace DeleteThingShadowRequest {
-  export function isa(o: any): o is DeleteThingShadowRequest {
-    return __isa(o, "DeleteThingShadowRequest");
-  }
+  export const isa = (o: any): o is DeleteThingShadowRequest =>
+    __isa(o, "DeleteThingShadowRequest");
 }
 
 /**
@@ -191,9 +182,8 @@ export interface DeleteThingShadowResponse {
 }
 
 export namespace DeleteThingShadowResponse {
-  export function isa(o: any): o is DeleteThingShadowResponse {
-    return __isa(o, "DeleteThingShadowResponse");
-  }
+  export const isa = (o: any): o is DeleteThingShadowResponse =>
+    __isa(o, "DeleteThingShadowResponse");
 }
 
 /**
@@ -208,9 +198,8 @@ export interface GetThingShadowRequest {
 }
 
 export namespace GetThingShadowRequest {
-  export function isa(o: any): o is GetThingShadowRequest {
-    return __isa(o, "GetThingShadowRequest");
-  }
+  export const isa = (o: any): o is GetThingShadowRequest =>
+    __isa(o, "GetThingShadowRequest");
 }
 
 /**
@@ -225,9 +214,8 @@ export interface GetThingShadowResponse {
 }
 
 export namespace GetThingShadowResponse {
-  export function isa(o: any): o is GetThingShadowResponse {
-    return __isa(o, "GetThingShadowResponse");
-  }
+  export const isa = (o: any): o is GetThingShadowResponse =>
+    __isa(o, "GetThingShadowResponse");
 }
 
 /**
@@ -245,9 +233,8 @@ export interface MethodNotAllowedException
 }
 
 export namespace MethodNotAllowedException {
-  export function isa(o: any): o is MethodNotAllowedException {
-    return __isa(o, "MethodNotAllowedException");
-  }
+  export const isa = (o: any): o is MethodNotAllowedException =>
+    __isa(o, "MethodNotAllowedException");
 }
 
 /**
@@ -272,9 +259,8 @@ export interface PublishRequest {
 }
 
 export namespace PublishRequest {
-  export function isa(o: any): o is PublishRequest {
-    return __isa(o, "PublishRequest");
-  }
+  export const isa = (o: any): o is PublishRequest =>
+    __isa(o, "PublishRequest");
 }
 
 /**
@@ -292,9 +278,8 @@ export interface RequestEntityTooLargeException
 }
 
 export namespace RequestEntityTooLargeException {
-  export function isa(o: any): o is RequestEntityTooLargeException {
-    return __isa(o, "RequestEntityTooLargeException");
-  }
+  export const isa = (o: any): o is RequestEntityTooLargeException =>
+    __isa(o, "RequestEntityTooLargeException");
 }
 
 /**
@@ -314,9 +299,8 @@ export interface UpdateThingShadowRequest {
 }
 
 export namespace UpdateThingShadowRequest {
-  export function isa(o: any): o is UpdateThingShadowRequest {
-    return __isa(o, "UpdateThingShadowRequest");
-  }
+  export const isa = (o: any): o is UpdateThingShadowRequest =>
+    __isa(o, "UpdateThingShadowRequest");
 }
 
 /**
@@ -331,7 +315,6 @@ export interface UpdateThingShadowResponse {
 }
 
 export namespace UpdateThingShadowResponse {
-  export function isa(o: any): o is UpdateThingShadowResponse {
-    return __isa(o, "UpdateThingShadowResponse");
-  }
+  export const isa = (o: any): o is UpdateThingShadowResponse =>
+    __isa(o, "UpdateThingShadowResponse");
 }

@@ -16,9 +16,8 @@ export interface AlreadyExistsException
 }
 
 export namespace AlreadyExistsException {
-  export function isa(o: any): o is AlreadyExistsException {
-    return __isa(o, "AlreadyExistsException");
-  }
+  export const isa = (o: any): o is AlreadyExistsException =>
+    __isa(o, "AlreadyExistsException");
 }
 
 /**
@@ -33,9 +32,8 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export function isa(o: any): o is BadRequestException {
-    return __isa(o, "BadRequestException");
-  }
+  export const isa = (o: any): o is BadRequestException =>
+    __isa(o, "BadRequestException");
 }
 
 /**
@@ -50,9 +48,8 @@ export interface CallInstructionsMessageType {
 }
 
 export namespace CallInstructionsMessageType {
-  export function isa(o: any): o is CallInstructionsMessageType {
-    return __isa(o, "CallInstructionsMessageType");
-  }
+  export const isa = (o: any): o is CallInstructionsMessageType =>
+    __isa(o, "CallInstructionsMessageType");
 }
 
 /**
@@ -72,9 +69,8 @@ export interface CloudWatchLogsDestination {
 }
 
 export namespace CloudWatchLogsDestination {
-  export function isa(o: any): o is CloudWatchLogsDestination {
-    return __isa(o, "CloudWatchLogsDestination");
-  }
+  export const isa = (o: any): o is CloudWatchLogsDestination =>
+    __isa(o, "CloudWatchLogsDestination");
 }
 
 /**
@@ -99,11 +95,10 @@ export interface CreateConfigurationSetEventDestinationRequest {
 }
 
 export namespace CreateConfigurationSetEventDestinationRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is CreateConfigurationSetEventDestinationRequest {
-    return __isa(o, "CreateConfigurationSetEventDestinationRequest");
-  }
+  ): o is CreateConfigurationSetEventDestinationRequest =>
+    __isa(o, "CreateConfigurationSetEventDestinationRequest");
 }
 
 /**
@@ -114,11 +109,10 @@ export interface CreateConfigurationSetEventDestinationResponse {
 }
 
 export namespace CreateConfigurationSetEventDestinationResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is CreateConfigurationSetEventDestinationResponse {
-    return __isa(o, "CreateConfigurationSetEventDestinationResponse");
-  }
+  ): o is CreateConfigurationSetEventDestinationResponse =>
+    __isa(o, "CreateConfigurationSetEventDestinationResponse");
 }
 
 /**
@@ -133,9 +127,8 @@ export interface CreateConfigurationSetRequest {
 }
 
 export namespace CreateConfigurationSetRequest {
-  export function isa(o: any): o is CreateConfigurationSetRequest {
-    return __isa(o, "CreateConfigurationSetRequest");
-  }
+  export const isa = (o: any): o is CreateConfigurationSetRequest =>
+    __isa(o, "CreateConfigurationSetRequest");
 }
 
 /**
@@ -146,9 +139,8 @@ export interface CreateConfigurationSetResponse {
 }
 
 export namespace CreateConfigurationSetResponse {
-  export function isa(o: any): o is CreateConfigurationSetResponse {
-    return __isa(o, "CreateConfigurationSetResponse");
-  }
+  export const isa = (o: any): o is CreateConfigurationSetResponse =>
+    __isa(o, "CreateConfigurationSetResponse");
 }
 
 export interface DeleteConfigurationSetEventDestinationRequest {
@@ -165,11 +157,10 @@ export interface DeleteConfigurationSetEventDestinationRequest {
 }
 
 export namespace DeleteConfigurationSetEventDestinationRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DeleteConfigurationSetEventDestinationRequest {
-    return __isa(o, "DeleteConfigurationSetEventDestinationRequest");
-  }
+  ): o is DeleteConfigurationSetEventDestinationRequest =>
+    __isa(o, "DeleteConfigurationSetEventDestinationRequest");
 }
 
 /**
@@ -180,11 +171,10 @@ export interface DeleteConfigurationSetEventDestinationResponse {
 }
 
 export namespace DeleteConfigurationSetEventDestinationResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DeleteConfigurationSetEventDestinationResponse {
-    return __isa(o, "DeleteConfigurationSetEventDestinationResponse");
-  }
+  ): o is DeleteConfigurationSetEventDestinationResponse =>
+    __isa(o, "DeleteConfigurationSetEventDestinationResponse");
 }
 
 export interface DeleteConfigurationSetRequest {
@@ -196,9 +186,8 @@ export interface DeleteConfigurationSetRequest {
 }
 
 export namespace DeleteConfigurationSetRequest {
-  export function isa(o: any): o is DeleteConfigurationSetRequest {
-    return __isa(o, "DeleteConfigurationSetRequest");
-  }
+  export const isa = (o: any): o is DeleteConfigurationSetRequest =>
+    __isa(o, "DeleteConfigurationSetRequest");
 }
 
 /**
@@ -209,9 +198,8 @@ export interface DeleteConfigurationSetResponse {
 }
 
 export namespace DeleteConfigurationSetResponse {
-  export function isa(o: any): o is DeleteConfigurationSetResponse {
-    return __isa(o, "DeleteConfigurationSetResponse");
-  }
+  export const isa = (o: any): o is DeleteConfigurationSetResponse =>
+    __isa(o, "DeleteConfigurationSetResponse");
 }
 
 /**
@@ -251,9 +239,8 @@ export interface EventDestination {
 }
 
 export namespace EventDestination {
-  export function isa(o: any): o is EventDestination {
-    return __isa(o, "EventDestination");
-  }
+  export const isa = (o: any): o is EventDestination =>
+    __isa(o, "EventDestination");
 }
 
 /**
@@ -288,9 +275,8 @@ export interface EventDestinationDefinition {
 }
 
 export namespace EventDestinationDefinition {
-  export function isa(o: any): o is EventDestinationDefinition {
-    return __isa(o, "EventDestinationDefinition");
-  }
+  export const isa = (o: any): o is EventDestinationDefinition =>
+    __isa(o, "EventDestinationDefinition");
 }
 
 export enum EventType {
@@ -312,11 +298,10 @@ export interface GetConfigurationSetEventDestinationsRequest {
 }
 
 export namespace GetConfigurationSetEventDestinationsRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is GetConfigurationSetEventDestinationsRequest {
-    return __isa(o, "GetConfigurationSetEventDestinationsRequest");
-  }
+  ): o is GetConfigurationSetEventDestinationsRequest =>
+    __isa(o, "GetConfigurationSetEventDestinationsRequest");
 }
 
 /**
@@ -331,11 +316,10 @@ export interface GetConfigurationSetEventDestinationsResponse {
 }
 
 export namespace GetConfigurationSetEventDestinationsResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is GetConfigurationSetEventDestinationsResponse {
-    return __isa(o, "GetConfigurationSetEventDestinationsResponse");
-  }
+  ): o is GetConfigurationSetEventDestinationsResponse =>
+    __isa(o, "GetConfigurationSetEventDestinationsResponse");
 }
 
 /**
@@ -350,9 +334,8 @@ export interface InternalServiceErrorException
 }
 
 export namespace InternalServiceErrorException {
-  export function isa(o: any): o is InternalServiceErrorException {
-    return __isa(o, "InternalServiceErrorException");
-  }
+  export const isa = (o: any): o is InternalServiceErrorException =>
+    __isa(o, "InternalServiceErrorException");
 }
 
 /**
@@ -372,9 +355,8 @@ export interface KinesisFirehoseDestination {
 }
 
 export namespace KinesisFirehoseDestination {
-  export function isa(o: any): o is KinesisFirehoseDestination {
-    return __isa(o, "KinesisFirehoseDestination");
-  }
+  export const isa = (o: any): o is KinesisFirehoseDestination =>
+    __isa(o, "KinesisFirehoseDestination");
 }
 
 /**
@@ -389,9 +371,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export interface ListConfigurationSetsRequest {
@@ -408,9 +389,8 @@ export interface ListConfigurationSetsRequest {
 }
 
 export namespace ListConfigurationSetsRequest {
-  export function isa(o: any): o is ListConfigurationSetsRequest {
-    return __isa(o, "ListConfigurationSetsRequest");
-  }
+  export const isa = (o: any): o is ListConfigurationSetsRequest =>
+    __isa(o, "ListConfigurationSetsRequest");
 }
 
 /**
@@ -430,9 +410,8 @@ export interface ListConfigurationSetsResponse {
 }
 
 export namespace ListConfigurationSetsResponse {
-  export function isa(o: any): o is ListConfigurationSetsResponse {
-    return __isa(o, "ListConfigurationSetsResponse");
-  }
+  export const isa = (o: any): o is ListConfigurationSetsResponse =>
+    __isa(o, "ListConfigurationSetsResponse");
 }
 
 /**
@@ -445,9 +424,8 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return __isa(o, "NotFoundException");
-  }
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
 }
 
 /**
@@ -472,9 +450,8 @@ export interface PlainTextMessageType {
 }
 
 export namespace PlainTextMessageType {
-  export function isa(o: any): o is PlainTextMessageType {
-    return __isa(o, "PlainTextMessageType");
-  }
+  export const isa = (o: any): o is PlainTextMessageType =>
+    __isa(o, "PlainTextMessageType");
 }
 
 /**
@@ -499,9 +476,8 @@ export interface SSMLMessageType {
 }
 
 export namespace SSMLMessageType {
-  export function isa(o: any): o is SSMLMessageType {
-    return __isa(o, "SSMLMessageType");
-  }
+  export const isa = (o: any): o is SSMLMessageType =>
+    __isa(o, "SSMLMessageType");
 }
 
 /**
@@ -536,9 +512,8 @@ export interface SendVoiceMessageRequest {
 }
 
 export namespace SendVoiceMessageRequest {
-  export function isa(o: any): o is SendVoiceMessageRequest {
-    return __isa(o, "SendVoiceMessageRequest");
-  }
+  export const isa = (o: any): o is SendVoiceMessageRequest =>
+    __isa(o, "SendVoiceMessageRequest");
 }
 
 /**
@@ -553,9 +528,8 @@ export interface SendVoiceMessageResponse {
 }
 
 export namespace SendVoiceMessageResponse {
-  export function isa(o: any): o is SendVoiceMessageResponse {
-    return __isa(o, "SendVoiceMessageResponse");
-  }
+  export const isa = (o: any): o is SendVoiceMessageResponse =>
+    __isa(o, "SendVoiceMessageResponse");
 }
 
 /**
@@ -570,9 +544,8 @@ export interface SnsDestination {
 }
 
 export namespace SnsDestination {
-  export function isa(o: any): o is SnsDestination {
-    return __isa(o, "SnsDestination");
-  }
+  export const isa = (o: any): o is SnsDestination =>
+    __isa(o, "SnsDestination");
 }
 
 /**
@@ -587,9 +560,8 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export function isa(o: any): o is TooManyRequestsException {
-    return __isa(o, "TooManyRequestsException");
-  }
+  export const isa = (o: any): o is TooManyRequestsException =>
+    __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -614,11 +586,10 @@ export interface UpdateConfigurationSetEventDestinationRequest {
 }
 
 export namespace UpdateConfigurationSetEventDestinationRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is UpdateConfigurationSetEventDestinationRequest {
-    return __isa(o, "UpdateConfigurationSetEventDestinationRequest");
-  }
+  ): o is UpdateConfigurationSetEventDestinationRequest =>
+    __isa(o, "UpdateConfigurationSetEventDestinationRequest");
 }
 
 /**
@@ -629,11 +600,10 @@ export interface UpdateConfigurationSetEventDestinationResponse {
 }
 
 export namespace UpdateConfigurationSetEventDestinationResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is UpdateConfigurationSetEventDestinationResponse {
-    return __isa(o, "UpdateConfigurationSetEventDestinationResponse");
-  }
+  ): o is UpdateConfigurationSetEventDestinationResponse =>
+    __isa(o, "UpdateConfigurationSetEventDestinationResponse");
 }
 
 /**
@@ -658,7 +628,6 @@ export interface VoiceMessageContent {
 }
 
 export namespace VoiceMessageContent {
-  export function isa(o: any): o is VoiceMessageContent {
-    return __isa(o, "VoiceMessageContent");
-  }
+  export const isa = (o: any): o is VoiceMessageContent =>
+    __isa(o, "VoiceMessageContent");
 }

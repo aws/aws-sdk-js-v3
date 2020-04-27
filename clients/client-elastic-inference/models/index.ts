@@ -16,9 +16,8 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export function isa(o: any): o is BadRequestException {
-    return __isa(o, "BadRequestException");
-  }
+  export const isa = (o: any): o is BadRequestException =>
+    __isa(o, "BadRequestException");
 }
 
 /**
@@ -33,9 +32,8 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export function isa(o: any): o is InternalServerException {
-    return __isa(o, "InternalServerException");
-  }
+  export const isa = (o: any): o is InternalServerException =>
+    __isa(o, "InternalServerException");
 }
 
 export interface ListTagsForResourceRequest {
@@ -47,9 +45,8 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export function isa(o: any): o is ListTagsForResourceRequest {
-    return __isa(o, "ListTagsForResourceRequest");
-  }
+  export const isa = (o: any): o is ListTagsForResourceRequest =>
+    __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResult {
@@ -61,9 +58,8 @@ export interface ListTagsForResourceResult {
 }
 
 export namespace ListTagsForResourceResult {
-  export function isa(o: any): o is ListTagsForResourceResult {
-    return __isa(o, "ListTagsForResourceResult");
-  }
+  export const isa = (o: any): o is ListTagsForResourceResult =>
+    __isa(o, "ListTagsForResourceResult");
 }
 
 /**
@@ -78,9 +74,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 export interface TagResourceRequest {
@@ -97,9 +92,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResult {
@@ -107,9 +101,8 @@ export interface TagResourceResult {
 }
 
 export namespace TagResourceResult {
-  export function isa(o: any): o is TagResourceResult {
-    return __isa(o, "TagResourceResult");
-  }
+  export const isa = (o: any): o is TagResourceResult =>
+    __isa(o, "TagResourceResult");
 }
 
 export interface UntagResourceRequest {
@@ -126,9 +119,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResult {
@@ -136,7 +128,6 @@ export interface UntagResourceResult {
 }
 
 export namespace UntagResourceResult {
-  export function isa(o: any): o is UntagResourceResult {
-    return __isa(o, "UntagResourceResult");
-  }
+  export const isa = (o: any): o is UntagResourceResult =>
+    __isa(o, "UntagResourceResult");
 }

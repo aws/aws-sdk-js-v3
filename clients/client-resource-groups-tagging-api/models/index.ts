@@ -28,9 +28,8 @@ export interface ComplianceDetails {
 }
 
 export namespace ComplianceDetails {
-  export function isa(o: any): o is ComplianceDetails {
-    return __isa(o, "ComplianceDetails");
-  }
+  export const isa = (o: any): o is ComplianceDetails =>
+    __isa(o, "ComplianceDetails");
 }
 
 /**
@@ -46,9 +45,8 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
-  export function isa(o: any): o is ConcurrentModificationException {
-    return __isa(o, "ConcurrentModificationException");
-  }
+  export const isa = (o: any): o is ConcurrentModificationException =>
+    __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -82,9 +80,8 @@ export interface ConstraintViolationException
 }
 
 export namespace ConstraintViolationException {
-  export function isa(o: any): o is ConstraintViolationException {
-    return __isa(o, "ConstraintViolationException");
-  }
+  export const isa = (o: any): o is ConstraintViolationException =>
+    __isa(o, "ConstraintViolationException");
 }
 
 export interface DescribeReportCreationInput {
@@ -92,9 +89,8 @@ export interface DescribeReportCreationInput {
 }
 
 export namespace DescribeReportCreationInput {
-  export function isa(o: any): o is DescribeReportCreationInput {
-    return __isa(o, "DescribeReportCreationInput");
-  }
+  export const isa = (o: any): o is DescribeReportCreationInput =>
+    __isa(o, "DescribeReportCreationInput");
 }
 
 export interface DescribeReportCreationOutput {
@@ -143,9 +139,8 @@ export interface DescribeReportCreationOutput {
 }
 
 export namespace DescribeReportCreationOutput {
-  export function isa(o: any): o is DescribeReportCreationOutput {
-    return __isa(o, "DescribeReportCreationOutput");
-  }
+  export const isa = (o: any): o is DescribeReportCreationOutput =>
+    __isa(o, "DescribeReportCreationOutput");
 }
 
 export enum ErrorCode {
@@ -178,9 +173,7 @@ export interface FailureInfo {
 }
 
 export namespace FailureInfo {
-  export function isa(o: any): o is FailureInfo {
-    return __isa(o, "FailureInfo");
-  }
+  export const isa = (o: any): o is FailureInfo => __isa(o, "FailureInfo");
 }
 
 export interface GetComplianceSummaryInput {
@@ -251,9 +244,8 @@ export interface GetComplianceSummaryInput {
 }
 
 export namespace GetComplianceSummaryInput {
-  export function isa(o: any): o is GetComplianceSummaryInput {
-    return __isa(o, "GetComplianceSummaryInput");
-  }
+  export const isa = (o: any): o is GetComplianceSummaryInput =>
+    __isa(o, "GetComplianceSummaryInput");
 }
 
 export interface GetComplianceSummaryOutput {
@@ -272,9 +264,8 @@ export interface GetComplianceSummaryOutput {
 }
 
 export namespace GetComplianceSummaryOutput {
-  export function isa(o: any): o is GetComplianceSummaryOutput {
-    return __isa(o, "GetComplianceSummaryOutput");
-  }
+  export const isa = (o: any): o is GetComplianceSummaryOutput =>
+    __isa(o, "GetComplianceSummaryOutput");
 }
 
 export interface GetResourcesInput {
@@ -411,9 +402,8 @@ export interface GetResourcesInput {
 }
 
 export namespace GetResourcesInput {
-  export function isa(o: any): o is GetResourcesInput {
-    return __isa(o, "GetResourcesInput");
-  }
+  export const isa = (o: any): o is GetResourcesInput =>
+    __isa(o, "GetResourcesInput");
 }
 
 export interface GetResourcesOutput {
@@ -432,9 +422,8 @@ export interface GetResourcesOutput {
 }
 
 export namespace GetResourcesOutput {
-  export function isa(o: any): o is GetResourcesOutput {
-    return __isa(o, "GetResourcesOutput");
-  }
+  export const isa = (o: any): o is GetResourcesOutput =>
+    __isa(o, "GetResourcesOutput");
 }
 
 export interface GetTagKeysInput {
@@ -449,9 +438,8 @@ export interface GetTagKeysInput {
 }
 
 export namespace GetTagKeysInput {
-  export function isa(o: any): o is GetTagKeysInput {
-    return __isa(o, "GetTagKeysInput");
-  }
+  export const isa = (o: any): o is GetTagKeysInput =>
+    __isa(o, "GetTagKeysInput");
 }
 
 export interface GetTagKeysOutput {
@@ -470,9 +458,8 @@ export interface GetTagKeysOutput {
 }
 
 export namespace GetTagKeysOutput {
-  export function isa(o: any): o is GetTagKeysOutput {
-    return __isa(o, "GetTagKeysOutput");
-  }
+  export const isa = (o: any): o is GetTagKeysOutput =>
+    __isa(o, "GetTagKeysOutput");
 }
 
 export interface GetTagValuesInput {
@@ -493,9 +480,8 @@ export interface GetTagValuesInput {
 }
 
 export namespace GetTagValuesInput {
-  export function isa(o: any): o is GetTagValuesInput {
-    return __isa(o, "GetTagValuesInput");
-  }
+  export const isa = (o: any): o is GetTagValuesInput =>
+    __isa(o, "GetTagValuesInput");
 }
 
 export interface GetTagValuesOutput {
@@ -514,9 +500,8 @@ export interface GetTagValuesOutput {
 }
 
 export namespace GetTagValuesOutput {
-  export function isa(o: any): o is GetTagValuesOutput {
-    return __isa(o, "GetTagValuesOutput");
-  }
+  export const isa = (o: any): o is GetTagValuesOutput =>
+    __isa(o, "GetTagValuesOutput");
 }
 
 export enum GroupByAttribute {
@@ -538,9 +523,8 @@ export interface InternalServiceException
 }
 
 export namespace InternalServiceException {
-  export function isa(o: any): o is InternalServiceException {
-    return __isa(o, "InternalServiceException");
-  }
+  export const isa = (o: any): o is InternalServiceException =>
+    __isa(o, "InternalServiceException");
 }
 
 /**
@@ -575,9 +559,8 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export function isa(o: any): o is InvalidParameterException {
-    return __isa(o, "InvalidParameterException");
-  }
+  export const isa = (o: any): o is InvalidParameterException =>
+    __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -593,9 +576,8 @@ export interface PaginationTokenExpiredException
 }
 
 export namespace PaginationTokenExpiredException {
-  export function isa(o: any): o is PaginationTokenExpiredException {
-    return __isa(o, "PaginationTokenExpiredException");
-  }
+  export const isa = (o: any): o is PaginationTokenExpiredException =>
+    __isa(o, "PaginationTokenExpiredException");
 }
 
 /**
@@ -622,9 +604,8 @@ export interface ResourceTagMapping {
 }
 
 export namespace ResourceTagMapping {
-  export function isa(o: any): o is ResourceTagMapping {
-    return __isa(o, "ResourceTagMapping");
-  }
+  export const isa = (o: any): o is ResourceTagMapping =>
+    __isa(o, "ResourceTagMapping");
 }
 
 export interface StartReportCreationInput {
@@ -641,9 +622,8 @@ export interface StartReportCreationInput {
 }
 
 export namespace StartReportCreationInput {
-  export function isa(o: any): o is StartReportCreationInput {
-    return __isa(o, "StartReportCreationInput");
-  }
+  export const isa = (o: any): o is StartReportCreationInput =>
+    __isa(o, "StartReportCreationInput");
 }
 
 export interface StartReportCreationOutput {
@@ -651,9 +631,8 @@ export interface StartReportCreationOutput {
 }
 
 export namespace StartReportCreationOutput {
-  export function isa(o: any): o is StartReportCreationOutput {
-    return __isa(o, "StartReportCreationOutput");
-  }
+  export const isa = (o: any): o is StartReportCreationOutput =>
+    __isa(o, "StartReportCreationOutput");
 }
 
 /**
@@ -694,9 +673,7 @@ export interface Summary {
 }
 
 export namespace Summary {
-  export function isa(o: any): o is Summary {
-    return __isa(o, "Summary");
-  }
+  export const isa = (o: any): o is Summary => __isa(o, "Summary");
 }
 
 /**
@@ -719,9 +696,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -742,9 +717,7 @@ export interface TagFilter {
 }
 
 export namespace TagFilter {
-  export function isa(o: any): o is TagFilter {
-    return __isa(o, "TagFilter");
-  }
+  export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
 }
 
 export interface TagResourcesInput {
@@ -766,9 +739,8 @@ export interface TagResourcesInput {
 }
 
 export namespace TagResourcesInput {
-  export function isa(o: any): o is TagResourcesInput {
-    return __isa(o, "TagResourcesInput");
-  }
+  export const isa = (o: any): o is TagResourcesInput =>
+    __isa(o, "TagResourcesInput");
 }
 
 export interface TagResourcesOutput {
@@ -781,9 +753,8 @@ export interface TagResourcesOutput {
 }
 
 export namespace TagResourcesOutput {
-  export function isa(o: any): o is TagResourcesOutput {
-    return __isa(o, "TagResourcesOutput");
-  }
+  export const isa = (o: any): o is TagResourcesOutput =>
+    __isa(o, "TagResourcesOutput");
 }
 
 export enum TargetIdType {
@@ -802,9 +773,8 @@ export interface ThrottledException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ThrottledException {
-  export function isa(o: any): o is ThrottledException {
-    return __isa(o, "ThrottledException");
-  }
+  export const isa = (o: any): o is ThrottledException =>
+    __isa(o, "ThrottledException");
 }
 
 export interface UntagResourcesInput {
@@ -825,9 +795,8 @@ export interface UntagResourcesInput {
 }
 
 export namespace UntagResourcesInput {
-  export function isa(o: any): o is UntagResourcesInput {
-    return __isa(o, "UntagResourcesInput");
-  }
+  export const isa = (o: any): o is UntagResourcesInput =>
+    __isa(o, "UntagResourcesInput");
 }
 
 export interface UntagResourcesOutput {
@@ -840,7 +809,6 @@ export interface UntagResourcesOutput {
 }
 
 export namespace UntagResourcesOutput {
-  export function isa(o: any): o is UntagResourcesOutput {
-    return __isa(o, "UntagResourcesOutput");
-  }
+  export const isa = (o: any): o is UntagResourcesOutput =>
+    __isa(o, "UntagResourcesOutput");
 }

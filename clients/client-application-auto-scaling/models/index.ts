@@ -27,9 +27,7 @@ export interface Alarm {
 }
 
 export namespace Alarm {
-  export function isa(o: any): o is Alarm {
-    return __isa(o, "Alarm");
-  }
+  export const isa = (o: any): o is Alarm => __isa(o, "Alarm");
 }
 
 /**
@@ -45,9 +43,8 @@ export interface ConcurrentUpdateException
 }
 
 export namespace ConcurrentUpdateException {
-  export function isa(o: any): o is ConcurrentUpdateException {
-    return __isa(o, "ConcurrentUpdateException");
-  }
+  export const isa = (o: any): o is ConcurrentUpdateException =>
+    __isa(o, "ConcurrentUpdateException");
 }
 
 /**
@@ -101,9 +98,8 @@ export interface CustomizedMetricSpecification {
 }
 
 export namespace CustomizedMetricSpecification {
-  export function isa(o: any): o is CustomizedMetricSpecification {
-    return __isa(o, "CustomizedMetricSpecification");
-  }
+  export const isa = (o: any): o is CustomizedMetricSpecification =>
+    __isa(o, "CustomizedMetricSpecification");
 }
 
 export interface DeleteScalingPolicyRequest {
@@ -233,9 +229,8 @@ export interface DeleteScalingPolicyRequest {
 }
 
 export namespace DeleteScalingPolicyRequest {
-  export function isa(o: any): o is DeleteScalingPolicyRequest {
-    return __isa(o, "DeleteScalingPolicyRequest");
-  }
+  export const isa = (o: any): o is DeleteScalingPolicyRequest =>
+    __isa(o, "DeleteScalingPolicyRequest");
 }
 
 export interface DeleteScalingPolicyResponse {
@@ -243,9 +238,8 @@ export interface DeleteScalingPolicyResponse {
 }
 
 export namespace DeleteScalingPolicyResponse {
-  export function isa(o: any): o is DeleteScalingPolicyResponse {
-    return __isa(o, "DeleteScalingPolicyResponse");
-  }
+  export const isa = (o: any): o is DeleteScalingPolicyResponse =>
+    __isa(o, "DeleteScalingPolicyResponse");
 }
 
 export interface DeleteScheduledActionRequest {
@@ -375,9 +369,8 @@ export interface DeleteScheduledActionRequest {
 }
 
 export namespace DeleteScheduledActionRequest {
-  export function isa(o: any): o is DeleteScheduledActionRequest {
-    return __isa(o, "DeleteScheduledActionRequest");
-  }
+  export const isa = (o: any): o is DeleteScheduledActionRequest =>
+    __isa(o, "DeleteScheduledActionRequest");
 }
 
 export interface DeleteScheduledActionResponse {
@@ -385,9 +378,8 @@ export interface DeleteScheduledActionResponse {
 }
 
 export namespace DeleteScheduledActionResponse {
-  export function isa(o: any): o is DeleteScheduledActionResponse {
-    return __isa(o, "DeleteScheduledActionResponse");
-  }
+  export const isa = (o: any): o is DeleteScheduledActionResponse =>
+    __isa(o, "DeleteScheduledActionResponse");
 }
 
 export interface DeregisterScalableTargetRequest {
@@ -513,9 +505,8 @@ export interface DeregisterScalableTargetRequest {
 }
 
 export namespace DeregisterScalableTargetRequest {
-  export function isa(o: any): o is DeregisterScalableTargetRequest {
-    return __isa(o, "DeregisterScalableTargetRequest");
-  }
+  export const isa = (o: any): o is DeregisterScalableTargetRequest =>
+    __isa(o, "DeregisterScalableTargetRequest");
 }
 
 export interface DeregisterScalableTargetResponse {
@@ -523,9 +514,8 @@ export interface DeregisterScalableTargetResponse {
 }
 
 export namespace DeregisterScalableTargetResponse {
-  export function isa(o: any): o is DeregisterScalableTargetResponse {
-    return __isa(o, "DeregisterScalableTargetResponse");
-  }
+  export const isa = (o: any): o is DeregisterScalableTargetResponse =>
+    __isa(o, "DeregisterScalableTargetResponse");
 }
 
 export interface DescribeScalableTargetsRequest {
@@ -667,9 +657,8 @@ export interface DescribeScalableTargetsRequest {
 }
 
 export namespace DescribeScalableTargetsRequest {
-  export function isa(o: any): o is DescribeScalableTargetsRequest {
-    return __isa(o, "DescribeScalableTargetsRequest");
-  }
+  export const isa = (o: any): o is DescribeScalableTargetsRequest =>
+    __isa(o, "DescribeScalableTargetsRequest");
 }
 
 export interface DescribeScalableTargetsResponse {
@@ -687,9 +676,8 @@ export interface DescribeScalableTargetsResponse {
 }
 
 export namespace DescribeScalableTargetsResponse {
-  export function isa(o: any): o is DescribeScalableTargetsResponse {
-    return __isa(o, "DescribeScalableTargetsResponse");
-  }
+  export const isa = (o: any): o is DescribeScalableTargetsResponse =>
+    __isa(o, "DescribeScalableTargetsResponse");
 }
 
 export interface DescribeScalingActivitiesRequest {
@@ -831,9 +819,8 @@ export interface DescribeScalingActivitiesRequest {
 }
 
 export namespace DescribeScalingActivitiesRequest {
-  export function isa(o: any): o is DescribeScalingActivitiesRequest {
-    return __isa(o, "DescribeScalingActivitiesRequest");
-  }
+  export const isa = (o: any): o is DescribeScalingActivitiesRequest =>
+    __isa(o, "DescribeScalingActivitiesRequest");
 }
 
 export interface DescribeScalingActivitiesResponse {
@@ -851,9 +838,8 @@ export interface DescribeScalingActivitiesResponse {
 }
 
 export namespace DescribeScalingActivitiesResponse {
-  export function isa(o: any): o is DescribeScalingActivitiesResponse {
-    return __isa(o, "DescribeScalingActivitiesResponse");
-  }
+  export const isa = (o: any): o is DescribeScalingActivitiesResponse =>
+    __isa(o, "DescribeScalingActivitiesResponse");
 }
 
 export interface DescribeScalingPoliciesRequest {
@@ -1000,9 +986,8 @@ export interface DescribeScalingPoliciesRequest {
 }
 
 export namespace DescribeScalingPoliciesRequest {
-  export function isa(o: any): o is DescribeScalingPoliciesRequest {
-    return __isa(o, "DescribeScalingPoliciesRequest");
-  }
+  export const isa = (o: any): o is DescribeScalingPoliciesRequest =>
+    __isa(o, "DescribeScalingPoliciesRequest");
 }
 
 export interface DescribeScalingPoliciesResponse {
@@ -1020,9 +1005,8 @@ export interface DescribeScalingPoliciesResponse {
 }
 
 export namespace DescribeScalingPoliciesResponse {
-  export function isa(o: any): o is DescribeScalingPoliciesResponse {
-    return __isa(o, "DescribeScalingPoliciesResponse");
-  }
+  export const isa = (o: any): o is DescribeScalingPoliciesResponse =>
+    __isa(o, "DescribeScalingPoliciesResponse");
 }
 
 export interface DescribeScheduledActionsRequest {
@@ -1169,9 +1153,8 @@ export interface DescribeScheduledActionsRequest {
 }
 
 export namespace DescribeScheduledActionsRequest {
-  export function isa(o: any): o is DescribeScheduledActionsRequest {
-    return __isa(o, "DescribeScheduledActionsRequest");
-  }
+  export const isa = (o: any): o is DescribeScheduledActionsRequest =>
+    __isa(o, "DescribeScheduledActionsRequest");
 }
 
 export interface DescribeScheduledActionsResponse {
@@ -1189,9 +1172,8 @@ export interface DescribeScheduledActionsResponse {
 }
 
 export namespace DescribeScheduledActionsResponse {
-  export function isa(o: any): o is DescribeScheduledActionsResponse {
-    return __isa(o, "DescribeScheduledActionsResponse");
-  }
+  export const isa = (o: any): o is DescribeScheduledActionsResponse =>
+    __isa(o, "DescribeScheduledActionsResponse");
 }
 
 /**
@@ -1209,9 +1191,8 @@ export interface FailedResourceAccessException
 }
 
 export namespace FailedResourceAccessException {
-  export function isa(o: any): o is FailedResourceAccessException {
-    return __isa(o, "FailedResourceAccessException");
-  }
+  export const isa = (o: any): o is FailedResourceAccessException =>
+    __isa(o, "FailedResourceAccessException");
 }
 
 /**
@@ -1226,9 +1207,8 @@ export interface InternalServiceException
 }
 
 export namespace InternalServiceException {
-  export function isa(o: any): o is InternalServiceException {
-    return __isa(o, "InternalServiceException");
-  }
+  export const isa = (o: any): o is InternalServiceException =>
+    __isa(o, "InternalServiceException");
 }
 
 /**
@@ -1243,9 +1223,8 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export function isa(o: any): o is InvalidNextTokenException {
-    return __isa(o, "InvalidNextTokenException");
-  }
+  export const isa = (o: any): o is InvalidNextTokenException =>
+    __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -1260,9 +1239,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export enum MetricAggregationType {
@@ -1288,9 +1266,8 @@ export interface MetricDimension {
 }
 
 export namespace MetricDimension {
-  export function isa(o: any): o is MetricDimension {
-    return __isa(o, "MetricDimension");
-  }
+  export const isa = (o: any): o is MetricDimension =>
+    __isa(o, "MetricDimension");
 }
 
 export enum MetricStatistic {
@@ -1334,9 +1311,8 @@ export interface ObjectNotFoundException
 }
 
 export namespace ObjectNotFoundException {
-  export function isa(o: any): o is ObjectNotFoundException {
-    return __isa(o, "ObjectNotFoundException");
-  }
+  export const isa = (o: any): o is ObjectNotFoundException =>
+    __isa(o, "ObjectNotFoundException");
 }
 
 export enum PolicyType {
@@ -1379,9 +1355,8 @@ export interface PredefinedMetricSpecification {
 }
 
 export namespace PredefinedMetricSpecification {
-  export function isa(o: any): o is PredefinedMetricSpecification {
-    return __isa(o, "PredefinedMetricSpecification");
-  }
+  export const isa = (o: any): o is PredefinedMetricSpecification =>
+    __isa(o, "PredefinedMetricSpecification");
 }
 
 export interface PutScalingPolicyRequest {
@@ -1537,9 +1512,8 @@ export interface PutScalingPolicyRequest {
 }
 
 export namespace PutScalingPolicyRequest {
-  export function isa(o: any): o is PutScalingPolicyRequest {
-    return __isa(o, "PutScalingPolicyRequest");
-  }
+  export const isa = (o: any): o is PutScalingPolicyRequest =>
+    __isa(o, "PutScalingPolicyRequest");
 }
 
 export interface PutScalingPolicyResponse {
@@ -1556,9 +1530,8 @@ export interface PutScalingPolicyResponse {
 }
 
 export namespace PutScalingPolicyResponse {
-  export function isa(o: any): o is PutScalingPolicyResponse {
-    return __isa(o, "PutScalingPolicyResponse");
-  }
+  export const isa = (o: any): o is PutScalingPolicyResponse =>
+    __isa(o, "PutScalingPolicyResponse");
 }
 
 export interface PutScheduledActionRequest {
@@ -1727,9 +1700,8 @@ export interface PutScheduledActionRequest {
 }
 
 export namespace PutScheduledActionRequest {
-  export function isa(o: any): o is PutScheduledActionRequest {
-    return __isa(o, "PutScheduledActionRequest");
-  }
+  export const isa = (o: any): o is PutScheduledActionRequest =>
+    __isa(o, "PutScheduledActionRequest");
 }
 
 export interface PutScheduledActionResponse {
@@ -1737,9 +1709,8 @@ export interface PutScheduledActionResponse {
 }
 
 export namespace PutScheduledActionResponse {
-  export function isa(o: any): o is PutScheduledActionResponse {
-    return __isa(o, "PutScheduledActionResponse");
-  }
+  export const isa = (o: any): o is PutScheduledActionResponse =>
+    __isa(o, "PutScheduledActionResponse");
 }
 
 export interface RegisterScalableTargetRequest {
@@ -1914,9 +1885,8 @@ export interface RegisterScalableTargetRequest {
 }
 
 export namespace RegisterScalableTargetRequest {
-  export function isa(o: any): o is RegisterScalableTargetRequest {
-    return __isa(o, "RegisterScalableTargetRequest");
-  }
+  export const isa = (o: any): o is RegisterScalableTargetRequest =>
+    __isa(o, "RegisterScalableTargetRequest");
 }
 
 export interface RegisterScalableTargetResponse {
@@ -1924,9 +1894,8 @@ export interface RegisterScalableTargetResponse {
 }
 
 export namespace RegisterScalableTargetResponse {
-  export function isa(o: any): o is RegisterScalableTargetResponse {
-    return __isa(o, "RegisterScalableTargetResponse");
-  }
+  export const isa = (o: any): o is RegisterScalableTargetResponse =>
+    __isa(o, "RegisterScalableTargetResponse");
 }
 
 export enum ScalableDimension {
@@ -2098,9 +2067,8 @@ export interface ScalableTarget {
 }
 
 export namespace ScalableTarget {
-  export function isa(o: any): o is ScalableTarget {
-    return __isa(o, "ScalableTarget");
-  }
+  export const isa = (o: any): o is ScalableTarget =>
+    __isa(o, "ScalableTarget");
 }
 
 /**
@@ -2120,9 +2088,8 @@ export interface ScalableTargetAction {
 }
 
 export namespace ScalableTargetAction {
-  export function isa(o: any): o is ScalableTargetAction {
-    return __isa(o, "ScalableTargetAction");
-  }
+  export const isa = (o: any): o is ScalableTargetAction =>
+    __isa(o, "ScalableTargetAction");
 }
 
 /**
@@ -2290,9 +2257,8 @@ export interface ScalingActivity {
 }
 
 export namespace ScalingActivity {
-  export function isa(o: any): o is ScalingActivity {
-    return __isa(o, "ScalingActivity");
-  }
+  export const isa = (o: any): o is ScalingActivity =>
+    __isa(o, "ScalingActivity");
 }
 
 export enum ScalingActivityStatusCode {
@@ -2464,9 +2430,7 @@ export interface ScalingPolicy {
 }
 
 export namespace ScalingPolicy {
-  export function isa(o: any): o is ScalingPolicy {
-    return __isa(o, "ScalingPolicy");
-  }
+  export const isa = (o: any): o is ScalingPolicy => __isa(o, "ScalingPolicy");
 }
 
 /**
@@ -2648,9 +2612,8 @@ export interface ScheduledAction {
 }
 
 export namespace ScheduledAction {
-  export function isa(o: any): o is ScheduledAction {
-    return __isa(o, "ScheduledAction");
-  }
+  export const isa = (o: any): o is ScheduledAction =>
+    __isa(o, "ScheduledAction");
 }
 
 export enum ServiceNamespace {
@@ -2732,9 +2695,8 @@ export interface StepAdjustment {
 }
 
 export namespace StepAdjustment {
-  export function isa(o: any): o is StepAdjustment {
-    return __isa(o, "StepAdjustment");
-  }
+  export const isa = (o: any): o is StepAdjustment =>
+    __isa(o, "StepAdjustment");
 }
 
 /**
@@ -2795,9 +2757,8 @@ export interface StepScalingPolicyConfiguration {
 }
 
 export namespace StepScalingPolicyConfiguration {
-  export function isa(o: any): o is StepScalingPolicyConfiguration {
-    return __isa(o, "StepScalingPolicyConfiguration");
-  }
+  export const isa = (o: any): o is StepScalingPolicyConfiguration =>
+    __isa(o, "StepScalingPolicyConfiguration");
 }
 
 /**
@@ -2829,9 +2790,8 @@ export interface SuspendedState {
 }
 
 export namespace SuspendedState {
-  export function isa(o: any): o is SuspendedState {
-    return __isa(o, "SuspendedState");
-  }
+  export const isa = (o: any): o is SuspendedState =>
+    __isa(o, "SuspendedState");
 }
 
 /**
@@ -2888,9 +2848,8 @@ export interface TargetTrackingScalingPolicyConfiguration {
 }
 
 export namespace TargetTrackingScalingPolicyConfiguration {
-  export function isa(o: any): o is TargetTrackingScalingPolicyConfiguration {
-    return __isa(o, "TargetTrackingScalingPolicyConfiguration");
-  }
+  export const isa = (o: any): o is TargetTrackingScalingPolicyConfiguration =>
+    __isa(o, "TargetTrackingScalingPolicyConfiguration");
 }
 
 /**
@@ -2906,7 +2865,6 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return __isa(o, "ValidationException");
-  }
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
 }

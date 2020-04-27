@@ -33,9 +33,8 @@ export interface GetPersonalizedRankingRequest {
 }
 
 export namespace GetPersonalizedRankingRequest {
-  export function isa(o: any): o is GetPersonalizedRankingRequest {
-    return __isa(o, "GetPersonalizedRankingRequest");
-  }
+  export const isa = (o: any): o is GetPersonalizedRankingRequest =>
+    __isa(o, "GetPersonalizedRankingRequest");
 }
 
 export interface GetPersonalizedRankingResponse {
@@ -47,9 +46,8 @@ export interface GetPersonalizedRankingResponse {
 }
 
 export namespace GetPersonalizedRankingResponse {
-  export function isa(o: any): o is GetPersonalizedRankingResponse {
-    return __isa(o, "GetPersonalizedRankingResponse");
-  }
+  export const isa = (o: any): o is GetPersonalizedRankingResponse =>
+    __isa(o, "GetPersonalizedRankingResponse");
 }
 
 export interface GetRecommendationsRequest {
@@ -86,9 +84,8 @@ export interface GetRecommendationsRequest {
 }
 
 export namespace GetRecommendationsRequest {
-  export function isa(o: any): o is GetRecommendationsRequest {
-    return __isa(o, "GetRecommendationsRequest");
-  }
+  export const isa = (o: any): o is GetRecommendationsRequest =>
+    __isa(o, "GetRecommendationsRequest");
 }
 
 export interface GetRecommendationsResponse {
@@ -101,9 +98,8 @@ export interface GetRecommendationsResponse {
 }
 
 export namespace GetRecommendationsResponse {
-  export function isa(o: any): o is GetRecommendationsResponse {
-    return __isa(o, "GetRecommendationsResponse");
-  }
+  export const isa = (o: any): o is GetRecommendationsResponse =>
+    __isa(o, "GetRecommendationsResponse");
 }
 
 /**
@@ -120,9 +116,7 @@ export interface PredictedItem {
 }
 
 export namespace PredictedItem {
-  export function isa(o: any): o is PredictedItem {
-    return __isa(o, "PredictedItem");
-  }
+  export const isa = (o: any): o is PredictedItem => __isa(o, "PredictedItem");
 }
 
 /**
@@ -137,9 +131,8 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
-  export function isa(o: any): o is InvalidInputException {
-    return __isa(o, "InvalidInputException");
-  }
+  export const isa = (o: any): o is InvalidInputException =>
+    __isa(o, "InvalidInputException");
 }
 
 /**
@@ -154,7 +147,6 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }

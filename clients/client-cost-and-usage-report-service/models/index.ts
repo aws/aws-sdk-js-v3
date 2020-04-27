@@ -43,9 +43,8 @@ export interface DeleteReportDefinitionRequest {
 }
 
 export namespace DeleteReportDefinitionRequest {
-  export function isa(o: any): o is DeleteReportDefinitionRequest {
-    return __isa(o, "DeleteReportDefinitionRequest");
-  }
+  export const isa = (o: any): o is DeleteReportDefinitionRequest =>
+    __isa(o, "DeleteReportDefinitionRequest");
 }
 
 /**
@@ -60,9 +59,8 @@ export interface DeleteReportDefinitionResponse {
 }
 
 export namespace DeleteReportDefinitionResponse {
-  export function isa(o: any): o is DeleteReportDefinitionResponse {
-    return __isa(o, "DeleteReportDefinitionResponse");
-  }
+  export const isa = (o: any): o is DeleteReportDefinitionResponse =>
+    __isa(o, "DeleteReportDefinitionResponse");
 }
 
 /**
@@ -82,9 +80,8 @@ export interface DescribeReportDefinitionsRequest {
 }
 
 export namespace DescribeReportDefinitionsRequest {
-  export function isa(o: any): o is DescribeReportDefinitionsRequest {
-    return __isa(o, "DescribeReportDefinitionsRequest");
-  }
+  export const isa = (o: any): o is DescribeReportDefinitionsRequest =>
+    __isa(o, "DescribeReportDefinitionsRequest");
 }
 
 /**
@@ -104,9 +101,8 @@ export interface DescribeReportDefinitionsResponse {
 }
 
 export namespace DescribeReportDefinitionsResponse {
-  export function isa(o: any): o is DescribeReportDefinitionsResponse {
-    return __isa(o, "DescribeReportDefinitionsResponse");
-  }
+  export const isa = (o: any): o is DescribeReportDefinitionsResponse =>
+    __isa(o, "DescribeReportDefinitionsResponse");
 }
 
 /**
@@ -124,9 +120,8 @@ export interface DuplicateReportNameException
 }
 
 export namespace DuplicateReportNameException {
-  export function isa(o: any): o is DuplicateReportNameException {
-    return __isa(o, "DuplicateReportNameException");
-  }
+  export const isa = (o: any): o is DuplicateReportNameException =>
+    __isa(o, "DuplicateReportNameException");
 }
 
 /**
@@ -144,9 +139,8 @@ export interface InternalErrorException
 }
 
 export namespace InternalErrorException {
-  export function isa(o: any): o is InternalErrorException {
-    return __isa(o, "InternalErrorException");
-  }
+  export const isa = (o: any): o is InternalErrorException =>
+    __isa(o, "InternalErrorException");
 }
 
 export interface ModifyReportDefinitionRequest {
@@ -167,9 +161,8 @@ export interface ModifyReportDefinitionRequest {
 }
 
 export namespace ModifyReportDefinitionRequest {
-  export function isa(o: any): o is ModifyReportDefinitionRequest {
-    return __isa(o, "ModifyReportDefinitionRequest");
-  }
+  export const isa = (o: any): o is ModifyReportDefinitionRequest =>
+    __isa(o, "ModifyReportDefinitionRequest");
 }
 
 export interface ModifyReportDefinitionResponse {
@@ -177,9 +170,8 @@ export interface ModifyReportDefinitionResponse {
 }
 
 export namespace ModifyReportDefinitionResponse {
-  export function isa(o: any): o is ModifyReportDefinitionResponse {
-    return __isa(o, "ModifyReportDefinitionResponse");
-  }
+  export const isa = (o: any): o is ModifyReportDefinitionResponse =>
+    __isa(o, "ModifyReportDefinitionResponse");
 }
 
 /**
@@ -195,9 +187,8 @@ export interface PutReportDefinitionRequest {
 }
 
 export namespace PutReportDefinitionRequest {
-  export function isa(o: any): o is PutReportDefinitionRequest {
-    return __isa(o, "PutReportDefinitionRequest");
-  }
+  export const isa = (o: any): o is PutReportDefinitionRequest =>
+    __isa(o, "PutReportDefinitionRequest");
 }
 
 /**
@@ -208,9 +199,8 @@ export interface PutReportDefinitionResponse {
 }
 
 export namespace PutReportDefinitionResponse {
-  export function isa(o: any): o is PutReportDefinitionResponse {
-    return __isa(o, "PutReportDefinitionResponse");
-  }
+  export const isa = (o: any): o is PutReportDefinitionResponse =>
+    __isa(o, "PutReportDefinitionResponse");
 }
 
 /**
@@ -282,9 +272,8 @@ export interface ReportDefinition {
 }
 
 export namespace ReportDefinition {
-  export function isa(o: any): o is ReportDefinition {
-    return __isa(o, "ReportDefinition");
-  }
+  export const isa = (o: any): o is ReportDefinition =>
+    __isa(o, "ReportDefinition");
 }
 
 export enum ReportFormat {
@@ -307,9 +296,8 @@ export interface ReportLimitReachedException
 }
 
 export namespace ReportLimitReachedException {
-  export function isa(o: any): o is ReportLimitReachedException {
-    return __isa(o, "ReportLimitReachedException");
-  }
+  export const isa = (o: any): o is ReportLimitReachedException =>
+    __isa(o, "ReportLimitReachedException");
 }
 
 export enum ReportVersioning {
@@ -341,7 +329,6 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return __isa(o, "ValidationException");
-  }
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
 }

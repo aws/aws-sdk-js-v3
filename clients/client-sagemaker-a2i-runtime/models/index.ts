@@ -18,9 +18,8 @@ export interface DeleteHumanLoopRequest {
 }
 
 export namespace DeleteHumanLoopRequest {
-  export function isa(o: any): o is DeleteHumanLoopRequest {
-    return __isa(o, "DeleteHumanLoopRequest");
-  }
+  export const isa = (o: any): o is DeleteHumanLoopRequest =>
+    __isa(o, "DeleteHumanLoopRequest");
 }
 
 export interface DeleteHumanLoopResponse {
@@ -28,9 +27,8 @@ export interface DeleteHumanLoopResponse {
 }
 
 export namespace DeleteHumanLoopResponse {
-  export function isa(o: any): o is DeleteHumanLoopResponse {
-    return __isa(o, "DeleteHumanLoopResponse");
-  }
+  export const isa = (o: any): o is DeleteHumanLoopResponse =>
+    __isa(o, "DeleteHumanLoopResponse");
 }
 
 export interface DescribeHumanLoopRequest {
@@ -42,9 +40,8 @@ export interface DescribeHumanLoopRequest {
 }
 
 export namespace DescribeHumanLoopRequest {
-  export function isa(o: any): o is DescribeHumanLoopRequest {
-    return __isa(o, "DescribeHumanLoopRequest");
-  }
+  export const isa = (o: any): o is DescribeHumanLoopRequest =>
+    __isa(o, "DescribeHumanLoopRequest");
 }
 
 export interface DescribeHumanLoopResponse {
@@ -96,9 +93,8 @@ export interface DescribeHumanLoopResponse {
 }
 
 export namespace DescribeHumanLoopResponse {
-  export function isa(o: any): o is DescribeHumanLoopResponse {
-    return __isa(o, "DescribeHumanLoopResponse");
-  }
+  export const isa = (o: any): o is DescribeHumanLoopResponse =>
+    __isa(o, "DescribeHumanLoopResponse");
 }
 
 /**
@@ -113,9 +109,8 @@ export interface HumanLoopActivationReason {
 }
 
 export namespace HumanLoopActivationReason {
-  export function isa(o: any): o is HumanLoopActivationReason {
-    return __isa(o, "HumanLoopActivationReason");
-  }
+  export const isa = (o: any): o is HumanLoopActivationReason =>
+    __isa(o, "HumanLoopActivationReason");
 }
 
 /**
@@ -135,9 +130,8 @@ export interface HumanLoopActivationResults {
 }
 
 export namespace HumanLoopActivationResults {
-  export function isa(o: any): o is HumanLoopActivationResults {
-    return __isa(o, "HumanLoopActivationResults");
-  }
+  export const isa = (o: any): o is HumanLoopActivationResults =>
+    __isa(o, "HumanLoopActivationResults");
 }
 
 /**
@@ -152,9 +146,8 @@ export interface HumanLoopInputContent {
 }
 
 export namespace HumanLoopInputContent {
-  export function isa(o: any): o is HumanLoopInputContent {
-    return __isa(o, "HumanLoopInputContent");
-  }
+  export const isa = (o: any): o is HumanLoopInputContent =>
+    __isa(o, "HumanLoopInputContent");
 }
 
 /**
@@ -170,9 +163,8 @@ export interface HumanLoopOutputContent {
 }
 
 export namespace HumanLoopOutputContent {
-  export function isa(o: any): o is HumanLoopOutputContent {
-    return __isa(o, "HumanLoopOutputContent");
-  }
+  export const isa = (o: any): o is HumanLoopOutputContent =>
+    __isa(o, "HumanLoopOutputContent");
 }
 
 export enum HumanLoopStatus {
@@ -215,9 +207,8 @@ export interface HumanLoopSummary {
 }
 
 export namespace HumanLoopSummary {
-  export function isa(o: any): o is HumanLoopSummary {
-    return __isa(o, "HumanLoopSummary");
-  }
+  export const isa = (o: any): o is HumanLoopSummary =>
+    __isa(o, "HumanLoopSummary");
 }
 
 /**
@@ -233,9 +224,8 @@ export interface HumanReviewDataAttributes {
 }
 
 export namespace HumanReviewDataAttributes {
-  export function isa(o: any): o is HumanReviewDataAttributes {
-    return __isa(o, "HumanReviewDataAttributes");
-  }
+  export const isa = (o: any): o is HumanReviewDataAttributes =>
+    __isa(o, "HumanReviewDataAttributes");
 }
 
 /**
@@ -250,9 +240,8 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export function isa(o: any): o is InternalServerException {
-    return __isa(o, "InternalServerException");
-  }
+  export const isa = (o: any): o is InternalServerException =>
+    __isa(o, "InternalServerException");
 }
 
 export interface ListHumanLoopsRequest {
@@ -284,9 +273,8 @@ export interface ListHumanLoopsRequest {
 }
 
 export namespace ListHumanLoopsRequest {
-  export function isa(o: any): o is ListHumanLoopsRequest {
-    return __isa(o, "ListHumanLoopsRequest");
-  }
+  export const isa = (o: any): o is ListHumanLoopsRequest =>
+    __isa(o, "ListHumanLoopsRequest");
 }
 
 export interface ListHumanLoopsResponse {
@@ -303,9 +291,8 @@ export interface ListHumanLoopsResponse {
 }
 
 export namespace ListHumanLoopsResponse {
-  export function isa(o: any): o is ListHumanLoopsResponse {
-    return __isa(o, "ListHumanLoopsResponse");
-  }
+  export const isa = (o: any): o is ListHumanLoopsResponse =>
+    __isa(o, "ListHumanLoopsResponse");
 }
 
 /**
@@ -320,9 +307,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -337,9 +323,8 @@ export interface ServiceQuotaExceededException
 }
 
 export namespace ServiceQuotaExceededException {
-  export function isa(o: any): o is ServiceQuotaExceededException {
-    return __isa(o, "ServiceQuotaExceededException");
-  }
+  export const isa = (o: any): o is ServiceQuotaExceededException =>
+    __isa(o, "ServiceQuotaExceededException");
 }
 
 export enum SortOrder {
@@ -371,9 +356,8 @@ export interface StartHumanLoopRequest {
 }
 
 export namespace StartHumanLoopRequest {
-  export function isa(o: any): o is StartHumanLoopRequest {
-    return __isa(o, "StartHumanLoopRequest");
-  }
+  export const isa = (o: any): o is StartHumanLoopRequest =>
+    __isa(o, "StartHumanLoopRequest");
 }
 
 export interface StartHumanLoopResponse {
@@ -390,9 +374,8 @@ export interface StartHumanLoopResponse {
 }
 
 export namespace StartHumanLoopResponse {
-  export function isa(o: any): o is StartHumanLoopResponse {
-    return __isa(o, "StartHumanLoopResponse");
-  }
+  export const isa = (o: any): o is StartHumanLoopResponse =>
+    __isa(o, "StartHumanLoopResponse");
 }
 
 export interface StopHumanLoopRequest {
@@ -404,9 +387,8 @@ export interface StopHumanLoopRequest {
 }
 
 export namespace StopHumanLoopRequest {
-  export function isa(o: any): o is StopHumanLoopRequest {
-    return __isa(o, "StopHumanLoopRequest");
-  }
+  export const isa = (o: any): o is StopHumanLoopRequest =>
+    __isa(o, "StopHumanLoopRequest");
 }
 
 export interface StopHumanLoopResponse {
@@ -414,9 +396,8 @@ export interface StopHumanLoopResponse {
 }
 
 export namespace StopHumanLoopResponse {
-  export function isa(o: any): o is StopHumanLoopResponse {
-    return __isa(o, "StopHumanLoopResponse");
-  }
+  export const isa = (o: any): o is StopHumanLoopResponse =>
+    __isa(o, "StopHumanLoopResponse");
 }
 
 /**
@@ -431,9 +412,8 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return __isa(o, "ThrottlingException");
-  }
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 /**
@@ -448,7 +428,6 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return __isa(o, "ValidationException");
-  }
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
 }

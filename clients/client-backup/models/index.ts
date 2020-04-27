@@ -36,9 +36,8 @@ export interface AlreadyExistsException
 }
 
 export namespace AlreadyExistsException {
-  export function isa(o: any): o is AlreadyExistsException {
-    return __isa(o, "AlreadyExistsException");
-  }
+  export const isa = (o: any): o is AlreadyExistsException =>
+    __isa(o, "AlreadyExistsException");
 }
 
 /**
@@ -157,9 +156,7 @@ export interface BackupJob {
 }
 
 export namespace BackupJob {
-  export function isa(o: any): o is BackupJob {
-    return __isa(o, "BackupJob");
-  }
+  export const isa = (o: any): o is BackupJob => __isa(o, "BackupJob");
 }
 
 export enum BackupJobState {
@@ -193,9 +190,7 @@ export interface BackupPlan {
 }
 
 export namespace BackupPlan {
-  export function isa(o: any): o is BackupPlan {
-    return __isa(o, "BackupPlan");
-  }
+  export const isa = (o: any): o is BackupPlan => __isa(o, "BackupPlan");
 }
 
 /**
@@ -218,9 +213,8 @@ export interface BackupPlanInput {
 }
 
 export namespace BackupPlanInput {
-  export function isa(o: any): o is BackupPlanInput {
-    return __isa(o, "BackupPlanInput");
-  }
+  export const isa = (o: any): o is BackupPlanInput =>
+    __isa(o, "BackupPlanInput");
 }
 
 /**
@@ -240,9 +234,8 @@ export interface BackupPlanTemplatesListMember {
 }
 
 export namespace BackupPlanTemplatesListMember {
-  export function isa(o: any): o is BackupPlanTemplatesListMember {
-    return __isa(o, "BackupPlanTemplatesListMember");
-  }
+  export const isa = (o: any): o is BackupPlanTemplatesListMember =>
+    __isa(o, "BackupPlanTemplatesListMember");
 }
 
 /**
@@ -304,9 +297,8 @@ export interface BackupPlansListMember {
 }
 
 export namespace BackupPlansListMember {
-  export function isa(o: any): o is BackupPlansListMember {
-    return __isa(o, "BackupPlansListMember");
-  }
+  export const isa = (o: any): o is BackupPlansListMember =>
+    __isa(o, "BackupPlansListMember");
 }
 
 /**
@@ -373,9 +365,7 @@ export interface BackupRule {
 }
 
 export namespace BackupRule {
-  export function isa(o: any): o is BackupRule {
-    return __isa(o, "BackupRule");
-  }
+  export const isa = (o: any): o is BackupRule => __isa(o, "BackupRule");
 }
 
 /**
@@ -435,9 +425,8 @@ export interface BackupRuleInput {
 }
 
 export namespace BackupRuleInput {
-  export function isa(o: any): o is BackupRuleInput {
-    return __isa(o, "BackupRuleInput");
-  }
+  export const isa = (o: any): o is BackupRuleInput =>
+    __isa(o, "BackupRuleInput");
 }
 
 /**
@@ -471,9 +460,8 @@ export interface BackupSelection {
 }
 
 export namespace BackupSelection {
-  export function isa(o: any): o is BackupSelection {
-    return __isa(o, "BackupSelection");
-  }
+  export const isa = (o: any): o is BackupSelection =>
+    __isa(o, "BackupSelection");
 }
 
 /**
@@ -518,9 +506,8 @@ export interface BackupSelectionsListMember {
 }
 
 export namespace BackupSelectionsListMember {
-  export function isa(o: any): o is BackupSelectionsListMember {
-    return __isa(o, "BackupSelectionsListMember");
-  }
+  export const isa = (o: any): o is BackupSelectionsListMember =>
+    __isa(o, "BackupSelectionsListMember");
 }
 
 export enum BackupVaultEvent {
@@ -586,9 +573,8 @@ export interface BackupVaultListMember {
 }
 
 export namespace BackupVaultListMember {
-  export function isa(o: any): o is BackupVaultListMember {
-    return __isa(o, "BackupVaultListMember");
-  }
+  export const isa = (o: any): o is BackupVaultListMember =>
+    __isa(o, "BackupVaultListMember");
 }
 
 /**
@@ -616,9 +602,8 @@ export interface CalculatedLifecycle {
 }
 
 export namespace CalculatedLifecycle {
-  export function isa(o: any): o is CalculatedLifecycle {
-    return __isa(o, "CalculatedLifecycle");
-  }
+  export const isa = (o: any): o is CalculatedLifecycle =>
+    __isa(o, "CalculatedLifecycle");
 }
 
 /**
@@ -648,9 +633,7 @@ export interface Condition {
 }
 
 export namespace Condition {
-  export function isa(o: any): o is Condition {
-    return __isa(o, "Condition");
-  }
+  export const isa = (o: any): o is Condition => __isa(o, "Condition");
 }
 
 export enum ConditionType {
@@ -679,9 +662,7 @@ export interface CopyAction {
 }
 
 export namespace CopyAction {
-  export function isa(o: any): o is CopyAction {
-    return __isa(o, "CopyAction");
-  }
+  export const isa = (o: any): o is CopyAction => __isa(o, "CopyAction");
 }
 
 /**
@@ -762,9 +743,7 @@ export interface CopyJob {
 }
 
 export namespace CopyJob {
-  export function isa(o: any): o is CopyJob {
-    return __isa(o, "CopyJob");
-  }
+  export const isa = (o: any): o is CopyJob => __isa(o, "CopyJob");
 }
 
 export enum CopyJobState {
@@ -798,9 +777,8 @@ export interface CreateBackupPlanInput {
 }
 
 export namespace CreateBackupPlanInput {
-  export function isa(o: any): o is CreateBackupPlanInput {
-    return __isa(o, "CreateBackupPlanInput");
-  }
+  export const isa = (o: any): o is CreateBackupPlanInput =>
+    __isa(o, "CreateBackupPlanInput");
 }
 
 export interface CreateBackupPlanOutput {
@@ -832,9 +810,8 @@ export interface CreateBackupPlanOutput {
 }
 
 export namespace CreateBackupPlanOutput {
-  export function isa(o: any): o is CreateBackupPlanOutput {
-    return __isa(o, "CreateBackupPlanOutput");
-  }
+  export const isa = (o: any): o is CreateBackupPlanOutput =>
+    __isa(o, "CreateBackupPlanOutput");
 }
 
 export interface CreateBackupSelectionInput {
@@ -858,9 +835,8 @@ export interface CreateBackupSelectionInput {
 }
 
 export namespace CreateBackupSelectionInput {
-  export function isa(o: any): o is CreateBackupSelectionInput {
-    return __isa(o, "CreateBackupSelectionInput");
-  }
+  export const isa = (o: any): o is CreateBackupSelectionInput =>
+    __isa(o, "CreateBackupSelectionInput");
 }
 
 export interface CreateBackupSelectionOutput {
@@ -886,9 +862,8 @@ export interface CreateBackupSelectionOutput {
 }
 
 export namespace CreateBackupSelectionOutput {
-  export function isa(o: any): o is CreateBackupSelectionOutput {
-    return __isa(o, "CreateBackupSelectionOutput");
-  }
+  export const isa = (o: any): o is CreateBackupSelectionOutput =>
+    __isa(o, "CreateBackupSelectionOutput");
 }
 
 export interface CreateBackupVaultInput {
@@ -920,9 +895,8 @@ export interface CreateBackupVaultInput {
 }
 
 export namespace CreateBackupVaultInput {
-  export function isa(o: any): o is CreateBackupVaultInput {
-    return __isa(o, "CreateBackupVaultInput");
-  }
+  export const isa = (o: any): o is CreateBackupVaultInput =>
+    __isa(o, "CreateBackupVaultInput");
 }
 
 export interface CreateBackupVaultOutput {
@@ -950,9 +924,8 @@ export interface CreateBackupVaultOutput {
 }
 
 export namespace CreateBackupVaultOutput {
-  export function isa(o: any): o is CreateBackupVaultOutput {
-    return __isa(o, "CreateBackupVaultOutput");
-  }
+  export const isa = (o: any): o is CreateBackupVaultOutput =>
+    __isa(o, "CreateBackupVaultOutput");
 }
 
 export interface DeleteBackupPlanInput {
@@ -964,9 +937,8 @@ export interface DeleteBackupPlanInput {
 }
 
 export namespace DeleteBackupPlanInput {
-  export function isa(o: any): o is DeleteBackupPlanInput {
-    return __isa(o, "DeleteBackupPlanInput");
-  }
+  export const isa = (o: any): o is DeleteBackupPlanInput =>
+    __isa(o, "DeleteBackupPlanInput");
 }
 
 export interface DeleteBackupPlanOutput {
@@ -998,9 +970,8 @@ export interface DeleteBackupPlanOutput {
 }
 
 export namespace DeleteBackupPlanOutput {
-  export function isa(o: any): o is DeleteBackupPlanOutput {
-    return __isa(o, "DeleteBackupPlanOutput");
-  }
+  export const isa = (o: any): o is DeleteBackupPlanOutput =>
+    __isa(o, "DeleteBackupPlanOutput");
 }
 
 export interface DeleteBackupSelectionInput {
@@ -1018,9 +989,8 @@ export interface DeleteBackupSelectionInput {
 }
 
 export namespace DeleteBackupSelectionInput {
-  export function isa(o: any): o is DeleteBackupSelectionInput {
-    return __isa(o, "DeleteBackupSelectionInput");
-  }
+  export const isa = (o: any): o is DeleteBackupSelectionInput =>
+    __isa(o, "DeleteBackupSelectionInput");
 }
 
 export interface DeleteBackupVaultAccessPolicyInput {
@@ -1034,9 +1004,8 @@ export interface DeleteBackupVaultAccessPolicyInput {
 }
 
 export namespace DeleteBackupVaultAccessPolicyInput {
-  export function isa(o: any): o is DeleteBackupVaultAccessPolicyInput {
-    return __isa(o, "DeleteBackupVaultAccessPolicyInput");
-  }
+  export const isa = (o: any): o is DeleteBackupVaultAccessPolicyInput =>
+    __isa(o, "DeleteBackupVaultAccessPolicyInput");
 }
 
 export interface DeleteBackupVaultInput {
@@ -1050,9 +1019,8 @@ export interface DeleteBackupVaultInput {
 }
 
 export namespace DeleteBackupVaultInput {
-  export function isa(o: any): o is DeleteBackupVaultInput {
-    return __isa(o, "DeleteBackupVaultInput");
-  }
+  export const isa = (o: any): o is DeleteBackupVaultInput =>
+    __isa(o, "DeleteBackupVaultInput");
 }
 
 export interface DeleteBackupVaultNotificationsInput {
@@ -1066,9 +1034,8 @@ export interface DeleteBackupVaultNotificationsInput {
 }
 
 export namespace DeleteBackupVaultNotificationsInput {
-  export function isa(o: any): o is DeleteBackupVaultNotificationsInput {
-    return __isa(o, "DeleteBackupVaultNotificationsInput");
-  }
+  export const isa = (o: any): o is DeleteBackupVaultNotificationsInput =>
+    __isa(o, "DeleteBackupVaultNotificationsInput");
 }
 
 export interface DeleteRecoveryPointInput {
@@ -1088,9 +1055,8 @@ export interface DeleteRecoveryPointInput {
 }
 
 export namespace DeleteRecoveryPointInput {
-  export function isa(o: any): o is DeleteRecoveryPointInput {
-    return __isa(o, "DeleteRecoveryPointInput");
-  }
+  export const isa = (o: any): o is DeleteRecoveryPointInput =>
+    __isa(o, "DeleteRecoveryPointInput");
 }
 
 /**
@@ -1116,9 +1082,8 @@ export interface DependencyFailureException
 }
 
 export namespace DependencyFailureException {
-  export function isa(o: any): o is DependencyFailureException {
-    return __isa(o, "DependencyFailureException");
-  }
+  export const isa = (o: any): o is DependencyFailureException =>
+    __isa(o, "DependencyFailureException");
 }
 
 export interface DescribeBackupJobInput {
@@ -1130,9 +1095,8 @@ export interface DescribeBackupJobInput {
 }
 
 export namespace DescribeBackupJobInput {
-  export function isa(o: any): o is DescribeBackupJobInput {
-    return __isa(o, "DescribeBackupJobInput");
-  }
+  export const isa = (o: any): o is DescribeBackupJobInput =>
+    __isa(o, "DescribeBackupJobInput");
 }
 
 export interface DescribeBackupJobOutput {
@@ -1249,9 +1213,8 @@ export interface DescribeBackupJobOutput {
 }
 
 export namespace DescribeBackupJobOutput {
-  export function isa(o: any): o is DescribeBackupJobOutput {
-    return __isa(o, "DescribeBackupJobOutput");
-  }
+  export const isa = (o: any): o is DescribeBackupJobOutput =>
+    __isa(o, "DescribeBackupJobOutput");
 }
 
 export interface DescribeBackupVaultInput {
@@ -1265,9 +1228,8 @@ export interface DescribeBackupVaultInput {
 }
 
 export namespace DescribeBackupVaultInput {
-  export function isa(o: any): o is DescribeBackupVaultInput {
-    return __isa(o, "DescribeBackupVaultInput");
-  }
+  export const isa = (o: any): o is DescribeBackupVaultInput =>
+    __isa(o, "DescribeBackupVaultInput");
 }
 
 export interface DescribeBackupVaultOutput {
@@ -1312,9 +1274,8 @@ export interface DescribeBackupVaultOutput {
 }
 
 export namespace DescribeBackupVaultOutput {
-  export function isa(o: any): o is DescribeBackupVaultOutput {
-    return __isa(o, "DescribeBackupVaultOutput");
-  }
+  export const isa = (o: any): o is DescribeBackupVaultOutput =>
+    __isa(o, "DescribeBackupVaultOutput");
 }
 
 export interface DescribeCopyJobInput {
@@ -1326,9 +1287,8 @@ export interface DescribeCopyJobInput {
 }
 
 export namespace DescribeCopyJobInput {
-  export function isa(o: any): o is DescribeCopyJobInput {
-    return __isa(o, "DescribeCopyJobInput");
-  }
+  export const isa = (o: any): o is DescribeCopyJobInput =>
+    __isa(o, "DescribeCopyJobInput");
 }
 
 export interface DescribeCopyJobOutput {
@@ -1340,9 +1300,8 @@ export interface DescribeCopyJobOutput {
 }
 
 export namespace DescribeCopyJobOutput {
-  export function isa(o: any): o is DescribeCopyJobOutput {
-    return __isa(o, "DescribeCopyJobOutput");
-  }
+  export const isa = (o: any): o is DescribeCopyJobOutput =>
+    __isa(o, "DescribeCopyJobOutput");
 }
 
 export interface DescribeProtectedResourceInput {
@@ -1355,9 +1314,8 @@ export interface DescribeProtectedResourceInput {
 }
 
 export namespace DescribeProtectedResourceInput {
-  export function isa(o: any): o is DescribeProtectedResourceInput {
-    return __isa(o, "DescribeProtectedResourceInput");
-  }
+  export const isa = (o: any): o is DescribeProtectedResourceInput =>
+    __isa(o, "DescribeProtectedResourceInput");
 }
 
 export interface DescribeProtectedResourceOutput {
@@ -1384,9 +1342,8 @@ export interface DescribeProtectedResourceOutput {
 }
 
 export namespace DescribeProtectedResourceOutput {
-  export function isa(o: any): o is DescribeProtectedResourceOutput {
-    return __isa(o, "DescribeProtectedResourceOutput");
-  }
+  export const isa = (o: any): o is DescribeProtectedResourceOutput =>
+    __isa(o, "DescribeProtectedResourceOutput");
 }
 
 export interface DescribeRecoveryPointInput {
@@ -1406,9 +1363,8 @@ export interface DescribeRecoveryPointInput {
 }
 
 export namespace DescribeRecoveryPointInput {
-  export function isa(o: any): o is DescribeRecoveryPointInput {
-    return __isa(o, "DescribeRecoveryPointInput");
-  }
+  export const isa = (o: any): o is DescribeRecoveryPointInput =>
+    __isa(o, "DescribeRecoveryPointInput");
 }
 
 export interface DescribeRecoveryPointOutput {
@@ -1533,9 +1489,8 @@ export interface DescribeRecoveryPointOutput {
 }
 
 export namespace DescribeRecoveryPointOutput {
-  export function isa(o: any): o is DescribeRecoveryPointOutput {
-    return __isa(o, "DescribeRecoveryPointOutput");
-  }
+  export const isa = (o: any): o is DescribeRecoveryPointOutput =>
+    __isa(o, "DescribeRecoveryPointOutput");
 }
 
 export interface DescribeRestoreJobInput {
@@ -1547,9 +1502,8 @@ export interface DescribeRestoreJobInput {
 }
 
 export namespace DescribeRestoreJobInput {
-  export function isa(o: any): o is DescribeRestoreJobInput {
-    return __isa(o, "DescribeRestoreJobInput");
-  }
+  export const isa = (o: any): o is DescribeRestoreJobInput =>
+    __isa(o, "DescribeRestoreJobInput");
 }
 
 export interface DescribeRestoreJobOutput {
@@ -1624,9 +1578,8 @@ export interface DescribeRestoreJobOutput {
 }
 
 export namespace DescribeRestoreJobOutput {
-  export function isa(o: any): o is DescribeRestoreJobOutput {
-    return __isa(o, "DescribeRestoreJobOutput");
-  }
+  export const isa = (o: any): o is DescribeRestoreJobOutput =>
+    __isa(o, "DescribeRestoreJobOutput");
 }
 
 export interface ExportBackupPlanTemplateInput {
@@ -1638,9 +1591,8 @@ export interface ExportBackupPlanTemplateInput {
 }
 
 export namespace ExportBackupPlanTemplateInput {
-  export function isa(o: any): o is ExportBackupPlanTemplateInput {
-    return __isa(o, "ExportBackupPlanTemplateInput");
-  }
+  export const isa = (o: any): o is ExportBackupPlanTemplateInput =>
+    __isa(o, "ExportBackupPlanTemplateInput");
 }
 
 export interface ExportBackupPlanTemplateOutput {
@@ -1657,9 +1609,8 @@ export interface ExportBackupPlanTemplateOutput {
 }
 
 export namespace ExportBackupPlanTemplateOutput {
-  export function isa(o: any): o is ExportBackupPlanTemplateOutput {
-    return __isa(o, "ExportBackupPlanTemplateOutput");
-  }
+  export const isa = (o: any): o is ExportBackupPlanTemplateOutput =>
+    __isa(o, "ExportBackupPlanTemplateOutput");
 }
 
 export interface GetBackupPlanFromJSONInput {
@@ -1671,9 +1622,8 @@ export interface GetBackupPlanFromJSONInput {
 }
 
 export namespace GetBackupPlanFromJSONInput {
-  export function isa(o: any): o is GetBackupPlanFromJSONInput {
-    return __isa(o, "GetBackupPlanFromJSONInput");
-  }
+  export const isa = (o: any): o is GetBackupPlanFromJSONInput =>
+    __isa(o, "GetBackupPlanFromJSONInput");
 }
 
 export interface GetBackupPlanFromJSONOutput {
@@ -1686,9 +1636,8 @@ export interface GetBackupPlanFromJSONOutput {
 }
 
 export namespace GetBackupPlanFromJSONOutput {
-  export function isa(o: any): o is GetBackupPlanFromJSONOutput {
-    return __isa(o, "GetBackupPlanFromJSONOutput");
-  }
+  export const isa = (o: any): o is GetBackupPlanFromJSONOutput =>
+    __isa(o, "GetBackupPlanFromJSONOutput");
 }
 
 export interface GetBackupPlanFromTemplateInput {
@@ -1700,9 +1649,8 @@ export interface GetBackupPlanFromTemplateInput {
 }
 
 export namespace GetBackupPlanFromTemplateInput {
-  export function isa(o: any): o is GetBackupPlanFromTemplateInput {
-    return __isa(o, "GetBackupPlanFromTemplateInput");
-  }
+  export const isa = (o: any): o is GetBackupPlanFromTemplateInput =>
+    __isa(o, "GetBackupPlanFromTemplateInput");
 }
 
 export interface GetBackupPlanFromTemplateOutput {
@@ -1715,9 +1663,8 @@ export interface GetBackupPlanFromTemplateOutput {
 }
 
 export namespace GetBackupPlanFromTemplateOutput {
-  export function isa(o: any): o is GetBackupPlanFromTemplateOutput {
-    return __isa(o, "GetBackupPlanFromTemplateOutput");
-  }
+  export const isa = (o: any): o is GetBackupPlanFromTemplateOutput =>
+    __isa(o, "GetBackupPlanFromTemplateOutput");
 }
 
 export interface GetBackupPlanInput {
@@ -1735,9 +1682,8 @@ export interface GetBackupPlanInput {
 }
 
 export namespace GetBackupPlanInput {
-  export function isa(o: any): o is GetBackupPlanInput {
-    return __isa(o, "GetBackupPlanInput");
-  }
+  export const isa = (o: any): o is GetBackupPlanInput =>
+    __isa(o, "GetBackupPlanInput");
 }
 
 export interface GetBackupPlanOutput {
@@ -1797,9 +1743,8 @@ export interface GetBackupPlanOutput {
 }
 
 export namespace GetBackupPlanOutput {
-  export function isa(o: any): o is GetBackupPlanOutput {
-    return __isa(o, "GetBackupPlanOutput");
-  }
+  export const isa = (o: any): o is GetBackupPlanOutput =>
+    __isa(o, "GetBackupPlanOutput");
 }
 
 export interface GetBackupSelectionInput {
@@ -1817,9 +1762,8 @@ export interface GetBackupSelectionInput {
 }
 
 export namespace GetBackupSelectionInput {
-  export function isa(o: any): o is GetBackupSelectionInput {
-    return __isa(o, "GetBackupSelectionInput");
-  }
+  export const isa = (o: any): o is GetBackupSelectionInput =>
+    __isa(o, "GetBackupSelectionInput");
 }
 
 export interface GetBackupSelectionOutput {
@@ -1856,9 +1800,8 @@ export interface GetBackupSelectionOutput {
 }
 
 export namespace GetBackupSelectionOutput {
-  export function isa(o: any): o is GetBackupSelectionOutput {
-    return __isa(o, "GetBackupSelectionOutput");
-  }
+  export const isa = (o: any): o is GetBackupSelectionOutput =>
+    __isa(o, "GetBackupSelectionOutput");
 }
 
 export interface GetBackupVaultAccessPolicyInput {
@@ -1872,9 +1815,8 @@ export interface GetBackupVaultAccessPolicyInput {
 }
 
 export namespace GetBackupVaultAccessPolicyInput {
-  export function isa(o: any): o is GetBackupVaultAccessPolicyInput {
-    return __isa(o, "GetBackupVaultAccessPolicyInput");
-  }
+  export const isa = (o: any): o is GetBackupVaultAccessPolicyInput =>
+    __isa(o, "GetBackupVaultAccessPolicyInput");
 }
 
 export interface GetBackupVaultAccessPolicyOutput {
@@ -1899,9 +1841,8 @@ export interface GetBackupVaultAccessPolicyOutput {
 }
 
 export namespace GetBackupVaultAccessPolicyOutput {
-  export function isa(o: any): o is GetBackupVaultAccessPolicyOutput {
-    return __isa(o, "GetBackupVaultAccessPolicyOutput");
-  }
+  export const isa = (o: any): o is GetBackupVaultAccessPolicyOutput =>
+    __isa(o, "GetBackupVaultAccessPolicyOutput");
 }
 
 export interface GetBackupVaultNotificationsInput {
@@ -1915,9 +1856,8 @@ export interface GetBackupVaultNotificationsInput {
 }
 
 export namespace GetBackupVaultNotificationsInput {
-  export function isa(o: any): o is GetBackupVaultNotificationsInput {
-    return __isa(o, "GetBackupVaultNotificationsInput");
-  }
+  export const isa = (o: any): o is GetBackupVaultNotificationsInput =>
+    __isa(o, "GetBackupVaultNotificationsInput");
 }
 
 export interface GetBackupVaultNotificationsOutput {
@@ -1949,9 +1889,8 @@ export interface GetBackupVaultNotificationsOutput {
 }
 
 export namespace GetBackupVaultNotificationsOutput {
-  export function isa(o: any): o is GetBackupVaultNotificationsOutput {
-    return __isa(o, "GetBackupVaultNotificationsOutput");
-  }
+  export const isa = (o: any): o is GetBackupVaultNotificationsOutput =>
+    __isa(o, "GetBackupVaultNotificationsOutput");
 }
 
 export interface GetRecoveryPointRestoreMetadataInput {
@@ -1971,9 +1910,8 @@ export interface GetRecoveryPointRestoreMetadataInput {
 }
 
 export namespace GetRecoveryPointRestoreMetadataInput {
-  export function isa(o: any): o is GetRecoveryPointRestoreMetadataInput {
-    return __isa(o, "GetRecoveryPointRestoreMetadataInput");
-  }
+  export const isa = (o: any): o is GetRecoveryPointRestoreMetadataInput =>
+    __isa(o, "GetRecoveryPointRestoreMetadataInput");
 }
 
 export interface GetRecoveryPointRestoreMetadataOutput {
@@ -1999,9 +1937,8 @@ export interface GetRecoveryPointRestoreMetadataOutput {
 }
 
 export namespace GetRecoveryPointRestoreMetadataOutput {
-  export function isa(o: any): o is GetRecoveryPointRestoreMetadataOutput {
-    return __isa(o, "GetRecoveryPointRestoreMetadataOutput");
-  }
+  export const isa = (o: any): o is GetRecoveryPointRestoreMetadataOutput =>
+    __isa(o, "GetRecoveryPointRestoreMetadataOutput");
 }
 
 export interface GetSupportedResourceTypesOutput {
@@ -2035,9 +1972,8 @@ export interface GetSupportedResourceTypesOutput {
 }
 
 export namespace GetSupportedResourceTypesOutput {
-  export function isa(o: any): o is GetSupportedResourceTypesOutput {
-    return __isa(o, "GetSupportedResourceTypesOutput");
-  }
+  export const isa = (o: any): o is GetSupportedResourceTypesOutput =>
+    __isa(o, "GetSupportedResourceTypesOutput");
 }
 
 /**
@@ -2063,9 +1999,8 @@ export interface InvalidParameterValueException
 }
 
 export namespace InvalidParameterValueException {
-  export function isa(o: any): o is InvalidParameterValueException {
-    return __isa(o, "InvalidParameterValueException");
-  }
+  export const isa = (o: any): o is InvalidParameterValueException =>
+    __isa(o, "InvalidParameterValueException");
 }
 
 /**
@@ -2091,9 +2026,8 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return __isa(o, "InvalidRequestException");
-  }
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -2120,9 +2054,7 @@ export interface Lifecycle {
 }
 
 export namespace Lifecycle {
-  export function isa(o: any): o is Lifecycle {
-    return __isa(o, "Lifecycle");
-  }
+  export const isa = (o: any): o is Lifecycle => __isa(o, "Lifecycle");
 }
 
 /**
@@ -2148,9 +2080,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export interface ListBackupJobsInput {
@@ -2226,9 +2157,8 @@ export interface ListBackupJobsInput {
 }
 
 export namespace ListBackupJobsInput {
-  export function isa(o: any): o is ListBackupJobsInput {
-    return __isa(o, "ListBackupJobsInput");
-  }
+  export const isa = (o: any): o is ListBackupJobsInput =>
+    __isa(o, "ListBackupJobsInput");
 }
 
 export interface ListBackupJobsOutput {
@@ -2249,9 +2179,8 @@ export interface ListBackupJobsOutput {
 }
 
 export namespace ListBackupJobsOutput {
-  export function isa(o: any): o is ListBackupJobsOutput {
-    return __isa(o, "ListBackupJobsOutput");
-  }
+  export const isa = (o: any): o is ListBackupJobsOutput =>
+    __isa(o, "ListBackupJobsOutput");
 }
 
 export interface ListBackupPlanTemplatesInput {
@@ -2271,9 +2200,8 @@ export interface ListBackupPlanTemplatesInput {
 }
 
 export namespace ListBackupPlanTemplatesInput {
-  export function isa(o: any): o is ListBackupPlanTemplatesInput {
-    return __isa(o, "ListBackupPlanTemplatesInput");
-  }
+  export const isa = (o: any): o is ListBackupPlanTemplatesInput =>
+    __isa(o, "ListBackupPlanTemplatesInput");
 }
 
 export interface ListBackupPlanTemplatesOutput {
@@ -2293,9 +2221,8 @@ export interface ListBackupPlanTemplatesOutput {
 }
 
 export namespace ListBackupPlanTemplatesOutput {
-  export function isa(o: any): o is ListBackupPlanTemplatesOutput {
-    return __isa(o, "ListBackupPlanTemplatesOutput");
-  }
+  export const isa = (o: any): o is ListBackupPlanTemplatesOutput =>
+    __isa(o, "ListBackupPlanTemplatesOutput");
 }
 
 export interface ListBackupPlanVersionsInput {
@@ -2320,9 +2247,8 @@ export interface ListBackupPlanVersionsInput {
 }
 
 export namespace ListBackupPlanVersionsInput {
-  export function isa(o: any): o is ListBackupPlanVersionsInput {
-    return __isa(o, "ListBackupPlanVersionsInput");
-  }
+  export const isa = (o: any): o is ListBackupPlanVersionsInput =>
+    __isa(o, "ListBackupPlanVersionsInput");
 }
 
 export interface ListBackupPlanVersionsOutput {
@@ -2342,9 +2268,8 @@ export interface ListBackupPlanVersionsOutput {
 }
 
 export namespace ListBackupPlanVersionsOutput {
-  export function isa(o: any): o is ListBackupPlanVersionsOutput {
-    return __isa(o, "ListBackupPlanVersionsOutput");
-  }
+  export const isa = (o: any): o is ListBackupPlanVersionsOutput =>
+    __isa(o, "ListBackupPlanVersionsOutput");
 }
 
 export interface ListBackupPlansInput {
@@ -2370,9 +2295,8 @@ export interface ListBackupPlansInput {
 }
 
 export namespace ListBackupPlansInput {
-  export function isa(o: any): o is ListBackupPlansInput {
-    return __isa(o, "ListBackupPlansInput");
-  }
+  export const isa = (o: any): o is ListBackupPlansInput =>
+    __isa(o, "ListBackupPlansInput");
 }
 
 export interface ListBackupPlansOutput {
@@ -2393,9 +2317,8 @@ export interface ListBackupPlansOutput {
 }
 
 export namespace ListBackupPlansOutput {
-  export function isa(o: any): o is ListBackupPlansOutput {
-    return __isa(o, "ListBackupPlansOutput");
-  }
+  export const isa = (o: any): o is ListBackupPlansOutput =>
+    __isa(o, "ListBackupPlansOutput");
 }
 
 export interface ListBackupSelectionsInput {
@@ -2420,9 +2343,8 @@ export interface ListBackupSelectionsInput {
 }
 
 export namespace ListBackupSelectionsInput {
-  export function isa(o: any): o is ListBackupSelectionsInput {
-    return __isa(o, "ListBackupSelectionsInput");
-  }
+  export const isa = (o: any): o is ListBackupSelectionsInput =>
+    __isa(o, "ListBackupSelectionsInput");
 }
 
 export interface ListBackupSelectionsOutput {
@@ -2443,9 +2365,8 @@ export interface ListBackupSelectionsOutput {
 }
 
 export namespace ListBackupSelectionsOutput {
-  export function isa(o: any): o is ListBackupSelectionsOutput {
-    return __isa(o, "ListBackupSelectionsOutput");
-  }
+  export const isa = (o: any): o is ListBackupSelectionsOutput =>
+    __isa(o, "ListBackupSelectionsOutput");
 }
 
 export interface ListBackupVaultsInput {
@@ -2465,9 +2386,8 @@ export interface ListBackupVaultsInput {
 }
 
 export namespace ListBackupVaultsInput {
-  export function isa(o: any): o is ListBackupVaultsInput {
-    return __isa(o, "ListBackupVaultsInput");
-  }
+  export const isa = (o: any): o is ListBackupVaultsInput =>
+    __isa(o, "ListBackupVaultsInput");
 }
 
 export interface ListBackupVaultsOutput {
@@ -2489,9 +2409,8 @@ export interface ListBackupVaultsOutput {
 }
 
 export namespace ListBackupVaultsOutput {
-  export function isa(o: any): o is ListBackupVaultsOutput {
-    return __isa(o, "ListBackupVaultsOutput");
-  }
+  export const isa = (o: any): o is ListBackupVaultsOutput =>
+    __isa(o, "ListBackupVaultsOutput");
 }
 
 export interface ListCopyJobsInput {
@@ -2562,9 +2481,8 @@ export interface ListCopyJobsInput {
 }
 
 export namespace ListCopyJobsInput {
-  export function isa(o: any): o is ListCopyJobsInput {
-    return __isa(o, "ListCopyJobsInput");
-  }
+  export const isa = (o: any): o is ListCopyJobsInput =>
+    __isa(o, "ListCopyJobsInput");
 }
 
 export interface ListCopyJobsOutput {
@@ -2582,9 +2500,8 @@ export interface ListCopyJobsOutput {
 }
 
 export namespace ListCopyJobsOutput {
-  export function isa(o: any): o is ListCopyJobsOutput {
-    return __isa(o, "ListCopyJobsOutput");
-  }
+  export const isa = (o: any): o is ListCopyJobsOutput =>
+    __isa(o, "ListCopyJobsOutput");
 }
 
 export interface ListProtectedResourcesInput {
@@ -2604,9 +2521,8 @@ export interface ListProtectedResourcesInput {
 }
 
 export namespace ListProtectedResourcesInput {
-  export function isa(o: any): o is ListProtectedResourcesInput {
-    return __isa(o, "ListProtectedResourcesInput");
-  }
+  export const isa = (o: any): o is ListProtectedResourcesInput =>
+    __isa(o, "ListProtectedResourcesInput");
 }
 
 export interface ListProtectedResourcesOutput {
@@ -2628,9 +2544,8 @@ export interface ListProtectedResourcesOutput {
 }
 
 export namespace ListProtectedResourcesOutput {
-  export function isa(o: any): o is ListProtectedResourcesOutput {
-    return __isa(o, "ListProtectedResourcesOutput");
-  }
+  export const isa = (o: any): o is ListProtectedResourcesOutput =>
+    __isa(o, "ListProtectedResourcesOutput");
 }
 
 export interface ListRecoveryPointsByBackupVaultInput {
@@ -2683,9 +2598,8 @@ export interface ListRecoveryPointsByBackupVaultInput {
 }
 
 export namespace ListRecoveryPointsByBackupVaultInput {
-  export function isa(o: any): o is ListRecoveryPointsByBackupVaultInput {
-    return __isa(o, "ListRecoveryPointsByBackupVaultInput");
-  }
+  export const isa = (o: any): o is ListRecoveryPointsByBackupVaultInput =>
+    __isa(o, "ListRecoveryPointsByBackupVaultInput");
 }
 
 export interface ListRecoveryPointsByBackupVaultOutput {
@@ -2706,9 +2620,8 @@ export interface ListRecoveryPointsByBackupVaultOutput {
 }
 
 export namespace ListRecoveryPointsByBackupVaultOutput {
-  export function isa(o: any): o is ListRecoveryPointsByBackupVaultOutput {
-    return __isa(o, "ListRecoveryPointsByBackupVaultOutput");
-  }
+  export const isa = (o: any): o is ListRecoveryPointsByBackupVaultOutput =>
+    __isa(o, "ListRecoveryPointsByBackupVaultOutput");
 }
 
 export interface ListRecoveryPointsByResourceInput {
@@ -2734,9 +2647,8 @@ export interface ListRecoveryPointsByResourceInput {
 }
 
 export namespace ListRecoveryPointsByResourceInput {
-  export function isa(o: any): o is ListRecoveryPointsByResourceInput {
-    return __isa(o, "ListRecoveryPointsByResourceInput");
-  }
+  export const isa = (o: any): o is ListRecoveryPointsByResourceInput =>
+    __isa(o, "ListRecoveryPointsByResourceInput");
 }
 
 export interface ListRecoveryPointsByResourceOutput {
@@ -2757,9 +2669,8 @@ export interface ListRecoveryPointsByResourceOutput {
 }
 
 export namespace ListRecoveryPointsByResourceOutput {
-  export function isa(o: any): o is ListRecoveryPointsByResourceOutput {
-    return __isa(o, "ListRecoveryPointsByResourceOutput");
-  }
+  export const isa = (o: any): o is ListRecoveryPointsByResourceOutput =>
+    __isa(o, "ListRecoveryPointsByResourceOutput");
 }
 
 export interface ListRestoreJobsInput {
@@ -2779,9 +2690,8 @@ export interface ListRestoreJobsInput {
 }
 
 export namespace ListRestoreJobsInput {
-  export function isa(o: any): o is ListRestoreJobsInput {
-    return __isa(o, "ListRestoreJobsInput");
-  }
+  export const isa = (o: any): o is ListRestoreJobsInput =>
+    __isa(o, "ListRestoreJobsInput");
 }
 
 export interface ListRestoreJobsOutput {
@@ -2802,9 +2712,8 @@ export interface ListRestoreJobsOutput {
 }
 
 export namespace ListRestoreJobsOutput {
-  export function isa(o: any): o is ListRestoreJobsOutput {
-    return __isa(o, "ListRestoreJobsOutput");
-  }
+  export const isa = (o: any): o is ListRestoreJobsOutput =>
+    __isa(o, "ListRestoreJobsOutput");
 }
 
 export interface ListTagsInput {
@@ -2831,9 +2740,7 @@ export interface ListTagsInput {
 }
 
 export namespace ListTagsInput {
-  export function isa(o: any): o is ListTagsInput {
-    return __isa(o, "ListTagsInput");
-  }
+  export const isa = (o: any): o is ListTagsInput => __isa(o, "ListTagsInput");
 }
 
 export interface ListTagsOutput {
@@ -2854,9 +2761,8 @@ export interface ListTagsOutput {
 }
 
 export namespace ListTagsOutput {
-  export function isa(o: any): o is ListTagsOutput {
-    return __isa(o, "ListTagsOutput");
-  }
+  export const isa = (o: any): o is ListTagsOutput =>
+    __isa(o, "ListTagsOutput");
 }
 
 /**
@@ -2881,9 +2787,8 @@ export interface MissingParameterValueException
 }
 
 export namespace MissingParameterValueException {
-  export function isa(o: any): o is MissingParameterValueException {
-    return __isa(o, "MissingParameterValueException");
-  }
+  export const isa = (o: any): o is MissingParameterValueException =>
+    __isa(o, "MissingParameterValueException");
 }
 
 /**
@@ -2913,9 +2818,8 @@ export interface ProtectedResource {
 }
 
 export namespace ProtectedResource {
-  export function isa(o: any): o is ProtectedResource {
-    return __isa(o, "ProtectedResource");
-  }
+  export const isa = (o: any): o is ProtectedResource =>
+    __isa(o, "ProtectedResource");
 }
 
 export interface PutBackupVaultAccessPolicyInput {
@@ -2934,9 +2838,8 @@ export interface PutBackupVaultAccessPolicyInput {
 }
 
 export namespace PutBackupVaultAccessPolicyInput {
-  export function isa(o: any): o is PutBackupVaultAccessPolicyInput {
-    return __isa(o, "PutBackupVaultAccessPolicyInput");
-  }
+  export const isa = (o: any): o is PutBackupVaultAccessPolicyInput =>
+    __isa(o, "PutBackupVaultAccessPolicyInput");
 }
 
 export interface PutBackupVaultNotificationsInput {
@@ -2962,9 +2865,8 @@ export interface PutBackupVaultNotificationsInput {
 }
 
 export namespace PutBackupVaultNotificationsInput {
-  export function isa(o: any): o is PutBackupVaultNotificationsInput {
-    return __isa(o, "PutBackupVaultNotificationsInput");
-  }
+  export const isa = (o: any): o is PutBackupVaultNotificationsInput =>
+    __isa(o, "PutBackupVaultNotificationsInput");
 }
 
 /**
@@ -3082,9 +2984,8 @@ export interface RecoveryPointByBackupVault {
 }
 
 export namespace RecoveryPointByBackupVault {
-  export function isa(o: any): o is RecoveryPointByBackupVault {
-    return __isa(o, "RecoveryPointByBackupVault");
-  }
+  export const isa = (o: any): o is RecoveryPointByBackupVault =>
+    __isa(o, "RecoveryPointByBackupVault");
 }
 
 /**
@@ -3131,9 +3032,8 @@ export interface RecoveryPointByResource {
 }
 
 export namespace RecoveryPointByResource {
-  export function isa(o: any): o is RecoveryPointByResource {
-    return __isa(o, "RecoveryPointByResource");
-  }
+  export const isa = (o: any): o is RecoveryPointByResource =>
+    __isa(o, "RecoveryPointByResource");
 }
 
 /**
@@ -3167,9 +3067,8 @@ export interface RecoveryPointCreator {
 }
 
 export namespace RecoveryPointCreator {
-  export function isa(o: any): o is RecoveryPointCreator {
-    return __isa(o, "RecoveryPointCreator");
-  }
+  export const isa = (o: any): o is RecoveryPointCreator =>
+    __isa(o, "RecoveryPointCreator");
 }
 
 export enum RecoveryPointStatus {
@@ -3201,9 +3100,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 export enum RestoreJobStatus {
@@ -3288,9 +3186,8 @@ export interface RestoreJobsListMember {
 }
 
 export namespace RestoreJobsListMember {
-  export function isa(o: any): o is RestoreJobsListMember {
-    return __isa(o, "RestoreJobsListMember");
-  }
+  export const isa = (o: any): o is RestoreJobsListMember =>
+    __isa(o, "RestoreJobsListMember");
 }
 
 /**
@@ -3315,9 +3212,8 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return __isa(o, "ServiceUnavailableException");
-  }
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 export interface StartBackupJobInput {
@@ -3377,9 +3273,8 @@ export interface StartBackupJobInput {
 }
 
 export namespace StartBackupJobInput {
-  export function isa(o: any): o is StartBackupJobInput {
-    return __isa(o, "StartBackupJobInput");
-  }
+  export const isa = (o: any): o is StartBackupJobInput =>
+    __isa(o, "StartBackupJobInput");
 }
 
 export interface StartBackupJobOutput {
@@ -3405,9 +3300,8 @@ export interface StartBackupJobOutput {
 }
 
 export namespace StartBackupJobOutput {
-  export function isa(o: any): o is StartBackupJobOutput {
-    return __isa(o, "StartBackupJobOutput");
-  }
+  export const isa = (o: any): o is StartBackupJobOutput =>
+    __isa(o, "StartBackupJobOutput");
 }
 
 export interface StartCopyJobInput {
@@ -3451,9 +3345,8 @@ export interface StartCopyJobInput {
 }
 
 export namespace StartCopyJobInput {
-  export function isa(o: any): o is StartCopyJobInput {
-    return __isa(o, "StartCopyJobInput");
-  }
+  export const isa = (o: any): o is StartCopyJobInput =>
+    __isa(o, "StartCopyJobInput");
 }
 
 export interface StartCopyJobOutput {
@@ -3470,9 +3363,8 @@ export interface StartCopyJobOutput {
 }
 
 export namespace StartCopyJobOutput {
-  export function isa(o: any): o is StartCopyJobOutput {
-    return __isa(o, "StartCopyJobOutput");
-  }
+  export const isa = (o: any): o is StartCopyJobOutput =>
+    __isa(o, "StartCopyJobOutput");
 }
 
 export interface StartRestoreJobInput {
@@ -3569,9 +3461,8 @@ export interface StartRestoreJobInput {
 }
 
 export namespace StartRestoreJobInput {
-  export function isa(o: any): o is StartRestoreJobInput {
-    return __isa(o, "StartRestoreJobInput");
-  }
+  export const isa = (o: any): o is StartRestoreJobInput =>
+    __isa(o, "StartRestoreJobInput");
 }
 
 export interface StartRestoreJobOutput {
@@ -3583,9 +3474,8 @@ export interface StartRestoreJobOutput {
 }
 
 export namespace StartRestoreJobOutput {
-  export function isa(o: any): o is StartRestoreJobOutput {
-    return __isa(o, "StartRestoreJobOutput");
-  }
+  export const isa = (o: any): o is StartRestoreJobOutput =>
+    __isa(o, "StartRestoreJobOutput");
 }
 
 export interface StopBackupJobInput {
@@ -3597,9 +3487,8 @@ export interface StopBackupJobInput {
 }
 
 export namespace StopBackupJobInput {
-  export function isa(o: any): o is StopBackupJobInput {
-    return __isa(o, "StopBackupJobInput");
-  }
+  export const isa = (o: any): o is StopBackupJobInput =>
+    __isa(o, "StopBackupJobInput");
 }
 
 export enum StorageClass {
@@ -3624,9 +3513,8 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
-  export function isa(o: any): o is TagResourceInput {
-    return __isa(o, "TagResourceInput");
-  }
+  export const isa = (o: any): o is TagResourceInput =>
+    __isa(o, "TagResourceInput");
 }
 
 export interface UntagResourceInput {
@@ -3644,9 +3532,8 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
-  export function isa(o: any): o is UntagResourceInput {
-    return __isa(o, "UntagResourceInput");
-  }
+  export const isa = (o: any): o is UntagResourceInput =>
+    __isa(o, "UntagResourceInput");
 }
 
 export interface UpdateBackupPlanInput {
@@ -3664,9 +3551,8 @@ export interface UpdateBackupPlanInput {
 }
 
 export namespace UpdateBackupPlanInput {
-  export function isa(o: any): o is UpdateBackupPlanInput {
-    return __isa(o, "UpdateBackupPlanInput");
-  }
+  export const isa = (o: any): o is UpdateBackupPlanInput =>
+    __isa(o, "UpdateBackupPlanInput");
 }
 
 export interface UpdateBackupPlanOutput {
@@ -3698,9 +3584,8 @@ export interface UpdateBackupPlanOutput {
 }
 
 export namespace UpdateBackupPlanOutput {
-  export function isa(o: any): o is UpdateBackupPlanOutput {
-    return __isa(o, "UpdateBackupPlanOutput");
-  }
+  export const isa = (o: any): o is UpdateBackupPlanOutput =>
+    __isa(o, "UpdateBackupPlanOutput");
 }
 
 export interface UpdateRecoveryPointLifecycleInput {
@@ -3731,9 +3616,8 @@ export interface UpdateRecoveryPointLifecycleInput {
 }
 
 export namespace UpdateRecoveryPointLifecycleInput {
-  export function isa(o: any): o is UpdateRecoveryPointLifecycleInput {
-    return __isa(o, "UpdateRecoveryPointLifecycleInput");
-  }
+  export const isa = (o: any): o is UpdateRecoveryPointLifecycleInput =>
+    __isa(o, "UpdateRecoveryPointLifecycleInput");
 }
 
 export interface UpdateRecoveryPointLifecycleOutput {
@@ -3769,7 +3653,6 @@ export interface UpdateRecoveryPointLifecycleOutput {
 }
 
 export namespace UpdateRecoveryPointLifecycleOutput {
-  export function isa(o: any): o is UpdateRecoveryPointLifecycleOutput {
-    return __isa(o, "UpdateRecoveryPointLifecycleOutput");
-  }
+  export const isa = (o: any): o is UpdateRecoveryPointLifecycleOutput =>
+    __isa(o, "UpdateRecoveryPointLifecycleOutput");
 }

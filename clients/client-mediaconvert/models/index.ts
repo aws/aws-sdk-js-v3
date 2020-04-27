@@ -85,9 +85,7 @@ export interface AacSettings {
 }
 
 export namespace AacSettings {
-  export function isa(o: any): o is AacSettings {
-    return __isa(o, "AacSettings");
-  }
+  export const isa = (o: any): o is AacSettings => __isa(o, "AacSettings");
 }
 
 export enum AacSpecification {
@@ -182,9 +180,7 @@ export interface Ac3Settings {
 }
 
 export namespace Ac3Settings {
-  export function isa(o: any): o is Ac3Settings {
-    return __isa(o, "Ac3Settings");
-  }
+  export const isa = (o: any): o is Ac3Settings => __isa(o, "Ac3Settings");
 }
 
 export enum AccelerationMode {
@@ -205,9 +201,8 @@ export interface AccelerationSettings {
 }
 
 export namespace AccelerationSettings {
-  export function isa(o: any): o is AccelerationSettings {
-    return __isa(o, "AccelerationSettings");
-  }
+  export const isa = (o: any): o is AccelerationSettings =>
+    __isa(o, "AccelerationSettings");
 }
 
 export enum AccelerationStatus {
@@ -245,9 +240,7 @@ export interface AiffSettings {
 }
 
 export namespace AiffSettings {
-  export function isa(o: any): o is AiffSettings {
-    return __isa(o, "AiffSettings");
-  }
+  export const isa = (o: any): o is AiffSettings => __isa(o, "AiffSettings");
 }
 
 export enum AlphaBehavior {
@@ -282,9 +275,8 @@ export interface AncillarySourceSettings {
 }
 
 export namespace AncillarySourceSettings {
-  export function isa(o: any): o is AncillarySourceSettings {
-    return __isa(o, "AncillarySourceSettings");
-  }
+  export const isa = (o: any): o is AncillarySourceSettings =>
+    __isa(o, "AncillarySourceSettings");
 }
 
 export enum AncillaryTerminateCaptions {
@@ -306,9 +298,8 @@ export interface AssociateCertificateRequest {
 }
 
 export namespace AssociateCertificateRequest {
-  export function isa(o: any): o is AssociateCertificateRequest {
-    return __isa(o, "AssociateCertificateRequest");
-  }
+  export const isa = (o: any): o is AssociateCertificateRequest =>
+    __isa(o, "AssociateCertificateRequest");
 }
 
 export interface AssociateCertificateResponse {
@@ -316,9 +307,8 @@ export interface AssociateCertificateResponse {
 }
 
 export namespace AssociateCertificateResponse {
-  export function isa(o: any): o is AssociateCertificateResponse {
-    return __isa(o, "AssociateCertificateResponse");
-  }
+  export const isa = (o: any): o is AssociateCertificateResponse =>
+    __isa(o, "AssociateCertificateResponse");
 }
 
 export enum AudioCodec {
@@ -385,9 +375,8 @@ export interface AudioCodecSettings {
 }
 
 export namespace AudioCodecSettings {
-  export function isa(o: any): o is AudioCodecSettings {
-    return __isa(o, "AudioCodecSettings");
-  }
+  export const isa = (o: any): o is AudioCodecSettings =>
+    __isa(o, "AudioCodecSettings");
 }
 
 export enum AudioDefaultSelection {
@@ -452,9 +441,8 @@ export interface AudioDescription {
 }
 
 export namespace AudioDescription {
-  export function isa(o: any): o is AudioDescription {
-    return __isa(o, "AudioDescription");
-  }
+  export const isa = (o: any): o is AudioDescription =>
+    __isa(o, "AudioDescription");
 }
 
 export enum AudioLanguageCodeControl {
@@ -521,9 +509,8 @@ export interface AudioNormalizationSettings {
 }
 
 export namespace AudioNormalizationSettings {
-  export function isa(o: any): o is AudioNormalizationSettings {
-    return __isa(o, "AudioNormalizationSettings");
-  }
+  export const isa = (o: any): o is AudioNormalizationSettings =>
+    __isa(o, "AudioNormalizationSettings");
 }
 
 /**
@@ -583,9 +570,7 @@ export interface AudioSelector {
 }
 
 export namespace AudioSelector {
-  export function isa(o: any): o is AudioSelector {
-    return __isa(o, "AudioSelector");
-  }
+  export const isa = (o: any): o is AudioSelector => __isa(o, "AudioSelector");
 }
 
 /**
@@ -600,9 +585,8 @@ export interface AudioSelectorGroup {
 }
 
 export namespace AudioSelectorGroup {
-  export function isa(o: any): o is AudioSelectorGroup {
-    return __isa(o, "AudioSelectorGroup");
-  }
+  export const isa = (o: any): o is AudioSelectorGroup =>
+    __isa(o, "AudioSelectorGroup");
 }
 
 export enum AudioSelectorType {
@@ -628,9 +612,7 @@ export interface AvailBlanking {
 }
 
 export namespace AvailBlanking {
-  export function isa(o: any): o is AvailBlanking {
-    return __isa(o, "AvailBlanking");
-  }
+  export const isa = (o: any): o is AvailBlanking => __isa(o, "AvailBlanking");
 }
 
 /**
@@ -645,9 +627,8 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export function isa(o: any): o is BadRequestException {
-    return __isa(o, "BadRequestException");
-  }
+  export const isa = (o: any): o is BadRequestException =>
+    __isa(o, "BadRequestException");
 }
 
 export enum BillingTagsSource {
@@ -753,9 +734,8 @@ export interface BurninDestinationSettings {
 }
 
 export namespace BurninDestinationSettings {
-  export function isa(o: any): o is BurninDestinationSettings {
-    return __isa(o, "BurninDestinationSettings");
-  }
+  export const isa = (o: any): o is BurninDestinationSettings =>
+    __isa(o, "BurninDestinationSettings");
 }
 
 export enum BurninSubtitleAlignment {
@@ -807,9 +787,8 @@ export interface CancelJobRequest {
 }
 
 export namespace CancelJobRequest {
-  export function isa(o: any): o is CancelJobRequest {
-    return __isa(o, "CancelJobRequest");
-  }
+  export const isa = (o: any): o is CancelJobRequest =>
+    __isa(o, "CancelJobRequest");
 }
 
 export interface CancelJobResponse {
@@ -817,9 +796,8 @@ export interface CancelJobResponse {
 }
 
 export namespace CancelJobResponse {
-  export function isa(o: any): o is CancelJobResponse {
-    return __isa(o, "CancelJobResponse");
-  }
+  export const isa = (o: any): o is CancelJobResponse =>
+    __isa(o, "CancelJobResponse");
 }
 
 /**
@@ -854,9 +832,8 @@ export interface CaptionDescription {
 }
 
 export namespace CaptionDescription {
-  export function isa(o: any): o is CaptionDescription {
-    return __isa(o, "CaptionDescription");
-  }
+  export const isa = (o: any): o is CaptionDescription =>
+    __isa(o, "CaptionDescription");
 }
 
 /**
@@ -886,9 +863,8 @@ export interface CaptionDescriptionPreset {
 }
 
 export namespace CaptionDescriptionPreset {
-  export function isa(o: any): o is CaptionDescriptionPreset {
-    return __isa(o, "CaptionDescriptionPreset");
-  }
+  export const isa = (o: any): o is CaptionDescriptionPreset =>
+    __isa(o, "CaptionDescriptionPreset");
 }
 
 /**
@@ -938,9 +914,8 @@ export interface CaptionDestinationSettings {
 }
 
 export namespace CaptionDestinationSettings {
-  export function isa(o: any): o is CaptionDestinationSettings {
-    return __isa(o, "CaptionDestinationSettings");
-  }
+  export const isa = (o: any): o is CaptionDestinationSettings =>
+    __isa(o, "CaptionDestinationSettings");
 }
 
 export enum CaptionDestinationType {
@@ -980,9 +955,8 @@ export interface CaptionSelector {
 }
 
 export namespace CaptionSelector {
-  export function isa(o: any): o is CaptionSelector {
-    return __isa(o, "CaptionSelector");
-  }
+  export const isa = (o: any): o is CaptionSelector =>
+    __isa(o, "CaptionSelector");
 }
 
 /**
@@ -1027,9 +1001,8 @@ export interface CaptionSourceSettings {
 }
 
 export namespace CaptionSourceSettings {
-  export function isa(o: any): o is CaptionSourceSettings {
-    return __isa(o, "CaptionSourceSettings");
-  }
+  export const isa = (o: any): o is CaptionSourceSettings =>
+    __isa(o, "CaptionSourceSettings");
 }
 
 export enum CaptionSourceType {
@@ -1059,9 +1032,8 @@ export interface ChannelMapping {
 }
 
 export namespace ChannelMapping {
-  export function isa(o: any): o is ChannelMapping {
-    return __isa(o, "ChannelMapping");
-  }
+  export const isa = (o: any): o is ChannelMapping =>
+    __isa(o, "ChannelMapping");
 }
 
 /**
@@ -1081,9 +1053,8 @@ export interface CmafAdditionalManifest {
 }
 
 export namespace CmafAdditionalManifest {
-  export function isa(o: any): o is CmafAdditionalManifest {
-    return __isa(o, "CmafAdditionalManifest");
-  }
+  export const isa = (o: any): o is CmafAdditionalManifest =>
+    __isa(o, "CmafAdditionalManifest");
 }
 
 export enum CmafClientCache {
@@ -1133,9 +1104,8 @@ export interface CmafEncryptionSettings {
 }
 
 export namespace CmafEncryptionSettings {
-  export function isa(o: any): o is CmafEncryptionSettings {
-    return __isa(o, "CmafEncryptionSettings");
-  }
+  export const isa = (o: any): o is CmafEncryptionSettings =>
+    __isa(o, "CmafEncryptionSettings");
 }
 
 export enum CmafEncryptionType {
@@ -1247,9 +1217,8 @@ export interface CmafGroupSettings {
 }
 
 export namespace CmafGroupSettings {
-  export function isa(o: any): o is CmafGroupSettings {
-    return __isa(o, "CmafGroupSettings");
-  }
+  export const isa = (o: any): o is CmafGroupSettings =>
+    __isa(o, "CmafGroupSettings");
 }
 
 export enum CmafInitializationVectorInManifest {
@@ -1329,9 +1298,7 @@ export interface CmfcSettings {
 }
 
 export namespace CmfcSettings {
-  export function isa(o: any): o is CmfcSettings {
-    return __isa(o, "CmfcSettings");
-  }
+  export const isa = (o: any): o is CmfcSettings => __isa(o, "CmfcSettings");
 }
 
 /**
@@ -1371,9 +1338,8 @@ export interface ColorCorrector {
 }
 
 export namespace ColorCorrector {
-  export function isa(o: any): o is ColorCorrector {
-    return __isa(o, "ColorCorrector");
-  }
+  export const isa = (o: any): o is ColorCorrector =>
+    __isa(o, "ColorCorrector");
 }
 
 export enum ColorMetadata {
@@ -1416,9 +1382,8 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export function isa(o: any): o is ConflictException {
-    return __isa(o, "ConflictException");
-  }
+  export const isa = (o: any): o is ConflictException =>
+    __isa(o, "ConflictException");
 }
 
 /**
@@ -1468,9 +1433,8 @@ export interface ContainerSettings {
 }
 
 export namespace ContainerSettings {
-  export function isa(o: any): o is ContainerSettings {
-    return __isa(o, "ContainerSettings");
-  }
+  export const isa = (o: any): o is ContainerSettings =>
+    __isa(o, "ContainerSettings");
 }
 
 export enum ContainerType {
@@ -1550,9 +1514,8 @@ export interface CreateJobRequest {
 }
 
 export namespace CreateJobRequest {
-  export function isa(o: any): o is CreateJobRequest {
-    return __isa(o, "CreateJobRequest");
-  }
+  export const isa = (o: any): o is CreateJobRequest =>
+    __isa(o, "CreateJobRequest");
 }
 
 export interface CreateJobResponse {
@@ -1564,9 +1527,8 @@ export interface CreateJobResponse {
 }
 
 export namespace CreateJobResponse {
-  export function isa(o: any): o is CreateJobResponse {
-    return __isa(o, "CreateJobResponse");
-  }
+  export const isa = (o: any): o is CreateJobResponse =>
+    __isa(o, "CreateJobResponse");
 }
 
 export interface CreateJobTemplateRequest {
@@ -1618,9 +1580,8 @@ export interface CreateJobTemplateRequest {
 }
 
 export namespace CreateJobTemplateRequest {
-  export function isa(o: any): o is CreateJobTemplateRequest {
-    return __isa(o, "CreateJobTemplateRequest");
-  }
+  export const isa = (o: any): o is CreateJobTemplateRequest =>
+    __isa(o, "CreateJobTemplateRequest");
 }
 
 export interface CreateJobTemplateResponse {
@@ -1632,9 +1593,8 @@ export interface CreateJobTemplateResponse {
 }
 
 export namespace CreateJobTemplateResponse {
-  export function isa(o: any): o is CreateJobTemplateResponse {
-    return __isa(o, "CreateJobTemplateResponse");
-  }
+  export const isa = (o: any): o is CreateJobTemplateResponse =>
+    __isa(o, "CreateJobTemplateResponse");
 }
 
 export interface CreatePresetRequest {
@@ -1666,9 +1626,8 @@ export interface CreatePresetRequest {
 }
 
 export namespace CreatePresetRequest {
-  export function isa(o: any): o is CreatePresetRequest {
-    return __isa(o, "CreatePresetRequest");
-  }
+  export const isa = (o: any): o is CreatePresetRequest =>
+    __isa(o, "CreatePresetRequest");
 }
 
 export interface CreatePresetResponse {
@@ -1680,9 +1639,8 @@ export interface CreatePresetResponse {
 }
 
 export namespace CreatePresetResponse {
-  export function isa(o: any): o is CreatePresetResponse {
-    return __isa(o, "CreatePresetResponse");
-  }
+  export const isa = (o: any): o is CreatePresetResponse =>
+    __isa(o, "CreatePresetResponse");
 }
 
 export interface CreateQueueRequest {
@@ -1719,9 +1677,8 @@ export interface CreateQueueRequest {
 }
 
 export namespace CreateQueueRequest {
-  export function isa(o: any): o is CreateQueueRequest {
-    return __isa(o, "CreateQueueRequest");
-  }
+  export const isa = (o: any): o is CreateQueueRequest =>
+    __isa(o, "CreateQueueRequest");
 }
 
 export interface CreateQueueResponse {
@@ -1733,9 +1690,8 @@ export interface CreateQueueResponse {
 }
 
 export namespace CreateQueueResponse {
-  export function isa(o: any): o is CreateQueueResponse {
-    return __isa(o, "CreateQueueResponse");
-  }
+  export const isa = (o: any): o is CreateQueueResponse =>
+    __isa(o, "CreateQueueResponse");
 }
 
 /**
@@ -1755,9 +1711,8 @@ export interface DashAdditionalManifest {
 }
 
 export namespace DashAdditionalManifest {
-  export function isa(o: any): o is DashAdditionalManifest {
-    return __isa(o, "DashAdditionalManifest");
-  }
+  export const isa = (o: any): o is DashAdditionalManifest =>
+    __isa(o, "DashAdditionalManifest");
 }
 
 /**
@@ -1777,9 +1732,8 @@ export interface DashIsoEncryptionSettings {
 }
 
 export namespace DashIsoEncryptionSettings {
-  export function isa(o: any): o is DashIsoEncryptionSettings {
-    return __isa(o, "DashIsoEncryptionSettings");
-  }
+  export const isa = (o: any): o is DashIsoEncryptionSettings =>
+    __isa(o, "DashIsoEncryptionSettings");
 }
 
 /**
@@ -1851,9 +1805,8 @@ export interface DashIsoGroupSettings {
 }
 
 export namespace DashIsoGroupSettings {
-  export function isa(o: any): o is DashIsoGroupSettings {
-    return __isa(o, "DashIsoGroupSettings");
-  }
+  export const isa = (o: any): o is DashIsoGroupSettings =>
+    __isa(o, "DashIsoGroupSettings");
 }
 
 export enum DashIsoHbbtvCompliance {
@@ -1916,9 +1869,7 @@ export interface Deinterlacer {
 }
 
 export namespace Deinterlacer {
-  export function isa(o: any): o is Deinterlacer {
-    return __isa(o, "Deinterlacer");
-  }
+  export const isa = (o: any): o is Deinterlacer => __isa(o, "Deinterlacer");
 }
 
 export enum DeinterlacerControl {
@@ -1941,9 +1892,8 @@ export interface DeleteJobTemplateRequest {
 }
 
 export namespace DeleteJobTemplateRequest {
-  export function isa(o: any): o is DeleteJobTemplateRequest {
-    return __isa(o, "DeleteJobTemplateRequest");
-  }
+  export const isa = (o: any): o is DeleteJobTemplateRequest =>
+    __isa(o, "DeleteJobTemplateRequest");
 }
 
 export interface DeleteJobTemplateResponse {
@@ -1951,9 +1901,8 @@ export interface DeleteJobTemplateResponse {
 }
 
 export namespace DeleteJobTemplateResponse {
-  export function isa(o: any): o is DeleteJobTemplateResponse {
-    return __isa(o, "DeleteJobTemplateResponse");
-  }
+  export const isa = (o: any): o is DeleteJobTemplateResponse =>
+    __isa(o, "DeleteJobTemplateResponse");
 }
 
 export interface DeletePresetRequest {
@@ -1965,9 +1914,8 @@ export interface DeletePresetRequest {
 }
 
 export namespace DeletePresetRequest {
-  export function isa(o: any): o is DeletePresetRequest {
-    return __isa(o, "DeletePresetRequest");
-  }
+  export const isa = (o: any): o is DeletePresetRequest =>
+    __isa(o, "DeletePresetRequest");
 }
 
 export interface DeletePresetResponse {
@@ -1975,9 +1923,8 @@ export interface DeletePresetResponse {
 }
 
 export namespace DeletePresetResponse {
-  export function isa(o: any): o is DeletePresetResponse {
-    return __isa(o, "DeletePresetResponse");
-  }
+  export const isa = (o: any): o is DeletePresetResponse =>
+    __isa(o, "DeletePresetResponse");
 }
 
 export interface DeleteQueueRequest {
@@ -1989,9 +1936,8 @@ export interface DeleteQueueRequest {
 }
 
 export namespace DeleteQueueRequest {
-  export function isa(o: any): o is DeleteQueueRequest {
-    return __isa(o, "DeleteQueueRequest");
-  }
+  export const isa = (o: any): o is DeleteQueueRequest =>
+    __isa(o, "DeleteQueueRequest");
 }
 
 export interface DeleteQueueResponse {
@@ -1999,9 +1945,8 @@ export interface DeleteQueueResponse {
 }
 
 export namespace DeleteQueueResponse {
-  export function isa(o: any): o is DeleteQueueResponse {
-    return __isa(o, "DeleteQueueResponse");
-  }
+  export const isa = (o: any): o is DeleteQueueResponse =>
+    __isa(o, "DeleteQueueResponse");
 }
 
 export enum DescribeEndpointsMode {
@@ -2031,9 +1976,8 @@ export interface DescribeEndpointsRequest {
 }
 
 export namespace DescribeEndpointsRequest {
-  export function isa(o: any): o is DescribeEndpointsRequest {
-    return __isa(o, "DescribeEndpointsRequest");
-  }
+  export const isa = (o: any): o is DescribeEndpointsRequest =>
+    __isa(o, "DescribeEndpointsRequest");
 }
 
 export interface DescribeEndpointsResponse {
@@ -2050,9 +1994,8 @@ export interface DescribeEndpointsResponse {
 }
 
 export namespace DescribeEndpointsResponse {
-  export function isa(o: any): o is DescribeEndpointsResponse {
-    return __isa(o, "DescribeEndpointsResponse");
-  }
+  export const isa = (o: any): o is DescribeEndpointsResponse =>
+    __isa(o, "DescribeEndpointsResponse");
 }
 
 /**
@@ -2067,9 +2010,8 @@ export interface DestinationSettings {
 }
 
 export namespace DestinationSettings {
-  export function isa(o: any): o is DestinationSettings {
-    return __isa(o, "DestinationSettings");
-  }
+  export const isa = (o: any): o is DestinationSettings =>
+    __isa(o, "DestinationSettings");
 }
 
 export interface DisassociateCertificateRequest {
@@ -2081,9 +2023,8 @@ export interface DisassociateCertificateRequest {
 }
 
 export namespace DisassociateCertificateRequest {
-  export function isa(o: any): o is DisassociateCertificateRequest {
-    return __isa(o, "DisassociateCertificateRequest");
-  }
+  export const isa = (o: any): o is DisassociateCertificateRequest =>
+    __isa(o, "DisassociateCertificateRequest");
 }
 
 export interface DisassociateCertificateResponse {
@@ -2091,9 +2032,8 @@ export interface DisassociateCertificateResponse {
 }
 
 export namespace DisassociateCertificateResponse {
-  export function isa(o: any): o is DisassociateCertificateResponse {
-    return __isa(o, "DisassociateCertificateResponse");
-  }
+  export const isa = (o: any): o is DisassociateCertificateResponse =>
+    __isa(o, "DisassociateCertificateResponse");
 }
 
 /**
@@ -2118,9 +2058,7 @@ export interface DolbyVision {
 }
 
 export namespace DolbyVision {
-  export function isa(o: any): o is DolbyVision {
-    return __isa(o, "DolbyVision");
-  }
+  export const isa = (o: any): o is DolbyVision => __isa(o, "DolbyVision");
 }
 
 /**
@@ -2140,9 +2078,8 @@ export interface DolbyVisionLevel6Metadata {
 }
 
 export namespace DolbyVisionLevel6Metadata {
-  export function isa(o: any): o is DolbyVisionLevel6Metadata {
-    return __isa(o, "DolbyVisionLevel6Metadata");
-  }
+  export const isa = (o: any): o is DolbyVisionLevel6Metadata =>
+    __isa(o, "DolbyVisionLevel6Metadata");
 }
 
 export enum DolbyVisionLevel6Mode {
@@ -2182,9 +2119,8 @@ export interface DvbNitSettings {
 }
 
 export namespace DvbNitSettings {
-  export function isa(o: any): o is DvbNitSettings {
-    return __isa(o, "DvbNitSettings");
-  }
+  export const isa = (o: any): o is DvbNitSettings =>
+    __isa(o, "DvbNitSettings");
 }
 
 /**
@@ -2214,9 +2150,8 @@ export interface DvbSdtSettings {
 }
 
 export namespace DvbSdtSettings {
-  export function isa(o: any): o is DvbSdtSettings {
-    return __isa(o, "DvbSdtSettings");
-  }
+  export const isa = (o: any): o is DvbSdtSettings =>
+    __isa(o, "DvbSdtSettings");
 }
 
 /**
@@ -2320,9 +2255,8 @@ export interface DvbSubDestinationSettings {
 }
 
 export namespace DvbSubDestinationSettings {
-  export function isa(o: any): o is DvbSubDestinationSettings {
-    return __isa(o, "DvbSubDestinationSettings");
-  }
+  export const isa = (o: any): o is DvbSubDestinationSettings =>
+    __isa(o, "DvbSubDestinationSettings");
 }
 
 /**
@@ -2337,9 +2271,8 @@ export interface DvbSubSourceSettings {
 }
 
 export namespace DvbSubSourceSettings {
-  export function isa(o: any): o is DvbSubSourceSettings {
-    return __isa(o, "DvbSubSourceSettings");
-  }
+  export const isa = (o: any): o is DvbSubSourceSettings =>
+    __isa(o, "DvbSubSourceSettings");
 }
 
 export enum DvbSubtitleAlignment {
@@ -2399,9 +2332,8 @@ export interface DvbTdtSettings {
 }
 
 export namespace DvbTdtSettings {
-  export function isa(o: any): o is DvbTdtSettings {
-    return __isa(o, "DvbTdtSettings");
-  }
+  export const isa = (o: any): o is DvbTdtSettings =>
+    __isa(o, "DvbTdtSettings");
 }
 
 export enum Eac3AtmosBitstreamMode {
@@ -2529,9 +2461,8 @@ export interface Eac3AtmosSettings {
 }
 
 export namespace Eac3AtmosSettings {
-  export function isa(o: any): o is Eac3AtmosSettings {
-    return __isa(o, "Eac3AtmosSettings");
-  }
+  export const isa = (o: any): o is Eac3AtmosSettings =>
+    __isa(o, "Eac3AtmosSettings");
 }
 
 export enum Eac3AtmosStereoDownmix {
@@ -2726,9 +2657,7 @@ export interface Eac3Settings {
 }
 
 export namespace Eac3Settings {
-  export function isa(o: any): o is Eac3Settings {
-    return __isa(o, "Eac3Settings");
-  }
+  export const isa = (o: any): o is Eac3Settings => __isa(o, "Eac3Settings");
 }
 
 export enum Eac3StereoDownmix {
@@ -2772,9 +2701,8 @@ export interface EmbeddedDestinationSettings {
 }
 
 export namespace EmbeddedDestinationSettings {
-  export function isa(o: any): o is EmbeddedDestinationSettings {
-    return __isa(o, "EmbeddedDestinationSettings");
-  }
+  export const isa = (o: any): o is EmbeddedDestinationSettings =>
+    __isa(o, "EmbeddedDestinationSettings");
 }
 
 /**
@@ -2804,9 +2732,8 @@ export interface EmbeddedSourceSettings {
 }
 
 export namespace EmbeddedSourceSettings {
-  export function isa(o: any): o is EmbeddedSourceSettings {
-    return __isa(o, "EmbeddedSourceSettings");
-  }
+  export const isa = (o: any): o is EmbeddedSourceSettings =>
+    __isa(o, "EmbeddedSourceSettings");
 }
 
 export enum EmbeddedTerminateCaptions {
@@ -2826,9 +2753,7 @@ export interface Endpoint {
 }
 
 export namespace Endpoint {
-  export function isa(o: any): o is Endpoint {
-    return __isa(o, "Endpoint");
-  }
+  export const isa = (o: any): o is Endpoint => __isa(o, "Endpoint");
 }
 
 /**
@@ -2843,9 +2768,8 @@ export interface EsamManifestConfirmConditionNotification {
 }
 
 export namespace EsamManifestConfirmConditionNotification {
-  export function isa(o: any): o is EsamManifestConfirmConditionNotification {
-    return __isa(o, "EsamManifestConfirmConditionNotification");
-  }
+  export const isa = (o: any): o is EsamManifestConfirmConditionNotification =>
+    __isa(o, "EsamManifestConfirmConditionNotification");
 }
 
 /**
@@ -2870,9 +2794,7 @@ export interface EsamSettings {
 }
 
 export namespace EsamSettings {
-  export function isa(o: any): o is EsamSettings {
-    return __isa(o, "EsamSettings");
-  }
+  export const isa = (o: any): o is EsamSettings => __isa(o, "EsamSettings");
 }
 
 /**
@@ -2887,9 +2809,8 @@ export interface EsamSignalProcessingNotification {
 }
 
 export namespace EsamSignalProcessingNotification {
-  export function isa(o: any): o is EsamSignalProcessingNotification {
-    return __isa(o, "EsamSignalProcessingNotification");
-  }
+  export const isa = (o: any): o is EsamSignalProcessingNotification =>
+    __isa(o, "EsamSignalProcessingNotification");
 }
 
 export enum F4vMoovPlacement {
@@ -2909,9 +2830,7 @@ export interface F4vSettings {
 }
 
 export namespace F4vSettings {
-  export function isa(o: any): o is F4vSettings {
-    return __isa(o, "F4vSettings");
-  }
+  export const isa = (o: any): o is F4vSettings => __isa(o, "F4vSettings");
 }
 
 /**
@@ -2931,9 +2850,8 @@ export interface FileGroupSettings {
 }
 
 export namespace FileGroupSettings {
-  export function isa(o: any): o is FileGroupSettings {
-    return __isa(o, "FileGroupSettings");
-  }
+  export const isa = (o: any): o is FileGroupSettings =>
+    __isa(o, "FileGroupSettings");
 }
 
 export enum FileSourceConvert608To708 {
@@ -2963,9 +2881,8 @@ export interface FileSourceSettings {
 }
 
 export namespace FileSourceSettings {
-  export function isa(o: any): o is FileSourceSettings {
-    return __isa(o, "FileSourceSettings");
-  }
+  export const isa = (o: any): o is FileSourceSettings =>
+    __isa(o, "FileSourceSettings");
 }
 
 export enum FontScript {
@@ -2984,9 +2901,8 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export function isa(o: any): o is ForbiddenException {
-    return __isa(o, "ForbiddenException");
-  }
+  export const isa = (o: any): o is ForbiddenException =>
+    __isa(o, "ForbiddenException");
 }
 
 /**
@@ -3016,9 +2932,8 @@ export interface FrameCaptureSettings {
 }
 
 export namespace FrameCaptureSettings {
-  export function isa(o: any): o is FrameCaptureSettings {
-    return __isa(o, "FrameCaptureSettings");
-  }
+  export const isa = (o: any): o is FrameCaptureSettings =>
+    __isa(o, "FrameCaptureSettings");
 }
 
 export interface GetJobRequest {
@@ -3030,9 +2945,7 @@ export interface GetJobRequest {
 }
 
 export namespace GetJobRequest {
-  export function isa(o: any): o is GetJobRequest {
-    return __isa(o, "GetJobRequest");
-  }
+  export const isa = (o: any): o is GetJobRequest => __isa(o, "GetJobRequest");
 }
 
 export interface GetJobResponse {
@@ -3044,9 +2957,8 @@ export interface GetJobResponse {
 }
 
 export namespace GetJobResponse {
-  export function isa(o: any): o is GetJobResponse {
-    return __isa(o, "GetJobResponse");
-  }
+  export const isa = (o: any): o is GetJobResponse =>
+    __isa(o, "GetJobResponse");
 }
 
 export interface GetJobTemplateRequest {
@@ -3058,9 +2970,8 @@ export interface GetJobTemplateRequest {
 }
 
 export namespace GetJobTemplateRequest {
-  export function isa(o: any): o is GetJobTemplateRequest {
-    return __isa(o, "GetJobTemplateRequest");
-  }
+  export const isa = (o: any): o is GetJobTemplateRequest =>
+    __isa(o, "GetJobTemplateRequest");
 }
 
 export interface GetJobTemplateResponse {
@@ -3072,9 +2983,8 @@ export interface GetJobTemplateResponse {
 }
 
 export namespace GetJobTemplateResponse {
-  export function isa(o: any): o is GetJobTemplateResponse {
-    return __isa(o, "GetJobTemplateResponse");
-  }
+  export const isa = (o: any): o is GetJobTemplateResponse =>
+    __isa(o, "GetJobTemplateResponse");
 }
 
 export interface GetPresetRequest {
@@ -3086,9 +2996,8 @@ export interface GetPresetRequest {
 }
 
 export namespace GetPresetRequest {
-  export function isa(o: any): o is GetPresetRequest {
-    return __isa(o, "GetPresetRequest");
-  }
+  export const isa = (o: any): o is GetPresetRequest =>
+    __isa(o, "GetPresetRequest");
 }
 
 export interface GetPresetResponse {
@@ -3100,9 +3009,8 @@ export interface GetPresetResponse {
 }
 
 export namespace GetPresetResponse {
-  export function isa(o: any): o is GetPresetResponse {
-    return __isa(o, "GetPresetResponse");
-  }
+  export const isa = (o: any): o is GetPresetResponse =>
+    __isa(o, "GetPresetResponse");
 }
 
 export interface GetQueueRequest {
@@ -3114,9 +3022,8 @@ export interface GetQueueRequest {
 }
 
 export namespace GetQueueRequest {
-  export function isa(o: any): o is GetQueueRequest {
-    return __isa(o, "GetQueueRequest");
-  }
+  export const isa = (o: any): o is GetQueueRequest =>
+    __isa(o, "GetQueueRequest");
 }
 
 export interface GetQueueResponse {
@@ -3128,9 +3035,8 @@ export interface GetQueueResponse {
 }
 
 export namespace GetQueueResponse {
-  export function isa(o: any): o is GetQueueResponse {
-    return __isa(o, "GetQueueResponse");
-  }
+  export const isa = (o: any): o is GetQueueResponse =>
+    __isa(o, "GetQueueResponse");
 }
 
 export enum H264AdaptiveQuantization {
@@ -3247,9 +3153,8 @@ export interface H264QvbrSettings {
 }
 
 export namespace H264QvbrSettings {
-  export function isa(o: any): o is H264QvbrSettings {
-    return __isa(o, "H264QvbrSettings");
-  }
+  export const isa = (o: any): o is H264QvbrSettings =>
+    __isa(o, "H264QvbrSettings");
 }
 
 export enum H264RateControlMode {
@@ -3473,9 +3378,7 @@ export interface H264Settings {
 }
 
 export namespace H264Settings {
-  export function isa(o: any): o is H264Settings {
-    return __isa(o, "H264Settings");
-  }
+  export const isa = (o: any): o is H264Settings => __isa(o, "H264Settings");
 }
 
 export enum H264SlowPal {
@@ -3617,9 +3520,8 @@ export interface H265QvbrSettings {
 }
 
 export namespace H265QvbrSettings {
-  export function isa(o: any): o is H265QvbrSettings {
-    return __isa(o, "H265QvbrSettings");
-  }
+  export const isa = (o: any): o is H265QvbrSettings =>
+    __isa(o, "H265QvbrSettings");
 }
 
 export enum H265RateControlMode {
@@ -3842,9 +3744,7 @@ export interface H265Settings {
 }
 
 export namespace H265Settings {
-  export function isa(o: any): o is H265Settings {
-    return __isa(o, "H265Settings");
-  }
+  export const isa = (o: any): o is H265Settings => __isa(o, "H265Settings");
 }
 
 export enum H265SlowPal {
@@ -3955,9 +3855,7 @@ export interface Hdr10Metadata {
 }
 
 export namespace Hdr10Metadata {
-  export function isa(o: any): o is Hdr10Metadata {
-    return __isa(o, "Hdr10Metadata");
-  }
+  export const isa = (o: any): o is Hdr10Metadata => __isa(o, "Hdr10Metadata");
 }
 
 export enum HlsAdMarkers {
@@ -3982,9 +3880,8 @@ export interface HlsAdditionalManifest {
 }
 
 export namespace HlsAdditionalManifest {
-  export function isa(o: any): o is HlsAdditionalManifest {
-    return __isa(o, "HlsAdditionalManifest");
-  }
+  export const isa = (o: any): o is HlsAdditionalManifest =>
+    __isa(o, "HlsAdditionalManifest");
 }
 
 export enum HlsAudioOnlyContainer {
@@ -4026,9 +3923,8 @@ export interface HlsCaptionLanguageMapping {
 }
 
 export namespace HlsCaptionLanguageMapping {
-  export function isa(o: any): o is HlsCaptionLanguageMapping {
-    return __isa(o, "HlsCaptionLanguageMapping");
-  }
+  export const isa = (o: any): o is HlsCaptionLanguageMapping =>
+    __isa(o, "HlsCaptionLanguageMapping");
 }
 
 export enum HlsCaptionLanguageSetting {
@@ -4094,9 +3990,8 @@ export interface HlsEncryptionSettings {
 }
 
 export namespace HlsEncryptionSettings {
-  export function isa(o: any): o is HlsEncryptionSettings {
-    return __isa(o, "HlsEncryptionSettings");
-  }
+  export const isa = (o: any): o is HlsEncryptionSettings =>
+    __isa(o, "HlsEncryptionSettings");
 }
 
 export enum HlsEncryptionType {
@@ -4236,9 +4131,8 @@ export interface HlsGroupSettings {
 }
 
 export namespace HlsGroupSettings {
-  export function isa(o: any): o is HlsGroupSettings {
-    return __isa(o, "HlsGroupSettings");
-  }
+  export const isa = (o: any): o is HlsGroupSettings =>
+    __isa(o, "HlsGroupSettings");
 }
 
 export enum HlsIFrameOnlyManifest {
@@ -4323,9 +4217,7 @@ export interface HlsSettings {
 }
 
 export namespace HlsSettings {
-  export function isa(o: any): o is HlsSettings {
-    return __isa(o, "HlsSettings");
-  }
+  export const isa = (o: any): o is HlsSettings => __isa(o, "HlsSettings");
 }
 
 export enum HlsStreamInfResolution {
@@ -4356,9 +4248,7 @@ export interface Id3Insertion {
 }
 
 export namespace Id3Insertion {
-  export function isa(o: any): o is Id3Insertion {
-    return __isa(o, "Id3Insertion");
-  }
+  export const isa = (o: any): o is Id3Insertion => __isa(o, "Id3Insertion");
 }
 
 /**
@@ -4373,9 +4263,7 @@ export interface ImageInserter {
 }
 
 export namespace ImageInserter {
-  export function isa(o: any): o is ImageInserter {
-    return __isa(o, "ImageInserter");
-  }
+  export const isa = (o: any): o is ImageInserter => __isa(o, "ImageInserter");
 }
 
 /**
@@ -4390,9 +4278,8 @@ export interface ImscDestinationSettings {
 }
 
 export namespace ImscDestinationSettings {
-  export function isa(o: any): o is ImscDestinationSettings {
-    return __isa(o, "ImscDestinationSettings");
-  }
+  export const isa = (o: any): o is ImscDestinationSettings =>
+    __isa(o, "ImscDestinationSettings");
 }
 
 export enum ImscStylePassthrough {
@@ -4502,9 +4389,7 @@ export interface Input {
 }
 
 export namespace Input {
-  export function isa(o: any): o is Input {
-    return __isa(o, "Input");
-  }
+  export const isa = (o: any): o is Input => __isa(o, "Input");
 }
 
 /**
@@ -4524,9 +4409,7 @@ export interface InputClipping {
 }
 
 export namespace InputClipping {
-  export function isa(o: any): o is InputClipping {
-    return __isa(o, "InputClipping");
-  }
+  export const isa = (o: any): o is InputClipping => __isa(o, "InputClipping");
 }
 
 export enum InputDeblockFilter {
@@ -4561,9 +4444,8 @@ export interface InputDecryptionSettings {
 }
 
 export namespace InputDecryptionSettings {
-  export function isa(o: any): o is InputDecryptionSettings {
-    return __isa(o, "InputDecryptionSettings");
-  }
+  export const isa = (o: any): o is InputDecryptionSettings =>
+    __isa(o, "InputDecryptionSettings");
 }
 
 export enum InputDenoiseFilter {
@@ -4677,9 +4559,7 @@ export interface InputTemplate {
 }
 
 export namespace InputTemplate {
-  export function isa(o: any): o is InputTemplate {
-    return __isa(o, "InputTemplate");
-  }
+  export const isa = (o: any): o is InputTemplate => __isa(o, "InputTemplate");
 }
 
 export enum InputTimecodeSource {
@@ -4750,9 +4630,8 @@ export interface InsertableImage {
 }
 
 export namespace InsertableImage {
-  export function isa(o: any): o is InsertableImage {
-    return __isa(o, "InsertableImage");
-  }
+  export const isa = (o: any): o is InsertableImage =>
+    __isa(o, "InsertableImage");
 }
 
 /**
@@ -4767,9 +4646,8 @@ export interface InternalServerErrorException
 }
 
 export namespace InternalServerErrorException {
-  export function isa(o: any): o is InternalServerErrorException {
-    return __isa(o, "InternalServerErrorException");
-  }
+  export const isa = (o: any): o is InternalServerErrorException =>
+    __isa(o, "InternalServerErrorException");
 }
 
 /**
@@ -4894,9 +4772,7 @@ export interface Job {
 }
 
 export namespace Job {
-  export function isa(o: any): o is Job {
-    return __isa(o, "Job");
-  }
+  export const isa = (o: any): o is Job => __isa(o, "Job");
 }
 
 /**
@@ -4916,9 +4792,7 @@ export interface JobMessages {
 }
 
 export namespace JobMessages {
-  export function isa(o: any): o is JobMessages {
-    return __isa(o, "JobMessages");
-  }
+  export const isa = (o: any): o is JobMessages => __isa(o, "JobMessages");
 }
 
 export enum JobPhase {
@@ -4979,9 +4853,7 @@ export interface JobSettings {
 }
 
 export namespace JobSettings {
-  export function isa(o: any): o is JobSettings {
-    return __isa(o, "JobSettings");
-  }
+  export const isa = (o: any): o is JobSettings => __isa(o, "JobSettings");
 }
 
 export enum JobStatus {
@@ -5059,9 +4931,7 @@ export interface JobTemplate {
 }
 
 export namespace JobTemplate {
-  export function isa(o: any): o is JobTemplate {
-    return __isa(o, "JobTemplate");
-  }
+  export const isa = (o: any): o is JobTemplate => __isa(o, "JobTemplate");
 }
 
 export enum JobTemplateListBy {
@@ -5122,9 +4992,8 @@ export interface JobTemplateSettings {
 }
 
 export namespace JobTemplateSettings {
-  export function isa(o: any): o is JobTemplateSettings {
-    return __isa(o, "JobTemplateSettings");
-  }
+  export const isa = (o: any): o is JobTemplateSettings =>
+    __isa(o, "JobTemplateSettings");
 }
 
 export enum LanguageCode {
@@ -5350,9 +5219,8 @@ export interface ListJobTemplatesRequest {
 }
 
 export namespace ListJobTemplatesRequest {
-  export function isa(o: any): o is ListJobTemplatesRequest {
-    return __isa(o, "ListJobTemplatesRequest");
-  }
+  export const isa = (o: any): o is ListJobTemplatesRequest =>
+    __isa(o, "ListJobTemplatesRequest");
 }
 
 export interface ListJobTemplatesResponse {
@@ -5369,9 +5237,8 @@ export interface ListJobTemplatesResponse {
 }
 
 export namespace ListJobTemplatesResponse {
-  export function isa(o: any): o is ListJobTemplatesResponse {
-    return __isa(o, "ListJobTemplatesResponse");
-  }
+  export const isa = (o: any): o is ListJobTemplatesResponse =>
+    __isa(o, "ListJobTemplatesResponse");
 }
 
 export interface ListJobsRequest {
@@ -5403,9 +5270,8 @@ export interface ListJobsRequest {
 }
 
 export namespace ListJobsRequest {
-  export function isa(o: any): o is ListJobsRequest {
-    return __isa(o, "ListJobsRequest");
-  }
+  export const isa = (o: any): o is ListJobsRequest =>
+    __isa(o, "ListJobsRequest");
 }
 
 export interface ListJobsResponse {
@@ -5422,9 +5288,8 @@ export interface ListJobsResponse {
 }
 
 export namespace ListJobsResponse {
-  export function isa(o: any): o is ListJobsResponse {
-    return __isa(o, "ListJobsResponse");
-  }
+  export const isa = (o: any): o is ListJobsResponse =>
+    __isa(o, "ListJobsResponse");
 }
 
 export interface ListPresetsRequest {
@@ -5456,9 +5321,8 @@ export interface ListPresetsRequest {
 }
 
 export namespace ListPresetsRequest {
-  export function isa(o: any): o is ListPresetsRequest {
-    return __isa(o, "ListPresetsRequest");
-  }
+  export const isa = (o: any): o is ListPresetsRequest =>
+    __isa(o, "ListPresetsRequest");
 }
 
 export interface ListPresetsResponse {
@@ -5475,9 +5339,8 @@ export interface ListPresetsResponse {
 }
 
 export namespace ListPresetsResponse {
-  export function isa(o: any): o is ListPresetsResponse {
-    return __isa(o, "ListPresetsResponse");
-  }
+  export const isa = (o: any): o is ListPresetsResponse =>
+    __isa(o, "ListPresetsResponse");
 }
 
 export interface ListQueuesRequest {
@@ -5504,9 +5367,8 @@ export interface ListQueuesRequest {
 }
 
 export namespace ListQueuesRequest {
-  export function isa(o: any): o is ListQueuesRequest {
-    return __isa(o, "ListQueuesRequest");
-  }
+  export const isa = (o: any): o is ListQueuesRequest =>
+    __isa(o, "ListQueuesRequest");
 }
 
 export interface ListQueuesResponse {
@@ -5523,9 +5385,8 @@ export interface ListQueuesResponse {
 }
 
 export namespace ListQueuesResponse {
-  export function isa(o: any): o is ListQueuesResponse {
-    return __isa(o, "ListQueuesResponse");
-  }
+  export const isa = (o: any): o is ListQueuesResponse =>
+    __isa(o, "ListQueuesResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -5537,9 +5398,8 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export function isa(o: any): o is ListTagsForResourceRequest {
-    return __isa(o, "ListTagsForResourceRequest");
-  }
+  export const isa = (o: any): o is ListTagsForResourceRequest =>
+    __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -5551,9 +5411,8 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export function isa(o: any): o is ListTagsForResourceResponse {
-    return __isa(o, "ListTagsForResourceResponse");
-  }
+  export const isa = (o: any): o is ListTagsForResourceResponse =>
+    __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum M2tsAudioBufferModel {
@@ -5613,9 +5472,8 @@ export interface M2tsScte35Esam {
 }
 
 export namespace M2tsScte35Esam {
-  export function isa(o: any): o is M2tsScte35Esam {
-    return __isa(o, "M2tsScte35Esam");
-  }
+  export const isa = (o: any): o is M2tsScte35Esam =>
+    __isa(o, "M2tsScte35Esam");
 }
 
 export enum M2tsScte35Source {
@@ -5824,9 +5682,7 @@ export interface M2tsSettings {
 }
 
 export namespace M2tsSettings {
-  export function isa(o: any): o is M2tsSettings {
-    return __isa(o, "M2tsSettings");
-  }
+  export const isa = (o: any): o is M2tsSettings => __isa(o, "M2tsSettings");
 }
 
 export enum M3u8NielsenId3 {
@@ -5931,9 +5787,7 @@ export interface M3u8Settings {
 }
 
 export namespace M3u8Settings {
-  export function isa(o: any): o is M3u8Settings {
-    return __isa(o, "M3u8Settings");
-  }
+  export const isa = (o: any): o is M3u8Settings => __isa(o, "M3u8Settings");
 }
 
 /**
@@ -5973,9 +5827,8 @@ export interface MotionImageInserter {
 }
 
 export namespace MotionImageInserter {
-  export function isa(o: any): o is MotionImageInserter {
-    return __isa(o, "MotionImageInserter");
-  }
+  export const isa = (o: any): o is MotionImageInserter =>
+    __isa(o, "MotionImageInserter");
 }
 
 /**
@@ -5995,9 +5848,8 @@ export interface MotionImageInsertionFramerate {
 }
 
 export namespace MotionImageInsertionFramerate {
-  export function isa(o: any): o is MotionImageInsertionFramerate {
-    return __isa(o, "MotionImageInsertionFramerate");
-  }
+  export const isa = (o: any): o is MotionImageInsertionFramerate =>
+    __isa(o, "MotionImageInsertionFramerate");
 }
 
 export enum MotionImageInsertionMode {
@@ -6022,9 +5874,8 @@ export interface MotionImageInsertionOffset {
 }
 
 export namespace MotionImageInsertionOffset {
-  export function isa(o: any): o is MotionImageInsertionOffset {
-    return __isa(o, "MotionImageInsertionOffset");
-  }
+  export const isa = (o: any): o is MotionImageInsertionOffset =>
+    __isa(o, "MotionImageInsertionOffset");
 }
 
 export enum MotionImagePlayback {
@@ -6089,9 +5940,7 @@ export interface MovSettings {
 }
 
 export namespace MovSettings {
-  export function isa(o: any): o is MovSettings {
-    return __isa(o, "MovSettings");
-  }
+  export const isa = (o: any): o is MovSettings => __isa(o, "MovSettings");
 }
 
 /**
@@ -6116,9 +5965,7 @@ export interface Mp2Settings {
 }
 
 export namespace Mp2Settings {
-  export function isa(o: any): o is Mp2Settings {
-    return __isa(o, "Mp2Settings");
-  }
+  export const isa = (o: any): o is Mp2Settings => __isa(o, "Mp2Settings");
 }
 
 export enum Mp3RateControlMode {
@@ -6158,9 +6005,7 @@ export interface Mp3Settings {
 }
 
 export namespace Mp3Settings {
-  export function isa(o: any): o is Mp3Settings {
-    return __isa(o, "Mp3Settings");
-  }
+  export const isa = (o: any): o is Mp3Settings => __isa(o, "Mp3Settings");
 }
 
 export enum Mp4CslgAtom {
@@ -6210,9 +6055,7 @@ export interface Mp4Settings {
 }
 
 export namespace Mp4Settings {
-  export function isa(o: any): o is Mp4Settings {
-    return __isa(o, "Mp4Settings");
-  }
+  export const isa = (o: any): o is Mp4Settings => __isa(o, "Mp4Settings");
 }
 
 export enum MpdCaptionContainerType {
@@ -6252,9 +6095,7 @@ export interface MpdSettings {
 }
 
 export namespace MpdSettings {
-  export function isa(o: any): o is MpdSettings {
-    return __isa(o, "MpdSettings");
-  }
+  export const isa = (o: any): o is MpdSettings => __isa(o, "MpdSettings");
 }
 
 export enum Mpeg2AdaptiveQuantization {
@@ -6497,9 +6338,7 @@ export interface Mpeg2Settings {
 }
 
 export namespace Mpeg2Settings {
-  export function isa(o: any): o is Mpeg2Settings {
-    return __isa(o, "Mpeg2Settings");
-  }
+  export const isa = (o: any): o is Mpeg2Settings => __isa(o, "Mpeg2Settings");
 }
 
 export enum Mpeg2SlowPal {
@@ -6545,9 +6384,8 @@ export interface MsSmoothAdditionalManifest {
 }
 
 export namespace MsSmoothAdditionalManifest {
-  export function isa(o: any): o is MsSmoothAdditionalManifest {
-    return __isa(o, "MsSmoothAdditionalManifest");
-  }
+  export const isa = (o: any): o is MsSmoothAdditionalManifest =>
+    __isa(o, "MsSmoothAdditionalManifest");
 }
 
 export enum MsSmoothAudioDeduplication {
@@ -6567,9 +6405,8 @@ export interface MsSmoothEncryptionSettings {
 }
 
 export namespace MsSmoothEncryptionSettings {
-  export function isa(o: any): o is MsSmoothEncryptionSettings {
-    return __isa(o, "MsSmoothEncryptionSettings");
-  }
+  export const isa = (o: any): o is MsSmoothEncryptionSettings =>
+    __isa(o, "MsSmoothEncryptionSettings");
 }
 
 /**
@@ -6614,9 +6451,8 @@ export interface MsSmoothGroupSettings {
 }
 
 export namespace MsSmoothGroupSettings {
-  export function isa(o: any): o is MsSmoothGroupSettings {
-    return __isa(o, "MsSmoothGroupSettings");
-  }
+  export const isa = (o: any): o is MsSmoothGroupSettings =>
+    __isa(o, "MsSmoothGroupSettings");
 }
 
 export enum MsSmoothManifestEncoding {
@@ -6641,9 +6477,8 @@ export interface NielsenConfiguration {
 }
 
 export namespace NielsenConfiguration {
-  export function isa(o: any): o is NielsenConfiguration {
-    return __isa(o, "NielsenConfiguration");
-  }
+  export const isa = (o: any): o is NielsenConfiguration =>
+    __isa(o, "NielsenConfiguration");
 }
 
 /**
@@ -6673,9 +6508,7 @@ export interface NoiseReducer {
 }
 
 export namespace NoiseReducer {
-  export function isa(o: any): o is NoiseReducer {
-    return __isa(o, "NoiseReducer");
-  }
+  export const isa = (o: any): o is NoiseReducer => __isa(o, "NoiseReducer");
 }
 
 export enum NoiseReducerFilter {
@@ -6701,9 +6534,8 @@ export interface NoiseReducerFilterSettings {
 }
 
 export namespace NoiseReducerFilterSettings {
-  export function isa(o: any): o is NoiseReducerFilterSettings {
-    return __isa(o, "NoiseReducerFilterSettings");
-  }
+  export const isa = (o: any): o is NoiseReducerFilterSettings =>
+    __isa(o, "NoiseReducerFilterSettings");
 }
 
 /**
@@ -6728,9 +6560,8 @@ export interface NoiseReducerSpatialFilterSettings {
 }
 
 export namespace NoiseReducerSpatialFilterSettings {
-  export function isa(o: any): o is NoiseReducerSpatialFilterSettings {
-    return __isa(o, "NoiseReducerSpatialFilterSettings");
-  }
+  export const isa = (o: any): o is NoiseReducerSpatialFilterSettings =>
+    __isa(o, "NoiseReducerSpatialFilterSettings");
 }
 
 /**
@@ -6755,9 +6586,8 @@ export interface NoiseReducerTemporalFilterSettings {
 }
 
 export namespace NoiseReducerTemporalFilterSettings {
-  export function isa(o: any): o is NoiseReducerTemporalFilterSettings {
-    return __isa(o, "NoiseReducerTemporalFilterSettings");
-  }
+  export const isa = (o: any): o is NoiseReducerTemporalFilterSettings =>
+    __isa(o, "NoiseReducerTemporalFilterSettings");
 }
 
 /**
@@ -6770,9 +6600,8 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return __isa(o, "NotFoundException");
-  }
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
 }
 
 export enum Order {
@@ -6827,9 +6656,7 @@ export interface Output {
 }
 
 export namespace Output {
-  export function isa(o: any): o is Output {
-    return __isa(o, "Output");
-  }
+  export const isa = (o: any): o is Output => __isa(o, "Output");
 }
 
 /**
@@ -6844,9 +6671,8 @@ export interface OutputChannelMapping {
 }
 
 export namespace OutputChannelMapping {
-  export function isa(o: any): o is OutputChannelMapping {
-    return __isa(o, "OutputChannelMapping");
-  }
+  export const isa = (o: any): o is OutputChannelMapping =>
+    __isa(o, "OutputChannelMapping");
 }
 
 /**
@@ -6866,9 +6692,7 @@ export interface OutputDetail {
 }
 
 export namespace OutputDetail {
-  export function isa(o: any): o is OutputDetail {
-    return __isa(o, "OutputDetail");
-  }
+  export const isa = (o: any): o is OutputDetail => __isa(o, "OutputDetail");
 }
 
 /**
@@ -6898,9 +6722,7 @@ export interface OutputGroup {
 }
 
 export namespace OutputGroup {
-  export function isa(o: any): o is OutputGroup {
-    return __isa(o, "OutputGroup");
-  }
+  export const isa = (o: any): o is OutputGroup => __isa(o, "OutputGroup");
 }
 
 /**
@@ -6915,9 +6737,8 @@ export interface OutputGroupDetail {
 }
 
 export namespace OutputGroupDetail {
-  export function isa(o: any): o is OutputGroupDetail {
-    return __isa(o, "OutputGroupDetail");
-  }
+  export const isa = (o: any): o is OutputGroupDetail =>
+    __isa(o, "OutputGroupDetail");
 }
 
 /**
@@ -6957,9 +6778,8 @@ export interface OutputGroupSettings {
 }
 
 export namespace OutputGroupSettings {
-  export function isa(o: any): o is OutputGroupSettings {
-    return __isa(o, "OutputGroupSettings");
-  }
+  export const isa = (o: any): o is OutputGroupSettings =>
+    __isa(o, "OutputGroupSettings");
 }
 
 export enum OutputGroupType {
@@ -6989,9 +6809,8 @@ export interface OutputSettings {
 }
 
 export namespace OutputSettings {
-  export function isa(o: any): o is OutputSettings {
-    return __isa(o, "OutputSettings");
-  }
+  export const isa = (o: any): o is OutputSettings =>
+    __isa(o, "OutputSettings");
 }
 
 /**
@@ -7041,9 +6860,7 @@ export interface Preset {
 }
 
 export namespace Preset {
-  export function isa(o: any): o is Preset {
-    return __isa(o, "Preset");
-  }
+  export const isa = (o: any): o is Preset => __isa(o, "Preset");
 }
 
 export enum PresetListBy {
@@ -7079,9 +6896,8 @@ export interface PresetSettings {
 }
 
 export namespace PresetSettings {
-  export function isa(o: any): o is PresetSettings {
-    return __isa(o, "PresetSettings");
-  }
+  export const isa = (o: any): o is PresetSettings =>
+    __isa(o, "PresetSettings");
 }
 
 export enum PricingPlan {
@@ -7183,9 +6999,8 @@ export interface ProresSettings {
 }
 
 export namespace ProresSettings {
-  export function isa(o: any): o is ProresSettings {
-    return __isa(o, "ProresSettings");
-  }
+  export const isa = (o: any): o is ProresSettings =>
+    __isa(o, "ProresSettings");
 }
 
 export enum ProresSlowPal {
@@ -7260,9 +7075,7 @@ export interface Queue {
 }
 
 export namespace Queue {
-  export function isa(o: any): o is Queue {
-    return __isa(o, "Queue");
-  }
+  export const isa = (o: any): o is Queue => __isa(o, "Queue");
 }
 
 export enum QueueListBy {
@@ -7302,9 +7115,7 @@ export interface Rectangle {
 }
 
 export namespace Rectangle {
-  export function isa(o: any): o is Rectangle {
-    return __isa(o, "Rectangle");
-  }
+  export const isa = (o: any): o is Rectangle => __isa(o, "Rectangle");
 }
 
 /**
@@ -7329,9 +7140,7 @@ export interface RemixSettings {
 }
 
 export namespace RemixSettings {
-  export function isa(o: any): o is RemixSettings {
-    return __isa(o, "RemixSettings");
-  }
+  export const isa = (o: any): o is RemixSettings => __isa(o, "RemixSettings");
 }
 
 export enum RenewalType {
@@ -7376,9 +7185,8 @@ export interface ReservationPlan {
 }
 
 export namespace ReservationPlan {
-  export function isa(o: any): o is ReservationPlan {
-    return __isa(o, "ReservationPlan");
-  }
+  export const isa = (o: any): o is ReservationPlan =>
+    __isa(o, "ReservationPlan");
 }
 
 /**
@@ -7403,9 +7211,8 @@ export interface ReservationPlanSettings {
 }
 
 export namespace ReservationPlanSettings {
-  export function isa(o: any): o is ReservationPlanSettings {
-    return __isa(o, "ReservationPlanSettings");
-  }
+  export const isa = (o: any): o is ReservationPlanSettings =>
+    __isa(o, "ReservationPlanSettings");
 }
 
 export enum ReservationPlanStatus {
@@ -7430,9 +7237,7 @@ export interface ResourceTags {
 }
 
 export namespace ResourceTags {
-  export function isa(o: any): o is ResourceTags {
-    return __isa(o, "ResourceTags");
-  }
+  export const isa = (o: any): o is ResourceTags => __isa(o, "ResourceTags");
 }
 
 export enum RespondToAfd {
@@ -7453,9 +7258,8 @@ export interface S3DestinationAccessControl {
 }
 
 export namespace S3DestinationAccessControl {
-  export function isa(o: any): o is S3DestinationAccessControl {
-    return __isa(o, "S3DestinationAccessControl");
-  }
+  export const isa = (o: any): o is S3DestinationAccessControl =>
+    __isa(o, "S3DestinationAccessControl");
 }
 
 /**
@@ -7475,9 +7279,8 @@ export interface S3DestinationSettings {
 }
 
 export namespace S3DestinationSettings {
-  export function isa(o: any): o is S3DestinationSettings {
-    return __isa(o, "S3DestinationSettings");
-  }
+  export const isa = (o: any): o is S3DestinationSettings =>
+    __isa(o, "S3DestinationSettings");
 }
 
 /**
@@ -7497,9 +7300,8 @@ export interface S3EncryptionSettings {
 }
 
 export namespace S3EncryptionSettings {
-  export function isa(o: any): o is S3EncryptionSettings {
-    return __isa(o, "S3EncryptionSettings");
-  }
+  export const isa = (o: any): o is S3EncryptionSettings =>
+    __isa(o, "S3EncryptionSettings");
 }
 
 export enum S3ObjectCannedAcl {
@@ -7539,9 +7341,8 @@ export interface SccDestinationSettings {
 }
 
 export namespace SccDestinationSettings {
-  export function isa(o: any): o is SccDestinationSettings {
-    return __isa(o, "SccDestinationSettings");
-  }
+  export const isa = (o: any): o is SccDestinationSettings =>
+    __isa(o, "SccDestinationSettings");
 }
 
 export enum SimulateReservedQueue {
@@ -7577,9 +7378,8 @@ export interface SpekeKeyProvider {
 }
 
 export namespace SpekeKeyProvider {
-  export function isa(o: any): o is SpekeKeyProvider {
-    return __isa(o, "SpekeKeyProvider");
-  }
+  export const isa = (o: any): o is SpekeKeyProvider =>
+    __isa(o, "SpekeKeyProvider");
 }
 
 /**
@@ -7614,9 +7414,8 @@ export interface SpekeKeyProviderCmaf {
 }
 
 export namespace SpekeKeyProviderCmaf {
-  export function isa(o: any): o is SpekeKeyProviderCmaf {
-    return __isa(o, "SpekeKeyProviderCmaf");
-  }
+  export const isa = (o: any): o is SpekeKeyProviderCmaf =>
+    __isa(o, "SpekeKeyProviderCmaf");
 }
 
 /**
@@ -7646,9 +7445,8 @@ export interface StaticKeyProvider {
 }
 
 export namespace StaticKeyProvider {
-  export function isa(o: any): o is StaticKeyProvider {
-    return __isa(o, "StaticKeyProvider");
-  }
+  export const isa = (o: any): o is StaticKeyProvider =>
+    __isa(o, "StaticKeyProvider");
 }
 
 export enum StatusUpdateInterval {
@@ -7683,9 +7481,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -7693,9 +7490,8 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export function isa(o: any): o is TagResourceResponse {
-    return __isa(o, "TagResourceResponse");
-  }
+  export const isa = (o: any): o is TagResourceResponse =>
+    __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -7715,9 +7511,8 @@ export interface TeletextDestinationSettings {
 }
 
 export namespace TeletextDestinationSettings {
-  export function isa(o: any): o is TeletextDestinationSettings {
-    return __isa(o, "TeletextDestinationSettings");
-  }
+  export const isa = (o: any): o is TeletextDestinationSettings =>
+    __isa(o, "TeletextDestinationSettings");
 }
 
 export enum TeletextPageType {
@@ -7740,9 +7535,8 @@ export interface TeletextSourceSettings {
 }
 
 export namespace TeletextSourceSettings {
-  export function isa(o: any): o is TeletextSourceSettings {
-    return __isa(o, "TeletextSourceSettings");
-  }
+  export const isa = (o: any): o is TeletextSourceSettings =>
+    __isa(o, "TeletextSourceSettings");
 }
 
 /**
@@ -7767,9 +7561,8 @@ export interface TimecodeBurnin {
 }
 
 export namespace TimecodeBurnin {
-  export function isa(o: any): o is TimecodeBurnin {
-    return __isa(o, "TimecodeBurnin");
-  }
+  export const isa = (o: any): o is TimecodeBurnin =>
+    __isa(o, "TimecodeBurnin");
 }
 
 export enum TimecodeBurninPosition {
@@ -7811,9 +7604,8 @@ export interface TimecodeConfig {
 }
 
 export namespace TimecodeConfig {
-  export function isa(o: any): o is TimecodeConfig {
-    return __isa(o, "TimecodeConfig");
-  }
+  export const isa = (o: any): o is TimecodeConfig =>
+    __isa(o, "TimecodeConfig");
 }
 
 export enum TimecodeSource {
@@ -7839,9 +7631,8 @@ export interface TimedMetadataInsertion {
 }
 
 export namespace TimedMetadataInsertion {
-  export function isa(o: any): o is TimedMetadataInsertion {
-    return __isa(o, "TimedMetadataInsertion");
-  }
+  export const isa = (o: any): o is TimedMetadataInsertion =>
+    __isa(o, "TimedMetadataInsertion");
 }
 
 /**
@@ -7866,9 +7657,7 @@ export interface Timing {
 }
 
 export namespace Timing {
-  export function isa(o: any): o is Timing {
-    return __isa(o, "Timing");
-  }
+  export const isa = (o: any): o is Timing => __isa(o, "Timing");
 }
 
 /**
@@ -7883,9 +7672,8 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export function isa(o: any): o is TooManyRequestsException {
-    return __isa(o, "TooManyRequestsException");
-  }
+  export const isa = (o: any): o is TooManyRequestsException =>
+    __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -7900,9 +7688,8 @@ export interface TrackSourceSettings {
 }
 
 export namespace TrackSourceSettings {
-  export function isa(o: any): o is TrackSourceSettings {
-    return __isa(o, "TrackSourceSettings");
-  }
+  export const isa = (o: any): o is TrackSourceSettings =>
+    __isa(o, "TrackSourceSettings");
 }
 
 /**
@@ -7917,9 +7704,8 @@ export interface TtmlDestinationSettings {
 }
 
 export namespace TtmlDestinationSettings {
-  export function isa(o: any): o is TtmlDestinationSettings {
-    return __isa(o, "TtmlDestinationSettings");
-  }
+  export const isa = (o: any): o is TtmlDestinationSettings =>
+    __isa(o, "TtmlDestinationSettings");
 }
 
 export enum TtmlStylePassthrough {
@@ -7946,9 +7732,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -7956,9 +7741,8 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export function isa(o: any): o is UntagResourceResponse {
-    return __isa(o, "UntagResourceResponse");
-  }
+  export const isa = (o: any): o is UntagResourceResponse =>
+    __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateJobTemplateRequest {
@@ -8005,9 +7789,8 @@ export interface UpdateJobTemplateRequest {
 }
 
 export namespace UpdateJobTemplateRequest {
-  export function isa(o: any): o is UpdateJobTemplateRequest {
-    return __isa(o, "UpdateJobTemplateRequest");
-  }
+  export const isa = (o: any): o is UpdateJobTemplateRequest =>
+    __isa(o, "UpdateJobTemplateRequest");
 }
 
 export interface UpdateJobTemplateResponse {
@@ -8019,9 +7802,8 @@ export interface UpdateJobTemplateResponse {
 }
 
 export namespace UpdateJobTemplateResponse {
-  export function isa(o: any): o is UpdateJobTemplateResponse {
-    return __isa(o, "UpdateJobTemplateResponse");
-  }
+  export const isa = (o: any): o is UpdateJobTemplateResponse =>
+    __isa(o, "UpdateJobTemplateResponse");
 }
 
 export interface UpdatePresetRequest {
@@ -8048,9 +7830,8 @@ export interface UpdatePresetRequest {
 }
 
 export namespace UpdatePresetRequest {
-  export function isa(o: any): o is UpdatePresetRequest {
-    return __isa(o, "UpdatePresetRequest");
-  }
+  export const isa = (o: any): o is UpdatePresetRequest =>
+    __isa(o, "UpdatePresetRequest");
 }
 
 export interface UpdatePresetResponse {
@@ -8062,9 +7843,8 @@ export interface UpdatePresetResponse {
 }
 
 export namespace UpdatePresetResponse {
-  export function isa(o: any): o is UpdatePresetResponse {
-    return __isa(o, "UpdatePresetResponse");
-  }
+  export const isa = (o: any): o is UpdatePresetResponse =>
+    __isa(o, "UpdatePresetResponse");
 }
 
 export interface UpdateQueueRequest {
@@ -8091,9 +7871,8 @@ export interface UpdateQueueRequest {
 }
 
 export namespace UpdateQueueRequest {
-  export function isa(o: any): o is UpdateQueueRequest {
-    return __isa(o, "UpdateQueueRequest");
-  }
+  export const isa = (o: any): o is UpdateQueueRequest =>
+    __isa(o, "UpdateQueueRequest");
 }
 
 export interface UpdateQueueResponse {
@@ -8105,9 +7884,8 @@ export interface UpdateQueueResponse {
 }
 
 export namespace UpdateQueueResponse {
-  export function isa(o: any): o is UpdateQueueResponse {
-    return __isa(o, "UpdateQueueResponse");
-  }
+  export const isa = (o: any): o is UpdateQueueResponse =>
+    __isa(o, "UpdateQueueResponse");
 }
 
 export enum VideoCodec {
@@ -8155,9 +7933,8 @@ export interface VideoCodecSettings {
 }
 
 export namespace VideoCodecSettings {
-  export function isa(o: any): o is VideoCodecSettings {
-    return __isa(o, "VideoCodecSettings");
-  }
+  export const isa = (o: any): o is VideoCodecSettings =>
+    __isa(o, "VideoCodecSettings");
 }
 
 /**
@@ -8242,9 +8019,8 @@ export interface VideoDescription {
 }
 
 export namespace VideoDescription {
-  export function isa(o: any): o is VideoDescription {
-    return __isa(o, "VideoDescription");
-  }
+  export const isa = (o: any): o is VideoDescription =>
+    __isa(o, "VideoDescription");
 }
 
 /**
@@ -8264,9 +8040,7 @@ export interface VideoDetail {
 }
 
 export namespace VideoDetail {
-  export function isa(o: any): o is VideoDetail {
-    return __isa(o, "VideoDetail");
-  }
+  export const isa = (o: any): o is VideoDetail => __isa(o, "VideoDetail");
 }
 
 /**
@@ -8306,9 +8080,8 @@ export interface VideoPreprocessor {
 }
 
 export namespace VideoPreprocessor {
-  export function isa(o: any): o is VideoPreprocessor {
-    return __isa(o, "VideoPreprocessor");
-  }
+  export const isa = (o: any): o is VideoPreprocessor =>
+    __isa(o, "VideoPreprocessor");
 }
 
 /**
@@ -8353,9 +8126,7 @@ export interface VideoSelector {
 }
 
 export namespace VideoSelector {
-  export function isa(o: any): o is VideoSelector {
-    return __isa(o, "VideoSelector");
-  }
+  export const isa = (o: any): o is VideoSelector => __isa(o, "VideoSelector");
 }
 
 export enum VideoTimecodeInsertion {
@@ -8395,7 +8166,5 @@ export interface WavSettings {
 }
 
 export namespace WavSettings {
-  export function isa(o: any): o is WavSettings {
-    return __isa(o, "WavSettings");
-  }
+  export const isa = (o: any): o is WavSettings => __isa(o, "WavSettings");
 }

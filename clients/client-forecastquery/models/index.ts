@@ -22,9 +22,7 @@ export interface DataPoint {
 }
 
 export namespace DataPoint {
-  export function isa(o: any): o is DataPoint {
-    return __isa(o, "DataPoint");
-  }
+  export const isa = (o: any): o is DataPoint => __isa(o, "DataPoint");
 }
 
 /**
@@ -52,9 +50,7 @@ export interface Forecast {
 }
 
 export namespace Forecast {
-  export function isa(o: any): o is Forecast {
-    return __isa(o, "Forecast");
-  }
+  export const isa = (o: any): o is Forecast => __isa(o, "Forecast");
 }
 
 /**
@@ -69,9 +65,8 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
-  export function isa(o: any): o is InvalidInputException {
-    return __isa(o, "InvalidInputException");
-  }
+  export const isa = (o: any): o is InvalidInputException =>
+    __isa(o, "InvalidInputException");
 }
 
 /**
@@ -86,9 +81,8 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export function isa(o: any): o is InvalidNextTokenException {
-    return __isa(o, "InvalidNextTokenException");
-  }
+  export const isa = (o: any): o is InvalidNextTokenException =>
+    __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -103,9 +97,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export interface QueryForecastRequest {
@@ -149,9 +142,8 @@ export interface QueryForecastRequest {
 }
 
 export namespace QueryForecastRequest {
-  export function isa(o: any): o is QueryForecastRequest {
-    return __isa(o, "QueryForecastRequest");
-  }
+  export const isa = (o: any): o is QueryForecastRequest =>
+    __isa(o, "QueryForecastRequest");
 }
 
 export interface QueryForecastResponse {
@@ -163,9 +155,8 @@ export interface QueryForecastResponse {
 }
 
 export namespace QueryForecastResponse {
-  export function isa(o: any): o is QueryForecastResponse {
-    return __isa(o, "QueryForecastResponse");
-  }
+  export const isa = (o: any): o is QueryForecastResponse =>
+    __isa(o, "QueryForecastResponse");
 }
 
 /**
@@ -180,9 +171,8 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export function isa(o: any): o is ResourceInUseException {
-    return __isa(o, "ResourceInUseException");
-  }
+  export const isa = (o: any): o is ResourceInUseException =>
+    __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -198,7 +188,6 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }

@@ -25,9 +25,8 @@ export interface CancelRotateSecretRequest {
 }
 
 export namespace CancelRotateSecretRequest {
-  export function isa(o: any): o is CancelRotateSecretRequest {
-    return __isa(o, "CancelRotateSecretRequest");
-  }
+  export const isa = (o: any): o is CancelRotateSecretRequest =>
+    __isa(o, "CancelRotateSecretRequest");
 }
 
 export interface CancelRotateSecretResponse {
@@ -53,9 +52,8 @@ export interface CancelRotateSecretResponse {
 }
 
 export namespace CancelRotateSecretResponse {
-  export function isa(o: any): o is CancelRotateSecretResponse {
-    return __isa(o, "CancelRotateSecretResponse");
-  }
+  export const isa = (o: any): o is CancelRotateSecretResponse =>
+    __isa(o, "CancelRotateSecretResponse");
 }
 
 export interface CreateSecretRequest {
@@ -225,9 +223,8 @@ export interface CreateSecretRequest {
 }
 
 export namespace CreateSecretRequest {
-  export function isa(o: any): o is CreateSecretRequest {
-    return __isa(o, "CreateSecretRequest");
-  }
+  export const isa = (o: any): o is CreateSecretRequest =>
+    __isa(o, "CreateSecretRequest");
 }
 
 export interface CreateSecretResponse {
@@ -257,9 +254,8 @@ export interface CreateSecretResponse {
 }
 
 export namespace CreateSecretResponse {
-  export function isa(o: any): o is CreateSecretResponse {
-    return __isa(o, "CreateSecretResponse");
-  }
+  export const isa = (o: any): o is CreateSecretResponse =>
+    __isa(o, "CreateSecretResponse");
 }
 
 /**
@@ -272,9 +268,8 @@ export interface DecryptionFailure extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DecryptionFailure {
-  export function isa(o: any): o is DecryptionFailure {
-    return __isa(o, "DecryptionFailure");
-  }
+  export const isa = (o: any): o is DecryptionFailure =>
+    __isa(o, "DecryptionFailure");
 }
 
 export interface DeleteResourcePolicyRequest {
@@ -298,9 +293,8 @@ export interface DeleteResourcePolicyRequest {
 }
 
 export namespace DeleteResourcePolicyRequest {
-  export function isa(o: any): o is DeleteResourcePolicyRequest {
-    return __isa(o, "DeleteResourcePolicyRequest");
-  }
+  export const isa = (o: any): o is DeleteResourcePolicyRequest =>
+    __isa(o, "DeleteResourcePolicyRequest");
 }
 
 export interface DeleteResourcePolicyResponse {
@@ -317,9 +311,8 @@ export interface DeleteResourcePolicyResponse {
 }
 
 export namespace DeleteResourcePolicyResponse {
-  export function isa(o: any): o is DeleteResourcePolicyResponse {
-    return __isa(o, "DeleteResourcePolicyResponse");
-  }
+  export const isa = (o: any): o is DeleteResourcePolicyResponse =>
+    __isa(o, "DeleteResourcePolicyResponse");
 }
 
 export interface DeleteSecretRequest {
@@ -369,9 +362,8 @@ export interface DeleteSecretRequest {
 }
 
 export namespace DeleteSecretRequest {
-  export function isa(o: any): o is DeleteSecretRequest {
-    return __isa(o, "DeleteSecretRequest");
-  }
+  export const isa = (o: any): o is DeleteSecretRequest =>
+    __isa(o, "DeleteSecretRequest");
 }
 
 export interface DeleteSecretResponse {
@@ -395,9 +387,8 @@ export interface DeleteSecretResponse {
 }
 
 export namespace DeleteSecretResponse {
-  export function isa(o: any): o is DeleteSecretResponse {
-    return __isa(o, "DeleteSecretResponse");
-  }
+  export const isa = (o: any): o is DeleteSecretResponse =>
+    __isa(o, "DeleteSecretResponse");
 }
 
 export interface DescribeSecretRequest {
@@ -421,9 +412,8 @@ export interface DescribeSecretRequest {
 }
 
 export namespace DescribeSecretRequest {
-  export function isa(o: any): o is DescribeSecretRequest {
-    return __isa(o, "DescribeSecretRequest");
-  }
+  export const isa = (o: any): o is DescribeSecretRequest =>
+    __isa(o, "DescribeSecretRequest");
 }
 
 export interface DescribeSecretResponse {
@@ -516,9 +506,8 @@ export interface DescribeSecretResponse {
 }
 
 export namespace DescribeSecretResponse {
-  export function isa(o: any): o is DescribeSecretResponse {
-    return __isa(o, "DescribeSecretResponse");
-  }
+  export const isa = (o: any): o is DescribeSecretResponse =>
+    __isa(o, "DescribeSecretResponse");
 }
 
 /**
@@ -534,9 +523,8 @@ export interface EncryptionFailure extends __SmithyException, $MetadataBearer {
 }
 
 export namespace EncryptionFailure {
-  export function isa(o: any): o is EncryptionFailure {
-    return __isa(o, "EncryptionFailure");
-  }
+  export const isa = (o: any): o is EncryptionFailure =>
+    __isa(o, "EncryptionFailure");
 }
 
 export interface GetRandomPasswordRequest {
@@ -600,9 +588,8 @@ export interface GetRandomPasswordRequest {
 }
 
 export namespace GetRandomPasswordRequest {
-  export function isa(o: any): o is GetRandomPasswordRequest {
-    return __isa(o, "GetRandomPasswordRequest");
-  }
+  export const isa = (o: any): o is GetRandomPasswordRequest =>
+    __isa(o, "GetRandomPasswordRequest");
 }
 
 export interface GetRandomPasswordResponse {
@@ -614,9 +601,8 @@ export interface GetRandomPasswordResponse {
 }
 
 export namespace GetRandomPasswordResponse {
-  export function isa(o: any): o is GetRandomPasswordResponse {
-    return __isa(o, "GetRandomPasswordResponse");
-  }
+  export const isa = (o: any): o is GetRandomPasswordResponse =>
+    __isa(o, "GetRandomPasswordResponse");
 }
 
 export interface GetResourcePolicyRequest {
@@ -640,9 +626,8 @@ export interface GetResourcePolicyRequest {
 }
 
 export namespace GetResourcePolicyRequest {
-  export function isa(o: any): o is GetResourcePolicyRequest {
-    return __isa(o, "GetResourcePolicyRequest");
-  }
+  export const isa = (o: any): o is GetResourcePolicyRequest =>
+    __isa(o, "GetResourcePolicyRequest");
 }
 
 export interface GetResourcePolicyResponse {
@@ -668,9 +653,8 @@ export interface GetResourcePolicyResponse {
 }
 
 export namespace GetResourcePolicyResponse {
-  export function isa(o: any): o is GetResourcePolicyResponse {
-    return __isa(o, "GetResourcePolicyResponse");
-  }
+  export const isa = (o: any): o is GetResourcePolicyResponse =>
+    __isa(o, "GetResourcePolicyResponse");
 }
 
 export interface GetSecretValueRequest {
@@ -716,9 +700,8 @@ export interface GetSecretValueRequest {
 }
 
 export namespace GetSecretValueRequest {
-  export function isa(o: any): o is GetSecretValueRequest {
-    return __isa(o, "GetSecretValueRequest");
-  }
+  export const isa = (o: any): o is GetSecretValueRequest =>
+    __isa(o, "GetSecretValueRequest");
 }
 
 export interface GetSecretValueResponse {
@@ -777,9 +760,8 @@ export interface GetSecretValueResponse {
 }
 
 export namespace GetSecretValueResponse {
-  export function isa(o: any): o is GetSecretValueResponse {
-    return __isa(o, "GetSecretValueResponse");
-  }
+  export const isa = (o: any): o is GetSecretValueResponse =>
+    __isa(o, "GetSecretValueResponse");
 }
 
 /**
@@ -794,9 +776,8 @@ export interface InternalServiceError
 }
 
 export namespace InternalServiceError {
-  export function isa(o: any): o is InternalServiceError {
-    return __isa(o, "InternalServiceError");
-  }
+  export const isa = (o: any): o is InternalServiceError =>
+    __isa(o, "InternalServiceError");
 }
 
 /**
@@ -811,9 +792,8 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export function isa(o: any): o is InvalidNextTokenException {
-    return __isa(o, "InvalidNextTokenException");
-  }
+  export const isa = (o: any): o is InvalidNextTokenException =>
+    __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -828,9 +808,8 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export function isa(o: any): o is InvalidParameterException {
-    return __isa(o, "InvalidParameterException");
-  }
+  export const isa = (o: any): o is InvalidParameterException =>
+    __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -856,9 +835,8 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return __isa(o, "InvalidRequestException");
-  }
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -873,9 +851,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export interface ListSecretVersionIdsRequest {
@@ -926,9 +903,8 @@ export interface ListSecretVersionIdsRequest {
 }
 
 export namespace ListSecretVersionIdsRequest {
-  export function isa(o: any): o is ListSecretVersionIdsRequest {
-    return __isa(o, "ListSecretVersionIdsRequest");
-  }
+  export const isa = (o: any): o is ListSecretVersionIdsRequest =>
+    __isa(o, "ListSecretVersionIdsRequest");
 }
 
 export interface ListSecretVersionIdsResponse {
@@ -968,9 +944,8 @@ export interface ListSecretVersionIdsResponse {
 }
 
 export namespace ListSecretVersionIdsResponse {
-  export function isa(o: any): o is ListSecretVersionIdsResponse {
-    return __isa(o, "ListSecretVersionIdsResponse");
-  }
+  export const isa = (o: any): o is ListSecretVersionIdsResponse =>
+    __isa(o, "ListSecretVersionIdsResponse");
 }
 
 export interface ListSecretsRequest {
@@ -997,9 +972,8 @@ export interface ListSecretsRequest {
 }
 
 export namespace ListSecretsRequest {
-  export function isa(o: any): o is ListSecretsRequest {
-    return __isa(o, "ListSecretsRequest");
-  }
+  export const isa = (o: any): o is ListSecretsRequest =>
+    __isa(o, "ListSecretsRequest");
 }
 
 export interface ListSecretsResponse {
@@ -1022,9 +996,8 @@ export interface ListSecretsResponse {
 }
 
 export namespace ListSecretsResponse {
-  export function isa(o: any): o is ListSecretsResponse {
-    return __isa(o, "ListSecretsResponse");
-  }
+  export const isa = (o: any): o is ListSecretsResponse =>
+    __isa(o, "ListSecretsResponse");
 }
 
 /**
@@ -1039,9 +1012,8 @@ export interface MalformedPolicyDocumentException
 }
 
 export namespace MalformedPolicyDocumentException {
-  export function isa(o: any): o is MalformedPolicyDocumentException {
-    return __isa(o, "MalformedPolicyDocumentException");
-  }
+  export const isa = (o: any): o is MalformedPolicyDocumentException =>
+    __isa(o, "MalformedPolicyDocumentException");
 }
 
 /**
@@ -1056,9 +1028,8 @@ export interface PreconditionNotMetException
 }
 
 export namespace PreconditionNotMetException {
-  export function isa(o: any): o is PreconditionNotMetException {
-    return __isa(o, "PreconditionNotMetException");
-  }
+  export const isa = (o: any): o is PreconditionNotMetException =>
+    __isa(o, "PreconditionNotMetException");
 }
 
 export interface PutResourcePolicyRequest {
@@ -1091,9 +1062,8 @@ export interface PutResourcePolicyRequest {
 }
 
 export namespace PutResourcePolicyRequest {
-  export function isa(o: any): o is PutResourcePolicyRequest {
-    return __isa(o, "PutResourcePolicyRequest");
-  }
+  export const isa = (o: any): o is PutResourcePolicyRequest =>
+    __isa(o, "PutResourcePolicyRequest");
 }
 
 export interface PutResourcePolicyResponse {
@@ -1110,9 +1080,8 @@ export interface PutResourcePolicyResponse {
 }
 
 export namespace PutResourcePolicyResponse {
-  export function isa(o: any): o is PutResourcePolicyResponse {
-    return __isa(o, "PutResourcePolicyResponse");
-  }
+  export const isa = (o: any): o is PutResourcePolicyResponse =>
+    __isa(o, "PutResourcePolicyResponse");
 }
 
 export interface PutSecretValueRequest {
@@ -1217,9 +1186,8 @@ export interface PutSecretValueRequest {
 }
 
 export namespace PutSecretValueRequest {
-  export function isa(o: any): o is PutSecretValueRequest {
-    return __isa(o, "PutSecretValueRequest");
-  }
+  export const isa = (o: any): o is PutSecretValueRequest =>
+    __isa(o, "PutSecretValueRequest");
 }
 
 export interface PutSecretValueResponse {
@@ -1248,9 +1216,8 @@ export interface PutSecretValueResponse {
 }
 
 export namespace PutSecretValueResponse {
-  export function isa(o: any): o is PutSecretValueResponse {
-    return __isa(o, "PutSecretValueResponse");
-  }
+  export const isa = (o: any): o is PutSecretValueResponse =>
+    __isa(o, "PutSecretValueResponse");
 }
 
 /**
@@ -1265,9 +1232,8 @@ export interface ResourceExistsException
 }
 
 export namespace ResourceExistsException {
-  export function isa(o: any): o is ResourceExistsException {
-    return __isa(o, "ResourceExistsException");
-  }
+  export const isa = (o: any): o is ResourceExistsException =>
+    __isa(o, "ResourceExistsException");
 }
 
 /**
@@ -1282,9 +1248,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 export interface RestoreSecretRequest {
@@ -1308,9 +1273,8 @@ export interface RestoreSecretRequest {
 }
 
 export namespace RestoreSecretRequest {
-  export function isa(o: any): o is RestoreSecretRequest {
-    return __isa(o, "RestoreSecretRequest");
-  }
+  export const isa = (o: any): o is RestoreSecretRequest =>
+    __isa(o, "RestoreSecretRequest");
 }
 
 export interface RestoreSecretResponse {
@@ -1327,9 +1291,8 @@ export interface RestoreSecretResponse {
 }
 
 export namespace RestoreSecretResponse {
-  export function isa(o: any): o is RestoreSecretResponse {
-    return __isa(o, "RestoreSecretResponse");
-  }
+  export const isa = (o: any): o is RestoreSecretResponse =>
+    __isa(o, "RestoreSecretResponse");
 }
 
 export interface RotateSecretRequest {
@@ -1382,9 +1345,8 @@ export interface RotateSecretRequest {
 }
 
 export namespace RotateSecretRequest {
-  export function isa(o: any): o is RotateSecretRequest {
-    return __isa(o, "RotateSecretRequest");
-  }
+  export const isa = (o: any): o is RotateSecretRequest =>
+    __isa(o, "RotateSecretRequest");
 }
 
 export interface RotateSecretResponse {
@@ -1407,9 +1369,8 @@ export interface RotateSecretResponse {
 }
 
 export namespace RotateSecretResponse {
-  export function isa(o: any): o is RotateSecretResponse {
-    return __isa(o, "RotateSecretResponse");
-  }
+  export const isa = (o: any): o is RotateSecretResponse =>
+    __isa(o, "RotateSecretResponse");
 }
 
 /**
@@ -1429,9 +1390,8 @@ export interface RotationRulesType {
 }
 
 export namespace RotationRulesType {
-  export function isa(o: any): o is RotationRulesType {
-    return __isa(o, "RotationRulesType");
-  }
+  export const isa = (o: any): o is RotationRulesType =>
+    __isa(o, "RotationRulesType");
 }
 
 /**
@@ -1528,9 +1488,8 @@ export interface SecretListEntry {
 }
 
 export namespace SecretListEntry {
-  export function isa(o: any): o is SecretListEntry {
-    return __isa(o, "SecretListEntry");
-  }
+  export const isa = (o: any): o is SecretListEntry =>
+    __isa(o, "SecretListEntry");
 }
 
 /**
@@ -1562,9 +1521,8 @@ export interface SecretVersionsListEntry {
 }
 
 export namespace SecretVersionsListEntry {
-  export function isa(o: any): o is SecretVersionsListEntry {
-    return __isa(o, "SecretVersionsListEntry");
-  }
+  export const isa = (o: any): o is SecretVersionsListEntry =>
+    __isa(o, "SecretVersionsListEntry");
 }
 
 /**
@@ -1584,9 +1542,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
@@ -1621,9 +1577,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 export interface UntagResourceRequest {
@@ -1655,9 +1610,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateSecretRequest {
@@ -1770,9 +1724,8 @@ export interface UpdateSecretRequest {
 }
 
 export namespace UpdateSecretRequest {
-  export function isa(o: any): o is UpdateSecretRequest {
-    return __isa(o, "UpdateSecretRequest");
-  }
+  export const isa = (o: any): o is UpdateSecretRequest =>
+    __isa(o, "UpdateSecretRequest");
 }
 
 export interface UpdateSecretResponse {
@@ -1802,9 +1755,8 @@ export interface UpdateSecretResponse {
 }
 
 export namespace UpdateSecretResponse {
-  export function isa(o: any): o is UpdateSecretResponse {
-    return __isa(o, "UpdateSecretResponse");
-  }
+  export const isa = (o: any): o is UpdateSecretResponse =>
+    __isa(o, "UpdateSecretResponse");
 }
 
 export interface UpdateSecretVersionStageRequest {
@@ -1850,9 +1802,8 @@ export interface UpdateSecretVersionStageRequest {
 }
 
 export namespace UpdateSecretVersionStageRequest {
-  export function isa(o: any): o is UpdateSecretVersionStageRequest {
-    return __isa(o, "UpdateSecretVersionStageRequest");
-  }
+  export const isa = (o: any): o is UpdateSecretVersionStageRequest =>
+    __isa(o, "UpdateSecretVersionStageRequest");
 }
 
 export interface UpdateSecretVersionStageResponse {
@@ -1869,7 +1820,6 @@ export interface UpdateSecretVersionStageResponse {
 }
 
 export namespace UpdateSecretVersionStageResponse {
-  export function isa(o: any): o is UpdateSecretVersionStageResponse {
-    return __isa(o, "UpdateSecretVersionStageResponse");
-  }
+  export const isa = (o: any): o is UpdateSecretVersionStageResponse =>
+    __isa(o, "UpdateSecretVersionStageResponse");
 }

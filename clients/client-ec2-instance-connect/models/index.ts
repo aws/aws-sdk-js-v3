@@ -14,9 +14,7 @@ export interface AuthException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace AuthException {
-  export function isa(o: any): o is AuthException {
-    return __isa(o, "AuthException");
-  }
+  export const isa = (o: any): o is AuthException => __isa(o, "AuthException");
 }
 
 /**
@@ -31,9 +29,8 @@ export interface EC2InstanceNotFoundException
 }
 
 export namespace EC2InstanceNotFoundException {
-  export function isa(o: any): o is EC2InstanceNotFoundException {
-    return __isa(o, "EC2InstanceNotFoundException");
-  }
+  export const isa = (o: any): o is EC2InstanceNotFoundException =>
+    __isa(o, "EC2InstanceNotFoundException");
 }
 
 /**
@@ -48,9 +45,8 @@ export interface InvalidArgsException
 }
 
 export namespace InvalidArgsException {
-  export function isa(o: any): o is InvalidArgsException {
-    return __isa(o, "InvalidArgsException");
-  }
+  export const isa = (o: any): o is InvalidArgsException =>
+    __isa(o, "InvalidArgsException");
 }
 
 export interface SendSSHPublicKeyRequest {
@@ -77,9 +73,8 @@ export interface SendSSHPublicKeyRequest {
 }
 
 export namespace SendSSHPublicKeyRequest {
-  export function isa(o: any): o is SendSSHPublicKeyRequest {
-    return __isa(o, "SendSSHPublicKeyRequest");
-  }
+  export const isa = (o: any): o is SendSSHPublicKeyRequest =>
+    __isa(o, "SendSSHPublicKeyRequest");
 }
 
 export interface SendSSHPublicKeyResponse {
@@ -96,9 +91,8 @@ export interface SendSSHPublicKeyResponse {
 }
 
 export namespace SendSSHPublicKeyResponse {
-  export function isa(o: any): o is SendSSHPublicKeyResponse {
-    return __isa(o, "SendSSHPublicKeyResponse");
-  }
+  export const isa = (o: any): o is SendSSHPublicKeyResponse =>
+    __isa(o, "SendSSHPublicKeyResponse");
 }
 
 /**
@@ -111,9 +105,8 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ServiceException {
-  export function isa(o: any): o is ServiceException {
-    return __isa(o, "ServiceException");
-  }
+  export const isa = (o: any): o is ServiceException =>
+    __isa(o, "ServiceException");
 }
 
 /**
@@ -128,7 +121,6 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return __isa(o, "ThrottlingException");
-  }
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }

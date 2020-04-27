@@ -17,9 +17,8 @@ export interface ContainerNotFoundException
 }
 
 export namespace ContainerNotFoundException {
-  export function isa(o: any): o is ContainerNotFoundException {
-    return __isa(o, "ContainerNotFoundException");
-  }
+  export const isa = (o: any): o is ContainerNotFoundException =>
+    __isa(o, "ContainerNotFoundException");
 }
 
 export interface DeleteObjectRequest {
@@ -32,9 +31,8 @@ export interface DeleteObjectRequest {
 }
 
 export namespace DeleteObjectRequest {
-  export function isa(o: any): o is DeleteObjectRequest {
-    return __isa(o, "DeleteObjectRequest");
-  }
+  export const isa = (o: any): o is DeleteObjectRequest =>
+    __isa(o, "DeleteObjectRequest");
 }
 
 export interface DeleteObjectResponse {
@@ -42,9 +40,8 @@ export interface DeleteObjectResponse {
 }
 
 export namespace DeleteObjectResponse {
-  export function isa(o: any): o is DeleteObjectResponse {
-    return __isa(o, "DeleteObjectResponse");
-  }
+  export const isa = (o: any): o is DeleteObjectResponse =>
+    __isa(o, "DeleteObjectResponse");
 }
 
 export interface DescribeObjectRequest {
@@ -57,9 +54,8 @@ export interface DescribeObjectRequest {
 }
 
 export namespace DescribeObjectRequest {
-  export function isa(o: any): o is DescribeObjectRequest {
-    return __isa(o, "DescribeObjectRequest");
-  }
+  export const isa = (o: any): o is DescribeObjectRequest =>
+    __isa(o, "DescribeObjectRequest");
 }
 
 export interface DescribeObjectResponse {
@@ -93,9 +89,8 @@ export interface DescribeObjectResponse {
 }
 
 export namespace DescribeObjectResponse {
-  export function isa(o: any): o is DescribeObjectResponse {
-    return __isa(o, "DescribeObjectResponse");
-  }
+  export const isa = (o: any): o is DescribeObjectResponse =>
+    __isa(o, "DescribeObjectResponse");
 }
 
 export interface GetObjectRequest {
@@ -130,9 +125,8 @@ export interface GetObjectRequest {
 }
 
 export namespace GetObjectRequest {
-  export function isa(o: any): o is GetObjectRequest {
-    return __isa(o, "GetObjectRequest");
-  }
+  export const isa = (o: any): o is GetObjectRequest =>
+    __isa(o, "GetObjectRequest");
 }
 
 export interface GetObjectResponse {
@@ -176,9 +170,8 @@ export interface GetObjectResponse {
 }
 
 export namespace GetObjectResponse {
-  export function isa(o: any): o is GetObjectResponse {
-    return __isa(o, "GetObjectResponse");
-  }
+  export const isa = (o: any): o is GetObjectResponse =>
+    __isa(o, "GetObjectResponse");
 }
 
 /**
@@ -193,9 +186,8 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export function isa(o: any): o is InternalServerError {
-    return __isa(o, "InternalServerError");
-  }
+  export const isa = (o: any): o is InternalServerError =>
+    __isa(o, "InternalServerError");
 }
 
 /**
@@ -235,9 +227,7 @@ export interface Item {
 }
 
 export namespace Item {
-  export function isa(o: any): o is Item {
-    return __isa(o, "Item");
-  }
+  export const isa = (o: any): o is Item => __isa(o, "Item");
 }
 
 export enum ItemType {
@@ -277,9 +267,8 @@ export interface ListItemsRequest {
 }
 
 export namespace ListItemsRequest {
-  export function isa(o: any): o is ListItemsRequest {
-    return __isa(o, "ListItemsRequest");
-  }
+  export const isa = (o: any): o is ListItemsRequest =>
+    __isa(o, "ListItemsRequest");
 }
 
 export interface ListItemsResponse {
@@ -300,9 +289,8 @@ export interface ListItemsResponse {
 }
 
 export namespace ListItemsResponse {
-  export function isa(o: any): o is ListItemsResponse {
-    return __isa(o, "ListItemsResponse");
-  }
+  export const isa = (o: any): o is ListItemsResponse =>
+    __isa(o, "ListItemsResponse");
 }
 
 /**
@@ -317,9 +305,8 @@ export interface ObjectNotFoundException
 }
 
 export namespace ObjectNotFoundException {
-  export function isa(o: any): o is ObjectNotFoundException {
-    return __isa(o, "ObjectNotFoundException");
-  }
+  export const isa = (o: any): o is ObjectNotFoundException =>
+    __isa(o, "ObjectNotFoundException");
 }
 
 export interface PutObjectRequest {
@@ -372,9 +359,8 @@ export interface PutObjectRequest {
 }
 
 export namespace PutObjectRequest {
-  export function isa(o: any): o is PutObjectRequest {
-    return __isa(o, "PutObjectRequest");
-  }
+  export const isa = (o: any): o is PutObjectRequest =>
+    __isa(o, "PutObjectRequest");
 }
 
 export interface PutObjectResponse {
@@ -397,9 +383,8 @@ export interface PutObjectResponse {
 }
 
 export namespace PutObjectResponse {
-  export function isa(o: any): o is PutObjectResponse {
-    return __isa(o, "PutObjectResponse");
-  }
+  export const isa = (o: any): o is PutObjectResponse =>
+    __isa(o, "PutObjectResponse");
 }
 
 /**
@@ -414,9 +399,8 @@ export interface RequestedRangeNotSatisfiableException
 }
 
 export namespace RequestedRangeNotSatisfiableException {
-  export function isa(o: any): o is RequestedRangeNotSatisfiableException {
-    return __isa(o, "RequestedRangeNotSatisfiableException");
-  }
+  export const isa = (o: any): o is RequestedRangeNotSatisfiableException =>
+    __isa(o, "RequestedRangeNotSatisfiableException");
 }
 
 export enum StorageClass {

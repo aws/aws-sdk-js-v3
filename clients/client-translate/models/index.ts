@@ -27,9 +27,8 @@ export interface AppliedTerminology {
 }
 
 export namespace AppliedTerminology {
-  export function isa(o: any): o is AppliedTerminology {
-    return __isa(o, "AppliedTerminology");
-  }
+  export const isa = (o: any): o is AppliedTerminology =>
+    __isa(o, "AppliedTerminology");
 }
 
 export interface DeleteTerminologyRequest {
@@ -41,9 +40,8 @@ export interface DeleteTerminologyRequest {
 }
 
 export namespace DeleteTerminologyRequest {
-  export function isa(o: any): o is DeleteTerminologyRequest {
-    return __isa(o, "DeleteTerminologyRequest");
-  }
+  export const isa = (o: any): o is DeleteTerminologyRequest =>
+    __isa(o, "DeleteTerminologyRequest");
 }
 
 export interface DescribeTextTranslationJobRequest {
@@ -56,9 +54,8 @@ export interface DescribeTextTranslationJobRequest {
 }
 
 export namespace DescribeTextTranslationJobRequest {
-  export function isa(o: any): o is DescribeTextTranslationJobRequest {
-    return __isa(o, "DescribeTextTranslationJobRequest");
-  }
+  export const isa = (o: any): o is DescribeTextTranslationJobRequest =>
+    __isa(o, "DescribeTextTranslationJobRequest");
 }
 
 export interface DescribeTextTranslationJobResponse {
@@ -71,9 +68,8 @@ export interface DescribeTextTranslationJobResponse {
 }
 
 export namespace DescribeTextTranslationJobResponse {
-  export function isa(o: any): o is DescribeTextTranslationJobResponse {
-    return __isa(o, "DescribeTextTranslationJobResponse");
-  }
+  export const isa = (o: any): o is DescribeTextTranslationJobResponse =>
+    __isa(o, "DescribeTextTranslationJobResponse");
 }
 
 /**
@@ -96,9 +92,8 @@ export interface DetectedLanguageLowConfidenceException
 }
 
 export namespace DetectedLanguageLowConfidenceException {
-  export function isa(o: any): o is DetectedLanguageLowConfidenceException {
-    return __isa(o, "DetectedLanguageLowConfidenceException");
-  }
+  export const isa = (o: any): o is DetectedLanguageLowConfidenceException =>
+    __isa(o, "DetectedLanguageLowConfidenceException");
 }
 
 /**
@@ -119,9 +114,7 @@ export interface EncryptionKey {
 }
 
 export namespace EncryptionKey {
-  export function isa(o: any): o is EncryptionKey {
-    return __isa(o, "EncryptionKey");
-  }
+  export const isa = (o: any): o is EncryptionKey => __isa(o, "EncryptionKey");
 }
 
 export enum EncryptionKeyType {
@@ -142,9 +135,8 @@ export interface GetTerminologyRequest {
 }
 
 export namespace GetTerminologyRequest {
-  export function isa(o: any): o is GetTerminologyRequest {
-    return __isa(o, "GetTerminologyRequest");
-  }
+  export const isa = (o: any): o is GetTerminologyRequest =>
+    __isa(o, "GetTerminologyRequest");
 }
 
 export interface GetTerminologyResponse {
@@ -162,9 +154,8 @@ export interface GetTerminologyResponse {
 }
 
 export namespace GetTerminologyResponse {
-  export function isa(o: any): o is GetTerminologyResponse {
-    return __isa(o, "GetTerminologyResponse");
-  }
+  export const isa = (o: any): o is GetTerminologyResponse =>
+    __isa(o, "GetTerminologyResponse");
 }
 
 export interface ImportTerminologyRequest {
@@ -198,9 +189,8 @@ export interface ImportTerminologyRequest {
 }
 
 export namespace ImportTerminologyRequest {
-  export function isa(o: any): o is ImportTerminologyRequest {
-    return __isa(o, "ImportTerminologyRequest");
-  }
+  export const isa = (o: any): o is ImportTerminologyRequest =>
+    __isa(o, "ImportTerminologyRequest");
 }
 
 export interface ImportTerminologyResponse {
@@ -212,9 +202,8 @@ export interface ImportTerminologyResponse {
 }
 
 export namespace ImportTerminologyResponse {
-  export function isa(o: any): o is ImportTerminologyResponse {
-    return __isa(o, "ImportTerminologyResponse");
-  }
+  export const isa = (o: any): o is ImportTerminologyResponse =>
+    __isa(o, "ImportTerminologyResponse");
 }
 
 /**
@@ -237,9 +226,8 @@ export interface InputDataConfig {
 }
 
 export namespace InputDataConfig {
-  export function isa(o: any): o is InputDataConfig {
-    return __isa(o, "InputDataConfig");
-  }
+  export const isa = (o: any): o is InputDataConfig =>
+    __isa(o, "InputDataConfig");
 }
 
 /**
@@ -254,9 +242,8 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export function isa(o: any): o is InternalServerException {
-    return __isa(o, "InternalServerException");
-  }
+  export const isa = (o: any): o is InternalServerException =>
+    __isa(o, "InternalServerException");
 }
 
 /**
@@ -271,9 +258,8 @@ export interface InvalidFilterException
 }
 
 export namespace InvalidFilterException {
-  export function isa(o: any): o is InvalidFilterException {
-    return __isa(o, "InvalidFilterException");
-  }
+  export const isa = (o: any): o is InvalidFilterException =>
+    __isa(o, "InvalidFilterException");
 }
 
 /**
@@ -289,9 +275,8 @@ export interface InvalidParameterValueException
 }
 
 export namespace InvalidParameterValueException {
-  export function isa(o: any): o is InvalidParameterValueException {
-    return __isa(o, "InvalidParameterValueException");
-  }
+  export const isa = (o: any): o is InvalidParameterValueException =>
+    __isa(o, "InvalidParameterValueException");
 }
 
 /**
@@ -307,9 +292,8 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return __isa(o, "InvalidRequestException");
-  }
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -335,9 +319,7 @@ export interface JobDetails {
 }
 
 export namespace JobDetails {
-  export function isa(o: any): o is JobDetails {
-    return __isa(o, "JobDetails");
-  }
+  export const isa = (o: any): o is JobDetails => __isa(o, "JobDetails");
 }
 
 export enum JobStatus {
@@ -363,9 +345,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export interface ListTerminologiesRequest {
@@ -383,9 +364,8 @@ export interface ListTerminologiesRequest {
 }
 
 export namespace ListTerminologiesRequest {
-  export function isa(o: any): o is ListTerminologiesRequest {
-    return __isa(o, "ListTerminologiesRequest");
-  }
+  export const isa = (o: any): o is ListTerminologiesRequest =>
+    __isa(o, "ListTerminologiesRequest");
 }
 
 export interface ListTerminologiesResponse {
@@ -403,9 +383,8 @@ export interface ListTerminologiesResponse {
 }
 
 export namespace ListTerminologiesResponse {
-  export function isa(o: any): o is ListTerminologiesResponse {
-    return __isa(o, "ListTerminologiesResponse");
-  }
+  export const isa = (o: any): o is ListTerminologiesResponse =>
+    __isa(o, "ListTerminologiesResponse");
 }
 
 export interface ListTextTranslationJobsRequest {
@@ -428,9 +407,8 @@ export interface ListTextTranslationJobsRequest {
 }
 
 export namespace ListTextTranslationJobsRequest {
-  export function isa(o: any): o is ListTextTranslationJobsRequest {
-    return __isa(o, "ListTextTranslationJobsRequest");
-  }
+  export const isa = (o: any): o is ListTextTranslationJobsRequest =>
+    __isa(o, "ListTextTranslationJobsRequest");
 }
 
 export interface ListTextTranslationJobsResponse {
@@ -448,9 +426,8 @@ export interface ListTextTranslationJobsResponse {
 }
 
 export namespace ListTextTranslationJobsResponse {
-  export function isa(o: any): o is ListTextTranslationJobsResponse {
-    return __isa(o, "ListTextTranslationJobsResponse");
-  }
+  export const isa = (o: any): o is ListTextTranslationJobsResponse =>
+    __isa(o, "ListTextTranslationJobsResponse");
 }
 
 export enum MergeStrategy {
@@ -470,9 +447,8 @@ export interface OutputDataConfig {
 }
 
 export namespace OutputDataConfig {
-  export function isa(o: any): o is OutputDataConfig {
-    return __isa(o, "OutputDataConfig");
-  }
+  export const isa = (o: any): o is OutputDataConfig =>
+    __isa(o, "OutputDataConfig");
 }
 
 /**
@@ -489,9 +465,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -507,9 +482,8 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return __isa(o, "ServiceUnavailableException");
-  }
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 export interface StartTextTranslationJobRequest {
@@ -565,9 +539,8 @@ export interface StartTextTranslationJobRequest {
 }
 
 export namespace StartTextTranslationJobRequest {
-  export function isa(o: any): o is StartTextTranslationJobRequest {
-    return __isa(o, "StartTextTranslationJobRequest");
-  }
+  export const isa = (o: any): o is StartTextTranslationJobRequest =>
+    __isa(o, "StartTextTranslationJobRequest");
 }
 
 export interface StartTextTranslationJobResponse {
@@ -619,9 +592,8 @@ export interface StartTextTranslationJobResponse {
 }
 
 export namespace StartTextTranslationJobResponse {
-  export function isa(o: any): o is StartTextTranslationJobResponse {
-    return __isa(o, "StartTextTranslationJobResponse");
-  }
+  export const isa = (o: any): o is StartTextTranslationJobResponse =>
+    __isa(o, "StartTextTranslationJobResponse");
 }
 
 export interface StopTextTranslationJobRequest {
@@ -633,9 +605,8 @@ export interface StopTextTranslationJobRequest {
 }
 
 export namespace StopTextTranslationJobRequest {
-  export function isa(o: any): o is StopTextTranslationJobRequest {
-    return __isa(o, "StopTextTranslationJobRequest");
-  }
+  export const isa = (o: any): o is StopTextTranslationJobRequest =>
+    __isa(o, "StopTextTranslationJobRequest");
 }
 
 export interface StopTextTranslationJobResponse {
@@ -653,9 +624,8 @@ export interface StopTextTranslationJobResponse {
 }
 
 export namespace StopTextTranslationJobResponse {
-  export function isa(o: any): o is StopTextTranslationJobResponse {
-    return __isa(o, "StopTextTranslationJobResponse");
-  }
+  export const isa = (o: any): o is StopTextTranslationJobResponse =>
+    __isa(o, "StopTextTranslationJobResponse");
 }
 
 /**
@@ -675,9 +645,7 @@ export interface Term {
 }
 
 export namespace Term {
-  export function isa(o: any): o is Term {
-    return __isa(o, "Term");
-  }
+  export const isa = (o: any): o is Term => __isa(o, "Term");
 }
 
 /**
@@ -699,9 +667,8 @@ export interface TerminologyData {
 }
 
 export namespace TerminologyData {
-  export function isa(o: any): o is TerminologyData {
-    return __isa(o, "TerminologyData");
-  }
+  export const isa = (o: any): o is TerminologyData =>
+    __isa(o, "TerminologyData");
 }
 
 export enum TerminologyDataFormat {
@@ -726,9 +693,8 @@ export interface TerminologyDataLocation {
 }
 
 export namespace TerminologyDataLocation {
-  export function isa(o: any): o is TerminologyDataLocation {
-    return __isa(o, "TerminologyDataLocation");
-  }
+  export const isa = (o: any): o is TerminologyDataLocation =>
+    __isa(o, "TerminologyDataLocation");
 }
 
 /**
@@ -790,9 +756,8 @@ export interface TerminologyProperties {
 }
 
 export namespace TerminologyProperties {
-  export function isa(o: any): o is TerminologyProperties {
-    return __isa(o, "TerminologyProperties");
-  }
+  export const isa = (o: any): o is TerminologyProperties =>
+    __isa(o, "TerminologyProperties");
 }
 
 /**
@@ -808,9 +773,8 @@ export interface TextSizeLimitExceededException
 }
 
 export namespace TextSizeLimitExceededException {
-  export function isa(o: any): o is TextSizeLimitExceededException {
-    return __isa(o, "TextSizeLimitExceededException");
-  }
+  export const isa = (o: any): o is TextSizeLimitExceededException =>
+    __isa(o, "TextSizeLimitExceededException");
 }
 
 /**
@@ -845,9 +809,8 @@ export interface TextTranslationJobFilter {
 }
 
 export namespace TextTranslationJobFilter {
-  export function isa(o: any): o is TextTranslationJobFilter {
-    return __isa(o, "TextTranslationJobFilter");
-  }
+  export const isa = (o: any): o is TextTranslationJobFilter =>
+    __isa(o, "TextTranslationJobFilter");
 }
 
 /**
@@ -928,9 +891,8 @@ export interface TextTranslationJobProperties {
 }
 
 export namespace TextTranslationJobProperties {
-  export function isa(o: any): o is TextTranslationJobProperties {
-    return __isa(o, "TextTranslationJobProperties");
-  }
+  export const isa = (o: any): o is TextTranslationJobProperties =>
+    __isa(o, "TextTranslationJobProperties");
 }
 
 /**
@@ -946,9 +908,8 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export function isa(o: any): o is TooManyRequestsException {
-    return __isa(o, "TooManyRequestsException");
-  }
+  export const isa = (o: any): o is TooManyRequestsException =>
+    __isa(o, "TooManyRequestsException");
 }
 
 export interface TranslateTextRequest {
@@ -984,9 +945,8 @@ export interface TranslateTextRequest {
 }
 
 export namespace TranslateTextRequest {
-  export function isa(o: any): o is TranslateTextRequest {
-    return __isa(o, "TranslateTextRequest");
-  }
+  export const isa = (o: any): o is TranslateTextRequest =>
+    __isa(o, "TranslateTextRequest");
 }
 
 export interface TranslateTextResponse {
@@ -1014,9 +974,8 @@ export interface TranslateTextResponse {
 }
 
 export namespace TranslateTextResponse {
-  export function isa(o: any): o is TranslateTextResponse {
-    return __isa(o, "TranslateTextResponse");
-  }
+  export const isa = (o: any): o is TranslateTextResponse =>
+    __isa(o, "TranslateTextResponse");
 }
 
 /**
@@ -1041,7 +1000,6 @@ export interface UnsupportedLanguagePairException
 }
 
 export namespace UnsupportedLanguagePairException {
-  export function isa(o: any): o is UnsupportedLanguagePairException {
-    return __isa(o, "UnsupportedLanguagePairException");
-  }
+  export const isa = (o: any): o is UnsupportedLanguagePairException =>
+    __isa(o, "UnsupportedLanguagePairException");
 }

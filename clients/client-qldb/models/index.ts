@@ -35,9 +35,8 @@ export interface CreateLedgerRequest {
 }
 
 export namespace CreateLedgerRequest {
-  export function isa(o: any): o is CreateLedgerRequest {
-    return __isa(o, "CreateLedgerRequest");
-  }
+  export const isa = (o: any): o is CreateLedgerRequest =>
+    __isa(o, "CreateLedgerRequest");
 }
 
 export interface CreateLedgerResponse {
@@ -75,9 +74,8 @@ export interface CreateLedgerResponse {
 }
 
 export namespace CreateLedgerResponse {
-  export function isa(o: any): o is CreateLedgerResponse {
-    return __isa(o, "CreateLedgerResponse");
-  }
+  export const isa = (o: any): o is CreateLedgerResponse =>
+    __isa(o, "CreateLedgerResponse");
 }
 
 export interface DeleteLedgerRequest {
@@ -89,9 +87,8 @@ export interface DeleteLedgerRequest {
 }
 
 export namespace DeleteLedgerRequest {
-  export function isa(o: any): o is DeleteLedgerRequest {
-    return __isa(o, "DeleteLedgerRequest");
-  }
+  export const isa = (o: any): o is DeleteLedgerRequest =>
+    __isa(o, "DeleteLedgerRequest");
 }
 
 export interface DescribeJournalS3ExportRequest {
@@ -108,9 +105,8 @@ export interface DescribeJournalS3ExportRequest {
 }
 
 export namespace DescribeJournalS3ExportRequest {
-  export function isa(o: any): o is DescribeJournalS3ExportRequest {
-    return __isa(o, "DescribeJournalS3ExportRequest");
-  }
+  export const isa = (o: any): o is DescribeJournalS3ExportRequest =>
+    __isa(o, "DescribeJournalS3ExportRequest");
 }
 
 export interface DescribeJournalS3ExportResponse {
@@ -123,9 +119,8 @@ export interface DescribeJournalS3ExportResponse {
 }
 
 export namespace DescribeJournalS3ExportResponse {
-  export function isa(o: any): o is DescribeJournalS3ExportResponse {
-    return __isa(o, "DescribeJournalS3ExportResponse");
-  }
+  export const isa = (o: any): o is DescribeJournalS3ExportResponse =>
+    __isa(o, "DescribeJournalS3ExportResponse");
 }
 
 export interface DescribeLedgerRequest {
@@ -137,9 +132,8 @@ export interface DescribeLedgerRequest {
 }
 
 export namespace DescribeLedgerRequest {
-  export function isa(o: any): o is DescribeLedgerRequest {
-    return __isa(o, "DescribeLedgerRequest");
-  }
+  export const isa = (o: any): o is DescribeLedgerRequest =>
+    __isa(o, "DescribeLedgerRequest");
 }
 
 export interface DescribeLedgerResponse {
@@ -177,9 +171,8 @@ export interface DescribeLedgerResponse {
 }
 
 export namespace DescribeLedgerResponse {
-  export function isa(o: any): o is DescribeLedgerResponse {
-    return __isa(o, "DescribeLedgerResponse");
-  }
+  export const isa = (o: any): o is DescribeLedgerResponse =>
+    __isa(o, "DescribeLedgerResponse");
 }
 
 export interface ExportJournalToS3Request {
@@ -238,9 +231,8 @@ export interface ExportJournalToS3Request {
 }
 
 export namespace ExportJournalToS3Request {
-  export function isa(o: any): o is ExportJournalToS3Request {
-    return __isa(o, "ExportJournalToS3Request");
-  }
+  export const isa = (o: any): o is ExportJournalToS3Request =>
+    __isa(o, "ExportJournalToS3Request");
 }
 
 export interface ExportJournalToS3Response {
@@ -254,9 +246,8 @@ export interface ExportJournalToS3Response {
 }
 
 export namespace ExportJournalToS3Response {
-  export function isa(o: any): o is ExportJournalToS3Response {
-    return __isa(o, "ExportJournalToS3Response");
-  }
+  export const isa = (o: any): o is ExportJournalToS3Response =>
+    __isa(o, "ExportJournalToS3Response");
 }
 
 export enum ExportStatus {
@@ -291,9 +282,8 @@ export interface GetBlockRequest {
 }
 
 export namespace GetBlockRequest {
-  export function isa(o: any): o is GetBlockRequest {
-    return __isa(o, "GetBlockRequest");
-  }
+  export const isa = (o: any): o is GetBlockRequest =>
+    __isa(o, "GetBlockRequest");
 }
 
 export interface GetBlockResponse {
@@ -312,9 +302,8 @@ export interface GetBlockResponse {
 }
 
 export namespace GetBlockResponse {
-  export function isa(o: any): o is GetBlockResponse {
-    return __isa(o, "GetBlockResponse");
-  }
+  export const isa = (o: any): o is GetBlockResponse =>
+    __isa(o, "GetBlockResponse");
 }
 
 export interface GetDigestRequest {
@@ -326,9 +315,8 @@ export interface GetDigestRequest {
 }
 
 export namespace GetDigestRequest {
-  export function isa(o: any): o is GetDigestRequest {
-    return __isa(o, "GetDigestRequest");
-  }
+  export const isa = (o: any): o is GetDigestRequest =>
+    __isa(o, "GetDigestRequest");
 }
 
 export interface GetDigestResponse {
@@ -348,9 +336,8 @@ export interface GetDigestResponse {
 }
 
 export namespace GetDigestResponse {
-  export function isa(o: any): o is GetDigestResponse {
-    return __isa(o, "GetDigestResponse");
-  }
+  export const isa = (o: any): o is GetDigestResponse =>
+    __isa(o, "GetDigestResponse");
 }
 
 export interface GetRevisionRequest {
@@ -384,9 +371,8 @@ export interface GetRevisionRequest {
 }
 
 export namespace GetRevisionRequest {
-  export function isa(o: any): o is GetRevisionRequest {
-    return __isa(o, "GetRevisionRequest");
-  }
+  export const isa = (o: any): o is GetRevisionRequest =>
+    __isa(o, "GetRevisionRequest");
 }
 
 export interface GetRevisionResponse {
@@ -405,9 +391,8 @@ export interface GetRevisionResponse {
 }
 
 export namespace GetRevisionResponse {
-  export function isa(o: any): o is GetRevisionResponse {
-    return __isa(o, "GetRevisionResponse");
-  }
+  export const isa = (o: any): o is GetRevisionResponse =>
+    __isa(o, "GetRevisionResponse");
 }
 
 /**
@@ -426,9 +411,8 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export function isa(o: any): o is InvalidParameterException {
-    return __isa(o, "InvalidParameterException");
-  }
+  export const isa = (o: any): o is InvalidParameterException =>
+    __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -493,9 +477,8 @@ export interface JournalS3ExportDescription {
 }
 
 export namespace JournalS3ExportDescription {
-  export function isa(o: any): o is JournalS3ExportDescription {
-    return __isa(o, "JournalS3ExportDescription");
-  }
+  export const isa = (o: any): o is JournalS3ExportDescription =>
+    __isa(o, "JournalS3ExportDescription");
 }
 
 export enum LedgerState {
@@ -528,9 +511,7 @@ export interface LedgerSummary {
 }
 
 export namespace LedgerSummary {
-  export function isa(o: any): o is LedgerSummary {
-    return __isa(o, "LedgerSummary");
-  }
+  export const isa = (o: any): o is LedgerSummary => __isa(o, "LedgerSummary");
 }
 
 /**
@@ -549,9 +530,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export interface ListJournalS3ExportsForLedgerRequest {
@@ -578,9 +558,8 @@ export interface ListJournalS3ExportsForLedgerRequest {
 }
 
 export namespace ListJournalS3ExportsForLedgerRequest {
-  export function isa(o: any): o is ListJournalS3ExportsForLedgerRequest {
-    return __isa(o, "ListJournalS3ExportsForLedgerRequest");
-  }
+  export const isa = (o: any): o is ListJournalS3ExportsForLedgerRequest =>
+    __isa(o, "ListJournalS3ExportsForLedgerRequest");
 }
 
 export interface ListJournalS3ExportsForLedgerResponse {
@@ -609,9 +588,8 @@ export interface ListJournalS3ExportsForLedgerResponse {
 }
 
 export namespace ListJournalS3ExportsForLedgerResponse {
-  export function isa(o: any): o is ListJournalS3ExportsForLedgerResponse {
-    return __isa(o, "ListJournalS3ExportsForLedgerResponse");
-  }
+  export const isa = (o: any): o is ListJournalS3ExportsForLedgerResponse =>
+    __isa(o, "ListJournalS3ExportsForLedgerResponse");
 }
 
 export interface ListJournalS3ExportsRequest {
@@ -632,9 +610,8 @@ export interface ListJournalS3ExportsRequest {
 }
 
 export namespace ListJournalS3ExportsRequest {
-  export function isa(o: any): o is ListJournalS3ExportsRequest {
-    return __isa(o, "ListJournalS3ExportsRequest");
-  }
+  export const isa = (o: any): o is ListJournalS3ExportsRequest =>
+    __isa(o, "ListJournalS3ExportsRequest");
 }
 
 export interface ListJournalS3ExportsResponse {
@@ -663,9 +640,8 @@ export interface ListJournalS3ExportsResponse {
 }
 
 export namespace ListJournalS3ExportsResponse {
-  export function isa(o: any): o is ListJournalS3ExportsResponse {
-    return __isa(o, "ListJournalS3ExportsResponse");
-  }
+  export const isa = (o: any): o is ListJournalS3ExportsResponse =>
+    __isa(o, "ListJournalS3ExportsResponse");
 }
 
 export interface ListLedgersRequest {
@@ -685,9 +661,8 @@ export interface ListLedgersRequest {
 }
 
 export namespace ListLedgersRequest {
-  export function isa(o: any): o is ListLedgersRequest {
-    return __isa(o, "ListLedgersRequest");
-  }
+  export const isa = (o: any): o is ListLedgersRequest =>
+    __isa(o, "ListLedgersRequest");
 }
 
 export interface ListLedgersResponse {
@@ -716,9 +691,8 @@ export interface ListLedgersResponse {
 }
 
 export namespace ListLedgersResponse {
-  export function isa(o: any): o is ListLedgersResponse {
-    return __isa(o, "ListLedgersResponse");
-  }
+  export const isa = (o: any): o is ListLedgersResponse =>
+    __isa(o, "ListLedgersResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -733,9 +707,8 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export function isa(o: any): o is ListTagsForResourceRequest {
-    return __isa(o, "ListTagsForResourceRequest");
-  }
+  export const isa = (o: any): o is ListTagsForResourceRequest =>
+    __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -747,9 +720,8 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export function isa(o: any): o is ListTagsForResourceResponse {
-    return __isa(o, "ListTagsForResourceResponse");
-  }
+  export const isa = (o: any): o is ListTagsForResourceResponse =>
+    __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum PermissionsMode {
@@ -777,9 +749,8 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
-  export function isa(o: any): o is ResourceAlreadyExistsException {
-    return __isa(o, "ResourceAlreadyExistsException");
-  }
+  export const isa = (o: any): o is ResourceAlreadyExistsException =>
+    __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -803,9 +774,8 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export function isa(o: any): o is ResourceInUseException {
-    return __isa(o, "ResourceInUseException");
-  }
+  export const isa = (o: any): o is ResourceInUseException =>
+    __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -829,9 +799,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -855,9 +824,8 @@ export interface ResourcePreconditionNotMetException
 }
 
 export namespace ResourcePreconditionNotMetException {
-  export function isa(o: any): o is ResourcePreconditionNotMetException {
-    return __isa(o, "ResourcePreconditionNotMetException");
-  }
+  export const isa = (o: any): o is ResourcePreconditionNotMetException =>
+    __isa(o, "ResourcePreconditionNotMetException");
 }
 
 /**
@@ -887,9 +855,8 @@ export interface S3EncryptionConfiguration {
 }
 
 export namespace S3EncryptionConfiguration {
-  export function isa(o: any): o is S3EncryptionConfiguration {
-    return __isa(o, "S3EncryptionConfiguration");
-  }
+  export const isa = (o: any): o is S3EncryptionConfiguration =>
+    __isa(o, "S3EncryptionConfiguration");
 }
 
 /**
@@ -941,9 +908,8 @@ export interface S3ExportConfiguration {
 }
 
 export namespace S3ExportConfiguration {
-  export function isa(o: any): o is S3ExportConfiguration {
-    return __isa(o, "S3ExportConfiguration");
-  }
+  export const isa = (o: any): o is S3ExportConfiguration =>
+    __isa(o, "S3ExportConfiguration");
 }
 
 export enum S3ObjectEncryptionType {
@@ -971,9 +937,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -981,9 +946,8 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export function isa(o: any): o is TagResourceResponse {
-    return __isa(o, "TagResourceResponse");
-  }
+  export const isa = (o: any): o is TagResourceResponse =>
+    __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
@@ -1004,9 +968,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -1014,9 +977,8 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export function isa(o: any): o is UntagResourceResponse {
-    return __isa(o, "UntagResourceResponse");
-  }
+  export const isa = (o: any): o is UntagResourceResponse =>
+    __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateLedgerRequest {
@@ -1038,9 +1000,8 @@ export interface UpdateLedgerRequest {
 }
 
 export namespace UpdateLedgerRequest {
-  export function isa(o: any): o is UpdateLedgerRequest {
-    return __isa(o, "UpdateLedgerRequest");
-  }
+  export const isa = (o: any): o is UpdateLedgerRequest =>
+    __isa(o, "UpdateLedgerRequest");
 }
 
 export interface UpdateLedgerResponse {
@@ -1078,9 +1039,8 @@ export interface UpdateLedgerResponse {
 }
 
 export namespace UpdateLedgerResponse {
-  export function isa(o: any): o is UpdateLedgerResponse {
-    return __isa(o, "UpdateLedgerResponse");
-  }
+  export const isa = (o: any): o is UpdateLedgerResponse =>
+    __isa(o, "UpdateLedgerResponse");
 }
 
 /**
@@ -1095,7 +1055,5 @@ export interface ValueHolder {
 }
 
 export namespace ValueHolder {
-  export function isa(o: any): o is ValueHolder {
-    return __isa(o, "ValueHolder");
-  }
+  export const isa = (o: any): o is ValueHolder => __isa(o, "ValueHolder");
 }

@@ -52,9 +52,7 @@ export interface CSVInput {
 }
 
 export namespace CSVInput {
-  export function isa(o: any): o is CSVInput {
-    return __isa(o, "CSVInput");
-  }
+  export const isa = (o: any): o is CSVInput => __isa(o, "CSVInput");
 }
 
 /**
@@ -93,9 +91,7 @@ export interface CSVOutput {
 }
 
 export namespace CSVOutput {
-  export function isa(o: any): o is CSVOutput {
-    return __isa(o, "CSVOutput");
-  }
+  export const isa = (o: any): o is CSVOutput => __isa(o, "CSVOutput");
 }
 
 export enum CannedACL {
@@ -134,9 +130,7 @@ export interface Encryption {
 }
 
 export namespace Encryption {
-  export function isa(o: any): o is Encryption {
-    return __isa(o, "Encryption");
-  }
+  export const isa = (o: any): o is Encryption => __isa(o, "Encryption");
 }
 
 export enum EncryptionType {
@@ -313,9 +307,8 @@ export interface GlacierJobDescription {
 }
 
 export namespace GlacierJobDescription {
-  export function isa(o: any): o is GlacierJobDescription {
-    return __isa(o, "GlacierJobDescription");
-  }
+  export const isa = (o: any): o is GlacierJobDescription =>
+    __isa(o, "GlacierJobDescription");
 }
 
 /**
@@ -335,9 +328,7 @@ export interface Grant {
 }
 
 export namespace Grant {
-  export function isa(o: any): o is Grant {
-    return __isa(o, "Grant");
-  }
+  export const isa = (o: any): o is Grant => __isa(o, "Grant");
 }
 
 /**
@@ -372,9 +363,7 @@ export interface Grantee {
 }
 
 export namespace Grantee {
-  export function isa(o: any): o is Grantee {
-    return __isa(o, "Grantee");
-  }
+  export const isa = (o: any): o is Grantee => __isa(o, "Grantee");
 }
 
 /**
@@ -389,9 +378,8 @@ export interface InputSerialization {
 }
 
 export namespace InputSerialization {
-  export function isa(o: any): o is InputSerialization {
-    return __isa(o, "InputSerialization");
-  }
+  export const isa = (o: any): o is InputSerialization =>
+    __isa(o, "InputSerialization");
 }
 
 /**
@@ -436,9 +424,8 @@ export interface InventoryRetrievalJobDescription {
 }
 
 export namespace InventoryRetrievalJobDescription {
-  export function isa(o: any): o is InventoryRetrievalJobDescription {
-    return __isa(o, "InventoryRetrievalJobDescription");
-  }
+  export const isa = (o: any): o is InventoryRetrievalJobDescription =>
+    __isa(o, "InventoryRetrievalJobDescription");
 }
 
 /**
@@ -453,9 +440,8 @@ export interface OutputLocation {
 }
 
 export namespace OutputLocation {
-  export function isa(o: any): o is OutputLocation {
-    return __isa(o, "OutputLocation");
-  }
+  export const isa = (o: any): o is OutputLocation =>
+    __isa(o, "OutputLocation");
 }
 
 /**
@@ -470,9 +456,8 @@ export interface OutputSerialization {
 }
 
 export namespace OutputSerialization {
-  export function isa(o: any): o is OutputSerialization {
-    return __isa(o, "OutputSerialization");
-  }
+  export const isa = (o: any): o is OutputSerialization =>
+    __isa(o, "OutputSerialization");
 }
 
 export enum Permission {
@@ -535,9 +520,7 @@ export interface S3Location {
 }
 
 export namespace S3Location {
-  export function isa(o: any): o is S3Location {
-    return __isa(o, "S3Location");
-  }
+  export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
 }
 
 /**
@@ -567,9 +550,8 @@ export interface SelectParameters {
 }
 
 export namespace SelectParameters {
-  export function isa(o: any): o is SelectParameters {
-    return __isa(o, "SelectParameters");
-  }
+  export const isa = (o: any): o is SelectParameters =>
+    __isa(o, "SelectParameters");
 }
 
 export enum StatusCode {
@@ -620,9 +602,8 @@ export interface AbortMultipartUploadInput {
 }
 
 export namespace AbortMultipartUploadInput {
-  export function isa(o: any): o is AbortMultipartUploadInput {
-    return __isa(o, "AbortMultipartUploadInput");
-  }
+  export const isa = (o: any): o is AbortMultipartUploadInput =>
+    __isa(o, "AbortMultipartUploadInput");
 }
 
 /**
@@ -646,9 +627,8 @@ export interface AbortVaultLockInput {
 }
 
 export namespace AbortVaultLockInput {
-  export function isa(o: any): o is AbortVaultLockInput {
-    return __isa(o, "AbortVaultLockInput");
-  }
+  export const isa = (o: any): o is AbortVaultLockInput =>
+    __isa(o, "AbortVaultLockInput");
 }
 
 /**
@@ -678,9 +658,8 @@ export interface AddTagsToVaultInput {
 }
 
 export namespace AddTagsToVaultInput {
-  export function isa(o: any): o is AddTagsToVaultInput {
-    return __isa(o, "AddTagsToVaultInput");
-  }
+  export const isa = (o: any): o is AddTagsToVaultInput =>
+    __isa(o, "AddTagsToVaultInput");
 }
 
 /**
@@ -708,9 +687,8 @@ export interface ArchiveCreationOutput {
 }
 
 export namespace ArchiveCreationOutput {
-  export function isa(o: any): o is ArchiveCreationOutput {
-    return __isa(o, "ArchiveCreationOutput");
-  }
+  export const isa = (o: any): o is ArchiveCreationOutput =>
+    __isa(o, "ArchiveCreationOutput");
 }
 
 /**
@@ -756,9 +734,8 @@ export interface CompleteMultipartUploadInput {
 }
 
 export namespace CompleteMultipartUploadInput {
-  export function isa(o: any): o is CompleteMultipartUploadInput {
-    return __isa(o, "CompleteMultipartUploadInput");
-  }
+  export const isa = (o: any): o is CompleteMultipartUploadInput =>
+    __isa(o, "CompleteMultipartUploadInput");
 }
 
 /**
@@ -787,9 +764,8 @@ export interface CompleteVaultLockInput {
 }
 
 export namespace CompleteVaultLockInput {
-  export function isa(o: any): o is CompleteVaultLockInput {
-    return __isa(o, "CompleteVaultLockInput");
-  }
+  export const isa = (o: any): o is CompleteVaultLockInput =>
+    __isa(o, "CompleteVaultLockInput");
 }
 
 /**
@@ -813,9 +789,8 @@ export interface CreateVaultInput {
 }
 
 export namespace CreateVaultInput {
-  export function isa(o: any): o is CreateVaultInput {
-    return __isa(o, "CreateVaultInput");
-  }
+  export const isa = (o: any): o is CreateVaultInput =>
+    __isa(o, "CreateVaultInput");
 }
 
 /**
@@ -830,9 +805,8 @@ export interface CreateVaultOutput {
 }
 
 export namespace CreateVaultOutput {
-  export function isa(o: any): o is CreateVaultOutput {
-    return __isa(o, "CreateVaultOutput");
-  }
+  export const isa = (o: any): o is CreateVaultOutput =>
+    __isa(o, "CreateVaultOutput");
 }
 
 /**
@@ -848,9 +822,8 @@ export interface DataRetrievalPolicy {
 }
 
 export namespace DataRetrievalPolicy {
-  export function isa(o: any): o is DataRetrievalPolicy {
-    return __isa(o, "DataRetrievalPolicy");
-  }
+  export const isa = (o: any): o is DataRetrievalPolicy =>
+    __isa(o, "DataRetrievalPolicy");
 }
 
 /**
@@ -874,9 +847,8 @@ export interface DataRetrievalRule {
 }
 
 export namespace DataRetrievalRule {
-  export function isa(o: any): o is DataRetrievalRule {
-    return __isa(o, "DataRetrievalRule");
-  }
+  export const isa = (o: any): o is DataRetrievalRule =>
+    __isa(o, "DataRetrievalRule");
 }
 
 /**
@@ -905,9 +877,8 @@ export interface DeleteArchiveInput {
 }
 
 export namespace DeleteArchiveInput {
-  export function isa(o: any): o is DeleteArchiveInput {
-    return __isa(o, "DeleteArchiveInput");
-  }
+  export const isa = (o: any): o is DeleteArchiveInput =>
+    __isa(o, "DeleteArchiveInput");
 }
 
 /**
@@ -931,9 +902,8 @@ export interface DeleteVaultAccessPolicyInput {
 }
 
 export namespace DeleteVaultAccessPolicyInput {
-  export function isa(o: any): o is DeleteVaultAccessPolicyInput {
-    return __isa(o, "DeleteVaultAccessPolicyInput");
-  }
+  export const isa = (o: any): o is DeleteVaultAccessPolicyInput =>
+    __isa(o, "DeleteVaultAccessPolicyInput");
 }
 
 /**
@@ -957,9 +927,8 @@ export interface DeleteVaultInput {
 }
 
 export namespace DeleteVaultInput {
-  export function isa(o: any): o is DeleteVaultInput {
-    return __isa(o, "DeleteVaultInput");
-  }
+  export const isa = (o: any): o is DeleteVaultInput =>
+    __isa(o, "DeleteVaultInput");
 }
 
 /**
@@ -984,9 +953,8 @@ export interface DeleteVaultNotificationsInput {
 }
 
 export namespace DeleteVaultNotificationsInput {
-  export function isa(o: any): o is DeleteVaultNotificationsInput {
-    return __isa(o, "DeleteVaultNotificationsInput");
-  }
+  export const isa = (o: any): o is DeleteVaultNotificationsInput =>
+    __isa(o, "DeleteVaultNotificationsInput");
 }
 
 /**
@@ -1015,9 +983,8 @@ export interface DescribeJobInput {
 }
 
 export namespace DescribeJobInput {
-  export function isa(o: any): o is DescribeJobInput {
-    return __isa(o, "DescribeJobInput");
-  }
+  export const isa = (o: any): o is DescribeJobInput =>
+    __isa(o, "DescribeJobInput");
 }
 
 /**
@@ -1042,9 +1009,8 @@ export interface DescribeVaultInput {
 }
 
 export namespace DescribeVaultInput {
-  export function isa(o: any): o is DescribeVaultInput {
-    return __isa(o, "DescribeVaultInput");
-  }
+  export const isa = (o: any): o is DescribeVaultInput =>
+    __isa(o, "DescribeVaultInput");
 }
 
 /**
@@ -1092,9 +1058,8 @@ export interface DescribeVaultOutput {
 }
 
 export namespace DescribeVaultOutput {
-  export function isa(o: any): o is DescribeVaultOutput {
-    return __isa(o, "DescribeVaultOutput");
-  }
+  export const isa = (o: any): o is DescribeVaultOutput =>
+    __isa(o, "DescribeVaultOutput");
 }
 
 /**
@@ -1113,9 +1078,8 @@ export interface GetDataRetrievalPolicyInput {
 }
 
 export namespace GetDataRetrievalPolicyInput {
-  export function isa(o: any): o is GetDataRetrievalPolicyInput {
-    return __isa(o, "GetDataRetrievalPolicyInput");
-  }
+  export const isa = (o: any): o is GetDataRetrievalPolicyInput =>
+    __isa(o, "GetDataRetrievalPolicyInput");
 }
 
 /**
@@ -1131,9 +1095,8 @@ export interface GetDataRetrievalPolicyOutput {
 }
 
 export namespace GetDataRetrievalPolicyOutput {
-  export function isa(o: any): o is GetDataRetrievalPolicyOutput {
-    return __isa(o, "GetDataRetrievalPolicyOutput");
-  }
+  export const isa = (o: any): o is GetDataRetrievalPolicyOutput =>
+    __isa(o, "GetDataRetrievalPolicyOutput");
 }
 
 /**
@@ -1202,9 +1165,8 @@ export interface GetJobOutputInput {
 }
 
 export namespace GetJobOutputInput {
-  export function isa(o: any): o is GetJobOutputInput {
-    return __isa(o, "GetJobOutputInput");
-  }
+  export const isa = (o: any): o is GetJobOutputInput =>
+    __isa(o, "GetJobOutputInput");
 }
 
 /**
@@ -1269,9 +1231,8 @@ export interface GetJobOutputOutput {
 }
 
 export namespace GetJobOutputOutput {
-  export function isa(o: any): o is GetJobOutputOutput {
-    return __isa(o, "GetJobOutputOutput");
-  }
+  export const isa = (o: any): o is GetJobOutputOutput =>
+    __isa(o, "GetJobOutputOutput");
 }
 
 /**
@@ -1295,9 +1256,8 @@ export interface GetVaultAccessPolicyInput {
 }
 
 export namespace GetVaultAccessPolicyInput {
-  export function isa(o: any): o is GetVaultAccessPolicyInput {
-    return __isa(o, "GetVaultAccessPolicyInput");
-  }
+  export const isa = (o: any): o is GetVaultAccessPolicyInput =>
+    __isa(o, "GetVaultAccessPolicyInput");
 }
 
 /**
@@ -1312,9 +1272,8 @@ export interface GetVaultAccessPolicyOutput {
 }
 
 export namespace GetVaultAccessPolicyOutput {
-  export function isa(o: any): o is GetVaultAccessPolicyOutput {
-    return __isa(o, "GetVaultAccessPolicyOutput");
-  }
+  export const isa = (o: any): o is GetVaultAccessPolicyOutput =>
+    __isa(o, "GetVaultAccessPolicyOutput");
 }
 
 /**
@@ -1338,9 +1297,8 @@ export interface GetVaultLockInput {
 }
 
 export namespace GetVaultLockInput {
-  export function isa(o: any): o is GetVaultLockInput {
-    return __isa(o, "GetVaultLockInput");
-  }
+  export const isa = (o: any): o is GetVaultLockInput =>
+    __isa(o, "GetVaultLockInput");
 }
 
 /**
@@ -1374,9 +1332,8 @@ export interface GetVaultLockOutput {
 }
 
 export namespace GetVaultLockOutput {
-  export function isa(o: any): o is GetVaultLockOutput {
-    return __isa(o, "GetVaultLockOutput");
-  }
+  export const isa = (o: any): o is GetVaultLockOutput =>
+    __isa(o, "GetVaultLockOutput");
 }
 
 /**
@@ -1401,9 +1358,8 @@ export interface GetVaultNotificationsInput {
 }
 
 export namespace GetVaultNotificationsInput {
-  export function isa(o: any): o is GetVaultNotificationsInput {
-    return __isa(o, "GetVaultNotificationsInput");
-  }
+  export const isa = (o: any): o is GetVaultNotificationsInput =>
+    __isa(o, "GetVaultNotificationsInput");
 }
 
 /**
@@ -1418,9 +1374,8 @@ export interface GetVaultNotificationsOutput {
 }
 
 export namespace GetVaultNotificationsOutput {
-  export function isa(o: any): o is GetVaultNotificationsOutput {
-    return __isa(o, "GetVaultNotificationsOutput");
-  }
+  export const isa = (o: any): o is GetVaultNotificationsOutput =>
+    __isa(o, "GetVaultNotificationsOutput");
 }
 
 /**
@@ -1449,9 +1404,8 @@ export interface InitiateJobInput {
 }
 
 export namespace InitiateJobInput {
-  export function isa(o: any): o is InitiateJobInput {
-    return __isa(o, "InitiateJobInput");
-  }
+  export const isa = (o: any): o is InitiateJobInput =>
+    __isa(o, "InitiateJobInput");
 }
 
 /**
@@ -1476,9 +1430,8 @@ export interface InitiateJobOutput {
 }
 
 export namespace InitiateJobOutput {
-  export function isa(o: any): o is InitiateJobOutput {
-    return __isa(o, "InitiateJobOutput");
-  }
+  export const isa = (o: any): o is InitiateJobOutput =>
+    __isa(o, "InitiateJobOutput");
 }
 
 /**
@@ -1517,9 +1470,8 @@ export interface InitiateMultipartUploadInput {
 }
 
 export namespace InitiateMultipartUploadInput {
-  export function isa(o: any): o is InitiateMultipartUploadInput {
-    return __isa(o, "InitiateMultipartUploadInput");
-  }
+  export const isa = (o: any): o is InitiateMultipartUploadInput =>
+    __isa(o, "InitiateMultipartUploadInput");
 }
 
 /**
@@ -1540,9 +1492,8 @@ export interface InitiateMultipartUploadOutput {
 }
 
 export namespace InitiateMultipartUploadOutput {
-  export function isa(o: any): o is InitiateMultipartUploadOutput {
-    return __isa(o, "InitiateMultipartUploadOutput");
-  }
+  export const isa = (o: any): o is InitiateMultipartUploadOutput =>
+    __isa(o, "InitiateMultipartUploadOutput");
 }
 
 /**
@@ -1572,9 +1523,8 @@ export interface InitiateVaultLockInput {
 }
 
 export namespace InitiateVaultLockInput {
-  export function isa(o: any): o is InitiateVaultLockInput {
-    return __isa(o, "InitiateVaultLockInput");
-  }
+  export const isa = (o: any): o is InitiateVaultLockInput =>
+    __isa(o, "InitiateVaultLockInput");
 }
 
 /**
@@ -1589,9 +1539,8 @@ export interface InitiateVaultLockOutput {
 }
 
 export namespace InitiateVaultLockOutput {
-  export function isa(o: any): o is InitiateVaultLockOutput {
-    return __isa(o, "InitiateVaultLockOutput");
-  }
+  export const isa = (o: any): o is InitiateVaultLockOutput =>
+    __isa(o, "InitiateVaultLockOutput");
 }
 
 /**
@@ -1610,9 +1559,8 @@ export interface InsufficientCapacityException
 }
 
 export namespace InsufficientCapacityException {
-  export function isa(o: any): o is InsufficientCapacityException {
-    return __isa(o, "InsufficientCapacityException");
-  }
+  export const isa = (o: any): o is InsufficientCapacityException =>
+    __isa(o, "InsufficientCapacityException");
 }
 
 /**
@@ -1640,9 +1588,8 @@ export interface InvalidParameterValueException
 }
 
 export namespace InvalidParameterValueException {
-  export function isa(o: any): o is InvalidParameterValueException {
-    return __isa(o, "InvalidParameterValueException");
-  }
+  export const isa = (o: any): o is InvalidParameterValueException =>
+    __isa(o, "InvalidParameterValueException");
 }
 
 /**
@@ -1680,9 +1627,8 @@ export interface InventoryRetrievalJobInput {
 }
 
 export namespace InventoryRetrievalJobInput {
-  export function isa(o: any): o is InventoryRetrievalJobInput {
-    return __isa(o, "InventoryRetrievalJobInput");
-  }
+  export const isa = (o: any): o is InventoryRetrievalJobInput =>
+    __isa(o, "InventoryRetrievalJobInput");
 }
 
 /**
@@ -1764,9 +1710,7 @@ export interface JobParameters {
 }
 
 export namespace JobParameters {
-  export function isa(o: any): o is JobParameters {
-    return __isa(o, "JobParameters");
-  }
+  export const isa = (o: any): o is JobParameters => __isa(o, "JobParameters");
 }
 
 /**
@@ -1794,9 +1738,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 /**
@@ -1847,9 +1790,7 @@ export interface ListJobsInput {
 }
 
 export namespace ListJobsInput {
-  export function isa(o: any): o is ListJobsInput {
-    return __isa(o, "ListJobsInput");
-  }
+  export const isa = (o: any): o is ListJobsInput => __isa(o, "ListJobsInput");
 }
 
 /**
@@ -1874,9 +1815,8 @@ export interface ListJobsOutput {
 }
 
 export namespace ListJobsOutput {
-  export function isa(o: any): o is ListJobsOutput {
-    return __isa(o, "ListJobsOutput");
-  }
+  export const isa = (o: any): o is ListJobsOutput =>
+    __isa(o, "ListJobsOutput");
 }
 
 /**
@@ -1915,9 +1855,8 @@ export interface ListMultipartUploadsInput {
 }
 
 export namespace ListMultipartUploadsInput {
-  export function isa(o: any): o is ListMultipartUploadsInput {
-    return __isa(o, "ListMultipartUploadsInput");
-  }
+  export const isa = (o: any): o is ListMultipartUploadsInput =>
+    __isa(o, "ListMultipartUploadsInput");
 }
 
 /**
@@ -1939,9 +1878,8 @@ export interface ListMultipartUploadsOutput {
 }
 
 export namespace ListMultipartUploadsOutput {
-  export function isa(o: any): o is ListMultipartUploadsOutput {
-    return __isa(o, "ListMultipartUploadsOutput");
-  }
+  export const isa = (o: any): o is ListMultipartUploadsOutput =>
+    __isa(o, "ListMultipartUploadsOutput");
 }
 
 /**
@@ -1986,9 +1924,8 @@ export interface ListPartsInput {
 }
 
 export namespace ListPartsInput {
-  export function isa(o: any): o is ListPartsInput {
-    return __isa(o, "ListPartsInput");
-  }
+  export const isa = (o: any): o is ListPartsInput =>
+    __isa(o, "ListPartsInput");
 }
 
 /**
@@ -2040,9 +1977,8 @@ export interface ListPartsOutput {
 }
 
 export namespace ListPartsOutput {
-  export function isa(o: any): o is ListPartsOutput {
-    return __isa(o, "ListPartsOutput");
-  }
+  export const isa = (o: any): o is ListPartsOutput =>
+    __isa(o, "ListPartsOutput");
 }
 
 export interface ListProvisionedCapacityInput {
@@ -2057,9 +1993,8 @@ export interface ListProvisionedCapacityInput {
 }
 
 export namespace ListProvisionedCapacityInput {
-  export function isa(o: any): o is ListProvisionedCapacityInput {
-    return __isa(o, "ListProvisionedCapacityInput");
-  }
+  export const isa = (o: any): o is ListProvisionedCapacityInput =>
+    __isa(o, "ListProvisionedCapacityInput");
 }
 
 export interface ListProvisionedCapacityOutput {
@@ -2071,9 +2006,8 @@ export interface ListProvisionedCapacityOutput {
 }
 
 export namespace ListProvisionedCapacityOutput {
-  export function isa(o: any): o is ListProvisionedCapacityOutput {
-    return __isa(o, "ListProvisionedCapacityOutput");
-  }
+  export const isa = (o: any): o is ListProvisionedCapacityOutput =>
+    __isa(o, "ListProvisionedCapacityOutput");
 }
 
 /**
@@ -2097,9 +2031,8 @@ export interface ListTagsForVaultInput {
 }
 
 export namespace ListTagsForVaultInput {
-  export function isa(o: any): o is ListTagsForVaultInput {
-    return __isa(o, "ListTagsForVaultInput");
-  }
+  export const isa = (o: any): o is ListTagsForVaultInput =>
+    __isa(o, "ListTagsForVaultInput");
 }
 
 /**
@@ -2114,9 +2047,8 @@ export interface ListTagsForVaultOutput {
 }
 
 export namespace ListTagsForVaultOutput {
-  export function isa(o: any): o is ListTagsForVaultOutput {
-    return __isa(o, "ListTagsForVaultOutput");
-  }
+  export const isa = (o: any): o is ListTagsForVaultOutput =>
+    __isa(o, "ListTagsForVaultOutput");
 }
 
 /**
@@ -2149,9 +2081,8 @@ export interface ListVaultsInput {
 }
 
 export namespace ListVaultsInput {
-  export function isa(o: any): o is ListVaultsInput {
-    return __isa(o, "ListVaultsInput");
-  }
+  export const isa = (o: any): o is ListVaultsInput =>
+    __isa(o, "ListVaultsInput");
 }
 
 /**
@@ -2172,9 +2103,8 @@ export interface ListVaultsOutput {
 }
 
 export namespace ListVaultsOutput {
-  export function isa(o: any): o is ListVaultsOutput {
-    return __isa(o, "ListVaultsOutput");
-  }
+  export const isa = (o: any): o is ListVaultsOutput =>
+    __isa(o, "ListVaultsOutput");
 }
 
 /**
@@ -2202,9 +2132,8 @@ export interface MissingParameterValueException
 }
 
 export namespace MissingParameterValueException {
-  export function isa(o: any): o is MissingParameterValueException {
-    return __isa(o, "MissingParameterValueException");
-  }
+  export const isa = (o: any): o is MissingParameterValueException =>
+    __isa(o, "MissingParameterValueException");
 }
 
 /**
@@ -2225,9 +2154,8 @@ export interface PartListElement {
 }
 
 export namespace PartListElement {
-  export function isa(o: any): o is PartListElement {
-    return __isa(o, "PartListElement");
-  }
+  export const isa = (o: any): o is PartListElement =>
+    __isa(o, "PartListElement");
 }
 
 /**
@@ -2256,9 +2184,8 @@ export interface PolicyEnforcedException
 }
 
 export namespace PolicyEnforcedException {
-  export function isa(o: any): o is PolicyEnforcedException {
-    return __isa(o, "PolicyEnforcedException");
-  }
+  export const isa = (o: any): o is PolicyEnforcedException =>
+    __isa(o, "PolicyEnforcedException");
 }
 
 /**
@@ -2283,9 +2210,8 @@ export interface ProvisionedCapacityDescription {
 }
 
 export namespace ProvisionedCapacityDescription {
-  export function isa(o: any): o is ProvisionedCapacityDescription {
-    return __isa(o, "ProvisionedCapacityDescription");
-  }
+  export const isa = (o: any): o is ProvisionedCapacityDescription =>
+    __isa(o, "ProvisionedCapacityDescription");
 }
 
 export interface PurchaseProvisionedCapacityInput {
@@ -2300,9 +2226,8 @@ export interface PurchaseProvisionedCapacityInput {
 }
 
 export namespace PurchaseProvisionedCapacityInput {
-  export function isa(o: any): o is PurchaseProvisionedCapacityInput {
-    return __isa(o, "PurchaseProvisionedCapacityInput");
-  }
+  export const isa = (o: any): o is PurchaseProvisionedCapacityInput =>
+    __isa(o, "PurchaseProvisionedCapacityInput");
 }
 
 export interface PurchaseProvisionedCapacityOutput {
@@ -2314,9 +2239,8 @@ export interface PurchaseProvisionedCapacityOutput {
 }
 
 export namespace PurchaseProvisionedCapacityOutput {
-  export function isa(o: any): o is PurchaseProvisionedCapacityOutput {
-    return __isa(o, "PurchaseProvisionedCapacityOutput");
-  }
+  export const isa = (o: any): o is PurchaseProvisionedCapacityOutput =>
+    __isa(o, "PurchaseProvisionedCapacityOutput");
 }
 
 /**
@@ -2345,9 +2269,8 @@ export interface RemoveTagsFromVaultInput {
 }
 
 export namespace RemoveTagsFromVaultInput {
-  export function isa(o: any): o is RemoveTagsFromVaultInput {
-    return __isa(o, "RemoveTagsFromVaultInput");
-  }
+  export const isa = (o: any): o is RemoveTagsFromVaultInput =>
+    __isa(o, "RemoveTagsFromVaultInput");
 }
 
 /**
@@ -2377,9 +2300,8 @@ export interface RequestTimeoutException
 }
 
 export namespace RequestTimeoutException {
-  export function isa(o: any): o is RequestTimeoutException {
-    return __isa(o, "RequestTimeoutException");
-  }
+  export const isa = (o: any): o is RequestTimeoutException =>
+    __isa(o, "RequestTimeoutException");
 }
 
 /**
@@ -2409,9 +2331,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -2439,9 +2360,8 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return __isa(o, "ServiceUnavailableException");
-  }
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -2465,9 +2385,8 @@ export interface SetDataRetrievalPolicyInput {
 }
 
 export namespace SetDataRetrievalPolicyInput {
-  export function isa(o: any): o is SetDataRetrievalPolicyInput {
-    return __isa(o, "SetDataRetrievalPolicyInput");
-  }
+  export const isa = (o: any): o is SetDataRetrievalPolicyInput =>
+    __isa(o, "SetDataRetrievalPolicyInput");
 }
 
 /**
@@ -2496,9 +2415,8 @@ export interface SetVaultAccessPolicyInput {
 }
 
 export namespace SetVaultAccessPolicyInput {
-  export function isa(o: any): o is SetVaultAccessPolicyInput {
-    return __isa(o, "SetVaultAccessPolicyInput");
-  }
+  export const isa = (o: any): o is SetVaultAccessPolicyInput =>
+    __isa(o, "SetVaultAccessPolicyInput");
 }
 
 /**
@@ -2528,9 +2446,8 @@ export interface SetVaultNotificationsInput {
 }
 
 export namespace SetVaultNotificationsInput {
-  export function isa(o: any): o is SetVaultNotificationsInput {
-    return __isa(o, "SetVaultNotificationsInput");
-  }
+  export const isa = (o: any): o is SetVaultNotificationsInput =>
+    __isa(o, "SetVaultNotificationsInput");
 }
 
 /**
@@ -2569,9 +2486,8 @@ export interface UploadArchiveInput {
 }
 
 export namespace UploadArchiveInput {
-  export function isa(o: any): o is UploadArchiveInput {
-    return __isa(o, "UploadArchiveInput");
-  }
+  export const isa = (o: any): o is UploadArchiveInput =>
+    __isa(o, "UploadArchiveInput");
 }
 
 /**
@@ -2609,9 +2525,8 @@ export interface UploadListElement {
 }
 
 export namespace UploadListElement {
-  export function isa(o: any): o is UploadListElement {
-    return __isa(o, "UploadListElement");
-  }
+  export const isa = (o: any): o is UploadListElement =>
+    __isa(o, "UploadListElement");
 }
 
 /**
@@ -2659,9 +2574,8 @@ export interface UploadMultipartPartInput {
 }
 
 export namespace UploadMultipartPartInput {
-  export function isa(o: any): o is UploadMultipartPartInput {
-    return __isa(o, "UploadMultipartPartInput");
-  }
+  export const isa = (o: any): o is UploadMultipartPartInput =>
+    __isa(o, "UploadMultipartPartInput");
 }
 
 /**
@@ -2676,9 +2590,8 @@ export interface UploadMultipartPartOutput {
 }
 
 export namespace UploadMultipartPartOutput {
-  export function isa(o: any): o is UploadMultipartPartOutput {
-    return __isa(o, "UploadMultipartPartOutput");
-  }
+  export const isa = (o: any): o is UploadMultipartPartOutput =>
+    __isa(o, "UploadMultipartPartOutput");
 }
 
 /**
@@ -2693,9 +2606,8 @@ export interface VaultAccessPolicy {
 }
 
 export namespace VaultAccessPolicy {
-  export function isa(o: any): o is VaultAccessPolicy {
-    return __isa(o, "VaultAccessPolicy");
-  }
+  export const isa = (o: any): o is VaultAccessPolicy =>
+    __isa(o, "VaultAccessPolicy");
 }
 
 /**
@@ -2710,9 +2622,8 @@ export interface VaultLockPolicy {
 }
 
 export namespace VaultLockPolicy {
-  export function isa(o: any): o is VaultLockPolicy {
-    return __isa(o, "VaultLockPolicy");
-  }
+  export const isa = (o: any): o is VaultLockPolicy =>
+    __isa(o, "VaultLockPolicy");
 }
 
 /**
@@ -2734,7 +2645,6 @@ export interface VaultNotificationConfig {
 }
 
 export namespace VaultNotificationConfig {
-  export function isa(o: any): o is VaultNotificationConfig {
-    return __isa(o, "VaultNotificationConfig");
-  }
+  export const isa = (o: any): o is VaultNotificationConfig =>
+    __isa(o, "VaultNotificationConfig");
 }

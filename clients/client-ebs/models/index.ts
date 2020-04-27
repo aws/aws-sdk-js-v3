@@ -22,9 +22,7 @@ export interface Block {
 }
 
 export namespace Block {
-  export function isa(o: any): o is Block {
-    return __isa(o, "Block");
-  }
+  export const isa = (o: any): o is Block => __isa(o, "Block");
 }
 
 /**
@@ -53,9 +51,7 @@ export interface ChangedBlock {
 }
 
 export namespace ChangedBlock {
-  export function isa(o: any): o is ChangedBlock {
-    return __isa(o, "ChangedBlock");
-  }
+  export const isa = (o: any): o is ChangedBlock => __isa(o, "ChangedBlock");
 }
 
 export enum ChecksumAlgorithm {
@@ -89,9 +85,8 @@ export interface GetSnapshotBlockRequest {
 }
 
 export namespace GetSnapshotBlockRequest {
-  export function isa(o: any): o is GetSnapshotBlockRequest {
-    return __isa(o, "GetSnapshotBlockRequest");
-  }
+  export const isa = (o: any): o is GetSnapshotBlockRequest =>
+    __isa(o, "GetSnapshotBlockRequest");
 }
 
 export interface GetSnapshotBlockResponse {
@@ -118,9 +113,8 @@ export interface GetSnapshotBlockResponse {
 }
 
 export namespace GetSnapshotBlockResponse {
-  export function isa(o: any): o is GetSnapshotBlockResponse {
-    return __isa(o, "GetSnapshotBlockResponse");
-  }
+  export const isa = (o: any): o is GetSnapshotBlockResponse =>
+    __isa(o, "GetSnapshotBlockResponse");
 }
 
 export interface ListChangedBlocksRequest {
@@ -156,9 +150,8 @@ export interface ListChangedBlocksRequest {
 }
 
 export namespace ListChangedBlocksRequest {
-  export function isa(o: any): o is ListChangedBlocksRequest {
-    return __isa(o, "ListChangedBlocksRequest");
-  }
+  export const isa = (o: any): o is ListChangedBlocksRequest =>
+    __isa(o, "ListChangedBlocksRequest");
 }
 
 export interface ListChangedBlocksResponse {
@@ -191,9 +184,8 @@ export interface ListChangedBlocksResponse {
 }
 
 export namespace ListChangedBlocksResponse {
-  export function isa(o: any): o is ListChangedBlocksResponse {
-    return __isa(o, "ListChangedBlocksResponse");
-  }
+  export const isa = (o: any): o is ListChangedBlocksResponse =>
+    __isa(o, "ListChangedBlocksResponse");
 }
 
 export interface ListSnapshotBlocksRequest {
@@ -221,9 +213,8 @@ export interface ListSnapshotBlocksRequest {
 }
 
 export namespace ListSnapshotBlocksRequest {
-  export function isa(o: any): o is ListSnapshotBlocksRequest {
-    return __isa(o, "ListSnapshotBlocksRequest");
-  }
+  export const isa = (o: any): o is ListSnapshotBlocksRequest =>
+    __isa(o, "ListSnapshotBlocksRequest");
 }
 
 export interface ListSnapshotBlocksResponse {
@@ -256,9 +247,8 @@ export interface ListSnapshotBlocksResponse {
 }
 
 export namespace ListSnapshotBlocksResponse {
-  export function isa(o: any): o is ListSnapshotBlocksResponse {
-    return __isa(o, "ListSnapshotBlocksResponse");
-  }
+  export const isa = (o: any): o is ListSnapshotBlocksResponse =>
+    __isa(o, "ListSnapshotBlocksResponse");
 }
 
 /**
@@ -273,9 +263,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -294,9 +283,8 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return __isa(o, "ValidationException");
-  }
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
 }
 
 export enum ValidationExceptionReason {

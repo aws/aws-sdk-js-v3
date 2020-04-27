@@ -55,9 +55,7 @@ export interface Event {
 }
 
 export namespace Event {
-  export function isa(o: any): o is Event {
-    return __isa(o, "Event");
-  }
+  export const isa = (o: any): o is Event => __isa(o, "Event");
 }
 
 export interface PutEventsRequest {
@@ -86,9 +84,8 @@ export interface PutEventsRequest {
 }
 
 export namespace PutEventsRequest {
-  export function isa(o: any): o is PutEventsRequest {
-    return __isa(o, "PutEventsRequest");
-  }
+  export const isa = (o: any): o is PutEventsRequest =>
+    __isa(o, "PutEventsRequest");
 }
 
 /**
@@ -103,7 +100,6 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
-  export function isa(o: any): o is InvalidInputException {
-    return __isa(o, "InvalidInputException");
-  }
+  export const isa = (o: any): o is InvalidInputException =>
+    __isa(o, "InvalidInputException");
 }

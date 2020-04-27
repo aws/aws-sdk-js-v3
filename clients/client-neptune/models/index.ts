@@ -20,9 +20,8 @@ export interface AuthorizationNotFoundFault
 }
 
 export namespace AuthorizationNotFoundFault {
-  export function isa(o: any): o is AuthorizationNotFoundFault {
-    return __isa(o, "AuthorizationNotFoundFault");
-  }
+  export const isa = (o: any): o is AuthorizationNotFoundFault =>
+    __isa(o, "AuthorizationNotFoundFault");
 }
 
 /**
@@ -41,9 +40,8 @@ export interface CertificateNotFoundFault
 }
 
 export namespace CertificateNotFoundFault {
-  export function isa(o: any): o is CertificateNotFoundFault {
-    return __isa(o, "CertificateNotFoundFault");
-  }
+  export const isa = (o: any): o is CertificateNotFoundFault =>
+    __isa(o, "CertificateNotFoundFault");
 }
 
 /**
@@ -61,9 +59,8 @@ export interface DBClusterAlreadyExistsFault
 }
 
 export namespace DBClusterAlreadyExistsFault {
-  export function isa(o: any): o is DBClusterAlreadyExistsFault {
-    return __isa(o, "DBClusterAlreadyExistsFault");
-  }
+  export const isa = (o: any): o is DBClusterAlreadyExistsFault =>
+    __isa(o, "DBClusterAlreadyExistsFault");
 }
 
 /**
@@ -82,9 +79,8 @@ export interface DBClusterNotFoundFault
 }
 
 export namespace DBClusterNotFoundFault {
-  export function isa(o: any): o is DBClusterNotFoundFault {
-    return __isa(o, "DBClusterNotFoundFault");
-  }
+  export const isa = (o: any): o is DBClusterNotFoundFault =>
+    __isa(o, "DBClusterNotFoundFault");
 }
 
 /**
@@ -104,9 +100,8 @@ export interface DBClusterParameterGroupNotFoundFault
 }
 
 export namespace DBClusterParameterGroupNotFoundFault {
-  export function isa(o: any): o is DBClusterParameterGroupNotFoundFault {
-    return __isa(o, "DBClusterParameterGroupNotFoundFault");
-  }
+  export const isa = (o: any): o is DBClusterParameterGroupNotFoundFault =>
+    __isa(o, "DBClusterParameterGroupNotFoundFault");
 }
 
 /**
@@ -124,9 +119,8 @@ export interface DBClusterQuotaExceededFault
 }
 
 export namespace DBClusterQuotaExceededFault {
-  export function isa(o: any): o is DBClusterQuotaExceededFault {
-    return __isa(o, "DBClusterQuotaExceededFault");
-  }
+  export const isa = (o: any): o is DBClusterQuotaExceededFault =>
+    __isa(o, "DBClusterQuotaExceededFault");
 }
 
 /**
@@ -144,9 +138,8 @@ export interface DBClusterRoleAlreadyExistsFault
 }
 
 export namespace DBClusterRoleAlreadyExistsFault {
-  export function isa(o: any): o is DBClusterRoleAlreadyExistsFault {
-    return __isa(o, "DBClusterRoleAlreadyExistsFault");
-  }
+  export const isa = (o: any): o is DBClusterRoleAlreadyExistsFault =>
+    __isa(o, "DBClusterRoleAlreadyExistsFault");
 }
 
 /**
@@ -164,9 +157,8 @@ export interface DBClusterRoleNotFoundFault
 }
 
 export namespace DBClusterRoleNotFoundFault {
-  export function isa(o: any): o is DBClusterRoleNotFoundFault {
-    return __isa(o, "DBClusterRoleNotFoundFault");
-  }
+  export const isa = (o: any): o is DBClusterRoleNotFoundFault =>
+    __isa(o, "DBClusterRoleNotFoundFault");
 }
 
 /**
@@ -184,9 +176,8 @@ export interface DBClusterRoleQuotaExceededFault
 }
 
 export namespace DBClusterRoleQuotaExceededFault {
-  export function isa(o: any): o is DBClusterRoleQuotaExceededFault {
-    return __isa(o, "DBClusterRoleQuotaExceededFault");
-  }
+  export const isa = (o: any): o is DBClusterRoleQuotaExceededFault =>
+    __isa(o, "DBClusterRoleQuotaExceededFault");
 }
 
 /**
@@ -204,9 +195,8 @@ export interface DBClusterSnapshotAlreadyExistsFault
 }
 
 export namespace DBClusterSnapshotAlreadyExistsFault {
-  export function isa(o: any): o is DBClusterSnapshotAlreadyExistsFault {
-    return __isa(o, "DBClusterSnapshotAlreadyExistsFault");
-  }
+  export const isa = (o: any): o is DBClusterSnapshotAlreadyExistsFault =>
+    __isa(o, "DBClusterSnapshotAlreadyExistsFault");
 }
 
 /**
@@ -226,9 +216,8 @@ export interface DBClusterSnapshotNotFoundFault
 }
 
 export namespace DBClusterSnapshotNotFoundFault {
-  export function isa(o: any): o is DBClusterSnapshotNotFoundFault {
-    return __isa(o, "DBClusterSnapshotNotFoundFault");
-  }
+  export const isa = (o: any): o is DBClusterSnapshotNotFoundFault =>
+    __isa(o, "DBClusterSnapshotNotFoundFault");
 }
 
 /**
@@ -246,9 +235,8 @@ export interface DBInstanceAlreadyExistsFault
 }
 
 export namespace DBInstanceAlreadyExistsFault {
-  export function isa(o: any): o is DBInstanceAlreadyExistsFault {
-    return __isa(o, "DBInstanceAlreadyExistsFault");
-  }
+  export const isa = (o: any): o is DBInstanceAlreadyExistsFault =>
+    __isa(o, "DBInstanceAlreadyExistsFault");
 }
 
 /**
@@ -267,9 +255,8 @@ export interface DBInstanceNotFoundFault
 }
 
 export namespace DBInstanceNotFoundFault {
-  export function isa(o: any): o is DBInstanceNotFoundFault {
-    return __isa(o, "DBInstanceNotFoundFault");
-  }
+  export const isa = (o: any): o is DBInstanceNotFoundFault =>
+    __isa(o, "DBInstanceNotFoundFault");
 }
 
 /**
@@ -287,9 +274,8 @@ export interface DBParameterGroupAlreadyExistsFault
 }
 
 export namespace DBParameterGroupAlreadyExistsFault {
-  export function isa(o: any): o is DBParameterGroupAlreadyExistsFault {
-    return __isa(o, "DBParameterGroupAlreadyExistsFault");
-  }
+  export const isa = (o: any): o is DBParameterGroupAlreadyExistsFault =>
+    __isa(o, "DBParameterGroupAlreadyExistsFault");
 }
 
 /**
@@ -309,9 +295,8 @@ export interface DBParameterGroupNotFoundFault
 }
 
 export namespace DBParameterGroupNotFoundFault {
-  export function isa(o: any): o is DBParameterGroupNotFoundFault {
-    return __isa(o, "DBParameterGroupNotFoundFault");
-  }
+  export const isa = (o: any): o is DBParameterGroupNotFoundFault =>
+    __isa(o, "DBParameterGroupNotFoundFault");
 }
 
 /**
@@ -329,9 +314,8 @@ export interface DBParameterGroupQuotaExceededFault
 }
 
 export namespace DBParameterGroupQuotaExceededFault {
-  export function isa(o: any): o is DBParameterGroupQuotaExceededFault {
-    return __isa(o, "DBParameterGroupQuotaExceededFault");
-  }
+  export const isa = (o: any): o is DBParameterGroupQuotaExceededFault =>
+    __isa(o, "DBParameterGroupQuotaExceededFault");
 }
 
 /**
@@ -351,9 +335,8 @@ export interface DBSecurityGroupNotFoundFault
 }
 
 export namespace DBSecurityGroupNotFoundFault {
-  export function isa(o: any): o is DBSecurityGroupNotFoundFault {
-    return __isa(o, "DBSecurityGroupNotFoundFault");
-  }
+  export const isa = (o: any): o is DBSecurityGroupNotFoundFault =>
+    __isa(o, "DBSecurityGroupNotFoundFault");
 }
 
 /**
@@ -372,9 +355,8 @@ export interface DBSnapshotAlreadyExistsFault
 }
 
 export namespace DBSnapshotAlreadyExistsFault {
-  export function isa(o: any): o is DBSnapshotAlreadyExistsFault {
-    return __isa(o, "DBSnapshotAlreadyExistsFault");
-  }
+  export const isa = (o: any): o is DBSnapshotAlreadyExistsFault =>
+    __isa(o, "DBSnapshotAlreadyExistsFault");
 }
 
 /**
@@ -393,9 +375,8 @@ export interface DBSnapshotNotFoundFault
 }
 
 export namespace DBSnapshotNotFoundFault {
-  export function isa(o: any): o is DBSnapshotNotFoundFault {
-    return __isa(o, "DBSnapshotNotFoundFault");
-  }
+  export const isa = (o: any): o is DBSnapshotNotFoundFault =>
+    __isa(o, "DBSnapshotNotFoundFault");
 }
 
 /**
@@ -414,9 +395,8 @@ export interface DBSubnetGroupAlreadyExistsFault
 }
 
 export namespace DBSubnetGroupAlreadyExistsFault {
-  export function isa(o: any): o is DBSubnetGroupAlreadyExistsFault {
-    return __isa(o, "DBSubnetGroupAlreadyExistsFault");
-  }
+  export const isa = (o: any): o is DBSubnetGroupAlreadyExistsFault =>
+    __isa(o, "DBSubnetGroupAlreadyExistsFault");
 }
 
 /**
@@ -435,9 +415,8 @@ export interface DBSubnetGroupDoesNotCoverEnoughAZs
 }
 
 export namespace DBSubnetGroupDoesNotCoverEnoughAZs {
-  export function isa(o: any): o is DBSubnetGroupDoesNotCoverEnoughAZs {
-    return __isa(o, "DBSubnetGroupDoesNotCoverEnoughAZs");
-  }
+  export const isa = (o: any): o is DBSubnetGroupDoesNotCoverEnoughAZs =>
+    __isa(o, "DBSubnetGroupDoesNotCoverEnoughAZs");
 }
 
 /**
@@ -457,9 +436,8 @@ export interface DBSubnetGroupNotFoundFault
 }
 
 export namespace DBSubnetGroupNotFoundFault {
-  export function isa(o: any): o is DBSubnetGroupNotFoundFault {
-    return __isa(o, "DBSubnetGroupNotFoundFault");
-  }
+  export const isa = (o: any): o is DBSubnetGroupNotFoundFault =>
+    __isa(o, "DBSubnetGroupNotFoundFault");
 }
 
 /**
@@ -477,9 +455,8 @@ export interface DBSubnetGroupQuotaExceededFault
 }
 
 export namespace DBSubnetGroupQuotaExceededFault {
-  export function isa(o: any): o is DBSubnetGroupQuotaExceededFault {
-    return __isa(o, "DBSubnetGroupQuotaExceededFault");
-  }
+  export const isa = (o: any): o is DBSubnetGroupQuotaExceededFault =>
+    __isa(o, "DBSubnetGroupQuotaExceededFault");
 }
 
 /**
@@ -497,9 +474,8 @@ export interface DBSubnetQuotaExceededFault
 }
 
 export namespace DBSubnetQuotaExceededFault {
-  export function isa(o: any): o is DBSubnetQuotaExceededFault {
-    return __isa(o, "DBSubnetQuotaExceededFault");
-  }
+  export const isa = (o: any): o is DBSubnetQuotaExceededFault =>
+    __isa(o, "DBSubnetQuotaExceededFault");
 }
 
 /**
@@ -517,9 +493,8 @@ export interface DBUpgradeDependencyFailureFault
 }
 
 export namespace DBUpgradeDependencyFailureFault {
-  export function isa(o: any): o is DBUpgradeDependencyFailureFault {
-    return __isa(o, "DBUpgradeDependencyFailureFault");
-  }
+  export const isa = (o: any): o is DBUpgradeDependencyFailureFault =>
+    __isa(o, "DBUpgradeDependencyFailureFault");
 }
 
 /**
@@ -538,9 +513,8 @@ export interface DomainNotFoundFault
 }
 
 export namespace DomainNotFoundFault {
-  export function isa(o: any): o is DomainNotFoundFault {
-    return __isa(o, "DomainNotFoundFault");
-  }
+  export const isa = (o: any): o is DomainNotFoundFault =>
+    __isa(o, "DomainNotFoundFault");
 }
 
 /**
@@ -558,9 +532,8 @@ export interface EventSubscriptionQuotaExceededFault
 }
 
 export namespace EventSubscriptionQuotaExceededFault {
-  export function isa(o: any): o is EventSubscriptionQuotaExceededFault {
-    return __isa(o, "EventSubscriptionQuotaExceededFault");
-  }
+  export const isa = (o: any): o is EventSubscriptionQuotaExceededFault =>
+    __isa(o, "EventSubscriptionQuotaExceededFault");
 }
 
 /**
@@ -578,9 +551,8 @@ export interface InstanceQuotaExceededFault
 }
 
 export namespace InstanceQuotaExceededFault {
-  export function isa(o: any): o is InstanceQuotaExceededFault {
-    return __isa(o, "InstanceQuotaExceededFault");
-  }
+  export const isa = (o: any): o is InstanceQuotaExceededFault =>
+    __isa(o, "InstanceQuotaExceededFault");
 }
 
 /**
@@ -598,9 +570,8 @@ export interface InsufficientDBClusterCapacityFault
 }
 
 export namespace InsufficientDBClusterCapacityFault {
-  export function isa(o: any): o is InsufficientDBClusterCapacityFault {
-    return __isa(o, "InsufficientDBClusterCapacityFault");
-  }
+  export const isa = (o: any): o is InsufficientDBClusterCapacityFault =>
+    __isa(o, "InsufficientDBClusterCapacityFault");
 }
 
 /**
@@ -618,9 +589,8 @@ export interface InsufficientDBInstanceCapacityFault
 }
 
 export namespace InsufficientDBInstanceCapacityFault {
-  export function isa(o: any): o is InsufficientDBInstanceCapacityFault {
-    return __isa(o, "InsufficientDBInstanceCapacityFault");
-  }
+  export const isa = (o: any): o is InsufficientDBInstanceCapacityFault =>
+    __isa(o, "InsufficientDBInstanceCapacityFault");
 }
 
 /**
@@ -640,9 +610,8 @@ export interface InsufficientStorageClusterCapacityFault
 }
 
 export namespace InsufficientStorageClusterCapacityFault {
-  export function isa(o: any): o is InsufficientStorageClusterCapacityFault {
-    return __isa(o, "InsufficientStorageClusterCapacityFault");
-  }
+  export const isa = (o: any): o is InsufficientStorageClusterCapacityFault =>
+    __isa(o, "InsufficientStorageClusterCapacityFault");
 }
 
 /**
@@ -660,9 +629,8 @@ export interface InvalidDBClusterSnapshotStateFault
 }
 
 export namespace InvalidDBClusterSnapshotStateFault {
-  export function isa(o: any): o is InvalidDBClusterSnapshotStateFault {
-    return __isa(o, "InvalidDBClusterSnapshotStateFault");
-  }
+  export const isa = (o: any): o is InvalidDBClusterSnapshotStateFault =>
+    __isa(o, "InvalidDBClusterSnapshotStateFault");
 }
 
 /**
@@ -680,9 +648,8 @@ export interface InvalidDBClusterStateFault
 }
 
 export namespace InvalidDBClusterStateFault {
-  export function isa(o: any): o is InvalidDBClusterStateFault {
-    return __isa(o, "InvalidDBClusterStateFault");
-  }
+  export const isa = (o: any): o is InvalidDBClusterStateFault =>
+    __isa(o, "InvalidDBClusterStateFault");
 }
 
 /**
@@ -700,9 +667,8 @@ export interface InvalidDBInstanceStateFault
 }
 
 export namespace InvalidDBInstanceStateFault {
-  export function isa(o: any): o is InvalidDBInstanceStateFault {
-    return __isa(o, "InvalidDBInstanceStateFault");
-  }
+  export const isa = (o: any): o is InvalidDBInstanceStateFault =>
+    __isa(o, "InvalidDBInstanceStateFault");
 }
 
 /**
@@ -721,9 +687,8 @@ export interface InvalidDBParameterGroupStateFault
 }
 
 export namespace InvalidDBParameterGroupStateFault {
-  export function isa(o: any): o is InvalidDBParameterGroupStateFault {
-    return __isa(o, "InvalidDBParameterGroupStateFault");
-  }
+  export const isa = (o: any): o is InvalidDBParameterGroupStateFault =>
+    __isa(o, "InvalidDBParameterGroupStateFault");
 }
 
 /**
@@ -741,9 +706,8 @@ export interface InvalidDBSecurityGroupStateFault
 }
 
 export namespace InvalidDBSecurityGroupStateFault {
-  export function isa(o: any): o is InvalidDBSecurityGroupStateFault {
-    return __isa(o, "InvalidDBSecurityGroupStateFault");
-  }
+  export const isa = (o: any): o is InvalidDBSecurityGroupStateFault =>
+    __isa(o, "InvalidDBSecurityGroupStateFault");
 }
 
 /**
@@ -761,9 +725,8 @@ export interface InvalidDBSnapshotStateFault
 }
 
 export namespace InvalidDBSnapshotStateFault {
-  export function isa(o: any): o is InvalidDBSnapshotStateFault {
-    return __isa(o, "InvalidDBSnapshotStateFault");
-  }
+  export const isa = (o: any): o is InvalidDBSnapshotStateFault =>
+    __isa(o, "InvalidDBSnapshotStateFault");
 }
 
 /**
@@ -781,9 +744,8 @@ export interface InvalidDBSubnetGroupStateFault
 }
 
 export namespace InvalidDBSubnetGroupStateFault {
-  export function isa(o: any): o is InvalidDBSubnetGroupStateFault {
-    return __isa(o, "InvalidDBSubnetGroupStateFault");
-  }
+  export const isa = (o: any): o is InvalidDBSubnetGroupStateFault =>
+    __isa(o, "InvalidDBSubnetGroupStateFault");
 }
 
 /**
@@ -801,9 +763,8 @@ export interface InvalidDBSubnetStateFault
 }
 
 export namespace InvalidDBSubnetStateFault {
-  export function isa(o: any): o is InvalidDBSubnetStateFault {
-    return __isa(o, "InvalidDBSubnetStateFault");
-  }
+  export const isa = (o: any): o is InvalidDBSubnetStateFault =>
+    __isa(o, "InvalidDBSubnetStateFault");
 }
 
 /**
@@ -821,9 +782,8 @@ export interface InvalidEventSubscriptionStateFault
 }
 
 export namespace InvalidEventSubscriptionStateFault {
-  export function isa(o: any): o is InvalidEventSubscriptionStateFault {
-    return __isa(o, "InvalidEventSubscriptionStateFault");
-  }
+  export const isa = (o: any): o is InvalidEventSubscriptionStateFault =>
+    __isa(o, "InvalidEventSubscriptionStateFault");
 }
 
 /**
@@ -841,9 +801,8 @@ export interface InvalidRestoreFault
 }
 
 export namespace InvalidRestoreFault {
-  export function isa(o: any): o is InvalidRestoreFault {
-    return __isa(o, "InvalidRestoreFault");
-  }
+  export const isa = (o: any): o is InvalidRestoreFault =>
+    __isa(o, "InvalidRestoreFault");
 }
 
 /**
@@ -860,9 +819,7 @@ export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidSubnet {
-  export function isa(o: any): o is InvalidSubnet {
-    return __isa(o, "InvalidSubnet");
-  }
+  export const isa = (o: any): o is InvalidSubnet => __isa(o, "InvalidSubnet");
 }
 
 /**
@@ -881,9 +838,8 @@ export interface InvalidVPCNetworkStateFault
 }
 
 export namespace InvalidVPCNetworkStateFault {
-  export function isa(o: any): o is InvalidVPCNetworkStateFault {
-    return __isa(o, "InvalidVPCNetworkStateFault");
-  }
+  export const isa = (o: any): o is InvalidVPCNetworkStateFault =>
+    __isa(o, "InvalidVPCNetworkStateFault");
 }
 
 /**
@@ -901,9 +857,8 @@ export interface KMSKeyNotAccessibleFault
 }
 
 export namespace KMSKeyNotAccessibleFault {
-  export function isa(o: any): o is KMSKeyNotAccessibleFault {
-    return __isa(o, "KMSKeyNotAccessibleFault");
-  }
+  export const isa = (o: any): o is KMSKeyNotAccessibleFault =>
+    __isa(o, "KMSKeyNotAccessibleFault");
 }
 
 /**
@@ -921,9 +876,8 @@ export interface OptionGroupNotFoundFault
 }
 
 export namespace OptionGroupNotFoundFault {
-  export function isa(o: any): o is OptionGroupNotFoundFault {
-    return __isa(o, "OptionGroupNotFoundFault");
-  }
+  export const isa = (o: any): o is OptionGroupNotFoundFault =>
+    __isa(o, "OptionGroupNotFoundFault");
 }
 
 /**
@@ -941,9 +895,8 @@ export interface ProvisionedIopsNotAvailableInAZFault
 }
 
 export namespace ProvisionedIopsNotAvailableInAZFault {
-  export function isa(o: any): o is ProvisionedIopsNotAvailableInAZFault {
-    return __isa(o, "ProvisionedIopsNotAvailableInAZFault");
-  }
+  export const isa = (o: any): o is ProvisionedIopsNotAvailableInAZFault =>
+    __isa(o, "ProvisionedIopsNotAvailableInAZFault");
 }
 
 /**
@@ -961,9 +914,8 @@ export interface ResourceNotFoundFault
 }
 
 export namespace ResourceNotFoundFault {
-  export function isa(o: any): o is ResourceNotFoundFault {
-    return __isa(o, "ResourceNotFoundFault");
-  }
+  export const isa = (o: any): o is ResourceNotFoundFault =>
+    __isa(o, "ResourceNotFoundFault");
 }
 
 /**
@@ -981,9 +933,8 @@ export interface SNSInvalidTopicFault
 }
 
 export namespace SNSInvalidTopicFault {
-  export function isa(o: any): o is SNSInvalidTopicFault {
-    return __isa(o, "SNSInvalidTopicFault");
-  }
+  export const isa = (o: any): o is SNSInvalidTopicFault =>
+    __isa(o, "SNSInvalidTopicFault");
 }
 
 /**
@@ -1001,9 +952,8 @@ export interface SNSNoAuthorizationFault
 }
 
 export namespace SNSNoAuthorizationFault {
-  export function isa(o: any): o is SNSNoAuthorizationFault {
-    return __isa(o, "SNSNoAuthorizationFault");
-  }
+  export const isa = (o: any): o is SNSNoAuthorizationFault =>
+    __isa(o, "SNSNoAuthorizationFault");
 }
 
 /**
@@ -1021,9 +971,8 @@ export interface SNSTopicArnNotFoundFault
 }
 
 export namespace SNSTopicArnNotFoundFault {
-  export function isa(o: any): o is SNSTopicArnNotFoundFault {
-    return __isa(o, "SNSTopicArnNotFoundFault");
-  }
+  export const isa = (o: any): o is SNSTopicArnNotFoundFault =>
+    __isa(o, "SNSTopicArnNotFoundFault");
 }
 
 /**
@@ -1041,9 +990,8 @@ export interface SharedSnapshotQuotaExceededFault
 }
 
 export namespace SharedSnapshotQuotaExceededFault {
-  export function isa(o: any): o is SharedSnapshotQuotaExceededFault {
-    return __isa(o, "SharedSnapshotQuotaExceededFault");
-  }
+  export const isa = (o: any): o is SharedSnapshotQuotaExceededFault =>
+    __isa(o, "SharedSnapshotQuotaExceededFault");
 }
 
 /**
@@ -1061,9 +1009,8 @@ export interface SnapshotQuotaExceededFault
 }
 
 export namespace SnapshotQuotaExceededFault {
-  export function isa(o: any): o is SnapshotQuotaExceededFault {
-    return __isa(o, "SnapshotQuotaExceededFault");
-  }
+  export const isa = (o: any): o is SnapshotQuotaExceededFault =>
+    __isa(o, "SnapshotQuotaExceededFault");
 }
 
 /**
@@ -1081,9 +1028,8 @@ export interface SourceNotFoundFault
 }
 
 export namespace SourceNotFoundFault {
-  export function isa(o: any): o is SourceNotFoundFault {
-    return __isa(o, "SourceNotFoundFault");
-  }
+  export const isa = (o: any): o is SourceNotFoundFault =>
+    __isa(o, "SourceNotFoundFault");
 }
 
 /**
@@ -1101,9 +1047,8 @@ export interface StorageQuotaExceededFault
 }
 
 export namespace StorageQuotaExceededFault {
-  export function isa(o: any): o is StorageQuotaExceededFault {
-    return __isa(o, "StorageQuotaExceededFault");
-  }
+  export const isa = (o: any): o is StorageQuotaExceededFault =>
+    __isa(o, "StorageQuotaExceededFault");
 }
 
 /**
@@ -1122,9 +1067,8 @@ export interface StorageTypeNotSupportedFault
 }
 
 export namespace StorageTypeNotSupportedFault {
-  export function isa(o: any): o is StorageTypeNotSupportedFault {
-    return __isa(o, "StorageTypeNotSupportedFault");
-  }
+  export const isa = (o: any): o is StorageTypeNotSupportedFault =>
+    __isa(o, "StorageTypeNotSupportedFault");
 }
 
 /**
@@ -1140,9 +1084,8 @@ export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
 }
 
 export namespace SubnetAlreadyInUse {
-  export function isa(o: any): o is SubnetAlreadyInUse {
-    return __isa(o, "SubnetAlreadyInUse");
-  }
+  export const isa = (o: any): o is SubnetAlreadyInUse =>
+    __isa(o, "SubnetAlreadyInUse");
 }
 
 /**
@@ -1160,9 +1103,8 @@ export interface SubscriptionAlreadyExistFault
 }
 
 export namespace SubscriptionAlreadyExistFault {
-  export function isa(o: any): o is SubscriptionAlreadyExistFault {
-    return __isa(o, "SubscriptionAlreadyExistFault");
-  }
+  export const isa = (o: any): o is SubscriptionAlreadyExistFault =>
+    __isa(o, "SubscriptionAlreadyExistFault");
 }
 
 /**
@@ -1180,9 +1122,8 @@ export interface SubscriptionCategoryNotFoundFault
 }
 
 export namespace SubscriptionCategoryNotFoundFault {
-  export function isa(o: any): o is SubscriptionCategoryNotFoundFault {
-    return __isa(o, "SubscriptionCategoryNotFoundFault");
-  }
+  export const isa = (o: any): o is SubscriptionCategoryNotFoundFault =>
+    __isa(o, "SubscriptionCategoryNotFoundFault");
 }
 
 /**
@@ -1200,9 +1141,8 @@ export interface SubscriptionNotFoundFault
 }
 
 export namespace SubscriptionNotFoundFault {
-  export function isa(o: any): o is SubscriptionNotFoundFault {
-    return __isa(o, "SubscriptionNotFoundFault");
-  }
+  export const isa = (o: any): o is SubscriptionNotFoundFault =>
+    __isa(o, "SubscriptionNotFoundFault");
 }
 
 export interface AddRoleToDBClusterMessage {
@@ -1220,9 +1160,8 @@ export interface AddRoleToDBClusterMessage {
 }
 
 export namespace AddRoleToDBClusterMessage {
-  export function isa(o: any): o is AddRoleToDBClusterMessage {
-    return __isa(o, "AddRoleToDBClusterMessage");
-  }
+  export const isa = (o: any): o is AddRoleToDBClusterMessage =>
+    __isa(o, "AddRoleToDBClusterMessage");
 }
 
 export interface AddSourceIdentifierToSubscriptionMessage {
@@ -1259,9 +1198,8 @@ export interface AddSourceIdentifierToSubscriptionMessage {
 }
 
 export namespace AddSourceIdentifierToSubscriptionMessage {
-  export function isa(o: any): o is AddSourceIdentifierToSubscriptionMessage {
-    return __isa(o, "AddSourceIdentifierToSubscriptionMessage");
-  }
+  export const isa = (o: any): o is AddSourceIdentifierToSubscriptionMessage =>
+    __isa(o, "AddSourceIdentifierToSubscriptionMessage");
 }
 
 export interface AddSourceIdentifierToSubscriptionResult {
@@ -1273,9 +1211,8 @@ export interface AddSourceIdentifierToSubscriptionResult {
 }
 
 export namespace AddSourceIdentifierToSubscriptionResult {
-  export function isa(o: any): o is AddSourceIdentifierToSubscriptionResult {
-    return __isa(o, "AddSourceIdentifierToSubscriptionResult");
-  }
+  export const isa = (o: any): o is AddSourceIdentifierToSubscriptionResult =>
+    __isa(o, "AddSourceIdentifierToSubscriptionResult");
 }
 
 export interface AddTagsToResourceMessage {
@@ -1294,9 +1231,8 @@ export interface AddTagsToResourceMessage {
 }
 
 export namespace AddTagsToResourceMessage {
-  export function isa(o: any): o is AddTagsToResourceMessage {
-    return __isa(o, "AddTagsToResourceMessage");
-  }
+  export const isa = (o: any): o is AddTagsToResourceMessage =>
+    __isa(o, "AddTagsToResourceMessage");
 }
 
 export type ApplyMethod = "immediate" | "pending-reboot";
@@ -1342,9 +1278,8 @@ export interface ApplyPendingMaintenanceActionMessage {
 }
 
 export namespace ApplyPendingMaintenanceActionMessage {
-  export function isa(o: any): o is ApplyPendingMaintenanceActionMessage {
-    return __isa(o, "ApplyPendingMaintenanceActionMessage");
-  }
+  export const isa = (o: any): o is ApplyPendingMaintenanceActionMessage =>
+    __isa(o, "ApplyPendingMaintenanceActionMessage");
 }
 
 export interface ApplyPendingMaintenanceActionResult {
@@ -1356,9 +1291,8 @@ export interface ApplyPendingMaintenanceActionResult {
 }
 
 export namespace ApplyPendingMaintenanceActionResult {
-  export function isa(o: any): o is ApplyPendingMaintenanceActionResult {
-    return __isa(o, "ApplyPendingMaintenanceActionResult");
-  }
+  export const isa = (o: any): o is ApplyPendingMaintenanceActionResult =>
+    __isa(o, "ApplyPendingMaintenanceActionResult");
 }
 
 /**
@@ -1373,9 +1307,8 @@ export interface AvailabilityZone {
 }
 
 export namespace AvailabilityZone {
-  export function isa(o: any): o is AvailabilityZone {
-    return __isa(o, "AvailabilityZone");
-  }
+  export const isa = (o: any): o is AvailabilityZone =>
+    __isa(o, "AvailabilityZone");
 }
 
 /**
@@ -1395,9 +1328,7 @@ export interface CharacterSet {
 }
 
 export namespace CharacterSet {
-  export function isa(o: any): o is CharacterSet {
-    return __isa(o, "CharacterSet");
-  }
+  export const isa = (o: any): o is CharacterSet => __isa(o, "CharacterSet");
 }
 
 /**
@@ -1421,9 +1352,8 @@ export interface CloudwatchLogsExportConfiguration {
 }
 
 export namespace CloudwatchLogsExportConfiguration {
-  export function isa(o: any): o is CloudwatchLogsExportConfiguration {
-    return __isa(o, "CloudwatchLogsExportConfiguration");
-  }
+  export const isa = (o: any): o is CloudwatchLogsExportConfiguration =>
+    __isa(o, "CloudwatchLogsExportConfiguration");
 }
 
 export interface CopyDBClusterParameterGroupMessage {
@@ -1485,9 +1415,8 @@ export interface CopyDBClusterParameterGroupMessage {
 }
 
 export namespace CopyDBClusterParameterGroupMessage {
-  export function isa(o: any): o is CopyDBClusterParameterGroupMessage {
-    return __isa(o, "CopyDBClusterParameterGroupMessage");
-  }
+  export const isa = (o: any): o is CopyDBClusterParameterGroupMessage =>
+    __isa(o, "CopyDBClusterParameterGroupMessage");
 }
 
 export interface CopyDBClusterParameterGroupResult {
@@ -1500,9 +1429,8 @@ export interface CopyDBClusterParameterGroupResult {
 }
 
 export namespace CopyDBClusterParameterGroupResult {
-  export function isa(o: any): o is CopyDBClusterParameterGroupResult {
-    return __isa(o, "CopyDBClusterParameterGroupResult");
-  }
+  export const isa = (o: any): o is CopyDBClusterParameterGroupResult =>
+    __isa(o, "CopyDBClusterParameterGroupResult");
 }
 
 export interface CopyDBClusterSnapshotMessage {
@@ -1583,9 +1511,8 @@ export interface CopyDBClusterSnapshotMessage {
 }
 
 export namespace CopyDBClusterSnapshotMessage {
-  export function isa(o: any): o is CopyDBClusterSnapshotMessage {
-    return __isa(o, "CopyDBClusterSnapshotMessage");
-  }
+  export const isa = (o: any): o is CopyDBClusterSnapshotMessage =>
+    __isa(o, "CopyDBClusterSnapshotMessage");
 }
 
 export interface CopyDBClusterSnapshotResult {
@@ -1598,9 +1525,8 @@ export interface CopyDBClusterSnapshotResult {
 }
 
 export namespace CopyDBClusterSnapshotResult {
-  export function isa(o: any): o is CopyDBClusterSnapshotResult {
-    return __isa(o, "CopyDBClusterSnapshotResult");
-  }
+  export const isa = (o: any): o is CopyDBClusterSnapshotResult =>
+    __isa(o, "CopyDBClusterSnapshotResult");
 }
 
 export interface CopyDBParameterGroupMessage {
@@ -1659,9 +1585,8 @@ export interface CopyDBParameterGroupMessage {
 }
 
 export namespace CopyDBParameterGroupMessage {
-  export function isa(o: any): o is CopyDBParameterGroupMessage {
-    return __isa(o, "CopyDBParameterGroupMessage");
-  }
+  export const isa = (o: any): o is CopyDBParameterGroupMessage =>
+    __isa(o, "CopyDBParameterGroupMessage");
 }
 
 export interface CopyDBParameterGroupResult {
@@ -1674,9 +1599,8 @@ export interface CopyDBParameterGroupResult {
 }
 
 export namespace CopyDBParameterGroupResult {
-  export function isa(o: any): o is CopyDBParameterGroupResult {
-    return __isa(o, "CopyDBParameterGroupResult");
-  }
+  export const isa = (o: any): o is CopyDBParameterGroupResult =>
+    __isa(o, "CopyDBParameterGroupResult");
 }
 
 export interface CreateDBClusterMessage {
@@ -1921,9 +1845,8 @@ export interface CreateDBClusterMessage {
 }
 
 export namespace CreateDBClusterMessage {
-  export function isa(o: any): o is CreateDBClusterMessage {
-    return __isa(o, "CreateDBClusterMessage");
-  }
+  export const isa = (o: any): o is CreateDBClusterMessage =>
+    __isa(o, "CreateDBClusterMessage");
 }
 
 export interface CreateDBClusterParameterGroupMessage {
@@ -1962,9 +1885,8 @@ export interface CreateDBClusterParameterGroupMessage {
 }
 
 export namespace CreateDBClusterParameterGroupMessage {
-  export function isa(o: any): o is CreateDBClusterParameterGroupMessage {
-    return __isa(o, "CreateDBClusterParameterGroupMessage");
-  }
+  export const isa = (o: any): o is CreateDBClusterParameterGroupMessage =>
+    __isa(o, "CreateDBClusterParameterGroupMessage");
 }
 
 export interface CreateDBClusterParameterGroupResult {
@@ -1977,9 +1899,8 @@ export interface CreateDBClusterParameterGroupResult {
 }
 
 export namespace CreateDBClusterParameterGroupResult {
-  export function isa(o: any): o is CreateDBClusterParameterGroupResult {
-    return __isa(o, "CreateDBClusterParameterGroupResult");
-  }
+  export const isa = (o: any): o is CreateDBClusterParameterGroupResult =>
+    __isa(o, "CreateDBClusterParameterGroupResult");
 }
 
 export interface CreateDBClusterResult {
@@ -1992,9 +1913,8 @@ export interface CreateDBClusterResult {
 }
 
 export namespace CreateDBClusterResult {
-  export function isa(o: any): o is CreateDBClusterResult {
-    return __isa(o, "CreateDBClusterResult");
-  }
+  export const isa = (o: any): o is CreateDBClusterResult =>
+    __isa(o, "CreateDBClusterResult");
 }
 
 export interface CreateDBClusterSnapshotMessage {
@@ -2040,9 +1960,8 @@ export interface CreateDBClusterSnapshotMessage {
 }
 
 export namespace CreateDBClusterSnapshotMessage {
-  export function isa(o: any): o is CreateDBClusterSnapshotMessage {
-    return __isa(o, "CreateDBClusterSnapshotMessage");
-  }
+  export const isa = (o: any): o is CreateDBClusterSnapshotMessage =>
+    __isa(o, "CreateDBClusterSnapshotMessage");
 }
 
 export interface CreateDBClusterSnapshotResult {
@@ -2055,9 +1974,8 @@ export interface CreateDBClusterSnapshotResult {
 }
 
 export namespace CreateDBClusterSnapshotResult {
-  export function isa(o: any): o is CreateDBClusterSnapshotResult {
-    return __isa(o, "CreateDBClusterSnapshotResult");
-  }
+  export const isa = (o: any): o is CreateDBClusterSnapshotResult =>
+    __isa(o, "CreateDBClusterSnapshotResult");
 }
 
 export interface CreateDBInstanceMessage {
@@ -2411,9 +2329,8 @@ export interface CreateDBInstanceMessage {
 }
 
 export namespace CreateDBInstanceMessage {
-  export function isa(o: any): o is CreateDBInstanceMessage {
-    return __isa(o, "CreateDBInstanceMessage");
-  }
+  export const isa = (o: any): o is CreateDBInstanceMessage =>
+    __isa(o, "CreateDBInstanceMessage");
 }
 
 export interface CreateDBInstanceResult {
@@ -2426,9 +2343,8 @@ export interface CreateDBInstanceResult {
 }
 
 export namespace CreateDBInstanceResult {
-  export function isa(o: any): o is CreateDBInstanceResult {
-    return __isa(o, "CreateDBInstanceResult");
-  }
+  export const isa = (o: any): o is CreateDBInstanceResult =>
+    __isa(o, "CreateDBInstanceResult");
 }
 
 export interface CreateDBParameterGroupMessage {
@@ -2472,9 +2388,8 @@ export interface CreateDBParameterGroupMessage {
 }
 
 export namespace CreateDBParameterGroupMessage {
-  export function isa(o: any): o is CreateDBParameterGroupMessage {
-    return __isa(o, "CreateDBParameterGroupMessage");
-  }
+  export const isa = (o: any): o is CreateDBParameterGroupMessage =>
+    __isa(o, "CreateDBParameterGroupMessage");
 }
 
 export interface CreateDBParameterGroupResult {
@@ -2487,9 +2402,8 @@ export interface CreateDBParameterGroupResult {
 }
 
 export namespace CreateDBParameterGroupResult {
-  export function isa(o: any): o is CreateDBParameterGroupResult {
-    return __isa(o, "CreateDBParameterGroupResult");
-  }
+  export const isa = (o: any): o is CreateDBParameterGroupResult =>
+    __isa(o, "CreateDBParameterGroupResult");
 }
 
 export interface CreateDBSubnetGroupMessage {
@@ -2520,9 +2434,8 @@ export interface CreateDBSubnetGroupMessage {
 }
 
 export namespace CreateDBSubnetGroupMessage {
-  export function isa(o: any): o is CreateDBSubnetGroupMessage {
-    return __isa(o, "CreateDBSubnetGroupMessage");
-  }
+  export const isa = (o: any): o is CreateDBSubnetGroupMessage =>
+    __isa(o, "CreateDBSubnetGroupMessage");
 }
 
 export interface CreateDBSubnetGroupResult {
@@ -2535,9 +2448,8 @@ export interface CreateDBSubnetGroupResult {
 }
 
 export namespace CreateDBSubnetGroupResult {
-  export function isa(o: any): o is CreateDBSubnetGroupResult {
-    return __isa(o, "CreateDBSubnetGroupResult");
-  }
+  export const isa = (o: any): o is CreateDBSubnetGroupResult =>
+    __isa(o, "CreateDBSubnetGroupResult");
 }
 
 export interface CreateEventSubscriptionMessage {
@@ -2616,9 +2528,8 @@ export interface CreateEventSubscriptionMessage {
 }
 
 export namespace CreateEventSubscriptionMessage {
-  export function isa(o: any): o is CreateEventSubscriptionMessage {
-    return __isa(o, "CreateEventSubscriptionMessage");
-  }
+  export const isa = (o: any): o is CreateEventSubscriptionMessage =>
+    __isa(o, "CreateEventSubscriptionMessage");
 }
 
 export interface CreateEventSubscriptionResult {
@@ -2630,9 +2541,8 @@ export interface CreateEventSubscriptionResult {
 }
 
 export namespace CreateEventSubscriptionResult {
-  export function isa(o: any): o is CreateEventSubscriptionResult {
-    return __isa(o, "CreateEventSubscriptionResult");
-  }
+  export const isa = (o: any): o is CreateEventSubscriptionResult =>
+    __isa(o, "CreateEventSubscriptionResult");
 }
 
 /**
@@ -2859,9 +2769,7 @@ export interface DBCluster {
 }
 
 export namespace DBCluster {
-  export function isa(o: any): o is DBCluster {
-    return __isa(o, "DBCluster");
-  }
+  export const isa = (o: any): o is DBCluster => __isa(o, "DBCluster");
 }
 
 /**
@@ -2894,9 +2802,8 @@ export interface DBClusterMember {
 }
 
 export namespace DBClusterMember {
-  export function isa(o: any): o is DBClusterMember {
-    return __isa(o, "DBClusterMember");
-  }
+  export const isa = (o: any): o is DBClusterMember =>
+    __isa(o, "DBClusterMember");
 }
 
 export interface DBClusterMessage {
@@ -2913,9 +2820,8 @@ export interface DBClusterMessage {
 }
 
 export namespace DBClusterMessage {
-  export function isa(o: any): o is DBClusterMessage {
-    return __isa(o, "DBClusterMessage");
-  }
+  export const isa = (o: any): o is DBClusterMessage =>
+    __isa(o, "DBClusterMessage");
 }
 
 /**
@@ -2935,9 +2841,8 @@ export interface DBClusterOptionGroupStatus {
 }
 
 export namespace DBClusterOptionGroupStatus {
-  export function isa(o: any): o is DBClusterOptionGroupStatus {
-    return __isa(o, "DBClusterOptionGroupStatus");
-  }
+  export const isa = (o: any): o is DBClusterOptionGroupStatus =>
+    __isa(o, "DBClusterOptionGroupStatus");
 }
 
 /**
@@ -2969,9 +2874,8 @@ export interface DBClusterParameterGroup {
 }
 
 export namespace DBClusterParameterGroup {
-  export function isa(o: any): o is DBClusterParameterGroup {
-    return __isa(o, "DBClusterParameterGroup");
-  }
+  export const isa = (o: any): o is DBClusterParameterGroup =>
+    __isa(o, "DBClusterParameterGroup");
 }
 
 export interface DBClusterParameterGroupDetails {
@@ -2990,9 +2894,8 @@ export interface DBClusterParameterGroupDetails {
 }
 
 export namespace DBClusterParameterGroupDetails {
-  export function isa(o: any): o is DBClusterParameterGroupDetails {
-    return __isa(o, "DBClusterParameterGroupDetails");
-  }
+  export const isa = (o: any): o is DBClusterParameterGroupDetails =>
+    __isa(o, "DBClusterParameterGroupDetails");
 }
 
 export interface DBClusterParameterGroupNameMessage {
@@ -3019,9 +2922,8 @@ export interface DBClusterParameterGroupNameMessage {
 }
 
 export namespace DBClusterParameterGroupNameMessage {
-  export function isa(o: any): o is DBClusterParameterGroupNameMessage {
-    return __isa(o, "DBClusterParameterGroupNameMessage");
-  }
+  export const isa = (o: any): o is DBClusterParameterGroupNameMessage =>
+    __isa(o, "DBClusterParameterGroupNameMessage");
 }
 
 export interface DBClusterParameterGroupsMessage {
@@ -3041,9 +2943,8 @@ export interface DBClusterParameterGroupsMessage {
 }
 
 export namespace DBClusterParameterGroupsMessage {
-  export function isa(o: any): o is DBClusterParameterGroupsMessage {
-    return __isa(o, "DBClusterParameterGroupsMessage");
-  }
+  export const isa = (o: any): o is DBClusterParameterGroupsMessage =>
+    __isa(o, "DBClusterParameterGroupsMessage");
 }
 
 /**
@@ -3084,9 +2985,7 @@ export interface DBClusterRole {
 }
 
 export namespace DBClusterRole {
-  export function isa(o: any): o is DBClusterRole {
-    return __isa(o, "DBClusterRole");
-  }
+  export const isa = (o: any): o is DBClusterRole => __isa(o, "DBClusterRole");
 }
 
 /**
@@ -3204,9 +3103,8 @@ export interface DBClusterSnapshot {
 }
 
 export namespace DBClusterSnapshot {
-  export function isa(o: any): o is DBClusterSnapshot {
-    return __isa(o, "DBClusterSnapshot");
-  }
+  export const isa = (o: any): o is DBClusterSnapshot =>
+    __isa(o, "DBClusterSnapshot");
 }
 
 /**
@@ -3235,9 +3133,8 @@ export interface DBClusterSnapshotAttribute {
 }
 
 export namespace DBClusterSnapshotAttribute {
-  export function isa(o: any): o is DBClusterSnapshotAttribute {
-    return __isa(o, "DBClusterSnapshotAttribute");
-  }
+  export const isa = (o: any): o is DBClusterSnapshotAttribute =>
+    __isa(o, "DBClusterSnapshotAttribute");
 }
 
 /**
@@ -3259,9 +3156,8 @@ export interface DBClusterSnapshotAttributesResult {
 }
 
 export namespace DBClusterSnapshotAttributesResult {
-  export function isa(o: any): o is DBClusterSnapshotAttributesResult {
-    return __isa(o, "DBClusterSnapshotAttributesResult");
-  }
+  export const isa = (o: any): o is DBClusterSnapshotAttributesResult =>
+    __isa(o, "DBClusterSnapshotAttributesResult");
 }
 
 export interface DBClusterSnapshotMessage {
@@ -3280,9 +3176,8 @@ export interface DBClusterSnapshotMessage {
 }
 
 export namespace DBClusterSnapshotMessage {
-  export function isa(o: any): o is DBClusterSnapshotMessage {
-    return __isa(o, "DBClusterSnapshotMessage");
-  }
+  export const isa = (o: any): o is DBClusterSnapshotMessage =>
+    __isa(o, "DBClusterSnapshotMessage");
 }
 
 /**
@@ -3359,9 +3254,8 @@ export interface DBEngineVersion {
 }
 
 export namespace DBEngineVersion {
-  export function isa(o: any): o is DBEngineVersion {
-    return __isa(o, "DBEngineVersion");
-  }
+  export const isa = (o: any): o is DBEngineVersion =>
+    __isa(o, "DBEngineVersion");
 }
 
 export interface DBEngineVersionMessage {
@@ -3380,9 +3274,8 @@ export interface DBEngineVersionMessage {
 }
 
 export namespace DBEngineVersionMessage {
-  export function isa(o: any): o is DBEngineVersionMessage {
-    return __isa(o, "DBEngineVersionMessage");
-  }
+  export const isa = (o: any): o is DBEngineVersionMessage =>
+    __isa(o, "DBEngineVersionMessage");
 }
 
 /**
@@ -3692,9 +3585,7 @@ export interface DBInstance {
 }
 
 export namespace DBInstance {
-  export function isa(o: any): o is DBInstance {
-    return __isa(o, "DBInstance");
-  }
+  export const isa = (o: any): o is DBInstance => __isa(o, "DBInstance");
 }
 
 export interface DBInstanceMessage {
@@ -3713,9 +3604,8 @@ export interface DBInstanceMessage {
 }
 
 export namespace DBInstanceMessage {
-  export function isa(o: any): o is DBInstanceMessage {
-    return __isa(o, "DBInstanceMessage");
-  }
+  export const isa = (o: any): o is DBInstanceMessage =>
+    __isa(o, "DBInstanceMessage");
 }
 
 /**
@@ -3748,9 +3638,8 @@ export interface DBInstanceStatusInfo {
 }
 
 export namespace DBInstanceStatusInfo {
-  export function isa(o: any): o is DBInstanceStatusInfo {
-    return __isa(o, "DBInstanceStatusInfo");
-  }
+  export const isa = (o: any): o is DBInstanceStatusInfo =>
+    __isa(o, "DBInstanceStatusInfo");
 }
 
 /**
@@ -3782,9 +3671,8 @@ export interface DBParameterGroup {
 }
 
 export namespace DBParameterGroup {
-  export function isa(o: any): o is DBParameterGroup {
-    return __isa(o, "DBParameterGroup");
-  }
+  export const isa = (o: any): o is DBParameterGroup =>
+    __isa(o, "DBParameterGroup");
 }
 
 export interface DBParameterGroupDetails {
@@ -3803,9 +3691,8 @@ export interface DBParameterGroupDetails {
 }
 
 export namespace DBParameterGroupDetails {
-  export function isa(o: any): o is DBParameterGroupDetails {
-    return __isa(o, "DBParameterGroupDetails");
-  }
+  export const isa = (o: any): o is DBParameterGroupDetails =>
+    __isa(o, "DBParameterGroupDetails");
 }
 
 export interface DBParameterGroupNameMessage {
@@ -3817,9 +3704,8 @@ export interface DBParameterGroupNameMessage {
 }
 
 export namespace DBParameterGroupNameMessage {
-  export function isa(o: any): o is DBParameterGroupNameMessage {
-    return __isa(o, "DBParameterGroupNameMessage");
-  }
+  export const isa = (o: any): o is DBParameterGroupNameMessage =>
+    __isa(o, "DBParameterGroupNameMessage");
 }
 
 /**
@@ -3862,9 +3748,8 @@ export interface DBParameterGroupStatus {
 }
 
 export namespace DBParameterGroupStatus {
-  export function isa(o: any): o is DBParameterGroupStatus {
-    return __isa(o, "DBParameterGroupStatus");
-  }
+  export const isa = (o: any): o is DBParameterGroupStatus =>
+    __isa(o, "DBParameterGroupStatus");
 }
 
 export interface DBParameterGroupsMessage {
@@ -3883,9 +3768,8 @@ export interface DBParameterGroupsMessage {
 }
 
 export namespace DBParameterGroupsMessage {
-  export function isa(o: any): o is DBParameterGroupsMessage {
-    return __isa(o, "DBParameterGroupsMessage");
-  }
+  export const isa = (o: any): o is DBParameterGroupsMessage =>
+    __isa(o, "DBParameterGroupsMessage");
 }
 
 /**
@@ -3905,9 +3789,8 @@ export interface DBSecurityGroupMembership {
 }
 
 export namespace DBSecurityGroupMembership {
-  export function isa(o: any): o is DBSecurityGroupMembership {
-    return __isa(o, "DBSecurityGroupMembership");
-  }
+  export const isa = (o: any): o is DBSecurityGroupMembership =>
+    __isa(o, "DBSecurityGroupMembership");
 }
 
 /**
@@ -3948,9 +3831,7 @@ export interface DBSubnetGroup {
 }
 
 export namespace DBSubnetGroup {
-  export function isa(o: any): o is DBSubnetGroup {
-    return __isa(o, "DBSubnetGroup");
-  }
+  export const isa = (o: any): o is DBSubnetGroup => __isa(o, "DBSubnetGroup");
 }
 
 export interface DBSubnetGroupMessage {
@@ -3969,9 +3850,8 @@ export interface DBSubnetGroupMessage {
 }
 
 export namespace DBSubnetGroupMessage {
-  export function isa(o: any): o is DBSubnetGroupMessage {
-    return __isa(o, "DBSubnetGroupMessage");
-  }
+  export const isa = (o: any): o is DBSubnetGroupMessage =>
+    __isa(o, "DBSubnetGroupMessage");
 }
 
 export interface DeleteDBClusterMessage {
@@ -4026,9 +3906,8 @@ export interface DeleteDBClusterMessage {
 }
 
 export namespace DeleteDBClusterMessage {
-  export function isa(o: any): o is DeleteDBClusterMessage {
-    return __isa(o, "DeleteDBClusterMessage");
-  }
+  export const isa = (o: any): o is DeleteDBClusterMessage =>
+    __isa(o, "DeleteDBClusterMessage");
 }
 
 export interface DeleteDBClusterParameterGroupMessage {
@@ -4052,9 +3931,8 @@ export interface DeleteDBClusterParameterGroupMessage {
 }
 
 export namespace DeleteDBClusterParameterGroupMessage {
-  export function isa(o: any): o is DeleteDBClusterParameterGroupMessage {
-    return __isa(o, "DeleteDBClusterParameterGroupMessage");
-  }
+  export const isa = (o: any): o is DeleteDBClusterParameterGroupMessage =>
+    __isa(o, "DeleteDBClusterParameterGroupMessage");
 }
 
 export interface DeleteDBClusterResult {
@@ -4067,9 +3945,8 @@ export interface DeleteDBClusterResult {
 }
 
 export namespace DeleteDBClusterResult {
-  export function isa(o: any): o is DeleteDBClusterResult {
-    return __isa(o, "DeleteDBClusterResult");
-  }
+  export const isa = (o: any): o is DeleteDBClusterResult =>
+    __isa(o, "DeleteDBClusterResult");
 }
 
 export interface DeleteDBClusterSnapshotMessage {
@@ -4083,9 +3960,8 @@ export interface DeleteDBClusterSnapshotMessage {
 }
 
 export namespace DeleteDBClusterSnapshotMessage {
-  export function isa(o: any): o is DeleteDBClusterSnapshotMessage {
-    return __isa(o, "DeleteDBClusterSnapshotMessage");
-  }
+  export const isa = (o: any): o is DeleteDBClusterSnapshotMessage =>
+    __isa(o, "DeleteDBClusterSnapshotMessage");
 }
 
 export interface DeleteDBClusterSnapshotResult {
@@ -4098,9 +3974,8 @@ export interface DeleteDBClusterSnapshotResult {
 }
 
 export namespace DeleteDBClusterSnapshotResult {
-  export function isa(o: any): o is DeleteDBClusterSnapshotResult {
-    return __isa(o, "DeleteDBClusterSnapshotResult");
-  }
+  export const isa = (o: any): o is DeleteDBClusterSnapshotResult =>
+    __isa(o, "DeleteDBClusterSnapshotResult");
 }
 
 export interface DeleteDBInstanceMessage {
@@ -4161,9 +4036,8 @@ export interface DeleteDBInstanceMessage {
 }
 
 export namespace DeleteDBInstanceMessage {
-  export function isa(o: any): o is DeleteDBInstanceMessage {
-    return __isa(o, "DeleteDBInstanceMessage");
-  }
+  export const isa = (o: any): o is DeleteDBInstanceMessage =>
+    __isa(o, "DeleteDBInstanceMessage");
 }
 
 export interface DeleteDBInstanceResult {
@@ -4176,9 +4050,8 @@ export interface DeleteDBInstanceResult {
 }
 
 export namespace DeleteDBInstanceResult {
-  export function isa(o: any): o is DeleteDBInstanceResult {
-    return __isa(o, "DeleteDBInstanceResult");
-  }
+  export const isa = (o: any): o is DeleteDBInstanceResult =>
+    __isa(o, "DeleteDBInstanceResult");
 }
 
 export interface DeleteDBParameterGroupMessage {
@@ -4202,9 +4075,8 @@ export interface DeleteDBParameterGroupMessage {
 }
 
 export namespace DeleteDBParameterGroupMessage {
-  export function isa(o: any): o is DeleteDBParameterGroupMessage {
-    return __isa(o, "DeleteDBParameterGroupMessage");
-  }
+  export const isa = (o: any): o is DeleteDBParameterGroupMessage =>
+    __isa(o, "DeleteDBParameterGroupMessage");
 }
 
 export interface DeleteDBSubnetGroupMessage {
@@ -4223,9 +4095,8 @@ export interface DeleteDBSubnetGroupMessage {
 }
 
 export namespace DeleteDBSubnetGroupMessage {
-  export function isa(o: any): o is DeleteDBSubnetGroupMessage {
-    return __isa(o, "DeleteDBSubnetGroupMessage");
-  }
+  export const isa = (o: any): o is DeleteDBSubnetGroupMessage =>
+    __isa(o, "DeleteDBSubnetGroupMessage");
 }
 
 export interface DeleteEventSubscriptionMessage {
@@ -4237,9 +4108,8 @@ export interface DeleteEventSubscriptionMessage {
 }
 
 export namespace DeleteEventSubscriptionMessage {
-  export function isa(o: any): o is DeleteEventSubscriptionMessage {
-    return __isa(o, "DeleteEventSubscriptionMessage");
-  }
+  export const isa = (o: any): o is DeleteEventSubscriptionMessage =>
+    __isa(o, "DeleteEventSubscriptionMessage");
 }
 
 export interface DeleteEventSubscriptionResult {
@@ -4251,9 +4121,8 @@ export interface DeleteEventSubscriptionResult {
 }
 
 export namespace DeleteEventSubscriptionResult {
-  export function isa(o: any): o is DeleteEventSubscriptionResult {
-    return __isa(o, "DeleteEventSubscriptionResult");
-  }
+  export const isa = (o: any): o is DeleteEventSubscriptionResult =>
+    __isa(o, "DeleteEventSubscriptionResult");
 }
 
 export interface DescribeDBClusterParameterGroupsMessage {
@@ -4293,9 +4162,8 @@ export interface DescribeDBClusterParameterGroupsMessage {
 }
 
 export namespace DescribeDBClusterParameterGroupsMessage {
-  export function isa(o: any): o is DescribeDBClusterParameterGroupsMessage {
-    return __isa(o, "DescribeDBClusterParameterGroupsMessage");
-  }
+  export const isa = (o: any): o is DescribeDBClusterParameterGroupsMessage =>
+    __isa(o, "DescribeDBClusterParameterGroupsMessage");
 }
 
 export interface DescribeDBClusterParametersMessage {
@@ -4341,9 +4209,8 @@ export interface DescribeDBClusterParametersMessage {
 }
 
 export namespace DescribeDBClusterParametersMessage {
-  export function isa(o: any): o is DescribeDBClusterParametersMessage {
-    return __isa(o, "DescribeDBClusterParametersMessage");
-  }
+  export const isa = (o: any): o is DescribeDBClusterParametersMessage =>
+    __isa(o, "DescribeDBClusterParametersMessage");
 }
 
 export interface DescribeDBClusterSnapshotAttributesMessage {
@@ -4355,9 +4222,10 @@ export interface DescribeDBClusterSnapshotAttributesMessage {
 }
 
 export namespace DescribeDBClusterSnapshotAttributesMessage {
-  export function isa(o: any): o is DescribeDBClusterSnapshotAttributesMessage {
-    return __isa(o, "DescribeDBClusterSnapshotAttributesMessage");
-  }
+  export const isa = (
+    o: any
+  ): o is DescribeDBClusterSnapshotAttributesMessage =>
+    __isa(o, "DescribeDBClusterSnapshotAttributesMessage");
 }
 
 export interface DescribeDBClusterSnapshotAttributesResult {
@@ -4371,9 +4239,8 @@ export interface DescribeDBClusterSnapshotAttributesResult {
 }
 
 export namespace DescribeDBClusterSnapshotAttributesResult {
-  export function isa(o: any): o is DescribeDBClusterSnapshotAttributesResult {
-    return __isa(o, "DescribeDBClusterSnapshotAttributesResult");
-  }
+  export const isa = (o: any): o is DescribeDBClusterSnapshotAttributesResult =>
+    __isa(o, "DescribeDBClusterSnapshotAttributesResult");
 }
 
 export interface DescribeDBClusterSnapshotsMessage {
@@ -4488,9 +4355,8 @@ export interface DescribeDBClusterSnapshotsMessage {
 }
 
 export namespace DescribeDBClusterSnapshotsMessage {
-  export function isa(o: any): o is DescribeDBClusterSnapshotsMessage {
-    return __isa(o, "DescribeDBClusterSnapshotsMessage");
-  }
+  export const isa = (o: any): o is DescribeDBClusterSnapshotsMessage =>
+    __isa(o, "DescribeDBClusterSnapshotsMessage");
 }
 
 export interface DescribeDBClustersMessage {
@@ -4539,9 +4405,8 @@ export interface DescribeDBClustersMessage {
 }
 
 export namespace DescribeDBClustersMessage {
-  export function isa(o: any): o is DescribeDBClustersMessage {
-    return __isa(o, "DescribeDBClustersMessage");
-  }
+  export const isa = (o: any): o is DescribeDBClustersMessage =>
+    __isa(o, "DescribeDBClustersMessage");
 }
 
 export interface DescribeDBEngineVersionsMessage {
@@ -4612,9 +4477,8 @@ export interface DescribeDBEngineVersionsMessage {
 }
 
 export namespace DescribeDBEngineVersionsMessage {
-  export function isa(o: any): o is DescribeDBEngineVersionsMessage {
-    return __isa(o, "DescribeDBEngineVersionsMessage");
-  }
+  export const isa = (o: any): o is DescribeDBEngineVersionsMessage =>
+    __isa(o, "DescribeDBEngineVersionsMessage");
 }
 
 export interface DescribeDBInstancesMessage {
@@ -4669,9 +4533,8 @@ export interface DescribeDBInstancesMessage {
 }
 
 export namespace DescribeDBInstancesMessage {
-  export function isa(o: any): o is DescribeDBInstancesMessage {
-    return __isa(o, "DescribeDBInstancesMessage");
-  }
+  export const isa = (o: any): o is DescribeDBInstancesMessage =>
+    __isa(o, "DescribeDBInstancesMessage");
 }
 
 export interface DescribeDBParameterGroupsMessage {
@@ -4710,9 +4573,8 @@ export interface DescribeDBParameterGroupsMessage {
 }
 
 export namespace DescribeDBParameterGroupsMessage {
-  export function isa(o: any): o is DescribeDBParameterGroupsMessage {
-    return __isa(o, "DescribeDBParameterGroupsMessage");
-  }
+  export const isa = (o: any): o is DescribeDBParameterGroupsMessage =>
+    __isa(o, "DescribeDBParameterGroupsMessage");
 }
 
 export interface DescribeDBParametersMessage {
@@ -4759,9 +4621,8 @@ export interface DescribeDBParametersMessage {
 }
 
 export namespace DescribeDBParametersMessage {
-  export function isa(o: any): o is DescribeDBParametersMessage {
-    return __isa(o, "DescribeDBParametersMessage");
-  }
+  export const isa = (o: any): o is DescribeDBParametersMessage =>
+    __isa(o, "DescribeDBParametersMessage");
 }
 
 export interface DescribeDBSubnetGroupsMessage {
@@ -4794,9 +4655,8 @@ export interface DescribeDBSubnetGroupsMessage {
 }
 
 export namespace DescribeDBSubnetGroupsMessage {
-  export function isa(o: any): o is DescribeDBSubnetGroupsMessage {
-    return __isa(o, "DescribeDBSubnetGroupsMessage");
-  }
+  export const isa = (o: any): o is DescribeDBSubnetGroupsMessage =>
+    __isa(o, "DescribeDBSubnetGroupsMessage");
 }
 
 export interface DescribeEngineDefaultClusterParametersMessage {
@@ -4831,11 +4691,10 @@ export interface DescribeEngineDefaultClusterParametersMessage {
 }
 
 export namespace DescribeEngineDefaultClusterParametersMessage {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeEngineDefaultClusterParametersMessage {
-    return __isa(o, "DescribeEngineDefaultClusterParametersMessage");
-  }
+  ): o is DescribeEngineDefaultClusterParametersMessage =>
+    __isa(o, "DescribeEngineDefaultClusterParametersMessage");
 }
 
 export interface DescribeEngineDefaultClusterParametersResult {
@@ -4847,11 +4706,10 @@ export interface DescribeEngineDefaultClusterParametersResult {
 }
 
 export namespace DescribeEngineDefaultClusterParametersResult {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeEngineDefaultClusterParametersResult {
-    return __isa(o, "DescribeEngineDefaultClusterParametersResult");
-  }
+  ): o is DescribeEngineDefaultClusterParametersResult =>
+    __isa(o, "DescribeEngineDefaultClusterParametersResult");
 }
 
 export interface DescribeEngineDefaultParametersMessage {
@@ -4885,9 +4743,8 @@ export interface DescribeEngineDefaultParametersMessage {
 }
 
 export namespace DescribeEngineDefaultParametersMessage {
-  export function isa(o: any): o is DescribeEngineDefaultParametersMessage {
-    return __isa(o, "DescribeEngineDefaultParametersMessage");
-  }
+  export const isa = (o: any): o is DescribeEngineDefaultParametersMessage =>
+    __isa(o, "DescribeEngineDefaultParametersMessage");
 }
 
 export interface DescribeEngineDefaultParametersResult {
@@ -4899,9 +4756,8 @@ export interface DescribeEngineDefaultParametersResult {
 }
 
 export namespace DescribeEngineDefaultParametersResult {
-  export function isa(o: any): o is DescribeEngineDefaultParametersResult {
-    return __isa(o, "DescribeEngineDefaultParametersResult");
-  }
+  export const isa = (o: any): o is DescribeEngineDefaultParametersResult =>
+    __isa(o, "DescribeEngineDefaultParametersResult");
 }
 
 export interface DescribeEventCategoriesMessage {
@@ -4919,9 +4775,8 @@ export interface DescribeEventCategoriesMessage {
 }
 
 export namespace DescribeEventCategoriesMessage {
-  export function isa(o: any): o is DescribeEventCategoriesMessage {
-    return __isa(o, "DescribeEventCategoriesMessage");
-  }
+  export const isa = (o: any): o is DescribeEventCategoriesMessage =>
+    __isa(o, "DescribeEventCategoriesMessage");
 }
 
 export interface DescribeEventSubscriptionsMessage {
@@ -4954,9 +4809,8 @@ export interface DescribeEventSubscriptionsMessage {
 }
 
 export namespace DescribeEventSubscriptionsMessage {
-  export function isa(o: any): o is DescribeEventSubscriptionsMessage {
-    return __isa(o, "DescribeEventSubscriptionsMessage");
-  }
+  export const isa = (o: any): o is DescribeEventSubscriptionsMessage =>
+    __isa(o, "DescribeEventSubscriptionsMessage");
 }
 
 export interface DescribeEventsMessage {
@@ -5049,9 +4903,8 @@ export interface DescribeEventsMessage {
 }
 
 export namespace DescribeEventsMessage {
-  export function isa(o: any): o is DescribeEventsMessage {
-    return __isa(o, "DescribeEventsMessage");
-  }
+  export const isa = (o: any): o is DescribeEventsMessage =>
+    __isa(o, "DescribeEventsMessage");
 }
 
 export interface DescribeOrderableDBInstanceOptionsMessage {
@@ -5108,9 +4961,8 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
 }
 
 export namespace DescribeOrderableDBInstanceOptionsMessage {
-  export function isa(o: any): o is DescribeOrderableDBInstanceOptionsMessage {
-    return __isa(o, "DescribeOrderableDBInstanceOptionsMessage");
-  }
+  export const isa = (o: any): o is DescribeOrderableDBInstanceOptionsMessage =>
+    __isa(o, "DescribeOrderableDBInstanceOptionsMessage");
 }
 
 export interface DescribePendingMaintenanceActionsMessage {
@@ -5160,9 +5012,8 @@ export interface DescribePendingMaintenanceActionsMessage {
 }
 
 export namespace DescribePendingMaintenanceActionsMessage {
-  export function isa(o: any): o is DescribePendingMaintenanceActionsMessage {
-    return __isa(o, "DescribePendingMaintenanceActionsMessage");
-  }
+  export const isa = (o: any): o is DescribePendingMaintenanceActionsMessage =>
+    __isa(o, "DescribePendingMaintenanceActionsMessage");
 }
 
 export interface DescribeValidDBInstanceModificationsMessage {
@@ -5174,11 +5025,10 @@ export interface DescribeValidDBInstanceModificationsMessage {
 }
 
 export namespace DescribeValidDBInstanceModificationsMessage {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeValidDBInstanceModificationsMessage {
-    return __isa(o, "DescribeValidDBInstanceModificationsMessage");
-  }
+  ): o is DescribeValidDBInstanceModificationsMessage =>
+    __isa(o, "DescribeValidDBInstanceModificationsMessage");
 }
 
 export interface DescribeValidDBInstanceModificationsResult {
@@ -5193,9 +5043,10 @@ export interface DescribeValidDBInstanceModificationsResult {
 }
 
 export namespace DescribeValidDBInstanceModificationsResult {
-  export function isa(o: any): o is DescribeValidDBInstanceModificationsResult {
-    return __isa(o, "DescribeValidDBInstanceModificationsResult");
-  }
+  export const isa = (
+    o: any
+  ): o is DescribeValidDBInstanceModificationsResult =>
+    __isa(o, "DescribeValidDBInstanceModificationsResult");
 }
 
 /**
@@ -5226,9 +5077,8 @@ export interface DomainMembership {
 }
 
 export namespace DomainMembership {
-  export function isa(o: any): o is DomainMembership {
-    return __isa(o, "DomainMembership");
-  }
+  export const isa = (o: any): o is DomainMembership =>
+    __isa(o, "DomainMembership");
 }
 
 /**
@@ -5248,9 +5098,7 @@ export interface DoubleRange {
 }
 
 export namespace DoubleRange {
-  export function isa(o: any): o is DoubleRange {
-    return __isa(o, "DoubleRange");
-  }
+  export const isa = (o: any): o is DoubleRange => __isa(o, "DoubleRange");
 }
 
 /**
@@ -5275,9 +5123,7 @@ export interface Endpoint {
 }
 
 export namespace Endpoint {
-  export function isa(o: any): o is Endpoint {
-    return __isa(o, "Endpoint");
-  }
+  export const isa = (o: any): o is Endpoint => __isa(o, "Endpoint");
 }
 
 /**
@@ -5305,9 +5151,8 @@ export interface EngineDefaults {
 }
 
 export namespace EngineDefaults {
-  export function isa(o: any): o is EngineDefaults {
-    return __isa(o, "EngineDefaults");
-  }
+  export const isa = (o: any): o is EngineDefaults =>
+    __isa(o, "EngineDefaults");
 }
 
 /**
@@ -5348,9 +5193,7 @@ export interface Event {
 }
 
 export namespace Event {
-  export function isa(o: any): o is Event {
-    return __isa(o, "Event");
-  }
+  export const isa = (o: any): o is Event => __isa(o, "Event");
 }
 
 /**
@@ -5370,9 +5213,8 @@ export interface EventCategoriesMap {
 }
 
 export namespace EventCategoriesMap {
-  export function isa(o: any): o is EventCategoriesMap {
-    return __isa(o, "EventCategoriesMap");
-  }
+  export const isa = (o: any): o is EventCategoriesMap =>
+    __isa(o, "EventCategoriesMap");
 }
 
 export interface EventCategoriesMessage {
@@ -5384,9 +5226,8 @@ export interface EventCategoriesMessage {
 }
 
 export namespace EventCategoriesMessage {
-  export function isa(o: any): o is EventCategoriesMessage {
-    return __isa(o, "EventCategoriesMessage");
-  }
+  export const isa = (o: any): o is EventCategoriesMessage =>
+    __isa(o, "EventCategoriesMessage");
 }
 
 /**
@@ -5453,9 +5294,8 @@ export interface EventSubscription {
 }
 
 export namespace EventSubscription {
-  export function isa(o: any): o is EventSubscription {
-    return __isa(o, "EventSubscription");
-  }
+  export const isa = (o: any): o is EventSubscription =>
+    __isa(o, "EventSubscription");
 }
 
 export interface EventSubscriptionsMessage {
@@ -5474,9 +5314,8 @@ export interface EventSubscriptionsMessage {
 }
 
 export namespace EventSubscriptionsMessage {
-  export function isa(o: any): o is EventSubscriptionsMessage {
-    return __isa(o, "EventSubscriptionsMessage");
-  }
+  export const isa = (o: any): o is EventSubscriptionsMessage =>
+    __isa(o, "EventSubscriptionsMessage");
 }
 
 export interface EventsMessage {
@@ -5495,9 +5334,7 @@ export interface EventsMessage {
 }
 
 export namespace EventsMessage {
-  export function isa(o: any): o is EventsMessage {
-    return __isa(o, "EventsMessage");
-  }
+  export const isa = (o: any): o is EventsMessage => __isa(o, "EventsMessage");
 }
 
 export interface FailoverDBClusterMessage {
@@ -5523,9 +5360,8 @@ export interface FailoverDBClusterMessage {
 }
 
 export namespace FailoverDBClusterMessage {
-  export function isa(o: any): o is FailoverDBClusterMessage {
-    return __isa(o, "FailoverDBClusterMessage");
-  }
+  export const isa = (o: any): o is FailoverDBClusterMessage =>
+    __isa(o, "FailoverDBClusterMessage");
 }
 
 export interface FailoverDBClusterResult {
@@ -5538,9 +5374,8 @@ export interface FailoverDBClusterResult {
 }
 
 export namespace FailoverDBClusterResult {
-  export function isa(o: any): o is FailoverDBClusterResult {
-    return __isa(o, "FailoverDBClusterResult");
-  }
+  export const isa = (o: any): o is FailoverDBClusterResult =>
+    __isa(o, "FailoverDBClusterResult");
 }
 
 /**
@@ -5560,9 +5395,7 @@ export interface Filter {
 }
 
 export namespace Filter {
-  export function isa(o: any): o is Filter {
-    return __isa(o, "Filter");
-  }
+  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 export interface ListTagsForResourceMessage {
@@ -5581,9 +5414,8 @@ export interface ListTagsForResourceMessage {
 }
 
 export namespace ListTagsForResourceMessage {
-  export function isa(o: any): o is ListTagsForResourceMessage {
-    return __isa(o, "ListTagsForResourceMessage");
-  }
+  export const isa = (o: any): o is ListTagsForResourceMessage =>
+    __isa(o, "ListTagsForResourceMessage");
 }
 
 export interface ModifyDBClusterMessage {
@@ -5752,9 +5584,8 @@ export interface ModifyDBClusterMessage {
 }
 
 export namespace ModifyDBClusterMessage {
-  export function isa(o: any): o is ModifyDBClusterMessage {
-    return __isa(o, "ModifyDBClusterMessage");
-  }
+  export const isa = (o: any): o is ModifyDBClusterMessage =>
+    __isa(o, "ModifyDBClusterMessage");
 }
 
 export interface ModifyDBClusterParameterGroupMessage {
@@ -5771,9 +5602,8 @@ export interface ModifyDBClusterParameterGroupMessage {
 }
 
 export namespace ModifyDBClusterParameterGroupMessage {
-  export function isa(o: any): o is ModifyDBClusterParameterGroupMessage {
-    return __isa(o, "ModifyDBClusterParameterGroupMessage");
-  }
+  export const isa = (o: any): o is ModifyDBClusterParameterGroupMessage =>
+    __isa(o, "ModifyDBClusterParameterGroupMessage");
 }
 
 export interface ModifyDBClusterResult {
@@ -5786,9 +5616,8 @@ export interface ModifyDBClusterResult {
 }
 
 export namespace ModifyDBClusterResult {
-  export function isa(o: any): o is ModifyDBClusterResult {
-    return __isa(o, "ModifyDBClusterResult");
-  }
+  export const isa = (o: any): o is ModifyDBClusterResult =>
+    __isa(o, "ModifyDBClusterResult");
 }
 
 export interface ModifyDBClusterSnapshotAttributeMessage {
@@ -5829,9 +5658,8 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
 }
 
 export namespace ModifyDBClusterSnapshotAttributeMessage {
-  export function isa(o: any): o is ModifyDBClusterSnapshotAttributeMessage {
-    return __isa(o, "ModifyDBClusterSnapshotAttributeMessage");
-  }
+  export const isa = (o: any): o is ModifyDBClusterSnapshotAttributeMessage =>
+    __isa(o, "ModifyDBClusterSnapshotAttributeMessage");
 }
 
 export interface ModifyDBClusterSnapshotAttributeResult {
@@ -5845,9 +5673,8 @@ export interface ModifyDBClusterSnapshotAttributeResult {
 }
 
 export namespace ModifyDBClusterSnapshotAttributeResult {
-  export function isa(o: any): o is ModifyDBClusterSnapshotAttributeResult {
-    return __isa(o, "ModifyDBClusterSnapshotAttributeResult");
-  }
+  export const isa = (o: any): o is ModifyDBClusterSnapshotAttributeResult =>
+    __isa(o, "ModifyDBClusterSnapshotAttributeResult");
 }
 
 export interface ModifyDBInstanceMessage {
@@ -6188,9 +6015,8 @@ export interface ModifyDBInstanceMessage {
 }
 
 export namespace ModifyDBInstanceMessage {
-  export function isa(o: any): o is ModifyDBInstanceMessage {
-    return __isa(o, "ModifyDBInstanceMessage");
-  }
+  export const isa = (o: any): o is ModifyDBInstanceMessage =>
+    __isa(o, "ModifyDBInstanceMessage");
 }
 
 export interface ModifyDBInstanceResult {
@@ -6203,9 +6029,8 @@ export interface ModifyDBInstanceResult {
 }
 
 export namespace ModifyDBInstanceResult {
-  export function isa(o: any): o is ModifyDBInstanceResult {
-    return __isa(o, "ModifyDBInstanceResult");
-  }
+  export const isa = (o: any): o is ModifyDBInstanceResult =>
+    __isa(o, "ModifyDBInstanceResult");
 }
 
 export interface ModifyDBParameterGroupMessage {
@@ -6237,9 +6062,8 @@ export interface ModifyDBParameterGroupMessage {
 }
 
 export namespace ModifyDBParameterGroupMessage {
-  export function isa(o: any): o is ModifyDBParameterGroupMessage {
-    return __isa(o, "ModifyDBParameterGroupMessage");
-  }
+  export const isa = (o: any): o is ModifyDBParameterGroupMessage =>
+    __isa(o, "ModifyDBParameterGroupMessage");
 }
 
 export interface ModifyDBSubnetGroupMessage {
@@ -6265,9 +6089,8 @@ export interface ModifyDBSubnetGroupMessage {
 }
 
 export namespace ModifyDBSubnetGroupMessage {
-  export function isa(o: any): o is ModifyDBSubnetGroupMessage {
-    return __isa(o, "ModifyDBSubnetGroupMessage");
-  }
+  export const isa = (o: any): o is ModifyDBSubnetGroupMessage =>
+    __isa(o, "ModifyDBSubnetGroupMessage");
 }
 
 export interface ModifyDBSubnetGroupResult {
@@ -6280,9 +6103,8 @@ export interface ModifyDBSubnetGroupResult {
 }
 
 export namespace ModifyDBSubnetGroupResult {
-  export function isa(o: any): o is ModifyDBSubnetGroupResult {
-    return __isa(o, "ModifyDBSubnetGroupResult");
-  }
+  export const isa = (o: any): o is ModifyDBSubnetGroupResult =>
+    __isa(o, "ModifyDBSubnetGroupResult");
 }
 
 export interface ModifyEventSubscriptionMessage {
@@ -6322,9 +6144,8 @@ export interface ModifyEventSubscriptionMessage {
 }
 
 export namespace ModifyEventSubscriptionMessage {
-  export function isa(o: any): o is ModifyEventSubscriptionMessage {
-    return __isa(o, "ModifyEventSubscriptionMessage");
-  }
+  export const isa = (o: any): o is ModifyEventSubscriptionMessage =>
+    __isa(o, "ModifyEventSubscriptionMessage");
 }
 
 export interface ModifyEventSubscriptionResult {
@@ -6336,9 +6157,8 @@ export interface ModifyEventSubscriptionResult {
 }
 
 export namespace ModifyEventSubscriptionResult {
-  export function isa(o: any): o is ModifyEventSubscriptionResult {
-    return __isa(o, "ModifyEventSubscriptionResult");
-  }
+  export const isa = (o: any): o is ModifyEventSubscriptionResult =>
+    __isa(o, "ModifyEventSubscriptionResult");
 }
 
 /**
@@ -6361,9 +6181,8 @@ export interface OptionGroupMembership {
 }
 
 export namespace OptionGroupMembership {
-  export function isa(o: any): o is OptionGroupMembership {
-    return __isa(o, "OptionGroupMembership");
-  }
+  export const isa = (o: any): o is OptionGroupMembership =>
+    __isa(o, "OptionGroupMembership");
 }
 
 /**
@@ -6477,9 +6296,8 @@ export interface OrderableDBInstanceOption {
 }
 
 export namespace OrderableDBInstanceOption {
-  export function isa(o: any): o is OrderableDBInstanceOption {
-    return __isa(o, "OrderableDBInstanceOption");
-  }
+  export const isa = (o: any): o is OrderableDBInstanceOption =>
+    __isa(o, "OrderableDBInstanceOption");
 }
 
 export interface OrderableDBInstanceOptionsMessage {
@@ -6499,9 +6317,8 @@ export interface OrderableDBInstanceOptionsMessage {
 }
 
 export namespace OrderableDBInstanceOptionsMessage {
-  export function isa(o: any): o is OrderableDBInstanceOptionsMessage {
-    return __isa(o, "OrderableDBInstanceOptionsMessage");
-  }
+  export const isa = (o: any): o is OrderableDBInstanceOptionsMessage =>
+    __isa(o, "OrderableDBInstanceOptionsMessage");
 }
 
 /**
@@ -6563,9 +6380,7 @@ export interface Parameter {
 }
 
 export namespace Parameter {
-  export function isa(o: any): o is Parameter {
-    return __isa(o, "Parameter");
-  }
+  export const isa = (o: any): o is Parameter => __isa(o, "Parameter");
 }
 
 /**
@@ -6588,9 +6403,8 @@ export interface PendingCloudwatchLogsExports {
 }
 
 export namespace PendingCloudwatchLogsExports {
-  export function isa(o: any): o is PendingCloudwatchLogsExports {
-    return __isa(o, "PendingCloudwatchLogsExports");
-  }
+  export const isa = (o: any): o is PendingCloudwatchLogsExports =>
+    __isa(o, "PendingCloudwatchLogsExports");
 }
 
 /**
@@ -6638,9 +6452,8 @@ export interface PendingMaintenanceAction {
 }
 
 export namespace PendingMaintenanceAction {
-  export function isa(o: any): o is PendingMaintenanceAction {
-    return __isa(o, "PendingMaintenanceAction");
-  }
+  export const isa = (o: any): o is PendingMaintenanceAction =>
+    __isa(o, "PendingMaintenanceAction");
 }
 
 export interface PendingMaintenanceActionsMessage {
@@ -6660,9 +6473,8 @@ export interface PendingMaintenanceActionsMessage {
 }
 
 export namespace PendingMaintenanceActionsMessage {
-  export function isa(o: any): o is PendingMaintenanceActionsMessage {
-    return __isa(o, "PendingMaintenanceActionsMessage");
-  }
+  export const isa = (o: any): o is PendingMaintenanceActionsMessage =>
+    __isa(o, "PendingMaintenanceActionsMessage");
 }
 
 /**
@@ -6752,9 +6564,8 @@ export interface PendingModifiedValues {
 }
 
 export namespace PendingModifiedValues {
-  export function isa(o: any): o is PendingModifiedValues {
-    return __isa(o, "PendingModifiedValues");
-  }
+  export const isa = (o: any): o is PendingModifiedValues =>
+    __isa(o, "PendingModifiedValues");
 }
 
 export interface PromoteReadReplicaDBClusterMessage {
@@ -6766,9 +6577,8 @@ export interface PromoteReadReplicaDBClusterMessage {
 }
 
 export namespace PromoteReadReplicaDBClusterMessage {
-  export function isa(o: any): o is PromoteReadReplicaDBClusterMessage {
-    return __isa(o, "PromoteReadReplicaDBClusterMessage");
-  }
+  export const isa = (o: any): o is PromoteReadReplicaDBClusterMessage =>
+    __isa(o, "PromoteReadReplicaDBClusterMessage");
 }
 
 export interface PromoteReadReplicaDBClusterResult {
@@ -6781,9 +6591,8 @@ export interface PromoteReadReplicaDBClusterResult {
 }
 
 export namespace PromoteReadReplicaDBClusterResult {
-  export function isa(o: any): o is PromoteReadReplicaDBClusterResult {
-    return __isa(o, "PromoteReadReplicaDBClusterResult");
-  }
+  export const isa = (o: any): o is PromoteReadReplicaDBClusterResult =>
+    __isa(o, "PromoteReadReplicaDBClusterResult");
 }
 
 /**
@@ -6811,9 +6620,7 @@ export interface Range {
 }
 
 export namespace Range {
-  export function isa(o: any): o is Range {
-    return __isa(o, "Range");
-  }
+  export const isa = (o: any): o is Range => __isa(o, "Range");
 }
 
 export interface RebootDBInstanceMessage {
@@ -6838,9 +6645,8 @@ export interface RebootDBInstanceMessage {
 }
 
 export namespace RebootDBInstanceMessage {
-  export function isa(o: any): o is RebootDBInstanceMessage {
-    return __isa(o, "RebootDBInstanceMessage");
-  }
+  export const isa = (o: any): o is RebootDBInstanceMessage =>
+    __isa(o, "RebootDBInstanceMessage");
 }
 
 export interface RebootDBInstanceResult {
@@ -6853,9 +6659,8 @@ export interface RebootDBInstanceResult {
 }
 
 export namespace RebootDBInstanceResult {
-  export function isa(o: any): o is RebootDBInstanceResult {
-    return __isa(o, "RebootDBInstanceResult");
-  }
+  export const isa = (o: any): o is RebootDBInstanceResult =>
+    __isa(o, "RebootDBInstanceResult");
 }
 
 export interface RemoveRoleFromDBClusterMessage {
@@ -6873,9 +6678,8 @@ export interface RemoveRoleFromDBClusterMessage {
 }
 
 export namespace RemoveRoleFromDBClusterMessage {
-  export function isa(o: any): o is RemoveRoleFromDBClusterMessage {
-    return __isa(o, "RemoveRoleFromDBClusterMessage");
-  }
+  export const isa = (o: any): o is RemoveRoleFromDBClusterMessage =>
+    __isa(o, "RemoveRoleFromDBClusterMessage");
 }
 
 export interface RemoveSourceIdentifierFromSubscriptionMessage {
@@ -6894,11 +6698,10 @@ export interface RemoveSourceIdentifierFromSubscriptionMessage {
 }
 
 export namespace RemoveSourceIdentifierFromSubscriptionMessage {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is RemoveSourceIdentifierFromSubscriptionMessage {
-    return __isa(o, "RemoveSourceIdentifierFromSubscriptionMessage");
-  }
+  ): o is RemoveSourceIdentifierFromSubscriptionMessage =>
+    __isa(o, "RemoveSourceIdentifierFromSubscriptionMessage");
 }
 
 export interface RemoveSourceIdentifierFromSubscriptionResult {
@@ -6910,11 +6713,10 @@ export interface RemoveSourceIdentifierFromSubscriptionResult {
 }
 
 export namespace RemoveSourceIdentifierFromSubscriptionResult {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is RemoveSourceIdentifierFromSubscriptionResult {
-    return __isa(o, "RemoveSourceIdentifierFromSubscriptionResult");
-  }
+  ): o is RemoveSourceIdentifierFromSubscriptionResult =>
+    __isa(o, "RemoveSourceIdentifierFromSubscriptionResult");
 }
 
 export interface RemoveTagsFromResourceMessage {
@@ -6933,9 +6735,8 @@ export interface RemoveTagsFromResourceMessage {
 }
 
 export namespace RemoveTagsFromResourceMessage {
-  export function isa(o: any): o is RemoveTagsFromResourceMessage {
-    return __isa(o, "RemoveTagsFromResourceMessage");
-  }
+  export const isa = (o: any): o is RemoveTagsFromResourceMessage =>
+    __isa(o, "RemoveTagsFromResourceMessage");
 }
 
 export interface ResetDBClusterParameterGroupMessage {
@@ -6962,9 +6763,8 @@ export interface ResetDBClusterParameterGroupMessage {
 }
 
 export namespace ResetDBClusterParameterGroupMessage {
-  export function isa(o: any): o is ResetDBClusterParameterGroupMessage {
-    return __isa(o, "ResetDBClusterParameterGroupMessage");
-  }
+  export const isa = (o: any): o is ResetDBClusterParameterGroupMessage =>
+    __isa(o, "ResetDBClusterParameterGroupMessage");
 }
 
 export interface ResetDBParameterGroupMessage {
@@ -7000,9 +6800,8 @@ export interface ResetDBParameterGroupMessage {
 }
 
 export namespace ResetDBParameterGroupMessage {
-  export function isa(o: any): o is ResetDBParameterGroupMessage {
-    return __isa(o, "ResetDBParameterGroupMessage");
-  }
+  export const isa = (o: any): o is ResetDBParameterGroupMessage =>
+    __isa(o, "ResetDBParameterGroupMessage");
 }
 
 /**
@@ -7023,9 +6822,8 @@ export interface ResourcePendingMaintenanceActions {
 }
 
 export namespace ResourcePendingMaintenanceActions {
-  export function isa(o: any): o is ResourcePendingMaintenanceActions {
-    return __isa(o, "ResourcePendingMaintenanceActions");
-  }
+  export const isa = (o: any): o is ResourcePendingMaintenanceActions =>
+    __isa(o, "ResourcePendingMaintenanceActions");
 }
 
 export interface RestoreDBClusterFromSnapshotMessage {
@@ -7176,9 +6974,8 @@ export interface RestoreDBClusterFromSnapshotMessage {
 }
 
 export namespace RestoreDBClusterFromSnapshotMessage {
-  export function isa(o: any): o is RestoreDBClusterFromSnapshotMessage {
-    return __isa(o, "RestoreDBClusterFromSnapshotMessage");
-  }
+  export const isa = (o: any): o is RestoreDBClusterFromSnapshotMessage =>
+    __isa(o, "RestoreDBClusterFromSnapshotMessage");
 }
 
 export interface RestoreDBClusterFromSnapshotResult {
@@ -7191,9 +6988,8 @@ export interface RestoreDBClusterFromSnapshotResult {
 }
 
 export namespace RestoreDBClusterFromSnapshotResult {
-  export function isa(o: any): o is RestoreDBClusterFromSnapshotResult {
-    return __isa(o, "RestoreDBClusterFromSnapshotResult");
-  }
+  export const isa = (o: any): o is RestoreDBClusterFromSnapshotResult =>
+    __isa(o, "RestoreDBClusterFromSnapshotResult");
 }
 
 export interface RestoreDBClusterToPointInTimeMessage {
@@ -7375,9 +7171,8 @@ export interface RestoreDBClusterToPointInTimeMessage {
 }
 
 export namespace RestoreDBClusterToPointInTimeMessage {
-  export function isa(o: any): o is RestoreDBClusterToPointInTimeMessage {
-    return __isa(o, "RestoreDBClusterToPointInTimeMessage");
-  }
+  export const isa = (o: any): o is RestoreDBClusterToPointInTimeMessage =>
+    __isa(o, "RestoreDBClusterToPointInTimeMessage");
 }
 
 export interface RestoreDBClusterToPointInTimeResult {
@@ -7390,9 +7185,8 @@ export interface RestoreDBClusterToPointInTimeResult {
 }
 
 export namespace RestoreDBClusterToPointInTimeResult {
-  export function isa(o: any): o is RestoreDBClusterToPointInTimeResult {
-    return __isa(o, "RestoreDBClusterToPointInTimeResult");
-  }
+  export const isa = (o: any): o is RestoreDBClusterToPointInTimeResult =>
+    __isa(o, "RestoreDBClusterToPointInTimeResult");
 }
 
 export type SourceType =
@@ -7426,9 +7220,7 @@ export interface Subnet {
 }
 
 export namespace Subnet {
-  export function isa(o: any): o is Subnet {
-    return __isa(o, "Subnet");
-  }
+  export const isa = (o: any): o is Subnet => __isa(o, "Subnet");
 }
 
 /**
@@ -7454,9 +7246,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagListMessage {
@@ -7468,9 +7258,8 @@ export interface TagListMessage {
 }
 
 export namespace TagListMessage {
-  export function isa(o: any): o is TagListMessage {
-    return __isa(o, "TagListMessage");
-  }
+  export const isa = (o: any): o is TagListMessage =>
+    __isa(o, "TagListMessage");
 }
 
 /**
@@ -7485,9 +7274,7 @@ export interface Timezone {
 }
 
 export namespace Timezone {
-  export function isa(o: any): o is Timezone {
-    return __isa(o, "Timezone");
-  }
+  export const isa = (o: any): o is Timezone => __isa(o, "Timezone");
 }
 
 /**
@@ -7523,9 +7310,7 @@ export interface UpgradeTarget {
 }
 
 export namespace UpgradeTarget {
-  export function isa(o: any): o is UpgradeTarget {
-    return __isa(o, "UpgradeTarget");
-  }
+  export const isa = (o: any): o is UpgradeTarget => __isa(o, "UpgradeTarget");
 }
 
 /**
@@ -7543,9 +7328,8 @@ export interface ValidDBInstanceModificationsMessage {
 }
 
 export namespace ValidDBInstanceModificationsMessage {
-  export function isa(o: any): o is ValidDBInstanceModificationsMessage {
-    return __isa(o, "ValidDBInstanceModificationsMessage");
-  }
+  export const isa = (o: any): o is ValidDBInstanceModificationsMessage =>
+    __isa(o, "ValidDBInstanceModificationsMessage");
 }
 
 /**
@@ -7578,9 +7362,8 @@ export interface ValidStorageOptions {
 }
 
 export namespace ValidStorageOptions {
-  export function isa(o: any): o is ValidStorageOptions {
-    return __isa(o, "ValidStorageOptions");
-  }
+  export const isa = (o: any): o is ValidStorageOptions =>
+    __isa(o, "ValidStorageOptions");
 }
 
 /**
@@ -7601,7 +7384,6 @@ export interface VpcSecurityGroupMembership {
 }
 
 export namespace VpcSecurityGroupMembership {
-  export function isa(o: any): o is VpcSecurityGroupMembership {
-    return __isa(o, "VpcSecurityGroupMembership");
-  }
+  export const isa = (o: any): o is VpcSecurityGroupMembership =>
+    __isa(o, "VpcSecurityGroupMembership");
 }

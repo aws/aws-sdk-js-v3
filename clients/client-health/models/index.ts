@@ -41,9 +41,8 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
-  export function isa(o: any): o is ConcurrentModificationException {
-    return __isa(o, "ConcurrentModificationException");
-  }
+  export const isa = (o: any): o is ConcurrentModificationException =>
+    __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -58,9 +57,8 @@ export interface InvalidPaginationToken
 }
 
 export namespace InvalidPaginationToken {
-  export function isa(o: any): o is InvalidPaginationToken {
-    return __isa(o, "InvalidPaginationToken");
-  }
+  export const isa = (o: any): o is InvalidPaginationToken =>
+    __isa(o, "InvalidPaginationToken");
 }
 
 /**
@@ -73,9 +71,8 @@ export interface UnsupportedLocale extends __SmithyException, $MetadataBearer {
 }
 
 export namespace UnsupportedLocale {
-  export function isa(o: any): o is UnsupportedLocale {
-    return __isa(o, "UnsupportedLocale");
-  }
+  export const isa = (o: any): o is UnsupportedLocale =>
+    __isa(o, "UnsupportedLocale");
 }
 
 export interface DescribeAffectedAccountsForOrganizationRequest {
@@ -102,11 +99,10 @@ export interface DescribeAffectedAccountsForOrganizationRequest {
 }
 
 export namespace DescribeAffectedAccountsForOrganizationRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeAffectedAccountsForOrganizationRequest {
-    return __isa(o, "DescribeAffectedAccountsForOrganizationRequest");
-  }
+  ): o is DescribeAffectedAccountsForOrganizationRequest =>
+    __isa(o, "DescribeAffectedAccountsForOrganizationRequest");
 }
 
 export interface DescribeAffectedAccountsForOrganizationResponse {
@@ -126,11 +122,10 @@ export interface DescribeAffectedAccountsForOrganizationResponse {
 }
 
 export namespace DescribeAffectedAccountsForOrganizationResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeAffectedAccountsForOrganizationResponse {
-    return __isa(o, "DescribeAffectedAccountsForOrganizationResponse");
-  }
+  ): o is DescribeAffectedAccountsForOrganizationResponse =>
+    __isa(o, "DescribeAffectedAccountsForOrganizationResponse");
 }
 
 export interface DescribeAffectedEntitiesForOrganizationRequest {
@@ -161,11 +156,10 @@ export interface DescribeAffectedEntitiesForOrganizationRequest {
 }
 
 export namespace DescribeAffectedEntitiesForOrganizationRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeAffectedEntitiesForOrganizationRequest {
-    return __isa(o, "DescribeAffectedEntitiesForOrganizationRequest");
-  }
+  ): o is DescribeAffectedEntitiesForOrganizationRequest =>
+    __isa(o, "DescribeAffectedEntitiesForOrganizationRequest");
 }
 
 export interface DescribeAffectedEntitiesForOrganizationResponse {
@@ -193,11 +187,10 @@ export interface DescribeAffectedEntitiesForOrganizationResponse {
 }
 
 export namespace DescribeAffectedEntitiesForOrganizationResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeAffectedEntitiesForOrganizationResponse {
-    return __isa(o, "DescribeAffectedEntitiesForOrganizationResponse");
-  }
+  ): o is DescribeAffectedEntitiesForOrganizationResponse =>
+    __isa(o, "DescribeAffectedEntitiesForOrganizationResponse");
 }
 
 export interface DescribeAffectedEntitiesRequest {
@@ -227,9 +220,8 @@ export interface DescribeAffectedEntitiesRequest {
 }
 
 export namespace DescribeAffectedEntitiesRequest {
-  export function isa(o: any): o is DescribeAffectedEntitiesRequest {
-    return __isa(o, "DescribeAffectedEntitiesRequest");
-  }
+  export const isa = (o: any): o is DescribeAffectedEntitiesRequest =>
+    __isa(o, "DescribeAffectedEntitiesRequest");
 }
 
 export interface DescribeAffectedEntitiesResponse {
@@ -249,9 +241,8 @@ export interface DescribeAffectedEntitiesResponse {
 }
 
 export namespace DescribeAffectedEntitiesResponse {
-  export function isa(o: any): o is DescribeAffectedEntitiesResponse {
-    return __isa(o, "DescribeAffectedEntitiesResponse");
-  }
+  export const isa = (o: any): o is DescribeAffectedEntitiesResponse =>
+    __isa(o, "DescribeAffectedEntitiesResponse");
 }
 
 export interface DescribeEntityAggregatesRequest {
@@ -264,9 +255,8 @@ export interface DescribeEntityAggregatesRequest {
 }
 
 export namespace DescribeEntityAggregatesRequest {
-  export function isa(o: any): o is DescribeEntityAggregatesRequest {
-    return __isa(o, "DescribeEntityAggregatesRequest");
-  }
+  export const isa = (o: any): o is DescribeEntityAggregatesRequest =>
+    __isa(o, "DescribeEntityAggregatesRequest");
 }
 
 export interface DescribeEntityAggregatesResponse {
@@ -278,9 +268,8 @@ export interface DescribeEntityAggregatesResponse {
 }
 
 export namespace DescribeEntityAggregatesResponse {
-  export function isa(o: any): o is DescribeEntityAggregatesResponse {
-    return __isa(o, "DescribeEntityAggregatesResponse");
-  }
+  export const isa = (o: any): o is DescribeEntityAggregatesResponse =>
+    __isa(o, "DescribeEntityAggregatesResponse");
 }
 
 export interface DescribeEventAggregatesRequest {
@@ -310,9 +299,8 @@ export interface DescribeEventAggregatesRequest {
 }
 
 export namespace DescribeEventAggregatesRequest {
-  export function isa(o: any): o is DescribeEventAggregatesRequest {
-    return __isa(o, "DescribeEventAggregatesRequest");
-  }
+  export const isa = (o: any): o is DescribeEventAggregatesRequest =>
+    __isa(o, "DescribeEventAggregatesRequest");
 }
 
 export interface DescribeEventAggregatesResponse {
@@ -333,9 +321,8 @@ export interface DescribeEventAggregatesResponse {
 }
 
 export namespace DescribeEventAggregatesResponse {
-  export function isa(o: any): o is DescribeEventAggregatesResponse {
-    return __isa(o, "DescribeEventAggregatesResponse");
-  }
+  export const isa = (o: any): o is DescribeEventAggregatesResponse =>
+    __isa(o, "DescribeEventAggregatesResponse");
 }
 
 export interface DescribeEventDetailsForOrganizationRequest {
@@ -353,9 +340,10 @@ export interface DescribeEventDetailsForOrganizationRequest {
 }
 
 export namespace DescribeEventDetailsForOrganizationRequest {
-  export function isa(o: any): o is DescribeEventDetailsForOrganizationRequest {
-    return __isa(o, "DescribeEventDetailsForOrganizationRequest");
-  }
+  export const isa = (
+    o: any
+  ): o is DescribeEventDetailsForOrganizationRequest =>
+    __isa(o, "DescribeEventDetailsForOrganizationRequest");
 }
 
 export interface DescribeEventDetailsForOrganizationResponse {
@@ -372,11 +360,10 @@ export interface DescribeEventDetailsForOrganizationResponse {
 }
 
 export namespace DescribeEventDetailsForOrganizationResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeEventDetailsForOrganizationResponse {
-    return __isa(o, "DescribeEventDetailsForOrganizationResponse");
-  }
+  ): o is DescribeEventDetailsForOrganizationResponse =>
+    __isa(o, "DescribeEventDetailsForOrganizationResponse");
 }
 
 export interface DescribeEventDetailsRequest {
@@ -394,9 +381,8 @@ export interface DescribeEventDetailsRequest {
 }
 
 export namespace DescribeEventDetailsRequest {
-  export function isa(o: any): o is DescribeEventDetailsRequest {
-    return __isa(o, "DescribeEventDetailsRequest");
-  }
+  export const isa = (o: any): o is DescribeEventDetailsRequest =>
+    __isa(o, "DescribeEventDetailsRequest");
 }
 
 export interface DescribeEventDetailsResponse {
@@ -413,9 +399,8 @@ export interface DescribeEventDetailsResponse {
 }
 
 export namespace DescribeEventDetailsResponse {
-  export function isa(o: any): o is DescribeEventDetailsResponse {
-    return __isa(o, "DescribeEventDetailsResponse");
-  }
+  export const isa = (o: any): o is DescribeEventDetailsResponse =>
+    __isa(o, "DescribeEventDetailsResponse");
 }
 
 export interface DescribeEventTypesRequest {
@@ -445,9 +430,8 @@ export interface DescribeEventTypesRequest {
 }
 
 export namespace DescribeEventTypesRequest {
-  export function isa(o: any): o is DescribeEventTypesRequest {
-    return __isa(o, "DescribeEventTypesRequest");
-  }
+  export const isa = (o: any): o is DescribeEventTypesRequest =>
+    __isa(o, "DescribeEventTypesRequest");
 }
 
 export interface DescribeEventTypesResponse {
@@ -473,9 +457,8 @@ export interface DescribeEventTypesResponse {
 }
 
 export namespace DescribeEventTypesResponse {
-  export function isa(o: any): o is DescribeEventTypesResponse {
-    return __isa(o, "DescribeEventTypesResponse");
-  }
+  export const isa = (o: any): o is DescribeEventTypesResponse =>
+    __isa(o, "DescribeEventTypesResponse");
 }
 
 export interface DescribeEventsForOrganizationRequest {
@@ -505,9 +488,8 @@ export interface DescribeEventsForOrganizationRequest {
 }
 
 export namespace DescribeEventsForOrganizationRequest {
-  export function isa(o: any): o is DescribeEventsForOrganizationRequest {
-    return __isa(o, "DescribeEventsForOrganizationRequest");
-  }
+  export const isa = (o: any): o is DescribeEventsForOrganizationRequest =>
+    __isa(o, "DescribeEventsForOrganizationRequest");
 }
 
 export interface DescribeEventsForOrganizationResponse {
@@ -527,9 +509,8 @@ export interface DescribeEventsForOrganizationResponse {
 }
 
 export namespace DescribeEventsForOrganizationResponse {
-  export function isa(o: any): o is DescribeEventsForOrganizationResponse {
-    return __isa(o, "DescribeEventsForOrganizationResponse");
-  }
+  export const isa = (o: any): o is DescribeEventsForOrganizationResponse =>
+    __isa(o, "DescribeEventsForOrganizationResponse");
 }
 
 export interface DescribeEventsRequest {
@@ -559,9 +540,8 @@ export interface DescribeEventsRequest {
 }
 
 export namespace DescribeEventsRequest {
-  export function isa(o: any): o is DescribeEventsRequest {
-    return __isa(o, "DescribeEventsRequest");
-  }
+  export const isa = (o: any): o is DescribeEventsRequest =>
+    __isa(o, "DescribeEventsRequest");
 }
 
 export interface DescribeEventsResponse {
@@ -581,9 +561,8 @@ export interface DescribeEventsResponse {
 }
 
 export namespace DescribeEventsResponse {
-  export function isa(o: any): o is DescribeEventsResponse {
-    return __isa(o, "DescribeEventsResponse");
-  }
+  export const isa = (o: any): o is DescribeEventsResponse =>
+    __isa(o, "DescribeEventsResponse");
 }
 
 export interface DescribeHealthServiceStatusForOrganizationResponse {
@@ -597,11 +576,10 @@ export interface DescribeHealthServiceStatusForOrganizationResponse {
 }
 
 export namespace DescribeHealthServiceStatusForOrganizationResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeHealthServiceStatusForOrganizationResponse {
-    return __isa(o, "DescribeHealthServiceStatusForOrganizationResponse");
-  }
+  ): o is DescribeHealthServiceStatusForOrganizationResponse =>
+    __isa(o, "DescribeHealthServiceStatusForOrganizationResponse");
 }
 
 /**
@@ -656,9 +634,8 @@ export interface AffectedEntity {
 }
 
 export namespace AffectedEntity {
-  export function isa(o: any): o is AffectedEntity {
-    return __isa(o, "AffectedEntity");
-  }
+  export const isa = (o: any): o is AffectedEntity =>
+    __isa(o, "AffectedEntity");
 }
 
 /**
@@ -685,9 +662,7 @@ export interface DateTimeRange {
 }
 
 export namespace DateTimeRange {
-  export function isa(o: any): o is DateTimeRange {
-    return __isa(o, "DateTimeRange");
-  }
+  export const isa = (o: any): o is DateTimeRange => __isa(o, "DateTimeRange");
 }
 
 /**
@@ -709,9 +684,8 @@ export interface EntityAggregate {
 }
 
 export namespace EntityAggregate {
-  export function isa(o: any): o is EntityAggregate {
-    return __isa(o, "EntityAggregate");
-  }
+  export const isa = (o: any): o is EntityAggregate =>
+    __isa(o, "EntityAggregate");
 }
 
 /**
@@ -753,9 +727,7 @@ export interface EntityFilter {
 }
 
 export namespace EntityFilter {
-  export function isa(o: any): o is EntityFilter {
-    return __isa(o, "EntityFilter");
-  }
+  export const isa = (o: any): o is EntityFilter => __isa(o, "EntityFilter");
 }
 
 /**
@@ -820,9 +792,7 @@ export interface Event {
 }
 
 export namespace Event {
-  export function isa(o: any): o is Event {
-    return __isa(o, "Event");
-  }
+  export const isa = (o: any): o is Event => __isa(o, "Event");
 }
 
 /**
@@ -844,9 +814,8 @@ export interface EventAccountFilter {
 }
 
 export namespace EventAccountFilter {
-  export function isa(o: any): o is EventAccountFilter {
-    return __isa(o, "EventAccountFilter");
-  }
+  export const isa = (o: any): o is EventAccountFilter =>
+    __isa(o, "EventAccountFilter");
 }
 
 /**
@@ -866,9 +835,8 @@ export interface EventAggregate {
 }
 
 export namespace EventAggregate {
-  export function isa(o: any): o is EventAggregate {
-    return __isa(o, "EventAggregate");
-  }
+  export const isa = (o: any): o is EventAggregate =>
+    __isa(o, "EventAggregate");
 }
 
 /**
@@ -884,9 +852,8 @@ export interface EventDescription {
 }
 
 export namespace EventDescription {
-  export function isa(o: any): o is EventDescription {
-    return __isa(o, "EventDescription");
-  }
+  export const isa = (o: any): o is EventDescription =>
+    __isa(o, "EventDescription");
 }
 
 /**
@@ -913,9 +880,7 @@ export interface EventDetails {
 }
 
 export namespace EventDetails {
-  export function isa(o: any): o is EventDetails {
-    return __isa(o, "EventDetails");
-  }
+  export const isa = (o: any): o is EventDetails => __isa(o, "EventDetails");
 }
 
 /**
@@ -943,9 +908,8 @@ export interface EventDetailsErrorItem {
 }
 
 export namespace EventDetailsErrorItem {
-  export function isa(o: any): o is EventDetailsErrorItem {
-    return __isa(o, "EventDetailsErrorItem");
-  }
+  export const isa = (o: any): o is EventDetailsErrorItem =>
+    __isa(o, "EventDetailsErrorItem");
 }
 
 /**
@@ -1025,9 +989,7 @@ export interface EventFilter {
 }
 
 export namespace EventFilter {
-  export function isa(o: any): o is EventFilter {
-    return __isa(o, "EventFilter");
-  }
+  export const isa = (o: any): o is EventFilter => __isa(o, "EventFilter");
 }
 
 /**
@@ -1057,9 +1019,7 @@ export interface EventType {
 }
 
 export namespace EventType {
-  export function isa(o: any): o is EventType {
-    return __isa(o, "EventType");
-  }
+  export const isa = (o: any): o is EventType => __isa(o, "EventType");
 }
 
 /**
@@ -1086,9 +1046,8 @@ export interface EventTypeFilter {
 }
 
 export namespace EventTypeFilter {
-  export function isa(o: any): o is EventTypeFilter {
-    return __isa(o, "EventTypeFilter");
-  }
+  export const isa = (o: any): o is EventTypeFilter =>
+    __isa(o, "EventTypeFilter");
 }
 
 /**
@@ -1123,9 +1082,8 @@ export interface OrganizationAffectedEntitiesErrorItem {
 }
 
 export namespace OrganizationAffectedEntitiesErrorItem {
-  export function isa(o: any): o is OrganizationAffectedEntitiesErrorItem {
-    return __isa(o, "OrganizationAffectedEntitiesErrorItem");
-  }
+  export const isa = (o: any): o is OrganizationAffectedEntitiesErrorItem =>
+    __isa(o, "OrganizationAffectedEntitiesErrorItem");
 }
 
 /**
@@ -1185,9 +1143,8 @@ export interface OrganizationEvent {
 }
 
 export namespace OrganizationEvent {
-  export function isa(o: any): o is OrganizationEvent {
-    return __isa(o, "OrganizationEvent");
-  }
+  export const isa = (o: any): o is OrganizationEvent =>
+    __isa(o, "OrganizationEvent");
 }
 
 /**
@@ -1220,9 +1177,8 @@ export interface OrganizationEventDetails {
 }
 
 export namespace OrganizationEventDetails {
-  export function isa(o: any): o is OrganizationEventDetails {
-    return __isa(o, "OrganizationEventDetails");
-  }
+  export const isa = (o: any): o is OrganizationEventDetails =>
+    __isa(o, "OrganizationEventDetails");
 }
 
 /**
@@ -1256,9 +1212,8 @@ export interface OrganizationEventDetailsErrorItem {
 }
 
 export namespace OrganizationEventDetailsErrorItem {
-  export function isa(o: any): o is OrganizationEventDetailsErrorItem {
-    return __isa(o, "OrganizationEventDetailsErrorItem");
-  }
+  export const isa = (o: any): o is OrganizationEventDetailsErrorItem =>
+    __isa(o, "OrganizationEventDetailsErrorItem");
 }
 
 /**
@@ -1346,7 +1301,6 @@ export interface OrganizationEventFilter {
 }
 
 export namespace OrganizationEventFilter {
-  export function isa(o: any): o is OrganizationEventFilter {
-    return __isa(o, "OrganizationEventFilter");
-  }
+  export const isa = (o: any): o is OrganizationEventFilter =>
+    __isa(o, "OrganizationEventFilter");
 }

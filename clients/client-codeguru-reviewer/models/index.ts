@@ -16,9 +16,8 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export function isa(o: any): o is AccessDeniedException {
-    return __isa(o, "AccessDeniedException");
-  }
+  export const isa = (o: any): o is AccessDeniedException =>
+    __isa(o, "AccessDeniedException");
 }
 
 export interface AssociateRepositoryRequest {
@@ -51,9 +50,8 @@ export interface AssociateRepositoryRequest {
 }
 
 export namespace AssociateRepositoryRequest {
-  export function isa(o: any): o is AssociateRepositoryRequest {
-    return __isa(o, "AssociateRepositoryRequest");
-  }
+  export const isa = (o: any): o is AssociateRepositoryRequest =>
+    __isa(o, "AssociateRepositoryRequest");
 }
 
 export interface AssociateRepositoryResponse {
@@ -65,9 +63,8 @@ export interface AssociateRepositoryResponse {
 }
 
 export namespace AssociateRepositoryResponse {
-  export function isa(o: any): o is AssociateRepositoryResponse {
-    return __isa(o, "AssociateRepositoryResponse");
-  }
+  export const isa = (o: any): o is AssociateRepositoryResponse =>
+    __isa(o, "AssociateRepositoryResponse");
 }
 
 /**
@@ -82,9 +79,8 @@ export interface CodeCommitRepository {
 }
 
 export namespace CodeCommitRepository {
-  export function isa(o: any): o is CodeCommitRepository {
-    return __isa(o, "CodeCommitRepository");
-  }
+  export const isa = (o: any): o is CodeCommitRepository =>
+    __isa(o, "CodeCommitRepository");
 }
 
 /**
@@ -100,9 +96,8 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export function isa(o: any): o is ConflictException {
-    return __isa(o, "ConflictException");
-  }
+  export const isa = (o: any): o is ConflictException =>
+    __isa(o, "ConflictException");
 }
 
 export interface DescribeRepositoryAssociationRequest {
@@ -114,9 +109,8 @@ export interface DescribeRepositoryAssociationRequest {
 }
 
 export namespace DescribeRepositoryAssociationRequest {
-  export function isa(o: any): o is DescribeRepositoryAssociationRequest {
-    return __isa(o, "DescribeRepositoryAssociationRequest");
-  }
+  export const isa = (o: any): o is DescribeRepositoryAssociationRequest =>
+    __isa(o, "DescribeRepositoryAssociationRequest");
 }
 
 export interface DescribeRepositoryAssociationResponse {
@@ -128,9 +122,8 @@ export interface DescribeRepositoryAssociationResponse {
 }
 
 export namespace DescribeRepositoryAssociationResponse {
-  export function isa(o: any): o is DescribeRepositoryAssociationResponse {
-    return __isa(o, "DescribeRepositoryAssociationResponse");
-  }
+  export const isa = (o: any): o is DescribeRepositoryAssociationResponse =>
+    __isa(o, "DescribeRepositoryAssociationResponse");
 }
 
 export interface DisassociateRepositoryRequest {
@@ -142,9 +135,8 @@ export interface DisassociateRepositoryRequest {
 }
 
 export namespace DisassociateRepositoryRequest {
-  export function isa(o: any): o is DisassociateRepositoryRequest {
-    return __isa(o, "DisassociateRepositoryRequest");
-  }
+  export const isa = (o: any): o is DisassociateRepositoryRequest =>
+    __isa(o, "DisassociateRepositoryRequest");
 }
 
 export interface DisassociateRepositoryResponse {
@@ -156,9 +148,8 @@ export interface DisassociateRepositoryResponse {
 }
 
 export namespace DisassociateRepositoryResponse {
-  export function isa(o: any): o is DisassociateRepositoryResponse {
-    return __isa(o, "DisassociateRepositoryResponse");
-  }
+  export const isa = (o: any): o is DisassociateRepositoryResponse =>
+    __isa(o, "DisassociateRepositoryResponse");
 }
 
 /**
@@ -173,9 +164,8 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export function isa(o: any): o is InternalServerException {
-    return __isa(o, "InternalServerException");
-  }
+  export const isa = (o: any): o is InternalServerException =>
+    __isa(o, "InternalServerException");
 }
 
 export interface ListRepositoryAssociationsRequest {
@@ -228,9 +218,8 @@ export interface ListRepositoryAssociationsRequest {
 }
 
 export namespace ListRepositoryAssociationsRequest {
-  export function isa(o: any): o is ListRepositoryAssociationsRequest {
-    return __isa(o, "ListRepositoryAssociationsRequest");
-  }
+  export const isa = (o: any): o is ListRepositoryAssociationsRequest =>
+    __isa(o, "ListRepositoryAssociationsRequest");
 }
 
 export interface ListRepositoryAssociationsResponse {
@@ -250,9 +239,8 @@ export interface ListRepositoryAssociationsResponse {
 }
 
 export namespace ListRepositoryAssociationsResponse {
-  export function isa(o: any): o is ListRepositoryAssociationsResponse {
-    return __isa(o, "ListRepositoryAssociationsResponse");
-  }
+  export const isa = (o: any): o is ListRepositoryAssociationsResponse =>
+    __isa(o, "ListRepositoryAssociationsResponse");
 }
 
 /**
@@ -265,9 +253,8 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return __isa(o, "NotFoundException");
-  }
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
 }
 
 export enum ProviderType {
@@ -287,9 +274,7 @@ export interface Repository {
 }
 
 export namespace Repository {
-  export function isa(o: any): o is Repository {
-    return __isa(o, "Repository");
-  }
+  export const isa = (o: any): o is Repository => __isa(o, "Repository");
 }
 
 /**
@@ -344,9 +329,8 @@ export interface RepositoryAssociation {
 }
 
 export namespace RepositoryAssociation {
-  export function isa(o: any): o is RepositoryAssociation {
-    return __isa(o, "RepositoryAssociation");
-  }
+  export const isa = (o: any): o is RepositoryAssociation =>
+    __isa(o, "RepositoryAssociation");
 }
 
 export enum RepositoryAssociationState {
@@ -423,9 +407,8 @@ export interface RepositoryAssociationSummary {
 }
 
 export namespace RepositoryAssociationSummary {
-  export function isa(o: any): o is RepositoryAssociationSummary {
-    return __isa(o, "RepositoryAssociationSummary");
-  }
+  export const isa = (o: any): o is RepositoryAssociationSummary =>
+    __isa(o, "RepositoryAssociationSummary");
 }
 
 /**
@@ -440,9 +423,8 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return __isa(o, "ThrottlingException");
-  }
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 /**
@@ -457,7 +439,6 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return __isa(o, "ValidationException");
-  }
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
 }

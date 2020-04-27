@@ -51,9 +51,7 @@ export interface Container {
 }
 
 export namespace Container {
-  export function isa(o: any): o is Container {
-    return __isa(o, "Container");
-  }
+  export const isa = (o: any): o is Container => __isa(o, "Container");
 }
 
 /**
@@ -69,9 +67,8 @@ export interface ContainerInUseException
 }
 
 export namespace ContainerInUseException {
-  export function isa(o: any): o is ContainerInUseException {
-    return __isa(o, "ContainerInUseException");
-  }
+  export const isa = (o: any): o is ContainerInUseException =>
+    __isa(o, "ContainerInUseException");
 }
 
 /**
@@ -86,9 +83,8 @@ export interface ContainerNotFoundException
 }
 
 export namespace ContainerNotFoundException {
-  export function isa(o: any): o is ContainerNotFoundException {
-    return __isa(o, "ContainerNotFoundException");
-  }
+  export const isa = (o: any): o is ContainerNotFoundException =>
+    __isa(o, "ContainerNotFoundException");
 }
 
 export enum ContainerStatus {
@@ -109,9 +105,8 @@ export interface CorsPolicyNotFoundException
 }
 
 export namespace CorsPolicyNotFoundException {
-  export function isa(o: any): o is CorsPolicyNotFoundException {
-    return __isa(o, "CorsPolicyNotFoundException");
-  }
+  export const isa = (o: any): o is CorsPolicyNotFoundException =>
+    __isa(o, "CorsPolicyNotFoundException");
 }
 
 /**
@@ -164,9 +159,7 @@ export interface CorsRule {
 }
 
 export namespace CorsRule {
-  export function isa(o: any): o is CorsRule {
-    return __isa(o, "CorsRule");
-  }
+  export const isa = (o: any): o is CorsRule => __isa(o, "CorsRule");
 }
 
 export interface CreateContainerInput {
@@ -188,9 +181,8 @@ export interface CreateContainerInput {
 }
 
 export namespace CreateContainerInput {
-  export function isa(o: any): o is CreateContainerInput {
-    return __isa(o, "CreateContainerInput");
-  }
+  export const isa = (o: any): o is CreateContainerInput =>
+    __isa(o, "CreateContainerInput");
 }
 
 export interface CreateContainerOutput {
@@ -213,9 +205,8 @@ export interface CreateContainerOutput {
 }
 
 export namespace CreateContainerOutput {
-  export function isa(o: any): o is CreateContainerOutput {
-    return __isa(o, "CreateContainerOutput");
-  }
+  export const isa = (o: any): o is CreateContainerOutput =>
+    __isa(o, "CreateContainerOutput");
 }
 
 export interface DeleteContainerInput {
@@ -227,9 +218,8 @@ export interface DeleteContainerInput {
 }
 
 export namespace DeleteContainerInput {
-  export function isa(o: any): o is DeleteContainerInput {
-    return __isa(o, "DeleteContainerInput");
-  }
+  export const isa = (o: any): o is DeleteContainerInput =>
+    __isa(o, "DeleteContainerInput");
 }
 
 export interface DeleteContainerOutput {
@@ -237,9 +227,8 @@ export interface DeleteContainerOutput {
 }
 
 export namespace DeleteContainerOutput {
-  export function isa(o: any): o is DeleteContainerOutput {
-    return __isa(o, "DeleteContainerOutput");
-  }
+  export const isa = (o: any): o is DeleteContainerOutput =>
+    __isa(o, "DeleteContainerOutput");
 }
 
 export interface DeleteContainerPolicyInput {
@@ -251,9 +240,8 @@ export interface DeleteContainerPolicyInput {
 }
 
 export namespace DeleteContainerPolicyInput {
-  export function isa(o: any): o is DeleteContainerPolicyInput {
-    return __isa(o, "DeleteContainerPolicyInput");
-  }
+  export const isa = (o: any): o is DeleteContainerPolicyInput =>
+    __isa(o, "DeleteContainerPolicyInput");
 }
 
 export interface DeleteContainerPolicyOutput {
@@ -261,9 +249,8 @@ export interface DeleteContainerPolicyOutput {
 }
 
 export namespace DeleteContainerPolicyOutput {
-  export function isa(o: any): o is DeleteContainerPolicyOutput {
-    return __isa(o, "DeleteContainerPolicyOutput");
-  }
+  export const isa = (o: any): o is DeleteContainerPolicyOutput =>
+    __isa(o, "DeleteContainerPolicyOutput");
 }
 
 export interface DeleteCorsPolicyInput {
@@ -275,9 +262,8 @@ export interface DeleteCorsPolicyInput {
 }
 
 export namespace DeleteCorsPolicyInput {
-  export function isa(o: any): o is DeleteCorsPolicyInput {
-    return __isa(o, "DeleteCorsPolicyInput");
-  }
+  export const isa = (o: any): o is DeleteCorsPolicyInput =>
+    __isa(o, "DeleteCorsPolicyInput");
 }
 
 export interface DeleteCorsPolicyOutput {
@@ -285,9 +271,8 @@ export interface DeleteCorsPolicyOutput {
 }
 
 export namespace DeleteCorsPolicyOutput {
-  export function isa(o: any): o is DeleteCorsPolicyOutput {
-    return __isa(o, "DeleteCorsPolicyOutput");
-  }
+  export const isa = (o: any): o is DeleteCorsPolicyOutput =>
+    __isa(o, "DeleteCorsPolicyOutput");
 }
 
 export interface DeleteLifecyclePolicyInput {
@@ -299,9 +284,8 @@ export interface DeleteLifecyclePolicyInput {
 }
 
 export namespace DeleteLifecyclePolicyInput {
-  export function isa(o: any): o is DeleteLifecyclePolicyInput {
-    return __isa(o, "DeleteLifecyclePolicyInput");
-  }
+  export const isa = (o: any): o is DeleteLifecyclePolicyInput =>
+    __isa(o, "DeleteLifecyclePolicyInput");
 }
 
 export interface DeleteLifecyclePolicyOutput {
@@ -309,9 +293,8 @@ export interface DeleteLifecyclePolicyOutput {
 }
 
 export namespace DeleteLifecyclePolicyOutput {
-  export function isa(o: any): o is DeleteLifecyclePolicyOutput {
-    return __isa(o, "DeleteLifecyclePolicyOutput");
-  }
+  export const isa = (o: any): o is DeleteLifecyclePolicyOutput =>
+    __isa(o, "DeleteLifecyclePolicyOutput");
 }
 
 export interface DescribeContainerInput {
@@ -323,9 +306,8 @@ export interface DescribeContainerInput {
 }
 
 export namespace DescribeContainerInput {
-  export function isa(o: any): o is DescribeContainerInput {
-    return __isa(o, "DescribeContainerInput");
-  }
+  export const isa = (o: any): o is DescribeContainerInput =>
+    __isa(o, "DescribeContainerInput");
 }
 
 export interface DescribeContainerOutput {
@@ -337,9 +319,8 @@ export interface DescribeContainerOutput {
 }
 
 export namespace DescribeContainerOutput {
-  export function isa(o: any): o is DescribeContainerOutput {
-    return __isa(o, "DescribeContainerOutput");
-  }
+  export const isa = (o: any): o is DescribeContainerOutput =>
+    __isa(o, "DescribeContainerOutput");
 }
 
 export interface GetContainerPolicyInput {
@@ -351,9 +332,8 @@ export interface GetContainerPolicyInput {
 }
 
 export namespace GetContainerPolicyInput {
-  export function isa(o: any): o is GetContainerPolicyInput {
-    return __isa(o, "GetContainerPolicyInput");
-  }
+  export const isa = (o: any): o is GetContainerPolicyInput =>
+    __isa(o, "GetContainerPolicyInput");
 }
 
 export interface GetContainerPolicyOutput {
@@ -365,9 +345,8 @@ export interface GetContainerPolicyOutput {
 }
 
 export namespace GetContainerPolicyOutput {
-  export function isa(o: any): o is GetContainerPolicyOutput {
-    return __isa(o, "GetContainerPolicyOutput");
-  }
+  export const isa = (o: any): o is GetContainerPolicyOutput =>
+    __isa(o, "GetContainerPolicyOutput");
 }
 
 export interface GetCorsPolicyInput {
@@ -379,9 +358,8 @@ export interface GetCorsPolicyInput {
 }
 
 export namespace GetCorsPolicyInput {
-  export function isa(o: any): o is GetCorsPolicyInput {
-    return __isa(o, "GetCorsPolicyInput");
-  }
+  export const isa = (o: any): o is GetCorsPolicyInput =>
+    __isa(o, "GetCorsPolicyInput");
 }
 
 export interface GetCorsPolicyOutput {
@@ -393,9 +371,8 @@ export interface GetCorsPolicyOutput {
 }
 
 export namespace GetCorsPolicyOutput {
-  export function isa(o: any): o is GetCorsPolicyOutput {
-    return __isa(o, "GetCorsPolicyOutput");
-  }
+  export const isa = (o: any): o is GetCorsPolicyOutput =>
+    __isa(o, "GetCorsPolicyOutput");
 }
 
 export interface GetLifecyclePolicyInput {
@@ -407,9 +384,8 @@ export interface GetLifecyclePolicyInput {
 }
 
 export namespace GetLifecyclePolicyInput {
-  export function isa(o: any): o is GetLifecyclePolicyInput {
-    return __isa(o, "GetLifecyclePolicyInput");
-  }
+  export const isa = (o: any): o is GetLifecyclePolicyInput =>
+    __isa(o, "GetLifecyclePolicyInput");
 }
 
 export interface GetLifecyclePolicyOutput {
@@ -421,9 +397,8 @@ export interface GetLifecyclePolicyOutput {
 }
 
 export namespace GetLifecyclePolicyOutput {
-  export function isa(o: any): o is GetLifecyclePolicyOutput {
-    return __isa(o, "GetLifecyclePolicyOutput");
-  }
+  export const isa = (o: any): o is GetLifecyclePolicyOutput =>
+    __isa(o, "GetLifecyclePolicyOutput");
 }
 
 /**
@@ -438,9 +413,8 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export function isa(o: any): o is InternalServerError {
-    return __isa(o, "InternalServerError");
-  }
+  export const isa = (o: any): o is InternalServerError =>
+    __isa(o, "InternalServerError");
 }
 
 /**
@@ -455,9 +429,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export interface ListContainersInput {
@@ -477,9 +450,8 @@ export interface ListContainersInput {
 }
 
 export namespace ListContainersInput {
-  export function isa(o: any): o is ListContainersInput {
-    return __isa(o, "ListContainersInput");
-  }
+  export const isa = (o: any): o is ListContainersInput =>
+    __isa(o, "ListContainersInput");
 }
 
 export interface ListContainersOutput {
@@ -499,9 +471,8 @@ export interface ListContainersOutput {
 }
 
 export namespace ListContainersOutput {
-  export function isa(o: any): o is ListContainersOutput {
-    return __isa(o, "ListContainersOutput");
-  }
+  export const isa = (o: any): o is ListContainersOutput =>
+    __isa(o, "ListContainersOutput");
 }
 
 export interface ListTagsForResourceInput {
@@ -513,9 +484,8 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
-  export function isa(o: any): o is ListTagsForResourceInput {
-    return __isa(o, "ListTagsForResourceInput");
-  }
+  export const isa = (o: any): o is ListTagsForResourceInput =>
+    __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceOutput {
@@ -527,9 +497,8 @@ export interface ListTagsForResourceOutput {
 }
 
 export namespace ListTagsForResourceOutput {
-  export function isa(o: any): o is ListTagsForResourceOutput {
-    return __isa(o, "ListTagsForResourceOutput");
-  }
+  export const isa = (o: any): o is ListTagsForResourceOutput =>
+    __isa(o, "ListTagsForResourceOutput");
 }
 
 export enum MethodName {
@@ -551,9 +520,8 @@ export interface PolicyNotFoundException
 }
 
 export namespace PolicyNotFoundException {
-  export function isa(o: any): o is PolicyNotFoundException {
-    return __isa(o, "PolicyNotFoundException");
-  }
+  export const isa = (o: any): o is PolicyNotFoundException =>
+    __isa(o, "PolicyNotFoundException");
 }
 
 export interface PutContainerPolicyInput {
@@ -579,9 +547,8 @@ export interface PutContainerPolicyInput {
 }
 
 export namespace PutContainerPolicyInput {
-  export function isa(o: any): o is PutContainerPolicyInput {
-    return __isa(o, "PutContainerPolicyInput");
-  }
+  export const isa = (o: any): o is PutContainerPolicyInput =>
+    __isa(o, "PutContainerPolicyInput");
 }
 
 export interface PutContainerPolicyOutput {
@@ -589,9 +556,8 @@ export interface PutContainerPolicyOutput {
 }
 
 export namespace PutContainerPolicyOutput {
-  export function isa(o: any): o is PutContainerPolicyOutput {
-    return __isa(o, "PutContainerPolicyOutput");
-  }
+  export const isa = (o: any): o is PutContainerPolicyOutput =>
+    __isa(o, "PutContainerPolicyOutput");
 }
 
 export interface PutCorsPolicyInput {
@@ -608,9 +574,8 @@ export interface PutCorsPolicyInput {
 }
 
 export namespace PutCorsPolicyInput {
-  export function isa(o: any): o is PutCorsPolicyInput {
-    return __isa(o, "PutCorsPolicyInput");
-  }
+  export const isa = (o: any): o is PutCorsPolicyInput =>
+    __isa(o, "PutCorsPolicyInput");
 }
 
 export interface PutCorsPolicyOutput {
@@ -618,9 +583,8 @@ export interface PutCorsPolicyOutput {
 }
 
 export namespace PutCorsPolicyOutput {
-  export function isa(o: any): o is PutCorsPolicyOutput {
-    return __isa(o, "PutCorsPolicyOutput");
-  }
+  export const isa = (o: any): o is PutCorsPolicyOutput =>
+    __isa(o, "PutCorsPolicyOutput");
 }
 
 export interface PutLifecyclePolicyInput {
@@ -637,9 +601,8 @@ export interface PutLifecyclePolicyInput {
 }
 
 export namespace PutLifecyclePolicyInput {
-  export function isa(o: any): o is PutLifecyclePolicyInput {
-    return __isa(o, "PutLifecyclePolicyInput");
-  }
+  export const isa = (o: any): o is PutLifecyclePolicyInput =>
+    __isa(o, "PutLifecyclePolicyInput");
 }
 
 export interface PutLifecyclePolicyOutput {
@@ -647,9 +610,8 @@ export interface PutLifecyclePolicyOutput {
 }
 
 export namespace PutLifecyclePolicyOutput {
-  export function isa(o: any): o is PutLifecyclePolicyOutput {
-    return __isa(o, "PutLifecyclePolicyOutput");
-  }
+  export const isa = (o: any): o is PutLifecyclePolicyOutput =>
+    __isa(o, "PutLifecyclePolicyOutput");
 }
 
 export interface StartAccessLoggingInput {
@@ -661,9 +623,8 @@ export interface StartAccessLoggingInput {
 }
 
 export namespace StartAccessLoggingInput {
-  export function isa(o: any): o is StartAccessLoggingInput {
-    return __isa(o, "StartAccessLoggingInput");
-  }
+  export const isa = (o: any): o is StartAccessLoggingInput =>
+    __isa(o, "StartAccessLoggingInput");
 }
 
 export interface StartAccessLoggingOutput {
@@ -671,9 +632,8 @@ export interface StartAccessLoggingOutput {
 }
 
 export namespace StartAccessLoggingOutput {
-  export function isa(o: any): o is StartAccessLoggingOutput {
-    return __isa(o, "StartAccessLoggingOutput");
-  }
+  export const isa = (o: any): o is StartAccessLoggingOutput =>
+    __isa(o, "StartAccessLoggingOutput");
 }
 
 export interface StopAccessLoggingInput {
@@ -685,9 +645,8 @@ export interface StopAccessLoggingInput {
 }
 
 export namespace StopAccessLoggingInput {
-  export function isa(o: any): o is StopAccessLoggingInput {
-    return __isa(o, "StopAccessLoggingInput");
-  }
+  export const isa = (o: any): o is StopAccessLoggingInput =>
+    __isa(o, "StopAccessLoggingInput");
 }
 
 export interface StopAccessLoggingOutput {
@@ -695,9 +654,8 @@ export interface StopAccessLoggingOutput {
 }
 
 export namespace StopAccessLoggingOutput {
-  export function isa(o: any): o is StopAccessLoggingOutput {
-    return __isa(o, "StopAccessLoggingOutput");
-  }
+  export const isa = (o: any): o is StopAccessLoggingOutput =>
+    __isa(o, "StopAccessLoggingOutput");
 }
 
 /**
@@ -722,9 +680,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceInput {
@@ -744,9 +700,8 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
-  export function isa(o: any): o is TagResourceInput {
-    return __isa(o, "TagResourceInput");
-  }
+  export const isa = (o: any): o is TagResourceInput =>
+    __isa(o, "TagResourceInput");
 }
 
 export interface TagResourceOutput {
@@ -754,9 +709,8 @@ export interface TagResourceOutput {
 }
 
 export namespace TagResourceOutput {
-  export function isa(o: any): o is TagResourceOutput {
-    return __isa(o, "TagResourceOutput");
-  }
+  export const isa = (o: any): o is TagResourceOutput =>
+    __isa(o, "TagResourceOutput");
 }
 
 export interface UntagResourceInput {
@@ -775,9 +729,8 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
-  export function isa(o: any): o is UntagResourceInput {
-    return __isa(o, "UntagResourceInput");
-  }
+  export const isa = (o: any): o is UntagResourceInput =>
+    __isa(o, "UntagResourceInput");
 }
 
 export interface UntagResourceOutput {
@@ -785,7 +738,6 @@ export interface UntagResourceOutput {
 }
 
 export namespace UntagResourceOutput {
-  export function isa(o: any): o is UntagResourceOutput {
-    return __isa(o, "UntagResourceOutput");
-  }
+  export const isa = (o: any): o is UntagResourceOutput =>
+    __isa(o, "UntagResourceOutput");
 }

@@ -21,9 +21,8 @@ export interface AcceptQualificationRequestRequest {
 }
 
 export namespace AcceptQualificationRequestRequest {
-  export function isa(o: any): o is AcceptQualificationRequestRequest {
-    return __isa(o, "AcceptQualificationRequestRequest");
-  }
+  export const isa = (o: any): o is AcceptQualificationRequestRequest =>
+    __isa(o, "AcceptQualificationRequestRequest");
 }
 
 export interface AcceptQualificationRequestResponse {
@@ -31,9 +30,8 @@ export interface AcceptQualificationRequestResponse {
 }
 
 export namespace AcceptQualificationRequestResponse {
-  export function isa(o: any): o is AcceptQualificationRequestResponse {
-    return __isa(o, "AcceptQualificationRequestResponse");
-  }
+  export const isa = (o: any): o is AcceptQualificationRequestResponse =>
+    __isa(o, "AcceptQualificationRequestResponse");
 }
 
 export interface ApproveAssignmentRequest {
@@ -61,9 +59,8 @@ export interface ApproveAssignmentRequest {
 }
 
 export namespace ApproveAssignmentRequest {
-  export function isa(o: any): o is ApproveAssignmentRequest {
-    return __isa(o, "ApproveAssignmentRequest");
-  }
+  export const isa = (o: any): o is ApproveAssignmentRequest =>
+    __isa(o, "ApproveAssignmentRequest");
 }
 
 export interface ApproveAssignmentResponse {
@@ -71,9 +68,8 @@ export interface ApproveAssignmentResponse {
 }
 
 export namespace ApproveAssignmentResponse {
-  export function isa(o: any): o is ApproveAssignmentResponse {
-    return __isa(o, "ApproveAssignmentResponse");
-  }
+  export const isa = (o: any): o is ApproveAssignmentResponse =>
+    __isa(o, "ApproveAssignmentResponse");
 }
 
 /**
@@ -166,9 +162,7 @@ export interface Assignment {
 }
 
 export namespace Assignment {
-  export function isa(o: any): o is Assignment {
-    return __isa(o, "Assignment");
-  }
+  export const isa = (o: any): o is Assignment => __isa(o, "Assignment");
 }
 
 export enum AssignmentStatus {
@@ -208,9 +202,8 @@ export interface AssociateQualificationWithWorkerRequest {
 }
 
 export namespace AssociateQualificationWithWorkerRequest {
-  export function isa(o: any): o is AssociateQualificationWithWorkerRequest {
-    return __isa(o, "AssociateQualificationWithWorkerRequest");
-  }
+  export const isa = (o: any): o is AssociateQualificationWithWorkerRequest =>
+    __isa(o, "AssociateQualificationWithWorkerRequest");
 }
 
 export interface AssociateQualificationWithWorkerResponse {
@@ -218,9 +211,8 @@ export interface AssociateQualificationWithWorkerResponse {
 }
 
 export namespace AssociateQualificationWithWorkerResponse {
-  export function isa(o: any): o is AssociateQualificationWithWorkerResponse {
-    return __isa(o, "AssociateQualificationWithWorkerResponse");
-  }
+  export const isa = (o: any): o is AssociateQualificationWithWorkerResponse =>
+    __isa(o, "AssociateQualificationWithWorkerResponse");
 }
 
 /**
@@ -255,9 +247,7 @@ export interface BonusPayment {
 }
 
 export namespace BonusPayment {
-  export function isa(o: any): o is BonusPayment {
-    return __isa(o, "BonusPayment");
-  }
+  export const isa = (o: any): o is BonusPayment => __isa(o, "BonusPayment");
 }
 
 export enum Comparator {
@@ -299,9 +289,8 @@ export interface CreateAdditionalAssignmentsForHITRequest {
 }
 
 export namespace CreateAdditionalAssignmentsForHITRequest {
-  export function isa(o: any): o is CreateAdditionalAssignmentsForHITRequest {
-    return __isa(o, "CreateAdditionalAssignmentsForHITRequest");
-  }
+  export const isa = (o: any): o is CreateAdditionalAssignmentsForHITRequest =>
+    __isa(o, "CreateAdditionalAssignmentsForHITRequest");
 }
 
 export interface CreateAdditionalAssignmentsForHITResponse {
@@ -309,9 +298,8 @@ export interface CreateAdditionalAssignmentsForHITResponse {
 }
 
 export namespace CreateAdditionalAssignmentsForHITResponse {
-  export function isa(o: any): o is CreateAdditionalAssignmentsForHITResponse {
-    return __isa(o, "CreateAdditionalAssignmentsForHITResponse");
-  }
+  export const isa = (o: any): o is CreateAdditionalAssignmentsForHITResponse =>
+    __isa(o, "CreateAdditionalAssignmentsForHITResponse");
 }
 
 export interface CreateHITRequest {
@@ -487,9 +475,8 @@ export interface CreateHITRequest {
 }
 
 export namespace CreateHITRequest {
-  export function isa(o: any): o is CreateHITRequest {
-    return __isa(o, "CreateHITRequest");
-  }
+  export const isa = (o: any): o is CreateHITRequest =>
+    __isa(o, "CreateHITRequest");
 }
 
 export interface CreateHITResponse {
@@ -504,9 +491,8 @@ export interface CreateHITResponse {
 }
 
 export namespace CreateHITResponse {
-  export function isa(o: any): o is CreateHITResponse {
-    return __isa(o, "CreateHITResponse");
-  }
+  export const isa = (o: any): o is CreateHITResponse =>
+    __isa(o, "CreateHITResponse");
 }
 
 export interface CreateHITTypeRequest {
@@ -579,9 +565,8 @@ export interface CreateHITTypeRequest {
 }
 
 export namespace CreateHITTypeRequest {
-  export function isa(o: any): o is CreateHITTypeRequest {
-    return __isa(o, "CreateHITTypeRequest");
-  }
+  export const isa = (o: any): o is CreateHITTypeRequest =>
+    __isa(o, "CreateHITTypeRequest");
 }
 
 export interface CreateHITTypeResponse {
@@ -593,9 +578,8 @@ export interface CreateHITTypeResponse {
 }
 
 export namespace CreateHITTypeResponse {
-  export function isa(o: any): o is CreateHITTypeResponse {
-    return __isa(o, "CreateHITTypeResponse");
-  }
+  export const isa = (o: any): o is CreateHITTypeResponse =>
+    __isa(o, "CreateHITTypeResponse");
 }
 
 export interface CreateHITWithHITTypeRequest {
@@ -710,9 +694,8 @@ export interface CreateHITWithHITTypeRequest {
 }
 
 export namespace CreateHITWithHITTypeRequest {
-  export function isa(o: any): o is CreateHITWithHITTypeRequest {
-    return __isa(o, "CreateHITWithHITTypeRequest");
-  }
+  export const isa = (o: any): o is CreateHITWithHITTypeRequest =>
+    __isa(o, "CreateHITWithHITTypeRequest");
 }
 
 export interface CreateHITWithHITTypeResponse {
@@ -727,9 +710,8 @@ export interface CreateHITWithHITTypeResponse {
 }
 
 export namespace CreateHITWithHITTypeResponse {
-  export function isa(o: any): o is CreateHITWithHITTypeResponse {
-    return __isa(o, "CreateHITWithHITTypeResponse");
-  }
+  export const isa = (o: any): o is CreateHITWithHITTypeResponse =>
+    __isa(o, "CreateHITWithHITTypeResponse");
 }
 
 export interface CreateQualificationTypeRequest {
@@ -826,9 +808,8 @@ export interface CreateQualificationTypeRequest {
 }
 
 export namespace CreateQualificationTypeRequest {
-  export function isa(o: any): o is CreateQualificationTypeRequest {
-    return __isa(o, "CreateQualificationTypeRequest");
-  }
+  export const isa = (o: any): o is CreateQualificationTypeRequest =>
+    __isa(o, "CreateQualificationTypeRequest");
 }
 
 export interface CreateQualificationTypeResponse {
@@ -841,9 +822,8 @@ export interface CreateQualificationTypeResponse {
 }
 
 export namespace CreateQualificationTypeResponse {
-  export function isa(o: any): o is CreateQualificationTypeResponse {
-    return __isa(o, "CreateQualificationTypeResponse");
-  }
+  export const isa = (o: any): o is CreateQualificationTypeResponse =>
+    __isa(o, "CreateQualificationTypeResponse");
 }
 
 export interface CreateWorkerBlockRequest {
@@ -860,9 +840,8 @@ export interface CreateWorkerBlockRequest {
 }
 
 export namespace CreateWorkerBlockRequest {
-  export function isa(o: any): o is CreateWorkerBlockRequest {
-    return __isa(o, "CreateWorkerBlockRequest");
-  }
+  export const isa = (o: any): o is CreateWorkerBlockRequest =>
+    __isa(o, "CreateWorkerBlockRequest");
 }
 
 export interface CreateWorkerBlockResponse {
@@ -870,9 +849,8 @@ export interface CreateWorkerBlockResponse {
 }
 
 export namespace CreateWorkerBlockResponse {
-  export function isa(o: any): o is CreateWorkerBlockResponse {
-    return __isa(o, "CreateWorkerBlockResponse");
-  }
+  export const isa = (o: any): o is CreateWorkerBlockResponse =>
+    __isa(o, "CreateWorkerBlockResponse");
 }
 
 export interface DeleteHITRequest {
@@ -884,9 +862,8 @@ export interface DeleteHITRequest {
 }
 
 export namespace DeleteHITRequest {
-  export function isa(o: any): o is DeleteHITRequest {
-    return __isa(o, "DeleteHITRequest");
-  }
+  export const isa = (o: any): o is DeleteHITRequest =>
+    __isa(o, "DeleteHITRequest");
 }
 
 export interface DeleteHITResponse {
@@ -894,9 +871,8 @@ export interface DeleteHITResponse {
 }
 
 export namespace DeleteHITResponse {
-  export function isa(o: any): o is DeleteHITResponse {
-    return __isa(o, "DeleteHITResponse");
-  }
+  export const isa = (o: any): o is DeleteHITResponse =>
+    __isa(o, "DeleteHITResponse");
 }
 
 export interface DeleteQualificationTypeRequest {
@@ -908,9 +884,8 @@ export interface DeleteQualificationTypeRequest {
 }
 
 export namespace DeleteQualificationTypeRequest {
-  export function isa(o: any): o is DeleteQualificationTypeRequest {
-    return __isa(o, "DeleteQualificationTypeRequest");
-  }
+  export const isa = (o: any): o is DeleteQualificationTypeRequest =>
+    __isa(o, "DeleteQualificationTypeRequest");
 }
 
 export interface DeleteQualificationTypeResponse {
@@ -918,9 +893,8 @@ export interface DeleteQualificationTypeResponse {
 }
 
 export namespace DeleteQualificationTypeResponse {
-  export function isa(o: any): o is DeleteQualificationTypeResponse {
-    return __isa(o, "DeleteQualificationTypeResponse");
-  }
+  export const isa = (o: any): o is DeleteQualificationTypeResponse =>
+    __isa(o, "DeleteQualificationTypeResponse");
 }
 
 export interface DeleteWorkerBlockRequest {
@@ -937,9 +911,8 @@ export interface DeleteWorkerBlockRequest {
 }
 
 export namespace DeleteWorkerBlockRequest {
-  export function isa(o: any): o is DeleteWorkerBlockRequest {
-    return __isa(o, "DeleteWorkerBlockRequest");
-  }
+  export const isa = (o: any): o is DeleteWorkerBlockRequest =>
+    __isa(o, "DeleteWorkerBlockRequest");
 }
 
 export interface DeleteWorkerBlockResponse {
@@ -947,9 +920,8 @@ export interface DeleteWorkerBlockResponse {
 }
 
 export namespace DeleteWorkerBlockResponse {
-  export function isa(o: any): o is DeleteWorkerBlockResponse {
-    return __isa(o, "DeleteWorkerBlockResponse");
-  }
+  export const isa = (o: any): o is DeleteWorkerBlockResponse =>
+    __isa(o, "DeleteWorkerBlockResponse");
 }
 
 export interface DisassociateQualificationFromWorkerRequest {
@@ -971,9 +943,10 @@ export interface DisassociateQualificationFromWorkerRequest {
 }
 
 export namespace DisassociateQualificationFromWorkerRequest {
-  export function isa(o: any): o is DisassociateQualificationFromWorkerRequest {
-    return __isa(o, "DisassociateQualificationFromWorkerRequest");
-  }
+  export const isa = (
+    o: any
+  ): o is DisassociateQualificationFromWorkerRequest =>
+    __isa(o, "DisassociateQualificationFromWorkerRequest");
 }
 
 export interface DisassociateQualificationFromWorkerResponse {
@@ -981,11 +954,10 @@ export interface DisassociateQualificationFromWorkerResponse {
 }
 
 export namespace DisassociateQualificationFromWorkerResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DisassociateQualificationFromWorkerResponse {
-    return __isa(o, "DisassociateQualificationFromWorkerResponse");
-  }
+  ): o is DisassociateQualificationFromWorkerResponse =>
+    __isa(o, "DisassociateQualificationFromWorkerResponse");
 }
 
 export enum EventType {
@@ -1008,9 +980,8 @@ export interface GetAccountBalanceRequest {
 }
 
 export namespace GetAccountBalanceRequest {
-  export function isa(o: any): o is GetAccountBalanceRequest {
-    return __isa(o, "GetAccountBalanceRequest");
-  }
+  export const isa = (o: any): o is GetAccountBalanceRequest =>
+    __isa(o, "GetAccountBalanceRequest");
 }
 
 export interface GetAccountBalanceResponse {
@@ -1027,9 +998,8 @@ export interface GetAccountBalanceResponse {
 }
 
 export namespace GetAccountBalanceResponse {
-  export function isa(o: any): o is GetAccountBalanceResponse {
-    return __isa(o, "GetAccountBalanceResponse");
-  }
+  export const isa = (o: any): o is GetAccountBalanceResponse =>
+    __isa(o, "GetAccountBalanceResponse");
 }
 
 export interface GetAssignmentRequest {
@@ -1041,9 +1011,8 @@ export interface GetAssignmentRequest {
 }
 
 export namespace GetAssignmentRequest {
-  export function isa(o: any): o is GetAssignmentRequest {
-    return __isa(o, "GetAssignmentRequest");
-  }
+  export const isa = (o: any): o is GetAssignmentRequest =>
+    __isa(o, "GetAssignmentRequest");
 }
 
 export interface GetAssignmentResponse {
@@ -1063,9 +1032,8 @@ export interface GetAssignmentResponse {
 }
 
 export namespace GetAssignmentResponse {
-  export function isa(o: any): o is GetAssignmentResponse {
-    return __isa(o, "GetAssignmentResponse");
-  }
+  export const isa = (o: any): o is GetAssignmentResponse =>
+    __isa(o, "GetAssignmentResponse");
 }
 
 export interface GetFileUploadURLRequest {
@@ -1084,9 +1052,8 @@ export interface GetFileUploadURLRequest {
 }
 
 export namespace GetFileUploadURLRequest {
-  export function isa(o: any): o is GetFileUploadURLRequest {
-    return __isa(o, "GetFileUploadURLRequest");
-  }
+  export const isa = (o: any): o is GetFileUploadURLRequest =>
+    __isa(o, "GetFileUploadURLRequest");
 }
 
 export interface GetFileUploadURLResponse {
@@ -1100,9 +1067,8 @@ export interface GetFileUploadURLResponse {
 }
 
 export namespace GetFileUploadURLResponse {
-  export function isa(o: any): o is GetFileUploadURLResponse {
-    return __isa(o, "GetFileUploadURLResponse");
-  }
+  export const isa = (o: any): o is GetFileUploadURLResponse =>
+    __isa(o, "GetFileUploadURLResponse");
 }
 
 export interface GetHITRequest {
@@ -1114,9 +1080,7 @@ export interface GetHITRequest {
 }
 
 export namespace GetHITRequest {
-  export function isa(o: any): o is GetHITRequest {
-    return __isa(o, "GetHITRequest");
-  }
+  export const isa = (o: any): o is GetHITRequest => __isa(o, "GetHITRequest");
 }
 
 export interface GetHITResponse {
@@ -1128,9 +1092,8 @@ export interface GetHITResponse {
 }
 
 export namespace GetHITResponse {
-  export function isa(o: any): o is GetHITResponse {
-    return __isa(o, "GetHITResponse");
-  }
+  export const isa = (o: any): o is GetHITResponse =>
+    __isa(o, "GetHITResponse");
 }
 
 export interface GetQualificationScoreRequest {
@@ -1147,9 +1110,8 @@ export interface GetQualificationScoreRequest {
 }
 
 export namespace GetQualificationScoreRequest {
-  export function isa(o: any): o is GetQualificationScoreRequest {
-    return __isa(o, "GetQualificationScoreRequest");
-  }
+  export const isa = (o: any): o is GetQualificationScoreRequest =>
+    __isa(o, "GetQualificationScoreRequest");
 }
 
 export interface GetQualificationScoreResponse {
@@ -1164,9 +1126,8 @@ export interface GetQualificationScoreResponse {
 }
 
 export namespace GetQualificationScoreResponse {
-  export function isa(o: any): o is GetQualificationScoreResponse {
-    return __isa(o, "GetQualificationScoreResponse");
-  }
+  export const isa = (o: any): o is GetQualificationScoreResponse =>
+    __isa(o, "GetQualificationScoreResponse");
 }
 
 export interface GetQualificationTypeRequest {
@@ -1178,9 +1139,8 @@ export interface GetQualificationTypeRequest {
 }
 
 export namespace GetQualificationTypeRequest {
-  export function isa(o: any): o is GetQualificationTypeRequest {
-    return __isa(o, "GetQualificationTypeRequest");
-  }
+  export const isa = (o: any): o is GetQualificationTypeRequest =>
+    __isa(o, "GetQualificationTypeRequest");
 }
 
 export interface GetQualificationTypeResponse {
@@ -1192,9 +1152,8 @@ export interface GetQualificationTypeResponse {
 }
 
 export namespace GetQualificationTypeResponse {
-  export function isa(o: any): o is GetQualificationTypeResponse {
-    return __isa(o, "GetQualificationTypeResponse");
-  }
+  export const isa = (o: any): o is GetQualificationTypeResponse =>
+    __isa(o, "GetQualificationTypeResponse");
 }
 
 /**
@@ -1339,9 +1298,7 @@ export interface HIT {
 }
 
 export namespace HIT {
-  export function isa(o: any): o is HIT {
-    return __isa(o, "HIT");
-  }
+  export const isa = (o: any): o is HIT => __isa(o, "HIT");
 }
 
 export enum HITAccessActions {
@@ -1374,9 +1331,8 @@ export interface HITLayoutParameter {
 }
 
 export namespace HITLayoutParameter {
-  export function isa(o: any): o is HITLayoutParameter {
-    return __isa(o, "HITLayoutParameter");
-  }
+  export const isa = (o: any): o is HITLayoutParameter =>
+    __isa(o, "HITLayoutParameter");
 }
 
 export enum HITReviewStatus {
@@ -1415,9 +1371,8 @@ export interface ListAssignmentsForHITRequest {
 }
 
 export namespace ListAssignmentsForHITRequest {
-  export function isa(o: any): o is ListAssignmentsForHITRequest {
-    return __isa(o, "ListAssignmentsForHITRequest");
-  }
+  export const isa = (o: any): o is ListAssignmentsForHITRequest =>
+    __isa(o, "ListAssignmentsForHITRequest");
 }
 
 export interface ListAssignmentsForHITResponse {
@@ -1445,9 +1400,8 @@ export interface ListAssignmentsForHITResponse {
 }
 
 export namespace ListAssignmentsForHITResponse {
-  export function isa(o: any): o is ListAssignmentsForHITResponse {
-    return __isa(o, "ListAssignmentsForHITResponse");
-  }
+  export const isa = (o: any): o is ListAssignmentsForHITResponse =>
+    __isa(o, "ListAssignmentsForHITResponse");
 }
 
 export interface ListBonusPaymentsRequest {
@@ -1476,9 +1430,8 @@ export interface ListBonusPaymentsRequest {
 }
 
 export namespace ListBonusPaymentsRequest {
-  export function isa(o: any): o is ListBonusPaymentsRequest {
-    return __isa(o, "ListBonusPaymentsRequest");
-  }
+  export const isa = (o: any): o is ListBonusPaymentsRequest =>
+    __isa(o, "ListBonusPaymentsRequest");
 }
 
 export interface ListBonusPaymentsResponse {
@@ -1508,9 +1461,8 @@ export interface ListBonusPaymentsResponse {
 }
 
 export namespace ListBonusPaymentsResponse {
-  export function isa(o: any): o is ListBonusPaymentsResponse {
-    return __isa(o, "ListBonusPaymentsResponse");
-  }
+  export const isa = (o: any): o is ListBonusPaymentsResponse =>
+    __isa(o, "ListBonusPaymentsResponse");
 }
 
 export interface ListHITsForQualificationTypeRequest {
@@ -1536,9 +1488,8 @@ export interface ListHITsForQualificationTypeRequest {
 }
 
 export namespace ListHITsForQualificationTypeRequest {
-  export function isa(o: any): o is ListHITsForQualificationTypeRequest {
-    return __isa(o, "ListHITsForQualificationTypeRequest");
-  }
+  export const isa = (o: any): o is ListHITsForQualificationTypeRequest =>
+    __isa(o, "ListHITsForQualificationTypeRequest");
 }
 
 export interface ListHITsForQualificationTypeResponse {
@@ -1564,9 +1515,8 @@ export interface ListHITsForQualificationTypeResponse {
 }
 
 export namespace ListHITsForQualificationTypeResponse {
-  export function isa(o: any): o is ListHITsForQualificationTypeResponse {
-    return __isa(o, "ListHITsForQualificationTypeResponse");
-  }
+  export const isa = (o: any): o is ListHITsForQualificationTypeResponse =>
+    __isa(o, "ListHITsForQualificationTypeResponse");
 }
 
 export interface ListHITsRequest {
@@ -1579,9 +1529,8 @@ export interface ListHITsRequest {
 }
 
 export namespace ListHITsRequest {
-  export function isa(o: any): o is ListHITsRequest {
-    return __isa(o, "ListHITsRequest");
-  }
+  export const isa = (o: any): o is ListHITsRequest =>
+    __isa(o, "ListHITsRequest");
 }
 
 export interface ListHITsResponse {
@@ -1607,9 +1556,8 @@ export interface ListHITsResponse {
 }
 
 export namespace ListHITsResponse {
-  export function isa(o: any): o is ListHITsResponse {
-    return __isa(o, "ListHITsResponse");
-  }
+  export const isa = (o: any): o is ListHITsResponse =>
+    __isa(o, "ListHITsResponse");
 }
 
 export interface ListQualificationRequestsRequest {
@@ -1635,9 +1583,8 @@ export interface ListQualificationRequestsRequest {
 }
 
 export namespace ListQualificationRequestsRequest {
-  export function isa(o: any): o is ListQualificationRequestsRequest {
-    return __isa(o, "ListQualificationRequestsRequest");
-  }
+  export const isa = (o: any): o is ListQualificationRequestsRequest =>
+    __isa(o, "ListQualificationRequestsRequest");
 }
 
 export interface ListQualificationRequestsResponse {
@@ -1666,9 +1613,8 @@ export interface ListQualificationRequestsResponse {
 }
 
 export namespace ListQualificationRequestsResponse {
-  export function isa(o: any): o is ListQualificationRequestsResponse {
-    return __isa(o, "ListQualificationRequestsResponse");
-  }
+  export const isa = (o: any): o is ListQualificationRequestsResponse =>
+    __isa(o, "ListQualificationRequestsResponse");
 }
 
 export interface ListQualificationTypesRequest {
@@ -1716,9 +1662,8 @@ export interface ListQualificationTypesRequest {
 }
 
 export namespace ListQualificationTypesRequest {
-  export function isa(o: any): o is ListQualificationTypesRequest {
-    return __isa(o, "ListQualificationTypesRequest");
-  }
+  export const isa = (o: any): o is ListQualificationTypesRequest =>
+    __isa(o, "ListQualificationTypesRequest");
 }
 
 export interface ListQualificationTypesResponse {
@@ -1748,9 +1693,8 @@ export interface ListQualificationTypesResponse {
 }
 
 export namespace ListQualificationTypesResponse {
-  export function isa(o: any): o is ListQualificationTypesResponse {
-    return __isa(o, "ListQualificationTypesResponse");
-  }
+  export const isa = (o: any): o is ListQualificationTypesResponse =>
+    __isa(o, "ListQualificationTypesResponse");
 }
 
 export interface ListReviewPolicyResultsForHITRequest {
@@ -1796,9 +1740,8 @@ export interface ListReviewPolicyResultsForHITRequest {
 }
 
 export namespace ListReviewPolicyResultsForHITRequest {
-  export function isa(o: any): o is ListReviewPolicyResultsForHITRequest {
-    return __isa(o, "ListReviewPolicyResultsForHITRequest");
-  }
+  export const isa = (o: any): o is ListReviewPolicyResultsForHITRequest =>
+    __isa(o, "ListReviewPolicyResultsForHITRequest");
 }
 
 export interface ListReviewPolicyResultsForHITResponse {
@@ -1844,9 +1787,8 @@ export interface ListReviewPolicyResultsForHITResponse {
 }
 
 export namespace ListReviewPolicyResultsForHITResponse {
-  export function isa(o: any): o is ListReviewPolicyResultsForHITResponse {
-    return __isa(o, "ListReviewPolicyResultsForHITResponse");
-  }
+  export const isa = (o: any): o is ListReviewPolicyResultsForHITResponse =>
+    __isa(o, "ListReviewPolicyResultsForHITResponse");
 }
 
 export interface ListReviewableHITsRequest {
@@ -1881,9 +1823,8 @@ export interface ListReviewableHITsRequest {
 }
 
 export namespace ListReviewableHITsRequest {
-  export function isa(o: any): o is ListReviewableHITsRequest {
-    return __isa(o, "ListReviewableHITsRequest");
-  }
+  export const isa = (o: any): o is ListReviewableHITsRequest =>
+    __isa(o, "ListReviewableHITsRequest");
 }
 
 export interface ListReviewableHITsResponse {
@@ -1910,9 +1851,8 @@ export interface ListReviewableHITsResponse {
 }
 
 export namespace ListReviewableHITsResponse {
-  export function isa(o: any): o is ListReviewableHITsResponse {
-    return __isa(o, "ListReviewableHITsResponse");
-  }
+  export const isa = (o: any): o is ListReviewableHITsResponse =>
+    __isa(o, "ListReviewableHITsResponse");
 }
 
 export interface ListWorkerBlocksRequest {
@@ -1925,9 +1865,8 @@ export interface ListWorkerBlocksRequest {
 }
 
 export namespace ListWorkerBlocksRequest {
-  export function isa(o: any): o is ListWorkerBlocksRequest {
-    return __isa(o, "ListWorkerBlocksRequest");
-  }
+  export const isa = (o: any): o is ListWorkerBlocksRequest =>
+    __isa(o, "ListWorkerBlocksRequest");
 }
 
 export interface ListWorkerBlocksResponse {
@@ -1955,9 +1894,8 @@ export interface ListWorkerBlocksResponse {
 }
 
 export namespace ListWorkerBlocksResponse {
-  export function isa(o: any): o is ListWorkerBlocksResponse {
-    return __isa(o, "ListWorkerBlocksResponse");
-  }
+  export const isa = (o: any): o is ListWorkerBlocksResponse =>
+    __isa(o, "ListWorkerBlocksResponse");
 }
 
 export interface ListWorkersWithQualificationTypeRequest {
@@ -1990,9 +1928,8 @@ export interface ListWorkersWithQualificationTypeRequest {
 }
 
 export namespace ListWorkersWithQualificationTypeRequest {
-  export function isa(o: any): o is ListWorkersWithQualificationTypeRequest {
-    return __isa(o, "ListWorkersWithQualificationTypeRequest");
-  }
+  export const isa = (o: any): o is ListWorkersWithQualificationTypeRequest =>
+    __isa(o, "ListWorkersWithQualificationTypeRequest");
 }
 
 export interface ListWorkersWithQualificationTypeResponse {
@@ -2020,9 +1957,8 @@ export interface ListWorkersWithQualificationTypeResponse {
 }
 
 export namespace ListWorkersWithQualificationTypeResponse {
-  export function isa(o: any): o is ListWorkersWithQualificationTypeResponse {
-    return __isa(o, "ListWorkersWithQualificationTypeResponse");
-  }
+  export const isa = (o: any): o is ListWorkersWithQualificationTypeResponse =>
+    __isa(o, "ListWorkersWithQualificationTypeResponse");
 }
 
 /**
@@ -2047,9 +1983,7 @@ export interface Locale {
 }
 
 export namespace Locale {
-  export function isa(o: any): o is Locale {
-    return __isa(o, "Locale");
-  }
+  export const isa = (o: any): o is Locale => __isa(o, "Locale");
 }
 
 /**
@@ -2102,9 +2036,8 @@ export interface NotificationSpecification {
 }
 
 export namespace NotificationSpecification {
-  export function isa(o: any): o is NotificationSpecification {
-    return __isa(o, "NotificationSpecification");
-  }
+  export const isa = (o: any): o is NotificationSpecification =>
+    __isa(o, "NotificationSpecification");
 }
 
 export enum NotificationTransport {
@@ -2145,9 +2078,8 @@ export interface NotifyWorkersFailureStatus {
 }
 
 export namespace NotifyWorkersFailureStatus {
-  export function isa(o: any): o is NotifyWorkersFailureStatus {
-    return __isa(o, "NotifyWorkersFailureStatus");
-  }
+  export const isa = (o: any): o is NotifyWorkersFailureStatus =>
+    __isa(o, "NotifyWorkersFailureStatus");
 }
 
 export interface NotifyWorkersRequest {
@@ -2173,9 +2105,8 @@ export interface NotifyWorkersRequest {
 }
 
 export namespace NotifyWorkersRequest {
-  export function isa(o: any): o is NotifyWorkersRequest {
-    return __isa(o, "NotifyWorkersRequest");
-  }
+  export const isa = (o: any): o is NotifyWorkersRequest =>
+    __isa(o, "NotifyWorkersRequest");
 }
 
 export interface NotifyWorkersResponse {
@@ -2190,9 +2121,8 @@ export interface NotifyWorkersResponse {
 }
 
 export namespace NotifyWorkersResponse {
-  export function isa(o: any): o is NotifyWorkersResponse {
-    return __isa(o, "NotifyWorkersResponse");
-  }
+  export const isa = (o: any): o is NotifyWorkersResponse =>
+    __isa(o, "NotifyWorkersResponse");
 }
 
 /**
@@ -2220,9 +2150,8 @@ export interface ParameterMapEntry {
 }
 
 export namespace ParameterMapEntry {
-  export function isa(o: any): o is ParameterMapEntry {
-    return __isa(o, "ParameterMapEntry");
-  }
+  export const isa = (o: any): o is ParameterMapEntry =>
+    __isa(o, "ParameterMapEntry");
 }
 
 /**
@@ -2250,9 +2179,8 @@ export interface PolicyParameter {
 }
 
 export namespace PolicyParameter {
-  export function isa(o: any): o is PolicyParameter {
-    return __isa(o, "PolicyParameter");
-  }
+  export const isa = (o: any): o is PolicyParameter =>
+    __isa(o, "PolicyParameter");
 }
 
 /**
@@ -2301,9 +2229,7 @@ export interface Qualification {
 }
 
 export namespace Qualification {
-  export function isa(o: any): o is Qualification {
-    return __isa(o, "Qualification");
-  }
+  export const isa = (o: any): o is Qualification => __isa(o, "Qualification");
 }
 
 /**
@@ -2362,9 +2288,8 @@ export interface QualificationRequest {
 }
 
 export namespace QualificationRequest {
-  export function isa(o: any): o is QualificationRequest {
-    return __isa(o, "QualificationRequest");
-  }
+  export const isa = (o: any): o is QualificationRequest =>
+    __isa(o, "QualificationRequest");
 }
 
 /**
@@ -2460,9 +2385,8 @@ export interface QualificationRequirement {
 }
 
 export namespace QualificationRequirement {
-  export function isa(o: any): o is QualificationRequirement {
-    return __isa(o, "QualificationRequirement");
-  }
+  export const isa = (o: any): o is QualificationRequirement =>
+    __isa(o, "QualificationRequirement");
 }
 
 export enum QualificationStatus {
@@ -2586,9 +2510,8 @@ export interface QualificationType {
 }
 
 export namespace QualificationType {
-  export function isa(o: any): o is QualificationType {
-    return __isa(o, "QualificationType");
-  }
+  export const isa = (o: any): o is QualificationType =>
+    __isa(o, "QualificationType");
 }
 
 export enum QualificationTypeStatus {
@@ -2614,9 +2537,8 @@ export interface RejectAssignmentRequest {
 }
 
 export namespace RejectAssignmentRequest {
-  export function isa(o: any): o is RejectAssignmentRequest {
-    return __isa(o, "RejectAssignmentRequest");
-  }
+  export const isa = (o: any): o is RejectAssignmentRequest =>
+    __isa(o, "RejectAssignmentRequest");
 }
 
 export interface RejectAssignmentResponse {
@@ -2624,9 +2546,8 @@ export interface RejectAssignmentResponse {
 }
 
 export namespace RejectAssignmentResponse {
-  export function isa(o: any): o is RejectAssignmentResponse {
-    return __isa(o, "RejectAssignmentResponse");
-  }
+  export const isa = (o: any): o is RejectAssignmentResponse =>
+    __isa(o, "RejectAssignmentResponse");
 }
 
 export interface RejectQualificationRequestRequest {
@@ -2648,9 +2569,8 @@ export interface RejectQualificationRequestRequest {
 }
 
 export namespace RejectQualificationRequestRequest {
-  export function isa(o: any): o is RejectQualificationRequestRequest {
-    return __isa(o, "RejectQualificationRequestRequest");
-  }
+  export const isa = (o: any): o is RejectQualificationRequestRequest =>
+    __isa(o, "RejectQualificationRequestRequest");
 }
 
 export interface RejectQualificationRequestResponse {
@@ -2658,9 +2578,8 @@ export interface RejectQualificationRequestResponse {
 }
 
 export namespace RejectQualificationRequestResponse {
-  export function isa(o: any): o is RejectQualificationRequestResponse {
-    return __isa(o, "RejectQualificationRequestResponse");
-  }
+  export const isa = (o: any): o is RejectQualificationRequestResponse =>
+    __isa(o, "RejectQualificationRequestResponse");
 }
 
 /**
@@ -2718,9 +2637,8 @@ export interface ReviewActionDetail {
 }
 
 export namespace ReviewActionDetail {
-  export function isa(o: any): o is ReviewActionDetail {
-    return __isa(o, "ReviewActionDetail");
-  }
+  export const isa = (o: any): o is ReviewActionDetail =>
+    __isa(o, "ReviewActionDetail");
 }
 
 export enum ReviewActionStatus {
@@ -2751,9 +2669,7 @@ export interface ReviewPolicy {
 }
 
 export namespace ReviewPolicy {
-  export function isa(o: any): o is ReviewPolicy {
-    return __isa(o, "ReviewPolicy");
-  }
+  export const isa = (o: any): o is ReviewPolicy => __isa(o, "ReviewPolicy");
 }
 
 export enum ReviewPolicyLevel {
@@ -2784,9 +2700,7 @@ export interface ReviewReport {
 }
 
 export namespace ReviewReport {
-  export function isa(o: any): o is ReviewReport {
-    return __isa(o, "ReviewReport");
-  }
+  export const isa = (o: any): o is ReviewReport => __isa(o, "ReviewReport");
 }
 
 /**
@@ -2844,9 +2758,8 @@ export interface ReviewResultDetail {
 }
 
 export namespace ReviewResultDetail {
-  export function isa(o: any): o is ReviewResultDetail {
-    return __isa(o, "ReviewResultDetail");
-  }
+  export const isa = (o: any): o is ReviewResultDetail =>
+    __isa(o, "ReviewResultDetail");
 }
 
 export enum ReviewableHITStatus {
@@ -2893,9 +2806,8 @@ export interface SendBonusRequest {
 }
 
 export namespace SendBonusRequest {
-  export function isa(o: any): o is SendBonusRequest {
-    return __isa(o, "SendBonusRequest");
-  }
+  export const isa = (o: any): o is SendBonusRequest =>
+    __isa(o, "SendBonusRequest");
 }
 
 export interface SendBonusResponse {
@@ -2903,9 +2815,8 @@ export interface SendBonusResponse {
 }
 
 export namespace SendBonusResponse {
-  export function isa(o: any): o is SendBonusResponse {
-    return __isa(o, "SendBonusResponse");
-  }
+  export const isa = (o: any): o is SendBonusResponse =>
+    __isa(o, "SendBonusResponse");
 }
 
 export interface SendTestEventNotificationRequest {
@@ -2931,9 +2842,8 @@ export interface SendTestEventNotificationRequest {
 }
 
 export namespace SendTestEventNotificationRequest {
-  export function isa(o: any): o is SendTestEventNotificationRequest {
-    return __isa(o, "SendTestEventNotificationRequest");
-  }
+  export const isa = (o: any): o is SendTestEventNotificationRequest =>
+    __isa(o, "SendTestEventNotificationRequest");
 }
 
 export interface SendTestEventNotificationResponse {
@@ -2941,9 +2851,8 @@ export interface SendTestEventNotificationResponse {
 }
 
 export namespace SendTestEventNotificationResponse {
-  export function isa(o: any): o is SendTestEventNotificationResponse {
-    return __isa(o, "SendTestEventNotificationResponse");
-  }
+  export const isa = (o: any): o is SendTestEventNotificationResponse =>
+    __isa(o, "SendTestEventNotificationResponse");
 }
 
 export interface UpdateExpirationForHITRequest {
@@ -2964,9 +2873,8 @@ export interface UpdateExpirationForHITRequest {
 }
 
 export namespace UpdateExpirationForHITRequest {
-  export function isa(o: any): o is UpdateExpirationForHITRequest {
-    return __isa(o, "UpdateExpirationForHITRequest");
-  }
+  export const isa = (o: any): o is UpdateExpirationForHITRequest =>
+    __isa(o, "UpdateExpirationForHITRequest");
 }
 
 export interface UpdateExpirationForHITResponse {
@@ -2974,9 +2882,8 @@ export interface UpdateExpirationForHITResponse {
 }
 
 export namespace UpdateExpirationForHITResponse {
-  export function isa(o: any): o is UpdateExpirationForHITResponse {
-    return __isa(o, "UpdateExpirationForHITResponse");
-  }
+  export const isa = (o: any): o is UpdateExpirationForHITResponse =>
+    __isa(o, "UpdateExpirationForHITResponse");
 }
 
 export interface UpdateHITReviewStatusRequest {
@@ -3009,9 +2916,8 @@ export interface UpdateHITReviewStatusRequest {
 }
 
 export namespace UpdateHITReviewStatusRequest {
-  export function isa(o: any): o is UpdateHITReviewStatusRequest {
-    return __isa(o, "UpdateHITReviewStatusRequest");
-  }
+  export const isa = (o: any): o is UpdateHITReviewStatusRequest =>
+    __isa(o, "UpdateHITReviewStatusRequest");
 }
 
 export interface UpdateHITReviewStatusResponse {
@@ -3019,9 +2925,8 @@ export interface UpdateHITReviewStatusResponse {
 }
 
 export namespace UpdateHITReviewStatusResponse {
-  export function isa(o: any): o is UpdateHITReviewStatusResponse {
-    return __isa(o, "UpdateHITReviewStatusResponse");
-  }
+  export const isa = (o: any): o is UpdateHITReviewStatusResponse =>
+    __isa(o, "UpdateHITReviewStatusResponse");
 }
 
 export interface UpdateHITTypeOfHITRequest {
@@ -3038,9 +2943,8 @@ export interface UpdateHITTypeOfHITRequest {
 }
 
 export namespace UpdateHITTypeOfHITRequest {
-  export function isa(o: any): o is UpdateHITTypeOfHITRequest {
-    return __isa(o, "UpdateHITTypeOfHITRequest");
-  }
+  export const isa = (o: any): o is UpdateHITTypeOfHITRequest =>
+    __isa(o, "UpdateHITTypeOfHITRequest");
 }
 
 export interface UpdateHITTypeOfHITResponse {
@@ -3048,9 +2952,8 @@ export interface UpdateHITTypeOfHITResponse {
 }
 
 export namespace UpdateHITTypeOfHITResponse {
-  export function isa(o: any): o is UpdateHITTypeOfHITResponse {
-    return __isa(o, "UpdateHITTypeOfHITResponse");
-  }
+  export const isa = (o: any): o is UpdateHITTypeOfHITResponse =>
+    __isa(o, "UpdateHITTypeOfHITResponse");
 }
 
 export interface UpdateNotificationSettingsRequest {
@@ -3081,9 +2984,8 @@ export interface UpdateNotificationSettingsRequest {
 }
 
 export namespace UpdateNotificationSettingsRequest {
-  export function isa(o: any): o is UpdateNotificationSettingsRequest {
-    return __isa(o, "UpdateNotificationSettingsRequest");
-  }
+  export const isa = (o: any): o is UpdateNotificationSettingsRequest =>
+    __isa(o, "UpdateNotificationSettingsRequest");
 }
 
 export interface UpdateNotificationSettingsResponse {
@@ -3091,9 +2993,8 @@ export interface UpdateNotificationSettingsResponse {
 }
 
 export namespace UpdateNotificationSettingsResponse {
-  export function isa(o: any): o is UpdateNotificationSettingsResponse {
-    return __isa(o, "UpdateNotificationSettingsResponse");
-  }
+  export const isa = (o: any): o is UpdateNotificationSettingsResponse =>
+    __isa(o, "UpdateNotificationSettingsResponse");
 }
 
 export interface UpdateQualificationTypeRequest {
@@ -3155,9 +3056,8 @@ export interface UpdateQualificationTypeRequest {
 }
 
 export namespace UpdateQualificationTypeRequest {
-  export function isa(o: any): o is UpdateQualificationTypeRequest {
-    return __isa(o, "UpdateQualificationTypeRequest");
-  }
+  export const isa = (o: any): o is UpdateQualificationTypeRequest =>
+    __isa(o, "UpdateQualificationTypeRequest");
 }
 
 export interface UpdateQualificationTypeResponse {
@@ -3169,9 +3069,8 @@ export interface UpdateQualificationTypeResponse {
 }
 
 export namespace UpdateQualificationTypeResponse {
-  export function isa(o: any): o is UpdateQualificationTypeResponse {
-    return __isa(o, "UpdateQualificationTypeResponse");
-  }
+  export const isa = (o: any): o is UpdateQualificationTypeResponse =>
+    __isa(o, "UpdateQualificationTypeResponse");
 }
 
 /**
@@ -3195,9 +3094,7 @@ export interface WorkerBlock {
 }
 
 export namespace WorkerBlock {
-  export function isa(o: any): o is WorkerBlock {
-    return __isa(o, "WorkerBlock");
-  }
+  export const isa = (o: any): o is WorkerBlock => __isa(o, "WorkerBlock");
 }
 
 /**
@@ -3211,9 +3108,7 @@ export interface RequestError extends __SmithyException, $MetadataBearer {
 }
 
 export namespace RequestError {
-  export function isa(o: any): o is RequestError {
-    return __isa(o, "RequestError");
-  }
+  export const isa = (o: any): o is RequestError => __isa(o, "RequestError");
 }
 
 /**
@@ -3227,7 +3122,5 @@ export interface ServiceFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ServiceFault {
-  export function isa(o: any): o is ServiceFault {
-    return __isa(o, "ServiceFault");
-  }
+  export const isa = (o: any): o is ServiceFault => __isa(o, "ServiceFault");
 }

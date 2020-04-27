@@ -39,9 +39,8 @@ export interface CognitoIdentityProvider {
 }
 
 export namespace CognitoIdentityProvider {
-  export function isa(o: any): o is CognitoIdentityProvider {
-    return __isa(o, "CognitoIdentityProvider");
-  }
+  export const isa = (o: any): o is CognitoIdentityProvider =>
+    __isa(o, "CognitoIdentityProvider");
 }
 
 /**
@@ -59,9 +58,8 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
-  export function isa(o: any): o is ConcurrentModificationException {
-    return __isa(o, "ConcurrentModificationException");
-  }
+  export const isa = (o: any): o is ConcurrentModificationException =>
+    __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -126,9 +124,8 @@ export interface CreateIdentityPoolInput {
 }
 
 export namespace CreateIdentityPoolInput {
-  export function isa(o: any): o is CreateIdentityPoolInput {
-    return __isa(o, "CreateIdentityPoolInput");
-  }
+  export const isa = (o: any): o is CreateIdentityPoolInput =>
+    __isa(o, "CreateIdentityPoolInput");
 }
 
 /**
@@ -158,9 +155,7 @@ export interface Credentials {
 }
 
 export namespace Credentials {
-  export function isa(o: any): o is Credentials {
-    return __isa(o, "Credentials");
-  }
+  export const isa = (o: any): o is Credentials => __isa(o, "Credentials");
 }
 
 /**
@@ -175,9 +170,8 @@ export interface DeleteIdentitiesInput {
 }
 
 export namespace DeleteIdentitiesInput {
-  export function isa(o: any): o is DeleteIdentitiesInput {
-    return __isa(o, "DeleteIdentitiesInput");
-  }
+  export const isa = (o: any): o is DeleteIdentitiesInput =>
+    __isa(o, "DeleteIdentitiesInput");
 }
 
 /**
@@ -194,9 +188,8 @@ export interface DeleteIdentitiesResponse {
 }
 
 export namespace DeleteIdentitiesResponse {
-  export function isa(o: any): o is DeleteIdentitiesResponse {
-    return __isa(o, "DeleteIdentitiesResponse");
-  }
+  export const isa = (o: any): o is DeleteIdentitiesResponse =>
+    __isa(o, "DeleteIdentitiesResponse");
 }
 
 /**
@@ -211,9 +204,8 @@ export interface DeleteIdentityPoolInput {
 }
 
 export namespace DeleteIdentityPoolInput {
-  export function isa(o: any): o is DeleteIdentityPoolInput {
-    return __isa(o, "DeleteIdentityPoolInput");
-  }
+  export const isa = (o: any): o is DeleteIdentityPoolInput =>
+    __isa(o, "DeleteIdentityPoolInput");
 }
 
 /**
@@ -228,9 +220,8 @@ export interface DescribeIdentityInput {
 }
 
 export namespace DescribeIdentityInput {
-  export function isa(o: any): o is DescribeIdentityInput {
-    return __isa(o, "DescribeIdentityInput");
-  }
+  export const isa = (o: any): o is DescribeIdentityInput =>
+    __isa(o, "DescribeIdentityInput");
 }
 
 /**
@@ -245,9 +236,8 @@ export interface DescribeIdentityPoolInput {
 }
 
 export namespace DescribeIdentityPoolInput {
-  export function isa(o: any): o is DescribeIdentityPoolInput {
-    return __isa(o, "DescribeIdentityPoolInput");
-  }
+  export const isa = (o: any): o is DescribeIdentityPoolInput =>
+    __isa(o, "DescribeIdentityPoolInput");
 }
 
 /**
@@ -266,9 +256,8 @@ export interface DeveloperUserAlreadyRegisteredException
 }
 
 export namespace DeveloperUserAlreadyRegisteredException {
-  export function isa(o: any): o is DeveloperUserAlreadyRegisteredException {
-    return __isa(o, "DeveloperUserAlreadyRegisteredException");
-  }
+  export const isa = (o: any): o is DeveloperUserAlreadyRegisteredException =>
+    __isa(o, "DeveloperUserAlreadyRegisteredException");
 }
 
 export enum ErrorCode {
@@ -292,9 +281,8 @@ export interface ExternalServiceException
 }
 
 export namespace ExternalServiceException {
-  export function isa(o: any): o is ExternalServiceException {
-    return __isa(o, "ExternalServiceException");
-  }
+  export const isa = (o: any): o is ExternalServiceException =>
+    __isa(o, "ExternalServiceException");
 }
 
 /**
@@ -330,9 +318,8 @@ export interface GetCredentialsForIdentityInput {
 }
 
 export namespace GetCredentialsForIdentityInput {
-  export function isa(o: any): o is GetCredentialsForIdentityInput {
-    return __isa(o, "GetCredentialsForIdentityInput");
-  }
+  export const isa = (o: any): o is GetCredentialsForIdentityInput =>
+    __isa(o, "GetCredentialsForIdentityInput");
 }
 
 /**
@@ -353,9 +340,8 @@ export interface GetCredentialsForIdentityResponse {
 }
 
 export namespace GetCredentialsForIdentityResponse {
-  export function isa(o: any): o is GetCredentialsForIdentityResponse {
-    return __isa(o, "GetCredentialsForIdentityResponse");
-  }
+  export const isa = (o: any): o is GetCredentialsForIdentityResponse =>
+    __isa(o, "GetCredentialsForIdentityResponse");
 }
 
 /**
@@ -409,9 +395,7 @@ export interface GetIdInput {
 }
 
 export namespace GetIdInput {
-  export function isa(o: any): o is GetIdInput {
-    return __isa(o, "GetIdInput");
-  }
+  export const isa = (o: any): o is GetIdInput => __isa(o, "GetIdInput");
 }
 
 /**
@@ -426,9 +410,7 @@ export interface GetIdResponse {
 }
 
 export namespace GetIdResponse {
-  export function isa(o: any): o is GetIdResponse {
-    return __isa(o, "GetIdResponse");
-  }
+  export const isa = (o: any): o is GetIdResponse => __isa(o, "GetIdResponse");
 }
 
 /**
@@ -443,9 +425,8 @@ export interface GetIdentityPoolRolesInput {
 }
 
 export namespace GetIdentityPoolRolesInput {
-  export function isa(o: any): o is GetIdentityPoolRolesInput {
-    return __isa(o, "GetIdentityPoolRolesInput");
-  }
+  export const isa = (o: any): o is GetIdentityPoolRolesInput =>
+    __isa(o, "GetIdentityPoolRolesInput");
 }
 
 /**
@@ -475,9 +456,8 @@ export interface GetIdentityPoolRolesResponse {
 }
 
 export namespace GetIdentityPoolRolesResponse {
-  export function isa(o: any): o is GetIdentityPoolRolesResponse {
-    return __isa(o, "GetIdentityPoolRolesResponse");
-  }
+  export const isa = (o: any): o is GetIdentityPoolRolesResponse =>
+    __isa(o, "GetIdentityPoolRolesResponse");
 }
 
 /**
@@ -523,9 +503,8 @@ export interface GetOpenIdTokenForDeveloperIdentityInput {
 }
 
 export namespace GetOpenIdTokenForDeveloperIdentityInput {
-  export function isa(o: any): o is GetOpenIdTokenForDeveloperIdentityInput {
-    return __isa(o, "GetOpenIdTokenForDeveloperIdentityInput");
-  }
+  export const isa = (o: any): o is GetOpenIdTokenForDeveloperIdentityInput =>
+    __isa(o, "GetOpenIdTokenForDeveloperIdentityInput");
 }
 
 /**
@@ -546,9 +525,10 @@ export interface GetOpenIdTokenForDeveloperIdentityResponse {
 }
 
 export namespace GetOpenIdTokenForDeveloperIdentityResponse {
-  export function isa(o: any): o is GetOpenIdTokenForDeveloperIdentityResponse {
-    return __isa(o, "GetOpenIdTokenForDeveloperIdentityResponse");
-  }
+  export const isa = (
+    o: any
+  ): o is GetOpenIdTokenForDeveloperIdentityResponse =>
+    __isa(o, "GetOpenIdTokenForDeveloperIdentityResponse");
 }
 
 /**
@@ -571,9 +551,8 @@ export interface GetOpenIdTokenInput {
 }
 
 export namespace GetOpenIdTokenInput {
-  export function isa(o: any): o is GetOpenIdTokenInput {
-    return __isa(o, "GetOpenIdTokenInput");
-  }
+  export const isa = (o: any): o is GetOpenIdTokenInput =>
+    __isa(o, "GetOpenIdTokenInput");
 }
 
 /**
@@ -594,9 +573,8 @@ export interface GetOpenIdTokenResponse {
 }
 
 export namespace GetOpenIdTokenResponse {
-  export function isa(o: any): o is GetOpenIdTokenResponse {
-    return __isa(o, "GetOpenIdTokenResponse");
-  }
+  export const isa = (o: any): o is GetOpenIdTokenResponse =>
+    __isa(o, "GetOpenIdTokenResponse");
 }
 
 /**
@@ -626,9 +604,8 @@ export interface IdentityDescription {
 }
 
 export namespace IdentityDescription {
-  export function isa(o: any): o is IdentityDescription {
-    return __isa(o, "IdentityDescription");
-  }
+  export const isa = (o: any): o is IdentityDescription =>
+    __isa(o, "IdentityDescription");
 }
 
 /**
@@ -692,9 +669,7 @@ export interface IdentityPool {
 }
 
 export namespace IdentityPool {
-  export function isa(o: any): o is IdentityPool {
-    return __isa(o, "IdentityPool");
-  }
+  export const isa = (o: any): o is IdentityPool => __isa(o, "IdentityPool");
 }
 
 /**
@@ -714,9 +689,8 @@ export interface IdentityPoolShortDescription {
 }
 
 export namespace IdentityPoolShortDescription {
-  export function isa(o: any): o is IdentityPoolShortDescription {
-    return __isa(o, "IdentityPoolShortDescription");
-  }
+  export const isa = (o: any): o is IdentityPoolShortDescription =>
+    __isa(o, "IdentityPoolShortDescription");
 }
 
 /**
@@ -734,9 +708,8 @@ export interface InternalErrorException
 }
 
 export namespace InternalErrorException {
-  export function isa(o: any): o is InternalErrorException {
-    return __isa(o, "InternalErrorException");
-  }
+  export const isa = (o: any): o is InternalErrorException =>
+    __isa(o, "InternalErrorException");
 }
 
 /**
@@ -756,9 +729,8 @@ export interface InvalidIdentityPoolConfigurationException
 }
 
 export namespace InvalidIdentityPoolConfigurationException {
-  export function isa(o: any): o is InvalidIdentityPoolConfigurationException {
-    return __isa(o, "InvalidIdentityPoolConfigurationException");
-  }
+  export const isa = (o: any): o is InvalidIdentityPoolConfigurationException =>
+    __isa(o, "InvalidIdentityPoolConfigurationException");
 }
 
 /**
@@ -776,9 +748,8 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export function isa(o: any): o is InvalidParameterException {
-    return __isa(o, "InvalidParameterException");
-  }
+  export const isa = (o: any): o is InvalidParameterException =>
+    __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -796,9 +767,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 /**
@@ -829,9 +799,8 @@ export interface ListIdentitiesInput {
 }
 
 export namespace ListIdentitiesInput {
-  export function isa(o: any): o is ListIdentitiesInput {
-    return __isa(o, "ListIdentitiesInput");
-  }
+  export const isa = (o: any): o is ListIdentitiesInput =>
+    __isa(o, "ListIdentitiesInput");
 }
 
 /**
@@ -856,9 +825,8 @@ export interface ListIdentitiesResponse {
 }
 
 export namespace ListIdentitiesResponse {
-  export function isa(o: any): o is ListIdentitiesResponse {
-    return __isa(o, "ListIdentitiesResponse");
-  }
+  export const isa = (o: any): o is ListIdentitiesResponse =>
+    __isa(o, "ListIdentitiesResponse");
 }
 
 /**
@@ -878,9 +846,8 @@ export interface ListIdentityPoolsInput {
 }
 
 export namespace ListIdentityPoolsInput {
-  export function isa(o: any): o is ListIdentityPoolsInput {
-    return __isa(o, "ListIdentityPoolsInput");
-  }
+  export const isa = (o: any): o is ListIdentityPoolsInput =>
+    __isa(o, "ListIdentityPoolsInput");
 }
 
 /**
@@ -900,9 +867,8 @@ export interface ListIdentityPoolsResponse {
 }
 
 export namespace ListIdentityPoolsResponse {
-  export function isa(o: any): o is ListIdentityPoolsResponse {
-    return __isa(o, "ListIdentityPoolsResponse");
-  }
+  export const isa = (o: any): o is ListIdentityPoolsResponse =>
+    __isa(o, "ListIdentityPoolsResponse");
 }
 
 export interface ListTagsForResourceInput {
@@ -915,9 +881,8 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
-  export function isa(o: any): o is ListTagsForResourceInput {
-    return __isa(o, "ListTagsForResourceInput");
-  }
+  export const isa = (o: any): o is ListTagsForResourceInput =>
+    __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceResponse {
@@ -929,9 +894,8 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export function isa(o: any): o is ListTagsForResourceResponse {
-    return __isa(o, "ListTagsForResourceResponse");
-  }
+  export const isa = (o: any): o is ListTagsForResourceResponse =>
+    __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -973,9 +937,8 @@ export interface LookupDeveloperIdentityInput {
 }
 
 export namespace LookupDeveloperIdentityInput {
-  export function isa(o: any): o is LookupDeveloperIdentityInput {
-    return __isa(o, "LookupDeveloperIdentityInput");
-  }
+  export const isa = (o: any): o is LookupDeveloperIdentityInput =>
+    __isa(o, "LookupDeveloperIdentityInput");
 }
 
 /**
@@ -1008,9 +971,8 @@ export interface LookupDeveloperIdentityResponse {
 }
 
 export namespace LookupDeveloperIdentityResponse {
-  export function isa(o: any): o is LookupDeveloperIdentityResponse {
-    return __isa(o, "LookupDeveloperIdentityResponse");
-  }
+  export const isa = (o: any): o is LookupDeveloperIdentityResponse =>
+    __isa(o, "LookupDeveloperIdentityResponse");
 }
 
 /**
@@ -1043,9 +1005,7 @@ export interface MappingRule {
 }
 
 export namespace MappingRule {
-  export function isa(o: any): o is MappingRule {
-    return __isa(o, "MappingRule");
-  }
+  export const isa = (o: any): o is MappingRule => __isa(o, "MappingRule");
 }
 
 export enum MappingRuleMatchType {
@@ -1088,9 +1048,8 @@ export interface MergeDeveloperIdentitiesInput {
 }
 
 export namespace MergeDeveloperIdentitiesInput {
-  export function isa(o: any): o is MergeDeveloperIdentitiesInput {
-    return __isa(o, "MergeDeveloperIdentitiesInput");
-  }
+  export const isa = (o: any): o is MergeDeveloperIdentitiesInput =>
+    __isa(o, "MergeDeveloperIdentitiesInput");
 }
 
 /**
@@ -1106,9 +1065,8 @@ export interface MergeDeveloperIdentitiesResponse {
 }
 
 export namespace MergeDeveloperIdentitiesResponse {
-  export function isa(o: any): o is MergeDeveloperIdentitiesResponse {
-    return __isa(o, "MergeDeveloperIdentitiesResponse");
-  }
+  export const isa = (o: any): o is MergeDeveloperIdentitiesResponse =>
+    __isa(o, "MergeDeveloperIdentitiesResponse");
 }
 
 /**
@@ -1126,9 +1084,8 @@ export interface NotAuthorizedException
 }
 
 export namespace NotAuthorizedException {
-  export function isa(o: any): o is NotAuthorizedException {
-    return __isa(o, "NotAuthorizedException");
-  }
+  export const isa = (o: any): o is NotAuthorizedException =>
+    __isa(o, "NotAuthorizedException");
 }
 
 /**
@@ -1147,9 +1104,8 @@ export interface ResourceConflictException
 }
 
 export namespace ResourceConflictException {
-  export function isa(o: any): o is ResourceConflictException {
-    return __isa(o, "ResourceConflictException");
-  }
+  export const isa = (o: any): o is ResourceConflictException =>
+    __isa(o, "ResourceConflictException");
 }
 
 /**
@@ -1168,9 +1124,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1205,9 +1160,7 @@ export interface RoleMapping {
 }
 
 export namespace RoleMapping {
-  export function isa(o: any): o is RoleMapping {
-    return __isa(o, "RoleMapping");
-  }
+  export const isa = (o: any): o is RoleMapping => __isa(o, "RoleMapping");
 }
 
 export enum RoleMappingType {
@@ -1228,9 +1181,8 @@ export interface RulesConfigurationType {
 }
 
 export namespace RulesConfigurationType {
-  export function isa(o: any): o is RulesConfigurationType {
-    return __isa(o, "RulesConfigurationType");
-  }
+  export const isa = (o: any): o is RulesConfigurationType =>
+    __isa(o, "RulesConfigurationType");
 }
 
 /**
@@ -1260,9 +1212,8 @@ export interface SetIdentityPoolRolesInput {
 }
 
 export namespace SetIdentityPoolRolesInput {
-  export function isa(o: any): o is SetIdentityPoolRolesInput {
-    return __isa(o, "SetIdentityPoolRolesInput");
-  }
+  export const isa = (o: any): o is SetIdentityPoolRolesInput =>
+    __isa(o, "SetIdentityPoolRolesInput");
 }
 
 export interface TagResourceInput {
@@ -1279,9 +1230,8 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
-  export function isa(o: any): o is TagResourceInput {
-    return __isa(o, "TagResourceInput");
-  }
+  export const isa = (o: any): o is TagResourceInput =>
+    __isa(o, "TagResourceInput");
 }
 
 export interface TagResourceResponse {
@@ -1289,9 +1239,8 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export function isa(o: any): o is TagResourceResponse {
-    return __isa(o, "TagResourceResponse");
-  }
+  export const isa = (o: any): o is TagResourceResponse =>
+    __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -1309,9 +1258,8 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export function isa(o: any): o is TooManyRequestsException {
-    return __isa(o, "TooManyRequestsException");
-  }
+  export const isa = (o: any): o is TooManyRequestsException =>
+    __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -1341,9 +1289,8 @@ export interface UnlinkDeveloperIdentityInput {
 }
 
 export namespace UnlinkDeveloperIdentityInput {
-  export function isa(o: any): o is UnlinkDeveloperIdentityInput {
-    return __isa(o, "UnlinkDeveloperIdentityInput");
-  }
+  export const isa = (o: any): o is UnlinkDeveloperIdentityInput =>
+    __isa(o, "UnlinkDeveloperIdentityInput");
 }
 
 /**
@@ -1369,9 +1316,8 @@ export interface UnlinkIdentityInput {
 }
 
 export namespace UnlinkIdentityInput {
-  export function isa(o: any): o is UnlinkIdentityInput {
-    return __isa(o, "UnlinkIdentityInput");
-  }
+  export const isa = (o: any): o is UnlinkIdentityInput =>
+    __isa(o, "UnlinkIdentityInput");
 }
 
 /**
@@ -1392,9 +1338,8 @@ export interface UnprocessedIdentityId {
 }
 
 export namespace UnprocessedIdentityId {
-  export function isa(o: any): o is UnprocessedIdentityId {
-    return __isa(o, "UnprocessedIdentityId");
-  }
+  export const isa = (o: any): o is UnprocessedIdentityId =>
+    __isa(o, "UnprocessedIdentityId");
 }
 
 export interface UntagResourceInput {
@@ -1412,9 +1357,8 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
-  export function isa(o: any): o is UntagResourceInput {
-    return __isa(o, "UntagResourceInput");
-  }
+  export const isa = (o: any): o is UntagResourceInput =>
+    __isa(o, "UntagResourceInput");
 }
 
 export interface UntagResourceResponse {
@@ -1422,7 +1366,6 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export function isa(o: any): o is UntagResourceResponse {
-    return __isa(o, "UntagResourceResponse");
-  }
+  export const isa = (o: any): o is UntagResourceResponse =>
+    __isa(o, "UntagResourceResponse");
 }

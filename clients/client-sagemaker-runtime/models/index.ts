@@ -14,9 +14,8 @@ export interface InternalFailure extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InternalFailure {
-  export function isa(o: any): o is InternalFailure {
-    return __isa(o, "InternalFailure");
-  }
+  export const isa = (o: any): o is InternalFailure =>
+    __isa(o, "InternalFailure");
 }
 
 export interface InvokeEndpointInput {
@@ -64,9 +63,8 @@ export interface InvokeEndpointInput {
 }
 
 export namespace InvokeEndpointInput {
-  export function isa(o: any): o is InvokeEndpointInput {
-    return __isa(o, "InvokeEndpointInput");
-  }
+  export const isa = (o: any): o is InvokeEndpointInput =>
+    __isa(o, "InvokeEndpointInput");
 }
 
 export interface InvokeEndpointOutput {
@@ -105,9 +103,8 @@ export interface InvokeEndpointOutput {
 }
 
 export namespace InvokeEndpointOutput {
-  export function isa(o: any): o is InvokeEndpointOutput {
-    return __isa(o, "InvokeEndpointOutput");
-  }
+  export const isa = (o: any): o is InvokeEndpointOutput =>
+    __isa(o, "InvokeEndpointOutput");
 }
 
 /**
@@ -135,9 +132,7 @@ export interface ModelError extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ModelError {
-  export function isa(o: any): o is ModelError {
-    return __isa(o, "ModelError");
-  }
+  export const isa = (o: any): o is ModelError => __isa(o, "ModelError");
 }
 
 /**
@@ -150,9 +145,8 @@ export interface ServiceUnavailable extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ServiceUnavailable {
-  export function isa(o: any): o is ServiceUnavailable {
-    return __isa(o, "ServiceUnavailable");
-  }
+  export const isa = (o: any): o is ServiceUnavailable =>
+    __isa(o, "ServiceUnavailable");
 }
 
 /**
@@ -165,7 +159,6 @@ export interface ValidationError extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ValidationError {
-  export function isa(o: any): o is ValidationError {
-    return __isa(o, "ValidationError");
-  }
+  export const isa = (o: any): o is ValidationError =>
+    __isa(o, "ValidationError");
 }

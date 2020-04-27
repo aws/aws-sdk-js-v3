@@ -59,9 +59,7 @@ export interface Attribute {
 }
 
 export namespace Attribute {
-  export function isa(o: any): o is Attribute {
-    return __isa(o, "Attribute");
-  }
+  export const isa = (o: any): o is Attribute => __isa(o, "Attribute");
 }
 
 export enum AttributeName {
@@ -103,9 +101,8 @@ export interface ComprehendMedicalAsyncJobFilter {
 }
 
 export namespace ComprehendMedicalAsyncJobFilter {
-  export function isa(o: any): o is ComprehendMedicalAsyncJobFilter {
-    return __isa(o, "ComprehendMedicalAsyncJobFilter");
-  }
+  export const isa = (o: any): o is ComprehendMedicalAsyncJobFilter =>
+    __isa(o, "ComprehendMedicalAsyncJobFilter");
 }
 
 /**
@@ -190,9 +187,8 @@ export interface ComprehendMedicalAsyncJobProperties {
 }
 
 export namespace ComprehendMedicalAsyncJobProperties {
-  export function isa(o: any): o is ComprehendMedicalAsyncJobProperties {
-    return __isa(o, "ComprehendMedicalAsyncJobProperties");
-  }
+  export const isa = (o: any): o is ComprehendMedicalAsyncJobProperties =>
+    __isa(o, "ComprehendMedicalAsyncJobProperties");
 }
 
 export interface DescribeEntitiesDetectionV2JobRequest {
@@ -206,9 +202,8 @@ export interface DescribeEntitiesDetectionV2JobRequest {
 }
 
 export namespace DescribeEntitiesDetectionV2JobRequest {
-  export function isa(o: any): o is DescribeEntitiesDetectionV2JobRequest {
-    return __isa(o, "DescribeEntitiesDetectionV2JobRequest");
-  }
+  export const isa = (o: any): o is DescribeEntitiesDetectionV2JobRequest =>
+    __isa(o, "DescribeEntitiesDetectionV2JobRequest");
 }
 
 export interface DescribeEntitiesDetectionV2JobResponse {
@@ -220,9 +215,8 @@ export interface DescribeEntitiesDetectionV2JobResponse {
 }
 
 export namespace DescribeEntitiesDetectionV2JobResponse {
-  export function isa(o: any): o is DescribeEntitiesDetectionV2JobResponse {
-    return __isa(o, "DescribeEntitiesDetectionV2JobResponse");
-  }
+  export const isa = (o: any): o is DescribeEntitiesDetectionV2JobResponse =>
+    __isa(o, "DescribeEntitiesDetectionV2JobResponse");
 }
 
 export interface DescribePHIDetectionJobRequest {
@@ -235,9 +229,8 @@ export interface DescribePHIDetectionJobRequest {
 }
 
 export namespace DescribePHIDetectionJobRequest {
-  export function isa(o: any): o is DescribePHIDetectionJobRequest {
-    return __isa(o, "DescribePHIDetectionJobRequest");
-  }
+  export const isa = (o: any): o is DescribePHIDetectionJobRequest =>
+    __isa(o, "DescribePHIDetectionJobRequest");
 }
 
 export interface DescribePHIDetectionJobResponse {
@@ -249,9 +242,8 @@ export interface DescribePHIDetectionJobResponse {
 }
 
 export namespace DescribePHIDetectionJobResponse {
-  export function isa(o: any): o is DescribePHIDetectionJobResponse {
-    return __isa(o, "DescribePHIDetectionJobResponse");
-  }
+  export const isa = (o: any): o is DescribePHIDetectionJobResponse =>
+    __isa(o, "DescribePHIDetectionJobResponse");
 }
 
 export interface DetectEntitiesRequest {
@@ -264,9 +256,8 @@ export interface DetectEntitiesRequest {
 }
 
 export namespace DetectEntitiesRequest {
-  export function isa(o: any): o is DetectEntitiesRequest {
-    return __isa(o, "DetectEntitiesRequest");
-  }
+  export const isa = (o: any): o is DetectEntitiesRequest =>
+    __isa(o, "DetectEntitiesRequest");
 }
 
 export interface DetectEntitiesResponse {
@@ -298,9 +289,8 @@ export interface DetectEntitiesResponse {
 }
 
 export namespace DetectEntitiesResponse {
-  export function isa(o: any): o is DetectEntitiesResponse {
-    return __isa(o, "DetectEntitiesResponse");
-  }
+  export const isa = (o: any): o is DetectEntitiesResponse =>
+    __isa(o, "DetectEntitiesResponse");
 }
 
 export interface DetectEntitiesV2Request {
@@ -313,9 +303,8 @@ export interface DetectEntitiesV2Request {
 }
 
 export namespace DetectEntitiesV2Request {
-  export function isa(o: any): o is DetectEntitiesV2Request {
-    return __isa(o, "DetectEntitiesV2Request");
-  }
+  export const isa = (o: any): o is DetectEntitiesV2Request =>
+    __isa(o, "DetectEntitiesV2Request");
 }
 
 export interface DetectEntitiesV2Response {
@@ -347,9 +336,8 @@ export interface DetectEntitiesV2Response {
 }
 
 export namespace DetectEntitiesV2Response {
-  export function isa(o: any): o is DetectEntitiesV2Response {
-    return __isa(o, "DetectEntitiesV2Response");
-  }
+  export const isa = (o: any): o is DetectEntitiesV2Response =>
+    __isa(o, "DetectEntitiesV2Response");
 }
 
 export interface DetectPHIRequest {
@@ -362,9 +350,8 @@ export interface DetectPHIRequest {
 }
 
 export namespace DetectPHIRequest {
-  export function isa(o: any): o is DetectPHIRequest {
-    return __isa(o, "DetectPHIRequest");
-  }
+  export const isa = (o: any): o is DetectPHIRequest =>
+    __isa(o, "DetectPHIRequest");
 }
 
 export interface DetectPHIResponse {
@@ -391,9 +378,8 @@ export interface DetectPHIResponse {
 }
 
 export namespace DetectPHIResponse {
-  export function isa(o: any): o is DetectPHIResponse {
-    return __isa(o, "DetectPHIResponse");
-  }
+  export const isa = (o: any): o is DetectPHIResponse =>
+    __isa(o, "DetectPHIResponse");
 }
 
 /**
@@ -451,9 +437,7 @@ export interface Entity {
 }
 
 export namespace Entity {
-  export function isa(o: any): o is Entity {
-    return __isa(o, "Entity");
-  }
+  export const isa = (o: any): o is Entity => __isa(o, "Entity");
 }
 
 export enum EntitySubType {
@@ -552,9 +536,8 @@ export interface ICD10CMAttribute {
 }
 
 export namespace ICD10CMAttribute {
-  export function isa(o: any): o is ICD10CMAttribute {
-    return __isa(o, "ICD10CMAttribute");
-  }
+  export const isa = (o: any): o is ICD10CMAttribute =>
+    __isa(o, "ICD10CMAttribute");
 }
 
 export enum ICD10CMAttributeType {
@@ -589,9 +572,8 @@ export interface ICD10CMConcept {
 }
 
 export namespace ICD10CMConcept {
-  export function isa(o: any): o is ICD10CMConcept {
-    return __isa(o, "ICD10CMConcept");
-  }
+  export const isa = (o: any): o is ICD10CMConcept =>
+    __isa(o, "ICD10CMConcept");
 }
 
 /**
@@ -665,9 +647,7 @@ export interface ICD10CMEntity {
 }
 
 export namespace ICD10CMEntity {
-  export function isa(o: any): o is ICD10CMEntity {
-    return __isa(o, "ICD10CMEntity");
-  }
+  export const isa = (o: any): o is ICD10CMEntity => __isa(o, "ICD10CMEntity");
 }
 
 export enum ICD10CMEntityCategory {
@@ -698,9 +678,7 @@ export interface ICD10CMTrait {
 }
 
 export namespace ICD10CMTrait {
-  export function isa(o: any): o is ICD10CMTrait {
-    return __isa(o, "ICD10CMTrait");
-  }
+  export const isa = (o: any): o is ICD10CMTrait => __isa(o, "ICD10CMTrait");
 }
 
 export enum ICD10CMTraitName {
@@ -720,9 +698,8 @@ export interface InferICD10CMRequest {
 }
 
 export namespace InferICD10CMRequest {
-  export function isa(o: any): o is InferICD10CMRequest {
-    return __isa(o, "InferICD10CMRequest");
-  }
+  export const isa = (o: any): o is InferICD10CMRequest =>
+    __isa(o, "InferICD10CMRequest");
 }
 
 export interface InferICD10CMResponse {
@@ -748,9 +725,8 @@ export interface InferICD10CMResponse {
 }
 
 export namespace InferICD10CMResponse {
-  export function isa(o: any): o is InferICD10CMResponse {
-    return __isa(o, "InferICD10CMResponse");
-  }
+  export const isa = (o: any): o is InferICD10CMResponse =>
+    __isa(o, "InferICD10CMResponse");
 }
 
 export interface InferRxNormRequest {
@@ -763,9 +739,8 @@ export interface InferRxNormRequest {
 }
 
 export namespace InferRxNormRequest {
-  export function isa(o: any): o is InferRxNormRequest {
-    return __isa(o, "InferRxNormRequest");
-  }
+  export const isa = (o: any): o is InferRxNormRequest =>
+    __isa(o, "InferRxNormRequest");
 }
 
 export interface InferRxNormResponse {
@@ -791,9 +766,8 @@ export interface InferRxNormResponse {
 }
 
 export namespace InferRxNormResponse {
-  export function isa(o: any): o is InferRxNormResponse {
-    return __isa(o, "InferRxNormResponse");
-  }
+  export const isa = (o: any): o is InferRxNormResponse =>
+    __isa(o, "InferRxNormResponse");
 }
 
 /**
@@ -816,9 +790,8 @@ export interface InputDataConfig {
 }
 
 export namespace InputDataConfig {
-  export function isa(o: any): o is InputDataConfig {
-    return __isa(o, "InputDataConfig");
-  }
+  export const isa = (o: any): o is InputDataConfig =>
+    __isa(o, "InputDataConfig");
 }
 
 /**
@@ -833,9 +806,8 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export function isa(o: any): o is InternalServerException {
-    return __isa(o, "InternalServerException");
-  }
+  export const isa = (o: any): o is InternalServerException =>
+    __isa(o, "InternalServerException");
 }
 
 /**
@@ -851,9 +823,8 @@ export interface InvalidEncodingException
 }
 
 export namespace InvalidEncodingException {
-  export function isa(o: any): o is InvalidEncodingException {
-    return __isa(o, "InvalidEncodingException");
-  }
+  export const isa = (o: any): o is InvalidEncodingException =>
+    __isa(o, "InvalidEncodingException");
 }
 
 /**
@@ -869,9 +840,8 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return __isa(o, "InvalidRequestException");
-  }
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
 }
 
 export enum JobStatus {
@@ -908,9 +878,8 @@ export interface ListEntitiesDetectionV2JobsRequest {
 }
 
 export namespace ListEntitiesDetectionV2JobsRequest {
-  export function isa(o: any): o is ListEntitiesDetectionV2JobsRequest {
-    return __isa(o, "ListEntitiesDetectionV2JobsRequest");
-  }
+  export const isa = (o: any): o is ListEntitiesDetectionV2JobsRequest =>
+    __isa(o, "ListEntitiesDetectionV2JobsRequest");
 }
 
 export interface ListEntitiesDetectionV2JobsResponse {
@@ -929,9 +898,8 @@ export interface ListEntitiesDetectionV2JobsResponse {
 }
 
 export namespace ListEntitiesDetectionV2JobsResponse {
-  export function isa(o: any): o is ListEntitiesDetectionV2JobsResponse {
-    return __isa(o, "ListEntitiesDetectionV2JobsResponse");
-  }
+  export const isa = (o: any): o is ListEntitiesDetectionV2JobsResponse =>
+    __isa(o, "ListEntitiesDetectionV2JobsResponse");
 }
 
 export interface ListPHIDetectionJobsRequest {
@@ -954,9 +922,8 @@ export interface ListPHIDetectionJobsRequest {
 }
 
 export namespace ListPHIDetectionJobsRequest {
-  export function isa(o: any): o is ListPHIDetectionJobsRequest {
-    return __isa(o, "ListPHIDetectionJobsRequest");
-  }
+  export const isa = (o: any): o is ListPHIDetectionJobsRequest =>
+    __isa(o, "ListPHIDetectionJobsRequest");
 }
 
 export interface ListPHIDetectionJobsResponse {
@@ -975,9 +942,8 @@ export interface ListPHIDetectionJobsResponse {
 }
 
 export namespace ListPHIDetectionJobsResponse {
-  export function isa(o: any): o is ListPHIDetectionJobsResponse {
-    return __isa(o, "ListPHIDetectionJobsResponse");
-  }
+  export const isa = (o: any): o is ListPHIDetectionJobsResponse =>
+    __isa(o, "ListPHIDetectionJobsResponse");
 }
 
 /**
@@ -1001,9 +967,8 @@ export interface OutputDataConfig {
 }
 
 export namespace OutputDataConfig {
-  export function isa(o: any): o is OutputDataConfig {
-    return __isa(o, "OutputDataConfig");
-  }
+  export const isa = (o: any): o is OutputDataConfig =>
+    __isa(o, "OutputDataConfig");
 }
 
 /**
@@ -1019,9 +984,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1080,9 +1044,8 @@ export interface RxNormAttribute {
 }
 
 export namespace RxNormAttribute {
-  export function isa(o: any): o is RxNormAttribute {
-    return __isa(o, "RxNormAttribute");
-  }
+  export const isa = (o: any): o is RxNormAttribute =>
+    __isa(o, "RxNormAttribute");
 }
 
 export enum RxNormAttributeType {
@@ -1119,9 +1082,7 @@ export interface RxNormConcept {
 }
 
 export namespace RxNormConcept {
-  export function isa(o: any): o is RxNormConcept {
-    return __isa(o, "RxNormConcept");
-  }
+  export const isa = (o: any): o is RxNormConcept => __isa(o, "RxNormConcept");
 }
 
 /**
@@ -1193,9 +1154,7 @@ export interface RxNormEntity {
 }
 
 export namespace RxNormEntity {
-  export function isa(o: any): o is RxNormEntity {
-    return __isa(o, "RxNormEntity");
-  }
+  export const isa = (o: any): o is RxNormEntity => __isa(o, "RxNormEntity");
 }
 
 export enum RxNormEntityCategory {
@@ -1226,9 +1185,7 @@ export interface RxNormTrait {
 }
 
 export namespace RxNormTrait {
-  export function isa(o: any): o is RxNormTrait {
-    return __isa(o, "RxNormTrait");
-  }
+  export const isa = (o: any): o is RxNormTrait => __isa(o, "RxNormTrait");
 }
 
 export enum RxNormTraitName {
@@ -1248,9 +1205,8 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return __isa(o, "ServiceUnavailableException");
-  }
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 export interface StartEntitiesDetectionV2JobRequest {
@@ -1295,9 +1251,8 @@ export interface StartEntitiesDetectionV2JobRequest {
 }
 
 export namespace StartEntitiesDetectionV2JobRequest {
-  export function isa(o: any): o is StartEntitiesDetectionV2JobRequest {
-    return __isa(o, "StartEntitiesDetectionV2JobRequest");
-  }
+  export const isa = (o: any): o is StartEntitiesDetectionV2JobRequest =>
+    __isa(o, "StartEntitiesDetectionV2JobRequest");
 }
 
 export interface StartEntitiesDetectionV2JobResponse {
@@ -1310,9 +1265,8 @@ export interface StartEntitiesDetectionV2JobResponse {
 }
 
 export namespace StartEntitiesDetectionV2JobResponse {
-  export function isa(o: any): o is StartEntitiesDetectionV2JobResponse {
-    return __isa(o, "StartEntitiesDetectionV2JobResponse");
-  }
+  export const isa = (o: any): o is StartEntitiesDetectionV2JobResponse =>
+    __isa(o, "StartEntitiesDetectionV2JobResponse");
 }
 
 export interface StartPHIDetectionJobRequest {
@@ -1357,9 +1311,8 @@ export interface StartPHIDetectionJobRequest {
 }
 
 export namespace StartPHIDetectionJobRequest {
-  export function isa(o: any): o is StartPHIDetectionJobRequest {
-    return __isa(o, "StartPHIDetectionJobRequest");
-  }
+  export const isa = (o: any): o is StartPHIDetectionJobRequest =>
+    __isa(o, "StartPHIDetectionJobRequest");
 }
 
 export interface StartPHIDetectionJobResponse {
@@ -1372,9 +1325,8 @@ export interface StartPHIDetectionJobResponse {
 }
 
 export namespace StartPHIDetectionJobResponse {
-  export function isa(o: any): o is StartPHIDetectionJobResponse {
-    return __isa(o, "StartPHIDetectionJobResponse");
-  }
+  export const isa = (o: any): o is StartPHIDetectionJobResponse =>
+    __isa(o, "StartPHIDetectionJobResponse");
 }
 
 export interface StopEntitiesDetectionV2JobRequest {
@@ -1386,9 +1338,8 @@ export interface StopEntitiesDetectionV2JobRequest {
 }
 
 export namespace StopEntitiesDetectionV2JobRequest {
-  export function isa(o: any): o is StopEntitiesDetectionV2JobRequest {
-    return __isa(o, "StopEntitiesDetectionV2JobRequest");
-  }
+  export const isa = (o: any): o is StopEntitiesDetectionV2JobRequest =>
+    __isa(o, "StopEntitiesDetectionV2JobRequest");
 }
 
 export interface StopEntitiesDetectionV2JobResponse {
@@ -1400,9 +1351,8 @@ export interface StopEntitiesDetectionV2JobResponse {
 }
 
 export namespace StopEntitiesDetectionV2JobResponse {
-  export function isa(o: any): o is StopEntitiesDetectionV2JobResponse {
-    return __isa(o, "StopEntitiesDetectionV2JobResponse");
-  }
+  export const isa = (o: any): o is StopEntitiesDetectionV2JobResponse =>
+    __isa(o, "StopEntitiesDetectionV2JobResponse");
 }
 
 export interface StopPHIDetectionJobRequest {
@@ -1414,9 +1364,8 @@ export interface StopPHIDetectionJobRequest {
 }
 
 export namespace StopPHIDetectionJobRequest {
-  export function isa(o: any): o is StopPHIDetectionJobRequest {
-    return __isa(o, "StopPHIDetectionJobRequest");
-  }
+  export const isa = (o: any): o is StopPHIDetectionJobRequest =>
+    __isa(o, "StopPHIDetectionJobRequest");
 }
 
 export interface StopPHIDetectionJobResponse {
@@ -1428,9 +1377,8 @@ export interface StopPHIDetectionJobResponse {
 }
 
 export namespace StopPHIDetectionJobResponse {
-  export function isa(o: any): o is StopPHIDetectionJobResponse {
-    return __isa(o, "StopPHIDetectionJobResponse");
-  }
+  export const isa = (o: any): o is StopPHIDetectionJobResponse =>
+    __isa(o, "StopPHIDetectionJobResponse");
 }
 
 /**
@@ -1446,9 +1394,8 @@ export interface TextSizeLimitExceededException
 }
 
 export namespace TextSizeLimitExceededException {
-  export function isa(o: any): o is TextSizeLimitExceededException {
-    return __isa(o, "TextSizeLimitExceededException");
-  }
+  export const isa = (o: any): o is TextSizeLimitExceededException =>
+    __isa(o, "TextSizeLimitExceededException");
 }
 
 /**
@@ -1465,9 +1412,8 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export function isa(o: any): o is TooManyRequestsException {
-    return __isa(o, "TooManyRequestsException");
-  }
+  export const isa = (o: any): o is TooManyRequestsException =>
+    __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -1487,9 +1433,7 @@ export interface Trait {
 }
 
 export namespace Trait {
-  export function isa(o: any): o is Trait {
-    return __isa(o, "Trait");
-  }
+  export const isa = (o: any): o is Trait => __isa(o, "Trait");
 }
 
 /**
@@ -1511,9 +1455,8 @@ export interface UnmappedAttribute {
 }
 
 export namespace UnmappedAttribute {
-  export function isa(o: any): o is UnmappedAttribute {
-    return __isa(o, "UnmappedAttribute");
-  }
+  export const isa = (o: any): o is UnmappedAttribute =>
+    __isa(o, "UnmappedAttribute");
 }
 
 /**
@@ -1529,7 +1472,6 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return __isa(o, "ValidationException");
-  }
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
 }

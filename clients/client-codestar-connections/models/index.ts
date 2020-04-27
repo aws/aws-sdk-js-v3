@@ -43,9 +43,7 @@ export interface Connection {
 }
 
 export namespace Connection {
-  export function isa(o: any): o is Connection {
-    return __isa(o, "Connection");
-  }
+  export const isa = (o: any): o is Connection => __isa(o, "Connection");
 }
 
 export enum ConnectionStatus {
@@ -70,9 +68,8 @@ export interface CreateConnectionInput {
 }
 
 export namespace CreateConnectionInput {
-  export function isa(o: any): o is CreateConnectionInput {
-    return __isa(o, "CreateConnectionInput");
-  }
+  export const isa = (o: any): o is CreateConnectionInput =>
+    __isa(o, "CreateConnectionInput");
 }
 
 export interface CreateConnectionOutput {
@@ -88,9 +85,8 @@ export interface CreateConnectionOutput {
 }
 
 export namespace CreateConnectionOutput {
-  export function isa(o: any): o is CreateConnectionOutput {
-    return __isa(o, "CreateConnectionOutput");
-  }
+  export const isa = (o: any): o is CreateConnectionOutput =>
+    __isa(o, "CreateConnectionOutput");
 }
 
 export interface DeleteConnectionInput {
@@ -105,9 +101,8 @@ export interface DeleteConnectionInput {
 }
 
 export namespace DeleteConnectionInput {
-  export function isa(o: any): o is DeleteConnectionInput {
-    return __isa(o, "DeleteConnectionInput");
-  }
+  export const isa = (o: any): o is DeleteConnectionInput =>
+    __isa(o, "DeleteConnectionInput");
 }
 
 export interface DeleteConnectionOutput {
@@ -115,9 +110,8 @@ export interface DeleteConnectionOutput {
 }
 
 export namespace DeleteConnectionOutput {
-  export function isa(o: any): o is DeleteConnectionOutput {
-    return __isa(o, "DeleteConnectionOutput");
-  }
+  export const isa = (o: any): o is DeleteConnectionOutput =>
+    __isa(o, "DeleteConnectionOutput");
 }
 
 export interface GetConnectionInput {
@@ -129,9 +123,8 @@ export interface GetConnectionInput {
 }
 
 export namespace GetConnectionInput {
-  export function isa(o: any): o is GetConnectionInput {
-    return __isa(o, "GetConnectionInput");
-  }
+  export const isa = (o: any): o is GetConnectionInput =>
+    __isa(o, "GetConnectionInput");
 }
 
 export interface GetConnectionOutput {
@@ -143,9 +136,8 @@ export interface GetConnectionOutput {
 }
 
 export namespace GetConnectionOutput {
-  export function isa(o: any): o is GetConnectionOutput {
-    return __isa(o, "GetConnectionOutput");
-  }
+  export const isa = (o: any): o is GetConnectionOutput =>
+    __isa(o, "GetConnectionOutput");
 }
 
 /**
@@ -160,9 +152,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export interface ListConnectionsInput {
@@ -187,9 +178,8 @@ export interface ListConnectionsInput {
 }
 
 export namespace ListConnectionsInput {
-  export function isa(o: any): o is ListConnectionsInput {
-    return __isa(o, "ListConnectionsInput");
-  }
+  export const isa = (o: any): o is ListConnectionsInput =>
+    __isa(o, "ListConnectionsInput");
 }
 
 export interface ListConnectionsOutput {
@@ -209,9 +199,8 @@ export interface ListConnectionsOutput {
 }
 
 export namespace ListConnectionsOutput {
-  export function isa(o: any): o is ListConnectionsOutput {
-    return __isa(o, "ListConnectionsOutput");
-  }
+  export const isa = (o: any): o is ListConnectionsOutput =>
+    __isa(o, "ListConnectionsOutput");
 }
 
 export enum ProviderType {
@@ -230,7 +219,6 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }

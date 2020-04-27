@@ -22,9 +22,8 @@ export interface AccessPoliciesStatus {
 }
 
 export namespace AccessPoliciesStatus {
-  export function isa(o: any): o is AccessPoliciesStatus {
-    return __isa(o, "AccessPoliciesStatus");
-  }
+  export const isa = (o: any): o is AccessPoliciesStatus =>
+    __isa(o, "AccessPoliciesStatus");
 }
 
 /**
@@ -44,9 +43,8 @@ export interface AddTagsRequest {
 }
 
 export namespace AddTagsRequest {
-  export function isa(o: any): o is AddTagsRequest {
-    return __isa(o, "AddTagsRequest");
-  }
+  export const isa = (o: any): o is AddTagsRequest =>
+    __isa(o, "AddTagsRequest");
 }
 
 /**
@@ -103,9 +101,8 @@ export interface AdditionalLimit {
 }
 
 export namespace AdditionalLimit {
-  export function isa(o: any): o is AdditionalLimit {
-    return __isa(o, "AdditionalLimit");
-  }
+  export const isa = (o: any): o is AdditionalLimit =>
+    __isa(o, "AdditionalLimit");
 }
 
 /**
@@ -131,9 +128,8 @@ export interface AdvancedOptionsStatus {
 }
 
 export namespace AdvancedOptionsStatus {
-  export function isa(o: any): o is AdvancedOptionsStatus {
-    return __isa(o, "AdvancedOptionsStatus");
-  }
+  export const isa = (o: any): o is AdvancedOptionsStatus =>
+    __isa(o, "AdvancedOptionsStatus");
 }
 
 /**
@@ -148,11 +144,10 @@ export interface CancelElasticsearchServiceSoftwareUpdateRequest {
 }
 
 export namespace CancelElasticsearchServiceSoftwareUpdateRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is CancelElasticsearchServiceSoftwareUpdateRequest {
-    return __isa(o, "CancelElasticsearchServiceSoftwareUpdateRequest");
-  }
+  ): o is CancelElasticsearchServiceSoftwareUpdateRequest =>
+    __isa(o, "CancelElasticsearchServiceSoftwareUpdateRequest");
 }
 
 /**
@@ -167,11 +162,10 @@ export interface CancelElasticsearchServiceSoftwareUpdateResponse {
 }
 
 export namespace CancelElasticsearchServiceSoftwareUpdateResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is CancelElasticsearchServiceSoftwareUpdateResponse {
-    return __isa(o, "CancelElasticsearchServiceSoftwareUpdateResponse");
-  }
+  ): o is CancelElasticsearchServiceSoftwareUpdateResponse =>
+    __isa(o, "CancelElasticsearchServiceSoftwareUpdateResponse");
 }
 
 /**
@@ -201,9 +195,8 @@ export interface CognitoOptions {
 }
 
 export namespace CognitoOptions {
-  export function isa(o: any): o is CognitoOptions {
-    return __isa(o, "CognitoOptions");
-  }
+  export const isa = (o: any): o is CognitoOptions =>
+    __isa(o, "CognitoOptions");
 }
 
 /**
@@ -223,9 +216,8 @@ export interface CognitoOptionsStatus {
 }
 
 export namespace CognitoOptionsStatus {
-  export function isa(o: any): o is CognitoOptionsStatus {
-    return __isa(o, "CognitoOptionsStatus");
-  }
+  export const isa = (o: any): o is CognitoOptionsStatus =>
+    __isa(o, "CognitoOptionsStatus");
 }
 
 /**
@@ -256,9 +248,8 @@ export interface CompatibleVersionsMap {
 }
 
 export namespace CompatibleVersionsMap {
-  export function isa(o: any): o is CompatibleVersionsMap {
-    return __isa(o, "CompatibleVersionsMap");
-  }
+  export const isa = (o: any): o is CompatibleVersionsMap =>
+    __isa(o, "CompatibleVersionsMap");
 }
 
 export interface CreateElasticsearchDomainRequest {
@@ -332,9 +323,8 @@ export interface CreateElasticsearchDomainRequest {
 }
 
 export namespace CreateElasticsearchDomainRequest {
-  export function isa(o: any): o is CreateElasticsearchDomainRequest {
-    return __isa(o, "CreateElasticsearchDomainRequest");
-  }
+  export const isa = (o: any): o is CreateElasticsearchDomainRequest =>
+    __isa(o, "CreateElasticsearchDomainRequest");
 }
 
 /**
@@ -349,9 +339,8 @@ export interface CreateElasticsearchDomainResponse {
 }
 
 export namespace CreateElasticsearchDomainResponse {
-  export function isa(o: any): o is CreateElasticsearchDomainResponse {
-    return __isa(o, "CreateElasticsearchDomainResponse");
-  }
+  export const isa = (o: any): o is CreateElasticsearchDomainResponse =>
+    __isa(o, "CreateElasticsearchDomainResponse");
 }
 
 /**
@@ -366,9 +355,8 @@ export interface DeleteElasticsearchDomainRequest {
 }
 
 export namespace DeleteElasticsearchDomainRequest {
-  export function isa(o: any): o is DeleteElasticsearchDomainRequest {
-    return __isa(o, "DeleteElasticsearchDomainRequest");
-  }
+  export const isa = (o: any): o is DeleteElasticsearchDomainRequest =>
+    __isa(o, "DeleteElasticsearchDomainRequest");
 }
 
 /**
@@ -383,9 +371,8 @@ export interface DeleteElasticsearchDomainResponse {
 }
 
 export namespace DeleteElasticsearchDomainResponse {
-  export function isa(o: any): o is DeleteElasticsearchDomainResponse {
-    return __isa(o, "DeleteElasticsearchDomainResponse");
-  }
+  export const isa = (o: any): o is DeleteElasticsearchDomainResponse =>
+    __isa(o, "DeleteElasticsearchDomainResponse");
 }
 
 export type DeploymentStatus =
@@ -407,9 +394,8 @@ export interface DescribeElasticsearchDomainConfigRequest {
 }
 
 export namespace DescribeElasticsearchDomainConfigRequest {
-  export function isa(o: any): o is DescribeElasticsearchDomainConfigRequest {
-    return __isa(o, "DescribeElasticsearchDomainConfigRequest");
-  }
+  export const isa = (o: any): o is DescribeElasticsearchDomainConfigRequest =>
+    __isa(o, "DescribeElasticsearchDomainConfigRequest");
 }
 
 /**
@@ -424,9 +410,8 @@ export interface DescribeElasticsearchDomainConfigResponse {
 }
 
 export namespace DescribeElasticsearchDomainConfigResponse {
-  export function isa(o: any): o is DescribeElasticsearchDomainConfigResponse {
-    return __isa(o, "DescribeElasticsearchDomainConfigResponse");
-  }
+  export const isa = (o: any): o is DescribeElasticsearchDomainConfigResponse =>
+    __isa(o, "DescribeElasticsearchDomainConfigResponse");
 }
 
 /**
@@ -441,9 +426,8 @@ export interface DescribeElasticsearchDomainRequest {
 }
 
 export namespace DescribeElasticsearchDomainRequest {
-  export function isa(o: any): o is DescribeElasticsearchDomainRequest {
-    return __isa(o, "DescribeElasticsearchDomainRequest");
-  }
+  export const isa = (o: any): o is DescribeElasticsearchDomainRequest =>
+    __isa(o, "DescribeElasticsearchDomainRequest");
 }
 
 /**
@@ -458,9 +442,8 @@ export interface DescribeElasticsearchDomainResponse {
 }
 
 export namespace DescribeElasticsearchDomainResponse {
-  export function isa(o: any): o is DescribeElasticsearchDomainResponse {
-    return __isa(o, "DescribeElasticsearchDomainResponse");
-  }
+  export const isa = (o: any): o is DescribeElasticsearchDomainResponse =>
+    __isa(o, "DescribeElasticsearchDomainResponse");
 }
 
 /**
@@ -475,9 +458,8 @@ export interface DescribeElasticsearchDomainsRequest {
 }
 
 export namespace DescribeElasticsearchDomainsRequest {
-  export function isa(o: any): o is DescribeElasticsearchDomainsRequest {
-    return __isa(o, "DescribeElasticsearchDomainsRequest");
-  }
+  export const isa = (o: any): o is DescribeElasticsearchDomainsRequest =>
+    __isa(o, "DescribeElasticsearchDomainsRequest");
 }
 
 /**
@@ -492,9 +474,8 @@ export interface DescribeElasticsearchDomainsResponse {
 }
 
 export namespace DescribeElasticsearchDomainsResponse {
-  export function isa(o: any): o is DescribeElasticsearchDomainsResponse {
-    return __isa(o, "DescribeElasticsearchDomainsResponse");
-  }
+  export const isa = (o: any): o is DescribeElasticsearchDomainsResponse =>
+    __isa(o, "DescribeElasticsearchDomainsResponse");
 }
 
 /**
@@ -545,11 +526,10 @@ export interface DescribeElasticsearchInstanceTypeLimitsRequest {
 }
 
 export namespace DescribeElasticsearchInstanceTypeLimitsRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeElasticsearchInstanceTypeLimitsRequest {
-    return __isa(o, "DescribeElasticsearchInstanceTypeLimitsRequest");
-  }
+  ): o is DescribeElasticsearchInstanceTypeLimitsRequest =>
+    __isa(o, "DescribeElasticsearchInstanceTypeLimitsRequest");
 }
 
 /**
@@ -579,11 +559,10 @@ export interface DescribeElasticsearchInstanceTypeLimitsResponse {
 }
 
 export namespace DescribeElasticsearchInstanceTypeLimitsResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeElasticsearchInstanceTypeLimitsResponse {
-    return __isa(o, "DescribeElasticsearchInstanceTypeLimitsResponse");
-  }
+  ): o is DescribeElasticsearchInstanceTypeLimitsResponse =>
+    __isa(o, "DescribeElasticsearchInstanceTypeLimitsResponse");
 }
 
 /**
@@ -609,11 +588,10 @@ export interface DescribeReservedElasticsearchInstanceOfferingsRequest {
 }
 
 export namespace DescribeReservedElasticsearchInstanceOfferingsRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeReservedElasticsearchInstanceOfferingsRequest {
-    return __isa(o, "DescribeReservedElasticsearchInstanceOfferingsRequest");
-  }
+  ): o is DescribeReservedElasticsearchInstanceOfferingsRequest =>
+    __isa(o, "DescribeReservedElasticsearchInstanceOfferingsRequest");
 }
 
 /**
@@ -635,11 +613,10 @@ export interface DescribeReservedElasticsearchInstanceOfferingsResponse {
 }
 
 export namespace DescribeReservedElasticsearchInstanceOfferingsResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeReservedElasticsearchInstanceOfferingsResponse {
-    return __isa(o, "DescribeReservedElasticsearchInstanceOfferingsResponse");
-  }
+  ): o is DescribeReservedElasticsearchInstanceOfferingsResponse =>
+    __isa(o, "DescribeReservedElasticsearchInstanceOfferingsResponse");
 }
 
 /**
@@ -665,11 +642,10 @@ export interface DescribeReservedElasticsearchInstancesRequest {
 }
 
 export namespace DescribeReservedElasticsearchInstancesRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeReservedElasticsearchInstancesRequest {
-    return __isa(o, "DescribeReservedElasticsearchInstancesRequest");
-  }
+  ): o is DescribeReservedElasticsearchInstancesRequest =>
+    __isa(o, "DescribeReservedElasticsearchInstancesRequest");
 }
 
 /**
@@ -689,11 +665,10 @@ export interface DescribeReservedElasticsearchInstancesResponse {
 }
 
 export namespace DescribeReservedElasticsearchInstancesResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeReservedElasticsearchInstancesResponse {
-    return __isa(o, "DescribeReservedElasticsearchInstancesResponse");
-  }
+  ): o is DescribeReservedElasticsearchInstancesResponse =>
+    __isa(o, "DescribeReservedElasticsearchInstancesResponse");
 }
 
 /**
@@ -719,9 +694,8 @@ export interface DomainEndpointOptions {
 }
 
 export namespace DomainEndpointOptions {
-  export function isa(o: any): o is DomainEndpointOptions {
-    return __isa(o, "DomainEndpointOptions");
-  }
+  export const isa = (o: any): o is DomainEndpointOptions =>
+    __isa(o, "DomainEndpointOptions");
 }
 
 /**
@@ -741,9 +715,8 @@ export interface DomainEndpointOptionsStatus {
 }
 
 export namespace DomainEndpointOptionsStatus {
-  export function isa(o: any): o is DomainEndpointOptionsStatus {
-    return __isa(o, "DomainEndpointOptionsStatus");
-  }
+  export const isa = (o: any): o is DomainEndpointOptionsStatus =>
+    __isa(o, "DomainEndpointOptionsStatus");
 }
 
 export interface DomainInfo {
@@ -755,9 +728,7 @@ export interface DomainInfo {
 }
 
 export namespace DomainInfo {
-  export function isa(o: any): o is DomainInfo {
-    return __isa(o, "DomainInfo");
-  }
+  export const isa = (o: any): o is DomainInfo => __isa(o, "DomainInfo");
 }
 
 /**
@@ -787,9 +758,7 @@ export interface EBSOptions {
 }
 
 export namespace EBSOptions {
-  export function isa(o: any): o is EBSOptions {
-    return __isa(o, "EBSOptions");
-  }
+  export const isa = (o: any): o is EBSOptions => __isa(o, "EBSOptions");
 }
 
 /**
@@ -809,9 +778,8 @@ export interface EBSOptionsStatus {
 }
 
 export namespace EBSOptionsStatus {
-  export function isa(o: any): o is EBSOptionsStatus {
-    return __isa(o, "EBSOptionsStatus");
-  }
+  export const isa = (o: any): o is EBSOptionsStatus =>
+    __isa(o, "EBSOptionsStatus");
 }
 
 export type ESPartitionInstanceType =
@@ -935,9 +903,8 @@ export interface ElasticsearchClusterConfig {
 }
 
 export namespace ElasticsearchClusterConfig {
-  export function isa(o: any): o is ElasticsearchClusterConfig {
-    return __isa(o, "ElasticsearchClusterConfig");
-  }
+  export const isa = (o: any): o is ElasticsearchClusterConfig =>
+    __isa(o, "ElasticsearchClusterConfig");
 }
 
 /**
@@ -957,9 +924,8 @@ export interface ElasticsearchClusterConfigStatus {
 }
 
 export namespace ElasticsearchClusterConfigStatus {
-  export function isa(o: any): o is ElasticsearchClusterConfigStatus {
-    return __isa(o, "ElasticsearchClusterConfigStatus");
-  }
+  export const isa = (o: any): o is ElasticsearchClusterConfigStatus =>
+    __isa(o, "ElasticsearchClusterConfigStatus");
 }
 
 /**
@@ -1029,9 +995,8 @@ export interface ElasticsearchDomainConfig {
 }
 
 export namespace ElasticsearchDomainConfig {
-  export function isa(o: any): o is ElasticsearchDomainConfig {
-    return __isa(o, "ElasticsearchDomainConfig");
-  }
+  export const isa = (o: any): o is ElasticsearchDomainConfig =>
+    __isa(o, "ElasticsearchDomainConfig");
 }
 
 /**
@@ -1147,9 +1112,8 @@ export interface ElasticsearchDomainStatus {
 }
 
 export namespace ElasticsearchDomainStatus {
-  export function isa(o: any): o is ElasticsearchDomainStatus {
-    return __isa(o, "ElasticsearchDomainStatus");
-  }
+  export const isa = (o: any): o is ElasticsearchDomainStatus =>
+    __isa(o, "ElasticsearchDomainStatus");
 }
 
 /**
@@ -1169,9 +1133,8 @@ export interface ElasticsearchVersionStatus {
 }
 
 export namespace ElasticsearchVersionStatus {
-  export function isa(o: any): o is ElasticsearchVersionStatus {
-    return __isa(o, "ElasticsearchVersionStatus");
-  }
+  export const isa = (o: any): o is ElasticsearchVersionStatus =>
+    __isa(o, "ElasticsearchVersionStatus");
 }
 
 /**
@@ -1191,9 +1154,8 @@ export interface EncryptionAtRestOptions {
 }
 
 export namespace EncryptionAtRestOptions {
-  export function isa(o: any): o is EncryptionAtRestOptions {
-    return __isa(o, "EncryptionAtRestOptions");
-  }
+  export const isa = (o: any): o is EncryptionAtRestOptions =>
+    __isa(o, "EncryptionAtRestOptions");
 }
 
 /**
@@ -1213,9 +1175,8 @@ export interface EncryptionAtRestOptionsStatus {
 }
 
 export namespace EncryptionAtRestOptionsStatus {
-  export function isa(o: any): o is EncryptionAtRestOptionsStatus {
-    return __isa(o, "EncryptionAtRestOptionsStatus");
-  }
+  export const isa = (o: any): o is EncryptionAtRestOptionsStatus =>
+    __isa(o, "EncryptionAtRestOptionsStatus");
 }
 
 /**
@@ -1236,9 +1197,8 @@ export interface GetCompatibleElasticsearchVersionsRequest {
 }
 
 export namespace GetCompatibleElasticsearchVersionsRequest {
-  export function isa(o: any): o is GetCompatibleElasticsearchVersionsRequest {
-    return __isa(o, "GetCompatibleElasticsearchVersionsRequest");
-  }
+  export const isa = (o: any): o is GetCompatibleElasticsearchVersionsRequest =>
+    __isa(o, "GetCompatibleElasticsearchVersionsRequest");
 }
 
 /**
@@ -1265,9 +1225,10 @@ export interface GetCompatibleElasticsearchVersionsResponse {
 }
 
 export namespace GetCompatibleElasticsearchVersionsResponse {
-  export function isa(o: any): o is GetCompatibleElasticsearchVersionsResponse {
-    return __isa(o, "GetCompatibleElasticsearchVersionsResponse");
-  }
+  export const isa = (
+    o: any
+  ): o is GetCompatibleElasticsearchVersionsResponse =>
+    __isa(o, "GetCompatibleElasticsearchVersionsResponse");
 }
 
 /**
@@ -1303,9 +1264,8 @@ export interface GetUpgradeHistoryRequest {
 }
 
 export namespace GetUpgradeHistoryRequest {
-  export function isa(o: any): o is GetUpgradeHistoryRequest {
-    return __isa(o, "GetUpgradeHistoryRequest");
-  }
+  export const isa = (o: any): o is GetUpgradeHistoryRequest =>
+    __isa(o, "GetUpgradeHistoryRequest");
 }
 
 /**
@@ -1341,9 +1301,8 @@ export interface GetUpgradeHistoryResponse {
 }
 
 export namespace GetUpgradeHistoryResponse {
-  export function isa(o: any): o is GetUpgradeHistoryResponse {
-    return __isa(o, "GetUpgradeHistoryResponse");
-  }
+  export const isa = (o: any): o is GetUpgradeHistoryResponse =>
+    __isa(o, "GetUpgradeHistoryResponse");
 }
 
 /**
@@ -1364,9 +1323,8 @@ export interface GetUpgradeStatusRequest {
 }
 
 export namespace GetUpgradeStatusRequest {
-  export function isa(o: any): o is GetUpgradeStatusRequest {
-    return __isa(o, "GetUpgradeStatusRequest");
-  }
+  export const isa = (o: any): o is GetUpgradeStatusRequest =>
+    __isa(o, "GetUpgradeStatusRequest");
 }
 
 /**
@@ -1416,9 +1374,8 @@ export interface GetUpgradeStatusResponse {
 }
 
 export namespace GetUpgradeStatusResponse {
-  export function isa(o: any): o is GetUpgradeStatusResponse {
-    return __isa(o, "GetUpgradeStatusResponse");
-  }
+  export const isa = (o: any): o is GetUpgradeStatusResponse =>
+    __isa(o, "GetUpgradeStatusResponse");
 }
 
 /**
@@ -1445,9 +1402,8 @@ export interface InstanceCountLimits {
 }
 
 export namespace InstanceCountLimits {
-  export function isa(o: any): o is InstanceCountLimits {
-    return __isa(o, "InstanceCountLimits");
-  }
+  export const isa = (o: any): o is InstanceCountLimits =>
+    __isa(o, "InstanceCountLimits");
 }
 
 /**
@@ -1466,9 +1422,8 @@ export interface InstanceLimits {
 }
 
 export namespace InstanceLimits {
-  export function isa(o: any): o is InstanceLimits {
-    return __isa(o, "InstanceLimits");
-  }
+  export const isa = (o: any): o is InstanceLimits =>
+    __isa(o, "InstanceLimits");
 }
 
 /**
@@ -1516,9 +1471,7 @@ export interface Limits {
 }
 
 export namespace Limits {
-  export function isa(o: any): o is Limits {
-    return __isa(o, "Limits");
-  }
+  export const isa = (o: any): o is Limits => __isa(o, "Limits");
 }
 
 /**
@@ -1533,9 +1486,8 @@ export interface ListDomainNamesResponse {
 }
 
 export namespace ListDomainNamesResponse {
-  export function isa(o: any): o is ListDomainNamesResponse {
-    return __isa(o, "ListDomainNamesResponse");
-  }
+  export const isa = (o: any): o is ListDomainNamesResponse =>
+    __isa(o, "ListDomainNamesResponse");
 }
 
 /**
@@ -1580,9 +1532,8 @@ export interface ListElasticsearchInstanceTypesRequest {
 }
 
 export namespace ListElasticsearchInstanceTypesRequest {
-  export function isa(o: any): o is ListElasticsearchInstanceTypesRequest {
-    return __isa(o, "ListElasticsearchInstanceTypesRequest");
-  }
+  export const isa = (o: any): o is ListElasticsearchInstanceTypesRequest =>
+    __isa(o, "ListElasticsearchInstanceTypesRequest");
 }
 
 /**
@@ -1617,9 +1568,8 @@ export interface ListElasticsearchInstanceTypesResponse {
 }
 
 export namespace ListElasticsearchInstanceTypesResponse {
-  export function isa(o: any): o is ListElasticsearchInstanceTypesResponse {
-    return __isa(o, "ListElasticsearchInstanceTypesResponse");
-  }
+  export const isa = (o: any): o is ListElasticsearchInstanceTypesResponse =>
+    __isa(o, "ListElasticsearchInstanceTypesResponse");
 }
 
 /**
@@ -1667,9 +1617,8 @@ export interface ListElasticsearchVersionsRequest {
 }
 
 export namespace ListElasticsearchVersionsRequest {
-  export function isa(o: any): o is ListElasticsearchVersionsRequest {
-    return __isa(o, "ListElasticsearchVersionsRequest");
-  }
+  export const isa = (o: any): o is ListElasticsearchVersionsRequest =>
+    __isa(o, "ListElasticsearchVersionsRequest");
 }
 
 /**
@@ -1699,9 +1648,8 @@ export interface ListElasticsearchVersionsResponse {
 }
 
 export namespace ListElasticsearchVersionsResponse {
-  export function isa(o: any): o is ListElasticsearchVersionsResponse {
-    return __isa(o, "ListElasticsearchVersionsResponse");
-  }
+  export const isa = (o: any): o is ListElasticsearchVersionsResponse =>
+    __isa(o, "ListElasticsearchVersionsResponse");
 }
 
 /**
@@ -1716,9 +1664,8 @@ export interface ListTagsRequest {
 }
 
 export namespace ListTagsRequest {
-  export function isa(o: any): o is ListTagsRequest {
-    return __isa(o, "ListTagsRequest");
-  }
+  export const isa = (o: any): o is ListTagsRequest =>
+    __isa(o, "ListTagsRequest");
 }
 
 /**
@@ -1733,9 +1680,8 @@ export interface ListTagsResponse {
 }
 
 export namespace ListTagsResponse {
-  export function isa(o: any): o is ListTagsResponse {
-    return __isa(o, "ListTagsResponse");
-  }
+  export const isa = (o: any): o is ListTagsResponse =>
+    __isa(o, "ListTagsResponse");
 }
 
 /**
@@ -1761,9 +1707,8 @@ export interface LogPublishingOption {
 }
 
 export namespace LogPublishingOption {
-  export function isa(o: any): o is LogPublishingOption {
-    return __isa(o, "LogPublishingOption");
-  }
+  export const isa = (o: any): o is LogPublishingOption =>
+    __isa(o, "LogPublishingOption");
 }
 
 /**
@@ -1783,9 +1728,8 @@ export interface LogPublishingOptionsStatus {
 }
 
 export namespace LogPublishingOptionsStatus {
-  export function isa(o: any): o is LogPublishingOptionsStatus {
-    return __isa(o, "LogPublishingOptionsStatus");
-  }
+  export const isa = (o: any): o is LogPublishingOptionsStatus =>
+    __isa(o, "LogPublishingOptionsStatus");
 }
 
 export type LogType =
@@ -1805,9 +1749,8 @@ export interface NodeToNodeEncryptionOptions {
 }
 
 export namespace NodeToNodeEncryptionOptions {
-  export function isa(o: any): o is NodeToNodeEncryptionOptions {
-    return __isa(o, "NodeToNodeEncryptionOptions");
-  }
+  export const isa = (o: any): o is NodeToNodeEncryptionOptions =>
+    __isa(o, "NodeToNodeEncryptionOptions");
 }
 
 /**
@@ -1827,9 +1770,8 @@ export interface NodeToNodeEncryptionOptionsStatus {
 }
 
 export namespace NodeToNodeEncryptionOptionsStatus {
-  export function isa(o: any): o is NodeToNodeEncryptionOptionsStatus {
-    return __isa(o, "NodeToNodeEncryptionOptionsStatus");
-  }
+  export const isa = (o: any): o is NodeToNodeEncryptionOptionsStatus =>
+    __isa(o, "NodeToNodeEncryptionOptionsStatus");
 }
 
 export type OptionState = "Active" | "Processing" | "RequiresIndexDocuments";
@@ -1866,9 +1808,7 @@ export interface OptionStatus {
 }
 
 export namespace OptionStatus {
-  export function isa(o: any): o is OptionStatus {
-    return __isa(o, "OptionStatus");
-  }
+  export const isa = (o: any): o is OptionStatus => __isa(o, "OptionStatus");
 }
 
 /**
@@ -1893,11 +1833,10 @@ export interface PurchaseReservedElasticsearchInstanceOfferingRequest {
 }
 
 export namespace PurchaseReservedElasticsearchInstanceOfferingRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is PurchaseReservedElasticsearchInstanceOfferingRequest {
-    return __isa(o, "PurchaseReservedElasticsearchInstanceOfferingRequest");
-  }
+  ): o is PurchaseReservedElasticsearchInstanceOfferingRequest =>
+    __isa(o, "PurchaseReservedElasticsearchInstanceOfferingRequest");
 }
 
 /**
@@ -1917,11 +1856,10 @@ export interface PurchaseReservedElasticsearchInstanceOfferingResponse {
 }
 
 export namespace PurchaseReservedElasticsearchInstanceOfferingResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is PurchaseReservedElasticsearchInstanceOfferingResponse {
-    return __isa(o, "PurchaseReservedElasticsearchInstanceOfferingResponse");
-  }
+  ): o is PurchaseReservedElasticsearchInstanceOfferingResponse =>
+    __isa(o, "PurchaseReservedElasticsearchInstanceOfferingResponse");
 }
 
 /**
@@ -1941,9 +1879,8 @@ export interface RecurringCharge {
 }
 
 export namespace RecurringCharge {
-  export function isa(o: any): o is RecurringCharge {
-    return __isa(o, "RecurringCharge");
-  }
+  export const isa = (o: any): o is RecurringCharge =>
+    __isa(o, "RecurringCharge");
 }
 
 /**
@@ -1963,9 +1900,8 @@ export interface RemoveTagsRequest {
 }
 
 export namespace RemoveTagsRequest {
-  export function isa(o: any): o is RemoveTagsRequest {
-    return __isa(o, "RemoveTagsRequest");
-  }
+  export const isa = (o: any): o is RemoveTagsRequest =>
+    __isa(o, "RemoveTagsRequest");
 }
 
 /**
@@ -2040,9 +1976,8 @@ export interface ReservedElasticsearchInstance {
 }
 
 export namespace ReservedElasticsearchInstance {
-  export function isa(o: any): o is ReservedElasticsearchInstance {
-    return __isa(o, "ReservedElasticsearchInstance");
-  }
+  export const isa = (o: any): o is ReservedElasticsearchInstance =>
+    __isa(o, "ReservedElasticsearchInstance");
 }
 
 /**
@@ -2092,9 +2027,8 @@ export interface ReservedElasticsearchInstanceOffering {
 }
 
 export namespace ReservedElasticsearchInstanceOffering {
-  export function isa(o: any): o is ReservedElasticsearchInstanceOffering {
-    return __isa(o, "ReservedElasticsearchInstanceOffering");
-  }
+  export const isa = (o: any): o is ReservedElasticsearchInstanceOffering =>
+    __isa(o, "ReservedElasticsearchInstanceOffering");
 }
 
 export type ReservedElasticsearchInstancePaymentOption =
@@ -2144,9 +2078,8 @@ export interface ServiceSoftwareOptions {
 }
 
 export namespace ServiceSoftwareOptions {
-  export function isa(o: any): o is ServiceSoftwareOptions {
-    return __isa(o, "ServiceSoftwareOptions");
-  }
+  export const isa = (o: any): o is ServiceSoftwareOptions =>
+    __isa(o, "ServiceSoftwareOptions");
 }
 
 /**
@@ -2161,9 +2094,8 @@ export interface SnapshotOptions {
 }
 
 export namespace SnapshotOptions {
-  export function isa(o: any): o is SnapshotOptions {
-    return __isa(o, "SnapshotOptions");
-  }
+  export const isa = (o: any): o is SnapshotOptions =>
+    __isa(o, "SnapshotOptions");
 }
 
 /**
@@ -2183,9 +2115,8 @@ export interface SnapshotOptionsStatus {
 }
 
 export namespace SnapshotOptionsStatus {
-  export function isa(o: any): o is SnapshotOptionsStatus {
-    return __isa(o, "SnapshotOptionsStatus");
-  }
+  export const isa = (o: any): o is SnapshotOptionsStatus =>
+    __isa(o, "SnapshotOptionsStatus");
 }
 
 /**
@@ -2200,11 +2131,10 @@ export interface StartElasticsearchServiceSoftwareUpdateRequest {
 }
 
 export namespace StartElasticsearchServiceSoftwareUpdateRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is StartElasticsearchServiceSoftwareUpdateRequest {
-    return __isa(o, "StartElasticsearchServiceSoftwareUpdateRequest");
-  }
+  ): o is StartElasticsearchServiceSoftwareUpdateRequest =>
+    __isa(o, "StartElasticsearchServiceSoftwareUpdateRequest");
 }
 
 /**
@@ -2219,11 +2149,10 @@ export interface StartElasticsearchServiceSoftwareUpdateResponse {
 }
 
 export namespace StartElasticsearchServiceSoftwareUpdateResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is StartElasticsearchServiceSoftwareUpdateResponse {
-    return __isa(o, "StartElasticsearchServiceSoftwareUpdateResponse");
-  }
+  ): o is StartElasticsearchServiceSoftwareUpdateResponse =>
+    __isa(o, "StartElasticsearchServiceSoftwareUpdateResponse");
 }
 
 /**
@@ -2269,9 +2198,7 @@ export interface StorageType {
 }
 
 export namespace StorageType {
-  export function isa(o: any): o is StorageType {
-    return __isa(o, "StorageType");
-  }
+  export const isa = (o: any): o is StorageType => __isa(o, "StorageType");
 }
 
 /**
@@ -2315,9 +2242,8 @@ export interface StorageTypeLimit {
 }
 
 export namespace StorageTypeLimit {
-  export function isa(o: any): o is StorageTypeLimit {
-    return __isa(o, "StorageTypeLimit");
-  }
+  export const isa = (o: any): o is StorageTypeLimit =>
+    __isa(o, "StorageTypeLimit");
 }
 
 export enum TLSSecurityPolicy {
@@ -2343,9 +2269,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -2406,9 +2330,8 @@ export interface UpdateElasticsearchDomainConfigRequest {
 }
 
 export namespace UpdateElasticsearchDomainConfigRequest {
-  export function isa(o: any): o is UpdateElasticsearchDomainConfigRequest {
-    return __isa(o, "UpdateElasticsearchDomainConfigRequest");
-  }
+  export const isa = (o: any): o is UpdateElasticsearchDomainConfigRequest =>
+    __isa(o, "UpdateElasticsearchDomainConfigRequest");
 }
 
 /**
@@ -2423,9 +2346,8 @@ export interface UpdateElasticsearchDomainConfigResponse {
 }
 
 export namespace UpdateElasticsearchDomainConfigResponse {
-  export function isa(o: any): o is UpdateElasticsearchDomainConfigResponse {
-    return __isa(o, "UpdateElasticsearchDomainConfigResponse");
-  }
+  export const isa = (o: any): o is UpdateElasticsearchDomainConfigResponse =>
+    __isa(o, "UpdateElasticsearchDomainConfigResponse");
 }
 
 /**
@@ -2459,9 +2381,8 @@ export interface UpgradeElasticsearchDomainRequest {
 }
 
 export namespace UpgradeElasticsearchDomainRequest {
-  export function isa(o: any): o is UpgradeElasticsearchDomainRequest {
-    return __isa(o, "UpgradeElasticsearchDomainRequest");
-  }
+  export const isa = (o: any): o is UpgradeElasticsearchDomainRequest =>
+    __isa(o, "UpgradeElasticsearchDomainRequest");
 }
 
 /**
@@ -2495,9 +2416,8 @@ export interface UpgradeElasticsearchDomainResponse {
 }
 
 export namespace UpgradeElasticsearchDomainResponse {
-  export function isa(o: any): o is UpgradeElasticsearchDomainResponse {
-    return __isa(o, "UpgradeElasticsearchDomainResponse");
-  }
+  export const isa = (o: any): o is UpgradeElasticsearchDomainResponse =>
+    __isa(o, "UpgradeElasticsearchDomainResponse");
 }
 
 /**
@@ -2541,9 +2461,8 @@ export interface UpgradeHistory {
 }
 
 export namespace UpgradeHistory {
-  export function isa(o: any): o is UpgradeHistory {
-    return __isa(o, "UpgradeHistory");
-  }
+  export const isa = (o: any): o is UpgradeHistory =>
+    __isa(o, "UpgradeHistory");
 }
 
 export type UpgradeStatus =
@@ -2596,9 +2515,8 @@ export interface UpgradeStepItem {
 }
 
 export namespace UpgradeStepItem {
-  export function isa(o: any): o is UpgradeStepItem {
-    return __isa(o, "UpgradeStepItem");
-  }
+  export const isa = (o: any): o is UpgradeStepItem =>
+    __isa(o, "UpgradeStepItem");
 }
 
 /**
@@ -2628,9 +2546,8 @@ export interface VPCDerivedInfo {
 }
 
 export namespace VPCDerivedInfo {
-  export function isa(o: any): o is VPCDerivedInfo {
-    return __isa(o, "VPCDerivedInfo");
-  }
+  export const isa = (o: any): o is VPCDerivedInfo =>
+    __isa(o, "VPCDerivedInfo");
 }
 
 /**
@@ -2650,9 +2567,8 @@ export interface VPCDerivedInfoStatus {
 }
 
 export namespace VPCDerivedInfoStatus {
-  export function isa(o: any): o is VPCDerivedInfoStatus {
-    return __isa(o, "VPCDerivedInfoStatus");
-  }
+  export const isa = (o: any): o is VPCDerivedInfoStatus =>
+    __isa(o, "VPCDerivedInfoStatus");
 }
 
 /**
@@ -2672,9 +2588,7 @@ export interface VPCOptions {
 }
 
 export namespace VPCOptions {
-  export function isa(o: any): o is VPCOptions {
-    return __isa(o, "VPCOptions");
-  }
+  export const isa = (o: any): o is VPCOptions => __isa(o, "VPCOptions");
 }
 
 export type VolumeType = "gp2" | "io1" | "standard";
@@ -2691,9 +2605,8 @@ export interface ZoneAwarenessConfig {
 }
 
 export namespace ZoneAwarenessConfig {
-  export function isa(o: any): o is ZoneAwarenessConfig {
-    return __isa(o, "ZoneAwarenessConfig");
-  }
+  export const isa = (o: any): o is ZoneAwarenessConfig =>
+    __isa(o, "ZoneAwarenessConfig");
 }
 
 /**
@@ -2709,9 +2622,7 @@ export interface BaseException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace BaseException {
-  export function isa(o: any): o is BaseException {
-    return __isa(o, "BaseException");
-  }
+  export const isa = (o: any): o is BaseException => __isa(o, "BaseException");
 }
 
 /**
@@ -2729,9 +2640,8 @@ export interface DisabledOperationException
 }
 
 export namespace DisabledOperationException {
-  export function isa(o: any): o is DisabledOperationException {
-    return __isa(o, "DisabledOperationException");
-  }
+  export const isa = (o: any): o is DisabledOperationException =>
+    __isa(o, "DisabledOperationException");
 }
 
 /**
@@ -2747,9 +2657,8 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InternalException {
-  export function isa(o: any): o is InternalException {
-    return __isa(o, "InternalException");
-  }
+  export const isa = (o: any): o is InternalException =>
+    __isa(o, "InternalException");
 }
 
 /**
@@ -2767,9 +2676,8 @@ export interface InvalidTypeException
 }
 
 export namespace InvalidTypeException {
-  export function isa(o: any): o is InvalidTypeException {
-    return __isa(o, "InvalidTypeException");
-  }
+  export const isa = (o: any): o is InvalidTypeException =>
+    __isa(o, "InvalidTypeException");
 }
 
 /**
@@ -2787,9 +2695,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 /**
@@ -2807,9 +2714,8 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
-  export function isa(o: any): o is ResourceAlreadyExistsException {
-    return __isa(o, "ResourceAlreadyExistsException");
-  }
+  export const isa = (o: any): o is ResourceAlreadyExistsException =>
+    __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -2827,9 +2733,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -2847,7 +2752,6 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return __isa(o, "ValidationException");
-  }
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
 }

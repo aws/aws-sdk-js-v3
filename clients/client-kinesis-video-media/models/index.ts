@@ -27,9 +27,7 @@ export interface GetMediaInput {
 }
 
 export namespace GetMediaInput {
-  export function isa(o: any): o is GetMediaInput {
-    return __isa(o, "GetMediaInput");
-  }
+  export const isa = (o: any): o is GetMediaInput => __isa(o, "GetMediaInput");
 }
 
 export interface GetMediaOutput {
@@ -113,9 +111,8 @@ export interface GetMediaOutput {
 }
 
 export namespace GetMediaOutput {
-  export function isa(o: any): o is GetMediaOutput {
-    return __isa(o, "GetMediaOutput");
-  }
+  export const isa = (o: any): o is GetMediaOutput =>
+    __isa(o, "GetMediaOutput");
 }
 
 /**
@@ -194,9 +191,7 @@ export interface StartSelector {
 }
 
 export namespace StartSelector {
-  export function isa(o: any): o is StartSelector {
-    return __isa(o, "StartSelector");
-  }
+  export const isa = (o: any): o is StartSelector => __isa(o, "StartSelector");
 }
 
 export enum StartSelectorType {
@@ -221,9 +216,8 @@ export interface ClientLimitExceededException
 }
 
 export namespace ClientLimitExceededException {
-  export function isa(o: any): o is ClientLimitExceededException {
-    return __isa(o, "ClientLimitExceededException");
-  }
+  export const isa = (o: any): o is ClientLimitExceededException =>
+    __isa(o, "ClientLimitExceededException");
 }
 
 /**
@@ -239,9 +233,8 @@ export interface ConnectionLimitExceededException
 }
 
 export namespace ConnectionLimitExceededException {
-  export function isa(o: any): o is ConnectionLimitExceededException {
-    return __isa(o, "ConnectionLimitExceededException");
-  }
+  export const isa = (o: any): o is ConnectionLimitExceededException =>
+    __isa(o, "ConnectionLimitExceededException");
 }
 
 /**
@@ -256,9 +249,8 @@ export interface InvalidArgumentException
 }
 
 export namespace InvalidArgumentException {
-  export function isa(o: any): o is InvalidArgumentException {
-    return __isa(o, "InvalidArgumentException");
-  }
+  export const isa = (o: any): o is InvalidArgumentException =>
+    __isa(o, "InvalidArgumentException");
 }
 
 /**
@@ -276,9 +268,8 @@ export interface InvalidEndpointException
 }
 
 export namespace InvalidEndpointException {
-  export function isa(o: any): o is InvalidEndpointException {
-    return __isa(o, "InvalidEndpointException");
-  }
+  export const isa = (o: any): o is InvalidEndpointException =>
+    __isa(o, "InvalidEndpointException");
 }
 
 /**
@@ -294,9 +285,8 @@ export interface NotAuthorizedException
 }
 
 export namespace NotAuthorizedException {
-  export function isa(o: any): o is NotAuthorizedException {
-    return __isa(o, "NotAuthorizedException");
-  }
+  export const isa = (o: any): o is NotAuthorizedException =>
+    __isa(o, "NotAuthorizedException");
 }
 
 /**
@@ -311,7 +301,6 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }

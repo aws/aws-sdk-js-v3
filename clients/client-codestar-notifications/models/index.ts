@@ -17,9 +17,8 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export function isa(o: any): o is AccessDeniedException {
-    return __isa(o, "AccessDeniedException");
-  }
+  export const isa = (o: any): o is AccessDeniedException =>
+    __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -35,9 +34,8 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
-  export function isa(o: any): o is ConcurrentModificationException {
-    return __isa(o, "ConcurrentModificationException");
-  }
+  export const isa = (o: any): o is ConcurrentModificationException =>
+    __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -52,9 +50,8 @@ export interface ConfigurationException
 }
 
 export namespace ConfigurationException {
-  export function isa(o: any): o is ConfigurationException {
-    return __isa(o, "ConfigurationException");
-  }
+  export const isa = (o: any): o is ConfigurationException =>
+    __isa(o, "ConfigurationException");
 }
 
 export interface CreateNotificationRuleRequest {
@@ -115,9 +112,8 @@ export interface CreateNotificationRuleRequest {
 }
 
 export namespace CreateNotificationRuleRequest {
-  export function isa(o: any): o is CreateNotificationRuleRequest {
-    return __isa(o, "CreateNotificationRuleRequest");
-  }
+  export const isa = (o: any): o is CreateNotificationRuleRequest =>
+    __isa(o, "CreateNotificationRuleRequest");
 }
 
 export interface CreateNotificationRuleResult {
@@ -129,9 +125,8 @@ export interface CreateNotificationRuleResult {
 }
 
 export namespace CreateNotificationRuleResult {
-  export function isa(o: any): o is CreateNotificationRuleResult {
-    return __isa(o, "CreateNotificationRuleResult");
-  }
+  export const isa = (o: any): o is CreateNotificationRuleResult =>
+    __isa(o, "CreateNotificationRuleResult");
 }
 
 export interface DeleteNotificationRuleRequest {
@@ -143,9 +138,8 @@ export interface DeleteNotificationRuleRequest {
 }
 
 export namespace DeleteNotificationRuleRequest {
-  export function isa(o: any): o is DeleteNotificationRuleRequest {
-    return __isa(o, "DeleteNotificationRuleRequest");
-  }
+  export const isa = (o: any): o is DeleteNotificationRuleRequest =>
+    __isa(o, "DeleteNotificationRuleRequest");
 }
 
 export interface DeleteNotificationRuleResult {
@@ -157,9 +151,8 @@ export interface DeleteNotificationRuleResult {
 }
 
 export namespace DeleteNotificationRuleResult {
-  export function isa(o: any): o is DeleteNotificationRuleResult {
-    return __isa(o, "DeleteNotificationRuleResult");
-  }
+  export const isa = (o: any): o is DeleteNotificationRuleResult =>
+    __isa(o, "DeleteNotificationRuleResult");
 }
 
 export interface DeleteTargetRequest {
@@ -178,9 +171,8 @@ export interface DeleteTargetRequest {
 }
 
 export namespace DeleteTargetRequest {
-  export function isa(o: any): o is DeleteTargetRequest {
-    return __isa(o, "DeleteTargetRequest");
-  }
+  export const isa = (o: any): o is DeleteTargetRequest =>
+    __isa(o, "DeleteTargetRequest");
 }
 
 export interface DeleteTargetResult {
@@ -188,9 +180,8 @@ export interface DeleteTargetResult {
 }
 
 export namespace DeleteTargetResult {
-  export function isa(o: any): o is DeleteTargetResult {
-    return __isa(o, "DeleteTargetResult");
-  }
+  export const isa = (o: any): o is DeleteTargetResult =>
+    __isa(o, "DeleteTargetResult");
 }
 
 export interface DescribeNotificationRuleRequest {
@@ -202,9 +193,8 @@ export interface DescribeNotificationRuleRequest {
 }
 
 export namespace DescribeNotificationRuleRequest {
-  export function isa(o: any): o is DescribeNotificationRuleRequest {
-    return __isa(o, "DescribeNotificationRuleRequest");
-  }
+  export const isa = (o: any): o is DescribeNotificationRuleRequest =>
+    __isa(o, "DescribeNotificationRuleRequest");
 }
 
 export interface DescribeNotificationRuleResult {
@@ -271,9 +261,8 @@ export interface DescribeNotificationRuleResult {
 }
 
 export namespace DescribeNotificationRuleResult {
-  export function isa(o: any): o is DescribeNotificationRuleResult {
-    return __isa(o, "DescribeNotificationRuleResult");
-  }
+  export const isa = (o: any): o is DescribeNotificationRuleResult =>
+    __isa(o, "DescribeNotificationRuleResult");
 }
 
 export enum DetailType {
@@ -308,9 +297,8 @@ export interface EventTypeSummary {
 }
 
 export namespace EventTypeSummary {
-  export function isa(o: any): o is EventTypeSummary {
-    return __isa(o, "EventTypeSummary");
-  }
+  export const isa = (o: any): o is EventTypeSummary =>
+    __isa(o, "EventTypeSummary");
 }
 
 /**
@@ -325,9 +313,8 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export function isa(o: any): o is InvalidNextTokenException {
-    return __isa(o, "InvalidNextTokenException");
-  }
+  export const isa = (o: any): o is InvalidNextTokenException =>
+    __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -344,9 +331,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 /**
@@ -368,9 +354,8 @@ export interface ListEventTypesFilter {
 }
 
 export namespace ListEventTypesFilter {
-  export function isa(o: any): o is ListEventTypesFilter {
-    return __isa(o, "ListEventTypesFilter");
-  }
+  export const isa = (o: any): o is ListEventTypesFilter =>
+    __isa(o, "ListEventTypesFilter");
 }
 
 export enum ListEventTypesFilterName {
@@ -399,9 +384,8 @@ export interface ListEventTypesRequest {
 }
 
 export namespace ListEventTypesRequest {
-  export function isa(o: any): o is ListEventTypesRequest {
-    return __isa(o, "ListEventTypesRequest");
-  }
+  export const isa = (o: any): o is ListEventTypesRequest =>
+    __isa(o, "ListEventTypesRequest");
 }
 
 export interface ListEventTypesResult {
@@ -419,9 +403,8 @@ export interface ListEventTypesResult {
 }
 
 export namespace ListEventTypesResult {
-  export function isa(o: any): o is ListEventTypesResult {
-    return __isa(o, "ListEventTypesResult");
-  }
+  export const isa = (o: any): o is ListEventTypesResult =>
+    __isa(o, "ListEventTypesResult");
 }
 
 /**
@@ -443,9 +426,8 @@ export interface ListNotificationRulesFilter {
 }
 
 export namespace ListNotificationRulesFilter {
-  export function isa(o: any): o is ListNotificationRulesFilter {
-    return __isa(o, "ListNotificationRulesFilter");
-  }
+  export const isa = (o: any): o is ListNotificationRulesFilter =>
+    __isa(o, "ListNotificationRulesFilter");
 }
 
 export enum ListNotificationRulesFilterName {
@@ -480,9 +462,8 @@ export interface ListNotificationRulesRequest {
 }
 
 export namespace ListNotificationRulesRequest {
-  export function isa(o: any): o is ListNotificationRulesRequest {
-    return __isa(o, "ListNotificationRulesRequest");
-  }
+  export const isa = (o: any): o is ListNotificationRulesRequest =>
+    __isa(o, "ListNotificationRulesRequest");
 }
 
 export interface ListNotificationRulesResult {
@@ -499,9 +480,8 @@ export interface ListNotificationRulesResult {
 }
 
 export namespace ListNotificationRulesResult {
-  export function isa(o: any): o is ListNotificationRulesResult {
-    return __isa(o, "ListNotificationRulesResult");
-  }
+  export const isa = (o: any): o is ListNotificationRulesResult =>
+    __isa(o, "ListNotificationRulesResult");
 }
 
 export interface ListTagsForResourceRequest {
@@ -513,9 +493,8 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export function isa(o: any): o is ListTagsForResourceRequest {
-    return __isa(o, "ListTagsForResourceRequest");
-  }
+  export const isa = (o: any): o is ListTagsForResourceRequest =>
+    __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResult {
@@ -527,9 +506,8 @@ export interface ListTagsForResourceResult {
 }
 
 export namespace ListTagsForResourceResult {
-  export function isa(o: any): o is ListTagsForResourceResult {
-    return __isa(o, "ListTagsForResourceResult");
-  }
+  export const isa = (o: any): o is ListTagsForResourceResult =>
+    __isa(o, "ListTagsForResourceResult");
 }
 
 /**
@@ -555,9 +533,8 @@ export interface ListTargetsFilter {
 }
 
 export namespace ListTargetsFilter {
-  export function isa(o: any): o is ListTargetsFilter {
-    return __isa(o, "ListTargetsFilter");
-  }
+  export const isa = (o: any): o is ListTargetsFilter =>
+    __isa(o, "ListTargetsFilter");
 }
 
 export enum ListTargetsFilterName {
@@ -591,9 +568,8 @@ export interface ListTargetsRequest {
 }
 
 export namespace ListTargetsRequest {
-  export function isa(o: any): o is ListTargetsRequest {
-    return __isa(o, "ListTargetsRequest");
-  }
+  export const isa = (o: any): o is ListTargetsRequest =>
+    __isa(o, "ListTargetsRequest");
 }
 
 export interface ListTargetsResult {
@@ -611,9 +587,8 @@ export interface ListTargetsResult {
 }
 
 export namespace ListTargetsResult {
-  export function isa(o: any): o is ListTargetsResult {
-    return __isa(o, "ListTargetsResult");
-  }
+  export const isa = (o: any): o is ListTargetsResult =>
+    __isa(o, "ListTargetsResult");
 }
 
 export enum NotificationRuleStatus {
@@ -638,9 +613,8 @@ export interface NotificationRuleSummary {
 }
 
 export namespace NotificationRuleSummary {
-  export function isa(o: any): o is NotificationRuleSummary {
-    return __isa(o, "NotificationRuleSummary");
-  }
+  export const isa = (o: any): o is NotificationRuleSummary =>
+    __isa(o, "NotificationRuleSummary");
 }
 
 /**
@@ -656,9 +630,8 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
-  export function isa(o: any): o is ResourceAlreadyExistsException {
-    return __isa(o, "ResourceAlreadyExistsException");
-  }
+  export const isa = (o: any): o is ResourceAlreadyExistsException =>
+    __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -673,9 +646,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 export interface SubscribeRequest {
@@ -698,9 +670,8 @@ export interface SubscribeRequest {
 }
 
 export namespace SubscribeRequest {
-  export function isa(o: any): o is SubscribeRequest {
-    return __isa(o, "SubscribeRequest");
-  }
+  export const isa = (o: any): o is SubscribeRequest =>
+    __isa(o, "SubscribeRequest");
 }
 
 export interface SubscribeResult {
@@ -712,9 +683,8 @@ export interface SubscribeResult {
 }
 
 export namespace SubscribeResult {
-  export function isa(o: any): o is SubscribeResult {
-    return __isa(o, "SubscribeResult");
-  }
+  export const isa = (o: any): o is SubscribeResult =>
+    __isa(o, "SubscribeResult");
 }
 
 export interface TagResourceRequest {
@@ -731,9 +701,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResult {
@@ -745,9 +714,8 @@ export interface TagResourceResult {
 }
 
 export namespace TagResourceResult {
-  export function isa(o: any): o is TagResourceResult {
-    return __isa(o, "TagResourceResult");
-  }
+  export const isa = (o: any): o is TagResourceResult =>
+    __isa(o, "TagResourceResult");
 }
 
 /**
@@ -767,9 +735,7 @@ export interface Target {
 }
 
 export namespace Target {
-  export function isa(o: any): o is Target {
-    return __isa(o, "Target");
-  }
+  export const isa = (o: any): o is Target => __isa(o, "Target");
 }
 
 export enum TargetStatus {
@@ -802,9 +768,7 @@ export interface TargetSummary {
 }
 
 export namespace TargetSummary {
-  export function isa(o: any): o is TargetSummary {
-    return __isa(o, "TargetSummary");
-  }
+  export const isa = (o: any): o is TargetSummary => __isa(o, "TargetSummary");
 }
 
 export interface UnsubscribeRequest {
@@ -821,9 +785,8 @@ export interface UnsubscribeRequest {
 }
 
 export namespace UnsubscribeRequest {
-  export function isa(o: any): o is UnsubscribeRequest {
-    return __isa(o, "UnsubscribeRequest");
-  }
+  export const isa = (o: any): o is UnsubscribeRequest =>
+    __isa(o, "UnsubscribeRequest");
 }
 
 export interface UnsubscribeResult {
@@ -835,9 +798,8 @@ export interface UnsubscribeResult {
 }
 
 export namespace UnsubscribeResult {
-  export function isa(o: any): o is UnsubscribeResult {
-    return __isa(o, "UnsubscribeResult");
-  }
+  export const isa = (o: any): o is UnsubscribeResult =>
+    __isa(o, "UnsubscribeResult");
 }
 
 export interface UntagResourceRequest {
@@ -855,9 +817,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResult {
@@ -865,9 +826,8 @@ export interface UntagResourceResult {
 }
 
 export namespace UntagResourceResult {
-  export function isa(o: any): o is UntagResourceResult {
-    return __isa(o, "UntagResourceResult");
-  }
+  export const isa = (o: any): o is UntagResourceResult =>
+    __isa(o, "UntagResourceResult");
 }
 
 export interface UpdateNotificationRuleRequest {
@@ -908,9 +868,8 @@ export interface UpdateNotificationRuleRequest {
 }
 
 export namespace UpdateNotificationRuleRequest {
-  export function isa(o: any): o is UpdateNotificationRuleRequest {
-    return __isa(o, "UpdateNotificationRuleRequest");
-  }
+  export const isa = (o: any): o is UpdateNotificationRuleRequest =>
+    __isa(o, "UpdateNotificationRuleRequest");
 }
 
 export interface UpdateNotificationRuleResult {
@@ -918,9 +877,8 @@ export interface UpdateNotificationRuleResult {
 }
 
 export namespace UpdateNotificationRuleResult {
-  export function isa(o: any): o is UpdateNotificationRuleResult {
-    return __isa(o, "UpdateNotificationRuleResult");
-  }
+  export const isa = (o: any): o is UpdateNotificationRuleResult =>
+    __isa(o, "UpdateNotificationRuleResult");
 }
 
 /**
@@ -935,7 +893,6 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return __isa(o, "ValidationException");
-  }
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
 }

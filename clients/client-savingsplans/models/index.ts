@@ -59,9 +59,8 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
 }
 
 export namespace DescribeSavingsPlansOfferingRatesRequest {
-  export function isa(o: any): o is DescribeSavingsPlansOfferingRatesRequest {
-    return __isa(o, "DescribeSavingsPlansOfferingRatesRequest");
-  }
+  export const isa = (o: any): o is DescribeSavingsPlansOfferingRatesRequest =>
+    __isa(o, "DescribeSavingsPlansOfferingRatesRequest");
 }
 
 export interface DescribeSavingsPlansOfferingRatesResponse {
@@ -79,9 +78,8 @@ export interface DescribeSavingsPlansOfferingRatesResponse {
 }
 
 export namespace DescribeSavingsPlansOfferingRatesResponse {
-  export function isa(o: any): o is DescribeSavingsPlansOfferingRatesResponse {
-    return __isa(o, "DescribeSavingsPlansOfferingRatesResponse");
-  }
+  export const isa = (o: any): o is DescribeSavingsPlansOfferingRatesResponse =>
+    __isa(o, "DescribeSavingsPlansOfferingRatesResponse");
 }
 
 export interface DescribeSavingsPlansOfferingsRequest {
@@ -154,9 +152,8 @@ export interface DescribeSavingsPlansOfferingsRequest {
 }
 
 export namespace DescribeSavingsPlansOfferingsRequest {
-  export function isa(o: any): o is DescribeSavingsPlansOfferingsRequest {
-    return __isa(o, "DescribeSavingsPlansOfferingsRequest");
-  }
+  export const isa = (o: any): o is DescribeSavingsPlansOfferingsRequest =>
+    __isa(o, "DescribeSavingsPlansOfferingsRequest");
 }
 
 export interface DescribeSavingsPlansOfferingsResponse {
@@ -174,9 +171,8 @@ export interface DescribeSavingsPlansOfferingsResponse {
 }
 
 export namespace DescribeSavingsPlansOfferingsResponse {
-  export function isa(o: any): o is DescribeSavingsPlansOfferingsResponse {
-    return __isa(o, "DescribeSavingsPlansOfferingsResponse");
-  }
+  export const isa = (o: any): o is DescribeSavingsPlansOfferingsResponse =>
+    __isa(o, "DescribeSavingsPlansOfferingsResponse");
 }
 
 /**
@@ -216,9 +212,8 @@ export interface ParentSavingsPlanOffering {
 }
 
 export namespace ParentSavingsPlanOffering {
-  export function isa(o: any): o is ParentSavingsPlanOffering {
-    return __isa(o, "ParentSavingsPlanOffering");
-  }
+  export const isa = (o: any): o is ParentSavingsPlanOffering =>
+    __isa(o, "ParentSavingsPlanOffering");
 }
 
 /**
@@ -283,9 +278,8 @@ export interface SavingsPlanOffering {
 }
 
 export namespace SavingsPlanOffering {
-  export function isa(o: any): o is SavingsPlanOffering {
-    return __isa(o, "SavingsPlanOffering");
-  }
+  export const isa = (o: any): o is SavingsPlanOffering =>
+    __isa(o, "SavingsPlanOffering");
 }
 
 export enum SavingsPlanOfferingFilterAttribute {
@@ -310,9 +304,8 @@ export interface SavingsPlanOfferingFilterElement {
 }
 
 export namespace SavingsPlanOfferingFilterElement {
-  export function isa(o: any): o is SavingsPlanOfferingFilterElement {
-    return __isa(o, "SavingsPlanOfferingFilterElement");
-  }
+  export const isa = (o: any): o is SavingsPlanOfferingFilterElement =>
+    __isa(o, "SavingsPlanOfferingFilterElement");
 }
 
 /**
@@ -332,9 +325,8 @@ export interface SavingsPlanOfferingProperty {
 }
 
 export namespace SavingsPlanOfferingProperty {
-  export function isa(o: any): o is SavingsPlanOfferingProperty {
-    return __isa(o, "SavingsPlanOfferingProperty");
-  }
+  export const isa = (o: any): o is SavingsPlanOfferingProperty =>
+    __isa(o, "SavingsPlanOfferingProperty");
 }
 
 export enum SavingsPlanOfferingPropertyKey {
@@ -389,9 +381,8 @@ export interface SavingsPlanOfferingRate {
 }
 
 export namespace SavingsPlanOfferingRate {
-  export function isa(o: any): o is SavingsPlanOfferingRate {
-    return __isa(o, "SavingsPlanOfferingRate");
-  }
+  export const isa = (o: any): o is SavingsPlanOfferingRate =>
+    __isa(o, "SavingsPlanOfferingRate");
 }
 
 /**
@@ -411,9 +402,8 @@ export interface SavingsPlanOfferingRateFilterElement {
 }
 
 export namespace SavingsPlanOfferingRateFilterElement {
-  export function isa(o: any): o is SavingsPlanOfferingRateFilterElement {
-    return __isa(o, "SavingsPlanOfferingRateFilterElement");
-  }
+  export const isa = (o: any): o is SavingsPlanOfferingRateFilterElement =>
+    __isa(o, "SavingsPlanOfferingRateFilterElement");
 }
 
 /**
@@ -433,9 +423,8 @@ export interface SavingsPlanOfferingRateProperty {
 }
 
 export namespace SavingsPlanOfferingRateProperty {
-  export function isa(o: any): o is SavingsPlanOfferingRateProperty {
-    return __isa(o, "SavingsPlanOfferingRateProperty");
-  }
+  export const isa = (o: any): o is SavingsPlanOfferingRateProperty =>
+    __isa(o, "SavingsPlanOfferingRateProperty");
 }
 
 export enum SavingsPlanRateFilterAttribute {
@@ -481,9 +470,8 @@ export interface SavingsPlanRateProperty {
 }
 
 export namespace SavingsPlanRateProperty {
-  export function isa(o: any): o is SavingsPlanRateProperty {
-    return __isa(o, "SavingsPlanRateProperty");
-  }
+  export const isa = (o: any): o is SavingsPlanRateProperty =>
+    __isa(o, "SavingsPlanRateProperty");
 }
 
 export enum SavingsPlanRatePropertyKey {
@@ -535,9 +523,8 @@ export interface CreateSavingsPlanRequest {
 }
 
 export namespace CreateSavingsPlanRequest {
-  export function isa(o: any): o is CreateSavingsPlanRequest {
-    return __isa(o, "CreateSavingsPlanRequest");
-  }
+  export const isa = (o: any): o is CreateSavingsPlanRequest =>
+    __isa(o, "CreateSavingsPlanRequest");
 }
 
 export interface CreateSavingsPlanResponse {
@@ -549,9 +536,8 @@ export interface CreateSavingsPlanResponse {
 }
 
 export namespace CreateSavingsPlanResponse {
-  export function isa(o: any): o is CreateSavingsPlanResponse {
-    return __isa(o, "CreateSavingsPlanResponse");
-  }
+  export const isa = (o: any): o is CreateSavingsPlanResponse =>
+    __isa(o, "CreateSavingsPlanResponse");
 }
 
 export interface DescribeSavingsPlanRatesRequest {
@@ -579,9 +565,8 @@ export interface DescribeSavingsPlanRatesRequest {
 }
 
 export namespace DescribeSavingsPlanRatesRequest {
-  export function isa(o: any): o is DescribeSavingsPlanRatesRequest {
-    return __isa(o, "DescribeSavingsPlanRatesRequest");
-  }
+  export const isa = (o: any): o is DescribeSavingsPlanRatesRequest =>
+    __isa(o, "DescribeSavingsPlanRatesRequest");
 }
 
 export interface DescribeSavingsPlanRatesResponse {
@@ -604,9 +589,8 @@ export interface DescribeSavingsPlanRatesResponse {
 }
 
 export namespace DescribeSavingsPlanRatesResponse {
-  export function isa(o: any): o is DescribeSavingsPlanRatesResponse {
-    return __isa(o, "DescribeSavingsPlanRatesResponse");
-  }
+  export const isa = (o: any): o is DescribeSavingsPlanRatesResponse =>
+    __isa(o, "DescribeSavingsPlanRatesResponse");
 }
 
 export interface DescribeSavingsPlansRequest {
@@ -644,9 +628,8 @@ export interface DescribeSavingsPlansRequest {
 }
 
 export namespace DescribeSavingsPlansRequest {
-  export function isa(o: any): o is DescribeSavingsPlansRequest {
-    return __isa(o, "DescribeSavingsPlansRequest");
-  }
+  export const isa = (o: any): o is DescribeSavingsPlansRequest =>
+    __isa(o, "DescribeSavingsPlansRequest");
 }
 
 export interface DescribeSavingsPlansResponse {
@@ -664,9 +647,8 @@ export interface DescribeSavingsPlansResponse {
 }
 
 export namespace DescribeSavingsPlansResponse {
-  export function isa(o: any): o is DescribeSavingsPlansResponse {
-    return __isa(o, "DescribeSavingsPlansResponse");
-  }
+  export const isa = (o: any): o is DescribeSavingsPlansResponse =>
+    __isa(o, "DescribeSavingsPlansResponse");
 }
 
 /**
@@ -681,9 +663,8 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export function isa(o: any): o is InternalServerException {
-    return __isa(o, "InternalServerException");
-  }
+  export const isa = (o: any): o is InternalServerException =>
+    __isa(o, "InternalServerException");
 }
 
 export interface ListTagsForResourceRequest {
@@ -695,9 +676,8 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export function isa(o: any): o is ListTagsForResourceRequest {
-    return __isa(o, "ListTagsForResourceRequest");
-  }
+  export const isa = (o: any): o is ListTagsForResourceRequest =>
+    __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -709,9 +689,8 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export function isa(o: any): o is ListTagsForResourceResponse {
-    return __isa(o, "ListTagsForResourceResponse");
-  }
+  export const isa = (o: any): o is ListTagsForResourceResponse =>
+    __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -726,9 +705,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -828,9 +806,7 @@ export interface SavingsPlan {
 }
 
 export namespace SavingsPlan {
-  export function isa(o: any): o is SavingsPlan {
-    return __isa(o, "SavingsPlan");
-  }
+  export const isa = (o: any): o is SavingsPlan => __isa(o, "SavingsPlan");
 }
 
 /**
@@ -850,9 +826,8 @@ export interface SavingsPlanFilter {
 }
 
 export namespace SavingsPlanFilter {
-  export function isa(o: any): o is SavingsPlanFilter {
-    return __isa(o, "SavingsPlanFilter");
-  }
+  export const isa = (o: any): o is SavingsPlanFilter =>
+    __isa(o, "SavingsPlanFilter");
 }
 
 /**
@@ -902,9 +877,8 @@ export interface SavingsPlanRate {
 }
 
 export namespace SavingsPlanRate {
-  export function isa(o: any): o is SavingsPlanRate {
-    return __isa(o, "SavingsPlanRate");
-  }
+  export const isa = (o: any): o is SavingsPlanRate =>
+    __isa(o, "SavingsPlanRate");
 }
 
 /**
@@ -924,9 +898,8 @@ export interface SavingsPlanRateFilter {
 }
 
 export namespace SavingsPlanRateFilter {
-  export function isa(o: any): o is SavingsPlanRateFilter {
-    return __isa(o, "SavingsPlanRateFilter");
-  }
+  export const isa = (o: any): o is SavingsPlanRateFilter =>
+    __isa(o, "SavingsPlanRateFilter");
 }
 
 export enum SavingsPlanRateFilterName {
@@ -971,9 +944,8 @@ export interface ServiceQuotaExceededException
 }
 
 export namespace ServiceQuotaExceededException {
-  export function isa(o: any): o is ServiceQuotaExceededException {
-    return __isa(o, "ServiceQuotaExceededException");
-  }
+  export const isa = (o: any): o is ServiceQuotaExceededException =>
+    __isa(o, "ServiceQuotaExceededException");
 }
 
 export interface TagResourceRequest {
@@ -990,9 +962,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -1000,9 +971,8 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export function isa(o: any): o is TagResourceResponse {
-    return __isa(o, "TagResourceResponse");
-  }
+  export const isa = (o: any): o is TagResourceResponse =>
+    __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
@@ -1019,9 +989,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -1029,9 +998,8 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export function isa(o: any): o is UntagResourceResponse {
-    return __isa(o, "UntagResourceResponse");
-  }
+  export const isa = (o: any): o is UntagResourceResponse =>
+    __isa(o, "UntagResourceResponse");
 }
 
 /**
@@ -1046,7 +1014,6 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return __isa(o, "ValidationException");
-  }
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
 }

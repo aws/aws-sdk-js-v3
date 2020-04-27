@@ -19,9 +19,8 @@ export interface CertificateValidationException
 }
 
 export namespace CertificateValidationException {
-  export function isa(o: any): o is CertificateValidationException {
-    return __isa(o, "CertificateValidationException");
-  }
+  export const isa = (o: any): o is CertificateValidationException =>
+    __isa(o, "CertificateValidationException");
 }
 
 /**
@@ -39,9 +38,8 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return __isa(o, "InvalidRequestException");
-  }
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -58,9 +56,8 @@ export interface InvalidStateTransitionException
 }
 
 export namespace InvalidStateTransitionException {
-  export function isa(o: any): o is InvalidStateTransitionException {
-    return __isa(o, "InvalidStateTransitionException");
-  }
+  export const isa = (o: any): o is InvalidStateTransitionException =>
+    __isa(o, "InvalidStateTransitionException");
 }
 
 /**
@@ -78,9 +75,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -98,9 +94,8 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return __isa(o, "ServiceUnavailableException");
-  }
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -115,9 +110,8 @@ export interface TerminalStateException
 }
 
 export namespace TerminalStateException {
-  export function isa(o: any): o is TerminalStateException {
-    return __isa(o, "TerminalStateException");
-  }
+  export const isa = (o: any): o is TerminalStateException =>
+    __isa(o, "TerminalStateException");
 }
 
 export enum JobExecutionStatus {
@@ -151,9 +145,8 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return __isa(o, "ThrottlingException");
-  }
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 export interface DescribeJobExecutionRequest {
@@ -181,9 +174,8 @@ export interface DescribeJobExecutionRequest {
 }
 
 export namespace DescribeJobExecutionRequest {
-  export function isa(o: any): o is DescribeJobExecutionRequest {
-    return __isa(o, "DescribeJobExecutionRequest");
-  }
+  export const isa = (o: any): o is DescribeJobExecutionRequest =>
+    __isa(o, "DescribeJobExecutionRequest");
 }
 
 export interface DescribeJobExecutionResponse {
@@ -195,9 +187,8 @@ export interface DescribeJobExecutionResponse {
 }
 
 export namespace DescribeJobExecutionResponse {
-  export function isa(o: any): o is DescribeJobExecutionResponse {
-    return __isa(o, "DescribeJobExecutionResponse");
-  }
+  export const isa = (o: any): o is DescribeJobExecutionResponse =>
+    __isa(o, "DescribeJobExecutionResponse");
 }
 
 export interface GetPendingJobExecutionsRequest {
@@ -209,9 +200,8 @@ export interface GetPendingJobExecutionsRequest {
 }
 
 export namespace GetPendingJobExecutionsRequest {
-  export function isa(o: any): o is GetPendingJobExecutionsRequest {
-    return __isa(o, "GetPendingJobExecutionsRequest");
-  }
+  export const isa = (o: any): o is GetPendingJobExecutionsRequest =>
+    __isa(o, "GetPendingJobExecutionsRequest");
 }
 
 export interface GetPendingJobExecutionsResponse {
@@ -228,9 +218,8 @@ export interface GetPendingJobExecutionsResponse {
 }
 
 export namespace GetPendingJobExecutionsResponse {
-  export function isa(o: any): o is GetPendingJobExecutionsResponse {
-    return __isa(o, "GetPendingJobExecutionsResponse");
-  }
+  export const isa = (o: any): o is GetPendingJobExecutionsResponse =>
+    __isa(o, "GetPendingJobExecutionsResponse");
 }
 
 /**
@@ -299,9 +288,7 @@ export interface JobExecution {
 }
 
 export namespace JobExecution {
-  export function isa(o: any): o is JobExecution {
-    return __isa(o, "JobExecution");
-  }
+  export const isa = (o: any): o is JobExecution => __isa(o, "JobExecution");
 }
 
 /**
@@ -328,9 +315,8 @@ export interface JobExecutionState {
 }
 
 export namespace JobExecutionState {
-  export function isa(o: any): o is JobExecutionState {
-    return __isa(o, "JobExecutionState");
-  }
+  export const isa = (o: any): o is JobExecutionState =>
+    __isa(o, "JobExecutionState");
 }
 
 /**
@@ -371,9 +357,8 @@ export interface JobExecutionSummary {
 }
 
 export namespace JobExecutionSummary {
-  export function isa(o: any): o is JobExecutionSummary {
-    return __isa(o, "JobExecutionSummary");
-  }
+  export const isa = (o: any): o is JobExecutionSummary =>
+    __isa(o, "JobExecutionSummary");
 }
 
 export interface StartNextPendingJobExecutionRequest {
@@ -402,9 +387,8 @@ export interface StartNextPendingJobExecutionRequest {
 }
 
 export namespace StartNextPendingJobExecutionRequest {
-  export function isa(o: any): o is StartNextPendingJobExecutionRequest {
-    return __isa(o, "StartNextPendingJobExecutionRequest");
-  }
+  export const isa = (o: any): o is StartNextPendingJobExecutionRequest =>
+    __isa(o, "StartNextPendingJobExecutionRequest");
 }
 
 export interface StartNextPendingJobExecutionResponse {
@@ -416,9 +400,8 @@ export interface StartNextPendingJobExecutionResponse {
 }
 
 export namespace StartNextPendingJobExecutionResponse {
-  export function isa(o: any): o is StartNextPendingJobExecutionResponse {
-    return __isa(o, "StartNextPendingJobExecutionResponse");
-  }
+  export const isa = (o: any): o is StartNextPendingJobExecutionResponse =>
+    __isa(o, "StartNextPendingJobExecutionResponse");
 }
 
 export interface UpdateJobExecutionRequest {
@@ -483,9 +466,8 @@ export interface UpdateJobExecutionRequest {
 }
 
 export namespace UpdateJobExecutionRequest {
-  export function isa(o: any): o is UpdateJobExecutionRequest {
-    return __isa(o, "UpdateJobExecutionRequest");
-  }
+  export const isa = (o: any): o is UpdateJobExecutionRequest =>
+    __isa(o, "UpdateJobExecutionRequest");
 }
 
 export interface UpdateJobExecutionResponse {
@@ -502,7 +484,6 @@ export interface UpdateJobExecutionResponse {
 }
 
 export namespace UpdateJobExecutionResponse {
-  export function isa(o: any): o is UpdateJobExecutionResponse {
-    return __isa(o, "UpdateJobExecutionResponse");
-  }
+  export const isa = (o: any): o is UpdateJobExecutionResponse =>
+    __isa(o, "UpdateJobExecutionResponse");
 }

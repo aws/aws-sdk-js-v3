@@ -16,9 +16,8 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export function isa(o: any): o is AccessDeniedException {
-    return __isa(o, "AccessDeniedException");
-  }
+  export const isa = (o: any): o is AccessDeniedException =>
+    __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -34,9 +33,8 @@ export interface AuthorizationException
 }
 
 export namespace AuthorizationException {
-  export function isa(o: any): o is AuthorizationException {
-    return __isa(o, "AuthorizationException");
-  }
+  export const isa = (o: any): o is AuthorizationException =>
+    __isa(o, "AuthorizationException");
 }
 
 /**
@@ -51,9 +49,8 @@ export interface AutomatedDiscoveryInformation {
 }
 
 export namespace AutomatedDiscoveryInformation {
-  export function isa(o: any): o is AutomatedDiscoveryInformation {
-    return __isa(o, "AutomatedDiscoveryInformation");
-  }
+  export const isa = (o: any): o is AutomatedDiscoveryInformation =>
+    __isa(o, "AutomatedDiscoveryInformation");
 }
 
 /**
@@ -73,9 +70,8 @@ export interface ConsumedLicenseSummary {
 }
 
 export namespace ConsumedLicenseSummary {
-  export function isa(o: any): o is ConsumedLicenseSummary {
-    return __isa(o, "ConsumedLicenseSummary");
-  }
+  export const isa = (o: any): o is ConsumedLicenseSummary =>
+    __isa(o, "ConsumedLicenseSummary");
 }
 
 export interface CreateLicenseConfigurationRequest {
@@ -148,9 +144,8 @@ export interface CreateLicenseConfigurationRequest {
 }
 
 export namespace CreateLicenseConfigurationRequest {
-  export function isa(o: any): o is CreateLicenseConfigurationRequest {
-    return __isa(o, "CreateLicenseConfigurationRequest");
-  }
+  export const isa = (o: any): o is CreateLicenseConfigurationRequest =>
+    __isa(o, "CreateLicenseConfigurationRequest");
 }
 
 export interface CreateLicenseConfigurationResponse {
@@ -162,9 +157,8 @@ export interface CreateLicenseConfigurationResponse {
 }
 
 export namespace CreateLicenseConfigurationResponse {
-  export function isa(o: any): o is CreateLicenseConfigurationResponse {
-    return __isa(o, "CreateLicenseConfigurationResponse");
-  }
+  export const isa = (o: any): o is CreateLicenseConfigurationResponse =>
+    __isa(o, "CreateLicenseConfigurationResponse");
 }
 
 export interface DeleteLicenseConfigurationRequest {
@@ -176,9 +170,8 @@ export interface DeleteLicenseConfigurationRequest {
 }
 
 export namespace DeleteLicenseConfigurationRequest {
-  export function isa(o: any): o is DeleteLicenseConfigurationRequest {
-    return __isa(o, "DeleteLicenseConfigurationRequest");
-  }
+  export const isa = (o: any): o is DeleteLicenseConfigurationRequest =>
+    __isa(o, "DeleteLicenseConfigurationRequest");
 }
 
 export interface DeleteLicenseConfigurationResponse {
@@ -186,9 +179,8 @@ export interface DeleteLicenseConfigurationResponse {
 }
 
 export namespace DeleteLicenseConfigurationResponse {
-  export function isa(o: any): o is DeleteLicenseConfigurationResponse {
-    return __isa(o, "DeleteLicenseConfigurationResponse");
-  }
+  export const isa = (o: any): o is DeleteLicenseConfigurationResponse =>
+    __isa(o, "DeleteLicenseConfigurationResponse");
 }
 
 /**
@@ -203,9 +195,8 @@ export interface FailedDependencyException
 }
 
 export namespace FailedDependencyException {
-  export function isa(o: any): o is FailedDependencyException {
-    return __isa(o, "FailedDependencyException");
-  }
+  export const isa = (o: any): o is FailedDependencyException =>
+    __isa(o, "FailedDependencyException");
 }
 
 /**
@@ -227,9 +218,7 @@ export interface Filter {
 }
 
 export namespace Filter {
-  export function isa(o: any): o is Filter {
-    return __isa(o, "Filter");
-  }
+  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 /**
@@ -244,9 +233,8 @@ export interface FilterLimitExceededException
 }
 
 export namespace FilterLimitExceededException {
-  export function isa(o: any): o is FilterLimitExceededException {
-    return __isa(o, "FilterLimitExceededException");
-  }
+  export const isa = (o: any): o is FilterLimitExceededException =>
+    __isa(o, "FilterLimitExceededException");
 }
 
 export interface GetLicenseConfigurationRequest {
@@ -258,9 +246,8 @@ export interface GetLicenseConfigurationRequest {
 }
 
 export namespace GetLicenseConfigurationRequest {
-  export function isa(o: any): o is GetLicenseConfigurationRequest {
-    return __isa(o, "GetLicenseConfigurationRequest");
-  }
+  export const isa = (o: any): o is GetLicenseConfigurationRequest =>
+    __isa(o, "GetLicenseConfigurationRequest");
 }
 
 export interface GetLicenseConfigurationResponse {
@@ -347,9 +334,8 @@ export interface GetLicenseConfigurationResponse {
 }
 
 export namespace GetLicenseConfigurationResponse {
-  export function isa(o: any): o is GetLicenseConfigurationResponse {
-    return __isa(o, "GetLicenseConfigurationResponse");
-  }
+  export const isa = (o: any): o is GetLicenseConfigurationResponse =>
+    __isa(o, "GetLicenseConfigurationResponse");
 }
 
 export interface GetServiceSettingsRequest {
@@ -357,9 +343,8 @@ export interface GetServiceSettingsRequest {
 }
 
 export namespace GetServiceSettingsRequest {
-  export function isa(o: any): o is GetServiceSettingsRequest {
-    return __isa(o, "GetServiceSettingsRequest");
-  }
+  export const isa = (o: any): o is GetServiceSettingsRequest =>
+    __isa(o, "GetServiceSettingsRequest");
 }
 
 export interface GetServiceSettingsResponse {
@@ -394,9 +379,8 @@ export interface GetServiceSettingsResponse {
 }
 
 export namespace GetServiceSettingsResponse {
-  export function isa(o: any): o is GetServiceSettingsResponse {
-    return __isa(o, "GetServiceSettingsResponse");
-  }
+  export const isa = (o: any): o is GetServiceSettingsResponse =>
+    __isa(o, "GetServiceSettingsResponse");
 }
 
 /**
@@ -411,9 +395,8 @@ export interface InvalidParameterValueException
 }
 
 export namespace InvalidParameterValueException {
-  export function isa(o: any): o is InvalidParameterValueException {
-    return __isa(o, "InvalidParameterValueException");
-  }
+  export const isa = (o: any): o is InvalidParameterValueException =>
+    __isa(o, "InvalidParameterValueException");
 }
 
 /**
@@ -430,9 +413,8 @@ export interface InvalidResourceStateException
 }
 
 export namespace InvalidResourceStateException {
-  export function isa(o: any): o is InvalidResourceStateException {
-    return __isa(o, "InvalidResourceStateException");
-  }
+  export const isa = (o: any): o is InvalidResourceStateException =>
+    __isa(o, "InvalidResourceStateException");
 }
 
 /**
@@ -457,9 +439,8 @@ export interface InventoryFilter {
 }
 
 export namespace InventoryFilter {
-  export function isa(o: any): o is InventoryFilter {
-    return __isa(o, "InventoryFilter");
-  }
+  export const isa = (o: any): o is InventoryFilter =>
+    __isa(o, "InventoryFilter");
 }
 
 export enum InventoryFilterCondition {
@@ -555,9 +536,8 @@ export interface LicenseConfiguration {
 }
 
 export namespace LicenseConfiguration {
-  export function isa(o: any): o is LicenseConfiguration {
-    return __isa(o, "LicenseConfiguration");
-  }
+  export const isa = (o: any): o is LicenseConfiguration =>
+    __isa(o, "LicenseConfiguration");
 }
 
 /**
@@ -587,9 +567,8 @@ export interface LicenseConfigurationAssociation {
 }
 
 export namespace LicenseConfigurationAssociation {
-  export function isa(o: any): o is LicenseConfigurationAssociation {
-    return __isa(o, "LicenseConfigurationAssociation");
-  }
+  export const isa = (o: any): o is LicenseConfigurationAssociation =>
+    __isa(o, "LicenseConfigurationAssociation");
 }
 
 export enum LicenseConfigurationStatus {
@@ -634,9 +613,8 @@ export interface LicenseConfigurationUsage {
 }
 
 export namespace LicenseConfigurationUsage {
-  export function isa(o: any): o is LicenseConfigurationUsage {
-    return __isa(o, "LicenseConfigurationUsage");
-  }
+  export const isa = (o: any): o is LicenseConfigurationUsage =>
+    __isa(o, "LicenseConfigurationUsage");
 }
 
 export enum LicenseCountingType {
@@ -693,9 +671,8 @@ export interface LicenseOperationFailure {
 }
 
 export namespace LicenseOperationFailure {
-  export function isa(o: any): o is LicenseOperationFailure {
-    return __isa(o, "LicenseOperationFailure");
-  }
+  export const isa = (o: any): o is LicenseOperationFailure =>
+    __isa(o, "LicenseOperationFailure");
 }
 
 /**
@@ -710,9 +687,8 @@ export interface LicenseSpecification {
 }
 
 export namespace LicenseSpecification {
-  export function isa(o: any): o is LicenseSpecification {
-    return __isa(o, "LicenseSpecification");
-  }
+  export const isa = (o: any): o is LicenseSpecification =>
+    __isa(o, "LicenseSpecification");
 }
 
 /**
@@ -727,9 +703,8 @@ export interface LicenseUsageException
 }
 
 export namespace LicenseUsageException {
-  export function isa(o: any): o is LicenseUsageException {
-    return __isa(o, "LicenseUsageException");
-  }
+  export const isa = (o: any): o is LicenseUsageException =>
+    __isa(o, "LicenseUsageException");
 }
 
 export interface ListAssociationsForLicenseConfigurationRequest {
@@ -751,11 +726,10 @@ export interface ListAssociationsForLicenseConfigurationRequest {
 }
 
 export namespace ListAssociationsForLicenseConfigurationRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ListAssociationsForLicenseConfigurationRequest {
-    return __isa(o, "ListAssociationsForLicenseConfigurationRequest");
-  }
+  ): o is ListAssociationsForLicenseConfigurationRequest =>
+    __isa(o, "ListAssociationsForLicenseConfigurationRequest");
 }
 
 export interface ListAssociationsForLicenseConfigurationResponse {
@@ -772,11 +746,10 @@ export interface ListAssociationsForLicenseConfigurationResponse {
 }
 
 export namespace ListAssociationsForLicenseConfigurationResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ListAssociationsForLicenseConfigurationResponse {
-    return __isa(o, "ListAssociationsForLicenseConfigurationResponse");
-  }
+  ): o is ListAssociationsForLicenseConfigurationResponse =>
+    __isa(o, "ListAssociationsForLicenseConfigurationResponse");
 }
 
 export interface ListFailuresForLicenseConfigurationOperationsRequest {
@@ -798,11 +771,10 @@ export interface ListFailuresForLicenseConfigurationOperationsRequest {
 }
 
 export namespace ListFailuresForLicenseConfigurationOperationsRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ListFailuresForLicenseConfigurationOperationsRequest {
-    return __isa(o, "ListFailuresForLicenseConfigurationOperationsRequest");
-  }
+  ): o is ListFailuresForLicenseConfigurationOperationsRequest =>
+    __isa(o, "ListFailuresForLicenseConfigurationOperationsRequest");
 }
 
 export interface ListFailuresForLicenseConfigurationOperationsResponse {
@@ -819,11 +791,10 @@ export interface ListFailuresForLicenseConfigurationOperationsResponse {
 }
 
 export namespace ListFailuresForLicenseConfigurationOperationsResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ListFailuresForLicenseConfigurationOperationsResponse {
-    return __isa(o, "ListFailuresForLicenseConfigurationOperationsResponse");
-  }
+  ): o is ListFailuresForLicenseConfigurationOperationsResponse =>
+    __isa(o, "ListFailuresForLicenseConfigurationOperationsResponse");
 }
 
 export interface ListLicenseConfigurationsRequest {
@@ -868,9 +839,8 @@ export interface ListLicenseConfigurationsRequest {
 }
 
 export namespace ListLicenseConfigurationsRequest {
-  export function isa(o: any): o is ListLicenseConfigurationsRequest {
-    return __isa(o, "ListLicenseConfigurationsRequest");
-  }
+  export const isa = (o: any): o is ListLicenseConfigurationsRequest =>
+    __isa(o, "ListLicenseConfigurationsRequest");
 }
 
 export interface ListLicenseConfigurationsResponse {
@@ -887,9 +857,8 @@ export interface ListLicenseConfigurationsResponse {
 }
 
 export namespace ListLicenseConfigurationsResponse {
-  export function isa(o: any): o is ListLicenseConfigurationsResponse {
-    return __isa(o, "ListLicenseConfigurationsResponse");
-  }
+  export const isa = (o: any): o is ListLicenseConfigurationsResponse =>
+    __isa(o, "ListLicenseConfigurationsResponse");
 }
 
 export interface ListLicenseSpecificationsForResourceRequest {
@@ -911,11 +880,10 @@ export interface ListLicenseSpecificationsForResourceRequest {
 }
 
 export namespace ListLicenseSpecificationsForResourceRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ListLicenseSpecificationsForResourceRequest {
-    return __isa(o, "ListLicenseSpecificationsForResourceRequest");
-  }
+  ): o is ListLicenseSpecificationsForResourceRequest =>
+    __isa(o, "ListLicenseSpecificationsForResourceRequest");
 }
 
 export interface ListLicenseSpecificationsForResourceResponse {
@@ -932,11 +900,10 @@ export interface ListLicenseSpecificationsForResourceResponse {
 }
 
 export namespace ListLicenseSpecificationsForResourceResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ListLicenseSpecificationsForResourceResponse {
-    return __isa(o, "ListLicenseSpecificationsForResourceResponse");
-  }
+  ): o is ListLicenseSpecificationsForResourceResponse =>
+    __isa(o, "ListLicenseSpecificationsForResourceResponse");
 }
 
 export interface ListResourceInventoryRequest {
@@ -990,9 +957,8 @@ export interface ListResourceInventoryRequest {
 }
 
 export namespace ListResourceInventoryRequest {
-  export function isa(o: any): o is ListResourceInventoryRequest {
-    return __isa(o, "ListResourceInventoryRequest");
-  }
+  export const isa = (o: any): o is ListResourceInventoryRequest =>
+    __isa(o, "ListResourceInventoryRequest");
 }
 
 export interface ListResourceInventoryResponse {
@@ -1009,9 +975,8 @@ export interface ListResourceInventoryResponse {
 }
 
 export namespace ListResourceInventoryResponse {
-  export function isa(o: any): o is ListResourceInventoryResponse {
-    return __isa(o, "ListResourceInventoryResponse");
-  }
+  export const isa = (o: any): o is ListResourceInventoryResponse =>
+    __isa(o, "ListResourceInventoryResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -1023,9 +988,8 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export function isa(o: any): o is ListTagsForResourceRequest {
-    return __isa(o, "ListTagsForResourceRequest");
-  }
+  export const isa = (o: any): o is ListTagsForResourceRequest =>
+    __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -1037,9 +1001,8 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export function isa(o: any): o is ListTagsForResourceResponse {
-    return __isa(o, "ListTagsForResourceResponse");
-  }
+  export const isa = (o: any): o is ListTagsForResourceResponse =>
+    __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListUsageForLicenseConfigurationRequest {
@@ -1084,9 +1047,8 @@ export interface ListUsageForLicenseConfigurationRequest {
 }
 
 export namespace ListUsageForLicenseConfigurationRequest {
-  export function isa(o: any): o is ListUsageForLicenseConfigurationRequest {
-    return __isa(o, "ListUsageForLicenseConfigurationRequest");
-  }
+  export const isa = (o: any): o is ListUsageForLicenseConfigurationRequest =>
+    __isa(o, "ListUsageForLicenseConfigurationRequest");
 }
 
 export interface ListUsageForLicenseConfigurationResponse {
@@ -1103,9 +1065,8 @@ export interface ListUsageForLicenseConfigurationResponse {
 }
 
 export namespace ListUsageForLicenseConfigurationResponse {
-  export function isa(o: any): o is ListUsageForLicenseConfigurationResponse {
-    return __isa(o, "ListUsageForLicenseConfigurationResponse");
-  }
+  export const isa = (o: any): o is ListUsageForLicenseConfigurationResponse =>
+    __isa(o, "ListUsageForLicenseConfigurationResponse");
 }
 
 /**
@@ -1125,9 +1086,8 @@ export interface ManagedResourceSummary {
 }
 
 export namespace ManagedResourceSummary {
-  export function isa(o: any): o is ManagedResourceSummary {
-    return __isa(o, "ManagedResourceSummary");
-  }
+  export const isa = (o: any): o is ManagedResourceSummary =>
+    __isa(o, "ManagedResourceSummary");
 }
 
 /**
@@ -1147,9 +1107,7 @@ export interface Metadata {
 }
 
 export namespace Metadata {
-  export function isa(o: any): o is Metadata {
-    return __isa(o, "Metadata");
-  }
+  export const isa = (o: any): o is Metadata => __isa(o, "Metadata");
 }
 
 /**
@@ -1164,9 +1122,8 @@ export interface OrganizationConfiguration {
 }
 
 export namespace OrganizationConfiguration {
-  export function isa(o: any): o is OrganizationConfiguration {
-    return __isa(o, "OrganizationConfiguration");
-  }
+  export const isa = (o: any): o is OrganizationConfiguration =>
+    __isa(o, "OrganizationConfiguration");
 }
 
 /**
@@ -1223,9 +1180,8 @@ export interface ProductInformation {
 }
 
 export namespace ProductInformation {
-  export function isa(o: any): o is ProductInformation {
-    return __isa(o, "ProductInformation");
-  }
+  export const isa = (o: any): o is ProductInformation =>
+    __isa(o, "ProductInformation");
 }
 
 /**
@@ -1250,9 +1206,8 @@ export interface ProductInformationFilter {
 }
 
 export namespace ProductInformationFilter {
-  export function isa(o: any): o is ProductInformationFilter {
-    return __isa(o, "ProductInformationFilter");
-  }
+  export const isa = (o: any): o is ProductInformationFilter =>
+    __isa(o, "ProductInformationFilter");
 }
 
 /**
@@ -1267,9 +1222,8 @@ export interface RateLimitExceededException
 }
 
 export namespace RateLimitExceededException {
-  export function isa(o: any): o is RateLimitExceededException {
-    return __isa(o, "RateLimitExceededException");
-  }
+  export const isa = (o: any): o is RateLimitExceededException =>
+    __isa(o, "RateLimitExceededException");
 }
 
 /**
@@ -1309,9 +1263,8 @@ export interface ResourceInventory {
 }
 
 export namespace ResourceInventory {
-  export function isa(o: any): o is ResourceInventory {
-    return __isa(o, "ResourceInventory");
-  }
+  export const isa = (o: any): o is ResourceInventory =>
+    __isa(o, "ResourceInventory");
 }
 
 /**
@@ -1326,9 +1279,8 @@ export interface ResourceLimitExceededException
 }
 
 export namespace ResourceLimitExceededException {
-  export function isa(o: any): o is ResourceLimitExceededException {
-    return __isa(o, "ResourceLimitExceededException");
-  }
+  export const isa = (o: any): o is ResourceLimitExceededException =>
+    __isa(o, "ResourceLimitExceededException");
 }
 
 export enum ResourceType {
@@ -1351,9 +1303,8 @@ export interface ServerInternalException
 }
 
 export namespace ServerInternalException {
-  export function isa(o: any): o is ServerInternalException {
-    return __isa(o, "ServerInternalException");
-  }
+  export const isa = (o: any): o is ServerInternalException =>
+    __isa(o, "ServerInternalException");
 }
 
 /**
@@ -1373,9 +1324,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
@@ -1392,9 +1341,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -1402,9 +1350,8 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export function isa(o: any): o is TagResourceResponse {
-    return __isa(o, "TagResourceResponse");
-  }
+  export const isa = (o: any): o is TagResourceResponse =>
+    __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
@@ -1421,9 +1368,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -1431,9 +1377,8 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export function isa(o: any): o is UntagResourceResponse {
-    return __isa(o, "UntagResourceResponse");
-  }
+  export const isa = (o: any): o is UntagResourceResponse =>
+    __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateLicenseConfigurationRequest {
@@ -1480,9 +1425,8 @@ export interface UpdateLicenseConfigurationRequest {
 }
 
 export namespace UpdateLicenseConfigurationRequest {
-  export function isa(o: any): o is UpdateLicenseConfigurationRequest {
-    return __isa(o, "UpdateLicenseConfigurationRequest");
-  }
+  export const isa = (o: any): o is UpdateLicenseConfigurationRequest =>
+    __isa(o, "UpdateLicenseConfigurationRequest");
 }
 
 export interface UpdateLicenseConfigurationResponse {
@@ -1490,9 +1434,8 @@ export interface UpdateLicenseConfigurationResponse {
 }
 
 export namespace UpdateLicenseConfigurationResponse {
-  export function isa(o: any): o is UpdateLicenseConfigurationResponse {
-    return __isa(o, "UpdateLicenseConfigurationResponse");
-  }
+  export const isa = (o: any): o is UpdateLicenseConfigurationResponse =>
+    __isa(o, "UpdateLicenseConfigurationResponse");
 }
 
 export interface UpdateLicenseSpecificationsForResourceRequest {
@@ -1514,11 +1457,10 @@ export interface UpdateLicenseSpecificationsForResourceRequest {
 }
 
 export namespace UpdateLicenseSpecificationsForResourceRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is UpdateLicenseSpecificationsForResourceRequest {
-    return __isa(o, "UpdateLicenseSpecificationsForResourceRequest");
-  }
+  ): o is UpdateLicenseSpecificationsForResourceRequest =>
+    __isa(o, "UpdateLicenseSpecificationsForResourceRequest");
 }
 
 export interface UpdateLicenseSpecificationsForResourceResponse {
@@ -1526,11 +1468,10 @@ export interface UpdateLicenseSpecificationsForResourceResponse {
 }
 
 export namespace UpdateLicenseSpecificationsForResourceResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is UpdateLicenseSpecificationsForResourceResponse {
-    return __isa(o, "UpdateLicenseSpecificationsForResourceResponse");
-  }
+  ): o is UpdateLicenseSpecificationsForResourceResponse =>
+    __isa(o, "UpdateLicenseSpecificationsForResourceResponse");
 }
 
 export interface UpdateServiceSettingsRequest {
@@ -1557,9 +1498,8 @@ export interface UpdateServiceSettingsRequest {
 }
 
 export namespace UpdateServiceSettingsRequest {
-  export function isa(o: any): o is UpdateServiceSettingsRequest {
-    return __isa(o, "UpdateServiceSettingsRequest");
-  }
+  export const isa = (o: any): o is UpdateServiceSettingsRequest =>
+    __isa(o, "UpdateServiceSettingsRequest");
 }
 
 export interface UpdateServiceSettingsResponse {
@@ -1567,7 +1507,6 @@ export interface UpdateServiceSettingsResponse {
 }
 
 export namespace UpdateServiceSettingsResponse {
-  export function isa(o: any): o is UpdateServiceSettingsResponse {
-    return __isa(o, "UpdateServiceSettingsResponse");
-  }
+  export const isa = (o: any): o is UpdateServiceSettingsResponse =>
+    __isa(o, "UpdateServiceSettingsResponse");
 }

@@ -19,9 +19,8 @@ export interface AddFlowOutputs420Exception
 }
 
 export namespace AddFlowOutputs420Exception {
-  export function isa(o: any): o is AddFlowOutputs420Exception {
-    return __isa(o, "AddFlowOutputs420Exception");
-  }
+  export const isa = (o: any): o is AddFlowOutputs420Exception =>
+    __isa(o, "AddFlowOutputs420Exception");
 }
 
 /**
@@ -41,9 +40,8 @@ export interface AddFlowOutputsRequest {
 }
 
 export namespace AddFlowOutputsRequest {
-  export function isa(o: any): o is AddFlowOutputsRequest {
-    return __isa(o, "AddFlowOutputsRequest");
-  }
+  export const isa = (o: any): o is AddFlowOutputsRequest =>
+    __isa(o, "AddFlowOutputsRequest");
 }
 
 export interface AddFlowOutputsResponse {
@@ -60,9 +58,8 @@ export interface AddFlowOutputsResponse {
 }
 
 export namespace AddFlowOutputsResponse {
-  export function isa(o: any): o is AddFlowOutputsResponse {
-    return __isa(o, "AddFlowOutputsResponse");
-  }
+  export const isa = (o: any): o is AddFlowOutputsResponse =>
+    __isa(o, "AddFlowOutputsResponse");
 }
 
 /**
@@ -127,9 +124,8 @@ export interface AddOutputRequest {
 }
 
 export namespace AddOutputRequest {
-  export function isa(o: any): o is AddOutputRequest {
-    return __isa(o, "AddOutputRequest");
-  }
+  export const isa = (o: any): o is AddOutputRequest =>
+    __isa(o, "AddOutputRequest");
 }
 
 export enum Algorithm {
@@ -153,9 +149,8 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export function isa(o: any): o is BadRequestException {
-    return __isa(o, "BadRequestException");
-  }
+  export const isa = (o: any): o is BadRequestException =>
+    __isa(o, "BadRequestException");
 }
 
 /**
@@ -173,9 +168,8 @@ export interface CreateFlow420Exception
 }
 
 export namespace CreateFlow420Exception {
-  export function isa(o: any): o is CreateFlow420Exception {
-    return __isa(o, "CreateFlow420Exception");
-  }
+  export const isa = (o: any): o is CreateFlow420Exception =>
+    __isa(o, "CreateFlow420Exception");
 }
 
 /**
@@ -210,9 +204,8 @@ export interface CreateFlowRequest {
 }
 
 export namespace CreateFlowRequest {
-  export function isa(o: any): o is CreateFlowRequest {
-    return __isa(o, "CreateFlowRequest");
-  }
+  export const isa = (o: any): o is CreateFlowRequest =>
+    __isa(o, "CreateFlowRequest");
 }
 
 export interface CreateFlowResponse {
@@ -224,9 +217,8 @@ export interface CreateFlowResponse {
 }
 
 export namespace CreateFlowResponse {
-  export function isa(o: any): o is CreateFlowResponse {
-    return __isa(o, "CreateFlowResponse");
-  }
+  export const isa = (o: any): o is CreateFlowResponse =>
+    __isa(o, "CreateFlowResponse");
 }
 
 export interface DeleteFlowRequest {
@@ -238,9 +230,8 @@ export interface DeleteFlowRequest {
 }
 
 export namespace DeleteFlowRequest {
-  export function isa(o: any): o is DeleteFlowRequest {
-    return __isa(o, "DeleteFlowRequest");
-  }
+  export const isa = (o: any): o is DeleteFlowRequest =>
+    __isa(o, "DeleteFlowRequest");
 }
 
 export interface DeleteFlowResponse {
@@ -257,9 +248,8 @@ export interface DeleteFlowResponse {
 }
 
 export namespace DeleteFlowResponse {
-  export function isa(o: any): o is DeleteFlowResponse {
-    return __isa(o, "DeleteFlowResponse");
-  }
+  export const isa = (o: any): o is DeleteFlowResponse =>
+    __isa(o, "DeleteFlowResponse");
 }
 
 export interface DescribeFlowRequest {
@@ -271,9 +261,8 @@ export interface DescribeFlowRequest {
 }
 
 export namespace DescribeFlowRequest {
-  export function isa(o: any): o is DescribeFlowRequest {
-    return __isa(o, "DescribeFlowRequest");
-  }
+  export const isa = (o: any): o is DescribeFlowRequest =>
+    __isa(o, "DescribeFlowRequest");
 }
 
 export interface DescribeFlowResponse {
@@ -290,9 +279,8 @@ export interface DescribeFlowResponse {
 }
 
 export namespace DescribeFlowResponse {
-  export function isa(o: any): o is DescribeFlowResponse {
-    return __isa(o, "DescribeFlowResponse");
-  }
+  export const isa = (o: any): o is DescribeFlowResponse =>
+    __isa(o, "DescribeFlowResponse");
 }
 
 /**
@@ -347,9 +335,7 @@ export interface Encryption {
 }
 
 export namespace Encryption {
-  export function isa(o: any): o is Encryption {
-    return __isa(o, "Encryption");
-  }
+  export const isa = (o: any): o is Encryption => __isa(o, "Encryption");
 }
 
 /**
@@ -389,9 +375,7 @@ export interface Entitlement {
 }
 
 export namespace Entitlement {
-  export function isa(o: any): o is Entitlement {
-    return __isa(o, "Entitlement");
-  }
+  export const isa = (o: any): o is Entitlement => __isa(o, "Entitlement");
 }
 
 /**
@@ -446,9 +430,7 @@ export interface Flow {
 }
 
 export namespace Flow {
-  export function isa(o: any): o is Flow {
-    return __isa(o, "Flow");
-  }
+  export const isa = (o: any): o is Flow => __isa(o, "Flow");
 }
 
 /**
@@ -464,9 +446,8 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export function isa(o: any): o is ForbiddenException {
-    return __isa(o, "ForbiddenException");
-  }
+  export const isa = (o: any): o is ForbiddenException =>
+    __isa(o, "ForbiddenException");
 }
 
 /**
@@ -501,9 +482,8 @@ export interface GrantEntitlementRequest {
 }
 
 export namespace GrantEntitlementRequest {
-  export function isa(o: any): o is GrantEntitlementRequest {
-    return __isa(o, "GrantEntitlementRequest");
-  }
+  export const isa = (o: any): o is GrantEntitlementRequest =>
+    __isa(o, "GrantEntitlementRequest");
 }
 
 /**
@@ -521,9 +501,8 @@ export interface GrantFlowEntitlements420Exception
 }
 
 export namespace GrantFlowEntitlements420Exception {
-  export function isa(o: any): o is GrantFlowEntitlements420Exception {
-    return __isa(o, "GrantFlowEntitlements420Exception");
-  }
+  export const isa = (o: any): o is GrantFlowEntitlements420Exception =>
+    __isa(o, "GrantFlowEntitlements420Exception");
 }
 
 /**
@@ -543,9 +522,8 @@ export interface GrantFlowEntitlementsRequest {
 }
 
 export namespace GrantFlowEntitlementsRequest {
-  export function isa(o: any): o is GrantFlowEntitlementsRequest {
-    return __isa(o, "GrantFlowEntitlementsRequest");
-  }
+  export const isa = (o: any): o is GrantFlowEntitlementsRequest =>
+    __isa(o, "GrantFlowEntitlementsRequest");
 }
 
 export interface GrantFlowEntitlementsResponse {
@@ -562,9 +540,8 @@ export interface GrantFlowEntitlementsResponse {
 }
 
 export namespace GrantFlowEntitlementsResponse {
-  export function isa(o: any): o is GrantFlowEntitlementsResponse {
-    return __isa(o, "GrantFlowEntitlementsResponse");
-  }
+  export const isa = (o: any): o is GrantFlowEntitlementsResponse =>
+    __isa(o, "GrantFlowEntitlementsResponse");
 }
 
 /**
@@ -582,9 +559,8 @@ export interface InternalServerErrorException
 }
 
 export namespace InternalServerErrorException {
-  export function isa(o: any): o is InternalServerErrorException {
-    return __isa(o, "InternalServerErrorException");
-  }
+  export const isa = (o: any): o is InternalServerErrorException =>
+    __isa(o, "InternalServerErrorException");
 }
 
 export enum KeyType {
@@ -606,9 +582,8 @@ export interface ListEntitlementsRequest {
 }
 
 export namespace ListEntitlementsRequest {
-  export function isa(o: any): o is ListEntitlementsRequest {
-    return __isa(o, "ListEntitlementsRequest");
-  }
+  export const isa = (o: any): o is ListEntitlementsRequest =>
+    __isa(o, "ListEntitlementsRequest");
 }
 
 export interface ListEntitlementsResponse {
@@ -625,9 +600,8 @@ export interface ListEntitlementsResponse {
 }
 
 export namespace ListEntitlementsResponse {
-  export function isa(o: any): o is ListEntitlementsResponse {
-    return __isa(o, "ListEntitlementsResponse");
-  }
+  export const isa = (o: any): o is ListEntitlementsResponse =>
+    __isa(o, "ListEntitlementsResponse");
 }
 
 export interface ListFlowsRequest {
@@ -644,9 +618,8 @@ export interface ListFlowsRequest {
 }
 
 export namespace ListFlowsRequest {
-  export function isa(o: any): o is ListFlowsRequest {
-    return __isa(o, "ListFlowsRequest");
-  }
+  export const isa = (o: any): o is ListFlowsRequest =>
+    __isa(o, "ListFlowsRequest");
 }
 
 export interface ListFlowsResponse {
@@ -663,9 +636,8 @@ export interface ListFlowsResponse {
 }
 
 export namespace ListFlowsResponse {
-  export function isa(o: any): o is ListFlowsResponse {
-    return __isa(o, "ListFlowsResponse");
-  }
+  export const isa = (o: any): o is ListFlowsResponse =>
+    __isa(o, "ListFlowsResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -677,9 +649,8 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export function isa(o: any): o is ListTagsForResourceRequest {
-    return __isa(o, "ListTagsForResourceRequest");
-  }
+  export const isa = (o: any): o is ListTagsForResourceRequest =>
+    __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -691,9 +662,8 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export function isa(o: any): o is ListTagsForResourceResponse {
-    return __isa(o, "ListTagsForResourceResponse");
-  }
+  export const isa = (o: any): o is ListTagsForResourceResponse =>
+    __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -718,9 +688,8 @@ export interface ListedEntitlement {
 }
 
 export namespace ListedEntitlement {
-  export function isa(o: any): o is ListedEntitlement {
-    return __isa(o, "ListedEntitlement");
-  }
+  export const isa = (o: any): o is ListedEntitlement =>
+    __isa(o, "ListedEntitlement");
 }
 
 /**
@@ -760,9 +729,7 @@ export interface ListedFlow {
 }
 
 export namespace ListedFlow {
-  export function isa(o: any): o is ListedFlow {
-    return __isa(o, "ListedFlow");
-  }
+  export const isa = (o: any): o is ListedFlow => __isa(o, "ListedFlow");
 }
 
 /**
@@ -777,9 +744,7 @@ export interface Messages {
 }
 
 export namespace Messages {
-  export function isa(o: any): o is Messages {
-    return __isa(o, "Messages");
-  }
+  export const isa = (o: any): o is Messages => __isa(o, "Messages");
 }
 
 /**
@@ -795,9 +760,8 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return __isa(o, "NotFoundException");
-  }
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
 }
 
 /**
@@ -857,9 +821,7 @@ export interface Output {
 }
 
 export namespace Output {
-  export function isa(o: any): o is Output {
-    return __isa(o, "Output");
-  }
+  export const isa = (o: any): o is Output => __isa(o, "Output");
 }
 
 export enum Protocol {
@@ -884,9 +846,8 @@ export interface RemoveFlowOutputRequest {
 }
 
 export namespace RemoveFlowOutputRequest {
-  export function isa(o: any): o is RemoveFlowOutputRequest {
-    return __isa(o, "RemoveFlowOutputRequest");
-  }
+  export const isa = (o: any): o is RemoveFlowOutputRequest =>
+    __isa(o, "RemoveFlowOutputRequest");
 }
 
 export interface RemoveFlowOutputResponse {
@@ -903,9 +864,8 @@ export interface RemoveFlowOutputResponse {
 }
 
 export namespace RemoveFlowOutputResponse {
-  export function isa(o: any): o is RemoveFlowOutputResponse {
-    return __isa(o, "RemoveFlowOutputResponse");
-  }
+  export const isa = (o: any): o is RemoveFlowOutputResponse =>
+    __isa(o, "RemoveFlowOutputResponse");
 }
 
 export interface RevokeFlowEntitlementRequest {
@@ -922,9 +882,8 @@ export interface RevokeFlowEntitlementRequest {
 }
 
 export namespace RevokeFlowEntitlementRequest {
-  export function isa(o: any): o is RevokeFlowEntitlementRequest {
-    return __isa(o, "RevokeFlowEntitlementRequest");
-  }
+  export const isa = (o: any): o is RevokeFlowEntitlementRequest =>
+    __isa(o, "RevokeFlowEntitlementRequest");
 }
 
 export interface RevokeFlowEntitlementResponse {
@@ -941,9 +900,8 @@ export interface RevokeFlowEntitlementResponse {
 }
 
 export namespace RevokeFlowEntitlementResponse {
-  export function isa(o: any): o is RevokeFlowEntitlementResponse {
-    return __isa(o, "RevokeFlowEntitlementResponse");
-  }
+  export const isa = (o: any): o is RevokeFlowEntitlementResponse =>
+    __isa(o, "RevokeFlowEntitlementResponse");
 }
 
 /**
@@ -961,9 +919,8 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return __isa(o, "ServiceUnavailableException");
-  }
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -1023,9 +980,8 @@ export interface SetSourceRequest {
 }
 
 export namespace SetSourceRequest {
-  export function isa(o: any): o is SetSourceRequest {
-    return __isa(o, "SetSourceRequest");
-  }
+  export const isa = (o: any): o is SetSourceRequest =>
+    __isa(o, "SetSourceRequest");
 }
 
 /**
@@ -1085,9 +1041,7 @@ export interface Source {
 }
 
 export namespace Source {
-  export function isa(o: any): o is Source {
-    return __isa(o, "Source");
-  }
+  export const isa = (o: any): o is Source => __isa(o, "Source");
 }
 
 export enum SourceType {
@@ -1104,9 +1058,8 @@ export interface StartFlowRequest {
 }
 
 export namespace StartFlowRequest {
-  export function isa(o: any): o is StartFlowRequest {
-    return __isa(o, "StartFlowRequest");
-  }
+  export const isa = (o: any): o is StartFlowRequest =>
+    __isa(o, "StartFlowRequest");
 }
 
 export interface StartFlowResponse {
@@ -1123,9 +1076,8 @@ export interface StartFlowResponse {
 }
 
 export namespace StartFlowResponse {
-  export function isa(o: any): o is StartFlowResponse {
-    return __isa(o, "StartFlowResponse");
-  }
+  export const isa = (o: any): o is StartFlowResponse =>
+    __isa(o, "StartFlowResponse");
 }
 
 export enum Status {
@@ -1147,9 +1099,8 @@ export interface StopFlowRequest {
 }
 
 export namespace StopFlowRequest {
-  export function isa(o: any): o is StopFlowRequest {
-    return __isa(o, "StopFlowRequest");
-  }
+  export const isa = (o: any): o is StopFlowRequest =>
+    __isa(o, "StopFlowRequest");
 }
 
 export interface StopFlowResponse {
@@ -1166,9 +1117,8 @@ export interface StopFlowResponse {
 }
 
 export namespace StopFlowResponse {
-  export function isa(o: any): o is StopFlowResponse {
-    return __isa(o, "StopFlowResponse");
-  }
+  export const isa = (o: any): o is StopFlowResponse =>
+    __isa(o, "StopFlowResponse");
 }
 
 /**
@@ -1188,9 +1138,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -1208,9 +1157,8 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export function isa(o: any): o is TooManyRequestsException {
-    return __isa(o, "TooManyRequestsException");
-  }
+  export const isa = (o: any): o is TooManyRequestsException =>
+    __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -1255,9 +1203,7 @@ export interface Transport {
 }
 
 export namespace Transport {
-  export function isa(o: any): o is Transport {
-    return __isa(o, "Transport");
-  }
+  export const isa = (o: any): o is Transport => __isa(o, "Transport");
 }
 
 export interface UntagResourceRequest {
@@ -1274,9 +1220,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 /**
@@ -1331,9 +1276,8 @@ export interface UpdateEncryption {
 }
 
 export namespace UpdateEncryption {
-  export function isa(o: any): o is UpdateEncryption {
-    return __isa(o, "UpdateEncryption");
-  }
+  export const isa = (o: any): o is UpdateEncryption =>
+    __isa(o, "UpdateEncryption");
 }
 
 /**
@@ -1368,9 +1312,8 @@ export interface UpdateFlowEntitlementRequest {
 }
 
 export namespace UpdateFlowEntitlementRequest {
-  export function isa(o: any): o is UpdateFlowEntitlementRequest {
-    return __isa(o, "UpdateFlowEntitlementRequest");
-  }
+  export const isa = (o: any): o is UpdateFlowEntitlementRequest =>
+    __isa(o, "UpdateFlowEntitlementRequest");
 }
 
 export interface UpdateFlowEntitlementResponse {
@@ -1387,9 +1330,8 @@ export interface UpdateFlowEntitlementResponse {
 }
 
 export namespace UpdateFlowEntitlementResponse {
-  export function isa(o: any): o is UpdateFlowEntitlementResponse {
-    return __isa(o, "UpdateFlowEntitlementResponse");
-  }
+  export const isa = (o: any): o is UpdateFlowEntitlementResponse =>
+    __isa(o, "UpdateFlowEntitlementResponse");
 }
 
 /**
@@ -1459,9 +1401,8 @@ export interface UpdateFlowOutputRequest {
 }
 
 export namespace UpdateFlowOutputRequest {
-  export function isa(o: any): o is UpdateFlowOutputRequest {
-    return __isa(o, "UpdateFlowOutputRequest");
-  }
+  export const isa = (o: any): o is UpdateFlowOutputRequest =>
+    __isa(o, "UpdateFlowOutputRequest");
 }
 
 export interface UpdateFlowOutputResponse {
@@ -1478,9 +1419,8 @@ export interface UpdateFlowOutputResponse {
 }
 
 export namespace UpdateFlowOutputResponse {
-  export function isa(o: any): o is UpdateFlowOutputResponse {
-    return __isa(o, "UpdateFlowOutputResponse");
-  }
+  export const isa = (o: any): o is UpdateFlowOutputResponse =>
+    __isa(o, "UpdateFlowOutputResponse");
 }
 
 /**
@@ -1545,9 +1485,8 @@ export interface UpdateFlowSourceRequest {
 }
 
 export namespace UpdateFlowSourceRequest {
-  export function isa(o: any): o is UpdateFlowSourceRequest {
-    return __isa(o, "UpdateFlowSourceRequest");
-  }
+  export const isa = (o: any): o is UpdateFlowSourceRequest =>
+    __isa(o, "UpdateFlowSourceRequest");
 }
 
 export interface UpdateFlowSourceResponse {
@@ -1564,7 +1503,6 @@ export interface UpdateFlowSourceResponse {
 }
 
 export namespace UpdateFlowSourceResponse {
-  export function isa(o: any): o is UpdateFlowSourceResponse {
-    return __isa(o, "UpdateFlowSourceResponse");
-  }
+  export const isa = (o: any): o is UpdateFlowSourceResponse =>
+    __isa(o, "UpdateFlowSourceResponse");
 }

@@ -18,9 +18,8 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export function isa(o: any): o is AccessDeniedException {
-    return __isa(o, "AccessDeniedException");
-  }
+  export const isa = (o: any): o is AccessDeniedException =>
+    __isa(o, "AccessDeniedException");
 }
 
 export interface AnalyzeDocumentRequest {
@@ -50,9 +49,8 @@ export interface AnalyzeDocumentRequest {
 }
 
 export namespace AnalyzeDocumentRequest {
-  export function isa(o: any): o is AnalyzeDocumentRequest {
-    return __isa(o, "AnalyzeDocumentRequest");
-  }
+  export const isa = (o: any): o is AnalyzeDocumentRequest =>
+    __isa(o, "AnalyzeDocumentRequest");
 }
 
 export interface AnalyzeDocumentResponse {
@@ -79,9 +77,8 @@ export interface AnalyzeDocumentResponse {
 }
 
 export namespace AnalyzeDocumentResponse {
-  export function isa(o: any): o is AnalyzeDocumentResponse {
-    return __isa(o, "AnalyzeDocumentResponse");
-  }
+  export const isa = (o: any): o is AnalyzeDocumentResponse =>
+    __isa(o, "AnalyzeDocumentResponse");
 }
 
 /**
@@ -97,9 +94,8 @@ export interface BadDocumentException
 }
 
 export namespace BadDocumentException {
-  export function isa(o: any): o is BadDocumentException {
-    return __isa(o, "BadDocumentException");
-  }
+  export const isa = (o: any): o is BadDocumentException =>
+    __isa(o, "BadDocumentException");
 }
 
 /**
@@ -287,9 +283,7 @@ export interface Block {
 }
 
 export namespace Block {
-  export function isa(o: any): o is Block {
-    return __isa(o, "Block");
-  }
+  export const isa = (o: any): o is Block => __isa(o, "Block");
 }
 
 export enum BlockType {
@@ -344,9 +338,7 @@ export interface BoundingBox {
 }
 
 export namespace BoundingBox {
-  export function isa(o: any): o is BoundingBox {
-    return __isa(o, "BoundingBox");
-  }
+  export const isa = (o: any): o is BoundingBox => __isa(o, "BoundingBox");
 }
 
 export enum ContentClassifier {
@@ -367,9 +359,8 @@ export interface DetectDocumentTextRequest {
 }
 
 export namespace DetectDocumentTextRequest {
-  export function isa(o: any): o is DetectDocumentTextRequest {
-    return __isa(o, "DetectDocumentTextRequest");
-  }
+  export const isa = (o: any): o is DetectDocumentTextRequest =>
+    __isa(o, "DetectDocumentTextRequest");
 }
 
 export interface DetectDocumentTextResponse {
@@ -393,9 +384,8 @@ export interface DetectDocumentTextResponse {
 }
 
 export namespace DetectDocumentTextResponse {
-  export function isa(o: any): o is DetectDocumentTextResponse {
-    return __isa(o, "DetectDocumentTextResponse");
-  }
+  export const isa = (o: any): o is DetectDocumentTextResponse =>
+    __isa(o, "DetectDocumentTextResponse");
 }
 
 /**
@@ -435,9 +425,7 @@ export interface Document {
 }
 
 export namespace Document {
-  export function isa(o: any): o is Document {
-    return __isa(o, "Document");
-  }
+  export const isa = (o: any): o is Document => __isa(o, "Document");
 }
 
 /**
@@ -455,9 +443,8 @@ export interface DocumentLocation {
 }
 
 export namespace DocumentLocation {
-  export function isa(o: any): o is DocumentLocation {
-    return __isa(o, "DocumentLocation");
-  }
+  export const isa = (o: any): o is DocumentLocation =>
+    __isa(o, "DocumentLocation");
 }
 
 /**
@@ -472,9 +459,8 @@ export interface DocumentMetadata {
 }
 
 export namespace DocumentMetadata {
-  export function isa(o: any): o is DocumentMetadata {
-    return __isa(o, "DocumentMetadata");
-  }
+  export const isa = (o: any): o is DocumentMetadata =>
+    __isa(o, "DocumentMetadata");
 }
 
 /**
@@ -492,9 +478,8 @@ export interface DocumentTooLargeException
 }
 
 export namespace DocumentTooLargeException {
-  export function isa(o: any): o is DocumentTooLargeException {
-    return __isa(o, "DocumentTooLargeException");
-  }
+  export const isa = (o: any): o is DocumentTooLargeException =>
+    __isa(o, "DocumentTooLargeException");
 }
 
 export enum EntityType {
@@ -526,9 +511,7 @@ export interface Geometry {
 }
 
 export namespace Geometry {
-  export function isa(o: any): o is Geometry {
-    return __isa(o, "Geometry");
-  }
+  export const isa = (o: any): o is Geometry => __isa(o, "Geometry");
 }
 
 export interface GetDocumentAnalysisRequest {
@@ -554,9 +537,8 @@ export interface GetDocumentAnalysisRequest {
 }
 
 export namespace GetDocumentAnalysisRequest {
-  export function isa(o: any): o is GetDocumentAnalysisRequest {
-    return __isa(o, "GetDocumentAnalysisRequest");
-  }
+  export const isa = (o: any): o is GetDocumentAnalysisRequest =>
+    __isa(o, "GetDocumentAnalysisRequest");
 }
 
 export interface GetDocumentAnalysisResponse {
@@ -600,9 +582,8 @@ export interface GetDocumentAnalysisResponse {
 }
 
 export namespace GetDocumentAnalysisResponse {
-  export function isa(o: any): o is GetDocumentAnalysisResponse {
-    return __isa(o, "GetDocumentAnalysisResponse");
-  }
+  export const isa = (o: any): o is GetDocumentAnalysisResponse =>
+    __isa(o, "GetDocumentAnalysisResponse");
 }
 
 export interface GetDocumentTextDetectionRequest {
@@ -628,9 +609,8 @@ export interface GetDocumentTextDetectionRequest {
 }
 
 export namespace GetDocumentTextDetectionRequest {
-  export function isa(o: any): o is GetDocumentTextDetectionRequest {
-    return __isa(o, "GetDocumentTextDetectionRequest");
-  }
+  export const isa = (o: any): o is GetDocumentTextDetectionRequest =>
+    __isa(o, "GetDocumentTextDetectionRequest");
 }
 
 export interface GetDocumentTextDetectionResponse {
@@ -675,9 +655,8 @@ export interface GetDocumentTextDetectionResponse {
 }
 
 export namespace GetDocumentTextDetectionResponse {
-  export function isa(o: any): o is GetDocumentTextDetectionResponse {
-    return __isa(o, "GetDocumentTextDetectionResponse");
-  }
+  export const isa = (o: any): o is GetDocumentTextDetectionResponse =>
+    __isa(o, "GetDocumentTextDetectionResponse");
 }
 
 /**
@@ -703,9 +682,8 @@ export interface HumanLoopActivationOutput {
 }
 
 export namespace HumanLoopActivationOutput {
-  export function isa(o: any): o is HumanLoopActivationOutput {
-    return __isa(o, "HumanLoopActivationOutput");
-  }
+  export const isa = (o: any): o is HumanLoopActivationOutput =>
+    __isa(o, "HumanLoopActivationOutput");
 }
 
 /**
@@ -731,9 +709,8 @@ export interface HumanLoopConfig {
 }
 
 export namespace HumanLoopConfig {
-  export function isa(o: any): o is HumanLoopConfig {
-    return __isa(o, "HumanLoopConfig");
-  }
+  export const isa = (o: any): o is HumanLoopConfig =>
+    __isa(o, "HumanLoopConfig");
 }
 
 /**
@@ -749,9 +726,8 @@ export interface HumanLoopDataAttributes {
 }
 
 export namespace HumanLoopDataAttributes {
-  export function isa(o: any): o is HumanLoopDataAttributes {
-    return __isa(o, "HumanLoopDataAttributes");
-  }
+  export const isa = (o: any): o is HumanLoopDataAttributes =>
+    __isa(o, "HumanLoopDataAttributes");
 }
 
 /**
@@ -770,9 +746,8 @@ export interface HumanLoopQuotaExceededException
 }
 
 export namespace HumanLoopQuotaExceededException {
-  export function isa(o: any): o is HumanLoopQuotaExceededException {
-    return __isa(o, "HumanLoopQuotaExceededException");
-  }
+  export const isa = (o: any): o is HumanLoopQuotaExceededException =>
+    __isa(o, "HumanLoopQuotaExceededException");
 }
 
 /**
@@ -790,9 +765,8 @@ export interface IdempotentParameterMismatchException
 }
 
 export namespace IdempotentParameterMismatchException {
-  export function isa(o: any): o is IdempotentParameterMismatchException {
-    return __isa(o, "IdempotentParameterMismatchException");
-  }
+  export const isa = (o: any): o is IdempotentParameterMismatchException =>
+    __isa(o, "IdempotentParameterMismatchException");
 }
 
 /**
@@ -808,9 +782,8 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export function isa(o: any): o is InternalServerError {
-    return __isa(o, "InternalServerError");
-  }
+  export const isa = (o: any): o is InternalServerError =>
+    __isa(o, "InternalServerError");
 }
 
 /**
@@ -827,9 +800,8 @@ export interface InvalidJobIdException
 }
 
 export namespace InvalidJobIdException {
-  export function isa(o: any): o is InvalidJobIdException {
-    return __isa(o, "InvalidJobIdException");
-  }
+  export const isa = (o: any): o is InvalidJobIdException =>
+    __isa(o, "InvalidJobIdException");
 }
 
 /**
@@ -849,9 +821,8 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export function isa(o: any): o is InvalidParameterException {
-    return __isa(o, "InvalidParameterException");
-  }
+  export const isa = (o: any): o is InvalidParameterException =>
+    __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -867,9 +838,8 @@ export interface InvalidS3ObjectException
 }
 
 export namespace InvalidS3ObjectException {
-  export function isa(o: any): o is InvalidS3ObjectException {
-    return __isa(o, "InvalidS3ObjectException");
-  }
+  export const isa = (o: any): o is InvalidS3ObjectException =>
+    __isa(o, "InvalidS3ObjectException");
 }
 
 export enum JobStatus {
@@ -896,9 +866,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 /**
@@ -919,9 +888,8 @@ export interface NotificationChannel {
 }
 
 export namespace NotificationChannel {
-  export function isa(o: any): o is NotificationChannel {
-    return __isa(o, "NotificationChannel");
-  }
+  export const isa = (o: any): o is NotificationChannel =>
+    __isa(o, "NotificationChannel");
 }
 
 /**
@@ -949,9 +917,7 @@ export interface Point {
 }
 
 export namespace Point {
-  export function isa(o: any): o is Point {
-    return __isa(o, "Point");
-  }
+  export const isa = (o: any): o is Point => __isa(o, "Point");
 }
 
 /**
@@ -968,9 +934,8 @@ export interface ProvisionedThroughputExceededException
 }
 
 export namespace ProvisionedThroughputExceededException {
-  export function isa(o: any): o is ProvisionedThroughputExceededException {
-    return __isa(o, "ProvisionedThroughputExceededException");
-  }
+  export const isa = (o: any): o is ProvisionedThroughputExceededException =>
+    __isa(o, "ProvisionedThroughputExceededException");
 }
 
 /**
@@ -999,9 +964,7 @@ export interface Relationship {
 }
 
 export namespace Relationship {
-  export function isa(o: any): o is Relationship {
-    return __isa(o, "Relationship");
-  }
+  export const isa = (o: any): o is Relationship => __isa(o, "Relationship");
 }
 
 export enum RelationshipType {
@@ -1039,9 +1002,7 @@ export interface S3Object {
 }
 
 export namespace S3Object {
-  export function isa(o: any): o is S3Object {
-    return __isa(o, "S3Object");
-  }
+  export const isa = (o: any): o is S3Object => __isa(o, "S3Object");
 }
 
 export enum SelectionStatus {
@@ -1091,9 +1052,8 @@ export interface StartDocumentAnalysisRequest {
 }
 
 export namespace StartDocumentAnalysisRequest {
-  export function isa(o: any): o is StartDocumentAnalysisRequest {
-    return __isa(o, "StartDocumentAnalysisRequest");
-  }
+  export const isa = (o: any): o is StartDocumentAnalysisRequest =>
+    __isa(o, "StartDocumentAnalysisRequest");
 }
 
 export interface StartDocumentAnalysisResponse {
@@ -1107,9 +1067,8 @@ export interface StartDocumentAnalysisResponse {
 }
 
 export namespace StartDocumentAnalysisResponse {
-  export function isa(o: any): o is StartDocumentAnalysisResponse {
-    return __isa(o, "StartDocumentAnalysisResponse");
-  }
+  export const isa = (o: any): o is StartDocumentAnalysisResponse =>
+    __isa(o, "StartDocumentAnalysisResponse");
 }
 
 export interface StartDocumentTextDetectionRequest {
@@ -1144,9 +1103,8 @@ export interface StartDocumentTextDetectionRequest {
 }
 
 export namespace StartDocumentTextDetectionRequest {
-  export function isa(o: any): o is StartDocumentTextDetectionRequest {
-    return __isa(o, "StartDocumentTextDetectionRequest");
-  }
+  export const isa = (o: any): o is StartDocumentTextDetectionRequest =>
+    __isa(o, "StartDocumentTextDetectionRequest");
 }
 
 export interface StartDocumentTextDetectionResponse {
@@ -1160,9 +1118,8 @@ export interface StartDocumentTextDetectionResponse {
 }
 
 export namespace StartDocumentTextDetectionResponse {
-  export function isa(o: any): o is StartDocumentTextDetectionResponse {
-    return __isa(o, "StartDocumentTextDetectionResponse");
-  }
+  export const isa = (o: any): o is StartDocumentTextDetectionResponse =>
+    __isa(o, "StartDocumentTextDetectionResponse");
 }
 
 /**
@@ -1178,9 +1135,8 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return __isa(o, "ThrottlingException");
-  }
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 /**
@@ -1197,9 +1153,8 @@ export interface UnsupportedDocumentException
 }
 
 export namespace UnsupportedDocumentException {
-  export function isa(o: any): o is UnsupportedDocumentException {
-    return __isa(o, "UnsupportedDocumentException");
-  }
+  export const isa = (o: any): o is UnsupportedDocumentException =>
+    __isa(o, "UnsupportedDocumentException");
 }
 
 /**
@@ -1219,7 +1174,5 @@ export interface Warning {
 }
 
 export namespace Warning {
-  export function isa(o: any): o is Warning {
-    return __isa(o, "Warning");
-  }
+  export const isa = (o: any): o is Warning => __isa(o, "Warning");
 }
