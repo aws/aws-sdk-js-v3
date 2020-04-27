@@ -41,7 +41,7 @@
     "@types/jest": "^25.1.4",
     "codecov": "^3.4.0",
     "cucumber": "^6.0.5",
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^9.0.0",
     "generate-changelog": "^1.7.1",
     "husky": "^4.2.3",
     "jest": "^25.1.0",
