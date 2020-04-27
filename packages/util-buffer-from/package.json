@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-buffer-from",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
