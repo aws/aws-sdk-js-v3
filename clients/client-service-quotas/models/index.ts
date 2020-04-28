@@ -17,9 +17,8 @@ export interface AWSServiceAccessNotEnabledException
 }
 
 export namespace AWSServiceAccessNotEnabledException {
-  export function isa(o: any): o is AWSServiceAccessNotEnabledException {
-    return __isa(o, "AWSServiceAccessNotEnabledException");
-  }
+  export const isa = (o: any): o is AWSServiceAccessNotEnabledException =>
+    __isa(o, "AWSServiceAccessNotEnabledException");
 }
 
 /**
@@ -34,9 +33,8 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export function isa(o: any): o is AccessDeniedException {
-    return __isa(o, "AccessDeniedException");
-  }
+  export const isa = (o: any): o is AccessDeniedException =>
+    __isa(o, "AccessDeniedException");
 }
 
 export interface AssociateServiceQuotaTemplateRequest {
@@ -44,9 +42,8 @@ export interface AssociateServiceQuotaTemplateRequest {
 }
 
 export namespace AssociateServiceQuotaTemplateRequest {
-  export function isa(o: any): o is AssociateServiceQuotaTemplateRequest {
-    return __isa(o, "AssociateServiceQuotaTemplateRequest");
-  }
+  export const isa = (o: any): o is AssociateServiceQuotaTemplateRequest =>
+    __isa(o, "AssociateServiceQuotaTemplateRequest");
 }
 
 export interface AssociateServiceQuotaTemplateResponse {
@@ -54,9 +51,8 @@ export interface AssociateServiceQuotaTemplateResponse {
 }
 
 export namespace AssociateServiceQuotaTemplateResponse {
-  export function isa(o: any): o is AssociateServiceQuotaTemplateResponse {
-    return __isa(o, "AssociateServiceQuotaTemplateResponse");
-  }
+  export const isa = (o: any): o is AssociateServiceQuotaTemplateResponse =>
+    __isa(o, "AssociateServiceQuotaTemplateResponse");
 }
 
 export interface DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
@@ -78,11 +74,10 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
 }
 
 export namespace DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
-    return __isa(o, "DeleteServiceQuotaIncreaseRequestFromTemplateRequest");
-  }
+  ): o is DeleteServiceQuotaIncreaseRequestFromTemplateRequest =>
+    __isa(o, "DeleteServiceQuotaIncreaseRequestFromTemplateRequest");
 }
 
 export interface DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
@@ -90,11 +85,10 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
 }
 
 export namespace DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
-    return __isa(o, "DeleteServiceQuotaIncreaseRequestFromTemplateResponse");
-  }
+  ): o is DeleteServiceQuotaIncreaseRequestFromTemplateResponse =>
+    __isa(o, "DeleteServiceQuotaIncreaseRequestFromTemplateResponse");
 }
 
 /**
@@ -109,9 +103,8 @@ export interface DependencyAccessDeniedException
 }
 
 export namespace DependencyAccessDeniedException {
-  export function isa(o: any): o is DependencyAccessDeniedException {
-    return __isa(o, "DependencyAccessDeniedException");
-  }
+  export const isa = (o: any): o is DependencyAccessDeniedException =>
+    __isa(o, "DependencyAccessDeniedException");
 }
 
 export interface DisassociateServiceQuotaTemplateRequest {
@@ -119,9 +112,8 @@ export interface DisassociateServiceQuotaTemplateRequest {
 }
 
 export namespace DisassociateServiceQuotaTemplateRequest {
-  export function isa(o: any): o is DisassociateServiceQuotaTemplateRequest {
-    return __isa(o, "DisassociateServiceQuotaTemplateRequest");
-  }
+  export const isa = (o: any): o is DisassociateServiceQuotaTemplateRequest =>
+    __isa(o, "DisassociateServiceQuotaTemplateRequest");
 }
 
 export interface DisassociateServiceQuotaTemplateResponse {
@@ -129,9 +121,8 @@ export interface DisassociateServiceQuotaTemplateResponse {
 }
 
 export namespace DisassociateServiceQuotaTemplateResponse {
-  export function isa(o: any): o is DisassociateServiceQuotaTemplateResponse {
-    return __isa(o, "DisassociateServiceQuotaTemplateResponse");
-  }
+  export const isa = (o: any): o is DisassociateServiceQuotaTemplateResponse =>
+    __isa(o, "DisassociateServiceQuotaTemplateResponse");
 }
 
 export enum ErrorCode {
@@ -172,9 +163,7 @@ export interface ErrorReason {
 }
 
 export namespace ErrorReason {
-  export function isa(o: any): o is ErrorReason {
-    return __isa(o, "ErrorReason");
-  }
+  export const isa = (o: any): o is ErrorReason => __isa(o, "ErrorReason");
 }
 
 export interface GetAWSDefaultServiceQuotaRequest {
@@ -191,9 +180,8 @@ export interface GetAWSDefaultServiceQuotaRequest {
 }
 
 export namespace GetAWSDefaultServiceQuotaRequest {
-  export function isa(o: any): o is GetAWSDefaultServiceQuotaRequest {
-    return __isa(o, "GetAWSDefaultServiceQuotaRequest");
-  }
+  export const isa = (o: any): o is GetAWSDefaultServiceQuotaRequest =>
+    __isa(o, "GetAWSDefaultServiceQuotaRequest");
 }
 
 export interface GetAWSDefaultServiceQuotaResponse {
@@ -206,9 +194,8 @@ export interface GetAWSDefaultServiceQuotaResponse {
 }
 
 export namespace GetAWSDefaultServiceQuotaResponse {
-  export function isa(o: any): o is GetAWSDefaultServiceQuotaResponse {
-    return __isa(o, "GetAWSDefaultServiceQuotaResponse");
-  }
+  export const isa = (o: any): o is GetAWSDefaultServiceQuotaResponse =>
+    __isa(o, "GetAWSDefaultServiceQuotaResponse");
 }
 
 export interface GetAssociationForServiceQuotaTemplateRequest {
@@ -216,11 +203,10 @@ export interface GetAssociationForServiceQuotaTemplateRequest {
 }
 
 export namespace GetAssociationForServiceQuotaTemplateRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is GetAssociationForServiceQuotaTemplateRequest {
-    return __isa(o, "GetAssociationForServiceQuotaTemplateRequest");
-  }
+  ): o is GetAssociationForServiceQuotaTemplateRequest =>
+    __isa(o, "GetAssociationForServiceQuotaTemplateRequest");
 }
 
 export interface GetAssociationForServiceQuotaTemplateResponse {
@@ -236,11 +222,10 @@ export interface GetAssociationForServiceQuotaTemplateResponse {
 }
 
 export namespace GetAssociationForServiceQuotaTemplateResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is GetAssociationForServiceQuotaTemplateResponse {
-    return __isa(o, "GetAssociationForServiceQuotaTemplateResponse");
-  }
+  ): o is GetAssociationForServiceQuotaTemplateResponse =>
+    __isa(o, "GetAssociationForServiceQuotaTemplateResponse");
 }
 
 export interface GetRequestedServiceQuotaChangeRequest {
@@ -252,9 +237,8 @@ export interface GetRequestedServiceQuotaChangeRequest {
 }
 
 export namespace GetRequestedServiceQuotaChangeRequest {
-  export function isa(o: any): o is GetRequestedServiceQuotaChangeRequest {
-    return __isa(o, "GetRequestedServiceQuotaChangeRequest");
-  }
+  export const isa = (o: any): o is GetRequestedServiceQuotaChangeRequest =>
+    __isa(o, "GetRequestedServiceQuotaChangeRequest");
 }
 
 export interface GetRequestedServiceQuotaChangeResponse {
@@ -267,9 +251,8 @@ export interface GetRequestedServiceQuotaChangeResponse {
 }
 
 export namespace GetRequestedServiceQuotaChangeResponse {
-  export function isa(o: any): o is GetRequestedServiceQuotaChangeResponse {
-    return __isa(o, "GetRequestedServiceQuotaChangeResponse");
-  }
+  export const isa = (o: any): o is GetRequestedServiceQuotaChangeResponse =>
+    __isa(o, "GetRequestedServiceQuotaChangeResponse");
 }
 
 export interface GetServiceQuotaIncreaseRequestFromTemplateRequest {
@@ -291,11 +274,10 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateRequest {
 }
 
 export namespace GetServiceQuotaIncreaseRequestFromTemplateRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is GetServiceQuotaIncreaseRequestFromTemplateRequest {
-    return __isa(o, "GetServiceQuotaIncreaseRequestFromTemplateRequest");
-  }
+  ): o is GetServiceQuotaIncreaseRequestFromTemplateRequest =>
+    __isa(o, "GetServiceQuotaIncreaseRequestFromTemplateRequest");
 }
 
 export interface GetServiceQuotaIncreaseRequestFromTemplateResponse {
@@ -307,11 +289,10 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateResponse {
 }
 
 export namespace GetServiceQuotaIncreaseRequestFromTemplateResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is GetServiceQuotaIncreaseRequestFromTemplateResponse {
-    return __isa(o, "GetServiceQuotaIncreaseRequestFromTemplateResponse");
-  }
+  ): o is GetServiceQuotaIncreaseRequestFromTemplateResponse =>
+    __isa(o, "GetServiceQuotaIncreaseRequestFromTemplateResponse");
 }
 
 export interface GetServiceQuotaRequest {
@@ -328,9 +309,8 @@ export interface GetServiceQuotaRequest {
 }
 
 export namespace GetServiceQuotaRequest {
-  export function isa(o: any): o is GetServiceQuotaRequest {
-    return __isa(o, "GetServiceQuotaRequest");
-  }
+  export const isa = (o: any): o is GetServiceQuotaRequest =>
+    __isa(o, "GetServiceQuotaRequest");
 }
 
 export interface GetServiceQuotaResponse {
@@ -343,9 +323,8 @@ export interface GetServiceQuotaResponse {
 }
 
 export namespace GetServiceQuotaResponse {
-  export function isa(o: any): o is GetServiceQuotaResponse {
-    return __isa(o, "GetServiceQuotaResponse");
-  }
+  export const isa = (o: any): o is GetServiceQuotaResponse =>
+    __isa(o, "GetServiceQuotaResponse");
 }
 
 /**
@@ -360,9 +339,8 @@ export interface IllegalArgumentException
 }
 
 export namespace IllegalArgumentException {
-  export function isa(o: any): o is IllegalArgumentException {
-    return __isa(o, "IllegalArgumentException");
-  }
+  export const isa = (o: any): o is IllegalArgumentException =>
+    __isa(o, "IllegalArgumentException");
 }
 
 /**
@@ -377,9 +355,8 @@ export interface InvalidPaginationTokenException
 }
 
 export namespace InvalidPaginationTokenException {
-  export function isa(o: any): o is InvalidPaginationTokenException {
-    return __isa(o, "InvalidPaginationTokenException");
-  }
+  export const isa = (o: any): o is InvalidPaginationTokenException =>
+    __isa(o, "InvalidPaginationTokenException");
 }
 
 /**
@@ -394,9 +371,8 @@ export interface InvalidResourceStateException
 }
 
 export namespace InvalidResourceStateException {
-  export function isa(o: any): o is InvalidResourceStateException {
-    return __isa(o, "InvalidResourceStateException");
-  }
+  export const isa = (o: any): o is InvalidResourceStateException =>
+    __isa(o, "InvalidResourceStateException");
 }
 
 export interface ListAWSDefaultServiceQuotasRequest {
@@ -431,9 +407,8 @@ export interface ListAWSDefaultServiceQuotasRequest {
 }
 
 export namespace ListAWSDefaultServiceQuotasRequest {
-  export function isa(o: any): o is ListAWSDefaultServiceQuotasRequest {
-    return __isa(o, "ListAWSDefaultServiceQuotasRequest");
-  }
+  export const isa = (o: any): o is ListAWSDefaultServiceQuotasRequest =>
+    __isa(o, "ListAWSDefaultServiceQuotasRequest");
 }
 
 export interface ListAWSDefaultServiceQuotasResponse {
@@ -453,9 +428,8 @@ export interface ListAWSDefaultServiceQuotasResponse {
 }
 
 export namespace ListAWSDefaultServiceQuotasResponse {
-  export function isa(o: any): o is ListAWSDefaultServiceQuotasResponse {
-    return __isa(o, "ListAWSDefaultServiceQuotasResponse");
-  }
+  export const isa = (o: any): o is ListAWSDefaultServiceQuotasResponse =>
+    __isa(o, "ListAWSDefaultServiceQuotasResponse");
 }
 
 export interface ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
@@ -496,11 +470,10 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
 }
 
 export namespace ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
-    return __isa(o, "ListRequestedServiceQuotaChangeHistoryByQuotaRequest");
-  }
+  ): o is ListRequestedServiceQuotaChangeHistoryByQuotaRequest =>
+    __isa(o, "ListRequestedServiceQuotaChangeHistoryByQuotaRequest");
 }
 
 export interface ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
@@ -522,11 +495,10 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
 }
 
 export namespace ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
-    return __isa(o, "ListRequestedServiceQuotaChangeHistoryByQuotaResponse");
-  }
+  ): o is ListRequestedServiceQuotaChangeHistoryByQuotaResponse =>
+    __isa(o, "ListRequestedServiceQuotaChangeHistoryByQuotaResponse");
 }
 
 export interface ListRequestedServiceQuotaChangeHistoryRequest {
@@ -562,11 +534,10 @@ export interface ListRequestedServiceQuotaChangeHistoryRequest {
 }
 
 export namespace ListRequestedServiceQuotaChangeHistoryRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ListRequestedServiceQuotaChangeHistoryRequest {
-    return __isa(o, "ListRequestedServiceQuotaChangeHistoryRequest");
-  }
+  ): o is ListRequestedServiceQuotaChangeHistoryRequest =>
+    __isa(o, "ListRequestedServiceQuotaChangeHistoryRequest");
 }
 
 export interface ListRequestedServiceQuotaChangeHistoryResponse {
@@ -588,11 +559,10 @@ export interface ListRequestedServiceQuotaChangeHistoryResponse {
 }
 
 export namespace ListRequestedServiceQuotaChangeHistoryResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ListRequestedServiceQuotaChangeHistoryResponse {
-    return __isa(o, "ListRequestedServiceQuotaChangeHistoryResponse");
-  }
+  ): o is ListRequestedServiceQuotaChangeHistoryResponse =>
+    __isa(o, "ListRequestedServiceQuotaChangeHistoryResponse");
 }
 
 export interface ListServiceQuotaIncreaseRequestsInTemplateRequest {
@@ -629,11 +599,10 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateRequest {
 }
 
 export namespace ListServiceQuotaIncreaseRequestsInTemplateRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ListServiceQuotaIncreaseRequestsInTemplateRequest {
-    return __isa(o, "ListServiceQuotaIncreaseRequestsInTemplateRequest");
-  }
+  ): o is ListServiceQuotaIncreaseRequestsInTemplateRequest =>
+    __isa(o, "ListServiceQuotaIncreaseRequestsInTemplateRequest");
 }
 
 export interface ListServiceQuotaIncreaseRequestsInTemplateResponse {
@@ -657,11 +626,10 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateResponse {
 }
 
 export namespace ListServiceQuotaIncreaseRequestsInTemplateResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ListServiceQuotaIncreaseRequestsInTemplateResponse {
-    return __isa(o, "ListServiceQuotaIncreaseRequestsInTemplateResponse");
-  }
+  ): o is ListServiceQuotaIncreaseRequestsInTemplateResponse =>
+    __isa(o, "ListServiceQuotaIncreaseRequestsInTemplateResponse");
 }
 
 export interface ListServiceQuotasRequest {
@@ -693,9 +661,8 @@ export interface ListServiceQuotasRequest {
 }
 
 export namespace ListServiceQuotasRequest {
-  export function isa(o: any): o is ListServiceQuotasRequest {
-    return __isa(o, "ListServiceQuotasRequest");
-  }
+  export const isa = (o: any): o is ListServiceQuotasRequest =>
+    __isa(o, "ListServiceQuotasRequest");
 }
 
 export interface ListServiceQuotasResponse {
@@ -718,9 +685,8 @@ export interface ListServiceQuotasResponse {
 }
 
 export namespace ListServiceQuotasResponse {
-  export function isa(o: any): o is ListServiceQuotasResponse {
-    return __isa(o, "ListServiceQuotasResponse");
-  }
+  export const isa = (o: any): o is ListServiceQuotasResponse =>
+    __isa(o, "ListServiceQuotasResponse");
 }
 
 export interface ListServicesRequest {
@@ -746,9 +712,8 @@ export interface ListServicesRequest {
 }
 
 export namespace ListServicesRequest {
-  export function isa(o: any): o is ListServicesRequest {
-    return __isa(o, "ListServicesRequest");
-  }
+  export const isa = (o: any): o is ListServicesRequest =>
+    __isa(o, "ListServicesRequest");
 }
 
 export interface ListServicesResponse {
@@ -770,9 +735,8 @@ export interface ListServicesResponse {
 }
 
 export namespace ListServicesResponse {
-  export function isa(o: any): o is ListServicesResponse {
-    return __isa(o, "ListServicesResponse");
-  }
+  export const isa = (o: any): o is ListServicesResponse =>
+    __isa(o, "ListServicesResponse");
 }
 
 /**
@@ -809,9 +773,7 @@ export interface MetricInfo {
 }
 
 export namespace MetricInfo {
-  export function isa(o: any): o is MetricInfo {
-    return __isa(o, "MetricInfo");
-  }
+  export const isa = (o: any): o is MetricInfo => __isa(o, "MetricInfo");
 }
 
 /**
@@ -826,9 +788,8 @@ export interface NoAvailableOrganizationException
 }
 
 export namespace NoAvailableOrganizationException {
-  export function isa(o: any): o is NoAvailableOrganizationException {
-    return __isa(o, "NoAvailableOrganizationException");
-  }
+  export const isa = (o: any): o is NoAvailableOrganizationException =>
+    __isa(o, "NoAvailableOrganizationException");
 }
 
 /**
@@ -843,9 +804,8 @@ export interface NoSuchResourceException
 }
 
 export namespace NoSuchResourceException {
-  export function isa(o: any): o is NoSuchResourceException {
-    return __isa(o, "NoSuchResourceException");
-  }
+  export const isa = (o: any): o is NoSuchResourceException =>
+    __isa(o, "NoSuchResourceException");
 }
 
 /**
@@ -861,9 +821,8 @@ export interface OrganizationNotInAllFeaturesModeException
 }
 
 export namespace OrganizationNotInAllFeaturesModeException {
-  export function isa(o: any): o is OrganizationNotInAllFeaturesModeException {
-    return __isa(o, "OrganizationNotInAllFeaturesModeException");
-  }
+  export const isa = (o: any): o is OrganizationNotInAllFeaturesModeException =>
+    __isa(o, "OrganizationNotInAllFeaturesModeException");
 }
 
 export enum PeriodUnit {
@@ -900,11 +859,10 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateRequest {
 }
 
 export namespace PutServiceQuotaIncreaseRequestIntoTemplateRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is PutServiceQuotaIncreaseRequestIntoTemplateRequest {
-    return __isa(o, "PutServiceQuotaIncreaseRequestIntoTemplateRequest");
-  }
+  ): o is PutServiceQuotaIncreaseRequestIntoTemplateRequest =>
+    __isa(o, "PutServiceQuotaIncreaseRequestIntoTemplateRequest");
 }
 
 export interface PutServiceQuotaIncreaseRequestIntoTemplateResponse {
@@ -916,11 +874,10 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateResponse {
 }
 
 export namespace PutServiceQuotaIncreaseRequestIntoTemplateResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is PutServiceQuotaIncreaseRequestIntoTemplateResponse {
-    return __isa(o, "PutServiceQuotaIncreaseRequestIntoTemplateResponse");
-  }
+  ): o is PutServiceQuotaIncreaseRequestIntoTemplateResponse =>
+    __isa(o, "PutServiceQuotaIncreaseRequestIntoTemplateResponse");
 }
 
 /**
@@ -936,9 +893,8 @@ export interface QuotaExceededException
 }
 
 export namespace QuotaExceededException {
-  export function isa(o: any): o is QuotaExceededException {
-    return __isa(o, "QuotaExceededException");
-  }
+  export const isa = (o: any): o is QuotaExceededException =>
+    __isa(o, "QuotaExceededException");
 }
 
 /**
@@ -958,9 +914,7 @@ export interface QuotaPeriod {
 }
 
 export namespace QuotaPeriod {
-  export function isa(o: any): o is QuotaPeriod {
-    return __isa(o, "QuotaPeriod");
-  }
+  export const isa = (o: any): o is QuotaPeriod => __isa(o, "QuotaPeriod");
 }
 
 export interface RequestServiceQuotaIncreaseRequest {
@@ -982,9 +936,8 @@ export interface RequestServiceQuotaIncreaseRequest {
 }
 
 export namespace RequestServiceQuotaIncreaseRequest {
-  export function isa(o: any): o is RequestServiceQuotaIncreaseRequest {
-    return __isa(o, "RequestServiceQuotaIncreaseRequest");
-  }
+  export const isa = (o: any): o is RequestServiceQuotaIncreaseRequest =>
+    __isa(o, "RequestServiceQuotaIncreaseRequest");
 }
 
 export interface RequestServiceQuotaIncreaseResponse {
@@ -996,9 +949,8 @@ export interface RequestServiceQuotaIncreaseResponse {
 }
 
 export namespace RequestServiceQuotaIncreaseResponse {
-  export function isa(o: any): o is RequestServiceQuotaIncreaseResponse {
-    return __isa(o, "RequestServiceQuotaIncreaseResponse");
-  }
+  export const isa = (o: any): o is RequestServiceQuotaIncreaseResponse =>
+    __isa(o, "RequestServiceQuotaIncreaseResponse");
 }
 
 export enum RequestStatus {
@@ -1087,9 +1039,8 @@ export interface RequestedServiceQuotaChange {
 }
 
 export namespace RequestedServiceQuotaChange {
-  export function isa(o: any): o is RequestedServiceQuotaChange {
-    return __isa(o, "RequestedServiceQuotaChange");
-  }
+  export const isa = (o: any): o is RequestedServiceQuotaChange =>
+    __isa(o, "RequestedServiceQuotaChange");
 }
 
 /**
@@ -1104,9 +1055,8 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
-  export function isa(o: any): o is ResourceAlreadyExistsException {
-    return __isa(o, "ResourceAlreadyExistsException");
-  }
+  export const isa = (o: any): o is ResourceAlreadyExistsException =>
+    __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -1119,9 +1069,8 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ServiceException {
-  export function isa(o: any): o is ServiceException {
-    return __isa(o, "ServiceException");
-  }
+  export const isa = (o: any): o is ServiceException =>
+    __isa(o, "ServiceException");
 }
 
 /**
@@ -1142,9 +1091,7 @@ export interface ServiceInfo {
 }
 
 export namespace ServiceInfo {
-  export function isa(o: any): o is ServiceInfo {
-    return __isa(o, "ServiceInfo");
-  }
+  export const isa = (o: any): o is ServiceInfo => __isa(o, "ServiceInfo");
 }
 
 /**
@@ -1215,9 +1162,7 @@ export interface ServiceQuota {
 }
 
 export namespace ServiceQuota {
-  export function isa(o: any): o is ServiceQuota {
-    return __isa(o, "ServiceQuota");
-  }
+  export const isa = (o: any): o is ServiceQuota => __isa(o, "ServiceQuota");
 }
 
 /**
@@ -1267,9 +1212,8 @@ export interface ServiceQuotaIncreaseRequestInTemplate {
 }
 
 export namespace ServiceQuotaIncreaseRequestInTemplate {
-  export function isa(o: any): o is ServiceQuotaIncreaseRequestInTemplate {
-    return __isa(o, "ServiceQuotaIncreaseRequestInTemplate");
-  }
+  export const isa = (o: any): o is ServiceQuotaIncreaseRequestInTemplate =>
+    __isa(o, "ServiceQuotaIncreaseRequestInTemplate");
 }
 
 export enum ServiceQuotaTemplateAssociationStatus {
@@ -1290,9 +1234,8 @@ export interface ServiceQuotaTemplateNotInUseException
 }
 
 export namespace ServiceQuotaTemplateNotInUseException {
-  export function isa(o: any): o is ServiceQuotaTemplateNotInUseException {
-    return __isa(o, "ServiceQuotaTemplateNotInUseException");
-  }
+  export const isa = (o: any): o is ServiceQuotaTemplateNotInUseException =>
+    __isa(o, "ServiceQuotaTemplateNotInUseException");
 }
 
 /**
@@ -1308,9 +1251,8 @@ export interface TemplatesNotAvailableInRegionException
 }
 
 export namespace TemplatesNotAvailableInRegionException {
-  export function isa(o: any): o is TemplatesNotAvailableInRegionException {
-    return __isa(o, "TemplatesNotAvailableInRegionException");
-  }
+  export const isa = (o: any): o is TemplatesNotAvailableInRegionException =>
+    __isa(o, "TemplatesNotAvailableInRegionException");
 }
 
 /**
@@ -1326,7 +1268,6 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export function isa(o: any): o is TooManyRequestsException {
-    return __isa(o, "TooManyRequestsException");
-  }
+  export const isa = (o: any): o is TooManyRequestsException =>
+    __isa(o, "TooManyRequestsException");
 }

@@ -16,9 +16,8 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export function isa(o: any): o is AccessDeniedException {
-    return __isa(o, "AccessDeniedException");
-  }
+  export const isa = (o: any): o is AccessDeniedException =>
+    __isa(o, "AccessDeniedException");
 }
 
 export enum AccessPropertyValue {
@@ -66,9 +65,8 @@ export interface AccountModification {
 }
 
 export namespace AccountModification {
-  export function isa(o: any): o is AccountModification {
-    return __isa(o, "AccountModification");
-  }
+  export const isa = (o: any): o is AccountModification =>
+    __isa(o, "AccountModification");
 }
 
 export interface AssociateIpGroupsRequest {
@@ -85,9 +83,8 @@ export interface AssociateIpGroupsRequest {
 }
 
 export namespace AssociateIpGroupsRequest {
-  export function isa(o: any): o is AssociateIpGroupsRequest {
-    return __isa(o, "AssociateIpGroupsRequest");
-  }
+  export const isa = (o: any): o is AssociateIpGroupsRequest =>
+    __isa(o, "AssociateIpGroupsRequest");
 }
 
 export interface AssociateIpGroupsResult {
@@ -95,9 +92,8 @@ export interface AssociateIpGroupsResult {
 }
 
 export namespace AssociateIpGroupsResult {
-  export function isa(o: any): o is AssociateIpGroupsResult {
-    return __isa(o, "AssociateIpGroupsResult");
-  }
+  export const isa = (o: any): o is AssociateIpGroupsResult =>
+    __isa(o, "AssociateIpGroupsResult");
 }
 
 export interface AuthorizeIpRulesRequest {
@@ -114,9 +110,8 @@ export interface AuthorizeIpRulesRequest {
 }
 
 export namespace AuthorizeIpRulesRequest {
-  export function isa(o: any): o is AuthorizeIpRulesRequest {
-    return __isa(o, "AuthorizeIpRulesRequest");
-  }
+  export const isa = (o: any): o is AuthorizeIpRulesRequest =>
+    __isa(o, "AuthorizeIpRulesRequest");
 }
 
 export interface AuthorizeIpRulesResult {
@@ -124,9 +119,8 @@ export interface AuthorizeIpRulesResult {
 }
 
 export namespace AuthorizeIpRulesResult {
-  export function isa(o: any): o is AuthorizeIpRulesResult {
-    return __isa(o, "AuthorizeIpRulesResult");
-  }
+  export const isa = (o: any): o is AuthorizeIpRulesResult =>
+    __isa(o, "AuthorizeIpRulesResult");
 }
 
 /**
@@ -143,9 +137,8 @@ export interface ClientProperties {
 }
 
 export namespace ClientProperties {
-  export function isa(o: any): o is ClientProperties {
-    return __isa(o, "ClientProperties");
-  }
+  export const isa = (o: any): o is ClientProperties =>
+    __isa(o, "ClientProperties");
 }
 
 /**
@@ -165,9 +158,8 @@ export interface ClientPropertiesResult {
 }
 
 export namespace ClientPropertiesResult {
-  export function isa(o: any): o is ClientPropertiesResult {
-    return __isa(o, "ClientPropertiesResult");
-  }
+  export const isa = (o: any): o is ClientPropertiesResult =>
+    __isa(o, "ClientPropertiesResult");
 }
 
 export enum Compute {
@@ -192,9 +184,7 @@ export interface ComputeType {
 }
 
 export namespace ComputeType {
-  export function isa(o: any): o is ComputeType {
-    return __isa(o, "ComputeType");
-  }
+  export const isa = (o: any): o is ComputeType => __isa(o, "ComputeType");
 }
 
 export enum ConnectionState {
@@ -232,9 +222,8 @@ export interface CopyWorkspaceImageRequest {
 }
 
 export namespace CopyWorkspaceImageRequest {
-  export function isa(o: any): o is CopyWorkspaceImageRequest {
-    return __isa(o, "CopyWorkspaceImageRequest");
-  }
+  export const isa = (o: any): o is CopyWorkspaceImageRequest =>
+    __isa(o, "CopyWorkspaceImageRequest");
 }
 
 export interface CopyWorkspaceImageResult {
@@ -246,9 +235,8 @@ export interface CopyWorkspaceImageResult {
 }
 
 export namespace CopyWorkspaceImageResult {
-  export function isa(o: any): o is CopyWorkspaceImageResult {
-    return __isa(o, "CopyWorkspaceImageResult");
-  }
+  export const isa = (o: any): o is CopyWorkspaceImageResult =>
+    __isa(o, "CopyWorkspaceImageResult");
 }
 
 export interface CreateIpGroupRequest {
@@ -275,9 +263,8 @@ export interface CreateIpGroupRequest {
 }
 
 export namespace CreateIpGroupRequest {
-  export function isa(o: any): o is CreateIpGroupRequest {
-    return __isa(o, "CreateIpGroupRequest");
-  }
+  export const isa = (o: any): o is CreateIpGroupRequest =>
+    __isa(o, "CreateIpGroupRequest");
 }
 
 export interface CreateIpGroupResult {
@@ -289,9 +276,8 @@ export interface CreateIpGroupResult {
 }
 
 export namespace CreateIpGroupResult {
-  export function isa(o: any): o is CreateIpGroupResult {
-    return __isa(o, "CreateIpGroupResult");
-  }
+  export const isa = (o: any): o is CreateIpGroupResult =>
+    __isa(o, "CreateIpGroupResult");
 }
 
 export interface CreateTagsRequest {
@@ -310,9 +296,8 @@ export interface CreateTagsRequest {
 }
 
 export namespace CreateTagsRequest {
-  export function isa(o: any): o is CreateTagsRequest {
-    return __isa(o, "CreateTagsRequest");
-  }
+  export const isa = (o: any): o is CreateTagsRequest =>
+    __isa(o, "CreateTagsRequest");
 }
 
 export interface CreateTagsResult {
@@ -320,9 +305,8 @@ export interface CreateTagsResult {
 }
 
 export namespace CreateTagsResult {
-  export function isa(o: any): o is CreateTagsResult {
-    return __isa(o, "CreateTagsResult");
-  }
+  export const isa = (o: any): o is CreateTagsResult =>
+    __isa(o, "CreateTagsResult");
 }
 
 export interface CreateWorkspacesRequest {
@@ -334,9 +318,8 @@ export interface CreateWorkspacesRequest {
 }
 
 export namespace CreateWorkspacesRequest {
-  export function isa(o: any): o is CreateWorkspacesRequest {
-    return __isa(o, "CreateWorkspacesRequest");
-  }
+  export const isa = (o: any): o is CreateWorkspacesRequest =>
+    __isa(o, "CreateWorkspacesRequest");
 }
 
 export interface CreateWorkspacesResult {
@@ -356,9 +339,8 @@ export interface CreateWorkspacesResult {
 }
 
 export namespace CreateWorkspacesResult {
-  export function isa(o: any): o is CreateWorkspacesResult {
-    return __isa(o, "CreateWorkspacesResult");
-  }
+  export const isa = (o: any): o is CreateWorkspacesResult =>
+    __isa(o, "CreateWorkspacesResult");
 }
 
 export enum DedicatedTenancyModificationStateEnum {
@@ -423,9 +405,8 @@ export interface DefaultWorkspaceCreationProperties {
 }
 
 export namespace DefaultWorkspaceCreationProperties {
-  export function isa(o: any): o is DefaultWorkspaceCreationProperties {
-    return __isa(o, "DefaultWorkspaceCreationProperties");
-  }
+  export const isa = (o: any): o is DefaultWorkspaceCreationProperties =>
+    __isa(o, "DefaultWorkspaceCreationProperties");
 }
 
 export interface DeleteIpGroupRequest {
@@ -437,9 +418,8 @@ export interface DeleteIpGroupRequest {
 }
 
 export namespace DeleteIpGroupRequest {
-  export function isa(o: any): o is DeleteIpGroupRequest {
-    return __isa(o, "DeleteIpGroupRequest");
-  }
+  export const isa = (o: any): o is DeleteIpGroupRequest =>
+    __isa(o, "DeleteIpGroupRequest");
 }
 
 export interface DeleteIpGroupResult {
@@ -447,9 +427,8 @@ export interface DeleteIpGroupResult {
 }
 
 export namespace DeleteIpGroupResult {
-  export function isa(o: any): o is DeleteIpGroupResult {
-    return __isa(o, "DeleteIpGroupResult");
-  }
+  export const isa = (o: any): o is DeleteIpGroupResult =>
+    __isa(o, "DeleteIpGroupResult");
 }
 
 export interface DeleteTagsRequest {
@@ -467,9 +446,8 @@ export interface DeleteTagsRequest {
 }
 
 export namespace DeleteTagsRequest {
-  export function isa(o: any): o is DeleteTagsRequest {
-    return __isa(o, "DeleteTagsRequest");
-  }
+  export const isa = (o: any): o is DeleteTagsRequest =>
+    __isa(o, "DeleteTagsRequest");
 }
 
 export interface DeleteTagsResult {
@@ -477,9 +455,8 @@ export interface DeleteTagsResult {
 }
 
 export namespace DeleteTagsResult {
-  export function isa(o: any): o is DeleteTagsResult {
-    return __isa(o, "DeleteTagsResult");
-  }
+  export const isa = (o: any): o is DeleteTagsResult =>
+    __isa(o, "DeleteTagsResult");
 }
 
 export interface DeleteWorkspaceImageRequest {
@@ -491,9 +468,8 @@ export interface DeleteWorkspaceImageRequest {
 }
 
 export namespace DeleteWorkspaceImageRequest {
-  export function isa(o: any): o is DeleteWorkspaceImageRequest {
-    return __isa(o, "DeleteWorkspaceImageRequest");
-  }
+  export const isa = (o: any): o is DeleteWorkspaceImageRequest =>
+    __isa(o, "DeleteWorkspaceImageRequest");
 }
 
 export interface DeleteWorkspaceImageResult {
@@ -501,9 +477,8 @@ export interface DeleteWorkspaceImageResult {
 }
 
 export namespace DeleteWorkspaceImageResult {
-  export function isa(o: any): o is DeleteWorkspaceImageResult {
-    return __isa(o, "DeleteWorkspaceImageResult");
-  }
+  export const isa = (o: any): o is DeleteWorkspaceImageResult =>
+    __isa(o, "DeleteWorkspaceImageResult");
 }
 
 export interface DeregisterWorkspaceDirectoryRequest {
@@ -517,9 +492,8 @@ export interface DeregisterWorkspaceDirectoryRequest {
 }
 
 export namespace DeregisterWorkspaceDirectoryRequest {
-  export function isa(o: any): o is DeregisterWorkspaceDirectoryRequest {
-    return __isa(o, "DeregisterWorkspaceDirectoryRequest");
-  }
+  export const isa = (o: any): o is DeregisterWorkspaceDirectoryRequest =>
+    __isa(o, "DeregisterWorkspaceDirectoryRequest");
 }
 
 export interface DeregisterWorkspaceDirectoryResult {
@@ -527,9 +501,8 @@ export interface DeregisterWorkspaceDirectoryResult {
 }
 
 export namespace DeregisterWorkspaceDirectoryResult {
-  export function isa(o: any): o is DeregisterWorkspaceDirectoryResult {
-    return __isa(o, "DeregisterWorkspaceDirectoryResult");
-  }
+  export const isa = (o: any): o is DeregisterWorkspaceDirectoryResult =>
+    __isa(o, "DeregisterWorkspaceDirectoryResult");
 }
 
 export interface DescribeAccountModificationsRequest {
@@ -542,9 +515,8 @@ export interface DescribeAccountModificationsRequest {
 }
 
 export namespace DescribeAccountModificationsRequest {
-  export function isa(o: any): o is DescribeAccountModificationsRequest {
-    return __isa(o, "DescribeAccountModificationsRequest");
-  }
+  export const isa = (o: any): o is DescribeAccountModificationsRequest =>
+    __isa(o, "DescribeAccountModificationsRequest");
 }
 
 export interface DescribeAccountModificationsResult {
@@ -562,9 +534,8 @@ export interface DescribeAccountModificationsResult {
 }
 
 export namespace DescribeAccountModificationsResult {
-  export function isa(o: any): o is DescribeAccountModificationsResult {
-    return __isa(o, "DescribeAccountModificationsResult");
-  }
+  export const isa = (o: any): o is DescribeAccountModificationsResult =>
+    __isa(o, "DescribeAccountModificationsResult");
 }
 
 export interface DescribeAccountRequest {
@@ -572,9 +543,8 @@ export interface DescribeAccountRequest {
 }
 
 export namespace DescribeAccountRequest {
-  export function isa(o: any): o is DescribeAccountRequest {
-    return __isa(o, "DescribeAccountRequest");
-  }
+  export const isa = (o: any): o is DescribeAccountRequest =>
+    __isa(o, "DescribeAccountRequest");
 }
 
 export interface DescribeAccountResult {
@@ -595,9 +565,8 @@ export interface DescribeAccountResult {
 }
 
 export namespace DescribeAccountResult {
-  export function isa(o: any): o is DescribeAccountResult {
-    return __isa(o, "DescribeAccountResult");
-  }
+  export const isa = (o: any): o is DescribeAccountResult =>
+    __isa(o, "DescribeAccountResult");
 }
 
 export interface DescribeClientPropertiesRequest {
@@ -609,9 +578,8 @@ export interface DescribeClientPropertiesRequest {
 }
 
 export namespace DescribeClientPropertiesRequest {
-  export function isa(o: any): o is DescribeClientPropertiesRequest {
-    return __isa(o, "DescribeClientPropertiesRequest");
-  }
+  export const isa = (o: any): o is DescribeClientPropertiesRequest =>
+    __isa(o, "DescribeClientPropertiesRequest");
 }
 
 export interface DescribeClientPropertiesResult {
@@ -623,9 +591,8 @@ export interface DescribeClientPropertiesResult {
 }
 
 export namespace DescribeClientPropertiesResult {
-  export function isa(o: any): o is DescribeClientPropertiesResult {
-    return __isa(o, "DescribeClientPropertiesResult");
-  }
+  export const isa = (o: any): o is DescribeClientPropertiesResult =>
+    __isa(o, "DescribeClientPropertiesResult");
 }
 
 export interface DescribeIpGroupsRequest {
@@ -648,9 +615,8 @@ export interface DescribeIpGroupsRequest {
 }
 
 export namespace DescribeIpGroupsRequest {
-  export function isa(o: any): o is DescribeIpGroupsRequest {
-    return __isa(o, "DescribeIpGroupsRequest");
-  }
+  export const isa = (o: any): o is DescribeIpGroupsRequest =>
+    __isa(o, "DescribeIpGroupsRequest");
 }
 
 export interface DescribeIpGroupsResult {
@@ -668,9 +634,8 @@ export interface DescribeIpGroupsResult {
 }
 
 export namespace DescribeIpGroupsResult {
-  export function isa(o: any): o is DescribeIpGroupsResult {
-    return __isa(o, "DescribeIpGroupsResult");
-  }
+  export const isa = (o: any): o is DescribeIpGroupsResult =>
+    __isa(o, "DescribeIpGroupsResult");
 }
 
 export interface DescribeTagsRequest {
@@ -683,9 +648,8 @@ export interface DescribeTagsRequest {
 }
 
 export namespace DescribeTagsRequest {
-  export function isa(o: any): o is DescribeTagsRequest {
-    return __isa(o, "DescribeTagsRequest");
-  }
+  export const isa = (o: any): o is DescribeTagsRequest =>
+    __isa(o, "DescribeTagsRequest");
 }
 
 export interface DescribeTagsResult {
@@ -697,9 +661,8 @@ export interface DescribeTagsResult {
 }
 
 export namespace DescribeTagsResult {
-  export function isa(o: any): o is DescribeTagsResult {
-    return __isa(o, "DescribeTagsResult");
-  }
+  export const isa = (o: any): o is DescribeTagsResult =>
+    __isa(o, "DescribeTagsResult");
 }
 
 export interface DescribeWorkspaceBundlesRequest {
@@ -723,9 +686,8 @@ export interface DescribeWorkspaceBundlesRequest {
 }
 
 export namespace DescribeWorkspaceBundlesRequest {
-  export function isa(o: any): o is DescribeWorkspaceBundlesRequest {
-    return __isa(o, "DescribeWorkspaceBundlesRequest");
-  }
+  export const isa = (o: any): o is DescribeWorkspaceBundlesRequest =>
+    __isa(o, "DescribeWorkspaceBundlesRequest");
 }
 
 export interface DescribeWorkspaceBundlesResult {
@@ -743,9 +705,8 @@ export interface DescribeWorkspaceBundlesResult {
 }
 
 export namespace DescribeWorkspaceBundlesResult {
-  export function isa(o: any): o is DescribeWorkspaceBundlesResult {
-    return __isa(o, "DescribeWorkspaceBundlesResult");
-  }
+  export const isa = (o: any): o is DescribeWorkspaceBundlesResult =>
+    __isa(o, "DescribeWorkspaceBundlesResult");
 }
 
 export interface DescribeWorkspaceDirectoriesRequest {
@@ -769,9 +730,8 @@ export interface DescribeWorkspaceDirectoriesRequest {
 }
 
 export namespace DescribeWorkspaceDirectoriesRequest {
-  export function isa(o: any): o is DescribeWorkspaceDirectoriesRequest {
-    return __isa(o, "DescribeWorkspaceDirectoriesRequest");
-  }
+  export const isa = (o: any): o is DescribeWorkspaceDirectoriesRequest =>
+    __isa(o, "DescribeWorkspaceDirectoriesRequest");
 }
 
 export interface DescribeWorkspaceDirectoriesResult {
@@ -789,9 +749,8 @@ export interface DescribeWorkspaceDirectoriesResult {
 }
 
 export namespace DescribeWorkspaceDirectoriesResult {
-  export function isa(o: any): o is DescribeWorkspaceDirectoriesResult {
-    return __isa(o, "DescribeWorkspaceDirectoriesResult");
-  }
+  export const isa = (o: any): o is DescribeWorkspaceDirectoriesResult =>
+    __isa(o, "DescribeWorkspaceDirectoriesResult");
 }
 
 export interface DescribeWorkspaceImagesRequest {
@@ -814,9 +773,8 @@ export interface DescribeWorkspaceImagesRequest {
 }
 
 export namespace DescribeWorkspaceImagesRequest {
-  export function isa(o: any): o is DescribeWorkspaceImagesRequest {
-    return __isa(o, "DescribeWorkspaceImagesRequest");
-  }
+  export const isa = (o: any): o is DescribeWorkspaceImagesRequest =>
+    __isa(o, "DescribeWorkspaceImagesRequest");
 }
 
 export interface DescribeWorkspaceImagesResult {
@@ -834,9 +792,8 @@ export interface DescribeWorkspaceImagesResult {
 }
 
 export namespace DescribeWorkspaceImagesResult {
-  export function isa(o: any): o is DescribeWorkspaceImagesResult {
-    return __isa(o, "DescribeWorkspaceImagesResult");
-  }
+  export const isa = (o: any): o is DescribeWorkspaceImagesResult =>
+    __isa(o, "DescribeWorkspaceImagesResult");
 }
 
 export interface DescribeWorkspaceSnapshotsRequest {
@@ -848,9 +805,8 @@ export interface DescribeWorkspaceSnapshotsRequest {
 }
 
 export namespace DescribeWorkspaceSnapshotsRequest {
-  export function isa(o: any): o is DescribeWorkspaceSnapshotsRequest {
-    return __isa(o, "DescribeWorkspaceSnapshotsRequest");
-  }
+  export const isa = (o: any): o is DescribeWorkspaceSnapshotsRequest =>
+    __isa(o, "DescribeWorkspaceSnapshotsRequest");
 }
 
 export interface DescribeWorkspaceSnapshotsResult {
@@ -869,9 +825,8 @@ export interface DescribeWorkspaceSnapshotsResult {
 }
 
 export namespace DescribeWorkspaceSnapshotsResult {
-  export function isa(o: any): o is DescribeWorkspaceSnapshotsResult {
-    return __isa(o, "DescribeWorkspaceSnapshotsResult");
-  }
+  export const isa = (o: any): o is DescribeWorkspaceSnapshotsResult =>
+    __isa(o, "DescribeWorkspaceSnapshotsResult");
 }
 
 export interface DescribeWorkspacesConnectionStatusRequest {
@@ -889,9 +844,8 @@ export interface DescribeWorkspacesConnectionStatusRequest {
 }
 
 export namespace DescribeWorkspacesConnectionStatusRequest {
-  export function isa(o: any): o is DescribeWorkspacesConnectionStatusRequest {
-    return __isa(o, "DescribeWorkspacesConnectionStatusRequest");
-  }
+  export const isa = (o: any): o is DescribeWorkspacesConnectionStatusRequest =>
+    __isa(o, "DescribeWorkspacesConnectionStatusRequest");
 }
 
 export interface DescribeWorkspacesConnectionStatusResult {
@@ -909,9 +863,8 @@ export interface DescribeWorkspacesConnectionStatusResult {
 }
 
 export namespace DescribeWorkspacesConnectionStatusResult {
-  export function isa(o: any): o is DescribeWorkspacesConnectionStatusResult {
-    return __isa(o, "DescribeWorkspacesConnectionStatusResult");
-  }
+  export const isa = (o: any): o is DescribeWorkspacesConnectionStatusResult =>
+    __isa(o, "DescribeWorkspacesConnectionStatusResult");
 }
 
 export interface DescribeWorkspacesRequest {
@@ -956,9 +909,8 @@ export interface DescribeWorkspacesRequest {
 }
 
 export namespace DescribeWorkspacesRequest {
-  export function isa(o: any): o is DescribeWorkspacesRequest {
-    return __isa(o, "DescribeWorkspacesRequest");
-  }
+  export const isa = (o: any): o is DescribeWorkspacesRequest =>
+    __isa(o, "DescribeWorkspacesRequest");
 }
 
 export interface DescribeWorkspacesResult {
@@ -978,9 +930,8 @@ export interface DescribeWorkspacesResult {
 }
 
 export namespace DescribeWorkspacesResult {
-  export function isa(o: any): o is DescribeWorkspacesResult {
-    return __isa(o, "DescribeWorkspacesResult");
-  }
+  export const isa = (o: any): o is DescribeWorkspacesResult =>
+    __isa(o, "DescribeWorkspacesResult");
 }
 
 export interface DisassociateIpGroupsRequest {
@@ -997,9 +948,8 @@ export interface DisassociateIpGroupsRequest {
 }
 
 export namespace DisassociateIpGroupsRequest {
-  export function isa(o: any): o is DisassociateIpGroupsRequest {
-    return __isa(o, "DisassociateIpGroupsRequest");
-  }
+  export const isa = (o: any): o is DisassociateIpGroupsRequest =>
+    __isa(o, "DisassociateIpGroupsRequest");
 }
 
 export interface DisassociateIpGroupsResult {
@@ -1007,9 +957,8 @@ export interface DisassociateIpGroupsResult {
 }
 
 export namespace DisassociateIpGroupsResult {
-  export function isa(o: any): o is DisassociateIpGroupsResult {
-    return __isa(o, "DisassociateIpGroupsResult");
-  }
+  export const isa = (o: any): o is DisassociateIpGroupsResult =>
+    __isa(o, "DisassociateIpGroupsResult");
 }
 
 /**
@@ -1035,9 +984,8 @@ export interface FailedCreateWorkspaceRequest {
 }
 
 export namespace FailedCreateWorkspaceRequest {
-  export function isa(o: any): o is FailedCreateWorkspaceRequest {
-    return __isa(o, "FailedCreateWorkspaceRequest");
-  }
+  export const isa = (o: any): o is FailedCreateWorkspaceRequest =>
+    __isa(o, "FailedCreateWorkspaceRequest");
 }
 
 /**
@@ -1065,9 +1013,8 @@ export interface FailedWorkspaceChangeRequest {
 }
 
 export namespace FailedWorkspaceChangeRequest {
-  export function isa(o: any): o is FailedWorkspaceChangeRequest {
-    return __isa(o, "FailedWorkspaceChangeRequest");
-  }
+  export const isa = (o: any): o is FailedWorkspaceChangeRequest =>
+    __isa(o, "FailedWorkspaceChangeRequest");
 }
 
 export interface ImportWorkspaceImageRequest {
@@ -1099,9 +1046,8 @@ export interface ImportWorkspaceImageRequest {
 }
 
 export namespace ImportWorkspaceImageRequest {
-  export function isa(o: any): o is ImportWorkspaceImageRequest {
-    return __isa(o, "ImportWorkspaceImageRequest");
-  }
+  export const isa = (o: any): o is ImportWorkspaceImageRequest =>
+    __isa(o, "ImportWorkspaceImageRequest");
 }
 
 export interface ImportWorkspaceImageResult {
@@ -1113,9 +1059,8 @@ export interface ImportWorkspaceImageResult {
 }
 
 export namespace ImportWorkspaceImageResult {
-  export function isa(o: any): o is ImportWorkspaceImageResult {
-    return __isa(o, "ImportWorkspaceImageResult");
-  }
+  export const isa = (o: any): o is ImportWorkspaceImageResult =>
+    __isa(o, "ImportWorkspaceImageResult");
 }
 
 /**
@@ -1133,9 +1078,8 @@ export interface InvalidParameterValuesException
 }
 
 export namespace InvalidParameterValuesException {
-  export function isa(o: any): o is InvalidParameterValuesException {
-    return __isa(o, "InvalidParameterValuesException");
-  }
+  export const isa = (o: any): o is InvalidParameterValuesException =>
+    __isa(o, "InvalidParameterValuesException");
 }
 
 /**
@@ -1150,9 +1094,8 @@ export interface InvalidResourceStateException
 }
 
 export namespace InvalidResourceStateException {
-  export function isa(o: any): o is InvalidResourceStateException {
-    return __isa(o, "InvalidResourceStateException");
-  }
+  export const isa = (o: any): o is InvalidResourceStateException =>
+    __isa(o, "InvalidResourceStateException");
 }
 
 /**
@@ -1172,9 +1115,7 @@ export interface IpRuleItem {
 }
 
 export namespace IpRuleItem {
-  export function isa(o: any): o is IpRuleItem {
-    return __isa(o, "IpRuleItem");
-  }
+  export const isa = (o: any): o is IpRuleItem => __isa(o, "IpRuleItem");
 }
 
 export interface ListAvailableManagementCidrRangesRequest {
@@ -1198,9 +1139,8 @@ export interface ListAvailableManagementCidrRangesRequest {
 }
 
 export namespace ListAvailableManagementCidrRangesRequest {
-  export function isa(o: any): o is ListAvailableManagementCidrRangesRequest {
-    return __isa(o, "ListAvailableManagementCidrRangesRequest");
-  }
+  export const isa = (o: any): o is ListAvailableManagementCidrRangesRequest =>
+    __isa(o, "ListAvailableManagementCidrRangesRequest");
 }
 
 export interface ListAvailableManagementCidrRangesResult {
@@ -1218,9 +1158,8 @@ export interface ListAvailableManagementCidrRangesResult {
 }
 
 export namespace ListAvailableManagementCidrRangesResult {
-  export function isa(o: any): o is ListAvailableManagementCidrRangesResult {
-    return __isa(o, "ListAvailableManagementCidrRangesResult");
-  }
+  export const isa = (o: any): o is ListAvailableManagementCidrRangesResult =>
+    __isa(o, "ListAvailableManagementCidrRangesResult");
 }
 
 export interface MigrateWorkspaceRequest {
@@ -1237,9 +1176,8 @@ export interface MigrateWorkspaceRequest {
 }
 
 export namespace MigrateWorkspaceRequest {
-  export function isa(o: any): o is MigrateWorkspaceRequest {
-    return __isa(o, "MigrateWorkspaceRequest");
-  }
+  export const isa = (o: any): o is MigrateWorkspaceRequest =>
+    __isa(o, "MigrateWorkspaceRequest");
 }
 
 export interface MigrateWorkspaceResult {
@@ -1257,9 +1195,8 @@ export interface MigrateWorkspaceResult {
 }
 
 export namespace MigrateWorkspaceResult {
-  export function isa(o: any): o is MigrateWorkspaceResult {
-    return __isa(o, "MigrateWorkspaceResult");
-  }
+  export const isa = (o: any): o is MigrateWorkspaceResult =>
+    __isa(o, "MigrateWorkspaceResult");
 }
 
 export enum ModificationResourceEnum {
@@ -1285,9 +1222,8 @@ export interface ModificationState {
 }
 
 export namespace ModificationState {
-  export function isa(o: any): o is ModificationState {
-    return __isa(o, "ModificationState");
-  }
+  export const isa = (o: any): o is ModificationState =>
+    __isa(o, "ModificationState");
 }
 
 export enum ModificationStateEnum {
@@ -1313,9 +1249,8 @@ export interface ModifyAccountRequest {
 }
 
 export namespace ModifyAccountRequest {
-  export function isa(o: any): o is ModifyAccountRequest {
-    return __isa(o, "ModifyAccountRequest");
-  }
+  export const isa = (o: any): o is ModifyAccountRequest =>
+    __isa(o, "ModifyAccountRequest");
 }
 
 export interface ModifyAccountResult {
@@ -1323,9 +1258,8 @@ export interface ModifyAccountResult {
 }
 
 export namespace ModifyAccountResult {
-  export function isa(o: any): o is ModifyAccountResult {
-    return __isa(o, "ModifyAccountResult");
-  }
+  export const isa = (o: any): o is ModifyAccountResult =>
+    __isa(o, "ModifyAccountResult");
 }
 
 export interface ModifyClientPropertiesRequest {
@@ -1342,9 +1276,8 @@ export interface ModifyClientPropertiesRequest {
 }
 
 export namespace ModifyClientPropertiesRequest {
-  export function isa(o: any): o is ModifyClientPropertiesRequest {
-    return __isa(o, "ModifyClientPropertiesRequest");
-  }
+  export const isa = (o: any): o is ModifyClientPropertiesRequest =>
+    __isa(o, "ModifyClientPropertiesRequest");
 }
 
 export interface ModifyClientPropertiesResult {
@@ -1352,9 +1285,8 @@ export interface ModifyClientPropertiesResult {
 }
 
 export namespace ModifyClientPropertiesResult {
-  export function isa(o: any): o is ModifyClientPropertiesResult {
-    return __isa(o, "ModifyClientPropertiesResult");
-  }
+  export const isa = (o: any): o is ModifyClientPropertiesResult =>
+    __isa(o, "ModifyClientPropertiesResult");
 }
 
 export interface ModifySelfservicePermissionsRequest {
@@ -1371,9 +1303,8 @@ export interface ModifySelfservicePermissionsRequest {
 }
 
 export namespace ModifySelfservicePermissionsRequest {
-  export function isa(o: any): o is ModifySelfservicePermissionsRequest {
-    return __isa(o, "ModifySelfservicePermissionsRequest");
-  }
+  export const isa = (o: any): o is ModifySelfservicePermissionsRequest =>
+    __isa(o, "ModifySelfservicePermissionsRequest");
 }
 
 export interface ModifySelfservicePermissionsResult {
@@ -1381,9 +1312,8 @@ export interface ModifySelfservicePermissionsResult {
 }
 
 export namespace ModifySelfservicePermissionsResult {
-  export function isa(o: any): o is ModifySelfservicePermissionsResult {
-    return __isa(o, "ModifySelfservicePermissionsResult");
-  }
+  export const isa = (o: any): o is ModifySelfservicePermissionsResult =>
+    __isa(o, "ModifySelfservicePermissionsResult");
 }
 
 export interface ModifyWorkspaceAccessPropertiesRequest {
@@ -1400,9 +1330,8 @@ export interface ModifyWorkspaceAccessPropertiesRequest {
 }
 
 export namespace ModifyWorkspaceAccessPropertiesRequest {
-  export function isa(o: any): o is ModifyWorkspaceAccessPropertiesRequest {
-    return __isa(o, "ModifyWorkspaceAccessPropertiesRequest");
-  }
+  export const isa = (o: any): o is ModifyWorkspaceAccessPropertiesRequest =>
+    __isa(o, "ModifyWorkspaceAccessPropertiesRequest");
 }
 
 export interface ModifyWorkspaceAccessPropertiesResult {
@@ -1410,9 +1339,8 @@ export interface ModifyWorkspaceAccessPropertiesResult {
 }
 
 export namespace ModifyWorkspaceAccessPropertiesResult {
-  export function isa(o: any): o is ModifyWorkspaceAccessPropertiesResult {
-    return __isa(o, "ModifyWorkspaceAccessPropertiesResult");
-  }
+  export const isa = (o: any): o is ModifyWorkspaceAccessPropertiesResult =>
+    __isa(o, "ModifyWorkspaceAccessPropertiesResult");
 }
 
 export interface ModifyWorkspaceCreationPropertiesRequest {
@@ -1429,9 +1357,8 @@ export interface ModifyWorkspaceCreationPropertiesRequest {
 }
 
 export namespace ModifyWorkspaceCreationPropertiesRequest {
-  export function isa(o: any): o is ModifyWorkspaceCreationPropertiesRequest {
-    return __isa(o, "ModifyWorkspaceCreationPropertiesRequest");
-  }
+  export const isa = (o: any): o is ModifyWorkspaceCreationPropertiesRequest =>
+    __isa(o, "ModifyWorkspaceCreationPropertiesRequest");
 }
 
 export interface ModifyWorkspaceCreationPropertiesResult {
@@ -1439,9 +1366,8 @@ export interface ModifyWorkspaceCreationPropertiesResult {
 }
 
 export namespace ModifyWorkspaceCreationPropertiesResult {
-  export function isa(o: any): o is ModifyWorkspaceCreationPropertiesResult {
-    return __isa(o, "ModifyWorkspaceCreationPropertiesResult");
-  }
+  export const isa = (o: any): o is ModifyWorkspaceCreationPropertiesResult =>
+    __isa(o, "ModifyWorkspaceCreationPropertiesResult");
 }
 
 export interface ModifyWorkspacePropertiesRequest {
@@ -1458,9 +1384,8 @@ export interface ModifyWorkspacePropertiesRequest {
 }
 
 export namespace ModifyWorkspacePropertiesRequest {
-  export function isa(o: any): o is ModifyWorkspacePropertiesRequest {
-    return __isa(o, "ModifyWorkspacePropertiesRequest");
-  }
+  export const isa = (o: any): o is ModifyWorkspacePropertiesRequest =>
+    __isa(o, "ModifyWorkspacePropertiesRequest");
 }
 
 export interface ModifyWorkspacePropertiesResult {
@@ -1468,9 +1393,8 @@ export interface ModifyWorkspacePropertiesResult {
 }
 
 export namespace ModifyWorkspacePropertiesResult {
-  export function isa(o: any): o is ModifyWorkspacePropertiesResult {
-    return __isa(o, "ModifyWorkspacePropertiesResult");
-  }
+  export const isa = (o: any): o is ModifyWorkspacePropertiesResult =>
+    __isa(o, "ModifyWorkspacePropertiesResult");
 }
 
 export interface ModifyWorkspaceStateRequest {
@@ -1487,9 +1411,8 @@ export interface ModifyWorkspaceStateRequest {
 }
 
 export namespace ModifyWorkspaceStateRequest {
-  export function isa(o: any): o is ModifyWorkspaceStateRequest {
-    return __isa(o, "ModifyWorkspaceStateRequest");
-  }
+  export const isa = (o: any): o is ModifyWorkspaceStateRequest =>
+    __isa(o, "ModifyWorkspaceStateRequest");
 }
 
 export interface ModifyWorkspaceStateResult {
@@ -1497,9 +1420,8 @@ export interface ModifyWorkspaceStateResult {
 }
 
 export namespace ModifyWorkspaceStateResult {
-  export function isa(o: any): o is ModifyWorkspaceStateResult {
-    return __isa(o, "ModifyWorkspaceStateResult");
-  }
+  export const isa = (o: any): o is ModifyWorkspaceStateResult =>
+    __isa(o, "ModifyWorkspaceStateResult");
 }
 
 /**
@@ -1514,9 +1436,8 @@ export interface OperatingSystem {
 }
 
 export namespace OperatingSystem {
-  export function isa(o: any): o is OperatingSystem {
-    return __isa(o, "OperatingSystem");
-  }
+  export const isa = (o: any): o is OperatingSystem =>
+    __isa(o, "OperatingSystem");
 }
 
 export enum OperatingSystemType {
@@ -1536,9 +1457,8 @@ export interface OperationInProgressException
 }
 
 export namespace OperationInProgressException {
-  export function isa(o: any): o is OperationInProgressException {
-    return __isa(o, "OperationInProgressException");
-  }
+  export const isa = (o: any): o is OperationInProgressException =>
+    __isa(o, "OperationInProgressException");
 }
 
 /**
@@ -1553,9 +1473,8 @@ export interface OperationNotSupportedException
 }
 
 export namespace OperationNotSupportedException {
-  export function isa(o: any): o is OperationNotSupportedException {
-    return __isa(o, "OperationNotSupportedException");
-  }
+  export const isa = (o: any): o is OperationNotSupportedException =>
+    __isa(o, "OperationNotSupportedException");
 }
 
 /**
@@ -1570,9 +1489,7 @@ export interface RebootRequest {
 }
 
 export namespace RebootRequest {
-  export function isa(o: any): o is RebootRequest {
-    return __isa(o, "RebootRequest");
-  }
+  export const isa = (o: any): o is RebootRequest => __isa(o, "RebootRequest");
 }
 
 export interface RebootWorkspacesRequest {
@@ -1584,9 +1501,8 @@ export interface RebootWorkspacesRequest {
 }
 
 export namespace RebootWorkspacesRequest {
-  export function isa(o: any): o is RebootWorkspacesRequest {
-    return __isa(o, "RebootWorkspacesRequest");
-  }
+  export const isa = (o: any): o is RebootWorkspacesRequest =>
+    __isa(o, "RebootWorkspacesRequest");
 }
 
 export interface RebootWorkspacesResult {
@@ -1598,9 +1514,8 @@ export interface RebootWorkspacesResult {
 }
 
 export namespace RebootWorkspacesResult {
-  export function isa(o: any): o is RebootWorkspacesResult {
-    return __isa(o, "RebootWorkspacesResult");
-  }
+  export const isa = (o: any): o is RebootWorkspacesResult =>
+    __isa(o, "RebootWorkspacesResult");
 }
 
 /**
@@ -1615,9 +1530,8 @@ export interface RebuildRequest {
 }
 
 export namespace RebuildRequest {
-  export function isa(o: any): o is RebuildRequest {
-    return __isa(o, "RebuildRequest");
-  }
+  export const isa = (o: any): o is RebuildRequest =>
+    __isa(o, "RebuildRequest");
 }
 
 export interface RebuildWorkspacesRequest {
@@ -1629,9 +1543,8 @@ export interface RebuildWorkspacesRequest {
 }
 
 export namespace RebuildWorkspacesRequest {
-  export function isa(o: any): o is RebuildWorkspacesRequest {
-    return __isa(o, "RebuildWorkspacesRequest");
-  }
+  export const isa = (o: any): o is RebuildWorkspacesRequest =>
+    __isa(o, "RebuildWorkspacesRequest");
 }
 
 export interface RebuildWorkspacesResult {
@@ -1643,9 +1556,8 @@ export interface RebuildWorkspacesResult {
 }
 
 export namespace RebuildWorkspacesResult {
-  export function isa(o: any): o is RebuildWorkspacesResult {
-    return __isa(o, "RebuildWorkspacesResult");
-  }
+  export const isa = (o: any): o is RebuildWorkspacesResult =>
+    __isa(o, "RebuildWorkspacesResult");
 }
 
 export enum ReconnectEnum {
@@ -1699,9 +1611,8 @@ export interface RegisterWorkspaceDirectoryRequest {
 }
 
 export namespace RegisterWorkspaceDirectoryRequest {
-  export function isa(o: any): o is RegisterWorkspaceDirectoryRequest {
-    return __isa(o, "RegisterWorkspaceDirectoryRequest");
-  }
+  export const isa = (o: any): o is RegisterWorkspaceDirectoryRequest =>
+    __isa(o, "RegisterWorkspaceDirectoryRequest");
 }
 
 export interface RegisterWorkspaceDirectoryResult {
@@ -1709,9 +1620,8 @@ export interface RegisterWorkspaceDirectoryResult {
 }
 
 export namespace RegisterWorkspaceDirectoryResult {
-  export function isa(o: any): o is RegisterWorkspaceDirectoryResult {
-    return __isa(o, "RegisterWorkspaceDirectoryResult");
-  }
+  export const isa = (o: any): o is RegisterWorkspaceDirectoryResult =>
+    __isa(o, "RegisterWorkspaceDirectoryResult");
 }
 
 /**
@@ -1726,9 +1636,8 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
-  export function isa(o: any): o is ResourceAlreadyExistsException {
-    return __isa(o, "ResourceAlreadyExistsException");
-  }
+  export const isa = (o: any): o is ResourceAlreadyExistsException =>
+    __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -1743,9 +1652,8 @@ export interface ResourceAssociatedException
 }
 
 export namespace ResourceAssociatedException {
-  export function isa(o: any): o is ResourceAssociatedException {
-    return __isa(o, "ResourceAssociatedException");
-  }
+  export const isa = (o: any): o is ResourceAssociatedException =>
+    __isa(o, "ResourceAssociatedException");
 }
 
 /**
@@ -1760,9 +1668,8 @@ export interface ResourceCreationFailedException
 }
 
 export namespace ResourceCreationFailedException {
-  export function isa(o: any): o is ResourceCreationFailedException {
-    return __isa(o, "ResourceCreationFailedException");
-  }
+  export const isa = (o: any): o is ResourceCreationFailedException =>
+    __isa(o, "ResourceCreationFailedException");
 }
 
 /**
@@ -1780,9 +1687,8 @@ export interface ResourceLimitExceededException
 }
 
 export namespace ResourceLimitExceededException {
-  export function isa(o: any): o is ResourceLimitExceededException {
-    return __isa(o, "ResourceLimitExceededException");
-  }
+  export const isa = (o: any): o is ResourceLimitExceededException =>
+    __isa(o, "ResourceLimitExceededException");
 }
 
 /**
@@ -1805,9 +1711,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1830,9 +1735,8 @@ export interface ResourceUnavailableException
 }
 
 export namespace ResourceUnavailableException {
-  export function isa(o: any): o is ResourceUnavailableException {
-    return __isa(o, "ResourceUnavailableException");
-  }
+  export const isa = (o: any): o is ResourceUnavailableException =>
+    __isa(o, "ResourceUnavailableException");
 }
 
 export interface RestoreWorkspaceRequest {
@@ -1844,9 +1748,8 @@ export interface RestoreWorkspaceRequest {
 }
 
 export namespace RestoreWorkspaceRequest {
-  export function isa(o: any): o is RestoreWorkspaceRequest {
-    return __isa(o, "RestoreWorkspaceRequest");
-  }
+  export const isa = (o: any): o is RestoreWorkspaceRequest =>
+    __isa(o, "RestoreWorkspaceRequest");
 }
 
 export interface RestoreWorkspaceResult {
@@ -1854,9 +1757,8 @@ export interface RestoreWorkspaceResult {
 }
 
 export namespace RestoreWorkspaceResult {
-  export function isa(o: any): o is RestoreWorkspaceResult {
-    return __isa(o, "RestoreWorkspaceResult");
-  }
+  export const isa = (o: any): o is RestoreWorkspaceResult =>
+    __isa(o, "RestoreWorkspaceResult");
 }
 
 export interface RevokeIpRulesRequest {
@@ -1873,9 +1775,8 @@ export interface RevokeIpRulesRequest {
 }
 
 export namespace RevokeIpRulesRequest {
-  export function isa(o: any): o is RevokeIpRulesRequest {
-    return __isa(o, "RevokeIpRulesRequest");
-  }
+  export const isa = (o: any): o is RevokeIpRulesRequest =>
+    __isa(o, "RevokeIpRulesRequest");
 }
 
 export interface RevokeIpRulesResult {
@@ -1883,9 +1784,8 @@ export interface RevokeIpRulesResult {
 }
 
 export namespace RevokeIpRulesResult {
-  export function isa(o: any): o is RevokeIpRulesResult {
-    return __isa(o, "RevokeIpRulesResult");
-  }
+  export const isa = (o: any): o is RevokeIpRulesResult =>
+    __isa(o, "RevokeIpRulesResult");
 }
 
 /**
@@ -1900,9 +1800,7 @@ export interface RootStorage {
 }
 
 export namespace RootStorage {
-  export function isa(o: any): o is RootStorage {
-    return __isa(o, "RootStorage");
-  }
+  export const isa = (o: any): o is RootStorage => __isa(o, "RootStorage");
 }
 
 export enum RunningMode {
@@ -1944,9 +1842,8 @@ export interface SelfservicePermissions {
 }
 
 export namespace SelfservicePermissions {
-  export function isa(o: any): o is SelfservicePermissions {
-    return __isa(o, "SelfservicePermissions");
-  }
+  export const isa = (o: any): o is SelfservicePermissions =>
+    __isa(o, "SelfservicePermissions");
 }
 
 /**
@@ -1961,9 +1858,7 @@ export interface Snapshot {
 }
 
 export namespace Snapshot {
-  export function isa(o: any): o is Snapshot {
-    return __isa(o, "Snapshot");
-  }
+  export const isa = (o: any): o is Snapshot => __isa(o, "Snapshot");
 }
 
 /**
@@ -1978,9 +1873,7 @@ export interface StartRequest {
 }
 
 export namespace StartRequest {
-  export function isa(o: any): o is StartRequest {
-    return __isa(o, "StartRequest");
-  }
+  export const isa = (o: any): o is StartRequest => __isa(o, "StartRequest");
 }
 
 export interface StartWorkspacesRequest {
@@ -1992,9 +1885,8 @@ export interface StartWorkspacesRequest {
 }
 
 export namespace StartWorkspacesRequest {
-  export function isa(o: any): o is StartWorkspacesRequest {
-    return __isa(o, "StartWorkspacesRequest");
-  }
+  export const isa = (o: any): o is StartWorkspacesRequest =>
+    __isa(o, "StartWorkspacesRequest");
 }
 
 export interface StartWorkspacesResult {
@@ -2006,9 +1898,8 @@ export interface StartWorkspacesResult {
 }
 
 export namespace StartWorkspacesResult {
-  export function isa(o: any): o is StartWorkspacesResult {
-    return __isa(o, "StartWorkspacesResult");
-  }
+  export const isa = (o: any): o is StartWorkspacesResult =>
+    __isa(o, "StartWorkspacesResult");
 }
 
 /**
@@ -2023,9 +1914,7 @@ export interface StopRequest {
 }
 
 export namespace StopRequest {
-  export function isa(o: any): o is StopRequest {
-    return __isa(o, "StopRequest");
-  }
+  export const isa = (o: any): o is StopRequest => __isa(o, "StopRequest");
 }
 
 export interface StopWorkspacesRequest {
@@ -2037,9 +1926,8 @@ export interface StopWorkspacesRequest {
 }
 
 export namespace StopWorkspacesRequest {
-  export function isa(o: any): o is StopWorkspacesRequest {
-    return __isa(o, "StopWorkspacesRequest");
-  }
+  export const isa = (o: any): o is StopWorkspacesRequest =>
+    __isa(o, "StopWorkspacesRequest");
 }
 
 export interface StopWorkspacesResult {
@@ -2051,9 +1939,8 @@ export interface StopWorkspacesResult {
 }
 
 export namespace StopWorkspacesResult {
-  export function isa(o: any): o is StopWorkspacesResult {
-    return __isa(o, "StopWorkspacesResult");
-  }
+  export const isa = (o: any): o is StopWorkspacesResult =>
+    __isa(o, "StopWorkspacesResult");
 }
 
 /**
@@ -2073,9 +1960,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export enum TargetWorkspaceState {
@@ -2100,9 +1985,8 @@ export interface TerminateRequest {
 }
 
 export namespace TerminateRequest {
-  export function isa(o: any): o is TerminateRequest {
-    return __isa(o, "TerminateRequest");
-  }
+  export const isa = (o: any): o is TerminateRequest =>
+    __isa(o, "TerminateRequest");
 }
 
 export interface TerminateWorkspacesRequest {
@@ -2114,9 +1998,8 @@ export interface TerminateWorkspacesRequest {
 }
 
 export namespace TerminateWorkspacesRequest {
-  export function isa(o: any): o is TerminateWorkspacesRequest {
-    return __isa(o, "TerminateWorkspacesRequest");
-  }
+  export const isa = (o: any): o is TerminateWorkspacesRequest =>
+    __isa(o, "TerminateWorkspacesRequest");
 }
 
 export interface TerminateWorkspacesResult {
@@ -2128,9 +2011,8 @@ export interface TerminateWorkspacesResult {
 }
 
 export namespace TerminateWorkspacesResult {
-  export function isa(o: any): o is TerminateWorkspacesResult {
-    return __isa(o, "TerminateWorkspacesResult");
-  }
+  export const isa = (o: any): o is TerminateWorkspacesResult =>
+    __isa(o, "TerminateWorkspacesResult");
 }
 
 /**
@@ -2148,9 +2030,8 @@ export interface UnsupportedNetworkConfigurationException
 }
 
 export namespace UnsupportedNetworkConfigurationException {
-  export function isa(o: any): o is UnsupportedNetworkConfigurationException {
-    return __isa(o, "UnsupportedNetworkConfigurationException");
-  }
+  export const isa = (o: any): o is UnsupportedNetworkConfigurationException =>
+    __isa(o, "UnsupportedNetworkConfigurationException");
 }
 
 /**
@@ -2167,9 +2048,10 @@ export interface UnsupportedWorkspaceConfigurationException
 }
 
 export namespace UnsupportedWorkspaceConfigurationException {
-  export function isa(o: any): o is UnsupportedWorkspaceConfigurationException {
-    return __isa(o, "UnsupportedWorkspaceConfigurationException");
-  }
+  export const isa = (
+    o: any
+  ): o is UnsupportedWorkspaceConfigurationException =>
+    __isa(o, "UnsupportedWorkspaceConfigurationException");
 }
 
 export interface UpdateRulesOfIpGroupRequest {
@@ -2186,9 +2068,8 @@ export interface UpdateRulesOfIpGroupRequest {
 }
 
 export namespace UpdateRulesOfIpGroupRequest {
-  export function isa(o: any): o is UpdateRulesOfIpGroupRequest {
-    return __isa(o, "UpdateRulesOfIpGroupRequest");
-  }
+  export const isa = (o: any): o is UpdateRulesOfIpGroupRequest =>
+    __isa(o, "UpdateRulesOfIpGroupRequest");
 }
 
 export interface UpdateRulesOfIpGroupResult {
@@ -2196,9 +2077,8 @@ export interface UpdateRulesOfIpGroupResult {
 }
 
 export namespace UpdateRulesOfIpGroupResult {
-  export function isa(o: any): o is UpdateRulesOfIpGroupResult {
-    return __isa(o, "UpdateRulesOfIpGroupResult");
-  }
+  export const isa = (o: any): o is UpdateRulesOfIpGroupResult =>
+    __isa(o, "UpdateRulesOfIpGroupResult");
 }
 
 /**
@@ -2213,9 +2093,7 @@ export interface UserStorage {
 }
 
 export namespace UserStorage {
-  export function isa(o: any): o is UserStorage {
-    return __isa(o, "UserStorage");
-  }
+  export const isa = (o: any): o is UserStorage => __isa(o, "UserStorage");
 }
 
 /**
@@ -2302,9 +2180,7 @@ export interface Workspace {
 }
 
 export namespace Workspace {
-  export function isa(o: any): o is Workspace {
-    return __isa(o, "Workspace");
-  }
+  export const isa = (o: any): o is Workspace => __isa(o, "Workspace");
 }
 
 /**
@@ -2357,9 +2233,8 @@ export interface WorkspaceAccessProperties {
 }
 
 export namespace WorkspaceAccessProperties {
-  export function isa(o: any): o is WorkspaceAccessProperties {
-    return __isa(o, "WorkspaceAccessProperties");
-  }
+  export const isa = (o: any): o is WorkspaceAccessProperties =>
+    __isa(o, "WorkspaceAccessProperties");
 }
 
 /**
@@ -2415,9 +2290,8 @@ export interface WorkspaceBundle {
 }
 
 export namespace WorkspaceBundle {
-  export function isa(o: any): o is WorkspaceBundle {
-    return __isa(o, "WorkspaceBundle");
-  }
+  export const isa = (o: any): o is WorkspaceBundle =>
+    __isa(o, "WorkspaceBundle");
 }
 
 /**
@@ -2448,9 +2322,8 @@ export interface WorkspaceConnectionStatus {
 }
 
 export namespace WorkspaceConnectionStatus {
-  export function isa(o: any): o is WorkspaceConnectionStatus {
-    return __isa(o, "WorkspaceConnectionStatus");
-  }
+  export const isa = (o: any): o is WorkspaceConnectionStatus =>
+    __isa(o, "WorkspaceConnectionStatus");
 }
 
 /**
@@ -2489,9 +2362,8 @@ export interface WorkspaceCreationProperties {
 }
 
 export namespace WorkspaceCreationProperties {
-  export function isa(o: any): o is WorkspaceCreationProperties {
-    return __isa(o, "WorkspaceCreationProperties");
-  }
+  export const isa = (o: any): o is WorkspaceCreationProperties =>
+    __isa(o, "WorkspaceCreationProperties");
 }
 
 /**
@@ -2585,9 +2457,8 @@ export interface WorkspaceDirectory {
 }
 
 export namespace WorkspaceDirectory {
-  export function isa(o: any): o is WorkspaceDirectory {
-    return __isa(o, "WorkspaceDirectory");
-  }
+  export const isa = (o: any): o is WorkspaceDirectory =>
+    __isa(o, "WorkspaceDirectory");
 }
 
 export enum WorkspaceDirectoryState {
@@ -2653,9 +2524,8 @@ export interface WorkspaceImage {
 }
 
 export namespace WorkspaceImage {
-  export function isa(o: any): o is WorkspaceImage {
-    return __isa(o, "WorkspaceImage");
-  }
+  export const isa = (o: any): o is WorkspaceImage =>
+    __isa(o, "WorkspaceImage");
 }
 
 export enum WorkspaceImageIngestionProcess {
@@ -2709,9 +2579,8 @@ export interface WorkspaceProperties {
 }
 
 export namespace WorkspaceProperties {
-  export function isa(o: any): o is WorkspaceProperties {
-    return __isa(o, "WorkspaceProperties");
-  }
+  export const isa = (o: any): o is WorkspaceProperties =>
+    __isa(o, "WorkspaceProperties");
 }
 
 /**
@@ -2764,9 +2633,8 @@ export interface WorkspaceRequest {
 }
 
 export namespace WorkspaceRequest {
-  export function isa(o: any): o is WorkspaceRequest {
-    return __isa(o, "WorkspaceRequest");
-  }
+  export const isa = (o: any): o is WorkspaceRequest =>
+    __isa(o, "WorkspaceRequest");
 }
 
 export enum WorkspaceState {
@@ -2802,9 +2670,8 @@ export interface WorkspacesDefaultRoleNotFoundException
 }
 
 export namespace WorkspacesDefaultRoleNotFoundException {
-  export function isa(o: any): o is WorkspacesDefaultRoleNotFoundException {
-    return __isa(o, "WorkspacesDefaultRoleNotFoundException");
-  }
+  export const isa = (o: any): o is WorkspacesDefaultRoleNotFoundException =>
+    __isa(o, "WorkspacesDefaultRoleNotFoundException");
 }
 
 /**
@@ -2834,7 +2701,6 @@ export interface WorkspacesIpGroup {
 }
 
 export namespace WorkspacesIpGroup {
-  export function isa(o: any): o is WorkspacesIpGroup {
-    return __isa(o, "WorkspacesIpGroup");
-  }
+  export const isa = (o: any): o is WorkspacesIpGroup =>
+    __isa(o, "WorkspacesIpGroup");
 }

@@ -18,9 +18,8 @@ export interface AcceptResourceShareInvitationRequest {
 }
 
 export namespace AcceptResourceShareInvitationRequest {
-  export function isa(o: any): o is AcceptResourceShareInvitationRequest {
-    return __isa(o, "AcceptResourceShareInvitationRequest");
-  }
+  export const isa = (o: any): o is AcceptResourceShareInvitationRequest =>
+    __isa(o, "AcceptResourceShareInvitationRequest");
 }
 
 export interface AcceptResourceShareInvitationResponse {
@@ -37,9 +36,8 @@ export interface AcceptResourceShareInvitationResponse {
 }
 
 export namespace AcceptResourceShareInvitationResponse {
-  export function isa(o: any): o is AcceptResourceShareInvitationResponse {
-    return __isa(o, "AcceptResourceShareInvitationResponse");
-  }
+  export const isa = (o: any): o is AcceptResourceShareInvitationResponse =>
+    __isa(o, "AcceptResourceShareInvitationResponse");
 }
 
 export interface AssociateResourceSharePermissionRequest {
@@ -68,9 +66,8 @@ export interface AssociateResourceSharePermissionRequest {
 }
 
 export namespace AssociateResourceSharePermissionRequest {
-  export function isa(o: any): o is AssociateResourceSharePermissionRequest {
-    return __isa(o, "AssociateResourceSharePermissionRequest");
-  }
+  export const isa = (o: any): o is AssociateResourceSharePermissionRequest =>
+    __isa(o, "AssociateResourceSharePermissionRequest");
 }
 
 export interface AssociateResourceSharePermissionResponse {
@@ -87,9 +84,8 @@ export interface AssociateResourceSharePermissionResponse {
 }
 
 export namespace AssociateResourceSharePermissionResponse {
-  export function isa(o: any): o is AssociateResourceSharePermissionResponse {
-    return __isa(o, "AssociateResourceSharePermissionResponse");
-  }
+  export const isa = (o: any): o is AssociateResourceSharePermissionResponse =>
+    __isa(o, "AssociateResourceSharePermissionResponse");
 }
 
 export interface AssociateResourceShareRequest {
@@ -116,9 +112,8 @@ export interface AssociateResourceShareRequest {
 }
 
 export namespace AssociateResourceShareRequest {
-  export function isa(o: any): o is AssociateResourceShareRequest {
-    return __isa(o, "AssociateResourceShareRequest");
-  }
+  export const isa = (o: any): o is AssociateResourceShareRequest =>
+    __isa(o, "AssociateResourceShareRequest");
 }
 
 export interface AssociateResourceShareResponse {
@@ -135,9 +130,8 @@ export interface AssociateResourceShareResponse {
 }
 
 export namespace AssociateResourceShareResponse {
-  export function isa(o: any): o is AssociateResourceShareResponse {
-    return __isa(o, "AssociateResourceShareResponse");
-  }
+  export const isa = (o: any): o is AssociateResourceShareResponse =>
+    __isa(o, "AssociateResourceShareResponse");
 }
 
 export interface CreateResourceShareRequest {
@@ -182,9 +176,8 @@ export interface CreateResourceShareRequest {
 }
 
 export namespace CreateResourceShareRequest {
-  export function isa(o: any): o is CreateResourceShareRequest {
-    return __isa(o, "CreateResourceShareRequest");
-  }
+  export const isa = (o: any): o is CreateResourceShareRequest =>
+    __isa(o, "CreateResourceShareRequest");
 }
 
 export interface CreateResourceShareResponse {
@@ -201,9 +194,8 @@ export interface CreateResourceShareResponse {
 }
 
 export namespace CreateResourceShareResponse {
-  export function isa(o: any): o is CreateResourceShareResponse {
-    return __isa(o, "CreateResourceShareResponse");
-  }
+  export const isa = (o: any): o is CreateResourceShareResponse =>
+    __isa(o, "CreateResourceShareResponse");
 }
 
 export interface DeleteResourceShareRequest {
@@ -220,9 +212,8 @@ export interface DeleteResourceShareRequest {
 }
 
 export namespace DeleteResourceShareRequest {
-  export function isa(o: any): o is DeleteResourceShareRequest {
-    return __isa(o, "DeleteResourceShareRequest");
-  }
+  export const isa = (o: any): o is DeleteResourceShareRequest =>
+    __isa(o, "DeleteResourceShareRequest");
 }
 
 export interface DeleteResourceShareResponse {
@@ -239,9 +230,8 @@ export interface DeleteResourceShareResponse {
 }
 
 export namespace DeleteResourceShareResponse {
-  export function isa(o: any): o is DeleteResourceShareResponse {
-    return __isa(o, "DeleteResourceShareResponse");
-  }
+  export const isa = (o: any): o is DeleteResourceShareResponse =>
+    __isa(o, "DeleteResourceShareResponse");
 }
 
 export interface DisassociateResourceSharePermissionRequest {
@@ -263,9 +253,10 @@ export interface DisassociateResourceSharePermissionRequest {
 }
 
 export namespace DisassociateResourceSharePermissionRequest {
-  export function isa(o: any): o is DisassociateResourceSharePermissionRequest {
-    return __isa(o, "DisassociateResourceSharePermissionRequest");
-  }
+  export const isa = (
+    o: any
+  ): o is DisassociateResourceSharePermissionRequest =>
+    __isa(o, "DisassociateResourceSharePermissionRequest");
 }
 
 export interface DisassociateResourceSharePermissionResponse {
@@ -282,11 +273,10 @@ export interface DisassociateResourceSharePermissionResponse {
 }
 
 export namespace DisassociateResourceSharePermissionResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DisassociateResourceSharePermissionResponse {
-    return __isa(o, "DisassociateResourceSharePermissionResponse");
-  }
+  ): o is DisassociateResourceSharePermissionResponse =>
+    __isa(o, "DisassociateResourceSharePermissionResponse");
 }
 
 export interface DisassociateResourceShareRequest {
@@ -313,9 +303,8 @@ export interface DisassociateResourceShareRequest {
 }
 
 export namespace DisassociateResourceShareRequest {
-  export function isa(o: any): o is DisassociateResourceShareRequest {
-    return __isa(o, "DisassociateResourceShareRequest");
-  }
+  export const isa = (o: any): o is DisassociateResourceShareRequest =>
+    __isa(o, "DisassociateResourceShareRequest");
 }
 
 export interface DisassociateResourceShareResponse {
@@ -332,9 +321,8 @@ export interface DisassociateResourceShareResponse {
 }
 
 export namespace DisassociateResourceShareResponse {
-  export function isa(o: any): o is DisassociateResourceShareResponse {
-    return __isa(o, "DisassociateResourceShareResponse");
-  }
+  export const isa = (o: any): o is DisassociateResourceShareResponse =>
+    __isa(o, "DisassociateResourceShareResponse");
 }
 
 export interface EnableSharingWithAwsOrganizationRequest {
@@ -342,9 +330,8 @@ export interface EnableSharingWithAwsOrganizationRequest {
 }
 
 export namespace EnableSharingWithAwsOrganizationRequest {
-  export function isa(o: any): o is EnableSharingWithAwsOrganizationRequest {
-    return __isa(o, "EnableSharingWithAwsOrganizationRequest");
-  }
+  export const isa = (o: any): o is EnableSharingWithAwsOrganizationRequest =>
+    __isa(o, "EnableSharingWithAwsOrganizationRequest");
 }
 
 export interface EnableSharingWithAwsOrganizationResponse {
@@ -356,9 +343,8 @@ export interface EnableSharingWithAwsOrganizationResponse {
 }
 
 export namespace EnableSharingWithAwsOrganizationResponse {
-  export function isa(o: any): o is EnableSharingWithAwsOrganizationResponse {
-    return __isa(o, "EnableSharingWithAwsOrganizationResponse");
-  }
+  export const isa = (o: any): o is EnableSharingWithAwsOrganizationResponse =>
+    __isa(o, "EnableSharingWithAwsOrganizationResponse");
 }
 
 export interface GetPermissionRequest {
@@ -375,9 +361,8 @@ export interface GetPermissionRequest {
 }
 
 export namespace GetPermissionRequest {
-  export function isa(o: any): o is GetPermissionRequest {
-    return __isa(o, "GetPermissionRequest");
-  }
+  export const isa = (o: any): o is GetPermissionRequest =>
+    __isa(o, "GetPermissionRequest");
 }
 
 export interface GetPermissionResponse {
@@ -389,9 +374,8 @@ export interface GetPermissionResponse {
 }
 
 export namespace GetPermissionResponse {
-  export function isa(o: any): o is GetPermissionResponse {
-    return __isa(o, "GetPermissionResponse");
-  }
+  export const isa = (o: any): o is GetPermissionResponse =>
+    __isa(o, "GetPermissionResponse");
 }
 
 export interface GetResourcePoliciesRequest {
@@ -419,9 +403,8 @@ export interface GetResourcePoliciesRequest {
 }
 
 export namespace GetResourcePoliciesRequest {
-  export function isa(o: any): o is GetResourcePoliciesRequest {
-    return __isa(o, "GetResourcePoliciesRequest");
-  }
+  export const isa = (o: any): o is GetResourcePoliciesRequest =>
+    __isa(o, "GetResourcePoliciesRequest");
 }
 
 export interface GetResourcePoliciesResponse {
@@ -438,9 +421,8 @@ export interface GetResourcePoliciesResponse {
 }
 
 export namespace GetResourcePoliciesResponse {
-  export function isa(o: any): o is GetResourcePoliciesResponse {
-    return __isa(o, "GetResourcePoliciesResponse");
-  }
+  export const isa = (o: any): o is GetResourcePoliciesResponse =>
+    __isa(o, "GetResourcePoliciesResponse");
 }
 
 export interface GetResourceShareAssociationsRequest {
@@ -487,9 +469,8 @@ export interface GetResourceShareAssociationsRequest {
 }
 
 export namespace GetResourceShareAssociationsRequest {
-  export function isa(o: any): o is GetResourceShareAssociationsRequest {
-    return __isa(o, "GetResourceShareAssociationsRequest");
-  }
+  export const isa = (o: any): o is GetResourceShareAssociationsRequest =>
+    __isa(o, "GetResourceShareAssociationsRequest");
 }
 
 export interface GetResourceShareAssociationsResponse {
@@ -506,9 +487,8 @@ export interface GetResourceShareAssociationsResponse {
 }
 
 export namespace GetResourceShareAssociationsResponse {
-  export function isa(o: any): o is GetResourceShareAssociationsResponse {
-    return __isa(o, "GetResourceShareAssociationsResponse");
-  }
+  export const isa = (o: any): o is GetResourceShareAssociationsResponse =>
+    __isa(o, "GetResourceShareAssociationsResponse");
 }
 
 export interface GetResourceShareInvitationsRequest {
@@ -536,9 +516,8 @@ export interface GetResourceShareInvitationsRequest {
 }
 
 export namespace GetResourceShareInvitationsRequest {
-  export function isa(o: any): o is GetResourceShareInvitationsRequest {
-    return __isa(o, "GetResourceShareInvitationsRequest");
-  }
+  export const isa = (o: any): o is GetResourceShareInvitationsRequest =>
+    __isa(o, "GetResourceShareInvitationsRequest");
 }
 
 export interface GetResourceShareInvitationsResponse {
@@ -555,9 +534,8 @@ export interface GetResourceShareInvitationsResponse {
 }
 
 export namespace GetResourceShareInvitationsResponse {
-  export function isa(o: any): o is GetResourceShareInvitationsResponse {
-    return __isa(o, "GetResourceShareInvitationsResponse");
-  }
+  export const isa = (o: any): o is GetResourceShareInvitationsResponse =>
+    __isa(o, "GetResourceShareInvitationsResponse");
 }
 
 export interface GetResourceSharesRequest {
@@ -600,9 +578,8 @@ export interface GetResourceSharesRequest {
 }
 
 export namespace GetResourceSharesRequest {
-  export function isa(o: any): o is GetResourceSharesRequest {
-    return __isa(o, "GetResourceSharesRequest");
-  }
+  export const isa = (o: any): o is GetResourceSharesRequest =>
+    __isa(o, "GetResourceSharesRequest");
 }
 
 export interface GetResourceSharesResponse {
@@ -619,9 +596,8 @@ export interface GetResourceSharesResponse {
 }
 
 export namespace GetResourceSharesResponse {
-  export function isa(o: any): o is GetResourceSharesResponse {
-    return __isa(o, "GetResourceSharesResponse");
-  }
+  export const isa = (o: any): o is GetResourceSharesResponse =>
+    __isa(o, "GetResourceSharesResponse");
 }
 
 /**
@@ -637,9 +613,8 @@ export interface IdempotentParameterMismatchException
 }
 
 export namespace IdempotentParameterMismatchException {
-  export function isa(o: any): o is IdempotentParameterMismatchException {
-    return __isa(o, "IdempotentParameterMismatchException");
-  }
+  export const isa = (o: any): o is IdempotentParameterMismatchException =>
+    __isa(o, "IdempotentParameterMismatchException");
 }
 
 /**
@@ -654,9 +629,8 @@ export interface InvalidClientTokenException
 }
 
 export namespace InvalidClientTokenException {
-  export function isa(o: any): o is InvalidClientTokenException {
-    return __isa(o, "InvalidClientTokenException");
-  }
+  export const isa = (o: any): o is InvalidClientTokenException =>
+    __isa(o, "InvalidClientTokenException");
 }
 
 /**
@@ -671,9 +645,8 @@ export interface InvalidMaxResultsException
 }
 
 export namespace InvalidMaxResultsException {
-  export function isa(o: any): o is InvalidMaxResultsException {
-    return __isa(o, "InvalidMaxResultsException");
-  }
+  export const isa = (o: any): o is InvalidMaxResultsException =>
+    __isa(o, "InvalidMaxResultsException");
 }
 
 /**
@@ -688,9 +661,8 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export function isa(o: any): o is InvalidNextTokenException {
-    return __isa(o, "InvalidNextTokenException");
-  }
+  export const isa = (o: any): o is InvalidNextTokenException =>
+    __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -705,9 +677,8 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export function isa(o: any): o is InvalidParameterException {
-    return __isa(o, "InvalidParameterException");
-  }
+  export const isa = (o: any): o is InvalidParameterException =>
+    __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -722,9 +693,8 @@ export interface InvalidResourceTypeException
 }
 
 export namespace InvalidResourceTypeException {
-  export function isa(o: any): o is InvalidResourceTypeException {
-    return __isa(o, "InvalidResourceTypeException");
-  }
+  export const isa = (o: any): o is InvalidResourceTypeException =>
+    __isa(o, "InvalidResourceTypeException");
 }
 
 /**
@@ -739,9 +709,8 @@ export interface InvalidStateTransitionException
 }
 
 export namespace InvalidStateTransitionException {
-  export function isa(o: any): o is InvalidStateTransitionException {
-    return __isa(o, "InvalidStateTransitionException");
-  }
+  export const isa = (o: any): o is InvalidStateTransitionException =>
+    __isa(o, "InvalidStateTransitionException");
 }
 
 export interface ListPendingInvitationResourcesRequest {
@@ -764,9 +733,8 @@ export interface ListPendingInvitationResourcesRequest {
 }
 
 export namespace ListPendingInvitationResourcesRequest {
-  export function isa(o: any): o is ListPendingInvitationResourcesRequest {
-    return __isa(o, "ListPendingInvitationResourcesRequest");
-  }
+  export const isa = (o: any): o is ListPendingInvitationResourcesRequest =>
+    __isa(o, "ListPendingInvitationResourcesRequest");
 }
 
 export interface ListPendingInvitationResourcesResponse {
@@ -783,9 +751,8 @@ export interface ListPendingInvitationResourcesResponse {
 }
 
 export namespace ListPendingInvitationResourcesResponse {
-  export function isa(o: any): o is ListPendingInvitationResourcesResponse {
-    return __isa(o, "ListPendingInvitationResourcesResponse");
-  }
+  export const isa = (o: any): o is ListPendingInvitationResourcesResponse =>
+    __isa(o, "ListPendingInvitationResourcesResponse");
 }
 
 export interface ListPermissionsRequest {
@@ -809,9 +776,8 @@ export interface ListPermissionsRequest {
 }
 
 export namespace ListPermissionsRequest {
-  export function isa(o: any): o is ListPermissionsRequest {
-    return __isa(o, "ListPermissionsRequest");
-  }
+  export const isa = (o: any): o is ListPermissionsRequest =>
+    __isa(o, "ListPermissionsRequest");
 }
 
 export interface ListPermissionsResponse {
@@ -828,9 +794,8 @@ export interface ListPermissionsResponse {
 }
 
 export namespace ListPermissionsResponse {
-  export function isa(o: any): o is ListPermissionsResponse {
-    return __isa(o, "ListPermissionsResponse");
-  }
+  export const isa = (o: any): o is ListPermissionsResponse =>
+    __isa(o, "ListPermissionsResponse");
 }
 
 export interface ListPrincipalsRequest {
@@ -879,9 +844,8 @@ export interface ListPrincipalsRequest {
 }
 
 export namespace ListPrincipalsRequest {
-  export function isa(o: any): o is ListPrincipalsRequest {
-    return __isa(o, "ListPrincipalsRequest");
-  }
+  export const isa = (o: any): o is ListPrincipalsRequest =>
+    __isa(o, "ListPrincipalsRequest");
 }
 
 export interface ListPrincipalsResponse {
@@ -898,9 +862,8 @@ export interface ListPrincipalsResponse {
 }
 
 export namespace ListPrincipalsResponse {
-  export function isa(o: any): o is ListPrincipalsResponse {
-    return __isa(o, "ListPrincipalsResponse");
-  }
+  export const isa = (o: any): o is ListPrincipalsResponse =>
+    __isa(o, "ListPrincipalsResponse");
 }
 
 export interface ListResourceSharePermissionsRequest {
@@ -923,9 +886,8 @@ export interface ListResourceSharePermissionsRequest {
 }
 
 export namespace ListResourceSharePermissionsRequest {
-  export function isa(o: any): o is ListResourceSharePermissionsRequest {
-    return __isa(o, "ListResourceSharePermissionsRequest");
-  }
+  export const isa = (o: any): o is ListResourceSharePermissionsRequest =>
+    __isa(o, "ListResourceSharePermissionsRequest");
 }
 
 export interface ListResourceSharePermissionsResponse {
@@ -942,9 +904,8 @@ export interface ListResourceSharePermissionsResponse {
 }
 
 export namespace ListResourceSharePermissionsResponse {
-  export function isa(o: any): o is ListResourceSharePermissionsResponse {
-    return __isa(o, "ListResourceSharePermissionsResponse");
-  }
+  export const isa = (o: any): o is ListResourceSharePermissionsResponse =>
+    __isa(o, "ListResourceSharePermissionsResponse");
 }
 
 export interface ListResourcesRequest {
@@ -993,9 +954,8 @@ export interface ListResourcesRequest {
 }
 
 export namespace ListResourcesRequest {
-  export function isa(o: any): o is ListResourcesRequest {
-    return __isa(o, "ListResourcesRequest");
-  }
+  export const isa = (o: any): o is ListResourcesRequest =>
+    __isa(o, "ListResourcesRequest");
 }
 
 export interface ListResourcesResponse {
@@ -1012,9 +972,8 @@ export interface ListResourcesResponse {
 }
 
 export namespace ListResourcesResponse {
-  export function isa(o: any): o is ListResourcesResponse {
-    return __isa(o, "ListResourcesResponse");
-  }
+  export const isa = (o: any): o is ListResourcesResponse =>
+    __isa(o, "ListResourcesResponse");
 }
 
 /**
@@ -1029,9 +988,8 @@ export interface MalformedArnException
 }
 
 export namespace MalformedArnException {
-  export function isa(o: any): o is MalformedArnException {
-    return __isa(o, "MalformedArnException");
-  }
+  export const isa = (o: any): o is MalformedArnException =>
+    __isa(o, "MalformedArnException");
 }
 
 /**
@@ -1046,9 +1004,8 @@ export interface MissingRequiredParameterException
 }
 
 export namespace MissingRequiredParameterException {
-  export function isa(o: any): o is MissingRequiredParameterException {
-    return __isa(o, "MissingRequiredParameterException");
-  }
+  export const isa = (o: any): o is MissingRequiredParameterException =>
+    __isa(o, "MissingRequiredParameterException");
 }
 
 /**
@@ -1063,9 +1020,8 @@ export interface OperationNotPermittedException
 }
 
 export namespace OperationNotPermittedException {
-  export function isa(o: any): o is OperationNotPermittedException {
-    return __isa(o, "OperationNotPermittedException");
-  }
+  export const isa = (o: any): o is OperationNotPermittedException =>
+    __isa(o, "OperationNotPermittedException");
 }
 
 /**
@@ -1100,9 +1056,7 @@ export interface Principal {
 }
 
 export namespace Principal {
-  export function isa(o: any): o is Principal {
-    return __isa(o, "Principal");
-  }
+  export const isa = (o: any): o is Principal => __isa(o, "Principal");
 }
 
 export interface PromoteResourceShareCreatedFromPolicyRequest {
@@ -1114,11 +1068,10 @@ export interface PromoteResourceShareCreatedFromPolicyRequest {
 }
 
 export namespace PromoteResourceShareCreatedFromPolicyRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is PromoteResourceShareCreatedFromPolicyRequest {
-    return __isa(o, "PromoteResourceShareCreatedFromPolicyRequest");
-  }
+  ): o is PromoteResourceShareCreatedFromPolicyRequest =>
+    __isa(o, "PromoteResourceShareCreatedFromPolicyRequest");
 }
 
 export interface PromoteResourceShareCreatedFromPolicyResponse {
@@ -1130,11 +1083,10 @@ export interface PromoteResourceShareCreatedFromPolicyResponse {
 }
 
 export namespace PromoteResourceShareCreatedFromPolicyResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is PromoteResourceShareCreatedFromPolicyResponse {
-    return __isa(o, "PromoteResourceShareCreatedFromPolicyResponse");
-  }
+  ): o is PromoteResourceShareCreatedFromPolicyResponse =>
+    __isa(o, "PromoteResourceShareCreatedFromPolicyResponse");
 }
 
 export interface RejectResourceShareInvitationRequest {
@@ -1151,9 +1103,8 @@ export interface RejectResourceShareInvitationRequest {
 }
 
 export namespace RejectResourceShareInvitationRequest {
-  export function isa(o: any): o is RejectResourceShareInvitationRequest {
-    return __isa(o, "RejectResourceShareInvitationRequest");
-  }
+  export const isa = (o: any): o is RejectResourceShareInvitationRequest =>
+    __isa(o, "RejectResourceShareInvitationRequest");
 }
 
 export interface RejectResourceShareInvitationResponse {
@@ -1170,9 +1121,8 @@ export interface RejectResourceShareInvitationResponse {
 }
 
 export namespace RejectResourceShareInvitationResponse {
-  export function isa(o: any): o is RejectResourceShareInvitationResponse {
-    return __isa(o, "RejectResourceShareInvitationResponse");
-  }
+  export const isa = (o: any): o is RejectResourceShareInvitationResponse =>
+    __isa(o, "RejectResourceShareInvitationResponse");
 }
 
 /**
@@ -1223,9 +1173,7 @@ export interface Resource {
 }
 
 export namespace Resource {
-  export function isa(o: any): o is Resource {
-    return __isa(o, "Resource");
-  }
+  export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
 
 /**
@@ -1240,9 +1188,8 @@ export interface ResourceArnNotFoundException
 }
 
 export namespace ResourceArnNotFoundException {
-  export function isa(o: any): o is ResourceArnNotFoundException {
-    return __isa(o, "ResourceArnNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceArnNotFoundException =>
+    __isa(o, "ResourceArnNotFoundException");
 }
 
 export enum ResourceOwner {
@@ -1328,9 +1275,7 @@ export interface ResourceShare {
 }
 
 export namespace ResourceShare {
-  export function isa(o: any): o is ResourceShare {
-    return __isa(o, "ResourceShare");
-  }
+  export const isa = (o: any): o is ResourceShare => __isa(o, "ResourceShare");
 }
 
 /**
@@ -1387,9 +1332,8 @@ export interface ResourceShareAssociation {
 }
 
 export namespace ResourceShareAssociation {
-  export function isa(o: any): o is ResourceShareAssociation {
-    return __isa(o, "ResourceShareAssociation");
-  }
+  export const isa = (o: any): o is ResourceShareAssociation =>
+    __isa(o, "ResourceShareAssociation");
 }
 
 export type ResourceShareAssociationStatus =
@@ -1455,9 +1399,8 @@ export interface ResourceShareInvitation {
 }
 
 export namespace ResourceShareInvitation {
-  export function isa(o: any): o is ResourceShareInvitation {
-    return __isa(o, "ResourceShareInvitation");
-  }
+  export const isa = (o: any): o is ResourceShareInvitation =>
+    __isa(o, "ResourceShareInvitation");
 }
 
 /**
@@ -1472,11 +1415,10 @@ export interface ResourceShareInvitationAlreadyAcceptedException
 }
 
 export namespace ResourceShareInvitationAlreadyAcceptedException {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ResourceShareInvitationAlreadyAcceptedException {
-    return __isa(o, "ResourceShareInvitationAlreadyAcceptedException");
-  }
+  ): o is ResourceShareInvitationAlreadyAcceptedException =>
+    __isa(o, "ResourceShareInvitationAlreadyAcceptedException");
 }
 
 /**
@@ -1491,11 +1433,10 @@ export interface ResourceShareInvitationAlreadyRejectedException
 }
 
 export namespace ResourceShareInvitationAlreadyRejectedException {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ResourceShareInvitationAlreadyRejectedException {
-    return __isa(o, "ResourceShareInvitationAlreadyRejectedException");
-  }
+  ): o is ResourceShareInvitationAlreadyRejectedException =>
+    __isa(o, "ResourceShareInvitationAlreadyRejectedException");
 }
 
 /**
@@ -1510,11 +1451,10 @@ export interface ResourceShareInvitationArnNotFoundException
 }
 
 export namespace ResourceShareInvitationArnNotFoundException {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is ResourceShareInvitationArnNotFoundException {
-    return __isa(o, "ResourceShareInvitationArnNotFoundException");
-  }
+  ): o is ResourceShareInvitationArnNotFoundException =>
+    __isa(o, "ResourceShareInvitationArnNotFoundException");
 }
 
 /**
@@ -1529,9 +1469,8 @@ export interface ResourceShareInvitationExpiredException
 }
 
 export namespace ResourceShareInvitationExpiredException {
-  export function isa(o: any): o is ResourceShareInvitationExpiredException {
-    return __isa(o, "ResourceShareInvitationExpiredException");
-  }
+  export const isa = (o: any): o is ResourceShareInvitationExpiredException =>
+    __isa(o, "ResourceShareInvitationExpiredException");
 }
 
 export type ResourceShareInvitationStatus =
@@ -1552,9 +1491,8 @@ export interface ResourceShareLimitExceededException
 }
 
 export namespace ResourceShareLimitExceededException {
-  export function isa(o: any): o is ResourceShareLimitExceededException {
-    return __isa(o, "ResourceShareLimitExceededException");
-  }
+  export const isa = (o: any): o is ResourceShareLimitExceededException =>
+    __isa(o, "ResourceShareLimitExceededException");
 }
 
 /**
@@ -1607,9 +1545,8 @@ export interface ResourceSharePermissionDetail {
 }
 
 export namespace ResourceSharePermissionDetail {
-  export function isa(o: any): o is ResourceSharePermissionDetail {
-    return __isa(o, "ResourceSharePermissionDetail");
-  }
+  export const isa = (o: any): o is ResourceSharePermissionDetail =>
+    __isa(o, "ResourceSharePermissionDetail");
 }
 
 /**
@@ -1659,9 +1596,8 @@ export interface ResourceSharePermissionSummary {
 }
 
 export namespace ResourceSharePermissionSummary {
-  export function isa(o: any): o is ResourceSharePermissionSummary {
-    return __isa(o, "ResourceSharePermissionSummary");
-  }
+  export const isa = (o: any): o is ResourceSharePermissionSummary =>
+    __isa(o, "ResourceSharePermissionSummary");
 }
 
 export type ResourceShareStatus =
@@ -1690,9 +1626,8 @@ export interface ServerInternalException
 }
 
 export namespace ServerInternalException {
-  export function isa(o: any): o is ServerInternalException {
-    return __isa(o, "ServerInternalException");
-  }
+  export const isa = (o: any): o is ServerInternalException =>
+    __isa(o, "ServerInternalException");
 }
 
 /**
@@ -1707,9 +1642,8 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return __isa(o, "ServiceUnavailableException");
-  }
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -1729,9 +1663,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -1751,9 +1683,7 @@ export interface TagFilter {
 }
 
 export namespace TagFilter {
-  export function isa(o: any): o is TagFilter {
-    return __isa(o, "TagFilter");
-  }
+  export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
 }
 
 /**
@@ -1768,9 +1698,8 @@ export interface TagLimitExceededException
 }
 
 export namespace TagLimitExceededException {
-  export function isa(o: any): o is TagLimitExceededException {
-    return __isa(o, "TagLimitExceededException");
-  }
+  export const isa = (o: any): o is TagLimitExceededException =>
+    __isa(o, "TagLimitExceededException");
 }
 
 /**
@@ -1785,9 +1714,8 @@ export interface TagPolicyViolationException
 }
 
 export namespace TagPolicyViolationException {
-  export function isa(o: any): o is TagPolicyViolationException {
-    return __isa(o, "TagPolicyViolationException");
-  }
+  export const isa = (o: any): o is TagPolicyViolationException =>
+    __isa(o, "TagPolicyViolationException");
 }
 
 export interface TagResourceRequest {
@@ -1804,9 +1732,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -1814,9 +1741,8 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export function isa(o: any): o is TagResourceResponse {
-    return __isa(o, "TagResourceResponse");
-  }
+  export const isa = (o: any): o is TagResourceResponse =>
+    __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -1831,9 +1757,8 @@ export interface UnknownResourceException
 }
 
 export namespace UnknownResourceException {
-  export function isa(o: any): o is UnknownResourceException {
-    return __isa(o, "UnknownResourceException");
-  }
+  export const isa = (o: any): o is UnknownResourceException =>
+    __isa(o, "UnknownResourceException");
 }
 
 export interface UntagResourceRequest {
@@ -1850,9 +1775,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -1860,9 +1784,8 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export function isa(o: any): o is UntagResourceResponse {
-    return __isa(o, "UntagResourceResponse");
-  }
+  export const isa = (o: any): o is UntagResourceResponse =>
+    __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateResourceShareRequest {
@@ -1889,9 +1812,8 @@ export interface UpdateResourceShareRequest {
 }
 
 export namespace UpdateResourceShareRequest {
-  export function isa(o: any): o is UpdateResourceShareRequest {
-    return __isa(o, "UpdateResourceShareRequest");
-  }
+  export const isa = (o: any): o is UpdateResourceShareRequest =>
+    __isa(o, "UpdateResourceShareRequest");
 }
 
 export interface UpdateResourceShareResponse {
@@ -1908,7 +1830,6 @@ export interface UpdateResourceShareResponse {
 }
 
 export namespace UpdateResourceShareResponse {
-  export function isa(o: any): o is UpdateResourceShareResponse {
-    return __isa(o, "UpdateResourceShareResponse");
-  }
+  export const isa = (o: any): o is UpdateResourceShareResponse =>
+    __isa(o, "UpdateResourceShareResponse");
 }

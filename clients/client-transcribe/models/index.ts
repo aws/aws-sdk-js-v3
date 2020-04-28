@@ -19,9 +19,8 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export function isa(o: any): o is BadRequestException {
-    return __isa(o, "BadRequestException");
-  }
+  export const isa = (o: any): o is BadRequestException =>
+    __isa(o, "BadRequestException");
 }
 
 /**
@@ -38,9 +37,8 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export function isa(o: any): o is ConflictException {
-    return __isa(o, "ConflictException");
-  }
+  export const isa = (o: any): o is ConflictException =>
+    __isa(o, "ConflictException");
 }
 
 export interface CreateVocabularyFilterRequest {
@@ -80,9 +78,8 @@ export interface CreateVocabularyFilterRequest {
 }
 
 export namespace CreateVocabularyFilterRequest {
-  export function isa(o: any): o is CreateVocabularyFilterRequest {
-    return __isa(o, "CreateVocabularyFilterRequest");
-  }
+  export const isa = (o: any): o is CreateVocabularyFilterRequest =>
+    __isa(o, "CreateVocabularyFilterRequest");
 }
 
 export interface CreateVocabularyFilterResponse {
@@ -104,9 +101,8 @@ export interface CreateVocabularyFilterResponse {
 }
 
 export namespace CreateVocabularyFilterResponse {
-  export function isa(o: any): o is CreateVocabularyFilterResponse {
-    return __isa(o, "CreateVocabularyFilterResponse");
-  }
+  export const isa = (o: any): o is CreateVocabularyFilterResponse =>
+    __isa(o, "CreateVocabularyFilterResponse");
 }
 
 export interface CreateVocabularyRequest {
@@ -147,9 +143,8 @@ export interface CreateVocabularyRequest {
 }
 
 export namespace CreateVocabularyRequest {
-  export function isa(o: any): o is CreateVocabularyRequest {
-    return __isa(o, "CreateVocabularyRequest");
-  }
+  export const isa = (o: any): o is CreateVocabularyRequest =>
+    __isa(o, "CreateVocabularyRequest");
 }
 
 export interface CreateVocabularyResponse {
@@ -184,9 +179,8 @@ export interface CreateVocabularyResponse {
 }
 
 export namespace CreateVocabularyResponse {
-  export function isa(o: any): o is CreateVocabularyResponse {
-    return __isa(o, "CreateVocabularyResponse");
-  }
+  export const isa = (o: any): o is CreateVocabularyResponse =>
+    __isa(o, "CreateVocabularyResponse");
 }
 
 export interface DeleteTranscriptionJobRequest {
@@ -198,9 +192,8 @@ export interface DeleteTranscriptionJobRequest {
 }
 
 export namespace DeleteTranscriptionJobRequest {
-  export function isa(o: any): o is DeleteTranscriptionJobRequest {
-    return __isa(o, "DeleteTranscriptionJobRequest");
-  }
+  export const isa = (o: any): o is DeleteTranscriptionJobRequest =>
+    __isa(o, "DeleteTranscriptionJobRequest");
 }
 
 export interface DeleteVocabularyFilterRequest {
@@ -212,9 +205,8 @@ export interface DeleteVocabularyFilterRequest {
 }
 
 export namespace DeleteVocabularyFilterRequest {
-  export function isa(o: any): o is DeleteVocabularyFilterRequest {
-    return __isa(o, "DeleteVocabularyFilterRequest");
-  }
+  export const isa = (o: any): o is DeleteVocabularyFilterRequest =>
+    __isa(o, "DeleteVocabularyFilterRequest");
 }
 
 export interface DeleteVocabularyRequest {
@@ -226,9 +218,8 @@ export interface DeleteVocabularyRequest {
 }
 
 export namespace DeleteVocabularyRequest {
-  export function isa(o: any): o is DeleteVocabularyRequest {
-    return __isa(o, "DeleteVocabularyRequest");
-  }
+  export const isa = (o: any): o is DeleteVocabularyRequest =>
+    __isa(o, "DeleteVocabularyRequest");
 }
 
 export interface GetTranscriptionJobRequest {
@@ -240,9 +231,8 @@ export interface GetTranscriptionJobRequest {
 }
 
 export namespace GetTranscriptionJobRequest {
-  export function isa(o: any): o is GetTranscriptionJobRequest {
-    return __isa(o, "GetTranscriptionJobRequest");
-  }
+  export const isa = (o: any): o is GetTranscriptionJobRequest =>
+    __isa(o, "GetTranscriptionJobRequest");
 }
 
 export interface GetTranscriptionJobResponse {
@@ -254,9 +244,8 @@ export interface GetTranscriptionJobResponse {
 }
 
 export namespace GetTranscriptionJobResponse {
-  export function isa(o: any): o is GetTranscriptionJobResponse {
-    return __isa(o, "GetTranscriptionJobResponse");
-  }
+  export const isa = (o: any): o is GetTranscriptionJobResponse =>
+    __isa(o, "GetTranscriptionJobResponse");
 }
 
 export interface GetVocabularyFilterRequest {
@@ -268,9 +257,8 @@ export interface GetVocabularyFilterRequest {
 }
 
 export namespace GetVocabularyFilterRequest {
-  export function isa(o: any): o is GetVocabularyFilterRequest {
-    return __isa(o, "GetVocabularyFilterRequest");
-  }
+  export const isa = (o: any): o is GetVocabularyFilterRequest =>
+    __isa(o, "GetVocabularyFilterRequest");
 }
 
 export interface GetVocabularyFilterResponse {
@@ -298,9 +286,8 @@ export interface GetVocabularyFilterResponse {
 }
 
 export namespace GetVocabularyFilterResponse {
-  export function isa(o: any): o is GetVocabularyFilterResponse {
-    return __isa(o, "GetVocabularyFilterResponse");
-  }
+  export const isa = (o: any): o is GetVocabularyFilterResponse =>
+    __isa(o, "GetVocabularyFilterResponse");
 }
 
 export interface GetVocabularyRequest {
@@ -313,9 +300,8 @@ export interface GetVocabularyRequest {
 }
 
 export namespace GetVocabularyRequest {
-  export function isa(o: any): o is GetVocabularyRequest {
-    return __isa(o, "GetVocabularyRequest");
-  }
+  export const isa = (o: any): o is GetVocabularyRequest =>
+    __isa(o, "GetVocabularyRequest");
 }
 
 export interface GetVocabularyResponse {
@@ -354,9 +340,8 @@ export interface GetVocabularyResponse {
 }
 
 export namespace GetVocabularyResponse {
-  export function isa(o: any): o is GetVocabularyResponse {
-    return __isa(o, "GetVocabularyResponse");
-  }
+  export const isa = (o: any): o is GetVocabularyResponse =>
+    __isa(o, "GetVocabularyResponse");
 }
 
 /**
@@ -372,9 +357,8 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
-  export function isa(o: any): o is InternalFailureException {
-    return __isa(o, "InternalFailureException");
-  }
+  export const isa = (o: any): o is InternalFailureException =>
+    __isa(o, "InternalFailureException");
 }
 
 /**
@@ -405,9 +389,8 @@ export interface JobExecutionSettings {
 }
 
 export namespace JobExecutionSettings {
-  export function isa(o: any): o is JobExecutionSettings {
-    return __isa(o, "JobExecutionSettings");
-  }
+  export const isa = (o: any): o is JobExecutionSettings =>
+    __isa(o, "JobExecutionSettings");
 }
 
 export enum LanguageCode {
@@ -457,9 +440,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export interface ListTranscriptionJobsRequest {
@@ -491,9 +473,8 @@ export interface ListTranscriptionJobsRequest {
 }
 
 export namespace ListTranscriptionJobsRequest {
-  export function isa(o: any): o is ListTranscriptionJobsRequest {
-    return __isa(o, "ListTranscriptionJobsRequest");
-  }
+  export const isa = (o: any): o is ListTranscriptionJobsRequest =>
+    __isa(o, "ListTranscriptionJobsRequest");
 }
 
 export interface ListTranscriptionJobsResponse {
@@ -519,9 +500,8 @@ export interface ListTranscriptionJobsResponse {
 }
 
 export namespace ListTranscriptionJobsResponse {
-  export function isa(o: any): o is ListTranscriptionJobsResponse {
-    return __isa(o, "ListTranscriptionJobsResponse");
-  }
+  export const isa = (o: any): o is ListTranscriptionJobsResponse =>
+    __isa(o, "ListTranscriptionJobsResponse");
 }
 
 export interface ListVocabulariesRequest {
@@ -554,9 +534,8 @@ export interface ListVocabulariesRequest {
 }
 
 export namespace ListVocabulariesRequest {
-  export function isa(o: any): o is ListVocabulariesRequest {
-    return __isa(o, "ListVocabulariesRequest");
-  }
+  export const isa = (o: any): o is ListVocabulariesRequest =>
+    __isa(o, "ListVocabulariesRequest");
 }
 
 export interface ListVocabulariesResponse {
@@ -583,9 +562,8 @@ export interface ListVocabulariesResponse {
 }
 
 export namespace ListVocabulariesResponse {
-  export function isa(o: any): o is ListVocabulariesResponse {
-    return __isa(o, "ListVocabulariesResponse");
-  }
+  export const isa = (o: any): o is ListVocabulariesResponse =>
+    __isa(o, "ListVocabulariesResponse");
 }
 
 export interface ListVocabularyFiltersRequest {
@@ -611,9 +589,8 @@ export interface ListVocabularyFiltersRequest {
 }
 
 export namespace ListVocabularyFiltersRequest {
-  export function isa(o: any): o is ListVocabularyFiltersRequest {
-    return __isa(o, "ListVocabularyFiltersRequest");
-  }
+  export const isa = (o: any): o is ListVocabularyFiltersRequest =>
+    __isa(o, "ListVocabularyFiltersRequest");
 }
 
 export interface ListVocabularyFiltersResponse {
@@ -638,9 +615,8 @@ export interface ListVocabularyFiltersResponse {
 }
 
 export namespace ListVocabularyFiltersResponse {
-  export function isa(o: any): o is ListVocabularyFiltersResponse {
-    return __isa(o, "ListVocabularyFiltersResponse");
-  }
+  export const isa = (o: any): o is ListVocabularyFiltersResponse =>
+    __isa(o, "ListVocabularyFiltersResponse");
 }
 
 /**
@@ -669,9 +645,7 @@ export interface Media {
 }
 
 export namespace Media {
-  export function isa(o: any): o is Media {
-    return __isa(o, "Media");
-  }
+  export const isa = (o: any): o is Media => __isa(o, "Media");
 }
 
 export enum MediaFormat {
@@ -692,9 +666,8 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return __isa(o, "NotFoundException");
-  }
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
 }
 
 export enum OutputLocationType {
@@ -774,9 +747,7 @@ export interface Settings {
 }
 
 export namespace Settings {
-  export function isa(o: any): o is Settings {
-    return __isa(o, "Settings");
-  }
+  export const isa = (o: any): o is Settings => __isa(o, "Settings");
 }
 
 export interface StartTranscriptionJobRequest {
@@ -878,9 +849,8 @@ export interface StartTranscriptionJobRequest {
 }
 
 export namespace StartTranscriptionJobRequest {
-  export function isa(o: any): o is StartTranscriptionJobRequest {
-    return __isa(o, "StartTranscriptionJobRequest");
-  }
+  export const isa = (o: any): o is StartTranscriptionJobRequest =>
+    __isa(o, "StartTranscriptionJobRequest");
 }
 
 export interface StartTranscriptionJobResponse {
@@ -892,9 +862,8 @@ export interface StartTranscriptionJobResponse {
 }
 
 export namespace StartTranscriptionJobResponse {
-  export function isa(o: any): o is StartTranscriptionJobResponse {
-    return __isa(o, "StartTranscriptionJobResponse");
-  }
+  export const isa = (o: any): o is StartTranscriptionJobResponse =>
+    __isa(o, "StartTranscriptionJobResponse");
 }
 
 /**
@@ -913,9 +882,7 @@ export interface Transcript {
 }
 
 export namespace Transcript {
-  export function isa(o: any): o is Transcript {
-    return __isa(o, "Transcript");
-  }
+  export const isa = (o: any): o is Transcript => __isa(o, "Transcript");
 }
 
 /**
@@ -1036,9 +1003,8 @@ export interface TranscriptionJob {
 }
 
 export namespace TranscriptionJob {
-  export function isa(o: any): o is TranscriptionJob {
-    return __isa(o, "TranscriptionJob");
-  }
+  export const isa = (o: any): o is TranscriptionJob =>
+    __isa(o, "TranscriptionJob");
 }
 
 export enum TranscriptionJobStatus {
@@ -1104,9 +1070,8 @@ export interface TranscriptionJobSummary {
 }
 
 export namespace TranscriptionJobSummary {
-  export function isa(o: any): o is TranscriptionJobSummary {
-    return __isa(o, "TranscriptionJobSummary");
-  }
+  export const isa = (o: any): o is TranscriptionJobSummary =>
+    __isa(o, "TranscriptionJobSummary");
 }
 
 export interface UpdateVocabularyFilterRequest {
@@ -1138,9 +1103,8 @@ export interface UpdateVocabularyFilterRequest {
 }
 
 export namespace UpdateVocabularyFilterRequest {
-  export function isa(o: any): o is UpdateVocabularyFilterRequest {
-    return __isa(o, "UpdateVocabularyFilterRequest");
-  }
+  export const isa = (o: any): o is UpdateVocabularyFilterRequest =>
+    __isa(o, "UpdateVocabularyFilterRequest");
 }
 
 export interface UpdateVocabularyFilterResponse {
@@ -1162,9 +1126,8 @@ export interface UpdateVocabularyFilterResponse {
 }
 
 export namespace UpdateVocabularyFilterResponse {
-  export function isa(o: any): o is UpdateVocabularyFilterResponse {
-    return __isa(o, "UpdateVocabularyFilterResponse");
-  }
+  export const isa = (o: any): o is UpdateVocabularyFilterResponse =>
+    __isa(o, "UpdateVocabularyFilterResponse");
 }
 
 export interface UpdateVocabularyRequest {
@@ -1204,9 +1167,8 @@ export interface UpdateVocabularyRequest {
 }
 
 export namespace UpdateVocabularyRequest {
-  export function isa(o: any): o is UpdateVocabularyRequest {
-    return __isa(o, "UpdateVocabularyRequest");
-  }
+  export const isa = (o: any): o is UpdateVocabularyRequest =>
+    __isa(o, "UpdateVocabularyRequest");
 }
 
 export interface UpdateVocabularyResponse {
@@ -1235,9 +1197,8 @@ export interface UpdateVocabularyResponse {
 }
 
 export namespace UpdateVocabularyResponse {
-  export function isa(o: any): o is UpdateVocabularyResponse {
-    return __isa(o, "UpdateVocabularyResponse");
-  }
+  export const isa = (o: any): o is UpdateVocabularyResponse =>
+    __isa(o, "UpdateVocabularyResponse");
 }
 
 /**
@@ -1263,9 +1224,8 @@ export interface VocabularyFilterInfo {
 }
 
 export namespace VocabularyFilterInfo {
-  export function isa(o: any): o is VocabularyFilterInfo {
-    return __isa(o, "VocabularyFilterInfo");
-  }
+  export const isa = (o: any): o is VocabularyFilterInfo =>
+    __isa(o, "VocabularyFilterInfo");
 }
 
 export enum VocabularyFilterMethod {
@@ -1301,9 +1261,8 @@ export interface VocabularyInfo {
 }
 
 export namespace VocabularyInfo {
-  export function isa(o: any): o is VocabularyInfo {
-    return __isa(o, "VocabularyInfo");
-  }
+  export const isa = (o: any): o is VocabularyInfo =>
+    __isa(o, "VocabularyInfo");
 }
 
 export enum VocabularyState {

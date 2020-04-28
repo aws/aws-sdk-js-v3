@@ -17,9 +17,8 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export function isa(o: any): o is AccessDeniedException {
-    return __isa(o, "AccessDeniedException");
-  }
+  export const isa = (o: any): o is AccessDeniedException =>
+    __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -35,9 +34,8 @@ export interface AuthorizationPendingException
 }
 
 export namespace AuthorizationPendingException {
-  export function isa(o: any): o is AuthorizationPendingException {
-    return __isa(o, "AuthorizationPendingException");
-  }
+  export const isa = (o: any): o is AuthorizationPendingException =>
+    __isa(o, "AuthorizationPendingException");
 }
 
 export interface CreateTokenRequest {
@@ -88,9 +86,8 @@ export interface CreateTokenRequest {
 }
 
 export namespace CreateTokenRequest {
-  export function isa(o: any): o is CreateTokenRequest {
-    return __isa(o, "CreateTokenRequest");
-  }
+  export const isa = (o: any): o is CreateTokenRequest =>
+    __isa(o, "CreateTokenRequest");
 }
 
 export interface CreateTokenResponse {
@@ -124,9 +121,8 @@ export interface CreateTokenResponse {
 }
 
 export namespace CreateTokenResponse {
-  export function isa(o: any): o is CreateTokenResponse {
-    return __isa(o, "CreateTokenResponse");
-  }
+  export const isa = (o: any): o is CreateTokenResponse =>
+    __isa(o, "CreateTokenResponse");
 }
 
 /**
@@ -142,9 +138,8 @@ export interface ExpiredTokenException
 }
 
 export namespace ExpiredTokenException {
-  export function isa(o: any): o is ExpiredTokenException {
-    return __isa(o, "ExpiredTokenException");
-  }
+  export const isa = (o: any): o is ExpiredTokenException =>
+    __isa(o, "ExpiredTokenException");
 }
 
 /**
@@ -160,9 +155,8 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export function isa(o: any): o is InternalServerException {
-    return __isa(o, "InternalServerException");
-  }
+  export const isa = (o: any): o is InternalServerException =>
+    __isa(o, "InternalServerException");
 }
 
 /**
@@ -180,9 +174,8 @@ export interface InvalidClientException
 }
 
 export namespace InvalidClientException {
-  export function isa(o: any): o is InvalidClientException {
-    return __isa(o, "InvalidClientException");
-  }
+  export const isa = (o: any): o is InvalidClientException =>
+    __isa(o, "InvalidClientException");
 }
 
 /**
@@ -198,9 +191,8 @@ export interface InvalidClientMetadataException
 }
 
 export namespace InvalidClientMetadataException {
-  export function isa(o: any): o is InvalidClientMetadataException {
-    return __isa(o, "InvalidClientMetadataException");
-  }
+  export const isa = (o: any): o is InvalidClientMetadataException =>
+    __isa(o, "InvalidClientMetadataException");
 }
 
 /**
@@ -216,9 +208,8 @@ export interface InvalidGrantException
 }
 
 export namespace InvalidGrantException {
-  export function isa(o: any): o is InvalidGrantException {
-    return __isa(o, "InvalidGrantException");
-  }
+  export const isa = (o: any): o is InvalidGrantException =>
+    __isa(o, "InvalidGrantException");
 }
 
 /**
@@ -235,9 +226,8 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return __isa(o, "InvalidRequestException");
-  }
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -253,9 +243,8 @@ export interface InvalidScopeException
 }
 
 export namespace InvalidScopeException {
-  export function isa(o: any): o is InvalidScopeException {
-    return __isa(o, "InvalidScopeException");
-  }
+  export const isa = (o: any): o is InvalidScopeException =>
+    __isa(o, "InvalidScopeException");
 }
 
 export interface RegisterClientRequest {
@@ -278,9 +267,8 @@ export interface RegisterClientRequest {
 }
 
 export namespace RegisterClientRequest {
-  export function isa(o: any): o is RegisterClientRequest {
-    return __isa(o, "RegisterClientRequest");
-  }
+  export const isa = (o: any): o is RegisterClientRequest =>
+    __isa(o, "RegisterClientRequest");
 }
 
 export interface RegisterClientResponse {
@@ -319,9 +307,8 @@ export interface RegisterClientResponse {
 }
 
 export namespace RegisterClientResponse {
-  export function isa(o: any): o is RegisterClientResponse {
-    return __isa(o, "RegisterClientResponse");
-  }
+  export const isa = (o: any): o is RegisterClientResponse =>
+    __isa(o, "RegisterClientResponse");
 }
 
 /**
@@ -335,9 +322,8 @@ export interface SlowDownException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace SlowDownException {
-  export function isa(o: any): o is SlowDownException {
-    return __isa(o, "SlowDownException");
-  }
+  export const isa = (o: any): o is SlowDownException =>
+    __isa(o, "SlowDownException");
 }
 
 export interface StartDeviceAuthorizationRequest {
@@ -363,9 +349,8 @@ export interface StartDeviceAuthorizationRequest {
 }
 
 export namespace StartDeviceAuthorizationRequest {
-  export function isa(o: any): o is StartDeviceAuthorizationRequest {
-    return __isa(o, "StartDeviceAuthorizationRequest");
-  }
+  export const isa = (o: any): o is StartDeviceAuthorizationRequest =>
+    __isa(o, "StartDeviceAuthorizationRequest");
 }
 
 export interface StartDeviceAuthorizationResponse {
@@ -404,9 +389,8 @@ export interface StartDeviceAuthorizationResponse {
 }
 
 export namespace StartDeviceAuthorizationResponse {
-  export function isa(o: any): o is StartDeviceAuthorizationResponse {
-    return __isa(o, "StartDeviceAuthorizationResponse");
-  }
+  export const isa = (o: any): o is StartDeviceAuthorizationResponse =>
+    __isa(o, "StartDeviceAuthorizationResponse");
 }
 
 /**
@@ -423,9 +407,8 @@ export interface UnauthorizedClientException
 }
 
 export namespace UnauthorizedClientException {
-  export function isa(o: any): o is UnauthorizedClientException {
-    return __isa(o, "UnauthorizedClientException");
-  }
+  export const isa = (o: any): o is UnauthorizedClientException =>
+    __isa(o, "UnauthorizedClientException");
 }
 
 /**
@@ -441,7 +424,6 @@ export interface UnsupportedGrantTypeException
 }
 
 export namespace UnsupportedGrantTypeException {
-  export function isa(o: any): o is UnsupportedGrantTypeException {
-    return __isa(o, "UnsupportedGrantTypeException");
-  }
+  export const isa = (o: any): o is UnsupportedGrantTypeException =>
+    __isa(o, "UnsupportedGrantTypeException");
 }

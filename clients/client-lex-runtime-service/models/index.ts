@@ -19,9 +19,8 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export function isa(o: any): o is BadRequestException {
-    return __isa(o, "BadRequestException");
-  }
+  export const isa = (o: any): o is BadRequestException =>
+    __isa(o, "BadRequestException");
 }
 
 /**
@@ -34,9 +33,8 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export function isa(o: any): o is ConflictException {
-    return __isa(o, "ConflictException");
-  }
+  export const isa = (o: any): o is ConflictException =>
+    __isa(o, "ConflictException");
 }
 
 /**
@@ -51,9 +49,8 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
-  export function isa(o: any): o is InternalFailureException {
-    return __isa(o, "InternalFailureException");
-  }
+  export const isa = (o: any): o is InternalFailureException =>
+    __isa(o, "InternalFailureException");
 }
 
 /**
@@ -69,9 +66,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 /**
@@ -86,9 +82,8 @@ export interface NotAcceptableException
 }
 
 export namespace NotAcceptableException {
-  export function isa(o: any): o is NotAcceptableException {
-    return __isa(o, "NotAcceptableException");
-  }
+  export const isa = (o: any): o is NotAcceptableException =>
+    __isa(o, "NotAcceptableException");
 }
 
 /**
@@ -102,9 +97,8 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return __isa(o, "NotFoundException");
-  }
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
 }
 
 /**
@@ -119,9 +113,8 @@ export interface RequestTimeoutException
 }
 
 export namespace RequestTimeoutException {
-  export function isa(o: any): o is RequestTimeoutException {
-    return __isa(o, "RequestTimeoutException");
-  }
+  export const isa = (o: any): o is RequestTimeoutException =>
+    __isa(o, "RequestTimeoutException");
 }
 
 /**
@@ -136,9 +129,8 @@ export interface UnsupportedMediaTypeException
 }
 
 export namespace UnsupportedMediaTypeException {
-  export function isa(o: any): o is UnsupportedMediaTypeException {
-    return __isa(o, "UnsupportedMediaTypeException");
-  }
+  export const isa = (o: any): o is UnsupportedMediaTypeException =>
+    __isa(o, "UnsupportedMediaTypeException");
 }
 
 /**
@@ -154,9 +146,8 @@ export interface BadGatewayException
 }
 
 export namespace BadGatewayException {
-  export function isa(o: any): o is BadGatewayException {
-    return __isa(o, "BadGatewayException");
-  }
+  export const isa = (o: any): o is BadGatewayException =>
+    __isa(o, "BadGatewayException");
 }
 
 export enum ConfirmationStatus {
@@ -184,9 +175,8 @@ export interface DeleteSessionRequest {
 }
 
 export namespace DeleteSessionRequest {
-  export function isa(o: any): o is DeleteSessionRequest {
-    return __isa(o, "DeleteSessionRequest");
-  }
+  export const isa = (o: any): o is DeleteSessionRequest =>
+    __isa(o, "DeleteSessionRequest");
 }
 
 export interface DeleteSessionResponse {
@@ -213,9 +203,8 @@ export interface DeleteSessionResponse {
 }
 
 export namespace DeleteSessionResponse {
-  export function isa(o: any): o is DeleteSessionResponse {
-    return __isa(o, "DeleteSessionResponse");
-  }
+  export const isa = (o: any): o is DeleteSessionResponse =>
+    __isa(o, "DeleteSessionResponse");
 }
 
 /**
@@ -242,9 +231,8 @@ export interface DependencyFailedException
 }
 
 export namespace DependencyFailedException {
-  export function isa(o: any): o is DependencyFailedException {
-    return __isa(o, "DependencyFailedException");
-  }
+  export const isa = (o: any): o is DependencyFailedException =>
+    __isa(o, "DependencyFailedException");
 }
 
 /**
@@ -358,9 +346,7 @@ export interface DialogAction {
 }
 
 export namespace DialogAction {
-  export function isa(o: any): o is DialogAction {
-    return __isa(o, "DialogAction");
-  }
+  export const isa = (o: any): o is DialogAction => __isa(o, "DialogAction");
 }
 
 export enum DialogActionType {
@@ -414,9 +400,8 @@ export interface GetSessionRequest {
 }
 
 export namespace GetSessionRequest {
-  export function isa(o: any): o is GetSessionRequest {
-    return __isa(o, "GetSessionRequest");
-  }
+  export const isa = (o: any): o is GetSessionRequest =>
+    __isa(o, "GetSessionRequest");
 }
 
 export interface GetSessionResponse {
@@ -449,9 +434,8 @@ export interface GetSessionResponse {
 }
 
 export namespace GetSessionResponse {
-  export function isa(o: any): o is GetSessionResponse {
-    return __isa(o, "GetSessionResponse");
-  }
+  export const isa = (o: any): o is GetSessionResponse =>
+    __isa(o, "GetSessionResponse");
 }
 
 /**
@@ -563,9 +547,7 @@ export interface IntentSummary {
 }
 
 export namespace IntentSummary {
-  export function isa(o: any): o is IntentSummary {
-    return __isa(o, "IntentSummary");
-  }
+  export const isa = (o: any): o is IntentSummary => __isa(o, "IntentSummary");
 }
 
 /**
@@ -580,9 +562,8 @@ export interface LoopDetectedException
 }
 
 export namespace LoopDetectedException {
-  export function isa(o: any): o is LoopDetectedException {
-    return __isa(o, "LoopDetectedException");
-  }
+  export const isa = (o: any): o is LoopDetectedException =>
+    __isa(o, "LoopDetectedException");
 }
 
 export enum MessageFormatType {
@@ -753,9 +734,8 @@ export interface PostContentRequest {
 }
 
 export namespace PostContentRequest {
-  export function isa(o: any): o is PostContentRequest {
-    return __isa(o, "PostContentRequest");
-  }
+  export const isa = (o: any): o is PostContentRequest =>
+    __isa(o, "PostContentRequest");
 }
 
 export interface PostContentResponse {
@@ -922,9 +902,8 @@ export interface PostContentResponse {
 }
 
 export namespace PostContentResponse {
-  export function isa(o: any): o is PostContentResponse {
-    return __isa(o, "PostContentResponse");
-  }
+  export const isa = (o: any): o is PostContentResponse =>
+    __isa(o, "PostContentResponse");
 }
 
 export interface PostTextRequest {
@@ -991,9 +970,8 @@ export interface PostTextRequest {
 }
 
 export namespace PostTextRequest {
-  export function isa(o: any): o is PostTextRequest {
-    return __isa(o, "PostTextRequest");
-  }
+  export const isa = (o: any): o is PostTextRequest =>
+    __isa(o, "PostTextRequest");
 }
 
 export interface PostTextResponse {
@@ -1142,9 +1120,8 @@ export interface PostTextResponse {
 }
 
 export namespace PostTextResponse {
-  export function isa(o: any): o is PostTextResponse {
-    return __isa(o, "PostTextResponse");
-  }
+  export const isa = (o: any): o is PostTextResponse =>
+    __isa(o, "PostTextResponse");
 }
 
 export interface PutSessionRequest {
@@ -1258,9 +1235,8 @@ export interface PutSessionRequest {
 }
 
 export namespace PutSessionRequest {
-  export function isa(o: any): o is PutSessionRequest {
-    return __isa(o, "PutSessionRequest");
-  }
+  export const isa = (o: any): o is PutSessionRequest =>
+    __isa(o, "PutSessionRequest");
 }
 
 export interface PutSessionResponse {
@@ -1379,9 +1355,8 @@ export interface PutSessionResponse {
 }
 
 export namespace PutSessionResponse {
-  export function isa(o: any): o is PutSessionResponse {
-    return __isa(o, "PutSessionResponse");
-  }
+  export const isa = (o: any): o is PutSessionResponse =>
+    __isa(o, "PutSessionResponse");
 }
 
 /**
@@ -1403,9 +1378,8 @@ export interface SentimentResponse {
 }
 
 export namespace SentimentResponse {
-  export function isa(o: any): o is SentimentResponse {
-    return __isa(o, "SentimentResponse");
-  }
+  export const isa = (o: any): o is SentimentResponse =>
+    __isa(o, "SentimentResponse");
 }
 
 /**
@@ -1426,9 +1400,7 @@ export interface Button {
 }
 
 export namespace Button {
-  export function isa(o: any): o is Button {
-    return __isa(o, "Button");
-  }
+  export const isa = (o: any): o is Button => __isa(o, "Button");
 }
 
 export enum ContentType {
@@ -1468,9 +1440,8 @@ export interface GenericAttachment {
 }
 
 export namespace GenericAttachment {
-  export function isa(o: any): o is GenericAttachment {
-    return __isa(o, "GenericAttachment");
-  }
+  export const isa = (o: any): o is GenericAttachment =>
+    __isa(o, "GenericAttachment");
 }
 
 /**
@@ -1498,7 +1469,5 @@ export interface ResponseCard {
 }
 
 export namespace ResponseCard {
-  export function isa(o: any): o is ResponseCard {
-    return __isa(o, "ResponseCard");
-  }
+  export const isa = (o: any): o is ResponseCard => __isa(o, "ResponseCard");
 }

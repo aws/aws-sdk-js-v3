@@ -15,9 +15,8 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export function isa(o: any): o is AccessDeniedException {
-    return __isa(o, "AccessDeniedException");
-  }
+  export const isa = (o: any): o is AccessDeniedException =>
+    __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -42,9 +41,8 @@ export interface ApprovalThresholdPolicy {
 }
 
 export namespace ApprovalThresholdPolicy {
-  export function isa(o: any): o is ApprovalThresholdPolicy {
-    return __isa(o, "ApprovalThresholdPolicy");
-  }
+  export const isa = (o: any): o is ApprovalThresholdPolicy =>
+    __isa(o, "ApprovalThresholdPolicy");
 }
 
 export interface CreateMemberInput {
@@ -71,9 +69,8 @@ export interface CreateMemberInput {
 }
 
 export namespace CreateMemberInput {
-  export function isa(o: any): o is CreateMemberInput {
-    return __isa(o, "CreateMemberInput");
-  }
+  export const isa = (o: any): o is CreateMemberInput =>
+    __isa(o, "CreateMemberInput");
 }
 
 export interface CreateMemberOutput {
@@ -85,9 +82,8 @@ export interface CreateMemberOutput {
 }
 
 export namespace CreateMemberOutput {
-  export function isa(o: any): o is CreateMemberOutput {
-    return __isa(o, "CreateMemberOutput");
-  }
+  export const isa = (o: any): o is CreateMemberOutput =>
+    __isa(o, "CreateMemberOutput");
 }
 
 export interface CreateNetworkInput {
@@ -138,9 +134,8 @@ export interface CreateNetworkInput {
 }
 
 export namespace CreateNetworkInput {
-  export function isa(o: any): o is CreateNetworkInput {
-    return __isa(o, "CreateNetworkInput");
-  }
+  export const isa = (o: any): o is CreateNetworkInput =>
+    __isa(o, "CreateNetworkInput");
 }
 
 export interface CreateNetworkOutput {
@@ -157,9 +152,8 @@ export interface CreateNetworkOutput {
 }
 
 export namespace CreateNetworkOutput {
-  export function isa(o: any): o is CreateNetworkOutput {
-    return __isa(o, "CreateNetworkOutput");
-  }
+  export const isa = (o: any): o is CreateNetworkOutput =>
+    __isa(o, "CreateNetworkOutput");
 }
 
 export interface CreateNodeInput {
@@ -186,9 +180,8 @@ export interface CreateNodeInput {
 }
 
 export namespace CreateNodeInput {
-  export function isa(o: any): o is CreateNodeInput {
-    return __isa(o, "CreateNodeInput");
-  }
+  export const isa = (o: any): o is CreateNodeInput =>
+    __isa(o, "CreateNodeInput");
 }
 
 export interface CreateNodeOutput {
@@ -200,9 +193,8 @@ export interface CreateNodeOutput {
 }
 
 export namespace CreateNodeOutput {
-  export function isa(o: any): o is CreateNodeOutput {
-    return __isa(o, "CreateNodeOutput");
-  }
+  export const isa = (o: any): o is CreateNodeOutput =>
+    __isa(o, "CreateNodeOutput");
 }
 
 export interface CreateProposalInput {
@@ -235,9 +227,8 @@ export interface CreateProposalInput {
 }
 
 export namespace CreateProposalInput {
-  export function isa(o: any): o is CreateProposalInput {
-    return __isa(o, "CreateProposalInput");
-  }
+  export const isa = (o: any): o is CreateProposalInput =>
+    __isa(o, "CreateProposalInput");
 }
 
 export interface CreateProposalOutput {
@@ -249,9 +240,8 @@ export interface CreateProposalOutput {
 }
 
 export namespace CreateProposalOutput {
-  export function isa(o: any): o is CreateProposalOutput {
-    return __isa(o, "CreateProposalOutput");
-  }
+  export const isa = (o: any): o is CreateProposalOutput =>
+    __isa(o, "CreateProposalOutput");
 }
 
 export interface DeleteMemberInput {
@@ -268,9 +258,8 @@ export interface DeleteMemberInput {
 }
 
 export namespace DeleteMemberInput {
-  export function isa(o: any): o is DeleteMemberInput {
-    return __isa(o, "DeleteMemberInput");
-  }
+  export const isa = (o: any): o is DeleteMemberInput =>
+    __isa(o, "DeleteMemberInput");
 }
 
 export interface DeleteMemberOutput {
@@ -278,9 +267,8 @@ export interface DeleteMemberOutput {
 }
 
 export namespace DeleteMemberOutput {
-  export function isa(o: any): o is DeleteMemberOutput {
-    return __isa(o, "DeleteMemberOutput");
-  }
+  export const isa = (o: any): o is DeleteMemberOutput =>
+    __isa(o, "DeleteMemberOutput");
 }
 
 export interface DeleteNodeInput {
@@ -302,9 +290,8 @@ export interface DeleteNodeInput {
 }
 
 export namespace DeleteNodeInput {
-  export function isa(o: any): o is DeleteNodeInput {
-    return __isa(o, "DeleteNodeInput");
-  }
+  export const isa = (o: any): o is DeleteNodeInput =>
+    __isa(o, "DeleteNodeInput");
 }
 
 export interface DeleteNodeOutput {
@@ -312,9 +299,8 @@ export interface DeleteNodeOutput {
 }
 
 export namespace DeleteNodeOutput {
-  export function isa(o: any): o is DeleteNodeOutput {
-    return __isa(o, "DeleteNodeOutput");
-  }
+  export const isa = (o: any): o is DeleteNodeOutput =>
+    __isa(o, "DeleteNodeOutput");
 }
 
 export enum Edition {
@@ -340,9 +326,8 @@ export interface GetMemberInput {
 }
 
 export namespace GetMemberInput {
-  export function isa(o: any): o is GetMemberInput {
-    return __isa(o, "GetMemberInput");
-  }
+  export const isa = (o: any): o is GetMemberInput =>
+    __isa(o, "GetMemberInput");
 }
 
 export interface GetMemberOutput {
@@ -354,9 +339,8 @@ export interface GetMemberOutput {
 }
 
 export namespace GetMemberOutput {
-  export function isa(o: any): o is GetMemberOutput {
-    return __isa(o, "GetMemberOutput");
-  }
+  export const isa = (o: any): o is GetMemberOutput =>
+    __isa(o, "GetMemberOutput");
 }
 
 export interface GetNetworkInput {
@@ -368,9 +352,8 @@ export interface GetNetworkInput {
 }
 
 export namespace GetNetworkInput {
-  export function isa(o: any): o is GetNetworkInput {
-    return __isa(o, "GetNetworkInput");
-  }
+  export const isa = (o: any): o is GetNetworkInput =>
+    __isa(o, "GetNetworkInput");
 }
 
 export interface GetNetworkOutput {
@@ -382,9 +365,8 @@ export interface GetNetworkOutput {
 }
 
 export namespace GetNetworkOutput {
-  export function isa(o: any): o is GetNetworkOutput {
-    return __isa(o, "GetNetworkOutput");
-  }
+  export const isa = (o: any): o is GetNetworkOutput =>
+    __isa(o, "GetNetworkOutput");
 }
 
 export interface GetNodeInput {
@@ -406,9 +388,7 @@ export interface GetNodeInput {
 }
 
 export namespace GetNodeInput {
-  export function isa(o: any): o is GetNodeInput {
-    return __isa(o, "GetNodeInput");
-  }
+  export const isa = (o: any): o is GetNodeInput => __isa(o, "GetNodeInput");
 }
 
 export interface GetNodeOutput {
@@ -420,9 +400,7 @@ export interface GetNodeOutput {
 }
 
 export namespace GetNodeOutput {
-  export function isa(o: any): o is GetNodeOutput {
-    return __isa(o, "GetNodeOutput");
-  }
+  export const isa = (o: any): o is GetNodeOutput => __isa(o, "GetNodeOutput");
 }
 
 export interface GetProposalInput {
@@ -439,9 +417,8 @@ export interface GetProposalInput {
 }
 
 export namespace GetProposalInput {
-  export function isa(o: any): o is GetProposalInput {
-    return __isa(o, "GetProposalInput");
-  }
+  export const isa = (o: any): o is GetProposalInput =>
+    __isa(o, "GetProposalInput");
 }
 
 export interface GetProposalOutput {
@@ -453,9 +430,8 @@ export interface GetProposalOutput {
 }
 
 export namespace GetProposalOutput {
-  export function isa(o: any): o is GetProposalOutput {
-    return __isa(o, "GetProposalOutput");
-  }
+  export const isa = (o: any): o is GetProposalOutput =>
+    __isa(o, "GetProposalOutput");
 }
 
 /**
@@ -470,9 +446,8 @@ export interface IllegalActionException
 }
 
 export namespace IllegalActionException {
-  export function isa(o: any): o is IllegalActionException {
-    return __isa(o, "IllegalActionException");
-  }
+  export const isa = (o: any): o is IllegalActionException =>
+    __isa(o, "IllegalActionException");
 }
 
 /**
@@ -486,9 +461,8 @@ export interface InternalServiceErrorException
 }
 
 export namespace InternalServiceErrorException {
-  export function isa(o: any): o is InternalServiceErrorException {
-    return __isa(o, "InternalServiceErrorException");
-  }
+  export const isa = (o: any): o is InternalServiceErrorException =>
+    __isa(o, "InternalServiceErrorException");
 }
 
 /**
@@ -503,9 +477,8 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return __isa(o, "InvalidRequestException");
-  }
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -562,9 +535,7 @@ export interface Invitation {
 }
 
 export namespace Invitation {
-  export function isa(o: any): o is Invitation {
-    return __isa(o, "Invitation");
-  }
+  export const isa = (o: any): o is Invitation => __isa(o, "Invitation");
 }
 
 export enum InvitationStatus {
@@ -587,9 +558,7 @@ export interface InviteAction {
 }
 
 export namespace InviteAction {
-  export function isa(o: any): o is InviteAction {
-    return __isa(o, "InviteAction");
-  }
+  export const isa = (o: any): o is InviteAction => __isa(o, "InviteAction");
 }
 
 export interface ListInvitationsInput {
@@ -606,9 +575,8 @@ export interface ListInvitationsInput {
 }
 
 export namespace ListInvitationsInput {
-  export function isa(o: any): o is ListInvitationsInput {
-    return __isa(o, "ListInvitationsInput");
-  }
+  export const isa = (o: any): o is ListInvitationsInput =>
+    __isa(o, "ListInvitationsInput");
 }
 
 export interface ListInvitationsOutput {
@@ -625,9 +593,8 @@ export interface ListInvitationsOutput {
 }
 
 export namespace ListInvitationsOutput {
-  export function isa(o: any): o is ListInvitationsOutput {
-    return __isa(o, "ListInvitationsOutput");
-  }
+  export const isa = (o: any): o is ListInvitationsOutput =>
+    __isa(o, "ListInvitationsOutput");
 }
 
 export interface ListMembersInput {
@@ -666,9 +633,8 @@ export interface ListMembersInput {
 }
 
 export namespace ListMembersInput {
-  export function isa(o: any): o is ListMembersInput {
-    return __isa(o, "ListMembersInput");
-  }
+  export const isa = (o: any): o is ListMembersInput =>
+    __isa(o, "ListMembersInput");
 }
 
 export interface ListMembersOutput {
@@ -685,9 +651,8 @@ export interface ListMembersOutput {
 }
 
 export namespace ListMembersOutput {
-  export function isa(o: any): o is ListMembersOutput {
-    return __isa(o, "ListMembersOutput");
-  }
+  export const isa = (o: any): o is ListMembersOutput =>
+    __isa(o, "ListMembersOutput");
 }
 
 export interface ListNetworksInput {
@@ -719,9 +684,8 @@ export interface ListNetworksInput {
 }
 
 export namespace ListNetworksInput {
-  export function isa(o: any): o is ListNetworksInput {
-    return __isa(o, "ListNetworksInput");
-  }
+  export const isa = (o: any): o is ListNetworksInput =>
+    __isa(o, "ListNetworksInput");
 }
 
 export interface ListNetworksOutput {
@@ -738,9 +702,8 @@ export interface ListNetworksOutput {
 }
 
 export namespace ListNetworksOutput {
-  export function isa(o: any): o is ListNetworksOutput {
-    return __isa(o, "ListNetworksOutput");
-  }
+  export const isa = (o: any): o is ListNetworksOutput =>
+    __isa(o, "ListNetworksOutput");
 }
 
 export interface ListNodesInput {
@@ -772,9 +735,8 @@ export interface ListNodesInput {
 }
 
 export namespace ListNodesInput {
-  export function isa(o: any): o is ListNodesInput {
-    return __isa(o, "ListNodesInput");
-  }
+  export const isa = (o: any): o is ListNodesInput =>
+    __isa(o, "ListNodesInput");
 }
 
 export interface ListNodesOutput {
@@ -791,9 +753,8 @@ export interface ListNodesOutput {
 }
 
 export namespace ListNodesOutput {
-  export function isa(o: any): o is ListNodesOutput {
-    return __isa(o, "ListNodesOutput");
-  }
+  export const isa = (o: any): o is ListNodesOutput =>
+    __isa(o, "ListNodesOutput");
 }
 
 export interface ListProposalVotesInput {
@@ -828,9 +789,8 @@ export interface ListProposalVotesInput {
 }
 
 export namespace ListProposalVotesInput {
-  export function isa(o: any): o is ListProposalVotesInput {
-    return __isa(o, "ListProposalVotesInput");
-  }
+  export const isa = (o: any): o is ListProposalVotesInput =>
+    __isa(o, "ListProposalVotesInput");
 }
 
 export interface ListProposalVotesOutput {
@@ -851,9 +811,8 @@ export interface ListProposalVotesOutput {
 }
 
 export namespace ListProposalVotesOutput {
-  export function isa(o: any): o is ListProposalVotesOutput {
-    return __isa(o, "ListProposalVotesOutput");
-  }
+  export const isa = (o: any): o is ListProposalVotesOutput =>
+    __isa(o, "ListProposalVotesOutput");
 }
 
 export interface ListProposalsInput {
@@ -881,9 +840,8 @@ export interface ListProposalsInput {
 }
 
 export namespace ListProposalsInput {
-  export function isa(o: any): o is ListProposalsInput {
-    return __isa(o, "ListProposalsInput");
-  }
+  export const isa = (o: any): o is ListProposalsInput =>
+    __isa(o, "ListProposalsInput");
 }
 
 export interface ListProposalsOutput {
@@ -900,9 +858,8 @@ export interface ListProposalsOutput {
 }
 
 export namespace ListProposalsOutput {
-  export function isa(o: any): o is ListProposalsOutput {
-    return __isa(o, "ListProposalsOutput");
-  }
+  export const isa = (o: any): o is ListProposalsOutput =>
+    __isa(o, "ListProposalsOutput");
 }
 
 /**
@@ -971,9 +928,7 @@ export interface Member {
 }
 
 export namespace Member {
-  export function isa(o: any): o is Member {
-    return __isa(o, "Member");
-  }
+  export const isa = (o: any): o is Member => __isa(o, "Member");
 }
 
 /**
@@ -998,9 +953,8 @@ export interface MemberConfiguration {
 }
 
 export namespace MemberConfiguration {
-  export function isa(o: any): o is MemberConfiguration {
-    return __isa(o, "MemberConfiguration");
-  }
+  export const isa = (o: any): o is MemberConfiguration =>
+    __isa(o, "MemberConfiguration");
 }
 
 /**
@@ -1020,9 +974,8 @@ export interface MemberFabricAttributes {
 }
 
 export namespace MemberFabricAttributes {
-  export function isa(o: any): o is MemberFabricAttributes {
-    return __isa(o, "MemberFabricAttributes");
-  }
+  export const isa = (o: any): o is MemberFabricAttributes =>
+    __isa(o, "MemberFabricAttributes");
 }
 
 /**
@@ -1042,9 +995,8 @@ export interface MemberFabricConfiguration {
 }
 
 export namespace MemberFabricConfiguration {
-  export function isa(o: any): o is MemberFabricConfiguration {
-    return __isa(o, "MemberFabricConfiguration");
-  }
+  export const isa = (o: any): o is MemberFabricConfiguration =>
+    __isa(o, "MemberFabricConfiguration");
 }
 
 /**
@@ -1059,9 +1011,8 @@ export interface MemberFrameworkAttributes {
 }
 
 export namespace MemberFrameworkAttributes {
-  export function isa(o: any): o is MemberFrameworkAttributes {
-    return __isa(o, "MemberFrameworkAttributes");
-  }
+  export const isa = (o: any): o is MemberFrameworkAttributes =>
+    __isa(o, "MemberFrameworkAttributes");
 }
 
 /**
@@ -1076,9 +1027,8 @@ export interface MemberFrameworkConfiguration {
 }
 
 export namespace MemberFrameworkConfiguration {
-  export function isa(o: any): o is MemberFrameworkConfiguration {
-    return __isa(o, "MemberFrameworkConfiguration");
-  }
+  export const isa = (o: any): o is MemberFrameworkConfiguration =>
+    __isa(o, "MemberFrameworkConfiguration");
 }
 
 export enum MemberStatus {
@@ -1150,9 +1100,7 @@ export interface MemberSummary {
 }
 
 export namespace MemberSummary {
-  export function isa(o: any): o is MemberSummary {
-    return __isa(o, "MemberSummary");
-  }
+  export const isa = (o: any): o is MemberSummary => __isa(o, "MemberSummary");
 }
 
 /**
@@ -1212,9 +1160,7 @@ export interface Network {
 }
 
 export namespace Network {
-  export function isa(o: any): o is Network {
-    return __isa(o, "Network");
-  }
+  export const isa = (o: any): o is Network => __isa(o, "Network");
 }
 
 /**
@@ -1234,9 +1180,8 @@ export interface NetworkFabricAttributes {
 }
 
 export namespace NetworkFabricAttributes {
-  export function isa(o: any): o is NetworkFabricAttributes {
-    return __isa(o, "NetworkFabricAttributes");
-  }
+  export const isa = (o: any): o is NetworkFabricAttributes =>
+    __isa(o, "NetworkFabricAttributes");
 }
 
 /**
@@ -1251,9 +1196,8 @@ export interface NetworkFabricConfiguration {
 }
 
 export namespace NetworkFabricConfiguration {
-  export function isa(o: any): o is NetworkFabricConfiguration {
-    return __isa(o, "NetworkFabricConfiguration");
-  }
+  export const isa = (o: any): o is NetworkFabricConfiguration =>
+    __isa(o, "NetworkFabricConfiguration");
 }
 
 /**
@@ -1268,9 +1212,8 @@ export interface NetworkFrameworkAttributes {
 }
 
 export namespace NetworkFrameworkAttributes {
-  export function isa(o: any): o is NetworkFrameworkAttributes {
-    return __isa(o, "NetworkFrameworkAttributes");
-  }
+  export const isa = (o: any): o is NetworkFrameworkAttributes =>
+    __isa(o, "NetworkFrameworkAttributes");
 }
 
 /**
@@ -1289,9 +1232,8 @@ export interface NetworkFrameworkConfiguration {
 }
 
 export namespace NetworkFrameworkConfiguration {
-  export function isa(o: any): o is NetworkFrameworkConfiguration {
-    return __isa(o, "NetworkFrameworkConfiguration");
-  }
+  export const isa = (o: any): o is NetworkFrameworkConfiguration =>
+    __isa(o, "NetworkFrameworkConfiguration");
 }
 
 export enum NetworkStatus {
@@ -1344,9 +1286,8 @@ export interface NetworkSummary {
 }
 
 export namespace NetworkSummary {
-  export function isa(o: any): o is NetworkSummary {
-    return __isa(o, "NetworkSummary");
-  }
+  export const isa = (o: any): o is NetworkSummary =>
+    __isa(o, "NetworkSummary");
 }
 
 /**
@@ -1396,9 +1337,7 @@ export interface Node {
 }
 
 export namespace Node {
-  export function isa(o: any): o is Node {
-    return __isa(o, "Node");
-  }
+  export const isa = (o: any): o is Node => __isa(o, "Node");
 }
 
 /**
@@ -1418,9 +1357,8 @@ export interface NodeConfiguration {
 }
 
 export namespace NodeConfiguration {
-  export function isa(o: any): o is NodeConfiguration {
-    return __isa(o, "NodeConfiguration");
-  }
+  export const isa = (o: any): o is NodeConfiguration =>
+    __isa(o, "NodeConfiguration");
 }
 
 /**
@@ -1440,9 +1378,8 @@ export interface NodeFabricAttributes {
 }
 
 export namespace NodeFabricAttributes {
-  export function isa(o: any): o is NodeFabricAttributes {
-    return __isa(o, "NodeFabricAttributes");
-  }
+  export const isa = (o: any): o is NodeFabricAttributes =>
+    __isa(o, "NodeFabricAttributes");
 }
 
 /**
@@ -1457,9 +1394,8 @@ export interface NodeFrameworkAttributes {
 }
 
 export namespace NodeFrameworkAttributes {
-  export function isa(o: any): o is NodeFrameworkAttributes {
-    return __isa(o, "NodeFrameworkAttributes");
-  }
+  export const isa = (o: any): o is NodeFrameworkAttributes =>
+    __isa(o, "NodeFrameworkAttributes");
 }
 
 export enum NodeStatus {
@@ -1503,9 +1439,7 @@ export interface NodeSummary {
 }
 
 export namespace NodeSummary {
-  export function isa(o: any): o is NodeSummary {
-    return __isa(o, "NodeSummary");
-  }
+  export const isa = (o: any): o is NodeSummary => __isa(o, "NodeSummary");
 }
 
 /**
@@ -1607,9 +1541,7 @@ export interface Proposal {
 }
 
 export namespace Proposal {
-  export function isa(o: any): o is Proposal {
-    return __isa(o, "Proposal");
-  }
+  export const isa = (o: any): o is Proposal => __isa(o, "Proposal");
 }
 
 /**
@@ -1635,9 +1567,8 @@ export interface ProposalActions {
 }
 
 export namespace ProposalActions {
-  export function isa(o: any): o is ProposalActions {
-    return __isa(o, "ProposalActions");
-  }
+  export const isa = (o: any): o is ProposalActions =>
+    __isa(o, "ProposalActions");
 }
 
 export enum ProposalStatus {
@@ -1724,9 +1655,8 @@ export interface ProposalSummary {
 }
 
 export namespace ProposalSummary {
-  export function isa(o: any): o is ProposalSummary {
-    return __isa(o, "ProposalSummary");
-  }
+  export const isa = (o: any): o is ProposalSummary =>
+    __isa(o, "ProposalSummary");
 }
 
 export interface RejectInvitationInput {
@@ -1738,9 +1668,8 @@ export interface RejectInvitationInput {
 }
 
 export namespace RejectInvitationInput {
-  export function isa(o: any): o is RejectInvitationInput {
-    return __isa(o, "RejectInvitationInput");
-  }
+  export const isa = (o: any): o is RejectInvitationInput =>
+    __isa(o, "RejectInvitationInput");
 }
 
 export interface RejectInvitationOutput {
@@ -1748,9 +1677,8 @@ export interface RejectInvitationOutput {
 }
 
 export namespace RejectInvitationOutput {
-  export function isa(o: any): o is RejectInvitationOutput {
-    return __isa(o, "RejectInvitationOutput");
-  }
+  export const isa = (o: any): o is RejectInvitationOutput =>
+    __isa(o, "RejectInvitationOutput");
 }
 
 /**
@@ -1765,9 +1693,7 @@ export interface RemoveAction {
 }
 
 export namespace RemoveAction {
-  export function isa(o: any): o is RemoveAction {
-    return __isa(o, "RemoveAction");
-  }
+  export const isa = (o: any): o is RemoveAction => __isa(o, "RemoveAction");
 }
 
 /**
@@ -1782,9 +1708,8 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
-  export function isa(o: any): o is ResourceAlreadyExistsException {
-    return __isa(o, "ResourceAlreadyExistsException");
-  }
+  export const isa = (o: any): o is ResourceAlreadyExistsException =>
+    __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -1799,9 +1724,8 @@ export interface ResourceLimitExceededException
 }
 
 export namespace ResourceLimitExceededException {
-  export function isa(o: any): o is ResourceLimitExceededException {
-    return __isa(o, "ResourceLimitExceededException");
-  }
+  export const isa = (o: any): o is ResourceLimitExceededException =>
+    __isa(o, "ResourceLimitExceededException");
 }
 
 /**
@@ -1816,9 +1740,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1833,9 +1756,8 @@ export interface ResourceNotReadyException
 }
 
 export namespace ResourceNotReadyException {
-  export function isa(o: any): o is ResourceNotReadyException {
-    return __isa(o, "ResourceNotReadyException");
-  }
+  export const isa = (o: any): o is ResourceNotReadyException =>
+    __isa(o, "ResourceNotReadyException");
 }
 
 export enum ThresholdComparator {
@@ -1854,9 +1776,8 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return __isa(o, "ThrottlingException");
-  }
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 export interface VoteOnProposalInput {
@@ -1890,9 +1811,8 @@ export interface VoteOnProposalInput {
 }
 
 export namespace VoteOnProposalInput {
-  export function isa(o: any): o is VoteOnProposalInput {
-    return __isa(o, "VoteOnProposalInput");
-  }
+  export const isa = (o: any): o is VoteOnProposalInput =>
+    __isa(o, "VoteOnProposalInput");
 }
 
 export interface VoteOnProposalOutput {
@@ -1900,9 +1820,8 @@ export interface VoteOnProposalOutput {
 }
 
 export namespace VoteOnProposalOutput {
-  export function isa(o: any): o is VoteOnProposalOutput {
-    return __isa(o, "VoteOnProposalOutput");
-  }
+  export const isa = (o: any): o is VoteOnProposalOutput =>
+    __isa(o, "VoteOnProposalOutput");
 }
 
 /**
@@ -1935,9 +1854,7 @@ export interface VoteSummary {
 }
 
 export namespace VoteSummary {
-  export function isa(o: any): o is VoteSummary {
-    return __isa(o, "VoteSummary");
-  }
+  export const isa = (o: any): o is VoteSummary => __isa(o, "VoteSummary");
 }
 
 export enum VoteValue {
@@ -1959,7 +1876,5 @@ export interface VotingPolicy {
 }
 
 export namespace VotingPolicy {
-  export function isa(o: any): o is VotingPolicy {
-    return __isa(o, "VotingPolicy");
-  }
+  export const isa = (o: any): o is VotingPolicy => __isa(o, "VotingPolicy");
 }

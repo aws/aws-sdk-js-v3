@@ -10,9 +10,8 @@ export interface DeleteConnectionRequest {
 }
 
 export namespace DeleteConnectionRequest {
-  export function isa(o: any): o is DeleteConnectionRequest {
-    return __isa(o, "DeleteConnectionRequest");
-  }
+  export const isa = (o: any): o is DeleteConnectionRequest =>
+    __isa(o, "DeleteConnectionRequest");
 }
 
 /**
@@ -24,9 +23,8 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export function isa(o: any): o is ForbiddenException {
-    return __isa(o, "ForbiddenException");
-  }
+  export const isa = (o: any): o is ForbiddenException =>
+    __isa(o, "ForbiddenException");
 }
 
 export interface GetConnectionRequest {
@@ -35,9 +33,8 @@ export interface GetConnectionRequest {
 }
 
 export namespace GetConnectionRequest {
-  export function isa(o: any): o is GetConnectionRequest {
-    return __isa(o, "GetConnectionRequest");
-  }
+  export const isa = (o: any): o is GetConnectionRequest =>
+    __isa(o, "GetConnectionRequest");
 }
 
 export interface GetConnectionResponse {
@@ -55,9 +52,8 @@ export interface GetConnectionResponse {
 }
 
 export namespace GetConnectionResponse {
-  export function isa(o: any): o is GetConnectionResponse {
-    return __isa(o, "GetConnectionResponse");
-  }
+  export const isa = (o: any): o is GetConnectionResponse =>
+    __isa(o, "GetConnectionResponse");
 }
 
 /**
@@ -69,9 +65,7 @@ export interface GoneException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace GoneException {
-  export function isa(o: any): o is GoneException {
-    return __isa(o, "GoneException");
-  }
+  export const isa = (o: any): o is GoneException => __isa(o, "GoneException");
 }
 
 export interface Identity {
@@ -88,9 +82,7 @@ export interface Identity {
 }
 
 export namespace Identity {
-  export function isa(o: any): o is Identity {
-    return __isa(o, "Identity");
-  }
+  export const isa = (o: any): o is Identity => __isa(o, "Identity");
 }
 
 /**
@@ -104,9 +96,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 /**
@@ -121,9 +112,8 @@ export interface PayloadTooLargeException
 }
 
 export namespace PayloadTooLargeException {
-  export function isa(o: any): o is PayloadTooLargeException {
-    return __isa(o, "PayloadTooLargeException");
-  }
+  export const isa = (o: any): o is PayloadTooLargeException =>
+    __isa(o, "PayloadTooLargeException");
 }
 
 export interface PostToConnectionRequest {
@@ -140,7 +130,6 @@ export interface PostToConnectionRequest {
 }
 
 export namespace PostToConnectionRequest {
-  export function isa(o: any): o is PostToConnectionRequest {
-    return __isa(o, "PostToConnectionRequest");
-  }
+  export const isa = (o: any): o is PostToConnectionRequest =>
+    __isa(o, "PostToConnectionRequest");
 }

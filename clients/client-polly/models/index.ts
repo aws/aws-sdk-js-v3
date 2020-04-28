@@ -15,9 +15,8 @@ export interface DeleteLexiconInput {
 }
 
 export namespace DeleteLexiconInput {
-  export function isa(o: any): o is DeleteLexiconInput {
-    return __isa(o, "DeleteLexiconInput");
-  }
+  export const isa = (o: any): o is DeleteLexiconInput =>
+    __isa(o, "DeleteLexiconInput");
 }
 
 export interface DeleteLexiconOutput {
@@ -25,9 +24,8 @@ export interface DeleteLexiconOutput {
 }
 
 export namespace DeleteLexiconOutput {
-  export function isa(o: any): o is DeleteLexiconOutput {
-    return __isa(o, "DeleteLexiconOutput");
-  }
+  export const isa = (o: any): o is DeleteLexiconOutput =>
+    __isa(o, "DeleteLexiconOutput");
 }
 
 export interface DescribeVoicesInput {
@@ -63,9 +61,8 @@ export interface DescribeVoicesInput {
 }
 
 export namespace DescribeVoicesInput {
-  export function isa(o: any): o is DescribeVoicesInput {
-    return __isa(o, "DescribeVoicesInput");
-  }
+  export const isa = (o: any): o is DescribeVoicesInput =>
+    __isa(o, "DescribeVoicesInput");
 }
 
 export interface DescribeVoicesOutput {
@@ -84,9 +81,8 @@ export interface DescribeVoicesOutput {
 }
 
 export namespace DescribeVoicesOutput {
-  export function isa(o: any): o is DescribeVoicesOutput {
-    return __isa(o, "DescribeVoicesOutput");
-  }
+  export const isa = (o: any): o is DescribeVoicesOutput =>
+    __isa(o, "DescribeVoicesOutput");
 }
 
 export enum Engine {
@@ -107,9 +103,8 @@ export interface EngineNotSupportedException
 }
 
 export namespace EngineNotSupportedException {
-  export function isa(o: any): o is EngineNotSupportedException {
-    return __isa(o, "EngineNotSupportedException");
-  }
+  export const isa = (o: any): o is EngineNotSupportedException =>
+    __isa(o, "EngineNotSupportedException");
 }
 
 export type Gender = "Female" | "Male";
@@ -123,9 +118,8 @@ export interface GetLexiconInput {
 }
 
 export namespace GetLexiconInput {
-  export function isa(o: any): o is GetLexiconInput {
-    return __isa(o, "GetLexiconInput");
-  }
+  export const isa = (o: any): o is GetLexiconInput =>
+    __isa(o, "GetLexiconInput");
 }
 
 export interface GetLexiconOutput {
@@ -144,9 +138,8 @@ export interface GetLexiconOutput {
 }
 
 export namespace GetLexiconOutput {
-  export function isa(o: any): o is GetLexiconOutput {
-    return __isa(o, "GetLexiconOutput");
-  }
+  export const isa = (o: any): o is GetLexiconOutput =>
+    __isa(o, "GetLexiconOutput");
 }
 
 export interface GetSpeechSynthesisTaskInput {
@@ -158,9 +151,8 @@ export interface GetSpeechSynthesisTaskInput {
 }
 
 export namespace GetSpeechSynthesisTaskInput {
-  export function isa(o: any): o is GetSpeechSynthesisTaskInput {
-    return __isa(o, "GetSpeechSynthesisTaskInput");
-  }
+  export const isa = (o: any): o is GetSpeechSynthesisTaskInput =>
+    __isa(o, "GetSpeechSynthesisTaskInput");
 }
 
 export interface GetSpeechSynthesisTaskOutput {
@@ -173,9 +165,8 @@ export interface GetSpeechSynthesisTaskOutput {
 }
 
 export namespace GetSpeechSynthesisTaskOutput {
-  export function isa(o: any): o is GetSpeechSynthesisTaskOutput {
-    return __isa(o, "GetSpeechSynthesisTaskOutput");
-  }
+  export const isa = (o: any): o is GetSpeechSynthesisTaskOutput =>
+    __isa(o, "GetSpeechSynthesisTaskOutput");
 }
 
 /**
@@ -191,9 +182,8 @@ export interface InvalidLexiconException
 }
 
 export namespace InvalidLexiconException {
-  export function isa(o: any): o is InvalidLexiconException {
-    return __isa(o, "InvalidLexiconException");
-  }
+  export const isa = (o: any): o is InvalidLexiconException =>
+    __isa(o, "InvalidLexiconException");
 }
 
 /**
@@ -209,9 +199,8 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export function isa(o: any): o is InvalidNextTokenException {
-    return __isa(o, "InvalidNextTokenException");
-  }
+  export const isa = (o: any): o is InvalidNextTokenException =>
+    __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -227,9 +216,8 @@ export interface InvalidS3BucketException
 }
 
 export namespace InvalidS3BucketException {
-  export function isa(o: any): o is InvalidS3BucketException {
-    return __isa(o, "InvalidS3BucketException");
-  }
+  export const isa = (o: any): o is InvalidS3BucketException =>
+    __isa(o, "InvalidS3BucketException");
 }
 
 /**
@@ -244,9 +232,8 @@ export interface InvalidS3KeyException
 }
 
 export namespace InvalidS3KeyException {
-  export function isa(o: any): o is InvalidS3KeyException {
-    return __isa(o, "InvalidS3KeyException");
-  }
+  export const isa = (o: any): o is InvalidS3KeyException =>
+    __isa(o, "InvalidS3KeyException");
 }
 
 /**
@@ -261,9 +248,8 @@ export interface InvalidSampleRateException
 }
 
 export namespace InvalidSampleRateException {
-  export function isa(o: any): o is InvalidSampleRateException {
-    return __isa(o, "InvalidSampleRateException");
-  }
+  export const isa = (o: any): o is InvalidSampleRateException =>
+    __isa(o, "InvalidSampleRateException");
 }
 
 /**
@@ -278,9 +264,8 @@ export interface InvalidSnsTopicArnException
 }
 
 export namespace InvalidSnsTopicArnException {
-  export function isa(o: any): o is InvalidSnsTopicArnException {
-    return __isa(o, "InvalidSnsTopicArnException");
-  }
+  export const isa = (o: any): o is InvalidSnsTopicArnException =>
+    __isa(o, "InvalidSnsTopicArnException");
 }
 
 /**
@@ -296,9 +281,8 @@ export interface InvalidSsmlException
 }
 
 export namespace InvalidSsmlException {
-  export function isa(o: any): o is InvalidSsmlException {
-    return __isa(o, "InvalidSsmlException");
-  }
+  export const isa = (o: any): o is InvalidSsmlException =>
+    __isa(o, "InvalidSsmlException");
 }
 
 /**
@@ -313,9 +297,8 @@ export interface InvalidTaskIdException
 }
 
 export namespace InvalidTaskIdException {
-  export function isa(o: any): o is InvalidTaskIdException {
-    return __isa(o, "InvalidTaskIdException");
-  }
+  export const isa = (o: any): o is InvalidTaskIdException =>
+    __isa(o, "InvalidTaskIdException");
 }
 
 export type LanguageCode =
@@ -361,9 +344,8 @@ export interface LanguageNotSupportedException
 }
 
 export namespace LanguageNotSupportedException {
-  export function isa(o: any): o is LanguageNotSupportedException {
-    return __isa(o, "LanguageNotSupportedException");
-  }
+  export const isa = (o: any): o is LanguageNotSupportedException =>
+    __isa(o, "LanguageNotSupportedException");
 }
 
 /**
@@ -385,9 +367,7 @@ export interface Lexicon {
 }
 
 export namespace Lexicon {
-  export function isa(o: any): o is Lexicon {
-    return __isa(o, "Lexicon");
-  }
+  export const isa = (o: any): o is Lexicon => __isa(o, "Lexicon");
 }
 
 /**
@@ -433,9 +413,8 @@ export interface LexiconAttributes {
 }
 
 export namespace LexiconAttributes {
-  export function isa(o: any): o is LexiconAttributes {
-    return __isa(o, "LexiconAttributes");
-  }
+  export const isa = (o: any): o is LexiconAttributes =>
+    __isa(o, "LexiconAttributes");
 }
 
 /**
@@ -455,9 +434,8 @@ export interface LexiconDescription {
 }
 
 export namespace LexiconDescription {
-  export function isa(o: any): o is LexiconDescription {
-    return __isa(o, "LexiconDescription");
-  }
+  export const isa = (o: any): o is LexiconDescription =>
+    __isa(o, "LexiconDescription");
 }
 
 /**
@@ -476,9 +454,8 @@ export interface LexiconNotFoundException
 }
 
 export namespace LexiconNotFoundException {
-  export function isa(o: any): o is LexiconNotFoundException {
-    return __isa(o, "LexiconNotFoundException");
-  }
+  export const isa = (o: any): o is LexiconNotFoundException =>
+    __isa(o, "LexiconNotFoundException");
 }
 
 /**
@@ -493,9 +470,8 @@ export interface LexiconSizeExceededException
 }
 
 export namespace LexiconSizeExceededException {
-  export function isa(o: any): o is LexiconSizeExceededException {
-    return __isa(o, "LexiconSizeExceededException");
-  }
+  export const isa = (o: any): o is LexiconSizeExceededException =>
+    __isa(o, "LexiconSizeExceededException");
 }
 
 export interface ListLexiconsInput {
@@ -509,9 +485,8 @@ export interface ListLexiconsInput {
 }
 
 export namespace ListLexiconsInput {
-  export function isa(o: any): o is ListLexiconsInput {
-    return __isa(o, "ListLexiconsInput");
-  }
+  export const isa = (o: any): o is ListLexiconsInput =>
+    __isa(o, "ListLexiconsInput");
 }
 
 export interface ListLexiconsOutput {
@@ -530,9 +505,8 @@ export interface ListLexiconsOutput {
 }
 
 export namespace ListLexiconsOutput {
-  export function isa(o: any): o is ListLexiconsOutput {
-    return __isa(o, "ListLexiconsOutput");
-  }
+  export const isa = (o: any): o is ListLexiconsOutput =>
+    __isa(o, "ListLexiconsOutput");
 }
 
 export interface ListSpeechSynthesisTasksInput {
@@ -555,9 +529,8 @@ export interface ListSpeechSynthesisTasksInput {
 }
 
 export namespace ListSpeechSynthesisTasksInput {
-  export function isa(o: any): o is ListSpeechSynthesisTasksInput {
-    return __isa(o, "ListSpeechSynthesisTasksInput");
-  }
+  export const isa = (o: any): o is ListSpeechSynthesisTasksInput =>
+    __isa(o, "ListSpeechSynthesisTasksInput");
 }
 
 export interface ListSpeechSynthesisTasksOutput {
@@ -576,9 +549,8 @@ export interface ListSpeechSynthesisTasksOutput {
 }
 
 export namespace ListSpeechSynthesisTasksOutput {
-  export function isa(o: any): o is ListSpeechSynthesisTasksOutput {
-    return __isa(o, "ListSpeechSynthesisTasksOutput");
-  }
+  export const isa = (o: any): o is ListSpeechSynthesisTasksOutput =>
+    __isa(o, "ListSpeechSynthesisTasksOutput");
 }
 
 /**
@@ -594,9 +566,8 @@ export interface MarksNotSupportedForFormatException
 }
 
 export namespace MarksNotSupportedForFormatException {
-  export function isa(o: any): o is MarksNotSupportedForFormatException {
-    return __isa(o, "MarksNotSupportedForFormatException");
-  }
+  export const isa = (o: any): o is MarksNotSupportedForFormatException =>
+    __isa(o, "MarksNotSupportedForFormatException");
 }
 
 /**
@@ -611,9 +582,8 @@ export interface MaxLexemeLengthExceededException
 }
 
 export namespace MaxLexemeLengthExceededException {
-  export function isa(o: any): o is MaxLexemeLengthExceededException {
-    return __isa(o, "MaxLexemeLengthExceededException");
-  }
+  export const isa = (o: any): o is MaxLexemeLengthExceededException =>
+    __isa(o, "MaxLexemeLengthExceededException");
 }
 
 /**
@@ -628,9 +598,8 @@ export interface MaxLexiconsNumberExceededException
 }
 
 export namespace MaxLexiconsNumberExceededException {
-  export function isa(o: any): o is MaxLexiconsNumberExceededException {
-    return __isa(o, "MaxLexiconsNumberExceededException");
-  }
+  export const isa = (o: any): o is MaxLexiconsNumberExceededException =>
+    __isa(o, "MaxLexiconsNumberExceededException");
 }
 
 export enum OutputFormat {
@@ -657,9 +626,8 @@ export interface PutLexiconInput {
 }
 
 export namespace PutLexiconInput {
-  export function isa(o: any): o is PutLexiconInput {
-    return __isa(o, "PutLexiconInput");
-  }
+  export const isa = (o: any): o is PutLexiconInput =>
+    __isa(o, "PutLexiconInput");
 }
 
 export interface PutLexiconOutput {
@@ -667,9 +635,8 @@ export interface PutLexiconOutput {
 }
 
 export namespace PutLexiconOutput {
-  export function isa(o: any): o is PutLexiconOutput {
-    return __isa(o, "PutLexiconOutput");
-  }
+  export const isa = (o: any): o is PutLexiconOutput =>
+    __isa(o, "PutLexiconOutput");
 }
 
 /**
@@ -684,9 +651,8 @@ export interface ServiceFailureException
 }
 
 export namespace ServiceFailureException {
-  export function isa(o: any): o is ServiceFailureException {
-    return __isa(o, "ServiceFailureException");
-  }
+  export const isa = (o: any): o is ServiceFailureException =>
+    __isa(o, "ServiceFailureException");
 }
 
 export enum SpeechMarkType {
@@ -708,9 +674,8 @@ export interface SsmlMarksNotSupportedForTextTypeException
 }
 
 export namespace SsmlMarksNotSupportedForTextTypeException {
-  export function isa(o: any): o is SsmlMarksNotSupportedForTextTypeException {
-    return __isa(o, "SsmlMarksNotSupportedForTextTypeException");
-  }
+  export const isa = (o: any): o is SsmlMarksNotSupportedForTextTypeException =>
+    __isa(o, "SsmlMarksNotSupportedForTextTypeException");
 }
 
 export interface StartSpeechSynthesisTaskInput {
@@ -790,9 +755,8 @@ export interface StartSpeechSynthesisTaskInput {
 }
 
 export namespace StartSpeechSynthesisTaskInput {
-  export function isa(o: any): o is StartSpeechSynthesisTaskInput {
-    return __isa(o, "StartSpeechSynthesisTaskInput");
-  }
+  export const isa = (o: any): o is StartSpeechSynthesisTaskInput =>
+    __isa(o, "StartSpeechSynthesisTaskInput");
 }
 
 export interface StartSpeechSynthesisTaskOutput {
@@ -804,9 +768,8 @@ export interface StartSpeechSynthesisTaskOutput {
 }
 
 export namespace StartSpeechSynthesisTaskOutput {
-  export function isa(o: any): o is StartSpeechSynthesisTaskOutput {
-    return __isa(o, "StartSpeechSynthesisTaskOutput");
-  }
+  export const isa = (o: any): o is StartSpeechSynthesisTaskOutput =>
+    __isa(o, "StartSpeechSynthesisTaskOutput");
 }
 
 /**
@@ -905,9 +868,7 @@ export interface SynthesisTask {
 }
 
 export namespace SynthesisTask {
-  export function isa(o: any): o is SynthesisTask {
-    return __isa(o, "SynthesisTask");
-  }
+  export const isa = (o: any): o is SynthesisTask => __isa(o, "SynthesisTask");
 }
 
 /**
@@ -922,9 +883,8 @@ export interface SynthesisTaskNotFoundException
 }
 
 export namespace SynthesisTaskNotFoundException {
-  export function isa(o: any): o is SynthesisTaskNotFoundException {
-    return __isa(o, "SynthesisTaskNotFoundException");
-  }
+  export const isa = (o: any): o is SynthesisTaskNotFoundException =>
+    __isa(o, "SynthesisTaskNotFoundException");
 }
 
 export interface SynthesizeSpeechInput {
@@ -1000,9 +960,8 @@ export interface SynthesizeSpeechInput {
 }
 
 export namespace SynthesizeSpeechInput {
-  export function isa(o: any): o is SynthesizeSpeechInput {
-    return __isa(o, "SynthesizeSpeechInput");
-  }
+  export const isa = (o: any): o is SynthesizeSpeechInput =>
+    __isa(o, "SynthesizeSpeechInput");
 }
 
 export interface SynthesizeSpeechOutput {
@@ -1055,9 +1014,8 @@ export interface SynthesizeSpeechOutput {
 }
 
 export namespace SynthesizeSpeechOutput {
-  export function isa(o: any): o is SynthesizeSpeechOutput {
-    return __isa(o, "SynthesizeSpeechOutput");
-  }
+  export const isa = (o: any): o is SynthesizeSpeechOutput =>
+    __isa(o, "SynthesizeSpeechOutput");
 }
 
 export enum TaskStatus {
@@ -1082,9 +1040,8 @@ export interface TextLengthExceededException
 }
 
 export namespace TextLengthExceededException {
-  export function isa(o: any): o is TextLengthExceededException {
-    return __isa(o, "TextLengthExceededException");
-  }
+  export const isa = (o: any): o is TextLengthExceededException =>
+    __isa(o, "TextLengthExceededException");
 }
 
 export enum TextType {
@@ -1105,9 +1062,8 @@ export interface UnsupportedPlsAlphabetException
 }
 
 export namespace UnsupportedPlsAlphabetException {
-  export function isa(o: any): o is UnsupportedPlsAlphabetException {
-    return __isa(o, "UnsupportedPlsAlphabetException");
-  }
+  export const isa = (o: any): o is UnsupportedPlsAlphabetException =>
+    __isa(o, "UnsupportedPlsAlphabetException");
 }
 
 /**
@@ -1123,9 +1079,8 @@ export interface UnsupportedPlsLanguageException
 }
 
 export namespace UnsupportedPlsLanguageException {
-  export function isa(o: any): o is UnsupportedPlsLanguageException {
-    return __isa(o, "UnsupportedPlsLanguageException");
-  }
+  export const isa = (o: any): o is UnsupportedPlsLanguageException =>
+    __isa(o, "UnsupportedPlsLanguageException");
 }
 
 /**
@@ -1175,9 +1130,7 @@ export interface Voice {
 }
 
 export namespace Voice {
-  export function isa(o: any): o is Voice {
-    return __isa(o, "Voice");
-  }
+  export const isa = (o: any): o is Voice => __isa(o, "Voice");
 }
 
 export type VoiceId =

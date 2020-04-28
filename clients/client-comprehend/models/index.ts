@@ -24,9 +24,8 @@ export interface BatchDetectDominantLanguageItemResult {
 }
 
 export namespace BatchDetectDominantLanguageItemResult {
-  export function isa(o: any): o is BatchDetectDominantLanguageItemResult {
-    return __isa(o, "BatchDetectDominantLanguageItemResult");
-  }
+  export const isa = (o: any): o is BatchDetectDominantLanguageItemResult =>
+    __isa(o, "BatchDetectDominantLanguageItemResult");
 }
 
 export interface BatchDetectDominantLanguageRequest {
@@ -40,9 +39,8 @@ export interface BatchDetectDominantLanguageRequest {
 }
 
 export namespace BatchDetectDominantLanguageRequest {
-  export function isa(o: any): o is BatchDetectDominantLanguageRequest {
-    return __isa(o, "BatchDetectDominantLanguageRequest");
-  }
+  export const isa = (o: any): o is BatchDetectDominantLanguageRequest =>
+    __isa(o, "BatchDetectDominantLanguageRequest");
 }
 
 export interface BatchDetectDominantLanguageResponse {
@@ -65,9 +63,8 @@ export interface BatchDetectDominantLanguageResponse {
 }
 
 export namespace BatchDetectDominantLanguageResponse {
-  export function isa(o: any): o is BatchDetectDominantLanguageResponse {
-    return __isa(o, "BatchDetectDominantLanguageResponse");
-  }
+  export const isa = (o: any): o is BatchDetectDominantLanguageResponse =>
+    __isa(o, "BatchDetectDominantLanguageResponse");
 }
 
 /**
@@ -90,9 +87,8 @@ export interface BatchDetectEntitiesItemResult {
 }
 
 export namespace BatchDetectEntitiesItemResult {
-  export function isa(o: any): o is BatchDetectEntitiesItemResult {
-    return __isa(o, "BatchDetectEntitiesItemResult");
-  }
+  export const isa = (o: any): o is BatchDetectEntitiesItemResult =>
+    __isa(o, "BatchDetectEntitiesItemResult");
 }
 
 export interface BatchDetectEntitiesRequest {
@@ -113,9 +109,8 @@ export interface BatchDetectEntitiesRequest {
 }
 
 export namespace BatchDetectEntitiesRequest {
-  export function isa(o: any): o is BatchDetectEntitiesRequest {
-    return __isa(o, "BatchDetectEntitiesRequest");
-  }
+  export const isa = (o: any): o is BatchDetectEntitiesRequest =>
+    __isa(o, "BatchDetectEntitiesRequest");
 }
 
 export interface BatchDetectEntitiesResponse {
@@ -138,9 +133,8 @@ export interface BatchDetectEntitiesResponse {
 }
 
 export namespace BatchDetectEntitiesResponse {
-  export function isa(o: any): o is BatchDetectEntitiesResponse {
-    return __isa(o, "BatchDetectEntitiesResponse");
-  }
+  export const isa = (o: any): o is BatchDetectEntitiesResponse =>
+    __isa(o, "BatchDetectEntitiesResponse");
 }
 
 /**
@@ -163,9 +157,8 @@ export interface BatchDetectKeyPhrasesItemResult {
 }
 
 export namespace BatchDetectKeyPhrasesItemResult {
-  export function isa(o: any): o is BatchDetectKeyPhrasesItemResult {
-    return __isa(o, "BatchDetectKeyPhrasesItemResult");
-  }
+  export const isa = (o: any): o is BatchDetectKeyPhrasesItemResult =>
+    __isa(o, "BatchDetectKeyPhrasesItemResult");
 }
 
 export interface BatchDetectKeyPhrasesRequest {
@@ -186,9 +179,8 @@ export interface BatchDetectKeyPhrasesRequest {
 }
 
 export namespace BatchDetectKeyPhrasesRequest {
-  export function isa(o: any): o is BatchDetectKeyPhrasesRequest {
-    return __isa(o, "BatchDetectKeyPhrasesRequest");
-  }
+  export const isa = (o: any): o is BatchDetectKeyPhrasesRequest =>
+    __isa(o, "BatchDetectKeyPhrasesRequest");
 }
 
 export interface BatchDetectKeyPhrasesResponse {
@@ -211,9 +203,8 @@ export interface BatchDetectKeyPhrasesResponse {
 }
 
 export namespace BatchDetectKeyPhrasesResponse {
-  export function isa(o: any): o is BatchDetectKeyPhrasesResponse {
-    return __isa(o, "BatchDetectKeyPhrasesResponse");
-  }
+  export const isa = (o: any): o is BatchDetectKeyPhrasesResponse =>
+    __isa(o, "BatchDetectKeyPhrasesResponse");
 }
 
 /**
@@ -241,9 +232,8 @@ export interface BatchDetectSentimentItemResult {
 }
 
 export namespace BatchDetectSentimentItemResult {
-  export function isa(o: any): o is BatchDetectSentimentItemResult {
-    return __isa(o, "BatchDetectSentimentItemResult");
-  }
+  export const isa = (o: any): o is BatchDetectSentimentItemResult =>
+    __isa(o, "BatchDetectSentimentItemResult");
 }
 
 export interface BatchDetectSentimentRequest {
@@ -264,9 +254,8 @@ export interface BatchDetectSentimentRequest {
 }
 
 export namespace BatchDetectSentimentRequest {
-  export function isa(o: any): o is BatchDetectSentimentRequest {
-    return __isa(o, "BatchDetectSentimentRequest");
-  }
+  export const isa = (o: any): o is BatchDetectSentimentRequest =>
+    __isa(o, "BatchDetectSentimentRequest");
 }
 
 export interface BatchDetectSentimentResponse {
@@ -289,9 +278,8 @@ export interface BatchDetectSentimentResponse {
 }
 
 export namespace BatchDetectSentimentResponse {
-  export function isa(o: any): o is BatchDetectSentimentResponse {
-    return __isa(o, "BatchDetectSentimentResponse");
-  }
+  export const isa = (o: any): o is BatchDetectSentimentResponse =>
+    __isa(o, "BatchDetectSentimentResponse");
 }
 
 /**
@@ -312,9 +300,8 @@ export interface BatchDetectSyntaxItemResult {
 }
 
 export namespace BatchDetectSyntaxItemResult {
-  export function isa(o: any): o is BatchDetectSyntaxItemResult {
-    return __isa(o, "BatchDetectSyntaxItemResult");
-  }
+  export const isa = (o: any): o is BatchDetectSyntaxItemResult =>
+    __isa(o, "BatchDetectSyntaxItemResult");
 }
 
 export interface BatchDetectSyntaxRequest {
@@ -335,9 +322,8 @@ export interface BatchDetectSyntaxRequest {
 }
 
 export namespace BatchDetectSyntaxRequest {
-  export function isa(o: any): o is BatchDetectSyntaxRequest {
-    return __isa(o, "BatchDetectSyntaxRequest");
-  }
+  export const isa = (o: any): o is BatchDetectSyntaxRequest =>
+    __isa(o, "BatchDetectSyntaxRequest");
 }
 
 export interface BatchDetectSyntaxResponse {
@@ -360,9 +346,8 @@ export interface BatchDetectSyntaxResponse {
 }
 
 export namespace BatchDetectSyntaxResponse {
-  export function isa(o: any): o is BatchDetectSyntaxResponse {
-    return __isa(o, "BatchDetectSyntaxResponse");
-  }
+  export const isa = (o: any): o is BatchDetectSyntaxResponse =>
+    __isa(o, "BatchDetectSyntaxResponse");
 }
 
 /**
@@ -389,9 +374,8 @@ export interface BatchItemError {
 }
 
 export namespace BatchItemError {
-  export function isa(o: any): o is BatchItemError {
-    return __isa(o, "BatchItemError");
-  }
+  export const isa = (o: any): o is BatchItemError =>
+    __isa(o, "BatchItemError");
 }
 
 /**
@@ -407,9 +391,8 @@ export interface BatchSizeLimitExceededException
 }
 
 export namespace BatchSizeLimitExceededException {
-  export function isa(o: any): o is BatchSizeLimitExceededException {
-    return __isa(o, "BatchSizeLimitExceededException");
-  }
+  export const isa = (o: any): o is BatchSizeLimitExceededException =>
+    __isa(o, "BatchSizeLimitExceededException");
 }
 
 /**
@@ -473,9 +456,8 @@ export interface ClassifierEvaluationMetrics {
 }
 
 export namespace ClassifierEvaluationMetrics {
-  export function isa(o: any): o is ClassifierEvaluationMetrics {
-    return __isa(o, "ClassifierEvaluationMetrics");
-  }
+  export const isa = (o: any): o is ClassifierEvaluationMetrics =>
+    __isa(o, "ClassifierEvaluationMetrics");
 }
 
 /**
@@ -507,9 +489,8 @@ export interface ClassifierMetadata {
 }
 
 export namespace ClassifierMetadata {
-  export function isa(o: any): o is ClassifierMetadata {
-    return __isa(o, "ClassifierMetadata");
-  }
+  export const isa = (o: any): o is ClassifierMetadata =>
+    __isa(o, "ClassifierMetadata");
 }
 
 export interface ClassifyDocumentRequest {
@@ -526,9 +507,8 @@ export interface ClassifyDocumentRequest {
 }
 
 export namespace ClassifyDocumentRequest {
-  export function isa(o: any): o is ClassifyDocumentRequest {
-    return __isa(o, "ClassifyDocumentRequest");
-  }
+  export const isa = (o: any): o is ClassifyDocumentRequest =>
+    __isa(o, "ClassifyDocumentRequest");
 }
 
 export interface ClassifyDocumentResponse {
@@ -548,9 +528,8 @@ export interface ClassifyDocumentResponse {
 }
 
 export namespace ClassifyDocumentResponse {
-  export function isa(o: any): o is ClassifyDocumentResponse {
-    return __isa(o, "ClassifyDocumentResponse");
-  }
+  export const isa = (o: any): o is ClassifyDocumentResponse =>
+    __isa(o, "ClassifyDocumentResponse");
 }
 
 /**
@@ -565,9 +544,8 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
-  export function isa(o: any): o is ConcurrentModificationException {
-    return __isa(o, "ConcurrentModificationException");
-  }
+  export const isa = (o: any): o is ConcurrentModificationException =>
+    __isa(o, "ConcurrentModificationException");
 }
 
 export interface CreateDocumentClassifierRequest {
@@ -645,9 +623,8 @@ export interface CreateDocumentClassifierRequest {
 }
 
 export namespace CreateDocumentClassifierRequest {
-  export function isa(o: any): o is CreateDocumentClassifierRequest {
-    return __isa(o, "CreateDocumentClassifierRequest");
-  }
+  export const isa = (o: any): o is CreateDocumentClassifierRequest =>
+    __isa(o, "CreateDocumentClassifierRequest");
 }
 
 export interface CreateDocumentClassifierResponse {
@@ -659,9 +636,8 @@ export interface CreateDocumentClassifierResponse {
 }
 
 export namespace CreateDocumentClassifierResponse {
-  export function isa(o: any): o is CreateDocumentClassifierResponse {
-    return __isa(o, "CreateDocumentClassifierResponse");
-  }
+  export const isa = (o: any): o is CreateDocumentClassifierResponse =>
+    __isa(o, "CreateDocumentClassifierResponse");
 }
 
 export interface CreateEndpointRequest {
@@ -697,9 +673,8 @@ export interface CreateEndpointRequest {
 }
 
 export namespace CreateEndpointRequest {
-  export function isa(o: any): o is CreateEndpointRequest {
-    return __isa(o, "CreateEndpointRequest");
-  }
+  export const isa = (o: any): o is CreateEndpointRequest =>
+    __isa(o, "CreateEndpointRequest");
 }
 
 export interface CreateEndpointResponse {
@@ -711,9 +686,8 @@ export interface CreateEndpointResponse {
 }
 
 export namespace CreateEndpointResponse {
-  export function isa(o: any): o is CreateEndpointResponse {
-    return __isa(o, "CreateEndpointResponse");
-  }
+  export const isa = (o: any): o is CreateEndpointResponse =>
+    __isa(o, "CreateEndpointResponse");
 }
 
 export interface CreateEntityRecognizerRequest {
@@ -777,9 +751,8 @@ export interface CreateEntityRecognizerRequest {
 }
 
 export namespace CreateEntityRecognizerRequest {
-  export function isa(o: any): o is CreateEntityRecognizerRequest {
-    return __isa(o, "CreateEntityRecognizerRequest");
-  }
+  export const isa = (o: any): o is CreateEntityRecognizerRequest =>
+    __isa(o, "CreateEntityRecognizerRequest");
 }
 
 export interface CreateEntityRecognizerResponse {
@@ -791,9 +764,8 @@ export interface CreateEntityRecognizerResponse {
 }
 
 export namespace CreateEntityRecognizerResponse {
-  export function isa(o: any): o is CreateEntityRecognizerResponse {
-    return __isa(o, "CreateEntityRecognizerResponse");
-  }
+  export const isa = (o: any): o is CreateEntityRecognizerResponse =>
+    __isa(o, "CreateEntityRecognizerResponse");
 }
 
 export interface DeleteDocumentClassifierRequest {
@@ -805,9 +777,8 @@ export interface DeleteDocumentClassifierRequest {
 }
 
 export namespace DeleteDocumentClassifierRequest {
-  export function isa(o: any): o is DeleteDocumentClassifierRequest {
-    return __isa(o, "DeleteDocumentClassifierRequest");
-  }
+  export const isa = (o: any): o is DeleteDocumentClassifierRequest =>
+    __isa(o, "DeleteDocumentClassifierRequest");
 }
 
 export interface DeleteDocumentClassifierResponse {
@@ -815,9 +786,8 @@ export interface DeleteDocumentClassifierResponse {
 }
 
 export namespace DeleteDocumentClassifierResponse {
-  export function isa(o: any): o is DeleteDocumentClassifierResponse {
-    return __isa(o, "DeleteDocumentClassifierResponse");
-  }
+  export const isa = (o: any): o is DeleteDocumentClassifierResponse =>
+    __isa(o, "DeleteDocumentClassifierResponse");
 }
 
 export interface DeleteEndpointRequest {
@@ -829,9 +799,8 @@ export interface DeleteEndpointRequest {
 }
 
 export namespace DeleteEndpointRequest {
-  export function isa(o: any): o is DeleteEndpointRequest {
-    return __isa(o, "DeleteEndpointRequest");
-  }
+  export const isa = (o: any): o is DeleteEndpointRequest =>
+    __isa(o, "DeleteEndpointRequest");
 }
 
 export interface DeleteEndpointResponse {
@@ -839,9 +808,8 @@ export interface DeleteEndpointResponse {
 }
 
 export namespace DeleteEndpointResponse {
-  export function isa(o: any): o is DeleteEndpointResponse {
-    return __isa(o, "DeleteEndpointResponse");
-  }
+  export const isa = (o: any): o is DeleteEndpointResponse =>
+    __isa(o, "DeleteEndpointResponse");
 }
 
 export interface DeleteEntityRecognizerRequest {
@@ -853,9 +821,8 @@ export interface DeleteEntityRecognizerRequest {
 }
 
 export namespace DeleteEntityRecognizerRequest {
-  export function isa(o: any): o is DeleteEntityRecognizerRequest {
-    return __isa(o, "DeleteEntityRecognizerRequest");
-  }
+  export const isa = (o: any): o is DeleteEntityRecognizerRequest =>
+    __isa(o, "DeleteEntityRecognizerRequest");
 }
 
 export interface DeleteEntityRecognizerResponse {
@@ -863,9 +830,8 @@ export interface DeleteEntityRecognizerResponse {
 }
 
 export namespace DeleteEntityRecognizerResponse {
-  export function isa(o: any): o is DeleteEntityRecognizerResponse {
-    return __isa(o, "DeleteEntityRecognizerResponse");
-  }
+  export const isa = (o: any): o is DeleteEntityRecognizerResponse =>
+    __isa(o, "DeleteEntityRecognizerResponse");
 }
 
 export interface DescribeDocumentClassificationJobRequest {
@@ -878,9 +844,8 @@ export interface DescribeDocumentClassificationJobRequest {
 }
 
 export namespace DescribeDocumentClassificationJobRequest {
-  export function isa(o: any): o is DescribeDocumentClassificationJobRequest {
-    return __isa(o, "DescribeDocumentClassificationJobRequest");
-  }
+  export const isa = (o: any): o is DescribeDocumentClassificationJobRequest =>
+    __isa(o, "DescribeDocumentClassificationJobRequest");
 }
 
 export interface DescribeDocumentClassificationJobResponse {
@@ -893,9 +858,8 @@ export interface DescribeDocumentClassificationJobResponse {
 }
 
 export namespace DescribeDocumentClassificationJobResponse {
-  export function isa(o: any): o is DescribeDocumentClassificationJobResponse {
-    return __isa(o, "DescribeDocumentClassificationJobResponse");
-  }
+  export const isa = (o: any): o is DescribeDocumentClassificationJobResponse =>
+    __isa(o, "DescribeDocumentClassificationJobResponse");
 }
 
 export interface DescribeDocumentClassifierRequest {
@@ -908,9 +872,8 @@ export interface DescribeDocumentClassifierRequest {
 }
 
 export namespace DescribeDocumentClassifierRequest {
-  export function isa(o: any): o is DescribeDocumentClassifierRequest {
-    return __isa(o, "DescribeDocumentClassifierRequest");
-  }
+  export const isa = (o: any): o is DescribeDocumentClassifierRequest =>
+    __isa(o, "DescribeDocumentClassifierRequest");
 }
 
 export interface DescribeDocumentClassifierResponse {
@@ -922,9 +885,8 @@ export interface DescribeDocumentClassifierResponse {
 }
 
 export namespace DescribeDocumentClassifierResponse {
-  export function isa(o: any): o is DescribeDocumentClassifierResponse {
-    return __isa(o, "DescribeDocumentClassifierResponse");
-  }
+  export const isa = (o: any): o is DescribeDocumentClassifierResponse =>
+    __isa(o, "DescribeDocumentClassifierResponse");
 }
 
 export interface DescribeDominantLanguageDetectionJobRequest {
@@ -937,11 +899,10 @@ export interface DescribeDominantLanguageDetectionJobRequest {
 }
 
 export namespace DescribeDominantLanguageDetectionJobRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeDominantLanguageDetectionJobRequest {
-    return __isa(o, "DescribeDominantLanguageDetectionJobRequest");
-  }
+  ): o is DescribeDominantLanguageDetectionJobRequest =>
+    __isa(o, "DescribeDominantLanguageDetectionJobRequest");
 }
 
 export interface DescribeDominantLanguageDetectionJobResponse {
@@ -954,11 +915,10 @@ export interface DescribeDominantLanguageDetectionJobResponse {
 }
 
 export namespace DescribeDominantLanguageDetectionJobResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeDominantLanguageDetectionJobResponse {
-    return __isa(o, "DescribeDominantLanguageDetectionJobResponse");
-  }
+  ): o is DescribeDominantLanguageDetectionJobResponse =>
+    __isa(o, "DescribeDominantLanguageDetectionJobResponse");
 }
 
 export interface DescribeEndpointRequest {
@@ -970,9 +930,8 @@ export interface DescribeEndpointRequest {
 }
 
 export namespace DescribeEndpointRequest {
-  export function isa(o: any): o is DescribeEndpointRequest {
-    return __isa(o, "DescribeEndpointRequest");
-  }
+  export const isa = (o: any): o is DescribeEndpointRequest =>
+    __isa(o, "DescribeEndpointRequest");
 }
 
 export interface DescribeEndpointResponse {
@@ -984,9 +943,8 @@ export interface DescribeEndpointResponse {
 }
 
 export namespace DescribeEndpointResponse {
-  export function isa(o: any): o is DescribeEndpointResponse {
-    return __isa(o, "DescribeEndpointResponse");
-  }
+  export const isa = (o: any): o is DescribeEndpointResponse =>
+    __isa(o, "DescribeEndpointResponse");
 }
 
 export interface DescribeEntitiesDetectionJobRequest {
@@ -999,9 +957,8 @@ export interface DescribeEntitiesDetectionJobRequest {
 }
 
 export namespace DescribeEntitiesDetectionJobRequest {
-  export function isa(o: any): o is DescribeEntitiesDetectionJobRequest {
-    return __isa(o, "DescribeEntitiesDetectionJobRequest");
-  }
+  export const isa = (o: any): o is DescribeEntitiesDetectionJobRequest =>
+    __isa(o, "DescribeEntitiesDetectionJobRequest");
 }
 
 export interface DescribeEntitiesDetectionJobResponse {
@@ -1013,9 +970,8 @@ export interface DescribeEntitiesDetectionJobResponse {
 }
 
 export namespace DescribeEntitiesDetectionJobResponse {
-  export function isa(o: any): o is DescribeEntitiesDetectionJobResponse {
-    return __isa(o, "DescribeEntitiesDetectionJobResponse");
-  }
+  export const isa = (o: any): o is DescribeEntitiesDetectionJobResponse =>
+    __isa(o, "DescribeEntitiesDetectionJobResponse");
 }
 
 export interface DescribeEntityRecognizerRequest {
@@ -1027,9 +983,8 @@ export interface DescribeEntityRecognizerRequest {
 }
 
 export namespace DescribeEntityRecognizerRequest {
-  export function isa(o: any): o is DescribeEntityRecognizerRequest {
-    return __isa(o, "DescribeEntityRecognizerRequest");
-  }
+  export const isa = (o: any): o is DescribeEntityRecognizerRequest =>
+    __isa(o, "DescribeEntityRecognizerRequest");
 }
 
 export interface DescribeEntityRecognizerResponse {
@@ -1041,9 +996,8 @@ export interface DescribeEntityRecognizerResponse {
 }
 
 export namespace DescribeEntityRecognizerResponse {
-  export function isa(o: any): o is DescribeEntityRecognizerResponse {
-    return __isa(o, "DescribeEntityRecognizerResponse");
-  }
+  export const isa = (o: any): o is DescribeEntityRecognizerResponse =>
+    __isa(o, "DescribeEntityRecognizerResponse");
 }
 
 export interface DescribeKeyPhrasesDetectionJobRequest {
@@ -1056,9 +1010,8 @@ export interface DescribeKeyPhrasesDetectionJobRequest {
 }
 
 export namespace DescribeKeyPhrasesDetectionJobRequest {
-  export function isa(o: any): o is DescribeKeyPhrasesDetectionJobRequest {
-    return __isa(o, "DescribeKeyPhrasesDetectionJobRequest");
-  }
+  export const isa = (o: any): o is DescribeKeyPhrasesDetectionJobRequest =>
+    __isa(o, "DescribeKeyPhrasesDetectionJobRequest");
 }
 
 export interface DescribeKeyPhrasesDetectionJobResponse {
@@ -1071,9 +1024,8 @@ export interface DescribeKeyPhrasesDetectionJobResponse {
 }
 
 export namespace DescribeKeyPhrasesDetectionJobResponse {
-  export function isa(o: any): o is DescribeKeyPhrasesDetectionJobResponse {
-    return __isa(o, "DescribeKeyPhrasesDetectionJobResponse");
-  }
+  export const isa = (o: any): o is DescribeKeyPhrasesDetectionJobResponse =>
+    __isa(o, "DescribeKeyPhrasesDetectionJobResponse");
 }
 
 export interface DescribeSentimentDetectionJobRequest {
@@ -1086,9 +1038,8 @@ export interface DescribeSentimentDetectionJobRequest {
 }
 
 export namespace DescribeSentimentDetectionJobRequest {
-  export function isa(o: any): o is DescribeSentimentDetectionJobRequest {
-    return __isa(o, "DescribeSentimentDetectionJobRequest");
-  }
+  export const isa = (o: any): o is DescribeSentimentDetectionJobRequest =>
+    __isa(o, "DescribeSentimentDetectionJobRequest");
 }
 
 export interface DescribeSentimentDetectionJobResponse {
@@ -1100,9 +1051,8 @@ export interface DescribeSentimentDetectionJobResponse {
 }
 
 export namespace DescribeSentimentDetectionJobResponse {
-  export function isa(o: any): o is DescribeSentimentDetectionJobResponse {
-    return __isa(o, "DescribeSentimentDetectionJobResponse");
-  }
+  export const isa = (o: any): o is DescribeSentimentDetectionJobResponse =>
+    __isa(o, "DescribeSentimentDetectionJobResponse");
 }
 
 export interface DescribeTopicsDetectionJobRequest {
@@ -1114,9 +1064,8 @@ export interface DescribeTopicsDetectionJobRequest {
 }
 
 export namespace DescribeTopicsDetectionJobRequest {
-  export function isa(o: any): o is DescribeTopicsDetectionJobRequest {
-    return __isa(o, "DescribeTopicsDetectionJobRequest");
-  }
+  export const isa = (o: any): o is DescribeTopicsDetectionJobRequest =>
+    __isa(o, "DescribeTopicsDetectionJobRequest");
 }
 
 export interface DescribeTopicsDetectionJobResponse {
@@ -1128,9 +1077,8 @@ export interface DescribeTopicsDetectionJobResponse {
 }
 
 export namespace DescribeTopicsDetectionJobResponse {
-  export function isa(o: any): o is DescribeTopicsDetectionJobResponse {
-    return __isa(o, "DescribeTopicsDetectionJobResponse");
-  }
+  export const isa = (o: any): o is DescribeTopicsDetectionJobResponse =>
+    __isa(o, "DescribeTopicsDetectionJobResponse");
 }
 
 export interface DetectDominantLanguageRequest {
@@ -1143,9 +1091,8 @@ export interface DetectDominantLanguageRequest {
 }
 
 export namespace DetectDominantLanguageRequest {
-  export function isa(o: any): o is DetectDominantLanguageRequest {
-    return __isa(o, "DetectDominantLanguageRequest");
-  }
+  export const isa = (o: any): o is DetectDominantLanguageRequest =>
+    __isa(o, "DetectDominantLanguageRequest");
 }
 
 export interface DetectDominantLanguageResponse {
@@ -1160,9 +1107,8 @@ export interface DetectDominantLanguageResponse {
 }
 
 export namespace DetectDominantLanguageResponse {
-  export function isa(o: any): o is DetectDominantLanguageResponse {
-    return __isa(o, "DetectDominantLanguageResponse");
-  }
+  export const isa = (o: any): o is DetectDominantLanguageResponse =>
+    __isa(o, "DetectDominantLanguageResponse");
 }
 
 export interface DetectEntitiesRequest {
@@ -1182,9 +1128,8 @@ export interface DetectEntitiesRequest {
 }
 
 export namespace DetectEntitiesRequest {
-  export function isa(o: any): o is DetectEntitiesRequest {
-    return __isa(o, "DetectEntitiesRequest");
-  }
+  export const isa = (o: any): o is DetectEntitiesRequest =>
+    __isa(o, "DetectEntitiesRequest");
 }
 
 export interface DetectEntitiesResponse {
@@ -1198,9 +1143,8 @@ export interface DetectEntitiesResponse {
 }
 
 export namespace DetectEntitiesResponse {
-  export function isa(o: any): o is DetectEntitiesResponse {
-    return __isa(o, "DetectEntitiesResponse");
-  }
+  export const isa = (o: any): o is DetectEntitiesResponse =>
+    __isa(o, "DetectEntitiesResponse");
 }
 
 export interface DetectKeyPhrasesRequest {
@@ -1220,9 +1164,8 @@ export interface DetectKeyPhrasesRequest {
 }
 
 export namespace DetectKeyPhrasesRequest {
-  export function isa(o: any): o is DetectKeyPhrasesRequest {
-    return __isa(o, "DetectKeyPhrasesRequest");
-  }
+  export const isa = (o: any): o is DetectKeyPhrasesRequest =>
+    __isa(o, "DetectKeyPhrasesRequest");
 }
 
 export interface DetectKeyPhrasesResponse {
@@ -1236,9 +1179,8 @@ export interface DetectKeyPhrasesResponse {
 }
 
 export namespace DetectKeyPhrasesResponse {
-  export function isa(o: any): o is DetectKeyPhrasesResponse {
-    return __isa(o, "DetectKeyPhrasesResponse");
-  }
+  export const isa = (o: any): o is DetectKeyPhrasesResponse =>
+    __isa(o, "DetectKeyPhrasesResponse");
 }
 
 export interface DetectSentimentRequest {
@@ -1258,9 +1200,8 @@ export interface DetectSentimentRequest {
 }
 
 export namespace DetectSentimentRequest {
-  export function isa(o: any): o is DetectSentimentRequest {
-    return __isa(o, "DetectSentimentRequest");
-  }
+  export const isa = (o: any): o is DetectSentimentRequest =>
+    __isa(o, "DetectSentimentRequest");
 }
 
 export interface DetectSentimentResponse {
@@ -1278,9 +1219,8 @@ export interface DetectSentimentResponse {
 }
 
 export namespace DetectSentimentResponse {
-  export function isa(o: any): o is DetectSentimentResponse {
-    return __isa(o, "DetectSentimentResponse");
-  }
+  export const isa = (o: any): o is DetectSentimentResponse =>
+    __isa(o, "DetectSentimentResponse");
 }
 
 export interface DetectSyntaxRequest {
@@ -1299,9 +1239,8 @@ export interface DetectSyntaxRequest {
 }
 
 export namespace DetectSyntaxRequest {
-  export function isa(o: any): o is DetectSyntaxRequest {
-    return __isa(o, "DetectSyntaxRequest");
-  }
+  export const isa = (o: any): o is DetectSyntaxRequest =>
+    __isa(o, "DetectSyntaxRequest");
 }
 
 export interface DetectSyntaxResponse {
@@ -1315,9 +1254,8 @@ export interface DetectSyntaxResponse {
 }
 
 export namespace DetectSyntaxResponse {
-  export function isa(o: any): o is DetectSyntaxResponse {
-    return __isa(o, "DetectSyntaxResponse");
-  }
+  export const isa = (o: any): o is DetectSyntaxResponse =>
+    __isa(o, "DetectSyntaxResponse");
 }
 
 /**
@@ -1337,9 +1275,7 @@ export interface DocumentClass {
 }
 
 export namespace DocumentClass {
-  export function isa(o: any): o is DocumentClass {
-    return __isa(o, "DocumentClass");
-  }
+  export const isa = (o: any): o is DocumentClass => __isa(o, "DocumentClass");
 }
 
 /**
@@ -1375,9 +1311,8 @@ export interface DocumentClassificationJobFilter {
 }
 
 export namespace DocumentClassificationJobFilter {
-  export function isa(o: any): o is DocumentClassificationJobFilter {
-    return __isa(o, "DocumentClassificationJobFilter");
-  }
+  export const isa = (o: any): o is DocumentClassificationJobFilter =>
+    __isa(o, "DocumentClassificationJobFilter");
 }
 
 /**
@@ -1463,9 +1398,8 @@ export interface DocumentClassificationJobProperties {
 }
 
 export namespace DocumentClassificationJobProperties {
-  export function isa(o: any): o is DocumentClassificationJobProperties {
-    return __isa(o, "DocumentClassificationJobProperties");
-  }
+  export const isa = (o: any): o is DocumentClassificationJobProperties =>
+    __isa(o, "DocumentClassificationJobProperties");
 }
 
 /**
@@ -1496,9 +1430,8 @@ export interface DocumentClassifierFilter {
 }
 
 export namespace DocumentClassifierFilter {
-  export function isa(o: any): o is DocumentClassifierFilter {
-    return __isa(o, "DocumentClassifierFilter");
-  }
+  export const isa = (o: any): o is DocumentClassifierFilter =>
+    __isa(o, "DocumentClassifierFilter");
 }
 
 /**
@@ -1528,9 +1461,8 @@ export interface DocumentClassifierInputDataConfig {
 }
 
 export namespace DocumentClassifierInputDataConfig {
-  export function isa(o: any): o is DocumentClassifierInputDataConfig {
-    return __isa(o, "DocumentClassifierInputDataConfig");
-  }
+  export const isa = (o: any): o is DocumentClassifierInputDataConfig =>
+    __isa(o, "DocumentClassifierInputDataConfig");
 }
 
 export enum DocumentClassifierMode {
@@ -1581,9 +1513,8 @@ export interface DocumentClassifierOutputDataConfig {
 }
 
 export namespace DocumentClassifierOutputDataConfig {
-  export function isa(o: any): o is DocumentClassifierOutputDataConfig {
-    return __isa(o, "DocumentClassifierOutputDataConfig");
-  }
+  export const isa = (o: any): o is DocumentClassifierOutputDataConfig =>
+    __isa(o, "DocumentClassifierOutputDataConfig");
 }
 
 /**
@@ -1691,9 +1622,8 @@ export interface DocumentClassifierProperties {
 }
 
 export namespace DocumentClassifierProperties {
-  export function isa(o: any): o is DocumentClassifierProperties {
-    return __isa(o, "DocumentClassifierProperties");
-  }
+  export const isa = (o: any): o is DocumentClassifierProperties =>
+    __isa(o, "DocumentClassifierProperties");
 }
 
 /**
@@ -1713,9 +1643,7 @@ export interface DocumentLabel {
 }
 
 export namespace DocumentLabel {
-  export function isa(o: any): o is DocumentLabel {
-    return __isa(o, "DocumentLabel");
-  }
+  export const isa = (o: any): o is DocumentLabel => __isa(o, "DocumentLabel");
 }
 
 /**
@@ -1738,9 +1666,8 @@ export interface DominantLanguage {
 }
 
 export namespace DominantLanguage {
-  export function isa(o: any): o is DominantLanguage {
-    return __isa(o, "DominantLanguage");
-  }
+  export const isa = (o: any): o is DominantLanguage =>
+    __isa(o, "DominantLanguage");
 }
 
 /**
@@ -1776,9 +1703,8 @@ export interface DominantLanguageDetectionJobFilter {
 }
 
 export namespace DominantLanguageDetectionJobFilter {
-  export function isa(o: any): o is DominantLanguageDetectionJobFilter {
-    return __isa(o, "DominantLanguageDetectionJobFilter");
-  }
+  export const isa = (o: any): o is DominantLanguageDetectionJobFilter =>
+    __isa(o, "DominantLanguageDetectionJobFilter");
 }
 
 /**
@@ -1858,9 +1784,8 @@ export interface DominantLanguageDetectionJobProperties {
 }
 
 export namespace DominantLanguageDetectionJobProperties {
-  export function isa(o: any): o is DominantLanguageDetectionJobProperties {
-    return __isa(o, "DominantLanguageDetectionJobProperties");
-  }
+  export const isa = (o: any): o is DominantLanguageDetectionJobProperties =>
+    __isa(o, "DominantLanguageDetectionJobProperties");
 }
 
 /**
@@ -1891,9 +1816,8 @@ export interface EndpointFilter {
 }
 
 export namespace EndpointFilter {
-  export function isa(o: any): o is EndpointFilter {
-    return __isa(o, "EndpointFilter");
-  }
+  export const isa = (o: any): o is EndpointFilter =>
+    __isa(o, "EndpointFilter");
 }
 
 /**
@@ -1945,9 +1869,8 @@ export interface EndpointProperties {
 }
 
 export namespace EndpointProperties {
-  export function isa(o: any): o is EndpointProperties {
-    return __isa(o, "EndpointProperties");
-  }
+  export const isa = (o: any): o is EndpointProperties =>
+    __isa(o, "EndpointProperties");
 }
 
 export enum EndpointStatus {
@@ -1991,9 +1914,8 @@ export interface EntitiesDetectionJobFilter {
 }
 
 export namespace EntitiesDetectionJobFilter {
-  export function isa(o: any): o is EntitiesDetectionJobFilter {
-    return __isa(o, "EntitiesDetectionJobFilter");
-  }
+  export const isa = (o: any): o is EntitiesDetectionJobFilter =>
+    __isa(o, "EntitiesDetectionJobFilter");
 }
 
 /**
@@ -2083,9 +2005,8 @@ export interface EntitiesDetectionJobProperties {
 }
 
 export namespace EntitiesDetectionJobProperties {
-  export function isa(o: any): o is EntitiesDetectionJobProperties {
-    return __isa(o, "EntitiesDetectionJobProperties");
-  }
+  export const isa = (o: any): o is EntitiesDetectionJobProperties =>
+    __isa(o, "EntitiesDetectionJobProperties");
 }
 
 /**
@@ -2128,9 +2049,7 @@ export interface Entity {
 }
 
 export namespace Entity {
-  export function isa(o: any): o is Entity {
-    return __isa(o, "Entity");
-  }
+  export const isa = (o: any): o is Entity => __isa(o, "Entity");
 }
 
 /**
@@ -2146,9 +2065,8 @@ export interface EntityRecognizerAnnotations {
 }
 
 export namespace EntityRecognizerAnnotations {
-  export function isa(o: any): o is EntityRecognizerAnnotations {
-    return __isa(o, "EntityRecognizerAnnotations");
-  }
+  export const isa = (o: any): o is EntityRecognizerAnnotations =>
+    __isa(o, "EntityRecognizerAnnotations");
 }
 
 /**
@@ -2164,9 +2082,8 @@ export interface EntityRecognizerDocuments {
 }
 
 export namespace EntityRecognizerDocuments {
-  export function isa(o: any): o is EntityRecognizerDocuments {
-    return __isa(o, "EntityRecognizerDocuments");
-  }
+  export const isa = (o: any): o is EntityRecognizerDocuments =>
+    __isa(o, "EntityRecognizerDocuments");
 }
 
 /**
@@ -2181,9 +2098,8 @@ export interface EntityRecognizerEntityList {
 }
 
 export namespace EntityRecognizerEntityList {
-  export function isa(o: any): o is EntityRecognizerEntityList {
-    return __isa(o, "EntityRecognizerEntityList");
-  }
+  export const isa = (o: any): o is EntityRecognizerEntityList =>
+    __isa(o, "EntityRecognizerEntityList");
 }
 
 /**
@@ -2214,9 +2130,8 @@ export interface EntityRecognizerEvaluationMetrics {
 }
 
 export namespace EntityRecognizerEvaluationMetrics {
-  export function isa(o: any): o is EntityRecognizerEvaluationMetrics {
-    return __isa(o, "EntityRecognizerEvaluationMetrics");
-  }
+  export const isa = (o: any): o is EntityRecognizerEvaluationMetrics =>
+    __isa(o, "EntityRecognizerEvaluationMetrics");
 }
 
 /**
@@ -2246,9 +2161,8 @@ export interface EntityRecognizerFilter {
 }
 
 export namespace EntityRecognizerFilter {
-  export function isa(o: any): o is EntityRecognizerFilter {
-    return __isa(o, "EntityRecognizerFilter");
-  }
+  export const isa = (o: any): o is EntityRecognizerFilter =>
+    __isa(o, "EntityRecognizerFilter");
 }
 
 /**
@@ -2278,9 +2192,8 @@ export interface EntityRecognizerInputDataConfig {
 }
 
 export namespace EntityRecognizerInputDataConfig {
-  export function isa(o: any): o is EntityRecognizerInputDataConfig {
-    return __isa(o, "EntityRecognizerInputDataConfig");
-  }
+  export const isa = (o: any): o is EntityRecognizerInputDataConfig =>
+    __isa(o, "EntityRecognizerInputDataConfig");
 }
 
 /**
@@ -2310,9 +2223,8 @@ export interface EntityRecognizerMetadata {
 }
 
 export namespace EntityRecognizerMetadata {
-  export function isa(o: any): o is EntityRecognizerMetadata {
-    return __isa(o, "EntityRecognizerMetadata");
-  }
+  export const isa = (o: any): o is EntityRecognizerMetadata =>
+    __isa(o, "EntityRecognizerMetadata");
 }
 
 /**
@@ -2337,11 +2249,10 @@ export interface EntityRecognizerMetadataEntityTypesListItem {
 }
 
 export namespace EntityRecognizerMetadataEntityTypesListItem {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is EntityRecognizerMetadataEntityTypesListItem {
-    return __isa(o, "EntityRecognizerMetadataEntityTypesListItem");
-  }
+  ): o is EntityRecognizerMetadataEntityTypesListItem =>
+    __isa(o, "EntityRecognizerMetadataEntityTypesListItem");
 }
 
 /**
@@ -2429,9 +2340,8 @@ export interface EntityRecognizerProperties {
 }
 
 export namespace EntityRecognizerProperties {
-  export function isa(o: any): o is EntityRecognizerProperties {
-    return __isa(o, "EntityRecognizerProperties");
-  }
+  export const isa = (o: any): o is EntityRecognizerProperties =>
+    __isa(o, "EntityRecognizerProperties");
 }
 
 export enum EntityType {
@@ -2474,9 +2384,8 @@ export interface EntityTypesEvaluationMetrics {
 }
 
 export namespace EntityTypesEvaluationMetrics {
-  export function isa(o: any): o is EntityTypesEvaluationMetrics {
-    return __isa(o, "EntityTypesEvaluationMetrics");
-  }
+  export const isa = (o: any): o is EntityTypesEvaluationMetrics =>
+    __isa(o, "EntityTypesEvaluationMetrics");
 }
 
 /**
@@ -2491,9 +2400,8 @@ export interface EntityTypesListItem {
 }
 
 export namespace EntityTypesListItem {
-  export function isa(o: any): o is EntityTypesListItem {
-    return __isa(o, "EntityTypesListItem");
-  }
+  export const isa = (o: any): o is EntityTypesListItem =>
+    __isa(o, "EntityTypesListItem");
 }
 
 /**
@@ -2532,9 +2440,8 @@ export interface InputDataConfig {
 }
 
 export namespace InputDataConfig {
-  export function isa(o: any): o is InputDataConfig {
-    return __isa(o, "InputDataConfig");
-  }
+  export const isa = (o: any): o is InputDataConfig =>
+    __isa(o, "InputDataConfig");
 }
 
 export enum InputFormat {
@@ -2554,9 +2461,8 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export function isa(o: any): o is InternalServerException {
-    return __isa(o, "InternalServerException");
-  }
+  export const isa = (o: any): o is InternalServerException =>
+    __isa(o, "InternalServerException");
 }
 
 /**
@@ -2572,9 +2478,8 @@ export interface InvalidFilterException
 }
 
 export namespace InvalidFilterException {
-  export function isa(o: any): o is InvalidFilterException {
-    return __isa(o, "InvalidFilterException");
-  }
+  export const isa = (o: any): o is InvalidFilterException =>
+    __isa(o, "InvalidFilterException");
 }
 
 /**
@@ -2590,9 +2495,8 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return __isa(o, "InvalidRequestException");
-  }
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -2607,9 +2511,8 @@ export interface JobNotFoundException
 }
 
 export namespace JobNotFoundException {
-  export function isa(o: any): o is JobNotFoundException {
-    return __isa(o, "JobNotFoundException");
-  }
+  export const isa = (o: any): o is JobNotFoundException =>
+    __isa(o, "JobNotFoundException");
 }
 
 export enum JobStatus {
@@ -2655,9 +2558,7 @@ export interface KeyPhrase {
 }
 
 export namespace KeyPhrase {
-  export function isa(o: any): o is KeyPhrase {
-    return __isa(o, "KeyPhrase");
-  }
+  export const isa = (o: any): o is KeyPhrase => __isa(o, "KeyPhrase");
 }
 
 /**
@@ -2693,9 +2594,8 @@ export interface KeyPhrasesDetectionJobFilter {
 }
 
 export namespace KeyPhrasesDetectionJobFilter {
-  export function isa(o: any): o is KeyPhrasesDetectionJobFilter {
-    return __isa(o, "KeyPhrasesDetectionJobFilter");
-  }
+  export const isa = (o: any): o is KeyPhrasesDetectionJobFilter =>
+    __isa(o, "KeyPhrasesDetectionJobFilter");
 }
 
 /**
@@ -2780,9 +2680,8 @@ export interface KeyPhrasesDetectionJobProperties {
 }
 
 export namespace KeyPhrasesDetectionJobProperties {
-  export function isa(o: any): o is KeyPhrasesDetectionJobProperties {
-    return __isa(o, "KeyPhrasesDetectionJobProperties");
-  }
+  export const isa = (o: any): o is KeyPhrasesDetectionJobProperties =>
+    __isa(o, "KeyPhrasesDetectionJobProperties");
 }
 
 /**
@@ -2797,9 +2696,8 @@ export interface KmsKeyValidationException
 }
 
 export namespace KmsKeyValidationException {
-  export function isa(o: any): o is KmsKeyValidationException {
-    return __isa(o, "KmsKeyValidationException");
-  }
+  export const isa = (o: any): o is KmsKeyValidationException =>
+    __isa(o, "KmsKeyValidationException");
 }
 
 export enum LanguageCode {
@@ -2837,9 +2735,8 @@ export interface ListDocumentClassificationJobsRequest {
 }
 
 export namespace ListDocumentClassificationJobsRequest {
-  export function isa(o: any): o is ListDocumentClassificationJobsRequest {
-    return __isa(o, "ListDocumentClassificationJobsRequest");
-  }
+  export const isa = (o: any): o is ListDocumentClassificationJobsRequest =>
+    __isa(o, "ListDocumentClassificationJobsRequest");
 }
 
 export interface ListDocumentClassificationJobsResponse {
@@ -2858,9 +2755,8 @@ export interface ListDocumentClassificationJobsResponse {
 }
 
 export namespace ListDocumentClassificationJobsResponse {
-  export function isa(o: any): o is ListDocumentClassificationJobsResponse {
-    return __isa(o, "ListDocumentClassificationJobsResponse");
-  }
+  export const isa = (o: any): o is ListDocumentClassificationJobsResponse =>
+    __isa(o, "ListDocumentClassificationJobsResponse");
 }
 
 export interface ListDocumentClassifiersRequest {
@@ -2883,9 +2779,8 @@ export interface ListDocumentClassifiersRequest {
 }
 
 export namespace ListDocumentClassifiersRequest {
-  export function isa(o: any): o is ListDocumentClassifiersRequest {
-    return __isa(o, "ListDocumentClassifiersRequest");
-  }
+  export const isa = (o: any): o is ListDocumentClassifiersRequest =>
+    __isa(o, "ListDocumentClassifiersRequest");
 }
 
 export interface ListDocumentClassifiersResponse {
@@ -2902,9 +2797,8 @@ export interface ListDocumentClassifiersResponse {
 }
 
 export namespace ListDocumentClassifiersResponse {
-  export function isa(o: any): o is ListDocumentClassifiersResponse {
-    return __isa(o, "ListDocumentClassifiersResponse");
-  }
+  export const isa = (o: any): o is ListDocumentClassifiersResponse =>
+    __isa(o, "ListDocumentClassifiersResponse");
 }
 
 export interface ListDominantLanguageDetectionJobsRequest {
@@ -2927,9 +2821,8 @@ export interface ListDominantLanguageDetectionJobsRequest {
 }
 
 export namespace ListDominantLanguageDetectionJobsRequest {
-  export function isa(o: any): o is ListDominantLanguageDetectionJobsRequest {
-    return __isa(o, "ListDominantLanguageDetectionJobsRequest");
-  }
+  export const isa = (o: any): o is ListDominantLanguageDetectionJobsRequest =>
+    __isa(o, "ListDominantLanguageDetectionJobsRequest");
 }
 
 export interface ListDominantLanguageDetectionJobsResponse {
@@ -2948,9 +2841,8 @@ export interface ListDominantLanguageDetectionJobsResponse {
 }
 
 export namespace ListDominantLanguageDetectionJobsResponse {
-  export function isa(o: any): o is ListDominantLanguageDetectionJobsResponse {
-    return __isa(o, "ListDominantLanguageDetectionJobsResponse");
-  }
+  export const isa = (o: any): o is ListDominantLanguageDetectionJobsResponse =>
+    __isa(o, "ListDominantLanguageDetectionJobsResponse");
 }
 
 export interface ListEndpointsRequest {
@@ -2973,9 +2865,8 @@ export interface ListEndpointsRequest {
 }
 
 export namespace ListEndpointsRequest {
-  export function isa(o: any): o is ListEndpointsRequest {
-    return __isa(o, "ListEndpointsRequest");
-  }
+  export const isa = (o: any): o is ListEndpointsRequest =>
+    __isa(o, "ListEndpointsRequest");
 }
 
 export interface ListEndpointsResponse {
@@ -2992,9 +2883,8 @@ export interface ListEndpointsResponse {
 }
 
 export namespace ListEndpointsResponse {
-  export function isa(o: any): o is ListEndpointsResponse {
-    return __isa(o, "ListEndpointsResponse");
-  }
+  export const isa = (o: any): o is ListEndpointsResponse =>
+    __isa(o, "ListEndpointsResponse");
 }
 
 export interface ListEntitiesDetectionJobsRequest {
@@ -3017,9 +2907,8 @@ export interface ListEntitiesDetectionJobsRequest {
 }
 
 export namespace ListEntitiesDetectionJobsRequest {
-  export function isa(o: any): o is ListEntitiesDetectionJobsRequest {
-    return __isa(o, "ListEntitiesDetectionJobsRequest");
-  }
+  export const isa = (o: any): o is ListEntitiesDetectionJobsRequest =>
+    __isa(o, "ListEntitiesDetectionJobsRequest");
 }
 
 export interface ListEntitiesDetectionJobsResponse {
@@ -3036,9 +2925,8 @@ export interface ListEntitiesDetectionJobsResponse {
 }
 
 export namespace ListEntitiesDetectionJobsResponse {
-  export function isa(o: any): o is ListEntitiesDetectionJobsResponse {
-    return __isa(o, "ListEntitiesDetectionJobsResponse");
-  }
+  export const isa = (o: any): o is ListEntitiesDetectionJobsResponse =>
+    __isa(o, "ListEntitiesDetectionJobsResponse");
 }
 
 export interface ListEntityRecognizersRequest {
@@ -3060,9 +2948,8 @@ export interface ListEntityRecognizersRequest {
 }
 
 export namespace ListEntityRecognizersRequest {
-  export function isa(o: any): o is ListEntityRecognizersRequest {
-    return __isa(o, "ListEntityRecognizersRequest");
-  }
+  export const isa = (o: any): o is ListEntityRecognizersRequest =>
+    __isa(o, "ListEntityRecognizersRequest");
 }
 
 export interface ListEntityRecognizersResponse {
@@ -3079,9 +2966,8 @@ export interface ListEntityRecognizersResponse {
 }
 
 export namespace ListEntityRecognizersResponse {
-  export function isa(o: any): o is ListEntityRecognizersResponse {
-    return __isa(o, "ListEntityRecognizersResponse");
-  }
+  export const isa = (o: any): o is ListEntityRecognizersResponse =>
+    __isa(o, "ListEntityRecognizersResponse");
 }
 
 export interface ListKeyPhrasesDetectionJobsRequest {
@@ -3104,9 +2990,8 @@ export interface ListKeyPhrasesDetectionJobsRequest {
 }
 
 export namespace ListKeyPhrasesDetectionJobsRequest {
-  export function isa(o: any): o is ListKeyPhrasesDetectionJobsRequest {
-    return __isa(o, "ListKeyPhrasesDetectionJobsRequest");
-  }
+  export const isa = (o: any): o is ListKeyPhrasesDetectionJobsRequest =>
+    __isa(o, "ListKeyPhrasesDetectionJobsRequest");
 }
 
 export interface ListKeyPhrasesDetectionJobsResponse {
@@ -3125,9 +3010,8 @@ export interface ListKeyPhrasesDetectionJobsResponse {
 }
 
 export namespace ListKeyPhrasesDetectionJobsResponse {
-  export function isa(o: any): o is ListKeyPhrasesDetectionJobsResponse {
-    return __isa(o, "ListKeyPhrasesDetectionJobsResponse");
-  }
+  export const isa = (o: any): o is ListKeyPhrasesDetectionJobsResponse =>
+    __isa(o, "ListKeyPhrasesDetectionJobsResponse");
 }
 
 export interface ListSentimentDetectionJobsRequest {
@@ -3150,9 +3034,8 @@ export interface ListSentimentDetectionJobsRequest {
 }
 
 export namespace ListSentimentDetectionJobsRequest {
-  export function isa(o: any): o is ListSentimentDetectionJobsRequest {
-    return __isa(o, "ListSentimentDetectionJobsRequest");
-  }
+  export const isa = (o: any): o is ListSentimentDetectionJobsRequest =>
+    __isa(o, "ListSentimentDetectionJobsRequest");
 }
 
 export interface ListSentimentDetectionJobsResponse {
@@ -3169,9 +3052,8 @@ export interface ListSentimentDetectionJobsResponse {
 }
 
 export namespace ListSentimentDetectionJobsResponse {
-  export function isa(o: any): o is ListSentimentDetectionJobsResponse {
-    return __isa(o, "ListSentimentDetectionJobsResponse");
-  }
+  export const isa = (o: any): o is ListSentimentDetectionJobsResponse =>
+    __isa(o, "ListSentimentDetectionJobsResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -3183,9 +3065,8 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export function isa(o: any): o is ListTagsForResourceRequest {
-    return __isa(o, "ListTagsForResourceRequest");
-  }
+  export const isa = (o: any): o is ListTagsForResourceRequest =>
+    __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -3203,9 +3084,8 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export function isa(o: any): o is ListTagsForResourceResponse {
-    return __isa(o, "ListTagsForResourceResponse");
-  }
+  export const isa = (o: any): o is ListTagsForResourceResponse =>
+    __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListTopicsDetectionJobsRequest {
@@ -3228,9 +3108,8 @@ export interface ListTopicsDetectionJobsRequest {
 }
 
 export namespace ListTopicsDetectionJobsRequest {
-  export function isa(o: any): o is ListTopicsDetectionJobsRequest {
-    return __isa(o, "ListTopicsDetectionJobsRequest");
-  }
+  export const isa = (o: any): o is ListTopicsDetectionJobsRequest =>
+    __isa(o, "ListTopicsDetectionJobsRequest");
 }
 
 export interface ListTopicsDetectionJobsResponse {
@@ -3247,9 +3126,8 @@ export interface ListTopicsDetectionJobsResponse {
 }
 
 export namespace ListTopicsDetectionJobsResponse {
-  export function isa(o: any): o is ListTopicsDetectionJobsResponse {
-    return __isa(o, "ListTopicsDetectionJobsResponse");
-  }
+  export const isa = (o: any): o is ListTopicsDetectionJobsResponse =>
+    __isa(o, "ListTopicsDetectionJobsResponse");
 }
 
 export enum ModelStatus {
@@ -3305,9 +3183,8 @@ export interface OutputDataConfig {
 }
 
 export namespace OutputDataConfig {
-  export function isa(o: any): o is OutputDataConfig {
-    return __isa(o, "OutputDataConfig");
-  }
+  export const isa = (o: any): o is OutputDataConfig =>
+    __isa(o, "OutputDataConfig");
 }
 
 /**
@@ -3329,9 +3206,8 @@ export interface PartOfSpeechTag {
 }
 
 export namespace PartOfSpeechTag {
-  export function isa(o: any): o is PartOfSpeechTag {
-    return __isa(o, "PartOfSpeechTag");
-  }
+  export const isa = (o: any): o is PartOfSpeechTag =>
+    __isa(o, "PartOfSpeechTag");
 }
 
 export enum PartOfSpeechTagType {
@@ -3367,9 +3243,8 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export function isa(o: any): o is ResourceInUseException {
-    return __isa(o, "ResourceInUseException");
-  }
+  export const isa = (o: any): o is ResourceInUseException =>
+    __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -3384,9 +3259,8 @@ export interface ResourceLimitExceededException
 }
 
 export namespace ResourceLimitExceededException {
-  export function isa(o: any): o is ResourceLimitExceededException {
-    return __isa(o, "ResourceLimitExceededException");
-  }
+  export const isa = (o: any): o is ResourceLimitExceededException =>
+    __isa(o, "ResourceLimitExceededException");
 }
 
 /**
@@ -3401,9 +3275,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -3419,9 +3292,8 @@ export interface ResourceUnavailableException
 }
 
 export namespace ResourceUnavailableException {
-  export function isa(o: any): o is ResourceUnavailableException {
-    return __isa(o, "ResourceUnavailableException");
-  }
+  export const isa = (o: any): o is ResourceUnavailableException =>
+    __isa(o, "ResourceUnavailableException");
 }
 
 /**
@@ -3457,9 +3329,8 @@ export interface SentimentDetectionJobFilter {
 }
 
 export namespace SentimentDetectionJobFilter {
-  export function isa(o: any): o is SentimentDetectionJobFilter {
-    return __isa(o, "SentimentDetectionJobFilter");
-  }
+  export const isa = (o: any): o is SentimentDetectionJobFilter =>
+    __isa(o, "SentimentDetectionJobFilter");
 }
 
 /**
@@ -3544,9 +3415,8 @@ export interface SentimentDetectionJobProperties {
 }
 
 export namespace SentimentDetectionJobProperties {
-  export function isa(o: any): o is SentimentDetectionJobProperties {
-    return __isa(o, "SentimentDetectionJobProperties");
-  }
+  export const isa = (o: any): o is SentimentDetectionJobProperties =>
+    __isa(o, "SentimentDetectionJobProperties");
 }
 
 /**
@@ -3581,9 +3451,8 @@ export interface SentimentScore {
 }
 
 export namespace SentimentScore {
-  export function isa(o: any): o is SentimentScore {
-    return __isa(o, "SentimentScore");
-  }
+  export const isa = (o: any): o is SentimentScore =>
+    __isa(o, "SentimentScore");
 }
 
 export enum SentimentType {
@@ -3652,9 +3521,8 @@ export interface StartDocumentClassificationJobRequest {
 }
 
 export namespace StartDocumentClassificationJobRequest {
-  export function isa(o: any): o is StartDocumentClassificationJobRequest {
-    return __isa(o, "StartDocumentClassificationJobRequest");
-  }
+  export const isa = (o: any): o is StartDocumentClassificationJobRequest =>
+    __isa(o, "StartDocumentClassificationJobRequest");
 }
 
 export interface StartDocumentClassificationJobResponse {
@@ -3692,9 +3560,8 @@ export interface StartDocumentClassificationJobResponse {
 }
 
 export namespace StartDocumentClassificationJobResponse {
-  export function isa(o: any): o is StartDocumentClassificationJobResponse {
-    return __isa(o, "StartDocumentClassificationJobResponse");
-  }
+  export const isa = (o: any): o is StartDocumentClassificationJobResponse =>
+    __isa(o, "StartDocumentClassificationJobResponse");
 }
 
 export interface StartDominantLanguageDetectionJobRequest {
@@ -3750,9 +3617,8 @@ export interface StartDominantLanguageDetectionJobRequest {
 }
 
 export namespace StartDominantLanguageDetectionJobRequest {
-  export function isa(o: any): o is StartDominantLanguageDetectionJobRequest {
-    return __isa(o, "StartDominantLanguageDetectionJobRequest");
-  }
+  export const isa = (o: any): o is StartDominantLanguageDetectionJobRequest =>
+    __isa(o, "StartDominantLanguageDetectionJobRequest");
 }
 
 export interface StartDominantLanguageDetectionJobResponse {
@@ -3784,9 +3650,8 @@ export interface StartDominantLanguageDetectionJobResponse {
 }
 
 export namespace StartDominantLanguageDetectionJobResponse {
-  export function isa(o: any): o is StartDominantLanguageDetectionJobResponse {
-    return __isa(o, "StartDominantLanguageDetectionJobResponse");
-  }
+  export const isa = (o: any): o is StartDominantLanguageDetectionJobResponse =>
+    __isa(o, "StartDominantLanguageDetectionJobResponse");
 }
 
 export interface StartEntitiesDetectionJobRequest {
@@ -3856,9 +3721,8 @@ export interface StartEntitiesDetectionJobRequest {
 }
 
 export namespace StartEntitiesDetectionJobRequest {
-  export function isa(o: any): o is StartEntitiesDetectionJobRequest {
-    return __isa(o, "StartEntitiesDetectionJobRequest");
-  }
+  export const isa = (o: any): o is StartEntitiesDetectionJobRequest =>
+    __isa(o, "StartEntitiesDetectionJobRequest");
 }
 
 export interface StartEntitiesDetectionJobResponse {
@@ -3896,9 +3760,8 @@ export interface StartEntitiesDetectionJobResponse {
 }
 
 export namespace StartEntitiesDetectionJobResponse {
-  export function isa(o: any): o is StartEntitiesDetectionJobResponse {
-    return __isa(o, "StartEntitiesDetectionJobResponse");
-  }
+  export const isa = (o: any): o is StartEntitiesDetectionJobResponse =>
+    __isa(o, "StartEntitiesDetectionJobResponse");
 }
 
 export interface StartKeyPhrasesDetectionJobRequest {
@@ -3961,9 +3824,8 @@ export interface StartKeyPhrasesDetectionJobRequest {
 }
 
 export namespace StartKeyPhrasesDetectionJobRequest {
-  export function isa(o: any): o is StartKeyPhrasesDetectionJobRequest {
-    return __isa(o, "StartKeyPhrasesDetectionJobRequest");
-  }
+  export const isa = (o: any): o is StartKeyPhrasesDetectionJobRequest =>
+    __isa(o, "StartKeyPhrasesDetectionJobRequest");
 }
 
 export interface StartKeyPhrasesDetectionJobResponse {
@@ -3995,9 +3857,8 @@ export interface StartKeyPhrasesDetectionJobResponse {
 }
 
 export namespace StartKeyPhrasesDetectionJobResponse {
-  export function isa(o: any): o is StartKeyPhrasesDetectionJobResponse {
-    return __isa(o, "StartKeyPhrasesDetectionJobResponse");
-  }
+  export const isa = (o: any): o is StartKeyPhrasesDetectionJobResponse =>
+    __isa(o, "StartKeyPhrasesDetectionJobResponse");
 }
 
 export interface StartSentimentDetectionJobRequest {
@@ -4060,9 +3921,8 @@ export interface StartSentimentDetectionJobRequest {
 }
 
 export namespace StartSentimentDetectionJobRequest {
-  export function isa(o: any): o is StartSentimentDetectionJobRequest {
-    return __isa(o, "StartSentimentDetectionJobRequest");
-  }
+  export const isa = (o: any): o is StartSentimentDetectionJobRequest =>
+    __isa(o, "StartSentimentDetectionJobRequest");
 }
 
 export interface StartSentimentDetectionJobResponse {
@@ -4094,9 +3954,8 @@ export interface StartSentimentDetectionJobResponse {
 }
 
 export namespace StartSentimentDetectionJobResponse {
-  export function isa(o: any): o is StartSentimentDetectionJobResponse {
-    return __isa(o, "StartSentimentDetectionJobResponse");
-  }
+  export const isa = (o: any): o is StartSentimentDetectionJobResponse =>
+    __isa(o, "StartSentimentDetectionJobResponse");
 }
 
 export interface StartTopicsDetectionJobRequest {
@@ -4159,9 +4018,8 @@ export interface StartTopicsDetectionJobRequest {
 }
 
 export namespace StartTopicsDetectionJobRequest {
-  export function isa(o: any): o is StartTopicsDetectionJobRequest {
-    return __isa(o, "StartTopicsDetectionJobRequest");
-  }
+  export const isa = (o: any): o is StartTopicsDetectionJobRequest =>
+    __isa(o, "StartTopicsDetectionJobRequest");
 }
 
 export interface StartTopicsDetectionJobResponse {
@@ -4195,9 +4053,8 @@ export interface StartTopicsDetectionJobResponse {
 }
 
 export namespace StartTopicsDetectionJobResponse {
-  export function isa(o: any): o is StartTopicsDetectionJobResponse {
-    return __isa(o, "StartTopicsDetectionJobResponse");
-  }
+  export const isa = (o: any): o is StartTopicsDetectionJobResponse =>
+    __isa(o, "StartTopicsDetectionJobResponse");
 }
 
 export interface StopDominantLanguageDetectionJobRequest {
@@ -4209,9 +4066,8 @@ export interface StopDominantLanguageDetectionJobRequest {
 }
 
 export namespace StopDominantLanguageDetectionJobRequest {
-  export function isa(o: any): o is StopDominantLanguageDetectionJobRequest {
-    return __isa(o, "StopDominantLanguageDetectionJobRequest");
-  }
+  export const isa = (o: any): o is StopDominantLanguageDetectionJobRequest =>
+    __isa(o, "StopDominantLanguageDetectionJobRequest");
 }
 
 export interface StopDominantLanguageDetectionJobResponse {
@@ -4230,9 +4086,8 @@ export interface StopDominantLanguageDetectionJobResponse {
 }
 
 export namespace StopDominantLanguageDetectionJobResponse {
-  export function isa(o: any): o is StopDominantLanguageDetectionJobResponse {
-    return __isa(o, "StopDominantLanguageDetectionJobResponse");
-  }
+  export const isa = (o: any): o is StopDominantLanguageDetectionJobResponse =>
+    __isa(o, "StopDominantLanguageDetectionJobResponse");
 }
 
 export interface StopEntitiesDetectionJobRequest {
@@ -4244,9 +4099,8 @@ export interface StopEntitiesDetectionJobRequest {
 }
 
 export namespace StopEntitiesDetectionJobRequest {
-  export function isa(o: any): o is StopEntitiesDetectionJobRequest {
-    return __isa(o, "StopEntitiesDetectionJobRequest");
-  }
+  export const isa = (o: any): o is StopEntitiesDetectionJobRequest =>
+    __isa(o, "StopEntitiesDetectionJobRequest");
 }
 
 export interface StopEntitiesDetectionJobResponse {
@@ -4265,9 +4119,8 @@ export interface StopEntitiesDetectionJobResponse {
 }
 
 export namespace StopEntitiesDetectionJobResponse {
-  export function isa(o: any): o is StopEntitiesDetectionJobResponse {
-    return __isa(o, "StopEntitiesDetectionJobResponse");
-  }
+  export const isa = (o: any): o is StopEntitiesDetectionJobResponse =>
+    __isa(o, "StopEntitiesDetectionJobResponse");
 }
 
 export interface StopKeyPhrasesDetectionJobRequest {
@@ -4279,9 +4132,8 @@ export interface StopKeyPhrasesDetectionJobRequest {
 }
 
 export namespace StopKeyPhrasesDetectionJobRequest {
-  export function isa(o: any): o is StopKeyPhrasesDetectionJobRequest {
-    return __isa(o, "StopKeyPhrasesDetectionJobRequest");
-  }
+  export const isa = (o: any): o is StopKeyPhrasesDetectionJobRequest =>
+    __isa(o, "StopKeyPhrasesDetectionJobRequest");
 }
 
 export interface StopKeyPhrasesDetectionJobResponse {
@@ -4300,9 +4152,8 @@ export interface StopKeyPhrasesDetectionJobResponse {
 }
 
 export namespace StopKeyPhrasesDetectionJobResponse {
-  export function isa(o: any): o is StopKeyPhrasesDetectionJobResponse {
-    return __isa(o, "StopKeyPhrasesDetectionJobResponse");
-  }
+  export const isa = (o: any): o is StopKeyPhrasesDetectionJobResponse =>
+    __isa(o, "StopKeyPhrasesDetectionJobResponse");
 }
 
 export interface StopSentimentDetectionJobRequest {
@@ -4314,9 +4165,8 @@ export interface StopSentimentDetectionJobRequest {
 }
 
 export namespace StopSentimentDetectionJobRequest {
-  export function isa(o: any): o is StopSentimentDetectionJobRequest {
-    return __isa(o, "StopSentimentDetectionJobRequest");
-  }
+  export const isa = (o: any): o is StopSentimentDetectionJobRequest =>
+    __isa(o, "StopSentimentDetectionJobRequest");
 }
 
 export interface StopSentimentDetectionJobResponse {
@@ -4335,9 +4185,8 @@ export interface StopSentimentDetectionJobResponse {
 }
 
 export namespace StopSentimentDetectionJobResponse {
-  export function isa(o: any): o is StopSentimentDetectionJobResponse {
-    return __isa(o, "StopSentimentDetectionJobResponse");
-  }
+  export const isa = (o: any): o is StopSentimentDetectionJobResponse =>
+    __isa(o, "StopSentimentDetectionJobResponse");
 }
 
 export interface StopTrainingDocumentClassifierRequest {
@@ -4349,9 +4198,8 @@ export interface StopTrainingDocumentClassifierRequest {
 }
 
 export namespace StopTrainingDocumentClassifierRequest {
-  export function isa(o: any): o is StopTrainingDocumentClassifierRequest {
-    return __isa(o, "StopTrainingDocumentClassifierRequest");
-  }
+  export const isa = (o: any): o is StopTrainingDocumentClassifierRequest =>
+    __isa(o, "StopTrainingDocumentClassifierRequest");
 }
 
 export interface StopTrainingDocumentClassifierResponse {
@@ -4359,9 +4207,8 @@ export interface StopTrainingDocumentClassifierResponse {
 }
 
 export namespace StopTrainingDocumentClassifierResponse {
-  export function isa(o: any): o is StopTrainingDocumentClassifierResponse {
-    return __isa(o, "StopTrainingDocumentClassifierResponse");
-  }
+  export const isa = (o: any): o is StopTrainingDocumentClassifierResponse =>
+    __isa(o, "StopTrainingDocumentClassifierResponse");
 }
 
 export interface StopTrainingEntityRecognizerRequest {
@@ -4373,9 +4220,8 @@ export interface StopTrainingEntityRecognizerRequest {
 }
 
 export namespace StopTrainingEntityRecognizerRequest {
-  export function isa(o: any): o is StopTrainingEntityRecognizerRequest {
-    return __isa(o, "StopTrainingEntityRecognizerRequest");
-  }
+  export const isa = (o: any): o is StopTrainingEntityRecognizerRequest =>
+    __isa(o, "StopTrainingEntityRecognizerRequest");
 }
 
 export interface StopTrainingEntityRecognizerResponse {
@@ -4383,9 +4229,8 @@ export interface StopTrainingEntityRecognizerResponse {
 }
 
 export namespace StopTrainingEntityRecognizerResponse {
-  export function isa(o: any): o is StopTrainingEntityRecognizerResponse {
-    return __isa(o, "StopTrainingEntityRecognizerResponse");
-  }
+  export const isa = (o: any): o is StopTrainingEntityRecognizerResponse =>
+    __isa(o, "StopTrainingEntityRecognizerResponse");
 }
 
 export enum SyntaxLanguageCode {
@@ -4433,9 +4278,7 @@ export interface SyntaxToken {
 }
 
 export namespace SyntaxToken {
-  export function isa(o: any): o is SyntaxToken {
-    return __isa(o, "SyntaxToken");
-  }
+  export const isa = (o: any): o is SyntaxToken => __isa(o, "SyntaxToken");
 }
 
 /**
@@ -4455,9 +4298,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
@@ -4474,9 +4315,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -4484,9 +4324,8 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export function isa(o: any): o is TagResourceResponse {
-    return __isa(o, "TagResourceResponse");
-  }
+  export const isa = (o: any): o is TagResourceResponse =>
+    __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -4501,9 +4340,8 @@ export interface TextSizeLimitExceededException
 }
 
 export namespace TextSizeLimitExceededException {
-  export function isa(o: any): o is TextSizeLimitExceededException {
-    return __isa(o, "TextSizeLimitExceededException");
-  }
+  export const isa = (o: any): o is TextSizeLimitExceededException =>
+    __isa(o, "TextSizeLimitExceededException");
 }
 
 /**
@@ -4518,9 +4356,8 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export function isa(o: any): o is TooManyRequestsException {
-    return __isa(o, "TooManyRequestsException");
-  }
+  export const isa = (o: any): o is TooManyRequestsException =>
+    __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -4535,9 +4372,8 @@ export interface TooManyTagKeysException
 }
 
 export namespace TooManyTagKeysException {
-  export function isa(o: any): o is TooManyTagKeysException {
-    return __isa(o, "TooManyTagKeysException");
-  }
+  export const isa = (o: any): o is TooManyTagKeysException =>
+    __isa(o, "TooManyTagKeysException");
 }
 
 /**
@@ -4553,9 +4389,8 @@ export interface TooManyTagsException
 }
 
 export namespace TooManyTagsException {
-  export function isa(o: any): o is TooManyTagsException {
-    return __isa(o, "TooManyTagsException");
-  }
+  export const isa = (o: any): o is TooManyTagsException =>
+    __isa(o, "TooManyTagsException");
 }
 
 /**
@@ -4591,9 +4426,8 @@ export interface TopicsDetectionJobFilter {
 }
 
 export namespace TopicsDetectionJobFilter {
-  export function isa(o: any): o is TopicsDetectionJobFilter {
-    return __isa(o, "TopicsDetectionJobFilter");
-  }
+  export const isa = (o: any): o is TopicsDetectionJobFilter =>
+    __isa(o, "TopicsDetectionJobFilter");
 }
 
 /**
@@ -4679,9 +4513,8 @@ export interface TopicsDetectionJobProperties {
 }
 
 export namespace TopicsDetectionJobProperties {
-  export function isa(o: any): o is TopicsDetectionJobProperties {
-    return __isa(o, "TopicsDetectionJobProperties");
-  }
+  export const isa = (o: any): o is TopicsDetectionJobProperties =>
+    __isa(o, "TopicsDetectionJobProperties");
 }
 
 /**
@@ -4698,9 +4531,8 @@ export interface UnsupportedLanguageException
 }
 
 export namespace UnsupportedLanguageException {
-  export function isa(o: any): o is UnsupportedLanguageException {
-    return __isa(o, "UnsupportedLanguageException");
-  }
+  export const isa = (o: any): o is UnsupportedLanguageException =>
+    __isa(o, "UnsupportedLanguageException");
 }
 
 export interface UntagResourceRequest {
@@ -4719,9 +4551,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -4729,9 +4560,8 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export function isa(o: any): o is UntagResourceResponse {
-    return __isa(o, "UntagResourceResponse");
-  }
+  export const isa = (o: any): o is UntagResourceResponse =>
+    __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateEndpointRequest {
@@ -4749,9 +4579,8 @@ export interface UpdateEndpointRequest {
 }
 
 export namespace UpdateEndpointRequest {
-  export function isa(o: any): o is UpdateEndpointRequest {
-    return __isa(o, "UpdateEndpointRequest");
-  }
+  export const isa = (o: any): o is UpdateEndpointRequest =>
+    __isa(o, "UpdateEndpointRequest");
 }
 
 export interface UpdateEndpointResponse {
@@ -4759,9 +4588,8 @@ export interface UpdateEndpointResponse {
 }
 
 export namespace UpdateEndpointResponse {
-  export function isa(o: any): o is UpdateEndpointResponse {
-    return __isa(o, "UpdateEndpointResponse");
-  }
+  export const isa = (o: any): o is UpdateEndpointResponse =>
+    __isa(o, "UpdateEndpointResponse");
 }
 
 /**
@@ -4786,7 +4614,5 @@ export interface VpcConfig {
 }
 
 export namespace VpcConfig {
-  export function isa(o: any): o is VpcConfig {
-    return __isa(o, "VpcConfig");
-  }
+  export const isa = (o: any): o is VpcConfig => __isa(o, "VpcConfig");
 }

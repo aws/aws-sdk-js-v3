@@ -21,9 +21,8 @@ export interface ActivityFailedEventDetails {
 }
 
 export namespace ActivityFailedEventDetails {
-  export function isa(o: any): o is ActivityFailedEventDetails {
-    return __isa(o, "ActivityFailedEventDetails");
-  }
+  export const isa = (o: any): o is ActivityFailedEventDetails =>
+    __isa(o, "ActivityFailedEventDetails");
 }
 
 /**
@@ -44,9 +43,8 @@ export interface ActivityScheduleFailedEventDetails {
 }
 
 export namespace ActivityScheduleFailedEventDetails {
-  export function isa(o: any): o is ActivityScheduleFailedEventDetails {
-    return __isa(o, "ActivityScheduleFailedEventDetails");
-  }
+  export const isa = (o: any): o is ActivityScheduleFailedEventDetails =>
+    __isa(o, "ActivityScheduleFailedEventDetails");
 }
 
 /**
@@ -76,9 +74,8 @@ export interface ActivityScheduledEventDetails {
 }
 
 export namespace ActivityScheduledEventDetails {
-  export function isa(o: any): o is ActivityScheduledEventDetails {
-    return __isa(o, "ActivityScheduledEventDetails");
-  }
+  export const isa = (o: any): o is ActivityScheduledEventDetails =>
+    __isa(o, "ActivityScheduledEventDetails");
 }
 
 /**
@@ -94,9 +91,8 @@ export interface ActivityStartedEventDetails {
 }
 
 export namespace ActivityStartedEventDetails {
-  export function isa(o: any): o is ActivityStartedEventDetails {
-    return __isa(o, "ActivityStartedEventDetails");
-  }
+  export const isa = (o: any): o is ActivityStartedEventDetails =>
+    __isa(o, "ActivityStartedEventDetails");
 }
 
 /**
@@ -112,9 +108,8 @@ export interface ActivitySucceededEventDetails {
 }
 
 export namespace ActivitySucceededEventDetails {
-  export function isa(o: any): o is ActivitySucceededEventDetails {
-    return __isa(o, "ActivitySucceededEventDetails");
-  }
+  export const isa = (o: any): o is ActivitySucceededEventDetails =>
+    __isa(o, "ActivitySucceededEventDetails");
 }
 
 /**
@@ -134,9 +129,8 @@ export interface ActivityTimedOutEventDetails {
 }
 
 export namespace ActivityTimedOutEventDetails {
-  export function isa(o: any): o is ActivityTimedOutEventDetails {
-    return __isa(o, "ActivityTimedOutEventDetails");
-  }
+  export const isa = (o: any): o is ActivityTimedOutEventDetails =>
+    __isa(o, "ActivityTimedOutEventDetails");
 }
 
 /**
@@ -152,9 +146,8 @@ export interface CloudWatchLogsLogGroup {
 }
 
 export namespace CloudWatchLogsLogGroup {
-  export function isa(o: any): o is CloudWatchLogsLogGroup {
-    return __isa(o, "CloudWatchLogsLogGroup");
-  }
+  export const isa = (o: any): o is CloudWatchLogsLogGroup =>
+    __isa(o, "CloudWatchLogsLogGroup");
 }
 
 /**
@@ -174,9 +167,8 @@ export interface ExecutionAbortedEventDetails {
 }
 
 export namespace ExecutionAbortedEventDetails {
-  export function isa(o: any): o is ExecutionAbortedEventDetails {
-    return __isa(o, "ExecutionAbortedEventDetails");
-  }
+  export const isa = (o: any): o is ExecutionAbortedEventDetails =>
+    __isa(o, "ExecutionAbortedEventDetails");
 }
 
 /**
@@ -196,9 +188,8 @@ export interface ExecutionFailedEventDetails {
 }
 
 export namespace ExecutionFailedEventDetails {
-  export function isa(o: any): o is ExecutionFailedEventDetails {
-    return __isa(o, "ExecutionFailedEventDetails");
-  }
+  export const isa = (o: any): o is ExecutionFailedEventDetails =>
+    __isa(o, "ExecutionFailedEventDetails");
 }
 
 /**
@@ -218,9 +209,8 @@ export interface ExecutionStartedEventDetails {
 }
 
 export namespace ExecutionStartedEventDetails {
-  export function isa(o: any): o is ExecutionStartedEventDetails {
-    return __isa(o, "ExecutionStartedEventDetails");
-  }
+  export const isa = (o: any): o is ExecutionStartedEventDetails =>
+    __isa(o, "ExecutionStartedEventDetails");
 }
 
 /**
@@ -235,9 +225,8 @@ export interface ExecutionSucceededEventDetails {
 }
 
 export namespace ExecutionSucceededEventDetails {
-  export function isa(o: any): o is ExecutionSucceededEventDetails {
-    return __isa(o, "ExecutionSucceededEventDetails");
-  }
+  export const isa = (o: any): o is ExecutionSucceededEventDetails =>
+    __isa(o, "ExecutionSucceededEventDetails");
 }
 
 /**
@@ -257,9 +246,8 @@ export interface ExecutionTimedOutEventDetails {
 }
 
 export namespace ExecutionTimedOutEventDetails {
-  export function isa(o: any): o is ExecutionTimedOutEventDetails {
-    return __isa(o, "ExecutionTimedOutEventDetails");
-  }
+  export const isa = (o: any): o is ExecutionTimedOutEventDetails =>
+    __isa(o, "ExecutionTimedOutEventDetails");
 }
 
 /**
@@ -452,9 +440,7 @@ export interface HistoryEvent {
 }
 
 export namespace HistoryEvent {
-  export function isa(o: any): o is HistoryEvent {
-    return __isa(o, "HistoryEvent");
-  }
+  export const isa = (o: any): o is HistoryEvent => __isa(o, "HistoryEvent");
 }
 
 export type HistoryEventType =
@@ -531,9 +517,8 @@ export interface LambdaFunctionFailedEventDetails {
 }
 
 export namespace LambdaFunctionFailedEventDetails {
-  export function isa(o: any): o is LambdaFunctionFailedEventDetails {
-    return __isa(o, "LambdaFunctionFailedEventDetails");
-  }
+  export const isa = (o: any): o is LambdaFunctionFailedEventDetails =>
+    __isa(o, "LambdaFunctionFailedEventDetails");
 }
 
 /**
@@ -554,9 +539,8 @@ export interface LambdaFunctionScheduleFailedEventDetails {
 }
 
 export namespace LambdaFunctionScheduleFailedEventDetails {
-  export function isa(o: any): o is LambdaFunctionScheduleFailedEventDetails {
-    return __isa(o, "LambdaFunctionScheduleFailedEventDetails");
-  }
+  export const isa = (o: any): o is LambdaFunctionScheduleFailedEventDetails =>
+    __isa(o, "LambdaFunctionScheduleFailedEventDetails");
 }
 
 /**
@@ -581,9 +565,8 @@ export interface LambdaFunctionScheduledEventDetails {
 }
 
 export namespace LambdaFunctionScheduledEventDetails {
-  export function isa(o: any): o is LambdaFunctionScheduledEventDetails {
-    return __isa(o, "LambdaFunctionScheduledEventDetails");
-  }
+  export const isa = (o: any): o is LambdaFunctionScheduledEventDetails =>
+    __isa(o, "LambdaFunctionScheduledEventDetails");
 }
 
 /**
@@ -603,9 +586,8 @@ export interface LambdaFunctionStartFailedEventDetails {
 }
 
 export namespace LambdaFunctionStartFailedEventDetails {
-  export function isa(o: any): o is LambdaFunctionStartFailedEventDetails {
-    return __isa(o, "LambdaFunctionStartFailedEventDetails");
-  }
+  export const isa = (o: any): o is LambdaFunctionStartFailedEventDetails =>
+    __isa(o, "LambdaFunctionStartFailedEventDetails");
 }
 
 /**
@@ -621,9 +603,8 @@ export interface LambdaFunctionSucceededEventDetails {
 }
 
 export namespace LambdaFunctionSucceededEventDetails {
-  export function isa(o: any): o is LambdaFunctionSucceededEventDetails {
-    return __isa(o, "LambdaFunctionSucceededEventDetails");
-  }
+  export const isa = (o: any): o is LambdaFunctionSucceededEventDetails =>
+    __isa(o, "LambdaFunctionSucceededEventDetails");
 }
 
 /**
@@ -643,9 +624,8 @@ export interface LambdaFunctionTimedOutEventDetails {
 }
 
 export namespace LambdaFunctionTimedOutEventDetails {
-  export function isa(o: any): o is LambdaFunctionTimedOutEventDetails {
-    return __isa(o, "LambdaFunctionTimedOutEventDetails");
-  }
+  export const isa = (o: any): o is LambdaFunctionTimedOutEventDetails =>
+    __isa(o, "LambdaFunctionTimedOutEventDetails");
 }
 
 /**
@@ -660,9 +640,8 @@ export interface LogDestination {
 }
 
 export namespace LogDestination {
-  export function isa(o: any): o is LogDestination {
-    return __isa(o, "LogDestination");
-  }
+  export const isa = (o: any): o is LogDestination =>
+    __isa(o, "LogDestination");
 }
 
 export type LogLevel = "ALL" | "ERROR" | "FATAL" | "OFF";
@@ -691,9 +670,8 @@ export interface LoggingConfiguration {
 }
 
 export namespace LoggingConfiguration {
-  export function isa(o: any): o is LoggingConfiguration {
-    return __isa(o, "LoggingConfiguration");
-  }
+  export const isa = (o: any): o is LoggingConfiguration =>
+    __isa(o, "LoggingConfiguration");
 }
 
 /**
@@ -713,9 +691,8 @@ export interface MapIterationEventDetails {
 }
 
 export namespace MapIterationEventDetails {
-  export function isa(o: any): o is MapIterationEventDetails {
-    return __isa(o, "MapIterationEventDetails");
-  }
+  export const isa = (o: any): o is MapIterationEventDetails =>
+    __isa(o, "MapIterationEventDetails");
 }
 
 /**
@@ -730,9 +707,8 @@ export interface MapStateStartedEventDetails {
 }
 
 export namespace MapStateStartedEventDetails {
-  export function isa(o: any): o is MapStateStartedEventDetails {
-    return __isa(o, "MapStateStartedEventDetails");
-  }
+  export const isa = (o: any): o is MapStateStartedEventDetails =>
+    __isa(o, "MapStateStartedEventDetails");
 }
 
 /**
@@ -752,9 +728,8 @@ export interface StateEnteredEventDetails {
 }
 
 export namespace StateEnteredEventDetails {
-  export function isa(o: any): o is StateEnteredEventDetails {
-    return __isa(o, "StateEnteredEventDetails");
-  }
+  export const isa = (o: any): o is StateEnteredEventDetails =>
+    __isa(o, "StateEnteredEventDetails");
 }
 
 /**
@@ -795,9 +770,8 @@ export interface StateExitedEventDetails {
 }
 
 export namespace StateExitedEventDetails {
-  export function isa(o: any): o is StateExitedEventDetails {
-    return __isa(o, "StateExitedEventDetails");
-  }
+  export const isa = (o: any): o is StateExitedEventDetails =>
+    __isa(o, "StateExitedEventDetails");
 }
 
 export type StateMachineType = "EXPRESS" | "STANDARD";
@@ -829,9 +803,8 @@ export interface TaskFailedEventDetails {
 }
 
 export namespace TaskFailedEventDetails {
-  export function isa(o: any): o is TaskFailedEventDetails {
-    return __isa(o, "TaskFailedEventDetails");
-  }
+  export const isa = (o: any): o is TaskFailedEventDetails =>
+    __isa(o, "TaskFailedEventDetails");
 }
 
 /**
@@ -866,9 +839,8 @@ export interface TaskScheduledEventDetails {
 }
 
 export namespace TaskScheduledEventDetails {
-  export function isa(o: any): o is TaskScheduledEventDetails {
-    return __isa(o, "TaskScheduledEventDetails");
-  }
+  export const isa = (o: any): o is TaskScheduledEventDetails =>
+    __isa(o, "TaskScheduledEventDetails");
 }
 
 /**
@@ -898,9 +870,8 @@ export interface TaskStartFailedEventDetails {
 }
 
 export namespace TaskStartFailedEventDetails {
-  export function isa(o: any): o is TaskStartFailedEventDetails {
-    return __isa(o, "TaskStartFailedEventDetails");
-  }
+  export const isa = (o: any): o is TaskStartFailedEventDetails =>
+    __isa(o, "TaskStartFailedEventDetails");
 }
 
 /**
@@ -920,9 +891,8 @@ export interface TaskStartedEventDetails {
 }
 
 export namespace TaskStartedEventDetails {
-  export function isa(o: any): o is TaskStartedEventDetails {
-    return __isa(o, "TaskStartedEventDetails");
-  }
+  export const isa = (o: any): o is TaskStartedEventDetails =>
+    __isa(o, "TaskStartedEventDetails");
 }
 
 /**
@@ -952,9 +922,8 @@ export interface TaskSubmitFailedEventDetails {
 }
 
 export namespace TaskSubmitFailedEventDetails {
-  export function isa(o: any): o is TaskSubmitFailedEventDetails {
-    return __isa(o, "TaskSubmitFailedEventDetails");
-  }
+  export const isa = (o: any): o is TaskSubmitFailedEventDetails =>
+    __isa(o, "TaskSubmitFailedEventDetails");
 }
 
 /**
@@ -979,9 +948,8 @@ export interface TaskSubmittedEventDetails {
 }
 
 export namespace TaskSubmittedEventDetails {
-  export function isa(o: any): o is TaskSubmittedEventDetails {
-    return __isa(o, "TaskSubmittedEventDetails");
-  }
+  export const isa = (o: any): o is TaskSubmittedEventDetails =>
+    __isa(o, "TaskSubmittedEventDetails");
 }
 
 /**
@@ -1007,9 +975,8 @@ export interface TaskSucceededEventDetails {
 }
 
 export namespace TaskSucceededEventDetails {
-  export function isa(o: any): o is TaskSucceededEventDetails {
-    return __isa(o, "TaskSucceededEventDetails");
-  }
+  export const isa = (o: any): o is TaskSucceededEventDetails =>
+    __isa(o, "TaskSucceededEventDetails");
 }
 
 /**
@@ -1039,9 +1006,8 @@ export interface TaskTimedOutEventDetails {
 }
 
 export namespace TaskTimedOutEventDetails {
-  export function isa(o: any): o is TaskTimedOutEventDetails {
-    return __isa(o, "TaskTimedOutEventDetails");
-  }
+  export const isa = (o: any): o is TaskTimedOutEventDetails =>
+    __isa(o, "TaskTimedOutEventDetails");
 }
 
 /**
@@ -1056,9 +1022,8 @@ export interface ActivityDoesNotExist
 }
 
 export namespace ActivityDoesNotExist {
-  export function isa(o: any): o is ActivityDoesNotExist {
-    return __isa(o, "ActivityDoesNotExist");
-  }
+  export const isa = (o: any): o is ActivityDoesNotExist =>
+    __isa(o, "ActivityDoesNotExist");
 }
 
 /**
@@ -1074,9 +1039,8 @@ export interface ActivityLimitExceeded
 }
 
 export namespace ActivityLimitExceeded {
-  export function isa(o: any): o is ActivityLimitExceeded {
-    return __isa(o, "ActivityLimitExceeded");
-  }
+  export const isa = (o: any): o is ActivityLimitExceeded =>
+    __isa(o, "ActivityLimitExceeded");
 }
 
 /**
@@ -1122,9 +1086,8 @@ export interface ActivityListItem {
 }
 
 export namespace ActivityListItem {
-  export function isa(o: any): o is ActivityListItem {
-    return __isa(o, "ActivityListItem");
-  }
+  export const isa = (o: any): o is ActivityListItem =>
+    __isa(o, "ActivityListItem");
 }
 
 /**
@@ -1140,9 +1103,8 @@ export interface ActivityWorkerLimitExceeded
 }
 
 export namespace ActivityWorkerLimitExceeded {
-  export function isa(o: any): o is ActivityWorkerLimitExceeded {
-    return __isa(o, "ActivityWorkerLimitExceeded");
-  }
+  export const isa = (o: any): o is ActivityWorkerLimitExceeded =>
+    __isa(o, "ActivityWorkerLimitExceeded");
 }
 
 export interface CreateActivityInput {
@@ -1187,9 +1149,8 @@ export interface CreateActivityInput {
 }
 
 export namespace CreateActivityInput {
-  export function isa(o: any): o is CreateActivityInput {
-    return __isa(o, "CreateActivityInput");
-  }
+  export const isa = (o: any): o is CreateActivityInput =>
+    __isa(o, "CreateActivityInput");
 }
 
 export interface CreateActivityOutput {
@@ -1206,9 +1167,8 @@ export interface CreateActivityOutput {
 }
 
 export namespace CreateActivityOutput {
-  export function isa(o: any): o is CreateActivityOutput {
-    return __isa(o, "CreateActivityOutput");
-  }
+  export const isa = (o: any): o is CreateActivityOutput =>
+    __isa(o, "CreateActivityOutput");
 }
 
 export interface CreateStateMachineInput {
@@ -1271,9 +1231,8 @@ export interface CreateStateMachineInput {
 }
 
 export namespace CreateStateMachineInput {
-  export function isa(o: any): o is CreateStateMachineInput {
-    return __isa(o, "CreateStateMachineInput");
-  }
+  export const isa = (o: any): o is CreateStateMachineInput =>
+    __isa(o, "CreateStateMachineInput");
 }
 
 export interface CreateStateMachineOutput {
@@ -1290,9 +1249,8 @@ export interface CreateStateMachineOutput {
 }
 
 export namespace CreateStateMachineOutput {
-  export function isa(o: any): o is CreateStateMachineOutput {
-    return __isa(o, "CreateStateMachineOutput");
-  }
+  export const isa = (o: any): o is CreateStateMachineOutput =>
+    __isa(o, "CreateStateMachineOutput");
 }
 
 export interface DeleteActivityInput {
@@ -1304,9 +1262,8 @@ export interface DeleteActivityInput {
 }
 
 export namespace DeleteActivityInput {
-  export function isa(o: any): o is DeleteActivityInput {
-    return __isa(o, "DeleteActivityInput");
-  }
+  export const isa = (o: any): o is DeleteActivityInput =>
+    __isa(o, "DeleteActivityInput");
 }
 
 export interface DeleteActivityOutput {
@@ -1314,9 +1271,8 @@ export interface DeleteActivityOutput {
 }
 
 export namespace DeleteActivityOutput {
-  export function isa(o: any): o is DeleteActivityOutput {
-    return __isa(o, "DeleteActivityOutput");
-  }
+  export const isa = (o: any): o is DeleteActivityOutput =>
+    __isa(o, "DeleteActivityOutput");
 }
 
 export interface DeleteStateMachineInput {
@@ -1328,9 +1284,8 @@ export interface DeleteStateMachineInput {
 }
 
 export namespace DeleteStateMachineInput {
-  export function isa(o: any): o is DeleteStateMachineInput {
-    return __isa(o, "DeleteStateMachineInput");
-  }
+  export const isa = (o: any): o is DeleteStateMachineInput =>
+    __isa(o, "DeleteStateMachineInput");
 }
 
 export interface DeleteStateMachineOutput {
@@ -1338,9 +1293,8 @@ export interface DeleteStateMachineOutput {
 }
 
 export namespace DeleteStateMachineOutput {
-  export function isa(o: any): o is DeleteStateMachineOutput {
-    return __isa(o, "DeleteStateMachineOutput");
-  }
+  export const isa = (o: any): o is DeleteStateMachineOutput =>
+    __isa(o, "DeleteStateMachineOutput");
 }
 
 export interface DescribeActivityInput {
@@ -1352,9 +1306,8 @@ export interface DescribeActivityInput {
 }
 
 export namespace DescribeActivityInput {
-  export function isa(o: any): o is DescribeActivityInput {
-    return __isa(o, "DescribeActivityInput");
-  }
+  export const isa = (o: any): o is DescribeActivityInput =>
+    __isa(o, "DescribeActivityInput");
 }
 
 export interface DescribeActivityOutput {
@@ -1397,9 +1350,8 @@ export interface DescribeActivityOutput {
 }
 
 export namespace DescribeActivityOutput {
-  export function isa(o: any): o is DescribeActivityOutput {
-    return __isa(o, "DescribeActivityOutput");
-  }
+  export const isa = (o: any): o is DescribeActivityOutput =>
+    __isa(o, "DescribeActivityOutput");
 }
 
 export interface DescribeExecutionInput {
@@ -1411,9 +1363,8 @@ export interface DescribeExecutionInput {
 }
 
 export namespace DescribeExecutionInput {
-  export function isa(o: any): o is DescribeExecutionInput {
-    return __isa(o, "DescribeExecutionInput");
-  }
+  export const isa = (o: any): o is DescribeExecutionInput =>
+    __isa(o, "DescribeExecutionInput");
 }
 
 export interface DescribeExecutionOutput {
@@ -1485,9 +1436,8 @@ export interface DescribeExecutionOutput {
 }
 
 export namespace DescribeExecutionOutput {
-  export function isa(o: any): o is DescribeExecutionOutput {
-    return __isa(o, "DescribeExecutionOutput");
-  }
+  export const isa = (o: any): o is DescribeExecutionOutput =>
+    __isa(o, "DescribeExecutionOutput");
 }
 
 export interface DescribeStateMachineForExecutionInput {
@@ -1499,9 +1449,8 @@ export interface DescribeStateMachineForExecutionInput {
 }
 
 export namespace DescribeStateMachineForExecutionInput {
-  export function isa(o: any): o is DescribeStateMachineForExecutionInput {
-    return __isa(o, "DescribeStateMachineForExecutionInput");
-  }
+  export const isa = (o: any): o is DescribeStateMachineForExecutionInput =>
+    __isa(o, "DescribeStateMachineForExecutionInput");
 }
 
 export interface DescribeStateMachineForExecutionOutput {
@@ -1534,9 +1483,8 @@ export interface DescribeStateMachineForExecutionOutput {
 }
 
 export namespace DescribeStateMachineForExecutionOutput {
-  export function isa(o: any): o is DescribeStateMachineForExecutionOutput {
-    return __isa(o, "DescribeStateMachineForExecutionOutput");
-  }
+  export const isa = (o: any): o is DescribeStateMachineForExecutionOutput =>
+    __isa(o, "DescribeStateMachineForExecutionOutput");
 }
 
 export interface DescribeStateMachineInput {
@@ -1548,9 +1496,8 @@ export interface DescribeStateMachineInput {
 }
 
 export namespace DescribeStateMachineInput {
-  export function isa(o: any): o is DescribeStateMachineInput {
-    return __isa(o, "DescribeStateMachineInput");
-  }
+  export const isa = (o: any): o is DescribeStateMachineInput =>
+    __isa(o, "DescribeStateMachineInput");
 }
 
 export interface DescribeStateMachineOutput {
@@ -1619,9 +1566,8 @@ export interface DescribeStateMachineOutput {
 }
 
 export namespace DescribeStateMachineOutput {
-  export function isa(o: any): o is DescribeStateMachineOutput {
-    return __isa(o, "DescribeStateMachineOutput");
-  }
+  export const isa = (o: any): o is DescribeStateMachineOutput =>
+    __isa(o, "DescribeStateMachineOutput");
 }
 
 /**
@@ -1641,9 +1587,8 @@ export interface ExecutionAlreadyExists
 }
 
 export namespace ExecutionAlreadyExists {
-  export function isa(o: any): o is ExecutionAlreadyExists {
-    return __isa(o, "ExecutionAlreadyExists");
-  }
+  export const isa = (o: any): o is ExecutionAlreadyExists =>
+    __isa(o, "ExecutionAlreadyExists");
 }
 
 /**
@@ -1658,9 +1603,8 @@ export interface ExecutionDoesNotExist
 }
 
 export namespace ExecutionDoesNotExist {
-  export function isa(o: any): o is ExecutionDoesNotExist {
-    return __isa(o, "ExecutionDoesNotExist");
-  }
+  export const isa = (o: any): o is ExecutionDoesNotExist =>
+    __isa(o, "ExecutionDoesNotExist");
 }
 
 /**
@@ -1676,9 +1620,8 @@ export interface ExecutionLimitExceeded
 }
 
 export namespace ExecutionLimitExceeded {
-  export function isa(o: any): o is ExecutionLimitExceeded {
-    return __isa(o, "ExecutionLimitExceeded");
-  }
+  export const isa = (o: any): o is ExecutionLimitExceeded =>
+    __isa(o, "ExecutionLimitExceeded");
 }
 
 /**
@@ -1739,9 +1682,8 @@ export interface ExecutionListItem {
 }
 
 export namespace ExecutionListItem {
-  export function isa(o: any): o is ExecutionListItem {
-    return __isa(o, "ExecutionListItem");
-  }
+  export const isa = (o: any): o is ExecutionListItem =>
+    __isa(o, "ExecutionListItem");
 }
 
 export type ExecutionStatus =
@@ -1767,9 +1709,8 @@ export interface GetActivityTaskInput {
 }
 
 export namespace GetActivityTaskInput {
-  export function isa(o: any): o is GetActivityTaskInput {
-    return __isa(o, "GetActivityTaskInput");
-  }
+  export const isa = (o: any): o is GetActivityTaskInput =>
+    __isa(o, "GetActivityTaskInput");
 }
 
 export interface GetActivityTaskOutput {
@@ -1789,9 +1730,8 @@ export interface GetActivityTaskOutput {
 }
 
 export namespace GetActivityTaskOutput {
-  export function isa(o: any): o is GetActivityTaskOutput {
-    return __isa(o, "GetActivityTaskOutput");
-  }
+  export const isa = (o: any): o is GetActivityTaskOutput =>
+    __isa(o, "GetActivityTaskOutput");
 }
 
 export interface GetExecutionHistoryInput {
@@ -1821,9 +1761,8 @@ export interface GetExecutionHistoryInput {
 }
 
 export namespace GetExecutionHistoryInput {
-  export function isa(o: any): o is GetExecutionHistoryInput {
-    return __isa(o, "GetExecutionHistoryInput");
-  }
+  export const isa = (o: any): o is GetExecutionHistoryInput =>
+    __isa(o, "GetExecutionHistoryInput");
 }
 
 export interface GetExecutionHistoryOutput {
@@ -1841,9 +1780,8 @@ export interface GetExecutionHistoryOutput {
 }
 
 export namespace GetExecutionHistoryOutput {
-  export function isa(o: any): o is GetExecutionHistoryOutput {
-    return __isa(o, "GetExecutionHistoryOutput");
-  }
+  export const isa = (o: any): o is GetExecutionHistoryOutput =>
+    __isa(o, "GetExecutionHistoryOutput");
 }
 
 /**
@@ -1856,9 +1794,7 @@ export interface InvalidArn extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidArn {
-  export function isa(o: any): o is InvalidArn {
-    return __isa(o, "InvalidArn");
-  }
+  export const isa = (o: any): o is InvalidArn => __isa(o, "InvalidArn");
 }
 
 /**
@@ -1871,9 +1807,8 @@ export interface InvalidDefinition extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidDefinition {
-  export function isa(o: any): o is InvalidDefinition {
-    return __isa(o, "InvalidDefinition");
-  }
+  export const isa = (o: any): o is InvalidDefinition =>
+    __isa(o, "InvalidDefinition");
 }
 
 /**
@@ -1888,9 +1823,8 @@ export interface InvalidExecutionInput
 }
 
 export namespace InvalidExecutionInput {
-  export function isa(o: any): o is InvalidExecutionInput {
-    return __isa(o, "InvalidExecutionInput");
-  }
+  export const isa = (o: any): o is InvalidExecutionInput =>
+    __isa(o, "InvalidExecutionInput");
 }
 
 /**
@@ -1905,9 +1839,8 @@ export interface InvalidLoggingConfiguration
 }
 
 export namespace InvalidLoggingConfiguration {
-  export function isa(o: any): o is InvalidLoggingConfiguration {
-    return __isa(o, "InvalidLoggingConfiguration");
-  }
+  export const isa = (o: any): o is InvalidLoggingConfiguration =>
+    __isa(o, "InvalidLoggingConfiguration");
 }
 
 /**
@@ -1920,9 +1853,7 @@ export interface InvalidName extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidName {
-  export function isa(o: any): o is InvalidName {
-    return __isa(o, "InvalidName");
-  }
+  export const isa = (o: any): o is InvalidName => __isa(o, "InvalidName");
 }
 
 /**
@@ -1935,9 +1866,7 @@ export interface InvalidOutput extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidOutput {
-  export function isa(o: any): o is InvalidOutput {
-    return __isa(o, "InvalidOutput");
-  }
+  export const isa = (o: any): o is InvalidOutput => __isa(o, "InvalidOutput");
 }
 
 /**
@@ -1950,9 +1879,7 @@ export interface InvalidToken extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidToken {
-  export function isa(o: any): o is InvalidToken {
-    return __isa(o, "InvalidToken");
-  }
+  export const isa = (o: any): o is InvalidToken => __isa(o, "InvalidToken");
 }
 
 export interface ListActivitiesInput {
@@ -1972,9 +1899,8 @@ export interface ListActivitiesInput {
 }
 
 export namespace ListActivitiesInput {
-  export function isa(o: any): o is ListActivitiesInput {
-    return __isa(o, "ListActivitiesInput");
-  }
+  export const isa = (o: any): o is ListActivitiesInput =>
+    __isa(o, "ListActivitiesInput");
 }
 
 export interface ListActivitiesOutput {
@@ -1992,9 +1918,8 @@ export interface ListActivitiesOutput {
 }
 
 export namespace ListActivitiesOutput {
-  export function isa(o: any): o is ListActivitiesOutput {
-    return __isa(o, "ListActivitiesOutput");
-  }
+  export const isa = (o: any): o is ListActivitiesOutput =>
+    __isa(o, "ListActivitiesOutput");
 }
 
 export interface ListExecutionsInput {
@@ -2025,9 +1950,8 @@ export interface ListExecutionsInput {
 }
 
 export namespace ListExecutionsInput {
-  export function isa(o: any): o is ListExecutionsInput {
-    return __isa(o, "ListExecutionsInput");
-  }
+  export const isa = (o: any): o is ListExecutionsInput =>
+    __isa(o, "ListExecutionsInput");
 }
 
 export interface ListExecutionsOutput {
@@ -2045,9 +1969,8 @@ export interface ListExecutionsOutput {
 }
 
 export namespace ListExecutionsOutput {
-  export function isa(o: any): o is ListExecutionsOutput {
-    return __isa(o, "ListExecutionsOutput");
-  }
+  export const isa = (o: any): o is ListExecutionsOutput =>
+    __isa(o, "ListExecutionsOutput");
 }
 
 export interface ListStateMachinesInput {
@@ -2067,9 +1990,8 @@ export interface ListStateMachinesInput {
 }
 
 export namespace ListStateMachinesInput {
-  export function isa(o: any): o is ListStateMachinesInput {
-    return __isa(o, "ListStateMachinesInput");
-  }
+  export const isa = (o: any): o is ListStateMachinesInput =>
+    __isa(o, "ListStateMachinesInput");
 }
 
 export interface ListStateMachinesOutput {
@@ -2084,9 +2006,8 @@ export interface ListStateMachinesOutput {
 }
 
 export namespace ListStateMachinesOutput {
-  export function isa(o: any): o is ListStateMachinesOutput {
-    return __isa(o, "ListStateMachinesOutput");
-  }
+  export const isa = (o: any): o is ListStateMachinesOutput =>
+    __isa(o, "ListStateMachinesOutput");
 }
 
 export interface ListTagsForResourceInput {
@@ -2098,9 +2019,8 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
-  export function isa(o: any): o is ListTagsForResourceInput {
-    return __isa(o, "ListTagsForResourceInput");
-  }
+  export const isa = (o: any): o is ListTagsForResourceInput =>
+    __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceOutput {
@@ -2112,9 +2032,8 @@ export interface ListTagsForResourceOutput {
 }
 
 export namespace ListTagsForResourceOutput {
-  export function isa(o: any): o is ListTagsForResourceOutput {
-    return __isa(o, "ListTagsForResourceOutput");
-  }
+  export const isa = (o: any): o is ListTagsForResourceOutput =>
+    __isa(o, "ListTagsForResourceOutput");
 }
 
 /**
@@ -2130,9 +2049,8 @@ export interface MissingRequiredParameter
 }
 
 export namespace MissingRequiredParameter {
-  export function isa(o: any): o is MissingRequiredParameter {
-    return __isa(o, "MissingRequiredParameter");
-  }
+  export const isa = (o: any): o is MissingRequiredParameter =>
+    __isa(o, "MissingRequiredParameter");
 }
 
 /**
@@ -2147,9 +2065,8 @@ export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ResourceNotFound {
-  export function isa(o: any): o is ResourceNotFound {
-    return __isa(o, "ResourceNotFound");
-  }
+  export const isa = (o: any): o is ResourceNotFound =>
+    __isa(o, "ResourceNotFound");
 }
 
 export interface SendTaskFailureInput {
@@ -2173,9 +2090,8 @@ export interface SendTaskFailureInput {
 }
 
 export namespace SendTaskFailureInput {
-  export function isa(o: any): o is SendTaskFailureInput {
-    return __isa(o, "SendTaskFailureInput");
-  }
+  export const isa = (o: any): o is SendTaskFailureInput =>
+    __isa(o, "SendTaskFailureInput");
 }
 
 export interface SendTaskFailureOutput {
@@ -2183,9 +2099,8 @@ export interface SendTaskFailureOutput {
 }
 
 export namespace SendTaskFailureOutput {
-  export function isa(o: any): o is SendTaskFailureOutput {
-    return __isa(o, "SendTaskFailureOutput");
-  }
+  export const isa = (o: any): o is SendTaskFailureOutput =>
+    __isa(o, "SendTaskFailureOutput");
 }
 
 export interface SendTaskHeartbeatInput {
@@ -2199,9 +2114,8 @@ export interface SendTaskHeartbeatInput {
 }
 
 export namespace SendTaskHeartbeatInput {
-  export function isa(o: any): o is SendTaskHeartbeatInput {
-    return __isa(o, "SendTaskHeartbeatInput");
-  }
+  export const isa = (o: any): o is SendTaskHeartbeatInput =>
+    __isa(o, "SendTaskHeartbeatInput");
 }
 
 export interface SendTaskHeartbeatOutput {
@@ -2209,9 +2123,8 @@ export interface SendTaskHeartbeatOutput {
 }
 
 export namespace SendTaskHeartbeatOutput {
-  export function isa(o: any): o is SendTaskHeartbeatOutput {
-    return __isa(o, "SendTaskHeartbeatOutput");
-  }
+  export const isa = (o: any): o is SendTaskHeartbeatOutput =>
+    __isa(o, "SendTaskHeartbeatOutput");
 }
 
 export interface SendTaskSuccessInput {
@@ -2230,9 +2143,8 @@ export interface SendTaskSuccessInput {
 }
 
 export namespace SendTaskSuccessInput {
-  export function isa(o: any): o is SendTaskSuccessInput {
-    return __isa(o, "SendTaskSuccessInput");
-  }
+  export const isa = (o: any): o is SendTaskSuccessInput =>
+    __isa(o, "SendTaskSuccessInput");
 }
 
 export interface SendTaskSuccessOutput {
@@ -2240,9 +2152,8 @@ export interface SendTaskSuccessOutput {
 }
 
 export namespace SendTaskSuccessOutput {
-  export function isa(o: any): o is SendTaskSuccessOutput {
-    return __isa(o, "SendTaskSuccessOutput");
-  }
+  export const isa = (o: any): o is SendTaskSuccessOutput =>
+    __isa(o, "SendTaskSuccessOutput");
 }
 
 export interface StartExecutionInput {
@@ -2295,9 +2206,8 @@ export interface StartExecutionInput {
 }
 
 export namespace StartExecutionInput {
-  export function isa(o: any): o is StartExecutionInput {
-    return __isa(o, "StartExecutionInput");
-  }
+  export const isa = (o: any): o is StartExecutionInput =>
+    __isa(o, "StartExecutionInput");
 }
 
 export interface StartExecutionOutput {
@@ -2314,9 +2224,8 @@ export interface StartExecutionOutput {
 }
 
 export namespace StartExecutionOutput {
-  export function isa(o: any): o is StartExecutionOutput {
-    return __isa(o, "StartExecutionOutput");
-  }
+  export const isa = (o: any): o is StartExecutionOutput =>
+    __isa(o, "StartExecutionOutput");
 }
 
 /**
@@ -2332,9 +2241,8 @@ export interface StateMachineAlreadyExists
 }
 
 export namespace StateMachineAlreadyExists {
-  export function isa(o: any): o is StateMachineAlreadyExists {
-    return __isa(o, "StateMachineAlreadyExists");
-  }
+  export const isa = (o: any): o is StateMachineAlreadyExists =>
+    __isa(o, "StateMachineAlreadyExists");
 }
 
 /**
@@ -2349,9 +2257,8 @@ export interface StateMachineDeleting
 }
 
 export namespace StateMachineDeleting {
-  export function isa(o: any): o is StateMachineDeleting {
-    return __isa(o, "StateMachineDeleting");
-  }
+  export const isa = (o: any): o is StateMachineDeleting =>
+    __isa(o, "StateMachineDeleting");
 }
 
 /**
@@ -2366,9 +2273,8 @@ export interface StateMachineDoesNotExist
 }
 
 export namespace StateMachineDoesNotExist {
-  export function isa(o: any): o is StateMachineDoesNotExist {
-    return __isa(o, "StateMachineDoesNotExist");
-  }
+  export const isa = (o: any): o is StateMachineDoesNotExist =>
+    __isa(o, "StateMachineDoesNotExist");
 }
 
 /**
@@ -2384,9 +2290,8 @@ export interface StateMachineLimitExceeded
 }
 
 export namespace StateMachineLimitExceeded {
-  export function isa(o: any): o is StateMachineLimitExceeded {
-    return __isa(o, "StateMachineLimitExceeded");
-  }
+  export const isa = (o: any): o is StateMachineLimitExceeded =>
+    __isa(o, "StateMachineLimitExceeded");
 }
 
 /**
@@ -2437,9 +2342,8 @@ export interface StateMachineListItem {
 }
 
 export namespace StateMachineListItem {
-  export function isa(o: any): o is StateMachineListItem {
-    return __isa(o, "StateMachineListItem");
-  }
+  export const isa = (o: any): o is StateMachineListItem =>
+    __isa(o, "StateMachineListItem");
 }
 
 export type StateMachineStatus = "ACTIVE" | "DELETING";
@@ -2456,9 +2360,8 @@ export interface StateMachineTypeNotSupported
 }
 
 export namespace StateMachineTypeNotSupported {
-  export function isa(o: any): o is StateMachineTypeNotSupported {
-    return __isa(o, "StateMachineTypeNotSupported");
-  }
+  export const isa = (o: any): o is StateMachineTypeNotSupported =>
+    __isa(o, "StateMachineTypeNotSupported");
 }
 
 export interface StopExecutionInput {
@@ -2480,9 +2383,8 @@ export interface StopExecutionInput {
 }
 
 export namespace StopExecutionInput {
-  export function isa(o: any): o is StopExecutionInput {
-    return __isa(o, "StopExecutionInput");
-  }
+  export const isa = (o: any): o is StopExecutionInput =>
+    __isa(o, "StopExecutionInput");
 }
 
 export interface StopExecutionOutput {
@@ -2494,9 +2396,8 @@ export interface StopExecutionOutput {
 }
 
 export namespace StopExecutionOutput {
-  export function isa(o: any): o is StopExecutionOutput {
-    return __isa(o, "StopExecutionOutput");
-  }
+  export const isa = (o: any): o is StopExecutionOutput =>
+    __isa(o, "StopExecutionOutput");
 }
 
 /**
@@ -2522,9 +2423,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceInput {
@@ -2542,9 +2441,8 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
-  export function isa(o: any): o is TagResourceInput {
-    return __isa(o, "TagResourceInput");
-  }
+  export const isa = (o: any): o is TagResourceInput =>
+    __isa(o, "TagResourceInput");
 }
 
 export interface TagResourceOutput {
@@ -2552,9 +2450,8 @@ export interface TagResourceOutput {
 }
 
 export namespace TagResourceOutput {
-  export function isa(o: any): o is TagResourceOutput {
-    return __isa(o, "TagResourceOutput");
-  }
+  export const isa = (o: any): o is TagResourceOutput =>
+    __isa(o, "TagResourceOutput");
 }
 
 export interface TaskDoesNotExist extends __SmithyException, $MetadataBearer {
@@ -2564,9 +2461,8 @@ export interface TaskDoesNotExist extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TaskDoesNotExist {
-  export function isa(o: any): o is TaskDoesNotExist {
-    return __isa(o, "TaskDoesNotExist");
-  }
+  export const isa = (o: any): o is TaskDoesNotExist =>
+    __isa(o, "TaskDoesNotExist");
 }
 
 export interface TaskTimedOut extends __SmithyException, $MetadataBearer {
@@ -2576,9 +2472,7 @@ export interface TaskTimedOut extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TaskTimedOut {
-  export function isa(o: any): o is TaskTimedOut {
-    return __isa(o, "TaskTimedOut");
-  }
+  export const isa = (o: any): o is TaskTimedOut => __isa(o, "TaskTimedOut");
 }
 
 /**
@@ -2593,9 +2487,7 @@ export interface TooManyTags extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TooManyTags {
-  export function isa(o: any): o is TooManyTags {
-    return __isa(o, "TooManyTags");
-  }
+  export const isa = (o: any): o is TooManyTags => __isa(o, "TooManyTags");
 }
 
 export interface UntagResourceInput {
@@ -2612,9 +2504,8 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
-  export function isa(o: any): o is UntagResourceInput {
-    return __isa(o, "UntagResourceInput");
-  }
+  export const isa = (o: any): o is UntagResourceInput =>
+    __isa(o, "UntagResourceInput");
 }
 
 export interface UntagResourceOutput {
@@ -2622,9 +2513,8 @@ export interface UntagResourceOutput {
 }
 
 export namespace UntagResourceOutput {
-  export function isa(o: any): o is UntagResourceOutput {
-    return __isa(o, "UntagResourceOutput");
-  }
+  export const isa = (o: any): o is UntagResourceOutput =>
+    __isa(o, "UntagResourceOutput");
 }
 
 export interface UpdateStateMachineInput {
@@ -2651,9 +2541,8 @@ export interface UpdateStateMachineInput {
 }
 
 export namespace UpdateStateMachineInput {
-  export function isa(o: any): o is UpdateStateMachineInput {
-    return __isa(o, "UpdateStateMachineInput");
-  }
+  export const isa = (o: any): o is UpdateStateMachineInput =>
+    __isa(o, "UpdateStateMachineInput");
 }
 
 export interface UpdateStateMachineOutput {
@@ -2665,7 +2554,6 @@ export interface UpdateStateMachineOutput {
 }
 
 export namespace UpdateStateMachineOutput {
-  export function isa(o: any): o is UpdateStateMachineOutput {
-    return __isa(o, "UpdateStateMachineOutput");
-  }
+  export const isa = (o: any): o is UpdateStateMachineOutput =>
+    __isa(o, "UpdateStateMachineOutput");
 }

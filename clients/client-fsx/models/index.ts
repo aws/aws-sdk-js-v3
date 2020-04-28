@@ -21,9 +21,8 @@ export interface ActiveDirectoryBackupAttributes {
 }
 
 export namespace ActiveDirectoryBackupAttributes {
-  export function isa(o: any): o is ActiveDirectoryBackupAttributes {
-    return __isa(o, "ActiveDirectoryBackupAttributes");
-  }
+  export const isa = (o: any): o is ActiveDirectoryBackupAttributes =>
+    __isa(o, "ActiveDirectoryBackupAttributes");
 }
 
 /**
@@ -51,9 +50,8 @@ export interface ActiveDirectoryError
 }
 
 export namespace ActiveDirectoryError {
-  export function isa(o: any): o is ActiveDirectoryError {
-    return __isa(o, "ActiveDirectoryError");
-  }
+  export const isa = (o: any): o is ActiveDirectoryError =>
+    __isa(o, "ActiveDirectoryError");
 }
 
 export enum ActiveDirectoryErrorType {
@@ -129,9 +127,7 @@ export interface Backup {
 }
 
 export namespace Backup {
-  export function isa(o: any): o is Backup {
-    return __isa(o, "Backup");
-  }
+  export const isa = (o: any): o is Backup => __isa(o, "Backup");
 }
 
 /**
@@ -147,9 +143,8 @@ export interface BackupFailureDetails {
 }
 
 export namespace BackupFailureDetails {
-  export function isa(o: any): o is BackupFailureDetails {
-    return __isa(o, "BackupFailureDetails");
-  }
+  export const isa = (o: any): o is BackupFailureDetails =>
+    __isa(o, "BackupFailureDetails");
 }
 
 /**
@@ -166,9 +161,8 @@ export interface BackupInProgress extends __SmithyException, $MetadataBearer {
 }
 
 export namespace BackupInProgress {
-  export function isa(o: any): o is BackupInProgress {
-    return __isa(o, "BackupInProgress");
-  }
+  export const isa = (o: any): o is BackupInProgress =>
+    __isa(o, "BackupInProgress");
 }
 
 export enum BackupLifecycle {
@@ -191,9 +185,8 @@ export interface BackupNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace BackupNotFound {
-  export function isa(o: any): o is BackupNotFound {
-    return __isa(o, "BackupNotFound");
-  }
+  export const isa = (o: any): o is BackupNotFound =>
+    __isa(o, "BackupNotFound");
 }
 
 /**
@@ -215,9 +208,8 @@ export interface BackupRestoring extends __SmithyException, $MetadataBearer {
 }
 
 export namespace BackupRestoring {
-  export function isa(o: any): o is BackupRestoring {
-    return __isa(o, "BackupRestoring");
-  }
+  export const isa = (o: any): o is BackupRestoring =>
+    __isa(o, "BackupRestoring");
 }
 
 export enum BackupType {
@@ -238,9 +230,7 @@ export interface BadRequest extends __SmithyException, $MetadataBearer {
 }
 
 export namespace BadRequest {
-  export function isa(o: any): o is BadRequest {
-    return __isa(o, "BadRequest");
-  }
+  export const isa = (o: any): o is BadRequest => __isa(o, "BadRequest");
 }
 
 /**
@@ -255,9 +245,8 @@ export interface CancelDataRepositoryTaskRequest {
 }
 
 export namespace CancelDataRepositoryTaskRequest {
-  export function isa(o: any): o is CancelDataRepositoryTaskRequest {
-    return __isa(o, "CancelDataRepositoryTaskRequest");
-  }
+  export const isa = (o: any): o is CancelDataRepositoryTaskRequest =>
+    __isa(o, "CancelDataRepositoryTaskRequest");
 }
 
 export interface CancelDataRepositoryTaskResponse {
@@ -301,9 +290,8 @@ export interface CancelDataRepositoryTaskResponse {
 }
 
 export namespace CancelDataRepositoryTaskResponse {
-  export function isa(o: any): o is CancelDataRepositoryTaskResponse {
-    return __isa(o, "CancelDataRepositoryTaskResponse");
-  }
+  export const isa = (o: any): o is CancelDataRepositoryTaskResponse =>
+    __isa(o, "CancelDataRepositoryTaskResponse");
 }
 
 /**
@@ -346,9 +334,8 @@ export interface CompletionReport {
 }
 
 export namespace CompletionReport {
-  export function isa(o: any): o is CompletionReport {
-    return __isa(o, "CompletionReport");
-  }
+  export const isa = (o: any): o is CompletionReport =>
+    __isa(o, "CompletionReport");
 }
 
 /**
@@ -376,9 +363,8 @@ export interface CreateBackupRequest {
 }
 
 export namespace CreateBackupRequest {
-  export function isa(o: any): o is CreateBackupRequest {
-    return __isa(o, "CreateBackupRequest");
-  }
+  export const isa = (o: any): o is CreateBackupRequest =>
+    __isa(o, "CreateBackupRequest");
 }
 
 /**
@@ -393,9 +379,8 @@ export interface CreateBackupResponse {
 }
 
 export namespace CreateBackupResponse {
-  export function isa(o: any): o is CreateBackupResponse {
-    return __isa(o, "CreateBackupResponse");
-  }
+  export const isa = (o: any): o is CreateBackupResponse =>
+    __isa(o, "CreateBackupResponse");
 }
 
 export interface CreateDataRepositoryTaskRequest {
@@ -438,9 +423,8 @@ export interface CreateDataRepositoryTaskRequest {
 }
 
 export namespace CreateDataRepositoryTaskRequest {
-  export function isa(o: any): o is CreateDataRepositoryTaskRequest {
-    return __isa(o, "CreateDataRepositoryTaskRequest");
-  }
+  export const isa = (o: any): o is CreateDataRepositoryTaskRequest =>
+    __isa(o, "CreateDataRepositoryTaskRequest");
 }
 
 export interface CreateDataRepositoryTaskResponse {
@@ -452,9 +436,8 @@ export interface CreateDataRepositoryTaskResponse {
 }
 
 export namespace CreateDataRepositoryTaskResponse {
-  export function isa(o: any): o is CreateDataRepositoryTaskResponse {
-    return __isa(o, "CreateDataRepositoryTaskResponse");
-  }
+  export const isa = (o: any): o is CreateDataRepositoryTaskResponse =>
+    __isa(o, "CreateDataRepositoryTaskResponse");
 }
 
 /**
@@ -503,9 +486,8 @@ export interface CreateFileSystemFromBackupRequest {
 }
 
 export namespace CreateFileSystemFromBackupRequest {
-  export function isa(o: any): o is CreateFileSystemFromBackupRequest {
-    return __isa(o, "CreateFileSystemFromBackupRequest");
-  }
+  export const isa = (o: any): o is CreateFileSystemFromBackupRequest =>
+    __isa(o, "CreateFileSystemFromBackupRequest");
 }
 
 /**
@@ -521,9 +503,8 @@ export interface CreateFileSystemFromBackupResponse {
 }
 
 export namespace CreateFileSystemFromBackupResponse {
-  export function isa(o: any): o is CreateFileSystemFromBackupResponse {
-    return __isa(o, "CreateFileSystemFromBackupResponse");
-  }
+  export const isa = (o: any): o is CreateFileSystemFromBackupResponse =>
+    __isa(o, "CreateFileSystemFromBackupResponse");
 }
 
 /**
@@ -580,9 +561,8 @@ export interface CreateFileSystemLustreConfiguration {
 }
 
 export namespace CreateFileSystemLustreConfiguration {
-  export function isa(o: any): o is CreateFileSystemLustreConfiguration {
-    return __isa(o, "CreateFileSystemLustreConfiguration");
-  }
+  export const isa = (o: any): o is CreateFileSystemLustreConfiguration =>
+    __isa(o, "CreateFileSystemLustreConfiguration");
 }
 
 /**
@@ -654,9 +634,8 @@ export interface CreateFileSystemRequest {
 }
 
 export namespace CreateFileSystemRequest {
-  export function isa(o: any): o is CreateFileSystemRequest {
-    return __isa(o, "CreateFileSystemRequest");
-  }
+  export const isa = (o: any): o is CreateFileSystemRequest =>
+    __isa(o, "CreateFileSystemRequest");
 }
 
 /**
@@ -671,9 +650,8 @@ export interface CreateFileSystemResponse {
 }
 
 export namespace CreateFileSystemResponse {
-  export function isa(o: any): o is CreateFileSystemResponse {
-    return __isa(o, "CreateFileSystemResponse");
-  }
+  export const isa = (o: any): o is CreateFileSystemResponse =>
+    __isa(o, "CreateFileSystemResponse");
 }
 
 /**
@@ -758,9 +736,8 @@ export interface CreateFileSystemWindowsConfiguration {
 }
 
 export namespace CreateFileSystemWindowsConfiguration {
-  export function isa(o: any): o is CreateFileSystemWindowsConfiguration {
-    return __isa(o, "CreateFileSystemWindowsConfiguration");
-  }
+  export const isa = (o: any): o is CreateFileSystemWindowsConfiguration =>
+    __isa(o, "CreateFileSystemWindowsConfiguration");
 }
 
 /**
@@ -797,9 +774,8 @@ export interface DataRepositoryConfiguration {
 }
 
 export namespace DataRepositoryConfiguration {
-  export function isa(o: any): o is DataRepositoryConfiguration {
-    return __isa(o, "DataRepositoryConfiguration");
-  }
+  export const isa = (o: any): o is DataRepositoryConfiguration =>
+    __isa(o, "DataRepositoryConfiguration");
 }
 
 /**
@@ -919,9 +895,8 @@ export interface DataRepositoryTask {
 }
 
 export namespace DataRepositoryTask {
-  export function isa(o: any): o is DataRepositoryTask {
-    return __isa(o, "DataRepositoryTask");
-  }
+  export const isa = (o: any): o is DataRepositoryTask =>
+    __isa(o, "DataRepositoryTask");
 }
 
 /**
@@ -939,9 +914,8 @@ export interface DataRepositoryTaskEnded
 }
 
 export namespace DataRepositoryTaskEnded {
-  export function isa(o: any): o is DataRepositoryTaskEnded {
-    return __isa(o, "DataRepositoryTaskEnded");
-  }
+  export const isa = (o: any): o is DataRepositoryTaskEnded =>
+    __isa(o, "DataRepositoryTaskEnded");
 }
 
 /**
@@ -960,9 +934,8 @@ export interface DataRepositoryTaskExecuting
 }
 
 export namespace DataRepositoryTaskExecuting {
-  export function isa(o: any): o is DataRepositoryTaskExecuting {
-    return __isa(o, "DataRepositoryTaskExecuting");
-  }
+  export const isa = (o: any): o is DataRepositoryTaskExecuting =>
+    __isa(o, "DataRepositoryTaskExecuting");
 }
 
 /**
@@ -977,9 +950,8 @@ export interface DataRepositoryTaskFailureDetails {
 }
 
 export namespace DataRepositoryTaskFailureDetails {
-  export function isa(o: any): o is DataRepositoryTaskFailureDetails {
-    return __isa(o, "DataRepositoryTaskFailureDetails");
-  }
+  export const isa = (o: any): o is DataRepositoryTaskFailureDetails =>
+    __isa(o, "DataRepositoryTaskFailureDetails");
 }
 
 /**
@@ -1011,9 +983,8 @@ export interface DataRepositoryTaskFilter {
 }
 
 export namespace DataRepositoryTaskFilter {
-  export function isa(o: any): o is DataRepositoryTaskFilter {
-    return __isa(o, "DataRepositoryTaskFilter");
-  }
+  export const isa = (o: any): o is DataRepositoryTaskFilter =>
+    __isa(o, "DataRepositoryTaskFilter");
 }
 
 export enum DataRepositoryTaskFilterName {
@@ -1045,9 +1016,8 @@ export interface DataRepositoryTaskNotFound
 }
 
 export namespace DataRepositoryTaskNotFound {
-  export function isa(o: any): o is DataRepositoryTaskNotFound {
-    return __isa(o, "DataRepositoryTaskNotFound");
-  }
+  export const isa = (o: any): o is DataRepositoryTaskNotFound =>
+    __isa(o, "DataRepositoryTaskNotFound");
 }
 
 /**
@@ -1080,9 +1050,8 @@ export interface DataRepositoryTaskStatus {
 }
 
 export namespace DataRepositoryTaskStatus {
-  export function isa(o: any): o is DataRepositoryTaskStatus {
-    return __isa(o, "DataRepositoryTaskStatus");
-  }
+  export const isa = (o: any): o is DataRepositoryTaskStatus =>
+    __isa(o, "DataRepositoryTaskStatus");
 }
 
 export enum DataRepositoryTaskType {
@@ -1108,9 +1077,8 @@ export interface DeleteBackupRequest {
 }
 
 export namespace DeleteBackupRequest {
-  export function isa(o: any): o is DeleteBackupRequest {
-    return __isa(o, "DeleteBackupRequest");
-  }
+  export const isa = (o: any): o is DeleteBackupRequest =>
+    __isa(o, "DeleteBackupRequest");
 }
 
 /**
@@ -1130,9 +1098,8 @@ export interface DeleteBackupResponse {
 }
 
 export namespace DeleteBackupResponse {
-  export function isa(o: any): o is DeleteBackupResponse {
-    return __isa(o, "DeleteBackupResponse");
-  }
+  export const isa = (o: any): o is DeleteBackupResponse =>
+    __isa(o, "DeleteBackupResponse");
 }
 
 /**
@@ -1160,9 +1127,8 @@ export interface DeleteFileSystemRequest {
 }
 
 export namespace DeleteFileSystemRequest {
-  export function isa(o: any): o is DeleteFileSystemRequest {
-    return __isa(o, "DeleteFileSystemRequest");
-  }
+  export const isa = (o: any): o is DeleteFileSystemRequest =>
+    __isa(o, "DeleteFileSystemRequest");
 }
 
 /**
@@ -1189,9 +1155,8 @@ export interface DeleteFileSystemResponse {
 }
 
 export namespace DeleteFileSystemResponse {
-  export function isa(o: any): o is DeleteFileSystemResponse {
-    return __isa(o, "DeleteFileSystemResponse");
-  }
+  export const isa = (o: any): o is DeleteFileSystemResponse =>
+    __isa(o, "DeleteFileSystemResponse");
 }
 
 /**
@@ -1215,9 +1180,8 @@ export interface DeleteFileSystemWindowsConfiguration {
 }
 
 export namespace DeleteFileSystemWindowsConfiguration {
-  export function isa(o: any): o is DeleteFileSystemWindowsConfiguration {
-    return __isa(o, "DeleteFileSystemWindowsConfiguration");
-  }
+  export const isa = (o: any): o is DeleteFileSystemWindowsConfiguration =>
+    __isa(o, "DeleteFileSystemWindowsConfiguration");
 }
 
 /**
@@ -1238,9 +1202,8 @@ export interface DeleteFileSystemWindowsResponse {
 }
 
 export namespace DeleteFileSystemWindowsResponse {
-  export function isa(o: any): o is DeleteFileSystemWindowsResponse {
-    return __isa(o, "DeleteFileSystemWindowsResponse");
-  }
+  export const isa = (o: any): o is DeleteFileSystemWindowsResponse =>
+    __isa(o, "DeleteFileSystemWindowsResponse");
 }
 
 /**
@@ -1277,9 +1240,8 @@ export interface DescribeBackupsRequest {
 }
 
 export namespace DescribeBackupsRequest {
-  export function isa(o: any): o is DescribeBackupsRequest {
-    return __isa(o, "DescribeBackupsRequest");
-  }
+  export const isa = (o: any): o is DescribeBackupsRequest =>
+    __isa(o, "DescribeBackupsRequest");
 }
 
 /**
@@ -1301,9 +1263,8 @@ export interface DescribeBackupsResponse {
 }
 
 export namespace DescribeBackupsResponse {
-  export function isa(o: any): o is DescribeBackupsResponse {
-    return __isa(o, "DescribeBackupsResponse");
-  }
+  export const isa = (o: any): o is DescribeBackupsResponse =>
+    __isa(o, "DescribeBackupsResponse");
 }
 
 export interface DescribeDataRepositoryTasksRequest {
@@ -1335,9 +1296,8 @@ export interface DescribeDataRepositoryTasksRequest {
 }
 
 export namespace DescribeDataRepositoryTasksRequest {
-  export function isa(o: any): o is DescribeDataRepositoryTasksRequest {
-    return __isa(o, "DescribeDataRepositoryTasksRequest");
-  }
+  export const isa = (o: any): o is DescribeDataRepositoryTasksRequest =>
+    __isa(o, "DescribeDataRepositoryTasksRequest");
 }
 
 export interface DescribeDataRepositoryTasksResponse {
@@ -1356,9 +1316,8 @@ export interface DescribeDataRepositoryTasksResponse {
 }
 
 export namespace DescribeDataRepositoryTasksResponse {
-  export function isa(o: any): o is DescribeDataRepositoryTasksResponse {
-    return __isa(o, "DescribeDataRepositoryTasksResponse");
-  }
+  export const isa = (o: any): o is DescribeDataRepositoryTasksResponse =>
+    __isa(o, "DescribeDataRepositoryTasksResponse");
 }
 
 /**
@@ -1389,9 +1348,8 @@ export interface DescribeFileSystemsRequest {
 }
 
 export namespace DescribeFileSystemsRequest {
-  export function isa(o: any): o is DescribeFileSystemsRequest {
-    return __isa(o, "DescribeFileSystemsRequest");
-  }
+  export const isa = (o: any): o is DescribeFileSystemsRequest =>
+    __isa(o, "DescribeFileSystemsRequest");
 }
 
 /**
@@ -1413,9 +1371,8 @@ export interface DescribeFileSystemsResponse {
 }
 
 export namespace DescribeFileSystemsResponse {
-  export function isa(o: any): o is DescribeFileSystemsResponse {
-    return __isa(o, "DescribeFileSystemsResponse");
-  }
+  export const isa = (o: any): o is DescribeFileSystemsResponse =>
+    __isa(o, "DescribeFileSystemsResponse");
 }
 
 /**
@@ -1550,9 +1507,7 @@ export interface FileSystem {
 }
 
 export namespace FileSystem {
-  export function isa(o: any): o is FileSystem {
-    return __isa(o, "FileSystem");
-  }
+  export const isa = (o: any): o is FileSystem => __isa(o, "FileSystem");
 }
 
 /**
@@ -1568,9 +1523,8 @@ export interface FileSystemFailureDetails {
 }
 
 export namespace FileSystemFailureDetails {
-  export function isa(o: any): o is FileSystemFailureDetails {
-    return __isa(o, "FileSystemFailureDetails");
-  }
+  export const isa = (o: any): o is FileSystemFailureDetails =>
+    __isa(o, "FileSystemFailureDetails");
 }
 
 export enum FileSystemLifecycle {
@@ -1600,9 +1554,8 @@ export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace FileSystemNotFound {
-  export function isa(o: any): o is FileSystemNotFound {
-    return __isa(o, "FileSystemNotFound");
-  }
+  export const isa = (o: any): o is FileSystemNotFound =>
+    __isa(o, "FileSystemNotFound");
 }
 
 export enum FileSystemType {
@@ -1629,9 +1582,7 @@ export interface Filter {
 }
 
 export namespace Filter {
-  export function isa(o: any): o is Filter {
-    return __isa(o, "Filter");
-  }
+  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 export enum FilterName {
@@ -1661,9 +1612,8 @@ export interface IncompatibleParameterError
 }
 
 export namespace IncompatibleParameterError {
-  export function isa(o: any): o is IncompatibleParameterError {
-    return __isa(o, "IncompatibleParameterError");
-  }
+  export const isa = (o: any): o is IncompatibleParameterError =>
+    __isa(o, "IncompatibleParameterError");
 }
 
 /**
@@ -1681,9 +1631,8 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export function isa(o: any): o is InternalServerError {
-    return __isa(o, "InternalServerError");
-  }
+  export const isa = (o: any): o is InternalServerError =>
+    __isa(o, "InternalServerError");
 }
 
 /**
@@ -1699,9 +1648,8 @@ export interface InvalidExportPath extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidExportPath {
-  export function isa(o: any): o is InvalidExportPath {
-    return __isa(o, "InvalidExportPath");
-  }
+  export const isa = (o: any): o is InvalidExportPath =>
+    __isa(o, "InvalidExportPath");
 }
 
 /**
@@ -1717,9 +1665,8 @@ export interface InvalidImportPath extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidImportPath {
-  export function isa(o: any): o is InvalidImportPath {
-    return __isa(o, "InvalidImportPath");
-  }
+  export const isa = (o: any): o is InvalidImportPath =>
+    __isa(o, "InvalidImportPath");
 }
 
 /**
@@ -1759,9 +1706,8 @@ export interface InvalidNetworkSettings
 }
 
 export namespace InvalidNetworkSettings {
-  export function isa(o: any): o is InvalidNetworkSettings {
-    return __isa(o, "InvalidNetworkSettings");
-  }
+  export const isa = (o: any): o is InvalidNetworkSettings =>
+    __isa(o, "InvalidNetworkSettings");
 }
 
 /**
@@ -1791,9 +1737,8 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export function isa(o: any): o is ListTagsForResourceRequest {
-    return __isa(o, "ListTagsForResourceRequest");
-  }
+  export const isa = (o: any): o is ListTagsForResourceRequest =>
+    __isa(o, "ListTagsForResourceRequest");
 }
 
 /**
@@ -1815,9 +1760,8 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export function isa(o: any): o is ListTagsForResourceResponse {
-    return __isa(o, "ListTagsForResourceResponse");
-  }
+  export const isa = (o: any): o is ListTagsForResourceResponse =>
+    __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -1838,9 +1782,8 @@ export interface LustreFileSystemConfiguration {
 }
 
 export namespace LustreFileSystemConfiguration {
-  export function isa(o: any): o is LustreFileSystemConfiguration {
-    return __isa(o, "LustreFileSystemConfiguration");
-  }
+  export const isa = (o: any): o is LustreFileSystemConfiguration =>
+    __isa(o, "LustreFileSystemConfiguration");
 }
 
 /**
@@ -1858,9 +1801,8 @@ export interface MissingFileSystemConfiguration
 }
 
 export namespace MissingFileSystemConfiguration {
-  export function isa(o: any): o is MissingFileSystemConfiguration {
-    return __isa(o, "MissingFileSystemConfiguration");
-  }
+  export const isa = (o: any): o is MissingFileSystemConfiguration =>
+    __isa(o, "MissingFileSystemConfiguration");
 }
 
 /**
@@ -1884,9 +1826,8 @@ export interface NotServiceResourceError
 }
 
 export namespace NotServiceResourceError {
-  export function isa(o: any): o is NotServiceResourceError {
-    return __isa(o, "NotServiceResourceError");
-  }
+  export const isa = (o: any): o is NotServiceResourceError =>
+    __isa(o, "NotServiceResourceError");
 }
 
 export enum ReportFormat {
@@ -1918,9 +1859,8 @@ export interface ResourceDoesNotSupportTagging
 }
 
 export namespace ResourceDoesNotSupportTagging {
-  export function isa(o: any): o is ResourceDoesNotSupportTagging {
-    return __isa(o, "ResourceDoesNotSupportTagging");
-  }
+  export const isa = (o: any): o is ResourceDoesNotSupportTagging =>
+    __isa(o, "ResourceDoesNotSupportTagging");
 }
 
 /**
@@ -1941,9 +1881,8 @@ export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ResourceNotFound {
-  export function isa(o: any): o is ResourceNotFound {
-    return __isa(o, "ResourceNotFound");
-  }
+  export const isa = (o: any): o is ResourceNotFound =>
+    __isa(o, "ResourceNotFound");
 }
 
 /**
@@ -1983,9 +1922,8 @@ export interface SelfManagedActiveDirectoryAttributes {
 }
 
 export namespace SelfManagedActiveDirectoryAttributes {
-  export function isa(o: any): o is SelfManagedActiveDirectoryAttributes {
-    return __isa(o, "SelfManagedActiveDirectoryAttributes");
-  }
+  export const isa = (o: any): o is SelfManagedActiveDirectoryAttributes =>
+    __isa(o, "SelfManagedActiveDirectoryAttributes");
 }
 
 /**
@@ -2060,9 +1998,8 @@ export interface SelfManagedActiveDirectoryConfiguration {
 }
 
 export namespace SelfManagedActiveDirectoryConfiguration {
-  export function isa(o: any): o is SelfManagedActiveDirectoryConfiguration {
-    return __isa(o, "SelfManagedActiveDirectoryConfiguration");
-  }
+  export const isa = (o: any): o is SelfManagedActiveDirectoryConfiguration =>
+    __isa(o, "SelfManagedActiveDirectoryConfiguration");
 }
 
 /**
@@ -2093,11 +2030,10 @@ export interface SelfManagedActiveDirectoryConfigurationUpdates {
 }
 
 export namespace SelfManagedActiveDirectoryConfigurationUpdates {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is SelfManagedActiveDirectoryConfigurationUpdates {
-    return __isa(o, "SelfManagedActiveDirectoryConfigurationUpdates");
-  }
+  ): o is SelfManagedActiveDirectoryConfigurationUpdates =>
+    __isa(o, "SelfManagedActiveDirectoryConfigurationUpdates");
 }
 
 export enum ServiceLimit {
@@ -2129,9 +2065,8 @@ export interface ServiceLimitExceeded
 }
 
 export namespace ServiceLimitExceeded {
-  export function isa(o: any): o is ServiceLimitExceeded {
-    return __isa(o, "ServiceLimitExceeded");
-  }
+  export const isa = (o: any): o is ServiceLimitExceeded =>
+    __isa(o, "ServiceLimitExceeded");
 }
 
 /**
@@ -2155,9 +2090,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -2179,9 +2112,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -2192,9 +2124,8 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export function isa(o: any): o is TagResourceResponse {
-    return __isa(o, "TagResourceResponse");
-  }
+  export const isa = (o: any): o is TagResourceResponse =>
+    __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -2212,9 +2143,8 @@ export interface UnsupportedOperation
 }
 
 export namespace UnsupportedOperation {
-  export function isa(o: any): o is UnsupportedOperation {
-    return __isa(o, "UnsupportedOperation");
-  }
+  export const isa = (o: any): o is UnsupportedOperation =>
+    __isa(o, "UnsupportedOperation");
 }
 
 /**
@@ -2235,9 +2165,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 /**
@@ -2248,9 +2177,8 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export function isa(o: any): o is UntagResourceResponse {
-    return __isa(o, "UntagResourceResponse");
-  }
+  export const isa = (o: any): o is UntagResourceResponse =>
+    __isa(o, "UntagResourceResponse");
 }
 
 /**
@@ -2266,9 +2194,8 @@ export interface UpdateFileSystemLustreConfiguration {
 }
 
 export namespace UpdateFileSystemLustreConfiguration {
-  export function isa(o: any): o is UpdateFileSystemLustreConfiguration {
-    return __isa(o, "UpdateFileSystemLustreConfiguration");
-  }
+  export const isa = (o: any): o is UpdateFileSystemLustreConfiguration =>
+    __isa(o, "UpdateFileSystemLustreConfiguration");
 }
 
 /**
@@ -2302,9 +2229,8 @@ export interface UpdateFileSystemRequest {
 }
 
 export namespace UpdateFileSystemRequest {
-  export function isa(o: any): o is UpdateFileSystemRequest {
-    return __isa(o, "UpdateFileSystemRequest");
-  }
+  export const isa = (o: any): o is UpdateFileSystemRequest =>
+    __isa(o, "UpdateFileSystemRequest");
 }
 
 /**
@@ -2319,9 +2245,8 @@ export interface UpdateFileSystemResponse {
 }
 
 export namespace UpdateFileSystemResponse {
-  export function isa(o: any): o is UpdateFileSystemResponse {
-    return __isa(o, "UpdateFileSystemResponse");
-  }
+  export const isa = (o: any): o is UpdateFileSystemResponse =>
+    __isa(o, "UpdateFileSystemResponse");
 }
 
 /**
@@ -2356,9 +2281,8 @@ export interface UpdateFileSystemWindowsConfiguration {
 }
 
 export namespace UpdateFileSystemWindowsConfiguration {
-  export function isa(o: any): o is UpdateFileSystemWindowsConfiguration {
-    return __isa(o, "UpdateFileSystemWindowsConfiguration");
-  }
+  export const isa = (o: any): o is UpdateFileSystemWindowsConfiguration =>
+    __isa(o, "UpdateFileSystemWindowsConfiguration");
 }
 
 export enum WindowsDeploymentType {
@@ -2469,7 +2393,6 @@ export interface WindowsFileSystemConfiguration {
 }
 
 export namespace WindowsFileSystemConfiguration {
-  export function isa(o: any): o is WindowsFileSystemConfiguration {
-    return __isa(o, "WindowsFileSystemConfiguration");
-  }
+  export const isa = (o: any): o is WindowsFileSystemConfiguration =>
+    __isa(o, "WindowsFileSystemConfiguration");
 }

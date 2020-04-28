@@ -16,9 +16,8 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export function isa(o: any): o is AccessDeniedException {
-    return __isa(o, "AccessDeniedException");
-  }
+  export const isa = (o: any): o is AccessDeniedException =>
+    __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -36,9 +35,8 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export function isa(o: any): o is BadRequestException {
-    return __isa(o, "BadRequestException");
-  }
+  export const isa = (o: any): o is BadRequestException =>
+    __isa(o, "BadRequestException");
 }
 
 export interface CancelSigningProfileRequest {
@@ -50,9 +48,8 @@ export interface CancelSigningProfileRequest {
 }
 
 export namespace CancelSigningProfileRequest {
-  export function isa(o: any): o is CancelSigningProfileRequest {
-    return __isa(o, "CancelSigningProfileRequest");
-  }
+  export const isa = (o: any): o is CancelSigningProfileRequest =>
+    __isa(o, "CancelSigningProfileRequest");
 }
 
 export type Category = "AWSIoT";
@@ -66,9 +63,8 @@ export interface DescribeSigningJobRequest {
 }
 
 export namespace DescribeSigningJobRequest {
-  export function isa(o: any): o is DescribeSigningJobRequest {
-    return __isa(o, "DescribeSigningJobRequest");
-  }
+  export const isa = (o: any): o is DescribeSigningJobRequest =>
+    __isa(o, "DescribeSigningJobRequest");
 }
 
 export interface DescribeSigningJobResponse {
@@ -142,9 +138,8 @@ export interface DescribeSigningJobResponse {
 }
 
 export namespace DescribeSigningJobResponse {
-  export function isa(o: any): o is DescribeSigningJobResponse {
-    return __isa(o, "DescribeSigningJobResponse");
-  }
+  export const isa = (o: any): o is DescribeSigningJobResponse =>
+    __isa(o, "DescribeSigningJobResponse");
 }
 
 /**
@@ -160,9 +155,7 @@ export interface Destination {
 }
 
 export namespace Destination {
-  export function isa(o: any): o is Destination {
-    return __isa(o, "Destination");
-  }
+  export const isa = (o: any): o is Destination => __isa(o, "Destination");
 }
 
 export type EncryptionAlgorithm = "ECDSA" | "RSA";
@@ -184,9 +177,8 @@ export interface EncryptionAlgorithmOptions {
 }
 
 export namespace EncryptionAlgorithmOptions {
-  export function isa(o: any): o is EncryptionAlgorithmOptions {
-    return __isa(o, "EncryptionAlgorithmOptions");
-  }
+  export const isa = (o: any): o is EncryptionAlgorithmOptions =>
+    __isa(o, "EncryptionAlgorithmOptions");
 }
 
 export interface GetSigningPlatformRequest {
@@ -198,9 +190,8 @@ export interface GetSigningPlatformRequest {
 }
 
 export namespace GetSigningPlatformRequest {
-  export function isa(o: any): o is GetSigningPlatformRequest {
-    return __isa(o, "GetSigningPlatformRequest");
-  }
+  export const isa = (o: any): o is GetSigningPlatformRequest =>
+    __isa(o, "GetSigningPlatformRequest");
 }
 
 export interface GetSigningPlatformResponse {
@@ -248,9 +239,8 @@ export interface GetSigningPlatformResponse {
 }
 
 export namespace GetSigningPlatformResponse {
-  export function isa(o: any): o is GetSigningPlatformResponse {
-    return __isa(o, "GetSigningPlatformResponse");
-  }
+  export const isa = (o: any): o is GetSigningPlatformResponse =>
+    __isa(o, "GetSigningPlatformResponse");
 }
 
 export interface GetSigningProfileRequest {
@@ -262,9 +252,8 @@ export interface GetSigningProfileRequest {
 }
 
 export namespace GetSigningProfileRequest {
-  export function isa(o: any): o is GetSigningProfileRequest {
-    return __isa(o, "GetSigningProfileRequest");
-  }
+  export const isa = (o: any): o is GetSigningProfileRequest =>
+    __isa(o, "GetSigningProfileRequest");
 }
 
 export interface GetSigningProfileResponse {
@@ -317,9 +306,8 @@ export interface GetSigningProfileResponse {
 }
 
 export namespace GetSigningProfileResponse {
-  export function isa(o: any): o is GetSigningProfileResponse {
-    return __isa(o, "GetSigningProfileResponse");
-  }
+  export const isa = (o: any): o is GetSigningProfileResponse =>
+    __isa(o, "GetSigningProfileResponse");
 }
 
 export type HashAlgorithm = "SHA1" | "SHA256";
@@ -341,9 +329,8 @@ export interface HashAlgorithmOptions {
 }
 
 export namespace HashAlgorithmOptions {
-  export function isa(o: any): o is HashAlgorithmOptions {
-    return __isa(o, "HashAlgorithmOptions");
-  }
+  export const isa = (o: any): o is HashAlgorithmOptions =>
+    __isa(o, "HashAlgorithmOptions");
 }
 
 export type ImageFormat = "JSON";
@@ -360,9 +347,8 @@ export interface InternalServiceErrorException
 }
 
 export namespace InternalServiceErrorException {
-  export function isa(o: any): o is InternalServiceErrorException {
-    return __isa(o, "InternalServiceErrorException");
-  }
+  export const isa = (o: any): o is InternalServiceErrorException =>
+    __isa(o, "InternalServiceErrorException");
 }
 
 export interface ListSigningJobsRequest {
@@ -401,9 +387,8 @@ export interface ListSigningJobsRequest {
 }
 
 export namespace ListSigningJobsRequest {
-  export function isa(o: any): o is ListSigningJobsRequest {
-    return __isa(o, "ListSigningJobsRequest");
-  }
+  export const isa = (o: any): o is ListSigningJobsRequest =>
+    __isa(o, "ListSigningJobsRequest");
 }
 
 export interface ListSigningJobsResponse {
@@ -420,9 +405,8 @@ export interface ListSigningJobsResponse {
 }
 
 export namespace ListSigningJobsResponse {
-  export function isa(o: any): o is ListSigningJobsResponse {
-    return __isa(o, "ListSigningJobsResponse");
-  }
+  export const isa = (o: any): o is ListSigningJobsResponse =>
+    __isa(o, "ListSigningJobsResponse");
 }
 
 export interface ListSigningPlatformsRequest {
@@ -456,9 +440,8 @@ export interface ListSigningPlatformsRequest {
 }
 
 export namespace ListSigningPlatformsRequest {
-  export function isa(o: any): o is ListSigningPlatformsRequest {
-    return __isa(o, "ListSigningPlatformsRequest");
-  }
+  export const isa = (o: any): o is ListSigningPlatformsRequest =>
+    __isa(o, "ListSigningPlatformsRequest");
 }
 
 export interface ListSigningPlatformsResponse {
@@ -475,9 +458,8 @@ export interface ListSigningPlatformsResponse {
 }
 
 export namespace ListSigningPlatformsResponse {
-  export function isa(o: any): o is ListSigningPlatformsResponse {
-    return __isa(o, "ListSigningPlatformsResponse");
-  }
+  export const isa = (o: any): o is ListSigningPlatformsResponse =>
+    __isa(o, "ListSigningPlatformsResponse");
 }
 
 export interface ListSigningProfilesRequest {
@@ -502,9 +484,8 @@ export interface ListSigningProfilesRequest {
 }
 
 export namespace ListSigningProfilesRequest {
-  export function isa(o: any): o is ListSigningProfilesRequest {
-    return __isa(o, "ListSigningProfilesRequest");
-  }
+  export const isa = (o: any): o is ListSigningProfilesRequest =>
+    __isa(o, "ListSigningProfilesRequest");
 }
 
 export interface ListSigningProfilesResponse {
@@ -523,9 +504,8 @@ export interface ListSigningProfilesResponse {
 }
 
 export namespace ListSigningProfilesResponse {
-  export function isa(o: any): o is ListSigningProfilesResponse {
-    return __isa(o, "ListSigningProfilesResponse");
-  }
+  export const isa = (o: any): o is ListSigningProfilesResponse =>
+    __isa(o, "ListSigningProfilesResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -539,9 +519,8 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export function isa(o: any): o is ListTagsForResourceRequest {
-    return __isa(o, "ListTagsForResourceRequest");
-  }
+  export const isa = (o: any): o is ListTagsForResourceRequest =>
+    __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -555,9 +534,8 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export function isa(o: any): o is ListTagsForResourceResponse {
-    return __isa(o, "ListTagsForResourceResponse");
-  }
+  export const isa = (o: any): o is ListTagsForResourceResponse =>
+    __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -572,9 +550,8 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return __isa(o, "NotFoundException");
-  }
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
 }
 
 export interface PutSigningProfileRequest {
@@ -617,9 +594,8 @@ export interface PutSigningProfileRequest {
 }
 
 export namespace PutSigningProfileRequest {
-  export function isa(o: any): o is PutSigningProfileRequest {
-    return __isa(o, "PutSigningProfileRequest");
-  }
+  export const isa = (o: any): o is PutSigningProfileRequest =>
+    __isa(o, "PutSigningProfileRequest");
 }
 
 export interface PutSigningProfileResponse {
@@ -631,9 +607,8 @@ export interface PutSigningProfileResponse {
 }
 
 export namespace PutSigningProfileResponse {
-  export function isa(o: any): o is PutSigningProfileResponse {
-    return __isa(o, "PutSigningProfileResponse");
-  }
+  export const isa = (o: any): o is PutSigningProfileResponse =>
+    __isa(o, "PutSigningProfileResponse");
 }
 
 /**
@@ -648,9 +623,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -671,9 +645,7 @@ export interface S3Destination {
 }
 
 export namespace S3Destination {
-  export function isa(o: any): o is S3Destination {
-    return __isa(o, "S3Destination");
-  }
+  export const isa = (o: any): o is S3Destination => __isa(o, "S3Destination");
 }
 
 /**
@@ -693,9 +665,8 @@ export interface S3SignedObject {
 }
 
 export namespace S3SignedObject {
-  export function isa(o: any): o is S3SignedObject {
-    return __isa(o, "S3SignedObject");
-  }
+  export const isa = (o: any): o is S3SignedObject =>
+    __isa(o, "S3SignedObject");
 }
 
 /**
@@ -720,9 +691,7 @@ export interface S3Source {
 }
 
 export namespace S3Source {
-  export function isa(o: any): o is S3Source {
-    return __isa(o, "S3Source");
-  }
+  export const isa = (o: any): o is S3Source => __isa(o, "S3Source");
 }
 
 /**
@@ -738,9 +707,7 @@ export interface SignedObject {
 }
 
 export namespace SignedObject {
-  export function isa(o: any): o is SignedObject {
-    return __isa(o, "SignedObject");
-  }
+  export const isa = (o: any): o is SignedObject => __isa(o, "SignedObject");
 }
 
 /**
@@ -760,9 +727,8 @@ export interface SigningConfiguration {
 }
 
 export namespace SigningConfiguration {
-  export function isa(o: any): o is SigningConfiguration {
-    return __isa(o, "SigningConfiguration");
-  }
+  export const isa = (o: any): o is SigningConfiguration =>
+    __isa(o, "SigningConfiguration");
 }
 
 /**
@@ -785,9 +751,8 @@ export interface SigningConfigurationOverrides {
 }
 
 export namespace SigningConfigurationOverrides {
-  export function isa(o: any): o is SigningConfigurationOverrides {
-    return __isa(o, "SigningConfigurationOverrides");
-  }
+  export const isa = (o: any): o is SigningConfigurationOverrides =>
+    __isa(o, "SigningConfigurationOverrides");
 }
 
 /**
@@ -807,9 +772,8 @@ export interface SigningImageFormat {
 }
 
 export namespace SigningImageFormat {
-  export function isa(o: any): o is SigningImageFormat {
-    return __isa(o, "SigningImageFormat");
-  }
+  export const isa = (o: any): o is SigningImageFormat =>
+    __isa(o, "SigningImageFormat");
 }
 
 /**
@@ -852,9 +816,7 @@ export interface SigningJob {
 }
 
 export namespace SigningJob {
-  export function isa(o: any): o is SigningJob {
-    return __isa(o, "SigningJob");
-  }
+  export const isa = (o: any): o is SigningJob => __isa(o, "SigningJob");
 }
 
 /**
@@ -870,9 +832,8 @@ export interface SigningMaterial {
 }
 
 export namespace SigningMaterial {
-  export function isa(o: any): o is SigningMaterial {
-    return __isa(o, "SigningMaterial");
-  }
+  export const isa = (o: any): o is SigningMaterial =>
+    __isa(o, "SigningMaterial");
 }
 
 /**
@@ -924,9 +885,8 @@ export interface SigningPlatform {
 }
 
 export namespace SigningPlatform {
-  export function isa(o: any): o is SigningPlatform {
-    return __isa(o, "SigningPlatform");
-  }
+  export const isa = (o: any): o is SigningPlatform =>
+    __isa(o, "SigningPlatform");
 }
 
 /**
@@ -943,9 +903,8 @@ export interface SigningPlatformOverrides {
 }
 
 export namespace SigningPlatformOverrides {
-  export function isa(o: any): o is SigningPlatformOverrides {
-    return __isa(o, "SigningPlatformOverrides");
-  }
+  export const isa = (o: any): o is SigningPlatformOverrides =>
+    __isa(o, "SigningPlatformOverrides");
 }
 
 /**
@@ -997,9 +956,8 @@ export interface SigningProfile {
 }
 
 export namespace SigningProfile {
-  export function isa(o: any): o is SigningProfile {
-    return __isa(o, "SigningProfile");
-  }
+  export const isa = (o: any): o is SigningProfile =>
+    __isa(o, "SigningProfile");
 }
 
 export type SigningProfileStatus = "Active" | "Canceled";
@@ -1019,9 +977,7 @@ export interface Source {
 }
 
 export namespace Source {
-  export function isa(o: any): o is Source {
-    return __isa(o, "Source");
-  }
+  export const isa = (o: any): o is Source => __isa(o, "Source");
 }
 
 export interface StartSigningJobRequest {
@@ -1051,9 +1007,8 @@ export interface StartSigningJobRequest {
 }
 
 export namespace StartSigningJobRequest {
-  export function isa(o: any): o is StartSigningJobRequest {
-    return __isa(o, "StartSigningJobRequest");
-  }
+  export const isa = (o: any): o is StartSigningJobRequest =>
+    __isa(o, "StartSigningJobRequest");
 }
 
 export interface StartSigningJobResponse {
@@ -1065,9 +1020,8 @@ export interface StartSigningJobResponse {
 }
 
 export namespace StartSigningJobResponse {
-  export function isa(o: any): o is StartSigningJobResponse {
-    return __isa(o, "StartSigningJobResponse");
-  }
+  export const isa = (o: any): o is StartSigningJobResponse =>
+    __isa(o, "StartSigningJobResponse");
 }
 
 export interface TagResourceRequest {
@@ -1088,9 +1042,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -1098,9 +1051,8 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export function isa(o: any): o is TagResourceResponse {
-    return __isa(o, "TagResourceResponse");
-  }
+  export const isa = (o: any): o is TagResourceResponse =>
+    __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -1115,9 +1067,8 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return __isa(o, "ThrottlingException");
-  }
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 export interface UntagResourceRequest {
@@ -1138,9 +1089,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -1148,9 +1098,8 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export function isa(o: any): o is UntagResourceResponse {
-    return __isa(o, "UntagResourceResponse");
-  }
+  export const isa = (o: any): o is UntagResourceResponse =>
+    __isa(o, "UntagResourceResponse");
 }
 
 /**
@@ -1165,7 +1114,6 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return __isa(o, "ValidationException");
-  }
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
 }

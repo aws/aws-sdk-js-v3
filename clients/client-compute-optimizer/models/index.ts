@@ -16,9 +16,8 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export function isa(o: any): o is AccessDeniedException {
-    return __isa(o, "AccessDeniedException");
-  }
+  export const isa = (o: any): o is AccessDeniedException =>
+    __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -48,9 +47,8 @@ export interface AutoScalingGroupConfiguration {
 }
 
 export namespace AutoScalingGroupConfiguration {
-  export function isa(o: any): o is AutoScalingGroupConfiguration {
-    return __isa(o, "AutoScalingGroupConfiguration");
-  }
+  export const isa = (o: any): o is AutoScalingGroupConfiguration =>
+    __isa(o, "AutoScalingGroupConfiguration");
 }
 
 /**
@@ -132,9 +130,8 @@ export interface AutoScalingGroupRecommendation {
 }
 
 export namespace AutoScalingGroupRecommendation {
-  export function isa(o: any): o is AutoScalingGroupRecommendation {
-    return __isa(o, "AutoScalingGroupRecommendation");
-  }
+  export const isa = (o: any): o is AutoScalingGroupRecommendation =>
+    __isa(o, "AutoScalingGroupRecommendation");
 }
 
 /**
@@ -170,9 +167,8 @@ export interface AutoScalingGroupRecommendationOption {
 }
 
 export namespace AutoScalingGroupRecommendationOption {
-  export function isa(o: any): o is AutoScalingGroupRecommendationOption {
-    return __isa(o, "AutoScalingGroupRecommendationOption");
-  }
+  export const isa = (o: any): o is AutoScalingGroupRecommendationOption =>
+    __isa(o, "AutoScalingGroupRecommendationOption");
 }
 
 /**
@@ -206,9 +202,7 @@ export interface Filter {
 }
 
 export namespace Filter {
-  export function isa(o: any): o is Filter {
-    return __isa(o, "Filter");
-  }
+  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 export enum FilterName {
@@ -257,9 +251,8 @@ export interface GetAutoScalingGroupRecommendationsRequest {
 }
 
 export namespace GetAutoScalingGroupRecommendationsRequest {
-  export function isa(o: any): o is GetAutoScalingGroupRecommendationsRequest {
-    return __isa(o, "GetAutoScalingGroupRecommendationsRequest");
-  }
+  export const isa = (o: any): o is GetAutoScalingGroupRecommendationsRequest =>
+    __isa(o, "GetAutoScalingGroupRecommendationsRequest");
 }
 
 export interface GetAutoScalingGroupRecommendationsResponse {
@@ -285,9 +278,10 @@ export interface GetAutoScalingGroupRecommendationsResponse {
 }
 
 export namespace GetAutoScalingGroupRecommendationsResponse {
-  export function isa(o: any): o is GetAutoScalingGroupRecommendationsResponse {
-    return __isa(o, "GetAutoScalingGroupRecommendationsResponse");
-  }
+  export const isa = (
+    o: any
+  ): o is GetAutoScalingGroupRecommendationsResponse =>
+    __isa(o, "GetAutoScalingGroupRecommendationsResponse");
 }
 
 export interface GetEC2InstanceRecommendationsRequest {
@@ -324,9 +318,8 @@ export interface GetEC2InstanceRecommendationsRequest {
 }
 
 export namespace GetEC2InstanceRecommendationsRequest {
-  export function isa(o: any): o is GetEC2InstanceRecommendationsRequest {
-    return __isa(o, "GetEC2InstanceRecommendationsRequest");
-  }
+  export const isa = (o: any): o is GetEC2InstanceRecommendationsRequest =>
+    __isa(o, "GetEC2InstanceRecommendationsRequest");
 }
 
 export interface GetEC2InstanceRecommendationsResponse {
@@ -352,9 +345,8 @@ export interface GetEC2InstanceRecommendationsResponse {
 }
 
 export namespace GetEC2InstanceRecommendationsResponse {
-  export function isa(o: any): o is GetEC2InstanceRecommendationsResponse {
-    return __isa(o, "GetEC2InstanceRecommendationsResponse");
-  }
+  export const isa = (o: any): o is GetEC2InstanceRecommendationsResponse =>
+    __isa(o, "GetEC2InstanceRecommendationsResponse");
 }
 
 export interface GetEC2RecommendationProjectedMetricsRequest {
@@ -387,11 +379,10 @@ export interface GetEC2RecommendationProjectedMetricsRequest {
 }
 
 export namespace GetEC2RecommendationProjectedMetricsRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is GetEC2RecommendationProjectedMetricsRequest {
-    return __isa(o, "GetEC2RecommendationProjectedMetricsRequest");
-  }
+  ): o is GetEC2RecommendationProjectedMetricsRequest =>
+    __isa(o, "GetEC2RecommendationProjectedMetricsRequest");
 }
 
 export interface GetEC2RecommendationProjectedMetricsResponse {
@@ -403,11 +394,10 @@ export interface GetEC2RecommendationProjectedMetricsResponse {
 }
 
 export namespace GetEC2RecommendationProjectedMetricsResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is GetEC2RecommendationProjectedMetricsResponse {
-    return __isa(o, "GetEC2RecommendationProjectedMetricsResponse");
-  }
+  ): o is GetEC2RecommendationProjectedMetricsResponse =>
+    __isa(o, "GetEC2RecommendationProjectedMetricsResponse");
 }
 
 export interface GetEnrollmentStatusRequest {
@@ -415,9 +405,8 @@ export interface GetEnrollmentStatusRequest {
 }
 
 export namespace GetEnrollmentStatusRequest {
-  export function isa(o: any): o is GetEnrollmentStatusRequest {
-    return __isa(o, "GetEnrollmentStatusRequest");
-  }
+  export const isa = (o: any): o is GetEnrollmentStatusRequest =>
+    __isa(o, "GetEnrollmentStatusRequest");
 }
 
 export interface GetEnrollmentStatusResponse {
@@ -442,9 +431,8 @@ export interface GetEnrollmentStatusResponse {
 }
 
 export namespace GetEnrollmentStatusResponse {
-  export function isa(o: any): o is GetEnrollmentStatusResponse {
-    return __isa(o, "GetEnrollmentStatusResponse");
-  }
+  export const isa = (o: any): o is GetEnrollmentStatusResponse =>
+    __isa(o, "GetEnrollmentStatusResponse");
 }
 
 /**
@@ -472,9 +460,8 @@ export interface GetRecommendationError {
 }
 
 export namespace GetRecommendationError {
-  export function isa(o: any): o is GetRecommendationError {
-    return __isa(o, "GetRecommendationError");
-  }
+  export const isa = (o: any): o is GetRecommendationError =>
+    __isa(o, "GetRecommendationError");
 }
 
 export interface GetRecommendationSummariesRequest {
@@ -499,9 +486,8 @@ export interface GetRecommendationSummariesRequest {
 }
 
 export namespace GetRecommendationSummariesRequest {
-  export function isa(o: any): o is GetRecommendationSummariesRequest {
-    return __isa(o, "GetRecommendationSummariesRequest");
-  }
+  export const isa = (o: any): o is GetRecommendationSummariesRequest =>
+    __isa(o, "GetRecommendationSummariesRequest");
 }
 
 export interface GetRecommendationSummariesResponse {
@@ -520,9 +506,8 @@ export interface GetRecommendationSummariesResponse {
 }
 
 export namespace GetRecommendationSummariesResponse {
-  export function isa(o: any): o is GetRecommendationSummariesResponse {
-    return __isa(o, "GetRecommendationSummariesResponse");
-  }
+  export const isa = (o: any): o is GetRecommendationSummariesResponse =>
+    __isa(o, "GetRecommendationSummariesResponse");
 }
 
 /**
@@ -622,9 +607,8 @@ export interface InstanceRecommendation {
 }
 
 export namespace InstanceRecommendation {
-  export function isa(o: any): o is InstanceRecommendation {
-    return __isa(o, "InstanceRecommendation");
-  }
+  export const isa = (o: any): o is InstanceRecommendation =>
+    __isa(o, "InstanceRecommendation");
 }
 
 /**
@@ -660,9 +644,8 @@ export interface InstanceRecommendationOption {
 }
 
 export namespace InstanceRecommendationOption {
-  export function isa(o: any): o is InstanceRecommendationOption {
-    return __isa(o, "InstanceRecommendationOption");
-  }
+  export const isa = (o: any): o is InstanceRecommendationOption =>
+    __isa(o, "InstanceRecommendationOption");
 }
 
 /**
@@ -678,9 +661,8 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export function isa(o: any): o is InternalServerException {
-    return __isa(o, "InternalServerException");
-  }
+  export const isa = (o: any): o is InternalServerException =>
+    __isa(o, "InternalServerException");
 }
 
 /**
@@ -695,9 +677,8 @@ export interface InvalidParameterValueException
 }
 
 export namespace InvalidParameterValueException {
-  export function isa(o: any): o is InvalidParameterValueException {
-    return __isa(o, "InvalidParameterValueException");
-  }
+  export const isa = (o: any): o is InvalidParameterValueException =>
+    __isa(o, "InvalidParameterValueException");
 }
 
 export enum MetricName {
@@ -723,9 +704,8 @@ export interface MissingAuthenticationToken
 }
 
 export namespace MissingAuthenticationToken {
-  export function isa(o: any): o is MissingAuthenticationToken {
-    return __isa(o, "MissingAuthenticationToken");
-  }
+  export const isa = (o: any): o is MissingAuthenticationToken =>
+    __isa(o, "MissingAuthenticationToken");
 }
 
 /**
@@ -740,9 +720,8 @@ export interface OptInRequiredException
 }
 
 export namespace OptInRequiredException {
-  export function isa(o: any): o is OptInRequiredException {
-    return __isa(o, "OptInRequiredException");
-  }
+  export const isa = (o: any): o is OptInRequiredException =>
+    __isa(o, "OptInRequiredException");
 }
 
 /**
@@ -772,9 +751,8 @@ export interface ProjectedMetric {
 }
 
 export namespace ProjectedMetric {
-  export function isa(o: any): o is ProjectedMetric {
-    return __isa(o, "ProjectedMetric");
-  }
+  export const isa = (o: any): o is ProjectedMetric =>
+    __isa(o, "ProjectedMetric");
 }
 
 /**
@@ -795,9 +773,8 @@ export interface RecommendationSource {
 }
 
 export namespace RecommendationSource {
-  export function isa(o: any): o is RecommendationSource {
-    return __isa(o, "RecommendationSource");
-  }
+  export const isa = (o: any): o is RecommendationSource =>
+    __isa(o, "RecommendationSource");
 }
 
 export enum RecommendationSourceType {
@@ -827,9 +804,8 @@ export interface RecommendationSummary {
 }
 
 export namespace RecommendationSummary {
-  export function isa(o: any): o is RecommendationSummary {
-    return __isa(o, "RecommendationSummary");
-  }
+  export const isa = (o: any): o is RecommendationSummary =>
+    __isa(o, "RecommendationSummary");
 }
 
 /**
@@ -858,9 +834,8 @@ export interface RecommendedOptionProjectedMetric {
 }
 
 export namespace RecommendedOptionProjectedMetric {
-  export function isa(o: any): o is RecommendedOptionProjectedMetric {
-    return __isa(o, "RecommendedOptionProjectedMetric");
-  }
+  export const isa = (o: any): o is RecommendedOptionProjectedMetric =>
+    __isa(o, "RecommendedOptionProjectedMetric");
 }
 
 /**
@@ -875,9 +850,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -892,9 +866,8 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return __isa(o, "ServiceUnavailableException");
-  }
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 export enum Status {
@@ -921,9 +894,7 @@ export interface Summary {
 }
 
 export namespace Summary {
-  export function isa(o: any): o is Summary {
-    return __isa(o, "Summary");
-  }
+  export const isa = (o: any): o is Summary => __isa(o, "Summary");
 }
 
 /**
@@ -938,9 +909,8 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return __isa(o, "ThrottlingException");
-  }
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 export interface UpdateEnrollmentStatusRequest {
@@ -960,9 +930,8 @@ export interface UpdateEnrollmentStatusRequest {
 }
 
 export namespace UpdateEnrollmentStatusRequest {
-  export function isa(o: any): o is UpdateEnrollmentStatusRequest {
-    return __isa(o, "UpdateEnrollmentStatusRequest");
-  }
+  export const isa = (o: any): o is UpdateEnrollmentStatusRequest =>
+    __isa(o, "UpdateEnrollmentStatusRequest");
 }
 
 export interface UpdateEnrollmentStatusResponse {
@@ -981,9 +950,8 @@ export interface UpdateEnrollmentStatusResponse {
 }
 
 export namespace UpdateEnrollmentStatusResponse {
-  export function isa(o: any): o is UpdateEnrollmentStatusResponse {
-    return __isa(o, "UpdateEnrollmentStatusResponse");
-  }
+  export const isa = (o: any): o is UpdateEnrollmentStatusResponse =>
+    __isa(o, "UpdateEnrollmentStatusResponse");
 }
 
 /**
@@ -1012,7 +980,6 @@ export interface UtilizationMetric {
 }
 
 export namespace UtilizationMetric {
-  export function isa(o: any): o is UtilizationMetric {
-    return __isa(o, "UtilizationMetric");
-  }
+  export const isa = (o: any): o is UtilizationMetric =>
+    __isa(o, "UtilizationMetric");
 }

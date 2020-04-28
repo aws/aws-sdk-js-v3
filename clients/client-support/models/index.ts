@@ -22,9 +22,7 @@ export interface Attachment {
 }
 
 export namespace Attachment {
-  export function isa(o: any): o is Attachment {
-    return __isa(o, "Attachment");
-  }
+  export const isa = (o: any): o is Attachment => __isa(o, "Attachment");
 }
 
 /**
@@ -46,9 +44,8 @@ export interface AttachmentDetails {
 }
 
 export namespace AttachmentDetails {
-  export function isa(o: any): o is AttachmentDetails {
-    return __isa(o, "AttachmentDetails");
-  }
+  export const isa = (o: any): o is AttachmentDetails =>
+    __isa(o, "AttachmentDetails");
 }
 
 /**
@@ -202,9 +199,7 @@ export interface CaseDetails {
 }
 
 export namespace CaseDetails {
-  export function isa(o: any): o is CaseDetails {
-    return __isa(o, "CaseDetails");
-  }
+  export const isa = (o: any): o is CaseDetails => __isa(o, "CaseDetails");
 }
 
 /**
@@ -226,9 +221,7 @@ export interface Category {
 }
 
 export namespace Category {
-  export function isa(o: any): o is Category {
-    return __isa(o, "Category");
-  }
+  export const isa = (o: any): o is Category => __isa(o, "Category");
 }
 
 /**
@@ -272,9 +265,7 @@ export interface Communication {
 }
 
 export namespace Communication {
-  export function isa(o: any): o is Communication {
-    return __isa(o, "Communication");
-  }
+  export const isa = (o: any): o is Communication => __isa(o, "Communication");
 }
 
 /**
@@ -294,9 +285,8 @@ export interface RecentCaseCommunications {
 }
 
 export namespace RecentCaseCommunications {
-  export function isa(o: any): o is RecentCaseCommunications {
-    return __isa(o, "RecentCaseCommunications");
-  }
+  export const isa = (o: any): o is RecentCaseCommunications =>
+    __isa(o, "RecentCaseCommunications");
 }
 
 /**
@@ -327,9 +317,7 @@ export interface Service {
 }
 
 export namespace Service {
-  export function isa(o: any): o is Service {
-    return __isa(o, "Service");
-  }
+  export const isa = (o: any): o is Service => __isa(o, "Service");
 }
 
 /**
@@ -347,9 +335,8 @@ export interface AttachmentIdNotFound
 }
 
 export namespace AttachmentIdNotFound {
-  export function isa(o: any): o is AttachmentIdNotFound {
-    return __isa(o, "AttachmentIdNotFound");
-  }
+  export const isa = (o: any): o is AttachmentIdNotFound =>
+    __isa(o, "AttachmentIdNotFound");
 }
 
 /**
@@ -369,9 +356,8 @@ export interface AttachmentLimitExceeded
 }
 
 export namespace AttachmentLimitExceeded {
-  export function isa(o: any): o is AttachmentLimitExceeded {
-    return __isa(o, "AttachmentLimitExceeded");
-  }
+  export const isa = (o: any): o is AttachmentLimitExceeded =>
+    __isa(o, "AttachmentLimitExceeded");
 }
 
 /**
@@ -391,9 +377,8 @@ export interface AttachmentSetExpired
 }
 
 export namespace AttachmentSetExpired {
-  export function isa(o: any): o is AttachmentSetExpired {
-    return __isa(o, "AttachmentSetExpired");
-  }
+  export const isa = (o: any): o is AttachmentSetExpired =>
+    __isa(o, "AttachmentSetExpired");
 }
 
 /**
@@ -411,9 +396,8 @@ export interface AttachmentSetIdNotFound
 }
 
 export namespace AttachmentSetIdNotFound {
-  export function isa(o: any): o is AttachmentSetIdNotFound {
-    return __isa(o, "AttachmentSetIdNotFound");
-  }
+  export const isa = (o: any): o is AttachmentSetIdNotFound =>
+    __isa(o, "AttachmentSetIdNotFound");
 }
 
 /**
@@ -433,9 +417,8 @@ export interface AttachmentSetSizeLimitExceeded
 }
 
 export namespace AttachmentSetSizeLimitExceeded {
-  export function isa(o: any): o is AttachmentSetSizeLimitExceeded {
-    return __isa(o, "AttachmentSetSizeLimitExceeded");
-  }
+  export const isa = (o: any): o is AttachmentSetSizeLimitExceeded =>
+    __isa(o, "AttachmentSetSizeLimitExceeded");
 }
 
 /**
@@ -454,9 +437,8 @@ export interface CaseCreationLimitExceeded
 }
 
 export namespace CaseCreationLimitExceeded {
-  export function isa(o: any): o is CaseCreationLimitExceeded {
-    return __isa(o, "CaseCreationLimitExceeded");
-  }
+  export const isa = (o: any): o is CaseCreationLimitExceeded =>
+    __isa(o, "CaseCreationLimitExceeded");
 }
 
 /**
@@ -472,9 +454,8 @@ export interface CaseIdNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace CaseIdNotFound {
-  export function isa(o: any): o is CaseIdNotFound {
-    return __isa(o, "CaseIdNotFound");
-  }
+  export const isa = (o: any): o is CaseIdNotFound =>
+    __isa(o, "CaseIdNotFound");
 }
 
 /**
@@ -494,9 +475,8 @@ export interface DescribeAttachmentLimitExceeded
 }
 
 export namespace DescribeAttachmentLimitExceeded {
-  export function isa(o: any): o is DescribeAttachmentLimitExceeded {
-    return __isa(o, "DescribeAttachmentLimitExceeded");
-  }
+  export const isa = (o: any): o is DescribeAttachmentLimitExceeded =>
+    __isa(o, "DescribeAttachmentLimitExceeded");
 }
 
 /**
@@ -514,9 +494,8 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export function isa(o: any): o is InternalServerError {
-    return __isa(o, "InternalServerError");
-  }
+  export const isa = (o: any): o is InternalServerError =>
+    __isa(o, "InternalServerError");
 }
 
 /**
@@ -540,9 +519,8 @@ export interface AddAttachmentsToSetRequest {
 }
 
 export namespace AddAttachmentsToSetRequest {
-  export function isa(o: any): o is AddAttachmentsToSetRequest {
-    return __isa(o, "AddAttachmentsToSetRequest");
-  }
+  export const isa = (o: any): o is AddAttachmentsToSetRequest =>
+    __isa(o, "AddAttachmentsToSetRequest");
 }
 
 /**
@@ -565,9 +543,8 @@ export interface AddAttachmentsToSetResponse {
 }
 
 export namespace AddAttachmentsToSetResponse {
-  export function isa(o: any): o is AddAttachmentsToSetResponse {
-    return __isa(o, "AddAttachmentsToSetResponse");
-  }
+  export const isa = (o: any): o is AddAttachmentsToSetResponse =>
+    __isa(o, "AddAttachmentsToSetResponse");
 }
 
 /**
@@ -603,9 +580,8 @@ export interface AddCommunicationToCaseRequest {
 }
 
 export namespace AddCommunicationToCaseRequest {
-  export function isa(o: any): o is AddCommunicationToCaseRequest {
-    return __isa(o, "AddCommunicationToCaseRequest");
-  }
+  export const isa = (o: any): o is AddCommunicationToCaseRequest =>
+    __isa(o, "AddCommunicationToCaseRequest");
 }
 
 /**
@@ -621,9 +597,8 @@ export interface AddCommunicationToCaseResponse {
 }
 
 export namespace AddCommunicationToCaseResponse {
-  export function isa(o: any): o is AddCommunicationToCaseResponse {
-    return __isa(o, "AddCommunicationToCaseResponse");
-  }
+  export const isa = (o: any): o is AddCommunicationToCaseResponse =>
+    __isa(o, "AddCommunicationToCaseResponse");
 }
 
 export interface CreateCaseRequest {
@@ -688,9 +663,8 @@ export interface CreateCaseRequest {
 }
 
 export namespace CreateCaseRequest {
-  export function isa(o: any): o is CreateCaseRequest {
-    return __isa(o, "CreateCaseRequest");
-  }
+  export const isa = (o: any): o is CreateCaseRequest =>
+    __isa(o, "CreateCaseRequest");
 }
 
 /**
@@ -708,9 +682,8 @@ export interface CreateCaseResponse {
 }
 
 export namespace CreateCaseResponse {
-  export function isa(o: any): o is CreateCaseResponse {
-    return __isa(o, "CreateCaseResponse");
-  }
+  export const isa = (o: any): o is CreateCaseResponse =>
+    __isa(o, "CreateCaseResponse");
 }
 
 export interface DescribeAttachmentRequest {
@@ -722,9 +695,8 @@ export interface DescribeAttachmentRequest {
 }
 
 export namespace DescribeAttachmentRequest {
-  export function isa(o: any): o is DescribeAttachmentRequest {
-    return __isa(o, "DescribeAttachmentRequest");
-  }
+  export const isa = (o: any): o is DescribeAttachmentRequest =>
+    __isa(o, "DescribeAttachmentRequest");
 }
 
 /**
@@ -739,9 +711,8 @@ export interface DescribeAttachmentResponse {
 }
 
 export namespace DescribeAttachmentResponse {
-  export function isa(o: any): o is DescribeAttachmentResponse {
-    return __isa(o, "DescribeAttachmentResponse");
-  }
+  export const isa = (o: any): o is DescribeAttachmentResponse =>
+    __isa(o, "DescribeAttachmentResponse");
 }
 
 export interface DescribeCasesRequest {
@@ -800,9 +771,8 @@ export interface DescribeCasesRequest {
 }
 
 export namespace DescribeCasesRequest {
-  export function isa(o: any): o is DescribeCasesRequest {
-    return __isa(o, "DescribeCasesRequest");
-  }
+  export const isa = (o: any): o is DescribeCasesRequest =>
+    __isa(o, "DescribeCasesRequest");
 }
 
 /**
@@ -824,9 +794,8 @@ export interface DescribeCasesResponse {
 }
 
 export namespace DescribeCasesResponse {
-  export function isa(o: any): o is DescribeCasesResponse {
-    return __isa(o, "DescribeCasesResponse");
-  }
+  export const isa = (o: any): o is DescribeCasesResponse =>
+    __isa(o, "DescribeCasesResponse");
 }
 
 export interface DescribeCommunicationsRequest {
@@ -863,9 +832,8 @@ export interface DescribeCommunicationsRequest {
 }
 
 export namespace DescribeCommunicationsRequest {
-  export function isa(o: any): o is DescribeCommunicationsRequest {
-    return __isa(o, "DescribeCommunicationsRequest");
-  }
+  export const isa = (o: any): o is DescribeCommunicationsRequest =>
+    __isa(o, "DescribeCommunicationsRequest");
 }
 
 /**
@@ -886,9 +854,8 @@ export interface DescribeCommunicationsResponse {
 }
 
 export namespace DescribeCommunicationsResponse {
-  export function isa(o: any): o is DescribeCommunicationsResponse {
-    return __isa(o, "DescribeCommunicationsResponse");
-  }
+  export const isa = (o: any): o is DescribeCommunicationsResponse =>
+    __isa(o, "DescribeCommunicationsResponse");
 }
 
 export interface DescribeServicesRequest {
@@ -907,9 +874,8 @@ export interface DescribeServicesRequest {
 }
 
 export namespace DescribeServicesRequest {
-  export function isa(o: any): o is DescribeServicesRequest {
-    return __isa(o, "DescribeServicesRequest");
-  }
+  export const isa = (o: any): o is DescribeServicesRequest =>
+    __isa(o, "DescribeServicesRequest");
 }
 
 /**
@@ -925,9 +891,8 @@ export interface DescribeServicesResponse {
 }
 
 export namespace DescribeServicesResponse {
-  export function isa(o: any): o is DescribeServicesResponse {
-    return __isa(o, "DescribeServicesResponse");
-  }
+  export const isa = (o: any): o is DescribeServicesResponse =>
+    __isa(o, "DescribeServicesResponse");
 }
 
 export interface DescribeSeverityLevelsRequest {
@@ -941,9 +906,8 @@ export interface DescribeSeverityLevelsRequest {
 }
 
 export namespace DescribeSeverityLevelsRequest {
-  export function isa(o: any): o is DescribeSeverityLevelsRequest {
-    return __isa(o, "DescribeSeverityLevelsRequest");
-  }
+  export const isa = (o: any): o is DescribeSeverityLevelsRequest =>
+    __isa(o, "DescribeSeverityLevelsRequest");
 }
 
 /**
@@ -959,9 +923,8 @@ export interface DescribeSeverityLevelsResponse {
 }
 
 export namespace DescribeSeverityLevelsResponse {
-  export function isa(o: any): o is DescribeSeverityLevelsResponse {
-    return __isa(o, "DescribeSeverityLevelsResponse");
-  }
+  export const isa = (o: any): o is DescribeSeverityLevelsResponse =>
+    __isa(o, "DescribeSeverityLevelsResponse");
 }
 
 export interface ResolveCaseRequest {
@@ -976,9 +939,8 @@ export interface ResolveCaseRequest {
 }
 
 export namespace ResolveCaseRequest {
-  export function isa(o: any): o is ResolveCaseRequest {
-    return __isa(o, "ResolveCaseRequest");
-  }
+  export const isa = (o: any): o is ResolveCaseRequest =>
+    __isa(o, "ResolveCaseRequest");
 }
 
 /**
@@ -1001,9 +963,8 @@ export interface ResolveCaseResponse {
 }
 
 export namespace ResolveCaseResponse {
-  export function isa(o: any): o is ResolveCaseResponse {
-    return __isa(o, "ResolveCaseResponse");
-  }
+  export const isa = (o: any): o is ResolveCaseResponse =>
+    __isa(o, "ResolveCaseResponse");
 }
 
 /**
@@ -1061,9 +1022,7 @@ export interface SeverityLevel {
 }
 
 export namespace SeverityLevel {
-  export function isa(o: any): o is SeverityLevel {
-    return __isa(o, "SeverityLevel");
-  }
+  export const isa = (o: any): o is SeverityLevel => __isa(o, "SeverityLevel");
 }
 
 /**
@@ -1079,11 +1038,10 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
 }
 
 export namespace DescribeTrustedAdvisorCheckRefreshStatusesRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeTrustedAdvisorCheckRefreshStatusesRequest {
-    return __isa(o, "DescribeTrustedAdvisorCheckRefreshStatusesRequest");
-  }
+  ): o is DescribeTrustedAdvisorCheckRefreshStatusesRequest =>
+    __isa(o, "DescribeTrustedAdvisorCheckRefreshStatusesRequest");
 }
 
 /**
@@ -1098,11 +1056,10 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse {
 }
 
 export namespace DescribeTrustedAdvisorCheckRefreshStatusesResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeTrustedAdvisorCheckRefreshStatusesResponse {
-    return __isa(o, "DescribeTrustedAdvisorCheckRefreshStatusesResponse");
-  }
+  ): o is DescribeTrustedAdvisorCheckRefreshStatusesResponse =>
+    __isa(o, "DescribeTrustedAdvisorCheckRefreshStatusesResponse");
 }
 
 /**
@@ -1124,9 +1081,8 @@ export interface DescribeTrustedAdvisorCheckResultRequest {
 }
 
 export namespace DescribeTrustedAdvisorCheckResultRequest {
-  export function isa(o: any): o is DescribeTrustedAdvisorCheckResultRequest {
-    return __isa(o, "DescribeTrustedAdvisorCheckResultRequest");
-  }
+  export const isa = (o: any): o is DescribeTrustedAdvisorCheckResultRequest =>
+    __isa(o, "DescribeTrustedAdvisorCheckResultRequest");
 }
 
 /**
@@ -1141,9 +1097,8 @@ export interface DescribeTrustedAdvisorCheckResultResponse {
 }
 
 export namespace DescribeTrustedAdvisorCheckResultResponse {
-  export function isa(o: any): o is DescribeTrustedAdvisorCheckResultResponse {
-    return __isa(o, "DescribeTrustedAdvisorCheckResultResponse");
-  }
+  export const isa = (o: any): o is DescribeTrustedAdvisorCheckResultResponse =>
+    __isa(o, "DescribeTrustedAdvisorCheckResultResponse");
 }
 
 export interface DescribeTrustedAdvisorCheckSummariesRequest {
@@ -1155,11 +1110,10 @@ export interface DescribeTrustedAdvisorCheckSummariesRequest {
 }
 
 export namespace DescribeTrustedAdvisorCheckSummariesRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeTrustedAdvisorCheckSummariesRequest {
-    return __isa(o, "DescribeTrustedAdvisorCheckSummariesRequest");
-  }
+  ): o is DescribeTrustedAdvisorCheckSummariesRequest =>
+    __isa(o, "DescribeTrustedAdvisorCheckSummariesRequest");
 }
 
 /**
@@ -1174,11 +1128,10 @@ export interface DescribeTrustedAdvisorCheckSummariesResponse {
 }
 
 export namespace DescribeTrustedAdvisorCheckSummariesResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DescribeTrustedAdvisorCheckSummariesResponse {
-    return __isa(o, "DescribeTrustedAdvisorCheckSummariesResponse");
-  }
+  ): o is DescribeTrustedAdvisorCheckSummariesResponse =>
+    __isa(o, "DescribeTrustedAdvisorCheckSummariesResponse");
 }
 
 /**
@@ -1195,9 +1148,8 @@ export interface DescribeTrustedAdvisorChecksRequest {
 }
 
 export namespace DescribeTrustedAdvisorChecksRequest {
-  export function isa(o: any): o is DescribeTrustedAdvisorChecksRequest {
-    return __isa(o, "DescribeTrustedAdvisorChecksRequest");
-  }
+  export const isa = (o: any): o is DescribeTrustedAdvisorChecksRequest =>
+    __isa(o, "DescribeTrustedAdvisorChecksRequest");
 }
 
 /**
@@ -1212,9 +1164,8 @@ export interface DescribeTrustedAdvisorChecksResponse {
 }
 
 export namespace DescribeTrustedAdvisorChecksResponse {
-  export function isa(o: any): o is DescribeTrustedAdvisorChecksResponse {
-    return __isa(o, "DescribeTrustedAdvisorChecksResponse");
-  }
+  export const isa = (o: any): o is DescribeTrustedAdvisorChecksResponse =>
+    __isa(o, "DescribeTrustedAdvisorChecksResponse");
 }
 
 /**
@@ -1230,9 +1181,8 @@ export interface RefreshTrustedAdvisorCheckRequest {
 }
 
 export namespace RefreshTrustedAdvisorCheckRequest {
-  export function isa(o: any): o is RefreshTrustedAdvisorCheckRequest {
-    return __isa(o, "RefreshTrustedAdvisorCheckRequest");
-  }
+  export const isa = (o: any): o is RefreshTrustedAdvisorCheckRequest =>
+    __isa(o, "RefreshTrustedAdvisorCheckRequest");
 }
 
 /**
@@ -1248,9 +1198,8 @@ export interface RefreshTrustedAdvisorCheckResponse {
 }
 
 export namespace RefreshTrustedAdvisorCheckResponse {
-  export function isa(o: any): o is RefreshTrustedAdvisorCheckResponse {
-    return __isa(o, "RefreshTrustedAdvisorCheckResponse");
-  }
+  export const isa = (o: any): o is RefreshTrustedAdvisorCheckResponse =>
+    __isa(o, "RefreshTrustedAdvisorCheckResponse");
 }
 
 /**
@@ -1267,9 +1216,8 @@ export interface TrustedAdvisorCategorySpecificSummary {
 }
 
 export namespace TrustedAdvisorCategorySpecificSummary {
-  export function isa(o: any): o is TrustedAdvisorCategorySpecificSummary {
-    return __isa(o, "TrustedAdvisorCategorySpecificSummary");
-  }
+  export const isa = (o: any): o is TrustedAdvisorCategorySpecificSummary =>
+    __isa(o, "TrustedAdvisorCategorySpecificSummary");
 }
 
 /**
@@ -1309,9 +1257,8 @@ export interface TrustedAdvisorCheckDescription {
 }
 
 export namespace TrustedAdvisorCheckDescription {
-  export function isa(o: any): o is TrustedAdvisorCheckDescription {
-    return __isa(o, "TrustedAdvisorCheckDescription");
-  }
+  export const isa = (o: any): o is TrustedAdvisorCheckDescription =>
+    __isa(o, "TrustedAdvisorCheckDescription");
 }
 
 /**
@@ -1363,9 +1310,8 @@ export interface TrustedAdvisorCheckRefreshStatus {
 }
 
 export namespace TrustedAdvisorCheckRefreshStatus {
-  export function isa(o: any): o is TrustedAdvisorCheckRefreshStatus {
-    return __isa(o, "TrustedAdvisorCheckRefreshStatus");
-  }
+  export const isa = (o: any): o is TrustedAdvisorCheckRefreshStatus =>
+    __isa(o, "TrustedAdvisorCheckRefreshStatus");
 }
 
 /**
@@ -1407,9 +1353,8 @@ export interface TrustedAdvisorCheckResult {
 }
 
 export namespace TrustedAdvisorCheckResult {
-  export function isa(o: any): o is TrustedAdvisorCheckResult {
-    return __isa(o, "TrustedAdvisorCheckResult");
-  }
+  export const isa = (o: any): o is TrustedAdvisorCheckResult =>
+    __isa(o, "TrustedAdvisorCheckResult");
 }
 
 /**
@@ -1452,9 +1397,8 @@ export interface TrustedAdvisorCheckSummary {
 }
 
 export namespace TrustedAdvisorCheckSummary {
-  export function isa(o: any): o is TrustedAdvisorCheckSummary {
-    return __isa(o, "TrustedAdvisorCheckSummary");
-  }
+  export const isa = (o: any): o is TrustedAdvisorCheckSummary =>
+    __isa(o, "TrustedAdvisorCheckSummary");
 }
 
 /**
@@ -1477,9 +1421,8 @@ export interface TrustedAdvisorCostOptimizingSummary {
 }
 
 export namespace TrustedAdvisorCostOptimizingSummary {
-  export function isa(o: any): o is TrustedAdvisorCostOptimizingSummary {
-    return __isa(o, "TrustedAdvisorCostOptimizingSummary");
-  }
+  export const isa = (o: any): o is TrustedAdvisorCostOptimizingSummary =>
+    __isa(o, "TrustedAdvisorCostOptimizingSummary");
 }
 
 /**
@@ -1519,9 +1462,8 @@ export interface TrustedAdvisorResourceDetail {
 }
 
 export namespace TrustedAdvisorResourceDetail {
-  export function isa(o: any): o is TrustedAdvisorResourceDetail {
-    return __isa(o, "TrustedAdvisorResourceDetail");
-  }
+  export const isa = (o: any): o is TrustedAdvisorResourceDetail =>
+    __isa(o, "TrustedAdvisorResourceDetail");
 }
 
 /**
@@ -1555,7 +1497,6 @@ export interface TrustedAdvisorResourcesSummary {
 }
 
 export namespace TrustedAdvisorResourcesSummary {
-  export function isa(o: any): o is TrustedAdvisorResourcesSummary {
-    return __isa(o, "TrustedAdvisorResourcesSummary");
-  }
+  export const isa = (o: any): o is TrustedAdvisorResourcesSummary =>
+    __isa(o, "TrustedAdvisorResourcesSummary");
 }

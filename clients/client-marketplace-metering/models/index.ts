@@ -25,9 +25,8 @@ export interface BatchMeterUsageRequest {
 }
 
 export namespace BatchMeterUsageRequest {
-  export function isa(o: any): o is BatchMeterUsageRequest {
-    return __isa(o, "BatchMeterUsageRequest");
-  }
+  export const isa = (o: any): o is BatchMeterUsageRequest =>
+    __isa(o, "BatchMeterUsageRequest");
 }
 
 /**
@@ -51,9 +50,8 @@ export interface BatchMeterUsageResult {
 }
 
 export namespace BatchMeterUsageResult {
-  export function isa(o: any): o is BatchMeterUsageResult {
-    return __isa(o, "BatchMeterUsageResult");
-  }
+  export const isa = (o: any): o is BatchMeterUsageResult =>
+    __isa(o, "BatchMeterUsageResult");
 }
 
 /**
@@ -69,9 +67,8 @@ export interface CustomerNotEntitledException
 }
 
 export namespace CustomerNotEntitledException {
-  export function isa(o: any): o is CustomerNotEntitledException {
-    return __isa(o, "CustomerNotEntitledException");
-  }
+  export const isa = (o: any): o is CustomerNotEntitledException =>
+    __isa(o, "CustomerNotEntitledException");
 }
 
 /**
@@ -86,9 +83,8 @@ export interface DisabledApiException
 }
 
 export namespace DisabledApiException {
-  export function isa(o: any): o is DisabledApiException {
-    return __isa(o, "DisabledApiException");
-  }
+  export const isa = (o: any): o is DisabledApiException =>
+    __isa(o, "DisabledApiException");
 }
 
 /**
@@ -105,9 +101,8 @@ export interface DuplicateRequestException
 }
 
 export namespace DuplicateRequestException {
-  export function isa(o: any): o is DuplicateRequestException {
-    return __isa(o, "DuplicateRequestException");
-  }
+  export const isa = (o: any): o is DuplicateRequestException =>
+    __isa(o, "DuplicateRequestException");
 }
 
 /**
@@ -126,9 +121,8 @@ export interface ExpiredTokenException
 }
 
 export namespace ExpiredTokenException {
-  export function isa(o: any): o is ExpiredTokenException {
-    return __isa(o, "ExpiredTokenException");
-  }
+  export const isa = (o: any): o is ExpiredTokenException =>
+    __isa(o, "ExpiredTokenException");
 }
 
 /**
@@ -144,9 +138,8 @@ export interface InternalServiceErrorException
 }
 
 export namespace InternalServiceErrorException {
-  export function isa(o: any): o is InternalServiceErrorException {
-    return __isa(o, "InternalServiceErrorException");
-  }
+  export const isa = (o: any): o is InternalServiceErrorException =>
+    __isa(o, "InternalServiceErrorException");
 }
 
 /**
@@ -161,9 +154,8 @@ export interface InvalidCustomerIdentifierException
 }
 
 export namespace InvalidCustomerIdentifierException {
-  export function isa(o: any): o is InvalidCustomerIdentifierException {
-    return __isa(o, "InvalidCustomerIdentifierException");
-  }
+  export const isa = (o: any): o is InvalidCustomerIdentifierException =>
+    __isa(o, "InvalidCustomerIdentifierException");
 }
 
 /**
@@ -180,9 +172,8 @@ export interface InvalidEndpointRegionException
 }
 
 export namespace InvalidEndpointRegionException {
-  export function isa(o: any): o is InvalidEndpointRegionException {
-    return __isa(o, "InvalidEndpointRegionException");
-  }
+  export const isa = (o: any): o is InvalidEndpointRegionException =>
+    __isa(o, "InvalidEndpointRegionException");
 }
 
 /**
@@ -198,9 +189,8 @@ export interface InvalidProductCodeException
 }
 
 export namespace InvalidProductCodeException {
-  export function isa(o: any): o is InvalidProductCodeException {
-    return __isa(o, "InvalidProductCodeException");
-  }
+  export const isa = (o: any): o is InvalidProductCodeException =>
+    __isa(o, "InvalidProductCodeException");
 }
 
 /**
@@ -215,9 +205,8 @@ export interface InvalidPublicKeyVersionException
 }
 
 export namespace InvalidPublicKeyVersionException {
-  export function isa(o: any): o is InvalidPublicKeyVersionException {
-    return __isa(o, "InvalidPublicKeyVersionException");
-  }
+  export const isa = (o: any): o is InvalidPublicKeyVersionException =>
+    __isa(o, "InvalidPublicKeyVersionException");
 }
 
 /**
@@ -234,9 +223,8 @@ export interface InvalidRegionException
 }
 
 export namespace InvalidRegionException {
-  export function isa(o: any): o is InvalidRegionException {
-    return __isa(o, "InvalidRegionException");
-  }
+  export const isa = (o: any): o is InvalidRegionException =>
+    __isa(o, "InvalidRegionException");
 }
 
 /**
@@ -251,9 +239,8 @@ export interface InvalidTokenException
 }
 
 export namespace InvalidTokenException {
-  export function isa(o: any): o is InvalidTokenException {
-    return __isa(o, "InvalidTokenException");
-  }
+  export const isa = (o: any): o is InvalidTokenException =>
+    __isa(o, "InvalidTokenException");
 }
 
 /**
@@ -269,9 +256,8 @@ export interface InvalidUsageDimensionException
 }
 
 export namespace InvalidUsageDimensionException {
-  export function isa(o: any): o is InvalidUsageDimensionException {
-    return __isa(o, "InvalidUsageDimensionException");
-  }
+  export const isa = (o: any): o is InvalidUsageDimensionException =>
+    __isa(o, "InvalidUsageDimensionException");
 }
 
 export interface MeterUsageRequest {
@@ -312,9 +298,8 @@ export interface MeterUsageRequest {
 }
 
 export namespace MeterUsageRequest {
-  export function isa(o: any): o is MeterUsageRequest {
-    return __isa(o, "MeterUsageRequest");
-  }
+  export const isa = (o: any): o is MeterUsageRequest =>
+    __isa(o, "MeterUsageRequest");
 }
 
 export interface MeterUsageResult {
@@ -326,9 +311,8 @@ export interface MeterUsageResult {
 }
 
 export namespace MeterUsageResult {
-  export function isa(o: any): o is MeterUsageResult {
-    return __isa(o, "MeterUsageResult");
-  }
+  export const isa = (o: any): o is MeterUsageResult =>
+    __isa(o, "MeterUsageResult");
 }
 
 /**
@@ -344,9 +328,8 @@ export interface PlatformNotSupportedException
 }
 
 export namespace PlatformNotSupportedException {
-  export function isa(o: any): o is PlatformNotSupportedException {
-    return __isa(o, "PlatformNotSupportedException");
-  }
+  export const isa = (o: any): o is PlatformNotSupportedException =>
+    __isa(o, "PlatformNotSupportedException");
 }
 
 export interface RegisterUsageRequest {
@@ -371,9 +354,8 @@ export interface RegisterUsageRequest {
 }
 
 export namespace RegisterUsageRequest {
-  export function isa(o: any): o is RegisterUsageRequest {
-    return __isa(o, "RegisterUsageRequest");
-  }
+  export const isa = (o: any): o is RegisterUsageRequest =>
+    __isa(o, "RegisterUsageRequest");
 }
 
 export interface RegisterUsageResult {
@@ -390,9 +372,8 @@ export interface RegisterUsageResult {
 }
 
 export namespace RegisterUsageResult {
-  export function isa(o: any): o is RegisterUsageResult {
-    return __isa(o, "RegisterUsageResult");
-  }
+  export const isa = (o: any): o is RegisterUsageResult =>
+    __isa(o, "RegisterUsageResult");
 }
 
 /**
@@ -409,9 +390,8 @@ export interface ResolveCustomerRequest {
 }
 
 export namespace ResolveCustomerRequest {
-  export function isa(o: any): o is ResolveCustomerRequest {
-    return __isa(o, "ResolveCustomerRequest");
-  }
+  export const isa = (o: any): o is ResolveCustomerRequest =>
+    __isa(o, "ResolveCustomerRequest");
 }
 
 /**
@@ -436,9 +416,8 @@ export interface ResolveCustomerResult {
 }
 
 export namespace ResolveCustomerResult {
-  export function isa(o: any): o is ResolveCustomerResult {
-    return __isa(o, "ResolveCustomerResult");
-  }
+  export const isa = (o: any): o is ResolveCustomerResult =>
+    __isa(o, "ResolveCustomerResult");
 }
 
 /**
@@ -453,9 +432,8 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return __isa(o, "ThrottlingException");
-  }
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 /**
@@ -470,9 +448,8 @@ export interface TimestampOutOfBoundsException
 }
 
 export namespace TimestampOutOfBoundsException {
-  export function isa(o: any): o is TimestampOutOfBoundsException {
-    return __isa(o, "TimestampOutOfBoundsException");
-  }
+  export const isa = (o: any): o is TimestampOutOfBoundsException =>
+    __isa(o, "TimestampOutOfBoundsException");
 }
 
 /**
@@ -511,9 +488,7 @@ export interface UsageRecord {
 }
 
 export namespace UsageRecord {
-  export function isa(o: any): o is UsageRecord {
-    return __isa(o, "UsageRecord");
-  }
+  export const isa = (o: any): o is UsageRecord => __isa(o, "UsageRecord");
 }
 
 /**
@@ -560,9 +535,8 @@ export interface UsageRecordResult {
 }
 
 export namespace UsageRecordResult {
-  export function isa(o: any): o is UsageRecordResult {
-    return __isa(o, "UsageRecordResult");
-  }
+  export const isa = (o: any): o is UsageRecordResult =>
+    __isa(o, "UsageRecordResult");
 }
 
 export enum UsageRecordResultStatus {

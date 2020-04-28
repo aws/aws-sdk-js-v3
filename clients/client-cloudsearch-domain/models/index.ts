@@ -22,9 +22,7 @@ export interface Bucket {
 }
 
 export namespace Bucket {
-  export function isa(o: any): o is Bucket {
-    return __isa(o, "Bucket");
-  }
+  export const isa = (o: any): o is Bucket => __isa(o, "Bucket");
 }
 
 /**
@@ -39,9 +37,7 @@ export interface BucketInfo {
 }
 
 export namespace BucketInfo {
-  export function isa(o: any): o is BucketInfo {
-    return __isa(o, "BucketInfo");
-  }
+  export const isa = (o: any): o is BucketInfo => __isa(o, "BucketInfo");
 }
 
 export type ContentType = "application/json" | "application/xml";
@@ -66,9 +62,8 @@ export interface DocumentServiceException
 }
 
 export namespace DocumentServiceException {
-  export function isa(o: any): o is DocumentServiceException {
-    return __isa(o, "DocumentServiceException");
-  }
+  export const isa = (o: any): o is DocumentServiceException =>
+    __isa(o, "DocumentServiceException");
 }
 
 /**
@@ -83,9 +78,8 @@ export interface DocumentServiceWarning {
 }
 
 export namespace DocumentServiceWarning {
-  export function isa(o: any): o is DocumentServiceWarning {
-    return __isa(o, "DocumentServiceWarning");
-  }
+  export const isa = (o: any): o is DocumentServiceWarning =>
+    __isa(o, "DocumentServiceWarning");
 }
 
 /**
@@ -138,9 +132,7 @@ export interface FieldStats {
 }
 
 export namespace FieldStats {
-  export function isa(o: any): o is FieldStats {
-    return __isa(o, "FieldStats");
-  }
+  export const isa = (o: any): o is FieldStats => __isa(o, "FieldStats");
 }
 
 /**
@@ -170,9 +162,7 @@ export interface Hit {
 }
 
 export namespace Hit {
-  export function isa(o: any): o is Hit {
-    return __isa(o, "Hit");
-  }
+  export const isa = (o: any): o is Hit => __isa(o, "Hit");
 }
 
 /**
@@ -202,9 +192,7 @@ export interface Hits {
 }
 
 export namespace Hits {
-  export function isa(o: any): o is Hits {
-    return __isa(o, "Hits");
-  }
+  export const isa = (o: any): o is Hits => __isa(o, "Hits");
 }
 
 export type QueryParser = "dismax" | "lucene" | "simple" | "structured";
@@ -222,9 +210,8 @@ export interface SearchException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace SearchException {
-  export function isa(o: any): o is SearchException {
-    return __isa(o, "SearchException");
-  }
+  export const isa = (o: any): o is SearchException =>
+    __isa(o, "SearchException");
 }
 
 /**
@@ -514,9 +501,7 @@ export interface SearchRequest {
 }
 
 export namespace SearchRequest {
-  export function isa(o: any): o is SearchRequest {
-    return __isa(o, "SearchRequest");
-  }
+  export const isa = (o: any): o is SearchRequest => __isa(o, "SearchRequest");
 }
 
 /**
@@ -546,9 +531,8 @@ export interface SearchResponse {
 }
 
 export namespace SearchResponse {
-  export function isa(o: any): o is SearchResponse {
-    return __isa(o, "SearchResponse");
-  }
+  export const isa = (o: any): o is SearchResponse =>
+    __isa(o, "SearchResponse");
 }
 
 /**
@@ -568,9 +552,7 @@ export interface SearchStatus {
 }
 
 export namespace SearchStatus {
-  export function isa(o: any): o is SearchStatus {
-    return __isa(o, "SearchStatus");
-  }
+  export const isa = (o: any): o is SearchStatus => __isa(o, "SearchStatus");
 }
 
 /**
@@ -595,9 +577,7 @@ export interface SuggestModel {
 }
 
 export namespace SuggestModel {
-  export function isa(o: any): o is SuggestModel {
-    return __isa(o, "SuggestModel");
-  }
+  export const isa = (o: any): o is SuggestModel => __isa(o, "SuggestModel");
 }
 
 /**
@@ -622,9 +602,8 @@ export interface SuggestRequest {
 }
 
 export namespace SuggestRequest {
-  export function isa(o: any): o is SuggestRequest {
-    return __isa(o, "SuggestRequest");
-  }
+  export const isa = (o: any): o is SuggestRequest =>
+    __isa(o, "SuggestRequest");
 }
 
 /**
@@ -644,9 +623,8 @@ export interface SuggestResponse {
 }
 
 export namespace SuggestResponse {
-  export function isa(o: any): o is SuggestResponse {
-    return __isa(o, "SuggestResponse");
-  }
+  export const isa = (o: any): o is SuggestResponse =>
+    __isa(o, "SuggestResponse");
 }
 
 /**
@@ -666,9 +644,7 @@ export interface SuggestStatus {
 }
 
 export namespace SuggestStatus {
-  export function isa(o: any): o is SuggestStatus {
-    return __isa(o, "SuggestStatus");
-  }
+  export const isa = (o: any): o is SuggestStatus => __isa(o, "SuggestStatus");
 }
 
 /**
@@ -693,9 +669,8 @@ export interface SuggestionMatch {
 }
 
 export namespace SuggestionMatch {
-  export function isa(o: any): o is SuggestionMatch {
-    return __isa(o, "SuggestionMatch");
-  }
+  export const isa = (o: any): o is SuggestionMatch =>
+    __isa(o, "SuggestionMatch");
 }
 
 /**
@@ -719,9 +694,8 @@ export interface UploadDocumentsRequest {
 }
 
 export namespace UploadDocumentsRequest {
-  export function isa(o: any): o is UploadDocumentsRequest {
-    return __isa(o, "UploadDocumentsRequest");
-  }
+  export const isa = (o: any): o is UploadDocumentsRequest =>
+    __isa(o, "UploadDocumentsRequest");
 }
 
 /**
@@ -751,7 +725,6 @@ export interface UploadDocumentsResponse {
 }
 
 export namespace UploadDocumentsResponse {
-  export function isa(o: any): o is UploadDocumentsResponse {
-    return __isa(o, "UploadDocumentsResponse");
-  }
+  export const isa = (o: any): o is UploadDocumentsResponse =>
+    __isa(o, "UploadDocumentsResponse");
 }

@@ -54,9 +54,8 @@ export interface AwsCloudMapInstanceAttribute {
 }
 
 export namespace AwsCloudMapInstanceAttribute {
-  export function isa(o: any): o is AwsCloudMapInstanceAttribute {
-    return __isa(o, "AwsCloudMapInstanceAttribute");
-  }
+  export const isa = (o: any): o is AwsCloudMapInstanceAttribute =>
+    __isa(o, "AwsCloudMapInstanceAttribute");
 }
 
 /**
@@ -84,9 +83,8 @@ export interface AwsCloudMapServiceDiscovery {
 }
 
 export namespace AwsCloudMapServiceDiscovery {
-  export function isa(o: any): o is AwsCloudMapServiceDiscovery {
-    return __isa(o, "AwsCloudMapServiceDiscovery");
-  }
+  export const isa = (o: any): o is AwsCloudMapServiceDiscovery =>
+    __isa(o, "AwsCloudMapServiceDiscovery");
 }
 
 /**
@@ -133,9 +131,8 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export function isa(o: any): o is BadRequestException {
-    return __isa(o, "BadRequestException");
-  }
+  export const isa = (o: any): o is BadRequestException =>
+    __isa(o, "BadRequestException");
 }
 
 /**
@@ -149,9 +146,8 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export function isa(o: any): o is ConflictException {
-    return __isa(o, "ConflictException");
-  }
+  export const isa = (o: any): o is ConflictException =>
+    __isa(o, "ConflictException");
 }
 
 /**
@@ -185,9 +181,8 @@ export interface CreateMeshInput {
 }
 
 export namespace CreateMeshInput {
-  export function isa(o: any): o is CreateMeshInput {
-    return __isa(o, "CreateMeshInput");
-  }
+  export const isa = (o: any): o is CreateMeshInput =>
+    __isa(o, "CreateMeshInput");
 }
 
 /**
@@ -202,9 +197,8 @@ export interface CreateMeshOutput {
 }
 
 export namespace CreateMeshOutput {
-  export function isa(o: any): o is CreateMeshOutput {
-    return __isa(o, "CreateMeshOutput");
-  }
+  export const isa = (o: any): o is CreateMeshOutput =>
+    __isa(o, "CreateMeshOutput");
 }
 
 /**
@@ -248,9 +242,8 @@ export interface CreateRouteInput {
 }
 
 export namespace CreateRouteInput {
-  export function isa(o: any): o is CreateRouteInput {
-    return __isa(o, "CreateRouteInput");
-  }
+  export const isa = (o: any): o is CreateRouteInput =>
+    __isa(o, "CreateRouteInput");
 }
 
 /**
@@ -265,9 +258,8 @@ export interface CreateRouteOutput {
 }
 
 export namespace CreateRouteOutput {
-  export function isa(o: any): o is CreateRouteOutput {
-    return __isa(o, "CreateRouteOutput");
-  }
+  export const isa = (o: any): o is CreateRouteOutput =>
+    __isa(o, "CreateRouteOutput");
 }
 
 /**
@@ -306,9 +298,8 @@ export interface CreateVirtualNodeInput {
 }
 
 export namespace CreateVirtualNodeInput {
-  export function isa(o: any): o is CreateVirtualNodeInput {
-    return __isa(o, "CreateVirtualNodeInput");
-  }
+  export const isa = (o: any): o is CreateVirtualNodeInput =>
+    __isa(o, "CreateVirtualNodeInput");
 }
 
 /**
@@ -323,9 +314,8 @@ export interface CreateVirtualNodeOutput {
 }
 
 export namespace CreateVirtualNodeOutput {
-  export function isa(o: any): o is CreateVirtualNodeOutput {
-    return __isa(o, "CreateVirtualNodeOutput");
-  }
+  export const isa = (o: any): o is CreateVirtualNodeOutput =>
+    __isa(o, "CreateVirtualNodeOutput");
 }
 
 /**
@@ -364,9 +354,8 @@ export interface CreateVirtualRouterInput {
 }
 
 export namespace CreateVirtualRouterInput {
-  export function isa(o: any): o is CreateVirtualRouterInput {
-    return __isa(o, "CreateVirtualRouterInput");
-  }
+  export const isa = (o: any): o is CreateVirtualRouterInput =>
+    __isa(o, "CreateVirtualRouterInput");
 }
 
 /**
@@ -381,9 +370,8 @@ export interface CreateVirtualRouterOutput {
 }
 
 export namespace CreateVirtualRouterOutput {
-  export function isa(o: any): o is CreateVirtualRouterOutput {
-    return __isa(o, "CreateVirtualRouterOutput");
-  }
+  export const isa = (o: any): o is CreateVirtualRouterOutput =>
+    __isa(o, "CreateVirtualRouterOutput");
 }
 
 /**
@@ -422,9 +410,8 @@ export interface CreateVirtualServiceInput {
 }
 
 export namespace CreateVirtualServiceInput {
-  export function isa(o: any): o is CreateVirtualServiceInput {
-    return __isa(o, "CreateVirtualServiceInput");
-  }
+  export const isa = (o: any): o is CreateVirtualServiceInput =>
+    __isa(o, "CreateVirtualServiceInput");
 }
 
 /**
@@ -439,9 +426,8 @@ export interface CreateVirtualServiceOutput {
 }
 
 export namespace CreateVirtualServiceOutput {
-  export function isa(o: any): o is CreateVirtualServiceOutput {
-    return __isa(o, "CreateVirtualServiceOutput");
-  }
+  export const isa = (o: any): o is CreateVirtualServiceOutput =>
+    __isa(o, "CreateVirtualServiceOutput");
 }
 
 /**
@@ -456,9 +442,8 @@ export interface DeleteMeshInput {
 }
 
 export namespace DeleteMeshInput {
-  export function isa(o: any): o is DeleteMeshInput {
-    return __isa(o, "DeleteMeshInput");
-  }
+  export const isa = (o: any): o is DeleteMeshInput =>
+    __isa(o, "DeleteMeshInput");
 }
 
 /**
@@ -473,9 +458,8 @@ export interface DeleteMeshOutput {
 }
 
 export namespace DeleteMeshOutput {
-  export function isa(o: any): o is DeleteMeshOutput {
-    return __isa(o, "DeleteMeshOutput");
-  }
+  export const isa = (o: any): o is DeleteMeshOutput =>
+    __isa(o, "DeleteMeshOutput");
 }
 
 /**
@@ -500,9 +484,8 @@ export interface DeleteRouteInput {
 }
 
 export namespace DeleteRouteInput {
-  export function isa(o: any): o is DeleteRouteInput {
-    return __isa(o, "DeleteRouteInput");
-  }
+  export const isa = (o: any): o is DeleteRouteInput =>
+    __isa(o, "DeleteRouteInput");
 }
 
 /**
@@ -517,9 +500,8 @@ export interface DeleteRouteOutput {
 }
 
 export namespace DeleteRouteOutput {
-  export function isa(o: any): o is DeleteRouteOutput {
-    return __isa(o, "DeleteRouteOutput");
-  }
+  export const isa = (o: any): o is DeleteRouteOutput =>
+    __isa(o, "DeleteRouteOutput");
 }
 
 /**
@@ -539,9 +521,8 @@ export interface DeleteVirtualNodeInput {
 }
 
 export namespace DeleteVirtualNodeInput {
-  export function isa(o: any): o is DeleteVirtualNodeInput {
-    return __isa(o, "DeleteVirtualNodeInput");
-  }
+  export const isa = (o: any): o is DeleteVirtualNodeInput =>
+    __isa(o, "DeleteVirtualNodeInput");
 }
 
 /**
@@ -556,9 +537,8 @@ export interface DeleteVirtualNodeOutput {
 }
 
 export namespace DeleteVirtualNodeOutput {
-  export function isa(o: any): o is DeleteVirtualNodeOutput {
-    return __isa(o, "DeleteVirtualNodeOutput");
-  }
+  export const isa = (o: any): o is DeleteVirtualNodeOutput =>
+    __isa(o, "DeleteVirtualNodeOutput");
 }
 
 /**
@@ -578,9 +558,8 @@ export interface DeleteVirtualRouterInput {
 }
 
 export namespace DeleteVirtualRouterInput {
-  export function isa(o: any): o is DeleteVirtualRouterInput {
-    return __isa(o, "DeleteVirtualRouterInput");
-  }
+  export const isa = (o: any): o is DeleteVirtualRouterInput =>
+    __isa(o, "DeleteVirtualRouterInput");
 }
 
 /**
@@ -595,9 +574,8 @@ export interface DeleteVirtualRouterOutput {
 }
 
 export namespace DeleteVirtualRouterOutput {
-  export function isa(o: any): o is DeleteVirtualRouterOutput {
-    return __isa(o, "DeleteVirtualRouterOutput");
-  }
+  export const isa = (o: any): o is DeleteVirtualRouterOutput =>
+    __isa(o, "DeleteVirtualRouterOutput");
 }
 
 /**
@@ -617,9 +595,8 @@ export interface DeleteVirtualServiceInput {
 }
 
 export namespace DeleteVirtualServiceInput {
-  export function isa(o: any): o is DeleteVirtualServiceInput {
-    return __isa(o, "DeleteVirtualServiceInput");
-  }
+  export const isa = (o: any): o is DeleteVirtualServiceInput =>
+    __isa(o, "DeleteVirtualServiceInput");
 }
 
 /**
@@ -634,9 +611,8 @@ export interface DeleteVirtualServiceOutput {
 }
 
 export namespace DeleteVirtualServiceOutput {
-  export function isa(o: any): o is DeleteVirtualServiceOutput {
-    return __isa(o, "DeleteVirtualServiceOutput");
-  }
+  export const isa = (o: any): o is DeleteVirtualServiceOutput =>
+    __isa(o, "DeleteVirtualServiceOutput");
 }
 
 /**
@@ -651,9 +627,8 @@ export interface DescribeMeshInput {
 }
 
 export namespace DescribeMeshInput {
-  export function isa(o: any): o is DescribeMeshInput {
-    return __isa(o, "DescribeMeshInput");
-  }
+  export const isa = (o: any): o is DescribeMeshInput =>
+    __isa(o, "DescribeMeshInput");
 }
 
 /**
@@ -668,9 +643,8 @@ export interface DescribeMeshOutput {
 }
 
 export namespace DescribeMeshOutput {
-  export function isa(o: any): o is DescribeMeshOutput {
-    return __isa(o, "DescribeMeshOutput");
-  }
+  export const isa = (o: any): o is DescribeMeshOutput =>
+    __isa(o, "DescribeMeshOutput");
 }
 
 /**
@@ -695,9 +669,8 @@ export interface DescribeRouteInput {
 }
 
 export namespace DescribeRouteInput {
-  export function isa(o: any): o is DescribeRouteInput {
-    return __isa(o, "DescribeRouteInput");
-  }
+  export const isa = (o: any): o is DescribeRouteInput =>
+    __isa(o, "DescribeRouteInput");
 }
 
 /**
@@ -712,9 +685,8 @@ export interface DescribeRouteOutput {
 }
 
 export namespace DescribeRouteOutput {
-  export function isa(o: any): o is DescribeRouteOutput {
-    return __isa(o, "DescribeRouteOutput");
-  }
+  export const isa = (o: any): o is DescribeRouteOutput =>
+    __isa(o, "DescribeRouteOutput");
 }
 
 /**
@@ -734,9 +706,8 @@ export interface DescribeVirtualNodeInput {
 }
 
 export namespace DescribeVirtualNodeInput {
-  export function isa(o: any): o is DescribeVirtualNodeInput {
-    return __isa(o, "DescribeVirtualNodeInput");
-  }
+  export const isa = (o: any): o is DescribeVirtualNodeInput =>
+    __isa(o, "DescribeVirtualNodeInput");
 }
 
 /**
@@ -751,9 +722,8 @@ export interface DescribeVirtualNodeOutput {
 }
 
 export namespace DescribeVirtualNodeOutput {
-  export function isa(o: any): o is DescribeVirtualNodeOutput {
-    return __isa(o, "DescribeVirtualNodeOutput");
-  }
+  export const isa = (o: any): o is DescribeVirtualNodeOutput =>
+    __isa(o, "DescribeVirtualNodeOutput");
 }
 
 /**
@@ -773,9 +743,8 @@ export interface DescribeVirtualRouterInput {
 }
 
 export namespace DescribeVirtualRouterInput {
-  export function isa(o: any): o is DescribeVirtualRouterInput {
-    return __isa(o, "DescribeVirtualRouterInput");
-  }
+  export const isa = (o: any): o is DescribeVirtualRouterInput =>
+    __isa(o, "DescribeVirtualRouterInput");
 }
 
 /**
@@ -790,9 +759,8 @@ export interface DescribeVirtualRouterOutput {
 }
 
 export namespace DescribeVirtualRouterOutput {
-  export function isa(o: any): o is DescribeVirtualRouterOutput {
-    return __isa(o, "DescribeVirtualRouterOutput");
-  }
+  export const isa = (o: any): o is DescribeVirtualRouterOutput =>
+    __isa(o, "DescribeVirtualRouterOutput");
 }
 
 /**
@@ -812,9 +780,8 @@ export interface DescribeVirtualServiceInput {
 }
 
 export namespace DescribeVirtualServiceInput {
-  export function isa(o: any): o is DescribeVirtualServiceInput {
-    return __isa(o, "DescribeVirtualServiceInput");
-  }
+  export const isa = (o: any): o is DescribeVirtualServiceInput =>
+    __isa(o, "DescribeVirtualServiceInput");
 }
 
 /**
@@ -829,9 +796,8 @@ export interface DescribeVirtualServiceOutput {
 }
 
 export namespace DescribeVirtualServiceOutput {
-  export function isa(o: any): o is DescribeVirtualServiceOutput {
-    return __isa(o, "DescribeVirtualServiceOutput");
-  }
+  export const isa = (o: any): o is DescribeVirtualServiceOutput =>
+    __isa(o, "DescribeVirtualServiceOutput");
 }
 
 /**
@@ -847,9 +813,8 @@ export interface DnsServiceDiscovery {
 }
 
 export namespace DnsServiceDiscovery {
-  export function isa(o: any): o is DnsServiceDiscovery {
-    return __isa(o, "DnsServiceDiscovery");
-  }
+  export const isa = (o: any): o is DnsServiceDiscovery =>
+    __isa(o, "DnsServiceDiscovery");
 }
 
 /**
@@ -869,9 +834,7 @@ export interface Duration {
 }
 
 export namespace Duration {
-  export function isa(o: any): o is Duration {
-    return __isa(o, "Duration");
-  }
+  export const isa = (o: any): o is Duration => __isa(o, "Duration");
 }
 
 export enum DurationUnit {
@@ -895,9 +858,7 @@ export interface EgressFilter {
 }
 
 export namespace EgressFilter {
-  export function isa(o: any): o is EgressFilter {
-    return __isa(o, "EgressFilter");
-  }
+  export const isa = (o: any): o is EgressFilter => __isa(o, "EgressFilter");
 }
 
 export enum EgressFilterType {
@@ -925,9 +886,7 @@ export interface FileAccessLog {
 }
 
 export namespace FileAccessLog {
-  export function isa(o: any): o is FileAccessLog {
-    return __isa(o, "FileAccessLog");
-  }
+  export const isa = (o: any): o is FileAccessLog => __isa(o, "FileAccessLog");
 }
 
 /**
@@ -940,9 +899,8 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export function isa(o: any): o is ForbiddenException {
-    return __isa(o, "ForbiddenException");
-  }
+  export const isa = (o: any): o is ForbiddenException =>
+    __isa(o, "ForbiddenException");
 }
 
 /**
@@ -998,9 +956,8 @@ export interface GrpcRetryPolicy {
 }
 
 export namespace GrpcRetryPolicy {
-  export function isa(o: any): o is GrpcRetryPolicy {
-    return __isa(o, "GrpcRetryPolicy");
-  }
+  export const isa = (o: any): o is GrpcRetryPolicy =>
+    __isa(o, "GrpcRetryPolicy");
 }
 
 export enum GrpcRetryPolicyEvent {
@@ -1033,9 +990,7 @@ export interface GrpcRoute {
 }
 
 export namespace GrpcRoute {
-  export function isa(o: any): o is GrpcRoute {
-    return __isa(o, "GrpcRoute");
-  }
+  export const isa = (o: any): o is GrpcRoute => __isa(o, "GrpcRoute");
 }
 
 /**
@@ -1050,9 +1005,8 @@ export interface GrpcRouteAction {
 }
 
 export namespace GrpcRouteAction {
-  export function isa(o: any): o is GrpcRouteAction {
-    return __isa(o, "GrpcRouteAction");
-  }
+  export const isa = (o: any): o is GrpcRouteAction =>
+    __isa(o, "GrpcRouteAction");
 }
 
 /**
@@ -1077,9 +1031,8 @@ export interface GrpcRouteMatch {
 }
 
 export namespace GrpcRouteMatch {
-  export function isa(o: any): o is GrpcRouteMatch {
-    return __isa(o, "GrpcRouteMatch");
-  }
+  export const isa = (o: any): o is GrpcRouteMatch =>
+    __isa(o, "GrpcRouteMatch");
 }
 
 /**
@@ -1104,9 +1057,8 @@ export interface GrpcRouteMetadata {
 }
 
 export namespace GrpcRouteMetadata {
-  export function isa(o: any): o is GrpcRouteMetadata {
-    return __isa(o, "GrpcRouteMetadata");
-  }
+  export const isa = (o: any): o is GrpcRouteMetadata =>
+    __isa(o, "GrpcRouteMetadata");
 }
 
 /**
@@ -1352,9 +1304,8 @@ export interface HealthCheckPolicy {
 }
 
 export namespace HealthCheckPolicy {
-  export function isa(o: any): o is HealthCheckPolicy {
-    return __isa(o, "HealthCheckPolicy");
-  }
+  export const isa = (o: any): o is HealthCheckPolicy =>
+    __isa(o, "HealthCheckPolicy");
 }
 
 export enum HttpMethod {
@@ -1417,9 +1368,8 @@ export interface HttpRetryPolicy {
 }
 
 export namespace HttpRetryPolicy {
-  export function isa(o: any): o is HttpRetryPolicy {
-    return __isa(o, "HttpRetryPolicy");
-  }
+  export const isa = (o: any): o is HttpRetryPolicy =>
+    __isa(o, "HttpRetryPolicy");
 }
 
 /**
@@ -1444,9 +1394,7 @@ export interface HttpRoute {
 }
 
 export namespace HttpRoute {
-  export function isa(o: any): o is HttpRoute {
-    return __isa(o, "HttpRoute");
-  }
+  export const isa = (o: any): o is HttpRoute => __isa(o, "HttpRoute");
 }
 
 /**
@@ -1461,9 +1409,8 @@ export interface HttpRouteAction {
 }
 
 export namespace HttpRouteAction {
-  export function isa(o: any): o is HttpRouteAction {
-    return __isa(o, "HttpRouteAction");
-  }
+  export const isa = (o: any): o is HttpRouteAction =>
+    __isa(o, "HttpRouteAction");
 }
 
 /**
@@ -1488,9 +1435,8 @@ export interface HttpRouteHeader {
 }
 
 export namespace HttpRouteHeader {
-  export function isa(o: any): o is HttpRouteHeader {
-    return __isa(o, "HttpRouteHeader");
-  }
+  export const isa = (o: any): o is HttpRouteHeader =>
+    __isa(o, "HttpRouteHeader");
 }
 
 /**
@@ -1526,9 +1472,8 @@ export interface HttpRouteMatch {
 }
 
 export namespace HttpRouteMatch {
-  export function isa(o: any): o is HttpRouteMatch {
-    return __isa(o, "HttpRouteMatch");
-  }
+  export const isa = (o: any): o is HttpRouteMatch =>
+    __isa(o, "HttpRouteMatch");
 }
 
 export enum HttpScheme {
@@ -1549,9 +1494,8 @@ export interface InternalServerErrorException
 }
 
 export namespace InternalServerErrorException {
-  export function isa(o: any): o is InternalServerErrorException {
-    return __isa(o, "InternalServerErrorException");
-  }
+  export const isa = (o: any): o is InternalServerErrorException =>
+    __isa(o, "InternalServerErrorException");
 }
 
 /**
@@ -1567,9 +1511,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 /**
@@ -1603,9 +1546,8 @@ export interface ListMeshesInput {
 }
 
 export namespace ListMeshesInput {
-  export function isa(o: any): o is ListMeshesInput {
-    return __isa(o, "ListMeshesInput");
-  }
+  export const isa = (o: any): o is ListMeshesInput =>
+    __isa(o, "ListMeshesInput");
 }
 
 /**
@@ -1628,9 +1570,8 @@ export interface ListMeshesOutput {
 }
 
 export namespace ListMeshesOutput {
-  export function isa(o: any): o is ListMeshesOutput {
-    return __isa(o, "ListMeshesOutput");
-  }
+  export const isa = (o: any): o is ListMeshesOutput =>
+    __isa(o, "ListMeshesOutput");
 }
 
 /**
@@ -1670,9 +1611,8 @@ export interface ListRoutesInput {
 }
 
 export namespace ListRoutesInput {
-  export function isa(o: any): o is ListRoutesInput {
-    return __isa(o, "ListRoutesInput");
-  }
+  export const isa = (o: any): o is ListRoutesInput =>
+    __isa(o, "ListRoutesInput");
 }
 
 /**
@@ -1695,9 +1635,8 @@ export interface ListRoutesOutput {
 }
 
 export namespace ListRoutesOutput {
-  export function isa(o: any): o is ListRoutesOutput {
-    return __isa(o, "ListRoutesOutput");
-  }
+  export const isa = (o: any): o is ListRoutesOutput =>
+    __isa(o, "ListRoutesOutput");
 }
 
 /**
@@ -1732,9 +1671,8 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
-  export function isa(o: any): o is ListTagsForResourceInput {
-    return __isa(o, "ListTagsForResourceInput");
-  }
+  export const isa = (o: any): o is ListTagsForResourceInput =>
+    __isa(o, "ListTagsForResourceInput");
 }
 
 /**
@@ -1757,9 +1695,8 @@ export interface ListTagsForResourceOutput {
 }
 
 export namespace ListTagsForResourceOutput {
-  export function isa(o: any): o is ListTagsForResourceOutput {
-    return __isa(o, "ListTagsForResourceOutput");
-  }
+  export const isa = (o: any): o is ListTagsForResourceOutput =>
+    __isa(o, "ListTagsForResourceOutput");
 }
 
 /**
@@ -1794,9 +1731,8 @@ export interface ListVirtualNodesInput {
 }
 
 export namespace ListVirtualNodesInput {
-  export function isa(o: any): o is ListVirtualNodesInput {
-    return __isa(o, "ListVirtualNodesInput");
-  }
+  export const isa = (o: any): o is ListVirtualNodesInput =>
+    __isa(o, "ListVirtualNodesInput");
 }
 
 /**
@@ -1819,9 +1755,8 @@ export interface ListVirtualNodesOutput {
 }
 
 export namespace ListVirtualNodesOutput {
-  export function isa(o: any): o is ListVirtualNodesOutput {
-    return __isa(o, "ListVirtualNodesOutput");
-  }
+  export const isa = (o: any): o is ListVirtualNodesOutput =>
+    __isa(o, "ListVirtualNodesOutput");
 }
 
 /**
@@ -1856,9 +1791,8 @@ export interface ListVirtualRoutersInput {
 }
 
 export namespace ListVirtualRoutersInput {
-  export function isa(o: any): o is ListVirtualRoutersInput {
-    return __isa(o, "ListVirtualRoutersInput");
-  }
+  export const isa = (o: any): o is ListVirtualRoutersInput =>
+    __isa(o, "ListVirtualRoutersInput");
 }
 
 /**
@@ -1881,9 +1815,8 @@ export interface ListVirtualRoutersOutput {
 }
 
 export namespace ListVirtualRoutersOutput {
-  export function isa(o: any): o is ListVirtualRoutersOutput {
-    return __isa(o, "ListVirtualRoutersOutput");
-  }
+  export const isa = (o: any): o is ListVirtualRoutersOutput =>
+    __isa(o, "ListVirtualRoutersOutput");
 }
 
 /**
@@ -1918,9 +1851,8 @@ export interface ListVirtualServicesInput {
 }
 
 export namespace ListVirtualServicesInput {
-  export function isa(o: any): o is ListVirtualServicesInput {
-    return __isa(o, "ListVirtualServicesInput");
-  }
+  export const isa = (o: any): o is ListVirtualServicesInput =>
+    __isa(o, "ListVirtualServicesInput");
 }
 
 /**
@@ -1943,9 +1875,8 @@ export interface ListVirtualServicesOutput {
 }
 
 export namespace ListVirtualServicesOutput {
-  export function isa(o: any): o is ListVirtualServicesOutput {
-    return __isa(o, "ListVirtualServicesOutput");
-  }
+  export const isa = (o: any): o is ListVirtualServicesOutput =>
+    __isa(o, "ListVirtualServicesOutput");
 }
 
 /**
@@ -1965,9 +1896,7 @@ export interface Listener {
 }
 
 export namespace Listener {
-  export function isa(o: any): o is Listener {
-    return __isa(o, "Listener");
-  }
+  export const isa = (o: any): o is Listener => __isa(o, "Listener");
 }
 
 /**
@@ -1982,9 +1911,7 @@ export interface Logging {
 }
 
 export namespace Logging {
-  export function isa(o: any): o is Logging {
-    return __isa(o, "Logging");
-  }
+  export const isa = (o: any): o is Logging => __isa(o, "Logging");
 }
 
 /**
@@ -2004,9 +1931,7 @@ export interface MatchRange {
 }
 
 export namespace MatchRange {
-  export function isa(o: any): o is MatchRange {
-    return __isa(o, "MatchRange");
-  }
+  export const isa = (o: any): o is MatchRange => __isa(o, "MatchRange");
 }
 
 /**
@@ -2036,9 +1961,7 @@ export interface MeshData {
 }
 
 export namespace MeshData {
-  export function isa(o: any): o is MeshData {
-    return __isa(o, "MeshData");
-  }
+  export const isa = (o: any): o is MeshData => __isa(o, "MeshData");
 }
 
 /**
@@ -2058,9 +1981,7 @@ export interface MeshRef {
 }
 
 export namespace MeshRef {
-  export function isa(o: any): o is MeshRef {
-    return __isa(o, "MeshRef");
-  }
+  export const isa = (o: any): o is MeshRef => __isa(o, "MeshRef");
 }
 
 /**
@@ -2075,9 +1996,7 @@ export interface MeshSpec {
 }
 
 export namespace MeshSpec {
-  export function isa(o: any): o is MeshSpec {
-    return __isa(o, "MeshSpec");
-  }
+  export const isa = (o: any): o is MeshSpec => __isa(o, "MeshSpec");
 }
 
 /**
@@ -2092,9 +2011,7 @@ export interface MeshStatus {
 }
 
 export namespace MeshStatus {
-  export function isa(o: any): o is MeshStatus {
-    return __isa(o, "MeshStatus");
-  }
+  export const isa = (o: any): o is MeshStatus => __isa(o, "MeshStatus");
 }
 
 export enum MeshStatusCode {
@@ -2113,9 +2030,8 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return __isa(o, "NotFoundException");
-  }
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
 }
 
 /**
@@ -2135,9 +2051,7 @@ export interface PortMapping {
 }
 
 export namespace PortMapping {
-  export function isa(o: any): o is PortMapping {
-    return __isa(o, "PortMapping");
-  }
+  export const isa = (o: any): o is PortMapping => __isa(o, "PortMapping");
 }
 
 export enum PortProtocol {
@@ -2160,9 +2074,8 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export function isa(o: any): o is ResourceInUseException {
-    return __isa(o, "ResourceInUseException");
-  }
+  export const isa = (o: any): o is ResourceInUseException =>
+    __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -2198,9 +2111,8 @@ export interface ResourceMetadata {
 }
 
 export namespace ResourceMetadata {
-  export function isa(o: any): o is ResourceMetadata {
-    return __isa(o, "ResourceMetadata");
-  }
+  export const isa = (o: any): o is ResourceMetadata =>
+    __isa(o, "ResourceMetadata");
 }
 
 /**
@@ -2240,9 +2152,7 @@ export interface RouteData {
 }
 
 export namespace RouteData {
-  export function isa(o: any): o is RouteData {
-    return __isa(o, "RouteData");
-  }
+  export const isa = (o: any): o is RouteData => __isa(o, "RouteData");
 }
 
 /**
@@ -2272,9 +2182,7 @@ export interface RouteRef {
 }
 
 export namespace RouteRef {
-  export function isa(o: any): o is RouteRef {
-    return __isa(o, "RouteRef");
-  }
+  export const isa = (o: any): o is RouteRef => __isa(o, "RouteRef");
 }
 
 /**
@@ -2310,9 +2218,7 @@ export interface RouteSpec {
 }
 
 export namespace RouteSpec {
-  export function isa(o: any): o is RouteSpec {
-    return __isa(o, "RouteSpec");
-  }
+  export const isa = (o: any): o is RouteSpec => __isa(o, "RouteSpec");
 }
 
 /**
@@ -2327,9 +2233,7 @@ export interface RouteStatus {
 }
 
 export namespace RouteStatus {
-  export function isa(o: any): o is RouteStatus {
-    return __isa(o, "RouteStatus");
-  }
+  export const isa = (o: any): o is RouteStatus => __isa(o, "RouteStatus");
 }
 
 export enum RouteStatusCode {
@@ -2396,9 +2300,8 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return __isa(o, "ServiceUnavailableException");
-  }
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -2423,9 +2326,7 @@ export interface TagRef {
 }
 
 export namespace TagRef {
-  export function isa(o: any): o is TagRef {
-    return __isa(o, "TagRef");
-  }
+  export const isa = (o: any): o is TagRef => __isa(o, "TagRef");
 }
 
 /**
@@ -2447,9 +2348,8 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
-  export function isa(o: any): o is TagResourceInput {
-    return __isa(o, "TagResourceInput");
-  }
+  export const isa = (o: any): o is TagResourceInput =>
+    __isa(o, "TagResourceInput");
 }
 
 /**
@@ -2460,9 +2360,8 @@ export interface TagResourceOutput {
 }
 
 export namespace TagResourceOutput {
-  export function isa(o: any): o is TagResourceOutput {
-    return __isa(o, "TagResourceOutput");
-  }
+  export const isa = (o: any): o is TagResourceOutput =>
+    __isa(o, "TagResourceOutput");
 }
 
 export enum TcpRetryPolicyEvent {
@@ -2481,9 +2380,7 @@ export interface TcpRoute {
 }
 
 export namespace TcpRoute {
-  export function isa(o: any): o is TcpRoute {
-    return __isa(o, "TcpRoute");
-  }
+  export const isa = (o: any): o is TcpRoute => __isa(o, "TcpRoute");
 }
 
 /**
@@ -2498,9 +2395,8 @@ export interface TcpRouteAction {
 }
 
 export namespace TcpRouteAction {
-  export function isa(o: any): o is TcpRouteAction {
-    return __isa(o, "TcpRouteAction");
-  }
+  export const isa = (o: any): o is TcpRouteAction =>
+    __isa(o, "TcpRouteAction");
 }
 
 /**
@@ -2517,9 +2413,8 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export function isa(o: any): o is TooManyRequestsException {
-    return __isa(o, "TooManyRequestsException");
-  }
+  export const isa = (o: any): o is TooManyRequestsException =>
+    __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -2536,9 +2431,8 @@ export interface TooManyTagsException
 }
 
 export namespace TooManyTagsException {
-  export function isa(o: any): o is TooManyTagsException {
-    return __isa(o, "TooManyTagsException");
-  }
+  export const isa = (o: any): o is TooManyTagsException =>
+    __isa(o, "TooManyTagsException");
 }
 
 /**
@@ -2558,9 +2452,8 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
-  export function isa(o: any): o is UntagResourceInput {
-    return __isa(o, "UntagResourceInput");
-  }
+  export const isa = (o: any): o is UntagResourceInput =>
+    __isa(o, "UntagResourceInput");
 }
 
 /**
@@ -2571,9 +2464,8 @@ export interface UntagResourceOutput {
 }
 
 export namespace UntagResourceOutput {
-  export function isa(o: any): o is UntagResourceOutput {
-    return __isa(o, "UntagResourceOutput");
-  }
+  export const isa = (o: any): o is UntagResourceOutput =>
+    __isa(o, "UntagResourceOutput");
 }
 
 /**
@@ -2599,9 +2491,8 @@ export interface UpdateMeshInput {
 }
 
 export namespace UpdateMeshInput {
-  export function isa(o: any): o is UpdateMeshInput {
-    return __isa(o, "UpdateMeshInput");
-  }
+  export const isa = (o: any): o is UpdateMeshInput =>
+    __isa(o, "UpdateMeshInput");
 }
 
 /**
@@ -2616,9 +2507,8 @@ export interface UpdateMeshOutput {
 }
 
 export namespace UpdateMeshOutput {
-  export function isa(o: any): o is UpdateMeshOutput {
-    return __isa(o, "UpdateMeshOutput");
-  }
+  export const isa = (o: any): o is UpdateMeshOutput =>
+    __isa(o, "UpdateMeshOutput");
 }
 
 /**
@@ -2654,9 +2544,8 @@ export interface UpdateRouteInput {
 }
 
 export namespace UpdateRouteInput {
-  export function isa(o: any): o is UpdateRouteInput {
-    return __isa(o, "UpdateRouteInput");
-  }
+  export const isa = (o: any): o is UpdateRouteInput =>
+    __isa(o, "UpdateRouteInput");
 }
 
 /**
@@ -2671,9 +2560,8 @@ export interface UpdateRouteOutput {
 }
 
 export namespace UpdateRouteOutput {
-  export function isa(o: any): o is UpdateRouteOutput {
-    return __isa(o, "UpdateRouteOutput");
-  }
+  export const isa = (o: any): o is UpdateRouteOutput =>
+    __isa(o, "UpdateRouteOutput");
 }
 
 /**
@@ -2704,9 +2592,8 @@ export interface UpdateVirtualNodeInput {
 }
 
 export namespace UpdateVirtualNodeInput {
-  export function isa(o: any): o is UpdateVirtualNodeInput {
-    return __isa(o, "UpdateVirtualNodeInput");
-  }
+  export const isa = (o: any): o is UpdateVirtualNodeInput =>
+    __isa(o, "UpdateVirtualNodeInput");
 }
 
 /**
@@ -2721,9 +2608,8 @@ export interface UpdateVirtualNodeOutput {
 }
 
 export namespace UpdateVirtualNodeOutput {
-  export function isa(o: any): o is UpdateVirtualNodeOutput {
-    return __isa(o, "UpdateVirtualNodeOutput");
-  }
+  export const isa = (o: any): o is UpdateVirtualNodeOutput =>
+    __isa(o, "UpdateVirtualNodeOutput");
 }
 
 /**
@@ -2754,9 +2640,8 @@ export interface UpdateVirtualRouterInput {
 }
 
 export namespace UpdateVirtualRouterInput {
-  export function isa(o: any): o is UpdateVirtualRouterInput {
-    return __isa(o, "UpdateVirtualRouterInput");
-  }
+  export const isa = (o: any): o is UpdateVirtualRouterInput =>
+    __isa(o, "UpdateVirtualRouterInput");
 }
 
 /**
@@ -2771,9 +2656,8 @@ export interface UpdateVirtualRouterOutput {
 }
 
 export namespace UpdateVirtualRouterOutput {
-  export function isa(o: any): o is UpdateVirtualRouterOutput {
-    return __isa(o, "UpdateVirtualRouterOutput");
-  }
+  export const isa = (o: any): o is UpdateVirtualRouterOutput =>
+    __isa(o, "UpdateVirtualRouterOutput");
 }
 
 /**
@@ -2805,9 +2689,8 @@ export interface UpdateVirtualServiceInput {
 }
 
 export namespace UpdateVirtualServiceInput {
-  export function isa(o: any): o is UpdateVirtualServiceInput {
-    return __isa(o, "UpdateVirtualServiceInput");
-  }
+  export const isa = (o: any): o is UpdateVirtualServiceInput =>
+    __isa(o, "UpdateVirtualServiceInput");
 }
 
 /**
@@ -2822,9 +2705,8 @@ export interface UpdateVirtualServiceOutput {
 }
 
 export namespace UpdateVirtualServiceOutput {
-  export function isa(o: any): o is UpdateVirtualServiceOutput {
-    return __isa(o, "UpdateVirtualServiceOutput");
-  }
+  export const isa = (o: any): o is UpdateVirtualServiceOutput =>
+    __isa(o, "UpdateVirtualServiceOutput");
 }
 
 /**
@@ -2859,9 +2741,8 @@ export interface VirtualNodeData {
 }
 
 export namespace VirtualNodeData {
-  export function isa(o: any): o is VirtualNodeData {
-    return __isa(o, "VirtualNodeData");
-  }
+  export const isa = (o: any): o is VirtualNodeData =>
+    __isa(o, "VirtualNodeData");
 }
 
 /**
@@ -2886,9 +2767,8 @@ export interface VirtualNodeRef {
 }
 
 export namespace VirtualNodeRef {
-  export function isa(o: any): o is VirtualNodeRef {
-    return __isa(o, "VirtualNodeRef");
-  }
+  export const isa = (o: any): o is VirtualNodeRef =>
+    __isa(o, "VirtualNodeRef");
 }
 
 /**
@@ -2903,9 +2783,8 @@ export interface VirtualNodeServiceProvider {
 }
 
 export namespace VirtualNodeServiceProvider {
-  export function isa(o: any): o is VirtualNodeServiceProvider {
-    return __isa(o, "VirtualNodeServiceProvider");
-  }
+  export const isa = (o: any): o is VirtualNodeServiceProvider =>
+    __isa(o, "VirtualNodeServiceProvider");
 }
 
 /**
@@ -2937,9 +2816,8 @@ export interface VirtualNodeSpec {
 }
 
 export namespace VirtualNodeSpec {
-  export function isa(o: any): o is VirtualNodeSpec {
-    return __isa(o, "VirtualNodeSpec");
-  }
+  export const isa = (o: any): o is VirtualNodeSpec =>
+    __isa(o, "VirtualNodeSpec");
 }
 
 /**
@@ -2954,9 +2832,8 @@ export interface VirtualNodeStatus {
 }
 
 export namespace VirtualNodeStatus {
-  export function isa(o: any): o is VirtualNodeStatus {
-    return __isa(o, "VirtualNodeStatus");
-  }
+  export const isa = (o: any): o is VirtualNodeStatus =>
+    __isa(o, "VirtualNodeStatus");
 }
 
 export enum VirtualNodeStatusCode {
@@ -2997,9 +2874,8 @@ export interface VirtualRouterData {
 }
 
 export namespace VirtualRouterData {
-  export function isa(o: any): o is VirtualRouterData {
-    return __isa(o, "VirtualRouterData");
-  }
+  export const isa = (o: any): o is VirtualRouterData =>
+    __isa(o, "VirtualRouterData");
 }
 
 /**
@@ -3014,9 +2890,8 @@ export interface VirtualRouterListener {
 }
 
 export namespace VirtualRouterListener {
-  export function isa(o: any): o is VirtualRouterListener {
-    return __isa(o, "VirtualRouterListener");
-  }
+  export const isa = (o: any): o is VirtualRouterListener =>
+    __isa(o, "VirtualRouterListener");
 }
 
 /**
@@ -3041,9 +2916,8 @@ export interface VirtualRouterRef {
 }
 
 export namespace VirtualRouterRef {
-  export function isa(o: any): o is VirtualRouterRef {
-    return __isa(o, "VirtualRouterRef");
-  }
+  export const isa = (o: any): o is VirtualRouterRef =>
+    __isa(o, "VirtualRouterRef");
 }
 
 /**
@@ -3058,9 +2932,8 @@ export interface VirtualRouterServiceProvider {
 }
 
 export namespace VirtualRouterServiceProvider {
-  export function isa(o: any): o is VirtualRouterServiceProvider {
-    return __isa(o, "VirtualRouterServiceProvider");
-  }
+  export const isa = (o: any): o is VirtualRouterServiceProvider =>
+    __isa(o, "VirtualRouterServiceProvider");
 }
 
 /**
@@ -3076,9 +2949,8 @@ export interface VirtualRouterSpec {
 }
 
 export namespace VirtualRouterSpec {
-  export function isa(o: any): o is VirtualRouterSpec {
-    return __isa(o, "VirtualRouterSpec");
-  }
+  export const isa = (o: any): o is VirtualRouterSpec =>
+    __isa(o, "VirtualRouterSpec");
 }
 
 /**
@@ -3093,9 +2965,8 @@ export interface VirtualRouterStatus {
 }
 
 export namespace VirtualRouterStatus {
-  export function isa(o: any): o is VirtualRouterStatus {
-    return __isa(o, "VirtualRouterStatus");
-  }
+  export const isa = (o: any): o is VirtualRouterStatus =>
+    __isa(o, "VirtualRouterStatus");
 }
 
 export enum VirtualRouterStatusCode {
@@ -3116,9 +2987,8 @@ export interface VirtualServiceBackend {
 }
 
 export namespace VirtualServiceBackend {
-  export function isa(o: any): o is VirtualServiceBackend {
-    return __isa(o, "VirtualServiceBackend");
-  }
+  export const isa = (o: any): o is VirtualServiceBackend =>
+    __isa(o, "VirtualServiceBackend");
 }
 
 /**
@@ -3153,9 +3023,8 @@ export interface VirtualServiceData {
 }
 
 export namespace VirtualServiceData {
-  export function isa(o: any): o is VirtualServiceData {
-    return __isa(o, "VirtualServiceData");
-  }
+  export const isa = (o: any): o is VirtualServiceData =>
+    __isa(o, "VirtualServiceData");
 }
 
 /**
@@ -3230,9 +3099,8 @@ export interface VirtualServiceRef {
 }
 
 export namespace VirtualServiceRef {
-  export function isa(o: any): o is VirtualServiceRef {
-    return __isa(o, "VirtualServiceRef");
-  }
+  export const isa = (o: any): o is VirtualServiceRef =>
+    __isa(o, "VirtualServiceRef");
 }
 
 /**
@@ -3248,9 +3116,8 @@ export interface VirtualServiceSpec {
 }
 
 export namespace VirtualServiceSpec {
-  export function isa(o: any): o is VirtualServiceSpec {
-    return __isa(o, "VirtualServiceSpec");
-  }
+  export const isa = (o: any): o is VirtualServiceSpec =>
+    __isa(o, "VirtualServiceSpec");
 }
 
 /**
@@ -3265,9 +3132,8 @@ export interface VirtualServiceStatus {
 }
 
 export namespace VirtualServiceStatus {
-  export function isa(o: any): o is VirtualServiceStatus {
-    return __isa(o, "VirtualServiceStatus");
-  }
+  export const isa = (o: any): o is VirtualServiceStatus =>
+    __isa(o, "VirtualServiceStatus");
 }
 
 export enum VirtualServiceStatusCode {
@@ -3296,7 +3162,6 @@ export interface WeightedTarget {
 }
 
 export namespace WeightedTarget {
-  export function isa(o: any): o is WeightedTarget {
-    return __isa(o, "WeightedTarget");
-  }
+  export const isa = (o: any): o is WeightedTarget =>
+    __isa(o, "WeightedTarget");
 }

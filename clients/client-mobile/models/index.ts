@@ -23,9 +23,8 @@ export interface AccountActionRequiredException
 }
 
 export namespace AccountActionRequiredException {
-  export function isa(o: any): o is AccountActionRequiredException {
-    return __isa(o, "AccountActionRequiredException");
-  }
+  export const isa = (o: any): o is AccountActionRequiredException =>
+    __isa(o, "AccountActionRequiredException");
 }
 
 /**
@@ -48,9 +47,8 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export function isa(o: any): o is BadRequestException {
-    return __isa(o, "BadRequestException");
-  }
+  export const isa = (o: any): o is BadRequestException =>
+    __isa(o, "BadRequestException");
 }
 
 /**
@@ -104,9 +102,7 @@ export interface BundleDetails {
 }
 
 export namespace BundleDetails {
-  export function isa(o: any): o is BundleDetails {
-    return __isa(o, "BundleDetails");
-  }
+  export const isa = (o: any): o is BundleDetails => __isa(o, "BundleDetails");
 }
 
 /**
@@ -149,9 +145,8 @@ export interface CreateProjectRequest {
 }
 
 export namespace CreateProjectRequest {
-  export function isa(o: any): o is CreateProjectRequest {
-    return __isa(o, "CreateProjectRequest");
-  }
+  export const isa = (o: any): o is CreateProjectRequest =>
+    __isa(o, "CreateProjectRequest");
 }
 
 /**
@@ -170,9 +165,8 @@ export interface CreateProjectResult {
 }
 
 export namespace CreateProjectResult {
-  export function isa(o: any): o is CreateProjectResult {
-    return __isa(o, "CreateProjectResult");
-  }
+  export const isa = (o: any): o is CreateProjectResult =>
+    __isa(o, "CreateProjectResult");
 }
 
 /**
@@ -191,9 +185,8 @@ export interface DeleteProjectRequest {
 }
 
 export namespace DeleteProjectRequest {
-  export function isa(o: any): o is DeleteProjectRequest {
-    return __isa(o, "DeleteProjectRequest");
-  }
+  export const isa = (o: any): o is DeleteProjectRequest =>
+    __isa(o, "DeleteProjectRequest");
 }
 
 /**
@@ -220,9 +213,8 @@ export interface DeleteProjectResult {
 }
 
 export namespace DeleteProjectResult {
-  export function isa(o: any): o is DeleteProjectResult {
-    return __isa(o, "DeleteProjectResult");
-  }
+  export const isa = (o: any): o is DeleteProjectResult =>
+    __isa(o, "DeleteProjectResult");
 }
 
 /**
@@ -241,9 +233,8 @@ export interface DescribeBundleRequest {
 }
 
 export namespace DescribeBundleRequest {
-  export function isa(o: any): o is DescribeBundleRequest {
-    return __isa(o, "DescribeBundleRequest");
-  }
+  export const isa = (o: any): o is DescribeBundleRequest =>
+    __isa(o, "DescribeBundleRequest");
 }
 
 /**
@@ -262,9 +253,8 @@ export interface DescribeBundleResult {
 }
 
 export namespace DescribeBundleResult {
-  export function isa(o: any): o is DescribeBundleResult {
-    return __isa(o, "DescribeBundleResult");
-  }
+  export const isa = (o: any): o is DescribeBundleResult =>
+    __isa(o, "DescribeBundleResult");
 }
 
 /**
@@ -290,9 +280,8 @@ export interface DescribeProjectRequest {
 }
 
 export namespace DescribeProjectRequest {
-  export function isa(o: any): o is DescribeProjectRequest {
-    return __isa(o, "DescribeProjectRequest");
-  }
+  export const isa = (o: any): o is DescribeProjectRequest =>
+    __isa(o, "DescribeProjectRequest");
 }
 
 /**
@@ -311,9 +300,8 @@ export interface DescribeProjectResult {
 }
 
 export namespace DescribeProjectResult {
-  export function isa(o: any): o is DescribeProjectResult {
-    return __isa(o, "DescribeProjectResult");
-  }
+  export const isa = (o: any): o is DescribeProjectResult =>
+    __isa(o, "DescribeProjectResult");
 }
 
 /**
@@ -347,9 +335,8 @@ export interface ExportBundleRequest {
 }
 
 export namespace ExportBundleRequest {
-  export function isa(o: any): o is ExportBundleRequest {
-    return __isa(o, "ExportBundleRequest");
-  }
+  export const isa = (o: any): o is ExportBundleRequest =>
+    __isa(o, "ExportBundleRequest");
 }
 
 /**
@@ -372,9 +359,8 @@ export interface ExportBundleResult {
 }
 
 export namespace ExportBundleResult {
-  export function isa(o: any): o is ExportBundleResult {
-    return __isa(o, "ExportBundleResult");
-  }
+  export const isa = (o: any): o is ExportBundleResult =>
+    __isa(o, "ExportBundleResult");
 }
 
 /**
@@ -393,9 +379,8 @@ export interface ExportProjectRequest {
 }
 
 export namespace ExportProjectRequest {
-  export function isa(o: any): o is ExportProjectRequest {
-    return __isa(o, "ExportProjectRequest");
-  }
+  export const isa = (o: any): o is ExportProjectRequest =>
+    __isa(o, "ExportProjectRequest");
 }
 
 /**
@@ -434,9 +419,8 @@ export interface ExportProjectResult {
 }
 
 export namespace ExportProjectResult {
-  export function isa(o: any): o is ExportProjectResult {
-    return __isa(o, "ExportProjectResult");
-  }
+  export const isa = (o: any): o is ExportProjectResult =>
+    __isa(o, "ExportProjectResult");
 }
 
 /**
@@ -459,9 +443,8 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
-  export function isa(o: any): o is InternalFailureException {
-    return __isa(o, "InternalFailureException");
-  }
+  export const isa = (o: any): o is InternalFailureException =>
+    __isa(o, "InternalFailureException");
 }
 
 /**
@@ -493,9 +476,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 /**
@@ -523,9 +505,8 @@ export interface ListBundlesRequest {
 }
 
 export namespace ListBundlesRequest {
-  export function isa(o: any): o is ListBundlesRequest {
-    return __isa(o, "ListBundlesRequest");
-  }
+  export const isa = (o: any): o is ListBundlesRequest =>
+    __isa(o, "ListBundlesRequest");
 }
 
 /**
@@ -552,9 +533,8 @@ export interface ListBundlesResult {
 }
 
 export namespace ListBundlesResult {
-  export function isa(o: any): o is ListBundlesResult {
-    return __isa(o, "ListBundlesResult");
-  }
+  export const isa = (o: any): o is ListBundlesResult =>
+    __isa(o, "ListBundlesResult");
 }
 
 /**
@@ -582,9 +562,8 @@ export interface ListProjectsRequest {
 }
 
 export namespace ListProjectsRequest {
-  export function isa(o: any): o is ListProjectsRequest {
-    return __isa(o, "ListProjectsRequest");
-  }
+  export const isa = (o: any): o is ListProjectsRequest =>
+    __isa(o, "ListProjectsRequest");
 }
 
 /**
@@ -612,9 +591,8 @@ export interface ListProjectsResult {
 }
 
 export namespace ListProjectsResult {
-  export function isa(o: any): o is ListProjectsResult {
-    return __isa(o, "ListProjectsResult");
-  }
+  export const isa = (o: any): o is ListProjectsResult =>
+    __isa(o, "ListProjectsResult");
 }
 
 /**
@@ -634,9 +612,8 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return __isa(o, "NotFoundException");
-  }
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
 }
 
 export enum Platform {
@@ -714,9 +691,8 @@ export interface ProjectDetails {
 }
 
 export namespace ProjectDetails {
-  export function isa(o: any): o is ProjectDetails {
-    return __isa(o, "ProjectDetails");
-  }
+  export const isa = (o: any): o is ProjectDetails =>
+    __isa(o, "ProjectDetails");
 }
 
 export enum ProjectState {
@@ -748,9 +724,8 @@ export interface ProjectSummary {
 }
 
 export namespace ProjectSummary {
-  export function isa(o: any): o is ProjectSummary {
-    return __isa(o, "ProjectSummary");
-  }
+  export const isa = (o: any): o is ProjectSummary =>
+    __isa(o, "ProjectSummary");
 }
 
 /**
@@ -797,9 +772,7 @@ export interface Resource {
 }
 
 export namespace Resource {
-  export function isa(o: any): o is Resource {
-    return __isa(o, "Resource");
-  }
+  export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
 
 /**
@@ -829,9 +802,8 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return __isa(o, "ServiceUnavailableException");
-  }
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -861,9 +833,8 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export function isa(o: any): o is TooManyRequestsException {
-    return __isa(o, "TooManyRequestsException");
-  }
+  export const isa = (o: any): o is TooManyRequestsException =>
+    __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -885,9 +856,8 @@ export interface UnauthorizedException
 }
 
 export namespace UnauthorizedException {
-  export function isa(o: any): o is UnauthorizedException {
-    return __isa(o, "UnauthorizedException");
-  }
+  export const isa = (o: any): o is UnauthorizedException =>
+    __isa(o, "UnauthorizedException");
 }
 
 /**
@@ -915,9 +885,8 @@ export interface UpdateProjectRequest {
 }
 
 export namespace UpdateProjectRequest {
-  export function isa(o: any): o is UpdateProjectRequest {
-    return __isa(o, "UpdateProjectRequest");
-  }
+  export const isa = (o: any): o is UpdateProjectRequest =>
+    __isa(o, "UpdateProjectRequest");
 }
 
 /**
@@ -936,7 +905,6 @@ export interface UpdateProjectResult {
 }
 
 export namespace UpdateProjectResult {
-  export function isa(o: any): o is UpdateProjectResult {
-    return __isa(o, "UpdateProjectResult");
-  }
+  export const isa = (o: any): o is UpdateProjectResult =>
+    __isa(o, "UpdateProjectResult");
 }

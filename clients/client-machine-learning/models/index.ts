@@ -23,9 +23,7 @@ export interface AddTagsInput {
 }
 
 export namespace AddTagsInput {
-  export function isa(o: any): o is AddTagsInput {
-    return __isa(o, "AddTagsInput");
-  }
+  export const isa = (o: any): o is AddTagsInput => __isa(o, "AddTagsInput");
 }
 
 /**
@@ -45,9 +43,7 @@ export interface AddTagsOutput {
 }
 
 export namespace AddTagsOutput {
-  export function isa(o: any): o is AddTagsOutput {
-    return __isa(o, "AddTagsOutput");
-  }
+  export const isa = (o: any): o is AddTagsOutput => __isa(o, "AddTagsOutput");
 }
 
 export enum Algorithm {
@@ -167,9 +163,8 @@ export interface BatchPrediction {
 }
 
 export namespace BatchPrediction {
-  export function isa(o: any): o is BatchPrediction {
-    return __isa(o, "BatchPrediction");
-  }
+  export const isa = (o: any): o is BatchPrediction =>
+    __isa(o, "BatchPrediction");
 }
 
 export enum BatchPredictionFilterVariable {
@@ -214,9 +209,8 @@ export interface CreateBatchPredictionInput {
 }
 
 export namespace CreateBatchPredictionInput {
-  export function isa(o: any): o is CreateBatchPredictionInput {
-    return __isa(o, "CreateBatchPredictionInput");
-  }
+  export const isa = (o: any): o is CreateBatchPredictionInput =>
+    __isa(o, "CreateBatchPredictionInput");
 }
 
 /**
@@ -235,9 +229,8 @@ export interface CreateBatchPredictionOutput {
 }
 
 export namespace CreateBatchPredictionOutput {
-  export function isa(o: any): o is CreateBatchPredictionOutput {
-    return __isa(o, "CreateBatchPredictionOutput");
-  }
+  export const isa = (o: any): o is CreateBatchPredictionOutput =>
+    __isa(o, "CreateBatchPredictionOutput");
 }
 
 export interface CreateDataSourceFromRDSInput {
@@ -322,9 +315,8 @@ export interface CreateDataSourceFromRDSInput {
 }
 
 export namespace CreateDataSourceFromRDSInput {
-  export function isa(o: any): o is CreateDataSourceFromRDSInput {
-    return __isa(o, "CreateDataSourceFromRDSInput");
-  }
+  export const isa = (o: any): o is CreateDataSourceFromRDSInput =>
+    __isa(o, "CreateDataSourceFromRDSInput");
 }
 
 /**
@@ -346,9 +338,8 @@ export interface CreateDataSourceFromRDSOutput {
 }
 
 export namespace CreateDataSourceFromRDSOutput {
-  export function isa(o: any): o is CreateDataSourceFromRDSOutput {
-    return __isa(o, "CreateDataSourceFromRDSOutput");
-  }
+  export const isa = (o: any): o is CreateDataSourceFromRDSOutput =>
+    __isa(o, "CreateDataSourceFromRDSOutput");
 }
 
 export interface CreateDataSourceFromRedshiftInput {
@@ -432,9 +423,8 @@ export interface CreateDataSourceFromRedshiftInput {
 }
 
 export namespace CreateDataSourceFromRedshiftInput {
-  export function isa(o: any): o is CreateDataSourceFromRedshiftInput {
-    return __isa(o, "CreateDataSourceFromRedshiftInput");
-  }
+  export const isa = (o: any): o is CreateDataSourceFromRedshiftInput =>
+    __isa(o, "CreateDataSourceFromRedshiftInput");
 }
 
 /**
@@ -453,9 +443,8 @@ export interface CreateDataSourceFromRedshiftOutput {
 }
 
 export namespace CreateDataSourceFromRedshiftOutput {
-  export function isa(o: any): o is CreateDataSourceFromRedshiftOutput {
-    return __isa(o, "CreateDataSourceFromRedshiftOutput");
-  }
+  export const isa = (o: any): o is CreateDataSourceFromRedshiftOutput =>
+    __isa(o, "CreateDataSourceFromRedshiftOutput");
 }
 
 export interface CreateDataSourceFromS3Input {
@@ -501,9 +490,8 @@ export interface CreateDataSourceFromS3Input {
 }
 
 export namespace CreateDataSourceFromS3Input {
-  export function isa(o: any): o is CreateDataSourceFromS3Input {
-    return __isa(o, "CreateDataSourceFromS3Input");
-  }
+  export const isa = (o: any): o is CreateDataSourceFromS3Input =>
+    __isa(o, "CreateDataSourceFromS3Input");
 }
 
 /**
@@ -522,9 +510,8 @@ export interface CreateDataSourceFromS3Output {
 }
 
 export namespace CreateDataSourceFromS3Output {
-  export function isa(o: any): o is CreateDataSourceFromS3Output {
-    return __isa(o, "CreateDataSourceFromS3Output");
-  }
+  export const isa = (o: any): o is CreateDataSourceFromS3Output =>
+    __isa(o, "CreateDataSourceFromS3Output");
 }
 
 export interface CreateEvaluationInput {
@@ -553,9 +540,8 @@ export interface CreateEvaluationInput {
 }
 
 export namespace CreateEvaluationInput {
-  export function isa(o: any): o is CreateEvaluationInput {
-    return __isa(o, "CreateEvaluationInput");
-  }
+  export const isa = (o: any): o is CreateEvaluationInput =>
+    __isa(o, "CreateEvaluationInput");
 }
 
 /**
@@ -576,9 +562,8 @@ export interface CreateEvaluationOutput {
 }
 
 export namespace CreateEvaluationOutput {
-  export function isa(o: any): o is CreateEvaluationOutput {
-    return __isa(o, "CreateEvaluationOutput");
-  }
+  export const isa = (o: any): o is CreateEvaluationOutput =>
+    __isa(o, "CreateEvaluationOutput");
 }
 
 export interface CreateMLModelInput {
@@ -677,9 +662,8 @@ export interface CreateMLModelInput {
 }
 
 export namespace CreateMLModelInput {
-  export function isa(o: any): o is CreateMLModelInput {
-    return __isa(o, "CreateMLModelInput");
-  }
+  export const isa = (o: any): o is CreateMLModelInput =>
+    __isa(o, "CreateMLModelInput");
 }
 
 /**
@@ -699,9 +683,8 @@ export interface CreateMLModelOutput {
 }
 
 export namespace CreateMLModelOutput {
-  export function isa(o: any): o is CreateMLModelOutput {
-    return __isa(o, "CreateMLModelOutput");
-  }
+  export const isa = (o: any): o is CreateMLModelOutput =>
+    __isa(o, "CreateMLModelOutput");
 }
 
 export interface CreateRealtimeEndpointInput {
@@ -713,9 +696,8 @@ export interface CreateRealtimeEndpointInput {
 }
 
 export namespace CreateRealtimeEndpointInput {
-  export function isa(o: any): o is CreateRealtimeEndpointInput {
-    return __isa(o, "CreateRealtimeEndpointInput");
-  }
+  export const isa = (o: any): o is CreateRealtimeEndpointInput =>
+    __isa(o, "CreateRealtimeEndpointInput");
 }
 
 /**
@@ -740,9 +722,8 @@ export interface CreateRealtimeEndpointOutput {
 }
 
 export namespace CreateRealtimeEndpointOutput {
-  export function isa(o: any): o is CreateRealtimeEndpointOutput {
-    return __isa(o, "CreateRealtimeEndpointOutput");
-  }
+  export const isa = (o: any): o is CreateRealtimeEndpointOutput =>
+    __isa(o, "CreateRealtimeEndpointOutput");
 }
 
 /**
@@ -864,9 +845,7 @@ export interface DataSource {
 }
 
 export namespace DataSource {
-  export function isa(o: any): o is DataSource {
-    return __isa(o, "DataSource");
-  }
+  export const isa = (o: any): o is DataSource => __isa(o, "DataSource");
 }
 
 export enum DataSourceFilterVariable {
@@ -887,9 +866,8 @@ export interface DeleteBatchPredictionInput {
 }
 
 export namespace DeleteBatchPredictionInput {
-  export function isa(o: any): o is DeleteBatchPredictionInput {
-    return __isa(o, "DeleteBatchPredictionInput");
-  }
+  export const isa = (o: any): o is DeleteBatchPredictionInput =>
+    __isa(o, "DeleteBatchPredictionInput");
 }
 
 /**
@@ -906,9 +884,8 @@ export interface DeleteBatchPredictionOutput {
 }
 
 export namespace DeleteBatchPredictionOutput {
-  export function isa(o: any): o is DeleteBatchPredictionOutput {
-    return __isa(o, "DeleteBatchPredictionOutput");
-  }
+  export const isa = (o: any): o is DeleteBatchPredictionOutput =>
+    __isa(o, "DeleteBatchPredictionOutput");
 }
 
 export interface DeleteDataSourceInput {
@@ -920,9 +897,8 @@ export interface DeleteDataSourceInput {
 }
 
 export namespace DeleteDataSourceInput {
-  export function isa(o: any): o is DeleteDataSourceInput {
-    return __isa(o, "DeleteDataSourceInput");
-  }
+  export const isa = (o: any): o is DeleteDataSourceInput =>
+    __isa(o, "DeleteDataSourceInput");
 }
 
 /**
@@ -937,9 +913,8 @@ export interface DeleteDataSourceOutput {
 }
 
 export namespace DeleteDataSourceOutput {
-  export function isa(o: any): o is DeleteDataSourceOutput {
-    return __isa(o, "DeleteDataSourceOutput");
-  }
+  export const isa = (o: any): o is DeleteDataSourceOutput =>
+    __isa(o, "DeleteDataSourceOutput");
 }
 
 export interface DeleteEvaluationInput {
@@ -951,9 +926,8 @@ export interface DeleteEvaluationInput {
 }
 
 export namespace DeleteEvaluationInput {
-  export function isa(o: any): o is DeleteEvaluationInput {
-    return __isa(o, "DeleteEvaluationInput");
-  }
+  export const isa = (o: any): o is DeleteEvaluationInput =>
+    __isa(o, "DeleteEvaluationInput");
 }
 
 /**
@@ -970,9 +944,8 @@ export interface DeleteEvaluationOutput {
 }
 
 export namespace DeleteEvaluationOutput {
-  export function isa(o: any): o is DeleteEvaluationOutput {
-    return __isa(o, "DeleteEvaluationOutput");
-  }
+  export const isa = (o: any): o is DeleteEvaluationOutput =>
+    __isa(o, "DeleteEvaluationOutput");
 }
 
 export interface DeleteMLModelInput {
@@ -984,9 +957,8 @@ export interface DeleteMLModelInput {
 }
 
 export namespace DeleteMLModelInput {
-  export function isa(o: any): o is DeleteMLModelInput {
-    return __isa(o, "DeleteMLModelInput");
-  }
+  export const isa = (o: any): o is DeleteMLModelInput =>
+    __isa(o, "DeleteMLModelInput");
 }
 
 /**
@@ -1003,9 +975,8 @@ export interface DeleteMLModelOutput {
 }
 
 export namespace DeleteMLModelOutput {
-  export function isa(o: any): o is DeleteMLModelOutput {
-    return __isa(o, "DeleteMLModelOutput");
-  }
+  export const isa = (o: any): o is DeleteMLModelOutput =>
+    __isa(o, "DeleteMLModelOutput");
 }
 
 export interface DeleteRealtimeEndpointInput {
@@ -1017,9 +988,8 @@ export interface DeleteRealtimeEndpointInput {
 }
 
 export namespace DeleteRealtimeEndpointInput {
-  export function isa(o: any): o is DeleteRealtimeEndpointInput {
-    return __isa(o, "DeleteRealtimeEndpointInput");
-  }
+  export const isa = (o: any): o is DeleteRealtimeEndpointInput =>
+    __isa(o, "DeleteRealtimeEndpointInput");
 }
 
 /**
@@ -1042,9 +1012,8 @@ export interface DeleteRealtimeEndpointOutput {
 }
 
 export namespace DeleteRealtimeEndpointOutput {
-  export function isa(o: any): o is DeleteRealtimeEndpointOutput {
-    return __isa(o, "DeleteRealtimeEndpointOutput");
-  }
+  export const isa = (o: any): o is DeleteRealtimeEndpointOutput =>
+    __isa(o, "DeleteRealtimeEndpointOutput");
 }
 
 export interface DeleteTagsInput {
@@ -1066,9 +1035,8 @@ export interface DeleteTagsInput {
 }
 
 export namespace DeleteTagsInput {
-  export function isa(o: any): o is DeleteTagsInput {
-    return __isa(o, "DeleteTagsInput");
-  }
+  export const isa = (o: any): o is DeleteTagsInput =>
+    __isa(o, "DeleteTagsInput");
 }
 
 /**
@@ -1088,9 +1056,8 @@ export interface DeleteTagsOutput {
 }
 
 export namespace DeleteTagsOutput {
-  export function isa(o: any): o is DeleteTagsOutput {
-    return __isa(o, "DeleteTagsOutput");
-  }
+  export const isa = (o: any): o is DeleteTagsOutput =>
+    __isa(o, "DeleteTagsOutput");
 }
 
 export interface DescribeBatchPredictionsInput {
@@ -1216,9 +1183,8 @@ export interface DescribeBatchPredictionsInput {
 }
 
 export namespace DescribeBatchPredictionsInput {
-  export function isa(o: any): o is DescribeBatchPredictionsInput {
-    return __isa(o, "DescribeBatchPredictionsInput");
-  }
+  export const isa = (o: any): o is DescribeBatchPredictionsInput =>
+    __isa(o, "DescribeBatchPredictionsInput");
 }
 
 /**
@@ -1239,9 +1205,8 @@ export interface DescribeBatchPredictionsOutput {
 }
 
 export namespace DescribeBatchPredictionsOutput {
-  export function isa(o: any): o is DescribeBatchPredictionsOutput {
-    return __isa(o, "DescribeBatchPredictionsOutput");
-  }
+  export const isa = (o: any): o is DescribeBatchPredictionsOutput =>
+    __isa(o, "DescribeBatchPredictionsOutput");
 }
 
 export interface DescribeDataSourcesInput {
@@ -1358,9 +1323,8 @@ export interface DescribeDataSourcesInput {
 }
 
 export namespace DescribeDataSourcesInput {
-  export function isa(o: any): o is DescribeDataSourcesInput {
-    return __isa(o, "DescribeDataSourcesInput");
-  }
+  export const isa = (o: any): o is DescribeDataSourcesInput =>
+    __isa(o, "DescribeDataSourcesInput");
 }
 
 /**
@@ -1381,9 +1345,8 @@ export interface DescribeDataSourcesOutput {
 }
 
 export namespace DescribeDataSourcesOutput {
-  export function isa(o: any): o is DescribeDataSourcesOutput {
-    return __isa(o, "DescribeDataSourcesOutput");
-  }
+  export const isa = (o: any): o is DescribeDataSourcesOutput =>
+    __isa(o, "DescribeDataSourcesOutput");
 }
 
 export interface DescribeEvaluationsInput {
@@ -1509,9 +1472,8 @@ export interface DescribeEvaluationsInput {
 }
 
 export namespace DescribeEvaluationsInput {
-  export function isa(o: any): o is DescribeEvaluationsInput {
-    return __isa(o, "DescribeEvaluationsInput");
-  }
+  export const isa = (o: any): o is DescribeEvaluationsInput =>
+    __isa(o, "DescribeEvaluationsInput");
 }
 
 /**
@@ -1532,9 +1494,8 @@ export interface DescribeEvaluationsOutput {
 }
 
 export namespace DescribeEvaluationsOutput {
-  export function isa(o: any): o is DescribeEvaluationsOutput {
-    return __isa(o, "DescribeEvaluationsOutput");
-  }
+  export const isa = (o: any): o is DescribeEvaluationsOutput =>
+    __isa(o, "DescribeEvaluationsOutput");
 }
 
 export interface DescribeMLModelsInput {
@@ -1668,9 +1629,8 @@ export interface DescribeMLModelsInput {
 }
 
 export namespace DescribeMLModelsInput {
-  export function isa(o: any): o is DescribeMLModelsInput {
-    return __isa(o, "DescribeMLModelsInput");
-  }
+  export const isa = (o: any): o is DescribeMLModelsInput =>
+    __isa(o, "DescribeMLModelsInput");
 }
 
 /**
@@ -1690,9 +1650,8 @@ export interface DescribeMLModelsOutput {
 }
 
 export namespace DescribeMLModelsOutput {
-  export function isa(o: any): o is DescribeMLModelsOutput {
-    return __isa(o, "DescribeMLModelsOutput");
-  }
+  export const isa = (o: any): o is DescribeMLModelsOutput =>
+    __isa(o, "DescribeMLModelsOutput");
 }
 
 export interface DescribeTagsInput {
@@ -1709,9 +1668,8 @@ export interface DescribeTagsInput {
 }
 
 export namespace DescribeTagsInput {
-  export function isa(o: any): o is DescribeTagsInput {
-    return __isa(o, "DescribeTagsInput");
-  }
+  export const isa = (o: any): o is DescribeTagsInput =>
+    __isa(o, "DescribeTagsInput");
 }
 
 /**
@@ -1736,9 +1694,8 @@ export interface DescribeTagsOutput {
 }
 
 export namespace DescribeTagsOutput {
-  export function isa(o: any): o is DescribeTagsOutput {
-    return __isa(o, "DescribeTagsOutput");
-  }
+  export const isa = (o: any): o is DescribeTagsOutput =>
+    __isa(o, "DescribeTagsOutput");
 }
 
 export enum DetailsAttributes {
@@ -1871,9 +1828,7 @@ export interface Evaluation {
 }
 
 export namespace Evaluation {
-  export function isa(o: any): o is Evaluation {
-    return __isa(o, "Evaluation");
-  }
+  export const isa = (o: any): o is Evaluation => __isa(o, "Evaluation");
 }
 
 export enum EvaluationFilterVariable {
@@ -1896,9 +1851,8 @@ export interface GetBatchPredictionInput {
 }
 
 export namespace GetBatchPredictionInput {
-  export function isa(o: any): o is GetBatchPredictionInput {
-    return __isa(o, "GetBatchPredictionInput");
-  }
+  export const isa = (o: any): o is GetBatchPredictionInput =>
+    __isa(o, "GetBatchPredictionInput");
 }
 
 /**
@@ -2017,9 +1971,8 @@ export interface GetBatchPredictionOutput {
 }
 
 export namespace GetBatchPredictionOutput {
-  export function isa(o: any): o is GetBatchPredictionOutput {
-    return __isa(o, "GetBatchPredictionOutput");
-  }
+  export const isa = (o: any): o is GetBatchPredictionOutput =>
+    __isa(o, "GetBatchPredictionOutput");
 }
 
 export interface GetDataSourceInput {
@@ -2038,9 +1991,8 @@ export interface GetDataSourceInput {
 }
 
 export namespace GetDataSourceInput {
-  export function isa(o: any): o is GetDataSourceInput {
-    return __isa(o, "GetDataSourceInput");
-  }
+  export const isa = (o: any): o is GetDataSourceInput =>
+    __isa(o, "GetDataSourceInput");
 }
 
 /**
@@ -2177,9 +2129,8 @@ export interface GetDataSourceOutput {
 }
 
 export namespace GetDataSourceOutput {
-  export function isa(o: any): o is GetDataSourceOutput {
-    return __isa(o, "GetDataSourceOutput");
-  }
+  export const isa = (o: any): o is GetDataSourceOutput =>
+    __isa(o, "GetDataSourceOutput");
 }
 
 export interface GetEvaluationInput {
@@ -2191,9 +2142,8 @@ export interface GetEvaluationInput {
 }
 
 export namespace GetEvaluationInput {
-  export function isa(o: any): o is GetEvaluationInput {
-    return __isa(o, "GetEvaluationInput");
-  }
+  export const isa = (o: any): o is GetEvaluationInput =>
+    __isa(o, "GetEvaluationInput");
 }
 
 /**
@@ -2315,9 +2265,8 @@ export interface GetEvaluationOutput {
 }
 
 export namespace GetEvaluationOutput {
-  export function isa(o: any): o is GetEvaluationOutput {
-    return __isa(o, "GetEvaluationOutput");
-  }
+  export const isa = (o: any): o is GetEvaluationOutput =>
+    __isa(o, "GetEvaluationOutput");
 }
 
 export interface GetMLModelInput {
@@ -2336,9 +2285,8 @@ export interface GetMLModelInput {
 }
 
 export namespace GetMLModelInput {
-  export function isa(o: any): o is GetMLModelInput {
-    return __isa(o, "GetMLModelInput");
-  }
+  export const isa = (o: any): o is GetMLModelInput =>
+    __isa(o, "GetMLModelInput");
 }
 
 /**
@@ -2545,9 +2493,8 @@ export interface GetMLModelOutput {
 }
 
 export namespace GetMLModelOutput {
-  export function isa(o: any): o is GetMLModelOutput {
-    return __isa(o, "GetMLModelOutput");
-  }
+  export const isa = (o: any): o is GetMLModelOutput =>
+    __isa(o, "GetMLModelOutput");
 }
 
 /**
@@ -2563,9 +2510,8 @@ export interface IdempotentParameterMismatchException
 }
 
 export namespace IdempotentParameterMismatchException {
-  export function isa(o: any): o is IdempotentParameterMismatchException {
-    return __isa(o, "IdempotentParameterMismatchException");
-  }
+  export const isa = (o: any): o is IdempotentParameterMismatchException =>
+    __isa(o, "IdempotentParameterMismatchException");
 }
 
 /**
@@ -2581,9 +2527,8 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export function isa(o: any): o is InternalServerException {
-    return __isa(o, "InternalServerException");
-  }
+  export const isa = (o: any): o is InternalServerException =>
+    __isa(o, "InternalServerException");
 }
 
 /**
@@ -2599,9 +2544,8 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
-  export function isa(o: any): o is InvalidInputException {
-    return __isa(o, "InvalidInputException");
-  }
+  export const isa = (o: any): o is InvalidInputException =>
+    __isa(o, "InvalidInputException");
 }
 
 /**
@@ -2616,9 +2560,8 @@ export interface InvalidTagException
 }
 
 export namespace InvalidTagException {
-  export function isa(o: any): o is InvalidTagException {
-    return __isa(o, "InvalidTagException");
-  }
+  export const isa = (o: any): o is InvalidTagException =>
+    __isa(o, "InvalidTagException");
 }
 
 /**
@@ -2634,9 +2577,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 /**
@@ -2833,9 +2775,7 @@ export interface MLModel {
 }
 
 export namespace MLModel {
-  export function isa(o: any): o is MLModel {
-    return __isa(o, "MLModel");
-  }
+  export const isa = (o: any): o is MLModel => __isa(o, "MLModel");
 }
 
 export enum MLModelFilterVariable {
@@ -2884,9 +2824,8 @@ export interface PerformanceMetrics {
 }
 
 export namespace PerformanceMetrics {
-  export function isa(o: any): o is PerformanceMetrics {
-    return __isa(o, "PerformanceMetrics");
-  }
+  export const isa = (o: any): o is PerformanceMetrics =>
+    __isa(o, "PerformanceMetrics");
 }
 
 export interface PredictInput {
@@ -2908,9 +2847,7 @@ export interface PredictInput {
 }
 
 export namespace PredictInput {
-  export function isa(o: any): o is PredictInput {
-    return __isa(o, "PredictInput");
-  }
+  export const isa = (o: any): o is PredictInput => __isa(o, "PredictInput");
 }
 
 export interface PredictOutput {
@@ -2949,9 +2886,7 @@ export interface PredictOutput {
 }
 
 export namespace PredictOutput {
-  export function isa(o: any): o is PredictOutput {
-    return __isa(o, "PredictOutput");
-  }
+  export const isa = (o: any): o is PredictOutput => __isa(o, "PredictOutput");
 }
 
 /**
@@ -3010,9 +2945,7 @@ export interface Prediction {
 }
 
 export namespace Prediction {
-  export function isa(o: any): o is Prediction {
-    return __isa(o, "Prediction");
-  }
+  export const isa = (o: any): o is Prediction => __isa(o, "Prediction");
 }
 
 /**
@@ -3027,9 +2960,8 @@ export interface PredictorNotMountedException
 }
 
 export namespace PredictorNotMountedException {
-  export function isa(o: any): o is PredictorNotMountedException {
-    return __isa(o, "PredictorNotMountedException");
-  }
+  export const isa = (o: any): o is PredictorNotMountedException =>
+    __isa(o, "PredictorNotMountedException");
 }
 
 /**
@@ -3197,9 +3129,7 @@ export interface RDSDataSpec {
 }
 
 export namespace RDSDataSpec {
-  export function isa(o: any): o is RDSDataSpec {
-    return __isa(o, "RDSDataSpec");
-  }
+  export const isa = (o: any): o is RDSDataSpec => __isa(o, "RDSDataSpec");
 }
 
 /**
@@ -3219,9 +3149,7 @@ export interface RDSDatabase {
 }
 
 export namespace RDSDatabase {
-  export function isa(o: any): o is RDSDatabase {
-    return __isa(o, "RDSDatabase");
-  }
+  export const isa = (o: any): o is RDSDatabase => __isa(o, "RDSDatabase");
 }
 
 /**
@@ -3243,9 +3171,8 @@ export interface RDSDatabaseCredentials {
 }
 
 export namespace RDSDatabaseCredentials {
-  export function isa(o: any): o is RDSDatabaseCredentials {
-    return __isa(o, "RDSDatabaseCredentials");
-  }
+  export const isa = (o: any): o is RDSDatabaseCredentials =>
+    __isa(o, "RDSDatabaseCredentials");
 }
 
 /**
@@ -3286,9 +3213,7 @@ export interface RDSMetadata {
 }
 
 export namespace RDSMetadata {
-  export function isa(o: any): o is RDSMetadata {
-    return __isa(o, "RDSMetadata");
-  }
+  export const isa = (o: any): o is RDSMetadata => __isa(o, "RDSMetadata");
 }
 
 /**
@@ -3334,9 +3259,8 @@ export interface RealtimeEndpointInfo {
 }
 
 export namespace RealtimeEndpointInfo {
-  export function isa(o: any): o is RealtimeEndpointInfo {
-    return __isa(o, "RealtimeEndpointInfo");
-  }
+  export const isa = (o: any): o is RealtimeEndpointInfo =>
+    __isa(o, "RealtimeEndpointInfo");
 }
 
 export enum RealtimeEndpointStatus {
@@ -3490,9 +3414,8 @@ export interface RedshiftDataSpec {
 }
 
 export namespace RedshiftDataSpec {
-  export function isa(o: any): o is RedshiftDataSpec {
-    return __isa(o, "RedshiftDataSpec");
-  }
+  export const isa = (o: any): o is RedshiftDataSpec =>
+    __isa(o, "RedshiftDataSpec");
 }
 
 /**
@@ -3512,9 +3435,8 @@ export interface RedshiftDatabase {
 }
 
 export namespace RedshiftDatabase {
-  export function isa(o: any): o is RedshiftDatabase {
-    return __isa(o, "RedshiftDatabase");
-  }
+  export const isa = (o: any): o is RedshiftDatabase =>
+    __isa(o, "RedshiftDatabase");
 }
 
 /**
@@ -3536,9 +3458,8 @@ export interface RedshiftDatabaseCredentials {
 }
 
 export namespace RedshiftDatabaseCredentials {
-  export function isa(o: any): o is RedshiftDatabaseCredentials {
-    return __isa(o, "RedshiftDatabaseCredentials");
-  }
+  export const isa = (o: any): o is RedshiftDatabaseCredentials =>
+    __isa(o, "RedshiftDatabaseCredentials");
 }
 
 /**
@@ -3564,9 +3485,8 @@ export interface RedshiftMetadata {
 }
 
 export namespace RedshiftMetadata {
-  export function isa(o: any): o is RedshiftMetadata {
-    return __isa(o, "RedshiftMetadata");
-  }
+  export const isa = (o: any): o is RedshiftMetadata =>
+    __isa(o, "RedshiftMetadata");
 }
 
 /**
@@ -3582,9 +3502,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -3717,9 +3636,7 @@ export interface S3DataSpec {
 }
 
 export namespace S3DataSpec {
-  export function isa(o: any): o is S3DataSpec {
-    return __isa(o, "S3DataSpec");
-  }
+  export const isa = (o: any): o is S3DataSpec => __isa(o, "S3DataSpec");
 }
 
 export enum SortOrder {
@@ -3744,9 +3661,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -3761,9 +3676,8 @@ export interface TagLimitExceededException
 }
 
 export namespace TagLimitExceededException {
-  export function isa(o: any): o is TagLimitExceededException {
-    return __isa(o, "TagLimitExceededException");
-  }
+  export const isa = (o: any): o is TagLimitExceededException =>
+    __isa(o, "TagLimitExceededException");
 }
 
 export enum TaggableResourceType {
@@ -3787,9 +3701,8 @@ export interface UpdateBatchPredictionInput {
 }
 
 export namespace UpdateBatchPredictionInput {
-  export function isa(o: any): o is UpdateBatchPredictionInput {
-    return __isa(o, "UpdateBatchPredictionInput");
-  }
+  export const isa = (o: any): o is UpdateBatchPredictionInput =>
+    __isa(o, "UpdateBatchPredictionInput");
 }
 
 /**
@@ -3806,9 +3719,8 @@ export interface UpdateBatchPredictionOutput {
 }
 
 export namespace UpdateBatchPredictionOutput {
-  export function isa(o: any): o is UpdateBatchPredictionOutput {
-    return __isa(o, "UpdateBatchPredictionOutput");
-  }
+  export const isa = (o: any): o is UpdateBatchPredictionOutput =>
+    __isa(o, "UpdateBatchPredictionOutput");
 }
 
 export interface UpdateDataSourceInput {
@@ -3825,9 +3737,8 @@ export interface UpdateDataSourceInput {
 }
 
 export namespace UpdateDataSourceInput {
-  export function isa(o: any): o is UpdateDataSourceInput {
-    return __isa(o, "UpdateDataSourceInput");
-  }
+  export const isa = (o: any): o is UpdateDataSourceInput =>
+    __isa(o, "UpdateDataSourceInput");
 }
 
 /**
@@ -3844,9 +3755,8 @@ export interface UpdateDataSourceOutput {
 }
 
 export namespace UpdateDataSourceOutput {
-  export function isa(o: any): o is UpdateDataSourceOutput {
-    return __isa(o, "UpdateDataSourceOutput");
-  }
+  export const isa = (o: any): o is UpdateDataSourceOutput =>
+    __isa(o, "UpdateDataSourceOutput");
 }
 
 export interface UpdateEvaluationInput {
@@ -3863,9 +3773,8 @@ export interface UpdateEvaluationInput {
 }
 
 export namespace UpdateEvaluationInput {
-  export function isa(o: any): o is UpdateEvaluationInput {
-    return __isa(o, "UpdateEvaluationInput");
-  }
+  export const isa = (o: any): o is UpdateEvaluationInput =>
+    __isa(o, "UpdateEvaluationInput");
 }
 
 /**
@@ -3882,9 +3791,8 @@ export interface UpdateEvaluationOutput {
 }
 
 export namespace UpdateEvaluationOutput {
-  export function isa(o: any): o is UpdateEvaluationOutput {
-    return __isa(o, "UpdateEvaluationOutput");
-  }
+  export const isa = (o: any): o is UpdateEvaluationOutput =>
+    __isa(o, "UpdateEvaluationOutput");
 }
 
 export interface UpdateMLModelInput {
@@ -3907,9 +3815,8 @@ export interface UpdateMLModelInput {
 }
 
 export namespace UpdateMLModelInput {
-  export function isa(o: any): o is UpdateMLModelInput {
-    return __isa(o, "UpdateMLModelInput");
-  }
+  export const isa = (o: any): o is UpdateMLModelInput =>
+    __isa(o, "UpdateMLModelInput");
 }
 
 /**
@@ -3926,7 +3833,6 @@ export interface UpdateMLModelOutput {
 }
 
 export namespace UpdateMLModelOutput {
-  export function isa(o: any): o is UpdateMLModelOutput {
-    return __isa(o, "UpdateMLModelOutput");
-  }
+  export const isa = (o: any): o is UpdateMLModelOutput =>
+    __isa(o, "UpdateMLModelOutput");
 }

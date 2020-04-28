@@ -16,9 +16,8 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export function isa(o: any): o is AccessDeniedException {
-    return __isa(o, "AccessDeniedException");
-  }
+  export const isa = (o: any): o is AccessDeniedException =>
+    __isa(o, "AccessDeniedException");
 }
 
 export interface CreateOutpostInput {
@@ -50,9 +49,8 @@ export interface CreateOutpostInput {
 }
 
 export namespace CreateOutpostInput {
-  export function isa(o: any): o is CreateOutpostInput {
-    return __isa(o, "CreateOutpostInput");
-  }
+  export const isa = (o: any): o is CreateOutpostInput =>
+    __isa(o, "CreateOutpostInput");
 }
 
 export interface CreateOutpostOutput {
@@ -64,9 +62,8 @@ export interface CreateOutpostOutput {
 }
 
 export namespace CreateOutpostOutput {
-  export function isa(o: any): o is CreateOutpostOutput {
-    return __isa(o, "CreateOutpostOutput");
-  }
+  export const isa = (o: any): o is CreateOutpostOutput =>
+    __isa(o, "CreateOutpostOutput");
 }
 
 export interface GetOutpostInput {
@@ -78,9 +75,8 @@ export interface GetOutpostInput {
 }
 
 export namespace GetOutpostInput {
-  export function isa(o: any): o is GetOutpostInput {
-    return __isa(o, "GetOutpostInput");
-  }
+  export const isa = (o: any): o is GetOutpostInput =>
+    __isa(o, "GetOutpostInput");
 }
 
 export interface GetOutpostInstanceTypesInput {
@@ -102,9 +98,8 @@ export interface GetOutpostInstanceTypesInput {
 }
 
 export namespace GetOutpostInstanceTypesInput {
-  export function isa(o: any): o is GetOutpostInstanceTypesInput {
-    return __isa(o, "GetOutpostInstanceTypesInput");
-  }
+  export const isa = (o: any): o is GetOutpostInstanceTypesInput =>
+    __isa(o, "GetOutpostInstanceTypesInput");
 }
 
 export interface GetOutpostInstanceTypesOutput {
@@ -131,9 +126,8 @@ export interface GetOutpostInstanceTypesOutput {
 }
 
 export namespace GetOutpostInstanceTypesOutput {
-  export function isa(o: any): o is GetOutpostInstanceTypesOutput {
-    return __isa(o, "GetOutpostInstanceTypesOutput");
-  }
+  export const isa = (o: any): o is GetOutpostInstanceTypesOutput =>
+    __isa(o, "GetOutpostInstanceTypesOutput");
 }
 
 export interface GetOutpostOutput {
@@ -145,9 +139,8 @@ export interface GetOutpostOutput {
 }
 
 export namespace GetOutpostOutput {
-  export function isa(o: any): o is GetOutpostOutput {
-    return __isa(o, "GetOutpostOutput");
-  }
+  export const isa = (o: any): o is GetOutpostOutput =>
+    __isa(o, "GetOutpostOutput");
 }
 
 /**
@@ -162,9 +155,8 @@ export interface InstanceTypeItem {
 }
 
 export namespace InstanceTypeItem {
-  export function isa(o: any): o is InstanceTypeItem {
-    return __isa(o, "InstanceTypeItem");
-  }
+  export const isa = (o: any): o is InstanceTypeItem =>
+    __isa(o, "InstanceTypeItem");
 }
 
 /**
@@ -179,9 +171,8 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export function isa(o: any): o is InternalServerException {
-    return __isa(o, "InternalServerException");
-  }
+  export const isa = (o: any): o is InternalServerException =>
+    __isa(o, "InternalServerException");
 }
 
 export interface ListOutpostsInput {
@@ -198,9 +189,8 @@ export interface ListOutpostsInput {
 }
 
 export namespace ListOutpostsInput {
-  export function isa(o: any): o is ListOutpostsInput {
-    return __isa(o, "ListOutpostsInput");
-  }
+  export const isa = (o: any): o is ListOutpostsInput =>
+    __isa(o, "ListOutpostsInput");
 }
 
 export interface ListOutpostsOutput {
@@ -217,9 +207,8 @@ export interface ListOutpostsOutput {
 }
 
 export namespace ListOutpostsOutput {
-  export function isa(o: any): o is ListOutpostsOutput {
-    return __isa(o, "ListOutpostsOutput");
-  }
+  export const isa = (o: any): o is ListOutpostsOutput =>
+    __isa(o, "ListOutpostsOutput");
 }
 
 export interface ListSitesInput {
@@ -236,9 +225,8 @@ export interface ListSitesInput {
 }
 
 export namespace ListSitesInput {
-  export function isa(o: any): o is ListSitesInput {
-    return __isa(o, "ListSitesInput");
-  }
+  export const isa = (o: any): o is ListSitesInput =>
+    __isa(o, "ListSitesInput");
 }
 
 export interface ListSitesOutput {
@@ -255,9 +243,8 @@ export interface ListSitesOutput {
 }
 
 export namespace ListSitesOutput {
-  export function isa(o: any): o is ListSitesOutput {
-    return __isa(o, "ListSitesOutput");
-  }
+  export const isa = (o: any): o is ListSitesOutput =>
+    __isa(o, "ListSitesOutput");
 }
 
 /**
@@ -270,9 +257,8 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return __isa(o, "NotFoundException");
-  }
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
 }
 
 /**
@@ -327,9 +313,7 @@ export interface Outpost {
 }
 
 export namespace Outpost {
-  export function isa(o: any): o is Outpost {
-    return __isa(o, "Outpost");
-  }
+  export const isa = (o: any): o is Outpost => __isa(o, "Outpost");
 }
 
 /**
@@ -344,9 +328,8 @@ export interface ServiceQuotaExceededException
 }
 
 export namespace ServiceQuotaExceededException {
-  export function isa(o: any): o is ServiceQuotaExceededException {
-    return __isa(o, "ServiceQuotaExceededException");
-  }
+  export const isa = (o: any): o is ServiceQuotaExceededException =>
+    __isa(o, "ServiceQuotaExceededException");
 }
 
 /**
@@ -376,9 +359,7 @@ export interface Site {
 }
 
 export namespace Site {
-  export function isa(o: any): o is Site {
-    return __isa(o, "Site");
-  }
+  export const isa = (o: any): o is Site => __isa(o, "Site");
 }
 
 /**
@@ -393,7 +374,6 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return __isa(o, "ValidationException");
-  }
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
 }

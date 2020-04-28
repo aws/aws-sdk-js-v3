@@ -47,9 +47,7 @@ export interface Entitlement {
 }
 
 export namespace Entitlement {
-  export function isa(o: any): o is Entitlement {
-    return __isa(o, "Entitlement");
-  }
+  export const isa = (o: any): o is Entitlement => __isa(o, "Entitlement");
 }
 
 /**
@@ -84,9 +82,8 @@ export interface EntitlementValue {
 }
 
 export namespace EntitlementValue {
-  export function isa(o: any): o is EntitlementValue {
-    return __isa(o, "EntitlementValue");
-  }
+  export const isa = (o: any): o is EntitlementValue =>
+    __isa(o, "EntitlementValue");
 }
 
 export enum GetEntitlementFilterName {
@@ -128,9 +125,8 @@ export interface GetEntitlementsRequest {
 }
 
 export namespace GetEntitlementsRequest {
-  export function isa(o: any): o is GetEntitlementsRequest {
-    return __isa(o, "GetEntitlementsRequest");
-  }
+  export const isa = (o: any): o is GetEntitlementsRequest =>
+    __isa(o, "GetEntitlementsRequest");
 }
 
 /**
@@ -154,9 +150,8 @@ export interface GetEntitlementsResult {
 }
 
 export namespace GetEntitlementsResult {
-  export function isa(o: any): o is GetEntitlementsResult {
-    return __isa(o, "GetEntitlementsResult");
-  }
+  export const isa = (o: any): o is GetEntitlementsResult =>
+    __isa(o, "GetEntitlementsResult");
 }
 
 /**
@@ -172,9 +167,8 @@ export interface InternalServiceErrorException
 }
 
 export namespace InternalServiceErrorException {
-  export function isa(o: any): o is InternalServiceErrorException {
-    return __isa(o, "InternalServiceErrorException");
-  }
+  export const isa = (o: any): o is InternalServiceErrorException =>
+    __isa(o, "InternalServiceErrorException");
 }
 
 /**
@@ -189,9 +183,8 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export function isa(o: any): o is InvalidParameterException {
-    return __isa(o, "InvalidParameterException");
-  }
+  export const isa = (o: any): o is InvalidParameterException =>
+    __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -206,7 +199,6 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return __isa(o, "ThrottlingException");
-  }
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }

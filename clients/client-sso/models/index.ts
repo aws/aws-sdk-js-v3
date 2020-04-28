@@ -26,9 +26,7 @@ export interface AccountInfo {
 }
 
 export namespace AccountInfo {
-  export function isa(o: any): o is AccountInfo {
-    return __isa(o, "AccountInfo");
-  }
+  export const isa = (o: any): o is AccountInfo => __isa(o, "AccountInfo");
 }
 
 export interface GetRoleCredentialsRequest {
@@ -51,9 +49,8 @@ export interface GetRoleCredentialsRequest {
 }
 
 export namespace GetRoleCredentialsRequest {
-  export function isa(o: any): o is GetRoleCredentialsRequest {
-    return __isa(o, "GetRoleCredentialsRequest");
-  }
+  export const isa = (o: any): o is GetRoleCredentialsRequest =>
+    __isa(o, "GetRoleCredentialsRequest");
 }
 
 export interface GetRoleCredentialsResponse {
@@ -65,9 +62,8 @@ export interface GetRoleCredentialsResponse {
 }
 
 export namespace GetRoleCredentialsResponse {
-  export function isa(o: any): o is GetRoleCredentialsResponse {
-    return __isa(o, "GetRoleCredentialsResponse");
-  }
+  export const isa = (o: any): o is GetRoleCredentialsResponse =>
+    __isa(o, "GetRoleCredentialsResponse");
 }
 
 /**
@@ -83,9 +79,8 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return __isa(o, "InvalidRequestException");
-  }
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
 }
 
 export interface ListAccountRolesRequest {
@@ -113,9 +108,8 @@ export interface ListAccountRolesRequest {
 }
 
 export namespace ListAccountRolesRequest {
-  export function isa(o: any): o is ListAccountRolesRequest {
-    return __isa(o, "ListAccountRolesRequest");
-  }
+  export const isa = (o: any): o is ListAccountRolesRequest =>
+    __isa(o, "ListAccountRolesRequest");
 }
 
 export interface ListAccountRolesResponse {
@@ -132,9 +126,8 @@ export interface ListAccountRolesResponse {
 }
 
 export namespace ListAccountRolesResponse {
-  export function isa(o: any): o is ListAccountRolesResponse {
-    return __isa(o, "ListAccountRolesResponse");
-  }
+  export const isa = (o: any): o is ListAccountRolesResponse =>
+    __isa(o, "ListAccountRolesResponse");
 }
 
 export interface ListAccountsRequest {
@@ -157,9 +150,8 @@ export interface ListAccountsRequest {
 }
 
 export namespace ListAccountsRequest {
-  export function isa(o: any): o is ListAccountsRequest {
-    return __isa(o, "ListAccountsRequest");
-  }
+  export const isa = (o: any): o is ListAccountsRequest =>
+    __isa(o, "ListAccountsRequest");
 }
 
 export interface ListAccountsResponse {
@@ -176,9 +168,8 @@ export interface ListAccountsResponse {
 }
 
 export namespace ListAccountsResponse {
-  export function isa(o: any): o is ListAccountsResponse {
-    return __isa(o, "ListAccountsResponse");
-  }
+  export const isa = (o: any): o is ListAccountsResponse =>
+    __isa(o, "ListAccountsResponse");
 }
 
 export interface LogoutRequest {
@@ -191,9 +182,7 @@ export interface LogoutRequest {
 }
 
 export namespace LogoutRequest {
-  export function isa(o: any): o is LogoutRequest {
-    return __isa(o, "LogoutRequest");
-  }
+  export const isa = (o: any): o is LogoutRequest => __isa(o, "LogoutRequest");
 }
 
 /**
@@ -208,9 +197,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -244,9 +232,8 @@ export interface RoleCredentials {
 }
 
 export namespace RoleCredentials {
-  export function isa(o: any): o is RoleCredentials {
-    return __isa(o, "RoleCredentials");
-  }
+  export const isa = (o: any): o is RoleCredentials =>
+    __isa(o, "RoleCredentials");
 }
 
 /**
@@ -266,9 +253,7 @@ export interface RoleInfo {
 }
 
 export namespace RoleInfo {
-  export function isa(o: any): o is RoleInfo {
-    return __isa(o, "RoleInfo");
-  }
+  export const isa = (o: any): o is RoleInfo => __isa(o, "RoleInfo");
 }
 
 /**
@@ -283,9 +268,8 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export function isa(o: any): o is TooManyRequestsException {
-    return __isa(o, "TooManyRequestsException");
-  }
+  export const isa = (o: any): o is TooManyRequestsException =>
+    __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -300,7 +284,6 @@ export interface UnauthorizedException
 }
 
 export namespace UnauthorizedException {
-  export function isa(o: any): o is UnauthorizedException {
-    return __isa(o, "UnauthorizedException");
-  }
+  export const isa = (o: any): o is UnauthorizedException =>
+    __isa(o, "UnauthorizedException");
 }

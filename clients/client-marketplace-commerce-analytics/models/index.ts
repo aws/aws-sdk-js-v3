@@ -174,9 +174,8 @@ export interface GenerateDataSetRequest {
 }
 
 export namespace GenerateDataSetRequest {
-  export function isa(o: any): o is GenerateDataSetRequest {
-    return __isa(o, "GenerateDataSetRequest");
-  }
+  export const isa = (o: any): o is GenerateDataSetRequest =>
+    __isa(o, "GenerateDataSetRequest");
 }
 
 /**
@@ -192,9 +191,8 @@ export interface GenerateDataSetResult {
 }
 
 export namespace GenerateDataSetResult {
-  export function isa(o: any): o is GenerateDataSetResult {
-    return __isa(o, "GenerateDataSetResult");
-  }
+  export const isa = (o: any): o is GenerateDataSetResult =>
+    __isa(o, "GenerateDataSetResult");
 }
 
 /**
@@ -212,9 +210,8 @@ export interface MarketplaceCommerceAnalyticsException
 }
 
 export namespace MarketplaceCommerceAnalyticsException {
-  export function isa(o: any): o is MarketplaceCommerceAnalyticsException {
-    return __isa(o, "MarketplaceCommerceAnalyticsException");
-  }
+  export const isa = (o: any): o is MarketplaceCommerceAnalyticsException =>
+    __isa(o, "MarketplaceCommerceAnalyticsException");
 }
 
 /**
@@ -277,9 +274,8 @@ export interface StartSupportDataExportRequest {
 }
 
 export namespace StartSupportDataExportRequest {
-  export function isa(o: any): o is StartSupportDataExportRequest {
-    return __isa(o, "StartSupportDataExportRequest");
-  }
+  export const isa = (o: any): o is StartSupportDataExportRequest =>
+    __isa(o, "StartSupportDataExportRequest");
 }
 
 /**
@@ -295,9 +291,8 @@ export interface StartSupportDataExportResult {
 }
 
 export namespace StartSupportDataExportResult {
-  export function isa(o: any): o is StartSupportDataExportResult {
-    return __isa(o, "StartSupportDataExportResult");
-  }
+  export const isa = (o: any): o is StartSupportDataExportResult =>
+    __isa(o, "StartSupportDataExportResult");
 }
 
 export type SupportDataSetType =

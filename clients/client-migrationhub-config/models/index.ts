@@ -16,9 +16,8 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export function isa(o: any): o is AccessDeniedException {
-    return __isa(o, "AccessDeniedException");
-  }
+  export const isa = (o: any): o is AccessDeniedException =>
+    __isa(o, "AccessDeniedException");
 }
 
 export interface CreateHomeRegionControlRequest {
@@ -41,9 +40,8 @@ export interface CreateHomeRegionControlRequest {
 }
 
 export namespace CreateHomeRegionControlRequest {
-  export function isa(o: any): o is CreateHomeRegionControlRequest {
-    return __isa(o, "CreateHomeRegionControlRequest");
-  }
+  export const isa = (o: any): o is CreateHomeRegionControlRequest =>
+    __isa(o, "CreateHomeRegionControlRequest");
 }
 
 export interface CreateHomeRegionControlResult {
@@ -56,9 +54,8 @@ export interface CreateHomeRegionControlResult {
 }
 
 export namespace CreateHomeRegionControlResult {
-  export function isa(o: any): o is CreateHomeRegionControlResult {
-    return __isa(o, "CreateHomeRegionControlResult");
-  }
+  export const isa = (o: any): o is CreateHomeRegionControlResult =>
+    __isa(o, "CreateHomeRegionControlResult");
 }
 
 export interface DescribeHomeRegionControlsRequest {
@@ -94,9 +91,8 @@ export interface DescribeHomeRegionControlsRequest {
 }
 
 export namespace DescribeHomeRegionControlsRequest {
-  export function isa(o: any): o is DescribeHomeRegionControlsRequest {
-    return __isa(o, "DescribeHomeRegionControlsRequest");
-  }
+  export const isa = (o: any): o is DescribeHomeRegionControlsRequest =>
+    __isa(o, "DescribeHomeRegionControlsRequest");
 }
 
 export interface DescribeHomeRegionControlsResult {
@@ -115,9 +111,8 @@ export interface DescribeHomeRegionControlsResult {
 }
 
 export namespace DescribeHomeRegionControlsResult {
-  export function isa(o: any): o is DescribeHomeRegionControlsResult {
-    return __isa(o, "DescribeHomeRegionControlsResult");
-  }
+  export const isa = (o: any): o is DescribeHomeRegionControlsResult =>
+    __isa(o, "DescribeHomeRegionControlsResult");
 }
 
 /**
@@ -131,9 +126,8 @@ export interface DryRunOperation extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DryRunOperation {
-  export function isa(o: any): o is DryRunOperation {
-    return __isa(o, "DryRunOperation");
-  }
+  export const isa = (o: any): o is DryRunOperation =>
+    __isa(o, "DryRunOperation");
 }
 
 export interface GetHomeRegionRequest {
@@ -141,9 +135,8 @@ export interface GetHomeRegionRequest {
 }
 
 export namespace GetHomeRegionRequest {
-  export function isa(o: any): o is GetHomeRegionRequest {
-    return __isa(o, "GetHomeRegionRequest");
-  }
+  export const isa = (o: any): o is GetHomeRegionRequest =>
+    __isa(o, "GetHomeRegionRequest");
 }
 
 export interface GetHomeRegionResult {
@@ -155,9 +148,8 @@ export interface GetHomeRegionResult {
 }
 
 export namespace GetHomeRegionResult {
-  export function isa(o: any): o is GetHomeRegionResult {
-    return __isa(o, "GetHomeRegionResult");
-  }
+  export const isa = (o: any): o is GetHomeRegionResult =>
+    __isa(o, "GetHomeRegionResult");
 }
 
 /**
@@ -194,9 +186,8 @@ export interface HomeRegionControl {
 }
 
 export namespace HomeRegionControl {
-  export function isa(o: any): o is HomeRegionControl {
-    return __isa(o, "HomeRegionControl");
-  }
+  export const isa = (o: any): o is HomeRegionControl =>
+    __isa(o, "HomeRegionControl");
 }
 
 /**
@@ -212,9 +203,8 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export function isa(o: any): o is InternalServerError {
-    return __isa(o, "InternalServerError");
-  }
+  export const isa = (o: any): o is InternalServerError =>
+    __isa(o, "InternalServerError");
 }
 
 /**
@@ -230,9 +220,8 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
-  export function isa(o: any): o is InvalidInputException {
-    return __isa(o, "InvalidInputException");
-  }
+  export const isa = (o: any): o is InvalidInputException =>
+    __isa(o, "InvalidInputException");
 }
 
 /**
@@ -247,9 +236,8 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return __isa(o, "ServiceUnavailableException");
-  }
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -271,9 +259,7 @@ export interface Target {
 }
 
 export namespace Target {
-  export function isa(o: any): o is Target {
-    return __isa(o, "Target");
-  }
+  export const isa = (o: any): o is Target => __isa(o, "Target");
 }
 
 export enum TargetType {

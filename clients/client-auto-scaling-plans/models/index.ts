@@ -21,9 +21,8 @@ export interface ApplicationSource {
 }
 
 export namespace ApplicationSource {
-  export function isa(o: any): o is ApplicationSource {
-    return __isa(o, "ApplicationSource");
-  }
+  export const isa = (o: any): o is ApplicationSource =>
+    __isa(o, "ApplicationSource");
 }
 
 /**
@@ -39,9 +38,8 @@ export interface ConcurrentUpdateException
 }
 
 export namespace ConcurrentUpdateException {
-  export function isa(o: any): o is ConcurrentUpdateException {
-    return __isa(o, "ConcurrentUpdateException");
-  }
+  export const isa = (o: any): o is ConcurrentUpdateException =>
+    __isa(o, "ConcurrentUpdateException");
 }
 
 export interface CreateScalingPlanRequest {
@@ -65,9 +63,8 @@ export interface CreateScalingPlanRequest {
 }
 
 export namespace CreateScalingPlanRequest {
-  export function isa(o: any): o is CreateScalingPlanRequest {
-    return __isa(o, "CreateScalingPlanRequest");
-  }
+  export const isa = (o: any): o is CreateScalingPlanRequest =>
+    __isa(o, "CreateScalingPlanRequest");
 }
 
 export interface CreateScalingPlanResponse {
@@ -80,9 +77,8 @@ export interface CreateScalingPlanResponse {
 }
 
 export namespace CreateScalingPlanResponse {
-  export function isa(o: any): o is CreateScalingPlanResponse {
-    return __isa(o, "CreateScalingPlanResponse");
-  }
+  export const isa = (o: any): o is CreateScalingPlanResponse =>
+    __isa(o, "CreateScalingPlanResponse");
 }
 
 /**
@@ -136,9 +132,8 @@ export interface CustomizedLoadMetricSpecification {
 }
 
 export namespace CustomizedLoadMetricSpecification {
-  export function isa(o: any): o is CustomizedLoadMetricSpecification {
-    return __isa(o, "CustomizedLoadMetricSpecification");
-  }
+  export const isa = (o: any): o is CustomizedLoadMetricSpecification =>
+    __isa(o, "CustomizedLoadMetricSpecification");
 }
 
 /**
@@ -192,9 +187,8 @@ export interface CustomizedScalingMetricSpecification {
 }
 
 export namespace CustomizedScalingMetricSpecification {
-  export function isa(o: any): o is CustomizedScalingMetricSpecification {
-    return __isa(o, "CustomizedScalingMetricSpecification");
-  }
+  export const isa = (o: any): o is CustomizedScalingMetricSpecification =>
+    __isa(o, "CustomizedScalingMetricSpecification");
 }
 
 /**
@@ -214,9 +208,7 @@ export interface Datapoint {
 }
 
 export namespace Datapoint {
-  export function isa(o: any): o is Datapoint {
-    return __isa(o, "Datapoint");
-  }
+  export const isa = (o: any): o is Datapoint => __isa(o, "Datapoint");
 }
 
 export interface DeleteScalingPlanRequest {
@@ -233,9 +225,8 @@ export interface DeleteScalingPlanRequest {
 }
 
 export namespace DeleteScalingPlanRequest {
-  export function isa(o: any): o is DeleteScalingPlanRequest {
-    return __isa(o, "DeleteScalingPlanRequest");
-  }
+  export const isa = (o: any): o is DeleteScalingPlanRequest =>
+    __isa(o, "DeleteScalingPlanRequest");
 }
 
 export interface DeleteScalingPlanResponse {
@@ -243,9 +234,8 @@ export interface DeleteScalingPlanResponse {
 }
 
 export namespace DeleteScalingPlanResponse {
-  export function isa(o: any): o is DeleteScalingPlanResponse {
-    return __isa(o, "DeleteScalingPlanResponse");
-  }
+  export const isa = (o: any): o is DeleteScalingPlanResponse =>
+    __isa(o, "DeleteScalingPlanResponse");
 }
 
 export interface DescribeScalingPlanResourcesRequest {
@@ -273,9 +263,8 @@ export interface DescribeScalingPlanResourcesRequest {
 }
 
 export namespace DescribeScalingPlanResourcesRequest {
-  export function isa(o: any): o is DescribeScalingPlanResourcesRequest {
-    return __isa(o, "DescribeScalingPlanResourcesRequest");
-  }
+  export const isa = (o: any): o is DescribeScalingPlanResourcesRequest =>
+    __isa(o, "DescribeScalingPlanResourcesRequest");
 }
 
 export interface DescribeScalingPlanResourcesResponse {
@@ -293,9 +282,8 @@ export interface DescribeScalingPlanResourcesResponse {
 }
 
 export namespace DescribeScalingPlanResourcesResponse {
-  export function isa(o: any): o is DescribeScalingPlanResourcesResponse {
-    return __isa(o, "DescribeScalingPlanResourcesResponse");
-  }
+  export const isa = (o: any): o is DescribeScalingPlanResourcesResponse =>
+    __isa(o, "DescribeScalingPlanResourcesResponse");
 }
 
 export interface DescribeScalingPlansRequest {
@@ -331,9 +319,8 @@ export interface DescribeScalingPlansRequest {
 }
 
 export namespace DescribeScalingPlansRequest {
-  export function isa(o: any): o is DescribeScalingPlansRequest {
-    return __isa(o, "DescribeScalingPlansRequest");
-  }
+  export const isa = (o: any): o is DescribeScalingPlansRequest =>
+    __isa(o, "DescribeScalingPlansRequest");
 }
 
 export interface DescribeScalingPlansResponse {
@@ -351,9 +338,8 @@ export interface DescribeScalingPlansResponse {
 }
 
 export namespace DescribeScalingPlansResponse {
-  export function isa(o: any): o is DescribeScalingPlansResponse {
-    return __isa(o, "DescribeScalingPlansResponse");
-  }
+  export const isa = (o: any): o is DescribeScalingPlansResponse =>
+    __isa(o, "DescribeScalingPlansResponse");
 }
 
 export enum ForecastDataType {
@@ -461,9 +447,8 @@ export interface GetScalingPlanResourceForecastDataRequest {
 }
 
 export namespace GetScalingPlanResourceForecastDataRequest {
-  export function isa(o: any): o is GetScalingPlanResourceForecastDataRequest {
-    return __isa(o, "GetScalingPlanResourceForecastDataRequest");
-  }
+  export const isa = (o: any): o is GetScalingPlanResourceForecastDataRequest =>
+    __isa(o, "GetScalingPlanResourceForecastDataRequest");
 }
 
 export interface GetScalingPlanResourceForecastDataResponse {
@@ -475,9 +460,10 @@ export interface GetScalingPlanResourceForecastDataResponse {
 }
 
 export namespace GetScalingPlanResourceForecastDataResponse {
-  export function isa(o: any): o is GetScalingPlanResourceForecastDataResponse {
-    return __isa(o, "GetScalingPlanResourceForecastDataResponse");
-  }
+  export const isa = (
+    o: any
+  ): o is GetScalingPlanResourceForecastDataResponse =>
+    __isa(o, "GetScalingPlanResourceForecastDataResponse");
 }
 
 /**
@@ -492,9 +478,8 @@ export interface InternalServiceException
 }
 
 export namespace InternalServiceException {
-  export function isa(o: any): o is InternalServiceException {
-    return __isa(o, "InternalServiceException");
-  }
+  export const isa = (o: any): o is InternalServiceException =>
+    __isa(o, "InternalServiceException");
 }
 
 /**
@@ -509,9 +494,8 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export function isa(o: any): o is InvalidNextTokenException {
-    return __isa(o, "InvalidNextTokenException");
-  }
+  export const isa = (o: any): o is InvalidNextTokenException =>
+    __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -527,9 +511,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export enum LoadMetricType {
@@ -556,9 +539,8 @@ export interface MetricDimension {
 }
 
 export namespace MetricDimension {
-  export function isa(o: any): o is MetricDimension {
-    return __isa(o, "MetricDimension");
-  }
+  export const isa = (o: any): o is MetricDimension =>
+    __isa(o, "MetricDimension");
 }
 
 export enum MetricStatistic {
@@ -581,9 +563,8 @@ export interface ObjectNotFoundException
 }
 
 export namespace ObjectNotFoundException {
-  export function isa(o: any): o is ObjectNotFoundException {
-    return __isa(o, "ObjectNotFoundException");
-  }
+  export const isa = (o: any): o is ObjectNotFoundException =>
+    __isa(o, "ObjectNotFoundException");
 }
 
 export enum PolicyType {
@@ -622,9 +603,8 @@ export interface PredefinedLoadMetricSpecification {
 }
 
 export namespace PredefinedLoadMetricSpecification {
-  export function isa(o: any): o is PredefinedLoadMetricSpecification {
-    return __isa(o, "PredefinedLoadMetricSpecification");
-  }
+  export const isa = (o: any): o is PredefinedLoadMetricSpecification =>
+    __isa(o, "PredefinedLoadMetricSpecification");
 }
 
 /**
@@ -662,9 +642,8 @@ export interface PredefinedScalingMetricSpecification {
 }
 
 export namespace PredefinedScalingMetricSpecification {
-  export function isa(o: any): o is PredefinedScalingMetricSpecification {
-    return __isa(o, "PredefinedScalingMetricSpecification");
-  }
+  export const isa = (o: any): o is PredefinedScalingMetricSpecification =>
+    __isa(o, "PredefinedScalingMetricSpecification");
 }
 
 export enum PredictiveScalingMaxCapacityBehavior {
@@ -909,9 +888,8 @@ export interface ScalingInstruction {
 }
 
 export namespace ScalingInstruction {
-  export function isa(o: any): o is ScalingInstruction {
-    return __isa(o, "ScalingInstruction");
-  }
+  export const isa = (o: any): o is ScalingInstruction =>
+    __isa(o, "ScalingInstruction");
 }
 
 export enum ScalingMetricType {
@@ -1012,9 +990,7 @@ export interface ScalingPlan {
 }
 
 export namespace ScalingPlan {
-  export function isa(o: any): o is ScalingPlan {
-    return __isa(o, "ScalingPlan");
-  }
+  export const isa = (o: any): o is ScalingPlan => __isa(o, "ScalingPlan");
 }
 
 /**
@@ -1143,9 +1119,8 @@ export interface ScalingPlanResource {
 }
 
 export namespace ScalingPlanResource {
-  export function isa(o: any): o is ScalingPlanResource {
-    return __isa(o, "ScalingPlanResource");
-  }
+  export const isa = (o: any): o is ScalingPlanResource =>
+    __isa(o, "ScalingPlanResource");
 }
 
 export enum ScalingPlanStatusCode {
@@ -1182,9 +1157,7 @@ export interface ScalingPolicy {
 }
 
 export namespace ScalingPolicy {
-  export function isa(o: any): o is ScalingPolicy {
-    return __isa(o, "ScalingPolicy");
-  }
+  export const isa = (o: any): o is ScalingPolicy => __isa(o, "ScalingPolicy");
 }
 
 export enum ScalingPolicyUpdateBehavior {
@@ -1223,9 +1196,7 @@ export interface TagFilter {
 }
 
 export namespace TagFilter {
-  export function isa(o: any): o is TagFilter {
-    return __isa(o, "TagFilter");
-  }
+  export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
 }
 
 /**
@@ -1290,9 +1261,8 @@ export interface TargetTrackingConfiguration {
 }
 
 export namespace TargetTrackingConfiguration {
-  export function isa(o: any): o is TargetTrackingConfiguration {
-    return __isa(o, "TargetTrackingConfiguration");
-  }
+  export const isa = (o: any): o is TargetTrackingConfiguration =>
+    __isa(o, "TargetTrackingConfiguration");
 }
 
 export interface UpdateScalingPlanRequest {
@@ -1319,9 +1289,8 @@ export interface UpdateScalingPlanRequest {
 }
 
 export namespace UpdateScalingPlanRequest {
-  export function isa(o: any): o is UpdateScalingPlanRequest {
-    return __isa(o, "UpdateScalingPlanRequest");
-  }
+  export const isa = (o: any): o is UpdateScalingPlanRequest =>
+    __isa(o, "UpdateScalingPlanRequest");
 }
 
 export interface UpdateScalingPlanResponse {
@@ -1329,9 +1298,8 @@ export interface UpdateScalingPlanResponse {
 }
 
 export namespace UpdateScalingPlanResponse {
-  export function isa(o: any): o is UpdateScalingPlanResponse {
-    return __isa(o, "UpdateScalingPlanResponse");
-  }
+  export const isa = (o: any): o is UpdateScalingPlanResponse =>
+    __isa(o, "UpdateScalingPlanResponse");
 }
 
 /**
@@ -1346,7 +1314,6 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return __isa(o, "ValidationException");
-  }
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
 }

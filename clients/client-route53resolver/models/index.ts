@@ -19,9 +19,8 @@ export interface AssociateResolverEndpointIpAddressRequest {
 }
 
 export namespace AssociateResolverEndpointIpAddressRequest {
-  export function isa(o: any): o is AssociateResolverEndpointIpAddressRequest {
-    return __isa(o, "AssociateResolverEndpointIpAddressRequest");
-  }
+  export const isa = (o: any): o is AssociateResolverEndpointIpAddressRequest =>
+    __isa(o, "AssociateResolverEndpointIpAddressRequest");
 }
 
 export interface AssociateResolverEndpointIpAddressResponse {
@@ -33,9 +32,10 @@ export interface AssociateResolverEndpointIpAddressResponse {
 }
 
 export namespace AssociateResolverEndpointIpAddressResponse {
-  export function isa(o: any): o is AssociateResolverEndpointIpAddressResponse {
-    return __isa(o, "AssociateResolverEndpointIpAddressResponse");
-  }
+  export const isa = (
+    o: any
+  ): o is AssociateResolverEndpointIpAddressResponse =>
+    __isa(o, "AssociateResolverEndpointIpAddressResponse");
 }
 
 export interface AssociateResolverRuleRequest {
@@ -58,9 +58,8 @@ export interface AssociateResolverRuleRequest {
 }
 
 export namespace AssociateResolverRuleRequest {
-  export function isa(o: any): o is AssociateResolverRuleRequest {
-    return __isa(o, "AssociateResolverRuleRequest");
-  }
+  export const isa = (o: any): o is AssociateResolverRuleRequest =>
+    __isa(o, "AssociateResolverRuleRequest");
 }
 
 export interface AssociateResolverRuleResponse {
@@ -72,9 +71,8 @@ export interface AssociateResolverRuleResponse {
 }
 
 export namespace AssociateResolverRuleResponse {
-  export function isa(o: any): o is AssociateResolverRuleResponse {
-    return __isa(o, "AssociateResolverRuleResponse");
-  }
+  export const isa = (o: any): o is AssociateResolverRuleResponse =>
+    __isa(o, "AssociateResolverRuleResponse");
 }
 
 export interface CreateResolverEndpointRequest {
@@ -124,9 +122,8 @@ export interface CreateResolverEndpointRequest {
 }
 
 export namespace CreateResolverEndpointRequest {
-  export function isa(o: any): o is CreateResolverEndpointRequest {
-    return __isa(o, "CreateResolverEndpointRequest");
-  }
+  export const isa = (o: any): o is CreateResolverEndpointRequest =>
+    __isa(o, "CreateResolverEndpointRequest");
 }
 
 export interface CreateResolverEndpointResponse {
@@ -138,9 +135,8 @@ export interface CreateResolverEndpointResponse {
 }
 
 export namespace CreateResolverEndpointResponse {
-  export function isa(o: any): o is CreateResolverEndpointResponse {
-    return __isa(o, "CreateResolverEndpointResponse");
-  }
+  export const isa = (o: any): o is CreateResolverEndpointResponse =>
+    __isa(o, "CreateResolverEndpointResponse");
 }
 
 export interface CreateResolverRuleRequest {
@@ -186,9 +182,8 @@ export interface CreateResolverRuleRequest {
 }
 
 export namespace CreateResolverRuleRequest {
-  export function isa(o: any): o is CreateResolverRuleRequest {
-    return __isa(o, "CreateResolverRuleRequest");
-  }
+  export const isa = (o: any): o is CreateResolverRuleRequest =>
+    __isa(o, "CreateResolverRuleRequest");
 }
 
 export interface CreateResolverRuleResponse {
@@ -200,9 +195,8 @@ export interface CreateResolverRuleResponse {
 }
 
 export namespace CreateResolverRuleResponse {
-  export function isa(o: any): o is CreateResolverRuleResponse {
-    return __isa(o, "CreateResolverRuleResponse");
-  }
+  export const isa = (o: any): o is CreateResolverRuleResponse =>
+    __isa(o, "CreateResolverRuleResponse");
 }
 
 export interface DeleteResolverEndpointRequest {
@@ -214,9 +208,8 @@ export interface DeleteResolverEndpointRequest {
 }
 
 export namespace DeleteResolverEndpointRequest {
-  export function isa(o: any): o is DeleteResolverEndpointRequest {
-    return __isa(o, "DeleteResolverEndpointRequest");
-  }
+  export const isa = (o: any): o is DeleteResolverEndpointRequest =>
+    __isa(o, "DeleteResolverEndpointRequest");
 }
 
 export interface DeleteResolverEndpointResponse {
@@ -228,9 +221,8 @@ export interface DeleteResolverEndpointResponse {
 }
 
 export namespace DeleteResolverEndpointResponse {
-  export function isa(o: any): o is DeleteResolverEndpointResponse {
-    return __isa(o, "DeleteResolverEndpointResponse");
-  }
+  export const isa = (o: any): o is DeleteResolverEndpointResponse =>
+    __isa(o, "DeleteResolverEndpointResponse");
 }
 
 export interface DeleteResolverRuleRequest {
@@ -242,9 +234,8 @@ export interface DeleteResolverRuleRequest {
 }
 
 export namespace DeleteResolverRuleRequest {
-  export function isa(o: any): o is DeleteResolverRuleRequest {
-    return __isa(o, "DeleteResolverRuleRequest");
-  }
+  export const isa = (o: any): o is DeleteResolverRuleRequest =>
+    __isa(o, "DeleteResolverRuleRequest");
 }
 
 export interface DeleteResolverRuleResponse {
@@ -256,9 +247,8 @@ export interface DeleteResolverRuleResponse {
 }
 
 export namespace DeleteResolverRuleResponse {
-  export function isa(o: any): o is DeleteResolverRuleResponse {
-    return __isa(o, "DeleteResolverRuleResponse");
-  }
+  export const isa = (o: any): o is DeleteResolverRuleResponse =>
+    __isa(o, "DeleteResolverRuleResponse");
 }
 
 export interface DisassociateResolverEndpointIpAddressRequest {
@@ -275,11 +265,10 @@ export interface DisassociateResolverEndpointIpAddressRequest {
 }
 
 export namespace DisassociateResolverEndpointIpAddressRequest {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DisassociateResolverEndpointIpAddressRequest {
-    return __isa(o, "DisassociateResolverEndpointIpAddressRequest");
-  }
+  ): o is DisassociateResolverEndpointIpAddressRequest =>
+    __isa(o, "DisassociateResolverEndpointIpAddressRequest");
 }
 
 export interface DisassociateResolverEndpointIpAddressResponse {
@@ -291,11 +280,10 @@ export interface DisassociateResolverEndpointIpAddressResponse {
 }
 
 export namespace DisassociateResolverEndpointIpAddressResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is DisassociateResolverEndpointIpAddressResponse {
-    return __isa(o, "DisassociateResolverEndpointIpAddressResponse");
-  }
+  ): o is DisassociateResolverEndpointIpAddressResponse =>
+    __isa(o, "DisassociateResolverEndpointIpAddressResponse");
 }
 
 export interface DisassociateResolverRuleRequest {
@@ -312,9 +300,8 @@ export interface DisassociateResolverRuleRequest {
 }
 
 export namespace DisassociateResolverRuleRequest {
-  export function isa(o: any): o is DisassociateResolverRuleRequest {
-    return __isa(o, "DisassociateResolverRuleRequest");
-  }
+  export const isa = (o: any): o is DisassociateResolverRuleRequest =>
+    __isa(o, "DisassociateResolverRuleRequest");
 }
 
 export interface DisassociateResolverRuleResponse {
@@ -326,9 +313,8 @@ export interface DisassociateResolverRuleResponse {
 }
 
 export namespace DisassociateResolverRuleResponse {
-  export function isa(o: any): o is DisassociateResolverRuleResponse {
-    return __isa(o, "DisassociateResolverRuleResponse");
-  }
+  export const isa = (o: any): o is DisassociateResolverRuleResponse =>
+    __isa(o, "DisassociateResolverRuleResponse");
 }
 
 /**
@@ -352,9 +338,7 @@ export interface Filter {
 }
 
 export namespace Filter {
-  export function isa(o: any): o is Filter {
-    return __isa(o, "Filter");
-  }
+  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 export interface GetResolverEndpointRequest {
@@ -366,9 +350,8 @@ export interface GetResolverEndpointRequest {
 }
 
 export namespace GetResolverEndpointRequest {
-  export function isa(o: any): o is GetResolverEndpointRequest {
-    return __isa(o, "GetResolverEndpointRequest");
-  }
+  export const isa = (o: any): o is GetResolverEndpointRequest =>
+    __isa(o, "GetResolverEndpointRequest");
 }
 
 export interface GetResolverEndpointResponse {
@@ -380,9 +363,8 @@ export interface GetResolverEndpointResponse {
 }
 
 export namespace GetResolverEndpointResponse {
-  export function isa(o: any): o is GetResolverEndpointResponse {
-    return __isa(o, "GetResolverEndpointResponse");
-  }
+  export const isa = (o: any): o is GetResolverEndpointResponse =>
+    __isa(o, "GetResolverEndpointResponse");
 }
 
 export interface GetResolverRuleAssociationRequest {
@@ -394,9 +376,8 @@ export interface GetResolverRuleAssociationRequest {
 }
 
 export namespace GetResolverRuleAssociationRequest {
-  export function isa(o: any): o is GetResolverRuleAssociationRequest {
-    return __isa(o, "GetResolverRuleAssociationRequest");
-  }
+  export const isa = (o: any): o is GetResolverRuleAssociationRequest =>
+    __isa(o, "GetResolverRuleAssociationRequest");
 }
 
 export interface GetResolverRuleAssociationResponse {
@@ -408,9 +389,8 @@ export interface GetResolverRuleAssociationResponse {
 }
 
 export namespace GetResolverRuleAssociationResponse {
-  export function isa(o: any): o is GetResolverRuleAssociationResponse {
-    return __isa(o, "GetResolverRuleAssociationResponse");
-  }
+  export const isa = (o: any): o is GetResolverRuleAssociationResponse =>
+    __isa(o, "GetResolverRuleAssociationResponse");
 }
 
 export interface GetResolverRulePolicyRequest {
@@ -422,9 +402,8 @@ export interface GetResolverRulePolicyRequest {
 }
 
 export namespace GetResolverRulePolicyRequest {
-  export function isa(o: any): o is GetResolverRulePolicyRequest {
-    return __isa(o, "GetResolverRulePolicyRequest");
-  }
+  export const isa = (o: any): o is GetResolverRulePolicyRequest =>
+    __isa(o, "GetResolverRulePolicyRequest");
 }
 
 export interface GetResolverRulePolicyResponse {
@@ -436,9 +415,8 @@ export interface GetResolverRulePolicyResponse {
 }
 
 export namespace GetResolverRulePolicyResponse {
-  export function isa(o: any): o is GetResolverRulePolicyResponse {
-    return __isa(o, "GetResolverRulePolicyResponse");
-  }
+  export const isa = (o: any): o is GetResolverRulePolicyResponse =>
+    __isa(o, "GetResolverRulePolicyResponse");
 }
 
 export interface GetResolverRuleRequest {
@@ -450,9 +428,8 @@ export interface GetResolverRuleRequest {
 }
 
 export namespace GetResolverRuleRequest {
-  export function isa(o: any): o is GetResolverRuleRequest {
-    return __isa(o, "GetResolverRuleRequest");
-  }
+  export const isa = (o: any): o is GetResolverRuleRequest =>
+    __isa(o, "GetResolverRuleRequest");
 }
 
 export interface GetResolverRuleResponse {
@@ -464,9 +441,8 @@ export interface GetResolverRuleResponse {
 }
 
 export namespace GetResolverRuleResponse {
-  export function isa(o: any): o is GetResolverRuleResponse {
-    return __isa(o, "GetResolverRuleResponse");
-  }
+  export const isa = (o: any): o is GetResolverRuleResponse =>
+    __isa(o, "GetResolverRuleResponse");
 }
 
 /**
@@ -481,9 +457,8 @@ export interface InternalServiceErrorException
 }
 
 export namespace InternalServiceErrorException {
-  export function isa(o: any): o is InternalServiceErrorException {
-    return __isa(o, "InternalServiceErrorException");
-  }
+  export const isa = (o: any): o is InternalServiceErrorException =>
+    __isa(o, "InternalServiceErrorException");
 }
 
 /**
@@ -498,9 +473,8 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export function isa(o: any): o is InvalidNextTokenException {
-    return __isa(o, "InvalidNextTokenException");
-  }
+  export const isa = (o: any): o is InvalidNextTokenException =>
+    __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -520,9 +494,8 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export function isa(o: any): o is InvalidParameterException {
-    return __isa(o, "InvalidParameterException");
-  }
+  export const isa = (o: any): o is InvalidParameterException =>
+    __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -537,9 +510,8 @@ export interface InvalidPolicyDocument
 }
 
 export namespace InvalidPolicyDocument {
-  export function isa(o: any): o is InvalidPolicyDocument {
-    return __isa(o, "InvalidPolicyDocument");
-  }
+  export const isa = (o: any): o is InvalidPolicyDocument =>
+    __isa(o, "InvalidPolicyDocument");
 }
 
 /**
@@ -554,9 +526,8 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return __isa(o, "InvalidRequestException");
-  }
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -571,9 +542,8 @@ export interface InvalidTagException
 }
 
 export namespace InvalidTagException {
-  export function isa(o: any): o is InvalidTagException {
-    return __isa(o, "InvalidTagException");
-  }
+  export const isa = (o: any): o is InvalidTagException =>
+    __isa(o, "InvalidTagException");
 }
 
 /**
@@ -593,9 +563,8 @@ export interface IpAddressRequest {
 }
 
 export namespace IpAddressRequest {
-  export function isa(o: any): o is IpAddressRequest {
-    return __isa(o, "IpAddressRequest");
-  }
+  export const isa = (o: any): o is IpAddressRequest =>
+    __isa(o, "IpAddressRequest");
 }
 
 /**
@@ -641,9 +610,8 @@ export interface IpAddressResponse {
 }
 
 export namespace IpAddressResponse {
-  export function isa(o: any): o is IpAddressResponse {
-    return __isa(o, "IpAddressResponse");
-  }
+  export const isa = (o: any): o is IpAddressResponse =>
+    __isa(o, "IpAddressResponse");
 }
 
 export enum IpAddressStatus {
@@ -683,9 +651,8 @@ export interface IpAddressUpdate {
 }
 
 export namespace IpAddressUpdate {
-  export function isa(o: any): o is IpAddressUpdate {
-    return __isa(o, "IpAddressUpdate");
-  }
+  export const isa = (o: any): o is IpAddressUpdate =>
+    __isa(o, "IpAddressUpdate");
 }
 
 /**
@@ -704,9 +671,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export interface ListResolverEndpointIpAddressesRequest {
@@ -732,9 +698,8 @@ export interface ListResolverEndpointIpAddressesRequest {
 }
 
 export namespace ListResolverEndpointIpAddressesRequest {
-  export function isa(o: any): o is ListResolverEndpointIpAddressesRequest {
-    return __isa(o, "ListResolverEndpointIpAddressesRequest");
-  }
+  export const isa = (o: any): o is ListResolverEndpointIpAddressesRequest =>
+    __isa(o, "ListResolverEndpointIpAddressesRequest");
 }
 
 export interface ListResolverEndpointIpAddressesResponse {
@@ -759,9 +724,8 @@ export interface ListResolverEndpointIpAddressesResponse {
 }
 
 export namespace ListResolverEndpointIpAddressesResponse {
-  export function isa(o: any): o is ListResolverEndpointIpAddressesResponse {
-    return __isa(o, "ListResolverEndpointIpAddressesResponse");
-  }
+  export const isa = (o: any): o is ListResolverEndpointIpAddressesResponse =>
+    __isa(o, "ListResolverEndpointIpAddressesResponse");
 }
 
 export interface ListResolverEndpointsRequest {
@@ -790,9 +754,8 @@ export interface ListResolverEndpointsRequest {
 }
 
 export namespace ListResolverEndpointsRequest {
-  export function isa(o: any): o is ListResolverEndpointsRequest {
-    return __isa(o, "ListResolverEndpointsRequest");
-  }
+  export const isa = (o: any): o is ListResolverEndpointsRequest =>
+    __isa(o, "ListResolverEndpointsRequest");
 }
 
 export interface ListResolverEndpointsResponse {
@@ -815,9 +778,8 @@ export interface ListResolverEndpointsResponse {
 }
 
 export namespace ListResolverEndpointsResponse {
-  export function isa(o: any): o is ListResolverEndpointsResponse {
-    return __isa(o, "ListResolverEndpointsResponse");
-  }
+  export const isa = (o: any): o is ListResolverEndpointsResponse =>
+    __isa(o, "ListResolverEndpointsResponse");
 }
 
 export interface ListResolverRuleAssociationsRequest {
@@ -846,9 +808,8 @@ export interface ListResolverRuleAssociationsRequest {
 }
 
 export namespace ListResolverRuleAssociationsRequest {
-  export function isa(o: any): o is ListResolverRuleAssociationsRequest {
-    return __isa(o, "ListResolverRuleAssociationsRequest");
-  }
+  export const isa = (o: any): o is ListResolverRuleAssociationsRequest =>
+    __isa(o, "ListResolverRuleAssociationsRequest");
 }
 
 export interface ListResolverRuleAssociationsResponse {
@@ -873,9 +834,8 @@ export interface ListResolverRuleAssociationsResponse {
 }
 
 export namespace ListResolverRuleAssociationsResponse {
-  export function isa(o: any): o is ListResolverRuleAssociationsResponse {
-    return __isa(o, "ListResolverRuleAssociationsResponse");
-  }
+  export const isa = (o: any): o is ListResolverRuleAssociationsResponse =>
+    __isa(o, "ListResolverRuleAssociationsResponse");
 }
 
 export interface ListResolverRulesRequest {
@@ -904,9 +864,8 @@ export interface ListResolverRulesRequest {
 }
 
 export namespace ListResolverRulesRequest {
-  export function isa(o: any): o is ListResolverRulesRequest {
-    return __isa(o, "ListResolverRulesRequest");
-  }
+  export const isa = (o: any): o is ListResolverRulesRequest =>
+    __isa(o, "ListResolverRulesRequest");
 }
 
 export interface ListResolverRulesResponse {
@@ -930,9 +889,8 @@ export interface ListResolverRulesResponse {
 }
 
 export namespace ListResolverRulesResponse {
-  export function isa(o: any): o is ListResolverRulesResponse {
-    return __isa(o, "ListResolverRulesResponse");
-  }
+  export const isa = (o: any): o is ListResolverRulesResponse =>
+    __isa(o, "ListResolverRulesResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -957,9 +915,8 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export function isa(o: any): o is ListTagsForResourceRequest {
-    return __isa(o, "ListTagsForResourceRequest");
-  }
+  export const isa = (o: any): o is ListTagsForResourceRequest =>
+    __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -978,9 +935,8 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export function isa(o: any): o is ListTagsForResourceResponse {
-    return __isa(o, "ListTagsForResourceResponse");
-  }
+  export const isa = (o: any): o is ListTagsForResourceResponse =>
+    __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface PutResolverRulePolicyRequest {
@@ -997,9 +953,8 @@ export interface PutResolverRulePolicyRequest {
 }
 
 export namespace PutResolverRulePolicyRequest {
-  export function isa(o: any): o is PutResolverRulePolicyRequest {
-    return __isa(o, "PutResolverRulePolicyRequest");
-  }
+  export const isa = (o: any): o is PutResolverRulePolicyRequest =>
+    __isa(o, "PutResolverRulePolicyRequest");
 }
 
 /**
@@ -1014,9 +969,8 @@ export interface PutResolverRulePolicyResponse {
 }
 
 export namespace PutResolverRulePolicyResponse {
-  export function isa(o: any): o is PutResolverRulePolicyResponse {
-    return __isa(o, "PutResolverRulePolicyResponse");
-  }
+  export const isa = (o: any): o is PutResolverRulePolicyResponse =>
+    __isa(o, "PutResolverRulePolicyResponse");
 }
 
 /**
@@ -1099,9 +1053,8 @@ export interface ResolverEndpoint {
 }
 
 export namespace ResolverEndpoint {
-  export function isa(o: any): o is ResolverEndpoint {
-    return __isa(o, "ResolverEndpoint");
-  }
+  export const isa = (o: any): o is ResolverEndpoint =>
+    __isa(o, "ResolverEndpoint");
 }
 
 export enum ResolverEndpointDirection {
@@ -1192,9 +1145,7 @@ export interface ResolverRule {
 }
 
 export namespace ResolverRule {
-  export function isa(o: any): o is ResolverRule {
-    return __isa(o, "ResolverRule");
-  }
+  export const isa = (o: any): o is ResolverRule => __isa(o, "ResolverRule");
 }
 
 /**
@@ -1237,9 +1188,8 @@ export interface ResolverRuleAssociation {
 }
 
 export namespace ResolverRuleAssociation {
-  export function isa(o: any): o is ResolverRuleAssociation {
-    return __isa(o, "ResolverRuleAssociation");
-  }
+  export const isa = (o: any): o is ResolverRuleAssociation =>
+    __isa(o, "ResolverRuleAssociation");
 }
 
 export enum ResolverRuleAssociationStatus {
@@ -1273,9 +1223,8 @@ export interface ResolverRuleConfig {
 }
 
 export namespace ResolverRuleConfig {
-  export function isa(o: any): o is ResolverRuleConfig {
-    return __isa(o, "ResolverRuleConfig");
-  }
+  export const isa = (o: any): o is ResolverRuleConfig =>
+    __isa(o, "ResolverRuleConfig");
 }
 
 export enum ResolverRuleStatus {
@@ -1301,9 +1250,8 @@ export interface ResourceExistsException
 }
 
 export namespace ResourceExistsException {
-  export function isa(o: any): o is ResourceExistsException {
-    return __isa(o, "ResourceExistsException");
-  }
+  export const isa = (o: any): o is ResourceExistsException =>
+    __isa(o, "ResourceExistsException");
 }
 
 /**
@@ -1322,9 +1270,8 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export function isa(o: any): o is ResourceInUseException {
-    return __isa(o, "ResourceInUseException");
-  }
+  export const isa = (o: any): o is ResourceInUseException =>
+    __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -1343,9 +1290,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1364,9 +1310,8 @@ export interface ResourceUnavailableException
 }
 
 export namespace ResourceUnavailableException {
-  export function isa(o: any): o is ResourceUnavailableException {
-    return __isa(o, "ResourceUnavailableException");
-  }
+  export const isa = (o: any): o is ResourceUnavailableException =>
+    __isa(o, "ResourceUnavailableException");
 }
 
 export enum RuleTypeOption {
@@ -1400,9 +1345,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
@@ -1452,9 +1395,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -1462,9 +1404,8 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export function isa(o: any): o is TagResourceResponse {
-    return __isa(o, "TagResourceResponse");
-  }
+  export const isa = (o: any): o is TagResourceResponse =>
+    __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -1484,9 +1425,7 @@ export interface TargetAddress {
 }
 
 export namespace TargetAddress {
-  export function isa(o: any): o is TargetAddress {
-    return __isa(o, "TargetAddress");
-  }
+  export const isa = (o: any): o is TargetAddress => __isa(o, "TargetAddress");
 }
 
 /**
@@ -1501,9 +1440,8 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return __isa(o, "ThrottlingException");
-  }
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 /**
@@ -1518,9 +1456,8 @@ export interface UnknownResourceException
 }
 
 export namespace UnknownResourceException {
-  export function isa(o: any): o is UnknownResourceException {
-    return __isa(o, "UnknownResourceException");
-  }
+  export const isa = (o: any): o is UnknownResourceException =>
+    __isa(o, "UnknownResourceException");
 }
 
 export interface UntagResourceRequest {
@@ -1570,9 +1507,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -1580,9 +1516,8 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export function isa(o: any): o is UntagResourceResponse {
-    return __isa(o, "UntagResourceResponse");
-  }
+  export const isa = (o: any): o is UntagResourceResponse =>
+    __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateResolverEndpointRequest {
@@ -1599,9 +1534,8 @@ export interface UpdateResolverEndpointRequest {
 }
 
 export namespace UpdateResolverEndpointRequest {
-  export function isa(o: any): o is UpdateResolverEndpointRequest {
-    return __isa(o, "UpdateResolverEndpointRequest");
-  }
+  export const isa = (o: any): o is UpdateResolverEndpointRequest =>
+    __isa(o, "UpdateResolverEndpointRequest");
 }
 
 export interface UpdateResolverEndpointResponse {
@@ -1613,9 +1547,8 @@ export interface UpdateResolverEndpointResponse {
 }
 
 export namespace UpdateResolverEndpointResponse {
-  export function isa(o: any): o is UpdateResolverEndpointResponse {
-    return __isa(o, "UpdateResolverEndpointResponse");
-  }
+  export const isa = (o: any): o is UpdateResolverEndpointResponse =>
+    __isa(o, "UpdateResolverEndpointResponse");
 }
 
 export interface UpdateResolverRuleRequest {
@@ -1632,9 +1565,8 @@ export interface UpdateResolverRuleRequest {
 }
 
 export namespace UpdateResolverRuleRequest {
-  export function isa(o: any): o is UpdateResolverRuleRequest {
-    return __isa(o, "UpdateResolverRuleRequest");
-  }
+  export const isa = (o: any): o is UpdateResolverRuleRequest =>
+    __isa(o, "UpdateResolverRuleRequest");
 }
 
 export interface UpdateResolverRuleResponse {
@@ -1646,7 +1578,6 @@ export interface UpdateResolverRuleResponse {
 }
 
 export namespace UpdateResolverRuleResponse {
-  export function isa(o: any): o is UpdateResolverRuleResponse {
-    return __isa(o, "UpdateResolverRuleResponse");
-  }
+  export const isa = (o: any): o is UpdateResolverRuleResponse =>
+    __isa(o, "UpdateResolverRuleResponse");
 }

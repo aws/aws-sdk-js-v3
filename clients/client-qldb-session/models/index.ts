@@ -12,9 +12,8 @@ export interface AbortTransactionRequest {
 }
 
 export namespace AbortTransactionRequest {
-  export function isa(o: any): o is AbortTransactionRequest {
-    return __isa(o, "AbortTransactionRequest");
-  }
+  export const isa = (o: any): o is AbortTransactionRequest =>
+    __isa(o, "AbortTransactionRequest");
 }
 
 /**
@@ -25,9 +24,8 @@ export interface AbortTransactionResult {
 }
 
 export namespace AbortTransactionResult {
-  export function isa(o: any): o is AbortTransactionResult {
-    return __isa(o, "AbortTransactionResult");
-  }
+  export const isa = (o: any): o is AbortTransactionResult =>
+    __isa(o, "AbortTransactionResult");
 }
 
 /**
@@ -43,9 +41,8 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export function isa(o: any): o is BadRequestException {
-    return __isa(o, "BadRequestException");
-  }
+  export const isa = (o: any): o is BadRequestException =>
+    __isa(o, "BadRequestException");
 }
 
 /**
@@ -68,9 +65,8 @@ export interface CommitTransactionRequest {
 }
 
 export namespace CommitTransactionRequest {
-  export function isa(o: any): o is CommitTransactionRequest {
-    return __isa(o, "CommitTransactionRequest");
-  }
+  export const isa = (o: any): o is CommitTransactionRequest =>
+    __isa(o, "CommitTransactionRequest");
 }
 
 /**
@@ -90,9 +86,8 @@ export interface CommitTransactionResult {
 }
 
 export namespace CommitTransactionResult {
-  export function isa(o: any): o is CommitTransactionResult {
-    return __isa(o, "CommitTransactionResult");
-  }
+  export const isa = (o: any): o is CommitTransactionResult =>
+    __isa(o, "CommitTransactionResult");
 }
 
 /**
@@ -103,9 +98,8 @@ export interface EndSessionRequest {
 }
 
 export namespace EndSessionRequest {
-  export function isa(o: any): o is EndSessionRequest {
-    return __isa(o, "EndSessionRequest");
-  }
+  export const isa = (o: any): o is EndSessionRequest =>
+    __isa(o, "EndSessionRequest");
 }
 
 /**
@@ -116,9 +110,8 @@ export interface EndSessionResult {
 }
 
 export namespace EndSessionResult {
-  export function isa(o: any): o is EndSessionResult {
-    return __isa(o, "EndSessionResult");
-  }
+  export const isa = (o: any): o is EndSessionResult =>
+    __isa(o, "EndSessionResult");
 }
 
 /**
@@ -143,9 +136,8 @@ export interface ExecuteStatementRequest {
 }
 
 export namespace ExecuteStatementRequest {
-  export function isa(o: any): o is ExecuteStatementRequest {
-    return __isa(o, "ExecuteStatementRequest");
-  }
+  export const isa = (o: any): o is ExecuteStatementRequest =>
+    __isa(o, "ExecuteStatementRequest");
 }
 
 /**
@@ -160,9 +152,8 @@ export interface ExecuteStatementResult {
 }
 
 export namespace ExecuteStatementResult {
-  export function isa(o: any): o is ExecuteStatementResult {
-    return __isa(o, "ExecuteStatementResult");
-  }
+  export const isa = (o: any): o is ExecuteStatementResult =>
+    __isa(o, "ExecuteStatementResult");
 }
 
 /**
@@ -182,9 +173,8 @@ export interface FetchPageRequest {
 }
 
 export namespace FetchPageRequest {
-  export function isa(o: any): o is FetchPageRequest {
-    return __isa(o, "FetchPageRequest");
-  }
+  export const isa = (o: any): o is FetchPageRequest =>
+    __isa(o, "FetchPageRequest");
 }
 
 /**
@@ -199,9 +189,8 @@ export interface FetchPageResult {
 }
 
 export namespace FetchPageResult {
-  export function isa(o: any): o is FetchPageResult {
-    return __isa(o, "FetchPageResult");
-  }
+  export const isa = (o: any): o is FetchPageResult =>
+    __isa(o, "FetchPageResult");
 }
 
 /**
@@ -217,9 +206,8 @@ export interface InvalidSessionException
 }
 
 export namespace InvalidSessionException {
-  export function isa(o: any): o is InvalidSessionException {
-    return __isa(o, "InvalidSessionException");
-  }
+  export const isa = (o: any): o is InvalidSessionException =>
+    __isa(o, "InvalidSessionException");
 }
 
 /**
@@ -234,9 +222,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 /**
@@ -251,9 +238,8 @@ export interface OccConflictException
 }
 
 export namespace OccConflictException {
-  export function isa(o: any): o is OccConflictException {
-    return __isa(o, "OccConflictException");
-  }
+  export const isa = (o: any): o is OccConflictException =>
+    __isa(o, "OccConflictException");
 }
 
 /**
@@ -273,9 +259,7 @@ export interface Page {
 }
 
 export namespace Page {
-  export function isa(o: any): o is Page {
-    return __isa(o, "Page");
-  }
+  export const isa = (o: any): o is Page => __isa(o, "Page");
 }
 
 /**
@@ -290,9 +274,8 @@ export interface RateExceededException
 }
 
 export namespace RateExceededException {
-  export function isa(o: any): o is RateExceededException {
-    return __isa(o, "RateExceededException");
-  }
+  export const isa = (o: any): o is RateExceededException =>
+    __isa(o, "RateExceededException");
 }
 
 export interface SendCommandRequest {
@@ -342,9 +325,8 @@ export interface SendCommandRequest {
 }
 
 export namespace SendCommandRequest {
-  export function isa(o: any): o is SendCommandRequest {
-    return __isa(o, "SendCommandRequest");
-  }
+  export const isa = (o: any): o is SendCommandRequest =>
+    __isa(o, "SendCommandRequest");
 }
 
 export interface SendCommandResult {
@@ -387,9 +369,8 @@ export interface SendCommandResult {
 }
 
 export namespace SendCommandResult {
-  export function isa(o: any): o is SendCommandResult {
-    return __isa(o, "SendCommandResult");
-  }
+  export const isa = (o: any): o is SendCommandResult =>
+    __isa(o, "SendCommandResult");
 }
 
 /**
@@ -404,9 +385,8 @@ export interface StartSessionRequest {
 }
 
 export namespace StartSessionRequest {
-  export function isa(o: any): o is StartSessionRequest {
-    return __isa(o, "StartSessionRequest");
-  }
+  export const isa = (o: any): o is StartSessionRequest =>
+    __isa(o, "StartSessionRequest");
 }
 
 /**
@@ -422,9 +402,8 @@ export interface StartSessionResult {
 }
 
 export namespace StartSessionResult {
-  export function isa(o: any): o is StartSessionResult {
-    return __isa(o, "StartSessionResult");
-  }
+  export const isa = (o: any): o is StartSessionResult =>
+    __isa(o, "StartSessionResult");
 }
 
 /**
@@ -435,9 +414,8 @@ export interface StartTransactionRequest {
 }
 
 export namespace StartTransactionRequest {
-  export function isa(o: any): o is StartTransactionRequest {
-    return __isa(o, "StartTransactionRequest");
-  }
+  export const isa = (o: any): o is StartTransactionRequest =>
+    __isa(o, "StartTransactionRequest");
 }
 
 /**
@@ -452,9 +430,8 @@ export interface StartTransactionResult {
 }
 
 export namespace StartTransactionResult {
-  export function isa(o: any): o is StartTransactionResult {
-    return __isa(o, "StartTransactionResult");
-  }
+  export const isa = (o: any): o is StartTransactionResult =>
+    __isa(o, "StartTransactionResult");
 }
 
 /**
@@ -474,7 +451,5 @@ export interface ValueHolder {
 }
 
 export namespace ValueHolder {
-  export function isa(o: any): o is ValueHolder {
-    return __isa(o, "ValueHolder");
-  }
+  export const isa = (o: any): o is ValueHolder => __isa(o, "ValueHolder");
 }

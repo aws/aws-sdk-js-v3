@@ -16,9 +16,8 @@ export interface InternalServiceError
 }
 
 export namespace InternalServiceError {
-  export function isa(o: any): o is InternalServiceError {
-    return __isa(o, "InternalServiceError");
-  }
+  export const isa = (o: any): o is InternalServiceError =>
+    __isa(o, "InternalServiceError");
 }
 
 /**
@@ -33,9 +32,8 @@ export interface InvalidArgumentException
 }
 
 export namespace InvalidArgumentException {
-  export function isa(o: any): o is InvalidArgumentException {
-    return __isa(o, "InvalidArgumentException");
-  }
+  export const isa = (o: any): o is InvalidArgumentException =>
+    __isa(o, "InvalidArgumentException");
 }
 
 /**
@@ -50,9 +48,8 @@ export interface NotAuthorizedException
 }
 
 export namespace NotAuthorizedException {
-  export function isa(o: any): o is NotAuthorizedException {
-    return __isa(o, "NotAuthorizedException");
-  }
+  export const isa = (o: any): o is NotAuthorizedException =>
+    __isa(o, "NotAuthorizedException");
 }
 
 export enum ServiceType {
@@ -76,9 +73,7 @@ export interface DataPoint {
 }
 
 export namespace DataPoint {
-  export function isa(o: any): o is DataPoint {
-    return __isa(o, "DataPoint");
-  }
+  export const isa = (o: any): o is DataPoint => __isa(o, "DataPoint");
 }
 
 export interface DescribeDimensionKeysRequest {
@@ -216,9 +211,8 @@ export interface DescribeDimensionKeysRequest {
 }
 
 export namespace DescribeDimensionKeysRequest {
-  export function isa(o: any): o is DescribeDimensionKeysRequest {
-    return __isa(o, "DescribeDimensionKeysRequest");
-  }
+  export const isa = (o: any): o is DescribeDimensionKeysRequest =>
+    __isa(o, "DescribeDimensionKeysRequest");
 }
 
 export interface DescribeDimensionKeysResponse {
@@ -256,9 +250,8 @@ export interface DescribeDimensionKeysResponse {
 }
 
 export namespace DescribeDimensionKeysResponse {
-  export function isa(o: any): o is DescribeDimensionKeysResponse {
-    return __isa(o, "DescribeDimensionKeysResponse");
-  }
+  export const isa = (o: any): o is DescribeDimensionKeysResponse =>
+    __isa(o, "DescribeDimensionKeysResponse");
 }
 
 /**
@@ -366,9 +359,8 @@ export interface DimensionGroup {
 }
 
 export namespace DimensionGroup {
-  export function isa(o: any): o is DimensionGroup {
-    return __isa(o, "DimensionGroup");
-  }
+  export const isa = (o: any): o is DimensionGroup =>
+    __isa(o, "DimensionGroup");
 }
 
 /**
@@ -394,9 +386,8 @@ export interface DimensionKeyDescription {
 }
 
 export namespace DimensionKeyDescription {
-  export function isa(o: any): o is DimensionKeyDescription {
-    return __isa(o, "DimensionKeyDescription");
-  }
+  export const isa = (o: any): o is DimensionKeyDescription =>
+    __isa(o, "DimensionKeyDescription");
 }
 
 export interface GetResourceMetricsRequest {
@@ -490,9 +481,8 @@ export interface GetResourceMetricsRequest {
 }
 
 export namespace GetResourceMetricsRequest {
-  export function isa(o: any): o is GetResourceMetricsRequest {
-    return __isa(o, "GetResourceMetricsRequest");
-  }
+  export const isa = (o: any): o is GetResourceMetricsRequest =>
+    __isa(o, "GetResourceMetricsRequest");
 }
 
 export interface GetResourceMetricsResponse {
@@ -535,9 +525,8 @@ export interface GetResourceMetricsResponse {
 }
 
 export namespace GetResourceMetricsResponse {
-  export function isa(o: any): o is GetResourceMetricsResponse {
-    return __isa(o, "GetResourceMetricsResponse");
-  }
+  export const isa = (o: any): o is GetResourceMetricsResponse =>
+    __isa(o, "GetResourceMetricsResponse");
 }
 
 /**
@@ -558,9 +547,8 @@ export interface MetricKeyDataPoints {
 }
 
 export namespace MetricKeyDataPoints {
-  export function isa(o: any): o is MetricKeyDataPoints {
-    return __isa(o, "MetricKeyDataPoints");
-  }
+  export const isa = (o: any): o is MetricKeyDataPoints =>
+    __isa(o, "MetricKeyDataPoints");
 }
 
 /**
@@ -613,9 +601,7 @@ export interface MetricQuery {
 }
 
 export namespace MetricQuery {
-  export function isa(o: any): o is MetricQuery {
-    return __isa(o, "MetricQuery");
-  }
+  export const isa = (o: any): o is MetricQuery => __isa(o, "MetricQuery");
 }
 
 /**
@@ -632,9 +618,8 @@ export interface ResponsePartitionKey {
 }
 
 export namespace ResponsePartitionKey {
-  export function isa(o: any): o is ResponsePartitionKey {
-    return __isa(o, "ResponsePartitionKey");
-  }
+  export const isa = (o: any): o is ResponsePartitionKey =>
+    __isa(o, "ResponsePartitionKey");
 }
 
 /**
@@ -668,7 +653,6 @@ export interface ResponseResourceMetricKey {
 }
 
 export namespace ResponseResourceMetricKey {
-  export function isa(o: any): o is ResponseResourceMetricKey {
-    return __isa(o, "ResponseResourceMetricKey");
-  }
+  export const isa = (o: any): o is ResponseResourceMetricKey =>
+    __isa(o, "ResponseResourceMetricKey");
 }

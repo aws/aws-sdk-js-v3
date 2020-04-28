@@ -23,9 +23,7 @@ export interface Application {
 }
 
 export namespace Application {
-  export function isa(o: any): o is Application {
-    return __isa(o, "Application");
-  }
+  export const isa = (o: any): o is Application => __isa(o, "Application");
 }
 
 export interface Applications {
@@ -43,9 +41,7 @@ export interface Applications {
 }
 
 export namespace Applications {
-  export function isa(o: any): o is Applications {
-    return __isa(o, "Applications");
-  }
+  export const isa = (o: any): o is Applications => __isa(o, "Applications");
 }
 
 /**
@@ -60,9 +56,8 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export function isa(o: any): o is BadRequestException {
-    return __isa(o, "BadRequestException");
-  }
+  export const isa = (o: any): o is BadRequestException =>
+    __isa(o, "BadRequestException");
 }
 
 export interface Configuration {
@@ -85,9 +80,7 @@ export interface Configuration {
 }
 
 export namespace Configuration {
-  export function isa(o: any): o is Configuration {
-    return __isa(o, "Configuration");
-  }
+  export const isa = (o: any): o is Configuration => __isa(o, "Configuration");
 }
 
 export interface ConfigurationProfile {
@@ -130,9 +123,8 @@ export interface ConfigurationProfile {
 }
 
 export namespace ConfigurationProfile {
-  export function isa(o: any): o is ConfigurationProfile {
-    return __isa(o, "ConfigurationProfile");
-  }
+  export const isa = (o: any): o is ConfigurationProfile =>
+    __isa(o, "ConfigurationProfile");
 }
 
 /**
@@ -167,9 +159,8 @@ export interface ConfigurationProfileSummary {
 }
 
 export namespace ConfigurationProfileSummary {
-  export function isa(o: any): o is ConfigurationProfileSummary {
-    return __isa(o, "ConfigurationProfileSummary");
-  }
+  export const isa = (o: any): o is ConfigurationProfileSummary =>
+    __isa(o, "ConfigurationProfileSummary");
 }
 
 export interface ConfigurationProfiles {
@@ -187,9 +178,8 @@ export interface ConfigurationProfiles {
 }
 
 export namespace ConfigurationProfiles {
-  export function isa(o: any): o is ConfigurationProfiles {
-    return __isa(o, "ConfigurationProfiles");
-  }
+  export const isa = (o: any): o is ConfigurationProfiles =>
+    __isa(o, "ConfigurationProfiles");
 }
 
 /**
@@ -203,9 +193,8 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export function isa(o: any): o is ConflictException {
-    return __isa(o, "ConflictException");
-  }
+  export const isa = (o: any): o is ConflictException =>
+    __isa(o, "ConflictException");
 }
 
 export interface CreateApplicationRequest {
@@ -229,9 +218,8 @@ export interface CreateApplicationRequest {
 }
 
 export namespace CreateApplicationRequest {
-  export function isa(o: any): o is CreateApplicationRequest {
-    return __isa(o, "CreateApplicationRequest");
-  }
+  export const isa = (o: any): o is CreateApplicationRequest =>
+    __isa(o, "CreateApplicationRequest");
 }
 
 export interface CreateConfigurationProfileRequest {
@@ -276,9 +264,8 @@ export interface CreateConfigurationProfileRequest {
 }
 
 export namespace CreateConfigurationProfileRequest {
-  export function isa(o: any): o is CreateConfigurationProfileRequest {
-    return __isa(o, "CreateConfigurationProfileRequest");
-  }
+  export const isa = (o: any): o is CreateConfigurationProfileRequest =>
+    __isa(o, "CreateConfigurationProfileRequest");
 }
 
 export interface CreateDeploymentStrategyRequest {
@@ -329,9 +316,8 @@ export interface CreateDeploymentStrategyRequest {
 }
 
 export namespace CreateDeploymentStrategyRequest {
-  export function isa(o: any): o is CreateDeploymentStrategyRequest {
-    return __isa(o, "CreateDeploymentStrategyRequest");
-  }
+  export const isa = (o: any): o is CreateDeploymentStrategyRequest =>
+    __isa(o, "CreateDeploymentStrategyRequest");
 }
 
 export interface CreateEnvironmentRequest {
@@ -365,9 +351,8 @@ export interface CreateEnvironmentRequest {
 }
 
 export namespace CreateEnvironmentRequest {
-  export function isa(o: any): o is CreateEnvironmentRequest {
-    return __isa(o, "CreateEnvironmentRequest");
-  }
+  export const isa = (o: any): o is CreateEnvironmentRequest =>
+    __isa(o, "CreateEnvironmentRequest");
 }
 
 export interface DeleteApplicationRequest {
@@ -379,9 +364,8 @@ export interface DeleteApplicationRequest {
 }
 
 export namespace DeleteApplicationRequest {
-  export function isa(o: any): o is DeleteApplicationRequest {
-    return __isa(o, "DeleteApplicationRequest");
-  }
+  export const isa = (o: any): o is DeleteApplicationRequest =>
+    __isa(o, "DeleteApplicationRequest");
 }
 
 export interface DeleteConfigurationProfileRequest {
@@ -398,9 +382,8 @@ export interface DeleteConfigurationProfileRequest {
 }
 
 export namespace DeleteConfigurationProfileRequest {
-  export function isa(o: any): o is DeleteConfigurationProfileRequest {
-    return __isa(o, "DeleteConfigurationProfileRequest");
-  }
+  export const isa = (o: any): o is DeleteConfigurationProfileRequest =>
+    __isa(o, "DeleteConfigurationProfileRequest");
 }
 
 export interface DeleteDeploymentStrategyRequest {
@@ -412,9 +395,8 @@ export interface DeleteDeploymentStrategyRequest {
 }
 
 export namespace DeleteDeploymentStrategyRequest {
-  export function isa(o: any): o is DeleteDeploymentStrategyRequest {
-    return __isa(o, "DeleteDeploymentStrategyRequest");
-  }
+  export const isa = (o: any): o is DeleteDeploymentStrategyRequest =>
+    __isa(o, "DeleteDeploymentStrategyRequest");
 }
 
 export interface DeleteEnvironmentRequest {
@@ -431,9 +413,8 @@ export interface DeleteEnvironmentRequest {
 }
 
 export namespace DeleteEnvironmentRequest {
-  export function isa(o: any): o is DeleteEnvironmentRequest {
-    return __isa(o, "DeleteEnvironmentRequest");
-  }
+  export const isa = (o: any): o is DeleteEnvironmentRequest =>
+    __isa(o, "DeleteEnvironmentRequest");
 }
 
 export interface Deployment {
@@ -527,9 +508,7 @@ export interface Deployment {
 }
 
 export namespace Deployment {
-  export function isa(o: any): o is Deployment {
-    return __isa(o, "Deployment");
-  }
+  export const isa = (o: any): o is Deployment => __isa(o, "Deployment");
 }
 
 export enum DeploymentState {
@@ -556,9 +535,8 @@ export interface DeploymentStrategies {
 }
 
 export namespace DeploymentStrategies {
-  export function isa(o: any): o is DeploymentStrategies {
-    return __isa(o, "DeploymentStrategies");
-  }
+  export const isa = (o: any): o is DeploymentStrategies =>
+    __isa(o, "DeploymentStrategies");
 }
 
 export interface DeploymentStrategy {
@@ -607,9 +585,8 @@ export interface DeploymentStrategy {
 }
 
 export namespace DeploymentStrategy {
-  export function isa(o: any): o is DeploymentStrategy {
-    return __isa(o, "DeploymentStrategy");
-  }
+  export const isa = (o: any): o is DeploymentStrategy =>
+    __isa(o, "DeploymentStrategy");
 }
 
 /**
@@ -676,9 +653,8 @@ export interface DeploymentSummary {
 }
 
 export namespace DeploymentSummary {
-  export function isa(o: any): o is DeploymentSummary {
-    return __isa(o, "DeploymentSummary");
-  }
+  export const isa = (o: any): o is DeploymentSummary =>
+    __isa(o, "DeploymentSummary");
 }
 
 export interface Deployments {
@@ -696,9 +672,7 @@ export interface Deployments {
 }
 
 export namespace Deployments {
-  export function isa(o: any): o is Deployments {
-    return __isa(o, "Deployments");
-  }
+  export const isa = (o: any): o is Deployments => __isa(o, "Deployments");
 }
 
 export interface Environment {
@@ -738,9 +712,7 @@ export interface Environment {
 }
 
 export namespace Environment {
-  export function isa(o: any): o is Environment {
-    return __isa(o, "Environment");
-  }
+  export const isa = (o: any): o is Environment => __isa(o, "Environment");
 }
 
 export enum EnvironmentState {
@@ -765,9 +737,7 @@ export interface Environments {
 }
 
 export namespace Environments {
-  export function isa(o: any): o is Environments {
-    return __isa(o, "Environments");
-  }
+  export const isa = (o: any): o is Environments => __isa(o, "Environments");
 }
 
 export interface GetApplicationRequest {
@@ -779,9 +749,8 @@ export interface GetApplicationRequest {
 }
 
 export namespace GetApplicationRequest {
-  export function isa(o: any): o is GetApplicationRequest {
-    return __isa(o, "GetApplicationRequest");
-  }
+  export const isa = (o: any): o is GetApplicationRequest =>
+    __isa(o, "GetApplicationRequest");
 }
 
 export interface GetConfigurationProfileRequest {
@@ -799,9 +768,8 @@ export interface GetConfigurationProfileRequest {
 }
 
 export namespace GetConfigurationProfileRequest {
-  export function isa(o: any): o is GetConfigurationProfileRequest {
-    return __isa(o, "GetConfigurationProfileRequest");
-  }
+  export const isa = (o: any): o is GetConfigurationProfileRequest =>
+    __isa(o, "GetConfigurationProfileRequest");
 }
 
 export interface GetConfigurationRequest {
@@ -834,9 +802,8 @@ export interface GetConfigurationRequest {
 }
 
 export namespace GetConfigurationRequest {
-  export function isa(o: any): o is GetConfigurationRequest {
-    return __isa(o, "GetConfigurationRequest");
-  }
+  export const isa = (o: any): o is GetConfigurationRequest =>
+    __isa(o, "GetConfigurationRequest");
 }
 
 export interface GetDeploymentRequest {
@@ -858,9 +825,8 @@ export interface GetDeploymentRequest {
 }
 
 export namespace GetDeploymentRequest {
-  export function isa(o: any): o is GetDeploymentRequest {
-    return __isa(o, "GetDeploymentRequest");
-  }
+  export const isa = (o: any): o is GetDeploymentRequest =>
+    __isa(o, "GetDeploymentRequest");
 }
 
 export interface GetDeploymentStrategyRequest {
@@ -872,9 +838,8 @@ export interface GetDeploymentStrategyRequest {
 }
 
 export namespace GetDeploymentStrategyRequest {
-  export function isa(o: any): o is GetDeploymentStrategyRequest {
-    return __isa(o, "GetDeploymentStrategyRequest");
-  }
+  export const isa = (o: any): o is GetDeploymentStrategyRequest =>
+    __isa(o, "GetDeploymentStrategyRequest");
 }
 
 export interface GetEnvironmentRequest {
@@ -891,9 +856,8 @@ export interface GetEnvironmentRequest {
 }
 
 export namespace GetEnvironmentRequest {
-  export function isa(o: any): o is GetEnvironmentRequest {
-    return __isa(o, "GetEnvironmentRequest");
-  }
+  export const isa = (o: any): o is GetEnvironmentRequest =>
+    __isa(o, "GetEnvironmentRequest");
 }
 
 export enum GrowthType {
@@ -912,9 +876,8 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export function isa(o: any): o is InternalServerException {
-    return __isa(o, "InternalServerException");
-  }
+  export const isa = (o: any): o is InternalServerException =>
+    __isa(o, "InternalServerException");
 }
 
 export interface ListApplicationsRequest {
@@ -932,9 +895,8 @@ export interface ListApplicationsRequest {
 }
 
 export namespace ListApplicationsRequest {
-  export function isa(o: any): o is ListApplicationsRequest {
-    return __isa(o, "ListApplicationsRequest");
-  }
+  export const isa = (o: any): o is ListApplicationsRequest =>
+    __isa(o, "ListApplicationsRequest");
 }
 
 export interface ListConfigurationProfilesRequest {
@@ -957,9 +919,8 @@ export interface ListConfigurationProfilesRequest {
 }
 
 export namespace ListConfigurationProfilesRequest {
-  export function isa(o: any): o is ListConfigurationProfilesRequest {
-    return __isa(o, "ListConfigurationProfilesRequest");
-  }
+  export const isa = (o: any): o is ListConfigurationProfilesRequest =>
+    __isa(o, "ListConfigurationProfilesRequest");
 }
 
 export interface ListDeploymentStrategiesRequest {
@@ -977,9 +938,8 @@ export interface ListDeploymentStrategiesRequest {
 }
 
 export namespace ListDeploymentStrategiesRequest {
-  export function isa(o: any): o is ListDeploymentStrategiesRequest {
-    return __isa(o, "ListDeploymentStrategiesRequest");
-  }
+  export const isa = (o: any): o is ListDeploymentStrategiesRequest =>
+    __isa(o, "ListDeploymentStrategiesRequest");
 }
 
 export interface ListDeploymentsRequest {
@@ -1007,9 +967,8 @@ export interface ListDeploymentsRequest {
 }
 
 export namespace ListDeploymentsRequest {
-  export function isa(o: any): o is ListDeploymentsRequest {
-    return __isa(o, "ListDeploymentsRequest");
-  }
+  export const isa = (o: any): o is ListDeploymentsRequest =>
+    __isa(o, "ListDeploymentsRequest");
 }
 
 export interface ListEnvironmentsRequest {
@@ -1032,9 +991,8 @@ export interface ListEnvironmentsRequest {
 }
 
 export namespace ListEnvironmentsRequest {
-  export function isa(o: any): o is ListEnvironmentsRequest {
-    return __isa(o, "ListEnvironmentsRequest");
-  }
+  export const isa = (o: any): o is ListEnvironmentsRequest =>
+    __isa(o, "ListEnvironmentsRequest");
 }
 
 export interface ListTagsForResourceRequest {
@@ -1046,9 +1004,8 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export function isa(o: any): o is ListTagsForResourceRequest {
-    return __isa(o, "ListTagsForResourceRequest");
-  }
+  export const isa = (o: any): o is ListTagsForResourceRequest =>
+    __isa(o, "ListTagsForResourceRequest");
 }
 
 /**
@@ -1068,9 +1025,7 @@ export interface Monitor {
 }
 
 export namespace Monitor {
-  export function isa(o: any): o is Monitor {
-    return __isa(o, "Monitor");
-  }
+  export const isa = (o: any): o is Monitor => __isa(o, "Monitor");
 }
 
 export enum ReplicateTo {
@@ -1091,9 +1046,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 export interface ResourceTags {
@@ -1107,9 +1061,7 @@ export interface ResourceTags {
 }
 
 export namespace ResourceTags {
-  export function isa(o: any): o is ResourceTags {
-    return __isa(o, "ResourceTags");
-  }
+  export const isa = (o: any): o is ResourceTags => __isa(o, "ResourceTags");
 }
 
 export interface StartDeploymentRequest {
@@ -1153,9 +1105,8 @@ export interface StartDeploymentRequest {
 }
 
 export namespace StartDeploymentRequest {
-  export function isa(o: any): o is StartDeploymentRequest {
-    return __isa(o, "StartDeploymentRequest");
-  }
+  export const isa = (o: any): o is StartDeploymentRequest =>
+    __isa(o, "StartDeploymentRequest");
 }
 
 export interface StopDeploymentRequest {
@@ -1177,9 +1128,8 @@ export interface StopDeploymentRequest {
 }
 
 export namespace StopDeploymentRequest {
-  export function isa(o: any): o is StopDeploymentRequest {
-    return __isa(o, "StopDeploymentRequest");
-  }
+  export const isa = (o: any): o is StopDeploymentRequest =>
+    __isa(o, "StopDeploymentRequest");
 }
 
 export interface TagResourceRequest {
@@ -1198,9 +1148,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 export interface UntagResourceRequest {
@@ -1217,9 +1166,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateApplicationRequest {
@@ -1241,9 +1189,8 @@ export interface UpdateApplicationRequest {
 }
 
 export namespace UpdateApplicationRequest {
-  export function isa(o: any): o is UpdateApplicationRequest {
-    return __isa(o, "UpdateApplicationRequest");
-  }
+  export const isa = (o: any): o is UpdateApplicationRequest =>
+    __isa(o, "UpdateApplicationRequest");
 }
 
 export interface UpdateConfigurationProfileRequest {
@@ -1281,9 +1228,8 @@ export interface UpdateConfigurationProfileRequest {
 }
 
 export namespace UpdateConfigurationProfileRequest {
-  export function isa(o: any): o is UpdateConfigurationProfileRequest {
-    return __isa(o, "UpdateConfigurationProfileRequest");
-  }
+  export const isa = (o: any): o is UpdateConfigurationProfileRequest =>
+    __isa(o, "UpdateConfigurationProfileRequest");
 }
 
 export interface UpdateDeploymentStrategyRequest {
@@ -1322,9 +1268,8 @@ export interface UpdateDeploymentStrategyRequest {
 }
 
 export namespace UpdateDeploymentStrategyRequest {
-  export function isa(o: any): o is UpdateDeploymentStrategyRequest {
-    return __isa(o, "UpdateDeploymentStrategyRequest");
-  }
+  export const isa = (o: any): o is UpdateDeploymentStrategyRequest =>
+    __isa(o, "UpdateDeploymentStrategyRequest");
 }
 
 export interface UpdateEnvironmentRequest {
@@ -1356,9 +1301,8 @@ export interface UpdateEnvironmentRequest {
 }
 
 export namespace UpdateEnvironmentRequest {
-  export function isa(o: any): o is UpdateEnvironmentRequest {
-    return __isa(o, "UpdateEnvironmentRequest");
-  }
+  export const isa = (o: any): o is UpdateEnvironmentRequest =>
+    __isa(o, "UpdateEnvironmentRequest");
 }
 
 export interface ValidateConfigurationRequest {
@@ -1380,9 +1324,8 @@ export interface ValidateConfigurationRequest {
 }
 
 export namespace ValidateConfigurationRequest {
-  export function isa(o: any): o is ValidateConfigurationRequest {
-    return __isa(o, "ValidateConfigurationRequest");
-  }
+  export const isa = (o: any): o is ValidateConfigurationRequest =>
+    __isa(o, "ValidateConfigurationRequest");
 }
 
 /**
@@ -1407,9 +1350,7 @@ export interface Validator {
 }
 
 export namespace Validator {
-  export function isa(o: any): o is Validator {
-    return __isa(o, "Validator");
-  }
+  export const isa = (o: any): o is Validator => __isa(o, "Validator");
 }
 
 export enum ValidatorType {

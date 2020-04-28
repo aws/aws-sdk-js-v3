@@ -120,9 +120,8 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export function isa(o: any): o is BadRequestException {
-    return __isa(o, "BadRequestException");
-  }
+  export const isa = (o: any): o is BadRequestException =>
+    __isa(o, "BadRequestException");
 }
 
 /**
@@ -172,9 +171,8 @@ export interface BatchExecuteStatementRequest {
 }
 
 export namespace BatchExecuteStatementRequest {
-  export function isa(o: any): o is BatchExecuteStatementRequest {
-    return __isa(o, "BatchExecuteStatementRequest");
-  }
+  export const isa = (o: any): o is BatchExecuteStatementRequest =>
+    __isa(o, "BatchExecuteStatementRequest");
 }
 
 /**
@@ -190,9 +188,8 @@ export interface BatchExecuteStatementResponse {
 }
 
 export namespace BatchExecuteStatementResponse {
-  export function isa(o: any): o is BatchExecuteStatementResponse {
-    return __isa(o, "BatchExecuteStatementResponse");
-  }
+  export const isa = (o: any): o is BatchExecuteStatementResponse =>
+    __isa(o, "BatchExecuteStatementResponse");
 }
 
 /**
@@ -223,9 +220,8 @@ export interface BeginTransactionRequest {
 }
 
 export namespace BeginTransactionRequest {
-  export function isa(o: any): o is BeginTransactionRequest {
-    return __isa(o, "BeginTransactionRequest");
-  }
+  export const isa = (o: any): o is BeginTransactionRequest =>
+    __isa(o, "BeginTransactionRequest");
 }
 
 /**
@@ -241,9 +237,8 @@ export interface BeginTransactionResponse {
 }
 
 export namespace BeginTransactionResponse {
-  export function isa(o: any): o is BeginTransactionResponse {
-    return __isa(o, "BeginTransactionResponse");
-  }
+  export const isa = (o: any): o is BeginTransactionResponse =>
+    __isa(o, "BeginTransactionResponse");
 }
 
 /**
@@ -323,9 +318,8 @@ export interface ColumnMetadata {
 }
 
 export namespace ColumnMetadata {
-  export function isa(o: any): o is ColumnMetadata {
-    return __isa(o, "ColumnMetadata");
-  }
+  export const isa = (o: any): o is ColumnMetadata =>
+    __isa(o, "ColumnMetadata");
 }
 
 /**
@@ -350,9 +344,8 @@ export interface CommitTransactionRequest {
 }
 
 export namespace CommitTransactionRequest {
-  export function isa(o: any): o is CommitTransactionRequest {
-    return __isa(o, "CommitTransactionRequest");
-  }
+  export const isa = (o: any): o is CommitTransactionRequest =>
+    __isa(o, "CommitTransactionRequest");
 }
 
 /**
@@ -367,9 +360,8 @@ export interface CommitTransactionResponse {
 }
 
 export namespace CommitTransactionResponse {
-  export function isa(o: any): o is CommitTransactionResponse {
-    return __isa(o, "CommitTransactionResponse");
-  }
+  export const isa = (o: any): o is CommitTransactionResponse =>
+    __isa(o, "CommitTransactionResponse");
 }
 
 /**
@@ -408,9 +400,8 @@ export interface ExecuteSqlRequest {
 }
 
 export namespace ExecuteSqlRequest {
-  export function isa(o: any): o is ExecuteSqlRequest {
-    return __isa(o, "ExecuteSqlRequest");
-  }
+  export const isa = (o: any): o is ExecuteSqlRequest =>
+    __isa(o, "ExecuteSqlRequest");
 }
 
 /**
@@ -426,9 +417,8 @@ export interface ExecuteSqlResponse {
 }
 
 export namespace ExecuteSqlResponse {
-  export function isa(o: any): o is ExecuteSqlResponse {
-    return __isa(o, "ExecuteSqlResponse");
-  }
+  export const isa = (o: any): o is ExecuteSqlResponse =>
+    __isa(o, "ExecuteSqlResponse");
 }
 
 /**
@@ -494,9 +484,8 @@ export interface ExecuteStatementRequest {
 }
 
 export namespace ExecuteStatementRequest {
-  export function isa(o: any): o is ExecuteStatementRequest {
-    return __isa(o, "ExecuteStatementRequest");
-  }
+  export const isa = (o: any): o is ExecuteStatementRequest =>
+    __isa(o, "ExecuteStatementRequest");
 }
 
 /**
@@ -527,9 +516,8 @@ export interface ExecuteStatementResponse {
 }
 
 export namespace ExecuteStatementResponse {
-  export function isa(o: any): o is ExecuteStatementResponse {
-    return __isa(o, "ExecuteStatementResponse");
-  }
+  export const isa = (o: any): o is ExecuteStatementResponse =>
+    __isa(o, "ExecuteStatementResponse");
 }
 
 /**
@@ -691,9 +679,8 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export function isa(o: any): o is ForbiddenException {
-    return __isa(o, "ForbiddenException");
-  }
+  export const isa = (o: any): o is ForbiddenException =>
+    __isa(o, "ForbiddenException");
 }
 
 /**
@@ -707,9 +694,8 @@ export interface InternalServerErrorException
 }
 
 export namespace InternalServerErrorException {
-  export function isa(o: any): o is InternalServerErrorException {
-    return __isa(o, "InternalServerErrorException");
-  }
+  export const isa = (o: any): o is InternalServerErrorException =>
+    __isa(o, "InternalServerErrorException");
 }
 
 /**
@@ -725,9 +711,8 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return __isa(o, "NotFoundException");
-  }
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
 }
 
 /**
@@ -742,9 +727,7 @@ export interface _Record {
 }
 
 export namespace _Record {
-  export function isa(o: any): o is _Record {
-    return __isa(o, "Record");
-  }
+  export const isa = (o: any): o is _Record => __isa(o, "Record");
 }
 
 /**
@@ -764,9 +747,7 @@ export interface ResultFrame {
 }
 
 export namespace ResultFrame {
-  export function isa(o: any): o is ResultFrame {
-    return __isa(o, "ResultFrame");
-  }
+  export const isa = (o: any): o is ResultFrame => __isa(o, "ResultFrame");
 }
 
 /**
@@ -786,9 +767,8 @@ export interface ResultSetMetadata {
 }
 
 export namespace ResultSetMetadata {
-  export function isa(o: any): o is ResultSetMetadata {
-    return __isa(o, "ResultSetMetadata");
-  }
+  export const isa = (o: any): o is ResultSetMetadata =>
+    __isa(o, "ResultSetMetadata");
 }
 
 /**
@@ -814,9 +794,8 @@ export interface RollbackTransactionRequest {
 }
 
 export namespace RollbackTransactionRequest {
-  export function isa(o: any): o is RollbackTransactionRequest {
-    return __isa(o, "RollbackTransactionRequest");
-  }
+  export const isa = (o: any): o is RollbackTransactionRequest =>
+    __isa(o, "RollbackTransactionRequest");
 }
 
 /**
@@ -832,9 +811,8 @@ export interface RollbackTransactionResponse {
 }
 
 export namespace RollbackTransactionResponse {
-  export function isa(o: any): o is RollbackTransactionResponse {
-    return __isa(o, "RollbackTransactionResponse");
-  }
+  export const isa = (o: any): o is RollbackTransactionResponse =>
+    __isa(o, "RollbackTransactionResponse");
 }
 
 /**
@@ -849,9 +827,8 @@ export interface ServiceUnavailableError
 }
 
 export namespace ServiceUnavailableError {
-  export function isa(o: any): o is ServiceUnavailableError {
-    return __isa(o, "ServiceUnavailableError");
-  }
+  export const isa = (o: any): o is ServiceUnavailableError =>
+    __isa(o, "ServiceUnavailableError");
 }
 
 /**
@@ -871,9 +848,7 @@ export interface SqlParameter {
 }
 
 export namespace SqlParameter {
-  export function isa(o: any): o is SqlParameter {
-    return __isa(o, "SqlParameter");
-  }
+  export const isa = (o: any): o is SqlParameter => __isa(o, "SqlParameter");
 }
 
 /**
@@ -893,9 +868,8 @@ export interface SqlStatementResult {
 }
 
 export namespace SqlStatementResult {
-  export function isa(o: any): o is SqlStatementResult {
-    return __isa(o, "SqlStatementResult");
-  }
+  export const isa = (o: any): o is SqlStatementResult =>
+    __isa(o, "SqlStatementResult");
 }
 
 /**
@@ -918,9 +892,8 @@ export interface StatementTimeoutException
 }
 
 export namespace StatementTimeoutException {
-  export function isa(o: any): o is StatementTimeoutException {
-    return __isa(o, "StatementTimeoutException");
-  }
+  export const isa = (o: any): o is StatementTimeoutException =>
+    __isa(o, "StatementTimeoutException");
 }
 
 /**
@@ -935,9 +908,7 @@ export interface StructValue {
 }
 
 export namespace StructValue {
-  export function isa(o: any): o is StructValue {
-    return __isa(o, "StructValue");
-  }
+  export const isa = (o: any): o is StructValue => __isa(o, "StructValue");
 }
 
 /**
@@ -952,9 +923,7 @@ export interface UpdateResult {
 }
 
 export namespace UpdateResult {
-  export function isa(o: any): o is UpdateResult {
-    return __isa(o, "UpdateResult");
-  }
+  export const isa = (o: any): o is UpdateResult => __isa(o, "UpdateResult");
 }
 
 /**

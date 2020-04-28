@@ -34,9 +34,8 @@ export interface BufferingHints {
 }
 
 export namespace BufferingHints {
-  export function isa(o: any): o is BufferingHints {
-    return __isa(o, "BufferingHints");
-  }
+  export const isa = (o: any): o is BufferingHints =>
+    __isa(o, "BufferingHints");
 }
 
 /**
@@ -63,9 +62,8 @@ export interface CloudWatchLoggingOptions {
 }
 
 export namespace CloudWatchLoggingOptions {
-  export function isa(o: any): o is CloudWatchLoggingOptions {
-    return __isa(o, "CloudWatchLoggingOptions");
-  }
+  export const isa = (o: any): o is CloudWatchLoggingOptions =>
+    __isa(o, "CloudWatchLoggingOptions");
 }
 
 export enum CompressionFormat {
@@ -91,9 +89,8 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
-  export function isa(o: any): o is ConcurrentModificationException {
-    return __isa(o, "ConcurrentModificationException");
-  }
+  export const isa = (o: any): o is ConcurrentModificationException =>
+    __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -137,9 +134,7 @@ export interface CopyCommand {
 }
 
 export namespace CopyCommand {
-  export function isa(o: any): o is CopyCommand {
-    return __isa(o, "CopyCommand");
-  }
+  export const isa = (o: any): o is CopyCommand => __isa(o, "CopyCommand");
 }
 
 export interface CreateDeliveryStreamInput {
@@ -220,9 +215,8 @@ export interface CreateDeliveryStreamInput {
 }
 
 export namespace CreateDeliveryStreamInput {
-  export function isa(o: any): o is CreateDeliveryStreamInput {
-    return __isa(o, "CreateDeliveryStreamInput");
-  }
+  export const isa = (o: any): o is CreateDeliveryStreamInput =>
+    __isa(o, "CreateDeliveryStreamInput");
 }
 
 export interface CreateDeliveryStreamOutput {
@@ -234,9 +228,8 @@ export interface CreateDeliveryStreamOutput {
 }
 
 export namespace CreateDeliveryStreamOutput {
-  export function isa(o: any): o is CreateDeliveryStreamOutput {
-    return __isa(o, "CreateDeliveryStreamOutput");
-  }
+  export const isa = (o: any): o is CreateDeliveryStreamOutput =>
+    __isa(o, "CreateDeliveryStreamOutput");
 }
 
 /**
@@ -272,9 +265,8 @@ export interface DataFormatConversionConfiguration {
 }
 
 export namespace DataFormatConversionConfiguration {
-  export function isa(o: any): o is DataFormatConversionConfiguration {
-    return __isa(o, "DataFormatConversionConfiguration");
-  }
+  export const isa = (o: any): o is DataFormatConversionConfiguration =>
+    __isa(o, "DataFormatConversionConfiguration");
 }
 
 export interface DeleteDeliveryStreamInput {
@@ -297,9 +289,8 @@ export interface DeleteDeliveryStreamInput {
 }
 
 export namespace DeleteDeliveryStreamInput {
-  export function isa(o: any): o is DeleteDeliveryStreamInput {
-    return __isa(o, "DeleteDeliveryStreamInput");
-  }
+  export const isa = (o: any): o is DeleteDeliveryStreamInput =>
+    __isa(o, "DeleteDeliveryStreamInput");
 }
 
 export interface DeleteDeliveryStreamOutput {
@@ -307,9 +298,8 @@ export interface DeleteDeliveryStreamOutput {
 }
 
 export namespace DeleteDeliveryStreamOutput {
-  export function isa(o: any): o is DeleteDeliveryStreamOutput {
-    return __isa(o, "DeleteDeliveryStreamOutput");
-  }
+  export const isa = (o: any): o is DeleteDeliveryStreamOutput =>
+    __isa(o, "DeleteDeliveryStreamOutput");
 }
 
 /**
@@ -399,9 +389,8 @@ export interface DeliveryStreamDescription {
 }
 
 export namespace DeliveryStreamDescription {
-  export function isa(o: any): o is DeliveryStreamDescription {
-    return __isa(o, "DeliveryStreamDescription");
-  }
+  export const isa = (o: any): o is DeliveryStreamDescription =>
+    __isa(o, "DeliveryStreamDescription");
 }
 
 /**
@@ -439,9 +428,8 @@ export interface DeliveryStreamEncryptionConfiguration {
 }
 
 export namespace DeliveryStreamEncryptionConfiguration {
-  export function isa(o: any): o is DeliveryStreamEncryptionConfiguration {
-    return __isa(o, "DeliveryStreamEncryptionConfiguration");
-  }
+  export const isa = (o: any): o is DeliveryStreamEncryptionConfiguration =>
+    __isa(o, "DeliveryStreamEncryptionConfiguration");
 }
 
 /**
@@ -472,9 +460,10 @@ export interface DeliveryStreamEncryptionConfigurationInput {
 }
 
 export namespace DeliveryStreamEncryptionConfigurationInput {
-  export function isa(o: any): o is DeliveryStreamEncryptionConfigurationInput {
-    return __isa(o, "DeliveryStreamEncryptionConfigurationInput");
-  }
+  export const isa = (
+    o: any
+  ): o is DeliveryStreamEncryptionConfigurationInput =>
+    __isa(o, "DeliveryStreamEncryptionConfigurationInput");
 }
 
 export enum DeliveryStreamEncryptionStatus {
@@ -528,9 +517,8 @@ export interface DescribeDeliveryStreamInput {
 }
 
 export namespace DescribeDeliveryStreamInput {
-  export function isa(o: any): o is DescribeDeliveryStreamInput {
-    return __isa(o, "DescribeDeliveryStreamInput");
-  }
+  export const isa = (o: any): o is DescribeDeliveryStreamInput =>
+    __isa(o, "DescribeDeliveryStreamInput");
 }
 
 export interface DescribeDeliveryStreamOutput {
@@ -542,9 +530,8 @@ export interface DescribeDeliveryStreamOutput {
 }
 
 export namespace DescribeDeliveryStreamOutput {
-  export function isa(o: any): o is DescribeDeliveryStreamOutput {
-    return __isa(o, "DescribeDeliveryStreamOutput");
-  }
+  export const isa = (o: any): o is DescribeDeliveryStreamOutput =>
+    __isa(o, "DescribeDeliveryStreamOutput");
 }
 
 /**
@@ -573,9 +560,7 @@ export interface Deserializer {
 }
 
 export namespace Deserializer {
-  export function isa(o: any): o is Deserializer {
-    return __isa(o, "Deserializer");
-  }
+  export const isa = (o: any): o is Deserializer => __isa(o, "Deserializer");
 }
 
 /**
@@ -615,9 +600,8 @@ export interface DestinationDescription {
 }
 
 export namespace DestinationDescription {
-  export function isa(o: any): o is DestinationDescription {
-    return __isa(o, "DestinationDescription");
-  }
+  export const isa = (o: any): o is DestinationDescription =>
+    __isa(o, "DestinationDescription");
 }
 
 /**
@@ -643,9 +627,8 @@ export interface ElasticsearchBufferingHints {
 }
 
 export namespace ElasticsearchBufferingHints {
-  export function isa(o: any): o is ElasticsearchBufferingHints {
-    return __isa(o, "ElasticsearchBufferingHints");
-  }
+  export const isa = (o: any): o is ElasticsearchBufferingHints =>
+    __isa(o, "ElasticsearchBufferingHints");
 }
 
 /**
@@ -743,9 +726,8 @@ export interface ElasticsearchDestinationConfiguration {
 }
 
 export namespace ElasticsearchDestinationConfiguration {
-  export function isa(o: any): o is ElasticsearchDestinationConfiguration {
-    return __isa(o, "ElasticsearchDestinationConfiguration");
-  }
+  export const isa = (o: any): o is ElasticsearchDestinationConfiguration =>
+    __isa(o, "ElasticsearchDestinationConfiguration");
 }
 
 /**
@@ -819,9 +801,8 @@ export interface ElasticsearchDestinationDescription {
 }
 
 export namespace ElasticsearchDestinationDescription {
-  export function isa(o: any): o is ElasticsearchDestinationDescription {
-    return __isa(o, "ElasticsearchDestinationDescription");
-  }
+  export const isa = (o: any): o is ElasticsearchDestinationDescription =>
+    __isa(o, "ElasticsearchDestinationDescription");
 }
 
 /**
@@ -907,9 +888,8 @@ export interface ElasticsearchDestinationUpdate {
 }
 
 export namespace ElasticsearchDestinationUpdate {
-  export function isa(o: any): o is ElasticsearchDestinationUpdate {
-    return __isa(o, "ElasticsearchDestinationUpdate");
-  }
+  export const isa = (o: any): o is ElasticsearchDestinationUpdate =>
+    __isa(o, "ElasticsearchDestinationUpdate");
 }
 
 export type ElasticsearchIndexRotationPeriod =
@@ -936,9 +916,8 @@ export interface ElasticsearchRetryOptions {
 }
 
 export namespace ElasticsearchRetryOptions {
-  export function isa(o: any): o is ElasticsearchRetryOptions {
-    return __isa(o, "ElasticsearchRetryOptions");
-  }
+  export const isa = (o: any): o is ElasticsearchRetryOptions =>
+    __isa(o, "ElasticsearchRetryOptions");
 }
 
 export type ElasticsearchS3BackupMode = "AllDocuments" | "FailedDocumentsOnly";
@@ -961,9 +940,8 @@ export interface EncryptionConfiguration {
 }
 
 export namespace EncryptionConfiguration {
-  export function isa(o: any): o is EncryptionConfiguration {
-    return __isa(o, "EncryptionConfiguration");
-  }
+  export const isa = (o: any): o is EncryptionConfiguration =>
+    __isa(o, "EncryptionConfiguration");
 }
 
 /**
@@ -1040,9 +1018,8 @@ export interface ExtendedS3DestinationConfiguration {
 }
 
 export namespace ExtendedS3DestinationConfiguration {
-  export function isa(o: any): o is ExtendedS3DestinationConfiguration {
-    return __isa(o, "ExtendedS3DestinationConfiguration");
-  }
+  export const isa = (o: any): o is ExtendedS3DestinationConfiguration =>
+    __isa(o, "ExtendedS3DestinationConfiguration");
 }
 
 /**
@@ -1120,9 +1097,8 @@ export interface ExtendedS3DestinationDescription {
 }
 
 export namespace ExtendedS3DestinationDescription {
-  export function isa(o: any): o is ExtendedS3DestinationDescription {
-    return __isa(o, "ExtendedS3DestinationDescription");
-  }
+  export const isa = (o: any): o is ExtendedS3DestinationDescription =>
+    __isa(o, "ExtendedS3DestinationDescription");
 }
 
 /**
@@ -1200,9 +1176,8 @@ export interface ExtendedS3DestinationUpdate {
 }
 
 export namespace ExtendedS3DestinationUpdate {
-  export function isa(o: any): o is ExtendedS3DestinationUpdate {
-    return __isa(o, "ExtendedS3DestinationUpdate");
-  }
+  export const isa = (o: any): o is ExtendedS3DestinationUpdate =>
+    __isa(o, "ExtendedS3DestinationUpdate");
 }
 
 /**
@@ -1223,9 +1198,8 @@ export interface FailureDescription {
 }
 
 export namespace FailureDescription {
-  export function isa(o: any): o is FailureDescription {
-    return __isa(o, "FailureDescription");
-  }
+  export const isa = (o: any): o is FailureDescription =>
+    __isa(o, "FailureDescription");
 }
 
 export type HECEndpointType = "Event" | "Raw";
@@ -1249,9 +1223,7 @@ export interface HiveJsonSerDe {
 }
 
 export namespace HiveJsonSerDe {
-  export function isa(o: any): o is HiveJsonSerDe {
-    return __isa(o, "HiveJsonSerDe");
-  }
+  export const isa = (o: any): o is HiveJsonSerDe => __isa(o, "HiveJsonSerDe");
 }
 
 /**
@@ -1267,9 +1239,8 @@ export interface InputFormatConfiguration {
 }
 
 export namespace InputFormatConfiguration {
-  export function isa(o: any): o is InputFormatConfiguration {
-    return __isa(o, "InputFormatConfiguration");
-  }
+  export const isa = (o: any): o is InputFormatConfiguration =>
+    __isa(o, "InputFormatConfiguration");
 }
 
 /**
@@ -1287,9 +1258,8 @@ export interface InvalidArgumentException
 }
 
 export namespace InvalidArgumentException {
-  export function isa(o: any): o is InvalidArgumentException {
-    return __isa(o, "InvalidArgumentException");
-  }
+  export const isa = (o: any): o is InvalidArgumentException =>
+    __isa(o, "InvalidArgumentException");
 }
 
 /**
@@ -1306,9 +1276,8 @@ export interface InvalidKMSResourceException
 }
 
 export namespace InvalidKMSResourceException {
-  export function isa(o: any): o is InvalidKMSResourceException {
-    return __isa(o, "InvalidKMSResourceException");
-  }
+  export const isa = (o: any): o is InvalidKMSResourceException =>
+    __isa(o, "InvalidKMSResourceException");
 }
 
 /**
@@ -1325,9 +1294,8 @@ export interface KMSEncryptionConfig {
 }
 
 export namespace KMSEncryptionConfig {
-  export function isa(o: any): o is KMSEncryptionConfig {
-    return __isa(o, "KMSEncryptionConfig");
-  }
+  export const isa = (o: any): o is KMSEncryptionConfig =>
+    __isa(o, "KMSEncryptionConfig");
 }
 
 export enum KeyType {
@@ -1354,9 +1322,8 @@ export interface KinesisStreamSourceConfiguration {
 }
 
 export namespace KinesisStreamSourceConfiguration {
-  export function isa(o: any): o is KinesisStreamSourceConfiguration {
-    return __isa(o, "KinesisStreamSourceConfiguration");
-  }
+  export const isa = (o: any): o is KinesisStreamSourceConfiguration =>
+    __isa(o, "KinesisStreamSourceConfiguration");
 }
 
 /**
@@ -1385,9 +1352,8 @@ export interface KinesisStreamSourceDescription {
 }
 
 export namespace KinesisStreamSourceDescription {
-  export function isa(o: any): o is KinesisStreamSourceDescription {
-    return __isa(o, "KinesisStreamSourceDescription");
-  }
+  export const isa = (o: any): o is KinesisStreamSourceDescription =>
+    __isa(o, "KinesisStreamSourceDescription");
 }
 
 /**
@@ -1405,9 +1371,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export interface ListDeliveryStreamsInput {
@@ -1446,9 +1411,8 @@ export interface ListDeliveryStreamsInput {
 }
 
 export namespace ListDeliveryStreamsInput {
-  export function isa(o: any): o is ListDeliveryStreamsInput {
-    return __isa(o, "ListDeliveryStreamsInput");
-  }
+  export const isa = (o: any): o is ListDeliveryStreamsInput =>
+    __isa(o, "ListDeliveryStreamsInput");
 }
 
 export interface ListDeliveryStreamsOutput {
@@ -1465,9 +1429,8 @@ export interface ListDeliveryStreamsOutput {
 }
 
 export namespace ListDeliveryStreamsOutput {
-  export function isa(o: any): o is ListDeliveryStreamsOutput {
-    return __isa(o, "ListDeliveryStreamsOutput");
-  }
+  export const isa = (o: any): o is ListDeliveryStreamsOutput =>
+    __isa(o, "ListDeliveryStreamsOutput");
 }
 
 export interface ListTagsForDeliveryStreamInput {
@@ -1493,9 +1456,8 @@ export interface ListTagsForDeliveryStreamInput {
 }
 
 export namespace ListTagsForDeliveryStreamInput {
-  export function isa(o: any): o is ListTagsForDeliveryStreamInput {
-    return __isa(o, "ListTagsForDeliveryStreamInput");
-  }
+  export const isa = (o: any): o is ListTagsForDeliveryStreamInput =>
+    __isa(o, "ListTagsForDeliveryStreamInput");
 }
 
 export interface ListTagsForDeliveryStreamOutput {
@@ -1515,9 +1477,8 @@ export interface ListTagsForDeliveryStreamOutput {
 }
 
 export namespace ListTagsForDeliveryStreamOutput {
-  export function isa(o: any): o is ListTagsForDeliveryStreamOutput {
-    return __isa(o, "ListTagsForDeliveryStreamOutput");
-  }
+  export const isa = (o: any): o is ListTagsForDeliveryStreamOutput =>
+    __isa(o, "ListTagsForDeliveryStreamOutput");
 }
 
 export type NoEncryptionConfig = "NoEncryption";
@@ -1557,9 +1518,8 @@ export interface OpenXJsonSerDe {
 }
 
 export namespace OpenXJsonSerDe {
-  export function isa(o: any): o is OpenXJsonSerDe {
-    return __isa(o, "OpenXJsonSerDe");
-  }
+  export const isa = (o: any): o is OpenXJsonSerDe =>
+    __isa(o, "OpenXJsonSerDe");
 }
 
 export enum OrcCompression {
@@ -1648,9 +1608,7 @@ export interface OrcSerDe {
 }
 
 export namespace OrcSerDe {
-  export function isa(o: any): o is OrcSerDe {
-    return __isa(o, "OrcSerDe");
-  }
+  export const isa = (o: any): o is OrcSerDe => __isa(o, "OrcSerDe");
 }
 
 /**
@@ -1666,9 +1624,8 @@ export interface OutputFormatConfiguration {
 }
 
 export namespace OutputFormatConfiguration {
-  export function isa(o: any): o is OutputFormatConfiguration {
-    return __isa(o, "OutputFormatConfiguration");
-  }
+  export const isa = (o: any): o is OutputFormatConfiguration =>
+    __isa(o, "OutputFormatConfiguration");
 }
 
 export enum ParquetCompression {
@@ -1721,9 +1678,7 @@ export interface ParquetSerDe {
 }
 
 export namespace ParquetSerDe {
-  export function isa(o: any): o is ParquetSerDe {
-    return __isa(o, "ParquetSerDe");
-  }
+  export const isa = (o: any): o is ParquetSerDe => __isa(o, "ParquetSerDe");
 }
 
 export enum ParquetWriterVersion {
@@ -1748,9 +1703,8 @@ export interface ProcessingConfiguration {
 }
 
 export namespace ProcessingConfiguration {
-  export function isa(o: any): o is ProcessingConfiguration {
-    return __isa(o, "ProcessingConfiguration");
-  }
+  export const isa = (o: any): o is ProcessingConfiguration =>
+    __isa(o, "ProcessingConfiguration");
 }
 
 /**
@@ -1770,9 +1724,7 @@ export interface Processor {
 }
 
 export namespace Processor {
-  export function isa(o: any): o is Processor {
-    return __isa(o, "Processor");
-  }
+  export const isa = (o: any): o is Processor => __isa(o, "Processor");
 }
 
 /**
@@ -1792,9 +1744,8 @@ export interface ProcessorParameter {
 }
 
 export namespace ProcessorParameter {
-  export function isa(o: any): o is ProcessorParameter {
-    return __isa(o, "ProcessorParameter");
-  }
+  export const isa = (o: any): o is ProcessorParameter =>
+    __isa(o, "ProcessorParameter");
 }
 
 export enum ProcessorParameterName {
@@ -1821,9 +1772,8 @@ export interface PutRecordBatchInput {
 }
 
 export namespace PutRecordBatchInput {
-  export function isa(o: any): o is PutRecordBatchInput {
-    return __isa(o, "PutRecordBatchInput");
-  }
+  export const isa = (o: any): o is PutRecordBatchInput =>
+    __isa(o, "PutRecordBatchInput");
 }
 
 export interface PutRecordBatchOutput {
@@ -1849,9 +1799,8 @@ export interface PutRecordBatchOutput {
 }
 
 export namespace PutRecordBatchOutput {
-  export function isa(o: any): o is PutRecordBatchOutput {
-    return __isa(o, "PutRecordBatchOutput");
-  }
+  export const isa = (o: any): o is PutRecordBatchOutput =>
+    __isa(o, "PutRecordBatchOutput");
 }
 
 /**
@@ -1879,9 +1828,8 @@ export interface PutRecordBatchResponseEntry {
 }
 
 export namespace PutRecordBatchResponseEntry {
-  export function isa(o: any): o is PutRecordBatchResponseEntry {
-    return __isa(o, "PutRecordBatchResponseEntry");
-  }
+  export const isa = (o: any): o is PutRecordBatchResponseEntry =>
+    __isa(o, "PutRecordBatchResponseEntry");
 }
 
 export interface PutRecordInput {
@@ -1898,9 +1846,8 @@ export interface PutRecordInput {
 }
 
 export namespace PutRecordInput {
-  export function isa(o: any): o is PutRecordInput {
-    return __isa(o, "PutRecordInput");
-  }
+  export const isa = (o: any): o is PutRecordInput =>
+    __isa(o, "PutRecordInput");
 }
 
 export interface PutRecordOutput {
@@ -1917,9 +1864,8 @@ export interface PutRecordOutput {
 }
 
 export namespace PutRecordOutput {
-  export function isa(o: any): o is PutRecordOutput {
-    return __isa(o, "PutRecordOutput");
-  }
+  export const isa = (o: any): o is PutRecordOutput =>
+    __isa(o, "PutRecordOutput");
 }
 
 /**
@@ -1935,9 +1881,7 @@ export interface _Record {
 }
 
 export namespace _Record {
-  export function isa(o: any): o is _Record {
-    return __isa(o, "Record");
-  }
+  export const isa = (o: any): o is _Record => __isa(o, "Record");
 }
 
 /**
@@ -2009,9 +1953,8 @@ export interface RedshiftDestinationConfiguration {
 }
 
 export namespace RedshiftDestinationConfiguration {
-  export function isa(o: any): o is RedshiftDestinationConfiguration {
-    return __isa(o, "RedshiftDestinationConfiguration");
-  }
+  export const isa = (o: any): o is RedshiftDestinationConfiguration =>
+    __isa(o, "RedshiftDestinationConfiguration");
 }
 
 /**
@@ -2073,9 +2016,8 @@ export interface RedshiftDestinationDescription {
 }
 
 export namespace RedshiftDestinationDescription {
-  export function isa(o: any): o is RedshiftDestinationDescription {
-    return __isa(o, "RedshiftDestinationDescription");
-  }
+  export const isa = (o: any): o is RedshiftDestinationDescription =>
+    __isa(o, "RedshiftDestinationDescription");
 }
 
 /**
@@ -2146,9 +2088,8 @@ export interface RedshiftDestinationUpdate {
 }
 
 export namespace RedshiftDestinationUpdate {
-  export function isa(o: any): o is RedshiftDestinationUpdate {
-    return __isa(o, "RedshiftDestinationUpdate");
-  }
+  export const isa = (o: any): o is RedshiftDestinationUpdate =>
+    __isa(o, "RedshiftDestinationUpdate");
 }
 
 /**
@@ -2168,9 +2109,8 @@ export interface RedshiftRetryOptions {
 }
 
 export namespace RedshiftRetryOptions {
-  export function isa(o: any): o is RedshiftRetryOptions {
-    return __isa(o, "RedshiftRetryOptions");
-  }
+  export const isa = (o: any): o is RedshiftRetryOptions =>
+    __isa(o, "RedshiftRetryOptions");
 }
 
 export type RedshiftS3BackupMode = "Disabled" | "Enabled";
@@ -2190,9 +2130,8 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export function isa(o: any): o is ResourceInUseException {
-    return __isa(o, "ResourceInUseException");
-  }
+  export const isa = (o: any): o is ResourceInUseException =>
+    __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -2210,9 +2149,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 export type S3BackupMode = "Disabled" | "Enabled";
@@ -2277,9 +2215,8 @@ export interface S3DestinationConfiguration {
 }
 
 export namespace S3DestinationConfiguration {
-  export function isa(o: any): o is S3DestinationConfiguration {
-    return __isa(o, "S3DestinationConfiguration");
-  }
+  export const isa = (o: any): o is S3DestinationConfiguration =>
+    __isa(o, "S3DestinationConfiguration");
 }
 
 /**
@@ -2339,9 +2276,8 @@ export interface S3DestinationDescription {
 }
 
 export namespace S3DestinationDescription {
-  export function isa(o: any): o is S3DestinationDescription {
-    return __isa(o, "S3DestinationDescription");
-  }
+  export const isa = (o: any): o is S3DestinationDescription =>
+    __isa(o, "S3DestinationDescription");
 }
 
 /**
@@ -2404,9 +2340,8 @@ export interface S3DestinationUpdate {
 }
 
 export namespace S3DestinationUpdate {
-  export function isa(o: any): o is S3DestinationUpdate {
-    return __isa(o, "S3DestinationUpdate");
-  }
+  export const isa = (o: any): o is S3DestinationUpdate =>
+    __isa(o, "S3DestinationUpdate");
 }
 
 /**
@@ -2454,9 +2389,8 @@ export interface SchemaConfiguration {
 }
 
 export namespace SchemaConfiguration {
-  export function isa(o: any): o is SchemaConfiguration {
-    return __isa(o, "SchemaConfiguration");
-  }
+  export const isa = (o: any): o is SchemaConfiguration =>
+    __isa(o, "SchemaConfiguration");
 }
 
 /**
@@ -2481,9 +2415,7 @@ export interface Serializer {
 }
 
 export namespace Serializer {
-  export function isa(o: any): o is Serializer {
-    return __isa(o, "Serializer");
-  }
+  export const isa = (o: any): o is Serializer => __isa(o, "Serializer");
 }
 
 /**
@@ -2504,9 +2436,8 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return __isa(o, "ServiceUnavailableException");
-  }
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -2523,9 +2454,8 @@ export interface SourceDescription {
 }
 
 export namespace SourceDescription {
-  export function isa(o: any): o is SourceDescription {
-    return __isa(o, "SourceDescription");
-  }
+  export const isa = (o: any): o is SourceDescription =>
+    __isa(o, "SourceDescription");
 }
 
 /**
@@ -2590,9 +2520,8 @@ export interface SplunkDestinationConfiguration {
 }
 
 export namespace SplunkDestinationConfiguration {
-  export function isa(o: any): o is SplunkDestinationConfiguration {
-    return __isa(o, "SplunkDestinationConfiguration");
-  }
+  export const isa = (o: any): o is SplunkDestinationConfiguration =>
+    __isa(o, "SplunkDestinationConfiguration");
 }
 
 /**
@@ -2657,9 +2586,8 @@ export interface SplunkDestinationDescription {
 }
 
 export namespace SplunkDestinationDescription {
-  export function isa(o: any): o is SplunkDestinationDescription {
-    return __isa(o, "SplunkDestinationDescription");
-  }
+  export const isa = (o: any): o is SplunkDestinationDescription =>
+    __isa(o, "SplunkDestinationDescription");
 }
 
 /**
@@ -2725,9 +2653,8 @@ export interface SplunkDestinationUpdate {
 }
 
 export namespace SplunkDestinationUpdate {
-  export function isa(o: any): o is SplunkDestinationUpdate {
-    return __isa(o, "SplunkDestinationUpdate");
-  }
+  export const isa = (o: any): o is SplunkDestinationUpdate =>
+    __isa(o, "SplunkDestinationUpdate");
 }
 
 /**
@@ -2746,9 +2673,8 @@ export interface SplunkRetryOptions {
 }
 
 export namespace SplunkRetryOptions {
-  export function isa(o: any): o is SplunkRetryOptions {
-    return __isa(o, "SplunkRetryOptions");
-  }
+  export const isa = (o: any): o is SplunkRetryOptions =>
+    __isa(o, "SplunkRetryOptions");
 }
 
 export type SplunkS3BackupMode = "AllEvents" | "FailedEventsOnly";
@@ -2769,9 +2695,8 @@ export interface StartDeliveryStreamEncryptionInput {
 }
 
 export namespace StartDeliveryStreamEncryptionInput {
-  export function isa(o: any): o is StartDeliveryStreamEncryptionInput {
-    return __isa(o, "StartDeliveryStreamEncryptionInput");
-  }
+  export const isa = (o: any): o is StartDeliveryStreamEncryptionInput =>
+    __isa(o, "StartDeliveryStreamEncryptionInput");
 }
 
 export interface StartDeliveryStreamEncryptionOutput {
@@ -2779,9 +2704,8 @@ export interface StartDeliveryStreamEncryptionOutput {
 }
 
 export namespace StartDeliveryStreamEncryptionOutput {
-  export function isa(o: any): o is StartDeliveryStreamEncryptionOutput {
-    return __isa(o, "StartDeliveryStreamEncryptionOutput");
-  }
+  export const isa = (o: any): o is StartDeliveryStreamEncryptionOutput =>
+    __isa(o, "StartDeliveryStreamEncryptionOutput");
 }
 
 export interface StopDeliveryStreamEncryptionInput {
@@ -2794,9 +2718,8 @@ export interface StopDeliveryStreamEncryptionInput {
 }
 
 export namespace StopDeliveryStreamEncryptionInput {
-  export function isa(o: any): o is StopDeliveryStreamEncryptionInput {
-    return __isa(o, "StopDeliveryStreamEncryptionInput");
-  }
+  export const isa = (o: any): o is StopDeliveryStreamEncryptionInput =>
+    __isa(o, "StopDeliveryStreamEncryptionInput");
 }
 
 export interface StopDeliveryStreamEncryptionOutput {
@@ -2804,9 +2727,8 @@ export interface StopDeliveryStreamEncryptionOutput {
 }
 
 export namespace StopDeliveryStreamEncryptionOutput {
-  export function isa(o: any): o is StopDeliveryStreamEncryptionOutput {
-    return __isa(o, "StopDeliveryStreamEncryptionOutput");
-  }
+  export const isa = (o: any): o is StopDeliveryStreamEncryptionOutput =>
+    __isa(o, "StopDeliveryStreamEncryptionOutput");
 }
 
 /**
@@ -2826,9 +2748,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagDeliveryStreamInput {
@@ -2845,9 +2765,8 @@ export interface TagDeliveryStreamInput {
 }
 
 export namespace TagDeliveryStreamInput {
-  export function isa(o: any): o is TagDeliveryStreamInput {
-    return __isa(o, "TagDeliveryStreamInput");
-  }
+  export const isa = (o: any): o is TagDeliveryStreamInput =>
+    __isa(o, "TagDeliveryStreamInput");
 }
 
 export interface TagDeliveryStreamOutput {
@@ -2855,9 +2774,8 @@ export interface TagDeliveryStreamOutput {
 }
 
 export namespace TagDeliveryStreamOutput {
-  export function isa(o: any): o is TagDeliveryStreamOutput {
-    return __isa(o, "TagDeliveryStreamOutput");
-  }
+  export const isa = (o: any): o is TagDeliveryStreamOutput =>
+    __isa(o, "TagDeliveryStreamOutput");
 }
 
 export interface UntagDeliveryStreamInput {
@@ -2874,9 +2792,8 @@ export interface UntagDeliveryStreamInput {
 }
 
 export namespace UntagDeliveryStreamInput {
-  export function isa(o: any): o is UntagDeliveryStreamInput {
-    return __isa(o, "UntagDeliveryStreamInput");
-  }
+  export const isa = (o: any): o is UntagDeliveryStreamInput =>
+    __isa(o, "UntagDeliveryStreamInput");
 }
 
 export interface UntagDeliveryStreamOutput {
@@ -2884,9 +2801,8 @@ export interface UntagDeliveryStreamOutput {
 }
 
 export namespace UntagDeliveryStreamOutput {
-  export function isa(o: any): o is UntagDeliveryStreamOutput {
-    return __isa(o, "UntagDeliveryStreamOutput");
-  }
+  export const isa = (o: any): o is UntagDeliveryStreamOutput =>
+    __isa(o, "UntagDeliveryStreamOutput");
 }
 
 export interface UpdateDestinationInput {
@@ -2937,9 +2853,8 @@ export interface UpdateDestinationInput {
 }
 
 export namespace UpdateDestinationInput {
-  export function isa(o: any): o is UpdateDestinationInput {
-    return __isa(o, "UpdateDestinationInput");
-  }
+  export const isa = (o: any): o is UpdateDestinationInput =>
+    __isa(o, "UpdateDestinationInput");
 }
 
 export interface UpdateDestinationOutput {
@@ -2947,7 +2862,6 @@ export interface UpdateDestinationOutput {
 }
 
 export namespace UpdateDestinationOutput {
-  export function isa(o: any): o is UpdateDestinationOutput {
-    return __isa(o, "UpdateDestinationOutput");
-  }
+  export const isa = (o: any): o is UpdateDestinationOutput =>
+    __isa(o, "UpdateDestinationOutput");
 }

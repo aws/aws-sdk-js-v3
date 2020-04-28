@@ -64,9 +64,7 @@ export interface Action {
 }
 
 export namespace Action {
-  export function isa(o: any): o is Action {
-    return __isa(o, "Action");
-  }
+  export const isa = (o: any): o is Action => __isa(o, "Action");
 }
 
 export enum ActionTypeEnum {
@@ -92,9 +90,8 @@ export interface AddListenerCertificatesInput {
 }
 
 export namespace AddListenerCertificatesInput {
-  export function isa(o: any): o is AddListenerCertificatesInput {
-    return __isa(o, "AddListenerCertificatesInput");
-  }
+  export const isa = (o: any): o is AddListenerCertificatesInput =>
+    __isa(o, "AddListenerCertificatesInput");
 }
 
 export interface AddListenerCertificatesOutput {
@@ -106,9 +103,8 @@ export interface AddListenerCertificatesOutput {
 }
 
 export namespace AddListenerCertificatesOutput {
-  export function isa(o: any): o is AddListenerCertificatesOutput {
-    return __isa(o, "AddListenerCertificatesOutput");
-  }
+  export const isa = (o: any): o is AddListenerCertificatesOutput =>
+    __isa(o, "AddListenerCertificatesOutput");
 }
 
 export interface AddTagsInput {
@@ -125,9 +121,7 @@ export interface AddTagsInput {
 }
 
 export namespace AddTagsInput {
-  export function isa(o: any): o is AddTagsInput {
-    return __isa(o, "AddTagsInput");
-  }
+  export const isa = (o: any): o is AddTagsInput => __isa(o, "AddTagsInput");
 }
 
 export interface AddTagsOutput {
@@ -135,9 +129,7 @@ export interface AddTagsOutput {
 }
 
 export namespace AddTagsOutput {
-  export function isa(o: any): o is AddTagsOutput {
-    return __isa(o, "AddTagsOutput");
-  }
+  export const isa = (o: any): o is AddTagsOutput => __isa(o, "AddTagsOutput");
 }
 
 /**
@@ -152,9 +144,8 @@ export interface AllocationIdNotFoundException
 }
 
 export namespace AllocationIdNotFoundException {
-  export function isa(o: any): o is AllocationIdNotFoundException {
-    return __isa(o, "AllocationIdNotFoundException");
-  }
+  export const isa = (o: any): o is AllocationIdNotFoundException =>
+    __isa(o, "AllocationIdNotFoundException");
 }
 
 export enum AuthenticateCognitoActionConditionalBehaviorEnum {
@@ -225,9 +216,8 @@ export interface AuthenticateCognitoActionConfig {
 }
 
 export namespace AuthenticateCognitoActionConfig {
-  export function isa(o: any): o is AuthenticateCognitoActionConfig {
-    return __isa(o, "AuthenticateCognitoActionConfig");
-  }
+  export const isa = (o: any): o is AuthenticateCognitoActionConfig =>
+    __isa(o, "AuthenticateCognitoActionConfig");
 }
 
 export enum AuthenticateOidcActionConditionalBehaviorEnum {
@@ -320,9 +310,8 @@ export interface AuthenticateOidcActionConfig {
 }
 
 export namespace AuthenticateOidcActionConfig {
-  export function isa(o: any): o is AuthenticateOidcActionConfig {
-    return __isa(o, "AuthenticateOidcActionConfig");
-  }
+  export const isa = (o: any): o is AuthenticateOidcActionConfig =>
+    __isa(o, "AuthenticateOidcActionConfig");
 }
 
 /**
@@ -350,9 +339,8 @@ export interface AvailabilityZone {
 }
 
 export namespace AvailabilityZone {
-  export function isa(o: any): o is AvailabilityZone {
-    return __isa(o, "AvailabilityZone");
-  }
+  export const isa = (o: any): o is AvailabilityZone =>
+    __isa(o, "AvailabilityZone");
 }
 
 /**
@@ -367,9 +355,8 @@ export interface AvailabilityZoneNotSupportedException
 }
 
 export namespace AvailabilityZoneNotSupportedException {
-  export function isa(o: any): o is AvailabilityZoneNotSupportedException {
-    return __isa(o, "AvailabilityZoneNotSupportedException");
-  }
+  export const isa = (o: any): o is AvailabilityZoneNotSupportedException =>
+    __isa(o, "AvailabilityZoneNotSupportedException");
 }
 
 /**
@@ -391,9 +378,7 @@ export interface Certificate {
 }
 
 export namespace Certificate {
-  export function isa(o: any): o is Certificate {
-    return __isa(o, "Certificate");
-  }
+  export const isa = (o: any): o is Certificate => __isa(o, "Certificate");
 }
 
 /**
@@ -408,9 +393,8 @@ export interface CertificateNotFoundException
 }
 
 export namespace CertificateNotFoundException {
-  export function isa(o: any): o is CertificateNotFoundException {
-    return __isa(o, "CertificateNotFoundException");
-  }
+  export const isa = (o: any): o is CertificateNotFoundException =>
+    __isa(o, "CertificateNotFoundException");
 }
 
 /**
@@ -430,9 +414,7 @@ export interface Cipher {
 }
 
 export namespace Cipher {
-  export function isa(o: any): o is Cipher {
-    return __isa(o, "Cipher");
-  }
+  export const isa = (o: any): o is Cipher => __isa(o, "Cipher");
 }
 
 export interface CreateListenerInput {
@@ -485,9 +467,8 @@ export interface CreateListenerInput {
 }
 
 export namespace CreateListenerInput {
-  export function isa(o: any): o is CreateListenerInput {
-    return __isa(o, "CreateListenerInput");
-  }
+  export const isa = (o: any): o is CreateListenerInput =>
+    __isa(o, "CreateListenerInput");
 }
 
 export interface CreateListenerOutput {
@@ -499,9 +480,8 @@ export interface CreateListenerOutput {
 }
 
 export namespace CreateListenerOutput {
-  export function isa(o: any): o is CreateListenerOutput {
-    return __isa(o, "CreateListenerOutput");
-  }
+  export const isa = (o: any): o is CreateListenerOutput =>
+    __isa(o, "CreateListenerOutput");
 }
 
 export interface CreateLoadBalancerInput {
@@ -574,9 +554,8 @@ export interface CreateLoadBalancerInput {
 }
 
 export namespace CreateLoadBalancerInput {
-  export function isa(o: any): o is CreateLoadBalancerInput {
-    return __isa(o, "CreateLoadBalancerInput");
-  }
+  export const isa = (o: any): o is CreateLoadBalancerInput =>
+    __isa(o, "CreateLoadBalancerInput");
 }
 
 export interface CreateLoadBalancerOutput {
@@ -588,9 +567,8 @@ export interface CreateLoadBalancerOutput {
 }
 
 export namespace CreateLoadBalancerOutput {
-  export function isa(o: any): o is CreateLoadBalancerOutput {
-    return __isa(o, "CreateLoadBalancerOutput");
-  }
+  export const isa = (o: any): o is CreateLoadBalancerOutput =>
+    __isa(o, "CreateLoadBalancerOutput");
 }
 
 export interface CreateRuleInput {
@@ -633,9 +611,8 @@ export interface CreateRuleInput {
 }
 
 export namespace CreateRuleInput {
-  export function isa(o: any): o is CreateRuleInput {
-    return __isa(o, "CreateRuleInput");
-  }
+  export const isa = (o: any): o is CreateRuleInput =>
+    __isa(o, "CreateRuleInput");
 }
 
 export interface CreateRuleOutput {
@@ -647,9 +624,8 @@ export interface CreateRuleOutput {
 }
 
 export namespace CreateRuleOutput {
-  export function isa(o: any): o is CreateRuleOutput {
-    return __isa(o, "CreateRuleOutput");
-  }
+  export const isa = (o: any): o is CreateRuleOutput =>
+    __isa(o, "CreateRuleOutput");
 }
 
 export interface CreateTargetGroupInput {
@@ -776,9 +752,8 @@ export interface CreateTargetGroupInput {
 }
 
 export namespace CreateTargetGroupInput {
-  export function isa(o: any): o is CreateTargetGroupInput {
-    return __isa(o, "CreateTargetGroupInput");
-  }
+  export const isa = (o: any): o is CreateTargetGroupInput =>
+    __isa(o, "CreateTargetGroupInput");
 }
 
 export interface CreateTargetGroupOutput {
@@ -790,9 +765,8 @@ export interface CreateTargetGroupOutput {
 }
 
 export namespace CreateTargetGroupOutput {
-  export function isa(o: any): o is CreateTargetGroupOutput {
-    return __isa(o, "CreateTargetGroupOutput");
-  }
+  export const isa = (o: any): o is CreateTargetGroupOutput =>
+    __isa(o, "CreateTargetGroupOutput");
 }
 
 export interface DeleteListenerInput {
@@ -804,9 +778,8 @@ export interface DeleteListenerInput {
 }
 
 export namespace DeleteListenerInput {
-  export function isa(o: any): o is DeleteListenerInput {
-    return __isa(o, "DeleteListenerInput");
-  }
+  export const isa = (o: any): o is DeleteListenerInput =>
+    __isa(o, "DeleteListenerInput");
 }
 
 export interface DeleteListenerOutput {
@@ -814,9 +787,8 @@ export interface DeleteListenerOutput {
 }
 
 export namespace DeleteListenerOutput {
-  export function isa(o: any): o is DeleteListenerOutput {
-    return __isa(o, "DeleteListenerOutput");
-  }
+  export const isa = (o: any): o is DeleteListenerOutput =>
+    __isa(o, "DeleteListenerOutput");
 }
 
 export interface DeleteLoadBalancerInput {
@@ -828,9 +800,8 @@ export interface DeleteLoadBalancerInput {
 }
 
 export namespace DeleteLoadBalancerInput {
-  export function isa(o: any): o is DeleteLoadBalancerInput {
-    return __isa(o, "DeleteLoadBalancerInput");
-  }
+  export const isa = (o: any): o is DeleteLoadBalancerInput =>
+    __isa(o, "DeleteLoadBalancerInput");
 }
 
 export interface DeleteLoadBalancerOutput {
@@ -838,9 +809,8 @@ export interface DeleteLoadBalancerOutput {
 }
 
 export namespace DeleteLoadBalancerOutput {
-  export function isa(o: any): o is DeleteLoadBalancerOutput {
-    return __isa(o, "DeleteLoadBalancerOutput");
-  }
+  export const isa = (o: any): o is DeleteLoadBalancerOutput =>
+    __isa(o, "DeleteLoadBalancerOutput");
 }
 
 export interface DeleteRuleInput {
@@ -852,9 +822,8 @@ export interface DeleteRuleInput {
 }
 
 export namespace DeleteRuleInput {
-  export function isa(o: any): o is DeleteRuleInput {
-    return __isa(o, "DeleteRuleInput");
-  }
+  export const isa = (o: any): o is DeleteRuleInput =>
+    __isa(o, "DeleteRuleInput");
 }
 
 export interface DeleteRuleOutput {
@@ -862,9 +831,8 @@ export interface DeleteRuleOutput {
 }
 
 export namespace DeleteRuleOutput {
-  export function isa(o: any): o is DeleteRuleOutput {
-    return __isa(o, "DeleteRuleOutput");
-  }
+  export const isa = (o: any): o is DeleteRuleOutput =>
+    __isa(o, "DeleteRuleOutput");
 }
 
 export interface DeleteTargetGroupInput {
@@ -876,9 +844,8 @@ export interface DeleteTargetGroupInput {
 }
 
 export namespace DeleteTargetGroupInput {
-  export function isa(o: any): o is DeleteTargetGroupInput {
-    return __isa(o, "DeleteTargetGroupInput");
-  }
+  export const isa = (o: any): o is DeleteTargetGroupInput =>
+    __isa(o, "DeleteTargetGroupInput");
 }
 
 export interface DeleteTargetGroupOutput {
@@ -886,9 +853,8 @@ export interface DeleteTargetGroupOutput {
 }
 
 export namespace DeleteTargetGroupOutput {
-  export function isa(o: any): o is DeleteTargetGroupOutput {
-    return __isa(o, "DeleteTargetGroupOutput");
-  }
+  export const isa = (o: any): o is DeleteTargetGroupOutput =>
+    __isa(o, "DeleteTargetGroupOutput");
 }
 
 export interface DeregisterTargetsInput {
@@ -906,9 +872,8 @@ export interface DeregisterTargetsInput {
 }
 
 export namespace DeregisterTargetsInput {
-  export function isa(o: any): o is DeregisterTargetsInput {
-    return __isa(o, "DeregisterTargetsInput");
-  }
+  export const isa = (o: any): o is DeregisterTargetsInput =>
+    __isa(o, "DeregisterTargetsInput");
 }
 
 export interface DeregisterTargetsOutput {
@@ -916,9 +881,8 @@ export interface DeregisterTargetsOutput {
 }
 
 export namespace DeregisterTargetsOutput {
-  export function isa(o: any): o is DeregisterTargetsOutput {
-    return __isa(o, "DeregisterTargetsOutput");
-  }
+  export const isa = (o: any): o is DeregisterTargetsOutput =>
+    __isa(o, "DeregisterTargetsOutput");
 }
 
 export interface DescribeAccountLimitsInput {
@@ -936,9 +900,8 @@ export interface DescribeAccountLimitsInput {
 }
 
 export namespace DescribeAccountLimitsInput {
-  export function isa(o: any): o is DescribeAccountLimitsInput {
-    return __isa(o, "DescribeAccountLimitsInput");
-  }
+  export const isa = (o: any): o is DescribeAccountLimitsInput =>
+    __isa(o, "DescribeAccountLimitsInput");
 }
 
 export interface DescribeAccountLimitsOutput {
@@ -956,9 +919,8 @@ export interface DescribeAccountLimitsOutput {
 }
 
 export namespace DescribeAccountLimitsOutput {
-  export function isa(o: any): o is DescribeAccountLimitsOutput {
-    return __isa(o, "DescribeAccountLimitsOutput");
-  }
+  export const isa = (o: any): o is DescribeAccountLimitsOutput =>
+    __isa(o, "DescribeAccountLimitsOutput");
 }
 
 export interface DescribeListenerCertificatesInput {
@@ -981,9 +943,8 @@ export interface DescribeListenerCertificatesInput {
 }
 
 export namespace DescribeListenerCertificatesInput {
-  export function isa(o: any): o is DescribeListenerCertificatesInput {
-    return __isa(o, "DescribeListenerCertificatesInput");
-  }
+  export const isa = (o: any): o is DescribeListenerCertificatesInput =>
+    __isa(o, "DescribeListenerCertificatesInput");
 }
 
 export interface DescribeListenerCertificatesOutput {
@@ -1001,9 +962,8 @@ export interface DescribeListenerCertificatesOutput {
 }
 
 export namespace DescribeListenerCertificatesOutput {
-  export function isa(o: any): o is DescribeListenerCertificatesOutput {
-    return __isa(o, "DescribeListenerCertificatesOutput");
-  }
+  export const isa = (o: any): o is DescribeListenerCertificatesOutput =>
+    __isa(o, "DescribeListenerCertificatesOutput");
 }
 
 export interface DescribeListenersInput {
@@ -1031,9 +991,8 @@ export interface DescribeListenersInput {
 }
 
 export namespace DescribeListenersInput {
-  export function isa(o: any): o is DescribeListenersInput {
-    return __isa(o, "DescribeListenersInput");
-  }
+  export const isa = (o: any): o is DescribeListenersInput =>
+    __isa(o, "DescribeListenersInput");
 }
 
 export interface DescribeListenersOutput {
@@ -1051,9 +1010,8 @@ export interface DescribeListenersOutput {
 }
 
 export namespace DescribeListenersOutput {
-  export function isa(o: any): o is DescribeListenersOutput {
-    return __isa(o, "DescribeListenersOutput");
-  }
+  export const isa = (o: any): o is DescribeListenersOutput =>
+    __isa(o, "DescribeListenersOutput");
 }
 
 export interface DescribeLoadBalancerAttributesInput {
@@ -1065,9 +1023,8 @@ export interface DescribeLoadBalancerAttributesInput {
 }
 
 export namespace DescribeLoadBalancerAttributesInput {
-  export function isa(o: any): o is DescribeLoadBalancerAttributesInput {
-    return __isa(o, "DescribeLoadBalancerAttributesInput");
-  }
+  export const isa = (o: any): o is DescribeLoadBalancerAttributesInput =>
+    __isa(o, "DescribeLoadBalancerAttributesInput");
 }
 
 export interface DescribeLoadBalancerAttributesOutput {
@@ -1079,9 +1036,8 @@ export interface DescribeLoadBalancerAttributesOutput {
 }
 
 export namespace DescribeLoadBalancerAttributesOutput {
-  export function isa(o: any): o is DescribeLoadBalancerAttributesOutput {
-    return __isa(o, "DescribeLoadBalancerAttributesOutput");
-  }
+  export const isa = (o: any): o is DescribeLoadBalancerAttributesOutput =>
+    __isa(o, "DescribeLoadBalancerAttributesOutput");
 }
 
 export interface DescribeLoadBalancersInput {
@@ -1110,9 +1066,8 @@ export interface DescribeLoadBalancersInput {
 }
 
 export namespace DescribeLoadBalancersInput {
-  export function isa(o: any): o is DescribeLoadBalancersInput {
-    return __isa(o, "DescribeLoadBalancersInput");
-  }
+  export const isa = (o: any): o is DescribeLoadBalancersInput =>
+    __isa(o, "DescribeLoadBalancersInput");
 }
 
 export interface DescribeLoadBalancersOutput {
@@ -1130,9 +1085,8 @@ export interface DescribeLoadBalancersOutput {
 }
 
 export namespace DescribeLoadBalancersOutput {
-  export function isa(o: any): o is DescribeLoadBalancersOutput {
-    return __isa(o, "DescribeLoadBalancersOutput");
-  }
+  export const isa = (o: any): o is DescribeLoadBalancersOutput =>
+    __isa(o, "DescribeLoadBalancersOutput");
 }
 
 export interface DescribeRulesInput {
@@ -1160,9 +1114,8 @@ export interface DescribeRulesInput {
 }
 
 export namespace DescribeRulesInput {
-  export function isa(o: any): o is DescribeRulesInput {
-    return __isa(o, "DescribeRulesInput");
-  }
+  export const isa = (o: any): o is DescribeRulesInput =>
+    __isa(o, "DescribeRulesInput");
 }
 
 export interface DescribeRulesOutput {
@@ -1180,9 +1133,8 @@ export interface DescribeRulesOutput {
 }
 
 export namespace DescribeRulesOutput {
-  export function isa(o: any): o is DescribeRulesOutput {
-    return __isa(o, "DescribeRulesOutput");
-  }
+  export const isa = (o: any): o is DescribeRulesOutput =>
+    __isa(o, "DescribeRulesOutput");
 }
 
 export interface DescribeSSLPoliciesInput {
@@ -1205,9 +1157,8 @@ export interface DescribeSSLPoliciesInput {
 }
 
 export namespace DescribeSSLPoliciesInput {
-  export function isa(o: any): o is DescribeSSLPoliciesInput {
-    return __isa(o, "DescribeSSLPoliciesInput");
-  }
+  export const isa = (o: any): o is DescribeSSLPoliciesInput =>
+    __isa(o, "DescribeSSLPoliciesInput");
 }
 
 export interface DescribeSSLPoliciesOutput {
@@ -1225,9 +1176,8 @@ export interface DescribeSSLPoliciesOutput {
 }
 
 export namespace DescribeSSLPoliciesOutput {
-  export function isa(o: any): o is DescribeSSLPoliciesOutput {
-    return __isa(o, "DescribeSSLPoliciesOutput");
-  }
+  export const isa = (o: any): o is DescribeSSLPoliciesOutput =>
+    __isa(o, "DescribeSSLPoliciesOutput");
 }
 
 export interface DescribeTagsInput {
@@ -1239,9 +1189,8 @@ export interface DescribeTagsInput {
 }
 
 export namespace DescribeTagsInput {
-  export function isa(o: any): o is DescribeTagsInput {
-    return __isa(o, "DescribeTagsInput");
-  }
+  export const isa = (o: any): o is DescribeTagsInput =>
+    __isa(o, "DescribeTagsInput");
 }
 
 export interface DescribeTagsOutput {
@@ -1253,9 +1202,8 @@ export interface DescribeTagsOutput {
 }
 
 export namespace DescribeTagsOutput {
-  export function isa(o: any): o is DescribeTagsOutput {
-    return __isa(o, "DescribeTagsOutput");
-  }
+  export const isa = (o: any): o is DescribeTagsOutput =>
+    __isa(o, "DescribeTagsOutput");
 }
 
 export interface DescribeTargetGroupAttributesInput {
@@ -1267,9 +1215,8 @@ export interface DescribeTargetGroupAttributesInput {
 }
 
 export namespace DescribeTargetGroupAttributesInput {
-  export function isa(o: any): o is DescribeTargetGroupAttributesInput {
-    return __isa(o, "DescribeTargetGroupAttributesInput");
-  }
+  export const isa = (o: any): o is DescribeTargetGroupAttributesInput =>
+    __isa(o, "DescribeTargetGroupAttributesInput");
 }
 
 export interface DescribeTargetGroupAttributesOutput {
@@ -1281,9 +1228,8 @@ export interface DescribeTargetGroupAttributesOutput {
 }
 
 export namespace DescribeTargetGroupAttributesOutput {
-  export function isa(o: any): o is DescribeTargetGroupAttributesOutput {
-    return __isa(o, "DescribeTargetGroupAttributesOutput");
-  }
+  export const isa = (o: any): o is DescribeTargetGroupAttributesOutput =>
+    __isa(o, "DescribeTargetGroupAttributesOutput");
 }
 
 export interface DescribeTargetGroupsInput {
@@ -1316,9 +1262,8 @@ export interface DescribeTargetGroupsInput {
 }
 
 export namespace DescribeTargetGroupsInput {
-  export function isa(o: any): o is DescribeTargetGroupsInput {
-    return __isa(o, "DescribeTargetGroupsInput");
-  }
+  export const isa = (o: any): o is DescribeTargetGroupsInput =>
+    __isa(o, "DescribeTargetGroupsInput");
 }
 
 export interface DescribeTargetGroupsOutput {
@@ -1336,9 +1281,8 @@ export interface DescribeTargetGroupsOutput {
 }
 
 export namespace DescribeTargetGroupsOutput {
-  export function isa(o: any): o is DescribeTargetGroupsOutput {
-    return __isa(o, "DescribeTargetGroupsOutput");
-  }
+  export const isa = (o: any): o is DescribeTargetGroupsOutput =>
+    __isa(o, "DescribeTargetGroupsOutput");
 }
 
 export interface DescribeTargetHealthInput {
@@ -1355,9 +1299,8 @@ export interface DescribeTargetHealthInput {
 }
 
 export namespace DescribeTargetHealthInput {
-  export function isa(o: any): o is DescribeTargetHealthInput {
-    return __isa(o, "DescribeTargetHealthInput");
-  }
+  export const isa = (o: any): o is DescribeTargetHealthInput =>
+    __isa(o, "DescribeTargetHealthInput");
 }
 
 export interface DescribeTargetHealthOutput {
@@ -1369,9 +1312,8 @@ export interface DescribeTargetHealthOutput {
 }
 
 export namespace DescribeTargetHealthOutput {
-  export function isa(o: any): o is DescribeTargetHealthOutput {
-    return __isa(o, "DescribeTargetHealthOutput");
-  }
+  export const isa = (o: any): o is DescribeTargetHealthOutput =>
+    __isa(o, "DescribeTargetHealthOutput");
 }
 
 /**
@@ -1386,9 +1328,8 @@ export interface DuplicateListenerException
 }
 
 export namespace DuplicateListenerException {
-  export function isa(o: any): o is DuplicateListenerException {
-    return __isa(o, "DuplicateListenerException");
-  }
+  export const isa = (o: any): o is DuplicateListenerException =>
+    __isa(o, "DuplicateListenerException");
 }
 
 /**
@@ -1403,9 +1344,8 @@ export interface DuplicateLoadBalancerNameException
 }
 
 export namespace DuplicateLoadBalancerNameException {
-  export function isa(o: any): o is DuplicateLoadBalancerNameException {
-    return __isa(o, "DuplicateLoadBalancerNameException");
-  }
+  export const isa = (o: any): o is DuplicateLoadBalancerNameException =>
+    __isa(o, "DuplicateLoadBalancerNameException");
 }
 
 /**
@@ -1420,9 +1360,8 @@ export interface DuplicateTagKeysException
 }
 
 export namespace DuplicateTagKeysException {
-  export function isa(o: any): o is DuplicateTagKeysException {
-    return __isa(o, "DuplicateTagKeysException");
-  }
+  export const isa = (o: any): o is DuplicateTagKeysException =>
+    __isa(o, "DuplicateTagKeysException");
 }
 
 /**
@@ -1437,9 +1376,8 @@ export interface DuplicateTargetGroupNameException
 }
 
 export namespace DuplicateTargetGroupNameException {
-  export function isa(o: any): o is DuplicateTargetGroupNameException {
-    return __isa(o, "DuplicateTargetGroupNameException");
-  }
+  export const isa = (o: any): o is DuplicateTargetGroupNameException =>
+    __isa(o, "DuplicateTargetGroupNameException");
 }
 
 /**
@@ -1465,9 +1403,8 @@ export interface FixedResponseActionConfig {
 }
 
 export namespace FixedResponseActionConfig {
-  export function isa(o: any): o is FixedResponseActionConfig {
-    return __isa(o, "FixedResponseActionConfig");
-  }
+  export const isa = (o: any): o is FixedResponseActionConfig =>
+    __isa(o, "FixedResponseActionConfig");
 }
 
 /**
@@ -1487,9 +1424,8 @@ export interface ForwardActionConfig {
 }
 
 export namespace ForwardActionConfig {
-  export function isa(o: any): o is ForwardActionConfig {
-    return __isa(o, "ForwardActionConfig");
-  }
+  export const isa = (o: any): o is ForwardActionConfig =>
+    __isa(o, "ForwardActionConfig");
 }
 
 /**
@@ -1505,9 +1441,8 @@ export interface HealthUnavailableException
 }
 
 export namespace HealthUnavailableException {
-  export function isa(o: any): o is HealthUnavailableException {
-    return __isa(o, "HealthUnavailableException");
-  }
+  export const isa = (o: any): o is HealthUnavailableException =>
+    __isa(o, "HealthUnavailableException");
 }
 
 /**
@@ -1526,9 +1461,8 @@ export interface HostHeaderConditionConfig {
 }
 
 export namespace HostHeaderConditionConfig {
-  export function isa(o: any): o is HostHeaderConditionConfig {
-    return __isa(o, "HostHeaderConditionConfig");
-  }
+  export const isa = (o: any): o is HostHeaderConditionConfig =>
+    __isa(o, "HostHeaderConditionConfig");
 }
 
 /**
@@ -1557,9 +1491,8 @@ export interface HttpHeaderConditionConfig {
 }
 
 export namespace HttpHeaderConditionConfig {
-  export function isa(o: any): o is HttpHeaderConditionConfig {
-    return __isa(o, "HttpHeaderConditionConfig");
-  }
+  export const isa = (o: any): o is HttpHeaderConditionConfig =>
+    __isa(o, "HttpHeaderConditionConfig");
 }
 
 /**
@@ -1582,9 +1515,8 @@ export interface HttpRequestMethodConditionConfig {
 }
 
 export namespace HttpRequestMethodConditionConfig {
-  export function isa(o: any): o is HttpRequestMethodConditionConfig {
-    return __isa(o, "HttpRequestMethodConditionConfig");
-  }
+  export const isa = (o: any): o is HttpRequestMethodConditionConfig =>
+    __isa(o, "HttpRequestMethodConditionConfig");
 }
 
 /**
@@ -1599,9 +1531,8 @@ export interface IncompatibleProtocolsException
 }
 
 export namespace IncompatibleProtocolsException {
-  export function isa(o: any): o is IncompatibleProtocolsException {
-    return __isa(o, "IncompatibleProtocolsException");
-  }
+  export const isa = (o: any): o is IncompatibleProtocolsException =>
+    __isa(o, "IncompatibleProtocolsException");
 }
 
 /**
@@ -1616,9 +1547,8 @@ export interface InvalidConfigurationRequestException
 }
 
 export namespace InvalidConfigurationRequestException {
-  export function isa(o: any): o is InvalidConfigurationRequestException {
-    return __isa(o, "InvalidConfigurationRequestException");
-  }
+  export const isa = (o: any): o is InvalidConfigurationRequestException =>
+    __isa(o, "InvalidConfigurationRequestException");
 }
 
 /**
@@ -1633,9 +1563,8 @@ export interface InvalidLoadBalancerActionException
 }
 
 export namespace InvalidLoadBalancerActionException {
-  export function isa(o: any): o is InvalidLoadBalancerActionException {
-    return __isa(o, "InvalidLoadBalancerActionException");
-  }
+  export const isa = (o: any): o is InvalidLoadBalancerActionException =>
+    __isa(o, "InvalidLoadBalancerActionException");
 }
 
 /**
@@ -1650,9 +1579,8 @@ export interface InvalidSchemeException
 }
 
 export namespace InvalidSchemeException {
-  export function isa(o: any): o is InvalidSchemeException {
-    return __isa(o, "InvalidSchemeException");
-  }
+  export const isa = (o: any): o is InvalidSchemeException =>
+    __isa(o, "InvalidSchemeException");
 }
 
 /**
@@ -1667,9 +1595,8 @@ export interface InvalidSecurityGroupException
 }
 
 export namespace InvalidSecurityGroupException {
-  export function isa(o: any): o is InvalidSecurityGroupException {
-    return __isa(o, "InvalidSecurityGroupException");
-  }
+  export const isa = (o: any): o is InvalidSecurityGroupException =>
+    __isa(o, "InvalidSecurityGroupException");
 }
 
 /**
@@ -1684,9 +1611,8 @@ export interface InvalidSubnetException
 }
 
 export namespace InvalidSubnetException {
-  export function isa(o: any): o is InvalidSubnetException {
-    return __isa(o, "InvalidSubnetException");
-  }
+  export const isa = (o: any): o is InvalidSubnetException =>
+    __isa(o, "InvalidSubnetException");
 }
 
 /**
@@ -1702,9 +1628,8 @@ export interface InvalidTargetException
 }
 
 export namespace InvalidTargetException {
-  export function isa(o: any): o is InvalidTargetException {
-    return __isa(o, "InvalidTargetException");
-  }
+  export const isa = (o: any): o is InvalidTargetException =>
+    __isa(o, "InvalidTargetException");
 }
 
 export enum IpAddressType {
@@ -1768,9 +1693,7 @@ export interface Limit {
 }
 
 export namespace Limit {
-  export function isa(o: any): o is Limit {
-    return __isa(o, "Limit");
-  }
+  export const isa = (o: any): o is Limit => __isa(o, "Limit");
 }
 
 /**
@@ -1816,9 +1739,7 @@ export interface Listener {
 }
 
 export namespace Listener {
-  export function isa(o: any): o is Listener {
-    return __isa(o, "Listener");
-  }
+  export const isa = (o: any): o is Listener => __isa(o, "Listener");
 }
 
 /**
@@ -1833,9 +1754,8 @@ export interface ListenerNotFoundException
 }
 
 export namespace ListenerNotFoundException {
-  export function isa(o: any): o is ListenerNotFoundException {
-    return __isa(o, "ListenerNotFoundException");
-  }
+  export const isa = (o: any): o is ListenerNotFoundException =>
+    __isa(o, "ListenerNotFoundException");
 }
 
 /**
@@ -1914,9 +1834,7 @@ export interface LoadBalancer {
 }
 
 export namespace LoadBalancer {
-  export function isa(o: any): o is LoadBalancer {
-    return __isa(o, "LoadBalancer");
-  }
+  export const isa = (o: any): o is LoadBalancer => __isa(o, "LoadBalancer");
 }
 
 /**
@@ -1941,9 +1859,8 @@ export interface LoadBalancerAddress {
 }
 
 export namespace LoadBalancerAddress {
-  export function isa(o: any): o is LoadBalancerAddress {
-    return __isa(o, "LoadBalancerAddress");
-  }
+  export const isa = (o: any): o is LoadBalancerAddress =>
+    __isa(o, "LoadBalancerAddress");
 }
 
 /**
@@ -2014,9 +1931,8 @@ export interface LoadBalancerAttribute {
 }
 
 export namespace LoadBalancerAttribute {
-  export function isa(o: any): o is LoadBalancerAttribute {
-    return __isa(o, "LoadBalancerAttribute");
-  }
+  export const isa = (o: any): o is LoadBalancerAttribute =>
+    __isa(o, "LoadBalancerAttribute");
 }
 
 /**
@@ -2031,9 +1947,8 @@ export interface LoadBalancerNotFoundException
 }
 
 export namespace LoadBalancerNotFoundException {
-  export function isa(o: any): o is LoadBalancerNotFoundException {
-    return __isa(o, "LoadBalancerNotFoundException");
-  }
+  export const isa = (o: any): o is LoadBalancerNotFoundException =>
+    __isa(o, "LoadBalancerNotFoundException");
 }
 
 export enum LoadBalancerSchemeEnum {
@@ -2061,9 +1976,8 @@ export interface LoadBalancerState {
 }
 
 export namespace LoadBalancerState {
-  export function isa(o: any): o is LoadBalancerState {
-    return __isa(o, "LoadBalancerState");
-  }
+  export const isa = (o: any): o is LoadBalancerState =>
+    __isa(o, "LoadBalancerState");
 }
 
 export enum LoadBalancerStateEnum {
@@ -2094,9 +2008,7 @@ export interface Matcher {
 }
 
 export namespace Matcher {
-  export function isa(o: any): o is Matcher {
-    return __isa(o, "Matcher");
-  }
+  export const isa = (o: any): o is Matcher => __isa(o, "Matcher");
 }
 
 export interface ModifyListenerInput {
@@ -2150,9 +2062,8 @@ export interface ModifyListenerInput {
 }
 
 export namespace ModifyListenerInput {
-  export function isa(o: any): o is ModifyListenerInput {
-    return __isa(o, "ModifyListenerInput");
-  }
+  export const isa = (o: any): o is ModifyListenerInput =>
+    __isa(o, "ModifyListenerInput");
 }
 
 export interface ModifyListenerOutput {
@@ -2164,9 +2075,8 @@ export interface ModifyListenerOutput {
 }
 
 export namespace ModifyListenerOutput {
-  export function isa(o: any): o is ModifyListenerOutput {
-    return __isa(o, "ModifyListenerOutput");
-  }
+  export const isa = (o: any): o is ModifyListenerOutput =>
+    __isa(o, "ModifyListenerOutput");
 }
 
 export interface ModifyLoadBalancerAttributesInput {
@@ -2183,9 +2093,8 @@ export interface ModifyLoadBalancerAttributesInput {
 }
 
 export namespace ModifyLoadBalancerAttributesInput {
-  export function isa(o: any): o is ModifyLoadBalancerAttributesInput {
-    return __isa(o, "ModifyLoadBalancerAttributesInput");
-  }
+  export const isa = (o: any): o is ModifyLoadBalancerAttributesInput =>
+    __isa(o, "ModifyLoadBalancerAttributesInput");
 }
 
 export interface ModifyLoadBalancerAttributesOutput {
@@ -2197,9 +2106,8 @@ export interface ModifyLoadBalancerAttributesOutput {
 }
 
 export namespace ModifyLoadBalancerAttributesOutput {
-  export function isa(o: any): o is ModifyLoadBalancerAttributesOutput {
-    return __isa(o, "ModifyLoadBalancerAttributesOutput");
-  }
+  export const isa = (o: any): o is ModifyLoadBalancerAttributesOutput =>
+    __isa(o, "ModifyLoadBalancerAttributesOutput");
 }
 
 export interface ModifyRuleInput {
@@ -2237,9 +2145,8 @@ export interface ModifyRuleInput {
 }
 
 export namespace ModifyRuleInput {
-  export function isa(o: any): o is ModifyRuleInput {
-    return __isa(o, "ModifyRuleInput");
-  }
+  export const isa = (o: any): o is ModifyRuleInput =>
+    __isa(o, "ModifyRuleInput");
 }
 
 export interface ModifyRuleOutput {
@@ -2251,9 +2158,8 @@ export interface ModifyRuleOutput {
 }
 
 export namespace ModifyRuleOutput {
-  export function isa(o: any): o is ModifyRuleOutput {
-    return __isa(o, "ModifyRuleOutput");
-  }
+  export const isa = (o: any): o is ModifyRuleOutput =>
+    __isa(o, "ModifyRuleOutput");
 }
 
 export interface ModifyTargetGroupAttributesInput {
@@ -2270,9 +2176,8 @@ export interface ModifyTargetGroupAttributesInput {
 }
 
 export namespace ModifyTargetGroupAttributesInput {
-  export function isa(o: any): o is ModifyTargetGroupAttributesInput {
-    return __isa(o, "ModifyTargetGroupAttributesInput");
-  }
+  export const isa = (o: any): o is ModifyTargetGroupAttributesInput =>
+    __isa(o, "ModifyTargetGroupAttributesInput");
 }
 
 export interface ModifyTargetGroupAttributesOutput {
@@ -2284,9 +2189,8 @@ export interface ModifyTargetGroupAttributesOutput {
 }
 
 export namespace ModifyTargetGroupAttributesOutput {
-  export function isa(o: any): o is ModifyTargetGroupAttributesOutput {
-    return __isa(o, "ModifyTargetGroupAttributesOutput");
-  }
+  export const isa = (o: any): o is ModifyTargetGroupAttributesOutput =>
+    __isa(o, "ModifyTargetGroupAttributesOutput");
 }
 
 export interface ModifyTargetGroupInput {
@@ -2357,9 +2261,8 @@ export interface ModifyTargetGroupInput {
 }
 
 export namespace ModifyTargetGroupInput {
-  export function isa(o: any): o is ModifyTargetGroupInput {
-    return __isa(o, "ModifyTargetGroupInput");
-  }
+  export const isa = (o: any): o is ModifyTargetGroupInput =>
+    __isa(o, "ModifyTargetGroupInput");
 }
 
 export interface ModifyTargetGroupOutput {
@@ -2371,9 +2274,8 @@ export interface ModifyTargetGroupOutput {
 }
 
 export namespace ModifyTargetGroupOutput {
-  export function isa(o: any): o is ModifyTargetGroupOutput {
-    return __isa(o, "ModifyTargetGroupOutput");
-  }
+  export const isa = (o: any): o is ModifyTargetGroupOutput =>
+    __isa(o, "ModifyTargetGroupOutput");
 }
 
 /**
@@ -2388,9 +2290,8 @@ export interface OperationNotPermittedException
 }
 
 export namespace OperationNotPermittedException {
-  export function isa(o: any): o is OperationNotPermittedException {
-    return __isa(o, "OperationNotPermittedException");
-  }
+  export const isa = (o: any): o is OperationNotPermittedException =>
+    __isa(o, "OperationNotPermittedException");
 }
 
 /**
@@ -2411,9 +2312,8 @@ export interface PathPatternConditionConfig {
 }
 
 export namespace PathPatternConditionConfig {
-  export function isa(o: any): o is PathPatternConditionConfig {
-    return __isa(o, "PathPatternConditionConfig");
-  }
+  export const isa = (o: any): o is PathPatternConditionConfig =>
+    __isa(o, "PathPatternConditionConfig");
 }
 
 /**
@@ -2428,9 +2328,8 @@ export interface PriorityInUseException
 }
 
 export namespace PriorityInUseException {
-  export function isa(o: any): o is PriorityInUseException {
-    return __isa(o, "PriorityInUseException");
-  }
+  export const isa = (o: any): o is PriorityInUseException =>
+    __isa(o, "PriorityInUseException");
 }
 
 export type ProtocolEnum = "HTTP" | "HTTPS" | "TCP" | "TCP_UDP" | "TLS" | "UDP";
@@ -2457,9 +2356,8 @@ export interface QueryStringConditionConfig {
 }
 
 export namespace QueryStringConditionConfig {
-  export function isa(o: any): o is QueryStringConditionConfig {
-    return __isa(o, "QueryStringConditionConfig");
-  }
+  export const isa = (o: any): o is QueryStringConditionConfig =>
+    __isa(o, "QueryStringConditionConfig");
 }
 
 /**
@@ -2479,9 +2377,8 @@ export interface QueryStringKeyValuePair {
 }
 
 export namespace QueryStringKeyValuePair {
-  export function isa(o: any): o is QueryStringKeyValuePair {
-    return __isa(o, "QueryStringKeyValuePair");
-  }
+  export const isa = (o: any): o is QueryStringKeyValuePair =>
+    __isa(o, "QueryStringKeyValuePair");
 }
 
 /**
@@ -2548,9 +2445,8 @@ export interface RedirectActionConfig {
 }
 
 export namespace RedirectActionConfig {
-  export function isa(o: any): o is RedirectActionConfig {
-    return __isa(o, "RedirectActionConfig");
-  }
+  export const isa = (o: any): o is RedirectActionConfig =>
+    __isa(o, "RedirectActionConfig");
 }
 
 export enum RedirectActionStatusCodeEnum {
@@ -2575,9 +2471,8 @@ export interface RegisterTargetsInput {
 }
 
 export namespace RegisterTargetsInput {
-  export function isa(o: any): o is RegisterTargetsInput {
-    return __isa(o, "RegisterTargetsInput");
-  }
+  export const isa = (o: any): o is RegisterTargetsInput =>
+    __isa(o, "RegisterTargetsInput");
 }
 
 export interface RegisterTargetsOutput {
@@ -2585,9 +2480,8 @@ export interface RegisterTargetsOutput {
 }
 
 export namespace RegisterTargetsOutput {
-  export function isa(o: any): o is RegisterTargetsOutput {
-    return __isa(o, "RegisterTargetsOutput");
-  }
+  export const isa = (o: any): o is RegisterTargetsOutput =>
+    __isa(o, "RegisterTargetsOutput");
 }
 
 export interface RemoveListenerCertificatesInput {
@@ -2605,9 +2499,8 @@ export interface RemoveListenerCertificatesInput {
 }
 
 export namespace RemoveListenerCertificatesInput {
-  export function isa(o: any): o is RemoveListenerCertificatesInput {
-    return __isa(o, "RemoveListenerCertificatesInput");
-  }
+  export const isa = (o: any): o is RemoveListenerCertificatesInput =>
+    __isa(o, "RemoveListenerCertificatesInput");
 }
 
 export interface RemoveListenerCertificatesOutput {
@@ -2615,9 +2508,8 @@ export interface RemoveListenerCertificatesOutput {
 }
 
 export namespace RemoveListenerCertificatesOutput {
-  export function isa(o: any): o is RemoveListenerCertificatesOutput {
-    return __isa(o, "RemoveListenerCertificatesOutput");
-  }
+  export const isa = (o: any): o is RemoveListenerCertificatesOutput =>
+    __isa(o, "RemoveListenerCertificatesOutput");
 }
 
 export interface RemoveTagsInput {
@@ -2634,9 +2526,8 @@ export interface RemoveTagsInput {
 }
 
 export namespace RemoveTagsInput {
-  export function isa(o: any): o is RemoveTagsInput {
-    return __isa(o, "RemoveTagsInput");
-  }
+  export const isa = (o: any): o is RemoveTagsInput =>
+    __isa(o, "RemoveTagsInput");
 }
 
 export interface RemoveTagsOutput {
@@ -2644,9 +2535,8 @@ export interface RemoveTagsOutput {
 }
 
 export namespace RemoveTagsOutput {
-  export function isa(o: any): o is RemoveTagsOutput {
-    return __isa(o, "RemoveTagsOutput");
-  }
+  export const isa = (o: any): o is RemoveTagsOutput =>
+    __isa(o, "RemoveTagsOutput");
 }
 
 /**
@@ -2661,9 +2551,8 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export function isa(o: any): o is ResourceInUseException {
-    return __isa(o, "ResourceInUseException");
-  }
+  export const isa = (o: any): o is ResourceInUseException =>
+    __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -2702,9 +2591,7 @@ export interface Rule {
 }
 
 export namespace Rule {
-  export function isa(o: any): o is Rule {
-    return __isa(o, "Rule");
-  }
+  export const isa = (o: any): o is Rule => __isa(o, "Rule");
 }
 
 /**
@@ -2832,9 +2719,7 @@ export interface RuleCondition {
 }
 
 export namespace RuleCondition {
-  export function isa(o: any): o is RuleCondition {
-    return __isa(o, "RuleCondition");
-  }
+  export const isa = (o: any): o is RuleCondition => __isa(o, "RuleCondition");
 }
 
 /**
@@ -2849,9 +2734,8 @@ export interface RuleNotFoundException
 }
 
 export namespace RuleNotFoundException {
-  export function isa(o: any): o is RuleNotFoundException {
-    return __isa(o, "RuleNotFoundException");
-  }
+  export const isa = (o: any): o is RuleNotFoundException =>
+    __isa(o, "RuleNotFoundException");
 }
 
 /**
@@ -2871,9 +2755,8 @@ export interface RulePriorityPair {
 }
 
 export namespace RulePriorityPair {
-  export function isa(o: any): o is RulePriorityPair {
-    return __isa(o, "RulePriorityPair");
-  }
+  export const isa = (o: any): o is RulePriorityPair =>
+    __isa(o, "RulePriorityPair");
 }
 
 /**
@@ -2888,9 +2771,8 @@ export interface SSLPolicyNotFoundException
 }
 
 export namespace SSLPolicyNotFoundException {
-  export function isa(o: any): o is SSLPolicyNotFoundException {
-    return __isa(o, "SSLPolicyNotFoundException");
-  }
+  export const isa = (o: any): o is SSLPolicyNotFoundException =>
+    __isa(o, "SSLPolicyNotFoundException");
 }
 
 export interface SetIpAddressTypeInput {
@@ -2909,9 +2791,8 @@ export interface SetIpAddressTypeInput {
 }
 
 export namespace SetIpAddressTypeInput {
-  export function isa(o: any): o is SetIpAddressTypeInput {
-    return __isa(o, "SetIpAddressTypeInput");
-  }
+  export const isa = (o: any): o is SetIpAddressTypeInput =>
+    __isa(o, "SetIpAddressTypeInput");
 }
 
 export interface SetIpAddressTypeOutput {
@@ -2923,9 +2804,8 @@ export interface SetIpAddressTypeOutput {
 }
 
 export namespace SetIpAddressTypeOutput {
-  export function isa(o: any): o is SetIpAddressTypeOutput {
-    return __isa(o, "SetIpAddressTypeOutput");
-  }
+  export const isa = (o: any): o is SetIpAddressTypeOutput =>
+    __isa(o, "SetIpAddressTypeOutput");
 }
 
 export interface SetRulePrioritiesInput {
@@ -2937,9 +2817,8 @@ export interface SetRulePrioritiesInput {
 }
 
 export namespace SetRulePrioritiesInput {
-  export function isa(o: any): o is SetRulePrioritiesInput {
-    return __isa(o, "SetRulePrioritiesInput");
-  }
+  export const isa = (o: any): o is SetRulePrioritiesInput =>
+    __isa(o, "SetRulePrioritiesInput");
 }
 
 export interface SetRulePrioritiesOutput {
@@ -2951,9 +2830,8 @@ export interface SetRulePrioritiesOutput {
 }
 
 export namespace SetRulePrioritiesOutput {
-  export function isa(o: any): o is SetRulePrioritiesOutput {
-    return __isa(o, "SetRulePrioritiesOutput");
-  }
+  export const isa = (o: any): o is SetRulePrioritiesOutput =>
+    __isa(o, "SetRulePrioritiesOutput");
 }
 
 export interface SetSecurityGroupsInput {
@@ -2970,9 +2848,8 @@ export interface SetSecurityGroupsInput {
 }
 
 export namespace SetSecurityGroupsInput {
-  export function isa(o: any): o is SetSecurityGroupsInput {
-    return __isa(o, "SetSecurityGroupsInput");
-  }
+  export const isa = (o: any): o is SetSecurityGroupsInput =>
+    __isa(o, "SetSecurityGroupsInput");
 }
 
 export interface SetSecurityGroupsOutput {
@@ -2984,9 +2861,8 @@ export interface SetSecurityGroupsOutput {
 }
 
 export namespace SetSecurityGroupsOutput {
-  export function isa(o: any): o is SetSecurityGroupsOutput {
-    return __isa(o, "SetSecurityGroupsOutput");
-  }
+  export const isa = (o: any): o is SetSecurityGroupsOutput =>
+    __isa(o, "SetSecurityGroupsOutput");
 }
 
 export interface SetSubnetsInput {
@@ -3017,9 +2893,8 @@ export interface SetSubnetsInput {
 }
 
 export namespace SetSubnetsInput {
-  export function isa(o: any): o is SetSubnetsInput {
-    return __isa(o, "SetSubnetsInput");
-  }
+  export const isa = (o: any): o is SetSubnetsInput =>
+    __isa(o, "SetSubnetsInput");
 }
 
 export interface SetSubnetsOutput {
@@ -3031,9 +2906,8 @@ export interface SetSubnetsOutput {
 }
 
 export namespace SetSubnetsOutput {
-  export function isa(o: any): o is SetSubnetsOutput {
-    return __isa(o, "SetSubnetsOutput");
-  }
+  export const isa = (o: any): o is SetSubnetsOutput =>
+    __isa(o, "SetSubnetsOutput");
 }
 
 /**
@@ -3055,9 +2929,8 @@ export interface SourceIpConditionConfig {
 }
 
 export namespace SourceIpConditionConfig {
-  export function isa(o: any): o is SourceIpConditionConfig {
-    return __isa(o, "SourceIpConditionConfig");
-  }
+  export const isa = (o: any): o is SourceIpConditionConfig =>
+    __isa(o, "SourceIpConditionConfig");
 }
 
 /**
@@ -3082,9 +2955,7 @@ export interface SslPolicy {
 }
 
 export namespace SslPolicy {
-  export function isa(o: any): o is SslPolicy {
-    return __isa(o, "SslPolicy");
-  }
+  export const isa = (o: any): o is SslPolicy => __isa(o, "SslPolicy");
 }
 
 /**
@@ -3109,9 +2980,7 @@ export interface SubnetMapping {
 }
 
 export namespace SubnetMapping {
-  export function isa(o: any): o is SubnetMapping {
-    return __isa(o, "SubnetMapping");
-  }
+  export const isa = (o: any): o is SubnetMapping => __isa(o, "SubnetMapping");
 }
 
 /**
@@ -3126,9 +2995,8 @@ export interface SubnetNotFoundException
 }
 
 export namespace SubnetNotFoundException {
-  export function isa(o: any): o is SubnetNotFoundException {
-    return __isa(o, "SubnetNotFoundException");
-  }
+  export const isa = (o: any): o is SubnetNotFoundException =>
+    __isa(o, "SubnetNotFoundException");
 }
 
 /**
@@ -3148,9 +3016,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -3170,9 +3036,8 @@ export interface TagDescription {
 }
 
 export namespace TagDescription {
-  export function isa(o: any): o is TagDescription {
-    return __isa(o, "TagDescription");
-  }
+  export const isa = (o: any): o is TagDescription =>
+    __isa(o, "TagDescription");
 }
 
 /**
@@ -3208,9 +3073,8 @@ export interface TargetDescription {
 }
 
 export namespace TargetDescription {
-  export function isa(o: any): o is TargetDescription {
-    return __isa(o, "TargetDescription");
-  }
+  export const isa = (o: any): o is TargetDescription =>
+    __isa(o, "TargetDescription");
 }
 
 /**
@@ -3307,9 +3171,7 @@ export interface TargetGroup {
 }
 
 export namespace TargetGroup {
-  export function isa(o: any): o is TargetGroup {
-    return __isa(o, "TargetGroup");
-  }
+  export const isa = (o: any): o is TargetGroup => __isa(o, "TargetGroup");
 }
 
 /**
@@ -3324,9 +3186,8 @@ export interface TargetGroupAssociationLimitException
 }
 
 export namespace TargetGroupAssociationLimitException {
-  export function isa(o: any): o is TargetGroupAssociationLimitException {
-    return __isa(o, "TargetGroupAssociationLimitException");
-  }
+  export const isa = (o: any): o is TargetGroupAssociationLimitException =>
+    __isa(o, "TargetGroupAssociationLimitException");
 }
 
 /**
@@ -3414,9 +3275,8 @@ export interface TargetGroupAttribute {
 }
 
 export namespace TargetGroupAttribute {
-  export function isa(o: any): o is TargetGroupAttribute {
-    return __isa(o, "TargetGroupAttribute");
-  }
+  export const isa = (o: any): o is TargetGroupAttribute =>
+    __isa(o, "TargetGroupAttribute");
 }
 
 /**
@@ -3431,9 +3291,8 @@ export interface TargetGroupNotFoundException
 }
 
 export namespace TargetGroupNotFoundException {
-  export function isa(o: any): o is TargetGroupNotFoundException {
-    return __isa(o, "TargetGroupNotFoundException");
-  }
+  export const isa = (o: any): o is TargetGroupNotFoundException =>
+    __isa(o, "TargetGroupNotFoundException");
 }
 
 /**
@@ -3454,9 +3313,8 @@ export interface TargetGroupStickinessConfig {
 }
 
 export namespace TargetGroupStickinessConfig {
-  export function isa(o: any): o is TargetGroupStickinessConfig {
-    return __isa(o, "TargetGroupStickinessConfig");
-  }
+  export const isa = (o: any): o is TargetGroupStickinessConfig =>
+    __isa(o, "TargetGroupStickinessConfig");
 }
 
 /**
@@ -3476,9 +3334,8 @@ export interface TargetGroupTuple {
 }
 
 export namespace TargetGroupTuple {
-  export function isa(o: any): o is TargetGroupTuple {
-    return __isa(o, "TargetGroupTuple");
-  }
+  export const isa = (o: any): o is TargetGroupTuple =>
+    __isa(o, "TargetGroupTuple");
 }
 
 /**
@@ -3590,9 +3447,7 @@ export interface TargetHealth {
 }
 
 export namespace TargetHealth {
-  export function isa(o: any): o is TargetHealth {
-    return __isa(o, "TargetHealth");
-  }
+  export const isa = (o: any): o is TargetHealth => __isa(o, "TargetHealth");
 }
 
 /**
@@ -3617,9 +3472,8 @@ export interface TargetHealthDescription {
 }
 
 export namespace TargetHealthDescription {
-  export function isa(o: any): o is TargetHealthDescription {
-    return __isa(o, "TargetHealthDescription");
-  }
+  export const isa = (o: any): o is TargetHealthDescription =>
+    __isa(o, "TargetHealthDescription");
 }
 
 export enum TargetHealthReasonEnum {
@@ -3664,9 +3518,8 @@ export interface TooManyActionsException
 }
 
 export namespace TooManyActionsException {
-  export function isa(o: any): o is TooManyActionsException {
-    return __isa(o, "TooManyActionsException");
-  }
+  export const isa = (o: any): o is TooManyActionsException =>
+    __isa(o, "TooManyActionsException");
 }
 
 /**
@@ -3681,9 +3534,8 @@ export interface TooManyCertificatesException
 }
 
 export namespace TooManyCertificatesException {
-  export function isa(o: any): o is TooManyCertificatesException {
-    return __isa(o, "TooManyCertificatesException");
-  }
+  export const isa = (o: any): o is TooManyCertificatesException =>
+    __isa(o, "TooManyCertificatesException");
 }
 
 /**
@@ -3698,9 +3550,8 @@ export interface TooManyListenersException
 }
 
 export namespace TooManyListenersException {
-  export function isa(o: any): o is TooManyListenersException {
-    return __isa(o, "TooManyListenersException");
-  }
+  export const isa = (o: any): o is TooManyListenersException =>
+    __isa(o, "TooManyListenersException");
 }
 
 /**
@@ -3716,9 +3567,8 @@ export interface TooManyLoadBalancersException
 }
 
 export namespace TooManyLoadBalancersException {
-  export function isa(o: any): o is TooManyLoadBalancersException {
-    return __isa(o, "TooManyLoadBalancersException");
-  }
+  export const isa = (o: any): o is TooManyLoadBalancersException =>
+    __isa(o, "TooManyLoadBalancersException");
 }
 
 /**
@@ -3734,9 +3584,8 @@ export interface TooManyRegistrationsForTargetIdException
 }
 
 export namespace TooManyRegistrationsForTargetIdException {
-  export function isa(o: any): o is TooManyRegistrationsForTargetIdException {
-    return __isa(o, "TooManyRegistrationsForTargetIdException");
-  }
+  export const isa = (o: any): o is TooManyRegistrationsForTargetIdException =>
+    __isa(o, "TooManyRegistrationsForTargetIdException");
 }
 
 /**
@@ -3751,9 +3600,8 @@ export interface TooManyRulesException
 }
 
 export namespace TooManyRulesException {
-  export function isa(o: any): o is TooManyRulesException {
-    return __isa(o, "TooManyRulesException");
-  }
+  export const isa = (o: any): o is TooManyRulesException =>
+    __isa(o, "TooManyRulesException");
 }
 
 /**
@@ -3768,9 +3616,8 @@ export interface TooManyTagsException
 }
 
 export namespace TooManyTagsException {
-  export function isa(o: any): o is TooManyTagsException {
-    return __isa(o, "TooManyTagsException");
-  }
+  export const isa = (o: any): o is TooManyTagsException =>
+    __isa(o, "TooManyTagsException");
 }
 
 /**
@@ -3785,9 +3632,8 @@ export interface TooManyTargetGroupsException
 }
 
 export namespace TooManyTargetGroupsException {
-  export function isa(o: any): o is TooManyTargetGroupsException {
-    return __isa(o, "TooManyTargetGroupsException");
-  }
+  export const isa = (o: any): o is TooManyTargetGroupsException =>
+    __isa(o, "TooManyTargetGroupsException");
 }
 
 /**
@@ -3802,9 +3648,8 @@ export interface TooManyTargetsException
 }
 
 export namespace TooManyTargetsException {
-  export function isa(o: any): o is TooManyTargetsException {
-    return __isa(o, "TooManyTargetsException");
-  }
+  export const isa = (o: any): o is TooManyTargetsException =>
+    __isa(o, "TooManyTargetsException");
 }
 
 /**
@@ -3821,11 +3666,10 @@ export interface TooManyUniqueTargetGroupsPerLoadBalancerException
 }
 
 export namespace TooManyUniqueTargetGroupsPerLoadBalancerException {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is TooManyUniqueTargetGroupsPerLoadBalancerException {
-    return __isa(o, "TooManyUniqueTargetGroupsPerLoadBalancerException");
-  }
+  ): o is TooManyUniqueTargetGroupsPerLoadBalancerException =>
+    __isa(o, "TooManyUniqueTargetGroupsPerLoadBalancerException");
 }
 
 /**
@@ -3840,7 +3684,6 @@ export interface UnsupportedProtocolException
 }
 
 export namespace UnsupportedProtocolException {
-  export function isa(o: any): o is UnsupportedProtocolException {
-    return __isa(o, "UnsupportedProtocolException");
-  }
+  export const isa = (o: any): o is UnsupportedProtocolException =>
+    __isa(o, "UnsupportedProtocolException");
 }

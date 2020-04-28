@@ -19,9 +19,8 @@ export interface AttributeValue {
 }
 
 export namespace AttributeValue {
-  export function isa(o: any): o is AttributeValue {
-    return __isa(o, "AttributeValue");
-  }
+  export const isa = (o: any): o is AttributeValue =>
+    __isa(o, "AttributeValue");
 }
 
 export interface DescribeServicesRequest {
@@ -53,9 +52,8 @@ export interface DescribeServicesRequest {
 }
 
 export namespace DescribeServicesRequest {
-  export function isa(o: any): o is DescribeServicesRequest {
-    return __isa(o, "DescribeServicesRequest");
-  }
+  export const isa = (o: any): o is DescribeServicesRequest =>
+    __isa(o, "DescribeServicesRequest");
 }
 
 export interface DescribeServicesResponse {
@@ -77,9 +75,8 @@ export interface DescribeServicesResponse {
 }
 
 export namespace DescribeServicesResponse {
-  export function isa(o: any): o is DescribeServicesResponse {
-    return __isa(o, "DescribeServicesResponse");
-  }
+  export const isa = (o: any): o is DescribeServicesResponse =>
+    __isa(o, "DescribeServicesResponse");
 }
 
 /**
@@ -94,9 +91,8 @@ export interface ExpiredNextTokenException
 }
 
 export namespace ExpiredNextTokenException {
-  export function isa(o: any): o is ExpiredNextTokenException {
-    return __isa(o, "ExpiredNextTokenException");
-  }
+  export const isa = (o: any): o is ExpiredNextTokenException =>
+    __isa(o, "ExpiredNextTokenException");
 }
 
 /**
@@ -133,9 +129,7 @@ export interface Filter {
 }
 
 export namespace Filter {
-  export function isa(o: any): o is Filter {
-    return __isa(o, "Filter");
-  }
+  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 export enum FilterType {
@@ -167,9 +161,8 @@ export interface GetAttributeValuesRequest {
 }
 
 export namespace GetAttributeValuesRequest {
-  export function isa(o: any): o is GetAttributeValuesRequest {
-    return __isa(o, "GetAttributeValuesRequest");
-  }
+  export const isa = (o: any): o is GetAttributeValuesRequest =>
+    __isa(o, "GetAttributeValuesRequest");
 }
 
 export interface GetAttributeValuesResponse {
@@ -188,9 +181,8 @@ export interface GetAttributeValuesResponse {
 }
 
 export namespace GetAttributeValuesResponse {
-  export function isa(o: any): o is GetAttributeValuesResponse {
-    return __isa(o, "GetAttributeValuesResponse");
-  }
+  export const isa = (o: any): o is GetAttributeValuesResponse =>
+    __isa(o, "GetAttributeValuesResponse");
 }
 
 export interface GetProductsRequest {
@@ -225,9 +217,8 @@ export interface GetProductsRequest {
 }
 
 export namespace GetProductsRequest {
-  export function isa(o: any): o is GetProductsRequest {
-    return __isa(o, "GetProductsRequest");
-  }
+  export const isa = (o: any): o is GetProductsRequest =>
+    __isa(o, "GetProductsRequest");
 }
 
 export interface GetProductsResponse {
@@ -250,9 +241,8 @@ export interface GetProductsResponse {
 }
 
 export namespace GetProductsResponse {
-  export function isa(o: any): o is GetProductsResponse {
-    return __isa(o, "GetProductsResponse");
-  }
+  export const isa = (o: any): o is GetProductsResponse =>
+    __isa(o, "GetProductsResponse");
 }
 
 /**
@@ -267,9 +257,8 @@ export interface InternalErrorException
 }
 
 export namespace InternalErrorException {
-  export function isa(o: any): o is InternalErrorException {
-    return __isa(o, "InternalErrorException");
-  }
+  export const isa = (o: any): o is InternalErrorException =>
+    __isa(o, "InternalErrorException");
 }
 
 /**
@@ -284,9 +273,8 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export function isa(o: any): o is InvalidNextTokenException {
-    return __isa(o, "InvalidNextTokenException");
-  }
+  export const isa = (o: any): o is InvalidNextTokenException =>
+    __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -301,9 +289,8 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export function isa(o: any): o is InvalidParameterException {
-    return __isa(o, "InvalidParameterException");
-  }
+  export const isa = (o: any): o is InvalidParameterException =>
+    __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -316,9 +303,8 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return __isa(o, "NotFoundException");
-  }
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
 }
 
 /**
@@ -338,7 +324,5 @@ export interface Service {
 }
 
 export namespace Service {
-  export function isa(o: any): o is Service {
-    return __isa(o, "Service");
-  }
+  export const isa = (o: any): o is Service => __isa(o, "Service");
 }

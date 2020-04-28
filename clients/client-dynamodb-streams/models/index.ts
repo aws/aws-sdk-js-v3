@@ -27,9 +27,8 @@ export interface DescribeStreamInput {
 }
 
 export namespace DescribeStreamInput {
-  export function isa(o: any): o is DescribeStreamInput {
-    return __isa(o, "DescribeStreamInput");
-  }
+  export const isa = (o: any): o is DescribeStreamInput =>
+    __isa(o, "DescribeStreamInput");
 }
 
 /**
@@ -44,9 +43,8 @@ export interface DescribeStreamOutput {
 }
 
 export namespace DescribeStreamOutput {
-  export function isa(o: any): o is DescribeStreamOutput {
-    return __isa(o, "DescribeStreamOutput");
-  }
+  export const isa = (o: any): o is DescribeStreamOutput =>
+    __isa(o, "DescribeStreamOutput");
 }
 
 /**
@@ -66,9 +64,8 @@ export interface ExpiredIteratorException
 }
 
 export namespace ExpiredIteratorException {
-  export function isa(o: any): o is ExpiredIteratorException {
-    return __isa(o, "ExpiredIteratorException");
-  }
+  export const isa = (o: any): o is ExpiredIteratorException =>
+    __isa(o, "ExpiredIteratorException");
 }
 
 /**
@@ -88,9 +85,8 @@ export interface GetRecordsInput {
 }
 
 export namespace GetRecordsInput {
-  export function isa(o: any): o is GetRecordsInput {
-    return __isa(o, "GetRecordsInput");
-  }
+  export const isa = (o: any): o is GetRecordsInput =>
+    __isa(o, "GetRecordsInput");
 }
 
 /**
@@ -112,9 +108,8 @@ export interface GetRecordsOutput {
 }
 
 export namespace GetRecordsOutput {
-  export function isa(o: any): o is GetRecordsOutput {
-    return __isa(o, "GetRecordsOutput");
-  }
+  export const isa = (o: any): o is GetRecordsOutput =>
+    __isa(o, "GetRecordsOutput");
 }
 
 /**
@@ -168,9 +163,8 @@ export interface GetShardIteratorInput {
 }
 
 export namespace GetShardIteratorInput {
-  export function isa(o: any): o is GetShardIteratorInput {
-    return __isa(o, "GetShardIteratorInput");
-  }
+  export const isa = (o: any): o is GetShardIteratorInput =>
+    __isa(o, "GetShardIteratorInput");
 }
 
 /**
@@ -185,9 +179,8 @@ export interface GetShardIteratorOutput {
 }
 
 export namespace GetShardIteratorOutput {
-  export function isa(o: any): o is GetShardIteratorOutput {
-    return __isa(o, "GetShardIteratorOutput");
-  }
+  export const isa = (o: any): o is GetShardIteratorOutput =>
+    __isa(o, "GetShardIteratorOutput");
 }
 
 /**
@@ -208,9 +201,7 @@ export interface Identity {
 }
 
 export namespace Identity {
-  export function isa(o: any): o is Identity {
-    return __isa(o, "Identity");
-  }
+  export const isa = (o: any): o is Identity => __isa(o, "Identity");
 }
 
 /**
@@ -237,9 +228,8 @@ export interface ListStreamsInput {
 }
 
 export namespace ListStreamsInput {
-  export function isa(o: any): o is ListStreamsInput {
-    return __isa(o, "ListStreamsInput");
-  }
+  export const isa = (o: any): o is ListStreamsInput =>
+    __isa(o, "ListStreamsInput");
 }
 
 /**
@@ -264,9 +254,8 @@ export interface ListStreamsOutput {
 }
 
 export namespace ListStreamsOutput {
-  export function isa(o: any): o is ListStreamsOutput {
-    return __isa(o, "ListStreamsOutput");
-  }
+  export const isa = (o: any): o is ListStreamsOutput =>
+    __isa(o, "ListStreamsOutput");
 }
 
 export type OperationType = "INSERT" | "MODIFY" | "REMOVE";
@@ -340,9 +329,7 @@ export interface _Record {
 }
 
 export namespace _Record {
-  export function isa(o: any): o is _Record {
-    return __isa(o, "Record");
-  }
+  export const isa = (o: any): o is _Record => __isa(o, "Record");
 }
 
 /**
@@ -362,9 +349,8 @@ export interface SequenceNumberRange {
 }
 
 export namespace SequenceNumberRange {
-  export function isa(o: any): o is SequenceNumberRange {
-    return __isa(o, "SequenceNumberRange");
-  }
+  export const isa = (o: any): o is SequenceNumberRange =>
+    __isa(o, "SequenceNumberRange");
 }
 
 /**
@@ -389,9 +375,7 @@ export interface Shard {
 }
 
 export namespace Shard {
-  export function isa(o: any): o is Shard {
-    return __isa(o, "Shard");
-  }
+  export const isa = (o: any): o is Shard => __isa(o, "Shard");
 }
 
 export type ShardIteratorType =
@@ -437,9 +421,7 @@ export interface _Stream {
 }
 
 export namespace _Stream {
-  export function isa(o: any): o is _Stream {
-    return __isa(o, "Stream");
-  }
+  export const isa = (o: any): o is _Stream => __isa(o, "Stream");
 }
 
 /**
@@ -550,9 +532,8 @@ export interface StreamDescription {
 }
 
 export namespace StreamDescription {
-  export function isa(o: any): o is StreamDescription {
-    return __isa(o, "StreamDescription");
-  }
+  export const isa = (o: any): o is StreamDescription =>
+    __isa(o, "StreamDescription");
 }
 
 /**
@@ -615,9 +596,7 @@ export interface StreamRecord {
 }
 
 export namespace StreamRecord {
-  export function isa(o: any): o is StreamRecord {
-    return __isa(o, "StreamRecord");
-  }
+  export const isa = (o: any): o is StreamRecord => __isa(o, "StreamRecord");
 }
 
 export type StreamStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
@@ -648,9 +627,8 @@ export interface TrimmedDataAccessException
 }
 
 export namespace TrimmedDataAccessException {
-  export function isa(o: any): o is TrimmedDataAccessException {
-    return __isa(o, "TrimmedDataAccessException");
-  }
+  export const isa = (o: any): o is TrimmedDataAccessException =>
+    __isa(o, "TrimmedDataAccessException");
 }
 
 /**
@@ -711,9 +689,8 @@ export interface AttributeValue {
 }
 
 export namespace AttributeValue {
-  export function isa(o: any): o is AttributeValue {
-    return __isa(o, "AttributeValue");
-  }
+  export const isa = (o: any): o is AttributeValue =>
+    __isa(o, "AttributeValue");
 }
 
 /**
@@ -731,9 +708,8 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export function isa(o: any): o is InternalServerError {
-    return __isa(o, "InternalServerError");
-  }
+  export const isa = (o: any): o is InternalServerError =>
+    __isa(o, "InternalServerError");
 }
 
 /**
@@ -765,9 +741,8 @@ export interface KeySchemaElement {
 }
 
 export namespace KeySchemaElement {
-  export function isa(o: any): o is KeySchemaElement {
-    return __isa(o, "KeySchemaElement");
-  }
+  export const isa = (o: any): o is KeySchemaElement =>
+    __isa(o, "KeySchemaElement");
 }
 
 export type KeyType = "HASH" | "RANGE";
@@ -791,9 +766,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 /**
@@ -811,9 +785,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 export type StreamViewType =

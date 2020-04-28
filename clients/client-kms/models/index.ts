@@ -32,9 +32,8 @@ export interface AliasListEntry {
 }
 
 export namespace AliasListEntry {
-  export function isa(o: any): o is AliasListEntry {
-    return __isa(o, "AliasListEntry");
-  }
+  export const isa = (o: any): o is AliasListEntry =>
+    __isa(o, "AliasListEntry");
 }
 
 /**
@@ -50,9 +49,8 @@ export interface AlreadyExistsException
 }
 
 export namespace AlreadyExistsException {
-  export function isa(o: any): o is AlreadyExistsException {
-    return __isa(o, "AlreadyExistsException");
-  }
+  export const isa = (o: any): o is AlreadyExistsException =>
+    __isa(o, "AlreadyExistsException");
 }
 
 export interface CancelKeyDeletionRequest {
@@ -78,9 +76,8 @@ export interface CancelKeyDeletionRequest {
 }
 
 export namespace CancelKeyDeletionRequest {
-  export function isa(o: any): o is CancelKeyDeletionRequest {
-    return __isa(o, "CancelKeyDeletionRequest");
-  }
+  export const isa = (o: any): o is CancelKeyDeletionRequest =>
+    __isa(o, "CancelKeyDeletionRequest");
 }
 
 export interface CancelKeyDeletionResponse {
@@ -92,9 +89,8 @@ export interface CancelKeyDeletionResponse {
 }
 
 export namespace CancelKeyDeletionResponse {
-  export function isa(o: any): o is CancelKeyDeletionResponse {
-    return __isa(o, "CancelKeyDeletionResponse");
-  }
+  export const isa = (o: any): o is CancelKeyDeletionResponse =>
+    __isa(o, "CancelKeyDeletionResponse");
 }
 
 /**
@@ -113,9 +109,8 @@ export interface CloudHsmClusterInUseException
 }
 
 export namespace CloudHsmClusterInUseException {
-  export function isa(o: any): o is CloudHsmClusterInUseException {
-    return __isa(o, "CloudHsmClusterInUseException");
-  }
+  export const isa = (o: any): o is CloudHsmClusterInUseException =>
+    __isa(o, "CloudHsmClusterInUseException");
 }
 
 /**
@@ -162,11 +157,10 @@ export interface CloudHsmClusterInvalidConfigurationException
 }
 
 export namespace CloudHsmClusterInvalidConfigurationException {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is CloudHsmClusterInvalidConfigurationException {
-    return __isa(o, "CloudHsmClusterInvalidConfigurationException");
-  }
+  ): o is CloudHsmClusterInvalidConfigurationException =>
+    __isa(o, "CloudHsmClusterInvalidConfigurationException");
 }
 
 /**
@@ -183,9 +177,8 @@ export interface CloudHsmClusterNotActiveException
 }
 
 export namespace CloudHsmClusterNotActiveException {
-  export function isa(o: any): o is CloudHsmClusterNotActiveException {
-    return __isa(o, "CloudHsmClusterNotActiveException");
-  }
+  export const isa = (o: any): o is CloudHsmClusterNotActiveException =>
+    __isa(o, "CloudHsmClusterNotActiveException");
 }
 
 /**
@@ -201,9 +194,8 @@ export interface CloudHsmClusterNotFoundException
 }
 
 export namespace CloudHsmClusterNotFoundException {
-  export function isa(o: any): o is CloudHsmClusterNotFoundException {
-    return __isa(o, "CloudHsmClusterNotFoundException");
-  }
+  export const isa = (o: any): o is CloudHsmClusterNotFoundException =>
+    __isa(o, "CloudHsmClusterNotFoundException");
 }
 
 /**
@@ -225,9 +217,8 @@ export interface CloudHsmClusterNotRelatedException
 }
 
 export namespace CloudHsmClusterNotRelatedException {
-  export function isa(o: any): o is CloudHsmClusterNotRelatedException {
-    return __isa(o, "CloudHsmClusterNotRelatedException");
-  }
+  export const isa = (o: any): o is CloudHsmClusterNotRelatedException =>
+    __isa(o, "CloudHsmClusterNotRelatedException");
 }
 
 export interface ConnectCustomKeyStoreRequest {
@@ -240,9 +231,8 @@ export interface ConnectCustomKeyStoreRequest {
 }
 
 export namespace ConnectCustomKeyStoreRequest {
-  export function isa(o: any): o is ConnectCustomKeyStoreRequest {
-    return __isa(o, "ConnectCustomKeyStoreRequest");
-  }
+  export const isa = (o: any): o is ConnectCustomKeyStoreRequest =>
+    __isa(o, "ConnectCustomKeyStoreRequest");
 }
 
 export interface ConnectCustomKeyStoreResponse {
@@ -250,9 +240,8 @@ export interface ConnectCustomKeyStoreResponse {
 }
 
 export namespace ConnectCustomKeyStoreResponse {
-  export function isa(o: any): o is ConnectCustomKeyStoreResponse {
-    return __isa(o, "ConnectCustomKeyStoreResponse");
-  }
+  export const isa = (o: any): o is ConnectCustomKeyStoreResponse =>
+    __isa(o, "ConnectCustomKeyStoreResponse");
 }
 
 export enum ConnectionErrorCodeType {
@@ -294,9 +283,8 @@ export interface CreateAliasRequest {
 }
 
 export namespace CreateAliasRequest {
-  export function isa(o: any): o is CreateAliasRequest {
-    return __isa(o, "CreateAliasRequest");
-  }
+  export const isa = (o: any): o is CreateAliasRequest =>
+    __isa(o, "CreateAliasRequest");
 }
 
 export interface CreateCustomKeyStoreRequest {
@@ -333,9 +321,8 @@ export interface CreateCustomKeyStoreRequest {
 }
 
 export namespace CreateCustomKeyStoreRequest {
-  export function isa(o: any): o is CreateCustomKeyStoreRequest {
-    return __isa(o, "CreateCustomKeyStoreRequest");
-  }
+  export const isa = (o: any): o is CreateCustomKeyStoreRequest =>
+    __isa(o, "CreateCustomKeyStoreRequest");
 }
 
 export interface CreateCustomKeyStoreResponse {
@@ -347,9 +334,8 @@ export interface CreateCustomKeyStoreResponse {
 }
 
 export namespace CreateCustomKeyStoreResponse {
-  export function isa(o: any): o is CreateCustomKeyStoreResponse {
-    return __isa(o, "CreateCustomKeyStoreResponse");
-  }
+  export const isa = (o: any): o is CreateCustomKeyStoreResponse =>
+    __isa(o, "CreateCustomKeyStoreResponse");
 }
 
 export interface CreateGrantRequest {
@@ -434,9 +420,8 @@ export interface CreateGrantRequest {
 }
 
 export namespace CreateGrantRequest {
-  export function isa(o: any): o is CreateGrantRequest {
-    return __isa(o, "CreateGrantRequest");
-  }
+  export const isa = (o: any): o is CreateGrantRequest =>
+    __isa(o, "CreateGrantRequest");
 }
 
 export interface CreateGrantResponse {
@@ -457,9 +442,8 @@ export interface CreateGrantResponse {
 }
 
 export namespace CreateGrantResponse {
-  export function isa(o: any): o is CreateGrantResponse {
-    return __isa(o, "CreateGrantResponse");
-  }
+  export const isa = (o: any): o is CreateGrantResponse =>
+    __isa(o, "CreateGrantResponse");
 }
 
 export interface CreateKeyRequest {
@@ -660,9 +644,8 @@ export interface CreateKeyRequest {
 }
 
 export namespace CreateKeyRequest {
-  export function isa(o: any): o is CreateKeyRequest {
-    return __isa(o, "CreateKeyRequest");
-  }
+  export const isa = (o: any): o is CreateKeyRequest =>
+    __isa(o, "CreateKeyRequest");
 }
 
 export interface CreateKeyResponse {
@@ -674,9 +657,8 @@ export interface CreateKeyResponse {
 }
 
 export namespace CreateKeyResponse {
-  export function isa(o: any): o is CreateKeyResponse {
-    return __isa(o, "CreateKeyResponse");
-  }
+  export const isa = (o: any): o is CreateKeyResponse =>
+    __isa(o, "CreateKeyResponse");
 }
 
 /**
@@ -693,9 +675,8 @@ export interface CustomKeyStoreHasCMKsException
 }
 
 export namespace CustomKeyStoreHasCMKsException {
-  export function isa(o: any): o is CustomKeyStoreHasCMKsException {
-    return __isa(o, "CustomKeyStoreHasCMKsException");
-  }
+  export const isa = (o: any): o is CustomKeyStoreHasCMKsException =>
+    __isa(o, "CustomKeyStoreHasCMKsException");
 }
 
 /**
@@ -730,9 +711,8 @@ export interface CustomKeyStoreInvalidStateException
 }
 
 export namespace CustomKeyStoreInvalidStateException {
-  export function isa(o: any): o is CustomKeyStoreInvalidStateException {
-    return __isa(o, "CustomKeyStoreInvalidStateException");
-  }
+  export const isa = (o: any): o is CustomKeyStoreInvalidStateException =>
+    __isa(o, "CustomKeyStoreInvalidStateException");
 }
 
 /**
@@ -749,9 +729,8 @@ export interface CustomKeyStoreNameInUseException
 }
 
 export namespace CustomKeyStoreNameInUseException {
-  export function isa(o: any): o is CustomKeyStoreNameInUseException {
-    return __isa(o, "CustomKeyStoreNameInUseException");
-  }
+  export const isa = (o: any): o is CustomKeyStoreNameInUseException =>
+    __isa(o, "CustomKeyStoreNameInUseException");
 }
 
 /**
@@ -767,9 +746,8 @@ export interface CustomKeyStoreNotFoundException
 }
 
 export namespace CustomKeyStoreNotFoundException {
-  export function isa(o: any): o is CustomKeyStoreNotFoundException {
-    return __isa(o, "CustomKeyStoreNotFoundException");
-  }
+  export const isa = (o: any): o is CustomKeyStoreNotFoundException =>
+    __isa(o, "CustomKeyStoreNotFoundException");
 }
 
 /**
@@ -879,9 +857,8 @@ export interface CustomKeyStoresListEntry {
 }
 
 export namespace CustomKeyStoresListEntry {
-  export function isa(o: any): o is CustomKeyStoresListEntry {
-    return __isa(o, "CustomKeyStoresListEntry");
-  }
+  export const isa = (o: any): o is CustomKeyStoresListEntry =>
+    __isa(o, "CustomKeyStoresListEntry");
 }
 
 export enum CustomerMasterKeySpec {
@@ -979,9 +956,8 @@ export interface DecryptRequest {
 }
 
 export namespace DecryptRequest {
-  export function isa(o: any): o is DecryptRequest {
-    return __isa(o, "DecryptRequest");
-  }
+  export const isa = (o: any): o is DecryptRequest =>
+    __isa(o, "DecryptRequest");
 }
 
 export interface DecryptResponse {
@@ -1003,9 +979,8 @@ export interface DecryptResponse {
 }
 
 export namespace DecryptResponse {
-  export function isa(o: any): o is DecryptResponse {
-    return __isa(o, "DecryptResponse");
-  }
+  export const isa = (o: any): o is DecryptResponse =>
+    __isa(o, "DecryptResponse");
 }
 
 export interface DeleteAliasRequest {
@@ -1018,9 +993,8 @@ export interface DeleteAliasRequest {
 }
 
 export namespace DeleteAliasRequest {
-  export function isa(o: any): o is DeleteAliasRequest {
-    return __isa(o, "DeleteAliasRequest");
-  }
+  export const isa = (o: any): o is DeleteAliasRequest =>
+    __isa(o, "DeleteAliasRequest");
 }
 
 export interface DeleteCustomKeyStoreRequest {
@@ -1032,9 +1006,8 @@ export interface DeleteCustomKeyStoreRequest {
 }
 
 export namespace DeleteCustomKeyStoreRequest {
-  export function isa(o: any): o is DeleteCustomKeyStoreRequest {
-    return __isa(o, "DeleteCustomKeyStoreRequest");
-  }
+  export const isa = (o: any): o is DeleteCustomKeyStoreRequest =>
+    __isa(o, "DeleteCustomKeyStoreRequest");
 }
 
 export interface DeleteCustomKeyStoreResponse {
@@ -1042,9 +1015,8 @@ export interface DeleteCustomKeyStoreResponse {
 }
 
 export namespace DeleteCustomKeyStoreResponse {
-  export function isa(o: any): o is DeleteCustomKeyStoreResponse {
-    return __isa(o, "DeleteCustomKeyStoreResponse");
-  }
+  export const isa = (o: any): o is DeleteCustomKeyStoreResponse =>
+    __isa(o, "DeleteCustomKeyStoreResponse");
 }
 
 export interface DeleteImportedKeyMaterialRequest {
@@ -1070,9 +1042,8 @@ export interface DeleteImportedKeyMaterialRequest {
 }
 
 export namespace DeleteImportedKeyMaterialRequest {
-  export function isa(o: any): o is DeleteImportedKeyMaterialRequest {
-    return __isa(o, "DeleteImportedKeyMaterialRequest");
-  }
+  export const isa = (o: any): o is DeleteImportedKeyMaterialRequest =>
+    __isa(o, "DeleteImportedKeyMaterialRequest");
 }
 
 /**
@@ -1088,9 +1059,8 @@ export interface DependencyTimeoutException
 }
 
 export namespace DependencyTimeoutException {
-  export function isa(o: any): o is DependencyTimeoutException {
-    return __isa(o, "DependencyTimeoutException");
-  }
+  export const isa = (o: any): o is DependencyTimeoutException =>
+    __isa(o, "DependencyTimeoutException");
 }
 
 export interface DescribeCustomKeyStoresRequest {
@@ -1130,9 +1100,8 @@ export interface DescribeCustomKeyStoresRequest {
 }
 
 export namespace DescribeCustomKeyStoresRequest {
-  export function isa(o: any): o is DescribeCustomKeyStoresRequest {
-    return __isa(o, "DescribeCustomKeyStoresRequest");
-  }
+  export const isa = (o: any): o is DescribeCustomKeyStoresRequest =>
+    __isa(o, "DescribeCustomKeyStoresRequest");
 }
 
 export interface DescribeCustomKeyStoresResponse {
@@ -1158,9 +1127,8 @@ export interface DescribeCustomKeyStoresResponse {
 }
 
 export namespace DescribeCustomKeyStoresResponse {
-  export function isa(o: any): o is DescribeCustomKeyStoresResponse {
-    return __isa(o, "DescribeCustomKeyStoresResponse");
-  }
+  export const isa = (o: any): o is DescribeCustomKeyStoresResponse =>
+    __isa(o, "DescribeCustomKeyStoresResponse");
 }
 
 export interface DescribeKeyRequest {
@@ -1204,9 +1172,8 @@ export interface DescribeKeyRequest {
 }
 
 export namespace DescribeKeyRequest {
-  export function isa(o: any): o is DescribeKeyRequest {
-    return __isa(o, "DescribeKeyRequest");
-  }
+  export const isa = (o: any): o is DescribeKeyRequest =>
+    __isa(o, "DescribeKeyRequest");
 }
 
 export interface DescribeKeyResponse {
@@ -1218,9 +1185,8 @@ export interface DescribeKeyResponse {
 }
 
 export namespace DescribeKeyResponse {
-  export function isa(o: any): o is DescribeKeyResponse {
-    return __isa(o, "DescribeKeyResponse");
-  }
+  export const isa = (o: any): o is DescribeKeyResponse =>
+    __isa(o, "DescribeKeyResponse");
 }
 
 export interface DisableKeyRequest {
@@ -1245,9 +1211,8 @@ export interface DisableKeyRequest {
 }
 
 export namespace DisableKeyRequest {
-  export function isa(o: any): o is DisableKeyRequest {
-    return __isa(o, "DisableKeyRequest");
-  }
+  export const isa = (o: any): o is DisableKeyRequest =>
+    __isa(o, "DisableKeyRequest");
 }
 
 export interface DisableKeyRotationRequest {
@@ -1274,9 +1239,8 @@ export interface DisableKeyRotationRequest {
 }
 
 export namespace DisableKeyRotationRequest {
-  export function isa(o: any): o is DisableKeyRotationRequest {
-    return __isa(o, "DisableKeyRotationRequest");
-  }
+  export const isa = (o: any): o is DisableKeyRotationRequest =>
+    __isa(o, "DisableKeyRotationRequest");
 }
 
 /**
@@ -1289,9 +1253,8 @@ export interface DisabledException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DisabledException {
-  export function isa(o: any): o is DisabledException {
-    return __isa(o, "DisabledException");
-  }
+  export const isa = (o: any): o is DisabledException =>
+    __isa(o, "DisabledException");
 }
 
 export interface DisconnectCustomKeyStoreRequest {
@@ -1303,9 +1266,8 @@ export interface DisconnectCustomKeyStoreRequest {
 }
 
 export namespace DisconnectCustomKeyStoreRequest {
-  export function isa(o: any): o is DisconnectCustomKeyStoreRequest {
-    return __isa(o, "DisconnectCustomKeyStoreRequest");
-  }
+  export const isa = (o: any): o is DisconnectCustomKeyStoreRequest =>
+    __isa(o, "DisconnectCustomKeyStoreRequest");
 }
 
 export interface DisconnectCustomKeyStoreResponse {
@@ -1313,9 +1275,8 @@ export interface DisconnectCustomKeyStoreResponse {
 }
 
 export namespace DisconnectCustomKeyStoreResponse {
-  export function isa(o: any): o is DisconnectCustomKeyStoreResponse {
-    return __isa(o, "DisconnectCustomKeyStoreResponse");
-  }
+  export const isa = (o: any): o is DisconnectCustomKeyStoreResponse =>
+    __isa(o, "DisconnectCustomKeyStoreResponse");
 }
 
 export interface EnableKeyRequest {
@@ -1340,9 +1301,8 @@ export interface EnableKeyRequest {
 }
 
 export namespace EnableKeyRequest {
-  export function isa(o: any): o is EnableKeyRequest {
-    return __isa(o, "EnableKeyRequest");
-  }
+  export const isa = (o: any): o is EnableKeyRequest =>
+    __isa(o, "EnableKeyRequest");
 }
 
 export interface EnableKeyRotationRequest {
@@ -1368,9 +1328,8 @@ export interface EnableKeyRotationRequest {
 }
 
 export namespace EnableKeyRotationRequest {
-  export function isa(o: any): o is EnableKeyRotationRequest {
-    return __isa(o, "EnableKeyRotationRequest");
-  }
+  export const isa = (o: any): o is EnableKeyRotationRequest =>
+    __isa(o, "EnableKeyRotationRequest");
 }
 
 export interface EncryptRequest {
@@ -1434,9 +1393,8 @@ export interface EncryptRequest {
 }
 
 export namespace EncryptRequest {
-  export function isa(o: any): o is EncryptRequest {
-    return __isa(o, "EncryptRequest");
-  }
+  export const isa = (o: any): o is EncryptRequest =>
+    __isa(o, "EncryptRequest");
 }
 
 export interface EncryptResponse {
@@ -1458,9 +1416,8 @@ export interface EncryptResponse {
 }
 
 export namespace EncryptResponse {
-  export function isa(o: any): o is EncryptResponse {
-    return __isa(o, "EncryptResponse");
-  }
+  export const isa = (o: any): o is EncryptResponse =>
+    __isa(o, "EncryptResponse");
 }
 
 export enum EncryptionAlgorithmSpec {
@@ -1487,9 +1444,8 @@ export interface ExpiredImportTokenException
 }
 
 export namespace ExpiredImportTokenException {
-  export function isa(o: any): o is ExpiredImportTokenException {
-    return __isa(o, "ExpiredImportTokenException");
-  }
+  export const isa = (o: any): o is ExpiredImportTokenException =>
+    __isa(o, "ExpiredImportTokenException");
 }
 
 export interface GenerateDataKeyPairRequest {
@@ -1546,9 +1502,8 @@ export interface GenerateDataKeyPairRequest {
 }
 
 export namespace GenerateDataKeyPairRequest {
-  export function isa(o: any): o is GenerateDataKeyPairRequest {
-    return __isa(o, "GenerateDataKeyPairRequest");
-  }
+  export const isa = (o: any): o is GenerateDataKeyPairRequest =>
+    __isa(o, "GenerateDataKeyPairRequest");
 }
 
 export interface GenerateDataKeyPairResponse {
@@ -1580,9 +1535,8 @@ export interface GenerateDataKeyPairResponse {
 }
 
 export namespace GenerateDataKeyPairResponse {
-  export function isa(o: any): o is GenerateDataKeyPairResponse {
-    return __isa(o, "GenerateDataKeyPairResponse");
-  }
+  export const isa = (o: any): o is GenerateDataKeyPairResponse =>
+    __isa(o, "GenerateDataKeyPairResponse");
 }
 
 export interface GenerateDataKeyPairWithoutPlaintextRequest {
@@ -1641,9 +1595,10 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
 }
 
 export namespace GenerateDataKeyPairWithoutPlaintextRequest {
-  export function isa(o: any): o is GenerateDataKeyPairWithoutPlaintextRequest {
-    return __isa(o, "GenerateDataKeyPairWithoutPlaintextRequest");
-  }
+  export const isa = (
+    o: any
+  ): o is GenerateDataKeyPairWithoutPlaintextRequest =>
+    __isa(o, "GenerateDataKeyPairWithoutPlaintextRequest");
 }
 
 export interface GenerateDataKeyPairWithoutPlaintextResponse {
@@ -1693,11 +1648,10 @@ export interface GenerateDataKeyPairWithoutPlaintextResponse {
 }
 
 export namespace GenerateDataKeyPairWithoutPlaintextResponse {
-  export function isa(
+  export const isa = (
     o: any
-  ): o is GenerateDataKeyPairWithoutPlaintextResponse {
-    return __isa(o, "GenerateDataKeyPairWithoutPlaintextResponse");
-  }
+  ): o is GenerateDataKeyPairWithoutPlaintextResponse =>
+    __isa(o, "GenerateDataKeyPairWithoutPlaintextResponse");
 }
 
 export interface GenerateDataKeyRequest {
@@ -1764,9 +1718,8 @@ export interface GenerateDataKeyRequest {
 }
 
 export namespace GenerateDataKeyRequest {
-  export function isa(o: any): o is GenerateDataKeyRequest {
-    return __isa(o, "GenerateDataKeyRequest");
-  }
+  export const isa = (o: any): o is GenerateDataKeyRequest =>
+    __isa(o, "GenerateDataKeyRequest");
 }
 
 export interface GenerateDataKeyResponse {
@@ -1789,9 +1742,8 @@ export interface GenerateDataKeyResponse {
 }
 
 export namespace GenerateDataKeyResponse {
-  export function isa(o: any): o is GenerateDataKeyResponse {
-    return __isa(o, "GenerateDataKeyResponse");
-  }
+  export const isa = (o: any): o is GenerateDataKeyResponse =>
+    __isa(o, "GenerateDataKeyResponse");
 }
 
 export interface GenerateDataKeyWithoutPlaintextRequest {
@@ -1854,9 +1806,8 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
 }
 
 export namespace GenerateDataKeyWithoutPlaintextRequest {
-  export function isa(o: any): o is GenerateDataKeyWithoutPlaintextRequest {
-    return __isa(o, "GenerateDataKeyWithoutPlaintextRequest");
-  }
+  export const isa = (o: any): o is GenerateDataKeyWithoutPlaintextRequest =>
+    __isa(o, "GenerateDataKeyWithoutPlaintextRequest");
 }
 
 export interface GenerateDataKeyWithoutPlaintextResponse {
@@ -1873,9 +1824,8 @@ export interface GenerateDataKeyWithoutPlaintextResponse {
 }
 
 export namespace GenerateDataKeyWithoutPlaintextResponse {
-  export function isa(o: any): o is GenerateDataKeyWithoutPlaintextResponse {
-    return __isa(o, "GenerateDataKeyWithoutPlaintextResponse");
-  }
+  export const isa = (o: any): o is GenerateDataKeyWithoutPlaintextResponse =>
+    __isa(o, "GenerateDataKeyWithoutPlaintextResponse");
 }
 
 export interface GenerateRandomRequest {
@@ -1893,9 +1843,8 @@ export interface GenerateRandomRequest {
 }
 
 export namespace GenerateRandomRequest {
-  export function isa(o: any): o is GenerateRandomRequest {
-    return __isa(o, "GenerateRandomRequest");
-  }
+  export const isa = (o: any): o is GenerateRandomRequest =>
+    __isa(o, "GenerateRandomRequest");
 }
 
 export interface GenerateRandomResponse {
@@ -1907,9 +1856,8 @@ export interface GenerateRandomResponse {
 }
 
 export namespace GenerateRandomResponse {
-  export function isa(o: any): o is GenerateRandomResponse {
-    return __isa(o, "GenerateRandomResponse");
-  }
+  export const isa = (o: any): o is GenerateRandomResponse =>
+    __isa(o, "GenerateRandomResponse");
 }
 
 export interface GetKeyPolicyRequest {
@@ -1940,9 +1888,8 @@ export interface GetKeyPolicyRequest {
 }
 
 export namespace GetKeyPolicyRequest {
-  export function isa(o: any): o is GetKeyPolicyRequest {
-    return __isa(o, "GetKeyPolicyRequest");
-  }
+  export const isa = (o: any): o is GetKeyPolicyRequest =>
+    __isa(o, "GetKeyPolicyRequest");
 }
 
 export interface GetKeyPolicyResponse {
@@ -1954,9 +1901,8 @@ export interface GetKeyPolicyResponse {
 }
 
 export namespace GetKeyPolicyResponse {
-  export function isa(o: any): o is GetKeyPolicyResponse {
-    return __isa(o, "GetKeyPolicyResponse");
-  }
+  export const isa = (o: any): o is GetKeyPolicyResponse =>
+    __isa(o, "GetKeyPolicyResponse");
 }
 
 export interface GetKeyRotationStatusRequest {
@@ -1982,9 +1928,8 @@ export interface GetKeyRotationStatusRequest {
 }
 
 export namespace GetKeyRotationStatusRequest {
-  export function isa(o: any): o is GetKeyRotationStatusRequest {
-    return __isa(o, "GetKeyRotationStatusRequest");
-  }
+  export const isa = (o: any): o is GetKeyRotationStatusRequest =>
+    __isa(o, "GetKeyRotationStatusRequest");
 }
 
 export interface GetKeyRotationStatusResponse {
@@ -1996,9 +1941,8 @@ export interface GetKeyRotationStatusResponse {
 }
 
 export namespace GetKeyRotationStatusResponse {
-  export function isa(o: any): o is GetKeyRotationStatusResponse {
-    return __isa(o, "GetKeyRotationStatusResponse");
-  }
+  export const isa = (o: any): o is GetKeyRotationStatusResponse =>
+    __isa(o, "GetKeyRotationStatusResponse");
 }
 
 export interface GetParametersForImportRequest {
@@ -2036,9 +1980,8 @@ export interface GetParametersForImportRequest {
 }
 
 export namespace GetParametersForImportRequest {
-  export function isa(o: any): o is GetParametersForImportRequest {
-    return __isa(o, "GetParametersForImportRequest");
-  }
+  export const isa = (o: any): o is GetParametersForImportRequest =>
+    __isa(o, "GetParametersForImportRequest");
 }
 
 export interface GetParametersForImportResponse {
@@ -2070,9 +2013,8 @@ export interface GetParametersForImportResponse {
 }
 
 export namespace GetParametersForImportResponse {
-  export function isa(o: any): o is GetParametersForImportResponse {
-    return __isa(o, "GetParametersForImportResponse");
-  }
+  export const isa = (o: any): o is GetParametersForImportResponse =>
+    __isa(o, "GetParametersForImportResponse");
 }
 
 export interface GetPublicKeyRequest {
@@ -2113,9 +2055,8 @@ export interface GetPublicKeyRequest {
 }
 
 export namespace GetPublicKeyRequest {
-  export function isa(o: any): o is GetPublicKeyRequest {
-    return __isa(o, "GetPublicKeyRequest");
-  }
+  export const isa = (o: any): o is GetPublicKeyRequest =>
+    __isa(o, "GetPublicKeyRequest");
 }
 
 export interface GetPublicKeyResponse {
@@ -2165,9 +2106,8 @@ export interface GetPublicKeyResponse {
 }
 
 export namespace GetPublicKeyResponse {
-  export function isa(o: any): o is GetPublicKeyResponse {
-    return __isa(o, "GetPublicKeyResponse");
-  }
+  export const isa = (o: any): o is GetPublicKeyResponse =>
+    __isa(o, "GetPublicKeyResponse");
 }
 
 /**
@@ -2236,9 +2176,8 @@ export interface GrantConstraints {
 }
 
 export namespace GrantConstraints {
-  export function isa(o: any): o is GrantConstraints {
-    return __isa(o, "GrantConstraints");
-  }
+  export const isa = (o: any): o is GrantConstraints =>
+    __isa(o, "GrantConstraints");
 }
 
 /**
@@ -2294,9 +2233,8 @@ export interface GrantListEntry {
 }
 
 export namespace GrantListEntry {
-  export function isa(o: any): o is GrantListEntry {
-    return __isa(o, "GrantListEntry");
-  }
+  export const isa = (o: any): o is GrantListEntry =>
+    __isa(o, "GrantListEntry");
 }
 
 export enum GrantOperation {
@@ -2370,9 +2308,8 @@ export interface ImportKeyMaterialRequest {
 }
 
 export namespace ImportKeyMaterialRequest {
-  export function isa(o: any): o is ImportKeyMaterialRequest {
-    return __isa(o, "ImportKeyMaterialRequest");
-  }
+  export const isa = (o: any): o is ImportKeyMaterialRequest =>
+    __isa(o, "ImportKeyMaterialRequest");
 }
 
 export interface ImportKeyMaterialResponse {
@@ -2380,9 +2317,8 @@ export interface ImportKeyMaterialResponse {
 }
 
 export namespace ImportKeyMaterialResponse {
-  export function isa(o: any): o is ImportKeyMaterialResponse {
-    return __isa(o, "ImportKeyMaterialResponse");
-  }
+  export const isa = (o: any): o is ImportKeyMaterialResponse =>
+    __isa(o, "ImportKeyMaterialResponse");
 }
 
 /**
@@ -2400,9 +2336,8 @@ export interface IncorrectKeyException
 }
 
 export namespace IncorrectKeyException {
-  export function isa(o: any): o is IncorrectKeyException {
-    return __isa(o, "IncorrectKeyException");
-  }
+  export const isa = (o: any): o is IncorrectKeyException =>
+    __isa(o, "IncorrectKeyException");
 }
 
 /**
@@ -2419,9 +2354,8 @@ export interface IncorrectKeyMaterialException
 }
 
 export namespace IncorrectKeyMaterialException {
-  export function isa(o: any): o is IncorrectKeyMaterialException {
-    return __isa(o, "IncorrectKeyMaterialException");
-  }
+  export const isa = (o: any): o is IncorrectKeyMaterialException =>
+    __isa(o, "IncorrectKeyMaterialException");
 }
 
 /**
@@ -2439,9 +2373,8 @@ export interface IncorrectTrustAnchorException
 }
 
 export namespace IncorrectTrustAnchorException {
-  export function isa(o: any): o is IncorrectTrustAnchorException {
-    return __isa(o, "IncorrectTrustAnchorException");
-  }
+  export const isa = (o: any): o is IncorrectTrustAnchorException =>
+    __isa(o, "IncorrectTrustAnchorException");
 }
 
 /**
@@ -2456,9 +2389,8 @@ export interface InvalidAliasNameException
 }
 
 export namespace InvalidAliasNameException {
-  export function isa(o: any): o is InvalidAliasNameException {
-    return __isa(o, "InvalidAliasNameException");
-  }
+  export const isa = (o: any): o is InvalidAliasNameException =>
+    __isa(o, "InvalidAliasNameException");
 }
 
 /**
@@ -2474,9 +2406,8 @@ export interface InvalidArnException
 }
 
 export namespace InvalidArnException {
-  export function isa(o: any): o is InvalidArnException {
-    return __isa(o, "InvalidArnException");
-  }
+  export const isa = (o: any): o is InvalidArnException =>
+    __isa(o, "InvalidArnException");
 }
 
 /**
@@ -2496,9 +2427,8 @@ export interface InvalidCiphertextException
 }
 
 export namespace InvalidCiphertextException {
-  export function isa(o: any): o is InvalidCiphertextException {
-    return __isa(o, "InvalidCiphertextException");
-  }
+  export const isa = (o: any): o is InvalidCiphertextException =>
+    __isa(o, "InvalidCiphertextException");
 }
 
 /**
@@ -2513,9 +2443,8 @@ export interface InvalidGrantIdException
 }
 
 export namespace InvalidGrantIdException {
-  export function isa(o: any): o is InvalidGrantIdException {
-    return __isa(o, "InvalidGrantIdException");
-  }
+  export const isa = (o: any): o is InvalidGrantIdException =>
+    __isa(o, "InvalidGrantIdException");
 }
 
 /**
@@ -2530,9 +2459,8 @@ export interface InvalidGrantTokenException
 }
 
 export namespace InvalidGrantTokenException {
-  export function isa(o: any): o is InvalidGrantTokenException {
-    return __isa(o, "InvalidGrantTokenException");
-  }
+  export const isa = (o: any): o is InvalidGrantTokenException =>
+    __isa(o, "InvalidGrantTokenException");
 }
 
 /**
@@ -2548,9 +2476,8 @@ export interface InvalidImportTokenException
 }
 
 export namespace InvalidImportTokenException {
-  export function isa(o: any): o is InvalidImportTokenException {
-    return __isa(o, "InvalidImportTokenException");
-  }
+  export const isa = (o: any): o is InvalidImportTokenException =>
+    __isa(o, "InvalidImportTokenException");
 }
 
 /**
@@ -2581,9 +2508,8 @@ export interface InvalidKeyUsageException
 }
 
 export namespace InvalidKeyUsageException {
-  export function isa(o: any): o is InvalidKeyUsageException {
-    return __isa(o, "InvalidKeyUsageException");
-  }
+  export const isa = (o: any): o is InvalidKeyUsageException =>
+    __isa(o, "InvalidKeyUsageException");
 }
 
 /**
@@ -2599,9 +2525,8 @@ export interface InvalidMarkerException
 }
 
 export namespace InvalidMarkerException {
-  export function isa(o: any): o is InvalidMarkerException {
-    return __isa(o, "InvalidMarkerException");
-  }
+  export const isa = (o: any): o is InvalidMarkerException =>
+    __isa(o, "InvalidMarkerException");
 }
 
 /**
@@ -2617,9 +2542,8 @@ export interface KMSInternalException
 }
 
 export namespace KMSInternalException {
-  export function isa(o: any): o is KMSInternalException {
-    return __isa(o, "KMSInternalException");
-  }
+  export const isa = (o: any): o is KMSInternalException =>
+    __isa(o, "KMSInternalException");
 }
 
 /**
@@ -2636,9 +2560,8 @@ export interface KMSInvalidSignatureException
 }
 
 export namespace KMSInvalidSignatureException {
-  export function isa(o: any): o is KMSInvalidSignatureException {
-    return __isa(o, "KMSInvalidSignatureException");
-  }
+  export const isa = (o: any): o is KMSInvalidSignatureException =>
+    __isa(o, "KMSInvalidSignatureException");
 }
 
 /**
@@ -2658,9 +2581,8 @@ export interface KMSInvalidStateException
 }
 
 export namespace KMSInvalidStateException {
-  export function isa(o: any): o is KMSInvalidStateException {
-    return __isa(o, "KMSInvalidStateException");
-  }
+  export const isa = (o: any): o is KMSInvalidStateException =>
+    __isa(o, "KMSInvalidStateException");
 }
 
 /**
@@ -2680,9 +2602,7 @@ export interface KeyListEntry {
 }
 
 export namespace KeyListEntry {
-  export function isa(o: any): o is KeyListEntry {
-    return __isa(o, "KeyListEntry");
-  }
+  export const isa = (o: any): o is KeyListEntry => __isa(o, "KeyListEntry");
 }
 
 export enum KeyManagerType {
@@ -2814,9 +2734,7 @@ export interface KeyMetadata {
 }
 
 export namespace KeyMetadata {
-  export function isa(o: any): o is KeyMetadata {
-    return __isa(o, "KeyMetadata");
-  }
+  export const isa = (o: any): o is KeyMetadata => __isa(o, "KeyMetadata");
 }
 
 export enum KeyState {
@@ -2840,9 +2758,8 @@ export interface KeyUnavailableException
 }
 
 export namespace KeyUnavailableException {
-  export function isa(o: any): o is KeyUnavailableException {
-    return __isa(o, "KeyUnavailableException");
-  }
+  export const isa = (o: any): o is KeyUnavailableException =>
+    __isa(o, "KeyUnavailableException");
 }
 
 export enum KeyUsageType {
@@ -2863,9 +2780,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export interface ListAliasesRequest {
@@ -2897,9 +2813,8 @@ export interface ListAliasesRequest {
 }
 
 export namespace ListAliasesRequest {
-  export function isa(o: any): o is ListAliasesRequest {
-    return __isa(o, "ListAliasesRequest");
-  }
+  export const isa = (o: any): o is ListAliasesRequest =>
+    __isa(o, "ListAliasesRequest");
 }
 
 export interface ListAliasesResponse {
@@ -2925,9 +2840,8 @@ export interface ListAliasesResponse {
 }
 
 export namespace ListAliasesResponse {
-  export function isa(o: any): o is ListAliasesResponse {
-    return __isa(o, "ListAliasesResponse");
-  }
+  export const isa = (o: any): o is ListAliasesResponse =>
+    __isa(o, "ListAliasesResponse");
 }
 
 export interface ListGrantsRequest {
@@ -2969,9 +2883,8 @@ export interface ListGrantsRequest {
 }
 
 export namespace ListGrantsRequest {
-  export function isa(o: any): o is ListGrantsRequest {
-    return __isa(o, "ListGrantsRequest");
-  }
+  export const isa = (o: any): o is ListGrantsRequest =>
+    __isa(o, "ListGrantsRequest");
 }
 
 export interface ListGrantsResponse {
@@ -2997,9 +2910,8 @@ export interface ListGrantsResponse {
 }
 
 export namespace ListGrantsResponse {
-  export function isa(o: any): o is ListGrantsResponse {
-    return __isa(o, "ListGrantsResponse");
-  }
+  export const isa = (o: any): o is ListGrantsResponse =>
+    __isa(o, "ListGrantsResponse");
 }
 
 export interface ListKeyPoliciesRequest {
@@ -3041,9 +2953,8 @@ export interface ListKeyPoliciesRequest {
 }
 
 export namespace ListKeyPoliciesRequest {
-  export function isa(o: any): o is ListKeyPoliciesRequest {
-    return __isa(o, "ListKeyPoliciesRequest");
-  }
+  export const isa = (o: any): o is ListKeyPoliciesRequest =>
+    __isa(o, "ListKeyPoliciesRequest");
 }
 
 export interface ListKeyPoliciesResponse {
@@ -3069,9 +2980,8 @@ export interface ListKeyPoliciesResponse {
 }
 
 export namespace ListKeyPoliciesResponse {
-  export function isa(o: any): o is ListKeyPoliciesResponse {
-    return __isa(o, "ListKeyPoliciesResponse");
-  }
+  export const isa = (o: any): o is ListKeyPoliciesResponse =>
+    __isa(o, "ListKeyPoliciesResponse");
 }
 
 export interface ListKeysRequest {
@@ -3094,9 +3004,8 @@ export interface ListKeysRequest {
 }
 
 export namespace ListKeysRequest {
-  export function isa(o: any): o is ListKeysRequest {
-    return __isa(o, "ListKeysRequest");
-  }
+  export const isa = (o: any): o is ListKeysRequest =>
+    __isa(o, "ListKeysRequest");
 }
 
 export interface ListKeysResponse {
@@ -3122,9 +3031,8 @@ export interface ListKeysResponse {
 }
 
 export namespace ListKeysResponse {
-  export function isa(o: any): o is ListKeysResponse {
-    return __isa(o, "ListKeysResponse");
-  }
+  export const isa = (o: any): o is ListKeysResponse =>
+    __isa(o, "ListKeysResponse");
 }
 
 export interface ListResourceTagsRequest {
@@ -3167,9 +3075,8 @@ export interface ListResourceTagsRequest {
 }
 
 export namespace ListResourceTagsRequest {
-  export function isa(o: any): o is ListResourceTagsRequest {
-    return __isa(o, "ListResourceTagsRequest");
-  }
+  export const isa = (o: any): o is ListResourceTagsRequest =>
+    __isa(o, "ListResourceTagsRequest");
 }
 
 export interface ListResourceTagsResponse {
@@ -3196,9 +3103,8 @@ export interface ListResourceTagsResponse {
 }
 
 export namespace ListResourceTagsResponse {
-  export function isa(o: any): o is ListResourceTagsResponse {
-    return __isa(o, "ListResourceTagsResponse");
-  }
+  export const isa = (o: any): o is ListResourceTagsResponse =>
+    __isa(o, "ListResourceTagsResponse");
 }
 
 export interface ListRetirableGrantsRequest {
@@ -3231,9 +3137,8 @@ export interface ListRetirableGrantsRequest {
 }
 
 export namespace ListRetirableGrantsRequest {
-  export function isa(o: any): o is ListRetirableGrantsRequest {
-    return __isa(o, "ListRetirableGrantsRequest");
-  }
+  export const isa = (o: any): o is ListRetirableGrantsRequest =>
+    __isa(o, "ListRetirableGrantsRequest");
 }
 
 /**
@@ -3249,9 +3154,8 @@ export interface MalformedPolicyDocumentException
 }
 
 export namespace MalformedPolicyDocumentException {
-  export function isa(o: any): o is MalformedPolicyDocumentException {
-    return __isa(o, "MalformedPolicyDocumentException");
-  }
+  export const isa = (o: any): o is MalformedPolicyDocumentException =>
+    __isa(o, "MalformedPolicyDocumentException");
 }
 
 export enum MessageType {
@@ -3270,9 +3174,8 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return __isa(o, "NotFoundException");
-  }
+  export const isa = (o: any): o is NotFoundException =>
+    __isa(o, "NotFoundException");
 }
 
 export enum OriginType {
@@ -3344,9 +3247,8 @@ export interface PutKeyPolicyRequest {
 }
 
 export namespace PutKeyPolicyRequest {
-  export function isa(o: any): o is PutKeyPolicyRequest {
-    return __isa(o, "PutKeyPolicyRequest");
-  }
+  export const isa = (o: any): o is PutKeyPolicyRequest =>
+    __isa(o, "PutKeyPolicyRequest");
 }
 
 export interface ReEncryptRequest {
@@ -3470,9 +3372,8 @@ export interface ReEncryptRequest {
 }
 
 export namespace ReEncryptRequest {
-  export function isa(o: any): o is ReEncryptRequest {
-    return __isa(o, "ReEncryptRequest");
-  }
+  export const isa = (o: any): o is ReEncryptRequest =>
+    __isa(o, "ReEncryptRequest");
 }
 
 export interface ReEncryptResponse {
@@ -3505,9 +3406,8 @@ export interface ReEncryptResponse {
 }
 
 export namespace ReEncryptResponse {
-  export function isa(o: any): o is ReEncryptResponse {
-    return __isa(o, "ReEncryptResponse");
-  }
+  export const isa = (o: any): o is ReEncryptResponse =>
+    __isa(o, "ReEncryptResponse");
 }
 
 export interface RetireGrantRequest {
@@ -3538,9 +3438,8 @@ export interface RetireGrantRequest {
 }
 
 export namespace RetireGrantRequest {
-  export function isa(o: any): o is RetireGrantRequest {
-    return __isa(o, "RetireGrantRequest");
-  }
+  export const isa = (o: any): o is RetireGrantRequest =>
+    __isa(o, "RetireGrantRequest");
 }
 
 export interface RevokeGrantRequest {
@@ -3572,9 +3471,8 @@ export interface RevokeGrantRequest {
 }
 
 export namespace RevokeGrantRequest {
-  export function isa(o: any): o is RevokeGrantRequest {
-    return __isa(o, "RevokeGrantRequest");
-  }
+  export const isa = (o: any): o is RevokeGrantRequest =>
+    __isa(o, "RevokeGrantRequest");
 }
 
 export interface ScheduleKeyDeletionRequest {
@@ -3608,9 +3506,8 @@ export interface ScheduleKeyDeletionRequest {
 }
 
 export namespace ScheduleKeyDeletionRequest {
-  export function isa(o: any): o is ScheduleKeyDeletionRequest {
-    return __isa(o, "ScheduleKeyDeletionRequest");
-  }
+  export const isa = (o: any): o is ScheduleKeyDeletionRequest =>
+    __isa(o, "ScheduleKeyDeletionRequest");
 }
 
 export interface ScheduleKeyDeletionResponse {
@@ -3628,9 +3525,8 @@ export interface ScheduleKeyDeletionResponse {
 }
 
 export namespace ScheduleKeyDeletionResponse {
-  export function isa(o: any): o is ScheduleKeyDeletionResponse {
-    return __isa(o, "ScheduleKeyDeletionResponse");
-  }
+  export const isa = (o: any): o is ScheduleKeyDeletionResponse =>
+    __isa(o, "ScheduleKeyDeletionResponse");
 }
 
 export interface SignRequest {
@@ -3695,9 +3591,7 @@ export interface SignRequest {
 }
 
 export namespace SignRequest {
-  export function isa(o: any): o is SignRequest {
-    return __isa(o, "SignRequest");
-  }
+  export const isa = (o: any): o is SignRequest => __isa(o, "SignRequest");
 }
 
 export interface SignResponse {
@@ -3720,9 +3614,7 @@ export interface SignResponse {
 }
 
 export namespace SignResponse {
-  export function isa(o: any): o is SignResponse {
-    return __isa(o, "SignResponse");
-  }
+  export const isa = (o: any): o is SignResponse => __isa(o, "SignResponse");
 }
 
 export enum SigningAlgorithmSpec {
@@ -3757,9 +3649,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -3772,9 +3662,7 @@ export interface TagException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TagException {
-  export function isa(o: any): o is TagException {
-    return __isa(o, "TagException");
-  }
+  export const isa = (o: any): o is TagException => __isa(o, "TagException");
 }
 
 export interface TagResourceRequest {
@@ -3804,9 +3692,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -3822,9 +3709,8 @@ export interface UnsupportedOperationException
 }
 
 export namespace UnsupportedOperationException {
-  export function isa(o: any): o is UnsupportedOperationException {
-    return __isa(o, "UnsupportedOperationException");
-  }
+  export const isa = (o: any): o is UnsupportedOperationException =>
+    __isa(o, "UnsupportedOperationException");
 }
 
 export interface UntagResourceRequest {
@@ -3855,9 +3741,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateAliasRequest {
@@ -3895,9 +3780,8 @@ export interface UpdateAliasRequest {
 }
 
 export namespace UpdateAliasRequest {
-  export function isa(o: any): o is UpdateAliasRequest {
-    return __isa(o, "UpdateAliasRequest");
-  }
+  export const isa = (o: any): o is UpdateAliasRequest =>
+    __isa(o, "UpdateAliasRequest");
 }
 
 export interface UpdateCustomKeyStoreRequest {
@@ -3935,9 +3819,8 @@ export interface UpdateCustomKeyStoreRequest {
 }
 
 export namespace UpdateCustomKeyStoreRequest {
-  export function isa(o: any): o is UpdateCustomKeyStoreRequest {
-    return __isa(o, "UpdateCustomKeyStoreRequest");
-  }
+  export const isa = (o: any): o is UpdateCustomKeyStoreRequest =>
+    __isa(o, "UpdateCustomKeyStoreRequest");
 }
 
 export interface UpdateCustomKeyStoreResponse {
@@ -3945,9 +3828,8 @@ export interface UpdateCustomKeyStoreResponse {
 }
 
 export namespace UpdateCustomKeyStoreResponse {
-  export function isa(o: any): o is UpdateCustomKeyStoreResponse {
-    return __isa(o, "UpdateCustomKeyStoreResponse");
-  }
+  export const isa = (o: any): o is UpdateCustomKeyStoreResponse =>
+    __isa(o, "UpdateCustomKeyStoreResponse");
 }
 
 export interface UpdateKeyDescriptionRequest {
@@ -3977,9 +3859,8 @@ export interface UpdateKeyDescriptionRequest {
 }
 
 export namespace UpdateKeyDescriptionRequest {
-  export function isa(o: any): o is UpdateKeyDescriptionRequest {
-    return __isa(o, "UpdateKeyDescriptionRequest");
-  }
+  export const isa = (o: any): o is UpdateKeyDescriptionRequest =>
+    __isa(o, "UpdateKeyDescriptionRequest");
 }
 
 export interface VerifyRequest {
@@ -4055,9 +3936,7 @@ export interface VerifyRequest {
 }
 
 export namespace VerifyRequest {
-  export function isa(o: any): o is VerifyRequest {
-    return __isa(o, "VerifyRequest");
-  }
+  export const isa = (o: any): o is VerifyRequest => __isa(o, "VerifyRequest");
 }
 
 export interface VerifyResponse {
@@ -4083,9 +3962,8 @@ export interface VerifyResponse {
 }
 
 export namespace VerifyResponse {
-  export function isa(o: any): o is VerifyResponse {
-    return __isa(o, "VerifyResponse");
-  }
+  export const isa = (o: any): o is VerifyResponse =>
+    __isa(o, "VerifyResponse");
 }
 
 export enum WrappingKeySpec {

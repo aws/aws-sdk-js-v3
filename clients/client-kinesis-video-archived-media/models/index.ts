@@ -60,9 +60,8 @@ export interface DASHFragmentSelector {
 }
 
 export namespace DASHFragmentSelector {
-  export function isa(o: any): o is DASHFragmentSelector {
-    return __isa(o, "DASHFragmentSelector");
-  }
+  export const isa = (o: any): o is DASHFragmentSelector =>
+    __isa(o, "DASHFragmentSelector");
 }
 
 export enum DASHFragmentSelectorType {
@@ -123,9 +122,8 @@ export interface DASHTimestampRange {
 }
 
 export namespace DASHTimestampRange {
-  export function isa(o: any): o is DASHTimestampRange {
-    return __isa(o, "DASHTimestampRange");
-  }
+  export const isa = (o: any): o is DASHTimestampRange =>
+    __isa(o, "DASHTimestampRange");
 }
 
 /**
@@ -162,9 +160,7 @@ export interface Fragment {
 }
 
 export namespace Fragment {
-  export function isa(o: any): o is Fragment {
-    return __isa(o, "Fragment");
-  }
+  export const isa = (o: any): o is Fragment => __isa(o, "Fragment");
 }
 
 /**
@@ -203,9 +199,8 @@ export interface FragmentSelector {
 }
 
 export namespace FragmentSelector {
-  export function isa(o: any): o is FragmentSelector {
-    return __isa(o, "FragmentSelector");
-  }
+  export const isa = (o: any): o is FragmentSelector =>
+    __isa(o, "FragmentSelector");
 }
 
 export enum FragmentSelectorType {
@@ -368,9 +363,8 @@ export interface GetDASHStreamingSessionURLInput {
 }
 
 export namespace GetDASHStreamingSessionURLInput {
-  export function isa(o: any): o is GetDASHStreamingSessionURLInput {
-    return __isa(o, "GetDASHStreamingSessionURLInput");
-  }
+  export const isa = (o: any): o is GetDASHStreamingSessionURLInput =>
+    __isa(o, "GetDASHStreamingSessionURLInput");
 }
 
 export interface GetDASHStreamingSessionURLOutput {
@@ -383,9 +377,8 @@ export interface GetDASHStreamingSessionURLOutput {
 }
 
 export namespace GetDASHStreamingSessionURLOutput {
-  export function isa(o: any): o is GetDASHStreamingSessionURLOutput {
-    return __isa(o, "GetDASHStreamingSessionURLOutput");
-  }
+  export const isa = (o: any): o is GetDASHStreamingSessionURLOutput =>
+    __isa(o, "GetDASHStreamingSessionURLOutput");
 }
 
 export interface GetHLSStreamingSessionURLInput {
@@ -584,9 +577,8 @@ export interface GetHLSStreamingSessionURLInput {
 }
 
 export namespace GetHLSStreamingSessionURLInput {
-  export function isa(o: any): o is GetHLSStreamingSessionURLInput {
-    return __isa(o, "GetHLSStreamingSessionURLInput");
-  }
+  export const isa = (o: any): o is GetHLSStreamingSessionURLInput =>
+    __isa(o, "GetHLSStreamingSessionURLInput");
 }
 
 export interface GetHLSStreamingSessionURLOutput {
@@ -599,9 +591,8 @@ export interface GetHLSStreamingSessionURLOutput {
 }
 
 export namespace GetHLSStreamingSessionURLOutput {
-  export function isa(o: any): o is GetHLSStreamingSessionURLOutput {
-    return __isa(o, "GetHLSStreamingSessionURLOutput");
-  }
+  export const isa = (o: any): o is GetHLSStreamingSessionURLOutput =>
+    __isa(o, "GetHLSStreamingSessionURLOutput");
 }
 
 export interface GetMediaForFragmentListInput {
@@ -619,9 +610,8 @@ export interface GetMediaForFragmentListInput {
 }
 
 export namespace GetMediaForFragmentListInput {
-  export function isa(o: any): o is GetMediaForFragmentListInput {
-    return __isa(o, "GetMediaForFragmentListInput");
-  }
+  export const isa = (o: any): o is GetMediaForFragmentListInput =>
+    __isa(o, "GetMediaForFragmentListInput");
 }
 
 export interface GetMediaForFragmentListOutput {
@@ -670,9 +660,8 @@ export interface GetMediaForFragmentListOutput {
 }
 
 export namespace GetMediaForFragmentListOutput {
-  export function isa(o: any): o is GetMediaForFragmentListOutput {
-    return __isa(o, "GetMediaForFragmentListOutput");
-  }
+  export const isa = (o: any): o is GetMediaForFragmentListOutput =>
+    __isa(o, "GetMediaForFragmentListOutput");
 }
 
 export enum HLSDiscontinuityMode {
@@ -726,9 +715,8 @@ export interface HLSFragmentSelector {
 }
 
 export namespace HLSFragmentSelector {
-  export function isa(o: any): o is HLSFragmentSelector {
-    return __isa(o, "HLSFragmentSelector");
-  }
+  export const isa = (o: any): o is HLSFragmentSelector =>
+    __isa(o, "HLSFragmentSelector");
 }
 
 export enum HLSFragmentSelectorType {
@@ -788,9 +776,8 @@ export interface HLSTimestampRange {
 }
 
 export namespace HLSTimestampRange {
-  export function isa(o: any): o is HLSTimestampRange {
-    return __isa(o, "HLSTimestampRange");
-  }
+  export const isa = (o: any): o is HLSTimestampRange =>
+    __isa(o, "HLSTimestampRange");
 }
 
 export interface ListFragmentsInput {
@@ -821,9 +808,8 @@ export interface ListFragmentsInput {
 }
 
 export namespace ListFragmentsInput {
-  export function isa(o: any): o is ListFragmentsInput {
-    return __isa(o, "ListFragmentsInput");
-  }
+  export const isa = (o: any): o is ListFragmentsInput =>
+    __isa(o, "ListFragmentsInput");
 }
 
 export interface ListFragmentsOutput {
@@ -843,9 +829,8 @@ export interface ListFragmentsOutput {
 }
 
 export namespace ListFragmentsOutput {
-  export function isa(o: any): o is ListFragmentsOutput {
-    return __isa(o, "ListFragmentsOutput");
-  }
+  export const isa = (o: any): o is ListFragmentsOutput =>
+    __isa(o, "ListFragmentsOutput");
 }
 
 /**
@@ -866,9 +851,8 @@ export interface TimestampRange {
 }
 
 export namespace TimestampRange {
-  export function isa(o: any): o is TimestampRange {
-    return __isa(o, "TimestampRange");
-  }
+  export const isa = (o: any): o is TimestampRange =>
+    __isa(o, "TimestampRange");
 }
 
 /**
@@ -884,9 +868,8 @@ export interface ClientLimitExceededException
 }
 
 export namespace ClientLimitExceededException {
-  export function isa(o: any): o is ClientLimitExceededException {
-    return __isa(o, "ClientLimitExceededException");
-  }
+  export const isa = (o: any): o is ClientLimitExceededException =>
+    __isa(o, "ClientLimitExceededException");
 }
 
 /**
@@ -902,9 +885,8 @@ export interface InvalidArgumentException
 }
 
 export namespace InvalidArgumentException {
-  export function isa(o: any): o is InvalidArgumentException {
-    return __isa(o, "InvalidArgumentException");
-  }
+  export const isa = (o: any): o is InvalidArgumentException =>
+    __isa(o, "InvalidArgumentException");
 }
 
 /**
@@ -920,9 +902,8 @@ export interface InvalidCodecPrivateDataException
 }
 
 export namespace InvalidCodecPrivateDataException {
-  export function isa(o: any): o is InvalidCodecPrivateDataException {
-    return __isa(o, "InvalidCodecPrivateDataException");
-  }
+  export const isa = (o: any): o is InvalidCodecPrivateDataException =>
+    __isa(o, "InvalidCodecPrivateDataException");
 }
 
 /**
@@ -937,9 +918,8 @@ export interface MissingCodecPrivateDataException
 }
 
 export namespace MissingCodecPrivateDataException {
-  export function isa(o: any): o is MissingCodecPrivateDataException {
-    return __isa(o, "MissingCodecPrivateDataException");
-  }
+  export const isa = (o: any): o is MissingCodecPrivateDataException =>
+    __isa(o, "MissingCodecPrivateDataException");
 }
 
 /**
@@ -955,9 +935,8 @@ export interface NoDataRetentionException
 }
 
 export namespace NoDataRetentionException {
-  export function isa(o: any): o is NoDataRetentionException {
-    return __isa(o, "NoDataRetentionException");
-  }
+  export const isa = (o: any): o is NoDataRetentionException =>
+    __isa(o, "NoDataRetentionException");
 }
 
 /**
@@ -973,9 +952,8 @@ export interface NotAuthorizedException
 }
 
 export namespace NotAuthorizedException {
-  export function isa(o: any): o is NotAuthorizedException {
-    return __isa(o, "NotAuthorizedException");
-  }
+  export const isa = (o: any): o is NotAuthorizedException =>
+    __isa(o, "NotAuthorizedException");
 }
 
 /**
@@ -999,9 +977,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1019,7 +996,6 @@ export interface UnsupportedStreamMediaTypeException
 }
 
 export namespace UnsupportedStreamMediaTypeException {
-  export function isa(o: any): o is UnsupportedStreamMediaTypeException {
-    return __isa(o, "UnsupportedStreamMediaTypeException");
-  }
+  export const isa = (o: any): o is UnsupportedStreamMediaTypeException =>
+    __isa(o, "UnsupportedStreamMediaTypeException");
 }

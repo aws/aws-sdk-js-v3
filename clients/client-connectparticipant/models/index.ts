@@ -16,9 +16,8 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export function isa(o: any): o is AccessDeniedException {
-    return __isa(o, "AccessDeniedException");
-  }
+  export const isa = (o: any): o is AccessDeniedException =>
+    __isa(o, "AccessDeniedException");
 }
 
 export interface CreateParticipantConnectionRequest {
@@ -35,9 +34,8 @@ export interface CreateParticipantConnectionRequest {
 }
 
 export namespace CreateParticipantConnectionRequest {
-  export function isa(o: any): o is CreateParticipantConnectionRequest {
-    return __isa(o, "CreateParticipantConnectionRequest");
-  }
+  export const isa = (o: any): o is CreateParticipantConnectionRequest =>
+    __isa(o, "CreateParticipantConnectionRequest");
 }
 
 export interface CreateParticipantConnectionResponse {
@@ -55,9 +53,8 @@ export interface CreateParticipantConnectionResponse {
 }
 
 export namespace CreateParticipantConnectionResponse {
-  export function isa(o: any): o is CreateParticipantConnectionResponse {
-    return __isa(o, "CreateParticipantConnectionResponse");
-  }
+  export const isa = (o: any): o is CreateParticipantConnectionResponse =>
+    __isa(o, "CreateParticipantConnectionResponse");
 }
 
 export interface DisconnectParticipantRequest {
@@ -75,9 +72,8 @@ export interface DisconnectParticipantRequest {
 }
 
 export namespace DisconnectParticipantRequest {
-  export function isa(o: any): o is DisconnectParticipantRequest {
-    return __isa(o, "DisconnectParticipantRequest");
-  }
+  export const isa = (o: any): o is DisconnectParticipantRequest =>
+    __isa(o, "DisconnectParticipantRequest");
 }
 
 export interface DisconnectParticipantResponse {
@@ -85,9 +81,8 @@ export interface DisconnectParticipantResponse {
 }
 
 export namespace DisconnectParticipantResponse {
-  export function isa(o: any): o is DisconnectParticipantResponse {
-    return __isa(o, "DisconnectParticipantResponse");
-  }
+  export const isa = (o: any): o is DisconnectParticipantResponse =>
+    __isa(o, "DisconnectParticipantResponse");
 }
 
 export interface GetTranscriptRequest {
@@ -131,9 +126,8 @@ export interface GetTranscriptRequest {
 }
 
 export namespace GetTranscriptRequest {
-  export function isa(o: any): o is GetTranscriptRequest {
-    return __isa(o, "GetTranscriptRequest");
-  }
+  export const isa = (o: any): o is GetTranscriptRequest =>
+    __isa(o, "GetTranscriptRequest");
 }
 
 export interface GetTranscriptResponse {
@@ -156,9 +150,8 @@ export interface GetTranscriptResponse {
 }
 
 export namespace GetTranscriptResponse {
-  export function isa(o: any): o is GetTranscriptResponse {
-    return __isa(o, "GetTranscriptResponse");
-  }
+  export const isa = (o: any): o is GetTranscriptResponse =>
+    __isa(o, "GetTranscriptResponse");
 }
 
 /**
@@ -173,9 +166,8 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export function isa(o: any): o is InternalServerException {
-    return __isa(o, "InternalServerException");
-  }
+  export const isa = (o: any): o is InternalServerException =>
+    __isa(o, "InternalServerException");
 }
 
 export interface SendEventRequest {
@@ -213,9 +205,8 @@ export interface SendEventRequest {
 }
 
 export namespace SendEventRequest {
-  export function isa(o: any): o is SendEventRequest {
-    return __isa(o, "SendEventRequest");
-  }
+  export const isa = (o: any): o is SendEventRequest =>
+    __isa(o, "SendEventRequest");
 }
 
 export interface SendEventResponse {
@@ -234,9 +225,8 @@ export interface SendEventResponse {
 }
 
 export namespace SendEventResponse {
-  export function isa(o: any): o is SendEventResponse {
-    return __isa(o, "SendEventResponse");
-  }
+  export const isa = (o: any): o is SendEventResponse =>
+    __isa(o, "SendEventResponse");
 }
 
 export interface SendMessageRequest {
@@ -264,9 +254,8 @@ export interface SendMessageRequest {
 }
 
 export namespace SendMessageRequest {
-  export function isa(o: any): o is SendMessageRequest {
-    return __isa(o, "SendMessageRequest");
-  }
+  export const isa = (o: any): o is SendMessageRequest =>
+    __isa(o, "SendMessageRequest");
 }
 
 export interface SendMessageResponse {
@@ -285,9 +274,8 @@ export interface SendMessageResponse {
 }
 
 export namespace SendMessageResponse {
-  export function isa(o: any): o is SendMessageResponse {
-    return __isa(o, "SendMessageResponse");
-  }
+  export const isa = (o: any): o is SendMessageResponse =>
+    __isa(o, "SendMessageResponse");
 }
 
 /**
@@ -302,9 +290,8 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return __isa(o, "ThrottlingException");
-  }
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 /**
@@ -319,9 +306,8 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return __isa(o, "ValidationException");
-  }
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
 }
 
 export enum ChatItemType {
@@ -379,9 +365,7 @@ export interface Item {
 }
 
 export namespace Item {
-  export function isa(o: any): o is Item {
-    return __isa(o, "Item");
-  }
+  export const isa = (o: any): o is Item => __isa(o, "Item");
 }
 
 export enum ScanDirection {
@@ -419,9 +403,7 @@ export interface StartPosition {
 }
 
 export namespace StartPosition {
-  export function isa(o: any): o is StartPosition {
-    return __isa(o, "StartPosition");
-  }
+  export const isa = (o: any): o is StartPosition => __isa(o, "StartPosition");
 }
 
 /**
@@ -443,9 +425,8 @@ export interface ConnectionCredentials {
 }
 
 export namespace ConnectionCredentials {
-  export function isa(o: any): o is ConnectionCredentials {
-    return __isa(o, "ConnectionCredentials");
-  }
+  export const isa = (o: any): o is ConnectionCredentials =>
+    __isa(o, "ConnectionCredentials");
 }
 
 export enum ConnectionType {
@@ -478,7 +459,5 @@ export interface Websocket {
 }
 
 export namespace Websocket {
-  export function isa(o: any): o is Websocket {
-    return __isa(o, "Websocket");
-  }
+  export const isa = (o: any): o is Websocket => __isa(o, "Websocket");
 }

@@ -27,9 +27,8 @@ export interface AssociateEntityToThingRequest {
 }
 
 export namespace AssociateEntityToThingRequest {
-  export function isa(o: any): o is AssociateEntityToThingRequest {
-    return __isa(o, "AssociateEntityToThingRequest");
-  }
+  export const isa = (o: any): o is AssociateEntityToThingRequest =>
+    __isa(o, "AssociateEntityToThingRequest");
 }
 
 export interface AssociateEntityToThingResponse {
@@ -37,9 +36,8 @@ export interface AssociateEntityToThingResponse {
 }
 
 export namespace AssociateEntityToThingResponse {
-  export function isa(o: any): o is AssociateEntityToThingResponse {
-    return __isa(o, "AssociateEntityToThingResponse");
-  }
+  export const isa = (o: any): o is AssociateEntityToThingResponse =>
+    __isa(o, "AssociateEntityToThingResponse");
 }
 
 export interface CreateFlowTemplateRequest {
@@ -57,9 +55,8 @@ export interface CreateFlowTemplateRequest {
 }
 
 export namespace CreateFlowTemplateRequest {
-  export function isa(o: any): o is CreateFlowTemplateRequest {
-    return __isa(o, "CreateFlowTemplateRequest");
-  }
+  export const isa = (o: any): o is CreateFlowTemplateRequest =>
+    __isa(o, "CreateFlowTemplateRequest");
 }
 
 export interface CreateFlowTemplateResponse {
@@ -71,9 +68,8 @@ export interface CreateFlowTemplateResponse {
 }
 
 export namespace CreateFlowTemplateResponse {
-  export function isa(o: any): o is CreateFlowTemplateResponse {
-    return __isa(o, "CreateFlowTemplateResponse");
-  }
+  export const isa = (o: any): o is CreateFlowTemplateResponse =>
+    __isa(o, "CreateFlowTemplateResponse");
 }
 
 export interface CreateSystemInstanceRequest {
@@ -119,9 +115,8 @@ export interface CreateSystemInstanceRequest {
 }
 
 export namespace CreateSystemInstanceRequest {
-  export function isa(o: any): o is CreateSystemInstanceRequest {
-    return __isa(o, "CreateSystemInstanceRequest");
-  }
+  export const isa = (o: any): o is CreateSystemInstanceRequest =>
+    __isa(o, "CreateSystemInstanceRequest");
 }
 
 export interface CreateSystemInstanceResponse {
@@ -133,9 +128,8 @@ export interface CreateSystemInstanceResponse {
 }
 
 export namespace CreateSystemInstanceResponse {
-  export function isa(o: any): o is CreateSystemInstanceResponse {
-    return __isa(o, "CreateSystemInstanceResponse");
-  }
+  export const isa = (o: any): o is CreateSystemInstanceResponse =>
+    __isa(o, "CreateSystemInstanceResponse");
 }
 
 export interface CreateSystemTemplateRequest {
@@ -153,9 +147,8 @@ export interface CreateSystemTemplateRequest {
 }
 
 export namespace CreateSystemTemplateRequest {
-  export function isa(o: any): o is CreateSystemTemplateRequest {
-    return __isa(o, "CreateSystemTemplateRequest");
-  }
+  export const isa = (o: any): o is CreateSystemTemplateRequest =>
+    __isa(o, "CreateSystemTemplateRequest");
 }
 
 export interface CreateSystemTemplateResponse {
@@ -167,9 +160,8 @@ export interface CreateSystemTemplateResponse {
 }
 
 export namespace CreateSystemTemplateResponse {
-  export function isa(o: any): o is CreateSystemTemplateResponse {
-    return __isa(o, "CreateSystemTemplateResponse");
-  }
+  export const isa = (o: any): o is CreateSystemTemplateResponse =>
+    __isa(o, "CreateSystemTemplateResponse");
 }
 
 export interface DeleteFlowTemplateRequest {
@@ -185,9 +177,8 @@ export interface DeleteFlowTemplateRequest {
 }
 
 export namespace DeleteFlowTemplateRequest {
-  export function isa(o: any): o is DeleteFlowTemplateRequest {
-    return __isa(o, "DeleteFlowTemplateRequest");
-  }
+  export const isa = (o: any): o is DeleteFlowTemplateRequest =>
+    __isa(o, "DeleteFlowTemplateRequest");
 }
 
 export interface DeleteFlowTemplateResponse {
@@ -195,9 +186,8 @@ export interface DeleteFlowTemplateResponse {
 }
 
 export namespace DeleteFlowTemplateResponse {
-  export function isa(o: any): o is DeleteFlowTemplateResponse {
-    return __isa(o, "DeleteFlowTemplateResponse");
-  }
+  export const isa = (o: any): o is DeleteFlowTemplateResponse =>
+    __isa(o, "DeleteFlowTemplateResponse");
 }
 
 export interface DeleteNamespaceRequest {
@@ -205,9 +195,8 @@ export interface DeleteNamespaceRequest {
 }
 
 export namespace DeleteNamespaceRequest {
-  export function isa(o: any): o is DeleteNamespaceRequest {
-    return __isa(o, "DeleteNamespaceRequest");
-  }
+  export const isa = (o: any): o is DeleteNamespaceRequest =>
+    __isa(o, "DeleteNamespaceRequest");
 }
 
 export interface DeleteNamespaceResponse {
@@ -224,9 +213,8 @@ export interface DeleteNamespaceResponse {
 }
 
 export namespace DeleteNamespaceResponse {
-  export function isa(o: any): o is DeleteNamespaceResponse {
-    return __isa(o, "DeleteNamespaceResponse");
-  }
+  export const isa = (o: any): o is DeleteNamespaceResponse =>
+    __isa(o, "DeleteNamespaceResponse");
 }
 
 export interface DeleteSystemInstanceRequest {
@@ -238,9 +226,8 @@ export interface DeleteSystemInstanceRequest {
 }
 
 export namespace DeleteSystemInstanceRequest {
-  export function isa(o: any): o is DeleteSystemInstanceRequest {
-    return __isa(o, "DeleteSystemInstanceRequest");
-  }
+  export const isa = (o: any): o is DeleteSystemInstanceRequest =>
+    __isa(o, "DeleteSystemInstanceRequest");
 }
 
 export interface DeleteSystemInstanceResponse {
@@ -248,9 +235,8 @@ export interface DeleteSystemInstanceResponse {
 }
 
 export namespace DeleteSystemInstanceResponse {
-  export function isa(o: any): o is DeleteSystemInstanceResponse {
-    return __isa(o, "DeleteSystemInstanceResponse");
-  }
+  export const isa = (o: any): o is DeleteSystemInstanceResponse =>
+    __isa(o, "DeleteSystemInstanceResponse");
 }
 
 export interface DeleteSystemTemplateRequest {
@@ -266,9 +252,8 @@ export interface DeleteSystemTemplateRequest {
 }
 
 export namespace DeleteSystemTemplateRequest {
-  export function isa(o: any): o is DeleteSystemTemplateRequest {
-    return __isa(o, "DeleteSystemTemplateRequest");
-  }
+  export const isa = (o: any): o is DeleteSystemTemplateRequest =>
+    __isa(o, "DeleteSystemTemplateRequest");
 }
 
 export interface DeleteSystemTemplateResponse {
@@ -276,9 +261,8 @@ export interface DeleteSystemTemplateResponse {
 }
 
 export namespace DeleteSystemTemplateResponse {
-  export function isa(o: any): o is DeleteSystemTemplateResponse {
-    return __isa(o, "DeleteSystemTemplateResponse");
-  }
+  export const isa = (o: any): o is DeleteSystemTemplateResponse =>
+    __isa(o, "DeleteSystemTemplateResponse");
 }
 
 export interface DeploySystemInstanceRequest {
@@ -294,9 +278,8 @@ export interface DeploySystemInstanceRequest {
 }
 
 export namespace DeploySystemInstanceRequest {
-  export function isa(o: any): o is DeploySystemInstanceRequest {
-    return __isa(o, "DeploySystemInstanceRequest");
-  }
+  export const isa = (o: any): o is DeploySystemInstanceRequest =>
+    __isa(o, "DeploySystemInstanceRequest");
 }
 
 export interface DeploySystemInstanceResponse {
@@ -313,9 +296,8 @@ export interface DeploySystemInstanceResponse {
 }
 
 export namespace DeploySystemInstanceResponse {
-  export function isa(o: any): o is DeploySystemInstanceResponse {
-    return __isa(o, "DeploySystemInstanceResponse");
-  }
+  export const isa = (o: any): o is DeploySystemInstanceResponse =>
+    __isa(o, "DeploySystemInstanceResponse");
 }
 
 export interface DeprecateFlowTemplateRequest {
@@ -331,9 +313,8 @@ export interface DeprecateFlowTemplateRequest {
 }
 
 export namespace DeprecateFlowTemplateRequest {
-  export function isa(o: any): o is DeprecateFlowTemplateRequest {
-    return __isa(o, "DeprecateFlowTemplateRequest");
-  }
+  export const isa = (o: any): o is DeprecateFlowTemplateRequest =>
+    __isa(o, "DeprecateFlowTemplateRequest");
 }
 
 export interface DeprecateFlowTemplateResponse {
@@ -341,9 +322,8 @@ export interface DeprecateFlowTemplateResponse {
 }
 
 export namespace DeprecateFlowTemplateResponse {
-  export function isa(o: any): o is DeprecateFlowTemplateResponse {
-    return __isa(o, "DeprecateFlowTemplateResponse");
-  }
+  export const isa = (o: any): o is DeprecateFlowTemplateResponse =>
+    __isa(o, "DeprecateFlowTemplateResponse");
 }
 
 export interface DeprecateSystemTemplateRequest {
@@ -359,9 +339,8 @@ export interface DeprecateSystemTemplateRequest {
 }
 
 export namespace DeprecateSystemTemplateRequest {
-  export function isa(o: any): o is DeprecateSystemTemplateRequest {
-    return __isa(o, "DeprecateSystemTemplateRequest");
-  }
+  export const isa = (o: any): o is DeprecateSystemTemplateRequest =>
+    __isa(o, "DeprecateSystemTemplateRequest");
 }
 
 export interface DeprecateSystemTemplateResponse {
@@ -369,9 +348,8 @@ export interface DeprecateSystemTemplateResponse {
 }
 
 export namespace DeprecateSystemTemplateResponse {
-  export function isa(o: any): o is DeprecateSystemTemplateResponse {
-    return __isa(o, "DeprecateSystemTemplateResponse");
-  }
+  export const isa = (o: any): o is DeprecateSystemTemplateResponse =>
+    __isa(o, "DeprecateSystemTemplateResponse");
 }
 
 export interface DescribeNamespaceRequest {
@@ -383,9 +361,8 @@ export interface DescribeNamespaceRequest {
 }
 
 export namespace DescribeNamespaceRequest {
-  export function isa(o: any): o is DescribeNamespaceRequest {
-    return __isa(o, "DescribeNamespaceRequest");
-  }
+  export const isa = (o: any): o is DescribeNamespaceRequest =>
+    __isa(o, "DescribeNamespaceRequest");
 }
 
 export interface DescribeNamespaceResponse {
@@ -417,9 +394,8 @@ export interface DescribeNamespaceResponse {
 }
 
 export namespace DescribeNamespaceResponse {
-  export function isa(o: any): o is DescribeNamespaceResponse {
-    return __isa(o, "DescribeNamespaceResponse");
-  }
+  export const isa = (o: any): o is DescribeNamespaceResponse =>
+    __isa(o, "DescribeNamespaceResponse");
 }
 
 export interface DissociateEntityFromThingRequest {
@@ -436,9 +412,8 @@ export interface DissociateEntityFromThingRequest {
 }
 
 export namespace DissociateEntityFromThingRequest {
-  export function isa(o: any): o is DissociateEntityFromThingRequest {
-    return __isa(o, "DissociateEntityFromThingRequest");
-  }
+  export const isa = (o: any): o is DissociateEntityFromThingRequest =>
+    __isa(o, "DissociateEntityFromThingRequest");
 }
 
 export interface DissociateEntityFromThingResponse {
@@ -446,9 +421,8 @@ export interface DissociateEntityFromThingResponse {
 }
 
 export namespace DissociateEntityFromThingResponse {
-  export function isa(o: any): o is DissociateEntityFromThingResponse {
-    return __isa(o, "DissociateEntityFromThingResponse");
-  }
+  export const isa = (o: any): o is DissociateEntityFromThingResponse =>
+    __isa(o, "DissociateEntityFromThingResponse");
 }
 
 export interface GetEntitiesRequest {
@@ -469,9 +443,8 @@ export interface GetEntitiesRequest {
 }
 
 export namespace GetEntitiesRequest {
-  export function isa(o: any): o is GetEntitiesRequest {
-    return __isa(o, "GetEntitiesRequest");
-  }
+  export const isa = (o: any): o is GetEntitiesRequest =>
+    __isa(o, "GetEntitiesRequest");
 }
 
 export interface GetEntitiesResponse {
@@ -483,9 +456,8 @@ export interface GetEntitiesResponse {
 }
 
 export namespace GetEntitiesResponse {
-  export function isa(o: any): o is GetEntitiesResponse {
-    return __isa(o, "GetEntitiesResponse");
-  }
+  export const isa = (o: any): o is GetEntitiesResponse =>
+    __isa(o, "GetEntitiesResponse");
 }
 
 export interface GetFlowTemplateRequest {
@@ -506,9 +478,8 @@ export interface GetFlowTemplateRequest {
 }
 
 export namespace GetFlowTemplateRequest {
-  export function isa(o: any): o is GetFlowTemplateRequest {
-    return __isa(o, "GetFlowTemplateRequest");
-  }
+  export const isa = (o: any): o is GetFlowTemplateRequest =>
+    __isa(o, "GetFlowTemplateRequest");
 }
 
 export interface GetFlowTemplateResponse {
@@ -520,9 +491,8 @@ export interface GetFlowTemplateResponse {
 }
 
 export namespace GetFlowTemplateResponse {
-  export function isa(o: any): o is GetFlowTemplateResponse {
-    return __isa(o, "GetFlowTemplateResponse");
-  }
+  export const isa = (o: any): o is GetFlowTemplateResponse =>
+    __isa(o, "GetFlowTemplateResponse");
 }
 
 export interface GetFlowTemplateRevisionsRequest {
@@ -548,9 +518,8 @@ export interface GetFlowTemplateRevisionsRequest {
 }
 
 export namespace GetFlowTemplateRevisionsRequest {
-  export function isa(o: any): o is GetFlowTemplateRevisionsRequest {
-    return __isa(o, "GetFlowTemplateRevisionsRequest");
-  }
+  export const isa = (o: any): o is GetFlowTemplateRevisionsRequest =>
+    __isa(o, "GetFlowTemplateRevisionsRequest");
 }
 
 export interface GetFlowTemplateRevisionsResponse {
@@ -567,9 +536,8 @@ export interface GetFlowTemplateRevisionsResponse {
 }
 
 export namespace GetFlowTemplateRevisionsResponse {
-  export function isa(o: any): o is GetFlowTemplateRevisionsResponse {
-    return __isa(o, "GetFlowTemplateRevisionsResponse");
-  }
+  export const isa = (o: any): o is GetFlowTemplateRevisionsResponse =>
+    __isa(o, "GetFlowTemplateRevisionsResponse");
 }
 
 export interface GetNamespaceDeletionStatusRequest {
@@ -577,9 +545,8 @@ export interface GetNamespaceDeletionStatusRequest {
 }
 
 export namespace GetNamespaceDeletionStatusRequest {
-  export function isa(o: any): o is GetNamespaceDeletionStatusRequest {
-    return __isa(o, "GetNamespaceDeletionStatusRequest");
-  }
+  export const isa = (o: any): o is GetNamespaceDeletionStatusRequest =>
+    __isa(o, "GetNamespaceDeletionStatusRequest");
 }
 
 export interface GetNamespaceDeletionStatusResponse {
@@ -611,9 +578,8 @@ export interface GetNamespaceDeletionStatusResponse {
 }
 
 export namespace GetNamespaceDeletionStatusResponse {
-  export function isa(o: any): o is GetNamespaceDeletionStatusResponse {
-    return __isa(o, "GetNamespaceDeletionStatusResponse");
-  }
+  export const isa = (o: any): o is GetNamespaceDeletionStatusResponse =>
+    __isa(o, "GetNamespaceDeletionStatusResponse");
 }
 
 export interface GetSystemInstanceRequest {
@@ -629,9 +595,8 @@ export interface GetSystemInstanceRequest {
 }
 
 export namespace GetSystemInstanceRequest {
-  export function isa(o: any): o is GetSystemInstanceRequest {
-    return __isa(o, "GetSystemInstanceRequest");
-  }
+  export const isa = (o: any): o is GetSystemInstanceRequest =>
+    __isa(o, "GetSystemInstanceRequest");
 }
 
 export interface GetSystemInstanceResponse {
@@ -643,9 +608,8 @@ export interface GetSystemInstanceResponse {
 }
 
 export namespace GetSystemInstanceResponse {
-  export function isa(o: any): o is GetSystemInstanceResponse {
-    return __isa(o, "GetSystemInstanceResponse");
-  }
+  export const isa = (o: any): o is GetSystemInstanceResponse =>
+    __isa(o, "GetSystemInstanceResponse");
 }
 
 export interface GetSystemTemplateRequest {
@@ -666,9 +630,8 @@ export interface GetSystemTemplateRequest {
 }
 
 export namespace GetSystemTemplateRequest {
-  export function isa(o: any): o is GetSystemTemplateRequest {
-    return __isa(o, "GetSystemTemplateRequest");
-  }
+  export const isa = (o: any): o is GetSystemTemplateRequest =>
+    __isa(o, "GetSystemTemplateRequest");
 }
 
 export interface GetSystemTemplateResponse {
@@ -680,9 +643,8 @@ export interface GetSystemTemplateResponse {
 }
 
 export namespace GetSystemTemplateResponse {
-  export function isa(o: any): o is GetSystemTemplateResponse {
-    return __isa(o, "GetSystemTemplateResponse");
-  }
+  export const isa = (o: any): o is GetSystemTemplateResponse =>
+    __isa(o, "GetSystemTemplateResponse");
 }
 
 export interface GetSystemTemplateRevisionsRequest {
@@ -708,9 +670,8 @@ export interface GetSystemTemplateRevisionsRequest {
 }
 
 export namespace GetSystemTemplateRevisionsRequest {
-  export function isa(o: any): o is GetSystemTemplateRevisionsRequest {
-    return __isa(o, "GetSystemTemplateRevisionsRequest");
-  }
+  export const isa = (o: any): o is GetSystemTemplateRevisionsRequest =>
+    __isa(o, "GetSystemTemplateRevisionsRequest");
 }
 
 export interface GetSystemTemplateRevisionsResponse {
@@ -727,9 +688,8 @@ export interface GetSystemTemplateRevisionsResponse {
 }
 
 export namespace GetSystemTemplateRevisionsResponse {
-  export function isa(o: any): o is GetSystemTemplateRevisionsResponse {
-    return __isa(o, "GetSystemTemplateRevisionsResponse");
-  }
+  export const isa = (o: any): o is GetSystemTemplateRevisionsResponse =>
+    __isa(o, "GetSystemTemplateRevisionsResponse");
 }
 
 export interface GetUploadStatusRequest {
@@ -741,9 +701,8 @@ export interface GetUploadStatusRequest {
 }
 
 export namespace GetUploadStatusRequest {
-  export function isa(o: any): o is GetUploadStatusRequest {
-    return __isa(o, "GetUploadStatusRequest");
-  }
+  export const isa = (o: any): o is GetUploadStatusRequest =>
+    __isa(o, "GetUploadStatusRequest");
 }
 
 export interface GetUploadStatusResponse {
@@ -785,9 +744,8 @@ export interface GetUploadStatusResponse {
 }
 
 export namespace GetUploadStatusResponse {
-  export function isa(o: any): o is GetUploadStatusResponse {
-    return __isa(o, "GetUploadStatusResponse");
-  }
+  export const isa = (o: any): o is GetUploadStatusResponse =>
+    __isa(o, "GetUploadStatusResponse");
 }
 
 export interface ListFlowExecutionMessagesRequest {
@@ -809,9 +767,8 @@ export interface ListFlowExecutionMessagesRequest {
 }
 
 export namespace ListFlowExecutionMessagesRequest {
-  export function isa(o: any): o is ListFlowExecutionMessagesRequest {
-    return __isa(o, "ListFlowExecutionMessagesRequest");
-  }
+  export const isa = (o: any): o is ListFlowExecutionMessagesRequest =>
+    __isa(o, "ListFlowExecutionMessagesRequest");
 }
 
 export interface ListFlowExecutionMessagesResponse {
@@ -828,9 +785,8 @@ export interface ListFlowExecutionMessagesResponse {
 }
 
 export namespace ListFlowExecutionMessagesResponse {
-  export function isa(o: any): o is ListFlowExecutionMessagesResponse {
-    return __isa(o, "ListFlowExecutionMessagesResponse");
-  }
+  export const isa = (o: any): o is ListFlowExecutionMessagesResponse =>
+    __isa(o, "ListFlowExecutionMessagesResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -852,9 +808,8 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export function isa(o: any): o is ListTagsForResourceRequest {
-    return __isa(o, "ListTagsForResourceRequest");
-  }
+  export const isa = (o: any): o is ListTagsForResourceRequest =>
+    __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -871,9 +826,8 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export function isa(o: any): o is ListTagsForResourceResponse {
-    return __isa(o, "ListTagsForResourceResponse");
-  }
+  export const isa = (o: any): o is ListTagsForResourceResponse =>
+    __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface SearchEntitiesRequest {
@@ -909,9 +863,8 @@ export interface SearchEntitiesRequest {
 }
 
 export namespace SearchEntitiesRequest {
-  export function isa(o: any): o is SearchEntitiesRequest {
-    return __isa(o, "SearchEntitiesRequest");
-  }
+  export const isa = (o: any): o is SearchEntitiesRequest =>
+    __isa(o, "SearchEntitiesRequest");
 }
 
 export interface SearchEntitiesResponse {
@@ -928,9 +881,8 @@ export interface SearchEntitiesResponse {
 }
 
 export namespace SearchEntitiesResponse {
-  export function isa(o: any): o is SearchEntitiesResponse {
-    return __isa(o, "SearchEntitiesResponse");
-  }
+  export const isa = (o: any): o is SearchEntitiesResponse =>
+    __isa(o, "SearchEntitiesResponse");
 }
 
 export interface SearchFlowExecutionsRequest {
@@ -967,9 +919,8 @@ export interface SearchFlowExecutionsRequest {
 }
 
 export namespace SearchFlowExecutionsRequest {
-  export function isa(o: any): o is SearchFlowExecutionsRequest {
-    return __isa(o, "SearchFlowExecutionsRequest");
-  }
+  export const isa = (o: any): o is SearchFlowExecutionsRequest =>
+    __isa(o, "SearchFlowExecutionsRequest");
 }
 
 export interface SearchFlowExecutionsResponse {
@@ -986,9 +937,8 @@ export interface SearchFlowExecutionsResponse {
 }
 
 export namespace SearchFlowExecutionsResponse {
-  export function isa(o: any): o is SearchFlowExecutionsResponse {
-    return __isa(o, "SearchFlowExecutionsResponse");
-  }
+  export const isa = (o: any): o is SearchFlowExecutionsResponse =>
+    __isa(o, "SearchFlowExecutionsResponse");
 }
 
 export interface SearchFlowTemplatesRequest {
@@ -1010,9 +960,8 @@ export interface SearchFlowTemplatesRequest {
 }
 
 export namespace SearchFlowTemplatesRequest {
-  export function isa(o: any): o is SearchFlowTemplatesRequest {
-    return __isa(o, "SearchFlowTemplatesRequest");
-  }
+  export const isa = (o: any): o is SearchFlowTemplatesRequest =>
+    __isa(o, "SearchFlowTemplatesRequest");
 }
 
 export interface SearchFlowTemplatesResponse {
@@ -1029,9 +978,8 @@ export interface SearchFlowTemplatesResponse {
 }
 
 export namespace SearchFlowTemplatesResponse {
-  export function isa(o: any): o is SearchFlowTemplatesResponse {
-    return __isa(o, "SearchFlowTemplatesResponse");
-  }
+  export const isa = (o: any): o is SearchFlowTemplatesResponse =>
+    __isa(o, "SearchFlowTemplatesResponse");
 }
 
 export interface SearchSystemInstancesRequest {
@@ -1055,9 +1003,8 @@ export interface SearchSystemInstancesRequest {
 }
 
 export namespace SearchSystemInstancesRequest {
-  export function isa(o: any): o is SearchSystemInstancesRequest {
-    return __isa(o, "SearchSystemInstancesRequest");
-  }
+  export const isa = (o: any): o is SearchSystemInstancesRequest =>
+    __isa(o, "SearchSystemInstancesRequest");
 }
 
 export interface SearchSystemInstancesResponse {
@@ -1074,9 +1021,8 @@ export interface SearchSystemInstancesResponse {
 }
 
 export namespace SearchSystemInstancesResponse {
-  export function isa(o: any): o is SearchSystemInstancesResponse {
-    return __isa(o, "SearchSystemInstancesResponse");
-  }
+  export const isa = (o: any): o is SearchSystemInstancesResponse =>
+    __isa(o, "SearchSystemInstancesResponse");
 }
 
 export interface SearchSystemTemplatesRequest {
@@ -1098,9 +1044,8 @@ export interface SearchSystemTemplatesRequest {
 }
 
 export namespace SearchSystemTemplatesRequest {
-  export function isa(o: any): o is SearchSystemTemplatesRequest {
-    return __isa(o, "SearchSystemTemplatesRequest");
-  }
+  export const isa = (o: any): o is SearchSystemTemplatesRequest =>
+    __isa(o, "SearchSystemTemplatesRequest");
 }
 
 export interface SearchSystemTemplatesResponse {
@@ -1117,9 +1062,8 @@ export interface SearchSystemTemplatesResponse {
 }
 
 export namespace SearchSystemTemplatesResponse {
-  export function isa(o: any): o is SearchSystemTemplatesResponse {
-    return __isa(o, "SearchSystemTemplatesResponse");
-  }
+  export const isa = (o: any): o is SearchSystemTemplatesResponse =>
+    __isa(o, "SearchSystemTemplatesResponse");
 }
 
 export interface SearchThingsRequest {
@@ -1150,9 +1094,8 @@ export interface SearchThingsRequest {
 }
 
 export namespace SearchThingsRequest {
-  export function isa(o: any): o is SearchThingsRequest {
-    return __isa(o, "SearchThingsRequest");
-  }
+  export const isa = (o: any): o is SearchThingsRequest =>
+    __isa(o, "SearchThingsRequest");
 }
 
 export interface SearchThingsResponse {
@@ -1169,9 +1112,8 @@ export interface SearchThingsResponse {
 }
 
 export namespace SearchThingsResponse {
-  export function isa(o: any): o is SearchThingsResponse {
-    return __isa(o, "SearchThingsResponse");
-  }
+  export const isa = (o: any): o is SearchThingsResponse =>
+    __isa(o, "SearchThingsResponse");
 }
 
 export interface TagResourceRequest {
@@ -1188,9 +1130,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -1198,9 +1139,8 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export function isa(o: any): o is TagResourceResponse {
-    return __isa(o, "TagResourceResponse");
-  }
+  export const isa = (o: any): o is TagResourceResponse =>
+    __isa(o, "TagResourceResponse");
 }
 
 export interface UndeploySystemInstanceRequest {
@@ -1212,9 +1152,8 @@ export interface UndeploySystemInstanceRequest {
 }
 
 export namespace UndeploySystemInstanceRequest {
-  export function isa(o: any): o is UndeploySystemInstanceRequest {
-    return __isa(o, "UndeploySystemInstanceRequest");
-  }
+  export const isa = (o: any): o is UndeploySystemInstanceRequest =>
+    __isa(o, "UndeploySystemInstanceRequest");
 }
 
 export interface UndeploySystemInstanceResponse {
@@ -1226,9 +1165,8 @@ export interface UndeploySystemInstanceResponse {
 }
 
 export namespace UndeploySystemInstanceResponse {
-  export function isa(o: any): o is UndeploySystemInstanceResponse {
-    return __isa(o, "UndeploySystemInstanceResponse");
-  }
+  export const isa = (o: any): o is UndeploySystemInstanceResponse =>
+    __isa(o, "UndeploySystemInstanceResponse");
 }
 
 export interface UntagResourceRequest {
@@ -1246,9 +1184,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -1256,9 +1193,8 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export function isa(o: any): o is UntagResourceResponse {
-    return __isa(o, "UntagResourceResponse");
-  }
+  export const isa = (o: any): o is UntagResourceResponse =>
+    __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateFlowTemplateRequest {
@@ -1286,9 +1222,8 @@ export interface UpdateFlowTemplateRequest {
 }
 
 export namespace UpdateFlowTemplateRequest {
-  export function isa(o: any): o is UpdateFlowTemplateRequest {
-    return __isa(o, "UpdateFlowTemplateRequest");
-  }
+  export const isa = (o: any): o is UpdateFlowTemplateRequest =>
+    __isa(o, "UpdateFlowTemplateRequest");
 }
 
 export interface UpdateFlowTemplateResponse {
@@ -1300,9 +1235,8 @@ export interface UpdateFlowTemplateResponse {
 }
 
 export namespace UpdateFlowTemplateResponse {
-  export function isa(o: any): o is UpdateFlowTemplateResponse {
-    return __isa(o, "UpdateFlowTemplateResponse");
-  }
+  export const isa = (o: any): o is UpdateFlowTemplateResponse =>
+    __isa(o, "UpdateFlowTemplateResponse");
 }
 
 export interface UpdateSystemTemplateRequest {
@@ -1329,9 +1263,8 @@ export interface UpdateSystemTemplateRequest {
 }
 
 export namespace UpdateSystemTemplateRequest {
-  export function isa(o: any): o is UpdateSystemTemplateRequest {
-    return __isa(o, "UpdateSystemTemplateRequest");
-  }
+  export const isa = (o: any): o is UpdateSystemTemplateRequest =>
+    __isa(o, "UpdateSystemTemplateRequest");
 }
 
 export interface UpdateSystemTemplateResponse {
@@ -1343,9 +1276,8 @@ export interface UpdateSystemTemplateResponse {
 }
 
 export namespace UpdateSystemTemplateResponse {
-  export function isa(o: any): o is UpdateSystemTemplateResponse {
-    return __isa(o, "UpdateSystemTemplateResponse");
-  }
+  export const isa = (o: any): o is UpdateSystemTemplateResponse =>
+    __isa(o, "UpdateSystemTemplateResponse");
 }
 
 export interface UploadEntityDefinitionsRequest {
@@ -1368,9 +1300,8 @@ export interface UploadEntityDefinitionsRequest {
 }
 
 export namespace UploadEntityDefinitionsRequest {
-  export function isa(o: any): o is UploadEntityDefinitionsRequest {
-    return __isa(o, "UploadEntityDefinitionsRequest");
-  }
+  export const isa = (o: any): o is UploadEntityDefinitionsRequest =>
+    __isa(o, "UploadEntityDefinitionsRequest");
 }
 
 export interface UploadEntityDefinitionsResponse {
@@ -1382,9 +1313,8 @@ export interface UploadEntityDefinitionsResponse {
 }
 
 export namespace UploadEntityDefinitionsResponse {
-  export function isa(o: any): o is UploadEntityDefinitionsResponse {
-    return __isa(o, "UploadEntityDefinitionsResponse");
-  }
+  export const isa = (o: any): o is UploadEntityDefinitionsResponse =>
+    __isa(o, "UploadEntityDefinitionsResponse");
 }
 
 /**
@@ -1404,9 +1334,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -1426,9 +1354,8 @@ export interface DefinitionDocument {
 }
 
 export namespace DefinitionDocument {
-  export function isa(o: any): o is DefinitionDocument {
-    return __isa(o, "DefinitionDocument");
-  }
+  export const isa = (o: any): o is DefinitionDocument =>
+    __isa(o, "DefinitionDocument");
 }
 
 export enum DefinitionLanguage {
@@ -1447,9 +1374,8 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
-  export function isa(o: any): o is InternalFailureException {
-    return __isa(o, "InternalFailureException");
-  }
+  export const isa = (o: any): o is InternalFailureException =>
+    __isa(o, "InternalFailureException");
 }
 
 /**
@@ -1464,9 +1390,8 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return __isa(o, "InvalidRequestException");
-  }
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -1481,9 +1406,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 /**
@@ -1498,9 +1422,8 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
-  export function isa(o: any): o is ResourceAlreadyExistsException {
-    return __isa(o, "ResourceAlreadyExistsException");
-  }
+  export const isa = (o: any): o is ResourceAlreadyExistsException =>
+    __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -1515,9 +1438,8 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export function isa(o: any): o is ResourceInUseException {
-    return __isa(o, "ResourceInUseException");
-  }
+  export const isa = (o: any): o is ResourceInUseException =>
+    __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -1532,9 +1454,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1549,9 +1470,8 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return __isa(o, "ThrottlingException");
-  }
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 /**
@@ -1586,9 +1506,8 @@ export interface EntityDescription {
 }
 
 export namespace EntityDescription {
-  export function isa(o: any): o is EntityDescription {
-    return __isa(o, "EntityDescription");
-  }
+  export const isa = (o: any): o is EntityDescription =>
+    __isa(o, "EntityDescription");
 }
 
 /**
@@ -1611,9 +1530,7 @@ export interface EntityFilter {
 }
 
 export namespace EntityFilter {
-  export function isa(o: any): o is EntityFilter {
-    return __isa(o, "EntityFilter");
-  }
+  export const isa = (o: any): o is EntityFilter => __isa(o, "EntityFilter");
 }
 
 export enum EntityFilterName {
@@ -1663,9 +1580,7 @@ export interface Thing {
 }
 
 export namespace Thing {
-  export function isa(o: any): o is Thing {
-    return __isa(o, "Thing");
-  }
+  export const isa = (o: any): o is Thing => __isa(o, "Thing");
 }
 
 export enum UploadStatus {
@@ -1691,9 +1606,8 @@ export interface DependencyRevision {
 }
 
 export namespace DependencyRevision {
-  export function isa(o: any): o is DependencyRevision {
-    return __isa(o, "DependencyRevision");
-  }
+  export const isa = (o: any): o is DependencyRevision =>
+    __isa(o, "DependencyRevision");
 }
 
 export enum DeploymentTarget {
@@ -1748,9 +1662,8 @@ export interface FlowExecutionMessage {
 }
 
 export namespace FlowExecutionMessage {
-  export function isa(o: any): o is FlowExecutionMessage {
-    return __isa(o, "FlowExecutionMessage");
-  }
+  export const isa = (o: any): o is FlowExecutionMessage =>
+    __isa(o, "FlowExecutionMessage");
 }
 
 export enum FlowExecutionStatus {
@@ -1797,9 +1710,8 @@ export interface FlowExecutionSummary {
 }
 
 export namespace FlowExecutionSummary {
-  export function isa(o: any): o is FlowExecutionSummary {
-    return __isa(o, "FlowExecutionSummary");
-  }
+  export const isa = (o: any): o is FlowExecutionSummary =>
+    __isa(o, "FlowExecutionSummary");
 }
 
 /**
@@ -1824,9 +1736,8 @@ export interface FlowTemplateDescription {
 }
 
 export namespace FlowTemplateDescription {
-  export function isa(o: any): o is FlowTemplateDescription {
-    return __isa(o, "FlowTemplateDescription");
-  }
+  export const isa = (o: any): o is FlowTemplateDescription =>
+    __isa(o, "FlowTemplateDescription");
 }
 
 /**
@@ -1846,9 +1757,8 @@ export interface FlowTemplateFilter {
 }
 
 export namespace FlowTemplateFilter {
-  export function isa(o: any): o is FlowTemplateFilter {
-    return __isa(o, "FlowTemplateFilter");
-  }
+  export const isa = (o: any): o is FlowTemplateFilter =>
+    __isa(o, "FlowTemplateFilter");
 }
 
 export enum FlowTemplateFilterName {
@@ -1882,9 +1792,8 @@ export interface FlowTemplateSummary {
 }
 
 export namespace FlowTemplateSummary {
-  export function isa(o: any): o is FlowTemplateSummary {
-    return __isa(o, "FlowTemplateSummary");
-  }
+  export const isa = (o: any): o is FlowTemplateSummary =>
+    __isa(o, "FlowTemplateSummary");
 }
 
 /**
@@ -1904,9 +1813,8 @@ export interface MetricsConfiguration {
 }
 
 export namespace MetricsConfiguration {
-  export function isa(o: any): o is MetricsConfiguration {
-    return __isa(o, "MetricsConfiguration");
-  }
+  export const isa = (o: any): o is MetricsConfiguration =>
+    __isa(o, "MetricsConfiguration");
 }
 
 export enum SystemInstanceDeploymentStatus {
@@ -1964,9 +1872,8 @@ export interface SystemInstanceDescription {
 }
 
 export namespace SystemInstanceDescription {
-  export function isa(o: any): o is SystemInstanceDescription {
-    return __isa(o, "SystemInstanceDescription");
-  }
+  export const isa = (o: any): o is SystemInstanceDescription =>
+    __isa(o, "SystemInstanceDescription");
 }
 
 /**
@@ -1988,9 +1895,8 @@ export interface SystemInstanceFilter {
 }
 
 export namespace SystemInstanceFilter {
-  export function isa(o: any): o is SystemInstanceFilter {
-    return __isa(o, "SystemInstanceFilter");
-  }
+  export const isa = (o: any): o is SystemInstanceFilter =>
+    __isa(o, "SystemInstanceFilter");
 }
 
 export enum SystemInstanceFilterName {
@@ -2053,9 +1959,8 @@ export interface SystemInstanceSummary {
 }
 
 export namespace SystemInstanceSummary {
-  export function isa(o: any): o is SystemInstanceSummary {
-    return __isa(o, "SystemInstanceSummary");
-  }
+  export const isa = (o: any): o is SystemInstanceSummary =>
+    __isa(o, "SystemInstanceSummary");
 }
 
 /**
@@ -2080,9 +1985,8 @@ export interface SystemTemplateDescription {
 }
 
 export namespace SystemTemplateDescription {
-  export function isa(o: any): o is SystemTemplateDescription {
-    return __isa(o, "SystemTemplateDescription");
-  }
+  export const isa = (o: any): o is SystemTemplateDescription =>
+    __isa(o, "SystemTemplateDescription");
 }
 
 /**
@@ -2102,9 +2006,8 @@ export interface SystemTemplateFilter {
 }
 
 export namespace SystemTemplateFilter {
-  export function isa(o: any): o is SystemTemplateFilter {
-    return __isa(o, "SystemTemplateFilter");
-  }
+  export const isa = (o: any): o is SystemTemplateFilter =>
+    __isa(o, "SystemTemplateFilter");
 }
 
 export enum SystemTemplateFilterName {
@@ -2138,7 +2041,6 @@ export interface SystemTemplateSummary {
 }
 
 export namespace SystemTemplateSummary {
-  export function isa(o: any): o is SystemTemplateSummary {
-    return __isa(o, "SystemTemplateSummary");
-  }
+  export const isa = (o: any): o is SystemTemplateSummary =>
+    __isa(o, "SystemTemplateSummary");
 }

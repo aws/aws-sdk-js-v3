@@ -21,9 +21,7 @@ export interface Alternative {
 }
 
 export namespace Alternative {
-  export function isa(o: any): o is Alternative {
-    return __isa(o, "Alternative");
-  }
+  export const isa = (o: any): o is Alternative => __isa(o, "Alternative");
 }
 
 /**
@@ -38,9 +36,7 @@ export interface AudioEvent {
 }
 
 export namespace AudioEvent {
-  export function isa(o: any): o is AudioEvent {
-    return __isa(o, "AudioEvent");
-  }
+  export const isa = (o: any): o is AudioEvent => __isa(o, "AudioEvent");
 }
 
 /**
@@ -92,9 +88,8 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export function isa(o: any): o is BadRequestException {
-    return __isa(o, "BadRequestException");
-  }
+  export const isa = (o: any): o is BadRequestException =>
+    __isa(o, "BadRequestException");
 }
 
 /**
@@ -108,9 +103,8 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export function isa(o: any): o is ConflictException {
-    return __isa(o, "ConflictException");
-  }
+  export const isa = (o: any): o is ConflictException =>
+    __isa(o, "ConflictException");
 }
 
 /**
@@ -126,9 +120,8 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
-  export function isa(o: any): o is InternalFailureException {
-    return __isa(o, "InternalFailureException");
-  }
+  export const isa = (o: any): o is InternalFailureException =>
+    __isa(o, "InternalFailureException");
 }
 
 /**
@@ -162,9 +155,7 @@ export interface Item {
 }
 
 export namespace Item {
-  export function isa(o: any): o is Item {
-    return __isa(o, "Item");
-  }
+  export const isa = (o: any): o is Item => __isa(o, "Item");
 }
 
 export enum ItemType {
@@ -196,9 +187,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 /**
@@ -240,9 +230,7 @@ export interface Result {
 }
 
 export namespace Result {
-  export function isa(o: any): o is Result {
-    return __isa(o, "Result");
-  }
+  export const isa = (o: any): o is Result => __isa(o, "Result");
 }
 
 export interface StartStreamTranscriptionRequest {
@@ -283,9 +271,8 @@ export interface StartStreamTranscriptionRequest {
 }
 
 export namespace StartStreamTranscriptionRequest {
-  export function isa(o: any): o is StartStreamTranscriptionRequest {
-    return __isa(o, "StartStreamTranscriptionRequest");
-  }
+  export const isa = (o: any): o is StartStreamTranscriptionRequest =>
+    __isa(o, "StartStreamTranscriptionRequest");
 }
 
 export interface StartStreamTranscriptionResponse {
@@ -328,9 +315,8 @@ export interface StartStreamTranscriptionResponse {
 }
 
 export namespace StartStreamTranscriptionResponse {
-  export function isa(o: any): o is StartStreamTranscriptionResponse {
-    return __isa(o, "StartStreamTranscriptionResponse");
-  }
+  export const isa = (o: any): o is StartStreamTranscriptionResponse =>
+    __isa(o, "StartStreamTranscriptionResponse");
 }
 
 /**
@@ -347,9 +333,7 @@ export interface Transcript {
 }
 
 export namespace Transcript {
-  export function isa(o: any): o is Transcript {
-    return __isa(o, "Transcript");
-  }
+  export const isa = (o: any): o is Transcript => __isa(o, "Transcript");
 }
 
 /**
@@ -366,9 +350,8 @@ export interface TranscriptEvent {
 }
 
 export namespace TranscriptEvent {
-  export function isa(o: any): o is TranscriptEvent {
-    return __isa(o, "TranscriptEvent");
-  }
+  export const isa = (o: any): o is TranscriptEvent =>
+    __isa(o, "TranscriptEvent");
 }
 
 /**

@@ -17,9 +17,8 @@ export interface ClientLimitExceededException
 }
 
 export namespace ClientLimitExceededException {
-  export function isa(o: any): o is ClientLimitExceededException {
-    return __isa(o, "ClientLimitExceededException");
-  }
+  export const isa = (o: any): o is ClientLimitExceededException =>
+    __isa(o, "ClientLimitExceededException");
 }
 
 /**
@@ -34,9 +33,8 @@ export interface InvalidArgumentException
 }
 
 export namespace InvalidArgumentException {
-  export function isa(o: any): o is InvalidArgumentException {
-    return __isa(o, "InvalidArgumentException");
-  }
+  export const isa = (o: any): o is InvalidArgumentException =>
+    __isa(o, "InvalidArgumentException");
 }
 
 /**
@@ -51,9 +49,8 @@ export interface NotAuthorizedException
 }
 
 export namespace NotAuthorizedException {
-  export function isa(o: any): o is NotAuthorizedException {
-    return __isa(o, "NotAuthorizedException");
-  }
+  export const isa = (o: any): o is NotAuthorizedException =>
+    __isa(o, "NotAuthorizedException");
 }
 
 /**
@@ -68,9 +65,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 export interface GetIceServerConfigRequest {
@@ -99,9 +95,8 @@ export interface GetIceServerConfigRequest {
 }
 
 export namespace GetIceServerConfigRequest {
-  export function isa(o: any): o is GetIceServerConfigRequest {
-    return __isa(o, "GetIceServerConfigRequest");
-  }
+  export const isa = (o: any): o is GetIceServerConfigRequest =>
+    __isa(o, "GetIceServerConfigRequest");
 }
 
 export interface GetIceServerConfigResponse {
@@ -113,9 +108,8 @@ export interface GetIceServerConfigResponse {
 }
 
 export namespace GetIceServerConfigResponse {
-  export function isa(o: any): o is GetIceServerConfigResponse {
-    return __isa(o, "GetIceServerConfigResponse");
-  }
+  export const isa = (o: any): o is GetIceServerConfigResponse =>
+    __isa(o, "GetIceServerConfigResponse");
 }
 
 /**
@@ -147,9 +141,7 @@ export interface IceServer {
 }
 
 export namespace IceServer {
-  export function isa(o: any): o is IceServer {
-    return __isa(o, "IceServer");
-  }
+  export const isa = (o: any): o is IceServer => __isa(o, "IceServer");
 }
 
 /**
@@ -164,9 +156,8 @@ export interface InvalidClientException
 }
 
 export namespace InvalidClientException {
-  export function isa(o: any): o is InvalidClientException {
-    return __isa(o, "InvalidClientException");
-  }
+  export const isa = (o: any): o is InvalidClientException =>
+    __isa(o, "InvalidClientException");
 }
 
 export interface SendAlexaOfferToMasterRequest {
@@ -189,9 +180,8 @@ export interface SendAlexaOfferToMasterRequest {
 }
 
 export namespace SendAlexaOfferToMasterRequest {
-  export function isa(o: any): o is SendAlexaOfferToMasterRequest {
-    return __isa(o, "SendAlexaOfferToMasterRequest");
-  }
+  export const isa = (o: any): o is SendAlexaOfferToMasterRequest =>
+    __isa(o, "SendAlexaOfferToMasterRequest");
 }
 
 export interface SendAlexaOfferToMasterResponse {
@@ -203,9 +193,8 @@ export interface SendAlexaOfferToMasterResponse {
 }
 
 export namespace SendAlexaOfferToMasterResponse {
-  export function isa(o: any): o is SendAlexaOfferToMasterResponse {
-    return __isa(o, "SendAlexaOfferToMasterResponse");
-  }
+  export const isa = (o: any): o is SendAlexaOfferToMasterResponse =>
+    __isa(o, "SendAlexaOfferToMasterResponse");
 }
 
 export enum Service {
@@ -226,7 +215,6 @@ export interface SessionExpiredException
 }
 
 export namespace SessionExpiredException {
-  export function isa(o: any): o is SessionExpiredException {
-    return __isa(o, "SessionExpiredException");
-  }
+  export const isa = (o: any): o is SessionExpiredException =>
+    __isa(o, "SessionExpiredException");
 }

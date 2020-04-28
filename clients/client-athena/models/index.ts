@@ -13,9 +13,8 @@ export interface BatchGetNamedQueryInput {
 }
 
 export namespace BatchGetNamedQueryInput {
-  export function isa(o: any): o is BatchGetNamedQueryInput {
-    return __isa(o, "BatchGetNamedQueryInput");
-  }
+  export const isa = (o: any): o is BatchGetNamedQueryInput =>
+    __isa(o, "BatchGetNamedQueryInput");
 }
 
 export interface BatchGetNamedQueryOutput {
@@ -32,9 +31,8 @@ export interface BatchGetNamedQueryOutput {
 }
 
 export namespace BatchGetNamedQueryOutput {
-  export function isa(o: any): o is BatchGetNamedQueryOutput {
-    return __isa(o, "BatchGetNamedQueryOutput");
-  }
+  export const isa = (o: any): o is BatchGetNamedQueryOutput =>
+    __isa(o, "BatchGetNamedQueryOutput");
 }
 
 export interface BatchGetQueryExecutionInput {
@@ -46,9 +44,8 @@ export interface BatchGetQueryExecutionInput {
 }
 
 export namespace BatchGetQueryExecutionInput {
-  export function isa(o: any): o is BatchGetQueryExecutionInput {
-    return __isa(o, "BatchGetQueryExecutionInput");
-  }
+  export const isa = (o: any): o is BatchGetQueryExecutionInput =>
+    __isa(o, "BatchGetQueryExecutionInput");
 }
 
 export interface BatchGetQueryExecutionOutput {
@@ -65,9 +62,8 @@ export interface BatchGetQueryExecutionOutput {
 }
 
 export namespace BatchGetQueryExecutionOutput {
-  export function isa(o: any): o is BatchGetQueryExecutionOutput {
-    return __isa(o, "BatchGetQueryExecutionOutput");
-  }
+  export const isa = (o: any): o is BatchGetQueryExecutionOutput =>
+    __isa(o, "BatchGetQueryExecutionOutput");
 }
 
 /**
@@ -127,9 +123,7 @@ export interface ColumnInfo {
 }
 
 export namespace ColumnInfo {
-  export function isa(o: any): o is ColumnInfo {
-    return __isa(o, "ColumnInfo");
-  }
+  export const isa = (o: any): o is ColumnInfo => __isa(o, "ColumnInfo");
 }
 
 export enum ColumnNullable {
@@ -175,9 +169,8 @@ export interface CreateNamedQueryInput {
 }
 
 export namespace CreateNamedQueryInput {
-  export function isa(o: any): o is CreateNamedQueryInput {
-    return __isa(o, "CreateNamedQueryInput");
-  }
+  export const isa = (o: any): o is CreateNamedQueryInput =>
+    __isa(o, "CreateNamedQueryInput");
 }
 
 export interface CreateNamedQueryOutput {
@@ -189,9 +182,8 @@ export interface CreateNamedQueryOutput {
 }
 
 export namespace CreateNamedQueryOutput {
-  export function isa(o: any): o is CreateNamedQueryOutput {
-    return __isa(o, "CreateNamedQueryOutput");
-  }
+  export const isa = (o: any): o is CreateNamedQueryOutput =>
+    __isa(o, "CreateNamedQueryOutput");
 }
 
 export interface CreateWorkGroupInput {
@@ -223,9 +215,8 @@ export interface CreateWorkGroupInput {
 }
 
 export namespace CreateWorkGroupInput {
-  export function isa(o: any): o is CreateWorkGroupInput {
-    return __isa(o, "CreateWorkGroupInput");
-  }
+  export const isa = (o: any): o is CreateWorkGroupInput =>
+    __isa(o, "CreateWorkGroupInput");
 }
 
 export interface CreateWorkGroupOutput {
@@ -233,9 +224,8 @@ export interface CreateWorkGroupOutput {
 }
 
 export namespace CreateWorkGroupOutput {
-  export function isa(o: any): o is CreateWorkGroupOutput {
-    return __isa(o, "CreateWorkGroupOutput");
-  }
+  export const isa = (o: any): o is CreateWorkGroupOutput =>
+    __isa(o, "CreateWorkGroupOutput");
 }
 
 /**
@@ -250,9 +240,7 @@ export interface Datum {
 }
 
 export namespace Datum {
-  export function isa(o: any): o is Datum {
-    return __isa(o, "Datum");
-  }
+  export const isa = (o: any): o is Datum => __isa(o, "Datum");
 }
 
 export interface DeleteNamedQueryInput {
@@ -264,9 +252,8 @@ export interface DeleteNamedQueryInput {
 }
 
 export namespace DeleteNamedQueryInput {
-  export function isa(o: any): o is DeleteNamedQueryInput {
-    return __isa(o, "DeleteNamedQueryInput");
-  }
+  export const isa = (o: any): o is DeleteNamedQueryInput =>
+    __isa(o, "DeleteNamedQueryInput");
 }
 
 export interface DeleteNamedQueryOutput {
@@ -274,9 +261,8 @@ export interface DeleteNamedQueryOutput {
 }
 
 export namespace DeleteNamedQueryOutput {
-  export function isa(o: any): o is DeleteNamedQueryOutput {
-    return __isa(o, "DeleteNamedQueryOutput");
-  }
+  export const isa = (o: any): o is DeleteNamedQueryOutput =>
+    __isa(o, "DeleteNamedQueryOutput");
 }
 
 export interface DeleteWorkGroupInput {
@@ -293,9 +279,8 @@ export interface DeleteWorkGroupInput {
 }
 
 export namespace DeleteWorkGroupInput {
-  export function isa(o: any): o is DeleteWorkGroupInput {
-    return __isa(o, "DeleteWorkGroupInput");
-  }
+  export const isa = (o: any): o is DeleteWorkGroupInput =>
+    __isa(o, "DeleteWorkGroupInput");
 }
 
 export interface DeleteWorkGroupOutput {
@@ -303,9 +288,8 @@ export interface DeleteWorkGroupOutput {
 }
 
 export namespace DeleteWorkGroupOutput {
-  export function isa(o: any): o is DeleteWorkGroupOutput {
-    return __isa(o, "DeleteWorkGroupOutput");
-  }
+  export const isa = (o: any): o is DeleteWorkGroupOutput =>
+    __isa(o, "DeleteWorkGroupOutput");
 }
 
 /**
@@ -333,9 +317,8 @@ export interface EncryptionConfiguration {
 }
 
 export namespace EncryptionConfiguration {
-  export function isa(o: any): o is EncryptionConfiguration {
-    return __isa(o, "EncryptionConfiguration");
-  }
+  export const isa = (o: any): o is EncryptionConfiguration =>
+    __isa(o, "EncryptionConfiguration");
 }
 
 export enum EncryptionOption {
@@ -353,9 +336,8 @@ export interface GetNamedQueryInput {
 }
 
 export namespace GetNamedQueryInput {
-  export function isa(o: any): o is GetNamedQueryInput {
-    return __isa(o, "GetNamedQueryInput");
-  }
+  export const isa = (o: any): o is GetNamedQueryInput =>
+    __isa(o, "GetNamedQueryInput");
 }
 
 export interface GetNamedQueryOutput {
@@ -367,9 +349,8 @@ export interface GetNamedQueryOutput {
 }
 
 export namespace GetNamedQueryOutput {
-  export function isa(o: any): o is GetNamedQueryOutput {
-    return __isa(o, "GetNamedQueryOutput");
-  }
+  export const isa = (o: any): o is GetNamedQueryOutput =>
+    __isa(o, "GetNamedQueryOutput");
 }
 
 export interface GetQueryExecutionInput {
@@ -381,9 +362,8 @@ export interface GetQueryExecutionInput {
 }
 
 export namespace GetQueryExecutionInput {
-  export function isa(o: any): o is GetQueryExecutionInput {
-    return __isa(o, "GetQueryExecutionInput");
-  }
+  export const isa = (o: any): o is GetQueryExecutionInput =>
+    __isa(o, "GetQueryExecutionInput");
 }
 
 export interface GetQueryExecutionOutput {
@@ -395,9 +375,8 @@ export interface GetQueryExecutionOutput {
 }
 
 export namespace GetQueryExecutionOutput {
-  export function isa(o: any): o is GetQueryExecutionOutput {
-    return __isa(o, "GetQueryExecutionOutput");
-  }
+  export const isa = (o: any): o is GetQueryExecutionOutput =>
+    __isa(o, "GetQueryExecutionOutput");
 }
 
 export interface GetQueryResultsInput {
@@ -419,9 +398,8 @@ export interface GetQueryResultsInput {
 }
 
 export namespace GetQueryResultsInput {
-  export function isa(o: any): o is GetQueryResultsInput {
-    return __isa(o, "GetQueryResultsInput");
-  }
+  export const isa = (o: any): o is GetQueryResultsInput =>
+    __isa(o, "GetQueryResultsInput");
 }
 
 export interface GetQueryResultsOutput {
@@ -444,9 +422,8 @@ export interface GetQueryResultsOutput {
 }
 
 export namespace GetQueryResultsOutput {
-  export function isa(o: any): o is GetQueryResultsOutput {
-    return __isa(o, "GetQueryResultsOutput");
-  }
+  export const isa = (o: any): o is GetQueryResultsOutput =>
+    __isa(o, "GetQueryResultsOutput");
 }
 
 export interface GetWorkGroupInput {
@@ -458,9 +435,8 @@ export interface GetWorkGroupInput {
 }
 
 export namespace GetWorkGroupInput {
-  export function isa(o: any): o is GetWorkGroupInput {
-    return __isa(o, "GetWorkGroupInput");
-  }
+  export const isa = (o: any): o is GetWorkGroupInput =>
+    __isa(o, "GetWorkGroupInput");
 }
 
 export interface GetWorkGroupOutput {
@@ -472,9 +448,8 @@ export interface GetWorkGroupOutput {
 }
 
 export namespace GetWorkGroupOutput {
-  export function isa(o: any): o is GetWorkGroupOutput {
-    return __isa(o, "GetWorkGroupOutput");
-  }
+  export const isa = (o: any): o is GetWorkGroupOutput =>
+    __isa(o, "GetWorkGroupOutput");
 }
 
 /**
@@ -489,9 +464,8 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export function isa(o: any): o is InternalServerException {
-    return __isa(o, "InternalServerException");
-  }
+  export const isa = (o: any): o is InternalServerException =>
+    __isa(o, "InternalServerException");
 }
 
 /**
@@ -511,9 +485,8 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return __isa(o, "InvalidRequestException");
-  }
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
 }
 
 export interface ListNamedQueriesInput {
@@ -535,9 +508,8 @@ export interface ListNamedQueriesInput {
 }
 
 export namespace ListNamedQueriesInput {
-  export function isa(o: any): o is ListNamedQueriesInput {
-    return __isa(o, "ListNamedQueriesInput");
-  }
+  export const isa = (o: any): o is ListNamedQueriesInput =>
+    __isa(o, "ListNamedQueriesInput");
 }
 
 export interface ListNamedQueriesOutput {
@@ -554,9 +526,8 @@ export interface ListNamedQueriesOutput {
 }
 
 export namespace ListNamedQueriesOutput {
-  export function isa(o: any): o is ListNamedQueriesOutput {
-    return __isa(o, "ListNamedQueriesOutput");
-  }
+  export const isa = (o: any): o is ListNamedQueriesOutput =>
+    __isa(o, "ListNamedQueriesOutput");
 }
 
 export interface ListQueryExecutionsInput {
@@ -578,9 +549,8 @@ export interface ListQueryExecutionsInput {
 }
 
 export namespace ListQueryExecutionsInput {
-  export function isa(o: any): o is ListQueryExecutionsInput {
-    return __isa(o, "ListQueryExecutionsInput");
-  }
+  export const isa = (o: any): o is ListQueryExecutionsInput =>
+    __isa(o, "ListQueryExecutionsInput");
 }
 
 export interface ListQueryExecutionsOutput {
@@ -597,9 +567,8 @@ export interface ListQueryExecutionsOutput {
 }
 
 export namespace ListQueryExecutionsOutput {
-  export function isa(o: any): o is ListQueryExecutionsOutput {
-    return __isa(o, "ListQueryExecutionsOutput");
-  }
+  export const isa = (o: any): o is ListQueryExecutionsOutput =>
+    __isa(o, "ListQueryExecutionsOutput");
 }
 
 export interface ListTagsForResourceInput {
@@ -621,9 +590,8 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
-  export function isa(o: any): o is ListTagsForResourceInput {
-    return __isa(o, "ListTagsForResourceInput");
-  }
+  export const isa = (o: any): o is ListTagsForResourceInput =>
+    __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceOutput {
@@ -640,9 +608,8 @@ export interface ListTagsForResourceOutput {
 }
 
 export namespace ListTagsForResourceOutput {
-  export function isa(o: any): o is ListTagsForResourceOutput {
-    return __isa(o, "ListTagsForResourceOutput");
-  }
+  export const isa = (o: any): o is ListTagsForResourceOutput =>
+    __isa(o, "ListTagsForResourceOutput");
 }
 
 export interface ListWorkGroupsInput {
@@ -659,9 +626,8 @@ export interface ListWorkGroupsInput {
 }
 
 export namespace ListWorkGroupsInput {
-  export function isa(o: any): o is ListWorkGroupsInput {
-    return __isa(o, "ListWorkGroupsInput");
-  }
+  export const isa = (o: any): o is ListWorkGroupsInput =>
+    __isa(o, "ListWorkGroupsInput");
 }
 
 export interface ListWorkGroupsOutput {
@@ -678,9 +644,8 @@ export interface ListWorkGroupsOutput {
 }
 
 export namespace ListWorkGroupsOutput {
-  export function isa(o: any): o is ListWorkGroupsOutput {
-    return __isa(o, "ListWorkGroupsOutput");
-  }
+  export const isa = (o: any): o is ListWorkGroupsOutput =>
+    __isa(o, "ListWorkGroupsOutput");
 }
 
 /**
@@ -720,9 +685,7 @@ export interface NamedQuery {
 }
 
 export namespace NamedQuery {
-  export function isa(o: any): o is NamedQuery {
-    return __isa(o, "NamedQuery");
-  }
+  export const isa = (o: any): o is NamedQuery => __isa(o, "NamedQuery");
 }
 
 /**
@@ -781,9 +744,8 @@ export interface QueryExecution {
 }
 
 export namespace QueryExecution {
-  export function isa(o: any): o is QueryExecution {
-    return __isa(o, "QueryExecution");
-  }
+  export const isa = (o: any): o is QueryExecution =>
+    __isa(o, "QueryExecution");
 }
 
 /**
@@ -798,9 +760,8 @@ export interface QueryExecutionContext {
 }
 
 export namespace QueryExecutionContext {
-  export function isa(o: any): o is QueryExecutionContext {
-    return __isa(o, "QueryExecutionContext");
-  }
+  export const isa = (o: any): o is QueryExecutionContext =>
+    __isa(o, "QueryExecutionContext");
 }
 
 export enum QueryExecutionState {
@@ -854,9 +815,8 @@ export interface QueryExecutionStatistics {
 }
 
 export namespace QueryExecutionStatistics {
-  export function isa(o: any): o is QueryExecutionStatistics {
-    return __isa(o, "QueryExecutionStatistics");
-  }
+  export const isa = (o: any): o is QueryExecutionStatistics =>
+    __isa(o, "QueryExecutionStatistics");
 }
 
 /**
@@ -891,9 +851,8 @@ export interface QueryExecutionStatus {
 }
 
 export namespace QueryExecutionStatus {
-  export function isa(o: any): o is QueryExecutionStatus {
-    return __isa(o, "QueryExecutionStatus");
-  }
+  export const isa = (o: any): o is QueryExecutionStatus =>
+    __isa(o, "QueryExecutionStatus");
 }
 
 /**
@@ -909,9 +868,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -945,9 +903,8 @@ export interface ResultConfiguration {
 }
 
 export namespace ResultConfiguration {
-  export function isa(o: any): o is ResultConfiguration {
-    return __isa(o, "ResultConfiguration");
-  }
+  export const isa = (o: any): o is ResultConfiguration =>
+    __isa(o, "ResultConfiguration");
 }
 
 /**
@@ -986,9 +943,8 @@ export interface ResultConfigurationUpdates {
 }
 
 export namespace ResultConfigurationUpdates {
-  export function isa(o: any): o is ResultConfigurationUpdates {
-    return __isa(o, "ResultConfigurationUpdates");
-  }
+  export const isa = (o: any): o is ResultConfigurationUpdates =>
+    __isa(o, "ResultConfigurationUpdates");
 }
 
 /**
@@ -1008,9 +964,7 @@ export interface ResultSet {
 }
 
 export namespace ResultSet {
-  export function isa(o: any): o is ResultSet {
-    return __isa(o, "ResultSet");
-  }
+  export const isa = (o: any): o is ResultSet => __isa(o, "ResultSet");
 }
 
 /**
@@ -1026,9 +980,8 @@ export interface ResultSetMetadata {
 }
 
 export namespace ResultSetMetadata {
-  export function isa(o: any): o is ResultSetMetadata {
-    return __isa(o, "ResultSetMetadata");
-  }
+  export const isa = (o: any): o is ResultSetMetadata =>
+    __isa(o, "ResultSetMetadata");
 }
 
 /**
@@ -1043,9 +996,7 @@ export interface Row {
 }
 
 export namespace Row {
-  export function isa(o: any): o is Row {
-    return __isa(o, "Row");
-  }
+  export const isa = (o: any): o is Row => __isa(o, "Row");
 }
 
 export interface StartQueryExecutionInput {
@@ -1082,9 +1033,8 @@ export interface StartQueryExecutionInput {
 }
 
 export namespace StartQueryExecutionInput {
-  export function isa(o: any): o is StartQueryExecutionInput {
-    return __isa(o, "StartQueryExecutionInput");
-  }
+  export const isa = (o: any): o is StartQueryExecutionInput =>
+    __isa(o, "StartQueryExecutionInput");
 }
 
 export interface StartQueryExecutionOutput {
@@ -1096,9 +1046,8 @@ export interface StartQueryExecutionOutput {
 }
 
 export namespace StartQueryExecutionOutput {
-  export function isa(o: any): o is StartQueryExecutionOutput {
-    return __isa(o, "StartQueryExecutionOutput");
-  }
+  export const isa = (o: any): o is StartQueryExecutionOutput =>
+    __isa(o, "StartQueryExecutionOutput");
 }
 
 export enum StatementType {
@@ -1116,9 +1065,8 @@ export interface StopQueryExecutionInput {
 }
 
 export namespace StopQueryExecutionInput {
-  export function isa(o: any): o is StopQueryExecutionInput {
-    return __isa(o, "StopQueryExecutionInput");
-  }
+  export const isa = (o: any): o is StopQueryExecutionInput =>
+    __isa(o, "StopQueryExecutionInput");
 }
 
 export interface StopQueryExecutionOutput {
@@ -1126,9 +1074,8 @@ export interface StopQueryExecutionOutput {
 }
 
 export namespace StopQueryExecutionOutput {
-  export function isa(o: any): o is StopQueryExecutionOutput {
-    return __isa(o, "StopQueryExecutionOutput");
-  }
+  export const isa = (o: any): o is StopQueryExecutionOutput =>
+    __isa(o, "StopQueryExecutionOutput");
 }
 
 /**
@@ -1155,9 +1102,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return __isa(o, "Tag");
-  }
+  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceInput {
@@ -1174,9 +1119,8 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
-  export function isa(o: any): o is TagResourceInput {
-    return __isa(o, "TagResourceInput");
-  }
+  export const isa = (o: any): o is TagResourceInput =>
+    __isa(o, "TagResourceInput");
 }
 
 export interface TagResourceOutput {
@@ -1184,9 +1128,8 @@ export interface TagResourceOutput {
 }
 
 export namespace TagResourceOutput {
-  export function isa(o: any): o is TagResourceOutput {
-    return __isa(o, "TagResourceOutput");
-  }
+  export const isa = (o: any): o is TagResourceOutput =>
+    __isa(o, "TagResourceOutput");
 }
 
 export enum ThrottleReason {
@@ -1209,9 +1152,8 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export function isa(o: any): o is TooManyRequestsException {
-    return __isa(o, "TooManyRequestsException");
-  }
+  export const isa = (o: any): o is TooManyRequestsException =>
+    __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -1236,9 +1178,8 @@ export interface UnprocessedNamedQueryId {
 }
 
 export namespace UnprocessedNamedQueryId {
-  export function isa(o: any): o is UnprocessedNamedQueryId {
-    return __isa(o, "UnprocessedNamedQueryId");
-  }
+  export const isa = (o: any): o is UnprocessedNamedQueryId =>
+    __isa(o, "UnprocessedNamedQueryId");
 }
 
 /**
@@ -1263,9 +1204,8 @@ export interface UnprocessedQueryExecutionId {
 }
 
 export namespace UnprocessedQueryExecutionId {
-  export function isa(o: any): o is UnprocessedQueryExecutionId {
-    return __isa(o, "UnprocessedQueryExecutionId");
-  }
+  export const isa = (o: any): o is UnprocessedQueryExecutionId =>
+    __isa(o, "UnprocessedQueryExecutionId");
 }
 
 export interface UntagResourceInput {
@@ -1282,9 +1222,8 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
-  export function isa(o: any): o is UntagResourceInput {
-    return __isa(o, "UntagResourceInput");
-  }
+  export const isa = (o: any): o is UntagResourceInput =>
+    __isa(o, "UntagResourceInput");
 }
 
 export interface UntagResourceOutput {
@@ -1292,9 +1231,8 @@ export interface UntagResourceOutput {
 }
 
 export namespace UntagResourceOutput {
-  export function isa(o: any): o is UntagResourceOutput {
-    return __isa(o, "UntagResourceOutput");
-  }
+  export const isa = (o: any): o is UntagResourceOutput =>
+    __isa(o, "UntagResourceOutput");
 }
 
 export interface UpdateWorkGroupInput {
@@ -1321,9 +1259,8 @@ export interface UpdateWorkGroupInput {
 }
 
 export namespace UpdateWorkGroupInput {
-  export function isa(o: any): o is UpdateWorkGroupInput {
-    return __isa(o, "UpdateWorkGroupInput");
-  }
+  export const isa = (o: any): o is UpdateWorkGroupInput =>
+    __isa(o, "UpdateWorkGroupInput");
 }
 
 export interface UpdateWorkGroupOutput {
@@ -1331,9 +1268,8 @@ export interface UpdateWorkGroupOutput {
 }
 
 export namespace UpdateWorkGroupOutput {
-  export function isa(o: any): o is UpdateWorkGroupOutput {
-    return __isa(o, "UpdateWorkGroupOutput");
-  }
+  export const isa = (o: any): o is UpdateWorkGroupOutput =>
+    __isa(o, "UpdateWorkGroupOutput");
 }
 
 /**
@@ -1379,9 +1315,7 @@ export interface WorkGroup {
 }
 
 export namespace WorkGroup {
-  export function isa(o: any): o is WorkGroup {
-    return __isa(o, "WorkGroup");
-  }
+  export const isa = (o: any): o is WorkGroup => __isa(o, "WorkGroup");
 }
 
 /**
@@ -1427,9 +1361,8 @@ export interface WorkGroupConfiguration {
 }
 
 export namespace WorkGroupConfiguration {
-  export function isa(o: any): o is WorkGroupConfiguration {
-    return __isa(o, "WorkGroupConfiguration");
-  }
+  export const isa = (o: any): o is WorkGroupConfiguration =>
+    __isa(o, "WorkGroupConfiguration");
 }
 
 /**
@@ -1476,9 +1409,8 @@ export interface WorkGroupConfigurationUpdates {
 }
 
 export namespace WorkGroupConfigurationUpdates {
-  export function isa(o: any): o is WorkGroupConfigurationUpdates {
-    return __isa(o, "WorkGroupConfigurationUpdates");
-  }
+  export const isa = (o: any): o is WorkGroupConfigurationUpdates =>
+    __isa(o, "WorkGroupConfigurationUpdates");
 }
 
 export enum WorkGroupState {
@@ -1514,7 +1446,6 @@ export interface WorkGroupSummary {
 }
 
 export namespace WorkGroupSummary {
-  export function isa(o: any): o is WorkGroupSummary {
-    return __isa(o, "WorkGroupSummary");
-  }
+  export const isa = (o: any): o is WorkGroupSummary =>
+    __isa(o, "WorkGroupSummary");
 }

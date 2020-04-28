@@ -21,9 +21,8 @@ export interface AccessPoliciesStatus {
 }
 
 export namespace AccessPoliciesStatus {
-  export function isa(o: any): o is AccessPoliciesStatus {
-    return __isa(o, "AccessPoliciesStatus");
-  }
+  export const isa = (o: any): o is AccessPoliciesStatus =>
+    __isa(o, "AccessPoliciesStatus");
 }
 
 export type AlgorithmicStemming = "full" | "light" | "minimal" | "none";
@@ -60,9 +59,8 @@ export interface AnalysisOptions {
 }
 
 export namespace AnalysisOptions {
-  export function isa(o: any): o is AnalysisOptions {
-    return __isa(o, "AnalysisOptions");
-  }
+  export const isa = (o: any): o is AnalysisOptions =>
+    __isa(o, "AnalysisOptions");
 }
 
 /**
@@ -88,9 +86,8 @@ export interface AnalysisScheme {
 }
 
 export namespace AnalysisScheme {
-  export function isa(o: any): o is AnalysisScheme {
-    return __isa(o, "AnalysisScheme");
-  }
+  export const isa = (o: any): o is AnalysisScheme =>
+    __isa(o, "AnalysisScheme");
 }
 
 export type AnalysisSchemeLanguage =
@@ -147,9 +144,8 @@ export interface AnalysisSchemeStatus {
 }
 
 export namespace AnalysisSchemeStatus {
-  export function isa(o: any): o is AnalysisSchemeStatus {
-    return __isa(o, "AnalysisSchemeStatus");
-  }
+  export const isa = (o: any): o is AnalysisSchemeStatus =>
+    __isa(o, "AnalysisSchemeStatus");
 }
 
 /**
@@ -169,9 +165,8 @@ export interface AvailabilityOptionsStatus {
 }
 
 export namespace AvailabilityOptionsStatus {
-  export function isa(o: any): o is AvailabilityOptionsStatus {
-    return __isa(o, "AvailabilityOptionsStatus");
-  }
+  export const isa = (o: any): o is AvailabilityOptionsStatus =>
+    __isa(o, "AvailabilityOptionsStatus");
 }
 
 /**
@@ -192,9 +187,7 @@ export interface BaseException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace BaseException {
-  export function isa(o: any): o is BaseException {
-    return __isa(o, "BaseException");
-  }
+  export const isa = (o: any): o is BaseException => __isa(o, "BaseException");
 }
 
 /**
@@ -209,9 +202,8 @@ export interface BuildSuggestersRequest {
 }
 
 export namespace BuildSuggestersRequest {
-  export function isa(o: any): o is BuildSuggestersRequest {
-    return __isa(o, "BuildSuggestersRequest");
-  }
+  export const isa = (o: any): o is BuildSuggestersRequest =>
+    __isa(o, "BuildSuggestersRequest");
 }
 
 /**
@@ -226,9 +218,8 @@ export interface BuildSuggestersResponse {
 }
 
 export namespace BuildSuggestersResponse {
-  export function isa(o: any): o is BuildSuggestersResponse {
-    return __isa(o, "BuildSuggestersResponse");
-  }
+  export const isa = (o: any): o is BuildSuggestersResponse =>
+    __isa(o, "BuildSuggestersResponse");
 }
 
 /**
@@ -243,9 +234,8 @@ export interface CreateDomainRequest {
 }
 
 export namespace CreateDomainRequest {
-  export function isa(o: any): o is CreateDomainRequest {
-    return __isa(o, "CreateDomainRequest");
-  }
+  export const isa = (o: any): o is CreateDomainRequest =>
+    __isa(o, "CreateDomainRequest");
 }
 
 /**
@@ -260,9 +250,8 @@ export interface CreateDomainResponse {
 }
 
 export namespace CreateDomainResponse {
-  export function isa(o: any): o is CreateDomainResponse {
-    return __isa(o, "CreateDomainResponse");
-  }
+  export const isa = (o: any): o is CreateDomainResponse =>
+    __isa(o, "CreateDomainResponse");
 }
 
 /**
@@ -297,9 +286,8 @@ export interface DateArrayOptions {
 }
 
 export namespace DateArrayOptions {
-  export function isa(o: any): o is DateArrayOptions {
-    return __isa(o, "DateArrayOptions");
-  }
+  export const isa = (o: any): o is DateArrayOptions =>
+    __isa(o, "DateArrayOptions");
 }
 
 /**
@@ -352,9 +340,7 @@ export interface DateOptions {
 }
 
 export namespace DateOptions {
-  export function isa(o: any): o is DateOptions {
-    return __isa(o, "DateOptions");
-  }
+  export const isa = (o: any): o is DateOptions => __isa(o, "DateOptions");
 }
 
 /**
@@ -374,9 +360,8 @@ export interface DefineAnalysisSchemeRequest {
 }
 
 export namespace DefineAnalysisSchemeRequest {
-  export function isa(o: any): o is DefineAnalysisSchemeRequest {
-    return __isa(o, "DefineAnalysisSchemeRequest");
-  }
+  export const isa = (o: any): o is DefineAnalysisSchemeRequest =>
+    __isa(o, "DefineAnalysisSchemeRequest");
 }
 
 /**
@@ -391,9 +376,8 @@ export interface DefineAnalysisSchemeResponse {
 }
 
 export namespace DefineAnalysisSchemeResponse {
-  export function isa(o: any): o is DefineAnalysisSchemeResponse {
-    return __isa(o, "DefineAnalysisSchemeResponse");
-  }
+  export const isa = (o: any): o is DefineAnalysisSchemeResponse =>
+    __isa(o, "DefineAnalysisSchemeResponse");
 }
 
 /**
@@ -413,9 +397,8 @@ export interface DefineExpressionRequest {
 }
 
 export namespace DefineExpressionRequest {
-  export function isa(o: any): o is DefineExpressionRequest {
-    return __isa(o, "DefineExpressionRequest");
-  }
+  export const isa = (o: any): o is DefineExpressionRequest =>
+    __isa(o, "DefineExpressionRequest");
 }
 
 /**
@@ -430,9 +413,8 @@ export interface DefineExpressionResponse {
 }
 
 export namespace DefineExpressionResponse {
-  export function isa(o: any): o is DefineExpressionResponse {
-    return __isa(o, "DefineExpressionResponse");
-  }
+  export const isa = (o: any): o is DefineExpressionResponse =>
+    __isa(o, "DefineExpressionResponse");
 }
 
 /**
@@ -452,9 +434,8 @@ export interface DefineIndexFieldRequest {
 }
 
 export namespace DefineIndexFieldRequest {
-  export function isa(o: any): o is DefineIndexFieldRequest {
-    return __isa(o, "DefineIndexFieldRequest");
-  }
+  export const isa = (o: any): o is DefineIndexFieldRequest =>
+    __isa(o, "DefineIndexFieldRequest");
 }
 
 /**
@@ -469,9 +450,8 @@ export interface DefineIndexFieldResponse {
 }
 
 export namespace DefineIndexFieldResponse {
-  export function isa(o: any): o is DefineIndexFieldResponse {
-    return __isa(o, "DefineIndexFieldResponse");
-  }
+  export const isa = (o: any): o is DefineIndexFieldResponse =>
+    __isa(o, "DefineIndexFieldResponse");
 }
 
 /**
@@ -491,9 +471,8 @@ export interface DefineSuggesterRequest {
 }
 
 export namespace DefineSuggesterRequest {
-  export function isa(o: any): o is DefineSuggesterRequest {
-    return __isa(o, "DefineSuggesterRequest");
-  }
+  export const isa = (o: any): o is DefineSuggesterRequest =>
+    __isa(o, "DefineSuggesterRequest");
 }
 
 /**
@@ -508,9 +487,8 @@ export interface DefineSuggesterResponse {
 }
 
 export namespace DefineSuggesterResponse {
-  export function isa(o: any): o is DefineSuggesterResponse {
-    return __isa(o, "DefineSuggesterResponse");
-  }
+  export const isa = (o: any): o is DefineSuggesterResponse =>
+    __isa(o, "DefineSuggesterResponse");
 }
 
 /**
@@ -530,9 +508,8 @@ export interface DeleteAnalysisSchemeRequest {
 }
 
 export namespace DeleteAnalysisSchemeRequest {
-  export function isa(o: any): o is DeleteAnalysisSchemeRequest {
-    return __isa(o, "DeleteAnalysisSchemeRequest");
-  }
+  export const isa = (o: any): o is DeleteAnalysisSchemeRequest =>
+    __isa(o, "DeleteAnalysisSchemeRequest");
 }
 
 /**
@@ -547,9 +524,8 @@ export interface DeleteAnalysisSchemeResponse {
 }
 
 export namespace DeleteAnalysisSchemeResponse {
-  export function isa(o: any): o is DeleteAnalysisSchemeResponse {
-    return __isa(o, "DeleteAnalysisSchemeResponse");
-  }
+  export const isa = (o: any): o is DeleteAnalysisSchemeResponse =>
+    __isa(o, "DeleteAnalysisSchemeResponse");
 }
 
 /**
@@ -564,9 +540,8 @@ export interface DeleteDomainRequest {
 }
 
 export namespace DeleteDomainRequest {
-  export function isa(o: any): o is DeleteDomainRequest {
-    return __isa(o, "DeleteDomainRequest");
-  }
+  export const isa = (o: any): o is DeleteDomainRequest =>
+    __isa(o, "DeleteDomainRequest");
 }
 
 /**
@@ -581,9 +556,8 @@ export interface DeleteDomainResponse {
 }
 
 export namespace DeleteDomainResponse {
-  export function isa(o: any): o is DeleteDomainResponse {
-    return __isa(o, "DeleteDomainResponse");
-  }
+  export const isa = (o: any): o is DeleteDomainResponse =>
+    __isa(o, "DeleteDomainResponse");
 }
 
 /**
@@ -603,9 +577,8 @@ export interface DeleteExpressionRequest {
 }
 
 export namespace DeleteExpressionRequest {
-  export function isa(o: any): o is DeleteExpressionRequest {
-    return __isa(o, "DeleteExpressionRequest");
-  }
+  export const isa = (o: any): o is DeleteExpressionRequest =>
+    __isa(o, "DeleteExpressionRequest");
 }
 
 /**
@@ -620,9 +593,8 @@ export interface DeleteExpressionResponse {
 }
 
 export namespace DeleteExpressionResponse {
-  export function isa(o: any): o is DeleteExpressionResponse {
-    return __isa(o, "DeleteExpressionResponse");
-  }
+  export const isa = (o: any): o is DeleteExpressionResponse =>
+    __isa(o, "DeleteExpressionResponse");
 }
 
 /**
@@ -642,9 +614,8 @@ export interface DeleteIndexFieldRequest {
 }
 
 export namespace DeleteIndexFieldRequest {
-  export function isa(o: any): o is DeleteIndexFieldRequest {
-    return __isa(o, "DeleteIndexFieldRequest");
-  }
+  export const isa = (o: any): o is DeleteIndexFieldRequest =>
+    __isa(o, "DeleteIndexFieldRequest");
 }
 
 /**
@@ -659,9 +630,8 @@ export interface DeleteIndexFieldResponse {
 }
 
 export namespace DeleteIndexFieldResponse {
-  export function isa(o: any): o is DeleteIndexFieldResponse {
-    return __isa(o, "DeleteIndexFieldResponse");
-  }
+  export const isa = (o: any): o is DeleteIndexFieldResponse =>
+    __isa(o, "DeleteIndexFieldResponse");
 }
 
 /**
@@ -681,9 +651,8 @@ export interface DeleteSuggesterRequest {
 }
 
 export namespace DeleteSuggesterRequest {
-  export function isa(o: any): o is DeleteSuggesterRequest {
-    return __isa(o, "DeleteSuggesterRequest");
-  }
+  export const isa = (o: any): o is DeleteSuggesterRequest =>
+    __isa(o, "DeleteSuggesterRequest");
 }
 
 /**
@@ -698,9 +667,8 @@ export interface DeleteSuggesterResponse {
 }
 
 export namespace DeleteSuggesterResponse {
-  export function isa(o: any): o is DeleteSuggesterResponse {
-    return __isa(o, "DeleteSuggesterResponse");
-  }
+  export const isa = (o: any): o is DeleteSuggesterResponse =>
+    __isa(o, "DeleteSuggesterResponse");
 }
 
 /**
@@ -725,9 +693,8 @@ export interface DescribeAnalysisSchemesRequest {
 }
 
 export namespace DescribeAnalysisSchemesRequest {
-  export function isa(o: any): o is DescribeAnalysisSchemesRequest {
-    return __isa(o, "DescribeAnalysisSchemesRequest");
-  }
+  export const isa = (o: any): o is DescribeAnalysisSchemesRequest =>
+    __isa(o, "DescribeAnalysisSchemesRequest");
 }
 
 /**
@@ -742,9 +709,8 @@ export interface DescribeAnalysisSchemesResponse {
 }
 
 export namespace DescribeAnalysisSchemesResponse {
-  export function isa(o: any): o is DescribeAnalysisSchemesResponse {
-    return __isa(o, "DescribeAnalysisSchemesResponse");
-  }
+  export const isa = (o: any): o is DescribeAnalysisSchemesResponse =>
+    __isa(o, "DescribeAnalysisSchemesResponse");
 }
 
 /**
@@ -764,9 +730,8 @@ export interface DescribeAvailabilityOptionsRequest {
 }
 
 export namespace DescribeAvailabilityOptionsRequest {
-  export function isa(o: any): o is DescribeAvailabilityOptionsRequest {
-    return __isa(o, "DescribeAvailabilityOptionsRequest");
-  }
+  export const isa = (o: any): o is DescribeAvailabilityOptionsRequest =>
+    __isa(o, "DescribeAvailabilityOptionsRequest");
 }
 
 /**
@@ -781,9 +746,8 @@ export interface DescribeAvailabilityOptionsResponse {
 }
 
 export namespace DescribeAvailabilityOptionsResponse {
-  export function isa(o: any): o is DescribeAvailabilityOptionsResponse {
-    return __isa(o, "DescribeAvailabilityOptionsResponse");
-  }
+  export const isa = (o: any): o is DescribeAvailabilityOptionsResponse =>
+    __isa(o, "DescribeAvailabilityOptionsResponse");
 }
 
 /**
@@ -803,9 +767,8 @@ export interface DescribeDomainEndpointOptionsRequest {
 }
 
 export namespace DescribeDomainEndpointOptionsRequest {
-  export function isa(o: any): o is DescribeDomainEndpointOptionsRequest {
-    return __isa(o, "DescribeDomainEndpointOptionsRequest");
-  }
+  export const isa = (o: any): o is DescribeDomainEndpointOptionsRequest =>
+    __isa(o, "DescribeDomainEndpointOptionsRequest");
 }
 
 /**
@@ -820,9 +783,8 @@ export interface DescribeDomainEndpointOptionsResponse {
 }
 
 export namespace DescribeDomainEndpointOptionsResponse {
-  export function isa(o: any): o is DescribeDomainEndpointOptionsResponse {
-    return __isa(o, "DescribeDomainEndpointOptionsResponse");
-  }
+  export const isa = (o: any): o is DescribeDomainEndpointOptionsResponse =>
+    __isa(o, "DescribeDomainEndpointOptionsResponse");
 }
 
 /**
@@ -837,9 +799,8 @@ export interface DescribeDomainsRequest {
 }
 
 export namespace DescribeDomainsRequest {
-  export function isa(o: any): o is DescribeDomainsRequest {
-    return __isa(o, "DescribeDomainsRequest");
-  }
+  export const isa = (o: any): o is DescribeDomainsRequest =>
+    __isa(o, "DescribeDomainsRequest");
 }
 
 /**
@@ -854,9 +815,8 @@ export interface DescribeDomainsResponse {
 }
 
 export namespace DescribeDomainsResponse {
-  export function isa(o: any): o is DescribeDomainsResponse {
-    return __isa(o, "DescribeDomainsResponse");
-  }
+  export const isa = (o: any): o is DescribeDomainsResponse =>
+    __isa(o, "DescribeDomainsResponse");
 }
 
 /**
@@ -882,9 +842,8 @@ export interface DescribeExpressionsRequest {
 }
 
 export namespace DescribeExpressionsRequest {
-  export function isa(o: any): o is DescribeExpressionsRequest {
-    return __isa(o, "DescribeExpressionsRequest");
-  }
+  export const isa = (o: any): o is DescribeExpressionsRequest =>
+    __isa(o, "DescribeExpressionsRequest");
 }
 
 /**
@@ -899,9 +858,8 @@ export interface DescribeExpressionsResponse {
 }
 
 export namespace DescribeExpressionsResponse {
-  export function isa(o: any): o is DescribeExpressionsResponse {
-    return __isa(o, "DescribeExpressionsResponse");
-  }
+  export const isa = (o: any): o is DescribeExpressionsResponse =>
+    __isa(o, "DescribeExpressionsResponse");
 }
 
 /**
@@ -926,9 +884,8 @@ export interface DescribeIndexFieldsRequest {
 }
 
 export namespace DescribeIndexFieldsRequest {
-  export function isa(o: any): o is DescribeIndexFieldsRequest {
-    return __isa(o, "DescribeIndexFieldsRequest");
-  }
+  export const isa = (o: any): o is DescribeIndexFieldsRequest =>
+    __isa(o, "DescribeIndexFieldsRequest");
 }
 
 /**
@@ -943,9 +900,8 @@ export interface DescribeIndexFieldsResponse {
 }
 
 export namespace DescribeIndexFieldsResponse {
-  export function isa(o: any): o is DescribeIndexFieldsResponse {
-    return __isa(o, "DescribeIndexFieldsResponse");
-  }
+  export const isa = (o: any): o is DescribeIndexFieldsResponse =>
+    __isa(o, "DescribeIndexFieldsResponse");
 }
 
 /**
@@ -960,9 +916,8 @@ export interface DescribeScalingParametersRequest {
 }
 
 export namespace DescribeScalingParametersRequest {
-  export function isa(o: any): o is DescribeScalingParametersRequest {
-    return __isa(o, "DescribeScalingParametersRequest");
-  }
+  export const isa = (o: any): o is DescribeScalingParametersRequest =>
+    __isa(o, "DescribeScalingParametersRequest");
 }
 
 /**
@@ -977,9 +932,8 @@ export interface DescribeScalingParametersResponse {
 }
 
 export namespace DescribeScalingParametersResponse {
-  export function isa(o: any): o is DescribeScalingParametersResponse {
-    return __isa(o, "DescribeScalingParametersResponse");
-  }
+  export const isa = (o: any): o is DescribeScalingParametersResponse =>
+    __isa(o, "DescribeScalingParametersResponse");
 }
 
 /**
@@ -999,9 +953,8 @@ export interface DescribeServiceAccessPoliciesRequest {
 }
 
 export namespace DescribeServiceAccessPoliciesRequest {
-  export function isa(o: any): o is DescribeServiceAccessPoliciesRequest {
-    return __isa(o, "DescribeServiceAccessPoliciesRequest");
-  }
+  export const isa = (o: any): o is DescribeServiceAccessPoliciesRequest =>
+    __isa(o, "DescribeServiceAccessPoliciesRequest");
 }
 
 /**
@@ -1016,9 +969,8 @@ export interface DescribeServiceAccessPoliciesResponse {
 }
 
 export namespace DescribeServiceAccessPoliciesResponse {
-  export function isa(o: any): o is DescribeServiceAccessPoliciesResponse {
-    return __isa(o, "DescribeServiceAccessPoliciesResponse");
-  }
+  export const isa = (o: any): o is DescribeServiceAccessPoliciesResponse =>
+    __isa(o, "DescribeServiceAccessPoliciesResponse");
 }
 
 /**
@@ -1043,9 +995,8 @@ export interface DescribeSuggestersRequest {
 }
 
 export namespace DescribeSuggestersRequest {
-  export function isa(o: any): o is DescribeSuggestersRequest {
-    return __isa(o, "DescribeSuggestersRequest");
-  }
+  export const isa = (o: any): o is DescribeSuggestersRequest =>
+    __isa(o, "DescribeSuggestersRequest");
 }
 
 /**
@@ -1060,9 +1011,8 @@ export interface DescribeSuggestersResponse {
 }
 
 export namespace DescribeSuggestersResponse {
-  export function isa(o: any): o is DescribeSuggestersResponse {
-    return __isa(o, "DescribeSuggestersResponse");
-  }
+  export const isa = (o: any): o is DescribeSuggestersResponse =>
+    __isa(o, "DescribeSuggestersResponse");
 }
 
 /**
@@ -1085,9 +1035,8 @@ export interface DisabledOperationException
 }
 
 export namespace DisabledOperationException {
-  export function isa(o: any): o is DisabledOperationException {
-    return __isa(o, "DisabledOperationException");
-  }
+  export const isa = (o: any): o is DisabledOperationException =>
+    __isa(o, "DisabledOperationException");
 }
 
 /**
@@ -1118,9 +1067,8 @@ export interface DocumentSuggesterOptions {
 }
 
 export namespace DocumentSuggesterOptions {
-  export function isa(o: any): o is DocumentSuggesterOptions {
-    return __isa(o, "DocumentSuggesterOptions");
-  }
+  export const isa = (o: any): o is DocumentSuggesterOptions =>
+    __isa(o, "DocumentSuggesterOptions");
 }
 
 /**
@@ -1140,9 +1088,8 @@ export interface DomainEndpointOptions {
 }
 
 export namespace DomainEndpointOptions {
-  export function isa(o: any): o is DomainEndpointOptions {
-    return __isa(o, "DomainEndpointOptions");
-  }
+  export const isa = (o: any): o is DomainEndpointOptions =>
+    __isa(o, "DomainEndpointOptions");
 }
 
 /**
@@ -1162,9 +1109,8 @@ export interface DomainEndpointOptionsStatus {
 }
 
 export namespace DomainEndpointOptionsStatus {
-  export function isa(o: any): o is DomainEndpointOptionsStatus {
-    return __isa(o, "DomainEndpointOptionsStatus");
-  }
+  export const isa = (o: any): o is DomainEndpointOptionsStatus =>
+    __isa(o, "DomainEndpointOptionsStatus");
 }
 
 /**
@@ -1235,9 +1181,7 @@ export interface DomainStatus {
 }
 
 export namespace DomainStatus {
-  export function isa(o: any): o is DomainStatus {
-    return __isa(o, "DomainStatus");
-  }
+  export const isa = (o: any): o is DomainStatus => __isa(o, "DomainStatus");
 }
 
 /**
@@ -1272,9 +1216,8 @@ export interface DoubleArrayOptions {
 }
 
 export namespace DoubleArrayOptions {
-  export function isa(o: any): o is DoubleArrayOptions {
-    return __isa(o, "DoubleArrayOptions");
-  }
+  export const isa = (o: any): o is DoubleArrayOptions =>
+    __isa(o, "DoubleArrayOptions");
 }
 
 /**
@@ -1314,9 +1257,7 @@ export interface DoubleOptions {
 }
 
 export namespace DoubleOptions {
-  export function isa(o: any): o is DoubleOptions {
-    return __isa(o, "DoubleOptions");
-  }
+  export const isa = (o: any): o is DoubleOptions => __isa(o, "DoubleOptions");
 }
 
 /**
@@ -1337,9 +1278,7 @@ export interface Expression {
 }
 
 export namespace Expression {
-  export function isa(o: any): o is Expression {
-    return __isa(o, "Expression");
-  }
+  export const isa = (o: any): o is Expression => __isa(o, "Expression");
 }
 
 /**
@@ -1359,9 +1298,8 @@ export interface ExpressionStatus {
 }
 
 export namespace ExpressionStatus {
-  export function isa(o: any): o is ExpressionStatus {
-    return __isa(o, "ExpressionStatus");
-  }
+  export const isa = (o: any): o is ExpressionStatus =>
+    __isa(o, "ExpressionStatus");
 }
 
 /**
@@ -1376,9 +1314,8 @@ export interface IndexDocumentsRequest {
 }
 
 export namespace IndexDocumentsRequest {
-  export function isa(o: any): o is IndexDocumentsRequest {
-    return __isa(o, "IndexDocumentsRequest");
-  }
+  export const isa = (o: any): o is IndexDocumentsRequest =>
+    __isa(o, "IndexDocumentsRequest");
 }
 
 /**
@@ -1393,9 +1330,8 @@ export interface IndexDocumentsResponse {
 }
 
 export namespace IndexDocumentsResponse {
-  export function isa(o: any): o is IndexDocumentsResponse {
-    return __isa(o, "IndexDocumentsResponse");
-  }
+  export const isa = (o: any): o is IndexDocumentsResponse =>
+    __isa(o, "IndexDocumentsResponse");
 }
 
 /**
@@ -1483,9 +1419,7 @@ export interface IndexField {
 }
 
 export namespace IndexField {
-  export function isa(o: any): o is IndexField {
-    return __isa(o, "IndexField");
-  }
+  export const isa = (o: any): o is IndexField => __isa(o, "IndexField");
 }
 
 /**
@@ -1505,9 +1439,8 @@ export interface IndexFieldStatus {
 }
 
 export namespace IndexFieldStatus {
-  export function isa(o: any): o is IndexFieldStatus {
-    return __isa(o, "IndexFieldStatus");
-  }
+  export const isa = (o: any): o is IndexFieldStatus =>
+    __isa(o, "IndexFieldStatus");
 }
 
 export type IndexFieldType =
@@ -1555,9 +1488,8 @@ export interface IntArrayOptions {
 }
 
 export namespace IntArrayOptions {
-  export function isa(o: any): o is IntArrayOptions {
-    return __isa(o, "IntArrayOptions");
-  }
+  export const isa = (o: any): o is IntArrayOptions =>
+    __isa(o, "IntArrayOptions");
 }
 
 /**
@@ -1597,9 +1529,7 @@ export interface IntOptions {
 }
 
 export namespace IntOptions {
-  export function isa(o: any): o is IntOptions {
-    return __isa(o, "IntOptions");
-  }
+  export const isa = (o: any): o is IntOptions => __isa(o, "IntOptions");
 }
 
 /**
@@ -1621,9 +1551,8 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InternalException {
-  export function isa(o: any): o is InternalException {
-    return __isa(o, "InternalException");
-  }
+  export const isa = (o: any): o is InternalException =>
+    __isa(o, "InternalException");
 }
 
 /**
@@ -1646,9 +1575,8 @@ export interface InvalidTypeException
 }
 
 export namespace InvalidTypeException {
-  export function isa(o: any): o is InvalidTypeException {
-    return __isa(o, "InvalidTypeException");
-  }
+  export const isa = (o: any): o is InvalidTypeException =>
+    __isa(o, "InvalidTypeException");
 }
 
 /**
@@ -1701,9 +1629,7 @@ export interface LatLonOptions {
 }
 
 export namespace LatLonOptions {
-  export function isa(o: any): o is LatLonOptions {
-    return __isa(o, "LatLonOptions");
-  }
+  export const isa = (o: any): o is LatLonOptions => __isa(o, "LatLonOptions");
 }
 
 /**
@@ -1726,9 +1652,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export interface Limits {
@@ -1738,9 +1663,7 @@ export interface Limits {
 }
 
 export namespace Limits {
-  export function isa(o: any): o is Limits {
-    return __isa(o, "Limits");
-  }
+  export const isa = (o: any): o is Limits => __isa(o, "Limits");
 }
 
 /**
@@ -1755,9 +1678,8 @@ export interface ListDomainNamesResponse {
 }
 
 export namespace ListDomainNamesResponse {
-  export function isa(o: any): o is ListDomainNamesResponse {
-    return __isa(o, "ListDomainNamesResponse");
-  }
+  export const isa = (o: any): o is ListDomainNamesResponse =>
+    __isa(o, "ListDomainNamesResponse");
 }
 
 /**
@@ -1792,9 +1714,8 @@ export interface LiteralArrayOptions {
 }
 
 export namespace LiteralArrayOptions {
-  export function isa(o: any): o is LiteralArrayOptions {
-    return __isa(o, "LiteralArrayOptions");
-  }
+  export const isa = (o: any): o is LiteralArrayOptions =>
+    __isa(o, "LiteralArrayOptions");
 }
 
 /**
@@ -1847,9 +1768,8 @@ export interface LiteralOptions {
 }
 
 export namespace LiteralOptions {
-  export function isa(o: any): o is LiteralOptions {
-    return __isa(o, "LiteralOptions");
-  }
+  export const isa = (o: any): o is LiteralOptions =>
+    __isa(o, "LiteralOptions");
 }
 
 export type OptionState =
@@ -1895,9 +1815,7 @@ export interface OptionStatus {
 }
 
 export namespace OptionStatus {
-  export function isa(o: any): o is OptionStatus {
-    return __isa(o, "OptionStatus");
-  }
+  export const isa = (o: any): o is OptionStatus => __isa(o, "OptionStatus");
 }
 
 export type PartitionInstanceType =
@@ -1930,9 +1848,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1958,9 +1875,8 @@ export interface ScalingParameters {
 }
 
 export namespace ScalingParameters {
-  export function isa(o: any): o is ScalingParameters {
-    return __isa(o, "ScalingParameters");
-  }
+  export const isa = (o: any): o is ScalingParameters =>
+    __isa(o, "ScalingParameters");
 }
 
 /**
@@ -1980,9 +1896,8 @@ export interface ScalingParametersStatus {
 }
 
 export namespace ScalingParametersStatus {
-  export function isa(o: any): o is ScalingParametersStatus {
-    return __isa(o, "ScalingParametersStatus");
-  }
+  export const isa = (o: any): o is ScalingParametersStatus =>
+    __isa(o, "ScalingParametersStatus");
 }
 
 /**
@@ -1997,9 +1912,8 @@ export interface ServiceEndpoint {
 }
 
 export namespace ServiceEndpoint {
-  export function isa(o: any): o is ServiceEndpoint {
-    return __isa(o, "ServiceEndpoint");
-  }
+  export const isa = (o: any): o is ServiceEndpoint =>
+    __isa(o, "ServiceEndpoint");
 }
 
 /**
@@ -2020,9 +1934,7 @@ export interface Suggester {
 }
 
 export namespace Suggester {
-  export function isa(o: any): o is Suggester {
-    return __isa(o, "Suggester");
-  }
+  export const isa = (o: any): o is Suggester => __isa(o, "Suggester");
 }
 
 export type SuggesterFuzzyMatching = "high" | "low" | "none";
@@ -2044,9 +1956,8 @@ export interface SuggesterStatus {
 }
 
 export namespace SuggesterStatus {
-  export function isa(o: any): o is SuggesterStatus {
-    return __isa(o, "SuggesterStatus");
-  }
+  export const isa = (o: any): o is SuggesterStatus =>
+    __isa(o, "SuggesterStatus");
 }
 
 export enum TLSSecurityPolicy {
@@ -2086,9 +1997,8 @@ export interface TextArrayOptions {
 }
 
 export namespace TextArrayOptions {
-  export function isa(o: any): o is TextArrayOptions {
-    return __isa(o, "TextArrayOptions");
-  }
+  export const isa = (o: any): o is TextArrayOptions =>
+    __isa(o, "TextArrayOptions");
 }
 
 /**
@@ -2141,9 +2051,7 @@ export interface TextOptions {
 }
 
 export namespace TextOptions {
-  export function isa(o: any): o is TextOptions {
-    return __isa(o, "TextOptions");
-  }
+  export const isa = (o: any): o is TextOptions => __isa(o, "TextOptions");
 }
 
 /**
@@ -2163,9 +2071,8 @@ export interface UpdateAvailabilityOptionsRequest {
 }
 
 export namespace UpdateAvailabilityOptionsRequest {
-  export function isa(o: any): o is UpdateAvailabilityOptionsRequest {
-    return __isa(o, "UpdateAvailabilityOptionsRequest");
-  }
+  export const isa = (o: any): o is UpdateAvailabilityOptionsRequest =>
+    __isa(o, "UpdateAvailabilityOptionsRequest");
 }
 
 /**
@@ -2180,9 +2087,8 @@ export interface UpdateAvailabilityOptionsResponse {
 }
 
 export namespace UpdateAvailabilityOptionsResponse {
-  export function isa(o: any): o is UpdateAvailabilityOptionsResponse {
-    return __isa(o, "UpdateAvailabilityOptionsResponse");
-  }
+  export const isa = (o: any): o is UpdateAvailabilityOptionsResponse =>
+    __isa(o, "UpdateAvailabilityOptionsResponse");
 }
 
 /**
@@ -2202,9 +2108,8 @@ export interface UpdateDomainEndpointOptionsRequest {
 }
 
 export namespace UpdateDomainEndpointOptionsRequest {
-  export function isa(o: any): o is UpdateDomainEndpointOptionsRequest {
-    return __isa(o, "UpdateDomainEndpointOptionsRequest");
-  }
+  export const isa = (o: any): o is UpdateDomainEndpointOptionsRequest =>
+    __isa(o, "UpdateDomainEndpointOptionsRequest");
 }
 
 /**
@@ -2219,9 +2124,8 @@ export interface UpdateDomainEndpointOptionsResponse {
 }
 
 export namespace UpdateDomainEndpointOptionsResponse {
-  export function isa(o: any): o is UpdateDomainEndpointOptionsResponse {
-    return __isa(o, "UpdateDomainEndpointOptionsResponse");
-  }
+  export const isa = (o: any): o is UpdateDomainEndpointOptionsResponse =>
+    __isa(o, "UpdateDomainEndpointOptionsResponse");
 }
 
 /**
@@ -2241,9 +2145,8 @@ export interface UpdateScalingParametersRequest {
 }
 
 export namespace UpdateScalingParametersRequest {
-  export function isa(o: any): o is UpdateScalingParametersRequest {
-    return __isa(o, "UpdateScalingParametersRequest");
-  }
+  export const isa = (o: any): o is UpdateScalingParametersRequest =>
+    __isa(o, "UpdateScalingParametersRequest");
 }
 
 /**
@@ -2258,9 +2161,8 @@ export interface UpdateScalingParametersResponse {
 }
 
 export namespace UpdateScalingParametersResponse {
-  export function isa(o: any): o is UpdateScalingParametersResponse {
-    return __isa(o, "UpdateScalingParametersResponse");
-  }
+  export const isa = (o: any): o is UpdateScalingParametersResponse =>
+    __isa(o, "UpdateScalingParametersResponse");
 }
 
 /**
@@ -2280,9 +2182,8 @@ export interface UpdateServiceAccessPoliciesRequest {
 }
 
 export namespace UpdateServiceAccessPoliciesRequest {
-  export function isa(o: any): o is UpdateServiceAccessPoliciesRequest {
-    return __isa(o, "UpdateServiceAccessPoliciesRequest");
-  }
+  export const isa = (o: any): o is UpdateServiceAccessPoliciesRequest =>
+    __isa(o, "UpdateServiceAccessPoliciesRequest");
 }
 
 /**
@@ -2297,9 +2198,8 @@ export interface UpdateServiceAccessPoliciesResponse {
 }
 
 export namespace UpdateServiceAccessPoliciesResponse {
-  export function isa(o: any): o is UpdateServiceAccessPoliciesResponse {
-    return __isa(o, "UpdateServiceAccessPoliciesResponse");
-  }
+  export const isa = (o: any): o is UpdateServiceAccessPoliciesResponse =>
+    __isa(o, "UpdateServiceAccessPoliciesResponse");
 }
 
 /**
@@ -2322,7 +2222,6 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return __isa(o, "ValidationException");
-  }
+  export const isa = (o: any): o is ValidationException =>
+    __isa(o, "ValidationException");
 }

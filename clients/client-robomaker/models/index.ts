@@ -19,9 +19,8 @@ export interface BatchDescribeSimulationJobRequest {
 }
 
 export namespace BatchDescribeSimulationJobRequest {
-  export function isa(o: any): o is BatchDescribeSimulationJobRequest {
-    return __isa(o, "BatchDescribeSimulationJobRequest");
-  }
+  export const isa = (o: any): o is BatchDescribeSimulationJobRequest =>
+    __isa(o, "BatchDescribeSimulationJobRequest");
 }
 
 export interface BatchDescribeSimulationJobResponse {
@@ -38,9 +37,8 @@ export interface BatchDescribeSimulationJobResponse {
 }
 
 export namespace BatchDescribeSimulationJobResponse {
-  export function isa(o: any): o is BatchDescribeSimulationJobResponse {
-    return __isa(o, "BatchDescribeSimulationJobResponse");
-  }
+  export const isa = (o: any): o is BatchDescribeSimulationJobResponse =>
+    __isa(o, "BatchDescribeSimulationJobResponse");
 }
 
 export interface CancelDeploymentJobRequest {
@@ -52,9 +50,8 @@ export interface CancelDeploymentJobRequest {
 }
 
 export namespace CancelDeploymentJobRequest {
-  export function isa(o: any): o is CancelDeploymentJobRequest {
-    return __isa(o, "CancelDeploymentJobRequest");
-  }
+  export const isa = (o: any): o is CancelDeploymentJobRequest =>
+    __isa(o, "CancelDeploymentJobRequest");
 }
 
 export interface CancelDeploymentJobResponse {
@@ -62,9 +59,8 @@ export interface CancelDeploymentJobResponse {
 }
 
 export namespace CancelDeploymentJobResponse {
-  export function isa(o: any): o is CancelDeploymentJobResponse {
-    return __isa(o, "CancelDeploymentJobResponse");
-  }
+  export const isa = (o: any): o is CancelDeploymentJobResponse =>
+    __isa(o, "CancelDeploymentJobResponse");
 }
 
 export interface CancelSimulationJobRequest {
@@ -76,9 +72,8 @@ export interface CancelSimulationJobRequest {
 }
 
 export namespace CancelSimulationJobRequest {
-  export function isa(o: any): o is CancelSimulationJobRequest {
-    return __isa(o, "CancelSimulationJobRequest");
-  }
+  export const isa = (o: any): o is CancelSimulationJobRequest =>
+    __isa(o, "CancelSimulationJobRequest");
 }
 
 export interface CancelSimulationJobResponse {
@@ -86,9 +81,8 @@ export interface CancelSimulationJobResponse {
 }
 
 export namespace CancelSimulationJobResponse {
-  export function isa(o: any): o is CancelSimulationJobResponse {
-    return __isa(o, "CancelSimulationJobResponse");
-  }
+  export const isa = (o: any): o is CancelSimulationJobResponse =>
+    __isa(o, "CancelSimulationJobResponse");
 }
 
 /**
@@ -103,9 +97,8 @@ export interface ConcurrentDeploymentException
 }
 
 export namespace ConcurrentDeploymentException {
-  export function isa(o: any): o is ConcurrentDeploymentException {
-    return __isa(o, "ConcurrentDeploymentException");
-  }
+  export const isa = (o: any): o is ConcurrentDeploymentException =>
+    __isa(o, "ConcurrentDeploymentException");
 }
 
 export interface CreateDeploymentJobRequest {
@@ -137,9 +130,8 @@ export interface CreateDeploymentJobRequest {
 }
 
 export namespace CreateDeploymentJobRequest {
-  export function isa(o: any): o is CreateDeploymentJobRequest {
-    return __isa(o, "CreateDeploymentJobRequest");
-  }
+  export const isa = (o: any): o is CreateDeploymentJobRequest =>
+    __isa(o, "CreateDeploymentJobRequest");
 }
 
 export interface CreateDeploymentJobResponse {
@@ -252,9 +244,8 @@ export interface CreateDeploymentJobResponse {
 }
 
 export namespace CreateDeploymentJobResponse {
-  export function isa(o: any): o is CreateDeploymentJobResponse {
-    return __isa(o, "CreateDeploymentJobResponse");
-  }
+  export const isa = (o: any): o is CreateDeploymentJobResponse =>
+    __isa(o, "CreateDeploymentJobResponse");
 }
 
 export interface CreateFleetRequest {
@@ -271,9 +262,8 @@ export interface CreateFleetRequest {
 }
 
 export namespace CreateFleetRequest {
-  export function isa(o: any): o is CreateFleetRequest {
-    return __isa(o, "CreateFleetRequest");
-  }
+  export const isa = (o: any): o is CreateFleetRequest =>
+    __isa(o, "CreateFleetRequest");
 }
 
 export interface CreateFleetResponse {
@@ -300,9 +290,8 @@ export interface CreateFleetResponse {
 }
 
 export namespace CreateFleetResponse {
-  export function isa(o: any): o is CreateFleetResponse {
-    return __isa(o, "CreateFleetResponse");
-  }
+  export const isa = (o: any): o is CreateFleetResponse =>
+    __isa(o, "CreateFleetResponse");
 }
 
 export interface CreateRobotApplicationRequest {
@@ -329,9 +318,8 @@ export interface CreateRobotApplicationRequest {
 }
 
 export namespace CreateRobotApplicationRequest {
-  export function isa(o: any): o is CreateRobotApplicationRequest {
-    return __isa(o, "CreateRobotApplicationRequest");
-  }
+  export const isa = (o: any): o is CreateRobotApplicationRequest =>
+    __isa(o, "CreateRobotApplicationRequest");
 }
 
 export interface CreateRobotApplicationResponse {
@@ -378,9 +366,8 @@ export interface CreateRobotApplicationResponse {
 }
 
 export namespace CreateRobotApplicationResponse {
-  export function isa(o: any): o is CreateRobotApplicationResponse {
-    return __isa(o, "CreateRobotApplicationResponse");
-  }
+  export const isa = (o: any): o is CreateRobotApplicationResponse =>
+    __isa(o, "CreateRobotApplicationResponse");
 }
 
 export interface CreateRobotApplicationVersionRequest {
@@ -398,9 +385,8 @@ export interface CreateRobotApplicationVersionRequest {
 }
 
 export namespace CreateRobotApplicationVersionRequest {
-  export function isa(o: any): o is CreateRobotApplicationVersionRequest {
-    return __isa(o, "CreateRobotApplicationVersionRequest");
-  }
+  export const isa = (o: any): o is CreateRobotApplicationVersionRequest =>
+    __isa(o, "CreateRobotApplicationVersionRequest");
 }
 
 export interface CreateRobotApplicationVersionResponse {
@@ -442,9 +428,8 @@ export interface CreateRobotApplicationVersionResponse {
 }
 
 export namespace CreateRobotApplicationVersionResponse {
-  export function isa(o: any): o is CreateRobotApplicationVersionResponse {
-    return __isa(o, "CreateRobotApplicationVersionResponse");
-  }
+  export const isa = (o: any): o is CreateRobotApplicationVersionResponse =>
+    __isa(o, "CreateRobotApplicationVersionResponse");
 }
 
 export interface CreateRobotRequest {
@@ -471,9 +456,8 @@ export interface CreateRobotRequest {
 }
 
 export namespace CreateRobotRequest {
-  export function isa(o: any): o is CreateRobotRequest {
-    return __isa(o, "CreateRobotRequest");
-  }
+  export const isa = (o: any): o is CreateRobotRequest =>
+    __isa(o, "CreateRobotRequest");
 }
 
 export interface CreateRobotResponse {
@@ -510,9 +494,8 @@ export interface CreateRobotResponse {
 }
 
 export namespace CreateRobotResponse {
-  export function isa(o: any): o is CreateRobotResponse {
-    return __isa(o, "CreateRobotResponse");
-  }
+  export const isa = (o: any): o is CreateRobotResponse =>
+    __isa(o, "CreateRobotResponse");
 }
 
 export interface CreateSimulationApplicationRequest {
@@ -549,9 +532,8 @@ export interface CreateSimulationApplicationRequest {
 }
 
 export namespace CreateSimulationApplicationRequest {
-  export function isa(o: any): o is CreateSimulationApplicationRequest {
-    return __isa(o, "CreateSimulationApplicationRequest");
-  }
+  export const isa = (o: any): o is CreateSimulationApplicationRequest =>
+    __isa(o, "CreateSimulationApplicationRequest");
 }
 
 export interface CreateSimulationApplicationResponse {
@@ -608,9 +590,8 @@ export interface CreateSimulationApplicationResponse {
 }
 
 export namespace CreateSimulationApplicationResponse {
-  export function isa(o: any): o is CreateSimulationApplicationResponse {
-    return __isa(o, "CreateSimulationApplicationResponse");
-  }
+  export const isa = (o: any): o is CreateSimulationApplicationResponse =>
+    __isa(o, "CreateSimulationApplicationResponse");
 }
 
 export interface CreateSimulationApplicationVersionRequest {
@@ -628,9 +609,8 @@ export interface CreateSimulationApplicationVersionRequest {
 }
 
 export namespace CreateSimulationApplicationVersionRequest {
-  export function isa(o: any): o is CreateSimulationApplicationVersionRequest {
-    return __isa(o, "CreateSimulationApplicationVersionRequest");
-  }
+  export const isa = (o: any): o is CreateSimulationApplicationVersionRequest =>
+    __isa(o, "CreateSimulationApplicationVersionRequest");
 }
 
 export interface CreateSimulationApplicationVersionResponse {
@@ -682,9 +662,10 @@ export interface CreateSimulationApplicationVersionResponse {
 }
 
 export namespace CreateSimulationApplicationVersionResponse {
-  export function isa(o: any): o is CreateSimulationApplicationVersionResponse {
-    return __isa(o, "CreateSimulationApplicationVersionResponse");
-  }
+  export const isa = (
+    o: any
+  ): o is CreateSimulationApplicationVersionResponse =>
+    __isa(o, "CreateSimulationApplicationVersionResponse");
 }
 
 export interface CreateSimulationJobRequest {
@@ -767,9 +748,8 @@ export interface CreateSimulationJobRequest {
 }
 
 export namespace CreateSimulationJobRequest {
-  export function isa(o: any): o is CreateSimulationJobRequest {
-    return __isa(o, "CreateSimulationJobRequest");
-  }
+  export const isa = (o: any): o is CreateSimulationJobRequest =>
+    __isa(o, "CreateSimulationJobRequest");
 }
 
 export interface CreateSimulationJobResponse {
@@ -921,9 +901,8 @@ export interface CreateSimulationJobResponse {
 }
 
 export namespace CreateSimulationJobResponse {
-  export function isa(o: any): o is CreateSimulationJobResponse {
-    return __isa(o, "CreateSimulationJobResponse");
-  }
+  export const isa = (o: any): o is CreateSimulationJobResponse =>
+    __isa(o, "CreateSimulationJobResponse");
 }
 
 /**
@@ -948,9 +927,7 @@ export interface DataSource {
 }
 
 export namespace DataSource {
-  export function isa(o: any): o is DataSource {
-    return __isa(o, "DataSource");
-  }
+  export const isa = (o: any): o is DataSource => __isa(o, "DataSource");
 }
 
 /**
@@ -975,9 +952,8 @@ export interface DataSourceConfig {
 }
 
 export namespace DataSourceConfig {
-  export function isa(o: any): o is DataSourceConfig {
-    return __isa(o, "DataSourceConfig");
-  }
+  export const isa = (o: any): o is DataSourceConfig =>
+    __isa(o, "DataSourceConfig");
 }
 
 export interface DeleteFleetRequest {
@@ -989,9 +965,8 @@ export interface DeleteFleetRequest {
 }
 
 export namespace DeleteFleetRequest {
-  export function isa(o: any): o is DeleteFleetRequest {
-    return __isa(o, "DeleteFleetRequest");
-  }
+  export const isa = (o: any): o is DeleteFleetRequest =>
+    __isa(o, "DeleteFleetRequest");
 }
 
 export interface DeleteFleetResponse {
@@ -999,9 +974,8 @@ export interface DeleteFleetResponse {
 }
 
 export namespace DeleteFleetResponse {
-  export function isa(o: any): o is DeleteFleetResponse {
-    return __isa(o, "DeleteFleetResponse");
-  }
+  export const isa = (o: any): o is DeleteFleetResponse =>
+    __isa(o, "DeleteFleetResponse");
 }
 
 export interface DeleteRobotApplicationRequest {
@@ -1018,9 +992,8 @@ export interface DeleteRobotApplicationRequest {
 }
 
 export namespace DeleteRobotApplicationRequest {
-  export function isa(o: any): o is DeleteRobotApplicationRequest {
-    return __isa(o, "DeleteRobotApplicationRequest");
-  }
+  export const isa = (o: any): o is DeleteRobotApplicationRequest =>
+    __isa(o, "DeleteRobotApplicationRequest");
 }
 
 export interface DeleteRobotApplicationResponse {
@@ -1028,9 +1001,8 @@ export interface DeleteRobotApplicationResponse {
 }
 
 export namespace DeleteRobotApplicationResponse {
-  export function isa(o: any): o is DeleteRobotApplicationResponse {
-    return __isa(o, "DeleteRobotApplicationResponse");
-  }
+  export const isa = (o: any): o is DeleteRobotApplicationResponse =>
+    __isa(o, "DeleteRobotApplicationResponse");
 }
 
 export interface DeleteRobotRequest {
@@ -1042,9 +1014,8 @@ export interface DeleteRobotRequest {
 }
 
 export namespace DeleteRobotRequest {
-  export function isa(o: any): o is DeleteRobotRequest {
-    return __isa(o, "DeleteRobotRequest");
-  }
+  export const isa = (o: any): o is DeleteRobotRequest =>
+    __isa(o, "DeleteRobotRequest");
 }
 
 export interface DeleteRobotResponse {
@@ -1052,9 +1023,8 @@ export interface DeleteRobotResponse {
 }
 
 export namespace DeleteRobotResponse {
-  export function isa(o: any): o is DeleteRobotResponse {
-    return __isa(o, "DeleteRobotResponse");
-  }
+  export const isa = (o: any): o is DeleteRobotResponse =>
+    __isa(o, "DeleteRobotResponse");
 }
 
 export interface DeleteSimulationApplicationRequest {
@@ -1071,9 +1041,8 @@ export interface DeleteSimulationApplicationRequest {
 }
 
 export namespace DeleteSimulationApplicationRequest {
-  export function isa(o: any): o is DeleteSimulationApplicationRequest {
-    return __isa(o, "DeleteSimulationApplicationRequest");
-  }
+  export const isa = (o: any): o is DeleteSimulationApplicationRequest =>
+    __isa(o, "DeleteSimulationApplicationRequest");
 }
 
 export interface DeleteSimulationApplicationResponse {
@@ -1081,9 +1050,8 @@ export interface DeleteSimulationApplicationResponse {
 }
 
 export namespace DeleteSimulationApplicationResponse {
-  export function isa(o: any): o is DeleteSimulationApplicationResponse {
-    return __isa(o, "DeleteSimulationApplicationResponse");
-  }
+  export const isa = (o: any): o is DeleteSimulationApplicationResponse =>
+    __isa(o, "DeleteSimulationApplicationResponse");
 }
 
 /**
@@ -1108,9 +1076,8 @@ export interface DeploymentApplicationConfig {
 }
 
 export namespace DeploymentApplicationConfig {
-  export function isa(o: any): o is DeploymentApplicationConfig {
-    return __isa(o, "DeploymentApplicationConfig");
-  }
+  export const isa = (o: any): o is DeploymentApplicationConfig =>
+    __isa(o, "DeploymentApplicationConfig");
 }
 
 /**
@@ -1141,9 +1108,8 @@ export interface DeploymentConfig {
 }
 
 export namespace DeploymentConfig {
-  export function isa(o: any): o is DeploymentConfig {
-    return __isa(o, "DeploymentConfig");
-  }
+  export const isa = (o: any): o is DeploymentConfig =>
+    __isa(o, "DeploymentConfig");
 }
 
 /**
@@ -1193,9 +1159,7 @@ export interface DeploymentJob {
 }
 
 export namespace DeploymentJob {
-  export function isa(o: any): o is DeploymentJob {
-    return __isa(o, "DeploymentJob");
-  }
+  export const isa = (o: any): o is DeploymentJob => __isa(o, "DeploymentJob");
 }
 
 export enum DeploymentJobErrorCode {
@@ -1251,9 +1215,8 @@ export interface DeploymentLaunchConfig {
 }
 
 export namespace DeploymentLaunchConfig {
-  export function isa(o: any): o is DeploymentLaunchConfig {
-    return __isa(o, "DeploymentLaunchConfig");
-  }
+  export const isa = (o: any): o is DeploymentLaunchConfig =>
+    __isa(o, "DeploymentLaunchConfig");
 }
 
 export enum DeploymentStatus {
@@ -1279,9 +1242,8 @@ export interface DeregisterRobotRequest {
 }
 
 export namespace DeregisterRobotRequest {
-  export function isa(o: any): o is DeregisterRobotRequest {
-    return __isa(o, "DeregisterRobotRequest");
-  }
+  export const isa = (o: any): o is DeregisterRobotRequest =>
+    __isa(o, "DeregisterRobotRequest");
 }
 
 export interface DeregisterRobotResponse {
@@ -1298,9 +1260,8 @@ export interface DeregisterRobotResponse {
 }
 
 export namespace DeregisterRobotResponse {
-  export function isa(o: any): o is DeregisterRobotResponse {
-    return __isa(o, "DeregisterRobotResponse");
-  }
+  export const isa = (o: any): o is DeregisterRobotResponse =>
+    __isa(o, "DeregisterRobotResponse");
 }
 
 export interface DescribeDeploymentJobRequest {
@@ -1312,9 +1273,8 @@ export interface DescribeDeploymentJobRequest {
 }
 
 export namespace DescribeDeploymentJobRequest {
-  export function isa(o: any): o is DescribeDeploymentJobRequest {
-    return __isa(o, "DescribeDeploymentJobRequest");
-  }
+  export const isa = (o: any): o is DescribeDeploymentJobRequest =>
+    __isa(o, "DescribeDeploymentJobRequest");
 }
 
 export interface DescribeDeploymentJobResponse {
@@ -1371,9 +1331,8 @@ export interface DescribeDeploymentJobResponse {
 }
 
 export namespace DescribeDeploymentJobResponse {
-  export function isa(o: any): o is DescribeDeploymentJobResponse {
-    return __isa(o, "DescribeDeploymentJobResponse");
-  }
+  export const isa = (o: any): o is DescribeDeploymentJobResponse =>
+    __isa(o, "DescribeDeploymentJobResponse");
 }
 
 export interface DescribeFleetRequest {
@@ -1385,9 +1344,8 @@ export interface DescribeFleetRequest {
 }
 
 export namespace DescribeFleetRequest {
-  export function isa(o: any): o is DescribeFleetRequest {
-    return __isa(o, "DescribeFleetRequest");
-  }
+  export const isa = (o: any): o is DescribeFleetRequest =>
+    __isa(o, "DescribeFleetRequest");
 }
 
 export interface DescribeFleetResponse {
@@ -1434,9 +1392,8 @@ export interface DescribeFleetResponse {
 }
 
 export namespace DescribeFleetResponse {
-  export function isa(o: any): o is DescribeFleetResponse {
-    return __isa(o, "DescribeFleetResponse");
-  }
+  export const isa = (o: any): o is DescribeFleetResponse =>
+    __isa(o, "DescribeFleetResponse");
 }
 
 export interface DescribeRobotApplicationRequest {
@@ -1453,9 +1410,8 @@ export interface DescribeRobotApplicationRequest {
 }
 
 export namespace DescribeRobotApplicationRequest {
-  export function isa(o: any): o is DescribeRobotApplicationRequest {
-    return __isa(o, "DescribeRobotApplicationRequest");
-  }
+  export const isa = (o: any): o is DescribeRobotApplicationRequest =>
+    __isa(o, "DescribeRobotApplicationRequest");
 }
 
 export interface DescribeRobotApplicationResponse {
@@ -1502,9 +1458,8 @@ export interface DescribeRobotApplicationResponse {
 }
 
 export namespace DescribeRobotApplicationResponse {
-  export function isa(o: any): o is DescribeRobotApplicationResponse {
-    return __isa(o, "DescribeRobotApplicationResponse");
-  }
+  export const isa = (o: any): o is DescribeRobotApplicationResponse =>
+    __isa(o, "DescribeRobotApplicationResponse");
 }
 
 export interface DescribeRobotRequest {
@@ -1516,9 +1471,8 @@ export interface DescribeRobotRequest {
 }
 
 export namespace DescribeRobotRequest {
-  export function isa(o: any): o is DescribeRobotRequest {
-    return __isa(o, "DescribeRobotRequest");
-  }
+  export const isa = (o: any): o is DescribeRobotRequest =>
+    __isa(o, "DescribeRobotRequest");
 }
 
 export interface DescribeRobotResponse {
@@ -1575,9 +1529,8 @@ export interface DescribeRobotResponse {
 }
 
 export namespace DescribeRobotResponse {
-  export function isa(o: any): o is DescribeRobotResponse {
-    return __isa(o, "DescribeRobotResponse");
-  }
+  export const isa = (o: any): o is DescribeRobotResponse =>
+    __isa(o, "DescribeRobotResponse");
 }
 
 export interface DescribeSimulationApplicationRequest {
@@ -1594,9 +1547,8 @@ export interface DescribeSimulationApplicationRequest {
 }
 
 export namespace DescribeSimulationApplicationRequest {
-  export function isa(o: any): o is DescribeSimulationApplicationRequest {
-    return __isa(o, "DescribeSimulationApplicationRequest");
-  }
+  export const isa = (o: any): o is DescribeSimulationApplicationRequest =>
+    __isa(o, "DescribeSimulationApplicationRequest");
 }
 
 export interface DescribeSimulationApplicationResponse {
@@ -1653,9 +1605,8 @@ export interface DescribeSimulationApplicationResponse {
 }
 
 export namespace DescribeSimulationApplicationResponse {
-  export function isa(o: any): o is DescribeSimulationApplicationResponse {
-    return __isa(o, "DescribeSimulationApplicationResponse");
-  }
+  export const isa = (o: any): o is DescribeSimulationApplicationResponse =>
+    __isa(o, "DescribeSimulationApplicationResponse");
 }
 
 export interface DescribeSimulationJobRequest {
@@ -1667,9 +1618,8 @@ export interface DescribeSimulationJobRequest {
 }
 
 export namespace DescribeSimulationJobRequest {
-  export function isa(o: any): o is DescribeSimulationJobRequest {
-    return __isa(o, "DescribeSimulationJobRequest");
-  }
+  export const isa = (o: any): o is DescribeSimulationJobRequest =>
+    __isa(o, "DescribeSimulationJobRequest");
 }
 
 export interface DescribeSimulationJobResponse {
@@ -1836,9 +1786,8 @@ export interface DescribeSimulationJobResponse {
 }
 
 export namespace DescribeSimulationJobResponse {
-  export function isa(o: any): o is DescribeSimulationJobResponse {
-    return __isa(o, "DescribeSimulationJobResponse");
-  }
+  export const isa = (o: any): o is DescribeSimulationJobResponse =>
+    __isa(o, "DescribeSimulationJobResponse");
 }
 
 export enum FailureBehavior {
@@ -1863,9 +1812,7 @@ export interface Filter {
 }
 
 export namespace Filter {
-  export function isa(o: any): o is Filter {
-    return __isa(o, "Filter");
-  }
+  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 /**
@@ -1905,9 +1852,7 @@ export interface Fleet {
 }
 
 export namespace Fleet {
-  export function isa(o: any): o is Fleet {
-    return __isa(o, "Fleet");
-  }
+  export const isa = (o: any): o is Fleet => __isa(o, "Fleet");
 }
 
 /**
@@ -1923,9 +1868,8 @@ export interface IdempotentParameterMismatchException
 }
 
 export namespace IdempotentParameterMismatchException {
-  export function isa(o: any): o is IdempotentParameterMismatchException {
-    return __isa(o, "IdempotentParameterMismatchException");
-  }
+  export const isa = (o: any): o is IdempotentParameterMismatchException =>
+    __isa(o, "IdempotentParameterMismatchException");
 }
 
 /**
@@ -1940,9 +1884,8 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export function isa(o: any): o is InternalServerException {
-    return __isa(o, "InternalServerException");
-  }
+  export const isa = (o: any): o is InternalServerException =>
+    __isa(o, "InternalServerException");
 }
 
 /**
@@ -1958,9 +1901,8 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export function isa(o: any): o is InvalidParameterException {
-    return __isa(o, "InvalidParameterException");
-  }
+  export const isa = (o: any): o is InvalidParameterException =>
+    __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -1990,9 +1932,7 @@ export interface LaunchConfig {
 }
 
 export namespace LaunchConfig {
-  export function isa(o: any): o is LaunchConfig {
-    return __isa(o, "LaunchConfig");
-  }
+  export const isa = (o: any): o is LaunchConfig => __isa(o, "LaunchConfig");
 }
 
 /**
@@ -2008,9 +1948,8 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return __isa(o, "LimitExceededException");
-  }
+  export const isa = (o: any): o is LimitExceededException =>
+    __isa(o, "LimitExceededException");
 }
 
 export interface ListDeploymentJobsRequest {
@@ -2051,9 +1990,8 @@ export interface ListDeploymentJobsRequest {
 }
 
 export namespace ListDeploymentJobsRequest {
-  export function isa(o: any): o is ListDeploymentJobsRequest {
-    return __isa(o, "ListDeploymentJobsRequest");
-  }
+  export const isa = (o: any): o is ListDeploymentJobsRequest =>
+    __isa(o, "ListDeploymentJobsRequest");
 }
 
 export interface ListDeploymentJobsResponse {
@@ -2073,9 +2011,8 @@ export interface ListDeploymentJobsResponse {
 }
 
 export namespace ListDeploymentJobsResponse {
-  export function isa(o: any): o is ListDeploymentJobsResponse {
-    return __isa(o, "ListDeploymentJobsResponse");
-  }
+  export const isa = (o: any): o is ListDeploymentJobsResponse =>
+    __isa(o, "ListDeploymentJobsResponse");
 }
 
 export interface ListFleetsRequest {
@@ -2114,9 +2051,8 @@ export interface ListFleetsRequest {
 }
 
 export namespace ListFleetsRequest {
-  export function isa(o: any): o is ListFleetsRequest {
-    return __isa(o, "ListFleetsRequest");
-  }
+  export const isa = (o: any): o is ListFleetsRequest =>
+    __isa(o, "ListFleetsRequest");
 }
 
 export interface ListFleetsResponse {
@@ -2136,9 +2072,8 @@ export interface ListFleetsResponse {
 }
 
 export namespace ListFleetsResponse {
-  export function isa(o: any): o is ListFleetsResponse {
-    return __isa(o, "ListFleetsResponse");
-  }
+  export const isa = (o: any): o is ListFleetsResponse =>
+    __isa(o, "ListFleetsResponse");
 }
 
 export interface ListRobotApplicationsRequest {
@@ -2182,9 +2117,8 @@ export interface ListRobotApplicationsRequest {
 }
 
 export namespace ListRobotApplicationsRequest {
-  export function isa(o: any): o is ListRobotApplicationsRequest {
-    return __isa(o, "ListRobotApplicationsRequest");
-  }
+  export const isa = (o: any): o is ListRobotApplicationsRequest =>
+    __isa(o, "ListRobotApplicationsRequest");
 }
 
 export interface ListRobotApplicationsResponse {
@@ -2204,9 +2138,8 @@ export interface ListRobotApplicationsResponse {
 }
 
 export namespace ListRobotApplicationsResponse {
-  export function isa(o: any): o is ListRobotApplicationsResponse {
-    return __isa(o, "ListRobotApplicationsResponse");
-  }
+  export const isa = (o: any): o is ListRobotApplicationsResponse =>
+    __isa(o, "ListRobotApplicationsResponse");
 }
 
 export interface ListRobotsRequest {
@@ -2247,9 +2180,8 @@ export interface ListRobotsRequest {
 }
 
 export namespace ListRobotsRequest {
-  export function isa(o: any): o is ListRobotsRequest {
-    return __isa(o, "ListRobotsRequest");
-  }
+  export const isa = (o: any): o is ListRobotsRequest =>
+    __isa(o, "ListRobotsRequest");
 }
 
 export interface ListRobotsResponse {
@@ -2269,9 +2201,8 @@ export interface ListRobotsResponse {
 }
 
 export namespace ListRobotsResponse {
-  export function isa(o: any): o is ListRobotsResponse {
-    return __isa(o, "ListRobotsResponse");
-  }
+  export const isa = (o: any): o is ListRobotsResponse =>
+    __isa(o, "ListRobotsResponse");
 }
 
 export interface ListSimulationApplicationsRequest {
@@ -2315,9 +2246,8 @@ export interface ListSimulationApplicationsRequest {
 }
 
 export namespace ListSimulationApplicationsRequest {
-  export function isa(o: any): o is ListSimulationApplicationsRequest {
-    return __isa(o, "ListSimulationApplicationsRequest");
-  }
+  export const isa = (o: any): o is ListSimulationApplicationsRequest =>
+    __isa(o, "ListSimulationApplicationsRequest");
 }
 
 export interface ListSimulationApplicationsResponse {
@@ -2337,9 +2267,8 @@ export interface ListSimulationApplicationsResponse {
 }
 
 export namespace ListSimulationApplicationsResponse {
-  export function isa(o: any): o is ListSimulationApplicationsResponse {
-    return __isa(o, "ListSimulationApplicationsResponse");
-  }
+  export const isa = (o: any): o is ListSimulationApplicationsResponse =>
+    __isa(o, "ListSimulationApplicationsResponse");
 }
 
 export interface ListSimulationJobsRequest {
@@ -2381,9 +2310,8 @@ export interface ListSimulationJobsRequest {
 }
 
 export namespace ListSimulationJobsRequest {
-  export function isa(o: any): o is ListSimulationJobsRequest {
-    return __isa(o, "ListSimulationJobsRequest");
-  }
+  export const isa = (o: any): o is ListSimulationJobsRequest =>
+    __isa(o, "ListSimulationJobsRequest");
 }
 
 export interface ListSimulationJobsResponse {
@@ -2403,9 +2331,8 @@ export interface ListSimulationJobsResponse {
 }
 
 export namespace ListSimulationJobsResponse {
-  export function isa(o: any): o is ListSimulationJobsResponse {
-    return __isa(o, "ListSimulationJobsResponse");
-  }
+  export const isa = (o: any): o is ListSimulationJobsResponse =>
+    __isa(o, "ListSimulationJobsResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -2417,9 +2344,8 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export function isa(o: any): o is ListTagsForResourceRequest {
-    return __isa(o, "ListTagsForResourceRequest");
-  }
+  export const isa = (o: any): o is ListTagsForResourceRequest =>
+    __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -2431,9 +2357,8 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export function isa(o: any): o is ListTagsForResourceResponse {
-    return __isa(o, "ListTagsForResourceResponse");
-  }
+  export const isa = (o: any): o is ListTagsForResourceResponse =>
+    __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -2448,9 +2373,7 @@ export interface LoggingConfig {
 }
 
 export namespace LoggingConfig {
-  export function isa(o: any): o is LoggingConfig {
-    return __isa(o, "LoggingConfig");
-  }
+  export const isa = (o: any): o is LoggingConfig => __isa(o, "LoggingConfig");
 }
 
 /**
@@ -2475,9 +2398,8 @@ export interface NetworkInterface {
 }
 
 export namespace NetworkInterface {
-  export function isa(o: any): o is NetworkInterface {
-    return __isa(o, "NetworkInterface");
-  }
+  export const isa = (o: any): o is NetworkInterface =>
+    __isa(o, "NetworkInterface");
 }
 
 /**
@@ -2497,9 +2419,8 @@ export interface OutputLocation {
 }
 
 export namespace OutputLocation {
-  export function isa(o: any): o is OutputLocation {
-    return __isa(o, "OutputLocation");
-  }
+  export const isa = (o: any): o is OutputLocation =>
+    __isa(o, "OutputLocation");
 }
 
 /**
@@ -2514,9 +2435,8 @@ export interface PortForwardingConfig {
 }
 
 export namespace PortForwardingConfig {
-  export function isa(o: any): o is PortForwardingConfig {
-    return __isa(o, "PortForwardingConfig");
-  }
+  export const isa = (o: any): o is PortForwardingConfig =>
+    __isa(o, "PortForwardingConfig");
 }
 
 /**
@@ -2541,9 +2461,7 @@ export interface PortMapping {
 }
 
 export namespace PortMapping {
-  export function isa(o: any): o is PortMapping {
-    return __isa(o, "PortMapping");
-  }
+  export const isa = (o: any): o is PortMapping => __isa(o, "PortMapping");
 }
 
 /**
@@ -2601,9 +2519,8 @@ export interface ProgressDetail {
 }
 
 export namespace ProgressDetail {
-  export function isa(o: any): o is ProgressDetail {
-    return __isa(o, "ProgressDetail");
-  }
+  export const isa = (o: any): o is ProgressDetail =>
+    __isa(o, "ProgressDetail");
 }
 
 export interface RegisterRobotRequest {
@@ -2620,9 +2537,8 @@ export interface RegisterRobotRequest {
 }
 
 export namespace RegisterRobotRequest {
-  export function isa(o: any): o is RegisterRobotRequest {
-    return __isa(o, "RegisterRobotRequest");
-  }
+  export const isa = (o: any): o is RegisterRobotRequest =>
+    __isa(o, "RegisterRobotRequest");
 }
 
 export interface RegisterRobotResponse {
@@ -2639,9 +2555,8 @@ export interface RegisterRobotResponse {
 }
 
 export namespace RegisterRobotResponse {
-  export function isa(o: any): o is RegisterRobotResponse {
-    return __isa(o, "RegisterRobotResponse");
-  }
+  export const isa = (o: any): o is RegisterRobotResponse =>
+    __isa(o, "RegisterRobotResponse");
 }
 
 /**
@@ -2661,9 +2576,8 @@ export interface RenderingEngine {
 }
 
 export namespace RenderingEngine {
-  export function isa(o: any): o is RenderingEngine {
-    return __isa(o, "RenderingEngine");
-  }
+  export const isa = (o: any): o is RenderingEngine =>
+    __isa(o, "RenderingEngine");
 }
 
 export enum RenderingEngineType {
@@ -2682,9 +2596,8 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
-  export function isa(o: any): o is ResourceAlreadyExistsException {
-    return __isa(o, "ResourceAlreadyExistsException");
-  }
+  export const isa = (o: any): o is ResourceAlreadyExistsException =>
+    __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -2699,9 +2612,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 export interface RestartSimulationJobRequest {
@@ -2713,9 +2625,8 @@ export interface RestartSimulationJobRequest {
 }
 
 export namespace RestartSimulationJobRequest {
-  export function isa(o: any): o is RestartSimulationJobRequest {
-    return __isa(o, "RestartSimulationJobRequest");
-  }
+  export const isa = (o: any): o is RestartSimulationJobRequest =>
+    __isa(o, "RestartSimulationJobRequest");
 }
 
 export interface RestartSimulationJobResponse {
@@ -2723,9 +2634,8 @@ export interface RestartSimulationJobResponse {
 }
 
 export namespace RestartSimulationJobResponse {
-  export function isa(o: any): o is RestartSimulationJobResponse {
-    return __isa(o, "RestartSimulationJobResponse");
-  }
+  export const isa = (o: any): o is RestartSimulationJobResponse =>
+    __isa(o, "RestartSimulationJobResponse");
 }
 
 /**
@@ -2780,9 +2690,7 @@ export interface Robot {
 }
 
 export namespace Robot {
-  export function isa(o: any): o is Robot {
-    return __isa(o, "Robot");
-  }
+  export const isa = (o: any): o is Robot => __isa(o, "Robot");
 }
 
 /**
@@ -2807,9 +2715,8 @@ export interface RobotApplicationConfig {
 }
 
 export namespace RobotApplicationConfig {
-  export function isa(o: any): o is RobotApplicationConfig {
-    return __isa(o, "RobotApplicationConfig");
-  }
+  export const isa = (o: any): o is RobotApplicationConfig =>
+    __isa(o, "RobotApplicationConfig");
 }
 
 /**
@@ -2844,9 +2751,8 @@ export interface RobotApplicationSummary {
 }
 
 export namespace RobotApplicationSummary {
-  export function isa(o: any): o is RobotApplicationSummary {
-    return __isa(o, "RobotApplicationSummary");
-  }
+  export const isa = (o: any): o is RobotApplicationSummary =>
+    __isa(o, "RobotApplicationSummary");
 }
 
 /**
@@ -2891,9 +2797,8 @@ export interface RobotDeployment {
 }
 
 export namespace RobotDeployment {
-  export function isa(o: any): o is RobotDeployment {
-    return __isa(o, "RobotDeployment");
-  }
+  export const isa = (o: any): o is RobotDeployment =>
+    __isa(o, "RobotDeployment");
 }
 
 export enum RobotDeploymentStep {
@@ -2923,9 +2828,8 @@ export interface RobotSoftwareSuite {
 }
 
 export namespace RobotSoftwareSuite {
-  export function isa(o: any): o is RobotSoftwareSuite {
-    return __isa(o, "RobotSoftwareSuite");
-  }
+  export const isa = (o: any): o is RobotSoftwareSuite =>
+    __isa(o, "RobotSoftwareSuite");
 }
 
 export enum RobotSoftwareSuiteType {
@@ -2966,9 +2870,7 @@ export interface S3KeyOutput {
 }
 
 export namespace S3KeyOutput {
-  export function isa(o: any): o is S3KeyOutput {
-    return __isa(o, "S3KeyOutput");
-  }
+  export const isa = (o: any): o is S3KeyOutput => __isa(o, "S3KeyOutput");
 }
 
 /**
@@ -2993,9 +2895,7 @@ export interface S3Object {
 }
 
 export namespace S3Object {
-  export function isa(o: any): o is S3Object {
-    return __isa(o, "S3Object");
-  }
+  export const isa = (o: any): o is S3Object => __isa(o, "S3Object");
 }
 
 /**
@@ -3010,9 +2910,8 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return __isa(o, "ServiceUnavailableException");
-  }
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -3037,9 +2936,8 @@ export interface SimulationApplicationConfig {
 }
 
 export namespace SimulationApplicationConfig {
-  export function isa(o: any): o is SimulationApplicationConfig {
-    return __isa(o, "SimulationApplicationConfig");
-  }
+  export const isa = (o: any): o is SimulationApplicationConfig =>
+    __isa(o, "SimulationApplicationConfig");
 }
 
 /**
@@ -3079,9 +2977,8 @@ export interface SimulationApplicationSummary {
 }
 
 export namespace SimulationApplicationSummary {
-  export function isa(o: any): o is SimulationApplicationSummary {
-    return __isa(o, "SimulationApplicationSummary");
-  }
+  export const isa = (o: any): o is SimulationApplicationSummary =>
+    __isa(o, "SimulationApplicationSummary");
 }
 
 /**
@@ -3204,9 +3101,7 @@ export interface SimulationJob {
 }
 
 export namespace SimulationJob {
-  export function isa(o: any): o is SimulationJob {
-    return __isa(o, "SimulationJob");
-  }
+  export const isa = (o: any): o is SimulationJob => __isa(o, "SimulationJob");
 }
 
 export enum SimulationJobErrorCode {
@@ -3290,9 +3185,8 @@ export interface SimulationJobSummary {
 }
 
 export namespace SimulationJobSummary {
-  export function isa(o: any): o is SimulationJobSummary {
-    return __isa(o, "SimulationJobSummary");
-  }
+  export const isa = (o: any): o is SimulationJobSummary =>
+    __isa(o, "SimulationJobSummary");
 }
 
 /**
@@ -3312,9 +3206,8 @@ export interface SimulationSoftwareSuite {
 }
 
 export namespace SimulationSoftwareSuite {
-  export function isa(o: any): o is SimulationSoftwareSuite {
-    return __isa(o, "SimulationSoftwareSuite");
-  }
+  export const isa = (o: any): o is SimulationSoftwareSuite =>
+    __isa(o, "SimulationSoftwareSuite");
 }
 
 export enum SimulationSoftwareSuiteType {
@@ -3349,9 +3242,7 @@ export interface Source {
 }
 
 export namespace Source {
-  export function isa(o: any): o is Source {
-    return __isa(o, "Source");
-  }
+  export const isa = (o: any): o is Source => __isa(o, "Source");
 }
 
 /**
@@ -3376,9 +3267,7 @@ export interface SourceConfig {
 }
 
 export namespace SourceConfig {
-  export function isa(o: any): o is SourceConfig {
-    return __isa(o, "SourceConfig");
-  }
+  export const isa = (o: any): o is SourceConfig => __isa(o, "SourceConfig");
 }
 
 export interface SyncDeploymentJobRequest {
@@ -3395,9 +3284,8 @@ export interface SyncDeploymentJobRequest {
 }
 
 export namespace SyncDeploymentJobRequest {
-  export function isa(o: any): o is SyncDeploymentJobRequest {
-    return __isa(o, "SyncDeploymentJobRequest");
-  }
+  export const isa = (o: any): o is SyncDeploymentJobRequest =>
+    __isa(o, "SyncDeploymentJobRequest");
 }
 
 export interface SyncDeploymentJobResponse {
@@ -3502,9 +3390,8 @@ export interface SyncDeploymentJobResponse {
 }
 
 export namespace SyncDeploymentJobResponse {
-  export function isa(o: any): o is SyncDeploymentJobResponse {
-    return __isa(o, "SyncDeploymentJobResponse");
-  }
+  export const isa = (o: any): o is SyncDeploymentJobResponse =>
+    __isa(o, "SyncDeploymentJobResponse");
 }
 
 export interface TagResourceRequest {
@@ -3521,9 +3408,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -3531,9 +3417,8 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export function isa(o: any): o is TagResourceResponse {
-    return __isa(o, "TagResourceResponse");
-  }
+  export const isa = (o: any): o is TagResourceResponse =>
+    __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -3548,9 +3433,8 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return __isa(o, "ThrottlingException");
-  }
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 export interface UntagResourceRequest {
@@ -3567,9 +3451,8 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -3577,9 +3460,8 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export function isa(o: any): o is UntagResourceResponse {
-    return __isa(o, "UntagResourceResponse");
-  }
+  export const isa = (o: any): o is UntagResourceResponse =>
+    __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateRobotApplicationRequest {
@@ -3606,9 +3488,8 @@ export interface UpdateRobotApplicationRequest {
 }
 
 export namespace UpdateRobotApplicationRequest {
-  export function isa(o: any): o is UpdateRobotApplicationRequest {
-    return __isa(o, "UpdateRobotApplicationRequest");
-  }
+  export const isa = (o: any): o is UpdateRobotApplicationRequest =>
+    __isa(o, "UpdateRobotApplicationRequest");
 }
 
 export interface UpdateRobotApplicationResponse {
@@ -3650,9 +3531,8 @@ export interface UpdateRobotApplicationResponse {
 }
 
 export namespace UpdateRobotApplicationResponse {
-  export function isa(o: any): o is UpdateRobotApplicationResponse {
-    return __isa(o, "UpdateRobotApplicationResponse");
-  }
+  export const isa = (o: any): o is UpdateRobotApplicationResponse =>
+    __isa(o, "UpdateRobotApplicationResponse");
 }
 
 export interface UpdateSimulationApplicationRequest {
@@ -3689,9 +3569,8 @@ export interface UpdateSimulationApplicationRequest {
 }
 
 export namespace UpdateSimulationApplicationRequest {
-  export function isa(o: any): o is UpdateSimulationApplicationRequest {
-    return __isa(o, "UpdateSimulationApplicationRequest");
-  }
+  export const isa = (o: any): o is UpdateSimulationApplicationRequest =>
+    __isa(o, "UpdateSimulationApplicationRequest");
 }
 
 export interface UpdateSimulationApplicationResponse {
@@ -3743,9 +3622,8 @@ export interface UpdateSimulationApplicationResponse {
 }
 
 export namespace UpdateSimulationApplicationResponse {
-  export function isa(o: any): o is UpdateSimulationApplicationResponse {
-    return __isa(o, "UpdateSimulationApplicationResponse");
-  }
+  export const isa = (o: any): o is UpdateSimulationApplicationResponse =>
+    __isa(o, "UpdateSimulationApplicationResponse");
 }
 
 /**
@@ -3772,9 +3650,7 @@ export interface VPCConfig {
 }
 
 export namespace VPCConfig {
-  export function isa(o: any): o is VPCConfig {
-    return __isa(o, "VPCConfig");
-  }
+  export const isa = (o: any): o is VPCConfig => __isa(o, "VPCConfig");
 }
 
 /**
@@ -3804,7 +3680,6 @@ export interface VPCConfigResponse {
 }
 
 export namespace VPCConfigResponse {
-  export function isa(o: any): o is VPCConfigResponse {
-    return __isa(o, "VPCConfigResponse");
-  }
+  export const isa = (o: any): o is VPCConfigResponse =>
+    __isa(o, "VPCConfigResponse");
 }

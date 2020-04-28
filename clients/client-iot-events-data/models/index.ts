@@ -19,9 +19,8 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
-  export function isa(o: any): o is InternalFailureException {
-    return __isa(o, "InternalFailureException");
-  }
+  export const isa = (o: any): o is InternalFailureException =>
+    __isa(o, "InternalFailureException");
 }
 
 /**
@@ -39,9 +38,8 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return __isa(o, "InvalidRequestException");
-  }
+  export const isa = (o: any): o is InvalidRequestException =>
+    __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -59,9 +57,8 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return __isa(o, "ResourceNotFoundException");
-  }
+  export const isa = (o: any): o is ResourceNotFoundException =>
+    __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -79,9 +76,8 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return __isa(o, "ServiceUnavailableException");
-  }
+  export const isa = (o: any): o is ServiceUnavailableException =>
+    __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -99,9 +95,8 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return __isa(o, "ThrottlingException");
-  }
+  export const isa = (o: any): o is ThrottlingException =>
+    __isa(o, "ThrottlingException");
 }
 
 /**
@@ -127,9 +122,8 @@ export interface BatchPutMessageErrorEntry {
 }
 
 export namespace BatchPutMessageErrorEntry {
-  export function isa(o: any): o is BatchPutMessageErrorEntry {
-    return __isa(o, "BatchPutMessageErrorEntry");
-  }
+  export const isa = (o: any): o is BatchPutMessageErrorEntry =>
+    __isa(o, "BatchPutMessageErrorEntry");
 }
 
 export interface BatchPutMessageRequest {
@@ -143,9 +137,8 @@ export interface BatchPutMessageRequest {
 }
 
 export namespace BatchPutMessageRequest {
-  export function isa(o: any): o is BatchPutMessageRequest {
-    return __isa(o, "BatchPutMessageRequest");
-  }
+  export const isa = (o: any): o is BatchPutMessageRequest =>
+    __isa(o, "BatchPutMessageRequest");
 }
 
 export interface BatchPutMessageResponse {
@@ -157,9 +150,8 @@ export interface BatchPutMessageResponse {
 }
 
 export namespace BatchPutMessageResponse {
-  export function isa(o: any): o is BatchPutMessageResponse {
-    return __isa(o, "BatchPutMessageResponse");
-  }
+  export const isa = (o: any): o is BatchPutMessageResponse =>
+    __isa(o, "BatchPutMessageResponse");
 }
 
 /**
@@ -185,9 +177,8 @@ export interface BatchUpdateDetectorErrorEntry {
 }
 
 export namespace BatchUpdateDetectorErrorEntry {
-  export function isa(o: any): o is BatchUpdateDetectorErrorEntry {
-    return __isa(o, "BatchUpdateDetectorErrorEntry");
-  }
+  export const isa = (o: any): o is BatchUpdateDetectorErrorEntry =>
+    __isa(o, "BatchUpdateDetectorErrorEntry");
 }
 
 export interface BatchUpdateDetectorRequest {
@@ -199,9 +190,8 @@ export interface BatchUpdateDetectorRequest {
 }
 
 export namespace BatchUpdateDetectorRequest {
-  export function isa(o: any): o is BatchUpdateDetectorRequest {
-    return __isa(o, "BatchUpdateDetectorRequest");
-  }
+  export const isa = (o: any): o is BatchUpdateDetectorRequest =>
+    __isa(o, "BatchUpdateDetectorRequest");
 }
 
 export interface BatchUpdateDetectorResponse {
@@ -214,9 +204,8 @@ export interface BatchUpdateDetectorResponse {
 }
 
 export namespace BatchUpdateDetectorResponse {
-  export function isa(o: any): o is BatchUpdateDetectorResponse {
-    return __isa(o, "BatchUpdateDetectorResponse");
-  }
+  export const isa = (o: any): o is BatchUpdateDetectorResponse =>
+    __isa(o, "BatchUpdateDetectorResponse");
 }
 
 export interface DescribeDetectorRequest {
@@ -233,9 +222,8 @@ export interface DescribeDetectorRequest {
 }
 
 export namespace DescribeDetectorRequest {
-  export function isa(o: any): o is DescribeDetectorRequest {
-    return __isa(o, "DescribeDetectorRequest");
-  }
+  export const isa = (o: any): o is DescribeDetectorRequest =>
+    __isa(o, "DescribeDetectorRequest");
 }
 
 export interface DescribeDetectorResponse {
@@ -247,9 +235,8 @@ export interface DescribeDetectorResponse {
 }
 
 export namespace DescribeDetectorResponse {
-  export function isa(o: any): o is DescribeDetectorResponse {
-    return __isa(o, "DescribeDetectorResponse");
-  }
+  export const isa = (o: any): o is DescribeDetectorResponse =>
+    __isa(o, "DescribeDetectorResponse");
 }
 
 /**
@@ -290,9 +277,7 @@ export interface Detector {
 }
 
 export namespace Detector {
-  export function isa(o: any): o is Detector {
-    return __isa(o, "Detector");
-  }
+  export const isa = (o: any): o is Detector => __isa(o, "Detector");
 }
 
 /**
@@ -317,9 +302,7 @@ export interface DetectorState {
 }
 
 export namespace DetectorState {
-  export function isa(o: any): o is DetectorState {
-    return __isa(o, "DetectorState");
-  }
+  export const isa = (o: any): o is DetectorState => __isa(o, "DetectorState");
 }
 
 /**
@@ -345,9 +328,8 @@ export interface DetectorStateDefinition {
 }
 
 export namespace DetectorStateDefinition {
-  export function isa(o: any): o is DetectorStateDefinition {
-    return __isa(o, "DetectorStateDefinition");
-  }
+  export const isa = (o: any): o is DetectorStateDefinition =>
+    __isa(o, "DetectorStateDefinition");
 }
 
 /**
@@ -362,9 +344,8 @@ export interface DetectorStateSummary {
 }
 
 export namespace DetectorStateSummary {
-  export function isa(o: any): o is DetectorStateSummary {
-    return __isa(o, "DetectorStateSummary");
-  }
+  export const isa = (o: any): o is DetectorStateSummary =>
+    __isa(o, "DetectorStateSummary");
 }
 
 /**
@@ -405,9 +386,8 @@ export interface DetectorSummary {
 }
 
 export namespace DetectorSummary {
-  export function isa(o: any): o is DetectorSummary {
-    return __isa(o, "DetectorSummary");
-  }
+  export const isa = (o: any): o is DetectorSummary =>
+    __isa(o, "DetectorSummary");
 }
 
 export enum ErrorCode {
@@ -442,9 +422,8 @@ export interface ListDetectorsRequest {
 }
 
 export namespace ListDetectorsRequest {
-  export function isa(o: any): o is ListDetectorsRequest {
-    return __isa(o, "ListDetectorsRequest");
-  }
+  export const isa = (o: any): o is ListDetectorsRequest =>
+    __isa(o, "ListDetectorsRequest");
 }
 
 export interface ListDetectorsResponse {
@@ -462,9 +441,8 @@ export interface ListDetectorsResponse {
 }
 
 export namespace ListDetectorsResponse {
-  export function isa(o: any): o is ListDetectorsResponse {
-    return __isa(o, "ListDetectorsResponse");
-  }
+  export const isa = (o: any): o is ListDetectorsResponse =>
+    __isa(o, "ListDetectorsResponse");
 }
 
 /**
@@ -491,9 +469,7 @@ export interface Message {
 }
 
 export namespace Message {
-  export function isa(o: any): o is Message {
-    return __isa(o, "Message");
-  }
+  export const isa = (o: any): o is Message => __isa(o, "Message");
 }
 
 /**
@@ -513,9 +489,7 @@ export interface Timer {
 }
 
 export namespace Timer {
-  export function isa(o: any): o is Timer {
-    return __isa(o, "Timer");
-  }
+  export const isa = (o: any): o is Timer => __isa(o, "Timer");
 }
 
 /**
@@ -535,9 +509,8 @@ export interface TimerDefinition {
 }
 
 export namespace TimerDefinition {
-  export function isa(o: any): o is TimerDefinition {
-    return __isa(o, "TimerDefinition");
-  }
+  export const isa = (o: any): o is TimerDefinition =>
+    __isa(o, "TimerDefinition");
 }
 
 /**
@@ -569,9 +542,8 @@ export interface UpdateDetectorRequest {
 }
 
 export namespace UpdateDetectorRequest {
-  export function isa(o: any): o is UpdateDetectorRequest {
-    return __isa(o, "UpdateDetectorRequest");
-  }
+  export const isa = (o: any): o is UpdateDetectorRequest =>
+    __isa(o, "UpdateDetectorRequest");
 }
 
 /**
@@ -591,9 +563,7 @@ export interface Variable {
 }
 
 export namespace Variable {
-  export function isa(o: any): o is Variable {
-    return __isa(o, "Variable");
-  }
+  export const isa = (o: any): o is Variable => __isa(o, "Variable");
 }
 
 /**
@@ -613,7 +583,6 @@ export interface VariableDefinition {
 }
 
 export namespace VariableDefinition {
-  export function isa(o: any): o is VariableDefinition {
-    return __isa(o, "VariableDefinition");
-  }
+  export const isa = (o: any): o is VariableDefinition =>
+    __isa(o, "VariableDefinition");
 }

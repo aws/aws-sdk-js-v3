@@ -16,9 +16,8 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export function isa(o: any): o is BadRequestException {
-    return __isa(o, "BadRequestException");
-  }
+  export const isa = (o: any): o is BadRequestException =>
+    __isa(o, "BadRequestException");
 }
 
 /**
@@ -38,9 +37,8 @@ export interface CdnConfiguration {
 }
 
 export namespace CdnConfiguration {
-  export function isa(o: any): o is CdnConfiguration {
-    return __isa(o, "CdnConfiguration");
-  }
+  export const isa = (o: any): o is CdnConfiguration =>
+    __isa(o, "CdnConfiguration");
 }
 
 /**
@@ -65,9 +63,8 @@ export interface DashConfiguration {
 }
 
 export namespace DashConfiguration {
-  export function isa(o: any): o is DashConfiguration {
-    return __isa(o, "DashConfiguration");
-  }
+  export const isa = (o: any): o is DashConfiguration =>
+    __isa(o, "DashConfiguration");
 }
 
 /**
@@ -87,9 +84,8 @@ export interface DashConfigurationForPut {
 }
 
 export namespace DashConfigurationForPut {
-  export function isa(o: any): o is DashConfigurationForPut {
-    return __isa(o, "DashConfigurationForPut");
-  }
+  export const isa = (o: any): o is DashConfigurationForPut =>
+    __isa(o, "DashConfigurationForPut");
 }
 
 export interface DeletePlaybackConfigurationRequest {
@@ -101,9 +97,8 @@ export interface DeletePlaybackConfigurationRequest {
 }
 
 export namespace DeletePlaybackConfigurationRequest {
-  export function isa(o: any): o is DeletePlaybackConfigurationRequest {
-    return __isa(o, "DeletePlaybackConfigurationRequest");
-  }
+  export const isa = (o: any): o is DeletePlaybackConfigurationRequest =>
+    __isa(o, "DeletePlaybackConfigurationRequest");
 }
 
 export interface DeletePlaybackConfigurationResponse {
@@ -111,9 +106,8 @@ export interface DeletePlaybackConfigurationResponse {
 }
 
 export namespace DeletePlaybackConfigurationResponse {
-  export function isa(o: any): o is DeletePlaybackConfigurationResponse {
-    return __isa(o, "DeletePlaybackConfigurationResponse");
-  }
+  export const isa = (o: any): o is DeletePlaybackConfigurationResponse =>
+    __isa(o, "DeletePlaybackConfigurationResponse");
 }
 
 export interface GetPlaybackConfigurationRequest {
@@ -125,9 +119,8 @@ export interface GetPlaybackConfigurationRequest {
 }
 
 export namespace GetPlaybackConfigurationRequest {
-  export function isa(o: any): o is GetPlaybackConfigurationRequest {
-    return __isa(o, "GetPlaybackConfigurationRequest");
-  }
+  export const isa = (o: any): o is GetPlaybackConfigurationRequest =>
+    __isa(o, "GetPlaybackConfigurationRequest");
 }
 
 export interface GetPlaybackConfigurationResponse {
@@ -199,9 +192,8 @@ export interface GetPlaybackConfigurationResponse {
 }
 
 export namespace GetPlaybackConfigurationResponse {
-  export function isa(o: any): o is GetPlaybackConfigurationResponse {
-    return __isa(o, "GetPlaybackConfigurationResponse");
-  }
+  export const isa = (o: any): o is GetPlaybackConfigurationResponse =>
+    __isa(o, "GetPlaybackConfigurationResponse");
 }
 
 /**
@@ -216,9 +208,8 @@ export interface HlsConfiguration {
 }
 
 export namespace HlsConfiguration {
-  export function isa(o: any): o is HlsConfiguration {
-    return __isa(o, "HlsConfiguration");
-  }
+  export const isa = (o: any): o is HlsConfiguration =>
+    __isa(o, "HlsConfiguration");
 }
 
 export interface ListPlaybackConfigurationsRequest {
@@ -235,9 +226,8 @@ export interface ListPlaybackConfigurationsRequest {
 }
 
 export namespace ListPlaybackConfigurationsRequest {
-  export function isa(o: any): o is ListPlaybackConfigurationsRequest {
-    return __isa(o, "ListPlaybackConfigurationsRequest");
-  }
+  export const isa = (o: any): o is ListPlaybackConfigurationsRequest =>
+    __isa(o, "ListPlaybackConfigurationsRequest");
 }
 
 export interface ListPlaybackConfigurationsResponse {
@@ -254,9 +244,8 @@ export interface ListPlaybackConfigurationsResponse {
 }
 
 export namespace ListPlaybackConfigurationsResponse {
-  export function isa(o: any): o is ListPlaybackConfigurationsResponse {
-    return __isa(o, "ListPlaybackConfigurationsResponse");
-  }
+  export const isa = (o: any): o is ListPlaybackConfigurationsResponse =>
+    __isa(o, "ListPlaybackConfigurationsResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -268,9 +257,8 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export function isa(o: any): o is ListTagsForResourceRequest {
-    return __isa(o, "ListTagsForResourceRequest");
-  }
+  export const isa = (o: any): o is ListTagsForResourceRequest =>
+    __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -287,9 +275,8 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export function isa(o: any): o is ListTagsForResourceResponse {
-    return __isa(o, "ListTagsForResourceResponse");
-  }
+  export const isa = (o: any): o is ListTagsForResourceResponse =>
+    __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -309,9 +296,8 @@ export interface LivePreRollConfiguration {
 }
 
 export namespace LivePreRollConfiguration {
-  export function isa(o: any): o is LivePreRollConfiguration {
-    return __isa(o, "LivePreRollConfiguration");
-  }
+  export const isa = (o: any): o is LivePreRollConfiguration =>
+    __isa(o, "LivePreRollConfiguration");
 }
 
 export enum OriginManifestType {
@@ -386,9 +372,8 @@ export interface PlaybackConfiguration {
 }
 
 export namespace PlaybackConfiguration {
-  export function isa(o: any): o is PlaybackConfiguration {
-    return __isa(o, "PlaybackConfiguration");
-  }
+  export const isa = (o: any): o is PlaybackConfiguration =>
+    __isa(o, "PlaybackConfiguration");
 }
 
 export interface PutPlaybackConfigurationRequest {
@@ -440,9 +425,8 @@ export interface PutPlaybackConfigurationRequest {
 }
 
 export namespace PutPlaybackConfigurationRequest {
-  export function isa(o: any): o is PutPlaybackConfigurationRequest {
-    return __isa(o, "PutPlaybackConfigurationRequest");
-  }
+  export const isa = (o: any): o is PutPlaybackConfigurationRequest =>
+    __isa(o, "PutPlaybackConfigurationRequest");
 }
 
 export interface PutPlaybackConfigurationResponse {
@@ -514,9 +498,8 @@ export interface PutPlaybackConfigurationResponse {
 }
 
 export namespace PutPlaybackConfigurationResponse {
-  export function isa(o: any): o is PutPlaybackConfigurationResponse {
-    return __isa(o, "PutPlaybackConfigurationResponse");
-  }
+  export const isa = (o: any): o is PutPlaybackConfigurationResponse =>
+    __isa(o, "PutPlaybackConfigurationResponse");
 }
 
 export interface TagResourceRequest {
@@ -538,9 +521,8 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return __isa(o, "TagResourceRequest");
-  }
+  export const isa = (o: any): o is TagResourceRequest =>
+    __isa(o, "TagResourceRequest");
 }
 
 export interface UntagResourceRequest {
@@ -557,7 +539,6 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return __isa(o, "UntagResourceRequest");
-  }
+  export const isa = (o: any): o is UntagResourceRequest =>
+    __isa(o, "UntagResourceRequest");
 }
