@@ -3,7 +3,7 @@ import { Sha256 } from "@aws-crypto/sha256-browser";
 import { FetchHttpHandler } from "@aws-sdk/fetch-http-handler";
 import { parseUrl } from "@aws-sdk/url-parser-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
-import { streamCollector } from "@aws-sdk/stream-collector-browser";
+import { streamCollector } from "@aws-sdk/stream-collector-web";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
