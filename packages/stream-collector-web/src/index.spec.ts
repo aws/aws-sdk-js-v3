@@ -1,9 +1,17 @@
 import { streamCollector } from "./index";
 
-declare const global: any;
-
 describe("streamCollector", () => {
   it("returns a Uint8Array from a blob", done => {
+    const dataPromise = new Response(new Uint8Array([102, 111, 111]).buffer)
+      .blob()
+      .then(blob => streamCollector(blob));
+    dataPromise.then((data: any) => {
+      expect(data).toEqual(Uint8Array.from([102, 111, 111]));
+      done();
+    });
+  });
+
+  it("returns a Uint8Array from a ReadableStream", done => {
     const dataPromise = streamCollector(
       new Response(new Uint8Array([102, 111, 111]).buffer).body
     );
