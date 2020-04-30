@@ -110,7 +110,7 @@ export interface DescribeAffectedAccountsForOrganizationResponse {
   /**
    * <p>A JSON set of elements of the affected accounts.</p>
    */
-  affectedAccounts?: Array<string>;
+  affectedAccounts?: string[];
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -152,7 +152,7 @@ export interface DescribeAffectedEntitiesForOrganizationRequest {
    * <p>A JSON set of elements including the <code>awsAccountId</code> and the
    *             <code>eventArn</code>.</p>
    */
-  organizationEntityFilters: Array<EventAccountFilter> | undefined;
+  organizationEntityFilters: EventAccountFilter[] | undefined;
 }
 
 export namespace DescribeAffectedEntitiesForOrganizationRequest {
@@ -169,13 +169,13 @@ export interface DescribeAffectedEntitiesForOrganizationResponse {
    *             <code>entityArn</code>, <code>entityValue</code> and its <code>entityArn</code>,
    *             <code>lastUpdatedTime</code>, <code>statusCode</code>, and <code>tags</code>.</p>
    */
-  entities?: Array<AffectedEntity>;
+  entities?: AffectedEntity[];
 
   /**
    * <p>A JSON set of elements of the failed response, including the <code>awsAccountId</code>,
    *             <code>errorMessage</code>, <code>errorName</code>, and <code>eventArn</code>.</p>
    */
-  failedSet?: Array<OrganizationAffectedEntitiesErrorItem>;
+  failedSet?: OrganizationAffectedEntitiesErrorItem[];
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -229,7 +229,7 @@ export interface DescribeAffectedEntitiesResponse {
   /**
    * <p>The entities that match the filter criteria.</p>
    */
-  entities?: Array<AffectedEntity>;
+  entities?: AffectedEntity[];
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -251,7 +251,7 @@ export interface DescribeEntityAggregatesRequest {
    * <p>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code>
    *          </p>
    */
-  eventArns?: Array<string>;
+  eventArns?: string[];
 }
 
 export namespace DescribeEntityAggregatesRequest {
@@ -264,7 +264,7 @@ export interface DescribeEntityAggregatesResponse {
   /**
    * <p>The number of entities that are affected by each of the specified events.</p>
    */
-  entityAggregates?: Array<EntityAggregate>;
+  entityAggregates?: EntityAggregate[];
 }
 
 export namespace DescribeEntityAggregatesResponse {
@@ -309,7 +309,7 @@ export interface DescribeEventAggregatesResponse {
    * <p>The number of events in each category that meet the optional filter
    *          criteria.</p>
    */
-  eventAggregates?: Array<EventAggregate>;
+  eventAggregates?: EventAggregate[];
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -336,7 +336,7 @@ export interface DescribeEventDetailsForOrganizationRequest {
    * <p>A set of JSON elements that includes the <code>awsAccountId</code> and the
    *             <code>eventArn</code>.</p>
    */
-  organizationEventDetailFilters: Array<EventAccountFilter> | undefined;
+  organizationEventDetailFilters: EventAccountFilter[] | undefined;
 }
 
 export namespace DescribeEventDetailsForOrganizationRequest {
@@ -351,12 +351,12 @@ export interface DescribeEventDetailsForOrganizationResponse {
   /**
    * <p>Error messages for any events that could not be retrieved.</p>
    */
-  failedSet?: Array<OrganizationEventDetailsErrorItem>;
+  failedSet?: OrganizationEventDetailsErrorItem[];
 
   /**
    * <p>Information about the events that could be retrieved.</p>
    */
-  successfulSet?: Array<OrganizationEventDetails>;
+  successfulSet?: OrganizationEventDetails[];
 }
 
 export namespace DescribeEventDetailsForOrganizationResponse {
@@ -372,7 +372,7 @@ export interface DescribeEventDetailsRequest {
    * <p>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code>
    *          </p>
    */
-  eventArns: Array<string> | undefined;
+  eventArns: string[] | undefined;
 
   /**
    * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
@@ -390,12 +390,12 @@ export interface DescribeEventDetailsResponse {
   /**
    * <p>Error messages for any events that could not be retrieved.</p>
    */
-  failedSet?: Array<EventDetailsErrorItem>;
+  failedSet?: EventDetailsErrorItem[];
 
   /**
    * <p>Information about the events that could be retrieved.</p>
    */
-  successfulSet?: Array<EventDetails>;
+  successfulSet?: EventDetails[];
 }
 
 export namespace DescribeEventDetailsResponse {
@@ -445,7 +445,7 @@ export interface DescribeEventTypesResponse {
    *             </code>; for
    *          example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>).</p>
    */
-  eventTypes?: Array<EventType>;
+  eventTypes?: EventType[];
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -497,7 +497,7 @@ export interface DescribeEventsForOrganizationResponse {
   /**
    * <p>The events that match the specified filter criteria.</p>
    */
-  events?: Array<OrganizationEvent>;
+  events?: OrganizationEvent[];
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -549,7 +549,7 @@ export interface DescribeEventsResponse {
   /**
    * <p>The events that match the specified filter criteria.</p>
    */
-  events?: Array<Event>;
+  events?: Event[];
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -696,34 +696,34 @@ export interface EntityFilter {
   /**
    * <p>A list of entity ARNs (unique identifiers).</p>
    */
-  entityArns?: Array<string>;
+  entityArns?: string[];
 
   /**
    * <p>A list of IDs for affected entities.</p>
    */
-  entityValues?: Array<string>;
+  entityValues?: string[];
 
   /**
    * <p>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code>
    *          </p>
    */
-  eventArns: Array<string> | undefined;
+  eventArns: string[] | undefined;
 
   /**
    * <p>A list of the most recent dates and times that the entity was updated.</p>
    */
-  lastUpdatedTimes?: Array<DateTimeRange>;
+  lastUpdatedTimes?: DateTimeRange[];
 
   /**
    * <p>A list of entity status codes (<code>IMPAIRED</code>, <code>UNIMPAIRED</code>, or
    *             <code>UNKNOWN</code>).</p>
    */
-  statusCodes?: Array<EntityStatusCode | string>;
+  statusCodes?: EntityStatusCode | string[];
 
   /**
    * <p>A map of entity tags attached to the affected entity.</p>
    */
-  tags?: Array<{ [key: string]: string }>;
+  tags?: { [key: string]: string }[];
 }
 
 export namespace EntityFilter {
@@ -921,71 +921,71 @@ export interface EventFilter {
   /**
    * <p>A list of AWS availability zones.</p>
    */
-  availabilityZones?: Array<string>;
+  availabilityZones?: string[];
 
   /**
    * <p>A list of dates and times that the event ended.</p>
    */
-  endTimes?: Array<DateTimeRange>;
+  endTimes?: DateTimeRange[];
 
   /**
    * <p>A list of entity ARNs (unique identifiers).</p>
    */
-  entityArns?: Array<string>;
+  entityArns?: string[];
 
   /**
    * <p>A list of entity identifiers, such as EC2 instance IDs (<code>i-34ab692e</code>) or
    *          EBS volumes (<code>vol-426ab23e</code>).</p>
    */
-  entityValues?: Array<string>;
+  entityValues?: string[];
 
   /**
    * <p>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code>
    *          </p>
    */
-  eventArns?: Array<string>;
+  eventArns?: string[];
 
   /**
    * <p>A list of event status codes.</p>
    */
-  eventStatusCodes?: Array<EventStatusCode | string>;
+  eventStatusCodes?: EventStatusCode | string[];
 
   /**
    * <p>A list of event type category codes (<code>issue</code>,
    *          <code>scheduledChange</code>, or <code>accountNotification</code>).</p>
    */
-  eventTypeCategories?: Array<EventTypeCategory | string>;
+  eventTypeCategories?: EventTypeCategory | string[];
 
   /**
    * <p>A list of unique identifiers for event types. For example, <code>"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".</code>
    *          </p>
    */
-  eventTypeCodes?: Array<string>;
+  eventTypeCodes?: string[];
 
   /**
    * <p>A list of dates and times that the event was last updated.</p>
    */
-  lastUpdatedTimes?: Array<DateTimeRange>;
+  lastUpdatedTimes?: DateTimeRange[];
 
   /**
    * <p>A list of AWS regions.</p>
    */
-  regions?: Array<string>;
+  regions?: string[];
 
   /**
    * <p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    */
-  services?: Array<string>;
+  services?: string[];
 
   /**
    * <p>A list of dates and times that the event began.</p>
    */
-  startTimes?: Array<DateTimeRange>;
+  startTimes?: DateTimeRange[];
 
   /**
    * <p>A map of entity tags attached to the affected entity.</p>
    */
-  tags?: Array<{ [key: string]: string }>;
+  tags?: { [key: string]: string }[];
 }
 
 export namespace EventFilter {
@@ -1032,17 +1032,17 @@ export interface EventTypeFilter {
    * <p>A list of event type category codes (<code>issue</code>,
    *          <code>scheduledChange</code>, or <code>accountNotification</code>).</p>
    */
-  eventTypeCategories?: Array<EventTypeCategory | string>;
+  eventTypeCategories?: EventTypeCategory | string[];
 
   /**
    * <p>A list of event type codes.</p>
    */
-  eventTypeCodes?: Array<string>;
+  eventTypeCodes?: string[];
 
   /**
    * <p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    */
-  services?: Array<string>;
+  services?: string[];
 }
 
 export namespace EventTypeFilter {
@@ -1225,7 +1225,7 @@ export interface OrganizationEventFilter {
   /**
    * <p>A list of 12-digit AWS account numbers that contains the affected entities.</p>
    */
-  awsAccountIds?: Array<string>;
+  awsAccountIds?: string[];
 
   /**
    * <p>A range of dates and times that is used by the <a>EventFilter</a> and
@@ -1242,28 +1242,28 @@ export interface OrganizationEventFilter {
   /**
    * <p>REPLACEME</p>
    */
-  entityArns?: Array<string>;
+  entityArns?: string[];
 
   /**
    * <p>A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or EBS volumes (vol-426ab23e).</p>
    */
-  entityValues?: Array<string>;
+  entityValues?: string[];
 
   /**
    * <p>A list of event status codes.</p>
    */
-  eventStatusCodes?: Array<EventStatusCode | string>;
+  eventStatusCodes?: EventStatusCode | string[];
 
   /**
    * <p>REPLACEME</p>
    */
-  eventTypeCategories?: Array<EventTypeCategory | string>;
+  eventTypeCategories?: EventTypeCategory | string[];
 
   /**
    * <p>A list of unique identifiers for event types. For example, <code>"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".</code>
    *          </p>
    */
-  eventTypeCodes?: Array<string>;
+  eventTypeCodes?: string[];
 
   /**
    * <p>A range of dates and times that is used by the <a>EventFilter</a> and
@@ -1280,12 +1280,12 @@ export interface OrganizationEventFilter {
   /**
    * <p>A list of AWS Regions.</p>
    */
-  regions?: Array<string>;
+  regions?: string[];
 
   /**
    * <p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    */
-  services?: Array<string>;
+  services?: string[];
 
   /**
    * <p>A range of dates and times that is used by the <a>EventFilter</a> and

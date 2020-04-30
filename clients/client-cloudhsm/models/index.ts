@@ -14,7 +14,7 @@ export interface AddTagsToResourceRequest {
   /**
    * <p>One or more tags.</p>
    */
-  TagList: Array<Tag> | undefined;
+  TagList: Tag[] | undefined;
 }
 
 export namespace AddTagsToResourceRequest {
@@ -372,17 +372,17 @@ export interface DescribeHapgResponse {
   /**
    * <p></p>
    */
-  HsmsLastActionFailed?: Array<string>;
+  HsmsLastActionFailed?: string[];
 
   /**
    * <p></p>
    */
-  HsmsPendingDeletion?: Array<string>;
+  HsmsPendingDeletion?: string[];
 
   /**
    * <p></p>
    */
-  HsmsPendingRegistration?: Array<string>;
+  HsmsPendingRegistration?: string[];
 
   /**
    * <p>The label for the high-availability partition group.</p>
@@ -398,7 +398,7 @@ export interface DescribeHapgResponse {
    * <p>The list of partition serial numbers that belong to the high-availability partition
    *       group.</p>
    */
-  PartitionSerialList?: Array<string>;
+  PartitionSerialList?: string[];
 
   /**
    * <p>The state of the high-availability partition group.</p>
@@ -472,7 +472,7 @@ export interface DescribeHsmResponse {
   /**
    * <p>The list of partitions on the HSM.</p>
    */
-  Partitions?: Array<string>;
+  Partitions?: string[];
 
   /**
    * <p>The serial number of the HSM.</p>
@@ -629,7 +629,7 @@ export interface GetConfigRequest {
    * <p>A list of ARNs that identify the high-availability partition groups that are associated
    *       with the client.</p>
    */
-  HapgList: Array<string> | undefined;
+  HapgList: string[] | undefined;
 }
 
 export namespace GetConfigRequest {
@@ -711,7 +711,7 @@ export interface ListAvailableZonesResponse {
   /**
    * <p>The list of Availability Zones that have available AWS CloudHSM capacity.</p>
    */
-  AZList?: Array<string>;
+  AZList?: string[];
 }
 
 export namespace ListAvailableZonesResponse {
@@ -738,7 +738,7 @@ export interface ListHapgsResponse {
   /**
    * <p>The list of high-availability partition groups.</p>
    */
-  HapgList: Array<string> | undefined;
+  HapgList: string[] | undefined;
 
   /**
    * <p>If not null, more results are available. Pass this value to <code>ListHapgs</code> to
@@ -774,7 +774,7 @@ export interface ListHsmsResponse {
   /**
    * <p>The list of ARNs that identify the HSMs.</p>
    */
-  HsmList?: Array<string>;
+  HsmList?: string[];
 
   /**
    * <p>If not null, more results are available. Pass this value to <code>ListHsms</code> to
@@ -807,7 +807,7 @@ export interface ListLunaClientsResponse {
   /**
    * <p>The list of clients.</p>
    */
-  ClientList: Array<string> | undefined;
+  ClientList: string[] | undefined;
 
   /**
    * <p>If not null, more results are available. Pass this to <code>ListLunaClients</code> to
@@ -839,7 +839,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>One or more tags.</p>
    */
-  TagList: Array<Tag> | undefined;
+  TagList: Tag[] | undefined;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -863,7 +863,7 @@ export interface ModifyHapgRequest {
    * <p>The list of partition serial numbers to make members of the high-availability partition
    *       group.</p>
    */
-  PartitionSerialList?: Array<string>;
+  PartitionSerialList?: string[];
 }
 
 export namespace ModifyHapgRequest {
@@ -989,7 +989,7 @@ export interface RemoveTagsFromResourceRequest {
    *          <p>Specify only the tag key to remove (not the value). To overwrite the value for an
    *       existing tag, use <a>AddTagsToResource</a>.</p>
    */
-  TagKeyList: Array<string> | undefined;
+  TagKeyList: string[] | undefined;
 }
 
 export namespace RemoveTagsFromResourceRequest {

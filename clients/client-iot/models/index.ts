@@ -1363,7 +1363,7 @@ export interface HttpAction {
   /**
    * <p>The HTTP headers to send with the message data.</p>
    */
-  headers?: Array<HttpActionHeader>;
+  headers?: HttpActionHeader[];
 
   /**
    * <p>The endpoint URL. If substitution templates are used in the URL, you must also specify a
@@ -1530,7 +1530,7 @@ export interface IotSiteWiseAction {
   /**
    * <p>A list of asset property value entries.</p>
    */
-  putAssetPropertyValueEntries: Array<PutAssetPropertyValueEntry> | undefined;
+  putAssetPropertyValueEntries: PutAssetPropertyValueEntry[] | undefined;
 
   /**
    * <p>The ARN of the role that grants AWS IoT permission to send an asset property value to AWS
@@ -1608,7 +1608,7 @@ export interface ListTopicRuleDestinationsResponse {
   /**
    * <p>Information about a topic rule destination.</p>
    */
-  destinationSummaries?: Array<TopicRuleDestinationSummary>;
+  destinationSummaries?: TopicRuleDestinationSummary[];
 
   /**
    * <p>The token to retrieve the next set of results.</p>
@@ -1665,7 +1665,7 @@ export interface ListTopicRulesResponse {
   /**
    * <p>The rules.</p>
    */
-  rules?: Array<TopicRuleListItem>;
+  rules?: TopicRuleListItem[];
 }
 
 export namespace ListTopicRulesResponse {
@@ -1702,7 +1702,7 @@ export interface ListV2LoggingLevelsResponse {
   /**
    * <p>The logging configuration for a target.</p>
    */
-  logTargetConfigurations?: Array<LogTargetConfiguration>;
+  logTargetConfigurations?: LogTargetConfiguration[];
 
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -1824,7 +1824,7 @@ export interface PutAssetPropertyValueEntry {
    * <p>A list of property values to insert that each contain timestamp, quality, and value (TQV)
    *       information.</p>
    */
-  propertyValues: Array<AssetPropertyValue> | undefined;
+  propertyValues: AssetPropertyValue[] | undefined;
 }
 
 export namespace PutAssetPropertyValueEntry {
@@ -2125,7 +2125,7 @@ export interface TopicRule {
   /**
    * <p>The actions associated with the rule.</p>
    */
-  actions?: Array<Action>;
+  actions?: Action[];
 
   /**
    * <p>The version of the SQL rules engine to use when evaluating the rule.</p>
@@ -2360,7 +2360,7 @@ export interface TopicRulePayload {
   /**
    * <p>The actions associated with the rule.</p>
    */
-  actions: Array<Action> | undefined;
+  actions: Action[] | undefined;
 
   /**
    * <p>The version of the SQL rules engine to use when evaluating the rule.</p>
@@ -2489,7 +2489,7 @@ export interface Allowed {
   /**
    * <p>A list of policies that allowed the authentication.</p>
    */
-  policies?: Array<Policy>;
+  policies?: Policy[];
 }
 
 export namespace Allowed {
@@ -2556,7 +2556,7 @@ export interface AuthInfo {
    * <p>The resources for which the principal is being authorized to perform the specified
    *          action.</p>
    */
-  resources?: Array<string>;
+  resources?: string[];
 }
 
 export namespace AuthInfo {
@@ -2593,7 +2593,7 @@ export interface AuthResult {
   /**
    * <p>Contains any missing context values found while evaluating policy.</p>
    */
-  missingContextValues?: Array<string>;
+  missingContextValues?: string[];
 }
 
 export namespace AuthResult {
@@ -3112,7 +3112,7 @@ export interface CreateDomainConfigurationRequest {
    * <p>The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN.
    *       This value is not required for AWS-managed domains.</p>
    */
-  serverCertificateArns?: Array<string>;
+  serverCertificateArns?: string[];
 
   /**
    * <p>The type of service delivered by the endpoint.</p>
@@ -3379,7 +3379,7 @@ export interface CreateProvisioningTemplateRequest {
    *             "key1=value1&key2=value2..."</p>
    *          </note>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The JSON formatted contents of the fleet provisioning template.</p>
@@ -3930,7 +3930,7 @@ export interface DescribeDomainConfigurationResponse {
   /**
    * <p>A list containing summary information about the server certificate included in the domain configuration.</p>
    */
-  serverCertificates?: Array<ServerCertificateSummary>;
+  serverCertificates?: ServerCertificateSummary[];
 
   /**
    * <p>The type of service delivered by the endpoint.</p>
@@ -4273,7 +4273,7 @@ export interface ExplicitDeny {
   /**
    * <p>The policies that denied the authorization.</p>
    */
-  policies?: Array<Policy>;
+  policies?: Policy[];
 }
 
 export namespace ExplicitDeny {
@@ -4308,7 +4308,7 @@ export interface GetEffectivePoliciesResponse {
   /**
    * <p>The effective policies.</p>
    */
-  effectivePolicies?: Array<EffectivePolicy>;
+  effectivePolicies?: EffectivePolicy[];
 }
 
 export namespace GetEffectivePoliciesResponse {
@@ -4508,7 +4508,7 @@ export interface ImplicitDeny {
    * <p>Policies that don't contain a matching allow or deny statement for the specified
    *          action on the specified resource. </p>
    */
-  policies?: Array<Policy>;
+  policies?: Policy[];
 }
 
 export namespace ImplicitDeny {
@@ -4574,7 +4574,7 @@ export interface ListAttachedPoliciesResponse {
   /**
    * <p>The policies.</p>
    */
-  policies?: Array<Policy>;
+  policies?: Policy[];
 }
 
 export namespace ListAttachedPoliciesResponse {
@@ -4615,7 +4615,7 @@ export interface ListAuthorizersResponse {
   /**
    * <p>The authorizers.</p>
    */
-  authorizers?: Array<AuthorizerSummary>;
+  authorizers?: AuthorizerSummary[];
 
   /**
    * <p>A marker used to get the next set of results.</p>
@@ -4662,7 +4662,7 @@ export interface ListCACertificatesResponse {
   /**
    * <p>The CA certificates registered in your AWS account.</p>
    */
-  certificates?: Array<CACertificate>;
+  certificates?: CACertificate[];
 
   /**
    * <p>The current position within the list of CA certificates.</p>
@@ -4716,7 +4716,7 @@ export interface ListCertificatesByCAResponse {
   /**
    * <p>The device certificates signed by the specified CA certificate.</p>
    */
-  certificates?: Array<Certificate>;
+  certificates?: Certificate[];
 
   /**
    * <p>The marker for the next set of results, or null if there are no additional
@@ -4765,7 +4765,7 @@ export interface ListCertificatesResponse {
   /**
    * <p>The descriptions of the certificates.</p>
    */
-  certificates?: Array<Certificate>;
+  certificates?: Certificate[];
 
   /**
    * <p>The marker for the next set of results, or null if there are no additional
@@ -4807,7 +4807,7 @@ export interface ListDomainConfigurationsResponse {
   /**
    * <p>A list of objects that contain summary information about the user's domain configurations.</p>
    */
-  domainConfigurations?: Array<DomainConfigurationSummary>;
+  domainConfigurations?: DomainConfigurationSummary[];
 
   /**
    * <p>The marker for the next set of results.</p>
@@ -4860,7 +4860,7 @@ export interface ListOutgoingCertificatesResponse {
   /**
    * <p>The certificates that are being transferred but not yet accepted.</p>
    */
-  outgoingCertificates?: Array<OutgoingCertificate>;
+  outgoingCertificates?: OutgoingCertificate[];
 }
 
 export namespace ListOutgoingCertificatesResponse {
@@ -4909,7 +4909,7 @@ export interface ListPoliciesResponse {
   /**
    * <p>The descriptions of the policies.</p>
    */
-  policies?: Array<Policy>;
+  policies?: Policy[];
 }
 
 export namespace ListPoliciesResponse {
@@ -4963,7 +4963,7 @@ export interface ListPolicyPrincipalsResponse {
   /**
    * <p>The descriptions of the principals.</p>
    */
-  principals?: Array<string>;
+  principals?: string[];
 }
 
 export namespace ListPolicyPrincipalsResponse {
@@ -4995,7 +4995,7 @@ export interface ListPolicyVersionsResponse {
   /**
    * <p>The policy versions.</p>
    */
-  policyVersions?: Array<PolicyVersion>;
+  policyVersions?: PolicyVersion[];
 }
 
 export namespace ListPolicyVersionsResponse {
@@ -5049,7 +5049,7 @@ export interface ListPrincipalPoliciesResponse {
   /**
    * <p>The policies.</p>
    */
-  policies?: Array<Policy>;
+  policies?: Policy[];
 }
 
 export namespace ListPrincipalPoliciesResponse {
@@ -5090,7 +5090,7 @@ export interface ListProvisioningTemplateVersionsResponse {
   /**
    * <p>The list of fleet provisioning template versions.</p>
    */
-  versions?: Array<ProvisioningTemplateVersionSummary>;
+  versions?: ProvisioningTemplateVersionSummary[];
 }
 
 export namespace ListProvisioningTemplateVersionsResponse {
@@ -5126,7 +5126,7 @@ export interface ListProvisioningTemplatesResponse {
   /**
    * <p>A list of fleet provisioning templates</p>
    */
-  templates?: Array<ProvisioningTemplateSummary>;
+  templates?: ProvisioningTemplateSummary[];
 }
 
 export namespace ListProvisioningTemplatesResponse {
@@ -5167,7 +5167,7 @@ export interface ListRoleAliasesResponse {
   /**
    * <p>The role aliases.</p>
    */
-  roleAliases?: Array<string>;
+  roleAliases?: string[];
 }
 
 export namespace ListRoleAliasesResponse {
@@ -5208,7 +5208,7 @@ export interface ListTargetsForPolicyResponse {
   /**
    * <p>The policy targets.</p>
    */
-  targets?: Array<string>;
+  targets?: string[];
 }
 
 export namespace ListTargetsForPolicyResponse {
@@ -5727,7 +5727,7 @@ export interface TestAuthorizationRequest {
    * <p>A list of authorization info objects. Simulating authorization will create a response
    *          for each <code>authInfo</code> object in the list.</p>
    */
-  authInfos: Array<AuthInfo> | undefined;
+  authInfos: AuthInfo[] | undefined;
 
   /**
    * <p>The MQTT client ID.</p>
@@ -5743,13 +5743,13 @@ export interface TestAuthorizationRequest {
    * <p>When testing custom authorization, the policies specified here are treated as if they
    *          are attached to the principal being authorized.</p>
    */
-  policyNamesToAdd?: Array<string>;
+  policyNamesToAdd?: string[];
 
   /**
    * <p>When testing custom authorization, the policies specified here are treated as if they
    *          are not attached to the principal being authorized.</p>
    */
-  policyNamesToSkip?: Array<string>;
+  policyNamesToSkip?: string[];
 
   /**
    * <p>The principal.</p>
@@ -5767,7 +5767,7 @@ export interface TestAuthorizationResponse {
   /**
    * <p>The authentication results.</p>
    */
-  authResults?: Array<AuthResult>;
+  authResults?: AuthResult[];
 }
 
 export namespace TestAuthorizationResponse {
@@ -5829,7 +5829,7 @@ export interface TestInvokeAuthorizerResponse {
   /**
    * <p>IAM policy documents.</p>
    */
-  policyDocuments?: Array<string>;
+  policyDocuments?: string[];
 
   /**
    * <p>The principal ID.</p>
@@ -6352,7 +6352,7 @@ export interface GetPercentilesRequest {
   /**
    * <p>The percentile groups returned.</p>
    */
-  percents?: Array<number>;
+  percents?: number[];
 
   /**
    * <p>The query string.</p>
@@ -6375,7 +6375,7 @@ export interface GetPercentilesResponse {
   /**
    * <p>The percentile values of the aggregated fields.</p>
    */
-  percentiles?: Array<PercentPair>;
+  percentiles?: PercentPair[];
 }
 
 export namespace GetPercentilesResponse {
@@ -6475,7 +6475,7 @@ export interface ListIndicesResponse {
   /**
    * <p>The index names.</p>
    */
-  indexNames?: Array<string>;
+  indexNames?: string[];
 
   /**
    * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
@@ -6554,12 +6554,12 @@ export interface SearchIndexResponse {
   /**
    * <p>The thing groups that match the search query.</p>
    */
-  thingGroups?: Array<ThingGroupDocument>;
+  thingGroups?: ThingGroupDocument[];
 
   /**
    * <p>The things that match the search query.</p>
    */
-  things?: Array<ThingDocument>;
+  things?: ThingDocument[];
 }
 
 export namespace SearchIndexResponse {
@@ -6669,7 +6669,7 @@ export interface ThingDocument {
   /**
    * <p>Thing group names.</p>
    */
-  thingGroupNames?: Array<string>;
+  thingGroupNames?: string[];
 
   /**
    * <p>The thing ID.</p>
@@ -6704,7 +6704,7 @@ export interface ThingGroupDocument {
   /**
    * <p>Parent group names.</p>
    */
-  parentGroupNames?: Array<string>;
+  parentGroupNames?: string[];
 
   /**
    * <p>The thing group description.</p>
@@ -6737,13 +6737,13 @@ export interface ThingGroupIndexingConfiguration {
    *       the GetIndexingConfiguration API to get a list of managed fields.</p>
    *          <p>Contains custom field names and their data type.</p>
    */
-  customFields?: Array<Field>;
+  customFields?: Field[];
 
   /**
    * <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
    *       service.</p>
    */
-  managedFields?: Array<Field>;
+  managedFields?: Field[];
 
   /**
    * <p>Thing group indexing mode.</p>
@@ -6770,13 +6770,13 @@ export interface ThingIndexingConfiguration {
   /**
    * <p>Contains custom field names and their data type.</p>
    */
-  customFields?: Array<Field>;
+  customFields?: Field[];
 
   /**
    * <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
    *       service.</p>
    */
-  managedFields?: Array<Field>;
+  managedFields?: Field[];
 
   /**
    * <p>Thing connectivity indexing mode. Valid values are: </p>
@@ -6859,7 +6859,7 @@ export interface AbortConfig {
   /**
    * <p>The list of abort criteria to define rules to abort the job.</p>
    */
-  criteriaList: Array<AbortCriteria> | undefined;
+  criteriaList: AbortCriteria[] | undefined;
 }
 
 export namespace AbortConfig {
@@ -6912,7 +6912,7 @@ export interface AssociateTargetsWithJobRequest {
   /**
    * <p>A list of thing group ARNs that define the targets of the job.</p>
    */
-  targets: Array<string> | undefined;
+  targets: string[] | undefined;
 }
 
 export namespace AssociateTargetsWithJobRequest {
@@ -7094,7 +7094,7 @@ export interface CreateJobRequest {
   /**
    * <p>Metadata which can be used to manage the job.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
@@ -7107,7 +7107,7 @@ export interface CreateJobRequest {
   /**
    * <p>A list of things and thing groups to which the job should be sent.</p>
    */
-  targets: Array<string> | undefined;
+  targets: string[] | undefined;
 
   /**
    * <p>Specifies the amount of time each device has to finish its execution of the job. The timer
@@ -7424,7 +7424,7 @@ export interface Job {
   /**
    * <p>A list of IoT things and thing groups to which the job should be sent.</p>
    */
-  targets?: Array<string>;
+  targets?: string[];
 
   /**
    * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
@@ -7687,7 +7687,7 @@ export interface JobProcessDetails {
   /**
    * <p>The target devices to which the job execution is being rolled out. This value will be null after the job execution has finished rolling out to all the target devices.</p>
    */
-  processingTargets?: Array<string>;
+  processingTargets?: string[];
 }
 
 export namespace JobProcessDetails {
@@ -7781,7 +7781,7 @@ export interface ListJobExecutionsForJobResponse {
   /**
    * <p>A list of job execution summaries.</p>
    */
-  executionSummaries?: Array<JobExecutionSummaryForJob>;
+  executionSummaries?: JobExecutionSummaryForJob[];
 
   /**
    * <p>The token for the next set of results, or <b>null</b> if there are no
@@ -7828,7 +7828,7 @@ export interface ListJobExecutionsForThingResponse {
   /**
    * <p>A list of job execution summaries.</p>
    */
-  executionSummaries?: Array<JobExecutionSummaryForThing>;
+  executionSummaries?: JobExecutionSummaryForThing[];
 
   /**
    * <p>The token for the next set of results, or <b>null</b> if there are no
@@ -7888,7 +7888,7 @@ export interface ListJobsResponse {
   /**
    * <p>A list of jobs.</p>
    */
-  jobs?: Array<JobSummary>;
+  jobs?: JobSummary[];
 
   /**
    * <p>The token for the next set of results, or <b>null</b> if there are no
@@ -8151,7 +8151,7 @@ export interface CreateOTAUpdateRequest {
   /**
    * <p>The files to be streamed by the OTA update.</p>
    */
-  files: Array<OTAUpdateFile> | undefined;
+  files: OTAUpdateFile[] | undefined;
 
   /**
    * <p>The ID of the OTA update to be created.</p>
@@ -8162,7 +8162,7 @@ export interface CreateOTAUpdateRequest {
    * <p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both
    *              HTTP and MQTT are specified, the target device can choose the protocol.</p>
    */
-  protocols?: Array<Protocol | string>;
+  protocols?: Protocol | string[];
 
   /**
    * <p>The IAM role that allows access to the AWS IoT Jobs service.</p>
@@ -8172,7 +8172,7 @@ export interface CreateOTAUpdateRequest {
   /**
    * <p>Metadata which can be used to manage updates.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all the things
@@ -8186,7 +8186,7 @@ export interface CreateOTAUpdateRequest {
   /**
    * <p>The targeted devices to receive OTA updates.</p>
    */
-  targets: Array<string> | undefined;
+  targets: string[] | undefined;
 }
 
 export namespace CreateOTAUpdateRequest {
@@ -8404,7 +8404,7 @@ export interface ListOTAUpdatesResponse {
   /**
    * <p>A list of OTA update jobs.</p>
    */
-  otaUpdates?: Array<OTAUpdateSummary>;
+  otaUpdates?: OTAUpdateSummary[];
 }
 
 export namespace ListOTAUpdatesResponse {
@@ -8506,7 +8506,7 @@ export interface OTAUpdateInfo {
   /**
    * <p>A list of files associated with the OTA update.</p>
    */
-  otaUpdateFiles?: Array<OTAUpdateFile>;
+  otaUpdateFiles?: OTAUpdateFile[];
 
   /**
    * <p>The OTA update ID.</p>
@@ -8522,7 +8522,7 @@ export interface OTAUpdateInfo {
    * <p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both
    *              HTTP and MQTT are specified, the target device can choose the protocol.</p>
    */
-  protocols?: Array<Protocol | string>;
+  protocols?: Protocol | string[];
 
   /**
    * <p>Specifies whether the OTA update will continue to run (CONTINUOUS), or will be complete after all those
@@ -8536,7 +8536,7 @@ export interface OTAUpdateInfo {
   /**
    * <p>The targets of the OTA update.</p>
    */
-  targets?: Array<string>;
+  targets?: string[];
 }
 
 export namespace OTAUpdateInfo {
@@ -8799,7 +8799,7 @@ export interface CreateBillingGroupRequest {
   /**
    * <p>Metadata which can be used to manage the billing group.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateBillingGroupRequest {
@@ -8858,7 +8858,7 @@ export interface CreateDynamicThingGroupRequest {
   /**
    * <p>Metadata which can be used to manage the dynamic thing group.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The dynamic thing group name to create.</p>
@@ -8924,7 +8924,7 @@ export interface CreateThingGroupRequest {
   /**
    * <p>Metadata which can be used to manage the thing group.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The thing group name to create.</p>
@@ -9034,7 +9034,7 @@ export interface CreateThingTypeRequest {
   /**
    * <p>Metadata which can be used to manage the thing type.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The name of the thing type.</p>
@@ -9687,7 +9687,7 @@ export interface ListBillingGroupsResponse {
   /**
    * <p>The list of billing groups.</p>
    */
-  billingGroups?: Array<GroupNameAndArn>;
+  billingGroups?: GroupNameAndArn[];
 
   /**
    * <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -9739,7 +9739,7 @@ export interface ListPrincipalThingsResponse {
   /**
    * <p>The things.</p>
    */
-  things?: Array<string>;
+  things?: string[];
 }
 
 export namespace ListPrincipalThingsResponse {
@@ -9775,7 +9775,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags assigned to the resource.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -9816,7 +9816,7 @@ export interface ListThingGroupsForThingResponse {
   /**
    * <p>The thing groups.</p>
    */
-  thingGroups?: Array<GroupNameAndArn>;
+  thingGroups?: GroupNameAndArn[];
 }
 
 export namespace ListThingGroupsForThingResponse {
@@ -9867,7 +9867,7 @@ export interface ListThingGroupsResponse {
   /**
    * <p>The thing groups.</p>
    */
-  thingGroups?: Array<GroupNameAndArn>;
+  thingGroups?: GroupNameAndArn[];
 }
 
 export namespace ListThingGroupsResponse {
@@ -9899,7 +9899,7 @@ export interface ListThingPrincipalsResponse {
   /**
    * <p>The principals associated with the thing.</p>
    */
-  principals?: Array<string>;
+  principals?: string[];
 }
 
 export namespace ListThingPrincipalsResponse {
@@ -9950,7 +9950,7 @@ export interface ListThingRegistrationTaskReportsResponse {
   /**
    * <p>Links to the task resources.</p>
    */
-  resourceLinks?: Array<string>;
+  resourceLinks?: string[];
 }
 
 export namespace ListThingRegistrationTaskReportsResponse {
@@ -9991,7 +9991,7 @@ export interface ListThingRegistrationTasksResponse {
   /**
    * <p>A list of bulk thing provisioning task IDs.</p>
    */
-  taskIds?: Array<string>;
+  taskIds?: string[];
 }
 
 export namespace ListThingRegistrationTasksResponse {
@@ -10039,7 +10039,7 @@ export interface ListThingTypesResponse {
   /**
    * <p>The thing types.</p>
    */
-  thingTypes?: Array<ThingTypeDefinition>;
+  thingTypes?: ThingTypeDefinition[];
 }
 
 export namespace ListThingTypesResponse {
@@ -10080,7 +10080,7 @@ export interface ListThingsInBillingGroupResponse {
   /**
    * <p>A list of things in the billing group.</p>
    */
-  things?: Array<string>;
+  things?: string[];
 }
 
 export namespace ListThingsInBillingGroupResponse {
@@ -10127,7 +10127,7 @@ export interface ListThingsInThingGroupResponse {
   /**
    * <p>The things in the specified thing group.</p>
    */
-  things?: Array<string>;
+  things?: string[];
 }
 
 export namespace ListThingsInThingGroupResponse {
@@ -10184,7 +10184,7 @@ export interface ListThingsResponse {
   /**
    * <p>The things.</p>
    */
-  things?: Array<ThingAttribute>;
+  things?: ThingAttribute[];
 }
 
 export namespace ListThingsResponse {
@@ -10341,7 +10341,7 @@ export interface TagResourceRequest {
   /**
    * <p>The new or modified tags for the resource.</p>
    */
-  tags: Array<Tag> | undefined;
+  tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -10368,7 +10368,7 @@ export interface UntagResourceRequest {
   /**
    * <p>A list of the keys of the tags to be removed from the resource.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -10554,12 +10554,12 @@ export interface UpdateThingGroupsForThingRequest {
   /**
    * <p>The groups to which the thing will be added.</p>
    */
-  thingGroupsToAdd?: Array<string>;
+  thingGroupsToAdd?: string[];
 
   /**
    * <p>The groups from which the thing will be removed.</p>
    */
-  thingGroupsToRemove?: Array<string>;
+  thingGroupsToRemove?: string[];
 
   /**
    * <p>The thing whose group memberships will be updated.</p>
@@ -10794,7 +10794,7 @@ export interface ThingGroupMetadata {
   /**
    * <p>The root parent thing group.</p>
    */
-  rootToParentThingGroups?: Array<GroupNameAndArn>;
+  rootToParentThingGroups?: GroupNameAndArn[];
 }
 
 export namespace ThingGroupMetadata {
@@ -10894,7 +10894,7 @@ export interface ThingTypeProperties {
   /**
    * <p>A list of searchable thing attribute names.</p>
    */
-  searchableAttributes?: Array<string>;
+  searchableAttributes?: string[];
 
   /**
    * <p>The description of the thing type.</p>
@@ -10999,7 +10999,7 @@ export interface CreateMitigationActionRequest {
   /**
    * <p>Metadata that can be used to manage the mitigation action.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateMitigationActionRequest {
@@ -11057,7 +11057,7 @@ export interface CreateScheduledAuditRequest {
   /**
    * <p>Metadata that can be used to manage the scheduled audit.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>Which checks are performed during the scheduled audit. Checks must be enabled
@@ -11065,7 +11065,7 @@ export interface CreateScheduledAuditRequest {
    *             of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
    *             to select which checks are enabled.)</p>
    */
-  targetCheckNames: Array<string> | undefined;
+  targetCheckNames: string[] | undefined;
 }
 
 export namespace CreateScheduledAuditRequest {
@@ -11093,7 +11093,7 @@ export interface CreateSecurityProfileRequest {
    *         for any metric used in the profile's <code>behaviors</code>, but it is also retained for
    *         any metric specified here.</p>
    */
-  additionalMetricsToRetain?: Array<string>;
+  additionalMetricsToRetain?: string[];
 
   /**
    * <p>Specifies the destinations to which alerts are sent. (Alerts are always sent to the
@@ -11104,7 +11104,7 @@ export interface CreateSecurityProfileRequest {
   /**
    * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
    */
-  behaviors?: Array<Behavior>;
+  behaviors?: Behavior[];
 
   /**
    * <p>A description of the security profile.</p>
@@ -11119,7 +11119,7 @@ export interface CreateSecurityProfileRequest {
   /**
    * <p>Metadata that can be used to manage the security profile.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateSecurityProfileRequest {
@@ -11323,12 +11323,12 @@ export interface DescribeAuditMitigationActionsTaskResponse {
   /**
    * <p>Specifies the mitigation actions and their parameters that are applied as part of this task.</p>
    */
-  actionsDefinition?: Array<MitigationAction>;
+  actionsDefinition?: MitigationAction[];
 
   /**
    * <p>Specifies the mitigation actions that should be applied to specific audit checks.</p>
    */
-  auditCheckToActionsMapping?: { [key: string]: Array<string> };
+  auditCheckToActionsMapping?: { [key: string]: string[] };
 
   /**
    * <p>The date and time when the task was completed or canceled.</p>
@@ -11527,7 +11527,7 @@ export interface DescribeScheduledAuditResponse {
    *             of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
    *             to select which checks are enabled.)</p>
    */
-  targetCheckNames?: Array<string>;
+  targetCheckNames?: string[];
 }
 
 export namespace DescribeScheduledAuditResponse {
@@ -11555,7 +11555,7 @@ export interface DescribeSecurityProfileResponse {
    *         for any metric used in the profile's <code>behaviors</code>, but it is also retained for
    *         any metric specified here.</p>
    */
-  additionalMetricsToRetain?: Array<string>;
+  additionalMetricsToRetain?: string[];
 
   /**
    * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
@@ -11565,7 +11565,7 @@ export interface DescribeSecurityProfileResponse {
   /**
    * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
    */
-  behaviors?: Array<Behavior>;
+  behaviors?: Behavior[];
 
   /**
    * <p>The time the security profile was created.</p>
@@ -11665,7 +11665,7 @@ export interface ListActiveViolationsResponse {
   /**
    * <p>The list of active violations.</p>
    */
-  activeViolations?: Array<ActiveViolation>;
+  activeViolations?: ActiveViolation[];
 
   /**
    * <p>A token that can be used to retrieve the next set of results,
@@ -11730,7 +11730,7 @@ export interface ListAuditFindingsResponse {
   /**
    * <p>The findings (results) of the audit.</p>
    */
-  findings?: Array<AuditFinding>;
+  findings?: AuditFinding[];
 
   /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code>
@@ -11784,7 +11784,7 @@ export interface ListAuditMitigationActionsExecutionsResponse {
   /**
    * <p>A set of task execution results based on the input parameters. Details include the mitigation action applied, start time, and task status.</p>
    */
-  actionsExecutions?: Array<AuditMitigationActionExecutionMetadata>;
+  actionsExecutions?: AuditMitigationActionExecutionMetadata[];
 
   /**
    * <p>The token for the next set of results.</p>
@@ -11852,7 +11852,7 @@ export interface ListAuditMitigationActionsTasksResponse {
   /**
    * <p>The collection of audit mitigation tasks that matched the filter criteria.</p>
    */
-  tasks?: Array<AuditMitigationActionsTaskMetadata>;
+  tasks?: AuditMitigationActionsTaskMetadata[];
 }
 
 export namespace ListAuditMitigationActionsTasksResponse {
@@ -11913,7 +11913,7 @@ export interface ListAuditTasksResponse {
   /**
    * <p>The audits that were performed during the specified time period.</p>
    */
-  tasks?: Array<AuditTaskMetadata>;
+  tasks?: AuditTaskMetadata[];
 }
 
 export namespace ListAuditTasksResponse {
@@ -11949,7 +11949,7 @@ export interface ListMitigationActionsResponse {
   /**
    * <p>A set of actions that matched the specified filter criteria.</p>
    */
-  actionIdentifiers?: Array<MitigationActionIdentifier>;
+  actionIdentifiers?: MitigationActionIdentifier[];
 
   /**
    * <p>The token for the next set of results.</p>
@@ -11991,7 +11991,7 @@ export interface ListScheduledAuditsResponse {
   /**
    * <p>The list of scheduled audits.</p>
    */
-  scheduledAudits?: Array<ScheduledAuditMetadata>;
+  scheduledAudits?: ScheduledAuditMetadata[];
 }
 
 export namespace ListScheduledAuditsResponse {
@@ -12038,7 +12038,7 @@ export interface ListSecurityProfilesForTargetResponse {
   /**
    * <p>A list of security profiles and their associated targets.</p>
    */
-  securityProfileTargetMappings?: Array<SecurityProfileTargetMapping>;
+  securityProfileTargetMappings?: SecurityProfileTargetMapping[];
 }
 
 export namespace ListSecurityProfilesForTargetResponse {
@@ -12075,7 +12075,7 @@ export interface ListSecurityProfilesResponse {
   /**
    * <p>A list of security profile identifiers (names and ARNs).</p>
    */
-  securityProfileIdentifiers?: Array<SecurityProfileIdentifier>;
+  securityProfileIdentifiers?: SecurityProfileIdentifier[];
 }
 
 export namespace ListSecurityProfilesResponse {
@@ -12117,7 +12117,7 @@ export interface ListTargetsForSecurityProfileResponse {
   /**
    * <p>The thing groups to which the security profile is attached.</p>
    */
-  securityProfileTargets?: Array<SecurityProfileTarget>;
+  securityProfileTargets?: SecurityProfileTarget[];
 }
 
 export namespace ListTargetsForSecurityProfileResponse {
@@ -12175,7 +12175,7 @@ export interface ListViolationEventsResponse {
    * <p>The security profile violation alerts issued for this account during the given time period,
    *       potentially filtered by security profile, behavior violated, or thing (device) violating.</p>
    */
-  violationEvents?: Array<ViolationEvent>;
+  violationEvents?: ViolationEvent[];
 }
 
 export namespace ListViolationEventsResponse {
@@ -12188,7 +12188,7 @@ export interface StartAuditMitigationActionsTaskRequest {
   /**
    * <p>For an audit check, specifies which mitigation actions to apply. Those actions must be defined in your AWS account.</p>
    */
-  auditCheckToActionsMapping: { [key: string]: Array<string> } | undefined;
+  auditCheckToActionsMapping: { [key: string]: string[] } | undefined;
 
   /**
    * <p>Each audit mitigation task must have a unique client request token. If you try to start a new task with the same token as a task that already exists, an exception occurs. If you omit this value, a unique client request token is generated automatically.</p>
@@ -12232,7 +12232,7 @@ export interface StartOnDemandAuditTaskRequest {
    *             to see the list of all checks, including those that are enabled or
    *             <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.</p>
    */
-  targetCheckNames: Array<string> | undefined;
+  targetCheckNames: string[] | undefined;
 }
 
 export namespace StartOnDemandAuditTaskRequest {
@@ -12373,7 +12373,7 @@ export interface UpdateScheduledAuditRequest {
    *             of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
    *             to select which checks are enabled.)</p>
    */
-  targetCheckNames?: Array<string>;
+  targetCheckNames?: string[];
 }
 
 export namespace UpdateScheduledAuditRequest {
@@ -12401,7 +12401,7 @@ export interface UpdateSecurityProfileRequest {
    *         for any metric used in the profile's <code>behaviors</code>, but it is also retained for
    *         any metric specified here.</p>
    */
-  additionalMetricsToRetain?: Array<string>;
+  additionalMetricsToRetain?: string[];
 
   /**
    * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
@@ -12411,7 +12411,7 @@ export interface UpdateSecurityProfileRequest {
   /**
    * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
    */
-  behaviors?: Array<Behavior>;
+  behaviors?: Behavior[];
 
   /**
    * <p>If true, delete all <code>additionalMetricsToRetain</code> defined for this
@@ -12462,7 +12462,7 @@ export interface UpdateSecurityProfileResponse {
    *         for any metric used in the security profile's <code>behaviors</code>, but it is also retained for
    *         any metric specified here.</p>
    */
-  additionalMetricsToRetain?: Array<string>;
+  additionalMetricsToRetain?: string[];
 
   /**
    * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
@@ -12472,7 +12472,7 @@ export interface UpdateSecurityProfileResponse {
   /**
    * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
    */
-  behaviors?: Array<Behavior>;
+  behaviors?: Behavior[];
 
   /**
    * <p>The time the security profile was created.</p>
@@ -12515,7 +12515,7 @@ export interface ValidateSecurityProfileBehaviorsRequest {
   /**
    * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
    */
-  behaviors: Array<Behavior> | undefined;
+  behaviors: Behavior[] | undefined;
 }
 
 export namespace ValidateSecurityProfileBehaviorsRequest {
@@ -12533,7 +12533,7 @@ export interface ValidateSecurityProfileBehaviorsResponse {
   /**
    * <p>The list of any errors found in the behaviors.</p>
    */
-  validationErrors?: Array<ValidationError>;
+  validationErrors?: ValidationError[];
 }
 
 export namespace ValidateSecurityProfileBehaviorsResponse {
@@ -12554,7 +12554,7 @@ export interface AddThingsToThingGroupParams {
   /**
    * <p>The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you cannot add a thing to more than one group in the same hierarchy.</p>
    */
-  thingGroupNames: Array<string> | undefined;
+  thingGroupNames: string[] | undefined;
 }
 
 export namespace AddThingsToThingGroupParams {
@@ -12874,7 +12874,7 @@ export interface AuditFinding {
   /**
    * <p>The list of related resources.</p>
    */
-  relatedResources?: Array<RelatedResource>;
+  relatedResources?: RelatedResource[];
 
   /**
    * <p>The severity of the result (finding).</p>
@@ -13016,7 +13016,7 @@ export interface AuditMitigationActionsTaskTarget {
   /**
    * <p>Specifies a filter in the form of an audit check and set of reason codes that identify the findings from the audit to which the audit mitigation actions task apply.</p>
    */
-  auditCheckToReasonCodeFilter?: { [key: string]: Array<string> };
+  auditCheckToReasonCodeFilter?: { [key: string]: string[] };
 
   /**
    * <p>If the task will apply a mitigation action to findings from a specific audit, this value uniquely identifies the audit.</p>
@@ -13026,7 +13026,7 @@ export interface AuditMitigationActionsTaskTarget {
   /**
    * <p>If the task will apply a mitigation action to one or more listed findings, this value uniquely identifies those findings.</p>
    */
-  findingIds?: Array<string>;
+  findingIds?: string[];
 }
 
 export namespace AuditMitigationActionsTaskTarget {
@@ -13554,7 +13554,7 @@ export interface MetricValue {
    * <p>If the <code>comparisonOperator</code> calls for a set of CIDRs, use this
    *           to specify that set to be compared with the <code>metric</code>.</p>
    */
-  cidrs?: Array<string>;
+  cidrs?: string[];
 
   /**
    * <p>If the <code>comparisonOperator</code> calls for a numeric value, use this
@@ -13566,7 +13566,7 @@ export interface MetricValue {
    * <p>If the <code>comparisonOperator</code> calls for a set of ports, use this
    *           to specify that set to be compared with the <code>metric</code>.</p>
    */
-  ports?: Array<number>;
+  ports?: number[];
 }
 
 export namespace MetricValue {
@@ -13733,7 +13733,7 @@ export interface CreateStreamRequest {
   /**
    * <p>The files to stream.</p>
    */
-  files: Array<StreamFile> | undefined;
+  files: StreamFile[] | undefined;
 
   /**
    * <p>An IAM role that allows the IoT service principal assumes to access your S3 files.</p>
@@ -13748,7 +13748,7 @@ export interface CreateStreamRequest {
   /**
    * <p>Metadata which can be used to manage streams.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateStreamRequest {
@@ -13865,7 +13865,7 @@ export interface ListStreamsResponse {
   /**
    * <p>A list of streams.</p>
    */
-  streams?: Array<StreamSummary>;
+  streams?: StreamSummary[];
 }
 
 export namespace ListStreamsResponse {
@@ -13911,7 +13911,7 @@ export interface StreamInfo {
   /**
    * <p>The files to stream.</p>
    */
-  files?: Array<StreamFile>;
+  files?: StreamFile[];
 
   /**
    * <p>The date when the stream was last updated.</p>
@@ -13983,7 +13983,7 @@ export interface UpdateStreamRequest {
   /**
    * <p>The files associated with the stream.</p>
    */
-  files?: Array<StreamFile>;
+  files?: StreamFile[];
 
   /**
    * <p>An IAM role that allows the IoT service principal assumes to access your S3 files.</p>

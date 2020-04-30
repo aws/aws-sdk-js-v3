@@ -1793,7 +1793,7 @@ export interface AccountAttribute {
   /**
    * <p>A list of attribute values.</p>
    */
-  AttributeValues?: Array<AttributeValueTarget>;
+  AttributeValues?: AttributeValueTarget[];
 }
 
 export namespace AccountAttribute {
@@ -1806,7 +1806,7 @@ export interface AccountAttributeList {
   /**
    * <p>A list of attributes assigned to an account.</p>
    */
-  AccountAttributes?: Array<AccountAttribute>;
+  AccountAttributes?: AccountAttribute[];
 }
 
 export namespace AccountAttributeList {
@@ -1966,7 +1966,7 @@ export interface AvailabilityZone {
   /**
    * <p></p>
    */
-  SupportedPlatforms?: Array<SupportedPlatform>;
+  SupportedPlatforms?: SupportedPlatform[];
 }
 
 export namespace AvailabilityZone {
@@ -1979,7 +1979,7 @@ export interface BatchDeleteClusterSnapshotsRequest {
   /**
    * <p>A list of identifiers for the snapshots that you want to delete.</p>
    */
-  Identifiers: Array<DeleteClusterSnapshotMessage> | undefined;
+  Identifiers: DeleteClusterSnapshotMessage[] | undefined;
 }
 
 export namespace BatchDeleteClusterSnapshotsRequest {
@@ -1992,12 +1992,12 @@ export interface BatchDeleteClusterSnapshotsResult {
   /**
    * <p>A list of any errors returned.</p>
    */
-  Errors?: Array<SnapshotErrorMessage>;
+  Errors?: SnapshotErrorMessage[];
 
   /**
    * <p>A list of the snapshot identifiers that were deleted. </p>
    */
-  Resources?: Array<string>;
+  Resources?: string[];
 }
 
 export namespace BatchDeleteClusterSnapshotsResult {
@@ -2026,7 +2026,7 @@ export interface BatchModifyClusterSnapshotsMessage {
   /**
    * <p>A list of snapshot identifiers you want to modify.</p>
    */
-  SnapshotIdentifierList: Array<string> | undefined;
+  SnapshotIdentifierList: string[] | undefined;
 }
 
 export namespace BatchModifyClusterSnapshotsMessage {
@@ -2039,12 +2039,12 @@ export interface BatchModifyClusterSnapshotsOutputMessage {
   /**
    * <p>A list of any errors returned.</p>
    */
-  Errors?: Array<SnapshotErrorMessage>;
+  Errors?: SnapshotErrorMessage[];
 
   /**
    * <p>A list of the snapshots that were modified.</p>
    */
-  Resources?: Array<string>;
+  Resources?: string[];
 }
 
 export namespace BatchModifyClusterSnapshotsOutputMessage {
@@ -2122,13 +2122,13 @@ export interface Cluster {
   /**
    * <p>The nodes in the cluster.</p>
    */
-  ClusterNodes?: Array<ClusterNode>;
+  ClusterNodes?: ClusterNode[];
 
   /**
    * <p>The list of cluster parameter groups that are associated with this cluster. Each
    *             parameter group in the list is returned with its status.</p>
    */
-  ClusterParameterGroups?: Array<ClusterParameterGroupStatus>;
+  ClusterParameterGroups?: ClusterParameterGroupStatus[];
 
   /**
    * <p>The public key for the cluster.</p>
@@ -2150,7 +2150,7 @@ export interface Cluster {
    *             which are listed by the <b>VpcSecurityGroups</b> parameter.
    *         </p>
    */
-  ClusterSecurityGroups?: Array<ClusterSecurityGroupMembership>;
+  ClusterSecurityGroups?: ClusterSecurityGroupMembership[];
 
   /**
    * <p>A value that returns the destination region and retention period that are
@@ -2286,7 +2286,7 @@ export interface Cluster {
   /**
    * <p>Describes a group of <code>DeferredMaintenanceWindow</code> objects.</p>
    */
-  DeferredMaintenanceWindows?: Array<DeferredMaintenanceWindow>;
+  DeferredMaintenanceWindows?: DeferredMaintenanceWindow[];
 
   /**
    * <p>The status of the elastic IP (EIP) address.</p>
@@ -2350,7 +2350,7 @@ export interface Cluster {
    * <p>A list of AWS Identity and Access Management (IAM) roles that can be used by the
    *             cluster to access other AWS services.</p>
    */
-  IamRoles?: Array<ClusterIamRole>;
+  IamRoles?: ClusterIamRole[];
 
   /**
    * <p>The AWS Key Management Service (AWS KMS) key ID of the encryption key used to
@@ -2400,7 +2400,7 @@ export interface Cluster {
   /**
    * <p>Cluster operations that are waiting to be started.</p>
    */
-  PendingActions?: Array<string>;
+  PendingActions?: string[];
 
   /**
    * <p>A value that, if present, indicates that changes to the cluster are pending.
@@ -2453,7 +2453,7 @@ export interface Cluster {
   /**
    * <p>The list of tags for the cluster.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The identifier of the VPC the cluster is in, if the cluster is in a VPC.</p>
@@ -2465,7 +2465,7 @@ export interface Cluster {
    *             associated with the cluster. This parameter is returned only if the cluster is in a
    *             VPC.</p>
    */
-  VpcSecurityGroups?: Array<VpcSecurityGroupMembership>;
+  VpcSecurityGroups?: VpcSecurityGroupMembership[];
 }
 
 export namespace Cluster {
@@ -2550,7 +2550,7 @@ export interface ClusterDbRevision {
    * <p>A list of <code>RevisionTarget</code> objects, where each object describes the
    *             database revision that a cluster can be updated to.</p>
    */
-  RevisionTargets?: Array<RevisionTarget>;
+  RevisionTargets?: RevisionTarget[];
 }
 
 export namespace ClusterDbRevision {
@@ -2563,7 +2563,7 @@ export interface ClusterDbRevisionsMessage {
   /**
    * <p>A list of revisions.</p>
    */
-  ClusterDbRevisions?: Array<ClusterDbRevision>;
+  ClusterDbRevisions?: ClusterDbRevision[];
 
   /**
    * <p>A string representing the starting point for the next set of revisions. If a value is
@@ -2669,7 +2669,7 @@ export interface ClusterParameterGroup {
   /**
    * <p>The list of tags for the cluster parameter group.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ClusterParameterGroup {
@@ -2696,7 +2696,7 @@ export interface ClusterParameterGroupDetails {
    * <p>A list of <a>Parameter</a> instances. Each instance lists the parameters
    *             of one cluster parameter group. </p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 }
 
 export namespace ClusterParameterGroupDetails {
@@ -2739,7 +2739,7 @@ export interface ClusterParameterGroupStatus {
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
    */
-  ClusterParameterStatusList?: Array<ClusterParameterStatus>;
+  ClusterParameterStatusList?: ClusterParameterStatus[];
 
   /**
    * <p>The status of parameter updates.</p>
@@ -2776,7 +2776,7 @@ export interface ClusterParameterGroupsMessage {
    * <p>A list of <a>ClusterParameterGroup</a> instances. Each instance
    *             describes one cluster parameter group. </p>
    */
-  ParameterGroups?: Array<ClusterParameterGroup>;
+  ParameterGroups?: ClusterParameterGroup[];
 }
 
 export namespace ClusterParameterGroupsMessage {
@@ -2871,18 +2871,18 @@ export interface ClusterSecurityGroup {
    * <p>A list of EC2 security groups that are permitted to access clusters associated with
    *             this cluster security group.</p>
    */
-  EC2SecurityGroups?: Array<EC2SecurityGroup>;
+  EC2SecurityGroups?: EC2SecurityGroup[];
 
   /**
    * <p>A list of IP ranges (CIDR blocks) that are permitted to access clusters associated
    *             with this cluster security group.</p>
    */
-  IPRanges?: Array<IPRange>;
+  IPRanges?: IPRange[];
 
   /**
    * <p>The list of tags for the cluster security group.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ClusterSecurityGroup {
@@ -2919,7 +2919,7 @@ export interface ClusterSecurityGroupMessage {
   /**
    * <p>A list of <a>ClusterSecurityGroup</a> instances. </p>
    */
-  ClusterSecurityGroups?: Array<ClusterSecurityGroup>;
+  ClusterSecurityGroups?: ClusterSecurityGroup[];
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -2997,12 +2997,12 @@ export interface ClusterSubnetGroup {
   /**
    * <p>A list of the VPC <a>Subnet</a> elements. </p>
    */
-  Subnets?: Array<Subnet>;
+  Subnets?: Subnet[];
 
   /**
    * <p>The list of tags for the cluster subnet group.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The VPC ID of the cluster subnet group.</p>
@@ -3024,7 +3024,7 @@ export interface ClusterSubnetGroupMessage {
   /**
    * <p>A list of <a>ClusterSubnetGroup</a> instances. </p>
    */
-  ClusterSubnetGroups?: Array<ClusterSubnetGroup>;
+  ClusterSubnetGroups?: ClusterSubnetGroup[];
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -3077,7 +3077,7 @@ export interface ClusterVersionsMessage {
   /**
    * <p>A list of <code>Version</code> elements. </p>
    */
-  ClusterVersions?: Array<ClusterVersion>;
+  ClusterVersions?: ClusterVersion[];
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -3103,7 +3103,7 @@ export interface ClustersMessage {
    * <p>A list of <code>Cluster</code> objects, where each object describes one cluster.
    *         </p>
    */
-  Clusters?: Array<Cluster>;
+  Clusters?: Cluster[];
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -3298,7 +3298,7 @@ export interface CreateClusterMessage {
    * <p>A list of security groups to be associated with this cluster.</p>
    *         <p>Default: The default cluster security group for Amazon Redshift.</p>
    */
-  ClusterSecurityGroups?: Array<string>;
+  ClusterSecurityGroups?: string[];
 
   /**
    * <p>The name of a cluster subnet group to be associated with this cluster.</p>
@@ -3407,7 +3407,7 @@ export interface CreateClusterMessage {
    *             request.</p>
    *         <p>A cluster can have up to 10 IAM roles associated with it at any time.</p>
    */
-  IamRoles?: Array<string>;
+  IamRoles?: string[];
 
   /**
    * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
@@ -3541,14 +3541,14 @@ export interface CreateClusterMessage {
   /**
    * <p>A list of tag instances.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A list of Virtual Private Cloud (VPC) security groups to be associated with the
    *             cluster.</p>
    *         <p>Default: The default VPC security group is associated with the cluster.</p>
    */
-  VpcSecurityGroupIds?: Array<string>;
+  VpcSecurityGroupIds?: string[];
 }
 
 export namespace CreateClusterMessage {
@@ -3603,7 +3603,7 @@ export interface CreateClusterParameterGroupMessage {
   /**
    * <p>A list of tag instances.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateClusterParameterGroupMessage {
@@ -3671,7 +3671,7 @@ export interface CreateClusterSecurityGroupMessage {
   /**
    * <p>A list of tag instances.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateClusterSecurityGroupMessage {
@@ -3738,7 +3738,7 @@ export interface CreateClusterSnapshotMessage {
   /**
    * <p>A list of tag instances.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateClusterSnapshotMessage {
@@ -3794,12 +3794,12 @@ export interface CreateClusterSubnetGroupMessage {
    * <p>An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single
    *             request.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 
   /**
    * <p>A list of tag instances.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateClusterSubnetGroupMessage {
@@ -3836,7 +3836,7 @@ export interface CreateEventSubscriptionMessage {
    *             subscription.</p>
    *         <p>Values: configuration, management, monitoring, security</p>
    */
-  EventCategories?: Array<string>;
+  EventCategories?: string[];
 
   /**
    * <p>Specifies the Amazon Redshift event severity to be published by the event notification
@@ -3861,7 +3861,7 @@ export interface CreateEventSubscriptionMessage {
    *         <p>Example: my-cluster-1, my-cluster-2</p>
    *         <p>Example: my-snapshot-20131010</p>
    */
-  SourceIds?: Array<string>;
+  SourceIds?: string[];
 
   /**
    * <p>The type of source that will be generating the events. For example, if you want to
@@ -3895,7 +3895,7 @@ export interface CreateEventSubscriptionMessage {
   /**
    * <p>A list of tag instances.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateEventSubscriptionMessage {
@@ -3930,7 +3930,7 @@ export interface CreateHsmClientCertificateMessage {
   /**
    * <p>A list of tag instances.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateHsmClientCertificateMessage {
@@ -3993,7 +3993,7 @@ export interface CreateHsmConfigurationMessage {
   /**
    * <p>A list of tag instances.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateHsmConfigurationMessage {
@@ -4111,7 +4111,7 @@ export interface CreateSnapshotCopyGrantMessage {
   /**
    * <p>A list of tag instances.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateSnapshotCopyGrantMessage {
@@ -4155,7 +4155,7 @@ export interface CreateSnapshotScheduleMessage {
    * <p>The definition of the snapshot schedule. The definition is made up of schedule
    *             expressions, for example "cron(30 12 *)" or "rate(12 hours)". </p>
    */
-  ScheduleDefinitions?: Array<string>;
+  ScheduleDefinitions?: string[];
 
   /**
    * <p>The description of the snapshot schedule.</p>
@@ -4171,7 +4171,7 @@ export interface CreateSnapshotScheduleMessage {
   /**
    * <p>An optional set of tags you can use to search for the schedule.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateSnapshotScheduleMessage {
@@ -4198,7 +4198,7 @@ export interface CreateTagsMessage {
    *             with a space. For example, <code>--tags "Key"="owner","Value"="admin"
    *                 "Key"="environment","Value"="test" "Key"="version","Value"="1.0"</code>. </p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace CreateTagsMessage {
@@ -4290,7 +4290,7 @@ export interface DefaultClusterParameters {
   /**
    * <p>The list of cluster default parameters.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 }
 
 export namespace DefaultClusterParameters {
@@ -4611,7 +4611,7 @@ export interface DeleteTagsMessage {
   /**
    * <p>The tag key that you want to delete.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace DeleteTagsMessage {
@@ -4624,7 +4624,7 @@ export interface DescribeAccountAttributesMessage {
   /**
    * <p>A list of attribute names.</p>
    */
-  AttributeNames?: Array<string>;
+  AttributeNames?: string[];
 }
 
 export namespace DescribeAccountAttributesMessage {
@@ -4711,7 +4711,7 @@ export interface DescribeClusterParameterGroupsMessage {
    *             Amazon Redshift returns a response with the parameter groups that have either or both of these
    *             tag keys associated with them.</p>
    */
-  TagKeys?: Array<string>;
+  TagKeys?: string[];
 
   /**
    * <p>A tag value or values for which you want to return all matching cluster parameter
@@ -4721,7 +4721,7 @@ export interface DescribeClusterParameterGroupsMessage {
    *             returns a response with the parameter groups that have either or both of these tag
    *             values associated with them.</p>
    */
-  TagValues?: Array<string>;
+  TagValues?: string[];
 }
 
 export namespace DescribeClusterParameterGroupsMessage {
@@ -4819,7 +4819,7 @@ export interface DescribeClusterSecurityGroupsMessage {
    *             Amazon Redshift returns a response with the security groups that have either or both of these
    *             tag keys associated with them.</p>
    */
-  TagKeys?: Array<string>;
+  TagKeys?: string[];
 
   /**
    * <p>A tag value or values for which you want to return all matching cluster security
@@ -4829,7 +4829,7 @@ export interface DescribeClusterSecurityGroupsMessage {
    *             returns a response with the security groups that have either or both of these tag values
    *             associated with them.</p>
    */
-  TagValues?: Array<string>;
+  TagValues?: string[];
 }
 
 export namespace DescribeClusterSecurityGroupsMessage {
@@ -4932,7 +4932,7 @@ export interface DescribeClusterSnapshotsMessage {
   /**
    * <p></p>
    */
-  SortingEntities?: Array<SnapshotSortingEntity>;
+  SortingEntities?: SnapshotSortingEntity[];
 
   /**
    * <p>A value that requests only snapshots created at or after the specified time. The
@@ -4952,7 +4952,7 @@ export interface DescribeClusterSnapshotsMessage {
    *             Amazon Redshift returns a response with the snapshots that have either or both of these tag
    *             keys associated with them.</p>
    */
-  TagKeys?: Array<string>;
+  TagKeys?: string[];
 
   /**
    * <p>A tag value or values for which you want to return all matching cluster snapshots
@@ -4962,7 +4962,7 @@ export interface DescribeClusterSnapshotsMessage {
    *             returns a response with the snapshots that have either or both of these tag values
    *             associated with them.</p>
    */
-  TagValues?: Array<string>;
+  TagValues?: string[];
 }
 
 export namespace DescribeClusterSnapshotsMessage {
@@ -5009,7 +5009,7 @@ export interface DescribeClusterSubnetGroupsMessage {
    *             Amazon Redshift returns a response with the subnet groups that have either or both of these
    *             tag keys associated with them.</p>
    */
-  TagKeys?: Array<string>;
+  TagKeys?: string[];
 
   /**
    * <p>A tag value or values for which you want to return all matching cluster subnet
@@ -5019,7 +5019,7 @@ export interface DescribeClusterSubnetGroupsMessage {
    *             returns a response with the subnet groups that have either or both of these tag values
    *             associated with them.</p>
    */
-  TagValues?: Array<string>;
+  TagValues?: string[];
 }
 
 export namespace DescribeClusterSubnetGroupsMessage {
@@ -5153,7 +5153,7 @@ export interface DescribeClustersMessage {
    *             specify both of these tag keys in the request, Amazon Redshift returns a response with the
    *             clusters that have either or both of these tag keys associated with them.</p>
    */
-  TagKeys?: Array<string>;
+  TagKeys?: string[];
 
   /**
    * <p>A tag value or values for which you want to return all matching clusters that are
@@ -5163,7 +5163,7 @@ export interface DescribeClustersMessage {
    *             the clusters that have either or both of these tag values associated with
    *             them.</p>
    */
-  TagValues?: Array<string>;
+  TagValues?: string[];
 }
 
 export namespace DescribeClustersMessage {
@@ -5279,7 +5279,7 @@ export interface DescribeEventSubscriptionsMessage {
    *             Amazon Redshift returns a response with the subscriptions that have either or both of these
    *             tag keys associated with them.</p>
    */
-  TagKeys?: Array<string>;
+  TagKeys?: string[];
 
   /**
    * <p>A tag value or values for which you want to return all matching event notification
@@ -5289,7 +5289,7 @@ export interface DescribeEventSubscriptionsMessage {
    *             the request, Amazon Redshift returns a response with the subscriptions that have either or
    *             both of these tag values associated with them.</p>
    */
-  TagValues?: Array<string>;
+  TagValues?: string[];
 }
 
 export namespace DescribeEventSubscriptionsMessage {
@@ -5454,7 +5454,7 @@ export interface DescribeHsmClientCertificatesMessage {
    *             Amazon Redshift returns a response with the HSM client certificates that have either or both
    *             of these tag keys associated with them.</p>
    */
-  TagKeys?: Array<string>;
+  TagKeys?: string[];
 
   /**
    * <p>A tag value or values for which you want to return all matching HSM client
@@ -5464,7 +5464,7 @@ export interface DescribeHsmClientCertificatesMessage {
    *             the request, Amazon Redshift returns a response with the HSM client certificates that have
    *             either or both of these tag values associated with them.</p>
    */
-  TagValues?: Array<string>;
+  TagValues?: string[];
 }
 
 export namespace DescribeHsmClientCertificatesMessage {
@@ -5513,7 +5513,7 @@ export interface DescribeHsmConfigurationsMessage {
    *             Amazon Redshift returns a response with the HSM configurations that have either or both of
    *             these tag keys associated with them.</p>
    */
-  TagKeys?: Array<string>;
+  TagKeys?: string[];
 
   /**
    * <p>A tag value or values for which you want to return all matching HSM configurations
@@ -5523,7 +5523,7 @@ export interface DescribeHsmConfigurationsMessage {
    *             returns a response with the HSM configurations that have either or both of these tag
    *             values associated with them.</p>
    */
-  TagValues?: Array<string>;
+  TagValues?: string[];
 }
 
 export namespace DescribeHsmConfigurationsMessage {
@@ -5567,7 +5567,7 @@ export interface DescribeNodeConfigurationOptionsMessage {
   /**
    * <p>A set of name, operator, and value items to filter the results.</p>
    */
-  Filters?: Array<NodeConfigurationOptionsFilter>;
+  Filters?: NodeConfigurationOptionsFilter[];
 
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
@@ -5764,7 +5764,7 @@ export interface DescribeScheduledActionsMessage {
   /**
    * <p>List of scheduled action filters. </p>
    */
-  Filters?: Array<ScheduledActionFilter>;
+  Filters?: ScheduledActionFilter[];
 
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
@@ -5848,7 +5848,7 @@ export interface DescribeSnapshotCopyGrantsMessage {
    *             both of these tag keys in the request, Amazon Redshift returns a response with all resources
    *             that have either or both of these tag keys associated with them.</p>
    */
-  TagKeys?: Array<string>;
+  TagKeys?: string[];
 
   /**
    * <p>A tag value or values for which you want to return all matching resources that are
@@ -5857,7 +5857,7 @@ export interface DescribeSnapshotCopyGrantsMessage {
    *             specify both of these tag values in the request, Amazon Redshift returns a response with all
    *             resources that have either or both of these tag values associated with them.</p>
    */
-  TagValues?: Array<string>;
+  TagValues?: string[];
 }
 
 export namespace DescribeSnapshotCopyGrantsMessage {
@@ -5899,12 +5899,12 @@ export interface DescribeSnapshotSchedulesMessage {
   /**
    * <p>The key value for a snapshot schedule tag.</p>
    */
-  TagKeys?: Array<string>;
+  TagKeys?: string[];
 
   /**
    * <p>The value corresponding to the key of the snapshot schedule tag.</p>
    */
-  TagValues?: Array<string>;
+  TagValues?: string[];
 }
 
 export namespace DescribeSnapshotSchedulesMessage {
@@ -5926,7 +5926,7 @@ export interface DescribeSnapshotSchedulesOutputMessage {
   /**
    * <p>A list of SnapshotSchedules.</p>
    */
-  SnapshotSchedules?: Array<SnapshotSchedule>;
+  SnapshotSchedules?: SnapshotSchedule[];
 }
 
 export namespace DescribeSnapshotSchedulesOutputMessage {
@@ -6049,7 +6049,7 @@ export interface DescribeTagsMessage {
    *             both of these tag keys in the request, Amazon Redshift returns a response with all resources
    *             that have either or both of these tag keys associated with them.</p>
    */
-  TagKeys?: Array<string>;
+  TagKeys?: string[];
 
   /**
    * <p>A tag value or values for which you want to return all matching resources that are
@@ -6058,7 +6058,7 @@ export interface DescribeTagsMessage {
    *             specify both of these tag values in the request, Amazon Redshift returns a response with all
    *             resources that have either or both of these tag values associated with them.</p>
    */
-  TagValues?: Array<string>;
+  TagValues?: string[];
 }
 
 export namespace DescribeTagsMessage {
@@ -6140,7 +6140,7 @@ export interface EC2SecurityGroup {
   /**
    * <p>The list of tags for the EC2 security group.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace EC2SecurityGroup {
@@ -6328,7 +6328,7 @@ export interface Event {
    * <p>A list of the event categories.</p>
    *         <p>Values: Configuration, Management, Monitoring, Security</p>
    */
-  EventCategories?: Array<string>;
+  EventCategories?: string[];
 
   /**
    * <p>The identifier of the event.</p>
@@ -6369,7 +6369,7 @@ export interface EventCategoriesMap {
   /**
    * <p>The events in the event category.</p>
    */
-  Events?: Array<EventInfoMap>;
+  Events?: EventInfoMap[];
 
   /**
    * <p>The source type, such as cluster or cluster-snapshot, that the returned categories
@@ -6391,7 +6391,7 @@ export interface EventCategoriesMessage {
   /**
    * <p>A list of event categories descriptions.</p>
    */
-  EventCategoriesMapList?: Array<EventCategoriesMap>;
+  EventCategoriesMapList?: EventCategoriesMap[];
 }
 
 export namespace EventCategoriesMessage {
@@ -6407,7 +6407,7 @@ export interface EventInfoMap {
   /**
    * <p>The category of an Amazon Redshift event.</p>
    */
-  EventCategories?: Array<string>;
+  EventCategories?: string[];
 
   /**
    * <p>The description of an Amazon Redshift event.</p>
@@ -6457,7 +6457,7 @@ export interface EventSubscription {
    *             subscription.</p>
    *         <p>Values: Configuration, Management, Monitoring, Security</p>
    */
-  EventCategoriesList?: Array<string>;
+  EventCategoriesList?: string[];
 
   /**
    * <p>The event severity specified in the Amazon Redshift event notification
@@ -6476,7 +6476,7 @@ export interface EventSubscription {
    * <p>A list of the sources that publish events to the Amazon Redshift event notification
    *             subscription.</p>
    */
-  SourceIdsList?: Array<string>;
+  SourceIdsList?: string[];
 
   /**
    * <p>The source type of the events returned by the Amazon Redshift event notification, such as
@@ -6511,7 +6511,7 @@ export interface EventSubscription {
   /**
    * <p>The list of tags for the event subscription.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace EventSubscription {
@@ -6527,7 +6527,7 @@ export interface EventSubscriptionsMessage {
   /**
    * <p>A list of event subscriptions.</p>
    */
-  EventSubscriptionsList?: Array<EventSubscription>;
+  EventSubscriptionsList?: EventSubscription[];
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -6552,7 +6552,7 @@ export interface EventsMessage {
   /**
    * <p>A list of <code>Event</code> instances. </p>
    */
-  Events?: Array<Event>;
+  Events?: Event[];
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -6611,7 +6611,7 @@ export interface GetClusterCredentialsMessage {
    *             </li>
    *          </ul>
    */
-  DbGroups?: Array<string>;
+  DbGroups?: string[];
 
   /**
    * <p>The name of a database that <code>DbUser</code> is authorized to log on to. If
@@ -6734,7 +6734,7 @@ export interface GetReservedNodeExchangeOfferingsOutputMessage {
   /**
    * <p>Returns an array of <a>ReservedNodeOffering</a> objects.</p>
    */
-  ReservedNodeOfferings?: Array<ReservedNodeOffering>;
+  ReservedNodeOfferings?: ReservedNodeOffering[];
 }
 
 export namespace GetReservedNodeExchangeOfferingsOutputMessage {
@@ -6765,7 +6765,7 @@ export interface HsmClientCertificate {
   /**
    * <p>The list of tags for the HSM client certificate.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace HsmClientCertificate {
@@ -6782,7 +6782,7 @@ export interface HsmClientCertificateMessage {
    * <p>A list of the identifiers for one or more HSM client certificates used by Amazon Redshift
    *             clusters to store and retrieve database encryption keys in an HSM.</p>
    */
-  HsmClientCertificates?: Array<HsmClientCertificate>;
+  HsmClientCertificates?: HsmClientCertificate[];
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -6830,7 +6830,7 @@ export interface HsmConfiguration {
   /**
    * <p>The list of tags for the HSM configuration.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace HsmConfiguration {
@@ -6846,7 +6846,7 @@ export interface HsmConfigurationMessage {
   /**
    * <p>A list of <code>HsmConfiguration</code> objects.</p>
    */
-  HsmConfigurations?: Array<HsmConfiguration>;
+  HsmConfigurations?: HsmConfiguration[];
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -6910,7 +6910,7 @@ export interface IPRange {
   /**
    * <p>The list of tags for the IP range.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace IPRange {
@@ -6982,7 +6982,7 @@ export interface MaintenanceTrack {
    * <p>An array of <a>UpdateTarget</a> objects to update with the maintenance
    *             track. </p>
    */
-  UpdateTargets?: Array<UpdateTarget>;
+  UpdateTargets?: UpdateTarget[];
 }
 
 export namespace MaintenanceTrack {
@@ -7039,7 +7039,7 @@ export interface ModifyClusterIamRolesMessage {
    *             Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single
    *             cluster in a single request.</p>
    */
-  AddIamRoles?: Array<string>;
+  AddIamRoles?: string[];
 
   /**
    * <p>The unique identifier of the cluster for which you want to associate or
@@ -7051,7 +7051,7 @@ export interface ModifyClusterIamRolesMessage {
    * <p>Zero or more IAM roles in ARN format to disassociate from the cluster. You can
    *             disassociate up to 10 IAM roles from a single cluster in a single request.</p>
    */
-  RemoveIamRoles?: Array<string>;
+  RemoveIamRoles?: string[];
 }
 
 export namespace ModifyClusterIamRolesMessage {
@@ -7184,7 +7184,7 @@ export interface ModifyClusterMessage {
    *             </li>
    *          </ul>
    */
-  ClusterSecurityGroups?: Array<string>;
+  ClusterSecurityGroups?: string[];
 
   /**
    * <p>The new cluster type.</p>
@@ -7389,7 +7389,7 @@ export interface ModifyClusterMessage {
    * <p>A list of virtual private cloud (VPC) security groups to be associated with the
    *             cluster. This change is asynchronously applied as soon as possible.</p>
    */
-  VpcSecurityGroupIds?: Array<string>;
+  VpcSecurityGroupIds?: string[];
 }
 
 export namespace ModifyClusterMessage {
@@ -7415,7 +7415,7 @@ export interface ModifyClusterParameterGroupMessage {
    *         <p>For the workload management (WLM) configuration, you must supply all the name-value
    *             pairs in the wlm_json_configuration parameter.</p>
    */
-  Parameters: Array<Parameter> | undefined;
+  Parameters: Parameter[] | undefined;
 }
 
 export namespace ModifyClusterParameterGroupMessage {
@@ -7522,7 +7522,7 @@ export interface ModifyClusterSubnetGroupMessage {
    * <p>An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single
    *             request.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 }
 
 export namespace ModifyClusterSubnetGroupMessage {
@@ -7559,7 +7559,7 @@ export interface ModifyEventSubscriptionMessage {
    *             subscription.</p>
    *         <p>Values: configuration, management, monitoring, security</p>
    */
-  EventCategories?: Array<string>;
+  EventCategories?: string[];
 
   /**
    * <p>Specifies the Amazon Redshift event severity to be published by the event notification
@@ -7583,7 +7583,7 @@ export interface ModifyEventSubscriptionMessage {
    *         <p>Example: my-cluster-1, my-cluster-2</p>
    *         <p>Example: my-snapshot-20131010</p>
    */
-  SourceIds?: Array<string>;
+  SourceIds?: string[];
 
   /**
    * <p>The type of source that will be generating the events. For example, if you want to
@@ -7734,7 +7734,7 @@ export interface ModifySnapshotScheduleMessage {
    * <p>An updated list of schedule definitions. A schedule definition is made up of schedule
    *             expressions, for example, "cron(30 12 *)" or "rate(12 hours)".</p>
    */
-  ScheduleDefinitions: Array<string> | undefined;
+  ScheduleDefinitions: string[] | undefined;
 
   /**
    * <p>A unique alphanumeric identifier of the schedule to modify.</p>
@@ -7803,7 +7803,7 @@ export interface NodeConfigurationOptionsFilter {
    *             If filter Name is EstimatedDiskUtilizationPercent, then values can range from 0 to 100.
    *             For example, filter NumberOfNodes (name) GT (operator) 3 (values).</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace NodeConfigurationOptionsFilter {
@@ -7832,7 +7832,7 @@ export interface NodeConfigurationOptionsMessage {
   /**
    * <p>A list of valid node configurations.</p>
    */
-  NodeConfigurationOptionList?: Array<NodeConfigurationOption>;
+  NodeConfigurationOptionList?: NodeConfigurationOption[];
 }
 
 export namespace NodeConfigurationOptionsMessage {
@@ -7858,7 +7858,7 @@ export interface OrderableClusterOption {
   /**
    * <p>A list of availability zones for the orderable cluster.</p>
    */
-  AvailabilityZones?: Array<AvailabilityZone>;
+  AvailabilityZones?: AvailabilityZone[];
 
   /**
    * <p>The cluster type, for example <code>multi-node</code>. </p>
@@ -7900,7 +7900,7 @@ export interface OrderableClusterOptionsMessage {
    * <p>An <code>OrderableClusterOption</code> structure containing information about
    *             orderable options for the cluster.</p>
    */
-  OrderableClusterOptions?: Array<OrderableClusterOption>;
+  OrderableClusterOptions?: OrderableClusterOption[];
 }
 
 export namespace OrderableClusterOptionsMessage {
@@ -8176,7 +8176,7 @@ export interface ReservedNode {
   /**
    * <p>The recurring charges for the reserved node.</p>
    */
-  RecurringCharges?: Array<RecurringCharge>;
+  RecurringCharges?: RecurringCharge[];
 
   /**
    * <p>The unique identifier for the reservation.</p>
@@ -8272,7 +8272,7 @@ export interface ReservedNodeOffering {
    *             using the node offering. Recurring charges are only in effect for heavy-utilization
    *             reserved nodes.</p>
    */
-  RecurringCharges?: Array<RecurringCharge>;
+  RecurringCharges?: RecurringCharge[];
 
   /**
    * <p>The offering identifier.</p>
@@ -8315,7 +8315,7 @@ export interface ReservedNodeOfferingsMessage {
   /**
    * <p>A list of <code>ReservedNodeOffering</code> objects.</p>
    */
-  ReservedNodeOfferings?: Array<ReservedNodeOffering>;
+  ReservedNodeOfferings?: ReservedNodeOffering[];
 }
 
 export namespace ReservedNodeOfferingsMessage {
@@ -8340,7 +8340,7 @@ export interface ReservedNodesMessage {
   /**
    * <p>The list of <code>ReservedNode</code> objects.</p>
    */
-  ReservedNodes?: Array<ReservedNode>;
+  ReservedNodes?: ReservedNode[];
 }
 
 export namespace ReservedNodesMessage {
@@ -8364,7 +8364,7 @@ export interface ResetClusterParameterGroupMessage {
    *             parameter name must be supplied. </p>
    *         <p>Constraints: A maximum of 20 parameters can be reset in a single request.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 
   /**
    * <p>If <code>true</code>, all parameters in the specified parameter group will be reset
@@ -8484,19 +8484,19 @@ export interface ResizeProgressMessage {
    * <p>The names of tables that have been completely imported .</p>
    *         <p>Valid Values: List of table names.</p>
    */
-  ImportTablesCompleted?: Array<string>;
+  ImportTablesCompleted?: string[];
 
   /**
    * <p>The names of tables that are being currently imported.</p>
    *         <p>Valid Values: List of table names.</p>
    */
-  ImportTablesInProgress?: Array<string>;
+  ImportTablesInProgress?: string[];
 
   /**
    * <p>The names of tables that have not been yet imported.</p>
    *         <p>Valid Values: List of table names</p>
    */
-  ImportTablesNotStarted?: Array<string>;
+  ImportTablesNotStarted?: string[];
 
   /**
    * <p>An optional string to provide additional details about the resize action.</p>
@@ -8650,7 +8650,7 @@ export interface RestoreFromClusterSnapshotMessage {
    *         <p>Default: The default cluster security group for Amazon Redshift.</p>
    *         <p>Cluster security groups only apply to clusters outside of VPCs.</p>
    */
-  ClusterSecurityGroups?: Array<string>;
+  ClusterSecurityGroups?: string[];
 
   /**
    * <p>The name of the subnet group where you want to cluster restored.</p>
@@ -8693,7 +8693,7 @@ export interface RestoreFromClusterSnapshotMessage {
    *             request.</p>
    *         <p>A cluster can have up to 10 IAM roles associated at any time.</p>
    */
-  IamRoles?: Array<string>;
+  IamRoles?: string[];
 
   /**
    * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
@@ -8795,7 +8795,7 @@ export interface RestoreFromClusterSnapshotMessage {
    *         <p>Default: The default VPC security group is associated with the cluster.</p>
    *         <p>VPC security groups only apply to clusters in VPCs.</p>
    */
-  VpcSecurityGroupIds?: Array<string>;
+  VpcSecurityGroupIds?: string[];
 }
 
 export namespace RestoreFromClusterSnapshotMessage {
@@ -9120,7 +9120,7 @@ export interface ScheduledAction {
   /**
    * <p>List of times when the scheduled action will run. </p>
    */
-  NextInvocations?: Array<Date>;
+  NextInvocations?: Date[];
 
   /**
    * <p>The schedule for a one-time (at format) or recurring (cron format) scheduled action.
@@ -9178,7 +9178,7 @@ export interface ScheduledActionFilter {
   /**
    * <p>List of values. Compare if the value (of type defined by <code>Name</code>) equals an item in the list of scheduled actions. </p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace ScheduledActionFilter {
@@ -9231,7 +9231,7 @@ export interface ScheduledActionsMessage {
   /**
    * <p>List of retrieved scheduled actions. </p>
    */
-  ScheduledActions?: Array<ScheduledAction>;
+  ScheduledActions?: ScheduledAction[];
 }
 
 export namespace ScheduledActionsMessage {
@@ -9249,7 +9249,7 @@ export interface Snapshot {
    *                 <code>null</code> if no accounts are authorized. Visible only to the snapshot owner.
    *         </p>
    */
-  AccountsWithRestoreAccess?: Array<AccountWithRestoreAccess>;
+  AccountsWithRestoreAccess?: AccountWithRestoreAccess[];
 
   /**
    * <p>The size of the incremental backup.</p>
@@ -9382,7 +9382,7 @@ export interface Snapshot {
    * <p>The list of node types that this cluster snapshot is able to restore
    *             into.</p>
    */
-  RestorableNodeTypes?: Array<string>;
+  RestorableNodeTypes?: string[];
 
   /**
    * <p>The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a
@@ -9434,7 +9434,7 @@ export interface Snapshot {
   /**
    * <p>The list of tags for the cluster snapshot.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The size of the complete set of backup data that would be used to restore the
@@ -9485,7 +9485,7 @@ export interface SnapshotCopyGrant {
   /**
    * <p>A list of tag instances.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace SnapshotCopyGrant {
@@ -9512,7 +9512,7 @@ export interface SnapshotCopyGrantMessage {
   /**
    * <p>The list of <code>SnapshotCopyGrant</code> objects.</p>
    */
-  SnapshotCopyGrants?: Array<SnapshotCopyGrant>;
+  SnapshotCopyGrants?: SnapshotCopyGrant[];
 }
 
 export namespace SnapshotCopyGrantMessage {
@@ -9569,7 +9569,7 @@ export interface SnapshotMessage {
   /**
    * <p>A list of <a>Snapshot</a> instances. </p>
    */
-  Snapshots?: Array<Snapshot>;
+  Snapshots?: Snapshot[];
 }
 
 export namespace SnapshotMessage {
@@ -9591,17 +9591,17 @@ export interface SnapshotSchedule {
   /**
    * <p>A list of clusters associated with the schedule. A maximum of 100 clusters is returned.</p>
    */
-  AssociatedClusters?: Array<ClusterAssociatedToSchedule>;
+  AssociatedClusters?: ClusterAssociatedToSchedule[];
 
   /**
    * <p></p>
    */
-  NextInvocations?: Array<Date>;
+  NextInvocations?: Date[];
 
   /**
    * <p>A list of ScheduleDefinitions.</p>
    */
-  ScheduleDefinitions?: Array<string>;
+  ScheduleDefinitions?: string[];
 
   /**
    * <p>The description of the schedule.</p>
@@ -9616,7 +9616,7 @@ export interface SnapshotSchedule {
   /**
    * <p>An optional set of tags describing the schedule.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace SnapshotSchedule {
@@ -9816,7 +9816,7 @@ export interface TableRestoreStatusMessage {
   /**
    * <p>A list of status details for one or more table restore requests.</p>
    */
-  TableRestoreStatusDetails?: Array<TableRestoreStatus>;
+  TableRestoreStatusDetails?: TableRestoreStatus[];
 }
 
 export namespace TableRestoreStatusMessage {
@@ -9927,7 +9927,7 @@ export interface TaggedResourceListMessage {
   /**
    * <p>A list of tags with their associated resources.</p>
    */
-  TaggedResources?: Array<TaggedResource>;
+  TaggedResources?: TaggedResource[];
 }
 
 export namespace TaggedResourceListMessage {
@@ -9941,7 +9941,7 @@ export interface TrackListMessage {
    * <p>A list of maintenance tracks output by the <code>DescribeClusterTracks</code>
    *             operation. </p>
    */
-  MaintenanceTracks?: Array<MaintenanceTrack>;
+  MaintenanceTracks?: MaintenanceTrack[];
 
   /**
    * <p>The starting point to return a set of response tracklist records. You can retrieve the
@@ -9974,7 +9974,7 @@ export interface UpdateTarget {
   /**
    * <p>A list of operations supported by the maintenance track.</p>
    */
-  SupportedOperations?: Array<SupportedOperation>;
+  SupportedOperations?: SupportedOperation[];
 }
 
 export namespace UpdateTarget {

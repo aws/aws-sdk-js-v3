@@ -2426,7 +2426,7 @@ const serializeAws_json1_1EmergencyContact = (
 };
 
 const serializeAws_json1_1EmergencyContactList = (
-  input: Array<EmergencyContact>,
+  input: EmergencyContact[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2491,7 +2491,7 @@ const serializeAws_json1_1ListProtectionsRequest = (
 };
 
 const serializeAws_json1_1ResourceArnFilterList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2652,7 +2652,7 @@ const deserializeAws_json1_1AttackDetail = (
 const deserializeAws_json1_1AttackProperties = (
   output: any,
   context: __SerdeContext
-): Array<AttackProperty> => {
+): AttackProperty[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AttackProperty(entry, context)
   );
@@ -2697,7 +2697,7 @@ const deserializeAws_json1_1AttackProperty = (
 const deserializeAws_json1_1AttackSummaries = (
   output: any,
   context: __SerdeContext
-): Array<AttackSummary> => {
+): AttackSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AttackSummary(entry, context)
   );
@@ -2753,7 +2753,7 @@ const deserializeAws_json1_1AttackVectorDescription = (
 const deserializeAws_json1_1AttackVectorDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<AttackVectorDescription> => {
+): AttackVectorDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AttackVectorDescription(entry, context)
   );
@@ -2950,7 +2950,7 @@ const deserializeAws_json1_1EmergencyContact = (
 const deserializeAws_json1_1EmergencyContactList = (
   output: any,
   context: __SerdeContext
-): Array<EmergencyContact> => {
+): EmergencyContact[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EmergencyContact(entry, context)
   );
@@ -3064,7 +3064,7 @@ const deserializeAws_json1_1Limit = (
 const deserializeAws_json1_1Limits = (
   output: any,
   context: __SerdeContext
-): Array<Limit> => {
+): Limit[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Limit(entry, context)
   );
@@ -3151,7 +3151,7 @@ const deserializeAws_json1_1LockedSubscriptionException = (
 const deserializeAws_json1_1LogBucketList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3172,7 +3172,7 @@ const deserializeAws_json1_1Mitigation = (
 const deserializeAws_json1_1MitigationList = (
   output: any,
   context: __SerdeContext
-): Array<Mitigation> => {
+): Mitigation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Mitigation(entry, context)
   );
@@ -3231,7 +3231,7 @@ const deserializeAws_json1_1Protection = (
 const deserializeAws_json1_1Protections = (
   output: any,
   context: __SerdeContext
-): Array<Protection> => {
+): Protection[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Protection(entry, context)
   );
@@ -3300,7 +3300,7 @@ const deserializeAws_json1_1SubResourceSummary = (
 const deserializeAws_json1_1SubResourceSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<SubResourceSummary> => {
+): SubResourceSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SubResourceSummary(entry, context)
   );
@@ -3363,7 +3363,7 @@ const deserializeAws_json1_1SummarizedAttackVector = (
 const deserializeAws_json1_1SummarizedAttackVectorList = (
   output: any,
   context: __SerdeContext
-): Array<SummarizedAttackVector> => {
+): SummarizedAttackVector[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SummarizedAttackVector(entry, context)
   );
@@ -3406,7 +3406,7 @@ const deserializeAws_json1_1SummarizedCounter = (
 const deserializeAws_json1_1SummarizedCounterList = (
   output: any,
   context: __SerdeContext
-): Array<SummarizedCounter> => {
+): SummarizedCounter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SummarizedCounter(entry, context)
   );
@@ -3415,7 +3415,7 @@ const deserializeAws_json1_1SummarizedCounterList = (
 const deserializeAws_json1_1TopContributors = (
   output: any,
   context: __SerdeContext
-): Array<Contributor> => {
+): Contributor[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Contributor(entry, context)
   );

@@ -4433,7 +4433,7 @@ const serializeAws_queryAbortEnvironmentUpdateMessage = (
 };
 
 const serializeAws_queryApplicationNamesList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -4590,7 +4590,7 @@ const serializeAws_queryConfigurationOptionSetting = (
 };
 
 const serializeAws_queryConfigurationOptionSettingsList = (
-  input: Array<ConfigurationOptionSetting>,
+  input: ConfigurationOptionSetting[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5238,7 +5238,7 @@ const serializeAws_queryDescribePlatformVersionRequest = (
 };
 
 const serializeAws_queryEnvironmentHealthAttributes = (
-  input: Array<EnvironmentHealthAttribute | string>,
+  input: EnvironmentHealthAttribute | string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5251,7 +5251,7 @@ const serializeAws_queryEnvironmentHealthAttributes = (
 };
 
 const serializeAws_queryEnvironmentIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5264,7 +5264,7 @@ const serializeAws_queryEnvironmentIdList = (
 };
 
 const serializeAws_queryEnvironmentNamesList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5294,7 +5294,7 @@ const serializeAws_queryEnvironmentTier = (
 };
 
 const serializeAws_queryInstancesHealthAttributes = (
-  input: Array<InstancesHealthAttribute | string>,
+  input: InstancesHealthAttribute | string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5393,7 +5393,7 @@ const serializeAws_queryOptionSpecification = (
 };
 
 const serializeAws_queryOptionsSpecifierList = (
-  input: Array<OptionSpecification>,
+  input: OptionSpecification[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5433,7 +5433,7 @@ const serializeAws_queryPlatformFilter = (
 };
 
 const serializeAws_queryPlatformFilterValueList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5446,7 +5446,7 @@ const serializeAws_queryPlatformFilterValueList = (
 };
 
 const serializeAws_queryPlatformFilters = (
-  input: Array<PlatformFilter>,
+  input: PlatformFilter[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5600,7 +5600,7 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_queryTagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5613,7 +5613,7 @@ const serializeAws_queryTagKeyList = (
 };
 
 const serializeAws_queryTagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5628,10 +5628,7 @@ const serializeAws_queryTagList = (
   return entries;
 };
 
-const serializeAws_queryTags = (
-  input: Array<Tag>,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryTags = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -5874,7 +5871,7 @@ const serializeAws_queryValidateConfigurationSettingsMessage = (
 };
 
 const serializeAws_queryVersionLabels = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5887,7 +5884,7 @@ const serializeAws_queryVersionLabels = (
 };
 
 const serializeAws_queryVersionLabelsList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5982,7 +5979,7 @@ const deserializeAws_queryApplicationDescription = (
 const deserializeAws_queryApplicationDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<ApplicationDescription> => {
+): ApplicationDescription[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryApplicationDescription(entry, context));
@@ -6196,7 +6193,7 @@ const deserializeAws_queryApplicationVersionDescription = (
 const deserializeAws_queryApplicationVersionDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<ApplicationVersionDescription> => {
+): ApplicationVersionDescription[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -6339,7 +6336,7 @@ const deserializeAws_queryAutoScalingGroup = (
 const deserializeAws_queryAutoScalingGroupList = (
   output: any,
   context: __SerdeContext
-): Array<AutoScalingGroup> => {
+): AutoScalingGroup[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryAutoScalingGroup(entry, context));
@@ -6350,7 +6347,7 @@ const deserializeAws_queryAutoScalingGroupList = (
 const deserializeAws_queryAvailableSolutionStackDetailsList = (
   output: any,
   context: __SerdeContext
-): Array<SolutionStackDescription> => {
+): SolutionStackDescription[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_querySolutionStackDescription(entry, context));
@@ -6361,7 +6358,7 @@ const deserializeAws_queryAvailableSolutionStackDetailsList = (
 const deserializeAws_queryAvailableSolutionStackNamesList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -6463,7 +6460,7 @@ const deserializeAws_queryCPUUtilization = (
 const deserializeAws_queryCauses = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -6615,7 +6612,7 @@ const deserializeAws_queryConfigurationOptionDescription = (
 const deserializeAws_queryConfigurationOptionDescriptionsList = (
   output: any,
   context: __SerdeContext
-): Array<ConfigurationOptionDescription> => {
+): ConfigurationOptionDescription[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -6628,7 +6625,7 @@ const deserializeAws_queryConfigurationOptionDescriptionsList = (
 const deserializeAws_queryConfigurationOptionPossibleValues = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -6677,7 +6674,7 @@ const deserializeAws_queryConfigurationOptionSetting = (
 const deserializeAws_queryConfigurationOptionSettingsList = (
   output: any,
   context: __SerdeContext
-): Array<ConfigurationOptionSetting> => {
+): ConfigurationOptionSetting[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -6815,7 +6812,7 @@ const deserializeAws_queryConfigurationSettingsDescription = (
 const deserializeAws_queryConfigurationSettingsDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<ConfigurationSettingsDescription> => {
+): ConfigurationSettingsDescription[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -6882,7 +6879,7 @@ const deserializeAws_queryConfigurationSettingsValidationMessages = (
 const deserializeAws_queryConfigurationTemplateNamesList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -6955,7 +6952,7 @@ const deserializeAws_queryCustomAmi = (
 const deserializeAws_queryCustomAmiList = (
   output: any,
   context: __SerdeContext
-): Array<CustomAmi> => {
+): CustomAmi[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryCustomAmi(entry, context));
@@ -7393,7 +7390,7 @@ const deserializeAws_queryEnvironmentDescription = (
 const deserializeAws_queryEnvironmentDescriptionsList = (
   output: any,
   context: __SerdeContext
-): Array<EnvironmentDescription> => {
+): EnvironmentDescription[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryEnvironmentDescription(entry, context));
@@ -7473,7 +7470,7 @@ const deserializeAws_queryEnvironmentInfoDescription = (
 const deserializeAws_queryEnvironmentInfoDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<EnvironmentInfoDescription> => {
+): EnvironmentInfoDescription[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -7510,7 +7507,7 @@ const deserializeAws_queryEnvironmentLink = (
 const deserializeAws_queryEnvironmentLinks = (
   output: any,
   context: __SerdeContext
-): Array<EnvironmentLink> => {
+): EnvironmentLink[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryEnvironmentLink(entry, context));
@@ -7783,7 +7780,7 @@ const deserializeAws_queryEventDescription = (
 const deserializeAws_queryEventDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<EventDescription> => {
+): EventDescription[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryEventDescription(entry, context));
@@ -7845,7 +7842,7 @@ const deserializeAws_queryInstance = (
 const deserializeAws_queryInstanceHealthList = (
   output: any,
   context: __SerdeContext
-): Array<SingleInstanceHealth> => {
+): SingleInstanceHealth[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_querySingleInstanceHealth(entry, context));
@@ -7928,7 +7925,7 @@ const deserializeAws_queryInstanceHealthSummary = (
 const deserializeAws_queryInstanceList = (
   output: any,
   context: __SerdeContext
-): Array<Instance> => {
+): Instance[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryInstance(entry, context));
@@ -8064,7 +8061,7 @@ const deserializeAws_queryLaunchConfiguration = (
 const deserializeAws_queryLaunchConfigurationList = (
   output: any,
   context: __SerdeContext
-): Array<LaunchConfiguration> => {
+): LaunchConfiguration[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryLaunchConfiguration(entry, context));
@@ -8092,7 +8089,7 @@ const deserializeAws_queryLaunchTemplate = (
 const deserializeAws_queryLaunchTemplateList = (
   output: any,
   context: __SerdeContext
-): Array<LaunchTemplate> => {
+): LaunchTemplate[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryLaunchTemplate(entry, context));
@@ -8206,7 +8203,7 @@ const deserializeAws_queryListener = (
 const deserializeAws_queryLoadAverage = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -8277,7 +8274,7 @@ const deserializeAws_queryLoadBalancerDescription = (
 const deserializeAws_queryLoadBalancerList = (
   output: any,
   context: __SerdeContext
-): Array<LoadBalancer> => {
+): LoadBalancer[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryLoadBalancer(entry, context));
@@ -8288,7 +8285,7 @@ const deserializeAws_queryLoadBalancerList = (
 const deserializeAws_queryLoadBalancerListenersDescription = (
   output: any,
   context: __SerdeContext
-): Array<Listener> => {
+): Listener[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryListener(entry, context));
@@ -8401,7 +8398,7 @@ const deserializeAws_queryManagedActionHistoryItem = (
 const deserializeAws_queryManagedActionHistoryItems = (
   output: any,
   context: __SerdeContext
-): Array<ManagedActionHistoryItem> => {
+): ManagedActionHistoryItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryManagedActionHistoryItem(entry, context));
@@ -8429,7 +8426,7 @@ const deserializeAws_queryManagedActionInvalidStateException = (
 const deserializeAws_queryManagedActions = (
   output: any,
   context: __SerdeContext
-): Array<ManagedAction> => {
+): ManagedAction[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryManagedAction(entry, context));
@@ -8749,7 +8746,7 @@ const deserializeAws_queryPlatformFramework = (
 const deserializeAws_queryPlatformFrameworks = (
   output: any,
   context: __SerdeContext
-): Array<PlatformFramework> => {
+): PlatformFramework[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryPlatformFramework(entry, context));
@@ -8784,7 +8781,7 @@ const deserializeAws_queryPlatformProgrammingLanguage = (
 const deserializeAws_queryPlatformProgrammingLanguages = (
   output: any,
   context: __SerdeContext
-): Array<PlatformProgrammingLanguage> => {
+): PlatformProgrammingLanguage[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -8883,7 +8880,7 @@ const deserializeAws_queryPlatformSummary = (
 const deserializeAws_queryPlatformSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<PlatformSummary> => {
+): PlatformSummary[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryPlatformSummary(entry, context));
@@ -8935,7 +8932,7 @@ const deserializeAws_queryQueue = (
 const deserializeAws_queryQueueList = (
   output: any,
   context: __SerdeContext
-): Array<Queue> => {
+): Queue[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryQueue(entry, context));
@@ -9277,7 +9274,7 @@ const deserializeAws_querySolutionStackDescription = (
 const deserializeAws_querySolutionStackFileTypeList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -9378,7 +9375,7 @@ const deserializeAws_queryStatusCodes = (
 const deserializeAws_querySupportedAddonList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -9389,7 +9386,7 @@ const deserializeAws_querySupportedAddonList = (
 const deserializeAws_querySupportedTierList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -9455,7 +9452,7 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
 const deserializeAws_queryTagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryTag(entry, context));
@@ -9602,7 +9599,7 @@ const deserializeAws_queryTrigger = (
 const deserializeAws_queryTriggerList = (
   output: any,
   context: __SerdeContext
-): Array<Trigger> => {
+): Trigger[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryTrigger(entry, context));
@@ -9651,7 +9648,7 @@ const deserializeAws_queryValidationMessage = (
 const deserializeAws_queryValidationMessagesList = (
   output: any,
   context: __SerdeContext
-): Array<ValidationMessage> => {
+): ValidationMessage[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryValidationMessage(entry, context));
@@ -9662,7 +9659,7 @@ const deserializeAws_queryValidationMessagesList = (
 const deserializeAws_queryVersionLabelsList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);

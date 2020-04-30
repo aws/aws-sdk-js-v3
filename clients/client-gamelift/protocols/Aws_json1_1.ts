@@ -10414,7 +10414,7 @@ const serializeAws_json1_1DesiredPlayerSession = (
 };
 
 const serializeAws_json1_1DesiredPlayerSessionList = (
-  input: Array<DesiredPlayerSession>,
+  input: DesiredPlayerSession[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10425,7 +10425,7 @@ const serializeAws_json1_1DesiredPlayerSessionList = (
 };
 
 const serializeAws_json1_1FleetActionList = (
-  input: Array<FleetAction | string>,
+  input: FleetAction | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10436,7 +10436,7 @@ const serializeAws_json1_1FleetActionList = (
 };
 
 const serializeAws_json1_1FleetIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10461,7 +10461,7 @@ const serializeAws_json1_1GameProperty = (
 };
 
 const serializeAws_json1_1GamePropertyList = (
-  input: Array<GameProperty>,
+  input: GameProperty[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10483,7 +10483,7 @@ const serializeAws_json1_1GameSessionQueueDestination = (
 };
 
 const serializeAws_json1_1GameSessionQueueDestinationList = (
-  input: Array<GameSessionQueueDestination>,
+  input: GameSessionQueueDestination[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10496,7 +10496,7 @@ const serializeAws_json1_1GameSessionQueueDestinationList = (
 };
 
 const serializeAws_json1_1GameSessionQueueNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10552,7 +10552,7 @@ const serializeAws_json1_1IpPermission = (
 };
 
 const serializeAws_json1_1IpPermissionsList = (
-  input: Array<IpPermission>,
+  input: IpPermission[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10656,7 +10656,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 };
 
 const serializeAws_json1_1MatchmakingConfigurationNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10667,7 +10667,7 @@ const serializeAws_json1_1MatchmakingConfigurationNameList = (
 };
 
 const serializeAws_json1_1MatchmakingIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10678,7 +10678,7 @@ const serializeAws_json1_1MatchmakingIdList = (
 };
 
 const serializeAws_json1_1MatchmakingRuleSetNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10689,7 +10689,7 @@ const serializeAws_json1_1MatchmakingRuleSetNameList = (
 };
 
 const serializeAws_json1_1MetricGroupList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10748,7 +10748,7 @@ const serializeAws_json1_1PlayerDataMap = (
 };
 
 const serializeAws_json1_1PlayerIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10776,7 +10776,7 @@ const serializeAws_json1_1PlayerLatency = (
 };
 
 const serializeAws_json1_1PlayerLatencyList = (
-  input: Array<PlayerLatency>,
+  input: PlayerLatency[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10802,7 +10802,7 @@ const serializeAws_json1_1PlayerLatencyPolicy = (
 };
 
 const serializeAws_json1_1PlayerLatencyPolicyList = (
-  input: Array<PlayerLatencyPolicy>,
+  input: PlayerLatencyPolicy[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10813,7 +10813,7 @@ const serializeAws_json1_1PlayerLatencyPolicyList = (
 };
 
 const serializeAws_json1_1PlayerList = (
-  input: Array<Player>,
+  input: Player[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10865,7 +10865,7 @@ const serializeAws_json1_1PutScalingPolicyInput = (
 };
 
 const serializeAws_json1_1QueueArnsList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11014,7 +11014,7 @@ const serializeAws_json1_1ServerProcess = (
 };
 
 const serializeAws_json1_1ServerProcessList = (
-  input: Array<ServerProcess>,
+  input: ServerProcess[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11178,7 +11178,7 @@ const serializeAws_json1_1StringDoubleMap = (
 };
 
 const serializeAws_json1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11200,7 +11200,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11211,7 +11211,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11604,7 +11604,7 @@ const deserializeAws_json1_1Alias = (
 const deserializeAws_json1_1AliasList = (
   output: any,
   context: __SerdeContext
-): Array<Alias> => {
+): Alias[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Alias(entry, context)
   );
@@ -11703,7 +11703,7 @@ const deserializeAws_json1_1Build = (
 const deserializeAws_json1_1BuildList = (
   output: any,
   context: __SerdeContext
-): Array<Build> => {
+): Build[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Build(entry, context)
   );
@@ -12501,7 +12501,7 @@ const deserializeAws_json1_1EC2InstanceLimit = (
 const deserializeAws_json1_1EC2InstanceLimitList = (
   output: any,
   context: __SerdeContext
-): Array<EC2InstanceLimit> => {
+): EC2InstanceLimit[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EC2InstanceLimit(entry, context)
   );
@@ -12544,7 +12544,7 @@ const deserializeAws_json1_1Event = (
 const deserializeAws_json1_1EventList = (
   output: any,
   context: __SerdeContext
-): Array<Event> => {
+): Event[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Event(entry, context)
   );
@@ -12553,7 +12553,7 @@ const deserializeAws_json1_1EventList = (
 const deserializeAws_json1_1FleetActionList = (
   output: any,
   context: __SerdeContext
-): Array<FleetAction | string> => {
+): FleetAction | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -12695,7 +12695,7 @@ const deserializeAws_json1_1FleetAttributes = (
 const deserializeAws_json1_1FleetAttributesList = (
   output: any,
   context: __SerdeContext
-): Array<FleetAttributes> => {
+): FleetAttributes[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FleetAttributes(entry, context)
   );
@@ -12743,7 +12743,7 @@ const deserializeAws_json1_1FleetCapacityExceededException = (
 const deserializeAws_json1_1FleetCapacityList = (
   output: any,
   context: __SerdeContext
-): Array<FleetCapacity> => {
+): FleetCapacity[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FleetCapacity(entry, context)
   );
@@ -12752,7 +12752,7 @@ const deserializeAws_json1_1FleetCapacityList = (
 const deserializeAws_json1_1FleetIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -12801,7 +12801,7 @@ const deserializeAws_json1_1FleetUtilization = (
 const deserializeAws_json1_1FleetUtilizationList = (
   output: any,
   context: __SerdeContext
-): Array<FleetUtilization> => {
+): FleetUtilization[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FleetUtilization(entry, context)
   );
@@ -12828,7 +12828,7 @@ const deserializeAws_json1_1GameProperty = (
 const deserializeAws_json1_1GamePropertyList = (
   output: any,
   context: __SerdeContext
-): Array<GameProperty> => {
+): GameProperty[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GameProperty(entry, context)
   );
@@ -12993,7 +12993,7 @@ const deserializeAws_json1_1GameSessionDetail = (
 const deserializeAws_json1_1GameSessionDetailList = (
   output: any,
   context: __SerdeContext
-): Array<GameSessionDetail> => {
+): GameSessionDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GameSessionDetail(entry, context)
   );
@@ -13016,7 +13016,7 @@ const deserializeAws_json1_1GameSessionFullException = (
 const deserializeAws_json1_1GameSessionList = (
   output: any,
   context: __SerdeContext
-): Array<GameSession> => {
+): GameSession[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GameSession(entry, context)
   );
@@ -13187,7 +13187,7 @@ const deserializeAws_json1_1GameSessionQueueDestination = (
 const deserializeAws_json1_1GameSessionQueueDestinationList = (
   output: any,
   context: __SerdeContext
-): Array<GameSessionQueueDestination> => {
+): GameSessionQueueDestination[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GameSessionQueueDestination(entry, context)
   );
@@ -13196,7 +13196,7 @@ const deserializeAws_json1_1GameSessionQueueDestinationList = (
 const deserializeAws_json1_1GameSessionQueueList = (
   output: any,
   context: __SerdeContext
-): Array<GameSessionQueue> => {
+): GameSessionQueue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GameSessionQueue(entry, context)
   );
@@ -13343,7 +13343,7 @@ const deserializeAws_json1_1InstanceCredentials = (
 const deserializeAws_json1_1InstanceList = (
   output: any,
   context: __SerdeContext
-): Array<Instance> => {
+): Instance[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Instance(entry, context)
   );
@@ -13434,7 +13434,7 @@ const deserializeAws_json1_1IpPermission = (
 const deserializeAws_json1_1IpPermissionsList = (
   output: any,
   context: __SerdeContext
-): Array<IpPermission> => {
+): IpPermission[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IpPermission(entry, context)
   );
@@ -13578,7 +13578,7 @@ const deserializeAws_json1_1MatchedPlayerSession = (
 const deserializeAws_json1_1MatchedPlayerSessionList = (
   output: any,
   context: __SerdeContext
-): Array<MatchedPlayerSession> => {
+): MatchedPlayerSession[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MatchedPlayerSession(entry, context)
   );
@@ -13688,7 +13688,7 @@ const deserializeAws_json1_1MatchmakingConfiguration = (
 const deserializeAws_json1_1MatchmakingConfigurationList = (
   output: any,
   context: __SerdeContext
-): Array<MatchmakingConfiguration> => {
+): MatchmakingConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MatchmakingConfiguration(entry, context)
   );
@@ -13723,7 +13723,7 @@ const deserializeAws_json1_1MatchmakingRuleSet = (
 const deserializeAws_json1_1MatchmakingRuleSetList = (
   output: any,
   context: __SerdeContext
-): Array<MatchmakingRuleSet> => {
+): MatchmakingRuleSet[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MatchmakingRuleSet(entry, context)
   );
@@ -13804,7 +13804,7 @@ const deserializeAws_json1_1MatchmakingTicket = (
 const deserializeAws_json1_1MatchmakingTicketList = (
   output: any,
   context: __SerdeContext
-): Array<MatchmakingTicket> => {
+): MatchmakingTicket[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MatchmakingTicket(entry, context)
   );
@@ -13813,7 +13813,7 @@ const deserializeAws_json1_1MatchmakingTicketList = (
 const deserializeAws_json1_1MetricGroupList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -13852,7 +13852,7 @@ const deserializeAws_json1_1PlacedPlayerSession = (
 const deserializeAws_json1_1PlacedPlayerSessionList = (
   output: any,
   context: __SerdeContext
-): Array<PlacedPlayerSession> => {
+): PlacedPlayerSession[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PlacedPlayerSession(entry, context)
   );
@@ -13935,7 +13935,7 @@ const deserializeAws_json1_1PlayerLatency = (
 const deserializeAws_json1_1PlayerLatencyList = (
   output: any,
   context: __SerdeContext
-): Array<PlayerLatency> => {
+): PlayerLatency[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PlayerLatency(entry, context)
   );
@@ -13969,7 +13969,7 @@ const deserializeAws_json1_1PlayerLatencyPolicy = (
 const deserializeAws_json1_1PlayerLatencyPolicyList = (
   output: any,
   context: __SerdeContext
-): Array<PlayerLatencyPolicy> => {
+): PlayerLatencyPolicy[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PlayerLatencyPolicy(entry, context)
   );
@@ -13978,7 +13978,7 @@ const deserializeAws_json1_1PlayerLatencyPolicyList = (
 const deserializeAws_json1_1PlayerList = (
   output: any,
   context: __SerdeContext
-): Array<Player> => {
+): Player[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Player(entry, context)
   );
@@ -14047,7 +14047,7 @@ const deserializeAws_json1_1PlayerSession = (
 const deserializeAws_json1_1PlayerSessionList = (
   output: any,
   context: __SerdeContext
-): Array<PlayerSession> => {
+): PlayerSession[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PlayerSession(entry, context)
   );
@@ -14070,7 +14070,7 @@ const deserializeAws_json1_1PutScalingPolicyOutput = (
 const deserializeAws_json1_1QueueArnsList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -14299,7 +14299,7 @@ const deserializeAws_json1_1ScalingPolicy = (
 const deserializeAws_json1_1ScalingPolicyList = (
   output: any,
   context: __SerdeContext
-): Array<ScalingPolicy> => {
+): ScalingPolicy[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ScalingPolicy(entry, context)
   );
@@ -14349,7 +14349,7 @@ const deserializeAws_json1_1Script = (
 const deserializeAws_json1_1ScriptList = (
   output: any,
   context: __SerdeContext
-): Array<Script> => {
+): Script[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Script(entry, context)
   );
@@ -14404,7 +14404,7 @@ const deserializeAws_json1_1ServerProcess = (
 const deserializeAws_json1_1ServerProcessList = (
   output: any,
   context: __SerdeContext
-): Array<ServerProcess> => {
+): ServerProcess[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ServerProcess(entry, context)
   );
@@ -14534,7 +14534,7 @@ const deserializeAws_json1_1StringDoubleMap = (
 const deserializeAws_json1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -14559,7 +14559,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -14868,7 +14868,7 @@ const deserializeAws_json1_1VpcPeeringAuthorization = (
 const deserializeAws_json1_1VpcPeeringAuthorizationList = (
   output: any,
   context: __SerdeContext
-): Array<VpcPeeringAuthorization> => {
+): VpcPeeringAuthorization[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1VpcPeeringAuthorization(entry, context)
   );
@@ -14921,7 +14921,7 @@ const deserializeAws_json1_1VpcPeeringConnection = (
 const deserializeAws_json1_1VpcPeeringConnectionList = (
   output: any,
   context: __SerdeContext
-): Array<VpcPeeringConnection> => {
+): VpcPeeringConnection[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1VpcPeeringConnection(entry, context)
   );

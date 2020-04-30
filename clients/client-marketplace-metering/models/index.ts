@@ -21,7 +21,7 @@ export interface BatchMeterUsageRequest {
    * <p>The set of UsageRecords to submit. BatchMeterUsage accepts up to 25 UsageRecords at
    *             a time.</p>
    */
-  UsageRecords: Array<UsageRecord> | undefined;
+  UsageRecords: UsageRecord[] | undefined;
 }
 
 export namespace BatchMeterUsageRequest {
@@ -39,14 +39,14 @@ export interface BatchMeterUsageResult {
    * <p>Contains all UsageRecords processed by BatchMeterUsage. These records were either
    *             honored by AWS Marketplace Metering Service or were invalid.</p>
    */
-  Results?: Array<UsageRecordResult>;
+  Results?: UsageRecordResult[];
 
   /**
    * <p>Contains all UsageRecords that were not processed by BatchMeterUsage. This is a
    *             list of UsageRecords. You can retry the failed request by making another BatchMeterUsage
    *             call with this list as input in the BatchMeterUsageRequest.</p>
    */
-  UnprocessedRecords?: Array<UsageRecord>;
+  UnprocessedRecords?: UsageRecord[];
 }
 
 export namespace BatchMeterUsageResult {

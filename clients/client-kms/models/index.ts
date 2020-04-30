@@ -355,7 +355,7 @@ export interface CreateGrantRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
    *     <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  GrantTokens?: Array<string>;
+  GrantTokens?: string[];
 
   /**
    * <p>The principal that is given permission to perform the operations that the grant
@@ -406,7 +406,7 @@ export interface CreateGrantRequest {
   /**
    * <p>A list of operations that the grant permits.</p>
    */
-  Operations: Array<GrantOperation | string> | undefined;
+  Operations: GrantOperation | string[] | undefined;
 
   /**
    * <p>The principal that is given permission to retire the grant by using <a>RetireGrant</a> operation.</p>
@@ -640,7 +640,7 @@ export interface CreateKeyRequest {
    *          <p>Use this parameter to tag the CMK when it is created. To add tags to an
    *       existing CMK, use the <a>TagResource</a> operation.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateKeyRequest {
@@ -919,7 +919,7 @@ export interface DecryptRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
    *     <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  GrantTokens?: Array<string>;
+  GrantTokens?: string[];
 
   /**
    * <p>Specifies the customer master key (CMK) that AWS KMS will use to decrypt the ciphertext.
@@ -1109,7 +1109,7 @@ export interface DescribeCustomKeyStoresResponse {
   /**
    * <p>Contains metadata about each custom key store.</p>
    */
-  CustomKeyStores?: Array<CustomKeyStoresListEntry>;
+  CustomKeyStores?: CustomKeyStoresListEntry[];
 
   /**
    * <p>When <code>Truncated</code> is true, this element is present and contains the
@@ -1138,7 +1138,7 @@ export interface DescribeKeyRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
    *     <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  GrantTokens?: Array<string>;
+  GrantTokens?: string[];
 
   /**
    * <p>Describes the specified customer master key (CMK). </p>
@@ -1358,7 +1358,7 @@ export interface EncryptRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
    *     <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  GrantTokens?: Array<string>;
+  GrantTokens?: string[];
 
   /**
    * <p>A unique identifier for the customer master key (CMK).</p>
@@ -1465,7 +1465,7 @@ export interface GenerateDataKeyPairRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
    *     <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  GrantTokens?: Array<string>;
+  GrantTokens?: string[];
 
   /**
    * <p>Specifies the symmetric CMK that encrypts the private key in the data key pair. You cannot
@@ -1556,7 +1556,7 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
    *     <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  GrantTokens?: Array<string>;
+  GrantTokens?: string[];
 
   /**
    * <p>Specifies the CMK that encrypts the private key in the data key pair. You must specify a
@@ -1670,7 +1670,7 @@ export interface GenerateDataKeyRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
    *     <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  GrantTokens?: Array<string>;
+  GrantTokens?: string[];
 
   /**
    * <p>Identifies the symmetric CMK that encrypts the data key.</p>
@@ -1762,7 +1762,7 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
    *     <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  GrantTokens?: Array<string>;
+  GrantTokens?: string[];
 
   /**
    * <p>The identifier of the symmetric customer master key (CMK) that encrypts the data
@@ -2024,7 +2024,7 @@ export interface GetPublicKeyRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
    *     <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  GrantTokens?: Array<string>;
+  GrantTokens?: string[];
 
   /**
    * <p>Identifies the asymmetric CMK that includes the public key.</p>
@@ -2073,7 +2073,7 @@ export interface GetPublicKeyResponse {
    *          <p>This field appears in the response only when the <code>KeyUsage</code> of the public key
    *       is <code>ENCRYPT_DECRYPT</code>.</p>
    */
-  EncryptionAlgorithms?: Array<EncryptionAlgorithmSpec | string>;
+  EncryptionAlgorithms?: EncryptionAlgorithmSpec | string[];
 
   /**
    * <p>The identifier of the asymmetric CMK from which the public key was downloaded.</p>
@@ -2102,7 +2102,7 @@ export interface GetPublicKeyResponse {
    *          <p>This field appears in the response only when the <code>KeyUsage</code> of the public key
    *       is <code>SIGN_VERIFY</code>.</p>
    */
-  SigningAlgorithms?: Array<SigningAlgorithmSpec | string>;
+  SigningAlgorithms?: SigningAlgorithmSpec | string[];
 }
 
 export namespace GetPublicKeyResponse {
@@ -2224,7 +2224,7 @@ export interface GrantListEntry {
   /**
    * <p>The list of operations permitted by the grant.</p>
    */
-  Operations?: Array<GrantOperation | string>;
+  Operations?: GrantOperation | string[];
 
   /**
    * <p>The principal that can retire the grant.</p>
@@ -2675,7 +2675,7 @@ export interface KeyMetadata {
    *          <p>This field appears only when the <code>KeyUsage</code> of the CMK is
    *         <code>ENCRYPT_DECRYPT</code>.</p>
    */
-  EncryptionAlgorithms?: Array<EncryptionAlgorithmSpec | string>;
+  EncryptionAlgorithms?: EncryptionAlgorithmSpec | string[];
 
   /**
    * <p>Specifies whether the CMK's key material expires. This value is present only when
@@ -2722,7 +2722,7 @@ export interface KeyMetadata {
    *          <p>This field appears only when the <code>KeyUsage</code> of the CMK is
    *         <code>SIGN_VERIFY</code>.</p>
    */
-  SigningAlgorithms?: Array<SigningAlgorithmSpec | string>;
+  SigningAlgorithms?: SigningAlgorithmSpec | string[];
 
   /**
    * <p>The time at which the imported key material expires. When the key material expires, AWS KMS
@@ -2822,7 +2822,7 @@ export interface ListAliasesResponse {
   /**
    * <p>A list of aliases.</p>
    */
-  Aliases?: Array<AliasListEntry>;
+  Aliases?: AliasListEntry[];
 
   /**
    * <p>When <code>Truncated</code> is true, this element is present and contains the
@@ -2892,7 +2892,7 @@ export interface ListGrantsResponse {
   /**
    * <p>A list of grants.</p>
    */
-  Grants?: Array<GrantListEntry>;
+  Grants?: GrantListEntry[];
 
   /**
    * <p>When <code>Truncated</code> is true, this element is present and contains the
@@ -2968,7 +2968,7 @@ export interface ListKeyPoliciesResponse {
   /**
    * <p>A list of key policy names. The only valid value is <code>default</code>.</p>
    */
-  PolicyNames?: Array<string>;
+  PolicyNames?: string[];
 
   /**
    * <p>A flag that indicates whether there are more items in the list. When this
@@ -3013,7 +3013,7 @@ export interface ListKeysResponse {
   /**
    * <p>A list of customer master keys (CMKs).</p>
    */
-  Keys?: Array<KeyListEntry>;
+  Keys?: KeyListEntry[];
 
   /**
    * <p>When <code>Truncated</code> is true, this element is present and contains the
@@ -3091,7 +3091,7 @@ export interface ListResourceTagsResponse {
   /**
    * <p>A list of tags. Each tag consists of a tag key and a tag value.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A flag that indicates whether there are more items in the list. When this
@@ -3312,7 +3312,7 @@ export interface ReEncryptRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
    *     <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  GrantTokens?: Array<string>;
+  GrantTokens?: string[];
 
   /**
    * <p>Specifies the encryption algorithm that AWS KMS will use to decrypt the ciphertext before it
@@ -3536,7 +3536,7 @@ export interface SignRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
    *     <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  GrantTokens?: Array<string>;
+  GrantTokens?: string[];
 
   /**
    * <p>Identifies an asymmetric CMK. AWS KMS uses the private key in the asymmetric CMK to sign the
@@ -3688,7 +3688,7 @@ export interface TagResourceRequest {
   /**
    * <p>One or more tags. Each tag consists of a tag key and a tag value.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -3737,7 +3737,7 @@ export interface UntagResourceRequest {
   /**
    * <p>One or more tag keys. Specify only the tag keys, not the tag values.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -3870,7 +3870,7 @@ export interface VerifyRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
    *     <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  GrantTokens?: Array<string>;
+  GrantTokens?: string[];
 
   /**
    * <p>Identifies the asymmetric CMK that will be used to verify the signature. This must be the

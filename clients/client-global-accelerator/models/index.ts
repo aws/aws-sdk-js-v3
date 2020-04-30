@@ -46,7 +46,7 @@ export interface Accelerator {
   /**
    * <p>The static IP addresses that Global Accelerator associates with the accelerator.</p>
    */
-  IpSets?: Array<IpSet>;
+  IpSets?: IpSet[];
 
   /**
    * <p>The date and time that the accelerator was last modified.</p>
@@ -238,7 +238,7 @@ export interface CreateEndpointGroupRequest {
   /**
    * <p>The list of endpoint objects.</p>
    */
-  EndpointConfigurations?: Array<EndpointConfiguration>;
+  EndpointConfigurations?: EndpointConfiguration[];
 
   /**
    * <p>The name of the AWS Region where the endpoint group is located. A listener can have only one endpoint group in a
@@ -347,7 +347,7 @@ export interface CreateListenerRequest {
   /**
    * <p>The list of port ranges to support for connections from clients to your accelerator.</p>
    */
-  PortRanges: Array<PortRange> | undefined;
+  PortRanges: PortRange[] | undefined;
 
   /**
    * <p>The protocol for connections from clients to your accelerator.</p>
@@ -639,7 +639,7 @@ export interface EndpointGroup {
   /**
    * <p>The list of endpoint objects.</p>
    */
-  EndpointDescriptions?: Array<EndpointDescription>;
+  EndpointDescriptions?: EndpointDescription[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
@@ -812,7 +812,7 @@ export interface IpSet {
   /**
    * <p>The array of IP addresses in the IP address set. An IP address set can have a maximum of two IP addresses.</p>
    */
-  IpAddresses?: Array<string>;
+  IpAddresses?: string[];
 
   /**
    * <p>The types of IP addresses included in this IP set.</p>
@@ -863,7 +863,7 @@ export interface ListAcceleratorsResponse {
   /**
    * <p>The list of accelerators for a customer account.</p>
    */
-  Accelerators?: Array<Accelerator>;
+  Accelerators?: Accelerator[];
 
   /**
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
@@ -904,7 +904,7 @@ export interface ListEndpointGroupsResponse {
   /**
    * <p>The list of the endpoint groups associated with a listener.</p>
    */
-  EndpointGroups?: Array<EndpointGroup>;
+  EndpointGroups?: EndpointGroup[];
 
   /**
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
@@ -945,7 +945,7 @@ export interface ListListenersResponse {
   /**
    * <p>The list of listeners for an accelerator.</p>
    */
-  Listeners?: Array<Listener>;
+  Listeners?: Listener[];
 
   /**
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
@@ -987,7 +987,7 @@ export interface Listener {
   /**
    * <p>The list of port ranges for the connections from clients to the accelerator.</p>
    */
-  PortRanges?: Array<PortRange>;
+  PortRanges?: PortRange[];
 
   /**
    * <p>The protocol for the connections from clients to the accelerator.</p>
@@ -1137,7 +1137,7 @@ export interface UpdateEndpointGroupRequest {
   /**
    * <p>The list of endpoint objects.</p>
    */
-  EndpointConfigurations?: Array<EndpointConfiguration>;
+  EndpointConfigurations?: EndpointConfiguration[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
@@ -1228,7 +1228,7 @@ export interface UpdateListenerRequest {
   /**
    * <p>The updated list of port ranges for the connections from clients to the accelerator.</p>
    */
-  PortRanges?: Array<PortRange>;
+  PortRanges?: PortRange[];
 
   /**
    * <p>The updated protocol for the connections from clients to the accelerator.</p>

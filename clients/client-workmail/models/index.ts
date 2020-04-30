@@ -1035,7 +1035,7 @@ export interface ListAliasesResponse {
   /**
    * <p>The entity's paginated aliases.</p>
    */
-  Aliases?: Array<string>;
+  Aliases?: string[];
 
   /**
    * <p>The token to use to retrieve the next page of results. The value is "null" when there
@@ -1083,7 +1083,7 @@ export interface ListGroupMembersResponse {
   /**
    * <p>The members associated to the group.</p>
    */
-  Members?: Array<Member>;
+  Members?: Member[];
 
   /**
    * <p>The token to use to retrieve the next page of results. The first call does not
@@ -1126,7 +1126,7 @@ export interface ListGroupsResponse {
   /**
    * <p>The overview of groups for an organization.</p>
    */
-  Groups?: Array<Group>;
+  Groups?: Group[];
 
   /**
    * <p>The token to use to retrieve the next page of results. The value is "null" when there
@@ -1180,7 +1180,7 @@ export interface ListMailboxPermissionsResponse {
   /**
    * <p>One page of the user, group, or resource mailbox permissions.</p>
    */
-  Permissions?: Array<Permission>;
+  Permissions?: Permission[];
 }
 
 export namespace ListMailboxPermissionsResponse {
@@ -1218,7 +1218,7 @@ export interface ListOrganizationsResponse {
   /**
    * <p>The overview of owned organizations presented as a list of organization summaries.</p>
    */
-  OrganizationSummaries?: Array<OrganizationSummary>;
+  OrganizationSummaries?: OrganizationSummary[];
 }
 
 export namespace ListOrganizationsResponse {
@@ -1260,7 +1260,7 @@ export interface ListResourceDelegatesResponse {
   /**
    * <p>One page of the resource's delegates.</p>
    */
-  Delegates?: Array<Delegate>;
+  Delegates?: Delegate[];
 
   /**
    * <p>The token used to paginate through the delegates associated with a resource. While
@@ -1311,7 +1311,7 @@ export interface ListResourcesResponse {
   /**
    * <p>One page of the organization's resource representation.</p>
    */
-  Resources?: Array<Resource>;
+  Resources?: Resource[];
 }
 
 export namespace ListResourcesResponse {
@@ -1352,7 +1352,7 @@ export interface ListUsersResponse {
   /**
    * <p>The overview of users for an organization.</p>
    */
-  Users?: Array<User>;
+  Users?: User[];
 }
 
 export namespace ListUsersResponse {
@@ -1544,7 +1544,7 @@ export interface Permission {
   /**
    * <p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.</p>
    */
-  PermissionValues: Array<PermissionType | string> | undefined;
+  PermissionValues: PermissionType | string[] | undefined;
 }
 
 export namespace Permission {
@@ -1580,7 +1580,7 @@ export interface PutMailboxPermissionsRequest {
   /**
    * <p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.</p>
    */
-  PermissionValues: Array<PermissionType | string> | undefined;
+  PermissionValues: PermissionType | string[] | undefined;
 }
 
 export namespace PutMailboxPermissionsRequest {

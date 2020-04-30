@@ -13,7 +13,7 @@ export interface AddPermissionRequest {
    * <p>The AWS account number of the <a href="https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principal</a> who is given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS
    *           account identification, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication">Your AWS Identifiers</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    */
-  AWSAccountIds: Array<string> | undefined;
+  AWSAccountIds: string[] | undefined;
 
   /**
    * <p>The action the client wants to allow for the specified principal. Valid values: the name of any action or <code>*</code>.</p>
@@ -22,7 +22,7 @@ export interface AddPermissionRequest {
    *          <p>Specifying <code>SendMessage</code>, <code>DeleteMessage</code>, or <code>ChangeMessageVisibility</code> for <code>ActionName.n</code> also grants permissions for the corresponding batch versions of those actions: <code>SendMessageBatch</code>,
    *         <code>DeleteMessageBatch</code>, and <code>ChangeMessageVisibilityBatch</code>.</p>
    */
-  Actions: Array<string> | undefined;
+  Actions: string[] | undefined;
 
   /**
    * <p>The unique identification of the permission you're setting (for example, <code>AliceSendMessage</code>). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (<code>-</code>), and underscores (<code>_</code>).</p>
@@ -111,7 +111,7 @@ export interface ChangeMessageVisibilityBatchRequest {
   /**
    * <p>A list of receipt handles of the messages for which the visibility timeout must be changed.</p>
    */
-  Entries: Array<ChangeMessageVisibilityBatchRequestEntry> | undefined;
+  Entries: ChangeMessageVisibilityBatchRequestEntry[] | undefined;
 
   /**
    * <p>The URL of the Amazon SQS queue whose messages' visibility is changed.</p>
@@ -182,14 +182,14 @@ export interface ChangeMessageVisibilityBatchResult {
    *                <a>BatchResultErrorEntry</a>
    *             </code> items.</p>
    */
-  Failed: Array<BatchResultErrorEntry> | undefined;
+  Failed: BatchResultErrorEntry[] | undefined;
 
   /**
    * <p>A list of <code>
    *                <a>ChangeMessageVisibilityBatchResultEntry</a>
    *             </code> items.</p>
    */
-  Successful: Array<ChangeMessageVisibilityBatchResultEntry> | undefined;
+  Successful: ChangeMessageVisibilityBatchResultEntry[] | undefined;
 }
 
 export namespace ChangeMessageVisibilityBatchResult {
@@ -452,7 +452,7 @@ export interface DeleteMessageBatchRequest {
   /**
    * <p>A list of receipt handles for the messages to be deleted.</p>
    */
-  Entries: Array<DeleteMessageBatchRequestEntry> | undefined;
+  Entries: DeleteMessageBatchRequestEntry[] | undefined;
 
   /**
    * <p>The URL of the Amazon SQS queue from which messages are deleted.</p>
@@ -504,14 +504,14 @@ export interface DeleteMessageBatchResult {
    *                <a>BatchResultErrorEntry</a>
    *             </code> items.</p>
    */
-  Failed: Array<BatchResultErrorEntry> | undefined;
+  Failed: BatchResultErrorEntry[] | undefined;
 
   /**
    * <p>A list of <code>
    *                <a>DeleteMessageBatchResultEntry</a>
    *             </code> items.</p>
    */
-  Successful: Array<DeleteMessageBatchResultEntry> | undefined;
+  Successful: DeleteMessageBatchResultEntry[] | undefined;
 }
 
 export namespace DeleteMessageBatchResult {
@@ -723,7 +723,7 @@ export interface GetQueueAttributesRequest {
    *             </li>
    *          </ul>
    */
-  AttributeNames?: Array<QueueAttributeName | string>;
+  AttributeNames?: QueueAttributeName | string[];
 
   /**
    * <p>The URL of the Amazon SQS queue whose attribute information is retrieved.</p>
@@ -874,7 +874,7 @@ export interface ListDeadLetterSourceQueuesResult {
   /**
    * <p>A list of source queue URLs that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
    */
-  queueUrls: Array<string> | undefined;
+  queueUrls: string[] | undefined;
 }
 
 export namespace ListDeadLetterSourceQueuesResult {
@@ -933,7 +933,7 @@ export interface ListQueuesResult {
   /**
    * <p>A list of queue URLs, up to 1,000 entries.</p>
    */
-  QueueUrls?: Array<string>;
+  QueueUrls?: string[];
 }
 
 export namespace ListQueuesResult {
@@ -1041,7 +1041,7 @@ export interface MessageAttributeValue {
   /**
    * <p>Not implemented. Reserved for future use.</p>
    */
-  BinaryListValues?: Array<Uint8Array>;
+  BinaryListValues?: Uint8Array[];
 
   /**
    * <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
@@ -1057,7 +1057,7 @@ export interface MessageAttributeValue {
   /**
    * <p>Not implemented. Reserved for future use.</p>
    */
-  StringListValues?: Array<string>;
+  StringListValues?: string[];
 
   /**
    * <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
@@ -1107,7 +1107,7 @@ export interface MessageSystemAttributeValue {
   /**
    * <p>Not implemented. Reserved for future use.</p>
    */
-  BinaryListValues?: Array<Uint8Array>;
+  BinaryListValues?: Uint8Array[];
 
   /**
    * <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
@@ -1123,7 +1123,7 @@ export interface MessageSystemAttributeValue {
   /**
    * <p>Not implemented. Reserved for future use.</p>
    */
-  StringListValues?: Array<string>;
+  StringListValues?: string[];
 
   /**
    * <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
@@ -1326,7 +1326,7 @@ export interface ReceiveMessageRequest {
    *             </li>
    *          </ul>
    */
-  AttributeNames?: Array<QueueAttributeName | string>;
+  AttributeNames?: QueueAttributeName | string[];
 
   /**
    * <p>The maximum number of messages to return. Amazon SQS never returns more messages than this value (however, fewer messages might be returned). Valid values: 1 to 10. Default: 1.</p>
@@ -1356,7 +1356,7 @@ export interface ReceiveMessageRequest {
    *          <p>When using <code>ReceiveMessage</code>, you can send a list of attribute names to receive, or you can return all of the attributes by specifying <code>All</code> or <code>.*</code> in your request.
    *           You can also use all message attributes starting with a prefix, for example <code>bar.*</code>.</p>
    */
-  MessageAttributeNames?: Array<string>;
+  MessageAttributeNames?: string[];
 
   /**
    * <p>The URL of the Amazon SQS queue from which messages are received.</p>
@@ -1438,7 +1438,7 @@ export interface ReceiveMessageResult {
   /**
    * <p>A list of messages.</p>
    */
-  Messages?: Array<Message>;
+  Messages?: Message[];
 }
 
 export namespace ReceiveMessageResult {
@@ -1480,7 +1480,7 @@ export interface SendMessageBatchRequest {
    *                <a>SendMessageBatchRequestEntry</a>
    *             </code> items.</p>
    */
-  Entries: Array<SendMessageBatchRequestEntry> | undefined;
+  Entries: SendMessageBatchRequestEntry[] | undefined;
 
   /**
    * <p>The URL of the Amazon SQS queue to which batched messages are sent.</p>
@@ -1647,14 +1647,14 @@ export interface SendMessageBatchResult {
    *                <a>BatchResultErrorEntry</a>
    *             </code> items with error details about each message that can't be enqueued.</p>
    */
-  Failed: Array<BatchResultErrorEntry> | undefined;
+  Failed: BatchResultErrorEntry[] | undefined;
 
   /**
    * <p>A list of <code>
    *                <a>SendMessageBatchResultEntry</a>
    *             </code> items.</p>
    */
-  Successful: Array<SendMessageBatchResultEntry> | undefined;
+  Successful: SendMessageBatchResultEntry[] | undefined;
 }
 
 export namespace SendMessageBatchResult {
@@ -2089,7 +2089,7 @@ export interface UntagQueueRequest {
   /**
    * <p>The list of tags to be removed from the specified queue.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagQueueRequest {

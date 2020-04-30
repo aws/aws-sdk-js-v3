@@ -471,7 +471,7 @@ export interface JobDescriptor {
   /**
    * <p>If the specified job failed, this field contains information describing the failure.</p>
    */
-  FailureReasons?: Array<JobFailure>;
+  FailureReasons?: JobFailure[];
 
   /**
    * <p>The Amazon Resource Name (ARN) for this job.</p>
@@ -681,7 +681,7 @@ export interface JobManifestSpec {
   /**
    * <p>If the specified manifest object is in the <code>S3BatchOperations_CSV_20180820</code> format, this element describes which columns contain the required data.</p>
    */
-  Fields?: Array<JobManifestFieldName | string>;
+  Fields?: JobManifestFieldName | string[];
 
   /**
    * <p>Indicates which of the available formats the specified manifest uses.</p>
@@ -879,7 +879,7 @@ export interface ListAccessPointsResult {
   /**
    * <p>Contains identification and configuration information for one or more access points associated with the specified bucket.</p>
    */
-  AccessPointList?: Array<AccessPoint>;
+  AccessPointList?: AccessPoint[];
 
   /**
    * <p>If the specified bucket has more access points than can be returned in one call to this API, then this field contains a continuation token that you can provide in subsequent calls to this API to retrieve additional access points.</p>
@@ -902,7 +902,7 @@ export interface ListJobsRequest {
   /**
    * <p>The <code>List Jobs</code> request returns jobs that match the statuses listed in this element.</p>
    */
-  JobStatuses?: Array<JobStatus | string>;
+  JobStatuses?: JobStatus | string[];
 
   /**
    * <p>The maximum number of jobs that Amazon S3 will include in the <code>List Jobs</code> response. If there are more jobs than this number, the response will include a pagination token in the <code>NextToken</code> field to enable you to retrieve the next page of results.</p>
@@ -925,7 +925,7 @@ export interface ListJobsResult {
   /**
    * <p>The list of current jobs and jobs that have ended within the last 30 days.</p>
    */
-  Jobs?: Array<JobListDescriptor>;
+  Jobs?: JobListDescriptor[];
 
   /**
    * <p>If the <code>List Jobs</code> request produced more than the maximum number of results, you can pass this value into a subsequent <code>List Jobs</code> request in order to retrieve
@@ -1115,7 +1115,7 @@ export interface S3AccessControlList {
   /**
    * <p></p>
    */
-  Grants?: Array<S3Grant>;
+  Grants?: S3Grant[];
 
   /**
    * <p></p>
@@ -1168,7 +1168,7 @@ export interface S3CopyObjectOperation {
   /**
    * <p></p>
    */
-  AccessControlGrants?: Array<S3Grant>;
+  AccessControlGrants?: S3Grant[];
 
   /**
    * <p></p>
@@ -1193,7 +1193,7 @@ export interface S3CopyObjectOperation {
   /**
    * <p></p>
    */
-  NewObjectTagging?: Array<S3Tag>;
+  NewObjectTagging?: S3Tag[];
 
   /**
    * <p></p>
@@ -1469,7 +1469,7 @@ export interface S3SetObjectTaggingOperation {
   /**
    * <p></p>
    */
-  TagSet?: Array<S3Tag>;
+  TagSet?: S3Tag[];
 }
 
 export namespace S3SetObjectTaggingOperation {

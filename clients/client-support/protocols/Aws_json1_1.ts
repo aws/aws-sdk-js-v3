@@ -1556,7 +1556,7 @@ const serializeAws_json1_1Attachment = (
 };
 
 const serializeAws_json1_1Attachments = (
-  input: Array<Attachment>,
+  input: Attachment[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1607,7 +1607,7 @@ const serializeAws_json1_1AddCommunicationToCaseRequest = (
 };
 
 const serializeAws_json1_1CaseIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1618,7 +1618,7 @@ const serializeAws_json1_1CaseIdList = (
 };
 
 const serializeAws_json1_1CcEmailAddressList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1778,7 +1778,7 @@ const serializeAws_json1_1ResolveCaseRequest = (
 };
 
 const serializeAws_json1_1ServiceCodeList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1853,7 +1853,7 @@ const serializeAws_json1_1RefreshTrustedAdvisorCheckRequest = (
 };
 
 const serializeAws_json1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1902,7 +1902,7 @@ const deserializeAws_json1_1AttachmentDetails = (
 const deserializeAws_json1_1AttachmentSet = (
   output: any,
   context: __SerdeContext
-): Array<AttachmentDetails> => {
+): AttachmentDetails[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AttachmentDetails(entry, context)
   );
@@ -1999,7 +1999,7 @@ const deserializeAws_json1_1Category = (
 const deserializeAws_json1_1CategoryList = (
   output: any,
   context: __SerdeContext
-): Array<Category> => {
+): Category[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Category(entry, context)
   );
@@ -2008,7 +2008,7 @@ const deserializeAws_json1_1CategoryList = (
 const deserializeAws_json1_1CcEmailAddressList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2252,7 +2252,7 @@ const deserializeAws_json1_1AddCommunicationToCaseResponse = (
 const deserializeAws_json1_1CaseList = (
   output: any,
   context: __SerdeContext
-): Array<CaseDetails> => {
+): CaseDetails[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CaseDetails(entry, context)
   );
@@ -2261,7 +2261,7 @@ const deserializeAws_json1_1CaseList = (
 const deserializeAws_json1_1CommunicationList = (
   output: any,
   context: __SerdeContext
-): Array<Communication> => {
+): Communication[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Communication(entry, context)
   );
@@ -2395,7 +2395,7 @@ const deserializeAws_json1_1ResolveCaseResponse = (
 const deserializeAws_json1_1ServiceList = (
   output: any,
   context: __SerdeContext
-): Array<Service> => {
+): Service[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Service(entry, context)
   );
@@ -2422,7 +2422,7 @@ const deserializeAws_json1_1SeverityLevel = (
 const deserializeAws_json1_1SeverityLevelsList = (
   output: any,
   context: __SerdeContext
-): Array<SeverityLevel> => {
+): SeverityLevel[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SeverityLevel(entry, context)
   );
@@ -2516,7 +2516,7 @@ const deserializeAws_json1_1RefreshTrustedAdvisorCheckResponse = (
 const deserializeAws_json1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2573,7 +2573,7 @@ const deserializeAws_json1_1TrustedAdvisorCheckDescription = (
 const deserializeAws_json1_1TrustedAdvisorCheckList = (
   output: any,
   context: __SerdeContext
-): Array<TrustedAdvisorCheckDescription> => {
+): TrustedAdvisorCheckDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TrustedAdvisorCheckDescription(entry, context)
   );
@@ -2607,7 +2607,7 @@ const deserializeAws_json1_1TrustedAdvisorCheckRefreshStatus = (
 const deserializeAws_json1_1TrustedAdvisorCheckRefreshStatusList = (
   output: any,
   context: __SerdeContext
-): Array<TrustedAdvisorCheckRefreshStatus> => {
+): TrustedAdvisorCheckRefreshStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TrustedAdvisorCheckRefreshStatus(entry, context)
   );
@@ -2717,7 +2717,7 @@ const deserializeAws_json1_1TrustedAdvisorCheckSummary = (
 const deserializeAws_json1_1TrustedAdvisorCheckSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<TrustedAdvisorCheckSummary> => {
+): TrustedAdvisorCheckSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TrustedAdvisorCheckSummary(entry, context)
   );
@@ -2784,7 +2784,7 @@ const deserializeAws_json1_1TrustedAdvisorResourceDetail = (
 const deserializeAws_json1_1TrustedAdvisorResourceDetailList = (
   output: any,
   context: __SerdeContext
-): Array<TrustedAdvisorResourceDetail> => {
+): TrustedAdvisorResourceDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TrustedAdvisorResourceDetail(entry, context)
   );

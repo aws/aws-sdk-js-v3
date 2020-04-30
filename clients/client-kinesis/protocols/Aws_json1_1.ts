@@ -3798,7 +3798,7 @@ const serializeAws_json1_1MergeShardsInput = (
 };
 
 const serializeAws_json1_1MetricsNameList = (
-  input: Array<MetricsName | string>,
+  input: MetricsName | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3866,7 +3866,7 @@ const serializeAws_json1_1PutRecordsRequestEntry = (
 };
 
 const serializeAws_json1_1PutRecordsRequestEntryList = (
-  input: Array<PutRecordsRequestEntry>,
+  input: PutRecordsRequestEntry[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3996,7 +3996,7 @@ const serializeAws_json1_1SubscribeToShardInput = (
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4103,7 +4103,7 @@ const deserializeAws_json1_1ConsumerDescription = (
 const deserializeAws_json1_1ConsumerList = (
   output: any,
   context: __SerdeContext
-): Array<Consumer> => {
+): Consumer[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Consumer(entry, context)
   );
@@ -4210,7 +4210,7 @@ const deserializeAws_json1_1EnhancedMetrics = (
 const deserializeAws_json1_1EnhancedMonitoringList = (
   output: any,
   context: __SerdeContext
-): Array<EnhancedMetrics> => {
+): EnhancedMetrics[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EnhancedMetrics(entry, context)
   );
@@ -4548,7 +4548,7 @@ const deserializeAws_json1_1ListTagsForStreamOutput = (
 const deserializeAws_json1_1MetricsNameList = (
   output: any,
   context: __SerdeContext
-): Array<MetricsName | string> => {
+): MetricsName | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4645,7 +4645,7 @@ const deserializeAws_json1_1PutRecordsResultEntry = (
 const deserializeAws_json1_1PutRecordsResultEntryList = (
   output: any,
   context: __SerdeContext
-): Array<PutRecordsResultEntry> => {
+): PutRecordsResultEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PutRecordsResultEntry(entry, context)
   );
@@ -4689,7 +4689,7 @@ const deserializeAws_json1_1_Record = (
 const deserializeAws_json1_1RecordList = (
   output: any,
   context: __SerdeContext
-): Array<_Record> => {
+): _Record[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1_Record(entry, context)
   );
@@ -4809,7 +4809,7 @@ const deserializeAws_json1_1Shard = (
 const deserializeAws_json1_1ShardList = (
   output: any,
   context: __SerdeContext
-): Array<Shard> => {
+): Shard[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Shard(entry, context)
   );
@@ -4946,7 +4946,7 @@ const deserializeAws_json1_1StreamDescriptionSummary = (
 const deserializeAws_json1_1StreamNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5137,7 +5137,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );

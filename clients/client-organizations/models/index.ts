@@ -1619,7 +1619,7 @@ export interface Handshake {
   /**
    * <p>Information about the two accounts that are participating in the handshake.</p>
    */
-  Parties?: Array<HandshakeParty>;
+  Parties?: HandshakeParty[];
 
   /**
    * <p>The date and time that the handshake request was made.</p>
@@ -1629,7 +1629,7 @@ export interface Handshake {
   /**
    * <p>Additional information that is needed to process the handshake.</p>
    */
-  Resources?: Array<HandshakeResource>;
+  Resources?: HandshakeResource[];
 
   /**
    * <p>The current state of the handshake. Use the state to trace the flow of the handshake
@@ -1852,7 +1852,7 @@ export interface HandshakeResource {
    * <p>When needed, contains an additional array of <code>HandshakeResource</code>
    *       objects.</p>
    */
-  Resources?: Array<HandshakeResource>;
+  Resources?: HandshakeResource[];
 
   /**
    * <p>The type of information being passed, specifying how the value is to be interpreted by the
@@ -2159,7 +2159,7 @@ export interface ListAWSServiceAccessForOrganizationResponse {
    *       organization. Each principal is a structure that includes the name and the date that it was
    *       enabled for integration with AWS Organizations.</p>
    */
-  EnabledServicePrincipals?: Array<EnabledServicePrincipal>;
+  EnabledServicePrincipals?: EnabledServicePrincipal[];
 
   /**
    * <p>If present, this value indicates that there is more output
@@ -2217,7 +2217,7 @@ export interface ListAccountsForParentResponse {
   /**
    * <p>A list of the accounts in the specified root or OU.</p>
    */
-  Accounts?: Array<Account>;
+  Accounts?: Account[];
 
   /**
    * <p>If present, this value indicates that there is more output
@@ -2267,7 +2267,7 @@ export interface ListAccountsResponse {
   /**
    * <p>A list of objects in the organization.</p>
    */
-  Accounts?: Array<Account>;
+  Accounts?: Account[];
 
   /**
    * <p>If present, this value indicates that there is more output
@@ -2343,7 +2343,7 @@ export interface ListChildrenResponse {
   /**
    * <p>The list of children of the specified parent container.</p>
    */
-  Children?: Array<Child>;
+  Children?: Child[];
 
   /**
    * <p>If present, this value indicates that there is more output
@@ -2386,7 +2386,7 @@ export interface ListCreateAccountStatusRequest {
    * <p>A list of one or more states that you want included in the response. If this parameter
    *       isn't present, all requests are included in the response.</p>
    */
-  States?: Array<CreateAccountState | string>;
+  States?: CreateAccountState | string[];
 }
 
 export namespace ListCreateAccountStatusRequest {
@@ -2400,7 +2400,7 @@ export interface ListCreateAccountStatusResponse {
    * <p>A list of objects with details about the requests. Certain elements, such as the accountId
    *       number, are present in the output only after the account has been successfully created.</p>
    */
-  CreateAccountStatuses?: Array<CreateAccountStatus>;
+  CreateAccountStatuses?: CreateAccountStatus[];
 
   /**
    * <p>If present, this value indicates that there is more output
@@ -2462,7 +2462,7 @@ export interface ListHandshakesForAccountResponse {
    * <p>A list of <a>Handshake</a> objects with details about each of the handshakes
    *       that is associated with the specified account.</p>
    */
-  Handshakes?: Array<Handshake>;
+  Handshakes?: Handshake[];
 
   /**
    * <p>If present, this value indicates that there is more output
@@ -2524,7 +2524,7 @@ export interface ListHandshakesForOrganizationResponse {
    * <p>A list of <a>Handshake</a> objects with details about each of the handshakes
    *       that are associated with an organization.</p>
    */
-  Handshakes?: Array<Handshake>;
+  Handshakes?: Handshake[];
 
   /**
    * <p>If present, this value indicates that there is more output
@@ -2603,7 +2603,7 @@ export interface ListOrganizationalUnitsForParentResponse {
   /**
    * <p>A list of the OUs in the specified root or parent OU.</p>
    */
-  OrganizationalUnits?: Array<OrganizationalUnit>;
+  OrganizationalUnits?: OrganizationalUnit[];
 }
 
 export namespace ListOrganizationalUnitsForParentResponse {
@@ -2673,7 +2673,7 @@ export interface ListParentsResponse {
   /**
    * <p>A list of parents for the specified child account or OU.</p>
    */
-  Parents?: Array<Parent>;
+  Parents?: Parent[];
 }
 
 export namespace ListParentsResponse {
@@ -2753,7 +2753,7 @@ export interface ListPoliciesForTargetResponse {
   /**
    * <p>The list of policies that match the criteria in the request.</p>
    */
-  Policies?: Array<PolicySummary>;
+  Policies?: PolicySummary[];
 }
 
 export namespace ListPoliciesForTargetResponse {
@@ -2809,7 +2809,7 @@ export interface ListPoliciesResponse {
    * <p>A list of policies that match the filter criteria in the request. The output list doesn't
    *       include the policy contents. To see the content for a policy, see <a>DescribePolicy</a>.</p>
    */
-  Policies?: Array<PolicySummary>;
+  Policies?: PolicySummary[];
 }
 
 export namespace ListPoliciesResponse {
@@ -2859,7 +2859,7 @@ export interface ListRootsResponse {
   /**
    * <p>A list of roots that are defined in an organization.</p>
    */
-  Roots?: Array<Root>;
+  Roots?: Root[];
 }
 
 export namespace ListRootsResponse {
@@ -2902,7 +2902,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are assigned to the resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2960,7 +2960,7 @@ export interface ListTargetsForPolicyResponse {
    * <p>A list of structures, each of which contains details about one of the entities to which
    *       the specified policy is attached.</p>
    */
-  Targets?: Array<PolicyTargetSummary>;
+  Targets?: PolicyTargetSummary[];
 }
 
 export namespace ListTargetsForPolicyResponse {
@@ -3088,7 +3088,7 @@ export interface Organization {
    *         a policy type in that root.</p>
    *          </note>
    */
-  AvailablePolicyTypes?: Array<PolicyTypeSummary>;
+  AvailablePolicyTypes?: PolicyTypeSummary[];
 
   /**
    * <p>Specifies the functionality that currently is available to the organization. If set to
@@ -3616,7 +3616,7 @@ export interface Root {
    *         availability of the policy types in that organization.</p>
    *          </note>
    */
-  PolicyTypes?: Array<PolicyTypeSummary>;
+  PolicyTypes?: PolicyTypeSummary[];
 }
 
 export namespace Root {
@@ -3704,7 +3704,7 @@ export interface TagResourceRequest {
    * <p>The tag to add to the specified resource. Specifying the tag key is required. You can set
    *       the value of a tag to an empty string, but you can't set the value of a tag to null.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -3782,7 +3782,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The tag to remove from the specified resource.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

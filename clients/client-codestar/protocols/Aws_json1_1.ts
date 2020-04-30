@@ -2545,7 +2545,7 @@ const serializeAws_json1_1S3Location = (
 };
 
 const serializeAws_json1_1SourceCode = (
-  input: Array<Code>,
+  input: Code[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2556,7 +2556,7 @@ const serializeAws_json1_1SourceCode = (
 };
 
 const serializeAws_json1_1TagKeys = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3199,7 +3199,7 @@ const deserializeAws_json1_1ProjectSummary = (
 const deserializeAws_json1_1ProjectsList = (
   output: any,
   context: __SerdeContext
-): Array<ProjectSummary> => {
+): ProjectSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ProjectSummary(entry, context)
   );
@@ -3222,7 +3222,7 @@ const deserializeAws_json1_1Resource = (
 const deserializeAws_json1_1ResourcesResult = (
   output: any,
   context: __SerdeContext
-): Array<Resource> => {
+): Resource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Resource(entry, context)
   );
@@ -3309,7 +3309,7 @@ const deserializeAws_json1_1TeamMemberNotFoundException = (
 const deserializeAws_json1_1TeamMemberResult = (
   output: any,
   context: __SerdeContext
-): Array<TeamMember> => {
+): TeamMember[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TeamMember(entry, context)
   );
@@ -3461,7 +3461,7 @@ const deserializeAws_json1_1UserProfileSummary = (
 const deserializeAws_json1_1UserProfilesList = (
   output: any,
   context: __SerdeContext
-): Array<UserProfileSummary> => {
+): UserProfileSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UserProfileSummary(entry, context)
   );

@@ -468,7 +468,7 @@ export interface ContextEntry {
    *          to the simulation when the key is referenced by a <code>Condition</code> element in an
    *          input policy.</p>
    */
-  ContextKeyValues?: Array<string>;
+  ContextKeyValues?: string[];
 }
 
 export namespace ContextEntry {
@@ -686,7 +686,7 @@ export interface CreateOpenIDConnectProviderRequest {
    *             <code>CreateOpenIDConnectProviderRequest</code> operation accepts client IDs up to 255
    *          characters long.</p>
    */
-  ClientIDList?: Array<string>;
+  ClientIDList?: string[];
 
   /**
    * <p>A list of server certificate thumbprints for the OpenID Connect (OIDC) identity
@@ -704,7 +704,7 @@ export interface CreateOpenIDConnectProviderRequest {
    *          <p>For more information about obtaining the OIDC provider's thumbprint, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html">Obtaining the Thumbprint for an OpenID Connect Provider</a> in the <i>IAM
    *             User Guide</i>.</p>
    */
-  ThumbprintList: Array<string> | undefined;
+  ThumbprintList: string[] | undefined;
 
   /**
    * <p>The URL of the identity provider. The URL must begin with <code>https://</code> and
@@ -976,7 +976,7 @@ export interface CreateRoleRequest {
    *         role, then the entire request fails and the role is not created.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateRoleRequest {
@@ -1163,7 +1163,7 @@ export interface CreateUserRequest {
    *         user, then the entire request fails and the user is not created.</p>
    *          </note>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The name of the user to create.</p>
@@ -1759,7 +1759,7 @@ export interface DeletionTaskFailureReasonType {
    *          that are associated with the role and the Region in which the resources are being
    *          used.</p>
    */
-  RoleUsageList?: Array<RoleUsageType>;
+  RoleUsageList?: RoleUsageType[];
 }
 
 export namespace DeletionTaskFailureReasonType {
@@ -2099,7 +2099,7 @@ export interface EvaluationResult {
    *          only one statement denies that operation, then the explicit deny overrides any allow. In
    *          addition, the deny statement is the only entry included in the result.</p>
    */
-  MatchedStatements?: Array<Statement>;
+  MatchedStatements?: Statement[];
 
   /**
    * <p>A list of context keys that are required by the included input policies but that were
@@ -2109,7 +2109,7 @@ export interface EvaluationResult {
    *          included under the <code>ResourceSpecificResults</code> section. To discover the context
    *          keys used by a set of policies, you can call <a>GetContextKeysForCustomPolicy</a> or <a>GetContextKeysForPrincipalPolicy</a>.</p>
    */
-  MissingContextValues?: Array<string>;
+  MissingContextValues?: string[];
 
   /**
    * <p>A structure that details how Organizations and its service control policies affect the results of
@@ -2122,7 +2122,7 @@ export interface EvaluationResult {
    * <p>The individual results of the simulation of the API operation specified in
    *          EvalActionName on each resource.</p>
    */
-  ResourceSpecificResults?: Array<ResourceSpecificResult>;
+  ResourceSpecificResults?: ResourceSpecificResult[];
 }
 
 export namespace EvaluationResult {
@@ -2270,7 +2270,7 @@ export interface GetAccountAuthorizationDetailsRequest {
    *          <p>The format for this parameter is a comma-separated (if more than one) list of strings.
    *          Each string value in the list must be one of the valid values listed below.</p>
    */
-  Filter?: Array<EntityType | string>;
+  Filter?: EntityType | string[];
 
   /**
    * <p>Use this parameter only when paginating results and only after
@@ -2307,7 +2307,7 @@ export interface GetAccountAuthorizationDetailsResponse {
   /**
    * <p>A list containing information about IAM groups.</p>
    */
-  GroupDetailList?: Array<GroupDetail>;
+  GroupDetailList?: GroupDetail[];
 
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -2329,17 +2329,17 @@ export interface GetAccountAuthorizationDetailsResponse {
   /**
    * <p>A list containing information about managed policies.</p>
    */
-  Policies?: Array<ManagedPolicyDetail>;
+  Policies?: ManagedPolicyDetail[];
 
   /**
    * <p>A list containing information about IAM roles.</p>
    */
-  RoleDetailList?: Array<RoleDetail>;
+  RoleDetailList?: RoleDetail[];
 
   /**
    * <p>A list containing information about IAM users.</p>
    */
-  UserDetailList?: Array<UserDetail>;
+  UserDetailList?: UserDetail[];
 }
 
 export namespace GetAccountAuthorizationDetailsResponse {
@@ -2405,7 +2405,7 @@ export interface GetContextKeysForCustomPolicyRequest {
    *             </li>
    *          </ul>
    */
-  PolicyInputList: Array<string> | undefined;
+  PolicyInputList: string[] | undefined;
 }
 
 export namespace GetContextKeysForCustomPolicyRequest {
@@ -2421,7 +2421,7 @@ export interface GetContextKeysForPolicyResponse {
   /**
    * <p>The list of context keys that are referenced in the input policies.</p>
    */
-  ContextKeyNames?: Array<string>;
+  ContextKeyNames?: string[];
 }
 
 export namespace GetContextKeysForPolicyResponse {
@@ -2451,7 +2451,7 @@ export interface GetContextKeysForPrincipalPolicyRequest {
    *             </li>
    *          </ul>
    */
-  PolicyInputList?: Array<string>;
+  PolicyInputList?: string[];
 
   /**
    * <p>The ARN of a user, group, or role whose policies contain the context keys that you want
@@ -2616,7 +2616,7 @@ export interface GetGroupResponse {
   /**
    * <p>A list of users in the group.</p>
    */
-  Users: Array<User> | undefined;
+  Users: User[] | undefined;
 }
 
 export namespace GetGroupResponse {
@@ -2714,7 +2714,7 @@ export interface GetOpenIDConnectProviderResponse {
    * <p>A list of client IDs (also known as audiences) that are associated with the specified
    *          IAM OIDC provider resource object. For more information, see <a>CreateOpenIDConnectProvider</a>.</p>
    */
-  ClientIDList?: Array<string>;
+  ClientIDList?: string[];
 
   /**
    * <p>The date and time when the IAM OIDC provider resource object was created in the AWS
@@ -2726,7 +2726,7 @@ export interface GetOpenIDConnectProviderResponse {
    * <p>A list of certificate thumbprints that are associated with the specified IAM OIDC
    *          provider resource object. For more information, see <a>CreateOpenIDConnectProvider</a>. </p>
    */
-  ThumbprintList?: Array<string>;
+  ThumbprintList?: string[];
 
   /**
    * <p>The URL that the IAM OIDC provider resource object is associated with. For more
@@ -2786,7 +2786,7 @@ export interface GetOrganizationsAccessReportResponse {
    * <p>An object that contains details about the most recent attempt to access the
    *          service.</p>
    */
-  AccessDetails?: Array<AccessDetail>;
+  AccessDetails?: AccessDetail[];
 
   /**
    * <p>Contains information about the reason that the operation failed.</p>
@@ -3206,7 +3206,7 @@ export interface GetServiceLastAccessedDetailsResponse {
    * <p> A <code>ServiceLastAccessed</code> object that contains details about the most recent
    *          attempt to access the service.</p>
    */
-  ServicesLastAccessed: Array<ServiceLastAccessed> | undefined;
+  ServicesLastAccessed: ServiceLastAccessed[] | undefined;
 }
 
 export namespace GetServiceLastAccessedDetailsResponse {
@@ -3270,7 +3270,7 @@ export interface GetServiceLastAccessedDetailsWithEntitiesResponse {
    *          entity (user or role) used group or policy permissions in an attempt to access the
    *          specified AWS service.</p>
    */
-  EntityDetailsList: Array<EntityDetails> | undefined;
+  EntityDetailsList: EntityDetails[] | undefined;
 
   /**
    * <p>An object that contains details about the reason the operation failed.</p>
@@ -3529,7 +3529,7 @@ export interface GroupDetail {
   /**
    * <p>A list of the managed policies attached to the group.</p>
    */
-  AttachedManagedPolicies?: Array<AttachedPolicy>;
+  AttachedManagedPolicies?: AttachedPolicy[];
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
@@ -3552,7 +3552,7 @@ export interface GroupDetail {
   /**
    * <p>A list of the inline policies embedded in the group.</p>
    */
-  GroupPolicyList?: Array<PolicyDetail>;
+  GroupPolicyList?: PolicyDetail[];
 
   /**
    * <p>The path to the group. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
@@ -3625,7 +3625,7 @@ export interface InstanceProfile {
   /**
    * <p>The role associated with the instance profile.</p>
    */
-  Roles: Array<Role> | undefined;
+  Roles: Role[] | undefined;
 }
 
 export namespace InstanceProfile {
@@ -3795,7 +3795,7 @@ export interface ListAccessKeysResponse {
   /**
    * <p>A list of objects containing metadata about the access keys.</p>
    */
-  AccessKeyMetadata: Array<AccessKeyMetadata> | undefined;
+  AccessKeyMetadata: AccessKeyMetadata[] | undefined;
 
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -3858,7 +3858,7 @@ export interface ListAccountAliasesResponse {
    * <p>A list of aliases associated with the account. AWS supports only one alias per
    *          account.</p>
    */
-  AccountAliases: Array<string> | undefined;
+  AccountAliases: string[] | undefined;
 
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -3937,7 +3937,7 @@ export interface ListAttachedGroupPoliciesResponse {
   /**
    * <p>A list of the attached policies.</p>
    */
-  AttachedPolicies?: Array<AttachedPolicy>;
+  AttachedPolicies?: AttachedPolicy[];
 
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -4016,7 +4016,7 @@ export interface ListAttachedRolePoliciesResponse {
   /**
    * <p>A list of the attached policies.</p>
    */
-  AttachedPolicies?: Array<AttachedPolicy>;
+  AttachedPolicies?: AttachedPolicy[];
 
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -4095,7 +4095,7 @@ export interface ListAttachedUserPoliciesResponse {
   /**
    * <p>A list of the attached policies.</p>
    */
-  AttachedPolicies?: Array<AttachedPolicy>;
+  AttachedPolicies?: AttachedPolicy[];
 
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -4211,17 +4211,17 @@ export interface ListEntitiesForPolicyResponse {
   /**
    * <p>A list of IAM groups that the policy is attached to.</p>
    */
-  PolicyGroups?: Array<PolicyGroup>;
+  PolicyGroups?: PolicyGroup[];
 
   /**
    * <p>A list of IAM roles that the policy is attached to.</p>
    */
-  PolicyRoles?: Array<PolicyRole>;
+  PolicyRoles?: PolicyRole[];
 
   /**
    * <p>A list of IAM users that the policy is attached to.</p>
    */
-  PolicyUsers?: Array<PolicyUser>;
+  PolicyUsers?: PolicyUser[];
 }
 
 export namespace ListEntitiesForPolicyResponse {
@@ -4292,7 +4292,7 @@ export interface ListGroupPoliciesResponse {
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
-  PolicyNames: Array<string> | undefined;
+  PolicyNames: string[] | undefined;
 }
 
 export namespace ListGroupPoliciesResponse {
@@ -4344,7 +4344,7 @@ export interface ListGroupsForUserResponse {
   /**
    * <p>A list of groups.</p>
    */
-  Groups: Array<Group> | undefined;
+  Groups: Group[] | undefined;
 
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -4417,7 +4417,7 @@ export interface ListGroupsResponse {
   /**
    * <p>A list of groups.</p>
    */
-  Groups: Array<Group> | undefined;
+  Groups: Group[] | undefined;
 
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -4486,7 +4486,7 @@ export interface ListInstanceProfilesForRoleResponse {
   /**
    * <p>A list of instance profiles.</p>
    */
-  InstanceProfiles: Array<InstanceProfile> | undefined;
+  InstanceProfiles: InstanceProfile[] | undefined;
 
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -4560,7 +4560,7 @@ export interface ListInstanceProfilesResponse {
   /**
    * <p>A list of instance profiles.</p>
    */
-  InstanceProfiles: Array<InstanceProfile> | undefined;
+  InstanceProfiles: InstanceProfile[] | undefined;
 
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -4639,7 +4639,7 @@ export interface ListMFADevicesResponse {
   /**
    * <p>A list of MFA devices.</p>
    */
-  MFADevices: Array<MFADevice> | undefined;
+  MFADevices: MFADevice[] | undefined;
 
   /**
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
@@ -4672,7 +4672,7 @@ export interface ListOpenIDConnectProvidersResponse {
   /**
    * <p>The list of IAM OIDC provider resource objects defined in the AWS account.</p>
    */
-  OpenIDConnectProviderList?: Array<OpenIDConnectProviderListEntry>;
+  OpenIDConnectProviderList?: OpenIDConnectProviderListEntry[];
 }
 
 export namespace ListOpenIDConnectProvidersResponse {
@@ -4691,7 +4691,7 @@ export interface ListPoliciesGrantingServiceAccessEntry {
    * <p>The <code>PoliciesGrantingServiceAccess</code> object that contains details about the
    *          policy.</p>
    */
-  Policies?: Array<PolicyGrantingServiceAccess>;
+  Policies?: PolicyGrantingServiceAccess[];
 
   /**
    * <p>The namespace of the service that was accessed.</p>
@@ -4737,7 +4737,7 @@ export interface ListPoliciesGrantingServiceAccessRequest {
    *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
    *             Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
-  ServiceNamespaces: Array<string> | undefined;
+  ServiceNamespaces: string[] | undefined;
 }
 
 export namespace ListPoliciesGrantingServiceAccessRequest {
@@ -4768,7 +4768,7 @@ export interface ListPoliciesGrantingServiceAccessResponse {
    *          permissions policies attached to the specified identity (user, group, or role).</p>
    */
   PoliciesGrantingServiceAccess:
-    | Array<ListPoliciesGrantingServiceAccessEntry>
+    | ListPoliciesGrantingServiceAccessEntry[]
     | undefined;
 }
 
@@ -4869,7 +4869,7 @@ export interface ListPoliciesResponse {
   /**
    * <p>A list of policies.</p>
    */
-  Policies?: Array<Policy>;
+  Policies?: Policy[];
 }
 
 export namespace ListPoliciesResponse {
@@ -4941,7 +4941,7 @@ export interface ListPolicyVersionsResponse {
    *          <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for Managed
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
    */
-  Versions?: Array<PolicyVersion>;
+  Versions?: PolicyVersion[];
 }
 
 export namespace ListPolicyVersionsResponse {
@@ -5010,7 +5010,7 @@ export interface ListRolePoliciesResponse {
   /**
    * <p>A list of policy names.</p>
    */
-  PolicyNames: Array<string> | undefined;
+  PolicyNames: string[] | undefined;
 }
 
 export namespace ListRolePoliciesResponse {
@@ -5074,7 +5074,7 @@ export interface ListRoleTagsResponse {
    *       name and an associated value. If no tags are attached to the specified role, the response
    *       contains an empty list.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace ListRoleTagsResponse {
@@ -5147,7 +5147,7 @@ export interface ListRolesResponse {
   /**
    * <p>A list of roles.</p>
    */
-  Roles: Array<Role> | undefined;
+  Roles: Role[] | undefined;
 }
 
 export namespace ListRolesResponse {
@@ -5174,7 +5174,7 @@ export interface ListSAMLProvidersResponse {
    * <p>The list of SAML provider resource objects defined in IAM for this AWS
    *          account.</p>
    */
-  SAMLProviderList?: Array<SAMLProviderListEntry>;
+  SAMLProviderList?: SAMLProviderListEntry[];
 }
 
 export namespace ListSAMLProvidersResponse {
@@ -5245,7 +5245,7 @@ export interface ListSSHPublicKeysResponse {
   /**
    * <p>A list of the SSH public keys assigned to IAM user.</p>
    */
-  SSHPublicKeys?: Array<SSHPublicKeyMetadata>;
+  SSHPublicKeys?: SSHPublicKeyMetadata[];
 }
 
 export namespace ListSSHPublicKeysResponse {
@@ -5319,7 +5319,7 @@ export interface ListServerCertificatesResponse {
   /**
    * <p>A list of server certificates.</p>
    */
-  ServerCertificateMetadataList: Array<ServerCertificateMetadata> | undefined;
+  ServerCertificateMetadataList: ServerCertificateMetadata[] | undefined;
 }
 
 export namespace ListServerCertificatesResponse {
@@ -5356,7 +5356,7 @@ export interface ListServiceSpecificCredentialsResponse {
    * <p>A list of structures that each contain details about a service-specific
    *          credential.</p>
    */
-  ServiceSpecificCredentials?: Array<ServiceSpecificCredentialMetadata>;
+  ServiceSpecificCredentials?: ServiceSpecificCredentialMetadata[];
 }
 
 export namespace ListServiceSpecificCredentialsResponse {
@@ -5408,7 +5408,7 @@ export interface ListSigningCertificatesResponse {
   /**
    * <p>A list of the user's signing certificate information.</p>
    */
-  Certificates: Array<SigningCertificate> | undefined;
+  Certificates: SigningCertificate[] | undefined;
 
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -5494,7 +5494,7 @@ export interface ListUserPoliciesResponse {
   /**
    * <p>A list of policy names.</p>
    */
-  PolicyNames: Array<string> | undefined;
+  PolicyNames: string[] | undefined;
 }
 
 export namespace ListUserPoliciesResponse {
@@ -5558,7 +5558,7 @@ export interface ListUserTagsResponse {
    *       name and an associated value. If no tags are attached to the specified user, the response
    *       contains an empty list.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace ListUserTagsResponse {
@@ -5631,7 +5631,7 @@ export interface ListUsersResponse {
   /**
    * <p>A list of users.</p>
    */
-  Users: Array<User> | undefined;
+  Users: User[] | undefined;
 }
 
 export namespace ListUsersResponse {
@@ -5701,7 +5701,7 @@ export interface ListVirtualMFADevicesResponse {
    * <p> The list of virtual MFA devices in the current account that match the
    *             <code>AssignmentStatus</code> value that was passed in the request.</p>
    */
-  VirtualMFADevices: Array<VirtualMFADevice> | undefined;
+  VirtualMFADevices: VirtualMFADevice[] | undefined;
 }
 
 export namespace ListVirtualMFADevicesResponse {
@@ -5875,7 +5875,7 @@ export interface ManagedPolicyDetail {
   /**
    * <p>A list containing information about the versions of the policy.</p>
    */
-  PolicyVersionList?: Array<PolicyVersion>;
+  PolicyVersionList?: PolicyVersion[];
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
@@ -6730,7 +6730,7 @@ export interface ResourceSpecificResult {
    *          deny overrides any allow. In addition, the deny statement is the only entry included in the
    *          result.</p>
    */
-  MatchedStatements?: Array<Statement>;
+  MatchedStatements?: Statement[];
 
   /**
    * <p>A list of context keys that are required by the included input policies but that were
@@ -6742,7 +6742,7 @@ export interface ResourceSpecificResult {
    *          used by a set of policies, you can call <a>GetContextKeysForCustomPolicy</a> or
    *             <a>GetContextKeysForPrincipalPolicy</a>.</p>
    */
-  MissingContextValues?: Array<string>;
+  MissingContextValues?: string[];
 }
 
 export namespace ResourceSpecificResult {
@@ -6861,7 +6861,7 @@ export interface Role {
    *       tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM
    *         Identities</a> in the <i>IAM User Guide</i>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace Role {
@@ -6890,7 +6890,7 @@ export interface RoleDetail {
    * <p>A list of managed policies attached to the role. These policies are the role's access
    *          (permissions) policies.</p>
    */
-  AttachedManagedPolicies?: Array<AttachedPolicy>;
+  AttachedManagedPolicies?: AttachedPolicy[];
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
@@ -6901,7 +6901,7 @@ export interface RoleDetail {
   /**
    * <p>A list of instance profiles that contain this role.</p>
    */
-  InstanceProfileList?: Array<InstanceProfile>;
+  InstanceProfileList?: InstanceProfile[];
 
   /**
    * <p>The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
@@ -6942,14 +6942,14 @@ export interface RoleDetail {
    * <p>A list of inline policies embedded in the role. These policies are the role's access
    *          (permissions) policies.</p>
    */
-  RolePolicyList?: Array<PolicyDetail>;
+  RolePolicyList?: PolicyDetail[];
 
   /**
    * <p>A list of tags that are attached to the specified role. For more information about
    *       tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM
    *         Identities</a> in the <i>IAM User Guide</i>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace RoleDetail {
@@ -7002,7 +7002,7 @@ export interface RoleUsageType {
   /**
    * <p>The name of the resource that is using the service-linked role.</p>
    */
-  Resources?: Array<string>;
+  Resources?: string[];
 }
 
 export namespace RoleUsageType {
@@ -7462,7 +7462,7 @@ export interface SimulateCustomPolicyRequest {
    *          as <code>iam:CreateUser</code>. This operation does not support using wildcards (*) in an
    *          action name.</p>
    */
-  ActionNames: Array<string> | undefined;
+  ActionNames: string[] | undefined;
 
   /**
    * <p>The ARN of the IAM user that you want to use as the simulated caller of the API
@@ -7479,7 +7479,7 @@ export interface SimulateCustomPolicyRequest {
    *          context key is evaluated in one of the simulated IAM permissions policies, the
    *          corresponding value is supplied.</p>
    */
-  ContextEntries?: Array<ContextEntry>;
+  ContextEntries?: ContextEntry[];
 
   /**
    * <p>Use this parameter only when paginating results and only after
@@ -7527,7 +7527,7 @@ export interface SimulateCustomPolicyRequest {
    *             </li>
    *          </ul>
    */
-  PolicyInputList: Array<string> | undefined;
+  PolicyInputList: string[] | undefined;
 
   /**
    * <p>A list of ARNs of AWS resources to include in the simulation. If this parameter is not
@@ -7543,7 +7543,7 @@ export interface SimulateCustomPolicyRequest {
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
    *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
-  ResourceArns?: Array<string>;
+  ResourceArns?: string[];
 
   /**
    * <p>Specifies the type of simulation to run. Different API operations that support
@@ -7655,7 +7655,7 @@ export interface SimulatePolicyResponse {
   /**
    * <p>The results of the simulation.</p>
    */
-  EvaluationResults?: Array<EvaluationResult>;
+  EvaluationResults?: EvaluationResult[];
 
   /**
    * <p>A flag that indicates whether there are more items to return. If your
@@ -7687,7 +7687,7 @@ export interface SimulatePrincipalPolicyRequest {
    *          evaluated for each resource. Each operation must include the service identifier, such as
    *             <code>iam:CreateUser</code>.</p>
    */
-  ActionNames: Array<string> | undefined;
+  ActionNames: string[] | undefined;
 
   /**
    * <p>The ARN of the IAM user that you want to specify as the simulated caller of the API
@@ -7714,7 +7714,7 @@ export interface SimulatePrincipalPolicyRequest {
    *          context key is evaluated in one of the simulated IAM permissions policies, the
    *          corresponding value is supplied.</p>
    */
-  ContextEntries?: Array<ContextEntry>;
+  ContextEntries?: ContextEntry[];
 
   /**
    * <p>Use this parameter only when paginating results and only after
@@ -7757,7 +7757,7 @@ export interface SimulatePrincipalPolicyRequest {
    *             </li>
    *          </ul>
    */
-  PolicyInputList?: Array<string>;
+  PolicyInputList?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of a user, group, or role whose policies you want to
@@ -7781,7 +7781,7 @@ export interface SimulatePrincipalPolicyRequest {
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service
    *     Namespaces</a> in the <i>AWS General Reference</i>.</p>
    */
-  ResourceArns?: Array<string>;
+  ResourceArns?: string[];
 
   /**
    * <p>Specifies the type of simulation to run. Different API operations that support
@@ -7961,7 +7961,7 @@ export interface TagRoleRequest {
    * <p>The list of tags that you want to attach to the role. Each tag consists of a key name
    *       and an associated value. You can specify this with a JSON string.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagRoleRequest {
@@ -7975,7 +7975,7 @@ export interface TagUserRequest {
    * <p>The list of tags that you want to attach to the user. Each tag consists of a key name
    *       and an associated value.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 
   /**
    * <p>The name of the user that you want to add tags to.</p>
@@ -8039,7 +8039,7 @@ export interface UntagRoleRequest {
    * <p>A list of key names as a simple array of strings. The tags with matching keys are
    *       removed from the specified role.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagRoleRequest {
@@ -8053,7 +8053,7 @@ export interface UntagUserRequest {
    * <p>A list of key names as a simple array of strings. The tags with matching keys are
    *       removed from the specified user.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 
   /**
    * <p>The name of the IAM user from which you want to remove tags.</p>
@@ -8317,7 +8317,7 @@ export interface UpdateOpenIDConnectProviderThumbprintRequest {
    *          Connect provider. For more information, see <a>CreateOpenIDConnectProvider</a>.
    *       </p>
    */
-  ThumbprintList: Array<string> | undefined;
+  ThumbprintList: string[] | undefined;
 }
 
 export namespace UpdateOpenIDConnectProviderThumbprintRequest {
@@ -8899,7 +8899,7 @@ export interface User {
    *       tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM
    *         Identities</a> in the <i>IAM User Guide</i>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The stable and unique string identifying the user. For more information about IDs, see
@@ -8935,7 +8935,7 @@ export interface UserDetail {
   /**
    * <p>A list of the managed policies attached to the user.</p>
    */
-  AttachedManagedPolicies?: Array<AttachedPolicy>;
+  AttachedManagedPolicies?: AttachedPolicy[];
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
@@ -8946,7 +8946,7 @@ export interface UserDetail {
   /**
    * <p>A list of IAM groups that the user is in.</p>
    */
-  GroupList?: Array<string>;
+  GroupList?: string[];
 
   /**
    * <p>The path to the user. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
@@ -8966,7 +8966,7 @@ export interface UserDetail {
    *       tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM
    *         Identities</a> in the <i>IAM User Guide</i>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The stable and unique string identifying the user. For more information about IDs, see
@@ -8983,7 +8983,7 @@ export interface UserDetail {
   /**
    * <p>A list of the inline policies embedded in the user.</p>
    */
-  UserPolicyList?: Array<PolicyDetail>;
+  UserPolicyList?: PolicyDetail[];
 }
 
 export namespace UserDetail {

@@ -2691,7 +2691,7 @@ const serializeAws_restJson1_1Action = (
 };
 
 const serializeAws_restJson1_1Actions = (
-  input: Array<Action>,
+  input: Action[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2713,7 +2713,7 @@ const serializeAws_restJson1_1Attribute = (
 };
 
 const serializeAws_restJson1_1Attributes = (
-  input: Array<Attribute>,
+  input: Attribute[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2749,7 +2749,7 @@ const serializeAws_restJson1_1DetectorDebugOption = (
 };
 
 const serializeAws_restJson1_1DetectorDebugOptions = (
-  input: Array<DetectorDebugOption>,
+  input: DetectorDebugOption[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2797,7 +2797,7 @@ const serializeAws_restJson1_1Event = (
 };
 
 const serializeAws_restJson1_1Events = (
-  input: Array<Event>,
+  input: Event[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3035,7 +3035,7 @@ const serializeAws_restJson1_1State = (
 };
 
 const serializeAws_restJson1_1States = (
-  input: Array<State>,
+  input: State[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3060,7 +3060,7 @@ const serializeAws_restJson1_1Tag = (
 };
 
 const serializeAws_restJson1_1Tags = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3094,7 +3094,7 @@ const serializeAws_restJson1_1TransitionEvent = (
 };
 
 const serializeAws_restJson1_1TransitionEvents = (
-  input: Array<TransitionEvent>,
+  input: TransitionEvent[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3184,7 +3184,7 @@ const deserializeAws_restJson1_1Action = (
 const deserializeAws_restJson1_1Actions = (
   output: any,
   context: __SerdeContext
-): Array<Action> => {
+): Action[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Action(entry, context)
   );
@@ -3207,7 +3207,7 @@ const deserializeAws_restJson1_1Attribute = (
 const deserializeAws_restJson1_1Attributes = (
   output: any,
   context: __SerdeContext
-): Array<Attribute> => {
+): Attribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Attribute(entry, context)
   );
@@ -3251,7 +3251,7 @@ const deserializeAws_restJson1_1DetectorDebugOption = (
 const deserializeAws_restJson1_1DetectorDebugOptions = (
   output: any,
   context: __SerdeContext
-): Array<DetectorDebugOption> => {
+): DetectorDebugOption[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DetectorDebugOption(entry, context)
   );
@@ -3378,7 +3378,7 @@ const deserializeAws_restJson1_1DetectorModelDefinition = (
 const deserializeAws_restJson1_1DetectorModelSummaries = (
   output: any,
   context: __SerdeContext
-): Array<DetectorModelSummary> => {
+): DetectorModelSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DetectorModelSummary(entry, context)
   );
@@ -3415,7 +3415,7 @@ const deserializeAws_restJson1_1DetectorModelSummary = (
 const deserializeAws_restJson1_1DetectorModelVersionSummaries = (
   output: any,
   context: __SerdeContext
-): Array<DetectorModelVersionSummary> => {
+): DetectorModelVersionSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DetectorModelVersionSummary(entry, context)
   );
@@ -3505,7 +3505,7 @@ const deserializeAws_restJson1_1Event = (
 const deserializeAws_restJson1_1Events = (
   output: any,
   context: __SerdeContext
-): Array<Event> => {
+): Event[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Event(entry, context)
   );
@@ -3618,7 +3618,7 @@ const deserializeAws_restJson1_1InputDefinition = (
 const deserializeAws_restJson1_1InputSummaries = (
   output: any,
   context: __SerdeContext
-): Array<InputSummary> => {
+): InputSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InputSummary(entry, context)
   );
@@ -3909,7 +3909,7 @@ const deserializeAws_restJson1_1State = (
 const deserializeAws_restJson1_1States = (
   output: any,
   context: __SerdeContext
-): Array<State> => {
+): State[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1State(entry, context)
   );
@@ -3936,7 +3936,7 @@ const deserializeAws_restJson1_1Tag = (
 const deserializeAws_restJson1_1Tags = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );
@@ -3974,7 +3974,7 @@ const deserializeAws_restJson1_1TransitionEvent = (
 const deserializeAws_restJson1_1TransitionEvents = (
   output: any,
   context: __SerdeContext
-): Array<TransitionEvent> => {
+): TransitionEvent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TransitionEvent(entry, context)
   );

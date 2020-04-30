@@ -119,7 +119,7 @@ export interface ChangeSetSummaryListItem {
    * <p>This object is a list of entity IDs (string) that are a part of a change set. The
    *             entity ID list is a maximum of 20 entities. It must contain at least one entity.</p>
    */
-  EntityIdList?: Array<string>;
+  EntityIdList?: string[];
 
   /**
    * <p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was
@@ -165,7 +165,7 @@ export interface ChangeSummary {
   /**
    * <p>An array of <code>ErrorDetail</code> objects associated with the change.</p>
    */
-  ErrorDetailList?: Array<ErrorDetail>;
+  ErrorDetailList?: ErrorDetail[];
 }
 
 export namespace ChangeSummary {
@@ -198,7 +198,7 @@ export interface DescribeChangeSetResponse {
   /**
    * <p>An array of <code>ChangeSummary</code> objects.</p>
    */
-  ChangeSet?: Array<ChangeSummary>;
+  ChangeSet?: ChangeSummary[];
 
   /**
    * <p>The ARN associated with the unique identifier for the change set referenced in this
@@ -450,7 +450,7 @@ export interface Filter {
    *             </li>
    *          </ul>
    */
-  ValueList?: Array<string>;
+  ValueList?: string[];
 }
 
 export namespace Filter {
@@ -484,7 +484,7 @@ export interface ListChangeSetsRequest {
   /**
    * <p>An array of filter objects.</p>
    */
-  FilterList?: Array<Filter>;
+  FilterList?: Filter[];
 
   /**
    * <p>The maximum number of results returned by a single call. This value must be provided
@@ -516,7 +516,7 @@ export interface ListChangeSetsResponse {
   /**
    * <p> Array of <code>ChangeSetSummaryListItem</code> objects.</p>
    */
-  ChangeSetSummaryList?: Array<ChangeSetSummaryListItem>;
+  ChangeSetSummaryList?: ChangeSetSummaryListItem[];
 
   /**
    * <p>The value of the next token, if it exists. Null if there are no more results.</p>
@@ -546,7 +546,7 @@ export interface ListEntitiesRequest {
    * <p>An array of filter objects. Each filter object contains two attributes,
    *                 <code>filterName</code> and <code>filterValues</code>.</p>
    */
-  FilterList?: Array<Filter>;
+  FilterList?: Filter[];
 
   /**
    * <p>Specifies the upper limit of the elements on a single page. If a value isn't provided,
@@ -576,7 +576,7 @@ export interface ListEntitiesResponse {
   /**
    * <p> Array of <code>EntitySummary</code> object.</p>
    */
-  EntitySummaryList?: Array<EntitySummary>;
+  EntitySummaryList?: EntitySummary[];
 
   /**
    * <p>The value of the next token if it exists. Null if there is no more result.</p>
@@ -696,7 +696,7 @@ export interface StartChangeSetRequest {
   /**
    * <p>Array of <code>change</code> object.</p>
    */
-  ChangeSet: Array<Change> | undefined;
+  ChangeSet: Change[] | undefined;
 
   /**
    * <p>Optional case sensitive string of up to 100 ASCII characters. The change set name can

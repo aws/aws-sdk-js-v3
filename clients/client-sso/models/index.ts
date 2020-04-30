@@ -122,7 +122,7 @@ export interface ListAccountRolesResponse {
   /**
    * <p>A paginated response with the list of roles and the next token if more results are available.</p>
    */
-  roleList?: Array<RoleInfo>;
+  roleList?: RoleInfo[];
 }
 
 export namespace ListAccountRolesResponse {
@@ -159,7 +159,7 @@ export interface ListAccountsResponse {
   /**
    * <p>A paginated response with the list of account information and the next token if more results are available.</p>
    */
-  accountList?: Array<AccountInfo>;
+  accountList?: AccountInfo[];
 
   /**
    * <p>The page token client that is used to retrieve the list of accounts.</p>

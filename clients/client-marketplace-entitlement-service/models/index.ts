@@ -103,7 +103,7 @@ export interface GetEntitlementsRequest {
    *         <i>unioned</i> for each value in the value list, and then
    *         <i>intersected</i> for each filter key.</p>
    */
-  Filter?: { [key: string]: Array<string> };
+  Filter?: { [key: string]: string[] };
 
   /**
    * <p>The maximum number of items to retrieve from the GetEntitlements operation. For
@@ -139,7 +139,7 @@ export interface GetEntitlementsResult {
    *       contains an empty set of entitlements, NextToken might still be present and should be
    *       used.</p>
    */
-  Entitlements?: Array<Entitlement>;
+  Entitlements?: Entitlement[];
 
   /**
    * <p>For paginated results, use NextToken in subsequent calls to GetEntitlements. If the

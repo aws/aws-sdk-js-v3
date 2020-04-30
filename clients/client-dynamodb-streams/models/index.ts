@@ -104,7 +104,7 @@ export interface GetRecordsOutput {
   /**
    * <p>The stream records from the shard, which were retrieved using the shard iterator.</p>
    */
-  Records?: Array<_Record>;
+  Records?: _Record[];
 }
 
 export namespace GetRecordsOutput {
@@ -250,7 +250,7 @@ export interface ListStreamsOutput {
   /**
    * <p>A list of stream descriptors associated with the current account and endpoint.</p>
    */
-  Streams?: Array<_Stream>;
+  Streams?: _Stream[];
 }
 
 export namespace ListStreamsOutput {
@@ -437,7 +437,7 @@ export interface StreamDescription {
   /**
    * <p>The key attribute(s) of the stream's DynamoDB table.</p>
    */
-  KeySchema?: Array<KeySchemaElement>;
+  KeySchema?: KeySchemaElement[];
 
   /**
    * <p>The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
@@ -452,7 +452,7 @@ export interface StreamDescription {
   /**
    * <p>The shards that comprise the stream.</p>
    */
-  Shards?: Array<Shard>;
+  Shards?: Shard[];
 
   /**
    * <p>The Amazon Resource Name (ARN) for the stream.</p>
@@ -650,12 +650,12 @@ export interface AttributeValue {
   /**
    * <p>A Binary Set data type.</p>
    */
-  BS?: Array<Uint8Array>;
+  BS?: Uint8Array[];
 
   /**
    * <p>A List data type.</p>
    */
-  L?: Array<AttributeValue>;
+  L?: AttributeValue[];
 
   /**
    * <p>A Map data type.</p>
@@ -670,7 +670,7 @@ export interface AttributeValue {
   /**
    * <p>A Number Set data type.</p>
    */
-  NS?: Array<string>;
+  NS?: string[];
 
   /**
    * <p>A Null data type.</p>
@@ -685,7 +685,7 @@ export interface AttributeValue {
   /**
    * <p>A String Set data type.</p>
    */
-  SS?: Array<string>;
+  SS?: string[];
 }
 
 export namespace AttributeValue {

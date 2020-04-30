@@ -1227,7 +1227,7 @@ export interface AddTagsToResourceMessage {
   /**
    * <p>The tags to be assigned to the Amazon Neptune resource.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace AddTagsToResourceMessage {
@@ -1343,12 +1343,12 @@ export interface CloudwatchLogsExportConfiguration {
   /**
    * <p>The list of log types to disable.</p>
    */
-  DisableLogTypes?: Array<string>;
+  DisableLogTypes?: string[];
 
   /**
    * <p>The list of log types to enable.</p>
    */
-  EnableLogTypes?: Array<string>;
+  EnableLogTypes?: string[];
 }
 
 export namespace CloudwatchLogsExportConfiguration {
@@ -1384,7 +1384,7 @@ export interface CopyDBClusterParameterGroupMessage {
   /**
    * <p>The tags to be assigned to the copied DB cluster parameter group.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A description for the copied DB cluster parameter group.</p>
@@ -1487,7 +1487,7 @@ export interface CopyDBClusterSnapshotMessage {
   /**
    * <p>The tags to assign to the new DB cluster snapshot copy.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The identifier of the new DB cluster snapshot to create from the source DB cluster
@@ -1553,7 +1553,7 @@ export interface CopyDBParameterGroupMessage {
   /**
    * <p>The tags to be assigned to the copied DB parameter group.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A description for the copied DB parameter group.</p>
@@ -1609,7 +1609,7 @@ export interface CreateDBClusterMessage {
    * <p>A list of EC2 Availability Zones that instances in the DB cluster can be created
    *       in.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>The number of days for which automated backups are retained. You must specify a minimum
@@ -1687,7 +1687,7 @@ export interface CreateDBClusterMessage {
   /**
    * <p>The list of log types that need to be enabled for exporting to CloudWatch Logs.</p>
    */
-  EnableCloudwatchLogsExports?: Array<string>;
+  EnableCloudwatchLogsExports?: string[];
 
   /**
    * <p>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
@@ -1836,12 +1836,12 @@ export interface CreateDBClusterMessage {
   /**
    * <p>The tags to assign to the new DB cluster.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A list of EC2 VPC security groups to associate with this DB cluster.</p>
    */
-  VpcSecurityGroupIds?: Array<string>;
+  VpcSecurityGroupIds?: string[];
 }
 
 export namespace CreateDBClusterMessage {
@@ -1881,7 +1881,7 @@ export interface CreateDBClusterParameterGroupMessage {
   /**
    * <p>The tags to be assigned to the new DB cluster parameter group.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateDBClusterParameterGroupMessage {
@@ -1956,7 +1956,7 @@ export interface CreateDBClusterSnapshotMessage {
   /**
    * <p>The tags to be assigned to the DB cluster snapshot.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateDBClusterSnapshotMessage {
@@ -2098,7 +2098,7 @@ export interface CreateDBInstanceMessage {
    * <p>A list of DB security groups to associate with this DB instance.</p>
    *          <p>Default: The default DB security group for the database engine.</p>
    */
-  DBSecurityGroups?: Array<string>;
+  DBSecurityGroups?: string[];
 
   /**
    * <p>A DB subnet group to associate with this DB instance.</p>
@@ -2133,7 +2133,7 @@ export interface CreateDBInstanceMessage {
   /**
    * <p>The list of log types that need to be enabled for exporting to CloudWatch Logs.</p>
    */
-  EnableCloudwatchLogsExports?: Array<string>;
+  EnableCloudwatchLogsExports?: string[];
 
   /**
    * <p>True to enable AWS Identity and Access Management (IAM) authentication for Neptune.</p>
@@ -2302,7 +2302,7 @@ export interface CreateDBInstanceMessage {
   /**
    * <p>The tags to assign to the new instance.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
@@ -2325,7 +2325,7 @@ export interface CreateDBInstanceMessage {
    *       cluster. For more information, see <a>CreateDBCluster</a>.</p>
    *          <p>Default: The default EC2 VPC security group for the DB subnet group's VPC.</p>
    */
-  VpcSecurityGroupIds?: Array<string>;
+  VpcSecurityGroupIds?: string[];
 }
 
 export namespace CreateDBInstanceMessage {
@@ -2384,7 +2384,7 @@ export interface CreateDBParameterGroupMessage {
   /**
    * <p>The tags to be assigned to the new DB parameter group.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateDBParameterGroupMessage {
@@ -2425,12 +2425,12 @@ export interface CreateDBSubnetGroupMessage {
   /**
    * <p>The EC2 Subnet IDs for the DB subnet group.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 
   /**
    * <p>The tags to be assigned to the new DB subnet group.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateDBSubnetGroupMessage {
@@ -2466,7 +2466,7 @@ export interface CreateEventSubscriptionMessage {
    *       list of the categories for a given SourceType by using the
    *       <b>DescribeEventCategories</b> action.</p>
    */
-  EventCategories?: Array<string>;
+  EventCategories?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. The ARN is
@@ -2502,7 +2502,7 @@ export interface CreateEventSubscriptionMessage {
    *             </li>
    *          </ul>
    */
-  SourceIds?: Array<string>;
+  SourceIds?: string[];
 
   /**
    * <p>The type of source that is generating the events. For example, if you want to be notified
@@ -2524,7 +2524,7 @@ export interface CreateEventSubscriptionMessage {
   /**
    * <p>The tags to be applied to the new event subscription.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateEventSubscriptionMessage {
@@ -2563,13 +2563,13 @@ export interface DBCluster {
    *       with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the
    *       DB cluster to access other AWS services on your behalf.</p>
    */
-  AssociatedRoles?: Array<DBClusterRole>;
+  AssociatedRoles?: DBClusterRole[];
 
   /**
    * <p>Provides the list of EC2 Availability Zones that instances in the DB cluster can be
    *       created in.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>Specifies the number of days for which automatic DB snapshots are retained.</p>
@@ -2608,14 +2608,14 @@ export interface DBCluster {
   /**
    * <p>Provides the list of instances that make up the DB cluster.</p>
    */
-  DBClusterMembers?: Array<DBClusterMember>;
+  DBClusterMembers?: DBClusterMember[];
 
   /**
    * <p>
    *             <i>(Not supported by Neptune)</i>
    *          </p>
    */
-  DBClusterOptionGroupMemberships?: Array<DBClusterOptionGroupStatus>;
+  DBClusterOptionGroupMemberships?: DBClusterOptionGroupStatus[];
 
   /**
    * <p>Specifies the name of the DB cluster parameter group for the DB cluster.</p>
@@ -2657,7 +2657,7 @@ export interface DBCluster {
   /**
    * <p>A list of log types that this DB cluster is configured to export to CloudWatch Logs.</p>
    */
-  EnabledCloudwatchLogsExports?: Array<string>;
+  EnabledCloudwatchLogsExports?: string[];
 
   /**
    * <p>Specifies the connection endpoint for the primary instance of the DB cluster.</p>
@@ -2733,7 +2733,7 @@ export interface DBCluster {
    * <p>Contains one or more identifiers of the Read Replicas associated with this DB
    *       cluster.</p>
    */
-  ReadReplicaIdentifiers?: Array<string>;
+  ReadReplicaIdentifiers?: string[];
 
   /**
    * <p>The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances
@@ -2765,7 +2765,7 @@ export interface DBCluster {
   /**
    * <p>Provides a list of VPC security groups that the DB cluster belongs to.</p>
    */
-  VpcSecurityGroups?: Array<VpcSecurityGroupMembership>;
+  VpcSecurityGroups?: VpcSecurityGroupMembership[];
 }
 
 export namespace DBCluster {
@@ -2811,7 +2811,7 @@ export interface DBClusterMessage {
   /**
    * <p>Contains a list of DB clusters for the user.</p>
    */
-  DBClusters?: Array<DBCluster>;
+  DBClusters?: DBCluster[];
 
   /**
    * <p>A pagination token that can be used in a subsequent DescribeDBClusters request.</p>
@@ -2890,7 +2890,7 @@ export interface DBClusterParameterGroupDetails {
   /**
    * <p>Provides a list of parameters for the DB cluster parameter group.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 }
 
 export namespace DBClusterParameterGroupDetails {
@@ -2931,7 +2931,7 @@ export interface DBClusterParameterGroupsMessage {
   /**
    * <p>A list of DB cluster parameter groups.</p>
    */
-  DBClusterParameterGroups?: Array<DBClusterParameterGroup>;
+  DBClusterParameterGroups?: DBClusterParameterGroup[];
 
   /**
    * <p> An optional pagination token provided by a previous
@@ -3003,7 +3003,7 @@ export interface DBClusterSnapshot {
    * <p>Provides the list of EC2 Availability Zones that instances in the DB cluster snapshot can
    *       be restored in.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>Specifies the time when the DB cluster was created, in Universal Coordinated Time
@@ -3129,7 +3129,7 @@ export interface DBClusterSnapshotAttribute {
    *       cluster snapshot. If a value of <code>all</code> is in the list, then the manual DB cluster
    *       snapshot is public and available for any AWS account to copy or restore.</p>
    */
-  AttributeValues?: Array<string>;
+  AttributeValues?: string[];
 }
 
 export namespace DBClusterSnapshotAttribute {
@@ -3147,7 +3147,7 @@ export interface DBClusterSnapshotAttributesResult {
   /**
    * <p>The list of attributes and values for the manual DB cluster snapshot.</p>
    */
-  DBClusterSnapshotAttributes?: Array<DBClusterSnapshotAttribute>;
+  DBClusterSnapshotAttributes?: DBClusterSnapshotAttribute[];
 
   /**
    * <p>The identifier of the manual DB cluster snapshot that the attributes apply to.</p>
@@ -3165,7 +3165,7 @@ export interface DBClusterSnapshotMessage {
   /**
    * <p>Provides a list of DB cluster snapshots for the user.</p>
    */
-  DBClusterSnapshots?: Array<DBClusterSnapshot>;
+  DBClusterSnapshots?: DBClusterSnapshot[];
 
   /**
    * <p> An optional pagination token provided by a previous <a>DescribeDBClusterSnapshots</a> request. If this parameter is specified, the response
@@ -3221,20 +3221,20 @@ export interface DBEngineVersion {
    * <p>The types of logs that the database engine has available for export to CloudWatch
    *       Logs.</p>
    */
-  ExportableLogTypes?: Array<string>;
+  ExportableLogTypes?: string[];
 
   /**
    * <p>
    *             <i>(Not supported by Neptune)</i>
    *          </p>
    */
-  SupportedCharacterSets?: Array<CharacterSet>;
+  SupportedCharacterSets?: CharacterSet[];
 
   /**
    * <p>A list of the time zones supported by this engine for the <code>Timezone</code> parameter
    *       of the <code>CreateDBInstance</code> action.</p>
    */
-  SupportedTimezones?: Array<Timezone>;
+  SupportedTimezones?: Timezone[];
 
   /**
    * <p>A value that indicates whether the engine version supports exporting the log types
@@ -3250,7 +3250,7 @@ export interface DBEngineVersion {
   /**
    * <p>A list of engine versions that this database engine version can be upgraded to.</p>
    */
-  ValidUpgradeTarget?: Array<UpgradeTarget>;
+  ValidUpgradeTarget?: UpgradeTarget[];
 }
 
 export namespace DBEngineVersion {
@@ -3263,7 +3263,7 @@ export interface DBEngineVersionMessage {
   /**
    * <p> A list of <code>DBEngineVersion</code> elements.</p>
    */
-  DBEngineVersions?: Array<DBEngineVersion>;
+  DBEngineVersions?: DBEngineVersion[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -3357,13 +3357,13 @@ export interface DBInstance {
   /**
    * <p>Provides the list of DB parameter groups applied to this DB instance.</p>
    */
-  DBParameterGroups?: Array<DBParameterGroupStatus>;
+  DBParameterGroups?: DBParameterGroupStatus[];
 
   /**
    * <p> Provides List of DB security group elements containing only
    *       <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code> subelements.</p>
    */
-  DBSecurityGroups?: Array<DBSecurityGroupMembership>;
+  DBSecurityGroups?: DBSecurityGroupMembership[];
 
   /**
    * <p>Specifies information on the subnet group associated with the DB instance, including the
@@ -3394,13 +3394,13 @@ export interface DBInstance {
   /**
    * <p>Not supported</p>
    */
-  DomainMemberships?: Array<DomainMembership>;
+  DomainMemberships?: DomainMembership[];
 
   /**
    * <p>A list of log types that this DB instance is configured to export to CloudWatch
    *       Logs.</p>
    */
-  EnabledCloudwatchLogsExports?: Array<string>;
+  EnabledCloudwatchLogsExports?: string[];
 
   /**
    * <p>Specifies the connection endpoint.</p>
@@ -3482,7 +3482,7 @@ export interface DBInstance {
    *             <i>(Not supported by Neptune)</i>
    *          </p>
    */
-  OptionGroupMemberships?: Array<OptionGroupMembership>;
+  OptionGroupMemberships?: OptionGroupMembership[];
 
   /**
    * <p>Specifies that changes to the DB instance are pending. This element is only included when
@@ -3532,13 +3532,13 @@ export interface DBInstance {
    * <p>Contains one or more identifiers of DB clusters that are Read Replicas of this DB
    *       instance.</p>
    */
-  ReadReplicaDBClusterIdentifiers?: Array<string>;
+  ReadReplicaDBClusterIdentifiers?: string[];
 
   /**
    * <p>Contains one or more identifiers of the Read Replicas associated with this DB
    *       instance.</p>
    */
-  ReadReplicaDBInstanceIdentifiers?: Array<string>;
+  ReadReplicaDBInstanceIdentifiers?: string[];
 
   /**
    * <p>Contains the identifier of the source DB instance if this DB instance is a Read
@@ -3555,7 +3555,7 @@ export interface DBInstance {
   /**
    * <p>The status of a Read Replica. If the instance is not a Read Replica, this is blank.</p>
    */
-  StatusInfos?: Array<DBInstanceStatusInfo>;
+  StatusInfos?: DBInstanceStatusInfo[];
 
   /**
    * <p>Not supported: The encryption for DB instances is managed by the DB cluster.</p>
@@ -3581,7 +3581,7 @@ export interface DBInstance {
   /**
    * <p>Provides a list of VPC security group elements that the DB instance belongs to.</p>
    */
-  VpcSecurityGroups?: Array<VpcSecurityGroupMembership>;
+  VpcSecurityGroups?: VpcSecurityGroupMembership[];
 }
 
 export namespace DBInstance {
@@ -3593,7 +3593,7 @@ export interface DBInstanceMessage {
   /**
    * <p> A list of <a>DBInstance</a> instances.</p>
    */
-  DBInstances?: Array<DBInstance>;
+  DBInstances?: DBInstance[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -3687,7 +3687,7 @@ export interface DBParameterGroupDetails {
   /**
    * <p>A list of <a>Parameter</a> values.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 }
 
 export namespace DBParameterGroupDetails {
@@ -3757,7 +3757,7 @@ export interface DBParameterGroupsMessage {
   /**
    * <p>A list of <a>DBParameterGroup</a> instances.</p>
    */
-  DBParameterGroups?: Array<DBParameterGroup>;
+  DBParameterGroups?: DBParameterGroup[];
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is
@@ -3822,7 +3822,7 @@ export interface DBSubnetGroup {
   /**
    * <p> Contains a list of <a>Subnet</a> elements.</p>
    */
-  Subnets?: Array<Subnet>;
+  Subnets?: Subnet[];
 
   /**
    * <p>Provides the VpcId of the DB subnet group.</p>
@@ -3839,7 +3839,7 @@ export interface DBSubnetGroupMessage {
   /**
    * <p> A list of <a>DBSubnetGroup</a> instances.</p>
    */
-  DBSubnetGroups?: Array<DBSubnetGroup>;
+  DBSubnetGroups?: DBSubnetGroup[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -4141,7 +4141,7 @@ export interface DescribeDBClusterParameterGroupsMessage {
   /**
    * <p>This parameter is not currently supported.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous
@@ -4182,7 +4182,7 @@ export interface DescribeDBClusterParametersMessage {
   /**
    * <p>This parameter is not currently supported.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous
@@ -4278,7 +4278,7 @@ export interface DescribeDBClusterSnapshotsMessage {
   /**
    * <p>This parameter is not currently supported.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>True to include manual DB cluster snapshots that are public and can be copied or restored
@@ -4385,7 +4385,7 @@ export interface DescribeDBClustersMessage {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
@@ -4443,7 +4443,7 @@ export interface DescribeDBEngineVersionsMessage {
   /**
    * <p>Not currently supported.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>If this parameter is specified and the requested engine supports the
@@ -4513,7 +4513,7 @@ export interface DescribeDBInstancesMessage {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous <code>DescribeDBInstances</code>
@@ -4553,7 +4553,7 @@ export interface DescribeDBParameterGroupsMessage {
   /**
    * <p>This parameter is not currently supported.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>An optional pagination token provided by a previous
@@ -4593,7 +4593,7 @@ export interface DescribeDBParametersMessage {
   /**
    * <p>This parameter is not currently supported.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>An optional pagination token provided by a previous <code>DescribeDBParameters</code>
@@ -4635,7 +4635,7 @@ export interface DescribeDBSubnetGroupsMessage {
   /**
    * <p>This parameter is not currently supported.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous DescribeDBSubnetGroups request. If
@@ -4670,7 +4670,7 @@ export interface DescribeEngineDefaultClusterParametersMessage {
   /**
    * <p>This parameter is not currently supported.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous
@@ -4722,7 +4722,7 @@ export interface DescribeEngineDefaultParametersMessage {
   /**
    * <p>Not currently supported.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous
@@ -4765,7 +4765,7 @@ export interface DescribeEventCategoriesMessage {
   /**
    * <p>This parameter is not currently supported.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The type of source that is generating the events.</p>
@@ -4784,7 +4784,7 @@ export interface DescribeEventSubscriptionsMessage {
   /**
    * <p>This parameter is not currently supported.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions
@@ -4833,12 +4833,12 @@ export interface DescribeEventsMessage {
    * <p>A list of event categories that trigger notifications for a event notification
    *       subscription.</p>
    */
-  EventCategories?: Array<string>;
+  EventCategories?: string[];
 
   /**
    * <p>This parameter is not currently supported.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous DescribeEvents request. If this
@@ -4929,7 +4929,7 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
   /**
    * <p>This parameter is not currently supported.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The license model filter value. Specify this parameter to show only the available
@@ -4986,7 +4986,7 @@ export interface DescribePendingMaintenanceActionsMessage {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous
@@ -5147,7 +5147,7 @@ export interface EngineDefaults {
   /**
    * <p>Contains a list of engine default parameters.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 }
 
 export namespace EngineDefaults {
@@ -5169,7 +5169,7 @@ export interface Event {
   /**
    * <p>Specifies the category for the event.</p>
    */
-  EventCategories?: Array<string>;
+  EventCategories?: string[];
 
   /**
    * <p>Provides the text of this event.</p>
@@ -5204,7 +5204,7 @@ export interface EventCategoriesMap {
   /**
    * <p>The event categories for the specified source type</p>
    */
-  EventCategories?: Array<string>;
+  EventCategories?: string[];
 
   /**
    * <p>The source type that the returned categories belong to</p>
@@ -5222,7 +5222,7 @@ export interface EventCategoriesMessage {
   /**
    * <p>A list of EventCategoriesMap data types.</p>
    */
-  EventCategoriesMapList?: Array<EventCategoriesMap>;
+  EventCategoriesMapList?: EventCategoriesMap[];
 }
 
 export namespace EventCategoriesMessage {
@@ -5254,7 +5254,7 @@ export interface EventSubscription {
   /**
    * <p>A list of event categories for the event notification subscription.</p>
    */
-  EventCategoriesList?: Array<string>;
+  EventCategoriesList?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) for the event subscription.</p>
@@ -5269,7 +5269,7 @@ export interface EventSubscription {
   /**
    * <p>A list of source IDs for the event notification subscription.</p>
    */
-  SourceIdsList?: Array<string>;
+  SourceIdsList?: string[];
 
   /**
    * <p>The source type for the event notification subscription.</p>
@@ -5303,7 +5303,7 @@ export interface EventSubscriptionsMessage {
   /**
    * <p>A list of EventSubscriptions data types.</p>
    */
-  EventSubscriptionsList?: Array<EventSubscription>;
+  EventSubscriptionsList?: EventSubscription[];
 
   /**
    * <p> An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions
@@ -5323,7 +5323,7 @@ export interface EventsMessage {
   /**
    * <p> A list of <a>Event</a> instances.</p>
    */
-  Events?: Array<Event>;
+  Events?: Event[];
 
   /**
    * <p> An optional pagination token provided by a previous Events request. If this parameter is
@@ -5391,7 +5391,7 @@ export interface Filter {
   /**
    * <p>This parameter is not currently supported.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace Filter {
@@ -5403,7 +5403,7 @@ export interface ListTagsForResourceMessage {
   /**
    * <p>This parameter is not currently supported.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The Amazon Neptune resource with tags to be listed. This value is an Amazon Resource Name
@@ -5580,7 +5580,7 @@ export interface ModifyDBClusterMessage {
   /**
    * <p>A list of VPC security groups that the DB cluster will belong to.</p>
    */
-  VpcSecurityGroupIds?: Array<string>;
+  VpcSecurityGroupIds?: string[];
 }
 
 export namespace ModifyDBClusterMessage {
@@ -5598,7 +5598,7 @@ export interface ModifyDBClusterParameterGroupMessage {
   /**
    * <p>A list of parameters in the DB cluster parameter group to modify.</p>
    */
-  Parameters: Array<Parameter> | undefined;
+  Parameters: Parameter[] | undefined;
 }
 
 export namespace ModifyDBClusterParameterGroupMessage {
@@ -5643,7 +5643,7 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
    *       DB cluster snapshots that contain private information that you don't want available to all AWS
    *       accounts.</p>
    */
-  ValuesToAdd?: Array<string>;
+  ValuesToAdd?: string[];
 
   /**
    * <p>A list of DB cluster snapshot attributes to remove from the attribute specified by
@@ -5654,7 +5654,7 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
    *       specify <code>all</code>, an AWS account whose account ID is explicitly added to the
    *       <code>restore</code> attribute can still copy or restore a manual DB cluster snapshot.</p>
    */
-  ValuesToRemove?: Array<string>;
+  ValuesToRemove?: string[];
 }
 
 export namespace ModifyDBClusterSnapshotAttributeMessage {
@@ -5794,7 +5794,7 @@ export interface ModifyDBInstanceMessage {
    *             </li>
    *          </ul>
    */
-  DBSecurityGroups?: Array<string>;
+  DBSecurityGroups?: string[];
 
   /**
    * <p>The new DB subnet group for the DB instance. You can use this parameter to move your DB
@@ -6011,7 +6011,7 @@ export interface ModifyDBInstanceMessage {
    *             </li>
    *          </ul>
    */
-  VpcSecurityGroupIds?: Array<string>;
+  VpcSecurityGroupIds?: string[];
 }
 
 export namespace ModifyDBInstanceMessage {
@@ -6058,7 +6058,7 @@ export interface ModifyDBParameterGroupMessage {
    *         you reboot the DB instance without failover.</p>
    *          </note>
    */
-  Parameters: Array<Parameter> | undefined;
+  Parameters: Parameter[] | undefined;
 }
 
 export namespace ModifyDBParameterGroupMessage {
@@ -6085,7 +6085,7 @@ export interface ModifyDBSubnetGroupMessage {
   /**
    * <p>The EC2 subnet IDs for the DB subnet group.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 }
 
 export namespace ModifyDBSubnetGroupMessage {
@@ -6121,7 +6121,7 @@ export interface ModifyEventSubscriptionMessage {
    *
    *       by using the <b>DescribeEventCategories</b> action.</p>
    */
-  EventCategories?: Array<string>;
+  EventCategories?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. The ARN is
@@ -6194,7 +6194,7 @@ export interface OrderableDBInstanceOption {
   /**
    * <p>A list of Availability Zones for a DB instance.</p>
    */
-  AvailabilityZones?: Array<AvailabilityZone>;
+  AvailabilityZones?: AvailabilityZone[];
 
   /**
    * <p>The DB instance class for a DB instance.</p>
@@ -6313,7 +6313,7 @@ export interface OrderableDBInstanceOptionsMessage {
    * <p>An <a>OrderableDBInstanceOption</a> structure
    *       containing information about orderable options for the DB instance.</p>
    */
-  OrderableDBInstanceOptions?: Array<OrderableDBInstanceOption>;
+  OrderableDBInstanceOptions?: OrderableDBInstanceOption[];
 }
 
 export namespace OrderableDBInstanceOptionsMessage {
@@ -6393,13 +6393,13 @@ export interface PendingCloudwatchLogsExports {
    * <p>Log types that are in the process of being enabled. After they are
    *       enabled, these log types are exported to CloudWatch Logs.</p>
    */
-  LogTypesToDisable?: Array<string>;
+  LogTypesToDisable?: string[];
 
   /**
    * <p>Log types that are in the process of being deactivated. After they are
    *       deactivated, these log types aren't exported to CloudWatch Logs.</p>
    */
-  LogTypesToEnable?: Array<string>;
+  LogTypesToEnable?: string[];
 }
 
 export namespace PendingCloudwatchLogsExports {
@@ -6469,7 +6469,7 @@ export interface PendingMaintenanceActionsMessage {
   /**
    * <p>A list of the pending maintenance actions for the resource.</p>
    */
-  PendingMaintenanceActions?: Array<ResourcePendingMaintenanceActions>;
+  PendingMaintenanceActions?: ResourcePendingMaintenanceActions[];
 }
 
 export namespace PendingMaintenanceActionsMessage {
@@ -6731,7 +6731,7 @@ export interface RemoveTagsFromResourceMessage {
   /**
    * <p>The tag key (name) of the tag to be removed.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace RemoveTagsFromResourceMessage {
@@ -6751,7 +6751,7 @@ export interface ResetDBClusterParameterGroupMessage {
    *       values. You can't use this parameter if the <code>ResetAllParameters</code> parameter is set
    *       to <code>true</code>.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 
   /**
    * <p>A value that is set to <code>true</code> to reset all parameters in the DB cluster
@@ -6788,7 +6788,7 @@ export interface ResetDBParameterGroupMessage {
    *          <p>Valid Values (for Apply method): <code>pending-reboot</code>
    *          </p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 
   /**
    * <p>Specifies whether (<code>true</code>) or not (<code>false</code>) to reset all parameters
@@ -6813,7 +6813,7 @@ export interface ResourcePendingMaintenanceActions {
    * <p>A list that provides details about the pending maintenance actions for the
    *       resource.</p>
    */
-  PendingMaintenanceActionDetails?: Array<PendingMaintenanceAction>;
+  PendingMaintenanceActionDetails?: PendingMaintenanceAction[];
 
   /**
    * <p>The ARN of the resource that has pending maintenance actions.</p>
@@ -6832,7 +6832,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
    * <p>Provides the list of EC2 Availability Zones that instances in the restored DB cluster can
    *       be created in.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>The name of the DB cluster to create from the DB snapshot or DB cluster snapshot. This
@@ -6889,7 +6889,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
   /**
    * <p>The list of logs that the restored DB cluster is to export to Amazon CloudWatch Logs.</p>
    */
-  EnableCloudwatchLogsExports?: Array<string>;
+  EnableCloudwatchLogsExports?: string[];
 
   /**
    * <p>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
@@ -6965,12 +6965,12 @@ export interface RestoreDBClusterFromSnapshotMessage {
   /**
    * <p>The tags to be assigned to the restored DB cluster.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A list of VPC security groups that the new DB cluster will belong to.</p>
    */
-  VpcSecurityGroupIds?: Array<string>;
+  VpcSecurityGroupIds?: string[];
 }
 
 export namespace RestoreDBClusterFromSnapshotMessage {
@@ -7041,7 +7041,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
   /**
    * <p>The list of logs that the restored DB cluster is to export to CloudWatch Logs.</p>
    */
-  EnableCloudwatchLogsExports?: Array<string>;
+  EnableCloudwatchLogsExports?: string[];
 
   /**
    * <p>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
@@ -7152,7 +7152,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
   /**
    * <p>The tags to be applied to the restored DB cluster.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A value that is set to <code>true</code> to restore the DB cluster to the latest
@@ -7167,7 +7167,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
   /**
    * <p>A list of VPC security groups that the new DB cluster belongs to.</p>
    */
-  VpcSecurityGroupIds?: Array<string>;
+  VpcSecurityGroupIds?: string[];
 }
 
 export namespace RestoreDBClusterToPointInTimeMessage {
@@ -7254,7 +7254,7 @@ export interface TagListMessage {
   /**
    * <p>List of tags returned by the ListTagsForResource operation.</p>
    */
-  TagList?: Array<Tag>;
+  TagList?: Tag[];
 }
 
 export namespace TagListMessage {
@@ -7324,7 +7324,7 @@ export interface ValidDBInstanceModificationsMessage {
   /**
    * <p>Valid storage options for your DB instance.</p>
    */
-  Storage?: Array<ValidStorageOptions>;
+  Storage?: ValidStorageOptions[];
 }
 
 export namespace ValidDBInstanceModificationsMessage {
@@ -7343,17 +7343,17 @@ export interface ValidStorageOptions {
    * <p>The valid range of Provisioned IOPS to gibibytes of storage multiplier. For example, 3-10,
    *       which means that provisioned IOPS can be between 3 and 10 times storage.</p>
    */
-  IopsToStorageRatio?: Array<DoubleRange>;
+  IopsToStorageRatio?: DoubleRange[];
 
   /**
    * <p>The valid range of provisioned IOPS. For example, 1000-20000.</p>
    */
-  ProvisionedIops?: Array<Range>;
+  ProvisionedIops?: Range[];
 
   /**
    * <p>The valid range of storage in gibibytes. For example, 100 to 16384.</p>
    */
-  StorageSize?: Array<Range>;
+  StorageSize?: Range[];
 
   /**
    * <p>The valid storage types for your DB instance. For example, gp2, io1.</p>

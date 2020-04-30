@@ -838,7 +838,7 @@ const serializeAws_json1_1ApplicationSource = (
 };
 
 const serializeAws_json1_1ApplicationSources = (
-  input: Array<ApplicationSource>,
+  input: ApplicationSource[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1033,7 +1033,7 @@ const serializeAws_json1_1MetricDimension = (
 };
 
 const serializeAws_json1_1MetricDimensions = (
-  input: Array<MetricDimension>,
+  input: MetricDimension[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1141,7 +1141,7 @@ const serializeAws_json1_1ScalingInstruction = (
 };
 
 const serializeAws_json1_1ScalingInstructions = (
-  input: Array<ScalingInstruction>,
+  input: ScalingInstruction[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1152,7 +1152,7 @@ const serializeAws_json1_1ScalingInstructions = (
 };
 
 const serializeAws_json1_1ScalingPlanNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1177,7 +1177,7 @@ const serializeAws_json1_1TagFilter = (
 };
 
 const serializeAws_json1_1TagFilters = (
-  input: Array<TagFilter>,
+  input: TagFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1188,7 +1188,7 @@ const serializeAws_json1_1TagFilters = (
 };
 
 const serializeAws_json1_1TagValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1238,7 +1238,7 @@ const serializeAws_json1_1TargetTrackingConfiguration = (
 };
 
 const serializeAws_json1_1TargetTrackingConfigurations = (
-  input: Array<TargetTrackingConfiguration>,
+  input: TargetTrackingConfiguration[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1418,7 +1418,7 @@ const deserializeAws_json1_1Datapoint = (
 const deserializeAws_json1_1Datapoints = (
   output: any,
   context: __SerdeContext
-): Array<Datapoint> => {
+): Datapoint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Datapoint(entry, context)
   );
@@ -1559,7 +1559,7 @@ const deserializeAws_json1_1MetricDimension = (
 const deserializeAws_json1_1MetricDimensions = (
   output: any,
   context: __SerdeContext
-): Array<MetricDimension> => {
+): MetricDimension[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MetricDimension(entry, context)
   );
@@ -1734,7 +1734,7 @@ const deserializeAws_json1_1ScalingInstruction = (
 const deserializeAws_json1_1ScalingInstructions = (
   output: any,
   context: __SerdeContext
-): Array<ScalingInstruction> => {
+): ScalingInstruction[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ScalingInstruction(entry, context)
   );
@@ -1862,7 +1862,7 @@ const deserializeAws_json1_1ScalingPlanResource = (
 const deserializeAws_json1_1ScalingPlanResources = (
   output: any,
   context: __SerdeContext
-): Array<ScalingPlanResource> => {
+): ScalingPlanResource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ScalingPlanResource(entry, context)
   );
@@ -1871,7 +1871,7 @@ const deserializeAws_json1_1ScalingPlanResources = (
 const deserializeAws_json1_1ScalingPlans = (
   output: any,
   context: __SerdeContext
-): Array<ScalingPlan> => {
+): ScalingPlan[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ScalingPlan(entry, context)
   );
@@ -1880,7 +1880,7 @@ const deserializeAws_json1_1ScalingPlans = (
 const deserializeAws_json1_1ScalingPolicies = (
   output: any,
   context: __SerdeContext
-): Array<ScalingPolicy> => {
+): ScalingPolicy[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ScalingPolicy(entry, context)
   );
@@ -1935,7 +1935,7 @@ const deserializeAws_json1_1TagFilter = (
 const deserializeAws_json1_1TagFilters = (
   output: any,
   context: __SerdeContext
-): Array<TagFilter> => {
+): TagFilter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TagFilter(entry, context)
   );
@@ -1944,7 +1944,7 @@ const deserializeAws_json1_1TagFilters = (
 const deserializeAws_json1_1TagValues = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2007,7 +2007,7 @@ const deserializeAws_json1_1TargetTrackingConfiguration = (
 const deserializeAws_json1_1TargetTrackingConfigurations = (
   output: any,
   context: __SerdeContext
-): Array<TargetTrackingConfiguration> => {
+): TargetTrackingConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TargetTrackingConfiguration(entry, context)
   );

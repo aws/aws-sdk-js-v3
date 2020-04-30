@@ -3778,7 +3778,7 @@ const serializeAws_json1_1ApproveAssignmentRequest = (
 };
 
 const serializeAws_json1_1AssignmentStatusList = (
-  input: Array<AssignmentStatus | string>,
+  input: AssignmentStatus | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4036,7 +4036,7 @@ const serializeAws_json1_1CreateWorkerBlockRequest = (
 };
 
 const serializeAws_json1_1CustomerIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4100,7 +4100,7 @@ const serializeAws_json1_1DisassociateQualificationFromWorkerRequest = (
 };
 
 const serializeAws_json1_1EventTypeList = (
-  input: Array<EventType | string>,
+  input: EventType | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4194,7 +4194,7 @@ const serializeAws_json1_1HITLayoutParameter = (
 };
 
 const serializeAws_json1_1HITLayoutParameterList = (
-  input: Array<HITLayoutParameter>,
+  input: HITLayoutParameter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4205,7 +4205,7 @@ const serializeAws_json1_1HITLayoutParameterList = (
 };
 
 const serializeAws_json1_1IntegerList = (
-  input: Array<number>,
+  input: number[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4427,7 +4427,7 @@ const serializeAws_json1_1Locale = (
 };
 
 const serializeAws_json1_1LocaleList = (
-  input: Array<Locale>,
+  input: Locale[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4498,7 +4498,7 @@ const serializeAws_json1_1ParameterMapEntry = (
 };
 
 const serializeAws_json1_1ParameterMapEntryList = (
-  input: Array<ParameterMapEntry>,
+  input: ParameterMapEntry[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4532,7 +4532,7 @@ const serializeAws_json1_1PolicyParameter = (
 };
 
 const serializeAws_json1_1PolicyParameterList = (
-  input: Array<PolicyParameter>,
+  input: PolicyParameter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4575,7 +4575,7 @@ const serializeAws_json1_1QualificationRequirement = (
 };
 
 const serializeAws_json1_1QualificationRequirementList = (
-  input: Array<QualificationRequirement>,
+  input: QualificationRequirement[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4631,7 +4631,7 @@ const serializeAws_json1_1ReviewPolicy = (
 };
 
 const serializeAws_json1_1ReviewPolicyLevelList = (
-  input: Array<ReviewPolicyLevel | string>,
+  input: ReviewPolicyLevel | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4682,7 +4682,7 @@ const serializeAws_json1_1SendTestEventNotificationRequest = (
 };
 
 const serializeAws_json1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4881,7 +4881,7 @@ const deserializeAws_json1_1Assignment = (
 const deserializeAws_json1_1AssignmentList = (
   output: any,
   context: __SerdeContext
-): Array<Assignment> => {
+): Assignment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Assignment(entry, context)
   );
@@ -4930,7 +4930,7 @@ const deserializeAws_json1_1BonusPayment = (
 const deserializeAws_json1_1BonusPaymentList = (
   output: any,
   context: __SerdeContext
-): Array<BonusPayment> => {
+): BonusPayment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BonusPayment(entry, context)
   );
@@ -5286,7 +5286,7 @@ const deserializeAws_json1_1HIT = (
 const deserializeAws_json1_1HITList = (
   output: any,
   context: __SerdeContext
-): Array<HIT> => {
+): HIT[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1HIT(entry, context)
   );
@@ -5295,7 +5295,7 @@ const deserializeAws_json1_1HITList = (
 const deserializeAws_json1_1IntegerList = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5594,7 +5594,7 @@ const deserializeAws_json1_1Locale = (
 const deserializeAws_json1_1LocaleList = (
   output: any,
   context: __SerdeContext
-): Array<Locale> => {
+): Locale[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Locale(entry, context)
   );
@@ -5631,7 +5631,7 @@ const deserializeAws_json1_1NotifyWorkersFailureStatus = (
 const deserializeAws_json1_1NotifyWorkersFailureStatusList = (
   output: any,
   context: __SerdeContext
-): Array<NotifyWorkersFailureStatus> => {
+): NotifyWorkersFailureStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1NotifyWorkersFailureStatus(entry, context)
   );
@@ -5678,7 +5678,7 @@ const deserializeAws_json1_1ParameterMapEntry = (
 const deserializeAws_json1_1ParameterMapEntryList = (
   output: any,
   context: __SerdeContext
-): Array<ParameterMapEntry> => {
+): ParameterMapEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ParameterMapEntry(entry, context)
   );
@@ -5712,7 +5712,7 @@ const deserializeAws_json1_1PolicyParameter = (
 const deserializeAws_json1_1PolicyParameterList = (
   output: any,
   context: __SerdeContext
-): Array<PolicyParameter> => {
+): PolicyParameter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PolicyParameter(entry, context)
   );
@@ -5761,7 +5761,7 @@ const deserializeAws_json1_1Qualification = (
 const deserializeAws_json1_1QualificationList = (
   output: any,
   context: __SerdeContext
-): Array<Qualification> => {
+): Qualification[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Qualification(entry, context)
   );
@@ -5810,7 +5810,7 @@ const deserializeAws_json1_1QualificationRequest = (
 const deserializeAws_json1_1QualificationRequestList = (
   output: any,
   context: __SerdeContext
-): Array<QualificationRequest> => {
+): QualificationRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1QualificationRequest(entry, context)
   );
@@ -5865,7 +5865,7 @@ const deserializeAws_json1_1QualificationRequirement = (
 const deserializeAws_json1_1QualificationRequirementList = (
   output: any,
   context: __SerdeContext
-): Array<QualificationRequirement> => {
+): QualificationRequirement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1QualificationRequirement(entry, context)
   );
@@ -5951,7 +5951,7 @@ const deserializeAws_json1_1QualificationType = (
 const deserializeAws_json1_1QualificationTypeList = (
   output: any,
   context: __SerdeContext
-): Array<QualificationType> => {
+): QualificationType[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1QualificationType(entry, context)
   );
@@ -6022,7 +6022,7 @@ const deserializeAws_json1_1ReviewActionDetail = (
 const deserializeAws_json1_1ReviewActionDetailList = (
   output: any,
   context: __SerdeContext
-): Array<ReviewActionDetail> => {
+): ReviewActionDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ReviewActionDetail(entry, context)
   );
@@ -6110,7 +6110,7 @@ const deserializeAws_json1_1ReviewResultDetail = (
 const deserializeAws_json1_1ReviewResultDetailList = (
   output: any,
   context: __SerdeContext
-): Array<ReviewResultDetail> => {
+): ReviewResultDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ReviewResultDetail(entry, context)
   );
@@ -6139,7 +6139,7 @@ const deserializeAws_json1_1SendTestEventNotificationResponse = (
 const deserializeAws_json1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6224,7 +6224,7 @@ const deserializeAws_json1_1WorkerBlock = (
 const deserializeAws_json1_1WorkerBlockList = (
   output: any,
   context: __SerdeContext
-): Array<WorkerBlock> => {
+): WorkerBlock[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WorkerBlock(entry, context)
   );

@@ -2592,7 +2592,7 @@ const serializeAws_restJson1_1Tag = (
 };
 
 const serializeAws_restJson1_1__listOfApplicationPolicyStatement = (
-  input: Array<ApplicationPolicyStatement>,
+  input: ApplicationPolicyStatement[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2605,7 +2605,7 @@ const serializeAws_restJson1_1__listOfApplicationPolicyStatement = (
 };
 
 const serializeAws_restJson1_1__listOfParameterValue = (
-  input: Array<ParameterValue>,
+  input: ParameterValue[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2616,7 +2616,7 @@ const serializeAws_restJson1_1__listOfParameterValue = (
 };
 
 const serializeAws_restJson1_1__listOfRollbackTrigger = (
-  input: Array<RollbackTrigger>,
+  input: RollbackTrigger[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2627,7 +2627,7 @@ const serializeAws_restJson1_1__listOfRollbackTrigger = (
 };
 
 const serializeAws_restJson1_1__listOfTag = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2638,7 +2638,7 @@ const serializeAws_restJson1_1__listOfTag = (
 };
 
 const serializeAws_restJson1_1__listOf__string = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2906,7 +2906,7 @@ const deserializeAws_restJson1_1VersionSummary = (
 const deserializeAws_restJson1_1__listOfApplicationDependencySummary = (
   output: any,
   context: __SerdeContext
-): Array<ApplicationDependencySummary> => {
+): ApplicationDependencySummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ApplicationDependencySummary(entry, context)
   );
@@ -2915,7 +2915,7 @@ const deserializeAws_restJson1_1__listOfApplicationDependencySummary = (
 const deserializeAws_restJson1_1__listOfApplicationPolicyStatement = (
   output: any,
   context: __SerdeContext
-): Array<ApplicationPolicyStatement> => {
+): ApplicationPolicyStatement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ApplicationPolicyStatement(entry, context)
   );
@@ -2924,7 +2924,7 @@ const deserializeAws_restJson1_1__listOfApplicationPolicyStatement = (
 const deserializeAws_restJson1_1__listOfApplicationSummary = (
   output: any,
   context: __SerdeContext
-): Array<ApplicationSummary> => {
+): ApplicationSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ApplicationSummary(entry, context)
   );
@@ -2933,14 +2933,14 @@ const deserializeAws_restJson1_1__listOfApplicationSummary = (
 const deserializeAws_restJson1_1__listOfCapability = (
   output: any,
   context: __SerdeContext
-): Array<Capability | string> => {
+): Capability | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1__listOfParameterDefinition = (
   output: any,
   context: __SerdeContext
-): Array<ParameterDefinition> => {
+): ParameterDefinition[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ParameterDefinition(entry, context)
   );
@@ -2949,7 +2949,7 @@ const deserializeAws_restJson1_1__listOfParameterDefinition = (
 const deserializeAws_restJson1_1__listOfVersionSummary = (
   output: any,
   context: __SerdeContext
-): Array<VersionSummary> => {
+): VersionSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1VersionSummary(entry, context)
   );
@@ -2958,7 +2958,7 @@ const deserializeAws_restJson1_1__listOfVersionSummary = (
 const deserializeAws_restJson1_1__listOf__string = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

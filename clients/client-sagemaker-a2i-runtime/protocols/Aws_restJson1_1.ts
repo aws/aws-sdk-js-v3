@@ -824,7 +824,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1ContentClassifiers = (
-  input: Array<ContentClassifier | string>,
+  input: ContentClassifier | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -937,7 +937,7 @@ const deserializeAws_restJson1_1HumanLoopOutputContent = (
 const deserializeAws_restJson1_1HumanLoopSummaries = (
   output: any,
   context: __SerdeContext
-): Array<HumanLoopSummary> => {
+): HumanLoopSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HumanLoopSummary(entry, context)
   );

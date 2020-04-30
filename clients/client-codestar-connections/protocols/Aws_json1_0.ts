@@ -448,7 +448,7 @@ const deserializeAws_json1_0Connection = (
 const deserializeAws_json1_0ConnectionList = (
   output: any,
   context: __SerdeContext
-): Array<Connection> => {
+): Connection[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Connection(entry, context)
   );

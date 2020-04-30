@@ -541,7 +541,7 @@ export interface GetDiscoveredSchemaRequest {
   /**
    * <p>An array of strings that</p>
    */
-  Events: Array<string> | undefined;
+  Events: string[] | undefined;
 
   /**
    * <p>The type of event.</p>
@@ -621,7 +621,7 @@ export interface ListDiscoverersResponse {
   /**
    * <p>An array of DiscovererSummary information.</p>
    */
-  Discoverers?: Array<DiscovererSummary>;
+  Discoverers?: DiscovererSummary[];
 
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
@@ -657,7 +657,7 @@ export interface ListRegistriesResponse {
   /**
    * <p>An array of registry summaries.</p>
    */
-  Registries?: Array<RegistrySummary>;
+  Registries?: RegistrySummary[];
 }
 
 export namespace ListRegistriesResponse {
@@ -688,7 +688,7 @@ export interface ListSchemaVersionsResponse {
   /**
    * <p>An array of schema version summaries.</p>
    */
-  SchemaVersions?: Array<SchemaVersionSummary>;
+  SchemaVersions?: SchemaVersionSummary[];
 }
 
 export namespace ListSchemaVersionsResponse {
@@ -719,7 +719,7 @@ export interface ListSchemasResponse {
   /**
    * <p>An array of schema summaries.</p>
    */
-  Schemas?: Array<SchemaSummary>;
+  Schemas?: SchemaSummary[];
 }
 
 export namespace ListSchemasResponse {
@@ -765,7 +765,7 @@ export interface LockServiceLinkedRoleResponse {
   __type?: "LockServiceLinkedRoleResponse";
   CanBeDeleted?: boolean;
   ReasonOfFailure?: string;
-  RelatedResources?: Array<DiscovererSummary>;
+  RelatedResources?: DiscovererSummary[];
 }
 
 export namespace LockServiceLinkedRoleResponse {
@@ -934,7 +934,7 @@ export interface SearchSchemaSummary {
   /**
    * <p>An array of schema version summaries.</p>
    */
-  SchemaVersions?: Array<SearchSchemaVersionSummary>;
+  SchemaVersions?: SearchSchemaVersionSummary[];
 }
 
 export namespace SearchSchemaSummary {
@@ -979,7 +979,7 @@ export interface SearchSchemasResponse {
   /**
    * <p>An array of SearchSchemaSummary information.</p>
    */
-  Schemas?: Array<SearchSchemaSummary>;
+  Schemas?: SearchSchemaSummary[];
 }
 
 export namespace SearchSchemasResponse {
@@ -1146,7 +1146,7 @@ export namespace UnlockServiceLinkedRoleResponse {
 export interface UntagResourceRequest {
   __type?: "UntagResourceRequest";
   ResourceArn: string | undefined;
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

@@ -281,7 +281,7 @@ export interface AudioChannelMapping {
   /**
    * Indices and gain values for each input channel that should be remixed into this output channel.
    */
-  InputChannelLevels: Array<InputChannelLevel> | undefined;
+  InputChannelLevels: InputChannelLevel[] | undefined;
 
   /**
    * The index of the output channel being produced.
@@ -698,7 +698,7 @@ export interface BatchScheduleActionCreateRequest {
   /**
    * A list of schedule actions to create.
    */
-  ScheduleActions: Array<ScheduleAction> | undefined;
+  ScheduleActions: ScheduleAction[] | undefined;
 }
 
 export namespace BatchScheduleActionCreateRequest {
@@ -714,7 +714,7 @@ export interface BatchScheduleActionCreateResult {
   /**
    * List of actions that have been created in the schedule.
    */
-  ScheduleActions: Array<ScheduleAction> | undefined;
+  ScheduleActions: ScheduleAction[] | undefined;
 }
 
 export namespace BatchScheduleActionCreateResult {
@@ -730,7 +730,7 @@ export interface BatchScheduleActionDeleteRequest {
   /**
    * A list of schedule actions to delete.
    */
-  ActionNames: Array<string> | undefined;
+  ActionNames: string[] | undefined;
 }
 
 export namespace BatchScheduleActionDeleteRequest {
@@ -746,7 +746,7 @@ export interface BatchScheduleActionDeleteResult {
   /**
    * List of actions that have been deleted from the schedule.
    */
-  ScheduleActions: Array<ScheduleAction> | undefined;
+  ScheduleActions: ScheduleAction[] | undefined;
 }
 
 export namespace BatchScheduleActionDeleteResult {
@@ -1203,12 +1203,12 @@ export interface Channel {
    * destination per output. For other types (HLS, for example), there is
    * one destination per packager.
    */
-  Destinations?: Array<OutputDestination>;
+  Destinations?: OutputDestination[];
 
   /**
    * The endpoints where outgoing connections initiate from
    */
-  EgressEndpoints?: Array<ChannelEgressEndpoint>;
+  EgressEndpoints?: ChannelEgressEndpoint[];
 
   /**
    * Encoder Settings
@@ -1223,7 +1223,7 @@ export interface Channel {
   /**
    * List of input attachments for channel.
    */
-  InputAttachments?: Array<InputAttachment>;
+  InputAttachments?: InputAttachment[];
 
   /**
    * Placeholder documentation for InputSpecification
@@ -1243,7 +1243,7 @@ export interface Channel {
   /**
    * Runtime details for the pipelines of a running channel.
    */
-  PipelineDetails?: Array<PipelineDetail>;
+  PipelineDetails?: PipelineDetail[];
 
   /**
    * The number of currently healthy pipelines.
@@ -1325,12 +1325,12 @@ export interface ChannelSummary {
    * destination per output. For other types (HLS, for example), there is
    * one destination per packager.
    */
-  Destinations?: Array<OutputDestination>;
+  Destinations?: OutputDestination[];
 
   /**
    * The endpoints where outgoing connections initiate from
    */
-  EgressEndpoints?: Array<ChannelEgressEndpoint>;
+  EgressEndpoints?: ChannelEgressEndpoint[];
 
   /**
    * The unique id of the channel.
@@ -1340,7 +1340,7 @@ export interface ChannelSummary {
   /**
    * List of input attachments for channel.
    */
-  InputAttachments?: Array<InputAttachment>;
+  InputAttachments?: InputAttachment[];
 
   /**
    * Placeholder documentation for InputSpecification
@@ -1425,7 +1425,7 @@ export interface CreateChannelRequest {
   /**
    * Placeholder documentation for __listOfOutputDestination
    */
-  Destinations?: Array<OutputDestination>;
+  Destinations?: OutputDestination[];
 
   /**
    * Encoder Settings
@@ -1435,7 +1435,7 @@ export interface CreateChannelRequest {
   /**
    * List of input attachments for channel.
    */
-  InputAttachments?: Array<InputAttachment>;
+  InputAttachments?: InputAttachment[];
 
   /**
    * Specification of input for this channel (max. bitrate, resolution, codec, etc.)
@@ -1503,19 +1503,19 @@ export interface CreateInputRequest {
   /**
    * Destination settings for PUSH type inputs.
    */
-  Destinations?: Array<InputDestinationRequest>;
+  Destinations?: InputDestinationRequest[];
 
   /**
    * A list of security groups referenced by IDs to attach to the input.
    */
-  InputSecurityGroups?: Array<string>;
+  InputSecurityGroups?: string[];
 
   /**
    * A list of the MediaConnect Flows that you want to use in this input. You can specify as few as one
    * Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
    * separate Availability Zone as this ensures your EML input is redundant to AZ issues.
    */
-  MediaConnectFlows?: Array<MediaConnectFlowRequest>;
+  MediaConnectFlows?: MediaConnectFlowRequest[];
 
   /**
    * Name of the input.
@@ -1538,7 +1538,7 @@ export interface CreateInputRequest {
    * exactly two source URLs for redundancy.
    * Only specify sources for PULL type Inputs. Leave Destinations empty.
    */
-  Sources?: Array<InputSourceRequest>;
+  Sources?: InputSourceRequest[];
 
   /**
    * A collection of key-value pairs.
@@ -1593,7 +1593,7 @@ export interface CreateInputSecurityGroupRequest {
   /**
    * List of IPv4 CIDR addresses to whitelist
    */
-  WhitelistRules?: Array<InputWhitelistRuleCidr>;
+  WhitelistRules?: InputWhitelistRuleCidr[];
 }
 
 export namespace CreateInputSecurityGroupRequest {
@@ -1673,7 +1673,7 @@ export interface CreateMultiplexRequest {
   /**
    * A list of availability zones for the multiplex. You must specify exactly two.
    */
-  AvailabilityZones: Array<string> | undefined;
+  AvailabilityZones: string[] | undefined;
 
   /**
    * Configuration for a multiplex event.
@@ -1775,12 +1775,12 @@ export interface DeleteChannelResponse {
    * destination per output. For other types (HLS, for example), there is
    * one destination per packager.
    */
-  Destinations?: Array<OutputDestination>;
+  Destinations?: OutputDestination[];
 
   /**
    * The endpoints where outgoing connections initiate from
    */
-  EgressEndpoints?: Array<ChannelEgressEndpoint>;
+  EgressEndpoints?: ChannelEgressEndpoint[];
 
   /**
    * Encoder Settings
@@ -1795,7 +1795,7 @@ export interface DeleteChannelResponse {
   /**
    * List of input attachments for channel.
    */
-  InputAttachments?: Array<InputAttachment>;
+  InputAttachments?: InputAttachment[];
 
   /**
    * Placeholder documentation for InputSpecification
@@ -1815,7 +1815,7 @@ export interface DeleteChannelResponse {
   /**
    * Runtime details for the pipelines of a running channel.
    */
-  PipelineDetails?: Array<PipelineDetail>;
+  PipelineDetails?: PipelineDetail[];
 
   /**
    * The number of currently healthy pipelines.
@@ -1980,12 +1980,12 @@ export interface DeleteMultiplexResponse {
   /**
    * A list of availability zones for the multiplex.
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * A list of the multiplex output destinations.
    */
-  Destinations?: Array<MultiplexOutputDestination>;
+  Destinations?: MultiplexOutputDestination[];
 
   /**
    * The unique id of the multiplex.
@@ -2186,7 +2186,7 @@ export interface DeleteTagsRequest {
   /**
    * An array of tag keys to delete
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace DeleteTagsRequest {
@@ -2230,12 +2230,12 @@ export interface DescribeChannelResponse {
    * destination per output. For other types (HLS, for example), there is
    * one destination per packager.
    */
-  Destinations?: Array<OutputDestination>;
+  Destinations?: OutputDestination[];
 
   /**
    * The endpoints where outgoing connections initiate from
    */
-  EgressEndpoints?: Array<ChannelEgressEndpoint>;
+  EgressEndpoints?: ChannelEgressEndpoint[];
 
   /**
    * Encoder Settings
@@ -2250,7 +2250,7 @@ export interface DescribeChannelResponse {
   /**
    * List of input attachments for channel.
    */
-  InputAttachments?: Array<InputAttachment>;
+  InputAttachments?: InputAttachment[];
 
   /**
    * Placeholder documentation for InputSpecification
@@ -2270,7 +2270,7 @@ export interface DescribeChannelResponse {
   /**
    * Runtime details for the pipelines of a running channel.
    */
-  PipelineDetails?: Array<PipelineDetail>;
+  PipelineDetails?: PipelineDetail[];
 
   /**
    * The number of currently healthy pipelines.
@@ -2327,12 +2327,12 @@ export interface DescribeInputResponse {
   /**
    * A list of channel IDs that that input is attached to (currently an input can only be attached to one channel).
    */
-  AttachedChannels?: Array<string>;
+  AttachedChannels?: string[];
 
   /**
    * A list of the destinations of the input (PUSH-type).
    */
-  Destinations?: Array<InputDestination>;
+  Destinations?: InputDestination[];
 
   /**
    * The generated ID of the input (unique for user account, immutable).
@@ -2354,7 +2354,7 @@ export interface DescribeInputResponse {
   /**
    * A list of MediaConnect Flows for this input.
    */
-  MediaConnectFlows?: Array<MediaConnectFlow>;
+  MediaConnectFlows?: MediaConnectFlow[];
 
   /**
    * The user-assigned name (This is a mutable value).
@@ -2369,12 +2369,12 @@ export interface DescribeInputResponse {
   /**
    * A list of IDs for all the Input Security Groups attached to the input.
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * A list of the sources of the input (PULL-type).
    */
-  Sources?: Array<InputSource>;
+  Sources?: InputSource[];
 
   /**
    * Placeholder documentation for InputState
@@ -2431,7 +2431,7 @@ export interface DescribeInputSecurityGroupResponse {
   /**
    * The list of inputs currently using this Input Security Group.
    */
-  Inputs?: Array<string>;
+  Inputs?: string[];
 
   /**
    * The current state of the Input Security Group.
@@ -2446,7 +2446,7 @@ export interface DescribeInputSecurityGroupResponse {
   /**
    * Whitelist rules and their sync status
    */
-  WhitelistRules?: Array<InputWhitelistRule>;
+  WhitelistRules?: InputWhitelistRule[];
 }
 
 export namespace DescribeInputSecurityGroupResponse {
@@ -2535,12 +2535,12 @@ export interface DescribeMultiplexResponse {
   /**
    * A list of availability zones for the multiplex.
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * A list of the multiplex output destinations.
    */
-  Destinations?: Array<MultiplexOutputDestination>;
+  Destinations?: MultiplexOutputDestination[];
 
   /**
    * The unique id of the multiplex.
@@ -2821,7 +2821,7 @@ export interface DescribeScheduleResponse {
   /**
    * The list of actions in the schedule.
    */
-  ScheduleActions?: Array<ScheduleAction>;
+  ScheduleActions?: ScheduleAction[];
 }
 
 export namespace DescribeScheduleResponse {
@@ -3331,7 +3331,7 @@ export interface EncoderSettings {
   /**
    * Placeholder documentation for __listOfAudioDescription
    */
-  AudioDescriptions: Array<AudioDescription> | undefined;
+  AudioDescriptions: AudioDescription[] | undefined;
 
   /**
    * Settings for ad avail blanking.
@@ -3351,7 +3351,7 @@ export interface EncoderSettings {
   /**
    * Settings for caption decriptions
    */
-  CaptionDescriptions?: Array<CaptionDescription>;
+  CaptionDescriptions?: CaptionDescription[];
 
   /**
    * Configuration settings that apply to the event as a whole.
@@ -3366,7 +3366,7 @@ export interface EncoderSettings {
   /**
    * Placeholder documentation for __listOfOutputGroup
    */
-  OutputGroups: Array<OutputGroup> | undefined;
+  OutputGroups: OutputGroup[] | undefined;
 
   /**
    * Contains settings used to acquire and adjust timecode information from inputs.
@@ -3376,7 +3376,7 @@ export interface EncoderSettings {
   /**
    * Placeholder documentation for __listOfVideoDescription
    */
-  VideoDescriptions: Array<VideoDescription> | undefined;
+  VideoDescriptions: VideoDescription[] | undefined;
 }
 
 export namespace EncoderSettings {
@@ -4472,7 +4472,7 @@ export interface HlsGroupSettings {
   /**
    * Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
    */
-  AdMarkers?: Array<HlsAdMarkers | string>;
+  AdMarkers?: HlsAdMarkers | string[];
 
   /**
    * A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
@@ -4501,7 +4501,7 @@ export interface HlsGroupSettings {
   /**
    * Mapping of up to 4 caption channels to caption languages.  Is only meaningful if captionLanguageSetting is set to "insert".
    */
-  CaptionLanguageMappings?: Array<CaptionLanguageMapping>;
+  CaptionLanguageMappings?: CaptionLanguageMapping[];
 
   /**
    * Applies only to 608 Embedded output captions.
@@ -4998,12 +4998,12 @@ export interface Input {
   /**
    * A list of channel IDs that that input is attached to (currently an input can only be attached to one channel).
    */
-  AttachedChannels?: Array<string>;
+  AttachedChannels?: string[];
 
   /**
    * A list of the destinations of the input (PUSH-type).
    */
-  Destinations?: Array<InputDestination>;
+  Destinations?: InputDestination[];
 
   /**
    * The generated ID of the input (unique for user account, immutable).
@@ -5025,7 +5025,7 @@ export interface Input {
   /**
    * A list of MediaConnect Flows for this input.
    */
-  MediaConnectFlows?: Array<MediaConnectFlow>;
+  MediaConnectFlows?: MediaConnectFlow[];
 
   /**
    * The user-assigned name (This is a mutable value).
@@ -5040,12 +5040,12 @@ export interface Input {
   /**
    * A list of IDs for all the Input Security Groups attached to the input.
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * A list of the sources of the input (PULL-type).
    */
-  Sources?: Array<InputSource>;
+  Sources?: InputSource[];
 
   /**
    * Placeholder documentation for InputState
@@ -5355,7 +5355,7 @@ export interface InputSecurityGroup {
   /**
    * The list of inputs currently using this Input Security Group.
    */
-  Inputs?: Array<string>;
+  Inputs?: string[];
 
   /**
    * The current state of the Input Security Group.
@@ -5370,7 +5370,7 @@ export interface InputSecurityGroup {
   /**
    * Whitelist rules and their sync status
    */
-  WhitelistRules?: Array<InputWhitelistRule>;
+  WhitelistRules?: InputWhitelistRule[];
 }
 
 export namespace InputSecurityGroup {
@@ -5393,12 +5393,12 @@ export interface InputSettings {
   /**
    * Used to select the audio stream to decode for inputs that have multiple available.
    */
-  AudioSelectors?: Array<AudioSelector>;
+  AudioSelectors?: AudioSelector[];
 
   /**
    * Used to select the caption input to use for inputs that have multiple available.
    */
-  CaptionSelectors?: Array<CaptionSelector>;
+  CaptionSelectors?: CaptionSelector[];
 
   /**
    * Enable or disable the deblock filter when filtering.
@@ -5558,7 +5558,7 @@ export interface InputSwitchScheduleActionSettings {
   /**
    * The value for the variable portion of the URL for the dynamic input, for this instance of the input. Each time you use the same dynamic input in an input switch action, you can provide a different value, in order to connect the input to a different content source.
    */
-  UrlPath?: Array<string>;
+  UrlPath?: string[];
 }
 
 export namespace InputSwitchScheduleActionSettings {
@@ -5593,13 +5593,13 @@ export interface InputVpcRequest {
    * A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
    * Requires subnetIds. If none are specified then the VPC default security group will be used.
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * A list of 2 VPC subnet IDs from the same VPC.
    * Subnet IDs must be mapped to two unique availability zones (AZ).
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 }
 
 export namespace InputVpcRequest {
@@ -5708,7 +5708,7 @@ export interface ListChannelsResponse {
   /**
    * Placeholder documentation for __listOfChannelSummary
    */
-  Channels?: Array<ChannelSummary>;
+  Channels?: ChannelSummary[];
 
   /**
    * Placeholder documentation for __string
@@ -5750,7 +5750,7 @@ export interface ListInputSecurityGroupsResponse {
   /**
    * List of input security groups
    */
-  InputSecurityGroups?: Array<InputSecurityGroup>;
+  InputSecurityGroups?: InputSecurityGroup[];
 
   /**
    * Placeholder documentation for __string
@@ -5792,7 +5792,7 @@ export interface ListInputsResponse {
   /**
    * Placeholder documentation for __listOfInput
    */
-  Inputs?: Array<Input>;
+  Inputs?: Input[];
 
   /**
    * Placeholder documentation for __string
@@ -5839,7 +5839,7 @@ export interface ListMultiplexProgramsResponse {
   /**
    * List of multiplex programs.
    */
-  MultiplexPrograms?: Array<MultiplexProgramSummary>;
+  MultiplexPrograms?: MultiplexProgramSummary[];
 
   /**
    * Token for the next ListMultiplexProgram request.
@@ -5881,7 +5881,7 @@ export interface ListMultiplexesResponse {
   /**
    * List of multiplexes.
    */
-  Multiplexes?: Array<MultiplexSummary>;
+  Multiplexes?: MultiplexSummary[];
 
   /**
    * Token for the next ListMultiplexes request.
@@ -5978,7 +5978,7 @@ export interface ListOfferingsResponse {
   /**
    * List of offerings
    */
-  Offerings?: Array<Offering>;
+  Offerings?: Offering[];
 }
 
 export namespace ListOfferingsResponse {
@@ -6060,7 +6060,7 @@ export interface ListReservationsResponse {
   /**
    * List of reservations
    */
-  Reservations?: Array<Reservation>;
+  Reservations?: Reservation[];
 }
 
 export namespace ListReservationsResponse {
@@ -6832,12 +6832,12 @@ export interface Multiplex {
   /**
    * A list of availability zones for the multiplex.
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * A list of the multiplex output destinations.
    */
-  Destinations?: Array<MultiplexOutputDestination>;
+  Destinations?: MultiplexOutputDestination[];
 
   /**
    * The unique id of the multiplex.
@@ -7004,12 +7004,12 @@ export interface MultiplexProgramPacketIdentifiersMap {
   /**
    * Placeholder documentation for __listOf__integer
    */
-  AudioPids?: Array<number>;
+  AudioPids?: number[];
 
   /**
    * Placeholder documentation for __listOf__integer
    */
-  DvbSubPids?: Array<number>;
+  DvbSubPids?: number[];
 
   /**
    * Placeholder documentation for __integer
@@ -7029,7 +7029,7 @@ export interface MultiplexProgramPacketIdentifiersMap {
   /**
    * Placeholder documentation for __listOf__integer
    */
-  KlvDataPids?: Array<number>;
+  KlvDataPids?: number[];
 
   /**
    * Placeholder documentation for __integer
@@ -7049,7 +7049,7 @@ export interface MultiplexProgramPacketIdentifiersMap {
   /**
    * Placeholder documentation for __listOf__integer
    */
-  Scte27Pids?: Array<number>;
+  Scte27Pids?: number[];
 
   /**
    * Placeholder documentation for __integer
@@ -7233,7 +7233,7 @@ export interface MultiplexSummary {
   /**
    * A list of availability zones for the multiplex.
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * The unique id of the multiplex.
@@ -7449,12 +7449,12 @@ export interface Output {
   /**
    * The names of the AudioDescriptions used as audio sources for this output.
    */
-  AudioDescriptionNames?: Array<string>;
+  AudioDescriptionNames?: string[];
 
   /**
    * The names of the CaptionDescriptions used as caption sources for this output.
    */
-  CaptionDescriptionNames?: Array<string>;
+  CaptionDescriptionNames?: string[];
 
   /**
    * The name used to identify an output.
@@ -7489,7 +7489,7 @@ export interface OutputDestination {
   /**
    * Destination settings for a MediaPackage output; one destination for both encoders.
    */
-  MediaPackageSettings?: Array<MediaPackageOutputDestinationSettings>;
+  MediaPackageSettings?: MediaPackageOutputDestinationSettings[];
 
   /**
    * Destination settings for a Multiplex output; one destination for both encoders.
@@ -7499,7 +7499,7 @@ export interface OutputDestination {
   /**
    * Destination settings for a standard output; one destination for each redundant encoder.
    */
-  Settings?: Array<OutputDestinationSettings>;
+  Settings?: OutputDestinationSettings[];
 }
 
 export namespace OutputDestination {
@@ -7556,7 +7556,7 @@ export interface OutputGroup {
   /**
    * Placeholder documentation for __listOfOutput
    */
-  Outputs: Array<Output> | undefined;
+  Outputs: Output[] | undefined;
 }
 
 export namespace OutputGroup {
@@ -7701,7 +7701,7 @@ export interface PauseStateScheduleActionSettings {
   /**
    * Placeholder documentation for __listOfPipelinePauseStateSettings
    */
-  Pipelines?: Array<PipelinePauseStateSettings>;
+  Pipelines?: PipelinePauseStateSettings[];
 }
 
 export namespace PauseStateScheduleActionSettings {
@@ -7845,7 +7845,7 @@ export interface RemixSettings {
   /**
    * Mapping of input channels to output channels, with appropriate gain adjustments.
    */
-  ChannelMappings: Array<AudioChannelMapping> | undefined;
+  ChannelMappings: AudioChannelMapping[] | undefined;
 
   /**
    * Number of input channels to be used.
@@ -8624,7 +8624,7 @@ export interface Scte35TimeSignalScheduleActionSettings {
   /**
    * The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
    */
-  Scte35Descriptors: Array<Scte35Descriptor> | undefined;
+  Scte35Descriptors: Scte35Descriptor[] | undefined;
 }
 
 export namespace Scte35TimeSignalScheduleActionSettings {
@@ -8747,12 +8747,12 @@ export interface StartChannelResponse {
    * destination per output. For other types (HLS, for example), there is
    * one destination per packager.
    */
-  Destinations?: Array<OutputDestination>;
+  Destinations?: OutputDestination[];
 
   /**
    * The endpoints where outgoing connections initiate from
    */
-  EgressEndpoints?: Array<ChannelEgressEndpoint>;
+  EgressEndpoints?: ChannelEgressEndpoint[];
 
   /**
    * Encoder Settings
@@ -8767,7 +8767,7 @@ export interface StartChannelResponse {
   /**
    * List of input attachments for channel.
    */
-  InputAttachments?: Array<InputAttachment>;
+  InputAttachments?: InputAttachment[];
 
   /**
    * Placeholder documentation for InputSpecification
@@ -8787,7 +8787,7 @@ export interface StartChannelResponse {
   /**
    * Runtime details for the pipelines of a running channel.
    */
-  PipelineDetails?: Array<PipelineDetail>;
+  PipelineDetails?: PipelineDetail[];
 
   /**
    * The number of currently healthy pipelines.
@@ -8844,12 +8844,12 @@ export interface StartMultiplexResponse {
   /**
    * A list of availability zones for the multiplex.
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * A list of the multiplex output destinations.
    */
-  Destinations?: Array<MultiplexOutputDestination>;
+  Destinations?: MultiplexOutputDestination[];
 
   /**
    * The unique id of the multiplex.
@@ -9048,12 +9048,12 @@ export interface StopChannelResponse {
    * destination per output. For other types (HLS, for example), there is
    * one destination per packager.
    */
-  Destinations?: Array<OutputDestination>;
+  Destinations?: OutputDestination[];
 
   /**
    * The endpoints where outgoing connections initiate from
    */
-  EgressEndpoints?: Array<ChannelEgressEndpoint>;
+  EgressEndpoints?: ChannelEgressEndpoint[];
 
   /**
    * Encoder Settings
@@ -9068,7 +9068,7 @@ export interface StopChannelResponse {
   /**
    * List of input attachments for channel.
    */
-  InputAttachments?: Array<InputAttachment>;
+  InputAttachments?: InputAttachment[];
 
   /**
    * Placeholder documentation for InputSpecification
@@ -9088,7 +9088,7 @@ export interface StopChannelResponse {
   /**
    * Runtime details for the pipelines of a running channel.
    */
-  PipelineDetails?: Array<PipelineDetail>;
+  PipelineDetails?: PipelineDetail[];
 
   /**
    * The number of currently healthy pipelines.
@@ -9145,12 +9145,12 @@ export interface StopMultiplexResponse {
   /**
    * A list of availability zones for the multiplex.
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * A list of the multiplex output destinations.
    */
-  Destinations?: Array<MultiplexOutputDestination>;
+  Destinations?: MultiplexOutputDestination[];
 
   /**
    * The unique id of the multiplex.
@@ -9406,7 +9406,7 @@ export interface UnprocessableEntityException
   /**
    * A collection of validation error responses.
    */
-  ValidationErrors?: Array<ValidationError>;
+  ValidationErrors?: ValidationError[];
 }
 
 export namespace UnprocessableEntityException {
@@ -9432,7 +9432,7 @@ export interface UpdateChannelClassRequest {
   /**
    * A list of output destinations for this channel.
    */
-  Destinations?: Array<OutputDestination>;
+  Destinations?: OutputDestination[];
 }
 
 export namespace UpdateChannelClassRequest {
@@ -9469,7 +9469,7 @@ export interface UpdateChannelRequest {
   /**
    * A list of output destinations for this channel.
    */
-  Destinations?: Array<OutputDestination>;
+  Destinations?: OutputDestination[];
 
   /**
    * The encoder settings for this channel.
@@ -9479,7 +9479,7 @@ export interface UpdateChannelRequest {
   /**
    * Placeholder documentation for __listOfInputAttachment
    */
-  InputAttachments?: Array<InputAttachment>;
+  InputAttachments?: InputAttachment[];
 
   /**
    * Specification of input for this channel (max. bitrate, resolution, codec, etc.)
@@ -9531,7 +9531,7 @@ export interface UpdateInputRequest {
   /**
    * Destination settings for PUSH type inputs.
    */
-  Destinations?: Array<InputDestinationRequest>;
+  Destinations?: InputDestinationRequest[];
 
   /**
    * Unique ID of the input.
@@ -9541,14 +9541,14 @@ export interface UpdateInputRequest {
   /**
    * A list of security groups referenced by IDs to attach to the input.
    */
-  InputSecurityGroups?: Array<string>;
+  InputSecurityGroups?: string[];
 
   /**
    * A list of the MediaConnect Flow ARNs that you want to use as the source of the input. You can specify as few as one
    * Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
    * separate Availability Zone as this ensures your EML input is redundant to AZ issues.
    */
-  MediaConnectFlows?: Array<MediaConnectFlowRequest>;
+  MediaConnectFlows?: MediaConnectFlowRequest[];
 
   /**
    * Name of the input.
@@ -9565,7 +9565,7 @@ export interface UpdateInputRequest {
    * exactly two source URLs for redundancy.
    * Only specify sources for PULL type Inputs. Leave Destinations empty.
    */
-  Sources?: Array<InputSourceRequest>;
+  Sources?: InputSourceRequest[];
 }
 
 export namespace UpdateInputRequest {
@@ -9607,7 +9607,7 @@ export interface UpdateInputSecurityGroupRequest {
   /**
    * List of IPv4 CIDR addresses to whitelist
    */
-  WhitelistRules?: Array<InputWhitelistRuleCidr>;
+  WhitelistRules?: InputWhitelistRuleCidr[];
 }
 
 export namespace UpdateInputSecurityGroupRequest {

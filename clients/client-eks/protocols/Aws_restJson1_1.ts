@@ -3637,7 +3637,7 @@ const serializeAws_restJson1_1FargateProfileSelector = (
 };
 
 const serializeAws_restJson1_1FargateProfileSelectors = (
-  input: Array<FargateProfileSelector>,
+  input: FargateProfileSelector[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3667,7 +3667,7 @@ const serializeAws_restJson1_1LogSetup = (
 };
 
 const serializeAws_restJson1_1LogSetups = (
-  input: Array<LogSetup>,
+  input: LogSetup[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3678,7 +3678,7 @@ const serializeAws_restJson1_1LogSetups = (
 };
 
 const serializeAws_restJson1_1LogTypes = (
-  input: Array<LogType | string>,
+  input: LogType | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3737,7 +3737,7 @@ const serializeAws_restJson1_1RemoteAccessConfig = (
 };
 
 const serializeAws_restJson1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3811,7 +3811,7 @@ const serializeAws_restJson1_1VpcConfigRequest = (
 };
 
 const serializeAws_restJson1_1labelsKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3849,7 +3849,7 @@ const deserializeAws_restJson1_1AutoScalingGroup = (
 const deserializeAws_restJson1_1AutoScalingGroupList = (
   output: any,
   context: __SerdeContext
-): Array<AutoScalingGroup> => {
+): AutoScalingGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AutoScalingGroup(entry, context)
   );
@@ -3984,7 +3984,7 @@ const deserializeAws_restJson1_1ErrorDetail = (
 const deserializeAws_restJson1_1ErrorDetails = (
   output: any,
   context: __SerdeContext
-): Array<ErrorDetail> => {
+): ErrorDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ErrorDetail(entry, context)
   );
@@ -4086,7 +4086,7 @@ const deserializeAws_restJson1_1FargateProfileSelector = (
 const deserializeAws_restJson1_1FargateProfileSelectors = (
   output: any,
   context: __SerdeContext
-): Array<FargateProfileSelector> => {
+): FargateProfileSelector[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1FargateProfileSelector(entry, context)
   );
@@ -4134,7 +4134,7 @@ const deserializeAws_restJson1_1Issue = (
 const deserializeAws_restJson1_1IssueList = (
   output: any,
   context: __SerdeContext
-): Array<Issue> => {
+): Issue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Issue(entry, context)
   );
@@ -4161,7 +4161,7 @@ const deserializeAws_restJson1_1LogSetup = (
 const deserializeAws_restJson1_1LogSetups = (
   output: any,
   context: __SerdeContext
-): Array<LogSetup> => {
+): LogSetup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1LogSetup(entry, context)
   );
@@ -4170,7 +4170,7 @@ const deserializeAws_restJson1_1LogSetups = (
 const deserializeAws_restJson1_1LogTypes = (
   output: any,
   context: __SerdeContext
-): Array<LogType | string> => {
+): LogType | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4405,7 +4405,7 @@ const deserializeAws_restJson1_1RemoteAccessConfig = (
 const deserializeAws_restJson1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4481,7 +4481,7 @@ const deserializeAws_restJson1_1UpdateParam = (
 const deserializeAws_restJson1_1UpdateParams = (
   output: any,
   context: __SerdeContext
-): Array<UpdateParam> => {
+): UpdateParam[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UpdateParam(entry, context)
   );

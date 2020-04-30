@@ -125,7 +125,7 @@ export interface CreateLicenseConfigurationRequest {
    *             </li>
    *          </ul>
    */
-  LicenseRules?: Array<string>;
+  LicenseRules?: string[];
 
   /**
    * <p>Name of the license configuration.</p>
@@ -135,12 +135,12 @@ export interface CreateLicenseConfigurationRequest {
   /**
    * <p>Product information.</p>
    */
-  ProductInformationList?: Array<ProductInformation>;
+  ProductInformationList?: ProductInformation[];
 
   /**
    * <p>Tags to add to the license configuration.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateLicenseConfigurationRequest {
@@ -214,7 +214,7 @@ export interface Filter {
   /**
    * <p>Filter values. Filter values are case-sensitive.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace Filter {
@@ -260,7 +260,7 @@ export interface GetLicenseConfigurationResponse {
   /**
    * <p>Summaries of the licenses consumed by resources.</p>
    */
-  ConsumedLicenseSummaryList?: Array<ConsumedLicenseSummary>;
+  ConsumedLicenseSummaryList?: ConsumedLicenseSummary[];
 
   /**
    * <p>Number of licenses assigned to resources.</p>
@@ -300,12 +300,12 @@ export interface GetLicenseConfigurationResponse {
   /**
    * <p>License rules.</p>
    */
-  LicenseRules?: Array<string>;
+  LicenseRules?: string[];
 
   /**
    * <p>Summaries of the managed resources.</p>
    */
-  ManagedResourceSummaryList?: Array<ManagedResourceSummary>;
+  ManagedResourceSummaryList?: ManagedResourceSummary[];
 
   /**
    * <p>Name of the license configuration.</p>
@@ -320,7 +320,7 @@ export interface GetLicenseConfigurationResponse {
   /**
    * <p>Product information.</p>
    */
-  ProductInformationList?: Array<ProductInformation>;
+  ProductInformationList?: ProductInformation[];
 
   /**
    * <p>License configuration status.</p>
@@ -330,7 +330,7 @@ export interface GetLicenseConfigurationResponse {
   /**
    * <p>Tags for the license configuration.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace GetLicenseConfigurationResponse {
@@ -467,7 +467,7 @@ export interface LicenseConfiguration {
   /**
    * <p>Summaries for licenses consumed by various resources.</p>
    */
-  ConsumedLicenseSummaryList?: Array<ConsumedLicenseSummary>;
+  ConsumedLicenseSummaryList?: ConsumedLicenseSummary[];
 
   /**
    * <p>Number of licenses consumed. </p>
@@ -507,12 +507,12 @@ export interface LicenseConfiguration {
   /**
    * <p>License rules.</p>
    */
-  LicenseRules?: Array<string>;
+  LicenseRules?: string[];
 
   /**
    * <p>Summaries for managed resources.</p>
    */
-  ManagedResourceSummaryList?: Array<ManagedResourceSummary>;
+  ManagedResourceSummaryList?: ManagedResourceSummary[];
 
   /**
    * <p>Name of the license configuration.</p>
@@ -527,7 +527,7 @@ export interface LicenseConfiguration {
   /**
    * <p>Product information.</p>
    */
-  ProductInformationList?: Array<ProductInformation>;
+  ProductInformationList?: ProductInformation[];
 
   /**
    * <p>Status of the license configuration.</p>
@@ -642,7 +642,7 @@ export interface LicenseOperationFailure {
   /**
    * <p>Reserved.</p>
    */
-  MetadataList?: Array<Metadata>;
+  MetadataList?: Metadata[];
 
   /**
    * <p>Name of the operation.</p>
@@ -737,7 +737,7 @@ export interface ListAssociationsForLicenseConfigurationResponse {
   /**
    * <p>Information about the associations for the license configuration.</p>
    */
-  LicenseConfigurationAssociations?: Array<LicenseConfigurationAssociation>;
+  LicenseConfigurationAssociations?: LicenseConfigurationAssociation[];
 
   /**
    * <p>Token for the next set of results.</p>
@@ -782,7 +782,7 @@ export interface ListFailuresForLicenseConfigurationOperationsResponse {
   /**
    * <p>License configuration operations that failed.</p>
    */
-  LicenseOperationFailureList?: Array<LicenseOperationFailure>;
+  LicenseOperationFailureList?: LicenseOperationFailure[];
 
   /**
    * <p>Token for the next set of results.</p>
@@ -820,12 +820,12 @@ export interface ListLicenseConfigurationsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>Amazon Resource Names (ARN) of the license configurations.</p>
    */
-  LicenseConfigurationArns?: Array<string>;
+  LicenseConfigurationArns?: string[];
 
   /**
    * <p>Maximum number of results to return in a single call.</p>
@@ -848,7 +848,7 @@ export interface ListLicenseConfigurationsResponse {
   /**
    * <p>Information about the license configurations.</p>
    */
-  LicenseConfigurations?: Array<LicenseConfiguration>;
+  LicenseConfigurations?: LicenseConfiguration[];
 
   /**
    * <p>Token for the next set of results.</p>
@@ -891,7 +891,7 @@ export interface ListLicenseSpecificationsForResourceResponse {
   /**
    * <p>License configurations associated with a resource.</p>
    */
-  LicenseSpecifications?: Array<LicenseSpecification>;
+  LicenseSpecifications?: LicenseSpecification[];
 
   /**
    * <p>Token for the next set of results.</p>
@@ -943,7 +943,7 @@ export interface ListResourceInventoryRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<InventoryFilter>;
+  Filters?: InventoryFilter[];
 
   /**
    * <p>Maximum number of results to return in a single call.</p>
@@ -971,7 +971,7 @@ export interface ListResourceInventoryResponse {
   /**
    * <p>Information about the resources.</p>
    */
-  ResourceInventoryList?: Array<ResourceInventory>;
+  ResourceInventoryList?: ResourceInventory[];
 }
 
 export namespace ListResourceInventoryResponse {
@@ -997,7 +997,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1028,7 +1028,7 @@ export interface ListUsageForLicenseConfigurationRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
@@ -1056,7 +1056,7 @@ export interface ListUsageForLicenseConfigurationResponse {
   /**
    * <p>Information about the license configurations.</p>
    */
-  LicenseConfigurationUsageList?: Array<LicenseConfigurationUsage>;
+  LicenseConfigurationUsageList?: LicenseConfigurationUsage[];
 
   /**
    * <p>Token for the next set of results.</p>
@@ -1171,7 +1171,7 @@ export interface ProductInformation {
    *             </li>
    *          </ul>
    */
-  ProductInformationFilterList: Array<ProductInformationFilter> | undefined;
+  ProductInformationFilterList: ProductInformationFilter[] | undefined;
 
   /**
    * <p>Resource type. The value is <code>SSM_MANAGED</code>.</p>
@@ -1202,7 +1202,7 @@ export interface ProductInformationFilter {
   /**
    * <p>Filter value.</p>
    */
-  ProductInformationFilterValue: Array<string> | undefined;
+  ProductInformationFilterValue: string[] | undefined;
 }
 
 export namespace ProductInformationFilter {
@@ -1337,7 +1337,7 @@ export interface TagResourceRequest {
   /**
    * <p>One or more tags.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1364,7 +1364,7 @@ export interface UntagResourceRequest {
   /**
    * <p>Keys identifying the tags to remove.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1411,7 +1411,7 @@ export interface UpdateLicenseConfigurationRequest {
   /**
    * <p>New license rules.</p>
    */
-  LicenseRules?: Array<string>;
+  LicenseRules?: string[];
 
   /**
    * <p>New name of the license configuration.</p>
@@ -1421,7 +1421,7 @@ export interface UpdateLicenseConfigurationRequest {
   /**
    * <p>New product information.</p>
    */
-  ProductInformationList?: Array<ProductInformation>;
+  ProductInformationList?: ProductInformation[];
 }
 
 export namespace UpdateLicenseConfigurationRequest {
@@ -1443,12 +1443,12 @@ export interface UpdateLicenseSpecificationsForResourceRequest {
   /**
    * <p>ARNs of the license configurations to add.</p>
    */
-  AddLicenseSpecifications?: Array<LicenseSpecification>;
+  AddLicenseSpecifications?: LicenseSpecification[];
 
   /**
    * <p>ARNs of the license configurations to remove.</p>
    */
-  RemoveLicenseSpecifications?: Array<LicenseSpecification>;
+  RemoveLicenseSpecifications?: LicenseSpecification[];
 
   /**
    * <p>Amazon Resource Name (ARN) of the AWS resource.</p>

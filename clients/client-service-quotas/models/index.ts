@@ -424,7 +424,7 @@ export interface ListAWSDefaultServiceQuotasResponse {
   /**
    * <p>A list of the quotas in the account with the AWS default values. </p>
    */
-  Quotas?: Array<ServiceQuota>;
+  Quotas?: ServiceQuota[];
 }
 
 export namespace ListAWSDefaultServiceQuotasResponse {
@@ -491,7 +491,7 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
   /**
    * <p>Returns a list of service quota requests.</p>
    */
-  RequestedQuotas?: Array<RequestedServiceQuotaChange>;
+  RequestedQuotas?: RequestedServiceQuotaChange[];
 }
 
 export namespace ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
@@ -555,7 +555,7 @@ export interface ListRequestedServiceQuotaChangeHistoryResponse {
   /**
    * <p>Returns a list of service quota requests.</p>
    */
-  RequestedQuotas?: Array<RequestedServiceQuotaChange>;
+  RequestedQuotas?: RequestedServiceQuotaChange[];
 }
 
 export namespace ListRequestedServiceQuotaChangeHistoryResponse {
@@ -620,9 +620,7 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateResponse {
   /**
    * <p>Returns the list of values of the quota increase request in the template.</p>
    */
-  ServiceQuotaIncreaseRequestInTemplateList?: Array<
-    ServiceQuotaIncreaseRequestInTemplate
-  >;
+  ServiceQuotaIncreaseRequestInTemplateList?: ServiceQuotaIncreaseRequestInTemplate[];
 }
 
 export namespace ListServiceQuotaIncreaseRequestsInTemplateResponse {
@@ -681,7 +679,7 @@ export interface ListServiceQuotasResponse {
    * <p>The response information for a quota lists all attribute information for the quota.
    *     </p>
    */
-  Quotas?: Array<ServiceQuota>;
+  Quotas?: ServiceQuota[];
 }
 
 export namespace ListServiceQuotasResponse {
@@ -731,7 +729,7 @@ export interface ListServicesResponse {
   /**
    * <p>Returns a list of services. </p>
    */
-  Services?: Array<ServiceInfo>;
+  Services?: ServiceInfo[];
 }
 
 export namespace ListServicesResponse {

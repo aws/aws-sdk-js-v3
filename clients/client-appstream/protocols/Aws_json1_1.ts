@@ -5148,7 +5148,7 @@ const serializeAws_json1_1AccessEndpoint = (
 };
 
 const serializeAws_json1_1AccessEndpointList = (
-  input: Array<AccessEndpoint>,
+  input: AccessEndpoint[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5173,7 +5173,7 @@ const serializeAws_json1_1ApplicationSettings = (
 };
 
 const serializeAws_json1_1ArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5198,7 +5198,7 @@ const serializeAws_json1_1AssociateFleetRequest = (
 };
 
 const serializeAws_json1_1AwsAccountIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5833,7 +5833,7 @@ const serializeAws_json1_1DescribeUsersRequest = (
 };
 
 const serializeAws_json1_1DirectoryNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5887,7 +5887,7 @@ const serializeAws_json1_1DomainJoinInfo = (
 };
 
 const serializeAws_json1_1DomainList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5898,7 +5898,7 @@ const serializeAws_json1_1DomainList = (
 };
 
 const serializeAws_json1_1EmbedHostDomains = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5934,7 +5934,7 @@ const serializeAws_json1_1ExpireSessionRequest = (
 };
 
 const serializeAws_json1_1FleetAttributes = (
-  input: Array<FleetAttribute | string>,
+  input: FleetAttribute | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5998,7 +5998,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 };
 
 const serializeAws_json1_1OrganizationalUnitDistinguishedNamesList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6009,7 +6009,7 @@ const serializeAws_json1_1OrganizationalUnitDistinguishedNamesList = (
 };
 
 const serializeAws_json1_1SecurityGroupIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6034,7 +6034,7 @@ const serializeAws_json1_1ServiceAccountCredentials = (
 };
 
 const serializeAws_json1_1StackAttributes = (
-  input: Array<StackAttribute | string>,
+  input: StackAttribute | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6112,7 +6112,7 @@ const serializeAws_json1_1StorageConnector = (
 };
 
 const serializeAws_json1_1StorageConnectorList = (
-  input: Array<StorageConnector>,
+  input: StorageConnector[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6123,7 +6123,7 @@ const serializeAws_json1_1StorageConnectorList = (
 };
 
 const serializeAws_json1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6134,7 +6134,7 @@ const serializeAws_json1_1StringList = (
 };
 
 const serializeAws_json1_1SubnetIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6145,7 +6145,7 @@ const serializeAws_json1_1SubnetIdList = (
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6391,7 +6391,7 @@ const serializeAws_json1_1UserSetting = (
 };
 
 const serializeAws_json1_1UserSettingList = (
-  input: Array<UserSetting>,
+  input: UserSetting[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6422,7 +6422,7 @@ const serializeAws_json1_1UserStackAssociation = (
 };
 
 const serializeAws_json1_1UserStackAssociationList = (
-  input: Array<UserStackAssociation>,
+  input: UserStackAssociation[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6473,7 +6473,7 @@ const deserializeAws_json1_1AccessEndpoint = (
 const deserializeAws_json1_1AccessEndpointList = (
   output: any,
   context: __SerdeContext
-): Array<AccessEndpoint> => {
+): AccessEndpoint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AccessEndpoint(entry, context)
   );
@@ -6548,7 +6548,7 @@ const deserializeAws_json1_1ApplicationSettingsResponse = (
 const deserializeAws_json1_1Applications = (
   output: any,
   context: __SerdeContext
-): Array<Application> => {
+): Application[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Application(entry, context)
   );
@@ -7127,7 +7127,7 @@ const deserializeAws_json1_1DirectoryConfig = (
 const deserializeAws_json1_1DirectoryConfigList = (
   output: any,
   context: __SerdeContext
-): Array<DirectoryConfig> => {
+): DirectoryConfig[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DirectoryConfig(entry, context)
   );
@@ -7178,14 +7178,14 @@ const deserializeAws_json1_1DomainJoinInfo = (
 const deserializeAws_json1_1DomainList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1EmbedHostDomains = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7344,7 +7344,7 @@ const deserializeAws_json1_1FleetError = (
 const deserializeAws_json1_1FleetErrors = (
   output: any,
   context: __SerdeContext
-): Array<FleetError> => {
+): FleetError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FleetError(entry, context)
   );
@@ -7353,7 +7353,7 @@ const deserializeAws_json1_1FleetErrors = (
 const deserializeAws_json1_1FleetList = (
   output: any,
   context: __SerdeContext
-): Array<Fleet> => {
+): Fleet[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Fleet(entry, context)
   );
@@ -7580,7 +7580,7 @@ const deserializeAws_json1_1ImageBuilder = (
 const deserializeAws_json1_1ImageBuilderList = (
   output: any,
   context: __SerdeContext
-): Array<ImageBuilder> => {
+): ImageBuilder[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ImageBuilder(entry, context)
   );
@@ -7607,7 +7607,7 @@ const deserializeAws_json1_1ImageBuilderStateChangeReason = (
 const deserializeAws_json1_1ImageList = (
   output: any,
   context: __SerdeContext
-): Array<Image> => {
+): Image[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Image(entry, context)
   );
@@ -7729,7 +7729,7 @@ const deserializeAws_json1_1LastReportGenerationExecutionError = (
 const deserializeAws_json1_1LastReportGenerationExecutionErrors = (
   output: any,
   context: __SerdeContext
-): Array<LastReportGenerationExecutionError> => {
+): LastReportGenerationExecutionError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LastReportGenerationExecutionError(entry, context)
   );
@@ -7848,7 +7848,7 @@ const deserializeAws_json1_1OperationNotPermittedException = (
 const deserializeAws_json1_1OrganizationalUnitDistinguishedNamesList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7893,7 +7893,7 @@ const deserializeAws_json1_1ResourceError = (
 const deserializeAws_json1_1ResourceErrors = (
   output: any,
   context: __SerdeContext
-): Array<ResourceError> => {
+): ResourceError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceError(entry, context)
   );
@@ -7944,7 +7944,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 const deserializeAws_json1_1SecurityGroupIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8033,7 +8033,7 @@ const deserializeAws_json1_1Session = (
 const deserializeAws_json1_1SessionList = (
   output: any,
   context: __SerdeContext
-): Array<Session> => {
+): Session[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Session(entry, context)
   );
@@ -8066,7 +8066,7 @@ const deserializeAws_json1_1SharedImagePermissions = (
 const deserializeAws_json1_1SharedImagePermissionsList = (
   output: any,
   context: __SerdeContext
-): Array<SharedImagePermissions> => {
+): SharedImagePermissions[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SharedImagePermissions(entry, context)
   );
@@ -8182,7 +8182,7 @@ const deserializeAws_json1_1StackError = (
 const deserializeAws_json1_1StackErrors = (
   output: any,
   context: __SerdeContext
-): Array<StackError> => {
+): StackError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1StackError(entry, context)
   );
@@ -8191,7 +8191,7 @@ const deserializeAws_json1_1StackErrors = (
 const deserializeAws_json1_1StackList = (
   output: any,
   context: __SerdeContext
-): Array<Stack> => {
+): Stack[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Stack(entry, context)
   );
@@ -8282,7 +8282,7 @@ const deserializeAws_json1_1StorageConnector = (
 const deserializeAws_json1_1StorageConnectorList = (
   output: any,
   context: __SerdeContext
-): Array<StorageConnector> => {
+): StorageConnector[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1StorageConnector(entry, context)
   );
@@ -8291,14 +8291,14 @@ const deserializeAws_json1_1StorageConnectorList = (
 const deserializeAws_json1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1SubnetIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8428,7 +8428,7 @@ const deserializeAws_json1_1UsageReportSubscription = (
 const deserializeAws_json1_1UsageReportSubscriptionList = (
   output: any,
   context: __SerdeContext
-): Array<UsageReportSubscription> => {
+): UsageReportSubscription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UsageReportSubscription(entry, context)
   );
@@ -8482,7 +8482,7 @@ const deserializeAws_json1_1User = (
 const deserializeAws_json1_1UserList = (
   output: any,
   context: __SerdeContext
-): Array<User> => {
+): User[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1User(entry, context)
   );
@@ -8509,7 +8509,7 @@ const deserializeAws_json1_1UserSetting = (
 const deserializeAws_json1_1UserSettingList = (
   output: any,
   context: __SerdeContext
-): Array<UserSetting> => {
+): UserSetting[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UserSetting(entry, context)
   );
@@ -8578,7 +8578,7 @@ const deserializeAws_json1_1UserStackAssociationError = (
 const deserializeAws_json1_1UserStackAssociationErrorList = (
   output: any,
   context: __SerdeContext
-): Array<UserStackAssociationError> => {
+): UserStackAssociationError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UserStackAssociationError(entry, context)
   );
@@ -8587,7 +8587,7 @@ const deserializeAws_json1_1UserStackAssociationErrorList = (
 const deserializeAws_json1_1UserStackAssociationList = (
   output: any,
   context: __SerdeContext
-): Array<UserStackAssociation> => {
+): UserStackAssociation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UserStackAssociation(entry, context)
   );

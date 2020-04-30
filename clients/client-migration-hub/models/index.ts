@@ -494,7 +494,7 @@ export interface ListApplicationStatesRequest {
    * <p>The configurationIds from the Application Discovery Service that uniquely identifies
    *          your applications.</p>
    */
-  ApplicationIds?: Array<string>;
+  ApplicationIds?: string[];
 
   /**
    * <p>Maximum number of results to be returned per page.</p>
@@ -519,7 +519,7 @@ export interface ListApplicationStatesResult {
   /**
    * <p>A list of Applications that exist in Application Discovery Service.</p>
    */
-  ApplicationStateList?: Array<ApplicationState>;
+  ApplicationStateList?: ApplicationState[];
 
   /**
    * <p>If a <code>NextToken</code> was returned by a previous call, there are more results
@@ -572,7 +572,7 @@ export interface ListCreatedArtifactsResult {
    * <p>List of created artifacts up to the maximum number of results specified in the
    *          request.</p>
    */
-  CreatedArtifactList?: Array<CreatedArtifact>;
+  CreatedArtifactList?: CreatedArtifact[];
 
   /**
    * <p>If there are more created artifacts than the max result, return the next token to be
@@ -623,7 +623,7 @@ export interface ListDiscoveredResourcesResult {
   /**
    * <p>Returned list of discovered resources associated with the given MigrationTask.</p>
    */
-  DiscoveredResourceList?: Array<DiscoveredResource>;
+  DiscoveredResourceList?: DiscoveredResource[];
 
   /**
    * <p>If there are more discovered resources than the max result, return the next token to be
@@ -669,7 +669,7 @@ export interface ListMigrationTasksResult {
    *             <code>ProgressPercent</code>, <code>ProgressUpdateStream</code>, <code>Status</code>,
    *          and the <code>UpdateDateTime</code> for each task.</p>
    */
-  MigrationTaskSummaryList?: Array<MigrationTaskSummary>;
+  MigrationTaskSummaryList?: MigrationTaskSummary[];
 
   /**
    * <p>If there are more migration tasks than the max result, return the next token to be
@@ -715,7 +715,7 @@ export interface ListProgressUpdateStreamsResult {
    * <p>List of progress update streams up to the max number of results passed in the
    *          input.</p>
    */
-  ProgressUpdateStreamSummaryList?: Array<ProgressUpdateStreamSummary>;
+  ProgressUpdateStreamSummaryList?: ProgressUpdateStreamSummary[];
 }
 
 export namespace ListProgressUpdateStreamsResult {
@@ -744,7 +744,7 @@ export interface MigrationTask {
    * <p>Information about the resource that is being migrated. This data will be used to map the
    *          task to a resource in the Application Discovery Service repository.</p>
    */
-  ResourceAttributeList?: Array<ResourceAttribute>;
+  ResourceAttributeList?: ResourceAttribute[];
 
   /**
    * <p>Task object encapsulating task information.</p>
@@ -985,7 +985,7 @@ export interface PutResourceAttributesRequest {
    *             </ul>
    *          </important>
    */
-  ResourceAttributeList: Array<ResourceAttribute> | undefined;
+  ResourceAttributeList: ResourceAttribute[] | undefined;
 }
 
 export namespace PutResourceAttributesRequest {

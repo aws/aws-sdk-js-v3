@@ -106,7 +106,7 @@ export interface CreateSystemInstanceRequest {
   /**
    * <p>Metadata, consisting of key-value pairs, that can be used to categorize your system instances.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The target type of the deployment. Valid values are <code>GREENGRASS</code> and <code>CLOUD</code>.</p>
@@ -434,7 +434,7 @@ export interface GetEntitiesRequest {
    *             <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code>
    *          </p>
    */
-  ids: Array<string> | undefined;
+  ids: string[] | undefined;
 
   /**
    * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
@@ -452,7 +452,7 @@ export interface GetEntitiesResponse {
   /**
    * <p>An array of descriptions for the specified entities.</p>
    */
-  descriptions?: Array<EntityDescription>;
+  descriptions?: EntityDescription[];
 }
 
 export namespace GetEntitiesResponse {
@@ -532,7 +532,7 @@ export interface GetFlowTemplateRevisionsResponse {
   /**
    * <p>An array of objects that provide summary data about each revision.</p>
    */
-  summaries?: Array<FlowTemplateSummary>;
+  summaries?: FlowTemplateSummary[];
 }
 
 export namespace GetFlowTemplateRevisionsResponse {
@@ -684,7 +684,7 @@ export interface GetSystemTemplateRevisionsResponse {
   /**
    * <p>An array of objects that contain summary data about the system template revisions.</p>
    */
-  summaries?: Array<SystemTemplateSummary>;
+  summaries?: SystemTemplateSummary[];
 }
 
 export namespace GetSystemTemplateRevisionsResponse {
@@ -715,7 +715,7 @@ export interface GetUploadStatusResponse {
   /**
    * <p>The reason for an upload failure.</p>
    */
-  failureReason?: Array<string>;
+  failureReason?: string[];
 
   /**
    * <p>The ARN of the upload.</p>
@@ -776,7 +776,7 @@ export interface ListFlowExecutionMessagesResponse {
   /**
    * <p>A list of objects that contain information about events in the specified flow execution.</p>
    */
-  messages?: Array<FlowExecutionMessage>;
+  messages?: FlowExecutionMessage[];
 
   /**
    * <p>The string to specify as <code>nextToken</code> when you request the next page of results. </p>
@@ -822,7 +822,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>List of tags returned by the <code>ListTagsForResource</code> operation.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -835,7 +835,7 @@ export interface SearchEntitiesRequest {
   /**
    * <p>The entity types for which to search.</p>
    */
-  entityTypes: Array<EntityType | string> | undefined;
+  entityTypes: EntityType | string[] | undefined;
 
   /**
    * <p>Optional filter to apply to the search. Valid filters are <code>NAME</code>
@@ -844,7 +844,7 @@ export interface SearchEntitiesRequest {
    *       you can filter on the ID of a property that is used in a state.</p>
    *          <p>Multiple filters function as OR criteria in the query. Multiple values passed inside the filter function as AND criteria.</p>
    */
-  filters?: Array<EntityFilter>;
+  filters?: EntityFilter[];
 
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -872,7 +872,7 @@ export interface SearchEntitiesResponse {
   /**
    * <p>An array of descriptions for each entity returned in the search result.</p>
    */
-  descriptions?: Array<EntityDescription>;
+  descriptions?: EntityDescription[];
 
   /**
    * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
@@ -933,7 +933,7 @@ export interface SearchFlowExecutionsResponse {
   /**
    * <p>An array of objects that contain summary information about each workflow execution in the result set.</p>
    */
-  summaries?: Array<FlowExecutionSummary>;
+  summaries?: FlowExecutionSummary[];
 }
 
 export namespace SearchFlowExecutionsResponse {
@@ -946,7 +946,7 @@ export interface SearchFlowTemplatesRequest {
   /**
    * <p>An array of objects that limit the result set. The only valid filter is <code>DEVICE_MODEL_ID</code>.</p>
    */
-  filters?: Array<FlowTemplateFilter>;
+  filters?: FlowTemplateFilter[];
 
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -974,7 +974,7 @@ export interface SearchFlowTemplatesResponse {
   /**
    * <p>An array of objects that contain summary information about each workflow in the result set.</p>
    */
-  summaries?: Array<FlowTemplateSummary>;
+  summaries?: FlowTemplateSummary[];
 }
 
 export namespace SearchFlowTemplatesResponse {
@@ -989,7 +989,7 @@ export interface SearchSystemInstancesRequest {
    *          <code>GREENGRASS_GROUP_NAME</code>.</p>
    *          <p>Multiple filters function as OR criteria in the query. Multiple values passed inside the filter function as AND criteria.</p>
    */
-  filters?: Array<SystemInstanceFilter>;
+  filters?: SystemInstanceFilter[];
 
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -1017,7 +1017,7 @@ export interface SearchSystemInstancesResponse {
   /**
    * <p>An array of objects that contain summary data abour the system instances in the result set.</p>
    */
-  summaries?: Array<SystemInstanceSummary>;
+  summaries?: SystemInstanceSummary[];
 }
 
 export namespace SearchSystemInstancesResponse {
@@ -1030,7 +1030,7 @@ export interface SearchSystemTemplatesRequest {
   /**
    * <p>An array of filters that limit the result set. The only valid filter is <code>FLOW_TEMPLATE_ID</code>.</p>
    */
-  filters?: Array<SystemTemplateFilter>;
+  filters?: SystemTemplateFilter[];
 
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -1058,7 +1058,7 @@ export interface SearchSystemTemplatesResponse {
   /**
    * <p>An array of objects that contain summary information about each system deployment in the result set.</p>
    */
-  summaries?: Array<SystemTemplateSummary>;
+  summaries?: SystemTemplateSummary[];
 }
 
 export namespace SearchSystemTemplatesResponse {
@@ -1108,7 +1108,7 @@ export interface SearchThingsResponse {
   /**
    * <p>An array of things in the result set.</p>
    */
-  things?: Array<Thing>;
+  things?: Thing[];
 }
 
 export namespace SearchThingsResponse {
@@ -1126,7 +1126,7 @@ export interface TagResourceRequest {
   /**
    * <p>A list of tags to add to the resource.></p>
    */
-  tags: Array<Tag> | undefined;
+  tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1180,7 +1180,7 @@ export interface UntagResourceRequest {
    * <p>A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed. </p>
    *          <p>This parameter to the API requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html#cli-using-param-json">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. </p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1526,7 +1526,7 @@ export interface EntityFilter {
   /**
    * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
    */
-  value?: Array<string>;
+  value?: string[];
 }
 
 export namespace EntityFilter {
@@ -1753,7 +1753,7 @@ export interface FlowTemplateFilter {
   /**
    * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
    */
-  value: Array<string> | undefined;
+  value: string[] | undefined;
 }
 
 export namespace FlowTemplateFilter {
@@ -1863,7 +1863,7 @@ export interface SystemInstanceDescription {
   /**
    * <p>A list of objects that contain all of the IDs and revision numbers of workflows and systems that are used in a system instance.</p>
    */
-  validatedDependencyRevisions?: Array<DependencyRevision>;
+  validatedDependencyRevisions?: DependencyRevision[];
 
   /**
    * <p>The version of the user's namespace against which the system instance was validated.</p>
@@ -1891,7 +1891,7 @@ export interface SystemInstanceFilter {
   /**
    * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search. </p>
    */
-  value?: Array<string>;
+  value?: string[];
 }
 
 export namespace SystemInstanceFilter {
@@ -2002,7 +2002,7 @@ export interface SystemTemplateFilter {
   /**
    * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
    */
-  value: Array<string> | undefined;
+  value: string[] | undefined;
 }
 
 export namespace SystemTemplateFilter {

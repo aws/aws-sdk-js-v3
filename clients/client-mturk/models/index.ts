@@ -359,7 +359,7 @@ export interface CreateHITRequest {
    *             using the HITLayoutParameter structure. For more information, see HITLayout.
    *         </p>
    */
-  HITLayoutParameters?: Array<HITLayoutParameter>;
+  HITLayoutParameters?: HITLayoutParameter[];
 
   /**
    * <p>
@@ -403,7 +403,7 @@ export interface CreateHITRequest {
    *             field on each <code>QualificationRequirement</code> structure.
    *         </p>
    */
-  QualificationRequirements?: Array<QualificationRequirement>;
+  QualificationRequirements?: QualificationRequirement[];
 
   /**
    * <p>
@@ -545,7 +545,7 @@ export interface CreateHITTypeRequest {
    *             field on each <code>QualificationRequirement</code> structure.
    *         </p>
    */
-  QualificationRequirements?: Array<QualificationRequirement>;
+  QualificationRequirements?: QualificationRequirement[];
 
   /**
    * <p>
@@ -609,7 +609,7 @@ export interface CreateHITWithHITTypeRequest {
    *             using the HITLayoutParameter structure. For more information, see HITLayout.
    *         </p>
    */
-  HITLayoutParameters?: Array<HITLayoutParameter>;
+  HITLayoutParameters?: HITLayoutParameter[];
 
   /**
    * <p>
@@ -1271,7 +1271,7 @@ export interface HIT {
    *             field on each <code>QualificationRequirement</code> structure.
    *         </p>
    */
-  QualificationRequirements?: Array<QualificationRequirement>;
+  QualificationRequirements?: QualificationRequirement[];
 
   /**
    * <p> The data the Worker completing the HIT uses produce the
@@ -1356,7 +1356,7 @@ export interface ListAssignmentsForHITRequest {
    * <p>The status of the assignments to return: Submitted | Approved
    *             | Rejected</p>
    */
-  AssignmentStatuses?: Array<AssignmentStatus | string>;
+  AssignmentStatuses?: AssignmentStatus | string[];
 
   /**
    * <p>The ID of the HIT.</p>
@@ -1381,7 +1381,7 @@ export interface ListAssignmentsForHITResponse {
    * <p> The collection of Assignment data structures returned by
    *             this call.</p>
    */
-  Assignments?: Array<Assignment>;
+  Assignments?: Assignment[];
 
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -1441,7 +1441,7 @@ export interface ListBonusPaymentsResponse {
    *             returns a list of BonusPayment objects.
    *         </p>
    */
-  BonusPayments?: Array<BonusPayment>;
+  BonusPayments?: BonusPayment[];
 
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -1497,7 +1497,7 @@ export interface ListHITsForQualificationTypeResponse {
   /**
    * <p> The list of HIT elements returned by the query.</p>
    */
-  HITs?: Array<HIT>;
+  HITs?: HIT[];
 
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -1538,7 +1538,7 @@ export interface ListHITsResponse {
   /**
    * <p> The list of HIT elements returned by the query.</p>
    */
-  HITs?: Array<HIT>;
+  HITs?: HIT[];
 
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -1609,7 +1609,7 @@ export interface ListQualificationRequestsResponse {
    *             for each Qualification request returned
    *             by the query.</p>
    */
-  QualificationRequests?: Array<QualificationRequest>;
+  QualificationRequests?: QualificationRequest[];
 }
 
 export namespace ListQualificationRequestsResponse {
@@ -1689,7 +1689,7 @@ export interface ListQualificationTypesResponse {
    *             query.
    *         </p>
    */
-  QualificationTypes?: Array<QualificationType>;
+  QualificationTypes?: QualificationType[];
 }
 
 export namespace ListQualificationTypesResponse {
@@ -1721,7 +1721,7 @@ export interface ListReviewPolicyResultsForHITRequest {
    *             For a list of all the described policies, see Review Policies.
    *         </p>
    */
-  PolicyLevels?: Array<ReviewPolicyLevel | string>;
+  PolicyLevels?: ReviewPolicyLevel | string[];
 
   /**
    * <p>
@@ -1832,7 +1832,7 @@ export interface ListReviewableHITsResponse {
   /**
    * <p> The list of HIT elements returned by the query.</p>
    */
-  HITs?: Array<HIT>;
+  HITs?: HIT[];
 
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -1890,7 +1890,7 @@ export interface ListWorkerBlocksResponse {
    * <p> The list of WorkerBlocks, containing the collection of
    *             Worker IDs and reasons for blocking.</p>
    */
-  WorkerBlocks?: Array<WorkerBlock>;
+  WorkerBlocks?: WorkerBlock[];
 }
 
 export namespace ListWorkerBlocksResponse {
@@ -1953,7 +1953,7 @@ export interface ListWorkersWithQualificationTypeResponse {
    * <p> The list of Qualification elements returned by this call.
    *         </p>
    */
-  Qualifications?: Array<Qualification>;
+  Qualifications?: Qualification[];
 }
 
 export namespace ListWorkersWithQualificationTypeResponse {
@@ -2019,7 +2019,7 @@ export interface NotificationSpecification {
    *             the SendTestEventNotification operation.
    *         </p>
    */
-  EventTypes: Array<EventType | string> | undefined;
+  EventTypes: EventType | string[] | undefined;
 
   /**
    * <p> The method Amazon Mechanical Turk uses to send the
@@ -2101,7 +2101,7 @@ export interface NotifyWorkersRequest {
    *             can notify upto
    *             100 Workers at a time.</p>
    */
-  WorkerIds: Array<string> | undefined;
+  WorkerIds: string[] | undefined;
 }
 
 export namespace NotifyWorkersRequest {
@@ -2117,7 +2117,7 @@ export interface NotifyWorkersResponse {
    *             NotifyWorkersFailureStatus objects.
    *         </p>
    */
-  NotifyWorkersFailureStatuses?: Array<NotifyWorkersFailureStatus>;
+  NotifyWorkersFailureStatuses?: NotifyWorkersFailureStatus[];
 }
 
 export namespace NotifyWorkersResponse {
@@ -2146,7 +2146,7 @@ export interface ParameterMapEntry {
    *             the answer to be scored correctly.
    *         </p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace ParameterMapEntry {
@@ -2170,12 +2170,12 @@ export interface PolicyParameter {
    * <p> List of ParameterMapEntry objects.
    *         </p>
    */
-  MapEntries?: Array<ParameterMapEntry>;
+  MapEntries?: ParameterMapEntry[];
 
   /**
    * <p> The list of values of the Parameter</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace PolicyParameter {
@@ -2346,7 +2346,7 @@ export interface QualificationRequirement {
    *             elements in a QualificationRequirement data structure.
    *         </p>
    */
-  IntegerValues?: Array<number>;
+  IntegerValues?: number[];
 
   /**
    * <p> The locale value to compare against the Qualification's
@@ -2360,7 +2360,7 @@ export interface QualificationRequirement {
    *             QualificationRequirement data structure.
    *         </p>
    */
-  LocaleValues?: Array<Locale>;
+  LocaleValues?: Locale[];
 
   /**
    * <p> The ID of the Qualification type for the requirement.</p>
@@ -2658,7 +2658,7 @@ export interface ReviewPolicy {
   /**
    * <p>Name of the parameter from the Review policy.</p>
    */
-  Parameters?: Array<PolicyParameter>;
+  Parameters?: PolicyParameter[];
 
   /**
    * <p> Name of a Review Policy: SimplePlurality/2011-09-01 or
@@ -2689,14 +2689,14 @@ export interface ReviewReport {
    *             the Review Policy.
    *         </p>
    */
-  ReviewActions?: Array<ReviewActionDetail>;
+  ReviewActions?: ReviewActionDetail[];
 
   /**
    * <p> A list of ReviewResults objects for each action specified in
    *             the Review Policy.
    *         </p>
    */
-  ReviewResults?: Array<ReviewResultDetail>;
+  ReviewResults?: ReviewResultDetail[];
 }
 
 export namespace ReviewReport {

@@ -231,14 +231,14 @@ export interface DescribeCompanyNetworkConfigurationResponse {
   /**
    * <p>The security groups associated with access to the provided subnets.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>The subnets used for X-ENI connections from Amazon WorkLink
    *             rendering
    *             containers.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>The VPC with connectivity to associated websites.</p>
@@ -817,7 +817,7 @@ export interface ListDevicesResponse {
   /**
    * <p>Information about the devices.</p>
    */
-  Devices?: Array<DeviceSummary>;
+  Devices?: DeviceSummary[];
 
   /**
    * <p>The pagination token used to retrieve the next page of results for this operation. If
@@ -860,7 +860,7 @@ export interface ListDomainsResponse {
   /**
    * <p>Information about the domains.</p>
    */
-  Domains?: Array<DomainSummary>;
+  Domains?: DomainSummary[];
 
   /**
    * <p>The pagination token used to retrieve the next page of results for this operation. If
@@ -898,7 +898,7 @@ export interface ListFleetsResponse {
   /**
    * <p>The summary list of the fleets.</p>
    */
-  FleetSummaryList?: Array<FleetSummary>;
+  FleetSummaryList?: FleetSummary[];
 
   /**
    * <p>The pagination token used to retrieve the next page of results for this operation. If
@@ -945,7 +945,7 @@ export interface ListWebsiteAuthorizationProvidersResponse {
   /**
    * <p>The website authorization providers.</p>
    */
-  WebsiteAuthorizationProviders?: Array<WebsiteAuthorizationProviderSummary>;
+  WebsiteAuthorizationProviders?: WebsiteAuthorizationProviderSummary[];
 }
 
 export namespace ListWebsiteAuthorizationProvidersResponse {
@@ -989,7 +989,7 @@ export interface ListWebsiteCertificateAuthoritiesResponse {
    * <p>Information about the
    *             certificates.</p>
    */
-  WebsiteCertificateAuthorities?: Array<WebsiteCaSummary>;
+  WebsiteCertificateAuthorities?: WebsiteCaSummary[];
 }
 
 export namespace ListWebsiteCertificateAuthoritiesResponse {
@@ -1179,14 +1179,14 @@ export interface UpdateCompanyNetworkConfigurationRequest {
   /**
    * <p>The security groups associated with access to the provided subnets.</p>
    */
-  SecurityGroupIds: Array<string> | undefined;
+  SecurityGroupIds: string[] | undefined;
 
   /**
    * <p>The subnets used for X-ENI connections from Amazon WorkLink
    *             rendering
    *             containers.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 
   /**
    * <p>The VPC with connectivity to associated websites.</p>

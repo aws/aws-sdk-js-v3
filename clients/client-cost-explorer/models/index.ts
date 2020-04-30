@@ -77,7 +77,7 @@ export interface CostCategory {
    *             Rules are processed in order. If there are multiple rules that match the line item, then the first rule to match is used to determine that Cost Category value.
    *         </p>
    */
-  Rules: Array<CostCategoryRule> | undefined;
+  Rules: CostCategoryRule[] | undefined;
 }
 
 export namespace CostCategory {
@@ -180,7 +180,7 @@ export interface CostCategoryValues {
   /**
    * <p>The specific value of the Cost Category.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace CostCategoryValues {
@@ -224,7 +224,7 @@ export interface CoverageByTime {
   /**
    * <p>The groups of instances that the reservation covered.</p>
    */
-  Groups?: Array<ReservationCoverageGroup>;
+  Groups?: ReservationCoverageGroup[];
 
   /**
    * <p>The period that this coverage was used over.</p>
@@ -348,7 +348,7 @@ export interface CreateCostCategoryDefinitionRequest {
    *          <p>Rules are processed in order. If there are multiple rules that match the line item, then the first rule to match is used to determine that Cost Category value.
    *     </p>
    */
-  Rules: Array<CostCategoryRule> | undefined;
+  Rules: CostCategoryRule[] | undefined;
 }
 
 export namespace CreateCostCategoryDefinitionRequest {
@@ -426,7 +426,7 @@ export interface CurrentInstance {
   /**
    * <p>Cost allocation resource tags applied to the instance.</p>
    */
-  Tags?: Array<TagValues>;
+  Tags?: TagValues[];
 
   /**
    * <p> The total number of hours the instance ran during the lookback period.</p>
@@ -613,7 +613,7 @@ export interface DimensionValues {
    *             <code>Amazon Redshift</code>, and
    *             <code>Amazon Relational Database Service</code>.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace DimensionValues {
@@ -932,7 +932,7 @@ export interface Expression {
   /**
    * <p>Return results that match both <code>Dimension</code> objects.</p>
    */
-  And?: Array<Expression>;
+  And?: Expression[];
 
   /**
    * <p>
@@ -957,7 +957,7 @@ export interface Expression {
   /**
    * <p>Return results that match either <code>Dimension</code> object.</p>
    */
-  Or?: Array<Expression>;
+  Or?: Expression[];
 
   /**
    * <p>The specific <code>Tag</code> to use for <code>Expression</code>.</p>
@@ -1023,7 +1023,7 @@ export interface GetCostAndUsageRequest {
    * 			<code>OPERATION</code>, <code>PLATFORM</code>, <code>PURCHASE_TYPE</code>, <code>SERVICE</code>, <code>TAGS</code>,
    * 		  <code>TENANCY</code>, <code>RECORD_TYPE</code>, and <code>USAGE_TYPE</code>.</p>
    */
-  GroupBy?: Array<GroupDefinition>;
+  GroupBy?: GroupDefinition[];
 
   /**
    * <p>Which metrics are returned in the query. For more information about blended and unblended rates, see
@@ -1041,7 +1041,7 @@ export interface GetCostAndUsageRequest {
    * 		       <p>
    *             <code>Metrics</code> is required for <code>GetCostAndUsage</code> requests.</p>
    */
-  Metrics?: Array<string>;
+  Metrics?: string[];
 
   /**
    * <p>The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.</p>
@@ -1065,7 +1065,7 @@ export interface GetCostAndUsageResponse {
   /**
    * <p>The groups that are specified by the <code>Filter</code> or <code>GroupBy</code> parameters in the request.</p>
    */
-  GroupDefinitions?: Array<GroupDefinition>;
+  GroupDefinitions?: GroupDefinition[];
 
   /**
    * <p>The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.</p>
@@ -1075,7 +1075,7 @@ export interface GetCostAndUsageResponse {
   /**
    * <p>The time period that is covered by the results in the response.</p>
    */
-  ResultsByTime?: Array<ResultByTime>;
+  ResultsByTime?: ResultByTime[];
 }
 
 export namespace GetCostAndUsageResponse {
@@ -1106,7 +1106,7 @@ export interface GetCostAndUsageWithResourcesRequest {
    * <p>You can group Amazon Web Services costs using up to two different groups: either dimensions, tag keys,
    *       or both.</p>
    */
-  GroupBy?: Array<GroupDefinition>;
+  GroupBy?: GroupDefinition[];
 
   /**
    * <p>Which metrics are returned in the query. For more information about blended and
@@ -1127,7 +1127,7 @@ export interface GetCostAndUsageWithResourcesRequest {
    *          <p>
    *             <code>Metrics</code> is required for <code>GetCostAndUsageWithResources</code> requests.</p>
    */
-  Metrics?: Array<string>;
+  Metrics?: string[];
 
   /**
    * <p>The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.</p>
@@ -1152,7 +1152,7 @@ export interface GetCostAndUsageWithResourcesResponse {
    * <p>The groups that are specified by the <code>Filter</code> or <code>GroupBy</code>
    *       parameters in the request.</p>
    */
-  GroupDefinitions?: Array<GroupDefinition>;
+  GroupDefinitions?: GroupDefinition[];
 
   /**
    * <p>The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.</p>
@@ -1162,7 +1162,7 @@ export interface GetCostAndUsageWithResourcesResponse {
   /**
    * <p>The time period that is covered by the results in the response.</p>
    */
-  ResultsByTime?: Array<ResultByTime>;
+  ResultsByTime?: ResultByTime[];
 }
 
 export namespace GetCostAndUsageWithResourcesResponse {
@@ -1232,7 +1232,7 @@ export interface GetCostForecastResponse {
    * <p>The forecasts for your query, in order. For <code>DAILY</code> forecasts, this is a list of days. For <code>MONTHLY</code> forecasts,
    * 			this is a list of months.</p>
    */
-  ForecastResultsByTime?: Array<ForecastResult>;
+  ForecastResultsByTime?: ForecastResult[];
 
   /**
    * <p>How much you are forecasted to spend over the forecast period, in <code>USD</code>.</p>
@@ -1504,7 +1504,7 @@ export interface GetDimensionValuesResponse {
    *             </li>
    *          </ul>
    */
-  DimensionValues: Array<DimensionValuesWithAttributes> | undefined;
+  DimensionValues: DimensionValuesWithAttributes[] | undefined;
 
   /**
    * <p>The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.</p>
@@ -1624,13 +1624,13 @@ export interface GetReservationCoverageRequest {
    *             </li>
    *          </ul>
    */
-  GroupBy?: Array<GroupDefinition>;
+  GroupBy?: GroupDefinition[];
 
   /**
    * <p>The measurement that you want your reservation coverage reported in.</p>
    * 		       <p>Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>. You can use multiple values in a request.</p>
    */
-  Metrics?: Array<string>;
+  Metrics?: string[];
 
   /**
    * <p>The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.</p>
@@ -1655,7 +1655,7 @@ export interface GetReservationCoverageResponse {
   /**
    * <p>The amount of time that your reservations covered.</p>
    */
-  CoveragesByTime: Array<CoverageByTime> | undefined;
+  CoveragesByTime: CoverageByTime[] | undefined;
 
   /**
    * <p>The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.</p>
@@ -1746,7 +1746,7 @@ export interface GetReservationPurchaseRecommendationResponse {
   /**
    * <p>Recommendations for reservations to purchase.</p>
    */
-  Recommendations?: Array<ReservationPurchaseRecommendation>;
+  Recommendations?: ReservationPurchaseRecommendation[];
 }
 
 export namespace GetReservationPurchaseRecommendationResponse {
@@ -1814,7 +1814,7 @@ export interface GetReservationUtilizationRequest {
   /**
    * <p>Groups only by <code>SUBSCRIPTION_ID</code>. Metadata is included.</p>
    */
-  GroupBy?: Array<GroupDefinition>;
+  GroupBy?: GroupDefinition[];
 
   /**
    * <p>The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.</p>
@@ -1848,7 +1848,7 @@ export interface GetReservationUtilizationResponse {
   /**
    * <p>The amount of time that you used your RIs.</p>
    */
-  UtilizationsByTime: Array<UtilizationByTime> | undefined;
+  UtilizationsByTime: UtilizationByTime[] | undefined;
 }
 
 export namespace GetReservationUtilizationResponse {
@@ -1950,7 +1950,7 @@ export interface GetRightsizingRecommendationResponse {
   /**
    * <p>Recommendations to rightsize resources.</p>
    */
-  RightsizingRecommendations?: Array<RightsizingRecommendation>;
+  RightsizingRecommendations?: RightsizingRecommendation[];
 
   /**
    * <p>Summary of this recommendation set.</p>
@@ -2005,7 +2005,7 @@ export interface GetSavingsPlansCoverageRequest {
   /**
    * <p>You can group the data using the attributes <code>INSTANCE_FAMILY</code>, <code>REGION</code>, or <code>SERVICE</code>.</p>
    */
-  GroupBy?: Array<GroupDefinition>;
+  GroupBy?: GroupDefinition[];
 
   /**
    * <p>The number of items to be returned in a response. The default is <code>20</code>, with a minimum value of <code>1</code>.</p>
@@ -2015,7 +2015,7 @@ export interface GetSavingsPlansCoverageRequest {
   /**
    * <p>The measurement that you want your Savings Plans coverage reported in. The only valid value is <code>SpendCoveredBySavingsPlans</code>.</p>
    */
-  Metrics?: Array<string>;
+  Metrics?: string[];
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
@@ -2043,7 +2043,7 @@ export interface GetSavingsPlansCoverageResponse {
   /**
    * <p>The amount of spend that your Savings Plans covered.</p>
    */
-  SavingsPlansCoverages: Array<SavingsPlansCoverage> | undefined;
+  SavingsPlansCoverages: SavingsPlansCoverage[] | undefined;
 }
 
 export namespace GetSavingsPlansCoverageResponse {
@@ -2185,9 +2185,7 @@ export interface GetSavingsPlansUtilizationDetailsResponse {
   /**
    * <p>Retrieves a single daily or monthly Savings Plans utilization rate and details for your account.</p>
    */
-  SavingsPlansUtilizationDetails:
-    | Array<SavingsPlansUtilizationDetail>
-    | undefined;
+  SavingsPlansUtilizationDetails: SavingsPlansUtilizationDetail[] | undefined;
 
   /**
    * <p>The time period that you want the usage and costs for.
@@ -2271,7 +2269,7 @@ export interface GetSavingsPlansUtilizationResponse {
   /**
    * <p>The amount of cost/commitment you used your Savings Plans. This allows you to specify date ranges.</p>
    */
-  SavingsPlansUtilizationsByTime?: Array<SavingsPlansUtilizationByTime>;
+  SavingsPlansUtilizationsByTime?: SavingsPlansUtilizationByTime[];
 
   /**
    * <p>The total amount of cost/commitment that you used your Savings Plans, regardless of date ranges.</p>
@@ -2328,7 +2326,7 @@ export interface GetTagsResponse {
   /**
    * <p>The tags that match your request.</p>
    */
-  Tags: Array<string> | undefined;
+  Tags: string[] | undefined;
 
   /**
    * <p>The total number of query results.</p>
@@ -2393,7 +2391,7 @@ export interface GetUsageForecastResponse {
    * <p>The forecasts for your query, in order. For <code>DAILY</code> forecasts, this is a list of days. For <code>MONTHLY</code> forecasts,
    * 			this is a list of months.</p>
    */
-  ForecastResultsByTime?: Array<ForecastResult>;
+  ForecastResultsByTime?: ForecastResult[];
 
   /**
    * <p>How much you're forecasted to use over the forecast period.</p>
@@ -2420,7 +2418,7 @@ export interface Group {
   /**
    * <p>The keys that are included in this group.</p>
    */
-  Keys?: Array<string>;
+  Keys?: string[];
 
   /**
    * <p>The metrics that are included in this group.</p>
@@ -2558,7 +2556,7 @@ export interface ListCostCategoryDefinitionsResponse {
    *       A reference to a Cost Category containing enough information to identify the Cost Category.
    *     </p>
    */
-  CostCategoryReferences?: Array<CostCategoryReference>;
+  CostCategoryReferences?: CostCategoryReference[];
 
   /**
    * <p>
@@ -2617,7 +2615,7 @@ export interface ModifyRecommendationDetail {
   /**
    * <p>Identifies whether this instance type is the Amazon Web Services default recommendation.</p>
    */
-  TargetInstances?: Array<TargetInstance>;
+  TargetInstances?: TargetInstance[];
 }
 
 export namespace ModifyRecommendationDetail {
@@ -2893,7 +2891,7 @@ export interface ReservationPurchaseRecommendation {
   /**
    * <p>Details about the recommended purchases.</p>
    */
-  RecommendationDetails?: Array<ReservationPurchaseRecommendationDetail>;
+  RecommendationDetails?: ReservationPurchaseRecommendationDetail[];
 
   /**
    * <p>A summary about the recommended purchase.</p>
@@ -3186,7 +3184,7 @@ export interface ResultByTime {
   /**
    * <p>The groups that this time period includes.</p>
    */
-  Groups?: Array<Group>;
+  Groups?: Group[];
 
   /**
    * <p>The time period that the result covers.</p>
@@ -3429,9 +3427,7 @@ export interface SavingsPlansPurchaseRecommendation {
   /**
    * <p>Details for the Savings Plans we recommend you to purchase to cover existing, Savings Plans eligible workloads.</p>
    */
-  SavingsPlansPurchaseRecommendationDetails?: Array<
-    SavingsPlansPurchaseRecommendationDetail
-  >;
+  SavingsPlansPurchaseRecommendationDetails?: SavingsPlansPurchaseRecommendationDetail[];
 
   /**
    * <p>Summary metrics for your Savings Plans Recommendations. </p>
@@ -3840,7 +3836,7 @@ export interface TagValues {
   /**
    * <p>The specific value of the tag.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace TagValues {
@@ -3949,7 +3945,7 @@ export interface UpdateCostCategoryDefinitionRequest {
    *          <p>Rules are processed in order. If there are multiple rules that match the line item, then the first rule to match is used to determine that Cost Category value.
    *     </p>
    */
-  Rules: Array<CostCategoryRule> | undefined;
+  Rules: CostCategoryRule[] | undefined;
 }
 
 export namespace UpdateCostCategoryDefinitionRequest {
@@ -3987,7 +3983,7 @@ export interface UtilizationByTime {
   /**
    * <p>The groups that this utilization result uses.</p>
    */
-  Groups?: Array<ReservationUtilizationGroup>;
+  Groups?: ReservationUtilizationGroup[];
 
   /**
    * <p>The period of time that this utilization was used for.</p>

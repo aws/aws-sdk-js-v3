@@ -147,7 +147,7 @@ const serializeAws_restJson1_1Event = (
 };
 
 const serializeAws_restJson1_1EventList = (
-  input: Array<Event>,
+  input: Event[],
   context: __SerdeContext
 ): any => {
   const contents = [];

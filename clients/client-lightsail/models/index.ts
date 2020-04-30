@@ -137,7 +137,7 @@ export interface AllocateStaticIpResult {
    * <p>An array of key-value pairs containing information about the static IP address you
    *       allocated.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace AllocateStaticIpResult {
@@ -174,7 +174,7 @@ export interface AttachDiskResult {
   /**
    * <p>An object describing the API operations.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace AttachDiskResult {
@@ -193,7 +193,7 @@ export interface AttachInstancesToLoadBalancerRequest {
    *       balancer, aside from the limit of Lightsail instances you can create in your account
    *       (20).</p>
    */
-  instanceNames: Array<string> | undefined;
+  instanceNames: string[] | undefined;
 
   /**
    * <p>The name of the load balancer.</p>
@@ -211,7 +211,7 @@ export interface AttachInstancesToLoadBalancerResult {
   /**
    * <p>An object representing the API operations.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace AttachInstancesToLoadBalancerResult {
@@ -245,7 +245,7 @@ export interface AttachLoadBalancerTlsCertificateResult {
    *          <p>These SSL/TLS certificates are only usable by Lightsail load balancers. You can't get
    *       the certificate and use it for another purpose.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace AttachLoadBalancerTlsCertificateResult {
@@ -276,7 +276,7 @@ export interface AttachStaticIpResult {
   /**
    * <p>An array of key-value pairs containing information about your API operations.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace AttachStaticIpResult {
@@ -385,7 +385,7 @@ export interface AutoSnapshotDetails {
    * <p>An array of objects that describe the block storage disks attached to the instance when
    *       the automatic snapshot was created.</p>
    */
-  fromAttachedDisks?: Array<AttachedDisk>;
+  fromAttachedDisks?: AttachedDisk[];
 
   /**
    * <p>The status of the automatic snapshot.</p>
@@ -572,7 +572,7 @@ export interface Bundle {
    *       supports the <code>WINDOWS</code> platform. <code>LINUX_UNIX</code> blueprints require a
    *         <code>LINUX_UNIX</code> bundle.</p>
    */
-  supportedPlatforms?: Array<InstancePlatform | string>;
+  supportedPlatforms?: InstancePlatform | string[];
 
   /**
    * <p>The data transfer rate per month in GB (e.g., <code>2000</code>).</p>
@@ -660,7 +660,7 @@ export interface CloudFormationStackRecord {
   /**
    * <p>A list of objects describing the source of the CloudFormation stack record.</p>
    */
-  sourceInfo?: Array<CloudFormationStackRecordSourceInfo>;
+  sourceInfo?: CloudFormationStackRecordSourceInfo[];
 
   /**
    * <p>The current state of the CloudFormation stack record.</p>
@@ -791,7 +791,7 @@ export interface CopySnapshotResult {
   /**
    * <p>A list of objects describing the API operation.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace CopySnapshotResult {
@@ -806,7 +806,7 @@ export interface CreateCloudFormationStackRequest {
    *       pass one instance entry at a time in this array. You will get an invalid parameter error if
    *       you pass more than one instance entry in this array.</p>
    */
-  instances: Array<InstanceEntry> | undefined;
+  instances: InstanceEntry[] | undefined;
 }
 
 export namespace CreateCloudFormationStackRequest {
@@ -819,7 +819,7 @@ export interface CreateCloudFormationStackResult {
   /**
    * <p>A list of objects describing the API operation.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace CreateCloudFormationStackResult {
@@ -832,7 +832,7 @@ export interface CreateDiskFromSnapshotRequest {
   /**
    * <p>An array of objects that represent the add-ons to enable for the new disk.</p>
    */
-  addOns?: Array<AddOnRequest>;
+  addOns?: AddOnRequest[];
 
   /**
    * <p>The Availability Zone where you want to create the disk (e.g.,
@@ -911,7 +911,7 @@ export interface CreateDiskFromSnapshotRequest {
    *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
    *       operation.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>A Boolean value to indicate whether to use the latest available automatic snapshot.</p>
@@ -941,7 +941,7 @@ export interface CreateDiskFromSnapshotResult {
   /**
    * <p>An object describing the API operations.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace CreateDiskFromSnapshotResult {
@@ -954,7 +954,7 @@ export interface CreateDiskRequest {
   /**
    * <p>An array of objects that represent the add-ons to enable for the new disk.</p>
    */
-  addOns?: Array<AddOnRequest>;
+  addOns?: AddOnRequest[];
 
   /**
    * <p>The Availability Zone where you want to create the disk (e.g.,
@@ -980,7 +980,7 @@ export interface CreateDiskRequest {
    *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
    *       operation.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateDiskRequest {
@@ -993,7 +993,7 @@ export interface CreateDiskResult {
   /**
    * <p>An object describing the API operations.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace CreateDiskResult {
@@ -1035,7 +1035,7 @@ export interface CreateDiskSnapshotRequest {
    *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
    *       operation.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateDiskSnapshotRequest {
@@ -1048,7 +1048,7 @@ export interface CreateDiskSnapshotResult {
   /**
    * <p>An object describing the API operations.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace CreateDiskSnapshotResult {
@@ -1107,7 +1107,7 @@ export interface CreateDomainRequest {
    *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
    *       operation.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateDomainRequest {
@@ -1146,7 +1146,7 @@ export interface CreateInstanceSnapshotRequest {
    *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
    *       operation.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateInstanceSnapshotRequest {
@@ -1160,7 +1160,7 @@ export interface CreateInstanceSnapshotResult {
    * <p>An array of key-value pairs containing information about the results of your create
    *       instances snapshot request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace CreateInstanceSnapshotResult {
@@ -1173,12 +1173,12 @@ export interface CreateInstancesFromSnapshotRequest {
   /**
    * <p>An array of objects representing the add-ons to enable for the new instance.</p>
    */
-  addOns?: Array<AddOnRequest>;
+  addOns?: AddOnRequest[];
 
   /**
    * <p>An object containing information about one or more disk mappings.</p>
    */
-  attachedDiskMapping?: { [key: string]: Array<DiskMap> };
+  attachedDiskMapping?: { [key: string]: DiskMap[] };
 
   /**
    * <p>The Availability Zone where you want to create your instances. Use the following
@@ -1199,7 +1199,7 @@ export interface CreateInstancesFromSnapshotRequest {
   /**
    * <p>The names for your new instances.</p>
    */
-  instanceNames: Array<string> | undefined;
+  instanceNames: string[] | undefined;
 
   /**
    * <p>The name of the instance snapshot on which you are basing your new instances. Use the
@@ -1266,7 +1266,7 @@ export interface CreateInstancesFromSnapshotRequest {
    *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
    *       operation.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>A Boolean value to indicate whether to use the latest available automatic snapshot.</p>
@@ -1309,7 +1309,7 @@ export interface CreateInstancesFromSnapshotResult {
    * <p>An array of key-value pairs containing information about the results of your create
    *       instances from snapshot request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace CreateInstancesFromSnapshotResult {
@@ -1322,7 +1322,7 @@ export interface CreateInstancesRequest {
   /**
    * <p>An array of objects representing the add-ons to enable for the new instance.</p>
    */
-  addOns?: Array<AddOnRequest>;
+  addOns?: AddOnRequest[];
 
   /**
    * <p>The Availability Zone in which to create your instance. Use the following format:
@@ -1368,7 +1368,7 @@ export interface CreateInstancesRequest {
    *       <code>["MyFirstInstance","MySecondInstance"]</code>
    *          </p>
    */
-  instanceNames: Array<string> | undefined;
+  instanceNames: string[] | undefined;
 
   /**
    * <p>The name of your key pair.</p>
@@ -1380,7 +1380,7 @@ export interface CreateInstancesRequest {
    *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
    *       operation.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>A launch script you can create that configures a server with additional user data. For
@@ -1406,7 +1406,7 @@ export interface CreateInstancesResult {
    * <p>An array of key-value pairs containing information about the results of your create
    *       instances request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace CreateInstancesResult {
@@ -1426,7 +1426,7 @@ export interface CreateKeyPairRequest {
    *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
    *       operation.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateKeyPairRequest {
@@ -1471,7 +1471,7 @@ export interface CreateLoadBalancerRequest {
    *       (e.g., <code>www.example.com</code>, <code>example.com</code>, <code>m.example.com</code>,
    *         <code>blog.example.com</code>).</p>
    */
-  certificateAlternativeNames?: Array<string>;
+  certificateAlternativeNames?: string[];
 
   /**
    * <p>The domain name with which your certificate is associated (e.g.,
@@ -1512,7 +1512,7 @@ export interface CreateLoadBalancerRequest {
    *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
    *       operation.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateLoadBalancerRequest {
@@ -1525,7 +1525,7 @@ export interface CreateLoadBalancerResult {
   /**
    * <p>An object containing information about the API operations.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace CreateLoadBalancerResult {
@@ -1541,7 +1541,7 @@ export interface CreateLoadBalancerTlsCertificateRequest {
    *       alternative names (in addition to the 1 primary domain). We do not support wildcards (e.g.,
    *         <code>*.example.com</code>).</p>
    */
-  certificateAlternativeNames?: Array<string>;
+  certificateAlternativeNames?: string[];
 
   /**
    * <p>The domain name (e.g., <code>example.com</code>) for your SSL/TLS
@@ -1568,7 +1568,7 @@ export interface CreateLoadBalancerTlsCertificateRequest {
    *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
    *       operation.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateLoadBalancerTlsCertificateRequest {
@@ -1581,7 +1581,7 @@ export interface CreateLoadBalancerTlsCertificateResult {
   /**
    * <p>An object containing information about the API operations.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace CreateLoadBalancerTlsCertificateResult {
@@ -1671,7 +1671,7 @@ export interface CreateRelationalDatabaseFromSnapshotRequest {
    *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
    *       operation.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>Specifies whether your database is restored from the latest backup time. A value of
@@ -1697,7 +1697,7 @@ export interface CreateRelationalDatabaseFromSnapshotResult {
    * <p>An object describing the result of your create relational database from snapshot
    *       request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace CreateRelationalDatabaseFromSnapshotResult {
@@ -1859,7 +1859,7 @@ export interface CreateRelationalDatabaseRequest {
    *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
    *       operation.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateRelationalDatabaseRequest {
@@ -1872,7 +1872,7 @@ export interface CreateRelationalDatabaseResult {
   /**
    * <p>An object describing the result of your create relational database request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace CreateRelationalDatabaseResult {
@@ -1906,7 +1906,7 @@ export interface CreateRelationalDatabaseSnapshotRequest {
    *          <p>To tag a resource after it has been created, see the <code>tag resource</code>
    *       operation.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateRelationalDatabaseSnapshotRequest {
@@ -1920,7 +1920,7 @@ export interface CreateRelationalDatabaseSnapshotResult {
    * <p>An object describing the result of your create relational database snapshot
    *       request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace CreateRelationalDatabaseSnapshotResult {
@@ -1954,7 +1954,7 @@ export interface DeleteAutoSnapshotResult {
   /**
    * <p>An array of objects that describe the result of your request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace DeleteAutoSnapshotResult {
@@ -1985,7 +1985,7 @@ export interface DeleteDiskResult {
   /**
    * <p>An array of objects that describe the result of your request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace DeleteDiskResult {
@@ -2012,7 +2012,7 @@ export interface DeleteDiskSnapshotResult {
   /**
    * <p>An object describing the API operations.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace DeleteDiskSnapshotResult {
@@ -2103,7 +2103,7 @@ export interface DeleteInstanceResult {
    * <p>An array of key-value pairs containing information about the results of your delete
    *       instance request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace DeleteInstanceResult {
@@ -2130,7 +2130,7 @@ export interface DeleteInstanceSnapshotResult {
    * <p>An array of key-value pairs containing information about the results of your delete
    *       instance snapshot request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace DeleteInstanceSnapshotResult {
@@ -2183,7 +2183,7 @@ export interface DeleteKnownHostKeysResult {
   /**
    * <p>A list of objects describing the API operation.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace DeleteKnownHostKeysResult {
@@ -2209,7 +2209,7 @@ export interface DeleteLoadBalancerResult {
   /**
    * <p>An object describing the API operations.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace DeleteLoadBalancerResult {
@@ -2248,7 +2248,7 @@ export interface DeleteLoadBalancerTlsCertificateResult {
   /**
    * <p>An object describing the API operations.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace DeleteLoadBalancerTlsCertificateResult {
@@ -2305,7 +2305,7 @@ export interface DeleteRelationalDatabaseResult {
   /**
    * <p>An object describing the result of your delete relational database request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace DeleteRelationalDatabaseResult {
@@ -2332,7 +2332,7 @@ export interface DeleteRelationalDatabaseSnapshotResult {
    * <p>An object describing the result of your delete relational database snapshot
    *       request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace DeleteRelationalDatabaseSnapshotResult {
@@ -2380,7 +2380,7 @@ export interface DetachDiskResult {
   /**
    * <p>An object describing the API operations.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace DetachDiskResult {
@@ -2394,7 +2394,7 @@ export interface DetachInstancesFromLoadBalancerRequest {
    * <p>An array of strings containing the names of the instances you want to detach from the
    *       load balancer.</p>
    */
-  instanceNames: Array<string> | undefined;
+  instanceNames: string[] | undefined;
 
   /**
    * <p>The name of the Lightsail load balancer.</p>
@@ -2412,7 +2412,7 @@ export interface DetachInstancesFromLoadBalancerResult {
   /**
    * <p>An object describing the API operations.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace DetachInstancesFromLoadBalancerResult {
@@ -2439,7 +2439,7 @@ export interface DetachStaticIpResult {
    * <p>An array of key-value pairs containing information about the results of your detach
    *       static IP request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace DetachStaticIpResult {
@@ -2470,7 +2470,7 @@ export interface DisableAddOnResult {
   /**
    * <p>An array of objects that describe the result of your request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace DisableAddOnResult {
@@ -2486,7 +2486,7 @@ export interface Disk {
   /**
    * <p>An array of objects representing the add-ons enabled on the disk.</p>
    */
-  addOns?: Array<AddOn>;
+  addOns?: AddOn[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the disk.</p>
@@ -2580,7 +2580,7 @@ export interface Disk {
    *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
    *         Dev Guide</a>.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace Disk {
@@ -2725,7 +2725,7 @@ export interface DiskSnapshot {
    *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
    *         Dev Guide</a>.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace DiskSnapshot {
@@ -2782,7 +2782,7 @@ export interface Domain {
   /**
    * <p>An array of key-value pairs containing information about the domain entries.</p>
    */
-  domainEntries?: Array<DomainEntry>;
+  domainEntries?: DomainEntry[];
 
   /**
    * <p>The AWS Region and Availability Zones where the domain recordset was created.</p>
@@ -2811,7 +2811,7 @@ export interface Domain {
    *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
    *         Dev Guide</a>.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace Domain {
@@ -2958,7 +2958,7 @@ export interface EnableAddOnResult {
   /**
    * <p>An array of objects that describe the result of your request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace EnableAddOnResult {
@@ -3092,7 +3092,7 @@ export interface ExportSnapshotResult {
   /**
    * <p>A list of objects describing the API operation.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace ExportSnapshotResult {
@@ -3118,7 +3118,7 @@ export interface GetActiveNamesResult {
   /**
    * <p>The list of active names returned by the get active names request.</p>
    */
-  activeNames?: Array<string>;
+  activeNames?: string[];
 
   /**
    * <p>A token used for advancing to the next page of results from your get active names
@@ -3152,7 +3152,7 @@ export interface GetAutoSnapshotsResult {
    * <p>An array of objects that describe the automatic snapshots that are available for the
    *       specified source instance or disk.</p>
    */
-  autoSnapshots?: Array<AutoSnapshotDetails>;
+  autoSnapshots?: AutoSnapshotDetails[];
 
   /**
    * <p>The name of the source instance or disk for the automatic snapshots.</p>
@@ -3196,7 +3196,7 @@ export interface GetBlueprintsResult {
    * <p>An array of key-value pairs that contains information about the available
    *       blueprints.</p>
    */
-  blueprints?: Array<Blueprint>;
+  blueprints?: Blueprint[];
 
   /**
    * <p>A token used for advancing to the next page of results from your get blueprints
@@ -3236,7 +3236,7 @@ export interface GetBundlesResult {
    * <p>An array of key-value pairs that contains information about the available
    *       bundles.</p>
    */
-  bundles?: Array<Bundle>;
+  bundles?: Bundle[];
 
   /**
    * <p>A token used for advancing to the next page of results from your get active names
@@ -3269,7 +3269,7 @@ export interface GetCloudFormationStackRecordsResult {
   /**
    * <p>A list of objects describing the CloudFormation stack records.</p>
    */
-  cloudFormationStackRecords?: Array<CloudFormationStackRecord>;
+  cloudFormationStackRecords?: CloudFormationStackRecord[];
 
   /**
    * <p>A token used for advancing to the next page of results of your get relational database
@@ -3354,7 +3354,7 @@ export interface GetDiskSnapshotsResult {
    * <p>An array of objects containing information about all block storage disk
    *       snapshots.</p>
    */
-  diskSnapshots?: Array<DiskSnapshot>;
+  diskSnapshots?: DiskSnapshot[];
 
   /**
    * <p>A token used for advancing to the next page of results from your GetDiskSnapshots
@@ -3387,7 +3387,7 @@ export interface GetDisksResult {
   /**
    * <p>An array of objects containing information about all block storage disks.</p>
    */
-  disks?: Array<Disk>;
+  disks?: Disk[];
 
   /**
    * <p>A token used for advancing to the next page of results from your GetDisks
@@ -3448,7 +3448,7 @@ export interface GetDomainsResult {
    * <p>An array of key-value pairs containing information about each of the domain entries in
    *       the user's account.</p>
    */
-  domains?: Array<Domain>;
+  domains?: Domain[];
 
   /**
    * <p>A token used for advancing to the next page of results from your get active names
@@ -3481,7 +3481,7 @@ export interface GetExportSnapshotRecordsResult {
   /**
    * <p>A list of objects describing the export snapshot records.</p>
    */
-  exportSnapshotRecords?: Array<ExportSnapshotRecord>;
+  exportSnapshotRecords?: ExportSnapshotRecord[];
 
   /**
    * <p>A token used for advancing to the next page of results of your get relational database
@@ -3558,7 +3558,7 @@ export interface GetInstanceMetricDataRequest {
   /**
    * <p>The instance statistics. </p>
    */
-  statistics: Array<MetricStatistic | string> | undefined;
+  statistics: MetricStatistic | string[] | undefined;
 
   /**
    * <p>The unit. The list of valid values is below.</p>
@@ -3577,7 +3577,7 @@ export interface GetInstanceMetricDataResult {
    * <p>An array of key-value pairs containing information about the results of your get
    *       instance metric data request.</p>
    */
-  metricData?: Array<MetricDatapoint>;
+  metricData?: MetricDatapoint[];
 
   /**
    * <p>The metric name to return data for.</p>
@@ -3608,7 +3608,7 @@ export interface GetInstancePortStatesResult {
   /**
    * <p>Information about the port states resulting from your request.</p>
    */
-  portStates?: Array<InstancePortState>;
+  portStates?: InstancePortState[];
 }
 
 export namespace GetInstancePortStatesResult {
@@ -3690,7 +3690,7 @@ export interface GetInstanceSnapshotsResult {
    * <p>An array of key-value pairs containing information about the results of your get
    *       instance snapshots request.</p>
    */
-  instanceSnapshots?: Array<InstanceSnapshot>;
+  instanceSnapshots?: InstanceSnapshot[];
 
   /**
    * <p>A token used for advancing to the next page of results from your get instance snapshots
@@ -3749,7 +3749,7 @@ export interface GetInstancesResult {
   /**
    * <p>An array of key-value pairs containing information about your instances.</p>
    */
-  instances?: Array<Instance>;
+  instances?: Instance[];
 
   /**
    * <p>A token used for advancing to the next page of results from your get instances
@@ -3808,7 +3808,7 @@ export interface GetKeyPairsResult {
   /**
    * <p>An array of key-value pairs containing information about the key pairs.</p>
    */
-  keyPairs?: Array<KeyPair>;
+  keyPairs?: KeyPair[];
 
   /**
    * <p>A token used for advancing to the next page of results from your get key pairs
@@ -4037,7 +4037,7 @@ export interface GetLoadBalancerMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  statistics: Array<MetricStatistic | string> | undefined;
+  statistics: MetricStatistic | string[] | undefined;
 
   /**
    * <p>The unit for the time period request. Valid values are listed below.</p>
@@ -4055,7 +4055,7 @@ export interface GetLoadBalancerMetricDataResult {
   /**
    * <p>An array of metric datapoint objects.</p>
    */
-  metricData?: Array<MetricDatapoint>;
+  metricData?: MetricDatapoint[];
 
   /**
    * <p>The metric about which you are receiving information. Valid values are listed below,
@@ -4254,7 +4254,7 @@ export interface GetLoadBalancerTlsCertificatesResult {
    * <p>An array of LoadBalancerTlsCertificate objects describing your SSL/TLS
    *       certificates.</p>
    */
-  tlsCertificates?: Array<LoadBalancerTlsCertificate>;
+  tlsCertificates?: LoadBalancerTlsCertificate[];
 }
 
 export namespace GetLoadBalancerTlsCertificatesResult {
@@ -4280,7 +4280,7 @@ export interface GetLoadBalancersResult {
   /**
    * <p>An array of LoadBalancer objects describing your load balancers.</p>
    */
-  loadBalancers?: Array<LoadBalancer>;
+  loadBalancers?: LoadBalancer[];
 
   /**
    * <p>A token used for advancing to the next page of results from your GetLoadBalancers
@@ -4362,7 +4362,7 @@ export interface GetOperationsForResourceResult {
    * <p>An array of key-value pairs containing information about the results of your get
    *       operations for resource request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace GetOperationsForResourceResult {
@@ -4396,7 +4396,7 @@ export interface GetOperationsResult {
    * <p>An array of key-value pairs containing information about the results of your get
    *       operations request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace GetOperationsResult {
@@ -4432,7 +4432,7 @@ export interface GetRegionsResult {
    * <p>An array of key-value pairs containing information about your get regions
    *       request.</p>
    */
-  regions?: Array<Region>;
+  regions?: Region[];
 }
 
 export namespace GetRegionsResult {
@@ -4460,7 +4460,7 @@ export interface GetRelationalDatabaseBlueprintsResult {
    * <p>An object describing the result of your get relational database blueprints
    *       request.</p>
    */
-  blueprints?: Array<RelationalDatabaseBlueprint>;
+  blueprints?: RelationalDatabaseBlueprint[];
 
   /**
    * <p>A token used for advancing to the next page of results of your get relational database
@@ -4494,7 +4494,7 @@ export interface GetRelationalDatabaseBundlesResult {
    * <p>An object describing the result of your get relational database bundles
    *       request.</p>
    */
-  bundles?: Array<RelationalDatabaseBundle>;
+  bundles?: RelationalDatabaseBundle[];
 
   /**
    * <p>A token used for advancing to the next page of results of your get relational database
@@ -4548,7 +4548,7 @@ export interface GetRelationalDatabaseEventsResult {
    * <p>An object describing the result of your get relational database events
    *       request.</p>
    */
-  relationalDatabaseEvents?: Array<RelationalDatabaseEvent>;
+  relationalDatabaseEvents?: RelationalDatabaseEvent[];
 }
 
 export namespace GetRelationalDatabaseEventsResult {
@@ -4644,7 +4644,7 @@ export interface GetRelationalDatabaseLogEventsResult {
    * <p>An object describing the result of your get relational database log events
    *       request.</p>
    */
-  resourceLogEvents?: Array<LogEvent>;
+  resourceLogEvents?: LogEvent[];
 }
 
 export namespace GetRelationalDatabaseLogEventsResult {
@@ -4671,7 +4671,7 @@ export interface GetRelationalDatabaseLogStreamsResult {
    * <p>An object describing the result of your get relational database log streams
    *       request.</p>
    */
-  logStreams?: Array<string>;
+  logStreams?: string[];
 }
 
 export namespace GetRelationalDatabaseLogStreamsResult {
@@ -4781,7 +4781,7 @@ export interface GetRelationalDatabaseMetricDataRequest {
   /**
    * <p>The array of statistics for your metric data request.</p>
    */
-  statistics: Array<MetricStatistic | string> | undefined;
+  statistics: MetricStatistic | string[] | undefined;
 
   /**
    * <p>The unit for the metric data request.</p>
@@ -4800,7 +4800,7 @@ export interface GetRelationalDatabaseMetricDataResult {
    * <p>An object describing the result of your get relational database metric data
    *       request.</p>
    */
-  metricData?: Array<MetricDatapoint>;
+  metricData?: MetricDatapoint[];
 
   /**
    * <p>The name of the metric.</p>
@@ -4844,7 +4844,7 @@ export interface GetRelationalDatabaseParametersResult {
    * <p>An object describing the result of your get relational database parameters
    *       request.</p>
    */
-  parameters?: Array<RelationalDatabaseParameter>;
+  parameters?: RelationalDatabaseParameter[];
 }
 
 export namespace GetRelationalDatabaseParametersResult {
@@ -4930,7 +4930,7 @@ export interface GetRelationalDatabaseSnapshotsResult {
    * <p>An object describing the result of your get relational database snapshots
    *       request.</p>
    */
-  relationalDatabaseSnapshots?: Array<RelationalDatabaseSnapshot>;
+  relationalDatabaseSnapshots?: RelationalDatabaseSnapshot[];
 }
 
 export namespace GetRelationalDatabaseSnapshotsResult {
@@ -4963,7 +4963,7 @@ export interface GetRelationalDatabasesResult {
   /**
    * <p>An object describing the result of your get relational databases request.</p>
    */
-  relationalDatabases?: Array<RelationalDatabase>;
+  relationalDatabases?: RelationalDatabase[];
 }
 
 export namespace GetRelationalDatabasesResult {
@@ -5024,7 +5024,7 @@ export interface GetStaticIpsResult {
    * <p>An array of key-value pairs containing information about your get static IPs
    *       request.</p>
    */
-  staticIps?: Array<StaticIp>;
+  staticIps?: StaticIp[];
 }
 
 export namespace GetStaticIpsResult {
@@ -5151,7 +5151,7 @@ export interface Instance {
   /**
    * <p>An array of objects representing the add-ons enabled on the instance.</p>
    */
-  addOns?: Array<AddOn>;
+  addOns?: AddOn[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the instance (e.g.,
@@ -5251,7 +5251,7 @@ export interface Instance {
    *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
    *         Dev Guide</a>.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The user name for connecting to the instance (e.g., <code>ec2-user</code>).</p>
@@ -5284,7 +5284,7 @@ export interface InstanceAccessDetails {
   /**
    * <p>Describes the public SSH host keys or the RDP certificate.</p>
    */
-  hostKeys?: Array<HostKeyAttributes>;
+  hostKeys?: HostKeyAttributes[];
 
   /**
    * <p>The name of this Amazon Lightsail instance.</p>
@@ -5419,7 +5419,7 @@ export interface InstanceHardware {
   /**
    * <p>The disks attached to the instance.</p>
    */
-  disks?: Array<Disk>;
+  disks?: Disk[];
 
   /**
    * <p>The amount of RAM in GB on the instance (e.g., <code>1.0</code>).</p>
@@ -5623,7 +5623,7 @@ export interface InstanceNetworking {
    * <p>An array of key-value pairs containing information about the ports on the
    *       instance.</p>
    */
-  ports?: Array<InstancePortInfo>;
+  ports?: InstancePortInfo[];
 }
 
 export namespace InstanceNetworking {
@@ -5784,7 +5784,7 @@ export interface InstanceSnapshot {
    * <p>An array of disk objects containing information about all block storage
    *       disks.</p>
    */
-  fromAttachedDisks?: Array<Disk>;
+  fromAttachedDisks?: Disk[];
 
   /**
    * <p>The blueprint ID from which you created the snapshot (e.g.,
@@ -5859,7 +5859,7 @@ export interface InstanceSnapshot {
    *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
    *         Dev Guide</a>.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace InstanceSnapshot {
@@ -5887,7 +5887,7 @@ export interface InstanceSnapshotInfo {
   /**
    * <p>A list of objects describing the disks that were attached to the source instance.</p>
    */
-  fromDiskInfo?: Array<DiskInfo>;
+  fromDiskInfo?: DiskInfo[];
 }
 
 export namespace InstanceSnapshotInfo {
@@ -6020,7 +6020,7 @@ export interface KeyPair {
    *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
    *         Dev Guide</a>.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace KeyPair {
@@ -6063,7 +6063,7 @@ export interface LoadBalancer {
    * <p>An array of InstanceHealthSummary objects describing the health of the load
    *       balancer.</p>
    */
-  instanceHealthSummary?: Array<InstanceHealthSummary>;
+  instanceHealthSummary?: InstanceHealthSummary[];
 
   /**
    * <p>The port where the load balancer will direct traffic to your Lightsail instances. For
@@ -6093,7 +6093,7 @@ export interface LoadBalancer {
    * <p>An array of public port settings for your load balancer. For HTTP, use port 80. For
    *       HTTPS, use port 443.</p>
    */
-  publicPorts?: Array<number>;
+  publicPorts?: number[];
 
   /**
    * <p>The resource type (e.g., <code>LoadBalancer</code>.</p>
@@ -6117,14 +6117,14 @@ export interface LoadBalancer {
    *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
    *         Dev Guide</a>.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>An array of LoadBalancerTlsCertificateSummary objects that provide additional
    *       information about the SSL/TLS certificates. For example, if <code>true</code>, the certificate
    *       is attached to the load balancer.</p>
    */
-  tlsCertificateSummaries?: Array<LoadBalancerTlsCertificateSummary>;
+  tlsCertificateSummaries?: LoadBalancerTlsCertificateSummary[];
 }
 
 export namespace LoadBalancer {
@@ -6190,9 +6190,7 @@ export interface LoadBalancerTlsCertificate {
    * <p>An array of LoadBalancerTlsCertificateDomainValidationRecord objects describing the
    *       records.</p>
    */
-  domainValidationRecords?: Array<
-    LoadBalancerTlsCertificateDomainValidationRecord
-  >;
+  domainValidationRecords?: LoadBalancerTlsCertificateDomainValidationRecord[];
 
   /**
    * <p>The reason for the SSL/TLS certificate validation failure.</p>
@@ -6366,7 +6364,7 @@ export interface LoadBalancerTlsCertificate {
    *         <code>example.com</code>, <code>www.example.com</code>, or
    *       <code>m.example.com</code>.</p>
    */
-  subjectAlternativeNames?: Array<string>;
+  subjectAlternativeNames?: string[];
 
   /**
    * <p>The support code. Include this code in your email to support when you have questions
@@ -6380,7 +6378,7 @@ export interface LoadBalancerTlsCertificate {
    *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
    *         Dev Guide</a>.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace LoadBalancerTlsCertificate {
@@ -6485,9 +6483,7 @@ export interface LoadBalancerTlsCertificateRenewalSummary {
    *       pertains to Lightsail's managed renewal. This is different from the initial validation that
    *       occurs as a result of the RequestCertificate request.</p>
    */
-  domainValidationOptions?: Array<
-    LoadBalancerTlsCertificateDomainValidationOption
-  >;
+  domainValidationOptions?: LoadBalancerTlsCertificateDomainValidationOption[];
 
   /**
    * <p>The status of Lightsail's managed renewal of the certificate. Valid values are listed
@@ -7036,7 +7032,7 @@ export interface PutInstancePublicPortsRequest {
   /**
    * <p>Specifies information about the public port(s).</p>
    */
-  portInfos: Array<PortInfo> | undefined;
+  portInfos: PortInfo[] | undefined;
 }
 
 export namespace PutInstancePublicPortsRequest {
@@ -7076,7 +7072,7 @@ export interface RebootInstanceResult {
    * <p>An array of key-value pairs containing information about the request
    *       operations.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace RebootInstanceResult {
@@ -7102,7 +7098,7 @@ export interface RebootRelationalDatabaseResult {
   /**
    * <p>An object describing the result of your reboot relational database request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace RebootRelationalDatabaseResult {
@@ -7125,7 +7121,7 @@ export interface Region {
    * <p>The Availability Zones. Follows the format <code>us-east-2a</code>
    *       (case-sensitive).</p>
    */
-  availabilityZones?: Array<AvailabilityZone>;
+  availabilityZones?: AvailabilityZone[];
 
   /**
    * <p>The continent code (e.g., <code>NA</code>, meaning North America).</p>
@@ -7152,7 +7148,7 @@ export interface Region {
    * <p>The Availability Zones for databases. Follows the format <code>us-east-2a</code>
    *       (case-sensitive).</p>
    */
-  relationalDatabaseAvailabilityZones?: Array<AvailabilityZone>;
+  relationalDatabaseAvailabilityZones?: AvailabilityZone[];
 }
 
 export namespace Region {
@@ -7257,7 +7253,7 @@ export interface RelationalDatabase {
   /**
    * <p>Describes the pending maintenance actions for the database.</p>
    */
-  pendingMaintenanceActions?: Array<PendingMaintenanceAction>;
+  pendingMaintenanceActions?: PendingMaintenanceAction[];
 
   /**
    * <p>Describes pending database value modifications.</p>
@@ -7325,7 +7321,7 @@ export interface RelationalDatabase {
    *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
    *         Dev Guide</a>.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace RelationalDatabase {
@@ -7474,7 +7470,7 @@ export interface RelationalDatabaseEvent {
   /**
    * <p>The category that the database event belongs to.</p>
    */
-  eventCategories?: Array<string>;
+  eventCategories?: string[];
 
   /**
    * <p>The message of the database event.</p>
@@ -7671,7 +7667,7 @@ export interface RelationalDatabaseSnapshot {
    *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
    *         Dev Guide</a>.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace RelationalDatabaseSnapshot {
@@ -7698,7 +7694,7 @@ export interface ReleaseStaticIpResult {
    * <p>An array of key-value pairs containing information about the request
    *       operation.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace ReleaseStaticIpResult {
@@ -7781,7 +7777,7 @@ export interface StartInstanceResult {
    * <p>An array of key-value pairs containing information about the request
    *       operation.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace StartInstanceResult {
@@ -7807,7 +7803,7 @@ export interface StartRelationalDatabaseResult {
   /**
    * <p>An object describing the result of your start relational database request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace StartRelationalDatabaseResult {
@@ -7905,7 +7901,7 @@ export interface StopInstanceResult {
    * <p>An array of key-value pairs containing information about the request
    *       operation.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace StopInstanceResult {
@@ -7937,7 +7933,7 @@ export interface StopRelationalDatabaseResult {
   /**
    * <p>An object describing the result of your stop relational database request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace StopRelationalDatabaseResult {
@@ -7986,7 +7982,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tag key and optional value.</p>
    */
-  tags: Array<Tag> | undefined;
+  tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -7999,7 +7995,7 @@ export interface TagResourceResult {
   /**
    * <p>A list of objects describing the API operation.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace TagResourceResult {
@@ -8064,7 +8060,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The tag keys to delete from the specified resource.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -8077,7 +8073,7 @@ export interface UntagResourceResult {
   /**
    * <p>A list of objects describing the API operation.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace UntagResourceResult {
@@ -8109,7 +8105,7 @@ export interface UpdateDomainEntryResult {
    * <p>An array of key-value pairs containing information about the request
    *       operation.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace UpdateDomainEntryResult {
@@ -8146,7 +8142,7 @@ export interface UpdateLoadBalancerAttributeResult {
   /**
    * <p>An object describing the API operations.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace UpdateLoadBalancerAttributeResult {
@@ -8159,7 +8155,7 @@ export interface UpdateRelationalDatabaseParametersRequest {
   /**
    * <p>The database parameters to update.</p>
    */
-  parameters: Array<RelationalDatabaseParameter> | undefined;
+  parameters: RelationalDatabaseParameter[] | undefined;
 
   /**
    * <p>The name of your database for which to update parameters.</p>
@@ -8178,7 +8174,7 @@ export interface UpdateRelationalDatabaseParametersResult {
    * <p>An object describing the result of your update relational database parameters
    *       request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace UpdateRelationalDatabaseParametersResult {
@@ -8308,7 +8304,7 @@ export interface UpdateRelationalDatabaseResult {
   /**
    * <p>An object describing the result of your update relational database request.</p>
    */
-  operations?: Array<Operation>;
+  operations?: Operation[];
 }
 
 export namespace UpdateRelationalDatabaseResult {

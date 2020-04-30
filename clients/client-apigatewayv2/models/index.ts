@@ -81,7 +81,7 @@ export interface Api {
   /**
    * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
    */
-  ImportInfo?: Array<string>;
+  ImportInfo?: string[];
 
   /**
    * <p>The name of the API.</p>
@@ -111,7 +111,7 @@ export interface Api {
   /**
    * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
    */
-  Warnings?: Array<string>;
+  Warnings?: string[];
 }
 
 export namespace Api {
@@ -189,7 +189,7 @@ export interface Authorizer {
   /**
    * <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. Currently, the identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name. These parameters will be used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example "$request.header.Authorization".</p>
    */
-  IdentitySource?: Array<string>;
+  IdentitySource?: string[];
 
   /**
    * <p>The validation expression does not apply to the REQUEST authorizer.</p>
@@ -275,22 +275,22 @@ export interface Cors {
   /**
    * <p>Represents a collection of allowed headers. Supported only for HTTP APIs.</p>
    */
-  AllowHeaders?: Array<string>;
+  AllowHeaders?: string[];
 
   /**
    * <p>Represents a collection of allowed HTTP methods. Supported only for HTTP APIs.</p>
    */
-  AllowMethods?: Array<string>;
+  AllowMethods?: string[];
 
   /**
    * <p>Represents a collection of allowed origins. Supported only for HTTP APIs.</p>
    */
-  AllowOrigins?: Array<string>;
+  AllowOrigins?: string[];
 
   /**
    * <p>Represents a collection of exposed headers. Supported only for HTTP APIs.</p>
    */
-  ExposeHeaders?: Array<string>;
+  ExposeHeaders?: string[];
 
   /**
    * <p>The number of seconds that the browser should cache preflight request results. Supported only for HTTP APIs.</p>
@@ -472,7 +472,7 @@ export interface CreateApiResponse {
   /**
    * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
    */
-  ImportInfo?: Array<string>;
+  ImportInfo?: string[];
 
   /**
    * <p>The name of the API.</p>
@@ -502,7 +502,7 @@ export interface CreateApiResponse {
   /**
    * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
    */
-  Warnings?: Array<string>;
+  Warnings?: string[];
 }
 
 export namespace CreateApiResponse {
@@ -544,7 +544,7 @@ export interface CreateAuthorizerRequest {
   /**
    * <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. Currently, the identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name. These parameters will be used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT )from inbound requests. Currently only header-based and query parameter-based selections are supported, for example "$request.header.Authorization".</p>
    */
-  IdentitySource: Array<string> | undefined;
+  IdentitySource: string[] | undefined;
 
   /**
    * <p>This parameter is not used.</p>
@@ -598,7 +598,7 @@ export interface CreateAuthorizerResponse {
   /**
    * <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. Currently, the identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name. These parameters will be used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example "$request.header.Authorization".</p>
    */
-  IdentitySource?: Array<string>;
+  IdentitySource?: string[];
 
   /**
    * <p>The validation expression does not apply to the REQUEST authorizer.</p>
@@ -698,7 +698,7 @@ export interface CreateDomainNameRequest {
   /**
    * <p>The domain name configurations.</p>
    */
-  DomainNameConfigurations?: Array<DomainNameConfiguration>;
+  DomainNameConfigurations?: DomainNameConfiguration[];
 
   /**
    * <p>The collection of tags associated with a domain name.</p>
@@ -726,7 +726,7 @@ export interface CreateDomainNameResponse {
   /**
    * <p>The domain name configurations.</p>
    */
-  DomainNameConfigurations?: Array<DomainNameConfiguration>;
+  DomainNameConfigurations?: DomainNameConfiguration[];
 
   /**
    * <p>The collection of tags associated with a domain name.</p>
@@ -1099,7 +1099,7 @@ export interface CreateRouteRequest {
   /**
    * <p>The authorization scopes supported by this route.</p>
    */
-  AuthorizationScopes?: Array<string>;
+  AuthorizationScopes?: string[];
 
   /**
    * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, or JWT for using JSON Web Tokens.</p>
@@ -1241,7 +1241,7 @@ export interface CreateRouteResult {
   /**
    * <p>A list of authorization scopes configured on a route. The scopes are used with a JWT authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
    */
-  AuthorizationScopes?: Array<string>;
+  AuthorizationScopes?: string[];
 
   /**
    * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, or JWT for using JSON Web Tokens.</p>
@@ -1741,7 +1741,7 @@ export interface DomainName {
   /**
    * <p>The domain name configurations.</p>
    */
-  DomainNameConfigurations?: Array<DomainNameConfiguration>;
+  DomainNameConfigurations?: DomainNameConfiguration[];
 
   /**
    * <p>The collection of tags associated with a domain name.</p>
@@ -1893,7 +1893,7 @@ export interface GetApiMappingsResponse {
   /**
    * <p>The elements from this collection.</p>
    */
-  Items?: Array<ApiMapping>;
+  Items?: ApiMapping[];
 
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
@@ -1958,7 +1958,7 @@ export interface GetApiResponse {
   /**
    * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
    */
-  ImportInfo?: Array<string>;
+  ImportInfo?: string[];
 
   /**
    * <p>The name of the API.</p>
@@ -1988,7 +1988,7 @@ export interface GetApiResponse {
   /**
    * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
    */
-  Warnings?: Array<string>;
+  Warnings?: string[];
 }
 
 export namespace GetApiResponse {
@@ -2019,7 +2019,7 @@ export interface GetApisResponse {
   /**
    * <p>The elements from this collection.</p>
    */
-  Items?: Array<Api>;
+  Items?: Api[];
 
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
@@ -2081,7 +2081,7 @@ export interface GetAuthorizerResponse {
   /**
    * <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. Currently, the identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name. These parameters will be used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example "$request.header.Authorization".</p>
    */
-  IdentitySource?: Array<string>;
+  IdentitySource?: string[];
 
   /**
    * <p>The validation expression does not apply to the REQUEST authorizer.</p>
@@ -2132,7 +2132,7 @@ export interface GetAuthorizersResponse {
   /**
    * <p>The elements from this collection.</p>
    */
-  Items?: Array<Authorizer>;
+  Items?: Authorizer[];
 
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
@@ -2229,7 +2229,7 @@ export interface GetDeploymentsResponse {
   /**
    * <p>The elements from this collection.</p>
    */
-  Items?: Array<Deployment>;
+  Items?: Deployment[];
 
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
@@ -2270,7 +2270,7 @@ export interface GetDomainNameResponse {
   /**
    * <p>The domain name configurations.</p>
    */
-  DomainNameConfigurations?: Array<DomainNameConfiguration>;
+  DomainNameConfigurations?: DomainNameConfiguration[];
 
   /**
    * <p>The collection of tags associated with a domain name.</p>
@@ -2306,7 +2306,7 @@ export interface GetDomainNamesResponse {
   /**
    * <p>The elements from this collection.</p>
    */
-  Items?: Array<DomainName>;
+  Items?: DomainName[];
 
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
@@ -2431,7 +2431,7 @@ export interface GetIntegrationResponsesResponse {
   /**
    * <p>The elements from this collection.</p>
    */
-  Items?: Array<IntegrationResponse>;
+  Items?: IntegrationResponse[];
 
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
@@ -2570,7 +2570,7 @@ export interface GetIntegrationsResponse {
   /**
    * <p>The elements from this collection.</p>
    */
-  Items?: Array<Integration>;
+  Items?: Integration[];
 
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
@@ -2693,7 +2693,7 @@ export interface GetModelsResponse {
   /**
    * <p>The elements from this collection.</p>
    */
-  Items?: Array<Model>;
+  Items?: Model[];
 
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
@@ -2813,7 +2813,7 @@ export interface GetRouteResponsesResponse {
   /**
    * <p>The elements from this collection.</p>
    */
-  Items?: Array<RouteResponse>;
+  Items?: RouteResponse[];
 
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
@@ -2841,7 +2841,7 @@ export interface GetRouteResult {
   /**
    * <p>A list of authorization scopes configured on a route. The scopes are used with a JWT authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
    */
-  AuthorizationScopes?: Array<string>;
+  AuthorizationScopes?: string[];
 
   /**
    * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, or JWT for using JSON Web Tokens.</p>
@@ -2927,7 +2927,7 @@ export interface GetRoutesResponse {
   /**
    * <p>The elements from this collection.</p>
    */
-  Items?: Array<Route>;
+  Items?: Route[];
 
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
@@ -3064,7 +3064,7 @@ export interface GetStagesResponse {
   /**
    * <p>The elements from this collection.</p>
    */
-  Items?: Array<Stage>;
+  Items?: Stage[];
 
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
@@ -3169,7 +3169,7 @@ export interface ImportApiResponse {
   /**
    * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
    */
-  ImportInfo?: Array<string>;
+  ImportInfo?: string[];
 
   /**
    * <p>The name of the API.</p>
@@ -3199,7 +3199,7 @@ export interface ImportApiResponse {
   /**
    * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
    */
-  Warnings?: Array<string>;
+  Warnings?: string[];
 }
 
 export namespace ImportApiResponse {
@@ -3364,7 +3364,7 @@ export interface JWTConfiguration {
   /**
    * <p>A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list. See <a href="https://tools.ietf.org/html/rfc7519#section-4.1.3">RFC 7519</a>. Supported only for HTTP APIs.</p>
    */
-  Audience?: Array<string>;
+  Audience?: string[];
 
   /**
    * <p>The base domain of the identity provider that issues JSON Web Tokens. For example, an Amazon Cognito user pool has the following format: https://cognito-idp.<replaceable>{region}</replaceable>.amazonaws.com/<replaceable>{userPoolId}</replaceable>
@@ -3539,7 +3539,7 @@ export interface ReimportApiResponse {
   /**
    * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
    */
-  ImportInfo?: Array<string>;
+  ImportInfo?: string[];
 
   /**
    * <p>The name of the API.</p>
@@ -3569,7 +3569,7 @@ export interface ReimportApiResponse {
   /**
    * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
    */
-  Warnings?: Array<string>;
+  Warnings?: string[];
 }
 
 export namespace ReimportApiResponse {
@@ -3595,7 +3595,7 @@ export interface Route {
   /**
    * <p>A list of authorization scopes configured on a route. The scopes are used with a JWT authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
    */
-  AuthorizationScopes?: Array<string>;
+  AuthorizationScopes?: string[];
 
   /**
    * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, or JWT for using JSON Web Tokens.</p>
@@ -3871,7 +3871,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The Tag keys to delete.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -4049,7 +4049,7 @@ export interface UpdateApiResponse {
   /**
    * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
    */
-  ImportInfo?: Array<string>;
+  ImportInfo?: string[];
 
   /**
    * <p>The name of the API.</p>
@@ -4079,7 +4079,7 @@ export interface UpdateApiResponse {
   /**
    * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
    */
-  Warnings?: Array<string>;
+  Warnings?: string[];
 }
 
 export namespace UpdateApiResponse {
@@ -4126,7 +4126,7 @@ export interface UpdateAuthorizerRequest {
   /**
    * <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. Currently, the identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name. These parameters will be used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example "$request.header.Authorization".</p>
    */
-  IdentitySource?: Array<string>;
+  IdentitySource?: string[];
 
   /**
    * <p>This parameter is not used.</p>
@@ -4180,7 +4180,7 @@ export interface UpdateAuthorizerResponse {
   /**
    * <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. Currently, the identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name. These parameters will be used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example "$request.header.Authorization".</p>
    */
-  IdentitySource?: Array<string>;
+  IdentitySource?: string[];
 
   /**
    * <p>The validation expression does not apply to the REQUEST authorizer.</p>
@@ -4280,7 +4280,7 @@ export interface UpdateDomainNameRequest {
   /**
    * <p>The domain name configurations.</p>
    */
-  DomainNameConfigurations?: Array<DomainNameConfiguration>;
+  DomainNameConfigurations?: DomainNameConfiguration[];
 }
 
 export namespace UpdateDomainNameRequest {
@@ -4303,7 +4303,7 @@ export interface UpdateDomainNameResponse {
   /**
    * <p>The domain name configurations.</p>
    */
-  DomainNameConfigurations?: Array<DomainNameConfiguration>;
+  DomainNameConfigurations?: DomainNameConfiguration[];
 
   /**
    * <p>The collection of tags associated with a domain name.</p>
@@ -4698,7 +4698,7 @@ export interface UpdateRouteRequest {
   /**
    * <p>The authorization scopes supported by this route.</p>
    */
-  AuthorizationScopes?: Array<string>;
+  AuthorizationScopes?: string[];
 
   /**
    * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, or JWT for using JSON Web Tokens.</p>
@@ -4850,7 +4850,7 @@ export interface UpdateRouteResult {
   /**
    * <p>A list of authorization scopes configured on a route. The scopes are used with a JWT authorizer to authorize the method invocation. The authorization works by matching the route scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any route scope matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the route scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
    */
-  AuthorizationScopes?: Array<string>;
+  AuthorizationScopes?: string[];
 
   /**
    * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, or JWT for using JSON Web Tokens.</p>

@@ -12,14 +12,14 @@ export interface AddTagsToOnPremisesInstancesInput {
   /**
    * <p>The names of the on-premises instances to which to add tags.</p>
    */
-  instanceNames: Array<string> | undefined;
+  instanceNames: string[] | undefined;
 
   /**
    * <p>The tag key-value pairs to add to the on-premises instances.</p>
    *         <p>Keys and values are both required. Keys cannot be null or empty strings. Value-only
    *             tags are not allowed.</p>
    */
-  tags: Array<Tag> | undefined;
+  tags: Tag[] | undefined;
 }
 
 export namespace AddTagsToOnPremisesInstancesInput {
@@ -52,7 +52,7 @@ export interface AlarmConfiguration {
    * <p>A list of alarms configured for the deployment group. A maximum of 10 alarms can be
    *             added to a deployment group.</p>
    */
-  alarms?: Array<Alarm>;
+  alarms?: Alarm[];
 
   /**
    * <p>Indicates whether the alarm configuration is enabled.</p>
@@ -294,7 +294,7 @@ export interface AutoRollbackConfiguration {
   /**
    * <p>The event type or types that trigger a rollback.</p>
    */
-  events?: Array<AutoRollbackEvent | string>;
+  events?: AutoRollbackEvent | string[];
 }
 
 export namespace AutoRollbackConfiguration {
@@ -344,7 +344,7 @@ export interface BatchGetApplicationRevisionsInput {
    * <p>An array of <code>RevisionLocation</code> objects that specify information to get about the application revisions, including type and
    *             location. The maximum number of <code>RevisionLocation</code> objects you can specify is 25.</p>
    */
-  revisions: Array<RevisionLocation> | undefined;
+  revisions: RevisionLocation[] | undefined;
 }
 
 export namespace BatchGetApplicationRevisionsInput {
@@ -370,7 +370,7 @@ export interface BatchGetApplicationRevisionsOutput {
   /**
    * <p>Additional information about the revisions, including the type and location.</p>
    */
-  revisions?: Array<RevisionInfo>;
+  revisions?: RevisionInfo[];
 }
 
 export namespace BatchGetApplicationRevisionsOutput {
@@ -386,7 +386,7 @@ export interface BatchGetApplicationsInput {
   /**
    * <p>A list of application names separated by spaces. The maximum number of application names you can specify is 25.</p>
    */
-  applicationNames: Array<string> | undefined;
+  applicationNames: string[] | undefined;
 }
 
 export namespace BatchGetApplicationsInput {
@@ -402,7 +402,7 @@ export interface BatchGetApplicationsOutput {
   /**
    * <p>Information about the applications.</p>
    */
-  applicationsInfo?: Array<ApplicationInfo>;
+  applicationsInfo?: ApplicationInfo[];
 }
 
 export namespace BatchGetApplicationsOutput {
@@ -424,7 +424,7 @@ export interface BatchGetDeploymentGroupsInput {
   /**
    * <p>The names of the deployment groups.</p>
    */
-  deploymentGroupNames: Array<string> | undefined;
+  deploymentGroupNames: string[] | undefined;
 }
 
 export namespace BatchGetDeploymentGroupsInput {
@@ -440,7 +440,7 @@ export interface BatchGetDeploymentGroupsOutput {
   /**
    * <p>Information about the deployment groups.</p>
    */
-  deploymentGroupsInfo?: Array<DeploymentGroupInfo>;
+  deploymentGroupsInfo?: DeploymentGroupInfo[];
 
   /**
    * <p>Information about errors that might have occurred during the API call.</p>
@@ -466,7 +466,7 @@ export interface BatchGetDeploymentInstancesInput {
   /**
    * <p>The unique IDs of instances used in the deployment. The maximum number of instance IDs you can specify is 25.</p>
    */
-  instanceIds: Array<string> | undefined;
+  instanceIds: string[] | undefined;
 }
 
 export namespace BatchGetDeploymentInstancesInput {
@@ -487,7 +487,7 @@ export interface BatchGetDeploymentInstancesOutput {
   /**
    * <p>Information about the instance.</p>
    */
-  instancesSummary?: Array<InstanceSummary>;
+  instancesSummary?: InstanceSummary[];
 }
 
 export namespace BatchGetDeploymentInstancesOutput {
@@ -524,7 +524,7 @@ export interface BatchGetDeploymentTargetsInput {
    *             </li>
    *          </ul>
    */
-  targetIds?: Array<string>;
+  targetIds?: string[];
 }
 
 export namespace BatchGetDeploymentTargetsInput {
@@ -556,7 +556,7 @@ export interface BatchGetDeploymentTargetsOutput {
    *             </li>
    *          </ul>
    */
-  deploymentTargets?: Array<DeploymentTarget>;
+  deploymentTargets?: DeploymentTarget[];
 }
 
 export namespace BatchGetDeploymentTargetsOutput {
@@ -572,7 +572,7 @@ export interface BatchGetDeploymentsInput {
   /**
    * <p> A list of deployment IDs, separated by spaces. The maximum number of deployment IDs you can specify is 25.</p>
    */
-  deploymentIds: Array<string> | undefined;
+  deploymentIds: string[] | undefined;
 }
 
 export namespace BatchGetDeploymentsInput {
@@ -588,7 +588,7 @@ export interface BatchGetDeploymentsOutput {
   /**
    * <p> Information about the deployments. </p>
    */
-  deploymentsInfo?: Array<DeploymentInfo>;
+  deploymentsInfo?: DeploymentInfo[];
 }
 
 export namespace BatchGetDeploymentsOutput {
@@ -604,7 +604,7 @@ export interface BatchGetOnPremisesInstancesInput {
   /**
    * <p>The names of the on-premises instances about which to get information. The maximum number of instance names you can specify is 25.</p>
    */
-  instanceNames: Array<string> | undefined;
+  instanceNames: string[] | undefined;
 }
 
 export namespace BatchGetOnPremisesInstancesInput {
@@ -620,7 +620,7 @@ export interface BatchGetOnPremisesInstancesOutput {
   /**
    * <p>Information about the on-premises instances.</p>
    */
-  instanceInfos?: Array<InstanceInfo>;
+  instanceInfos?: InstanceInfo[];
 }
 
 export namespace BatchGetOnPremisesInstancesOutput {
@@ -797,7 +797,7 @@ export interface CreateApplicationInput {
    *             consists of a key and an optional value, both of which you define.
    *         </p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateApplicationInput {
@@ -912,7 +912,7 @@ export interface CreateDeploymentGroupInput {
   /**
    * <p>A list of associated Amazon EC2 Auto Scaling groups.</p>
    */
-  autoScalingGroups?: Array<string>;
+  autoScalingGroups?: string[];
 
   /**
    * <p>Information about blue/green deployment options for a deployment group.</p>
@@ -946,7 +946,7 @@ export interface CreateDeploymentGroupInput {
    * <p>The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances
    *             with any of the specified tags. Cannot be used in the same call as ec2TagSet.</p>
    */
-  ec2TagFilters?: Array<EC2TagFilter>;
+  ec2TagFilters?: EC2TagFilter[];
 
   /**
    * <p>Information about groups of tags applied to EC2 instances. The deployment group
@@ -961,7 +961,7 @@ export interface CreateDeploymentGroupInput {
    *             is specified as an Amazon ECS cluster and service name pair using the format
    *             <code><clustername>:<servicename></code>. </p>
    */
-  ecsServices?: Array<ECSService>;
+  ecsServices?: ECSService[];
 
   /**
    * <p>Information about the load balancer used in a deployment.</p>
@@ -973,7 +973,7 @@ export interface CreateDeploymentGroupInput {
    *             on-premises instances with any of the specified tags. Cannot be used in the same call as
    *             OnPremisesTagSet.</p>
    */
-  onPremisesInstanceTagFilters?: Array<TagFilter>;
+  onPremisesInstanceTagFilters?: TagFilter[];
 
   /**
    * <p>Information about groups of tags applied to on-premises instances. The deployment
@@ -994,14 +994,14 @@ export interface CreateDeploymentGroupInput {
    *             consists of a key and an optional value, both of which you define.
    *         </p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>Information about triggers to create when the deployment group is created. For
    *             examples, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html">Create a Trigger for an
    *                 AWS CodeDeploy Event</a> in the AWS CodeDeploy User Guide.</p>
    */
-  triggerConfigurations?: Array<TriggerConfig>;
+  triggerConfigurations?: TriggerConfig[];
 }
 
 export namespace CreateDeploymentGroupInput {
@@ -1218,7 +1218,7 @@ export interface DeleteDeploymentGroupOutput {
    *             If the output contains data, AWS CodeDeploy could not remove some Auto Scaling lifecycle
    *             event hooks from the Amazon EC2 instances in the Auto Scaling group.</p>
    */
-  hooksNotCleanedUp?: Array<AutoScalingGroup>;
+  hooksNotCleanedUp?: AutoScalingGroup[];
 }
 
 export namespace DeleteDeploymentGroupOutput {
@@ -1503,7 +1503,7 @@ export interface DeploymentGroupInfo {
   /**
    * <p>A list of associated Auto Scaling groups.</p>
    */
-  autoScalingGroups?: Array<AutoScalingGroup>;
+  autoScalingGroups?: AutoScalingGroup[];
 
   /**
    * <p>Information about blue/green deployment options for a deployment group.</p>
@@ -1540,7 +1540,7 @@ export interface DeploymentGroupInfo {
    * <p>The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances
    *             with any of the specified tags.</p>
    */
-  ec2TagFilters?: Array<EC2TagFilter>;
+  ec2TagFilters?: EC2TagFilter[];
 
   /**
    * <p>Information about groups of tags applied to an EC2 instance. The deployment group
@@ -1555,7 +1555,7 @@ export interface DeploymentGroupInfo {
    *             is specified as an Amazon ECS cluster and service name pair using the format
    *             <code><clustername>:<servicename></code>. </p>
    */
-  ecsServices?: Array<ECSService>;
+  ecsServices?: ECSService[];
 
   /**
    * <p>Information about the most recent attempted deployment to the deployment group.</p>
@@ -1577,7 +1577,7 @@ export interface DeploymentGroupInfo {
    * <p>The on-premises instance tags on which to filter. The deployment group includes
    *             on-premises instances with any of the specified tags.</p>
    */
-  onPremisesInstanceTagFilters?: Array<TagFilter>;
+  onPremisesInstanceTagFilters?: TagFilter[];
 
   /**
    * <p>Information about groups of tags applied to an on-premises instance. The deployment
@@ -1602,7 +1602,7 @@ export interface DeploymentGroupInfo {
   /**
    * <p>Information about triggers associated with the deployment group.</p>
    */
-  triggerConfigurations?: Array<TriggerConfig>;
+  triggerConfigurations?: TriggerConfig[];
 }
 
 export namespace DeploymentGroupInfo {
@@ -1748,7 +1748,7 @@ export interface DeploymentInfo {
   /**
    * <p>Messages that contain information about the status of a deployment.</p>
    */
-  deploymentStatusMessages?: Array<string>;
+  deploymentStatusMessages?: string[];
 
   /**
    * <p>Information about the type of deployment, either in-place or blue/green, you want to
@@ -2307,7 +2307,7 @@ export interface EC2TagSet {
    *             included in the deployment group, it must be identified by all of the tag groups in the
    *             list.</p>
    */
-  ec2TagSetList?: Array<Array<EC2TagFilter>>;
+  ec2TagSetList?: EC2TagFilter[][];
 }
 
 export namespace EC2TagSet {
@@ -2374,7 +2374,7 @@ export interface ECSTarget {
   /**
    * <p> The lifecycle events of the deployment to this target Amazon ECS application. </p>
    */
-  lifecycleEvents?: Array<LifecycleEvent>;
+  lifecycleEvents?: LifecycleEvent[];
 
   /**
    * <p> The status an Amazon ECS deployment's target ECS application. </p>
@@ -2395,7 +2395,7 @@ export interface ECSTarget {
   /**
    * <p> The <code>ECSTaskSet</code> objects associated with the ECS target. </p>
    */
-  taskSetsInfo?: Array<ECSTaskSet>;
+  taskSetsInfo?: ECSTaskSet[];
 }
 
 export namespace ECSTarget {
@@ -2629,7 +2629,7 @@ export interface GenericRevisionInfo {
   /**
    * <p>The deployment groups for which this is the current target revision.</p>
    */
-  deploymentGroups?: Array<string>;
+  deploymentGroups?: string[];
 
   /**
    * <p>A comment about the revision.</p>
@@ -3198,7 +3198,7 @@ export interface InstanceInfo {
   /**
    * <p>The tags currently associated with the on-premises instance.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace InstanceInfo {
@@ -3329,7 +3329,7 @@ export interface InstanceSummary {
   /**
    * <p>A list of lifecycle events for this instance.</p>
    */
-  lifecycleEvents?: Array<LifecycleEvent>;
+  lifecycleEvents?: LifecycleEvent[];
 
   /**
    * <p>The deployment status for this instance:</p>
@@ -3387,7 +3387,7 @@ export interface InstanceTarget {
   /**
    * <p> The lifecycle events of the deployment to this target instance. </p>
    */
-  lifecycleEvents?: Array<LifecycleEvent>;
+  lifecycleEvents?: LifecycleEvent[];
 
   /**
    * <p> The status an EC2/On-premises deployment's target instance. </p>
@@ -4572,7 +4572,7 @@ export interface LambdaTarget {
   /**
    * <p> The lifecycle events of the deployment to this target Lambda function. </p>
    */
-  lifecycleEvents?: Array<LifecycleEvent>;
+  lifecycleEvents?: LifecycleEvent[];
 
   /**
    * <p> The status an AWS Lambda deployment's target Lambda function. </p>
@@ -4847,7 +4847,7 @@ export interface ListApplicationRevisionsOutput {
   /**
    * <p>A list of locations that contain the matching revisions.</p>
    */
-  revisions?: Array<RevisionLocation>;
+  revisions?: RevisionLocation[];
 }
 
 export namespace ListApplicationRevisionsOutput {
@@ -4880,7 +4880,7 @@ export interface ListApplicationsOutput {
   /**
    * <p>A list of application names.</p>
    */
-  applications?: Array<string>;
+  applications?: string[];
 
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -4921,7 +4921,7 @@ export interface ListDeploymentConfigsOutput {
    * <p>A list of deployment configurations, including built-in configurations such as
    *             CodeDeployDefault.OneAtATime.</p>
    */
-  deploymentConfigsList?: Array<string>;
+  deploymentConfigsList?: string[];
 
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -4972,7 +4972,7 @@ export interface ListDeploymentGroupsOutput {
   /**
    * <p>A list of deployment group names.</p>
    */
-  deploymentGroups?: Array<string>;
+  deploymentGroups?: string[];
 
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -5021,14 +5021,14 @@ export interface ListDeploymentInstancesInput {
    *             </li>
    *          </ul>
    */
-  instanceStatusFilter?: Array<InstanceStatus | string>;
+  instanceStatusFilter?: InstanceStatus | string[];
 
   /**
    * <p>The set of instances in a blue/green deployment, either those in the original
    *             environment ("BLUE") or those in the replacement environment ("GREEN"), for which you
    *             want to view instance information.</p>
    */
-  instanceTypeFilter?: Array<_InstanceType | string>;
+  instanceTypeFilter?: _InstanceType | string[];
 
   /**
    * <p>An identifier returned from the previous list deployment instances call. It can be
@@ -5050,7 +5050,7 @@ export interface ListDeploymentInstancesOutput {
   /**
    * <p>A list of instance IDs.</p>
    */
-  instancesList?: Array<string>;
+  instancesList?: string[];
 
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -5094,7 +5094,7 @@ export interface ListDeploymentTargetsInput {
    *             </li>
    *          </ul>
    */
-  targetFilters?: { [key: string]: Array<string> };
+  targetFilters?: { [key: string]: string[] };
 }
 
 export namespace ListDeploymentTargetsInput {
@@ -5114,7 +5114,7 @@ export interface ListDeploymentTargetsOutput {
   /**
    * <p> The unique IDs of deployment targets. </p>
    */
-  targetIds?: Array<string>;
+  targetIds?: string[];
 }
 
 export namespace ListDeploymentTargetsOutput {
@@ -5178,7 +5178,7 @@ export interface ListDeploymentsInput {
    *             </li>
    *          </ul>
    */
-  includeOnlyStatuses?: Array<DeploymentStatus | string>;
+  includeOnlyStatuses?: DeploymentStatus | string[];
 
   /**
    * <p>An identifier returned from the previous list deployments call. It can be used to
@@ -5200,7 +5200,7 @@ export interface ListDeploymentsOutput {
   /**
    * <p>A list of deployment IDs.</p>
    */
-  deployments?: Array<string>;
+  deployments?: string[];
 
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -5247,7 +5247,7 @@ export interface ListGitHubAccountTokenNamesOutput {
   /**
    * <p>A list of names of connections to GitHub accounts.</p>
    */
-  tokenNameList?: Array<string>;
+  tokenNameList?: string[];
 }
 
 export namespace ListGitHubAccountTokenNamesOutput {
@@ -5285,7 +5285,7 @@ export interface ListOnPremisesInstancesInput {
    * <p>The on-premises instance tags that are used to restrict the  on-premises instance
    *             names returned.</p>
    */
-  tagFilters?: Array<TagFilter>;
+  tagFilters?: TagFilter[];
 }
 
 export namespace ListOnPremisesInstancesInput {
@@ -5301,7 +5301,7 @@ export interface ListOnPremisesInstancesOutput {
   /**
    * <p>The list of matching on-premises instance names.</p>
    */
-  instanceNames?: Array<string>;
+  instanceNames?: string[];
 
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -5359,7 +5359,7 @@ export interface ListTagsForResourceOutput {
    *             identified by the input <code>ResourceArn</code> parameter.
    *         </p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceOutput {
@@ -5381,7 +5381,7 @@ export interface LoadBalancerInfo {
    *             <p> Adding more than one load balancer to the array is not supported. </p>
    *         </note>
    */
-  elbInfoList?: Array<ELBInfo>;
+  elbInfoList?: ELBInfo[];
 
   /**
    * <p>An array that contains information about the target group to use for load balancing in
@@ -5391,13 +5391,13 @@ export interface LoadBalancerInfo {
    *             <p> Adding more than one target group to the array is not supported. </p>
    *         </note>
    */
-  targetGroupInfoList?: Array<TargetGroupInfo>;
+  targetGroupInfoList?: TargetGroupInfo[];
 
   /**
    * <p> The target group pair information. This is an array of
    *             <code>TargeGroupPairInfo</code> objects with a maximum size of one. </p>
    */
-  targetGroupPairInfoList?: Array<TargetGroupPairInfo>;
+  targetGroupPairInfoList?: TargetGroupPairInfo[];
 }
 
 export namespace LoadBalancerInfo {
@@ -5486,7 +5486,7 @@ export interface OnPremisesTagSet {
    *             to be included in the deployment group, it must be identified by all of the tag groups
    *             in the list.</p>
    */
-  onPremisesTagSetList?: Array<Array<TagFilter>>;
+  onPremisesTagSetList?: TagFilter[][];
 }
 
 export namespace OnPremisesTagSet {
@@ -5645,12 +5645,12 @@ export interface RemoveTagsFromOnPremisesInstancesInput {
   /**
    * <p>The names of the on-premises instances from which to remove tags.</p>
    */
-  instanceNames: Array<string> | undefined;
+  instanceNames: string[] | undefined;
 
   /**
    * <p>The tag key-value pairs to remove from the on-premises instances.</p>
    */
-  tags: Array<Tag> | undefined;
+  tags: Tag[] | undefined;
 }
 
 export namespace RemoveTagsFromOnPremisesInstancesInput {
@@ -6103,7 +6103,7 @@ export interface TagResourceInput {
    *             A list of tags that <code>TagResource</code> associates with a resource. The resource is identified by the <code>ResourceArn</code> input parameter.
    *         </p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceInput {
@@ -6183,7 +6183,7 @@ export interface TargetGroupPairInfo {
    * <p> One pair of target groups. One is associated with the original task set. The second
    *             is associated with the task set that serves traffic after the deployment is complete. </p>
    */
-  targetGroups?: Array<TargetGroupInfo>;
+  targetGroups?: TargetGroupInfo[];
 
   /**
    * <p> An optional path used by a load balancer to route test traffic after an Amazon ECS
@@ -6207,7 +6207,7 @@ export interface TargetInstances {
    * <p>The names of one or more Auto Scaling groups to identify a replacement environment for
    *             a blue/green deployment.</p>
    */
-  autoScalingGroups?: Array<string>;
+  autoScalingGroups?: string[];
 
   /**
    * <p>Information about the groups of EC2 instance tags that an instance must be identified
@@ -6221,7 +6221,7 @@ export interface TargetInstances {
    *             replacement environment for a blue/green deployment. Cannot be used in the same call as
    *             ec2TagSet.</p>
    */
-  tagFilters?: Array<EC2TagFilter>;
+  tagFilters?: EC2TagFilter[];
 }
 
 export namespace TargetInstances {
@@ -6350,7 +6350,7 @@ export interface TrafficRoute {
    * <p> The ARN of one listener. The listener identifies the route between a target group and
    *             a load balancer. This is an array of strings with a maximum size of one. </p>
    */
-  listenerArns?: Array<string>;
+  listenerArns?: string[];
 }
 
 export namespace TrafficRoute {
@@ -6404,7 +6404,7 @@ export interface TriggerConfig {
   /**
    * <p>The event type or types for which notifications are triggered.</p>
    */
-  triggerEvents?: Array<TriggerEventType | string>;
+  triggerEvents?: TriggerEventType | string[];
 
   /**
    * <p>The name of the notification trigger.</p>
@@ -6490,7 +6490,7 @@ export interface UntagResourceInput {
    *             specified by the <code>ResourceArn</code> input parameter.
    *         </p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceInput {
@@ -6555,7 +6555,7 @@ export interface UpdateDeploymentGroupInput {
    *             you want to change them. To keep the Auto Scaling groups, enter their names. To remove
    *             Auto Scaling groups, do not enter any Auto Scaling group names.</p>
    */
-  autoScalingGroups?: Array<string>;
+  autoScalingGroups?: string[];
 
   /**
    * <p>Information about blue/green deployment options for a deployment group.</p>
@@ -6583,7 +6583,7 @@ export interface UpdateDeploymentGroupInput {
    *             To keep the existing tags, enter their names. To remove tags, do not enter any tag
    *             names.</p>
    */
-  ec2TagFilters?: Array<EC2TagFilter>;
+  ec2TagFilters?: EC2TagFilter[];
 
   /**
    * <p>Information about groups of tags applied to on-premises instances. The deployment
@@ -6597,7 +6597,7 @@ export interface UpdateDeploymentGroupInput {
    *             is specified as an Amazon ECS cluster and service name pair using the format
    *             <code><clustername>:<servicename></code>. </p>
    */
-  ecsServices?: Array<ECSService>;
+  ecsServices?: ECSService[];
 
   /**
    * <p>Information about the load balancer used in a deployment.</p>
@@ -6614,7 +6614,7 @@ export interface UpdateDeploymentGroupInput {
    *             change them. To keep the existing tags, enter their names. To remove tags, do not enter
    *             any tag names.</p>
    */
-  onPremisesInstanceTagFilters?: Array<TagFilter>;
+  onPremisesInstanceTagFilters?: TagFilter[];
 
   /**
    * <p>Information about an on-premises instance tag set. The deployment group includes only
@@ -6632,7 +6632,7 @@ export interface UpdateDeploymentGroupInput {
    *             examples, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html">Modify Triggers in an AWS
    *                 CodeDeploy Deployment Group</a> in the AWS CodeDeploy User Guide.</p>
    */
-  triggerConfigurations?: Array<TriggerConfig>;
+  triggerConfigurations?: TriggerConfig[];
 }
 
 export namespace UpdateDeploymentGroupInput {
@@ -6652,7 +6652,7 @@ export interface UpdateDeploymentGroupOutput {
    *             CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the AWS
    *             account.</p>
    */
-  hooksNotCleanedUp?: Array<AutoScalingGroup>;
+  hooksNotCleanedUp?: AutoScalingGroup[];
 }
 
 export namespace UpdateDeploymentGroupOutput {

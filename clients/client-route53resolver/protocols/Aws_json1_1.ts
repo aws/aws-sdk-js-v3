@@ -3320,7 +3320,7 @@ const serializeAws_json1_1Filter = (
 };
 
 const serializeAws_json1_1FilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3331,7 +3331,7 @@ const serializeAws_json1_1FilterValues = (
 };
 
 const serializeAws_json1_1Filters = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3417,7 +3417,7 @@ const serializeAws_json1_1IpAddressUpdate = (
 };
 
 const serializeAws_json1_1IpAddressesRequest = (
-  input: Array<IpAddressRequest>,
+  input: IpAddressRequest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3547,7 +3547,7 @@ const serializeAws_json1_1ResolverRuleConfig = (
 };
 
 const serializeAws_json1_1SecurityGroupIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3569,7 +3569,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3580,7 +3580,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3619,7 +3619,7 @@ const serializeAws_json1_1TargetAddress = (
 };
 
 const serializeAws_json1_1TargetList = (
-  input: Array<TargetAddress>,
+  input: TargetAddress[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4037,7 +4037,7 @@ const deserializeAws_json1_1IpAddressResponse = (
 const deserializeAws_json1_1IpAddressesResponse = (
   output: any,
   context: __SerdeContext
-): Array<IpAddressResponse> => {
+): IpAddressResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IpAddressResponse(entry, context)
   );
@@ -4272,7 +4272,7 @@ const deserializeAws_json1_1ResolverEndpoint = (
 const deserializeAws_json1_1ResolverEndpoints = (
   output: any,
   context: __SerdeContext
-): Array<ResolverEndpoint> => {
+): ResolverEndpoint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResolverEndpoint(entry, context)
   );
@@ -4382,7 +4382,7 @@ const deserializeAws_json1_1ResolverRuleAssociation = (
 const deserializeAws_json1_1ResolverRuleAssociations = (
   output: any,
   context: __SerdeContext
-): Array<ResolverRuleAssociation> => {
+): ResolverRuleAssociation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResolverRuleAssociation(entry, context)
   );
@@ -4391,7 +4391,7 @@ const deserializeAws_json1_1ResolverRuleAssociations = (
 const deserializeAws_json1_1ResolverRules = (
   output: any,
   context: __SerdeContext
-): Array<ResolverRule> => {
+): ResolverRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResolverRule(entry, context)
   );
@@ -4472,7 +4472,7 @@ const deserializeAws_json1_1ResourceUnavailableException = (
 const deserializeAws_json1_1SecurityGroupIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4497,7 +4497,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -4534,7 +4534,7 @@ const deserializeAws_json1_1TargetAddress = (
 const deserializeAws_json1_1TargetList = (
   output: any,
   context: __SerdeContext
-): Array<TargetAddress> => {
+): TargetAddress[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TargetAddress(entry, context)
   );

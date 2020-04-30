@@ -33,7 +33,7 @@ export interface BucketInfo {
   /**
    * <p>A list of the calculated facet values and counts.</p>
    */
-  buckets?: Array<Bucket>;
+  buckets?: Bucket[];
 }
 
 export namespace BucketInfo {
@@ -148,7 +148,7 @@ export interface Hit {
   /**
    * <p>The fields returned from a document that matches the search request.</p>
    */
-  fields?: { [key: string]: Array<string> };
+  fields?: { [key: string]: string[] };
 
   /**
    * <p>The highlights returned from a document that matches the search request.</p>
@@ -183,7 +183,7 @@ export interface Hits {
   /**
    * <p>A document that matches the search request.</p>
    */
-  hit?: Array<Hit>;
+  hit?: Hit[];
 
   /**
    * <p>The index of the first matching document.</p>
@@ -573,7 +573,7 @@ export interface SuggestModel {
   /**
    * <p>The documents that match the query string.</p>
    */
-  suggestions?: Array<SuggestionMatch>;
+  suggestions?: SuggestionMatch[];
 }
 
 export namespace SuggestModel {
@@ -721,7 +721,7 @@ export interface UploadDocumentsResponse {
   /**
    * <p>Any warnings returned by the document service about the documents being uploaded.</p>
    */
-  warnings?: Array<DocumentServiceWarning>;
+  warnings?: DocumentServiceWarning[];
 }
 
 export namespace UploadDocumentsResponse {

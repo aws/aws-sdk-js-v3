@@ -2797,7 +2797,7 @@ const deserializeAws_json1_1UnauthorizedOperationResponse = async (
 };
 
 const serializeAws_json1_1ApplicationIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3172,7 +3172,7 @@ const serializeAws_json1_1ResourceAttribute = (
 };
 
 const serializeAws_json1_1ResourceAttributeList = (
-  input: Array<ResourceAttribute>,
+  input: ResourceAttribute[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3243,7 +3243,7 @@ const deserializeAws_json1_1ApplicationState = (
 const deserializeAws_json1_1ApplicationStateList = (
   output: any,
   context: __SerdeContext
-): Array<ApplicationState> => {
+): ApplicationState[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ApplicationState(entry, context)
   );
@@ -3300,7 +3300,7 @@ const deserializeAws_json1_1CreatedArtifact = (
 const deserializeAws_json1_1CreatedArtifactList = (
   output: any,
   context: __SerdeContext
-): Array<CreatedArtifact> => {
+): CreatedArtifact[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CreatedArtifact(entry, context)
   );
@@ -3397,7 +3397,7 @@ const deserializeAws_json1_1DiscoveredResource = (
 const deserializeAws_json1_1DiscoveredResourceList = (
   output: any,
   context: __SerdeContext
-): Array<DiscoveredResource> => {
+): DiscoveredResource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DiscoveredResource(entry, context)
   );
@@ -3472,7 +3472,7 @@ const deserializeAws_json1_1InvalidInputException = (
 const deserializeAws_json1_1LatestResourceAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceAttribute> => {
+): ResourceAttribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceAttribute(entry, context)
   );
@@ -3687,7 +3687,7 @@ const deserializeAws_json1_1MigrationTaskSummary = (
 const deserializeAws_json1_1MigrationTaskSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<MigrationTaskSummary> => {
+): MigrationTaskSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MigrationTaskSummary(entry, context)
   );
@@ -3747,7 +3747,7 @@ const deserializeAws_json1_1ProgressUpdateStreamSummary = (
 const deserializeAws_json1_1ProgressUpdateStreamSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<ProgressUpdateStreamSummary> => {
+): ProgressUpdateStreamSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ProgressUpdateStreamSummary(entry, context)
   );

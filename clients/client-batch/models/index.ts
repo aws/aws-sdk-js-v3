@@ -100,7 +100,7 @@ export interface AttemptContainerDetail {
   /**
    * <p>The network interfaces associated with the job attempt.</p>
    */
-  networkInterfaces?: Array<NetworkInterface>;
+  networkInterfaces?: NetworkInterface[];
 
   /**
    * <p>A short (255 max characters) human-readable string to provide additional details about a running or stopped
@@ -378,7 +378,7 @@ export interface ComputeResource {
    *    (such as <code>c5.8xlarge</code>). You can also choose <code>optimal</code> to pick instance types (from the C, M,
    *    and R instance families) on the fly that match the demand of your job queues.</p>
    */
-  instanceTypes: Array<string> | undefined;
+  instanceTypes: string[] | undefined;
 
   /**
    * <p>The launch template to use for your compute resources. Any other compute resource parameters that you specify in
@@ -415,7 +415,7 @@ export interface ComputeResource {
    *     <code>launchTemplate</code>. If security groups are specified using both <code>securityGroupIds</code> and
    *     <code>launchTemplate</code>, the values in <code>securityGroupIds</code> will be used.</p>
    */
-  securityGroupIds?: Array<string>;
+  securityGroupIds?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a <code>SPOT</code> compute environment.
@@ -430,7 +430,7 @@ export interface ComputeResource {
    * <p>The VPC subnets into which the compute resources are launched. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs and Subnets</a> in the <i>Amazon
    *     VPC User Guide</i>.</p>
    */
-  subnets: Array<string> | undefined;
+  subnets: string[] | undefined;
 
   /**
    * <p>Key-value pair tags to be applied to resources that are launched in the compute environment. For AWS Batch, these
@@ -484,7 +484,7 @@ export interface ContainerDetail {
   /**
    * <p>The command that is passed to the container.</p>
    */
-  command?: Array<string>;
+  command?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the container instance on which the container is running.</p>
@@ -497,7 +497,7 @@ export interface ContainerDetail {
    *             <p>Environment variables must not start with <code>AWS_BATCH</code>; this naming convention is reserved for variables that are set by the AWS Batch service.</p>
    *          </note>
    */
-  environment?: Array<KeyValuePair>;
+  environment?: KeyValuePair[];
 
   /**
    * <p>The exit code to return upon completion.</p>
@@ -539,12 +539,12 @@ export interface ContainerDetail {
   /**
    * <p>The mount points for data volumes in your container.</p>
    */
-  mountPoints?: Array<MountPoint>;
+  mountPoints?: MountPoint[];
 
   /**
    * <p>The network interfaces associated with the job.</p>
    */
-  networkInterfaces?: Array<NetworkInterface>;
+  networkInterfaces?: NetworkInterface[];
 
   /**
    * <p>When this parameter is true, the container is given elevated privileges on the host container instance (similar
@@ -567,7 +567,7 @@ export interface ContainerDetail {
    * <p>The type and amount of a resource to assign to a container. Currently, the only supported resource is
    *     <code>GPU</code>.</p>
    */
-  resourceRequirements?: Array<ResourceRequirement>;
+  resourceRequirements?: ResourceRequirement[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the container job. Each container attempt receives a
@@ -578,7 +578,7 @@ export interface ContainerDetail {
   /**
    * <p>A list of <code>ulimit</code> values to set in the container.</p>
    */
-  ulimits?: Array<Ulimit>;
+  ulimits?: Ulimit[];
 
   /**
    * <p>The user name to use inside the container.</p>
@@ -593,7 +593,7 @@ export interface ContainerDetail {
   /**
    * <p>A list of volumes associated with the job.</p>
    */
-  volumes?: Array<Volume>;
+  volumes?: Volume[];
 }
 
 export namespace ContainerDetail {
@@ -610,7 +610,7 @@ export interface ContainerOverrides {
    * <p>The command to send to the container that overrides the default command from the Docker image or the job
    *    definition.</p>
    */
-  command?: Array<string>;
+  command?: string[];
 
   /**
    * <p>The environment variables to send to the container. You can add new environment variables, which are added to
@@ -620,7 +620,7 @@ export interface ContainerOverrides {
    *             <p>Environment variables must not start with <code>AWS_BATCH</code>; this naming convention is reserved for variables that are set by the AWS Batch service.</p>
    *          </note>
    */
-  environment?: Array<KeyValuePair>;
+  environment?: KeyValuePair[];
 
   /**
    * <p>The instance type to use for a multi-node parallel job. This parameter is not valid for single-node container
@@ -638,7 +638,7 @@ export interface ContainerOverrides {
    * <p>The type and amount of a resource to assign to a container. This value overrides the value set in the job
    *    definition. Currently, the only supported resource is <code>GPU</code>.</p>
    */
-  resourceRequirements?: Array<ResourceRequirement>;
+  resourceRequirements?: ResourceRequirement[];
 
   /**
    * <p>The number of vCPUs to reserve for the container. This value overrides the value set in the job
@@ -662,7 +662,7 @@ export interface ContainerProperties {
    * <p>The command that is passed to the container. This parameter maps to <code>Cmd</code> in the
    *    <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>COMMAND</code> parameter to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. For more information, see <a href="https://docs.docker.com/engine/reference/builder/#cmd">https://docs.docker.com/engine/reference/builder/#cmd</a>.</p>
    */
-  command?: Array<string>;
+  command?: string[];
 
   /**
    * <p>The environment variables to pass to a container. This parameter maps to <code>Env</code> in the
@@ -675,7 +675,7 @@ export interface ContainerProperties {
    *             <p>Environment variables must not start with <code>AWS_BATCH</code>; this naming convention is reserved for variables that are set by the AWS Batch service.</p>
    *          </note>
    */
-  environment?: Array<KeyValuePair>;
+  environment?: KeyValuePair[];
 
   /**
    * <p>The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker
@@ -739,7 +739,7 @@ export interface ContainerProperties {
    * <p>The mount points for data volumes in your container. This parameter maps to <code>Volumes</code> in the
    *    <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>--volume</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p>
    */
-  mountPoints?: Array<MountPoint>;
+  mountPoints?: MountPoint[];
 
   /**
    * <p>When this parameter is true, the container is given elevated privileges on the host container instance (similar
@@ -760,13 +760,13 @@ export interface ContainerProperties {
    * <p>The type and amount of a resource to assign to a container. Currently, the only supported resource is
    *     <code>GPU</code>.</p>
    */
-  resourceRequirements?: Array<ResourceRequirement>;
+  resourceRequirements?: ResourceRequirement[];
 
   /**
    * <p>A list of <code>ulimits</code> to set in the container. This parameter maps to <code>Ulimits</code> in the
    *    <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>--ulimit</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p>
    */
-  ulimits?: Array<Ulimit>;
+  ulimits?: Ulimit[];
 
   /**
    * <p>The user name to use inside the container. This parameter maps to <code>User</code> in the
@@ -785,7 +785,7 @@ export interface ContainerProperties {
   /**
    * <p>A list of data volumes used in a job.</p>
    */
-  volumes?: Array<Volume>;
+  volumes?: Volume[];
 }
 
 export namespace ContainerProperties {
@@ -887,7 +887,7 @@ export interface CreateJobQueueRequest {
    *    in the <code>VALID</code> state before you can associate them with a job queue. You can associate up to three compute
    *    environments with a job queue.</p>
    */
-  computeEnvironmentOrder: Array<ComputeEnvironmentOrder> | undefined;
+  computeEnvironmentOrder: ComputeEnvironmentOrder[] | undefined;
 
   /**
    * <p>The name of the job queue.</p>
@@ -1002,7 +1002,7 @@ export interface DescribeComputeEnvironmentsRequest {
   /**
    * <p>A list of up to 100 compute environment names or full Amazon Resource Name (ARN) entries.</p>
    */
-  computeEnvironments?: Array<string>;
+  computeEnvironments?: string[];
 
   /**
    * <p>The maximum number of cluster results returned by <code>DescribeComputeEnvironments</code> in paginated output.
@@ -1037,7 +1037,7 @@ export interface DescribeComputeEnvironmentsResponse {
   /**
    * <p>The list of compute environments.</p>
    */
-  computeEnvironments?: Array<ComputeEnvironmentDetail>;
+  computeEnvironments?: ComputeEnvironmentDetail[];
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>DescribeComputeEnvironments</code> request. When
@@ -1063,7 +1063,7 @@ export interface DescribeJobDefinitionsRequest {
   /**
    * <p>A list of up to 100 job definition names or full Amazon Resource Name (ARN) entries.</p>
    */
-  jobDefinitions?: Array<string>;
+  jobDefinitions?: string[];
 
   /**
    * <p>The maximum number of results returned by <code>DescribeJobDefinitions</code> in paginated output. When this
@@ -1103,7 +1103,7 @@ export interface DescribeJobDefinitionsResponse {
   /**
    * <p>The list of job definitions.</p>
    */
-  jobDefinitions?: Array<JobDefinition>;
+  jobDefinitions?: JobDefinition[];
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>DescribeJobDefinitions</code> request. When the
@@ -1123,7 +1123,7 @@ export interface DescribeJobQueuesRequest {
   /**
    * <p>A list of up to 100 queue names or full queue Amazon Resource Name (ARN) entries.</p>
    */
-  jobQueues?: Array<string>;
+  jobQueues?: string[];
 
   /**
    * <p>The maximum number of results returned by <code>DescribeJobQueues</code> in paginated output. When this
@@ -1157,7 +1157,7 @@ export interface DescribeJobQueuesResponse {
   /**
    * <p>The list of job queues.</p>
    */
-  jobQueues?: Array<JobQueueDetail>;
+  jobQueues?: JobQueueDetail[];
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>DescribeJobQueues</code> request. When the results
@@ -1177,7 +1177,7 @@ export interface DescribeJobsRequest {
   /**
    * <p>A list of up to 100 job IDs.</p>
    */
-  jobs: Array<string> | undefined;
+  jobs: string[] | undefined;
 }
 
 export namespace DescribeJobsRequest {
@@ -1190,7 +1190,7 @@ export interface DescribeJobsResponse {
   /**
    * <p>The list of jobs.</p>
    */
-  jobs?: Array<JobDetail>;
+  jobs?: JobDetail[];
 }
 
 export namespace DescribeJobsResponse {
@@ -1218,7 +1218,7 @@ export interface Device {
    * <p>The explicit permissions to provide to the container for the device. By default, the container has permissions
    *    for <code>read</code>, <code>write</code>, and <code>mknod</code> for the device.</p>
    */
-  permissions?: Array<DeviceCgroupPermission | string>;
+  permissions?: DeviceCgroupPermission | string[];
 }
 
 export namespace Device {
@@ -1368,7 +1368,7 @@ export interface JobDetail {
   /**
    * <p>A list of job attempts associated with this job.</p>
    */
-  attempts?: Array<AttemptDetail>;
+  attempts?: AttemptDetail[];
 
   /**
    * <p>An object representing the details of the container that is associated with the job.</p>
@@ -1386,7 +1386,7 @@ export interface JobDetail {
   /**
    * <p>A list of job IDs on which this job depends.</p>
    */
-  dependsOn?: Array<JobDependency>;
+  dependsOn?: JobDependency[];
 
   /**
    * <p>The job definition that is used by this job.</p>
@@ -1474,7 +1474,7 @@ export interface JobQueueDetail {
    * <p>The compute environments that are attached to the job queue and the order in which job placement is preferred.
    *    Compute environments are selected for job placement in ascending order.</p>
    */
-  computeEnvironmentOrder: Array<ComputeEnvironmentOrder> | undefined;
+  computeEnvironmentOrder: ComputeEnvironmentOrder[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the job queue.</p>
@@ -1660,7 +1660,7 @@ export interface LinuxParameters {
    * <p>Any host devices to expose to the container. This parameter maps to <code>Devices</code> in the
    *    <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>--device</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p>
    */
-  devices?: Array<Device>;
+  devices?: Device[];
 }
 
 export namespace LinuxParameters {
@@ -1725,7 +1725,7 @@ export interface ListJobsResponse {
   /**
    * <p>A list of job summaries that match the request.</p>
    */
-  jobSummaryList: Array<JobSummary> | undefined;
+  jobSummaryList: JobSummary[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListJobs</code> request. When the results of a
@@ -1824,7 +1824,7 @@ export interface NodeOverrides {
   /**
    * <p>The node property overrides for the job.</p>
    */
-  nodePropertyOverrides?: Array<NodePropertyOverride>;
+  nodePropertyOverrides?: NodePropertyOverride[];
 
   /**
    * <p>The number of nodes to use with a multi-node parallel job. This value overrides the number of nodes that are
@@ -1865,7 +1865,7 @@ export interface NodeProperties {
   /**
    * <p>A list of node ranges and their properties associated with a multi-node parallel job.</p>
    */
-  nodeRangeProperties: Array<NodeRangeProperty> | undefined;
+  nodeRangeProperties: NodeRangeProperty[] | undefined;
 
   /**
    * <p>The number of nodes associated with a multi-node parallel job.</p>
@@ -2120,7 +2120,7 @@ export interface SubmitJobRequest {
    *    ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each
    *    dependency to complete before it can begin.</p>
    */
-  dependsOn?: Array<JobDependency>;
+  dependsOn?: JobDependency[];
 
   /**
    * <p>The job definition used by this job. This value can be one of <code>name</code>, <code>name:revision</code>, or
@@ -2312,7 +2312,7 @@ export interface UpdateJobQueueRequest {
    *    one of the parameters used by the job scheduler to determine which compute environment should execute a given
    *    job.</p>
    */
-  computeEnvironmentOrder?: Array<ComputeEnvironmentOrder>;
+  computeEnvironmentOrder?: ComputeEnvironmentOrder[];
 
   /**
    * <p>The name or the Amazon Resource Name (ARN) of the job queue.</p>

@@ -235,7 +235,7 @@ export interface ListPlaybackConfigurationsResponse {
   /**
    * <p>Array of playback configurations. This might be all the available configurations or a subset, depending on the settings that you provide and the total number of configurations stored. </p>
    */
-  Items?: Array<PlaybackConfiguration>;
+  Items?: PlaybackConfiguration[];
 
   /**
    * <p>Pagination token returned by the GET list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p>
@@ -535,7 +535,7 @@ export interface UntagResourceRequest {
   /**
    * <p>A comma-separated list of the tag keys to remove from the playback configuration. </p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

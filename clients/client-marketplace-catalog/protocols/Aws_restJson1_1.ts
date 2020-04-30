@@ -1188,7 +1188,7 @@ const serializeAws_restJson1_1Filter = (
 };
 
 const serializeAws_restJson1_1FilterList = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1199,7 +1199,7 @@ const serializeAws_restJson1_1FilterList = (
 };
 
 const serializeAws_restJson1_1RequestedChangeList = (
-  input: Array<Change>,
+  input: Change[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1224,7 +1224,7 @@ const serializeAws_restJson1_1Sort = (
 };
 
 const serializeAws_restJson1_1ValueList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1237,7 +1237,7 @@ const serializeAws_restJson1_1ValueList = (
 const deserializeAws_restJson1_1ChangeSetDescription = (
   output: any,
   context: __SerdeContext
-): Array<ChangeSummary> => {
+): ChangeSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ChangeSummary(entry, context)
   );
@@ -1246,7 +1246,7 @@ const deserializeAws_restJson1_1ChangeSetDescription = (
 const deserializeAws_restJson1_1ChangeSetSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<ChangeSetSummaryListItem> => {
+): ChangeSetSummaryListItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ChangeSetSummaryListItem(entry, context)
   );
@@ -1376,7 +1376,7 @@ const deserializeAws_restJson1_1EntitySummary = (
 const deserializeAws_restJson1_1EntitySummaryList = (
   output: any,
   context: __SerdeContext
-): Array<EntitySummary> => {
+): EntitySummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1EntitySummary(entry, context)
   );
@@ -1403,7 +1403,7 @@ const deserializeAws_restJson1_1ErrorDetail = (
 const deserializeAws_restJson1_1ErrorDetailList = (
   output: any,
   context: __SerdeContext
-): Array<ErrorDetail> => {
+): ErrorDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ErrorDetail(entry, context)
   );
@@ -1412,7 +1412,7 @@ const deserializeAws_restJson1_1ErrorDetailList = (
 const deserializeAws_restJson1_1ResourceIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

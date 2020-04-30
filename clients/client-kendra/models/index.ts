@@ -111,7 +111,7 @@ export interface AttributeFilter {
   /**
    * <p>Performs a logical <code>AND</code> operation on all supplied filters.</p>
    */
-  AndAllFilters?: Array<AttributeFilter>;
+  AndAllFilters?: AttributeFilter[];
 
   /**
    * <p>Returns true when a document contains all of the specified document attributes.</p>
@@ -160,7 +160,7 @@ export interface AttributeFilter {
   /**
    * <p>Performs a logical <code>OR</code> operation on all supplied filters.</p>
    */
-  OrAllFilters?: Array<AttributeFilter>;
+  OrAllFilters?: AttributeFilter[];
 }
 
 export namespace AttributeFilter {
@@ -173,7 +173,7 @@ export interface BatchDeleteDocumentRequest {
   /**
    * <p>One or more identifiers for documents to delete from the index.</p>
    */
-  DocumentIdList: Array<string> | undefined;
+  DocumentIdList: string[] | undefined;
 
   /**
    * <p>The identifier of the index that contains the documents to delete.</p>
@@ -192,7 +192,7 @@ export interface BatchDeleteDocumentResponse {
    * <p>A list of documents that could not be removed from the index. Each entry contains an error
    *       message that indicates why the document couldn't be removed from the index.</p>
    */
-  FailedDocuments?: Array<BatchDeleteDocumentResponseFailedDocument>;
+  FailedDocuments?: BatchDeleteDocumentResponseFailedDocument[];
 }
 
 export namespace BatchDeleteDocumentResponse {
@@ -233,7 +233,7 @@ export interface BatchPutDocumentRequest {
    * <p>One or more documents to add to the index. </p>
    *          <p>Each document is limited to 5 Mb, the total size of the list is limited to 50 Mb.</p>
    */
-  Documents: Array<Document> | undefined;
+  Documents: Document[] | undefined;
 
   /**
    * <p>The identifier of the index to add the documents to. You need to create the index first
@@ -263,7 +263,7 @@ export interface BatchPutDocumentResponse {
    *          <p>If there was an error adding a document to an index the error is reported in your AWS
    *       CloudWatch log.</p>
    */
-  FailedDocuments?: Array<BatchPutDocumentResponseFailedDocument>;
+  FailedDocuments?: BatchPutDocumentResponseFailedDocument[];
 }
 
 export namespace BatchPutDocumentResponse {
@@ -328,7 +328,7 @@ export interface ColumnConfiguration {
   /**
    * <p>One to five columns that indicate when a document in the database has changed.</p>
    */
-  ChangeDetectingColumns: Array<string> | undefined;
+  ChangeDetectingColumns: string[] | undefined;
 
   /**
    * <p>The column that contains the contents of the document.</p>
@@ -349,7 +349,7 @@ export interface ColumnConfiguration {
    * <p>An array of objects that map database column names to the corresponding fields in an
    *             index. You must first create the fields in the index using the <a>UpdateIndex</a> operation.</p>
    */
-  FieldMappings?: Array<DataSourceToIndexFieldMapping>;
+  FieldMappings?: DataSourceToIndexFieldMapping[];
 }
 
 export namespace ColumnConfiguration {
@@ -759,14 +759,14 @@ export interface DataSourceVpcConfiguration {
    * <p>A list of identifiers of security groups within your Amazon VPC. The security groups
    *             should enable Amazon Kendra to connect to the data source.</p>
    */
-  SecurityGroupIds: Array<string> | undefined;
+  SecurityGroupIds: string[] | undefined;
 
   /**
    * <p>A list of identifiers for subnets within your Amazon VPC. The subnets should be able
    *             to connect to each other in the VPC, and they should have outgoing access to the
    *             Internet through a NAT device.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 }
 
 export namespace DataSourceVpcConfiguration {
@@ -1050,7 +1050,7 @@ export interface DescribeIndexResponse {
   /**
    * <p>Configuration settings for any metadata applied to the documents in the index.</p>
    */
-  DocumentMetadataConfigurations?: Array<DocumentMetadataConfiguration>;
+  DocumentMetadataConfigurations?: DocumentMetadataConfiguration[];
 
   /**
    * <p>When th e<code>Status</code> field value is <code>FAILED</code>, the
@@ -1112,14 +1112,14 @@ export interface Document {
   /**
    * <p>Information to use for user context filtering.</p>
    */
-  AccessControlList?: Array<Principal>;
+  AccessControlList?: Principal[];
 
   /**
    * <p>Custom attributes to apply to the document. Use the custom attributes to provide
    *             additional information for searching, to provide facets for refining searches, and to
    *             provide additional information in the query response.</p>
    */
-  Attributes?: Array<DocumentAttribute>;
+  Attributes?: DocumentAttribute[];
 
   /**
    * <p>The contents of the document as a base-64 encoded string.</p>
@@ -1191,7 +1191,7 @@ export interface DocumentAttributeValue {
   /**
    * <p>A list of strings. </p>
    */
-  StringListValue?: Array<string>;
+  StringListValue?: string[];
 
   /**
    * <p>A string, such as "department".</p>
@@ -1321,7 +1321,7 @@ export interface FacetResult {
    * <p>An array of key/value pairs, where the key is the value of the attribute
    *       and the count is the number of documents that share the key value.</p>
    */
-  DocumentAttributeValueCountPairs?: Array<DocumentAttributeValueCountPair>;
+  DocumentAttributeValueCountPairs?: DocumentAttributeValueCountPair[];
 }
 
 export namespace FacetResult {
@@ -1549,7 +1549,7 @@ export interface ListDataSourceSyncJobsResponse {
   /**
    * <p>A history of synchronization jobs for the data source.</p>
    */
-  History?: Array<DataSourceSyncJob>;
+  History?: DataSourceSyncJob[];
 
   /**
    * <p>The <code>GetDataSourceSyncJobHistory</code> operation returns a page of vocabularies at a
@@ -1602,7 +1602,7 @@ export interface ListDataSourcesResponse {
   /**
    * <p>An array of summary information for one or more data sources.</p>
    */
-  SummaryItems?: Array<DataSourceSummary>;
+  SummaryItems?: DataSourceSummary[];
 }
 
 export namespace ListDataSourcesResponse {
@@ -1640,7 +1640,7 @@ export interface ListFaqsResponse {
   /**
    * <p>information about the FAQs associated with the specified index.</p>
    */
-  FaqSummaryItems?: Array<FaqSummary>;
+  FaqSummaryItems?: FaqSummary[];
 
   /**
    * <p>The <code>ListFaqs</code> operation returns a page of FAQs at a time. The maximum size
@@ -1682,7 +1682,7 @@ export interface ListIndicesResponse {
   /**
    * <p>An array of summary information for one or more indexes.</p>
    */
-  IndexConfigurationSummaryItems?: Array<IndexConfigurationSummary>;
+  IndexConfigurationSummaryItems?: IndexConfigurationSummary[];
 
   /**
    * <p>If the response is truncated, Amazon Kendra returns this token that you can use in the
@@ -1746,7 +1746,7 @@ export interface QueryRequest {
    * <p>An array of documents attributes. Amazon Kendra returns a count for each attribute
    *          key specified. You can use this information to help narrow the search for your user.</p>
    */
-  Facets?: Array<Facet>;
+  Facets?: Facet[];
 
   /**
    * <p>The unique identifier of the index to search. The identifier is returned in the
@@ -1782,7 +1782,7 @@ export interface QueryRequest {
    *          are included in the response. By default all document attributes are included in the
    *          response. </p>
    */
-  RequestedDocumentAttributes?: Array<string>;
+  RequestedDocumentAttributes?: string[];
 }
 
 export namespace QueryRequest {
@@ -1795,7 +1795,7 @@ export interface QueryResult {
    * <p>Contains the facet results. A <code>FacetResult</code> contains the counts for each
    *          attribute key that was specified in the <code>Facets</code> input parameter.</p>
    */
-  FacetResults?: Array<FacetResult>;
+  FacetResults?: FacetResult[];
 
   /**
    * <p>The unique identifier for the search. You use <code>QueryId</code> to identify the
@@ -1806,7 +1806,7 @@ export interface QueryResult {
   /**
    * <p>The results of the search.</p>
    */
-  ResultItems?: Array<QueryResultItem>;
+  ResultItems?: QueryResultItem[];
 
   /**
    * <p>The number of items returned by the search. Use this to determine when you have
@@ -1830,13 +1830,13 @@ export interface QueryResultItem {
   /**
    * <p></p>
    */
-  AdditionalAttributes?: Array<AdditionalResultAttribute>;
+  AdditionalAttributes?: AdditionalResultAttribute[];
 
   /**
    * <p>An array of document attributes for the document that the query result maps to. For
    *          example, the document author (Author) or the source URI (SourceUri) of the document.</p>
    */
-  DocumentAttributes?: Array<DocumentAttribute>;
+  DocumentAttributes?: DocumentAttribute[];
 
   /**
    * <p>An extract of the text in the document. Contains information about highlighting
@@ -2071,12 +2071,12 @@ export interface S3DataSourceConfiguration {
    *         <p>For more information about glob patterns, see <a href="http://wikipedia.org/wiki/Glob_%28programming%29">glob (programming)</a> in
    *                 <i>Wikipedia</i>.</p>
    */
-  ExclusionPatterns?: Array<string>;
+  ExclusionPatterns?: string[];
 
   /**
    * <p>A list of S3 prefixes for the documents that should be included in the index.</p>
    */
-  InclusionPrefixes?: Array<string>;
+  InclusionPrefixes?: string[];
 }
 
 export namespace S3DataSourceConfiguration {
@@ -2193,7 +2193,7 @@ export interface SharePointConfiguration {
    *             index fields using the  operation before you map
    *             SharePoint attributes. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping Data Source Fields</a>.</p>
    */
-  FieldMappings?: Array<DataSourceToIndexFieldMapping>;
+  FieldMappings?: DataSourceToIndexFieldMapping[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of credentials stored in AWS Secrets Manager. The
@@ -2213,7 +2213,7 @@ export interface SharePointConfiguration {
    * <p>The URLs of the Microsoft SharePoint site that contains the documents that should be
    *             indexed.</p>
    */
-  Urls: Array<string> | undefined;
+  Urls: string[] | undefined;
 
   /**
    * <p>Provides information for connecting to an Amazon VPC.</p>
@@ -2285,7 +2285,7 @@ export interface SubmitFeedbackRequest {
    * <p>Tells Amazon Kendra that a particular search result link was chosen by
    *         the user. </p>
    */
-  ClickFeedbackItems?: Array<ClickFeedback>;
+  ClickFeedbackItems?: ClickFeedback[];
 
   /**
    * <p>The identifier of the index that was queried.</p>
@@ -2302,7 +2302,7 @@ export interface SubmitFeedbackRequest {
    * <p>Provides Amazon Kendra with relevant or not relevant feedback for whether a particular
    *         item was relevant to the search.</p>
    */
-  RelevanceFeedbackItems?: Array<RelevanceFeedback>;
+  RelevanceFeedbackItems?: RelevanceFeedback[];
 }
 
 export namespace SubmitFeedbackRequest {
@@ -2334,7 +2334,7 @@ export interface TextWithHighlights {
   /**
    * <p>The beginning and end of the text that should be highlighted.</p>
    */
-  Highlights?: Array<Highlight>;
+  Highlights?: Highlight[];
 
   /**
    * <p>The text to display to the user.</p>
@@ -2438,7 +2438,7 @@ export interface UpdateIndexRequest {
   /**
    * <p>The document metadata to update. </p>
    */
-  DocumentMetadataConfigurationUpdates?: Array<DocumentMetadataConfiguration>;
+  DocumentMetadataConfigurationUpdates?: DocumentMetadataConfiguration[];
 
   /**
    * <p>The identifier of the index to update.</p>

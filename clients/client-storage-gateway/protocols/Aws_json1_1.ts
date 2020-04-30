@@ -7291,7 +7291,7 @@ const serializeAws_json1_1DescribeWorkingStorageInput = (
 };
 
 const serializeAws_json1_1DiskIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7463,7 +7463,7 @@ const serializeAws_json1_1UpdateSnapshotScheduleInput = (
 };
 
 const serializeAws_json1_1VolumeARNs = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8130,7 +8130,7 @@ const serializeAws_json1_1DisableGatewayInput = (
 };
 
 const serializeAws_json1_1FileShareARNList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8141,7 +8141,7 @@ const serializeAws_json1_1FileShareARNList = (
 };
 
 const serializeAws_json1_1FileShareClientList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8152,7 +8152,7 @@ const serializeAws_json1_1FileShareClientList = (
 };
 
 const serializeAws_json1_1FileShareUserList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8163,7 +8163,7 @@ const serializeAws_json1_1FileShareUserList = (
 };
 
 const serializeAws_json1_1FolderList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8174,7 +8174,7 @@ const serializeAws_json1_1FolderList = (
 };
 
 const serializeAws_json1_1Hosts = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8436,7 +8436,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeys = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8447,7 +8447,7 @@ const serializeAws_json1_1TagKeys = (
 };
 
 const serializeAws_json1_1Tags = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8458,7 +8458,7 @@ const serializeAws_json1_1Tags = (
 };
 
 const serializeAws_json1_1TapeARNs = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8619,7 +8619,7 @@ const serializeAws_json1_1UpdateVTLDeviceTypeInput = (
 };
 
 const serializeAws_json1_1VTLDeviceARNs = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8660,7 +8660,7 @@ const deserializeAws_json1_1AddWorkingStorageOutput = (
 const deserializeAws_json1_1ChapCredentials = (
   output: any,
   context: __SerdeContext
-): Array<ChapInfo> => {
+): ChapInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ChapInfo(entry, context)
   );
@@ -8885,14 +8885,14 @@ const deserializeAws_json1_1DescribeWorkingStorageOutput = (
 const deserializeAws_json1_1DiskIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1GatewayNetworkInterfaces = (
   output: any,
   context: __SerdeContext
-): Array<NetworkInterface> => {
+): NetworkInterface[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1NetworkInterface(entry, context)
   );
@@ -9403,7 +9403,7 @@ const deserializeAws_json1_1VolumeRecoveryPointInfo = (
 const deserializeAws_json1_1VolumeRecoveryPointInfos = (
   output: any,
   context: __SerdeContext
-): Array<VolumeRecoveryPointInfo> => {
+): VolumeRecoveryPointInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1VolumeRecoveryPointInfo(entry, context)
   );
@@ -9538,7 +9538,7 @@ const deserializeAws_json1_1CachediSCSIVolume = (
 const deserializeAws_json1_1CachediSCSIVolumes = (
   output: any,
   context: __SerdeContext
-): Array<CachediSCSIVolume> => {
+): CachediSCSIVolume[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CachediSCSIVolume(entry, context)
   );
@@ -10182,14 +10182,14 @@ const deserializeAws_json1_1Disk = (
 const deserializeAws_json1_1DiskAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1Disks = (
   output: any,
   context: __SerdeContext
-): Array<Disk> => {
+): Disk[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Disk(entry, context)
   );
@@ -10198,7 +10198,7 @@ const deserializeAws_json1_1Disks = (
 const deserializeAws_json1_1FileShareClientList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10235,7 +10235,7 @@ const deserializeAws_json1_1FileShareInfo = (
 const deserializeAws_json1_1FileShareInfoList = (
   output: any,
   context: __SerdeContext
-): Array<FileShareInfo> => {
+): FileShareInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FileShareInfo(entry, context)
   );
@@ -10244,7 +10244,7 @@ const deserializeAws_json1_1FileShareInfoList = (
 const deserializeAws_json1_1FileShareUserList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10295,7 +10295,7 @@ const deserializeAws_json1_1GatewayInfo = (
 const deserializeAws_json1_1Gateways = (
   output: any,
   context: __SerdeContext
-): Array<GatewayInfo> => {
+): GatewayInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GatewayInfo(entry, context)
   );
@@ -10304,7 +10304,7 @@ const deserializeAws_json1_1Gateways = (
 const deserializeAws_json1_1Initiators = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10607,7 +10607,7 @@ const deserializeAws_json1_1NFSFileShareInfo = (
 const deserializeAws_json1_1NFSFileShareInfoList = (
   output: any,
   context: __SerdeContext
-): Array<NFSFileShareInfo> => {
+): NFSFileShareInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1NFSFileShareInfo(entry, context)
   );
@@ -10813,7 +10813,7 @@ const deserializeAws_json1_1SMBFileShareInfo = (
 const deserializeAws_json1_1SMBFileShareInfoList = (
   output: any,
   context: __SerdeContext
-): Array<SMBFileShareInfo> => {
+): SMBFileShareInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SMBFileShareInfo(entry, context)
   );
@@ -10955,7 +10955,7 @@ const deserializeAws_json1_1StorediSCSIVolume = (
 const deserializeAws_json1_1StorediSCSIVolumes = (
   output: any,
   context: __SerdeContext
-): Array<StorediSCSIVolume> => {
+): StorediSCSIVolume[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1StorediSCSIVolume(entry, context)
   );
@@ -10982,7 +10982,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1Tags = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -11043,7 +11043,7 @@ const deserializeAws_json1_1Tape = (
 const deserializeAws_json1_1TapeARNs = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -11104,7 +11104,7 @@ const deserializeAws_json1_1TapeArchive = (
 const deserializeAws_json1_1TapeArchives = (
   output: any,
   context: __SerdeContext
-): Array<TapeArchive> => {
+): TapeArchive[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TapeArchive(entry, context)
   );
@@ -11147,7 +11147,7 @@ const deserializeAws_json1_1TapeInfo = (
 const deserializeAws_json1_1TapeInfos = (
   output: any,
   context: __SerdeContext
-): Array<TapeInfo> => {
+): TapeInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TapeInfo(entry, context)
   );
@@ -11187,7 +11187,7 @@ const deserializeAws_json1_1TapeRecoveryPointInfo = (
 const deserializeAws_json1_1TapeRecoveryPointInfos = (
   output: any,
   context: __SerdeContext
-): Array<TapeRecoveryPointInfo> => {
+): TapeRecoveryPointInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TapeRecoveryPointInfo(entry, context)
   );
@@ -11196,7 +11196,7 @@ const deserializeAws_json1_1TapeRecoveryPointInfos = (
 const deserializeAws_json1_1Tapes = (
   output: any,
   context: __SerdeContext
-): Array<Tape> => {
+): Tape[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tape(entry, context)
   );
@@ -11300,7 +11300,7 @@ const deserializeAws_json1_1VTLDevice = (
 const deserializeAws_json1_1VTLDevices = (
   output: any,
   context: __SerdeContext
-): Array<VTLDevice> => {
+): VTLDevice[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1VTLDevice(entry, context)
   );
@@ -11353,7 +11353,7 @@ const deserializeAws_json1_1VolumeInfo = (
 const deserializeAws_json1_1VolumeInfos = (
   output: any,
   context: __SerdeContext
-): Array<VolumeInfo> => {
+): VolumeInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1VolumeInfo(entry, context)
   );

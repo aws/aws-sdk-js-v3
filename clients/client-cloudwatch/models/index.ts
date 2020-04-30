@@ -115,7 +115,7 @@ export interface AnomalyDetector {
   /**
    * <p>The metric dimensions associated with the anomaly detection model.</p>
    */
-  Dimensions?: Array<Dimension>;
+  Dimensions?: Dimension[];
 
   /**
    * <p>The name of the metric associated with the anomaly detection model.</p>
@@ -156,7 +156,7 @@ export interface AnomalyDetectorConfiguration {
    * 			this to make sure that events that could cause unusual values for the metric, such as
    * 			deployments, aren't used when CloudWatch creates the model.</p>
    */
-  ExcludedTimeRanges?: Array<Range>;
+  ExcludedTimeRanges?: Range[];
 
   /**
    * <p>The time zone to use for the metric. This is useful to enable the model to automatically
@@ -243,7 +243,7 @@ export interface DashboardInvalidInputError
     $MetadataBearer {
   name: "DashboardInvalidInputError";
   $fault: "client";
-  dashboardValidationMessages?: Array<DashboardValidationMessage>;
+  dashboardValidationMessages?: DashboardValidationMessage[];
   message?: string;
 }
 
@@ -345,7 +345,7 @@ export interface DeleteAlarmsInput {
   /**
    * <p>The alarms to be deleted.</p>
    */
-  AlarmNames: Array<string> | undefined;
+  AlarmNames: string[] | undefined;
 }
 
 export namespace DeleteAlarmsInput {
@@ -358,7 +358,7 @@ export interface DeleteAnomalyDetectorInput {
   /**
    * <p>The metric dimensions associated with the anomaly detection model to delete.</p>
    */
-  Dimensions?: Array<Dimension>;
+  Dimensions?: Dimension[];
 
   /**
    * <p>The metric name associated with the anomaly detection model to delete.</p>
@@ -395,7 +395,7 @@ export interface DeleteDashboardsInput {
   /**
    * <p>The dashboards to be deleted. This parameter is required.</p>
    */
-  DashboardNames: Array<string> | undefined;
+  DashboardNames: string[] | undefined;
 }
 
 export namespace DeleteDashboardsInput {
@@ -417,7 +417,7 @@ export interface DeleteInsightRulesInput {
   /**
    * <p>An array of the rule names to delete. If you need to find out the names of your rules, use <a>DescribeInsightRules</a>.</p>
    */
-  RuleNames: Array<string> | undefined;
+  RuleNames: string[] | undefined;
 }
 
 export namespace DeleteInsightRulesInput {
@@ -430,7 +430,7 @@ export interface DeleteInsightRulesOutput {
   /**
    * <p>An array listing the rules that could not be deleted. You cannot delete built-in rules.</p>
    */
-  Failures?: Array<PartialFailure>;
+  Failures?: PartialFailure[];
 }
 
 export namespace DeleteInsightRulesOutput {
@@ -482,7 +482,7 @@ export interface DescribeAlarmHistoryOutput {
   /**
    * <p>The alarm histories, in JSON format.</p>
    */
-  AlarmHistoryItems?: Array<AlarmHistoryItem>;
+  AlarmHistoryItems?: AlarmHistoryItem[];
 
   /**
    * <p>The token that marks the start of the next batch of returned results.</p>
@@ -501,7 +501,7 @@ export interface DescribeAlarmsForMetricInput {
    * <p>The dimensions associated with the metric. If the metric has any associated
    * 			dimensions, you must specify them in order for the call to succeed.</p>
    */
-  Dimensions?: Array<Dimension>;
+  Dimensions?: Dimension[];
 
   /**
    * <p>The percentile statistic for the metric. Specify a value between
@@ -546,7 +546,7 @@ export interface DescribeAlarmsForMetricOutput {
   /**
    * <p>The information for each alarm with the specified metric.</p>
    */
-  MetricAlarms?: Array<MetricAlarm>;
+  MetricAlarms?: MetricAlarm[];
 }
 
 export namespace DescribeAlarmsForMetricOutput {
@@ -570,7 +570,7 @@ export interface DescribeAlarmsInput {
   /**
    * <p>The names of the alarms.</p>
    */
-  AlarmNames?: Array<string>;
+  AlarmNames?: string[];
 
   /**
    * <p>The maximum number of alarm descriptions to retrieve.</p>
@@ -599,7 +599,7 @@ export interface DescribeAlarmsOutput {
   /**
    * <p>The information for the specified alarms.</p>
    */
-  MetricAlarms?: Array<MetricAlarm>;
+  MetricAlarms?: MetricAlarm[];
 
   /**
    * <p>The token that marks the start of the next batch of returned results.</p>
@@ -619,7 +619,7 @@ export interface DescribeAnomalyDetectorsInput {
    * 			specified metric dimensions. If there are multiple metrics that have these dimensions
    * 			and have anomaly detection models associated, they're all returned.</p>
    */
-  Dimensions?: Array<Dimension>;
+  Dimensions?: Dimension[];
 
   /**
    * <p>The maximum number of results to return in one operation. The maximum
@@ -658,7 +658,7 @@ export interface DescribeAnomalyDetectorsOutput {
   /**
    * <p>The list of anomaly detection models returned by the operation.</p>
    */
-  AnomalyDetectors?: Array<AnomalyDetector>;
+  AnomalyDetectors?: AnomalyDetector[];
 
   /**
    * <p>A token that you can use in a subsequent operation to
@@ -695,7 +695,7 @@ export interface DescribeInsightRulesOutput {
   /**
    * <p>The rules returned by the operation.</p>
    */
-  InsightRules?: Array<InsightRule>;
+  InsightRules?: InsightRule[];
 
   /**
    * <p>Reserved for future use.</p>
@@ -754,7 +754,7 @@ export interface DisableAlarmActionsInput {
   /**
    * <p>The names of the alarms.</p>
    */
-  AlarmNames: Array<string> | undefined;
+  AlarmNames: string[] | undefined;
 }
 
 export namespace DisableAlarmActionsInput {
@@ -767,7 +767,7 @@ export interface DisableInsightRulesInput {
   /**
    * <p>An array of the rule names to disable. If you need to find out the names of your rules, use <a>DescribeInsightRules</a>.</p>
    */
-  RuleNames: Array<string> | undefined;
+  RuleNames: string[] | undefined;
 }
 
 export namespace DisableInsightRulesInput {
@@ -780,7 +780,7 @@ export interface DisableInsightRulesOutput {
   /**
    * <p>An array listing the rules that could not be disabled. You cannot disable built-in rules.</p>
    */
-  Failures?: Array<PartialFailure>;
+  Failures?: PartialFailure[];
 }
 
 export namespace DisableInsightRulesOutput {
@@ -793,7 +793,7 @@ export interface EnableAlarmActionsInput {
   /**
    * <p>The names of the alarms.</p>
    */
-  AlarmNames: Array<string> | undefined;
+  AlarmNames: string[] | undefined;
 }
 
 export namespace EnableAlarmActionsInput {
@@ -806,7 +806,7 @@ export interface EnableInsightRulesInput {
   /**
    * <p>An array of the rule names to enable. If you need to find out the names of your rules, use <a>DescribeInsightRules</a>.</p>
    */
-  RuleNames: Array<string> | undefined;
+  RuleNames: string[] | undefined;
 }
 
 export namespace EnableInsightRulesInput {
@@ -819,7 +819,7 @@ export interface EnableInsightRulesOutput {
   /**
    * <p>An array listing the rules that could not be enabled. You cannot disable or enable built-in rules.</p>
    */
-  Failures?: Array<PartialFailure>;
+  Failures?: PartialFailure[];
 }
 
 export namespace EnableInsightRulesOutput {
@@ -917,7 +917,7 @@ export interface GetInsightRuleReportInput {
    * 			         </li>
    *          </ul>
    */
-  Metrics?: Array<string>;
+  Metrics?: string[];
 
   /**
    * <p>Determines what statistic to use to rank the contributors. Valid values are SUM and MAXIMUM.</p>
@@ -968,18 +968,18 @@ export interface GetInsightRuleReportOutput {
    * <p>An array of the unique contributors found by this rule in this time period. If the rule contains multiple keys, each combination of values
    * 		for the keys counts as a unique contributor.</p>
    */
-  Contributors?: Array<InsightRuleContributor>;
+  Contributors?: InsightRuleContributor[];
 
   /**
    * <p>An array of the strings used as the keys for this rule. The keys are the dimensions used to classify contributors.
    * 			If the rule contains more than one key, then each unique combination of values for the keys is counted as a unique contributor.</p>
    */
-  KeyLabels?: Array<string>;
+  KeyLabels?: string[];
 
   /**
    * <p>A time series of metric data points that matches the time period in the rule request.</p>
    */
-  MetricDatapoints?: Array<InsightRuleMetricDatapoint>;
+  MetricDatapoints?: InsightRuleMetricDatapoint[];
 }
 
 export namespace GetInsightRuleReportOutput {
@@ -1010,7 +1010,7 @@ export interface GetMetricDataInput {
    * <p>The metric queries to be returned. A single <code>GetMetricData</code> call can include as many as 100 <code>MetricDataQuery</code>
    * 		structures. Each of these structures can specify either a metric to retrieve, or a math expression to perform on retrieved data. </p>
    */
-  MetricDataQueries: Array<MetricDataQuery> | undefined;
+  MetricDataQueries: MetricDataQuery[] | undefined;
 
   /**
    * <p>Include this value, if it was returned by the previous call, to get the next set of data points.</p>
@@ -1075,12 +1075,12 @@ export interface GetMetricDataOutput {
    * 		       <p>A message appears here only if it is related to the global <code>GetMetricData</code> operation. Any message
    * 			about a specific metric returned by the operation appears in the <code>MetricDataResult</code> object returned for that metric.</p>
    */
-  Messages?: Array<MessageData>;
+  Messages?: MessageData[];
 
   /**
    * <p>The metrics that are returned, including the metric name, namespace, and dimensions.</p>
    */
-  MetricDataResults?: Array<MetricDataResult>;
+  MetricDataResults?: MetricDataResult[];
 
   /**
    * <p>A token that marks the next batch of returned results.</p>
@@ -1102,7 +1102,7 @@ export interface GetMetricStatisticsInput {
    * 		    see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations">Dimension Combinations</a> in the <i>Amazon CloudWatch User Guide</i>. For more information about specifying dimensions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publishing Metrics</a> in the
    * 			<i>Amazon CloudWatch User Guide</i>.</p>
    */
-  Dimensions?: Array<Dimension>;
+  Dimensions?: Dimension[];
 
   /**
    * <p>The time stamp that determines the last data point to return.</p>
@@ -1116,7 +1116,7 @@ export interface GetMetricStatisticsInput {
    * 			specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both. Percentile statistics are not
    * 			available for metrics when any of the metric values are negative numbers.</p>
    */
-  ExtendedStatistics?: Array<string>;
+  ExtendedStatistics?: string[];
 
   /**
    * <p>The name of the metric, with or without spaces.</p>
@@ -1185,7 +1185,7 @@ export interface GetMetricStatisticsInput {
    * 		    use <code>ExtendedStatistics</code>. When calling <code>GetMetricStatistics</code>, you must
    * 		specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both.</p>
    */
-  Statistics?: Array<Statistic | string>;
+  Statistics?: Statistic | string[];
 
   /**
    * <p>The unit for a given metric.
@@ -1206,7 +1206,7 @@ export interface GetMetricStatisticsOutput {
   /**
    * <p>The data points for the specified metric.</p>
    */
-  Datapoints?: Array<Datapoint>;
+  Datapoints?: Datapoint[];
 
   /**
    * <p>A label for the specified metric.</p>
@@ -1350,12 +1350,12 @@ export interface InsightRuleContributor {
   /**
    * <p>An array of the data points where this contributor is present. Only the data points when this contributor appeared are included in the array.</p>
    */
-  Datapoints: Array<InsightRuleContributorDatapoint> | undefined;
+  Datapoints: InsightRuleContributorDatapoint[] | undefined;
 
   /**
    * <p>One of the log entry field keywords that is used to define contributors for this rule.</p>
    */
-  Keys: Array<string> | undefined;
+  Keys: string[] | undefined;
 }
 
 export namespace InsightRuleContributor {
@@ -1559,7 +1559,7 @@ export interface ListDashboardsOutput {
   /**
    * <p>The list of matching dashboards.</p>
    */
-  DashboardEntries?: Array<DashboardEntry>;
+  DashboardEntries?: DashboardEntry[];
 
   /**
    * <p>The token that marks the start of the next batch of returned results.</p>
@@ -1577,7 +1577,7 @@ export interface ListMetricsInput {
   /**
    * <p>The dimensions to filter against.</p>
    */
-  Dimensions?: Array<DimensionFilter>;
+  Dimensions?: DimensionFilter[];
 
   /**
    * <p>The name of the metric to filter against.</p>
@@ -1606,7 +1606,7 @@ export interface ListMetricsOutput {
   /**
    * <p>The metrics.</p>
    */
-  Metrics?: Array<Metric>;
+  Metrics?: Metric[];
 
   /**
    * <p>The token that marks the start of the next batch of returned results.</p>
@@ -1638,7 +1638,7 @@ export interface ListTagsForResourceOutput {
   /**
    * <p>The list of tag keys and values associated with the resource you specified.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceOutput {
@@ -1674,7 +1674,7 @@ export interface Metric {
   /**
    * <p>The dimensions for the metric.</p>
    */
-  Dimensions?: Array<Dimension>;
+  Dimensions?: Dimension[];
 
   /**
    * <p>The name of the metric. This is a required field.</p>
@@ -1705,7 +1705,7 @@ export interface MetricAlarm {
    * <p>The actions to execute when this alarm transitions to the <code>ALARM</code> state
    * 			from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
    */
-  AlarmActions?: Array<string>;
+  AlarmActions?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the alarm.</p>
@@ -1741,7 +1741,7 @@ export interface MetricAlarm {
   /**
    * <p>The dimensions for the metric associated with the alarm.</p>
    */
-  Dimensions?: Array<Dimension>;
+  Dimensions?: Dimension[];
 
   /**
    * <p>Used only for alarms based on percentiles. If <code>ignore</code>, the alarm state does not change
@@ -1766,7 +1766,7 @@ export interface MetricAlarm {
    * <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state
    * 			from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
    */
-  InsufficientDataActions?: Array<string>;
+  InsufficientDataActions?: string[];
 
   /**
    * <p>The name of the metric associated with the alarm, if this is an alarm
@@ -1783,7 +1783,7 @@ export interface MetricAlarm {
    * 			This expression by designated by having <code>ReturnValue</code> set to
    * 			true.</p>
    */
-  Metrics?: Array<MetricDataQuery>;
+  Metrics?: MetricDataQuery[];
 
   /**
    * <p>The namespace of the metric associated with the alarm.</p>
@@ -1794,7 +1794,7 @@ export interface MetricAlarm {
    * <p>The actions to execute when this alarm transitions to the <code>OK</code> state
    * 			from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
    */
-  OKActions?: Array<string>;
+  OKActions?: string[];
 
   /**
    * <p>The period, in seconds, over which the statistic is applied.</p>
@@ -1964,7 +1964,7 @@ export interface MetricDataResult {
   /**
    * <p>A list of messages with additional information about the data returned.</p>
    */
-  Messages?: Array<MessageData>;
+  Messages?: MessageData[];
 
   /**
    * <p>The status of the returned data. <code>Complete</code> indicates that all data points in the requested time range were returned.
@@ -1980,14 +1980,14 @@ export interface MetricDataResult {
    * 			timestamps always matches the number of values and the value for Timestamps[x] is
    * 			Values[x].</p>
    */
-  Timestamps?: Array<Date>;
+  Timestamps?: Date[];
 
   /**
    * <p>The data points for the metric corresponding to <code>Timestamps</code>. The number of
    * 			values always matches the number of timestamps and the timestamp for Values[x] is
    * 			Timestamps[x].</p>
    */
-  Values?: Array<number>;
+  Values?: number[];
 }
 
 export namespace MetricDataResult {
@@ -2007,12 +2007,12 @@ export interface MetricDatum {
    * 		       <p>If you omit the <code>Counts</code> array, the default of 1 is used as the value for each count. If you
    * 		include a <code>Counts</code> array, it must include the same amount of values as the <code>Values</code> array.</p>
    */
-  Counts?: Array<number>;
+  Counts?: number[];
 
   /**
    * <p>The dimensions associated with the metric.</p>
    */
-  Dimensions?: Array<Dimension>;
+  Dimensions?: Dimension[];
 
   /**
    * <p>The name of the metric.</p>
@@ -2065,7 +2065,7 @@ export interface MetricDatum {
    * 			or too large. Values must be in the range of -2^360 to 2^360. In addition, special values (for example, NaN, +Infinity,
    * 			-Infinity) are not supported.</p>
    */
-  Values?: Array<number>;
+  Values?: number[];
 }
 
 export namespace MetricDatum {
@@ -2169,7 +2169,7 @@ export interface PutAnomalyDetectorInput {
   /**
    * <p>The metric dimensions to create the anomaly detection model for.</p>
    */
-  Dimensions?: Array<Dimension>;
+  Dimensions?: Dimension[];
 
   /**
    * <p>The name of the metric to create the anomaly detection model for.</p>
@@ -2232,7 +2232,7 @@ export interface PutDashboardOutput {
    * 				the dashboard may not render.</p>
    * 				     <p>If this result includes error messages, the input was not valid and the operation failed.</p>
    */
-  DashboardValidationMessages?: Array<DashboardValidationMessage>;
+  DashboardValidationMessages?: DashboardValidationMessage[];
 }
 
 export namespace PutDashboardOutput {
@@ -2302,7 +2302,7 @@ export interface PutMetricAlarmInput {
    * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
    *          </p>
    */
-  AlarmActions?: Array<string>;
+  AlarmActions?: string[];
 
   /**
    * <p>The description for the alarm.</p>
@@ -2334,7 +2334,7 @@ export interface PutMetricAlarmInput {
   /**
    * <p>The dimensions for the metric specified in <code>MetricName</code>.</p>
    */
-  Dimensions?: Array<Dimension>;
+  Dimensions?: Dimension[];
 
   /**
    * <p> Used only for alarms based on percentiles. If you specify <code>ignore</code>, the alarm state does not change during periods with too few data points to be
@@ -2383,7 +2383,7 @@ export interface PutMetricAlarmInput {
    * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
    *          </p>
    */
-  InsufficientDataActions?: Array<string>;
+  InsufficientDataActions?: string[];
 
   /**
    * <p>The name for the metric associated with the alarm. For each <code>PutMetricAlarm</code>
@@ -2407,7 +2407,7 @@ export interface PutMetricAlarmInput {
    * 			Instead, you retrieve
    * 		the metrics you are using in your math expression as part of the <code>Metrics</code> array.</p>
    */
-  Metrics?: Array<MetricDataQuery>;
+  Metrics?: MetricDataQuery[];
 
   /**
    * <p>The namespace for the metric associated specified in <code>MetricName</code>.</p>
@@ -2434,7 +2434,7 @@ export interface PutMetricAlarmInput {
    * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
    *          </p>
    */
-  OKActions?: Array<string>;
+  OKActions?: string[];
 
   /**
    * <p>The length, in seconds, used each time the metric specified in <code>MetricName</code> is
@@ -2471,7 +2471,7 @@ export interface PutMetricAlarmInput {
    * 			resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with
    * 			certain tag values.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The value against which the specified statistic is compared.</p>
@@ -2529,7 +2529,7 @@ export interface PutMetricDataInput {
   /**
    * <p>The data for the metric. The array can include no more than 20 metrics per call.</p>
    */
-  MetricData: Array<MetricDatum> | undefined;
+  MetricData: MetricDatum[] | undefined;
 
   /**
    * <p>The namespace for the metric data.</p>
@@ -2745,7 +2745,7 @@ export interface TagResourceInput {
   /**
    * <p>The list of key-value pairs to associate with the alarm.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceInput {
@@ -2773,7 +2773,7 @@ export interface UntagResourceInput {
   /**
    * <p>The list of tag keys to remove from the resource.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceInput {

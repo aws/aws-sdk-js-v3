@@ -740,7 +740,7 @@ const serializeAws_restJson1_1Message = (
 };
 
 const serializeAws_restJson1_1Messages = (
-  input: Array<Message>,
+  input: Message[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -765,7 +765,7 @@ const serializeAws_restJson1_1TimerDefinition = (
 };
 
 const serializeAws_restJson1_1TimerDefinitions = (
-  input: Array<TimerDefinition>,
+  input: TimerDefinition[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -799,7 +799,7 @@ const serializeAws_restJson1_1UpdateDetectorRequest = (
 };
 
 const serializeAws_restJson1_1UpdateDetectorRequests = (
-  input: Array<UpdateDetectorRequest>,
+  input: UpdateDetectorRequest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -826,7 +826,7 @@ const serializeAws_restJson1_1VariableDefinition = (
 };
 
 const serializeAws_restJson1_1VariableDefinitions = (
-  input: Array<VariableDefinition>,
+  input: VariableDefinition[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -839,7 +839,7 @@ const serializeAws_restJson1_1VariableDefinitions = (
 const deserializeAws_restJson1_1BatchPutMessageErrorEntries = (
   output: any,
   context: __SerdeContext
-): Array<BatchPutMessageErrorEntry> => {
+): BatchPutMessageErrorEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BatchPutMessageErrorEntry(entry, context)
   );
@@ -870,7 +870,7 @@ const deserializeAws_restJson1_1BatchPutMessageErrorEntry = (
 const deserializeAws_restJson1_1BatchUpdateDetectorErrorEntries = (
   output: any,
   context: __SerdeContext
-): Array<BatchUpdateDetectorErrorEntry> => {
+): BatchUpdateDetectorErrorEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BatchUpdateDetectorErrorEntry(entry, context)
   );
@@ -985,7 +985,7 @@ const deserializeAws_restJson1_1DetectorStateSummary = (
 const deserializeAws_restJson1_1DetectorSummaries = (
   output: any,
   context: __SerdeContext
-): Array<DetectorSummary> => {
+): DetectorSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DetectorSummary(entry, context)
   );
@@ -1057,7 +1057,7 @@ const deserializeAws_restJson1_1Timer = (
 const deserializeAws_restJson1_1Timers = (
   output: any,
   context: __SerdeContext
-): Array<Timer> => {
+): Timer[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Timer(entry, context)
   );
@@ -1084,7 +1084,7 @@ const deserializeAws_restJson1_1Variable = (
 const deserializeAws_restJson1_1Variables = (
   output: any,
   context: __SerdeContext
-): Array<Variable> => {
+): Variable[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Variable(entry, context)
   );

@@ -234,7 +234,7 @@ export interface DescribeDimensionKeysResponse {
   /**
    * <p>The dimension keys that were requested.</p>
    */
-  Keys?: Array<DimensionKeyDescription>;
+  Keys?: DimensionKeyDescription[];
 
   /**
    * <p>An optional pagination token provided by a previous request. If
@@ -246,7 +246,7 @@ export interface DescribeDimensionKeysResponse {
   /**
    * <p>If <code>PartitionBy</code> was present in the request, <code>PartitionKeys</code> contains the breakdown of dimension keys by the specified partitions.</p>
    */
-  PartitionKeys?: Array<ResponsePartitionKey>;
+  PartitionKeys?: ResponsePartitionKey[];
 }
 
 export namespace DescribeDimensionKeysResponse {
@@ -312,7 +312,7 @@ export interface DimensionGroup {
    *             </li>
    *          </ul>
    */
-  Dimensions?: Array<string>;
+  Dimensions?: string[];
 
   /**
    * <p>The name of the dimension group.  Valid values are:</p>
@@ -377,7 +377,7 @@ export interface DimensionKeyDescription {
   /**
    * <p>If <code>PartitionBy</code> was specified, <code>PartitionKeys</code> contains the dimensions that were.</p>
    */
-  Partitions?: Array<number>;
+  Partitions?: number[];
 
   /**
    * <p>The aggregated metric value for the dimension(s), over the requested time range.</p>
@@ -422,7 +422,7 @@ export interface GetResourceMetricsRequest {
    * <p>An array of one or more queries to perform. Each query must specify a Performance Insights metric, and
    *       can optionally specify aggregation and filtering criteria.</p>
    */
-  MetricQueries: Array<MetricQuery> | undefined;
+  MetricQueries: MetricQuery[] | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If
@@ -514,7 +514,7 @@ export interface GetResourceMetricsResponse {
   /**
    * <p>An array of metric results,, where each array element contains all of the data points for a particular dimension.</p>
    */
-  MetricList?: Array<MetricKeyDataPoints>;
+  MetricList?: MetricKeyDataPoints[];
 
   /**
    * <p>An optional pagination token provided by a previous request. If
@@ -538,7 +538,7 @@ export interface MetricKeyDataPoints {
   /**
    * <p>An array of timestamp-value pairs, representing measurements over a period of time.</p>
    */
-  DataPoints?: Array<DataPoint>;
+  DataPoints?: DataPoint[];
 
   /**
    * <p>The dimension(s) to which the data points apply.</p>

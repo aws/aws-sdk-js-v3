@@ -2930,7 +2930,7 @@ const serializeAws_restJson1_1FilterCriteriaMap = (
 };
 
 const serializeAws_restJson1_1FindingIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2958,7 +2958,7 @@ const serializeAws_restJson1_1InlineArchiveRule = (
 };
 
 const serializeAws_restJson1_1InlineArchiveRulesList = (
-  input: Array<InlineArchiveRule>,
+  input: InlineArchiveRule[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2994,7 +2994,7 @@ const serializeAws_restJson1_1TagsMap = (
 };
 
 const serializeAws_restJson1_1ValueList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3007,7 +3007,7 @@ const serializeAws_restJson1_1ValueList = (
 const deserializeAws_restJson1_1ActionList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3088,7 +3088,7 @@ const deserializeAws_restJson1_1AnalyzedResourceSummary = (
 const deserializeAws_restJson1_1AnalyzedResourcesList = (
   output: any,
   context: __SerdeContext
-): Array<AnalyzedResourceSummary> => {
+): AnalyzedResourceSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AnalyzedResourceSummary(entry, context)
   );
@@ -3141,7 +3141,7 @@ const deserializeAws_restJson1_1AnalyzerSummary = (
 const deserializeAws_restJson1_1AnalyzersList = (
   output: any,
   context: __SerdeContext
-): Array<AnalyzerSummary> => {
+): AnalyzerSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AnalyzerSummary(entry, context)
   );
@@ -3179,7 +3179,7 @@ const deserializeAws_restJson1_1ArchiveRuleSummary = (
 const deserializeAws_restJson1_1ArchiveRulesList = (
   output: any,
   context: __SerdeContext
-): Array<ArchiveRuleSummary> => {
+): ArchiveRuleSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ArchiveRuleSummary(entry, context)
   );
@@ -3373,7 +3373,7 @@ const deserializeAws_restJson1_1FindingSummary = (
 const deserializeAws_restJson1_1FindingsList = (
   output: any,
   context: __SerdeContext
-): Array<FindingSummary> => {
+): FindingSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1FindingSummary(entry, context)
   );
@@ -3393,7 +3393,7 @@ const deserializeAws_restJson1_1PrincipalMap = (
 const deserializeAws_restJson1_1SharedViaList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3429,7 +3429,7 @@ const deserializeAws_restJson1_1ValidationExceptionField = (
 const deserializeAws_restJson1_1ValidationExceptionFieldList = (
   output: any,
   context: __SerdeContext
-): Array<ValidationExceptionField> => {
+): ValidationExceptionField[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ValidationExceptionField(entry, context)
   );
@@ -3438,7 +3438,7 @@ const deserializeAws_restJson1_1ValidationExceptionFieldList = (
 const deserializeAws_restJson1_1ValueList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

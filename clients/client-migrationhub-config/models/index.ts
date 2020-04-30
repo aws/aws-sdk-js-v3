@@ -100,7 +100,7 @@ export interface DescribeHomeRegionControlsResult {
   /**
    * <p>An array that contains your <code>HomeRegionControl</code> objects.</p>
    */
-  HomeRegionControls?: Array<HomeRegionControl>;
+  HomeRegionControls?: HomeRegionControl[];
 
   /**
    * <p>If a <code>NextToken</code> was returned by a previous call, more results are available.

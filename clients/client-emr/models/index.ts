@@ -60,7 +60,7 @@ export interface AddInstanceGroupsInput {
   /**
    * <p>Instance groups to add.</p>
    */
-  InstanceGroups: Array<InstanceGroupConfig> | undefined;
+  InstanceGroups: InstanceGroupConfig[] | undefined;
 
   /**
    * <p>Job flow in which to add the instance groups.</p>
@@ -86,7 +86,7 @@ export interface AddInstanceGroupsOutput {
   /**
    * <p>Instance group IDs of the newly created instance groups.</p>
    */
-  InstanceGroupIds?: Array<string>;
+  InstanceGroupIds?: string[];
 
   /**
    * <p>The job flow ID in which the instance groups are added.</p>
@@ -113,7 +113,7 @@ export interface AddJobFlowStepsInput {
   /**
    * <p> A list of <a>StepConfig</a> to be executed by the job flow. </p>
    */
-  Steps: Array<StepConfig> | undefined;
+  Steps: StepConfig[] | undefined;
 }
 
 export namespace AddJobFlowStepsInput {
@@ -129,7 +129,7 @@ export interface AddJobFlowStepsOutput {
   /**
    * <p>The identifiers of the list of steps added to the job flow.</p>
    */
-  StepIds?: Array<string>;
+  StepIds?: string[];
 }
 
 export namespace AddJobFlowStepsOutput {
@@ -150,7 +150,7 @@ export interface AddTagsInput {
   /**
    * <p>A list of tags to associate with a cluster and propagate to EC2 instances. Tags are user-defined key/value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace AddTagsInput {
@@ -188,7 +188,7 @@ export interface Application {
   /**
    * <p>Arguments for Amazon EMR to pass to the application.</p>
    */
-  Args?: Array<string>;
+  Args?: string[];
 
   /**
    * <p>The name of the application.</p>
@@ -218,7 +218,7 @@ export interface AutoScalingPolicy {
   /**
    * <p>The scale-in and scale-out rules that comprise the automatic scaling policy.</p>
    */
-  Rules: Array<ScalingRule> | undefined;
+  Rules: ScalingRule[] | undefined;
 }
 
 export namespace AutoScalingPolicy {
@@ -239,7 +239,7 @@ export interface AutoScalingPolicyDescription {
   /**
    * <p>The scale-in and scale-out rules that comprise the automatic scaling policy.</p>
    */
-  Rules?: Array<ScalingRule>;
+  Rules?: ScalingRule[];
 
   /**
    * <p>The status of an automatic scaling policy. </p>
@@ -327,13 +327,13 @@ export interface BlockPublicAccessConfiguration {
   /**
    * <p>A list of additional configurations to apply within a configuration object.</p>
    */
-  Configurations?: Array<Configuration>;
+  Configurations?: Configuration[];
 
   /**
    * <p>Specifies ports and port ranges that are permitted to have security group rules that allow inbound traffic from all public sources. For example, if Port 23 (Telnet) is specified for <code>PermittedPublicSecurityGroupRuleRanges</code>, Amazon EMR allows cluster creation if a security group associated with the cluster has a rule that allows inbound traffic on Port 23 from IPv4 0.0.0.0/0 or IPv6 port ::/0 as the source.</p>
    *          <p>By default, Port 22, which is used for SSH access to the cluster EC2 instances, is in the list of <code>PermittedPublicSecurityGroupRuleRanges</code>.</p>
    */
-  PermittedPublicSecurityGroupRuleRanges?: Array<PortRange>;
+  PermittedPublicSecurityGroupRuleRanges?: PortRange[];
 
   /**
    * <p>A set of properties specified within a configuration classification.</p>
@@ -448,7 +448,7 @@ export interface CancelStepsInput {
   /**
    * <p>The list of <code>StepIDs</code> to cancel. Use <a>ListSteps</a> to get steps and their states for the specified cluster.</p>
    */
-  StepIds: Array<string> | undefined;
+  StepIds: string[] | undefined;
 }
 
 export namespace CancelStepsInput {
@@ -464,7 +464,7 @@ export interface CancelStepsOutput {
   /**
    * <p>A list of <a>CancelStepsInfo</a>, which shows the status of specified cancel requests for each <code>StepID</code> specified.</p>
    */
-  CancelStepsInfoList?: Array<CancelStepsInfo>;
+  CancelStepsInfoList?: CancelStepsInfo[];
 }
 
 export namespace CancelStepsOutput {
@@ -490,7 +490,7 @@ export interface CloudWatchAlarmDefinition {
   /**
    * <p>A CloudWatch metric dimension.</p>
    */
-  Dimensions?: Array<MetricDimension>;
+  Dimensions?: MetricDimension[];
 
   /**
    * <p>The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is <code>1</code>.</p>
@@ -541,7 +541,7 @@ export interface Cluster {
   /**
    * <p>The applications installed on this cluster.</p>
    */
-  Applications?: Array<Application>;
+  Applications?: Application[];
 
   /**
    * <p>An IAM role for automatic scaling policies. The default role is <code>EMR_AutoScaling_DefaultRole</code>. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.</p>
@@ -561,7 +561,7 @@ export interface Cluster {
   /**
    * <p>Applies only to Amazon EMR releases 4.x and later. The list of Configurations supplied to the EMR cluster.</p>
    */
-  Configurations?: Array<Configuration>;
+  Configurations?: Configuration[];
 
   /**
    * <p>Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.</p>
@@ -671,7 +671,7 @@ export interface Cluster {
   /**
    * <p>A list of tags associated with a cluster.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>Indicates whether Amazon EMR will lock the cluster to prevent the EC2 instances from being terminated by an API call or user intervention, or in the event of a cluster error.</p>
@@ -832,7 +832,7 @@ export interface Command {
   /**
    * <p>Arguments for Amazon EMR to pass to the command for execution.</p>
    */
-  Args?: Array<string>;
+  Args?: string[];
 
   /**
    * <p>The name of the command.</p>
@@ -872,7 +872,7 @@ export interface Configuration {
   /**
    * <p>A list of additional configurations to apply within a configuration object.</p>
    */
-  Configurations?: Array<Configuration>;
+  Configurations?: Configuration[];
 
   /**
    * <p>A set of properties specified within a configuration classification.</p>
@@ -992,12 +992,12 @@ export interface DescribeJobFlowsInput {
   /**
    * <p>Return only job flows whose job flow ID is contained in this list.</p>
    */
-  JobFlowIds?: Array<string>;
+  JobFlowIds?: string[];
 
   /**
    * <p>Return only job flows whose state is contained in this list.</p>
    */
-  JobFlowStates?: Array<JobFlowExecutionState | string>;
+  JobFlowStates?: JobFlowExecutionState | string[];
 }
 
 export namespace DescribeJobFlowsInput {
@@ -1013,7 +1013,7 @@ export interface DescribeJobFlowsOutput {
   /**
    * <p>A list of job flows matching the parameters supplied.</p>
    */
-  JobFlows?: Array<JobFlowDetail>;
+  JobFlows?: JobFlowDetail[];
 }
 
 export namespace DescribeJobFlowsOutput {
@@ -1144,7 +1144,7 @@ export interface EbsConfiguration {
   /**
    * <p>An array of Amazon EBS volume specifications attached to a cluster instance.</p>
    */
-  EbsBlockDeviceConfigs?: Array<EbsBlockDeviceConfig>;
+  EbsBlockDeviceConfigs?: EbsBlockDeviceConfig[];
 
   /**
    * <p>Indicates whether an Amazon EBS volume is EBS-optimized.</p>
@@ -1185,12 +1185,12 @@ export interface Ec2InstanceAttributes {
   /**
    * <p>A list of additional Amazon EC2 security group IDs for the master node.</p>
    */
-  AdditionalMasterSecurityGroups?: Array<string>;
+  AdditionalMasterSecurityGroups?: string[];
 
   /**
    * <p>A list of additional Amazon EC2 security group IDs for the core and task nodes.</p>
    */
-  AdditionalSlaveSecurityGroups?: Array<string>;
+  AdditionalSlaveSecurityGroups?: string[];
 
   /**
    * <p>The Availability Zone in which the cluster will run. </p>
@@ -1225,12 +1225,12 @@ export interface Ec2InstanceAttributes {
   /**
    * <p>Applies to clusters configured with the instance fleets option. Specifies one or more Availability Zones in which to launch EC2 cluster instances when the EC2-Classic network configuration is supported. Amazon EMR chooses the Availability Zone with the best fit from among the list of <code>RequestedEc2AvailabilityZones</code>, and then launches all cluster instances within that Availability Zone. If you do not specify this value, Amazon EMR chooses the Availability Zone for you. <code>RequestedEc2SubnetIDs</code> and <code>RequestedEc2AvailabilityZones</code> cannot be specified together.</p>
    */
-  RequestedEc2AvailabilityZones?: Array<string>;
+  RequestedEc2AvailabilityZones?: string[];
 
   /**
    * <p>Applies to clusters configured with the instance fleets option. Specifies the unique identifier of one or more Amazon EC2 subnets in which to launch EC2 cluster instances. Subnets must exist within the same VPC. Amazon EMR chooses the EC2 subnet with the best fit from among the list of <code>RequestedEc2SubnetIds</code>, and then launches all cluster instances within that Subnet. If this value is not specified, and the account and Region support EC2-Classic networks, the cluster launches instances in the EC2-Classic network and uses <code>RequestedEc2AvailabilityZones</code> instead of this setting. If EC2-Classic is not supported, and no Subnet is specified, Amazon EMR chooses the subnet for you. <code>RequestedEc2SubnetIDs</code> and <code>RequestedEc2AvailabilityZones</code> cannot be specified together.</p>
    */
-  RequestedEc2SubnetIds?: Array<string>;
+  RequestedEc2SubnetIds?: string[];
 
   /**
    * <p>The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.</p>
@@ -1306,7 +1306,7 @@ export interface HadoopJarStepConfig {
   /**
    * <p>A list of command line arguments passed to the JAR file's main function when executed.</p>
    */
-  Args?: Array<string>;
+  Args?: string[];
 
   /**
    * <p>A path to a JAR file run during the step.</p>
@@ -1321,7 +1321,7 @@ export interface HadoopJarStepConfig {
   /**
    * <p>A list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.</p>
    */
-  Properties?: Array<KeyValue>;
+  Properties?: KeyValue[];
 }
 
 export namespace HadoopJarStepConfig {
@@ -1337,7 +1337,7 @@ export interface HadoopStepConfig {
   /**
    * <p>The list of command line arguments to pass to the JAR file's main function for execution.</p>
    */
-  Args?: Array<string>;
+  Args?: string[];
 
   /**
    * <p>The path to the JAR file that runs during the step.</p>
@@ -1368,7 +1368,7 @@ export interface Instance {
   /**
    * <p>The list of EBS volumes that are attached to this instance.</p>
    */
-  EbsVolumes?: Array<EbsVolume>;
+  EbsVolumes?: EbsVolume[];
 
   /**
    * <p>The unique identifier of the instance in Amazon EC2.</p>
@@ -1460,7 +1460,7 @@ export interface InstanceFleet {
    * <p>The specification for the instance types that comprise an instance fleet. Up to five unique instance specifications may be defined for each instance fleet.
    *       </p>
    */
-  InstanceTypeSpecifications?: Array<InstanceTypeSpecification>;
+  InstanceTypeSpecifications?: InstanceTypeSpecification[];
 
   /**
    * <p>Describes the launch specification for an instance fleet.
@@ -1526,7 +1526,7 @@ export interface InstanceFleetConfig {
   /**
    * <p>The instance type configurations that define the EC2 instances in the instance fleet.</p>
    */
-  InstanceTypeConfigs?: Array<InstanceTypeConfig>;
+  InstanceTypeConfigs?: InstanceTypeConfig[];
 
   /**
    * <p>The launch specification for the instance fleet.</p>
@@ -1766,7 +1766,7 @@ export interface InstanceGroup {
    *          </note>
    *          <p>The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).</p>
    */
-  Configurations?: Array<Configuration>;
+  Configurations?: Configuration[];
 
   /**
    * <p>The version number of the requested configuration specification for this instance group.</p>
@@ -1776,7 +1776,7 @@ export interface InstanceGroup {
   /**
    * <p>The EBS block devices that are mapped to this instance group.</p>
    */
-  EbsBlockDevices?: Array<EbsBlockDevice>;
+  EbsBlockDevices?: EbsBlockDevice[];
 
   /**
    * <p>If the instance group is EBS-optimized. An Amazon EBS-optimized instance uses an optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I/O.</p>
@@ -1801,7 +1801,7 @@ export interface InstanceGroup {
   /**
    * <p>A list of configurations that were successfully applied for an instance group last time.</p>
    */
-  LastSuccessfullyAppliedConfigurations?: Array<Configuration>;
+  LastSuccessfullyAppliedConfigurations?: Configuration[];
 
   /**
    * <p>The version number of a configuration specification that was successfully applied for an instance group last time. </p>
@@ -1864,7 +1864,7 @@ export interface InstanceGroupConfig {
    *          </note>
    *          <p>The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).</p>
    */
-  Configurations?: Array<Configuration>;
+  Configurations?: Configuration[];
 
   /**
    * <p>EBS configurations that will be attached to each EC2 instance in the instance group.</p>
@@ -1991,12 +1991,12 @@ export interface InstanceGroupModifyConfig {
   /**
    * <p>A list of new or modified configurations to apply for an instance group.</p>
    */
-  Configurations?: Array<Configuration>;
+  Configurations?: Configuration[];
 
   /**
    * <p>The EC2 InstanceIds to terminate. After you terminate the instances, the instance group will not return to its original requested size.</p>
    */
-  EC2InstanceIdsToTerminate?: Array<string>;
+  EC2InstanceIdsToTerminate?: string[];
 
   /**
    * <p>Target size for the instance group.</p>
@@ -2132,12 +2132,12 @@ export interface InstanceResizePolicy {
   /**
    * <p>Specific list of instances to be protected when shrinking an instance group.</p>
    */
-  InstancesToProtect?: Array<string>;
+  InstancesToProtect?: string[];
 
   /**
    * <p>Specific list of instances to be terminated when shrinking an instance group.</p>
    */
-  InstancesToTerminate?: Array<string>;
+  InstancesToTerminate?: string[];
 }
 
 export namespace InstanceResizePolicy {
@@ -2258,7 +2258,7 @@ export interface InstanceTypeConfig {
   /**
    * <p>A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.</p>
    */
-  Configurations?: Array<Configuration>;
+  Configurations?: Configuration[];
 
   /**
    * <p>The configuration of Amazon Elastic Block Storage (EBS) attached to each instance as defined by <code>InstanceType</code>.
@@ -2305,12 +2305,12 @@ export interface InstanceTypeSpecification {
   /**
    * <p>A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR.</p>
    */
-  Configurations?: Array<Configuration>;
+  Configurations?: Configuration[];
 
   /**
    * <p>The configuration of Amazon Elastic Block Storage (EBS) attached to each instance as defined by <code>InstanceType</code>.</p>
    */
-  EbsBlockDevices?: Array<EbsBlockDevice>;
+  EbsBlockDevices?: EbsBlockDevice[];
 
   /**
    * <p>Evaluates to <code>TRUE</code> when the specified <code>InstanceType</code> is EBS-optimized.</p>
@@ -2409,7 +2409,7 @@ export interface JobFlowDetail {
   /**
    * <p>A list of the bootstrap actions run by the job flow.</p>
    */
-  BootstrapActions?: Array<BootstrapActionDetail>;
+  BootstrapActions?: BootstrapActionDetail[];
 
   /**
    * <p>Describes the execution status of the job flow.</p>
@@ -2454,12 +2454,12 @@ export interface JobFlowDetail {
   /**
    * <p>A list of steps run by the job flow.</p>
    */
-  Steps?: Array<StepDetail>;
+  Steps?: StepDetail[];
 
   /**
    * <p>A list of strings set by third party software when the job flow is launched. If you are not using third party software to manage the job flow this value is empty.</p>
    */
-  SupportedProducts?: Array<string>;
+  SupportedProducts?: string[];
 
   /**
    * <p>Indicates whether the cluster is visible to all IAM users of the AWS account associated with the cluster. The default value, <code>true</code>, indicates that all IAM users in the AWS account can perform cluster actions if they have the proper IAM policy permissions. If this value is <code>false</code>, only the IAM user that created the cluster can perform actions. This value can be changed on a running cluster by using the <a>SetVisibleToAllUsers</a> action. You can override the default value of <code>true</code> when you create a cluster by using the <code>VisibleToAllUsers</code> parameter of the <code>RunJobFlow</code> action.</p>
@@ -2531,12 +2531,12 @@ export interface JobFlowInstancesConfig {
   /**
    * <p>A list of additional Amazon EC2 security group IDs for the master node.</p>
    */
-  AdditionalMasterSecurityGroups?: Array<string>;
+  AdditionalMasterSecurityGroups?: string[];
 
   /**
    * <p>A list of additional Amazon EC2 security group IDs for the core and task nodes.</p>
    */
-  AdditionalSlaveSecurityGroups?: Array<string>;
+  AdditionalSlaveSecurityGroups?: string[];
 
   /**
    * <p>The name of the EC2 key pair that can be used to ssh to the master node as the user called "hadoop."</p>
@@ -2554,7 +2554,7 @@ export interface JobFlowInstancesConfig {
    *             <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p>
    *          </note>
    */
-  Ec2SubnetIds?: Array<string>;
+  Ec2SubnetIds?: string[];
 
   /**
    * <p>The identifier of the Amazon EC2 security group for the master node.</p>
@@ -2582,12 +2582,12 @@ export interface JobFlowInstancesConfig {
    *          </note>
    *          <p>Describes the EC2 instances and instance configurations for clusters that use the instance fleet configuration.</p>
    */
-  InstanceFleets?: Array<InstanceFleetConfig>;
+  InstanceFleets?: InstanceFleetConfig[];
 
   /**
    * <p>Configuration for the instance groups in a cluster.</p>
    */
-  InstanceGroups?: Array<InstanceGroupConfig>;
+  InstanceGroups?: InstanceGroupConfig[];
 
   /**
    * <p>Specifies whether the cluster should remain available after completing all steps.</p>
@@ -2653,7 +2653,7 @@ export interface JobFlowInstancesDetail {
   /**
    * <p>Details about the instance groups in a cluster.</p>
    */
-  InstanceGroups?: Array<InstanceGroupDetail>;
+  InstanceGroups?: InstanceGroupDetail[];
 
   /**
    * <p>Specifies whether the cluster should remain available after completing all steps.</p>
@@ -2787,7 +2787,7 @@ export interface ListBootstrapActionsOutput {
   /**
    * <p>The bootstrap actions associated with the cluster.</p>
    */
-  BootstrapActions?: Array<Command>;
+  BootstrapActions?: Command[];
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
@@ -2808,7 +2808,7 @@ export interface ListClustersInput {
   /**
    * <p>The cluster state filters to apply when listing clusters.</p>
    */
-  ClusterStates?: Array<ClusterState | string>;
+  ClusterStates?: ClusterState | string[];
 
   /**
    * <p>The creation date and time beginning value filter for listing clusters.</p>
@@ -2839,7 +2839,7 @@ export interface ListClustersOutput {
   /**
    * <p>The list of clusters for the account based on the given filters.</p>
    */
-  Clusters?: Array<ClusterSummary>;
+  Clusters?: ClusterSummary[];
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
@@ -2875,7 +2875,7 @@ export interface ListInstanceFleetsOutput {
   /**
    * <p>The list of instance fleets for the cluster and given filters.</p>
    */
-  InstanceFleets?: Array<InstanceFleet>;
+  InstanceFleets?: InstanceFleet[];
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
@@ -2917,7 +2917,7 @@ export interface ListInstanceGroupsOutput {
   /**
    * <p>The list of instance groups for the cluster and given filters.</p>
    */
-  InstanceGroups?: Array<InstanceGroup>;
+  InstanceGroups?: InstanceGroup[];
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
@@ -2958,12 +2958,12 @@ export interface ListInstancesInput {
   /**
    * <p>The type of instance group for which to list the instances.</p>
    */
-  InstanceGroupTypes?: Array<InstanceGroupType | string>;
+  InstanceGroupTypes?: InstanceGroupType | string[];
 
   /**
    * <p>A list of instance states that will filter the instances returned with this request.</p>
    */
-  InstanceStates?: Array<InstanceState | string>;
+  InstanceStates?: InstanceState | string[];
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
@@ -2984,7 +2984,7 @@ export interface ListInstancesOutput {
   /**
    * <p>The list of instances for the cluster and given filters.</p>
    */
-  Instances?: Array<Instance>;
+  Instances?: Instance[];
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
@@ -3020,7 +3020,7 @@ export interface ListSecurityConfigurationsOutput {
   /**
    * <p>The creation date and time, and name, of each security configuration.</p>
    */
-  SecurityConfigurations?: Array<SecurityConfigurationSummary>;
+  SecurityConfigurations?: SecurityConfigurationSummary[];
 }
 
 export namespace ListSecurityConfigurationsOutput {
@@ -3046,12 +3046,12 @@ export interface ListStepsInput {
   /**
    * <p>The filter to limit the step list based on the identifier of the steps. You can specify a maximum of ten Step IDs. The character constraint applies to the overall length of the array.</p>
    */
-  StepIds?: Array<string>;
+  StepIds?: string[];
 
   /**
    * <p>The filter to limit the step list based on certain states.</p>
    */
-  StepStates?: Array<StepState | string>;
+  StepStates?: StepState | string[];
 }
 
 export namespace ListStepsInput {
@@ -3072,7 +3072,7 @@ export interface ListStepsOutput {
   /**
    * <p>The filtered list of steps for the cluster.</p>
    */
-  Steps?: Array<StepSummary>;
+  Steps?: StepSummary[];
 }
 
 export namespace ListStepsOutput {
@@ -3168,7 +3168,7 @@ export interface ModifyInstanceGroupsInput {
   /**
    * <p>Instance groups to change.</p>
    */
-  InstanceGroups?: Array<InstanceGroupModifyConfig>;
+  InstanceGroups?: InstanceGroupModifyConfig[];
 }
 
 export namespace ModifyInstanceGroupsInput {
@@ -3192,7 +3192,7 @@ export interface PlacementType {
    *             <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p>
    *          </note>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 }
 
 export namespace PlacementType {
@@ -3332,7 +3332,7 @@ export interface RemoveTagsInput {
   /**
    * <p>A list of tag keys to remove from a resource.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace RemoveTagsInput {
@@ -3375,7 +3375,7 @@ export interface RunJobFlowInput {
   /**
    * <p>Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMR Release Guide</a>.</p>
    */
-  Applications?: Array<Application>;
+  Applications?: Application[];
 
   /**
    * <p>An IAM role for automatic scaling policies. The default role is <code>EMR_AutoScaling_DefaultRole</code>. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.</p>
@@ -3385,12 +3385,12 @@ export interface RunJobFlowInput {
   /**
    * <p>A list of bootstrap actions to run before Hadoop starts on the cluster nodes.</p>
    */
-  BootstrapActions?: Array<BootstrapActionConfig>;
+  BootstrapActions?: BootstrapActionConfig[];
 
   /**
    * <p>For Amazon EMR releases 4.0 and later. The list of configurations supplied for the EMR cluster you are creating.</p>
    */
-  Configurations?: Array<Configuration>;
+  Configurations?: Configuration[];
 
   /**
    * <p>Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster EC2 instances. For more information about custom AMIs in Amazon EMR, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html">Using a Custom AMI</a> in the <i>Amazon EMR Management Guide</i>. If omitted, the cluster uses the base Linux AMI for the <code>ReleaseLabel</code> specified. For Amazon EMR versions 2.x and 3.x, use <code>AmiVersion</code> instead.</p>
@@ -3460,7 +3460,7 @@ export interface RunJobFlowInput {
    *             </li>
    *          </ul>
    */
-  NewSupportedProducts?: Array<SupportedProductConfig>;
+  NewSupportedProducts?: SupportedProductConfig[];
 
   /**
    * <p>The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster. Release labels are in the form <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version such as <code>emr-5.14.0</code>. For more information about Amazon EMR release versions and included application versions and features, see <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>. The release label applies only to Amazon EMR releases version 4.0 and later. Earlier versions use <code>AmiVersion</code>.</p>
@@ -3495,7 +3495,7 @@ export interface RunJobFlowInput {
   /**
    * <p>A list of steps to run.</p>
    */
-  Steps?: Array<StepConfig>;
+  Steps?: StepConfig[];
 
   /**
    * <note>
@@ -3511,12 +3511,12 @@ export interface RunJobFlowInput {
    *             </li>
    *          </ul>
    */
-  SupportedProducts?: Array<string>;
+  SupportedProducts?: string[];
 
   /**
    * <p>A list of tags to associate with a cluster and propagate to Amazon EC2 instances.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A value of <code>true</code> indicates that all IAM users in the AWS account can perform cluster actions if they have the proper IAM policy permissions. This is the default. A value of <code>false</code> indicates that only the IAM user who created the cluster can perform actions.</p>
@@ -3652,7 +3652,7 @@ export interface ScriptBootstrapActionConfig {
   /**
    * <p>A list of command line arguments to pass to the bootstrap action script.</p>
    */
-  Args?: Array<string>;
+  Args?: string[];
 
   /**
    * <p>Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.</p>
@@ -3695,7 +3695,7 @@ export interface SetTerminationProtectionInput {
    * <p> A list of strings that uniquely identify the clusters to protect. This identifier is returned by
    *          <a>RunJobFlow</a> and can also be obtained from <a>DescribeJobFlows</a> . </p>
    */
-  JobFlowIds: Array<string> | undefined;
+  JobFlowIds: string[] | undefined;
 
   /**
    * <p>A Boolean that indicates whether to protect the cluster and prevent the Amazon EC2 instances in the cluster from shutting down due to API calls, user intervention, or job-flow error.</p>
@@ -3716,7 +3716,7 @@ export interface SetVisibleToAllUsersInput {
   /**
    * <p>The unique identifier of the job flow (cluster).</p>
    */
-  JobFlowIds: Array<string> | undefined;
+  JobFlowIds: string[] | undefined;
 
   /**
    * <p>A value of <code>true</code> indicates that all IAM users in the AWS account can perform cluster actions if they have the proper IAM policy permissions. This is the default. A value of <code>false</code> indicates that only the IAM user who created the cluster can perform actions.</p>
@@ -4075,7 +4075,7 @@ export interface SupportedProductConfig {
   /**
    * <p>The list of user-supplied arguments.</p>
    */
-  Args?: Array<string>;
+  Args?: string[];
 
   /**
    * <p>The name of the product configuration.</p>
@@ -4122,7 +4122,7 @@ export interface TerminateJobFlowsInput {
   /**
    * <p>A list of job flows to be shutdown.</p>
    */
-  JobFlowIds: Array<string> | undefined;
+  JobFlowIds: string[] | undefined;
 }
 
 export namespace TerminateJobFlowsInput {

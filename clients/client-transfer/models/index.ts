@@ -94,7 +94,7 @@ export interface CreateServerRequest {
   /**
    * <p>Key-value pairs that can be used to group and search for servers.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateServerRequest {
@@ -148,7 +148,7 @@ export interface CreateUserRequest {
    *
    *          </note>
    */
-  HomeDirectoryMappings?: Array<HomeDirectoryMapEntry>;
+  HomeDirectoryMappings?: HomeDirectoryMapEntry[];
 
   /**
    * <p>The type of landing directory (folder) you want your users' home directory to be when they
@@ -209,7 +209,7 @@ export interface CreateUserRequest {
    * <p>Key-value pairs that can be used to group and search for users. Tags are metadata attached
    *       to users for any purpose.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A unique string that identifies a user and is associated with a server as specified by the
@@ -440,7 +440,7 @@ export interface DescribedServer {
    * <p>This property contains the key-value pairs that you can use to search for and group
    *       servers that were assigned to the server that was described.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The number of users that are assigned to the SFTP server you specified with the
@@ -489,7 +489,7 @@ export interface DescribedUser {
    *       down to the designated home directory ("chroot"). To do this, you can set <code>Entry</code>
    *       to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>
    */
-  HomeDirectoryMappings?: Array<HomeDirectoryMapEntry>;
+  HomeDirectoryMappings?: HomeDirectoryMapEntry[];
 
   /**
    * <p>The type of landing directory (folder) you mapped for your users' to see when they log
@@ -518,13 +518,13 @@ export interface DescribedUser {
    * <p>This property contains the public key portion of the Secure Shell (SSH) keys stored for
    *       the described user.</p>
    */
-  SshPublicKeys?: Array<SshPublicKey>;
+  SshPublicKeys?: SshPublicKey[];
 
   /**
    * <p>This property contains the key-value pairs for the user requested. Tag can be used to
    *       search for and group users for a variety of purposes.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>This property is the name of the user that was requested to be described. User names are
@@ -553,13 +553,13 @@ export interface EndpointDetails {
    *         <code>VPC</code>.</p>
    *          </note>
    */
-  AddressAllocationIds?: Array<string>;
+  AddressAllocationIds?: string[];
 
   /**
    * <p>A list of subnet IDs that are required to host your SFTP server endpoint in your
    *       VPC.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>The ID of the VPC endpoint.</p>
@@ -773,7 +773,7 @@ export interface ListServersResponse {
   /**
    * <p>An array of servers that were listed.</p>
    */
-  Servers: Array<ListedServer> | undefined;
+  Servers: ListedServer[] | undefined;
 }
 
 export namespace ListServersResponse {
@@ -827,7 +827,7 @@ export interface ListTagsForResourceResponse {
    * <p>Key-value pairs that are assigned to a resource, usually for the purpose of grouping and
    *       searching for items. Tags are metadata that you define.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -883,7 +883,7 @@ export interface ListUsersResponse {
    * <p>Returns the user accounts and their properties for the <code>ServerId</code> value that
    *       you specify.</p>
    */
-  Users: Array<ListedUser> | undefined;
+  Users: ListedUser[] | undefined;
 }
 
 export namespace ListUsersResponse {
@@ -1144,7 +1144,7 @@ export interface TagResourceRequest {
    * <p>Key-value pairs assigned to ARNs that you can use to group and search for resources by
    *       type. You can attach this metadata to user accounts for any purpose.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1233,7 +1233,7 @@ export interface UntagResourceRequest {
    * <p>TagKeys are key-value pairs assigned to ARNs that can be used to group and search for
    *       resources by type. This metadata can be attached to resources for any purpose.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1342,7 +1342,7 @@ export interface UpdateUserRequest {
    *
    *          </note>
    */
-  HomeDirectoryMappings?: Array<HomeDirectoryMapEntry>;
+  HomeDirectoryMappings?: HomeDirectoryMapEntry[];
 
   /**
    * <p>The type of landing directory (folder) you want your users' home directory to be when they

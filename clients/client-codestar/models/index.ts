@@ -181,7 +181,7 @@ export interface CreateProjectRequest {
    * <p>A list of the Code objects submitted with the project request. If this
    *       parameter is specified, the request must also include the toolchain parameter.</p>
    */
-  sourceCode?: Array<Code>;
+  sourceCode?: Code[];
 
   /**
    * <p>The tags created for the project.</p>
@@ -658,7 +658,7 @@ export interface ListProjectsResult {
   /**
    * <p>A list of projects.</p>
    */
-  projects: Array<ProjectSummary> | undefined;
+  projects: ProjectSummary[] | undefined;
 }
 
 export namespace ListProjectsResult {
@@ -701,7 +701,7 @@ export interface ListResourcesResult {
   /**
    * <p>An array of resources associated with the project. </p>
    */
-  resources?: Array<Resource>;
+  resources?: Resource[];
 }
 
 export namespace ListResourcesResult {
@@ -785,7 +785,7 @@ export interface ListTeamMembersResult {
   /**
    * <p>A list of team member objects for the project.</p>
    */
-  teamMembers: Array<TeamMember> | undefined;
+  teamMembers: TeamMember[] | undefined;
 }
 
 export namespace ListTeamMembersResult {
@@ -823,7 +823,7 @@ export interface ListUserProfilesResult {
   /**
    * <p>All the user profiles configured in AWS CodeStar for an AWS account.</p>
    */
-  userProfiles: Array<UserProfileSummary> | undefined;
+  userProfiles: UserProfileSummary[] | undefined;
 }
 
 export namespace ListUserProfilesResult {
@@ -1126,7 +1126,7 @@ export interface UntagProjectRequest {
   /**
    * <p>The tags to remove from the project.</p>
    */
-  tags: Array<string> | undefined;
+  tags: string[] | undefined;
 }
 
 export namespace UntagProjectRequest {

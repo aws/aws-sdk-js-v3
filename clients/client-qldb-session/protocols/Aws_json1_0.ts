@@ -391,7 +391,7 @@ const serializeAws_json1_0StartTransactionRequest = (
 };
 
 const serializeAws_json1_0StatementParameters = (
-  input: Array<ValueHolder>,
+  input: ValueHolder[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -700,7 +700,7 @@ const deserializeAws_json1_0ValueHolder = (
 const deserializeAws_json1_0ValueHolders = (
   output: any,
   context: __SerdeContext
-): Array<ValueHolder> => {
+): ValueHolder[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ValueHolder(entry, context)
   );

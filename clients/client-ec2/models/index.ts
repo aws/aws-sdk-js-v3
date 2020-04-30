@@ -16,13 +16,13 @@ export interface AcceptReservedInstancesExchangeQuoteRequest {
    * <p>The IDs of the Convertible Reserved Instances to exchange for another Convertible
    *             Reserved Instance of the same or higher value.</p>
    */
-  ReservedInstanceIds: Array<string> | undefined;
+  ReservedInstanceIds: string[] | undefined;
 
   /**
    * <p>The configuration of the target Convertible Reserved Instance to exchange for your
    *             current Convertible Reserved Instances.</p>
    */
-  TargetConfigurations?: Array<TargetConfigurationRequest>;
+  TargetConfigurations?: TargetConfigurationRequest[];
 }
 
 export namespace AcceptReservedInstancesExchangeQuoteRequest {
@@ -137,7 +137,7 @@ export interface AcceptVpcEndpointConnectionsRequest {
   /**
    * <p>The IDs of one or more interface VPC endpoints.</p>
    */
-  VpcEndpointIds: Array<string> | undefined;
+  VpcEndpointIds: string[] | undefined;
 }
 
 export namespace AcceptVpcEndpointConnectionsRequest {
@@ -151,7 +151,7 @@ export interface AcceptVpcEndpointConnectionsResult {
    * <p>Information about the interface endpoints that were not accepted, if
    *             applicable.</p>
    */
-  Unsuccessful?: Array<UnsuccessfulItem>;
+  Unsuccessful?: UnsuccessfulItem[];
 }
 
 export namespace AcceptVpcEndpointConnectionsResult {
@@ -206,7 +206,7 @@ export interface AccountAttribute {
   /**
    * <p>The values for the account attribute.</p>
    */
-  AttributeValues?: Array<AccountAttributeValue>;
+  AttributeValues?: AccountAttributeValue[];
 }
 
 export namespace AccountAttribute {
@@ -341,7 +341,7 @@ export interface Address {
   /**
    * <p>Any tags assigned to the Elastic IP address.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace Address {
@@ -544,7 +544,7 @@ export interface AllocateHostsRequest {
   /**
    * <p>The tags to apply to the Dedicated Host during creation.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 }
 
 export namespace AllocateHostsRequest {
@@ -561,7 +561,7 @@ export interface AllocateHostsResult {
    * <p>The ID of the allocated Dedicated Host. This is used to launch an instance onto a
    * 			specific host.</p>
    */
-  HostIds?: Array<string>;
+  HostIds?: string[];
 }
 
 export namespace AllocateHostsResult {
@@ -622,7 +622,7 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkRequest {
    * <p>The IDs of the security groups to apply to the associated target network. Up to 5 security groups can
    * 			be applied to an associated target network.</p>
    */
-  SecurityGroupIds: Array<string> | undefined;
+  SecurityGroupIds: string[] | undefined;
 
   /**
    * <p>The ID of the VPC in which the associated target network is located.</p>
@@ -642,7 +642,7 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkResult {
   /**
    * <p>The IDs of the applied security groups.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 }
 
 export namespace ApplySecurityGroupsToClientVpnTargetNetworkResult {
@@ -668,7 +668,7 @@ export interface AssignIpv6AddressesRequest {
   /**
    * <p>One or more specific IPv6 addresses to be assigned to the network interface. You can't use this option if you're specifying a number of IPv6 addresses.</p>
    */
-  Ipv6Addresses?: Array<string>;
+  Ipv6Addresses?: string[];
 
   /**
    * <p>The ID of the network interface.</p>
@@ -686,7 +686,7 @@ export interface AssignIpv6AddressesResult {
   /**
    * <p>The IPv6 addresses assigned to the network interface.</p>
    */
-  AssignedIpv6Addresses?: Array<string>;
+  AssignedIpv6Addresses?: string[];
 
   /**
    * <p>The ID of the network interface.</p>
@@ -718,7 +718,7 @@ export interface AssignPrivateIpAddressesRequest {
    * <p>One or more IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses.</p>
    *         <p>If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.</p>
    */
-  PrivateIpAddresses?: Array<string>;
+  PrivateIpAddresses?: string[];
 
   /**
    * <p>The number of secondary IP addresses to assign to the network interface. You can't specify this parameter when also specifying private IP addresses.</p>
@@ -736,7 +736,7 @@ export interface AssignPrivateIpAddressesResult {
   /**
    * <p>The private IP addresses assigned to the network interface.</p>
    */
-  AssignedPrivateIpAddresses?: Array<AssignedPrivateIpAddress>;
+  AssignedPrivateIpAddresses?: AssignedPrivateIpAddress[];
 
   /**
    * <p>The ID of the network interface.</p>
@@ -1025,7 +1025,7 @@ export interface AssociateTransitGatewayMulticastDomainRequest {
   /**
    * <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>The ID of the transit gateway attachment to associate with the transit gateway multicast domain.</p>
@@ -1225,7 +1225,7 @@ export interface AttachClassicLinkVpcRequest {
   /**
    * <p>The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.</p>
    */
-  Groups: Array<string> | undefined;
+  Groups: string[] | undefined;
 
   /**
    * <p>The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.</p>
@@ -1569,7 +1569,7 @@ export interface AuthorizeSecurityGroupEgressRequest {
    * <p>The sets of IP permissions. You can't specify a destination security group and a CIDR IP
    *             address range in the same set of permissions.</p>
    */
-  IpPermissions?: Array<IpPermission>;
+  IpPermissions?: IpPermission[];
 
   /**
    * <p>Not supported. Use a set of IP permissions to specify the protocol name or
@@ -1640,7 +1640,7 @@ export interface AuthorizeSecurityGroupIngressRequest {
   /**
    * <p>The sets of IP permissions.</p>
    */
-  IpPermissions?: Array<IpPermission>;
+  IpPermissions?: IpPermission[];
 
   /**
    * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>) or number
@@ -1702,7 +1702,7 @@ export interface AvailabilityZone {
   /**
    * <p>Any messages about the Availability Zone or Local Zone.</p>
    */
-  Messages?: Array<AvailabilityZoneMessage>;
+  Messages?: AvailabilityZoneMessage[];
 
   /**
    * <p>The name of the location from which the address is advertised.</p>
@@ -1781,7 +1781,7 @@ export interface AvailableCapacity {
    *     		this parameter represents the number of instances for each instance size that is
    *     		supported on the host.</p>
    */
-  AvailableInstanceCapacity?: Array<InstanceCapacity>;
+  AvailableInstanceCapacity?: InstanceCapacity[];
 
   /**
    * <p>The number of vCPUs available for launching instances onto the Dedicated Host.</p>
@@ -2211,7 +2211,7 @@ export interface CancelReservedInstancesListingResult {
   /**
    * <p>The Reserved Instance listing.</p>
    */
-  ReservedInstancesListings?: Array<ReservedInstancesListing>;
+  ReservedInstancesListings?: ReservedInstancesListing[];
 }
 
 export namespace CancelReservedInstancesListingResult {
@@ -2276,7 +2276,7 @@ export interface CancelSpotFleetRequestsRequest {
   /**
    * <p>The IDs of the Spot Fleet requests.</p>
    */
-  SpotFleetRequestIds: Array<string> | undefined;
+  SpotFleetRequestIds: string[] | undefined;
 
   /**
    * <p>Indicates whether to terminate instances for a Spot Fleet request if it is canceled successfully.</p>
@@ -2297,12 +2297,12 @@ export interface CancelSpotFleetRequestsResponse {
   /**
    * <p>Information about the Spot Fleet requests that are successfully canceled.</p>
    */
-  SuccessfulFleetRequests?: Array<CancelSpotFleetRequestsSuccessItem>;
+  SuccessfulFleetRequests?: CancelSpotFleetRequestsSuccessItem[];
 
   /**
    * <p>Information about the Spot Fleet requests that are not successfully canceled.</p>
    */
-  UnsuccessfulFleetRequests?: Array<CancelSpotFleetRequestsErrorItem>;
+  UnsuccessfulFleetRequests?: CancelSpotFleetRequestsErrorItem[];
 }
 
 export namespace CancelSpotFleetRequestsResponse {
@@ -2358,7 +2358,7 @@ export interface CancelSpotInstanceRequestsRequest {
   /**
    * <p>One or more Spot Instance request IDs.</p>
    */
-  SpotInstanceRequestIds: Array<string> | undefined;
+  SpotInstanceRequestIds: string[] | undefined;
 }
 
 export namespace CancelSpotInstanceRequestsRequest {
@@ -2374,7 +2374,7 @@ export interface CancelSpotInstanceRequestsResult {
   /**
    * <p>One or more Spot Instance requests.</p>
    */
-  CancelledSpotInstanceRequests?: Array<CancelledSpotInstanceRequest>;
+  CancelledSpotInstanceRequests?: CancelledSpotInstanceRequest[];
 }
 
 export namespace CancelSpotInstanceRequestsResult {
@@ -2545,7 +2545,7 @@ export interface CapacityReservation {
   /**
    * <p>Any tags assigned to the Capacity Reservation.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:</p>
@@ -2874,7 +2874,7 @@ export interface ClassicLinkInstance {
   /**
    * <p>A list of security groups.</p>
    */
-  Groups?: Array<GroupIdentifier>;
+  Groups?: GroupIdentifier[];
 
   /**
    * <p>The ID of the instance.</p>
@@ -2884,7 +2884,7 @@ export interface ClassicLinkInstance {
   /**
    * <p>Any tags assigned to the instance.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the VPC.</p>
@@ -2922,7 +2922,7 @@ export interface ClassicLoadBalancersConfig {
   /**
    * <p>One or more Classic Load Balancers.</p>
    */
-  ClassicLoadBalancers?: Array<ClassicLoadBalancer>;
+  ClassicLoadBalancers?: ClassicLoadBalancer[];
 }
 
 export namespace ClassicLoadBalancersConfig {
@@ -3184,12 +3184,12 @@ export interface ClientVpnEndpoint {
   /**
    * <p>Information about the associated target networks. A target network is a subnet in a VPC.</p>
    */
-  AssociatedTargetNetworks?: Array<AssociatedTargetNetwork>;
+  AssociatedTargetNetworks?: AssociatedTargetNetwork[];
 
   /**
    * <p>Information about the authentication method used by the Client VPN endpoint.</p>
    */
-  AuthenticationOptions?: Array<ClientVpnAuthentication>;
+  AuthenticationOptions?: ClientVpnAuthentication[];
 
   /**
    * <p>The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.</p>
@@ -3229,7 +3229,7 @@ export interface ClientVpnEndpoint {
   /**
    * <p>Information about the DNS servers to be used for DNS resolution. </p>
    */
-  DnsServers?: Array<string>;
+  DnsServers?: string[];
 
   /**
    * <p>The ARN of the server certificate.</p>
@@ -3251,7 +3251,7 @@ export interface ClientVpnEndpoint {
   /**
    * <p>Any tags assigned to the Client VPN endpoint.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The transport protocol used by the Client VPN endpoint.</p>
@@ -3443,7 +3443,7 @@ export interface CoipPool {
   /**
    * <p>The address ranges of the address pool.</p>
    */
-  PoolCidrs?: Array<string>;
+  PoolCidrs?: string[];
 
   /**
    * <p>The ID of the address pool.</p>
@@ -3453,7 +3453,7 @@ export interface CoipPool {
   /**
    * <p>The tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CoipPool {
@@ -3567,7 +3567,7 @@ export interface ConnectionNotification {
    * <p>The events for the notification. Valid values are <code>Accept</code>,
    *                 <code>Connect</code>, <code>Delete</code>, and <code>Reject</code>.</p>
    */
-  ConnectionEvents?: Array<string>;
+  ConnectionEvents?: string[];
 
   /**
    * <p>The ARN of the SNS topic for the notification.</p>
@@ -3655,7 +3655,7 @@ export interface ConversionTask {
   /**
    * <p>Any tags assigned to the task.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ConversionTask {
@@ -3914,7 +3914,7 @@ export interface CopySnapshotRequest {
   /**
    * <p>The tags to apply to the new snapshot.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 }
 
 export namespace CopySnapshotRequest {
@@ -3932,7 +3932,7 @@ export interface CopySnapshotResult {
   /**
    * <p>Any tags applied to the new snapshot.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CopySnapshotResult {
@@ -4100,7 +4100,7 @@ export interface CreateCapacityReservationRequest {
   /**
    * <p>The tags to apply to the Capacity Reservation during launch.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 
   /**
    * <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:</p>
@@ -4141,7 +4141,7 @@ export interface CreateClientVpnEndpointRequest {
   /**
    * <p>Information about the authentication method to be used to authenticate clients.</p>
    */
-  AuthenticationOptions: Array<ClientVpnAuthenticationRequest> | undefined;
+  AuthenticationOptions: ClientVpnAuthenticationRequest[] | undefined;
 
   /**
    * <p>The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.</p>
@@ -4183,7 +4183,7 @@ export interface CreateClientVpnEndpointRequest {
    * <p>Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can
    * 			have up to two DNS servers. If no DNS server is specified, the DNS address configured on the device is used for the DNS server.</p>
    */
-  DnsServers?: Array<string>;
+  DnsServers?: string[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -4207,7 +4207,7 @@ export interface CreateClientVpnEndpointRequest {
   /**
    * <p>The tags to apply to the Client VPN endpoint during creation.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 
   /**
    * <p>The transport protocol to be used by the VPN session.</p>
@@ -4446,7 +4446,7 @@ export interface CreateDhcpOptionsRequest {
   /**
    * <p>A DHCP configuration option.</p>
    */
-  DhcpConfigurations: Array<NewDhcpConfiguration> | undefined;
+  DhcpConfigurations: NewDhcpConfiguration[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4562,7 +4562,7 @@ export interface CreateFleetInstance {
   /**
    * <p>The IDs of the instances.</p>
    */
-  InstanceIds?: Array<string>;
+  InstanceIds?: string[];
 
   /**
    * <p>The instance type.</p>
@@ -4619,7 +4619,7 @@ export interface CreateFleetRequest {
   /**
    * <p>The configuration for the EC2 Fleet.</p>
    */
-  LaunchTemplateConfigs: Array<FleetLaunchTemplateConfigRequest> | undefined;
+  LaunchTemplateConfigs: FleetLaunchTemplateConfigRequest[] | undefined;
 
   /**
    * <p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>
@@ -4643,7 +4643,7 @@ export interface CreateFleetRequest {
    *             template</a>. For information about tagging after launch, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging Your
    *             Resources</a>. </p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 
   /**
    * <p>The number of units to request.</p>
@@ -4693,7 +4693,7 @@ export interface CreateFleetResult {
    * <p>Information about the instances that could not be launched by the fleet. Valid only when
    *             <b>Type</b> is set to <code>instant</code>.</p>
    */
-  Errors?: Array<CreateFleetError>;
+  Errors?: CreateFleetError[];
 
   /**
    * <p>The ID of the EC2 Fleet.</p>
@@ -4704,7 +4704,7 @@ export interface CreateFleetResult {
    * <p>Information about the instances that were launched by the fleet. Valid only when
    *             <b>Type</b> is set to <code>instant</code>.</p>
    */
-  Instances?: Array<CreateFleetInstance>;
+  Instances?: CreateFleetInstance[];
 }
 
 export namespace CreateFleetResult {
@@ -4785,7 +4785,7 @@ export interface CreateFlowLogsRequest {
    * <p>The ID of the subnet, network interface, or VPC for which you want to create a flow log.</p>
    *         <p>Constraints: Maximum of 1000 resources</p>
    */
-  ResourceIds: Array<string> | undefined;
+  ResourceIds: string[] | undefined;
 
   /**
    * <p>The type of resource for which to create the flow log. For example, if you specified a VPC ID for
@@ -4815,12 +4815,12 @@ export interface CreateFlowLogsResult {
   /**
    * <p>The IDs of the flow logs.</p>
    */
-  FlowLogIds?: Array<string>;
+  FlowLogIds?: string[];
 
   /**
    * <p>Information about the flow logs that could not be created successfully.</p>
    */
-  Unsuccessful?: Array<UnsuccessfulItem>;
+  Unsuccessful?: UnsuccessfulItem[];
 }
 
 export namespace CreateFlowLogsResult {
@@ -4866,7 +4866,7 @@ export interface CreateFpgaImageRequest {
   /**
    * <p>The tags to apply to the FPGA image during creation.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 }
 
 export namespace CreateFpgaImageRequest {
@@ -4897,7 +4897,7 @@ export interface CreateImageRequest {
   /**
    * <p>The block device mappings. This parameter cannot be used to modify the encryption status of existing volumes or snapshots. To create an AMI with encrypted snapshots, use the <a>CopyImage</a> action.</p>
    */
-  BlockDeviceMappings?: Array<BlockDeviceMapping>;
+  BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
    * <p>A description for the new image.</p>
@@ -5067,7 +5067,7 @@ export interface CreateLaunchTemplateRequest {
   /**
    * <p>The tags to apply to the launch template during creation.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 
   /**
    * <p>A description for the first version of the launch template.</p>
@@ -5468,7 +5468,7 @@ export interface CreateNetworkInterfaceRequest {
   /**
    * <p>The IDs of one or more security groups.</p>
    */
-  Groups?: Array<string>;
+  Groups?: string[];
 
   /**
    * <p>Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify
@@ -5489,7 +5489,7 @@ export interface CreateNetworkInterfaceRequest {
    * <p>One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
    *             You can't use this option if you're specifying a number of IPv6 addresses.</p>
    */
-  Ipv6Addresses?: Array<InstanceIpv6Address>;
+  Ipv6Addresses?: InstanceIpv6Address[];
 
   /**
    * <p>The primary private IPv4 address of the network interface. If you don't specify an
@@ -5503,7 +5503,7 @@ export interface CreateNetworkInterfaceRequest {
   /**
    * <p>One or more private IPv4 addresses.</p>
    */
-  PrivateIpAddresses?: Array<PrivateIpAddressSpecification>;
+  PrivateIpAddresses?: PrivateIpAddressSpecification[];
 
   /**
    * <p>The number of secondary private IPv4 addresses to assign to a network interface. When
@@ -5596,7 +5596,7 @@ export interface CreateReservedInstancesListingRequest {
   /**
    * <p>A list specifying the price of the Standard Reserved Instance for each month remaining in the Reserved Instance term.</p>
    */
-  PriceSchedules: Array<PriceScheduleSpecification> | undefined;
+  PriceSchedules: PriceScheduleSpecification[] | undefined;
 
   /**
    * <p>The ID of the active Standard Reserved Instance.</p>
@@ -5617,7 +5617,7 @@ export interface CreateReservedInstancesListingResult {
   /**
    * <p>Information about the Standard Reserved Instance listing.</p>
    */
-  ReservedInstancesListings?: Array<ReservedInstancesListing>;
+  ReservedInstancesListings?: ReservedInstancesListing[];
 }
 
 export namespace CreateReservedInstancesListingResult {
@@ -5809,7 +5809,7 @@ export interface CreateSnapshotRequest {
   /**
    * <p>The tags to apply to the snapshot during creation.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 
   /**
    * <p>The ID of the EBS volume.</p>
@@ -5849,7 +5849,7 @@ export interface CreateSnapshotsRequest {
   /**
    * <p>Tags to apply to every snapshot specified by the instance.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 }
 
 export namespace CreateSnapshotsRequest {
@@ -5862,7 +5862,7 @@ export interface CreateSnapshotsResult {
   /**
    * <p>List of snapshots.</p>
    */
-  Snapshots?: Array<SnapshotInfo>;
+  Snapshots?: SnapshotInfo[];
 }
 
 export namespace CreateSnapshotsResult {
@@ -5990,13 +5990,13 @@ export interface CreateTagsRequest {
    * <p>The IDs of the resources, separated by spaces.</p>
    *    	     <p>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.</p>
    */
-  Resources: Array<string> | undefined;
+  Resources: string[] | undefined;
 
   /**
    * <p>The tags. The <code>value</code> parameter is required, but if you don't want the tag to have a value,
    *         specify the parameter with no value, and we set the value to an empty string.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace CreateTagsRequest {
@@ -6026,7 +6026,7 @@ export interface CreateTrafficMirrorFilterRequest {
   /**
    * <p>The tags to assign to a Traffic Mirror filter.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 }
 
 export namespace CreateTrafficMirrorFilterRequest {
@@ -6185,7 +6185,7 @@ export interface CreateTrafficMirrorSessionRequest {
   /**
    * <p>The tags to assign to a Traffic Mirror session.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 
   /**
    * <p>The ID of the Traffic Mirror filter.</p>
@@ -6261,7 +6261,7 @@ export interface CreateTrafficMirrorTargetRequest {
   /**
    * <p>The tags to assign to the Traffic Mirror target.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 }
 
 export namespace CreateTrafficMirrorTargetRequest {
@@ -6299,7 +6299,7 @@ export interface CreateTransitGatewayMulticastDomainRequest {
   /**
    * <p>The tags for the transit gateway multicast domain.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 
   /**
    * <p>The ID of the transit gateway.</p>
@@ -6354,7 +6354,7 @@ export interface CreateTransitGatewayPeeringAttachmentRequest {
   /**
    * <p>The tags to apply to the transit gateway peering attachment.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 
   /**
    * <p>The ID of the transit gateway.</p>
@@ -6406,7 +6406,7 @@ export interface CreateTransitGatewayRequest {
   /**
    * <p>The tags to apply to the transit gateway.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 }
 
 export namespace CreateTransitGatewayRequest {
@@ -6488,7 +6488,7 @@ export interface CreateTransitGatewayRouteTableRequest {
   /**
    * <p>The tags to apply to the transit gateway route table.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 
   /**
    * <p>The ID of the transit gateway.</p>
@@ -6533,12 +6533,12 @@ export interface CreateTransitGatewayVpcAttachmentRequest {
    *          You must specify at least one subnet, but we recommend that you specify two subnets for better availability.
    *          The transit gateway uses one IP address from each specified subnet.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 
   /**
    * <p>The tags to apply to the VPC attachment.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 
   /**
    * <p>The ID of the transit gateway.</p>
@@ -6622,12 +6622,12 @@ export interface CreateVolumePermissionModifications {
   /**
    * <p>Adds the specified AWS account ID or group to the list.</p>
    */
-  Add?: Array<CreateVolumePermission>;
+  Add?: CreateVolumePermission[];
 
   /**
    * <p>Removes the specified AWS account ID or group from the list.</p>
    */
-  Remove?: Array<CreateVolumePermission>;
+  Remove?: CreateVolumePermission[];
 }
 
 export namespace CreateVolumePermissionModifications {
@@ -6727,7 +6727,7 @@ export interface CreateVolumeRequest {
   /**
    * <p>The tags to apply to the volume during creation.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 
   /**
    * <p>The volume type. This can be <code>gp2</code> for General Purpose SSD, <code>io1</code> for Provisioned IOPS SSD,
@@ -6758,7 +6758,7 @@ export interface CreateVpcEndpointConnectionNotificationRequest {
    *                 <code>Accept</code>, <code>Connect</code>, <code>Delete</code>, and
    *                 <code>Reject</code>.</p>
    */
-  ConnectionEvents: Array<string> | undefined;
+  ConnectionEvents: string[] | undefined;
 
   /**
    * <p>The ARN of the SNS topic for the notifications.</p>
@@ -6857,13 +6857,13 @@ export interface CreateVpcEndpointRequest {
   /**
    * <p>(Gateway endpoint) One or more route table IDs.</p>
    */
-  RouteTableIds?: Array<string>;
+  RouteTableIds?: string[];
 
   /**
    * <p>(Interface endpoint) The ID of one or more security groups to associate with the
    *             endpoint network interface.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>The service name. To get a list of available services, use the <a>DescribeVpcEndpointServices</a> request, or get the name from the service
@@ -6875,7 +6875,7 @@ export interface CreateVpcEndpointRequest {
    * <p>(Interface endpoint) The ID of one or more subnets in which to create an endpoint
    *             network interface.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>The type of endpoint.</p>
@@ -6942,7 +6942,7 @@ export interface CreateVpcEndpointServiceConfigurationRequest {
    * <p>The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your
    *             service.</p>
    */
-  NetworkLoadBalancerArns: Array<string> | undefined;
+  NetworkLoadBalancerArns: string[] | undefined;
 
   /**
    * <p>The private DNS name to assign to the VPC endpoint service.</p>
@@ -7306,7 +7306,7 @@ export interface CustomerGateway {
   /**
    * <p>Any tags assigned to the customer gateway.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The type of VPN connection the customer gateway supports (<code>ipsec.1</code>).</p>
@@ -7565,7 +7565,7 @@ export interface DeleteFleetsRequest {
   /**
    * <p>The IDs of the EC2 Fleets.</p>
    */
-  FleetIds: Array<string> | undefined;
+  FleetIds: string[] | undefined;
 
   /**
    * <p>Indicates whether to terminate instances for an EC2 Fleet if it is deleted
@@ -7584,12 +7584,12 @@ export interface DeleteFleetsResult {
   /**
    * <p>Information about the EC2 Fleets that are successfully deleted.</p>
    */
-  SuccessfulFleetDeletions?: Array<DeleteFleetSuccessItem>;
+  SuccessfulFleetDeletions?: DeleteFleetSuccessItem[];
 
   /**
    * <p>Information about the EC2 Fleets that are not successfully deleted.</p>
    */
-  UnsuccessfulFleetDeletions?: Array<DeleteFleetErrorItem>;
+  UnsuccessfulFleetDeletions?: DeleteFleetErrorItem[];
 }
 
 export namespace DeleteFleetsResult {
@@ -7610,7 +7610,7 @@ export interface DeleteFlowLogsRequest {
    * <p>One or more flow log IDs.</p>
    *         <p>Constraint: Maximum of 1000 flow log IDs.</p>
    */
-  FlowLogIds: Array<string> | undefined;
+  FlowLogIds: string[] | undefined;
 }
 
 export namespace DeleteFlowLogsRequest {
@@ -7623,7 +7623,7 @@ export interface DeleteFlowLogsResult {
   /**
    * <p>Information about the flow logs that could not be deleted successfully.</p>
    */
-  Unsuccessful?: Array<UnsuccessfulItem>;
+  Unsuccessful?: UnsuccessfulItem[];
 }
 
 export namespace DeleteFlowLogsResult {
@@ -7770,7 +7770,7 @@ export interface DeleteLaunchTemplateVersionsRequest {
   /**
    * <p>The version numbers of one or more launch template versions to delete.</p>
    */
-  Versions: Array<string> | undefined;
+  Versions: string[] | undefined;
 }
 
 export namespace DeleteLaunchTemplateVersionsRequest {
@@ -7845,16 +7845,12 @@ export interface DeleteLaunchTemplateVersionsResult {
    * <p>Information about the launch template versions that were successfully
    *             deleted.</p>
    */
-  SuccessfullyDeletedLaunchTemplateVersions?: Array<
-    DeleteLaunchTemplateVersionsResponseSuccessItem
-  >;
+  SuccessfullyDeletedLaunchTemplateVersions?: DeleteLaunchTemplateVersionsResponseSuccessItem[];
 
   /**
    * <p>Information about the launch template versions that could not be deleted.</p>
    */
-  UnsuccessfullyDeletedLaunchTemplateVersions?: Array<
-    DeleteLaunchTemplateVersionsResponseErrorItem
-  >;
+  UnsuccessfullyDeletedLaunchTemplateVersions?: DeleteLaunchTemplateVersionsResponseErrorItem[];
 }
 
 export namespace DeleteLaunchTemplateVersionsResult {
@@ -8140,7 +8136,7 @@ export interface DeleteQueuedReservedInstancesRequest {
   /**
    * <p>The IDs of the Reserved Instances.</p>
    */
-  ReservedInstancesIds: Array<string> | undefined;
+  ReservedInstancesIds: string[] | undefined;
 }
 
 export namespace DeleteQueuedReservedInstancesRequest {
@@ -8153,12 +8149,12 @@ export interface DeleteQueuedReservedInstancesResult {
   /**
    * <p>Information about the queued purchases that could not be deleted.</p>
    */
-  FailedQueuedPurchaseDeletions?: Array<FailedQueuedPurchaseDeletion>;
+  FailedQueuedPurchaseDeletions?: FailedQueuedPurchaseDeletion[];
 
   /**
    * <p>Information about the queued purchases that were successfully deleted.</p>
    */
-  SuccessfulQueuedPurchaseDeletions?: Array<SuccessfulQueuedPurchaseDeletion>;
+  SuccessfulQueuedPurchaseDeletions?: SuccessfulQueuedPurchaseDeletion[];
 }
 
 export namespace DeleteQueuedReservedInstancesResult {
@@ -8312,7 +8308,7 @@ export interface DeleteTagsRequest {
    * <p>The IDs of the resources, separated by spaces.</p>
    *    	     <p>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.</p>
    */
-  Resources: Array<string> | undefined;
+  Resources: string[] | undefined;
 
   /**
    * <p>The tags to delete. Specify a tag key and an optional tag value to delete
@@ -8323,7 +8319,7 @@ export interface DeleteTagsRequest {
    *             resources. We do not delete AWS-generated tags (tags that have the <code>aws:</code>
    *             prefix).</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace DeleteTagsRequest {
@@ -8697,7 +8693,7 @@ export interface DeleteVpcEndpointConnectionNotificationsRequest {
   /**
    * <p>One or more notification IDs.</p>
    */
-  ConnectionNotificationIds: Array<string> | undefined;
+  ConnectionNotificationIds: string[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -8720,7 +8716,7 @@ export interface DeleteVpcEndpointConnectionNotificationsResult {
    * <p>Information about the notifications that could not be deleted
    *             successfully.</p>
    */
-  Unsuccessful?: Array<UnsuccessfulItem>;
+  Unsuccessful?: UnsuccessfulItem[];
 }
 
 export namespace DeleteVpcEndpointConnectionNotificationsResult {
@@ -8742,7 +8738,7 @@ export interface DeleteVpcEndpointServiceConfigurationsRequest {
   /**
    * <p>The IDs of one or more services.</p>
    */
-  ServiceIds: Array<string> | undefined;
+  ServiceIds: string[] | undefined;
 }
 
 export namespace DeleteVpcEndpointServiceConfigurationsRequest {
@@ -8758,7 +8754,7 @@ export interface DeleteVpcEndpointServiceConfigurationsResult {
    * <p>Information about the service configurations that were not deleted, if
    *             applicable.</p>
    */
-  Unsuccessful?: Array<UnsuccessfulItem>;
+  Unsuccessful?: UnsuccessfulItem[];
 }
 
 export namespace DeleteVpcEndpointServiceConfigurationsResult {
@@ -8783,7 +8779,7 @@ export interface DeleteVpcEndpointsRequest {
   /**
    * <p>One or more VPC endpoint IDs.</p>
    */
-  VpcEndpointIds: Array<string> | undefined;
+  VpcEndpointIds: string[] | undefined;
 }
 
 export namespace DeleteVpcEndpointsRequest {
@@ -8799,7 +8795,7 @@ export interface DeleteVpcEndpointsResult {
   /**
    * <p>Information about the VPC endpoints that were not successfully deleted.</p>
    */
-  Unsuccessful?: Array<UnsuccessfulItem>;
+  Unsuccessful?: UnsuccessfulItem[];
 }
 
 export namespace DeleteVpcEndpointsResult {
@@ -9001,7 +8997,7 @@ export interface DeregisterTransitGatewayMulticastGroupMembersRequest {
   /**
    * <p>The IDs of the group members' network interfaces.</p>
    */
-  NetworkInterfaceIds?: Array<string>;
+  NetworkInterfaceIds?: string[];
 
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
@@ -9048,7 +9044,7 @@ export interface DeregisterTransitGatewayMulticastGroupSourcesRequest {
   /**
    * <p>The IDs of the group sources' network interfaces.</p>
    */
-  NetworkInterfaceIds?: Array<string>;
+  NetworkInterfaceIds?: string[];
 
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
@@ -9083,7 +9079,7 @@ export interface DescribeAccountAttributesRequest {
   /**
    * <p>The account attribute names.</p>
    */
-  AttributeNames?: Array<AccountAttributeName | string>;
+  AttributeNames?: AccountAttributeName | string[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -9103,7 +9099,7 @@ export interface DescribeAccountAttributesResult {
   /**
    * <p>Information about the account attributes.</p>
    */
-  AccountAttributes?: Array<AccountAttribute>;
+  AccountAttributes?: AccountAttribute[];
 }
 
 export namespace DescribeAccountAttributesResult {
@@ -9116,7 +9112,7 @@ export interface DescribeAddressesRequest {
   /**
    * <p>[EC2-VPC] Information about the allocation IDs.</p>
    */
-  AllocationIds?: Array<string>;
+  AllocationIds?: string[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -9176,13 +9172,13 @@ export interface DescribeAddressesRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>One or more Elastic IP addresses.</p>
    *          <p>Default: Describes all your Elastic IP addresses.</p>
    */
-  PublicIps?: Array<string>;
+  PublicIps?: string[];
 }
 
 export namespace DescribeAddressesRequest {
@@ -9195,7 +9191,7 @@ export interface DescribeAddressesResult {
   /**
    * <p>Information about the Elastic IP addresses.</p>
    */
-  Addresses?: Array<Address>;
+  Addresses?: Address[];
 }
 
 export namespace DescribeAddressesResult {
@@ -9223,7 +9219,7 @@ export interface DescribeAggregateIdFormatResult {
   /**
    * <p>Information about each resource's ID format.</p>
    */
-  Statuses?: Array<IdFormat>;
+  Statuses?: IdFormat[];
 
   /**
    * <p>Indicates whether all resource types in the Region are configured to use longer IDs.
@@ -9294,17 +9290,17 @@ export interface DescribeAvailabilityZonesRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The IDs of the Availability Zones and Local Zones.</p>
    */
-  ZoneIds?: Array<string>;
+  ZoneIds?: string[];
 
   /**
    * <p>The names of the Availability Zones and Local Zones.</p>
    */
-  ZoneNames?: Array<string>;
+  ZoneNames?: string[];
 }
 
 export namespace DescribeAvailabilityZonesRequest {
@@ -9317,7 +9313,7 @@ export interface DescribeAvailabilityZonesResult {
   /**
    * <p>Information about the Availability Zones and Local Zones.</p>
    */
-  AvailabilityZones?: Array<AvailabilityZone>;
+  AvailabilityZones?: AvailabilityZone[];
 }
 
 export namespace DescribeAvailabilityZonesResult {
@@ -9331,7 +9327,7 @@ export interface DescribeBundleTasksRequest {
    * <p>The bundle task IDs.</p>
    *          <p>Default: Describes all your bundle tasks.</p>
    */
-  BundleIds?: Array<string>;
+  BundleIds?: string[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -9386,7 +9382,7 @@ export interface DescribeBundleTasksRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 }
 
 export namespace DescribeBundleTasksRequest {
@@ -9399,7 +9395,7 @@ export interface DescribeBundleTasksResult {
   /**
    * <p>Information about the bundle tasks.</p>
    */
-  BundleTasks?: Array<BundleTask>;
+  BundleTasks?: BundleTask[];
 }
 
 export namespace DescribeBundleTasksResult {
@@ -9438,7 +9434,7 @@ export interface DescribeByoipCidrsResult {
   /**
    * <p>Information about your address ranges.</p>
    */
-  ByoipCidrs?: Array<ByoipCidr>;
+  ByoipCidrs?: ByoipCidr[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -9456,7 +9452,7 @@ export interface DescribeCapacityReservationsRequest {
   /**
    * <p>The ID of the Capacity Reservation.</p>
    */
-  CapacityReservationIds?: Array<string>;
+  CapacityReservationIds?: string[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -9466,7 +9462,7 @@ export interface DescribeCapacityReservationsRequest {
   /**
    * <p>One or more filters.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned nextToken value.</p>
@@ -9489,7 +9485,7 @@ export interface DescribeCapacityReservationsResult {
   /**
    * <p>Information about the Capacity Reservations.</p>
    */
-  CapacityReservations?: Array<CapacityReservation>;
+  CapacityReservations?: CapacityReservation[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -9543,12 +9539,12 @@ export interface DescribeClassicLinkInstancesRequest {
    * 			         </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>One or more instance IDs. Must be instances linked to a VPC through ClassicLink.</p>
    */
-  InstanceIds?: Array<string>;
+  InstanceIds?: string[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -9573,7 +9569,7 @@ export interface DescribeClassicLinkInstancesResult {
   /**
    * <p>Information about one or more linked EC2-Classic instances.</p>
    */
-  Instances?: Array<ClassicLinkInstance>;
+  Instances?: ClassicLinkInstance[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -9616,7 +9612,7 @@ export interface DescribeClientVpnAuthorizationRulesRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
@@ -9641,7 +9637,7 @@ export interface DescribeClientVpnAuthorizationRulesResult {
   /**
    * <p>Information about the authorization rules.</p>
    */
-  AuthorizationRules?: Array<AuthorizationRule>;
+  AuthorizationRules?: AuthorizationRule[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -9680,7 +9676,7 @@ export interface DescribeClientVpnConnectionsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
@@ -9703,7 +9699,7 @@ export interface DescribeClientVpnConnectionsResult {
   /**
    * <p>Information about the active and terminated client connections.</p>
    */
-  Connections?: Array<ClientVpnConnection>;
+  Connections?: ClientVpnConnection[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -9721,7 +9717,7 @@ export interface DescribeClientVpnEndpointsRequest {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
    */
-  ClientVpnEndpointIds?: Array<string>;
+  ClientVpnEndpointIds?: string[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -9742,7 +9738,7 @@ export interface DescribeClientVpnEndpointsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
@@ -9765,7 +9761,7 @@ export interface DescribeClientVpnEndpointsResult {
   /**
    * <p>Information about the Client VPN endpoints.</p>
    */
-  ClientVpnEndpoints?: Array<ClientVpnEndpoint>;
+  ClientVpnEndpoints?: ClientVpnEndpoint[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -9807,7 +9803,7 @@ export interface DescribeClientVpnRoutesRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
@@ -9835,7 +9831,7 @@ export interface DescribeClientVpnRoutesResult {
   /**
    * <p>Information about the Client VPN endpoint routes.</p>
    */
-  Routes?: Array<ClientVpnRoute>;
+  Routes?: ClientVpnRoute[];
 }
 
 export namespace DescribeClientVpnRoutesResult {
@@ -9848,7 +9844,7 @@ export interface DescribeClientVpnTargetNetworksRequest {
   /**
    * <p>The IDs of the target network associations.</p>
    */
-  AssociationIds?: Array<string>;
+  AssociationIds?: string[];
 
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -9877,7 +9873,7 @@ export interface DescribeClientVpnTargetNetworksRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
@@ -9900,7 +9896,7 @@ export interface DescribeClientVpnTargetNetworksResult {
   /**
    * <p>Information about the associated target networks.</p>
    */
-  ClientVpnTargetNetworks?: Array<TargetNetwork>;
+  ClientVpnTargetNetworks?: TargetNetwork[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -9939,7 +9935,7 @@ export interface DescribeCoipPoolsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -9955,7 +9951,7 @@ export interface DescribeCoipPoolsRequest {
   /**
    * <p>The IDs of the address pools.</p>
    */
-  PoolIds?: Array<string>;
+  PoolIds?: string[];
 }
 
 export namespace DescribeCoipPoolsRequest {
@@ -9968,7 +9964,7 @@ export interface DescribeCoipPoolsResult {
   /**
    * <p>Information about the address pools.</p>
    */
-  CoipPools?: Array<CoipPool>;
+  CoipPools?: CoipPool[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -9986,7 +9982,7 @@ export interface DescribeConversionTasksRequest {
   /**
    * <p>The conversion task IDs.</p>
    */
-  ConversionTaskIds?: Array<string>;
+  ConversionTaskIds?: string[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -10006,7 +10002,7 @@ export interface DescribeConversionTasksResult {
   /**
    * <p>Information about the conversion tasks.</p>
    */
-  ConversionTasks?: Array<ConversionTask>;
+  ConversionTasks?: ConversionTask[];
 }
 
 export namespace DescribeConversionTasksResult {
@@ -10023,7 +10019,7 @@ export interface DescribeCustomerGatewaysRequest {
    * <p>One or more customer gateway IDs.</p>
    *         <p>Default: Describes all your customer gateways.</p>
    */
-  CustomerGatewayIds?: Array<string>;
+  CustomerGatewayIds?: string[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -10066,7 +10062,7 @@ export interface DescribeCustomerGatewaysRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 }
 
 export namespace DescribeCustomerGatewaysRequest {
@@ -10082,7 +10078,7 @@ export interface DescribeCustomerGatewaysResult {
   /**
    * <p>Information about one or more customer gateways.</p>
    */
-  CustomerGateways?: Array<CustomerGateway>;
+  CustomerGateways?: CustomerGateway[];
 }
 
 export namespace DescribeCustomerGatewaysResult {
@@ -10096,7 +10092,7 @@ export interface DescribeDhcpOptionsRequest {
    * <p>The IDs of one or more DHCP options sets.</p>
    * 		       <p>Default: Describes all your DHCP options sets.</p>
    */
-  DhcpOptionsIds?: Array<string>;
+  DhcpOptionsIds?: string[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -10135,7 +10131,7 @@ export interface DescribeDhcpOptionsRequest {
    * 		          </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -10159,7 +10155,7 @@ export interface DescribeDhcpOptionsResult {
   /**
    * <p>Information about one or more DHCP options sets.</p>
    */
-  DhcpOptions?: Array<DhcpOptions>;
+  DhcpOptions?: DhcpOptions[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -10184,7 +10180,7 @@ export interface DescribeEgressOnlyInternetGatewaysRequest {
   /**
    * <p>One or more egress-only internet gateway IDs.</p>
    */
-  EgressOnlyInternetGatewayIds?: Array<string>;
+  EgressOnlyInternetGatewayIds?: string[];
 
   /**
    * <p>One or more filters.</p>
@@ -10200,7 +10196,7 @@ export interface DescribeEgressOnlyInternetGatewaysRequest {
    *     		      </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -10224,7 +10220,7 @@ export interface DescribeEgressOnlyInternetGatewaysResult {
   /**
    * <p>Information about the egress-only internet gateways.</p>
    */
-  EgressOnlyInternetGateways?: Array<EgressOnlyInternetGateway>;
+  EgressOnlyInternetGateways?: EgressOnlyInternetGateway[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -10249,7 +10245,7 @@ export interface DescribeElasticGpusRequest {
   /**
    * <p>The Elastic Graphics accelerator IDs.</p>
    */
-  ElasticGpuIds?: Array<string>;
+  ElasticGpuIds?: string[];
 
   /**
    * <p>The filters.</p>
@@ -10281,7 +10277,7 @@ export interface DescribeElasticGpusRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
@@ -10306,7 +10302,7 @@ export interface DescribeElasticGpusResult {
   /**
    * <p>Information about the Elastic Graphics accelerators.</p>
    */
-  ElasticGpuSet?: Array<ElasticGpus>;
+  ElasticGpuSet?: ElasticGpus[];
 
   /**
    * <p>The total number of items to return. If the total number of items available is more
@@ -10339,13 +10335,13 @@ export interface DescribeExportImageTasksRequest {
   /**
    * <p>The IDs of the export image tasks.</p>
    */
-  ExportImageTaskIds?: Array<string>;
+  ExportImageTaskIds?: string[];
 
   /**
    * <p>Filter tasks using the <code>task-state</code> filter and one of the following values: <code>active</code>,
    *     <code>completed</code>, <code>deleting</code>, or <code>deleted</code>.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return in a single call.</p>
@@ -10368,7 +10364,7 @@ export interface DescribeExportImageTasksResult {
   /**
    * <p>Information about the export image tasks.</p>
    */
-  ExportImageTasks?: Array<ExportImageTask>;
+  ExportImageTasks?: ExportImageTask[];
 
   /**
    * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
@@ -10387,12 +10383,12 @@ export interface DescribeExportTasksRequest {
   /**
    * <p>The export task IDs.</p>
    */
-  ExportTaskIds?: Array<string>;
+  ExportTaskIds?: string[];
 
   /**
    * <p>the filters for the export tasks.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 }
 
 export namespace DescribeExportTasksRequest {
@@ -10405,7 +10401,7 @@ export interface DescribeExportTasksResult {
   /**
    * <p>Information about the export tasks.</p>
    */
-  ExportTasks?: Array<ExportTask>;
+  ExportTasks?: ExportTask[];
 }
 
 export namespace DescribeExportTasksResult {
@@ -10526,7 +10522,7 @@ export interface DescribeFastSnapshotRestoresRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -10550,7 +10546,7 @@ export interface DescribeFastSnapshotRestoresResult {
   /**
    * <p>Information about the state of fast snapshot restores.</p>
    */
-  FastSnapshotRestores?: Array<DescribeFastSnapshotRestoreSuccessItem>;
+  FastSnapshotRestores?: DescribeFastSnapshotRestoreSuccessItem[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -10650,7 +10646,7 @@ export interface DescribeFleetHistoryResult {
   /**
    * <p>Information about the events in the history of the EC2 Fleet.</p>
    */
-  HistoryRecords?: Array<HistoryRecordEntry>;
+  HistoryRecords?: HistoryRecordEntry[];
 
   /**
    * <p>The last date and time for the events, in UTC format (for example,
@@ -10696,7 +10692,7 @@ export interface DescribeFleetInstancesRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The ID of the EC2 Fleet.</p>
@@ -10727,7 +10723,7 @@ export interface DescribeFleetInstancesResult {
    * <p>The running instances. This list is refreshed periodically and might be out of
    *          date.</p>
    */
-  ActiveInstances?: Array<ActiveInstance>;
+  ActiveInstances?: ActiveInstance[];
 
   /**
    * <p>The ID of the EC2 Fleet.</p>
@@ -10753,7 +10749,7 @@ export interface DescribeFleetsInstances {
   /**
    * <p>The IDs of the instances.</p>
    */
-  InstanceIds?: Array<string>;
+  InstanceIds?: string[];
 
   /**
    * <p>The instance type.</p>
@@ -10826,12 +10822,12 @@ export interface DescribeFleetsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The ID of the EC2 Fleets.</p>
    */
-  FleetIds?: Array<string>;
+  FleetIds?: string[];
 
   /**
    * <p>The maximum number of results to return in a single call. Specify a value between 1 and
@@ -10856,7 +10852,7 @@ export interface DescribeFleetsResult {
   /**
    * <p>Information about the EC2 Fleets.</p>
    */
-  Fleets?: Array<FleetData>;
+  Fleets?: FleetData[];
 
   /**
    * <p>The token for the next set of results.</p>
@@ -10911,13 +10907,13 @@ export interface DescribeFlowLogsRequest {
    *             </li>
    *          </ul>
    */
-  Filter?: Array<Filter>;
+  Filter?: Filter[];
 
   /**
    * <p>One or more flow log IDs.</p>
    *         <p>Constraint: Maximum of 1000 flow log IDs.</p>
    */
-  FlowLogIds?: Array<string>;
+  FlowLogIds?: string[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -10941,7 +10937,7 @@ export interface DescribeFlowLogsResult {
   /**
    * <p>Information about the flow logs.</p>
    */
-  FlowLogs?: Array<FlowLog>;
+  FlowLogs?: FlowLog[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -11051,12 +11047,12 @@ export interface DescribeFpgaImagesRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The AFI IDs.</p>
    */
-  FpgaImageIds?: Array<string>;
+  FpgaImageIds?: string[];
 
   /**
    * <p>The maximum number of results to return in a single call.</p>
@@ -11071,7 +11067,7 @@ export interface DescribeFpgaImagesRequest {
   /**
    * <p>Filters the AFI by owner. Specify an AWS account ID, <code>self</code> (owner is the sender of the request), or an AWS owner alias (valid values are <code>amazon</code> | <code>aws-marketplace</code>).</p>
    */
-  Owners?: Array<string>;
+  Owners?: string[];
 }
 
 export namespace DescribeFpgaImagesRequest {
@@ -11084,7 +11080,7 @@ export interface DescribeFpgaImagesResult {
   /**
    * <p>Information about the FPGA images.</p>
    */
-  FpgaImages?: Array<FpgaImage>;
+  FpgaImages?: FpgaImage[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -11114,7 +11110,7 @@ export interface DescribeHostReservationOfferingsRequest {
    *             </li>
    *          </ul>
    */
-  Filter?: Array<Filter>;
+  Filter?: Filter[];
 
   /**
    * <p>This is the maximum duration of the reservation to purchase, specified in seconds.
@@ -11163,7 +11159,7 @@ export interface DescribeHostReservationOfferingsResult {
   /**
    * <p>Information about the offerings.</p>
    */
-  OfferingSet?: Array<HostOffering>;
+  OfferingSet?: HostOffering[];
 }
 
 export namespace DescribeHostReservationOfferingsResult {
@@ -11203,12 +11199,12 @@ export interface DescribeHostReservationsRequest {
    *         	   </li>
    *          </ul>
    */
-  Filter?: Array<Filter>;
+  Filter?: Filter[];
 
   /**
    * <p>The host reservation IDs.</p>
    */
-  HostReservationIdSet?: Array<string>;
+  HostReservationIdSet?: string[];
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
@@ -11231,7 +11227,7 @@ export interface DescribeHostReservationsResult {
   /**
    * <p>Details about the reservation's configuration.</p>
    */
-  HostReservationSet?: Array<HostReservation>;
+  HostReservationSet?: HostReservation[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -11287,13 +11283,13 @@ export interface DescribeHostsRequest {
    *         	   </li>
    *          </ul>
    */
-  Filter?: Array<Filter>;
+  Filter?: Filter[];
 
   /**
    * <p>The IDs of the Dedicated Hosts. The IDs are used for targeted instance
    *             launches.</p>
    */
-  HostIds?: Array<string>;
+  HostIds?: string[];
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
@@ -11317,7 +11313,7 @@ export interface DescribeHostsResult {
   /**
    * <p>Information about the Dedicated Hosts.</p>
    */
-  Hosts?: Array<Host>;
+  Hosts?: Host[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -11335,7 +11331,7 @@ export interface DescribeIamInstanceProfileAssociationsRequest {
   /**
    * <p>The IAM instance profile associations.</p>
    */
-  AssociationIds?: Array<string>;
+  AssociationIds?: string[];
 
   /**
    * <p>The filters.</p>
@@ -11352,7 +11348,7 @@ export interface DescribeIamInstanceProfileAssociationsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
@@ -11378,7 +11374,7 @@ export interface DescribeIamInstanceProfileAssociationsResult {
   /**
    * <p>Information about the IAM instance profile associations.</p>
    */
-  IamInstanceProfileAssociations?: Array<IamInstanceProfileAssociation>;
+  IamInstanceProfileAssociations?: IamInstanceProfileAssociation[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -11424,7 +11420,7 @@ export interface DescribeIdFormatResult {
   /**
    * <p>Information about the ID format for the resource.</p>
    */
-  Statuses?: Array<IdFormat>;
+  Statuses?: IdFormat[];
 }
 
 export namespace DescribeIdFormatResult {
@@ -11468,7 +11464,7 @@ export interface DescribeIdentityIdFormatResult {
   /**
    * <p>Information about the ID format for the resources.</p>
    */
-  Statuses?: Array<IdFormat>;
+  Statuses?: IdFormat[];
 }
 
 export namespace DescribeIdentityIdFormatResult {
@@ -11522,7 +11518,7 @@ export interface DescribeImagesRequest {
    * 				Specify an AWS account ID, <code>self</code> (the sender of the request),
    * 				or <code>all</code> (public AMIs).</p>
    */
-  ExecutableUsers?: Array<string>;
+  ExecutableUsers?: string[];
 
   /**
    * <p>The filters.</p>
@@ -11674,13 +11670,13 @@ export interface DescribeImagesRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The image IDs.</p>
    *          <p>Default: Describes all images available to you.</p>
    */
-  ImageIds?: Array<string>;
+  ImageIds?: string[];
 
   /**
    * <p>Filters the images by the owner. Specify an AWS account ID, <code>self</code> (owner is
@@ -11688,7 +11684,7 @@ export interface DescribeImagesRequest {
    *         <code>aws-marketplace</code> | <code>microsoft</code>). Omitting this option returns all
    *       images for which you have launch permissions, regardless of ownership.</p>
    */
-  Owners?: Array<string>;
+  Owners?: string[];
 }
 
 export namespace DescribeImagesRequest {
@@ -11701,7 +11697,7 @@ export interface DescribeImagesResult {
   /**
    * <p>Information about the images.</p>
    */
-  Images?: Array<Image>;
+  Images?: Image[];
 }
 
 export namespace DescribeImagesResult {
@@ -11722,12 +11718,12 @@ export interface DescribeImportImageTasksRequest {
    * <p>Filter tasks using the <code>task-state</code> filter and one of the following values: <code>active</code>,
    *     <code>completed</code>, <code>deleting</code>, or <code>deleted</code>.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The IDs of the import image tasks.</p>
    */
-  ImportTaskIds?: Array<string>;
+  ImportTaskIds?: string[];
 
   /**
    * <p>The maximum number of results to return in a single call.</p>
@@ -11751,7 +11747,7 @@ export interface DescribeImportImageTasksResult {
    * <p>A list of zero or more import image tasks that are currently active or were completed or canceled in the
    *    previous 7 days.</p>
    */
-  ImportImageTasks?: Array<ImportImageTask>;
+  ImportImageTasks?: ImportImageTask[];
 
   /**
    * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
@@ -11777,12 +11773,12 @@ export interface DescribeImportSnapshotTasksRequest {
   /**
    * <p>The filters.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>A list of import snapshot task IDs.</p>
    */
-  ImportTaskIds?: Array<string>;
+  ImportTaskIds?: string[];
 
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call
@@ -11807,7 +11803,7 @@ export interface DescribeImportSnapshotTasksResult {
    * <p>A list of zero or more import snapshot tasks that are currently active or were completed or canceled in the
    *    previous 7 days.</p>
    */
-  ImportSnapshotTasks?: Array<ImportSnapshotTask>;
+  ImportSnapshotTasks?: ImportSnapshotTask[];
 
   /**
    * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
@@ -11865,14 +11861,14 @@ export interface DescribeInstanceCreditSpecificationsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The instance IDs.</p>
    *         <p>Default: Describes all your instances.</p>
    *         <p>Constraints: Maximum 1000 explicitly specified instance IDs.</p>
    */
-  InstanceIds?: Array<string>;
+  InstanceIds?: string[];
 
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
@@ -11900,7 +11896,7 @@ export interface DescribeInstanceCreditSpecificationsResult {
   /**
    * <p>Information about the credit option for CPU usage of an instance.</p>
    */
-  InstanceCreditSpecifications?: Array<InstanceCreditSpecification>;
+  InstanceCreditSpecifications?: InstanceCreditSpecification[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
@@ -12004,7 +12000,7 @@ export interface DescribeInstanceStatusRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>When <code>true</code>, includes the health status for all instances. When
@@ -12019,7 +12015,7 @@ export interface DescribeInstanceStatusRequest {
    *         <p>Default: Describes all your instances.</p>
    *         <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
    */
-  InstanceIds?: Array<string>;
+  InstanceIds?: string[];
 
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
@@ -12045,7 +12041,7 @@ export interface DescribeInstanceStatusResult {
   /**
    * <p>Information about the status of the instances.</p>
    */
-  InstanceStatuses?: Array<InstanceStatus>;
+  InstanceStatuses?: InstanceStatus[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
@@ -12082,7 +12078,7 @@ export interface DescribeInstanceTypeOfferingsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The location type.</p>
@@ -12111,7 +12107,7 @@ export interface DescribeInstanceTypeOfferingsResult {
   /**
    * <p>The instance types offered.</p>
    */
-  InstanceTypeOfferings?: Array<InstanceTypeOffering>;
+  InstanceTypeOfferings?: InstanceTypeOffering[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there
@@ -12252,13 +12248,13 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The instance types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
    *     Cloud User Guide</i>.</p>
    */
-  InstanceTypes?: Array<_InstanceType | string>;
+  InstanceTypes?: _InstanceType | string[];
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results
@@ -12283,7 +12279,7 @@ export interface DescribeInstanceTypesResult {
    * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
    *     Cloud User Guide</i>.</p>
    */
-  InstanceTypes?: Array<InstanceTypeInfo>;
+  InstanceTypes?: InstanceTypeInfo[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there
@@ -12759,13 +12755,13 @@ export interface DescribeInstancesRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The instance IDs.</p>
    *         <p>Default: Describes all your instances.</p>
    */
-  InstanceIds?: Array<string>;
+  InstanceIds?: string[];
 
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
@@ -12797,7 +12793,7 @@ export interface DescribeInstancesResult {
   /**
    * <p>Information about the reservations.</p>
    */
-  Reservations?: Array<Reservation>;
+  Reservations?: Reservation[];
 }
 
 export namespace DescribeInstancesResult {
@@ -12845,13 +12841,13 @@ export interface DescribeInternetGatewaysRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>One or more internet gateway IDs.</p>
    *         <p>Default: Describes all your internet gateways.</p>
    */
-  InternetGatewayIds?: Array<string>;
+  InternetGatewayIds?: string[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -12875,7 +12871,7 @@ export interface DescribeInternetGatewaysResult {
   /**
    * <p>Information about one or more internet gateways.</p>
    */
-  InternetGateways?: Array<InternetGateway>;
+  InternetGateways?: InternetGateway[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -12911,7 +12907,7 @@ export interface DescribeIpv6PoolsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -12927,7 +12923,7 @@ export interface DescribeIpv6PoolsRequest {
   /**
    * <p>The IDs of the IPv6 address pools.</p>
    */
-  PoolIds?: Array<string>;
+  PoolIds?: string[];
 }
 
 export namespace DescribeIpv6PoolsRequest {
@@ -12940,7 +12936,7 @@ export interface DescribeIpv6PoolsResult {
   /**
    * <p>Information about the IPv6 address pools.</p>
    */
-  Ipv6Pools?: Array<Ipv6Pool>;
+  Ipv6Pools?: Ipv6Pool[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -12975,18 +12971,18 @@ export interface DescribeKeyPairsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The key pair names.</p>
    *          <p>Default: Describes all your key pairs.</p>
    */
-  KeyNames?: Array<string>;
+  KeyNames?: string[];
 
   /**
    * <p>The IDs of the key pairs.</p>
    */
-  KeyPairIds?: Array<string>;
+  KeyPairIds?: string[];
 }
 
 export namespace DescribeKeyPairsRequest {
@@ -12999,7 +12995,7 @@ export interface DescribeKeyPairsResult {
   /**
    * <p>Information about the key pairs.</p>
    */
-  KeyPairs?: Array<KeyPairInfo>;
+  KeyPairs?: KeyPairInfo[];
 }
 
 export namespace DescribeKeyPairsResult {
@@ -13057,7 +13053,7 @@ export interface DescribeLaunchTemplateVersionsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The ID of the launch template. You must specify either the launch template ID or
@@ -13096,7 +13092,7 @@ export interface DescribeLaunchTemplateVersionsRequest {
   /**
    * <p>One or more versions of the launch template.</p>
    */
-  Versions?: Array<string>;
+  Versions?: string[];
 }
 
 export namespace DescribeLaunchTemplateVersionsRequest {
@@ -13109,7 +13105,7 @@ export interface DescribeLaunchTemplateVersionsResult {
   /**
    * <p>Information about the launch template versions.</p>
    */
-  LaunchTemplateVersions?: Array<LaunchTemplateVersion>;
+  LaunchTemplateVersions?: LaunchTemplateVersion[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is
@@ -13155,17 +13151,17 @@ export interface DescribeLaunchTemplatesRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>One or more launch template IDs.</p>
    */
-  LaunchTemplateIds?: Array<string>;
+  LaunchTemplateIds?: string[];
 
   /**
    * <p>One or more launch template names.</p>
    */
-  LaunchTemplateNames?: Array<string>;
+  LaunchTemplateNames?: string[];
 
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
@@ -13190,7 +13186,7 @@ export interface DescribeLaunchTemplatesResult {
   /**
    * <p>Information about the launch templates.</p>
    */
-  LaunchTemplates?: Array<LaunchTemplate>;
+  LaunchTemplates?: LaunchTemplate[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is
@@ -13216,12 +13212,12 @@ export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
   /**
    * <p>One or more filters.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The IDs of the associations.</p>
    */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds?: Array<string>;
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds?: string[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -13250,9 +13246,7 @@ export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
   /**
    * <p>Information about the associations.</p>
    */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociations?: Array<
-    LocalGatewayRouteTableVirtualInterfaceGroupAssociation
-  >;
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociations?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -13282,12 +13276,12 @@ export interface DescribeLocalGatewayRouteTableVpcAssociationsRequest {
   /**
    * <p>One or more filters.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The IDs of the associations.</p>
    */
-  LocalGatewayRouteTableVpcAssociationIds?: Array<string>;
+  LocalGatewayRouteTableVpcAssociationIds?: string[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -13313,9 +13307,7 @@ export interface DescribeLocalGatewayRouteTableVpcAssociationsResult {
   /**
    * <p>Information about the associations.</p>
    */
-  LocalGatewayRouteTableVpcAssociations?: Array<
-    LocalGatewayRouteTableVpcAssociation
-  >;
+  LocalGatewayRouteTableVpcAssociations?: LocalGatewayRouteTableVpcAssociation[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -13342,12 +13334,12 @@ export interface DescribeLocalGatewayRouteTablesRequest {
   /**
    * <p>One or more filters.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The IDs of the local gateway route tables.</p>
    */
-  LocalGatewayRouteTableIds?: Array<string>;
+  LocalGatewayRouteTableIds?: string[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -13371,7 +13363,7 @@ export interface DescribeLocalGatewayRouteTablesResult {
   /**
    * <p>Information about the local gateway route tables.</p>
    */
-  LocalGatewayRouteTables?: Array<LocalGatewayRouteTable>;
+  LocalGatewayRouteTables?: LocalGatewayRouteTable[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -13396,12 +13388,12 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsRequest {
   /**
    * <p>One or more filters.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The IDs of the virtual interface groups.</p>
    */
-  LocalGatewayVirtualInterfaceGroupIds?: Array<string>;
+  LocalGatewayVirtualInterfaceGroupIds?: string[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -13427,7 +13419,7 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsResult {
   /**
    * <p>The virtual interface groups.</p>
    */
-  LocalGatewayVirtualInterfaceGroups?: Array<LocalGatewayVirtualInterfaceGroup>;
+  LocalGatewayVirtualInterfaceGroups?: LocalGatewayVirtualInterfaceGroup[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -13454,12 +13446,12 @@ export interface DescribeLocalGatewayVirtualInterfacesRequest {
   /**
    * <p>One or more filters.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The IDs of the virtual interfaces.</p>
    */
-  LocalGatewayVirtualInterfaceIds?: Array<string>;
+  LocalGatewayVirtualInterfaceIds?: string[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -13485,7 +13477,7 @@ export interface DescribeLocalGatewayVirtualInterfacesResult {
   /**
    * <p>Information about the virtual interfaces.</p>
    */
-  LocalGatewayVirtualInterfaces?: Array<LocalGatewayVirtualInterface>;
+  LocalGatewayVirtualInterfaces?: LocalGatewayVirtualInterface[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -13512,12 +13504,12 @@ export interface DescribeLocalGatewaysRequest {
   /**
    * <p>One or more filters.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The IDs of the local gateways.</p>
    */
-  LocalGatewayIds?: Array<string>;
+  LocalGatewayIds?: string[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -13541,7 +13533,7 @@ export interface DescribeLocalGatewaysResult {
   /**
    * <p>Information about the local gateways.</p>
    */
-  LocalGateways?: Array<LocalGateway>;
+  LocalGateways?: LocalGateway[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -13573,7 +13565,7 @@ export interface DescribeMovingAddressesRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining
@@ -13592,7 +13584,7 @@ export interface DescribeMovingAddressesRequest {
   /**
    * <p>One or more Elastic IP addresses.</p>
    */
-  PublicIps?: Array<string>;
+  PublicIps?: string[];
 }
 
 export namespace DescribeMovingAddressesRequest {
@@ -13605,7 +13597,7 @@ export interface DescribeMovingAddressesResult {
   /**
    * <p>The status for each Elastic IP address.</p>
    */
-  MovingAddressStatuses?: Array<MovingAddressStatus>;
+  MovingAddressStatuses?: MovingAddressStatus[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -13651,7 +13643,7 @@ export interface DescribeNatGatewaysRequest {
    *             </li>
    *          </ul>
    */
-  Filter?: Array<Filter>;
+  Filter?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -13662,7 +13654,7 @@ export interface DescribeNatGatewaysRequest {
   /**
    * <p>One or more NAT gateway IDs.</p>
    */
-  NatGatewayIds?: Array<string>;
+  NatGatewayIds?: string[];
 
   /**
    * <p>The token for the next page of results.</p>
@@ -13680,7 +13672,7 @@ export interface DescribeNatGatewaysResult {
   /**
    * <p>Information about the NAT gateways.</p>
    */
-  NatGateways?: Array<NatGateway>;
+  NatGateways?: NatGateway[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -13781,7 +13773,7 @@ export interface DescribeNetworkAclsRequest {
    * 		          </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -13793,7 +13785,7 @@ export interface DescribeNetworkAclsRequest {
    * <p>One or more network ACL IDs.</p>
    * 		       <p>Default: Describes all your network ACLs.</p>
    */
-  NetworkAclIds?: Array<string>;
+  NetworkAclIds?: string[];
 
   /**
    * <p>The token for the next page of results.</p>
@@ -13811,7 +13803,7 @@ export interface DescribeNetworkAclsResult {
   /**
    * <p>Information about one or more network ACLs.</p>
    */
-  NetworkAcls?: Array<NetworkAcl>;
+  NetworkAcls?: NetworkAcl[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -13870,7 +13862,7 @@ export interface DescribeNetworkInterfaceAttributeResult {
   /**
    * <p>The security groups associated with the network interface.</p>
    */
-  Groups?: Array<GroupIdentifier>;
+  Groups?: GroupIdentifier[];
 
   /**
    * <p>The ID of the network interface.</p>
@@ -13924,7 +13916,7 @@ export interface DescribeNetworkInterfacePermissionsRequest {
    * 			         </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining results,
@@ -13935,7 +13927,7 @@ export interface DescribeNetworkInterfacePermissionsRequest {
   /**
    * <p>One or more network interface permission IDs.</p>
    */
-  NetworkInterfacePermissionIds?: Array<string>;
+  NetworkInterfacePermissionIds?: string[];
 
   /**
    * <p>The token to request the next page of results.</p>
@@ -13958,7 +13950,7 @@ export interface DescribeNetworkInterfacePermissionsResult {
   /**
    * <p>The network interface permissions.</p>
    */
-  NetworkInterfacePermissions?: Array<NetworkInterfacePermission>;
+  NetworkInterfacePermissions?: NetworkInterfacePermission[];
 
   /**
    * <p>The token to use to retrieve the next page of results.</p>
@@ -14143,7 +14135,7 @@ export interface DescribeNetworkInterfacesRequest {
    * 		          </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of items to return for this request. The request returns a token that you
@@ -14156,7 +14148,7 @@ export interface DescribeNetworkInterfacesRequest {
    * <p>One or more network interface IDs.</p>
    * 		       <p>Default: Describes all your network interfaces.</p>
    */
-  NetworkInterfaceIds?: Array<string>;
+  NetworkInterfaceIds?: string[];
 
   /**
    * <p>The token to retrieve the next page of results.</p>
@@ -14177,7 +14169,7 @@ export interface DescribeNetworkInterfacesResult {
   /**
    * <p>Information about one or more network interfaces.</p>
    */
-  NetworkInterfaces?: Array<NetworkInterface>;
+  NetworkInterfaces?: NetworkInterface[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -14220,19 +14212,19 @@ export interface DescribePlacementGroupsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The IDs of the placement groups.</p>
    */
-  GroupIds?: Array<string>;
+  GroupIds?: string[];
 
   /**
    * <p>The names of the placement groups.</p>
    *         <p>Default: Describes all your placement groups, or only those otherwise
    *             specified.</p>
    */
-  GroupNames?: Array<string>;
+  GroupNames?: string[];
 }
 
 export namespace DescribePlacementGroupsRequest {
@@ -14245,7 +14237,7 @@ export interface DescribePlacementGroupsResult {
   /**
    * <p>Information about the placement groups.</p>
    */
-  PlacementGroups?: Array<PlacementGroup>;
+  PlacementGroups?: PlacementGroup[];
 }
 
 export namespace DescribePlacementGroupsResult {
@@ -14275,7 +14267,7 @@ export interface DescribePrefixListsRequest {
    * 			         </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -14291,7 +14283,7 @@ export interface DescribePrefixListsRequest {
   /**
    * <p>One or more prefix list IDs.</p>
    */
-  PrefixListIds?: Array<string>;
+  PrefixListIds?: string[];
 }
 
 export namespace DescribePrefixListsRequest {
@@ -14309,7 +14301,7 @@ export interface DescribePrefixListsResult {
   /**
    * <p>All available prefix lists.</p>
    */
-  PrefixLists?: Array<PrefixList>;
+  PrefixLists?: PrefixList[];
 }
 
 export namespace DescribePrefixListsResult {
@@ -14353,7 +14345,7 @@ export interface DescribePrincipalIdFormatRequest {
    *             <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>
    *          </p>
    */
-  Resources?: Array<string>;
+  Resources?: string[];
 }
 
 export namespace DescribePrincipalIdFormatRequest {
@@ -14371,7 +14363,7 @@ export interface DescribePrincipalIdFormatResult {
   /**
    * <p>Information about the ID format settings for the ARN.</p>
    */
-  Principals?: Array<PrincipalIdFormat>;
+  Principals?: PrincipalIdFormat[];
 }
 
 export namespace DescribePrincipalIdFormatResult {
@@ -14395,7 +14387,7 @@ export interface DescribePublicIpv4PoolsRequest {
   /**
    * <p>The IDs of the address pools.</p>
    */
-  PoolIds?: Array<string>;
+  PoolIds?: string[];
 }
 
 export namespace DescribePublicIpv4PoolsRequest {
@@ -14413,7 +14405,7 @@ export interface DescribePublicIpv4PoolsResult {
   /**
    * <p>Information about the address pools.</p>
    */
-  PublicIpv4Pools?: Array<PublicIpv4Pool>;
+  PublicIpv4Pools?: PublicIpv4Pool[];
 }
 
 export namespace DescribePublicIpv4PoolsResult {
@@ -14453,12 +14445,12 @@ export interface DescribeRegionsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The names of the Regions. You can specify any Regions, whether they are enabled and disabled for your account.</p>
    */
-  RegionNames?: Array<string>;
+  RegionNames?: string[];
 }
 
 export namespace DescribeRegionsRequest {
@@ -14471,7 +14463,7 @@ export interface DescribeRegionsResult {
   /**
    * <p>Information about the Regions.</p>
    */
-  Regions?: Array<Region>;
+  Regions?: Region[];
 }
 
 export namespace DescribeRegionsResult {
@@ -14506,7 +14498,7 @@ export interface DescribeReservedInstancesListingsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>One or more Reserved Instance IDs.</p>
@@ -14532,7 +14524,7 @@ export interface DescribeReservedInstancesListingsResult {
   /**
    * <p>Information about the Reserved Instance listing.</p>
    */
-  ReservedInstancesListings?: Array<ReservedInstancesListing>;
+  ReservedInstancesListings?: ReservedInstancesListing[];
 }
 
 export namespace DescribeReservedInstancesListingsResult {
@@ -14603,7 +14595,7 @@ export interface DescribeReservedInstancesModificationsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The token to retrieve the next page of results.</p>
@@ -14613,7 +14605,7 @@ export interface DescribeReservedInstancesModificationsRequest {
   /**
    * <p>IDs for the submitted modification request.</p>
    */
-  ReservedInstancesModificationIds?: Array<string>;
+  ReservedInstancesModificationIds?: string[];
 }
 
 export namespace DescribeReservedInstancesModificationsRequest {
@@ -14637,7 +14629,7 @@ export interface DescribeReservedInstancesModificationsResult {
   /**
    * <p>The Reserved Instance modification information.</p>
    */
-  ReservedInstancesModifications?: Array<ReservedInstancesModification>;
+  ReservedInstancesModifications?: ReservedInstancesModification[];
 }
 
 export namespace DescribeReservedInstancesModificationsResult {
@@ -14724,7 +14716,7 @@ export interface DescribeReservedInstancesOfferingsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>Include Reserved Instance Marketplace offerings in the response.</p>
@@ -14800,7 +14792,7 @@ export interface DescribeReservedInstancesOfferingsRequest {
   /**
    * <p>One or more Reserved Instances offering IDs.</p>
    */
-  ReservedInstancesOfferingIds?: Array<string>;
+  ReservedInstancesOfferingIds?: string[];
 }
 
 export namespace DescribeReservedInstancesOfferingsRequest {
@@ -14822,7 +14814,7 @@ export interface DescribeReservedInstancesOfferingsResult {
   /**
    * <p>A list of Reserved Instances offerings.</p>
    */
-  ReservedInstancesOfferings?: Array<ReservedInstancesOffering>;
+  ReservedInstancesOfferings?: ReservedInstancesOffering[];
 }
 
 export namespace DescribeReservedInstancesOfferingsResult {
@@ -14910,7 +14902,7 @@ export interface DescribeReservedInstancesRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>Describes whether the Reserved Instance is Standard or Convertible.</p>
@@ -14928,7 +14920,7 @@ export interface DescribeReservedInstancesRequest {
    * <p>One or more Reserved Instance IDs.</p>
    *          <p>Default: Describes all your Reserved Instances, or only those otherwise specified.</p>
    */
-  ReservedInstancesIds?: Array<string>;
+  ReservedInstancesIds?: string[];
 }
 
 export namespace DescribeReservedInstancesRequest {
@@ -14944,7 +14936,7 @@ export interface DescribeReservedInstancesResult {
   /**
    * <p>A list of Reserved Instances.</p>
    */
-  ReservedInstances?: Array<ReservedInstances>;
+  ReservedInstances?: ReservedInstances[];
 }
 
 export namespace DescribeReservedInstancesResult {
@@ -15069,7 +15061,7 @@ export interface DescribeRouteTablesRequest {
    * 		          </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -15086,7 +15078,7 @@ export interface DescribeRouteTablesRequest {
    * <p>One or more route table IDs.</p>
    * 		       <p>Default: Describes all your route tables.</p>
    */
-  RouteTableIds?: Array<string>;
+  RouteTableIds?: string[];
 }
 
 export namespace DescribeRouteTablesRequest {
@@ -15107,7 +15099,7 @@ export interface DescribeRouteTablesResult {
   /**
    * <p>Information about one or more route tables.</p>
    */
-  RouteTables?: Array<RouteTable>;
+  RouteTables?: RouteTable[];
 }
 
 export namespace DescribeRouteTablesResult {
@@ -15148,7 +15140,7 @@ export interface DescribeScheduledInstanceAvailabilityRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The time period for the first schedule to start.</p>
@@ -15205,7 +15197,7 @@ export interface DescribeScheduledInstanceAvailabilityResult {
   /**
    * <p>Information about the available Scheduled Instances.</p>
    */
-  ScheduledInstanceAvailabilitySet?: Array<ScheduledInstanceAvailability>;
+  ScheduledInstanceAvailabilitySet?: ScheduledInstanceAvailability[];
 }
 
 export namespace DescribeScheduledInstanceAvailabilityResult {
@@ -15248,7 +15240,7 @@ export interface DescribeScheduledInstancesRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return in a single call.
@@ -15266,7 +15258,7 @@ export interface DescribeScheduledInstancesRequest {
   /**
    * <p>The Scheduled Instance IDs.</p>
    */
-  ScheduledInstanceIds?: Array<string>;
+  ScheduledInstanceIds?: string[];
 
   /**
    * <p>The time period for the first schedule to start.</p>
@@ -15292,7 +15284,7 @@ export interface DescribeScheduledInstancesResult {
   /**
    * <p>Information about the Scheduled Instances.</p>
    */
-  ScheduledInstanceSet?: Array<ScheduledInstance>;
+  ScheduledInstanceSet?: ScheduledInstance[];
 }
 
 export namespace DescribeScheduledInstancesResult {
@@ -15312,7 +15304,7 @@ export interface DescribeSecurityGroupReferencesRequest {
   /**
    * <p>The IDs of the security groups in your account.</p>
    */
-  GroupId: Array<string> | undefined;
+  GroupId: string[] | undefined;
 }
 
 export namespace DescribeSecurityGroupReferencesRequest {
@@ -15325,7 +15317,7 @@ export interface DescribeSecurityGroupReferencesResult {
   /**
    * <p>Information about the VPCs with the referencing security groups.</p>
    */
-  SecurityGroupReferenceSet?: Array<SecurityGroupReference>;
+  SecurityGroupReferenceSet?: SecurityGroupReference[];
 }
 
 export namespace DescribeSecurityGroupReferencesResult {
@@ -15469,13 +15461,13 @@ export interface DescribeSecurityGroupsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The IDs of the security groups. Required for security groups in a nondefault VPC.</p>
    *          <p>Default: Describes all your security groups.</p>
    */
-  GroupIds?: Array<string>;
+  GroupIds?: string[];
 
   /**
    * <p>[EC2-Classic and default VPC only] The names of the security groups. You can specify either
@@ -15483,7 +15475,7 @@ export interface DescribeSecurityGroupsRequest {
    * 			the <code>group-name</code> filter to describe security groups by name.</p>
    *          <p>Default: Describes all your security groups.</p>
    */
-  GroupNames?: Array<string>;
+  GroupNames?: string[];
 
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
@@ -15514,7 +15506,7 @@ export interface DescribeSecurityGroupsResult {
   /**
    * <p>Information about the security groups.</p>
    */
-  SecurityGroups?: Array<SecurityGroup>;
+  SecurityGroups?: SecurityGroup[];
 }
 
 export namespace DescribeSecurityGroupsResult {
@@ -15553,12 +15545,12 @@ export interface DescribeSnapshotAttributeResult {
    * <p>The users and groups that have the permissions for creating volumes from the
    *       snapshot.</p>
    */
-  CreateVolumePermissions?: Array<CreateVolumePermission>;
+  CreateVolumePermissions?: CreateVolumePermission[];
 
   /**
    * <p>The product codes.</p>
    */
-  ProductCodes?: Array<ProductCode>;
+  ProductCodes?: ProductCode[];
 
   /**
    * <p>The ID of the EBS snapshot.</p>
@@ -15640,7 +15632,7 @@ export interface DescribeSnapshotsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of snapshot results returned by <code>DescribeSnapshots</code> in
@@ -15667,18 +15659,18 @@ export interface DescribeSnapshotsRequest {
   /**
    * <p>Describes the snapshots owned by these owners.</p>
    */
-  OwnerIds?: Array<string>;
+  OwnerIds?: string[];
 
   /**
    * <p>The IDs of the AWS accounts that can create volumes from the snapshot.</p>
    */
-  RestorableByUserIds?: Array<string>;
+  RestorableByUserIds?: string[];
 
   /**
    * <p>The snapshot IDs.</p>
    *          <p>Default: Describes the snapshots for which you have create volume permissions.</p>
    */
-  SnapshotIds?: Array<string>;
+  SnapshotIds?: string[];
 }
 
 export namespace DescribeSnapshotsRequest {
@@ -15699,7 +15691,7 @@ export interface DescribeSnapshotsResult {
   /**
    * <p>Information about the snapshots.</p>
    */
-  Snapshots?: Array<Snapshot>;
+  Snapshots?: Snapshot[];
 }
 
 export namespace DescribeSnapshotsResult {
@@ -15786,7 +15778,7 @@ export interface DescribeSpotFleetInstancesResponse {
    * <p>The running instances. This list is refreshed periodically and might be out of
    *             date.</p>
    */
-  ActiveInstances?: Array<ActiveInstance>;
+  ActiveInstances?: ActiveInstance[];
 
   /**
    * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -15858,7 +15850,7 @@ export interface DescribeSpotFleetRequestHistoryResponse {
   /**
    * <p>Information about the events in the history of the Spot Fleet request.</p>
    */
-  HistoryRecords?: Array<HistoryRecord>;
+  HistoryRecords?: HistoryRecord[];
 
   /**
    * <p>The last date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
@@ -15916,7 +15908,7 @@ export interface DescribeSpotFleetRequestsRequest {
   /**
    * <p>The IDs of the Spot Fleet requests.</p>
    */
-  SpotFleetRequestIds?: Array<string>;
+  SpotFleetRequestIds?: string[];
 }
 
 export namespace DescribeSpotFleetRequestsRequest {
@@ -15937,7 +15929,7 @@ export interface DescribeSpotFleetRequestsResponse {
   /**
    * <p>Information about the configuration of your Spot Fleet.</p>
    */
-  SpotFleetRequestConfigs?: Array<SpotFleetRequestConfig>;
+  SpotFleetRequestConfigs?: SpotFleetRequestConfig[];
 }
 
 export namespace DescribeSpotFleetRequestsResponse {
@@ -16130,7 +16122,7 @@ export interface DescribeSpotInstanceRequestsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return in a single call. Specify a value between 5
@@ -16148,7 +16140,7 @@ export interface DescribeSpotInstanceRequestsRequest {
   /**
    * <p>One or more Spot Instance request IDs.</p>
    */
-  SpotInstanceRequestIds?: Array<string>;
+  SpotInstanceRequestIds?: string[];
 }
 
 export namespace DescribeSpotInstanceRequestsRequest {
@@ -16170,7 +16162,7 @@ export interface DescribeSpotInstanceRequestsResult {
   /**
    * <p>One or more Spot Instance requests.</p>
    */
-  SpotInstanceRequests?: Array<SpotInstanceRequest>;
+  SpotInstanceRequests?: SpotInstanceRequest[];
 }
 
 export namespace DescribeSpotInstanceRequestsResult {
@@ -16231,12 +16223,12 @@ export interface DescribeSpotPriceHistoryRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>Filters the results by the specified instance types.</p>
    */
-  InstanceTypes?: Array<_InstanceType | string>;
+  InstanceTypes?: _InstanceType | string[];
 
   /**
    * <p>The maximum number of results to return in a single call.
@@ -16254,7 +16246,7 @@ export interface DescribeSpotPriceHistoryRequest {
   /**
    * <p>Filters the results by the specified basic product descriptions.</p>
    */
-  ProductDescriptions?: Array<string>;
+  ProductDescriptions?: string[];
 
   /**
    * <p>The date and time, up to the past 90 days, from which to start retrieving the price history data,
@@ -16282,7 +16274,7 @@ export interface DescribeSpotPriceHistoryResult {
   /**
    * <p>The historical Spot prices.</p>
    */
-  SpotPriceHistory?: Array<SpotPrice>;
+  SpotPriceHistory?: SpotPrice[];
 }
 
 export namespace DescribeSpotPriceHistoryResult {
@@ -16330,7 +16322,7 @@ export interface DescribeStaleSecurityGroupsResult {
   /**
    * <p>Information about the stale security groups.</p>
    */
-  StaleSecurityGroupSet?: Array<StaleSecurityGroup>;
+  StaleSecurityGroupSet?: StaleSecurityGroup[];
 }
 
 export namespace DescribeStaleSecurityGroupsResult {
@@ -16423,7 +16415,7 @@ export interface DescribeSubnetsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -16440,7 +16432,7 @@ export interface DescribeSubnetsRequest {
    * <p>One or more subnet IDs.</p>
    * 		       <p>Default: Describes all your subnets.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 }
 
 export namespace DescribeSubnetsRequest {
@@ -16458,7 +16450,7 @@ export interface DescribeSubnetsResult {
   /**
    * <p>Information about one or more subnets.</p>
    */
-  Subnets?: Array<Subnet>;
+  Subnets?: Subnet[];
 }
 
 export namespace DescribeSubnetsResult {
@@ -16512,7 +16504,7 @@ export interface DescribeTagsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return in a single call.
@@ -16543,7 +16535,7 @@ export interface DescribeTagsResult {
   /**
    * <p>The tags.</p>
    */
-  Tags?: Array<TagDescription>;
+  Tags?: TagDescription[];
 }
 
 export namespace DescribeTagsResult {
@@ -16573,7 +16565,7 @@ export interface DescribeTrafficMirrorFiltersRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -16589,7 +16581,7 @@ export interface DescribeTrafficMirrorFiltersRequest {
   /**
    * <p>The ID of the Traffic Mirror filter.</p>
    */
-  TrafficMirrorFilterIds?: Array<string>;
+  TrafficMirrorFilterIds?: string[];
 }
 
 export namespace DescribeTrafficMirrorFiltersRequest {
@@ -16607,7 +16599,7 @@ export interface DescribeTrafficMirrorFiltersResult {
   /**
    * <p>Information about one or more Traffic Mirror filters.</p>
    */
-  TrafficMirrorFilters?: Array<TrafficMirrorFilter>;
+  TrafficMirrorFilters?: TrafficMirrorFilter[];
 }
 
 export namespace DescribeTrafficMirrorFiltersResult {
@@ -16665,7 +16657,7 @@ export interface DescribeTrafficMirrorSessionsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -16681,7 +16673,7 @@ export interface DescribeTrafficMirrorSessionsRequest {
   /**
    * <p>The ID of the Traffic Mirror session.</p>
    */
-  TrafficMirrorSessionIds?: Array<string>;
+  TrafficMirrorSessionIds?: string[];
 }
 
 export namespace DescribeTrafficMirrorSessionsRequest {
@@ -16699,7 +16691,7 @@ export interface DescribeTrafficMirrorSessionsResult {
   /**
    * <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>
    */
-  TrafficMirrorSessions?: Array<TrafficMirrorSession>;
+  TrafficMirrorSessions?: TrafficMirrorSession[];
 }
 
 export namespace DescribeTrafficMirrorSessionsResult {
@@ -16741,7 +16733,7 @@ export interface DescribeTrafficMirrorTargetsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -16757,7 +16749,7 @@ export interface DescribeTrafficMirrorTargetsRequest {
   /**
    * <p>The ID of the Traffic Mirror targets.</p>
    */
-  TrafficMirrorTargetIds?: Array<string>;
+  TrafficMirrorTargetIds?: string[];
 }
 
 export namespace DescribeTrafficMirrorTargetsRequest {
@@ -16775,7 +16767,7 @@ export interface DescribeTrafficMirrorTargetsResult {
   /**
    * <p>Information about one or more Traffic Mirror targets.</p>
    */
-  TrafficMirrorTargets?: Array<TrafficMirrorTarget>;
+  TrafficMirrorTargets?: TrafficMirrorTarget[];
 }
 
 export namespace DescribeTrafficMirrorTargetsResult {
@@ -16834,7 +16826,7 @@ export interface DescribeTransitGatewayAttachmentsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -16850,7 +16842,7 @@ export interface DescribeTransitGatewayAttachmentsRequest {
   /**
    * <p>The IDs of the attachments.</p>
    */
-  TransitGatewayAttachmentIds?: Array<string>;
+  TransitGatewayAttachmentIds?: string[];
 }
 
 export namespace DescribeTransitGatewayAttachmentsRequest {
@@ -16868,7 +16860,7 @@ export interface DescribeTransitGatewayAttachmentsResult {
   /**
    * <p>Information about the attachments.</p>
    */
-  TransitGatewayAttachments?: Array<TransitGatewayAttachment>;
+  TransitGatewayAttachments?: TransitGatewayAttachment[];
 }
 
 export namespace DescribeTransitGatewayAttachmentsResult {
@@ -16902,7 +16894,7 @@ export interface DescribeTransitGatewayMulticastDomainsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -16918,7 +16910,7 @@ export interface DescribeTransitGatewayMulticastDomainsRequest {
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
    */
-  TransitGatewayMulticastDomainIds?: Array<string>;
+  TransitGatewayMulticastDomainIds?: string[];
 }
 
 export namespace DescribeTransitGatewayMulticastDomainsRequest {
@@ -16938,7 +16930,7 @@ export interface DescribeTransitGatewayMulticastDomainsResult {
   /**
    * <p>Information about the transit gateway multicast domains.</p>
    */
-  TransitGatewayMulticastDomains?: Array<TransitGatewayMulticastDomain>;
+  TransitGatewayMulticastDomains?: TransitGatewayMulticastDomain[];
 }
 
 export namespace DescribeTransitGatewayMulticastDomainsResult {
@@ -16960,7 +16952,7 @@ export interface DescribeTransitGatewayPeeringAttachmentsRequest {
   /**
    * <p>One or more filters.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -16976,7 +16968,7 @@ export interface DescribeTransitGatewayPeeringAttachmentsRequest {
   /**
    * <p>One or more IDs of the transit gateway peering attachments.</p>
    */
-  TransitGatewayAttachmentIds?: Array<string>;
+  TransitGatewayAttachmentIds?: string[];
 }
 
 export namespace DescribeTransitGatewayPeeringAttachmentsRequest {
@@ -16996,7 +16988,7 @@ export interface DescribeTransitGatewayPeeringAttachmentsResult {
   /**
    * <p>The transit gateway peering attachments.</p>
    */
-  TransitGatewayPeeringAttachments?: Array<TransitGatewayPeeringAttachment>;
+  TransitGatewayPeeringAttachments?: TransitGatewayPeeringAttachment[];
 }
 
 export namespace DescribeTransitGatewayPeeringAttachmentsResult {
@@ -17042,7 +17034,7 @@ export interface DescribeTransitGatewayRouteTablesRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -17058,7 +17050,7 @@ export interface DescribeTransitGatewayRouteTablesRequest {
   /**
    * <p>The IDs of the transit gateway route tables.</p>
    */
-  TransitGatewayRouteTableIds?: Array<string>;
+  TransitGatewayRouteTableIds?: string[];
 }
 
 export namespace DescribeTransitGatewayRouteTablesRequest {
@@ -17076,7 +17068,7 @@ export interface DescribeTransitGatewayRouteTablesResult {
   /**
    * <p>Information about the transit gateway route tables.</p>
    */
-  TransitGatewayRouteTables?: Array<TransitGatewayRouteTable>;
+  TransitGatewayRouteTables?: TransitGatewayRouteTable[];
 }
 
 export namespace DescribeTransitGatewayRouteTablesResult {
@@ -17114,7 +17106,7 @@ export interface DescribeTransitGatewayVpcAttachmentsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -17130,7 +17122,7 @@ export interface DescribeTransitGatewayVpcAttachmentsRequest {
   /**
    * <p>The IDs of the attachments.</p>
    */
-  TransitGatewayAttachmentIds?: Array<string>;
+  TransitGatewayAttachmentIds?: string[];
 }
 
 export namespace DescribeTransitGatewayVpcAttachmentsRequest {
@@ -17150,7 +17142,7 @@ export interface DescribeTransitGatewayVpcAttachmentsResult {
   /**
    * <p>Information about the VPC attachments.</p>
    */
-  TransitGatewayVpcAttachments?: Array<TransitGatewayVpcAttachment>;
+  TransitGatewayVpcAttachments?: TransitGatewayVpcAttachment[];
 }
 
 export namespace DescribeTransitGatewayVpcAttachmentsResult {
@@ -17220,7 +17212,7 @@ export interface DescribeTransitGatewaysRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -17236,7 +17228,7 @@ export interface DescribeTransitGatewaysRequest {
   /**
    * <p>The IDs of the transit gateways.</p>
    */
-  TransitGatewayIds?: Array<string>;
+  TransitGatewayIds?: string[];
 }
 
 export namespace DescribeTransitGatewaysRequest {
@@ -17254,7 +17246,7 @@ export interface DescribeTransitGatewaysResult {
   /**
    * <p>Information about the transit gateways.</p>
    */
-  TransitGateways?: Array<TransitGateway>;
+  TransitGateways?: TransitGateway[];
 }
 
 export namespace DescribeTransitGatewaysResult {
@@ -17297,7 +17289,7 @@ export interface DescribeVolumeAttributeResult {
   /**
    * <p>A list of product codes.</p>
    */
-  ProductCodes?: Array<ProductCode>;
+  ProductCodes?: ProductCode[];
 
   /**
    * <p>The ID of the volume.</p>
@@ -17383,7 +17375,7 @@ export interface DescribeVolumeStatusRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of volume results returned by <code>DescribeVolumeStatus</code> in
@@ -17409,7 +17401,7 @@ export interface DescribeVolumeStatusRequest {
    * <p>The IDs of the volumes.</p>
    *          <p>Default: Describes all your volumes.</p>
    */
-  VolumeIds?: Array<string>;
+  VolumeIds?: string[];
 }
 
 export namespace DescribeVolumeStatusRequest {
@@ -17428,7 +17420,7 @@ export interface DescribeVolumeStatusResult {
   /**
    * <p>Information about the status of the volumes.</p>
    */
-  VolumeStatuses?: Array<VolumeStatusItem>;
+  VolumeStatuses?: VolumeStatusItem[];
 }
 
 export namespace DescribeVolumeStatusResult {
@@ -17451,7 +17443,7 @@ export interface DescribeVolumesModificationsRequest {
    *         <code>original-size</code>, <code>original-iops</code>, <code>original-volume-type</code>,
    *         <code>start-time</code>. </p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results (up to a limit of 500) to be returned in a paginated
@@ -17467,7 +17459,7 @@ export interface DescribeVolumesModificationsRequest {
   /**
    * <p>The IDs of the volumes for which in-progress modifications will be described.</p>
    */
-  VolumeIds?: Array<string>;
+  VolumeIds?: string[];
 }
 
 export namespace DescribeVolumesModificationsRequest {
@@ -17485,7 +17477,7 @@ export interface DescribeVolumesModificationsResult {
   /**
    * <p>Information about the volume modifications.</p>
    */
-  VolumesModifications?: Array<VolumeModification>;
+  VolumesModifications?: VolumeModification[];
 }
 
 export namespace DescribeVolumesModificationsResult {
@@ -17579,7 +17571,7 @@ export interface DescribeVolumesRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of volume results returned by <code>DescribeVolumes</code> in paginated
@@ -17606,7 +17598,7 @@ export interface DescribeVolumesRequest {
   /**
    * <p>The volume IDs.</p>
    */
-  VolumeIds?: Array<string>;
+  VolumeIds?: string[];
 }
 
 export namespace DescribeVolumesRequest {
@@ -17627,7 +17619,7 @@ export interface DescribeVolumesResult {
   /**
    * <p>Information about the volumes.</p>
    */
-  Volumes?: Array<Volume>;
+  Volumes?: Volume[];
 }
 
 export namespace DescribeVolumesResult {
@@ -17704,7 +17696,7 @@ export interface DescribeVpcClassicLinkDnsSupportRequest {
   /**
    * <p>One or more VPC IDs.</p>
    */
-  VpcIds?: Array<string>;
+  VpcIds?: string[];
 }
 
 export namespace DescribeVpcClassicLinkDnsSupportRequest {
@@ -17722,7 +17714,7 @@ export interface DescribeVpcClassicLinkDnsSupportResult {
   /**
    * <p>Information about the ClassicLink DNS support status of the VPCs.</p>
    */
-  Vpcs?: Array<ClassicLinkDnsSupport>;
+  Vpcs?: ClassicLinkDnsSupport[];
 }
 
 export namespace DescribeVpcClassicLinkDnsSupportResult {
@@ -17758,12 +17750,12 @@ export interface DescribeVpcClassicLinkRequest {
    * 			         </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>One or more VPCs for which you want to describe the ClassicLink status.</p>
    */
-  VpcIds?: Array<string>;
+  VpcIds?: string[];
 }
 
 export namespace DescribeVpcClassicLinkRequest {
@@ -17776,7 +17768,7 @@ export interface DescribeVpcClassicLinkResult {
   /**
    * <p>The ClassicLink status of one or more VPCs.</p>
    */
-  Vpcs?: Array<VpcClassicLink>;
+  Vpcs?: VpcClassicLink[];
 }
 
 export namespace DescribeVpcClassicLinkResult {
@@ -17831,7 +17823,7 @@ export interface DescribeVpcEndpointConnectionNotificationsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
@@ -17857,7 +17849,7 @@ export interface DescribeVpcEndpointConnectionNotificationsResult {
   /**
    * <p>One or more notifications.</p>
    */
-  ConnectionNotificationSet?: Array<ConnectionNotification>;
+  ConnectionNotificationSet?: ConnectionNotification[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is
@@ -17907,7 +17899,7 @@ export interface DescribeVpcEndpointConnectionsRequest {
    * 			         </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining
@@ -17939,7 +17931,7 @@ export interface DescribeVpcEndpointConnectionsResult {
   /**
    * <p>Information about one or more VPC endpoint connections.</p>
    */
-  VpcEndpointConnections?: Array<VpcEndpointConnection>;
+  VpcEndpointConnections?: VpcEndpointConnection[];
 }
 
 export namespace DescribeVpcEndpointConnectionsResult {
@@ -17983,7 +17975,7 @@ export interface DescribeVpcEndpointServiceConfigurationsRequest {
    * 			         </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining
@@ -18002,7 +17994,7 @@ export interface DescribeVpcEndpointServiceConfigurationsRequest {
   /**
    * <p>The IDs of one or more services.</p>
    */
-  ServiceIds?: Array<string>;
+  ServiceIds?: string[];
 }
 
 export namespace DescribeVpcEndpointServiceConfigurationsRequest {
@@ -18022,7 +18014,7 @@ export interface DescribeVpcEndpointServiceConfigurationsResult {
   /**
    * <p>Information about one or more services.</p>
    */
-  ServiceConfigurations?: Array<ServiceConfiguration>;
+  ServiceConfigurations?: ServiceConfiguration[];
 }
 
 export namespace DescribeVpcEndpointServiceConfigurationsResult {
@@ -18056,7 +18048,7 @@ export interface DescribeVpcEndpointServicePermissionsRequest {
    * 			         </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining
@@ -18090,7 +18082,7 @@ export interface DescribeVpcEndpointServicePermissionsResult {
   /**
    * <p>Information about one or more allowed principals.</p>
    */
-  AllowedPrincipals?: Array<AllowedPrincipal>;
+  AllowedPrincipals?: AllowedPrincipal[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -18134,7 +18126,7 @@ export interface DescribeVpcEndpointServicesRequest {
    *         	   </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
@@ -18150,7 +18142,7 @@ export interface DescribeVpcEndpointServicesRequest {
   /**
    * <p>One or more service names.</p>
    */
-  ServiceNames?: Array<string>;
+  ServiceNames?: string[];
 }
 
 export namespace DescribeVpcEndpointServicesRequest {
@@ -18171,12 +18163,12 @@ export interface DescribeVpcEndpointServicesResult {
   /**
    * <p>Information about the service.</p>
    */
-  ServiceDetails?: Array<ServiceDetail>;
+  ServiceDetails?: ServiceDetail[];
 
   /**
    * <p>A list of supported services.</p>
    */
-  ServiceNames?: Array<string>;
+  ServiceNames?: string[];
 }
 
 export namespace DescribeVpcEndpointServicesResult {
@@ -18228,7 +18220,7 @@ export interface DescribeVpcEndpointsRequest {
    *         	   </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
@@ -18244,7 +18236,7 @@ export interface DescribeVpcEndpointsRequest {
   /**
    * <p>One or more endpoint IDs.</p>
    */
-  VpcEndpointIds?: Array<string>;
+  VpcEndpointIds?: string[];
 }
 
 export namespace DescribeVpcEndpointsRequest {
@@ -18265,7 +18257,7 @@ export interface DescribeVpcEndpointsResult {
   /**
    * <p>Information about the endpoints.</p>
    */
-  VpcEndpoints?: Array<VpcEndpoint>;
+  VpcEndpoints?: VpcEndpoint[];
 }
 
 export namespace DescribeVpcEndpointsResult {
@@ -18346,7 +18338,7 @@ export interface DescribeVpcPeeringConnectionsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -18363,7 +18355,7 @@ export interface DescribeVpcPeeringConnectionsRequest {
    * <p>One or more VPC peering connection IDs.</p>
    *          <p>Default: Describes all your VPC peering connections.</p>
    */
-  VpcPeeringConnectionIds?: Array<string>;
+  VpcPeeringConnectionIds?: string[];
 }
 
 export namespace DescribeVpcPeeringConnectionsRequest {
@@ -18381,7 +18373,7 @@ export interface DescribeVpcPeeringConnectionsResult {
   /**
    * <p>Information about the VPC peering connections.</p>
    */
-  VpcPeeringConnections?: Array<VpcPeeringConnection>;
+  VpcPeeringConnections?: VpcPeeringConnection[];
 }
 
 export namespace DescribeVpcPeeringConnectionsResult {
@@ -18473,7 +18465,7 @@ export interface DescribeVpcsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -18490,7 +18482,7 @@ export interface DescribeVpcsRequest {
    * <p>One or more VPC IDs.</p>
    * 		       <p>Default: Describes all your VPCs.</p>
    */
-  VpcIds?: Array<string>;
+  VpcIds?: string[];
 }
 
 export namespace DescribeVpcsRequest {
@@ -18508,7 +18500,7 @@ export interface DescribeVpcsResult {
   /**
    * <p>Information about one or more VPCs.</p>
    */
-  Vpcs?: Array<Vpc>;
+  Vpcs?: Vpc[];
 }
 
 export namespace DescribeVpcsResult {
@@ -18582,13 +18574,13 @@ export interface DescribeVpnConnectionsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>One or more VPN connection IDs.</p>
    *         <p>Default: Describes your VPN connections.</p>
    */
-  VpnConnectionIds?: Array<string>;
+  VpnConnectionIds?: string[];
 }
 
 export namespace DescribeVpnConnectionsRequest {
@@ -18604,7 +18596,7 @@ export interface DescribeVpnConnectionsResult {
   /**
    * <p>Information about one or more VPN connections.</p>
    */
-  VpnConnections?: Array<VpnConnection>;
+  VpnConnections?: VpnConnection[];
 }
 
 export namespace DescribeVpnConnectionsResult {
@@ -18666,13 +18658,13 @@ export interface DescribeVpnGatewaysRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>One or more virtual private gateway IDs.</p>
    *         <p>Default: Describes all your virtual private gateways.</p>
    */
-  VpnGatewayIds?: Array<string>;
+  VpnGatewayIds?: string[];
 }
 
 export namespace DescribeVpnGatewaysRequest {
@@ -18688,7 +18680,7 @@ export interface DescribeVpnGatewaysResult {
   /**
    * <p>Information about one or more virtual private gateways.</p>
    */
-  VpnGateways?: Array<VpnGateway>;
+  VpnGateways?: VpnGateway[];
 }
 
 export namespace DescribeVpnGatewaysResult {
@@ -18887,7 +18879,7 @@ export interface DhcpConfiguration {
   /**
    * <p>One or more values for the DHCP option.</p>
    */
-  Values?: Array<AttributeValue>;
+  Values?: AttributeValue[];
 }
 
 export namespace DhcpConfiguration {
@@ -18903,7 +18895,7 @@ export interface DhcpOptions {
   /**
    * <p>One or more DHCP options in the set.</p>
    */
-  DhcpConfigurations?: Array<DhcpConfiguration>;
+  DhcpConfigurations?: DhcpConfiguration[];
 
   /**
    * <p>The ID of the set of DHCP options.</p>
@@ -18918,7 +18910,7 @@ export interface DhcpOptions {
   /**
    * <p>Any tags assigned to the DHCP options set.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace DhcpOptions {
@@ -18993,9 +18985,7 @@ export interface DisableFastSnapshotRestoreErrorItem {
   /**
    * <p>The errors.</p>
    */
-  FastSnapshotRestoreStateErrors?: Array<
-    DisableFastSnapshotRestoreStateErrorItem
-  >;
+  FastSnapshotRestoreStateErrors?: DisableFastSnapshotRestoreStateErrorItem[];
 
   /**
    * <p>The ID of the snapshot.</p>
@@ -19133,7 +19123,7 @@ export interface DisableFastSnapshotRestoresRequest {
   /**
    * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
    */
-  AvailabilityZones: Array<string> | undefined;
+  AvailabilityZones: string[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -19145,7 +19135,7 @@ export interface DisableFastSnapshotRestoresRequest {
   /**
    * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>.</p>
    */
-  SourceSnapshotIds: Array<string> | undefined;
+  SourceSnapshotIds: string[] | undefined;
 }
 
 export namespace DisableFastSnapshotRestoresRequest {
@@ -19158,12 +19148,12 @@ export interface DisableFastSnapshotRestoresResult {
   /**
    * <p>Information about the snapshots for which fast snapshot restores were successfully disabled.</p>
    */
-  Successful?: Array<DisableFastSnapshotRestoreSuccessItem>;
+  Successful?: DisableFastSnapshotRestoreSuccessItem[];
 
   /**
    * <p>Information about the snapshots for which fast snapshot restores could not be disabled.</p>
    */
-  Unsuccessful?: Array<DisableFastSnapshotRestoreErrorItem>;
+  Unsuccessful?: DisableFastSnapshotRestoreErrorItem[];
 }
 
 export namespace DisableFastSnapshotRestoresResult {
@@ -19448,7 +19438,7 @@ export interface DisassociateTransitGatewayMulticastDomainRequest {
   /**
    * <p>The IDs of the subnets;</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>The ID of the attachment.</p>
@@ -19736,7 +19726,7 @@ export interface DnsServersOptionsModifyStructure {
    * 			two DNS servers. Ensure that the DNS servers can be reached by the clients. The specified values
    * 			overwrite the existing values.</p>
    */
-  CustomDnsServers?: Array<string>;
+  CustomDnsServers?: string[];
 
   /**
    * <p>Indicates whether DNS servers should be used. Specify <code>False</code> to delete the existing DNS
@@ -19927,7 +19917,7 @@ export interface EgressOnlyInternetGateway {
   /**
    * <p>Information about the attachment of the egress-only internet gateway.</p>
    */
-  Attachments?: Array<InternetGatewayAttachment>;
+  Attachments?: InternetGatewayAttachment[];
 
   /**
    * <p>The ID of the egress-only internet gateway.</p>
@@ -19937,7 +19927,7 @@ export interface EgressOnlyInternetGateway {
   /**
    * <p>The tags assigned to the egress-only internet gateway.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace EgressOnlyInternetGateway {
@@ -20074,7 +20064,7 @@ export interface ElasticGpus {
   /**
    * <p>The tags assigned to the Elastic Graphics accelerator.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ElasticGpus {
@@ -20188,9 +20178,7 @@ export interface EnableFastSnapshotRestoreErrorItem {
   /**
    * <p>The errors.</p>
    */
-  FastSnapshotRestoreStateErrors?: Array<
-    EnableFastSnapshotRestoreStateErrorItem
-  >;
+  FastSnapshotRestoreStateErrors?: EnableFastSnapshotRestoreStateErrorItem[];
 
   /**
    * <p>The ID of the snapshot.</p>
@@ -20328,7 +20316,7 @@ export interface EnableFastSnapshotRestoresRequest {
   /**
    * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
    */
-  AvailabilityZones: Array<string> | undefined;
+  AvailabilityZones: string[] | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -20341,7 +20329,7 @@ export interface EnableFastSnapshotRestoresRequest {
    * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>. You can specify
    *       a snapshot that was shared with you from another AWS account.</p>
    */
-  SourceSnapshotIds: Array<string> | undefined;
+  SourceSnapshotIds: string[] | undefined;
 }
 
 export namespace EnableFastSnapshotRestoresRequest {
@@ -20354,12 +20342,12 @@ export interface EnableFastSnapshotRestoresResult {
   /**
    * <p>Information about the snapshots for which fast snapshot restores were successfully enabled.</p>
    */
-  Successful?: Array<EnableFastSnapshotRestoreSuccessItem>;
+  Successful?: EnableFastSnapshotRestoreSuccessItem[];
 
   /**
    * <p>Information about the snapshots for which fast snapshot restores could not be enabled.</p>
    */
-  Unsuccessful?: Array<EnableFastSnapshotRestoreErrorItem>;
+  Unsuccessful?: EnableFastSnapshotRestoreErrorItem[];
 }
 
 export namespace EnableFastSnapshotRestoresResult {
@@ -20917,7 +20905,7 @@ export interface ExportTask {
   /**
    * <p>The tags for the export task.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ExportTask {
@@ -21090,7 +21078,7 @@ export interface ExportTransitGatewayRoutesRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The name of the S3 bucket.</p>
@@ -21217,7 +21205,7 @@ export interface Filter {
   /**
    * <p>The filter values. Filter values are case-sensitive.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace Filter {
@@ -21266,7 +21254,7 @@ export interface FleetData {
    * <p>Information about the instances that could not be launched by the fleet. Valid only when
    *             <b>Type</b> is set to <code>instant</code>.</p>
    */
-  Errors?: Array<DescribeFleetError>;
+  Errors?: DescribeFleetError[];
 
   /**
    * <p>Indicates whether running instances should be terminated if the target capacity of the
@@ -21302,12 +21290,12 @@ export interface FleetData {
    * <p>Information about the instances that were launched by the fleet. Valid only when
    *             <b>Type</b> is set to <code>instant</code>.</p>
    */
-  Instances?: Array<DescribeFleetsInstances>;
+  Instances?: DescribeFleetsInstances[];
 
   /**
    * <p>The launch template and overrides.</p>
    */
-  LaunchTemplateConfigs?: Array<FleetLaunchTemplateConfig>;
+  LaunchTemplateConfigs?: FleetLaunchTemplateConfig[];
 
   /**
    * <p>The allocation strategy of On-Demand Instances in an EC2 Fleet.</p>
@@ -21327,7 +21315,7 @@ export interface FleetData {
   /**
    * <p>The tags for an EC2 Fleet resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The number of units to request. You can choose to set the target capacity in terms of
@@ -21398,7 +21386,7 @@ export interface FleetLaunchTemplateConfig {
    * <p>Any parameters that you specify override the same parameters in the launch
    *          template.</p>
    */
-  Overrides?: Array<FleetLaunchTemplateOverrides>;
+  Overrides?: FleetLaunchTemplateOverrides[];
 }
 
 export namespace FleetLaunchTemplateConfig {
@@ -21421,7 +21409,7 @@ export interface FleetLaunchTemplateConfigRequest {
    * <p>Any parameters that you specify override the same parameters in the launch
    *          template.</p>
    */
-  Overrides?: Array<FleetLaunchTemplateOverridesRequest>;
+  Overrides?: FleetLaunchTemplateOverridesRequest[];
 }
 
 export namespace FleetLaunchTemplateConfigRequest {
@@ -21785,7 +21773,7 @@ export interface FpgaImage {
   /**
    * <p>The product codes for the AFI.</p>
    */
-  ProductCodes?: Array<ProductCode>;
+  ProductCodes?: ProductCode[];
 
   /**
    * <p>Indicates whether the AFI is public.</p>
@@ -21805,7 +21793,7 @@ export interface FpgaImage {
   /**
    * <p>Any tags assigned to the AFI.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The time of the most recent update to the AFI.</p>
@@ -21835,7 +21823,7 @@ export interface FpgaImageAttribute {
   /**
    * <p>The load permissions.</p>
    */
-  LoadPermissions?: Array<LoadPermission>;
+  LoadPermissions?: LoadPermission[];
 
   /**
    * <p>The name of the AFI.</p>
@@ -21845,7 +21833,7 @@ export interface FpgaImageAttribute {
   /**
    * <p>The product codes.</p>
    */
-  ProductCodes?: Array<ProductCode>;
+  ProductCodes?: ProductCode[];
 }
 
 export namespace FpgaImageAttribute {
@@ -21912,7 +21900,7 @@ export interface FpgaInfo {
   /**
    * <p>Describes the FPGAs for the instance type.</p>
    */
-  Fpgas?: Array<FpgaDeviceInfo>;
+  Fpgas?: FpgaDeviceInfo[];
 
   /**
    * <p>The total memory of all FPGA accelerators for the instance type.</p>
@@ -21962,7 +21950,7 @@ export interface GetAssociatedIpv6PoolCidrsResult {
   /**
    * <p>Information about the IPv6 CIDR block associations.</p>
    */
-  Ipv6CidrAssociations?: Array<Ipv6CidrAssociation>;
+  Ipv6CidrAssociations?: Ipv6CidrAssociation[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -22024,7 +22012,7 @@ export interface GetCapacityReservationUsageResult {
   /**
    * <p>Information about the Capacity Reservation usage.</p>
    */
-  InstanceUsages?: Array<InstanceUsage>;
+  InstanceUsages?: InstanceUsage[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -22114,7 +22102,7 @@ export interface GetCoipPoolUsageRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -22143,7 +22131,7 @@ export interface GetCoipPoolUsageResult {
   /**
    * <p>Information about the address usage.</p>
    */
-  CoipAddressUsages?: Array<CoipAddressUsage>;
+  CoipAddressUsages?: CoipAddressUsage[];
 
   /**
    * <p>The ID of the customer-owned address pool.</p>
@@ -22349,7 +22337,7 @@ export interface GetHostReservationPurchasePreviewRequest {
   /**
    * <p>The IDs of the Dedicated Hosts with which the reservation is associated.</p>
    */
-  HostIdSet: Array<string> | undefined;
+  HostIdSet: string[] | undefined;
 
   /**
    * <p>The offering ID of the reservation.</p>
@@ -22375,7 +22363,7 @@ export interface GetHostReservationPurchasePreviewResult {
    * <p>The purchase information of the Dedicated Host reservation and the Dedicated Hosts
    *             associated with it.</p>
    */
-  Purchase?: Array<Purchase>;
+  Purchase?: Purchase[];
 
   /**
    * <p>The potential total hourly price of the reservation per hour.</p>
@@ -22486,13 +22474,13 @@ export interface GetReservedInstancesExchangeQuoteRequest {
   /**
    * <p>The IDs of the Convertible Reserved Instances to exchange.</p>
    */
-  ReservedInstanceIds: Array<string> | undefined;
+  ReservedInstanceIds: string[] | undefined;
 
   /**
    * <p>The configuration of the target Convertible Reserved Instance to exchange for your
    *             current Convertible Reserved Instances.</p>
    */
-  TargetConfigurations?: Array<TargetConfigurationRequest>;
+  TargetConfigurations?: TargetConfigurationRequest[];
 }
 
 export namespace GetReservedInstancesExchangeQuoteRequest {
@@ -22533,7 +22521,7 @@ export interface GetReservedInstancesExchangeQuoteResult {
   /**
    * <p>The configuration of your Convertible Reserved Instances.</p>
    */
-  ReservedInstanceValueSet?: Array<ReservedInstanceReservationValue>;
+  ReservedInstanceValueSet?: ReservedInstanceReservationValue[];
 
   /**
    * <p>The cost associated with the Reserved Instance.</p>
@@ -22543,7 +22531,7 @@ export interface GetReservedInstancesExchangeQuoteResult {
   /**
    * <p>The values of the target Convertible Reserved Instances.</p>
    */
-  TargetConfigurationValueSet?: Array<TargetReservationValue>;
+  TargetConfigurationValueSet?: TargetReservationValue[];
 
   /**
    * <p>Describes the reason why the exchange cannot be completed.</p>
@@ -22574,7 +22562,7 @@ export interface GetTransitGatewayAttachmentPropagationsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -22610,9 +22598,7 @@ export interface GetTransitGatewayAttachmentPropagationsResult {
   /**
    * <p>Information about the propagation route tables.</p>
    */
-  TransitGatewayAttachmentPropagations?: Array<
-    TransitGatewayAttachmentPropagation
-  >;
+  TransitGatewayAttachmentPropagations?: TransitGatewayAttachmentPropagation[];
 }
 
 export namespace GetTransitGatewayAttachmentPropagationsResult {
@@ -22660,7 +22646,7 @@ export interface GetTransitGatewayMulticastDomainAssociationsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -22691,7 +22677,7 @@ export interface GetTransitGatewayMulticastDomainAssociationsResult {
   /**
    * <p>Information about the multicast domain associations.</p>
    */
-  MulticastDomainAssociations?: Array<TransitGatewayMulticastDomainAssociation>;
+  MulticastDomainAssociations?: TransitGatewayMulticastDomainAssociation[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -22732,7 +22718,7 @@ export interface GetTransitGatewayRouteTableAssociationsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -22763,7 +22749,7 @@ export interface GetTransitGatewayRouteTableAssociationsResult {
   /**
    * <p>Information about the associations.</p>
    */
-  Associations?: Array<TransitGatewayRouteTableAssociation>;
+  Associations?: TransitGatewayRouteTableAssociation[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -22804,7 +22790,7 @@ export interface GetTransitGatewayRouteTablePropagationsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -22840,9 +22826,7 @@ export interface GetTransitGatewayRouteTablePropagationsResult {
   /**
    * <p>Information about the route table propagations.</p>
    */
-  TransitGatewayRouteTablePropagations?: Array<
-    TransitGatewayRouteTablePropagation
-  >;
+  TransitGatewayRouteTablePropagations?: TransitGatewayRouteTablePropagation[];
 }
 
 export namespace GetTransitGatewayRouteTablePropagationsResult {
@@ -22906,7 +22890,7 @@ export interface GpuInfo {
   /**
    * <p>Describes the GPU accelerators for the instance type.</p>
    */
-  Gpus?: Array<GpuDeviceInfo>;
+  Gpus?: GpuDeviceInfo[];
 
   /**
    * <p>The total size of the memory for the GPU accelerators for the instance type.</p>
@@ -23121,7 +23105,7 @@ export interface Host {
    * <p>The IDs and instance type that are currently running on the Dedicated
    *             Host.</p>
    */
-  Instances?: Array<HostInstance>;
+  Instances?: HostInstance[];
 
   /**
    * <p>Indicates whether the Dedicated Host is in a host resource group. If
@@ -23148,7 +23132,7 @@ export interface Host {
   /**
    * <p>Any tags assigned to the Dedicated Host.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace Host {
@@ -23298,7 +23282,7 @@ export interface HostReservation {
   /**
    * <p>The IDs of the Dedicated Hosts associated with the reservation.</p>
    */
-  HostIdSet?: Array<string>;
+  HostIdSet?: string[];
 
   /**
    * <p>The ID of the reservation that specifies the associated Dedicated Hosts.</p>
@@ -23341,7 +23325,7 @@ export interface HostReservation {
   /**
    * <p>Any tags assigned to the Dedicated Host Reservation.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The upfront price of the reservation.</p>
@@ -23538,7 +23522,7 @@ export interface Image {
   /**
    * <p>Any block device mapping entries.</p>
    */
-  BlockDeviceMappings?: Array<BlockDeviceMapping>;
+  BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
    * <p>The date and time the image was created.</p>
@@ -23604,7 +23588,7 @@ export interface Image {
   /**
    * <p>Any product codes associated with the AMI.</p>
    */
-  ProductCodes?: Array<ProductCode>;
+  ProductCodes?: ProductCode[];
 
   /**
    * <p>Indicates whether the image has public launch permissions. The value is <code>true</code> if
@@ -23646,7 +23630,7 @@ export interface Image {
   /**
    * <p>Any tags assigned to the image.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The type of virtualization of the AMI.</p>
@@ -23666,7 +23650,7 @@ export interface ImageAttribute {
   /**
    * <p>The block device mapping entries.</p>
    */
-  BlockDeviceMappings?: Array<BlockDeviceMapping>;
+  BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
    * <p>A description for the AMI.</p>
@@ -23686,12 +23670,12 @@ export interface ImageAttribute {
   /**
    * <p>The launch permissions.</p>
    */
-  LaunchPermissions?: Array<LaunchPermission>;
+  LaunchPermissions?: LaunchPermission[];
 
   /**
    * <p>The product codes.</p>
    */
-  ProductCodes?: Array<ProductCode>;
+  ProductCodes?: ProductCode[];
 
   /**
    * <p>The RAM disk ID.</p>
@@ -23873,7 +23857,7 @@ export interface ImportImageRequest {
   /**
    * <p>Information about the disk containers.</p>
    */
-  DiskContainers?: Array<ImageDiskContainer>;
+  DiskContainers?: ImageDiskContainer[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -23926,7 +23910,7 @@ export interface ImportImageRequest {
   /**
    * <p>The ARNs of the license configurations.</p>
    */
-  LicenseSpecifications?: Array<ImportImageLicenseConfigurationRequest>;
+  LicenseSpecifications?: ImportImageLicenseConfigurationRequest[];
 
   /**
    * <p>The license type to be used for the Amazon Machine Image (AMI) after importing.</p>
@@ -23998,7 +23982,7 @@ export interface ImportImageResult {
   /**
    * <p>The ARNs of the license configurations.</p>
    */
-  LicenseSpecifications?: Array<ImportImageLicenseConfigurationResponse>;
+  LicenseSpecifications?: ImportImageLicenseConfigurationResponse[];
 
   /**
    * <p>The license type of the virtual machine.</p>
@@ -24018,7 +24002,7 @@ export interface ImportImageResult {
   /**
    * <p>Information about the snapshots.</p>
    */
-  SnapshotDetails?: Array<SnapshotDetail>;
+  SnapshotDetails?: SnapshotDetail[];
 
   /**
    * <p>A brief status of the task.</p>
@@ -24084,7 +24068,7 @@ export interface ImportImageTask {
   /**
    * <p>The ARNs of the license configurations that are associated with the import image task.</p>
    */
-  LicenseSpecifications?: Array<ImportImageLicenseConfigurationResponse>;
+  LicenseSpecifications?: ImportImageLicenseConfigurationResponse[];
 
   /**
    * <p>The license type of the virtual machine.</p>
@@ -24104,7 +24088,7 @@ export interface ImportImageTask {
   /**
    * <p>Information about the snapshots.</p>
    */
-  SnapshotDetails?: Array<SnapshotDetail>;
+  SnapshotDetails?: SnapshotDetail[];
 
   /**
    * <p>A brief status for the import image task.</p>
@@ -24119,7 +24103,7 @@ export interface ImportImageTask {
   /**
    * <p>The tags for the import image task.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ImportImageTask {
@@ -24145,12 +24129,12 @@ export interface ImportInstanceLaunchSpecification {
   /**
    * <p>The security group IDs.</p>
    */
-  GroupIds?: Array<string>;
+  GroupIds?: string[];
 
   /**
    * <p>The security group names.</p>
    */
-  GroupNames?: Array<string>;
+  GroupNames?: string[];
 
   /**
    * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the
@@ -24205,7 +24189,7 @@ export interface ImportInstanceRequest {
   /**
    * <p>The disk image.</p>
    */
-  DiskImages?: Array<DiskImage>;
+  DiskImages?: DiskImage[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -24266,7 +24250,7 @@ export interface ImportInstanceTaskDetails {
   /**
    * <p>The volumes.</p>
    */
-  Volumes?: Array<ImportInstanceVolumeDetailItem>;
+  Volumes?: ImportInstanceVolumeDetailItem[];
 }
 
 export namespace ImportInstanceTaskDetails {
@@ -24483,7 +24467,7 @@ export interface ImportSnapshotTask {
   /**
    * <p>The tags for the import snapshot task.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ImportSnapshotTask {
@@ -24583,7 +24567,7 @@ export interface InferenceAcceleratorInfo {
   /**
    * <p>Describes the Inference accelerators for the instance type.</p>
    */
-  Accelerators?: Array<InferenceDeviceInfo>;
+  Accelerators?: InferenceDeviceInfo[];
 }
 
 export namespace InferenceAcceleratorInfo {
@@ -24636,7 +24620,7 @@ export interface Instance {
   /**
    * <p>Any block device mapping entries for the instance.</p>
    */
-  BlockDeviceMappings?: Array<InstanceBlockDeviceMapping>;
+  BlockDeviceMappings?: InstanceBlockDeviceMapping[];
 
   /**
    * <p>The ID of the Capacity Reservation.</p>
@@ -24670,14 +24654,12 @@ export interface Instance {
   /**
    * <p>The Elastic GPU associated with the instance.</p>
    */
-  ElasticGpuAssociations?: Array<ElasticGpuAssociation>;
+  ElasticGpuAssociations?: ElasticGpuAssociation[];
 
   /**
    * <p> The elastic inference accelerator associated with the instance.</p>
    */
-  ElasticInferenceAcceleratorAssociations?: Array<
-    ElasticInferenceAcceleratorAssociation
-  >;
+  ElasticInferenceAcceleratorAssociations?: ElasticInferenceAcceleratorAssociation[];
 
   /**
    * <p>Specifies whether enhanced networking with ENA is enabled.</p>
@@ -24738,7 +24720,7 @@ export interface Instance {
   /**
    * <p>The license configurations.</p>
    */
-  Licenses?: Array<LicenseConfiguration>;
+  Licenses?: LicenseConfiguration[];
 
   /**
    * <p>The metadata options for the instance.</p>
@@ -24753,7 +24735,7 @@ export interface Instance {
   /**
    * <p>[EC2-VPC] The network interfaces for the instance.</p>
    */
-  NetworkInterfaces?: Array<InstanceNetworkInterface>;
+  NetworkInterfaces?: InstanceNetworkInterface[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
@@ -24789,7 +24771,7 @@ export interface Instance {
   /**
    * <p>The product codes attached to this instance, if applicable.</p>
    */
-  ProductCodes?: Array<ProductCode>;
+  ProductCodes?: ProductCode[];
 
   /**
    * <p>(IPv4 only) The public DNS name assigned to the instance. This name is not available
@@ -24823,7 +24805,7 @@ export interface Instance {
   /**
    * <p>The security groups for the instance.</p>
    */
-  SecurityGroups?: Array<GroupIdentifier>;
+  SecurityGroups?: GroupIdentifier[];
 
   /**
    * <p>Specifies whether to enable an instance launched in a VPC to perform NAT. This
@@ -24869,7 +24851,7 @@ export interface Instance {
   /**
    * <p>Any tags assigned to the instance.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The virtualization type of the instance.</p>
@@ -24894,7 +24876,7 @@ export interface InstanceAttribute {
   /**
    * <p>The block device mapping of the instance.</p>
    */
-  BlockDeviceMappings?: Array<InstanceBlockDeviceMapping>;
+  BlockDeviceMappings?: InstanceBlockDeviceMapping[];
 
   /**
    * <p>If the value is <code>true</code>, you can't terminate the instance through the Amazon
@@ -24915,7 +24897,7 @@ export interface InstanceAttribute {
   /**
    * <p>The security groups associated with the instance.</p>
    */
-  Groups?: Array<GroupIdentifier>;
+  Groups?: GroupIdentifier[];
 
   /**
    * <p>The ID of the instance.</p>
@@ -24941,7 +24923,7 @@ export interface InstanceAttribute {
   /**
    * <p>A list of product codes.</p>
    */
-  ProductCodes?: Array<ProductCode>;
+  ProductCodes?: ProductCode[];
 
   /**
    * <p>The RAM disk ID.</p>
@@ -25400,7 +25382,7 @@ export interface InstanceNetworkInterface {
   /**
    * <p>One or more security groups.</p>
    */
-  Groups?: Array<GroupIdentifier>;
+  Groups?: GroupIdentifier[];
 
   /**
    * <p>Describes the type of network interface.</p>
@@ -25412,7 +25394,7 @@ export interface InstanceNetworkInterface {
   /**
    * <p>One or more IPv6 addresses associated with the network interface.</p>
    */
-  Ipv6Addresses?: Array<InstanceIpv6Address>;
+  Ipv6Addresses?: InstanceIpv6Address[];
 
   /**
    * <p>The MAC address.</p>
@@ -25442,7 +25424,7 @@ export interface InstanceNetworkInterface {
   /**
    * <p>One or more private IPv4 addresses associated with the network interface.</p>
    */
-  PrivateIpAddresses?: Array<InstancePrivateIpAddress>;
+  PrivateIpAddresses?: InstancePrivateIpAddress[];
 
   /**
    * <p>Indicates whether to validate network traffic to or from this network interface.</p>
@@ -25569,7 +25551,7 @@ export interface InstanceNetworkInterfaceSpecification {
   /**
    * <p>The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.</p>
    */
-  Groups?: Array<string>;
+  Groups?: string[];
 
   /**
    * <p>The type of network interface. To create an Elastic Fabric Adapter (EFA), specify
@@ -25595,7 +25577,7 @@ export interface InstanceNetworkInterfaceSpecification {
    *             cannot specify this option if you've specified a minimum number of instances to
    *             launch.</p>
    */
-  Ipv6Addresses?: Array<InstanceIpv6Address>;
+  Ipv6Addresses?: InstanceIpv6Address[];
 
   /**
    * <p>The ID of the network interface.</p>
@@ -25612,7 +25594,7 @@ export interface InstanceNetworkInterfaceSpecification {
    * <p>One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're
    *         	launching more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
    */
-  PrivateIpAddresses?: Array<PrivateIpAddressSpecification>;
+  PrivateIpAddresses?: PrivateIpAddressSpecification[];
 
   /**
    * <p>The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're
@@ -25791,7 +25773,7 @@ export interface InstanceStatus {
   /**
    * <p>Any scheduled events associated with the instance.</p>
    */
-  Events?: Array<InstanceStatusEvent>;
+  Events?: InstanceStatusEvent[];
 
   /**
    * <p>The ID of the instance.</p>
@@ -25906,7 +25888,7 @@ export interface InstanceStatusSummary {
   /**
    * <p>The system instance health or application instance health.</p>
    */
-  Details?: Array<InstanceStatusDetails>;
+  Details?: InstanceStatusDetails[];
 
   /**
    * <p>The status.</p>
@@ -25927,7 +25909,7 @@ export interface InstanceStorageInfo {
   /**
    * <p>Array describing the disks that are available for the instance type.</p>
    */
-  Disks?: Array<DiskInfo>;
+  Disks?: DiskInfo[];
 
   /**
    * <p>The total size of the disks, in GB.</p>
@@ -26322,12 +26304,12 @@ export interface InstanceTypeInfo {
   /**
    * <p>Indicates the supported root device types.</p>
    */
-  SupportedRootDeviceTypes?: Array<RootDeviceType | string>;
+  SupportedRootDeviceTypes?: RootDeviceType | string[];
 
   /**
    * <p>Indicates whether the instance type is offered for spot or On-Demand.</p>
    */
-  SupportedUsageClasses?: Array<UsageClassType | string>;
+  SupportedUsageClasses?: UsageClassType | string[];
 
   /**
    * <p>Describes the vCPU configurations for the instance type.</p>
@@ -26398,7 +26380,7 @@ export interface InternetGateway {
   /**
    * <p>Any VPCs attached to the internet gateway.</p>
    */
-  Attachments?: Array<InternetGatewayAttachment>;
+  Attachments?: InternetGatewayAttachment[];
 
   /**
    * <p>The ID of the internet gateway.</p>
@@ -26413,7 +26395,7 @@ export interface InternetGateway {
   /**
    * <p>Any tags assigned to the internet gateway.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace InternetGateway {
@@ -26472,19 +26454,19 @@ export interface IpPermission {
   /**
    * <p>The IPv4 ranges.</p>
    */
-  IpRanges?: Array<IpRange>;
+  IpRanges?: IpRange[];
 
   /**
    * <p>[VPC only] The IPv6 ranges.</p>
    */
-  Ipv6Ranges?: Array<Ipv6Range>;
+  Ipv6Ranges?: Ipv6Range[];
 
   /**
    * <p>[VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the
    *         AWS service to access through a VPC endpoint from instances associated with the security
    *         group.</p>
    */
-  PrefixListIds?: Array<PrefixListId>;
+  PrefixListIds?: PrefixListId[];
 
   /**
    * <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value
@@ -26496,7 +26478,7 @@ export interface IpPermission {
   /**
    * <p>The security group and AWS account ID pairs.</p>
    */
-  UserIdGroupPairs?: Array<UserIdGroupPair>;
+  UserIdGroupPairs?: UserIdGroupPair[];
 }
 
 export namespace IpPermission {
@@ -26575,7 +26557,7 @@ export interface Ipv6Pool {
   /**
    * <p>The CIDR blocks for the address pool.</p>
    */
-  PoolCidrBlocks?: Array<PoolCidrBlock>;
+  PoolCidrBlocks?: PoolCidrBlock[];
 
   /**
    * <p>The ID of the address pool.</p>
@@ -26585,7 +26567,7 @@ export interface Ipv6Pool {
   /**
    * <p>Any tags for the address pool.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace Ipv6Pool {
@@ -26671,7 +26653,7 @@ export interface KeyPairInfo {
   /**
    * <p>Any tags applied to the key pair.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace KeyPairInfo {
@@ -26727,12 +26709,12 @@ export interface LaunchPermissionModifications {
   /**
    * <p>The AWS account ID to add to the list of launch permissions for the AMI.</p>
    */
-  Add?: Array<LaunchPermission>;
+  Add?: LaunchPermission[];
 
   /**
    * <p>The AWS account ID to remove from the list of launch permissions for the AMI.</p>
    */
-  Remove?: Array<LaunchPermission>;
+  Remove?: LaunchPermission[];
 }
 
 export namespace LaunchPermissionModifications {
@@ -26753,7 +26735,7 @@ export interface LaunchSpecification {
   /**
    * <p>One or more block device mapping entries.</p>
    */
-  BlockDeviceMappings?: Array<BlockDeviceMapping>;
+  BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
    * <p>Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.</p>
@@ -26796,7 +26778,7 @@ export interface LaunchSpecification {
    * <p>One or more network interfaces. If you specify a network interface, you must specify
    *            subnet IDs and security group IDs using the network interface.</p>
    */
-  NetworkInterfaces?: Array<InstanceNetworkInterfaceSpecification>;
+  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
 
   /**
    * <p>The placement information for the instance.</p>
@@ -26811,7 +26793,7 @@ export interface LaunchSpecification {
   /**
    * <p>One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.</p>
    */
-  SecurityGroups?: Array<GroupIdentifier>;
+  SecurityGroups?: GroupIdentifier[];
 
   /**
    * <p>The ID of the subnet in which to launch the instance.</p>
@@ -26867,7 +26849,7 @@ export interface LaunchTemplate {
   /**
    * <p>The tags for the launch template.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace LaunchTemplate {
@@ -27045,7 +27027,7 @@ export interface LaunchTemplateConfig {
   /**
    * <p>Any parameters that you specify override the same parameters in the launch template.</p>
    */
-  Overrides?: Array<LaunchTemplateOverrides>;
+  Overrides?: LaunchTemplateOverrides[];
 }
 
 export namespace LaunchTemplateConfig {
@@ -27505,7 +27487,7 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
   /**
    * <p>The IDs of one or more security groups.</p>
    */
-  Groups?: Array<string>;
+  Groups?: string[];
 
   /**
    * <p>The type of network interface.</p>
@@ -27520,7 +27502,7 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
   /**
    * <p>The IPv6 addresses for the network interface.</p>
    */
-  Ipv6Addresses?: Array<InstanceIpv6Address>;
+  Ipv6Addresses?: InstanceIpv6Address[];
 
   /**
    * <p>The ID of the network interface.</p>
@@ -27535,7 +27517,7 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
   /**
    * <p>One or more private IPv4 addresses.</p>
    */
-  PrivateIpAddresses?: Array<PrivateIpAddressSpecification>;
+  PrivateIpAddresses?: PrivateIpAddressSpecification[];
 
   /**
    * <p>The number of secondary private IPv4 addresses for the network interface.</p>
@@ -27583,7 +27565,7 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
   /**
    * <p>The IDs of one or more security groups.</p>
    */
-  Groups?: Array<string>;
+  Groups?: string[];
 
   /**
    * <p>The type of network interface. To create an Elastic Fabric Adapter (EFA), specify
@@ -27603,7 +27585,7 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
   /**
    * <p>One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.</p>
    */
-  Ipv6Addresses?: Array<InstanceIpv6AddressRequest>;
+  Ipv6Addresses?: InstanceIpv6AddressRequest[];
 
   /**
    * <p>The ID of the network interface.</p>
@@ -27618,7 +27600,7 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
   /**
    * <p>One or more private IPv4 addresses.</p>
    */
-  PrivateIpAddresses?: Array<PrivateIpAddressSpecification>;
+  PrivateIpAddresses?: PrivateIpAddressSpecification[];
 
   /**
    * <p>The number of secondary private IPv4 addresses to assign to a network interface.</p>
@@ -27937,7 +27919,7 @@ export interface LaunchTemplateTagSpecification {
   /**
    * <p>The tags for the resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace LaunchTemplateTagSpecification {
@@ -27960,7 +27942,7 @@ export interface LaunchTemplateTagSpecificationRequest {
   /**
    * <p>The tags to apply to the resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace LaunchTemplateTagSpecificationRequest {
@@ -28138,12 +28120,12 @@ export interface LoadPermissionModifications {
   /**
    * <p>The load permissions to add.</p>
    */
-  Add?: Array<LoadPermissionRequest>;
+  Add?: LoadPermissionRequest[];
 
   /**
    * <p>The load permissions to remove.</p>
    */
-  Remove?: Array<LoadPermissionRequest>;
+  Remove?: LoadPermissionRequest[];
 }
 
 export namespace LoadPermissionModifications {
@@ -28200,7 +28182,7 @@ export interface LocalGateway {
   /**
    * <p>The tags assigned to the local gateway.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace LocalGateway {
@@ -28278,7 +28260,7 @@ export interface LocalGatewayRouteTable {
   /**
    * <p>The tags assigned to the local gateway route table.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace LocalGatewayRouteTable {
@@ -28319,7 +28301,7 @@ export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
   /**
    * <p>The tags assigned to the association.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
@@ -28357,7 +28339,7 @@ export interface LocalGatewayRouteTableVpcAssociation {
   /**
    * <p>The tags assigned to the association.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the VPC.</p>
@@ -28410,7 +28392,7 @@ export interface LocalGatewayVirtualInterface {
   /**
    * <p>The tags assigned to the virtual interface.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the VLAN.</p>
@@ -28441,12 +28423,12 @@ export interface LocalGatewayVirtualInterfaceGroup {
   /**
    * <p>The IDs of the virtual interfaces.</p>
    */
-  LocalGatewayVirtualInterfaceIds?: Array<string>;
+  LocalGatewayVirtualInterfaceIds?: string[];
 
   /**
    * <p>The tags assigned to the virtual interface group.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace LocalGatewayVirtualInterfaceGroup {
@@ -28814,17 +28796,17 @@ export interface ModifyFpgaImageAttributeRequest {
    * <p>The product codes. After you add a product code to an AFI, it can't be removed.
    * 		    This parameter is valid only when modifying the <code>productCodes</code> attribute.</p>
    */
-  ProductCodes?: Array<string>;
+  ProductCodes?: string[];
 
   /**
    * <p>The user groups. This parameter is valid only when modifying the <code>loadPermission</code> attribute.</p>
    */
-  UserGroups?: Array<string>;
+  UserGroups?: string[];
 
   /**
    * <p>The AWS account IDs. This parameter is valid only when modifying the <code>loadPermission</code> attribute.</p>
    */
-  UserIds?: Array<string>;
+  UserIds?: string[];
 }
 
 export namespace ModifyFpgaImageAttributeRequest {
@@ -28855,7 +28837,7 @@ export interface ModifyHostsRequest {
   /**
    * <p>The IDs of the Dedicated Hosts to modify.</p>
    */
-  HostIds: Array<string> | undefined;
+  HostIds: string[] | undefined;
 
   /**
    * <p>Indicates whether to enable or disable host recovery for the Dedicated Host. For more information,
@@ -28898,13 +28880,13 @@ export interface ModifyHostsResult {
   /**
    * <p>The IDs of the Dedicated Hosts that were successfully modified.</p>
    */
-  Successful?: Array<string>;
+  Successful?: string[];
 
   /**
    * <p>The IDs of the Dedicated Hosts that could not be modified. Check whether the
    *             setting you requested can be used.</p>
    */
-  Unsuccessful?: Array<UnsuccessfulItem>;
+  Unsuccessful?: UnsuccessfulItem[];
 }
 
 export namespace ModifyHostsResult {
@@ -29019,19 +29001,19 @@ export interface ModifyImageAttributeRequest {
   /**
    * <p>The DevPay product codes. After you add a product code to an AMI, it can't be removed.</p>
    */
-  ProductCodes?: Array<string>;
+  ProductCodes?: string[];
 
   /**
    * <p>The user groups.
    *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
    */
-  UserGroups?: Array<string>;
+  UserGroups?: string[];
 
   /**
    * <p>The AWS account IDs.
    *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
    */
-  UserIds?: Array<string>;
+  UserIds?: string[];
 
   /**
    * <p>The value of the attribute being modified.
@@ -29061,7 +29043,7 @@ export interface ModifyInstanceAttributeRequest {
    *             you launch the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Updating the Block Device Mapping when Launching an Instance</a> in the
    *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
-  BlockDeviceMappings?: Array<InstanceBlockDeviceMappingSpecification>;
+  BlockDeviceMappings?: InstanceBlockDeviceMappingSpecification[];
 
   /**
    * <p>If the value is <code>true</code>, you can't terminate the instance using the Amazon
@@ -29098,7 +29080,7 @@ export interface ModifyInstanceAttributeRequest {
    *             security group, even if it's just the default security group for the VPC. You must
    *             specify the security group ID, not the security group name.</p>
    */
-  Groups?: Array<string>;
+  Groups?: string[];
 
   /**
    * <p>The ID of the instance.</p>
@@ -29229,7 +29211,7 @@ export interface ModifyInstanceCreditSpecificationRequest {
    * <p>Information about the credit option for CPU usage.</p>
    */
   InstanceCreditSpecifications:
-    | Array<InstanceCreditSpecificationRequest>
+    | InstanceCreditSpecificationRequest[]
     | undefined;
 }
 
@@ -29244,17 +29226,13 @@ export interface ModifyInstanceCreditSpecificationResult {
    * <p>Information about the instances whose credit option for CPU usage was successfully
    *             modified.</p>
    */
-  SuccessfulInstanceCreditSpecifications?: Array<
-    SuccessfulInstanceCreditSpecificationItem
-  >;
+  SuccessfulInstanceCreditSpecifications?: SuccessfulInstanceCreditSpecificationItem[];
 
   /**
    * <p>Information about the instances whose credit option for CPU usage was not
    *             modified.</p>
    */
-  UnsuccessfulInstanceCreditSpecifications?: Array<
-    UnsuccessfulInstanceCreditSpecificationItem
-  >;
+  UnsuccessfulInstanceCreditSpecifications?: UnsuccessfulInstanceCreditSpecificationItem[];
 }
 
 export namespace ModifyInstanceCreditSpecificationResult {
@@ -29513,7 +29491,7 @@ export interface ModifyNetworkInterfaceAttributeRequest {
   /**
    * <p>Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.</p>
    */
-  Groups?: Array<string>;
+  Groups?: string[];
 
   /**
    * <p>The ID of the network interface.</p>
@@ -29550,12 +29528,12 @@ export interface ModifyReservedInstancesRequest {
   /**
    * <p>The IDs of the Reserved Instances to modify.</p>
    */
-  ReservedInstancesIds: Array<string> | undefined;
+  ReservedInstancesIds: string[] | undefined;
 
   /**
    * <p>The configuration settings for the Reserved Instances to modify.</p>
    */
-  TargetConfigurations: Array<ReservedInstancesConfiguration> | undefined;
+  TargetConfigurations: ReservedInstancesConfiguration[] | undefined;
 }
 
 export namespace ModifyReservedInstancesRequest {
@@ -29601,7 +29579,7 @@ export interface ModifySnapshotAttributeRequest {
   /**
    * <p>The group to modify for the snapshot.</p>
    */
-  GroupNames?: Array<string>;
+  GroupNames?: string[];
 
   /**
    * <p>The type of operation to perform to the attribute.</p>
@@ -29616,7 +29594,7 @@ export interface ModifySnapshotAttributeRequest {
   /**
    * <p>The account ID to modify for the snapshot.</p>
    */
-  UserIds?: Array<string>;
+  UserIds?: string[];
 }
 
 export namespace ModifySnapshotAttributeRequest {
@@ -29706,7 +29684,7 @@ export interface ModifyTrafficMirrorFilterNetworkServicesRequest {
   /**
    * <p>The network service, for example Amazon DNS, that you want to mirror.</p>
    */
-  AddNetworkServices?: Array<TrafficMirrorNetworkService | string>;
+  AddNetworkServices?: TrafficMirrorNetworkService | string[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -29718,7 +29696,7 @@ export interface ModifyTrafficMirrorFilterNetworkServicesRequest {
   /**
    * <p>The network service, for example Amazon DNS, that you no longer want to mirror.</p>
    */
-  RemoveNetworkServices?: Array<TrafficMirrorNetworkService | string>;
+  RemoveNetworkServices?: TrafficMirrorNetworkService | string[];
 
   /**
    * <p>The ID of the Traffic Mirror filter.</p>
@@ -29781,7 +29759,7 @@ export interface ModifyTrafficMirrorFilterRuleRequest {
    * <p>The properties that you want to remove from the Traffic Mirror filter rule.</p>
    *          <p>When you remove a property from a Traffic Mirror filter rule, the property is set to the default.</p>
    */
-  RemoveFields?: Array<TrafficMirrorFilterRuleField | string>;
+  RemoveFields?: TrafficMirrorFilterRuleField | string[];
 
   /**
    * <p>The action to assign to the rule.</p>
@@ -29856,7 +29834,7 @@ export interface ModifyTrafficMirrorSessionRequest {
    * <p>The properties that you want to remove from the Traffic Mirror session.</p>
    *          <p>When you remove a property from a Traffic Mirror session, the property is set to the default.</p>
    */
-  RemoveFields?: Array<TrafficMirrorSessionField | string>;
+  RemoveFields?: TrafficMirrorSessionField | string[];
 
   /**
    * <p>The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.</p>
@@ -29908,7 +29886,7 @@ export interface ModifyTransitGatewayVpcAttachmentRequest {
   /**
    * <p>The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.</p>
    */
-  AddSubnetIds?: Array<string>;
+  AddSubnetIds?: string[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -29928,7 +29906,7 @@ export interface ModifyTransitGatewayVpcAttachmentRequest {
   /**
    * <p>The IDs of one or more subnets to remove.</p>
    */
-  RemoveSubnetIds?: Array<string>;
+  RemoveSubnetIds?: string[];
 
   /**
    * <p>The ID of the attachment.</p>
@@ -30094,7 +30072,7 @@ export interface ModifyVpcEndpointConnectionNotificationRequest {
    * <p>One or more events for the endpoint. Valid values are <code>Accept</code>,
    *                 <code>Connect</code>, <code>Delete</code>, and <code>Reject</code>.</p>
    */
-  ConnectionEvents?: Array<string>;
+  ConnectionEvents?: string[];
 
   /**
    * <p>The ARN for the SNS topic for the notification.</p>
@@ -30144,17 +30122,17 @@ export interface ModifyVpcEndpointRequest {
   /**
    * <p>(Gateway endpoint) One or more route tables IDs to associate with the endpoint.</p>
    */
-  AddRouteTableIds?: Array<string>;
+  AddRouteTableIds?: string[];
 
   /**
    * <p>(Interface endpoint) One or more security group IDs to associate with the network interface.</p>
    */
-  AddSecurityGroupIds?: Array<string>;
+  AddSecurityGroupIds?: string[];
 
   /**
    * <p>(Interface endpoint) One or more subnet IDs in which to serve the endpoint.</p>
    */
-  AddSubnetIds?: Array<string>;
+  AddSubnetIds?: string[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -30178,17 +30156,17 @@ export interface ModifyVpcEndpointRequest {
   /**
    * <p>(Gateway endpoint) One or more route table IDs to disassociate from the endpoint.</p>
    */
-  RemoveRouteTableIds?: Array<string>;
+  RemoveRouteTableIds?: string[];
 
   /**
    * <p>(Interface endpoint) One or more security group IDs to disassociate from the network interface.</p>
    */
-  RemoveSecurityGroupIds?: Array<string>;
+  RemoveSecurityGroupIds?: string[];
 
   /**
    * <p>(Interface endpoint) One or more subnets IDs in which to remove the endpoint.</p>
    */
-  RemoveSubnetIds?: Array<string>;
+  RemoveSubnetIds?: string[];
 
   /**
    * <p>(Gateway endpoint) Specify <code>true</code> to reset the policy document to the
@@ -30231,7 +30209,7 @@ export interface ModifyVpcEndpointServiceConfigurationRequest {
    * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service
    *             configuration.</p>
    */
-  AddNetworkLoadBalancerArns?: Array<string>;
+  AddNetworkLoadBalancerArns?: string[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -30249,7 +30227,7 @@ export interface ModifyVpcEndpointServiceConfigurationRequest {
    * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service
    *             configuration.</p>
    */
-  RemoveNetworkLoadBalancerArns?: Array<string>;
+  RemoveNetworkLoadBalancerArns?: string[];
 
   /**
    * <p>Removes the private DNS name of the endpoint service.</p>
@@ -30291,7 +30269,7 @@ export interface ModifyVpcEndpointServicePermissionsRequest {
    * 	        Permissions are granted to the principals in this list.
    * 	        To grant permissions to all principals, specify an asterisk (*).</p>
    */
-  AddAllowedPrincipals?: Array<string>;
+  AddAllowedPrincipals?: string[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -30304,7 +30282,7 @@ export interface ModifyVpcEndpointServicePermissionsRequest {
    * <p>The Amazon Resource Names (ARN) of one or more principals.
    * 	        Permissions are revoked for principals in this list.</p>
    */
-  RemoveAllowedPrincipals?: Array<string>;
+  RemoveAllowedPrincipals?: string[];
 
   /**
    * <p>The ID of the service.</p>
@@ -30566,30 +30544,28 @@ export interface ModifyVpnTunnelOptionsSpecification {
    *         <p>Valid values: <code>ikev1</code> | <code>ikev2</code>
    *          </p>
    */
-  IKEVersions?: Array<IKEVersionsRequestListValue>;
+  IKEVersions?: IKEVersionsRequestListValue[];
 
   /**
    * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p>
    *         <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code> | <code>24</code>
    *          </p>
    */
-  Phase1DHGroupNumbers?: Array<Phase1DHGroupNumbersRequestListValue>;
+  Phase1DHGroupNumbers?: Phase1DHGroupNumbersRequestListValue[];
 
   /**
    * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p>
    *         <p>Valid values: <code>AES128</code> | <code>AES256</code>
    *          </p>
    */
-  Phase1EncryptionAlgorithms?: Array<
-    Phase1EncryptionAlgorithmsRequestListValue
-  >;
+  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsRequestListValue[];
 
   /**
    * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p>
    *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code>
    *          </p>
    */
-  Phase1IntegrityAlgorithms?: Array<Phase1IntegrityAlgorithmsRequestListValue>;
+  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsRequestListValue[];
 
   /**
    * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
@@ -30604,23 +30580,21 @@ export interface ModifyVpnTunnelOptionsSpecification {
    *         <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code> | <code>24</code>
    *          </p>
    */
-  Phase2DHGroupNumbers?: Array<Phase2DHGroupNumbersRequestListValue>;
+  Phase2DHGroupNumbers?: Phase2DHGroupNumbersRequestListValue[];
 
   /**
    * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p>
    *         <p>Valid values: <code>AES128</code> | <code>AES256</code>
    *          </p>
    */
-  Phase2EncryptionAlgorithms?: Array<
-    Phase2EncryptionAlgorithmsRequestListValue
-  >;
+  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsRequestListValue[];
 
   /**
    * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p>
    *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code>
    *          </p>
    */
-  Phase2IntegrityAlgorithms?: Array<Phase2IntegrityAlgorithmsRequestListValue>;
+  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsRequestListValue[];
 
   /**
    * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
@@ -30726,7 +30700,7 @@ export interface MonitorInstancesRequest {
   /**
    * <p>The IDs of the instances.</p>
    */
-  InstanceIds: Array<string> | undefined;
+  InstanceIds: string[] | undefined;
 }
 
 export namespace MonitorInstancesRequest {
@@ -30739,7 +30713,7 @@ export interface MonitorInstancesResult {
   /**
    * <p>The monitoring information.</p>
    */
-  InstanceMonitorings?: Array<InstanceMonitoring>;
+  InstanceMonitorings?: InstanceMonitoring[];
 }
 
 export namespace MonitorInstancesResult {
@@ -30879,7 +30853,7 @@ export interface NatGateway {
   /**
    * <p>Information about the IP addresses and network interface associated with the NAT gateway.</p>
    */
-  NatGatewayAddresses?: Array<NatGatewayAddress>;
+  NatGatewayAddresses?: NatGatewayAddress[];
 
   /**
    * <p>The ID of the NAT gateway.</p>
@@ -30931,7 +30905,7 @@ export interface NatGateway {
   /**
    * <p>The tags for the NAT gateway.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the VPC in which the NAT gateway is located.</p>
@@ -30990,12 +30964,12 @@ export interface NetworkAcl {
   /**
    * <p>Any associations between the network ACL and one or more subnets</p>
    */
-  Associations?: Array<NetworkAclAssociation>;
+  Associations?: NetworkAclAssociation[];
 
   /**
    * <p>One or more entries (rules) in the network ACL.</p>
    */
-  Entries?: Array<NetworkAclEntry>;
+  Entries?: NetworkAclEntry[];
 
   /**
    * <p>Indicates whether this is the default network ACL for the VPC.</p>
@@ -31015,7 +30989,7 @@ export interface NetworkAcl {
   /**
    * <p>Any tags assigned to the network ACL.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the VPC for the network ACL.</p>
@@ -31172,7 +31146,7 @@ export interface NetworkInterface {
   /**
    * <p>Any security groups for the network interface.</p>
    */
-  Groups?: Array<GroupIdentifier>;
+  Groups?: GroupIdentifier[];
 
   /**
    * <p>The type of network interface.</p>
@@ -31182,7 +31156,7 @@ export interface NetworkInterface {
   /**
    * <p>The IPv6 addresses associated with the network interface.</p>
    */
-  Ipv6Addresses?: Array<NetworkInterfaceIpv6Address>;
+  Ipv6Addresses?: NetworkInterfaceIpv6Address[];
 
   /**
    * <p>The MAC address.</p>
@@ -31217,7 +31191,7 @@ export interface NetworkInterface {
   /**
    * <p>The private IPv4 addresses associated with the network interface.</p>
    */
-  PrivateIpAddresses?: Array<NetworkInterfacePrivateIpAddress>;
+  PrivateIpAddresses?: NetworkInterfacePrivateIpAddress[];
 
   /**
    * <p>The ID of the entity that launched the instance on your behalf (for example, AWS Management Console or Auto Scaling).</p>
@@ -31247,7 +31221,7 @@ export interface NetworkInterface {
   /**
    * <p>Any tags assigned to the network interface.</p>
    */
-  TagSet?: Array<Tag>;
+  TagSet?: Tag[];
 
   /**
    * <p>The ID of the VPC.</p>
@@ -31508,7 +31482,7 @@ export interface NewDhcpConfiguration {
   /**
    * <p>One or more values for the DHCP option.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace NewDhcpConfiguration {
@@ -32065,7 +32039,7 @@ export interface PlacementGroup {
   /**
    * <p>Any tags applied to the placement group.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace PlacementGroup {
@@ -32081,7 +32055,7 @@ export interface PlacementGroupInfo {
   /**
    * <p>A list of supported placement groups types.</p>
    */
-  SupportedStrategies?: Array<PlacementGroupStrategy | string>;
+  SupportedStrategies?: PlacementGroupStrategy | string[];
 }
 
 export namespace PlacementGroupInfo {
@@ -32160,7 +32134,7 @@ export interface PrefixList {
   /**
    * <p>The IP address range of the AWS service.</p>
    */
-  Cidrs?: Array<string>;
+  Cidrs?: string[];
 
   /**
    * <p>The ID of the prefix.</p>
@@ -32291,7 +32265,7 @@ export interface PrincipalIdFormat {
   /**
    * <p>PrincipalIdFormatStatuses description</p>
    */
-  Statuses?: Array<IdFormat>;
+  Statuses?: IdFormat[];
 }
 
 export namespace PrincipalIdFormat {
@@ -32375,7 +32349,7 @@ export interface ProcessorInfo {
   /**
    * <p>A list of architectures supported by the instance type.</p>
    */
-  SupportedArchitectures?: Array<ArchitectureType | string>;
+  SupportedArchitectures?: ArchitectureType | string[];
 
   /**
    * <p>The speed of the processor, in GHz.</p>
@@ -32527,7 +32501,7 @@ export interface PublicIpv4Pool {
   /**
    * <p>The address ranges.</p>
    */
-  PoolAddressRanges?: Array<PublicIpv4PoolRange>;
+  PoolAddressRanges?: PublicIpv4PoolRange[];
 
   /**
    * <p>The ID of the address pool.</p>
@@ -32601,7 +32575,7 @@ export interface Purchase {
   /**
    * <p>The IDs of the Dedicated Hosts associated with the reservation.</p>
    */
-  HostIdSet?: Array<string>;
+  HostIdSet?: string[];
 
   /**
    * <p>The ID of the reservation.</p>
@@ -32651,7 +32625,7 @@ export interface PurchaseHostReservationRequest {
   /**
    * <p>The IDs of the Dedicated Hosts with which the reservation will be associated.</p>
    */
-  HostIdSet: Array<string> | undefined;
+  HostIdSet: string[] | undefined;
 
   /**
    * <p>The specified limit is checked against the total upfront cost of the reservation
@@ -32691,7 +32665,7 @@ export interface PurchaseHostReservationResult {
   /**
    * <p>Describes the details of the purchase.</p>
    */
-  Purchase?: Array<Purchase>;
+  Purchase?: Purchase[];
 
   /**
    * <p>The total hourly price of the reservation calculated per hour.</p>
@@ -32805,7 +32779,7 @@ export interface PurchaseScheduledInstancesRequest {
   /**
    * <p>The purchase requests.</p>
    */
-  PurchaseRequests: Array<PurchaseRequest> | undefined;
+  PurchaseRequests: PurchaseRequest[] | undefined;
 }
 
 export namespace PurchaseScheduledInstancesRequest {
@@ -32821,7 +32795,7 @@ export interface PurchaseScheduledInstancesResult {
   /**
    * <p>Information about the Scheduled Instances.</p>
    */
-  ScheduledInstanceSet?: Array<ScheduledInstance>;
+  ScheduledInstanceSet?: ScheduledInstance[];
 }
 
 export namespace PurchaseScheduledInstancesResult {
@@ -32847,7 +32821,7 @@ export interface RebootInstancesRequest {
   /**
    * <p>The instance IDs.</p>
    */
-  InstanceIds: Array<string> | undefined;
+  InstanceIds: string[] | undefined;
 }
 
 export namespace RebootInstancesRequest {
@@ -32920,12 +32894,12 @@ export interface RegisterImageRequest {
    * <p>The billing product codes. Your account must be authorized to specify billing product codes. Otherwise,
    *          you can use the AWS Marketplace to bill for the use of an AMI.</p>
    */
-  BillingProducts?: Array<string>;
+  BillingProducts?: string[];
 
   /**
    * <p>The block device mapping entries.</p>
    */
-  BlockDeviceMappings?: Array<BlockDeviceMapping>;
+  BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
    * <p>A description for your AMI.</p>
@@ -33027,7 +33001,7 @@ export interface RegisterTransitGatewayMulticastGroupMembersRequest {
   /**
    * <p>The group members' network interface IDs to register with the  transit gateway multicast group.</p>
    */
-  NetworkInterfaceIds?: Array<string>;
+  NetworkInterfaceIds?: string[];
 
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
@@ -33074,7 +33048,7 @@ export interface RegisterTransitGatewayMulticastGroupSourcesRequest {
   /**
    * <p>The group sources' network interface IDs to register with the  transit gateway multicast group.</p>
    */
-  NetworkInterfaceIds?: Array<string>;
+  NetworkInterfaceIds?: string[];
 
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
@@ -33191,7 +33165,7 @@ export interface RejectVpcEndpointConnectionsRequest {
   /**
    * <p>The IDs of one or more VPC endpoints.</p>
    */
-  VpcEndpointIds: Array<string> | undefined;
+  VpcEndpointIds: string[] | undefined;
 }
 
 export namespace RejectVpcEndpointConnectionsRequest {
@@ -33204,7 +33178,7 @@ export interface RejectVpcEndpointConnectionsResult {
   /**
    * <p>Information about the endpoints that were not rejected, if applicable.</p>
    */
-  Unsuccessful?: Array<UnsuccessfulItem>;
+  Unsuccessful?: UnsuccessfulItem[];
 }
 
 export namespace RejectVpcEndpointConnectionsResult {
@@ -33284,7 +33258,7 @@ export interface ReleaseHostsRequest {
   /**
    * <p>The IDs of the Dedicated Hosts to release.</p>
    */
-  HostIds: Array<string> | undefined;
+  HostIds: string[] | undefined;
 }
 
 export namespace ReleaseHostsRequest {
@@ -33297,13 +33271,13 @@ export interface ReleaseHostsResult {
   /**
    * <p>The IDs of the Dedicated Hosts that were successfully released.</p>
    */
-  Successful?: Array<string>;
+  Successful?: string[];
 
   /**
    * <p>The IDs of the Dedicated Hosts that could not be released, including an error
    *             message.</p>
    */
-  Unsuccessful?: Array<UnsuccessfulItem>;
+  Unsuccessful?: UnsuccessfulItem[];
 }
 
 export namespace ReleaseHostsResult {
@@ -33655,7 +33629,7 @@ export interface ReportInstanceStatusRequest {
   /**
    * <p>The instances.</p>
    */
-  Instances: Array<string> | undefined;
+  Instances: string[] | undefined;
 
   /**
    * <p>The reason codes that describe the health state of your instance.</p>
@@ -33704,7 +33678,7 @@ export interface ReportInstanceStatusRequest {
    *             </li>
    *          </ul>
    */
-  ReasonCodes: Array<ReportInstanceReasonCodes | string> | undefined;
+  ReasonCodes: ReportInstanceReasonCodes | string[] | undefined;
 
   /**
    * <p>The time at which the reported instance health state began.</p>
@@ -33732,7 +33706,7 @@ export interface RequestLaunchTemplateData {
   /**
    * <p>The block device mapping.</p>
    */
-  BlockDeviceMappings?: Array<LaunchTemplateBlockDeviceMappingRequest>;
+  BlockDeviceMappings?: LaunchTemplateBlockDeviceMappingRequest[];
 
   /**
    * <p>The Capacity Reservation targeting option. If you do not specify this parameter, the
@@ -33776,16 +33750,14 @@ export interface RequestLaunchTemplateData {
   /**
    * <p>An elastic GPU to associate with the instance.</p>
    */
-  ElasticGpuSpecifications?: Array<ElasticGpuSpecification>;
+  ElasticGpuSpecifications?: ElasticGpuSpecification[];
 
   /**
    * <p>
    *             The elastic inference accelerator for the instance.
    *         </p>
    */
-  ElasticInferenceAccelerators?: Array<
-    LaunchTemplateElasticInferenceAccelerator
-  >;
+  ElasticInferenceAccelerators?: LaunchTemplateElasticInferenceAccelerator[];
 
   /**
    * <p>Indicates whether an instance is enabled for hibernation. This parameter is valid only
@@ -33848,7 +33820,7 @@ export interface RequestLaunchTemplateData {
   /**
    * <p>The license configurations.</p>
    */
-  LicenseSpecifications?: Array<LaunchTemplateLicenseConfigurationRequest>;
+  LicenseSpecifications?: LaunchTemplateLicenseConfigurationRequest[];
 
   /**
    * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
@@ -33865,9 +33837,7 @@ export interface RequestLaunchTemplateData {
    * <p>One or more network interfaces. If you specify a network interface, you must specify
    *             any security groups and subnets as part of the network interface.</p>
    */
-  NetworkInterfaces?: Array<
-    LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
-  >;
+  NetworkInterfaces?: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest[];
 
   /**
    * <p>The placement for the instance.</p>
@@ -33889,21 +33859,21 @@ export interface RequestLaunchTemplateData {
    * <p>One or more security group IDs. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>. You cannot specify both a security group ID and
    *             security name in the same request.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>[EC2-Classic, default VPC] One or more security group names. For a nondefault VPC,
    *             you must use security group IDs instead. You cannot specify both a security group ID and
    *             security name in the same request.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * <p>The tags to apply to the resources during launch. You can only tag instances and
    *             volumes on launch. The specified tags are applied to all instances or volumes that are
    *             created during launch. To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    */
-  TagSpecifications?: Array<LaunchTemplateTagSpecificationRequest>;
+  TagSpecifications?: LaunchTemplateTagSpecificationRequest[];
 
   /**
    * <p>The Base64-encoded user data to make available to the instance. For more
@@ -34055,7 +34025,7 @@ export interface RequestSpotInstancesResult {
   /**
    * <p>One or more Spot Instance requests.</p>
    */
-  SpotInstanceRequests?: Array<SpotInstanceRequest>;
+  SpotInstanceRequests?: SpotInstanceRequest[];
 }
 
 export namespace RequestSpotInstancesResult {
@@ -34078,7 +34048,7 @@ export interface RequestSpotLaunchSpecification {
    *            This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume,
    *            it is not blank and its encryption status is used for the volume encryption status.</p>
    */
-  BlockDeviceMappings?: Array<BlockDeviceMapping>;
+  BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
    * <p>Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.</p>
@@ -34122,7 +34092,7 @@ export interface RequestSpotLaunchSpecification {
    * <p>One or more network interfaces. If you specify a network interface, you must specify
    *            subnet IDs and security group IDs using the network interface.</p>
    */
-  NetworkInterfaces?: Array<InstanceNetworkInterfaceSpecification>;
+  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
 
   /**
    * <p>The placement information for the instance.</p>
@@ -34137,12 +34107,12 @@ export interface RequestSpotLaunchSpecification {
   /**
    * <p>One or more security group IDs.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * <p>The IDs of the subnets in which to launch the instance. To specify multiple subnets, separate
@@ -34169,12 +34139,12 @@ export interface Reservation {
   /**
    * <p>[EC2-Classic only] The security groups.</p>
    */
-  Groups?: Array<GroupIdentifier>;
+  Groups?: GroupIdentifier[];
 
   /**
    * <p>The instances.</p>
    */
-  Instances?: Array<Instance>;
+  Instances?: Instance[];
 
   /**
    * <p>The ID of the AWS account that owns the reservation.</p>
@@ -34345,7 +34315,7 @@ export interface ReservedInstances {
   /**
    * <p>The recurring charge tag assigned to the resource.</p>
    */
-  RecurringCharges?: Array<RecurringCharge>;
+  RecurringCharges?: RecurringCharge[];
 
   /**
    * <p>The ID of the Reserved Instance.</p>
@@ -34370,7 +34340,7 @@ export interface ReservedInstances {
   /**
    * <p>Any tags assigned to the resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The usage price of the Reserved Instance, per hour.</p>
@@ -34457,12 +34427,12 @@ export interface ReservedInstancesListing {
   /**
    * <p>The number of instances in this state.</p>
    */
-  InstanceCounts?: Array<InstanceCount>;
+  InstanceCounts?: InstanceCount[];
 
   /**
    * <p>The price of the Reserved Instance listing.</p>
    */
-  PriceSchedules?: Array<PriceSchedule>;
+  PriceSchedules?: PriceSchedule[];
 
   /**
    * <p>The ID of the Reserved Instance.</p>
@@ -34487,7 +34457,7 @@ export interface ReservedInstancesListing {
   /**
    * <p>Any tags assigned to the resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The last modified timestamp of the listing.</p>
@@ -34525,12 +34495,12 @@ export interface ReservedInstancesModification {
   /**
    * <p>Contains target configurations along with their corresponding new Reserved Instance IDs.</p>
    */
-  ModificationResults?: Array<ReservedInstancesModificationResult>;
+  ModificationResults?: ReservedInstancesModificationResult[];
 
   /**
    * <p>The IDs of one or more Reserved Instances.</p>
    */
-  ReservedInstancesIds?: Array<ReservedInstancesId>;
+  ReservedInstancesIds?: ReservedInstancesId[];
 
   /**
    * <p>A unique ID for the Reserved Instance modification.</p>
@@ -34637,7 +34607,7 @@ export interface ReservedInstancesOffering {
   /**
    * <p>The pricing details of the Reserved Instance offering.</p>
    */
-  PricingDetails?: Array<PricingDetail>;
+  PricingDetails?: PricingDetail[];
 
   /**
    * <p>The Reserved Instance product platform description.</p>
@@ -34647,7 +34617,7 @@ export interface ReservedInstancesOffering {
   /**
    * <p>The recurring charge tag assigned to the resource.</p>
    */
-  RecurringCharges?: Array<RecurringCharge>;
+  RecurringCharges?: RecurringCharge[];
 
   /**
    * <p>The ID of the Reserved Instance offering. This is the offering ID used in <a>GetReservedInstancesExchangeQuote</a>
@@ -34920,7 +34890,7 @@ export interface ResponseLaunchTemplateData {
   /**
    * <p>The block device mappings.</p>
    */
-  BlockDeviceMappings?: Array<LaunchTemplateBlockDeviceMapping>;
+  BlockDeviceMappings?: LaunchTemplateBlockDeviceMapping[];
 
   /**
    * <p>Information about the Capacity Reservation targeting option.</p>
@@ -34952,16 +34922,14 @@ export interface ResponseLaunchTemplateData {
   /**
    * <p>The elastic GPU specification.</p>
    */
-  ElasticGpuSpecifications?: Array<ElasticGpuSpecificationResponse>;
+  ElasticGpuSpecifications?: ElasticGpuSpecificationResponse[];
 
   /**
    * <p>
    *             The elastic inference accelerator for the instance.
    *         </p>
    */
-  ElasticInferenceAccelerators?: Array<
-    LaunchTemplateElasticInferenceAcceleratorResponse
-  >;
+  ElasticInferenceAccelerators?: LaunchTemplateElasticInferenceAcceleratorResponse[];
 
   /**
    * <p>Indicates whether an instance is configured for hibernation. For more information, see
@@ -35009,7 +34977,7 @@ export interface ResponseLaunchTemplateData {
   /**
    * <p>The license configurations.</p>
    */
-  LicenseSpecifications?: Array<LaunchTemplateLicenseConfiguration>;
+  LicenseSpecifications?: LaunchTemplateLicenseConfiguration[];
 
   /**
    * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
@@ -35025,9 +34993,7 @@ export interface ResponseLaunchTemplateData {
   /**
    * <p>The network interfaces.</p>
    */
-  NetworkInterfaces?: Array<
-    LaunchTemplateInstanceNetworkInterfaceSpecification
-  >;
+  NetworkInterfaces?: LaunchTemplateInstanceNetworkInterfaceSpecification[];
 
   /**
    * <p>The placement of the instance.</p>
@@ -35042,17 +35008,17 @@ export interface ResponseLaunchTemplateData {
   /**
    * <p>The security group IDs.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>The security group names.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * <p>The tags.</p>
    */
-  TagSpecifications?: Array<LaunchTemplateTagSpecification>;
+  TagSpecifications?: LaunchTemplateTagSpecification[];
 
   /**
    * <p>The user data for the instance. </p>
@@ -35176,7 +35142,7 @@ export interface RevokeSecurityGroupEgressRequest {
   /**
    * <p>The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.</p>
    */
-  IpPermissions?: Array<IpPermission>;
+  IpPermissions?: IpPermission[];
 
   /**
    * <p>Not supported. Use a set of IP permissions to specify the protocol name or
@@ -35243,7 +35209,7 @@ export interface RevokeSecurityGroupIngressRequest {
   /**
    * <p>The sets of IP permissions. You can't specify a source security group and a CIDR IP address range in the same set of permissions.</p>
    */
-  IpPermissions?: Array<IpPermission>;
+  IpPermissions?: IpPermission[];
 
   /**
    * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>) or number
@@ -35387,7 +35353,7 @@ export interface RouteTable {
   /**
    * <p>The associations between the route table and one or more subnets or a gateway.</p>
    */
-  Associations?: Array<RouteTableAssociation>;
+  Associations?: RouteTableAssociation[];
 
   /**
    * <p>The ID of the AWS account that owns the route table.</p>
@@ -35397,7 +35363,7 @@ export interface RouteTable {
   /**
    * <p>Any virtual private gateway (VGW) propagating routes.</p>
    */
-  PropagatingVgws?: Array<PropagatingVgw>;
+  PropagatingVgws?: PropagatingVgw[];
 
   /**
    * <p>The ID of the route table.</p>
@@ -35407,12 +35373,12 @@ export interface RouteTable {
   /**
    * <p>The routes in the route table.</p>
    */
-  Routes?: Array<Route>;
+  Routes?: Route[];
 
   /**
    * <p>Any tags assigned to the route table.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the VPC.</p>
@@ -35522,7 +35488,7 @@ export interface RunInstancesRequest {
   /**
    * <p>The block device mapping entries.</p>
    */
-  BlockDeviceMappings?: Array<BlockDeviceMapping>;
+  BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
    * <p>Information about the Capacity Reservation targeting option. If you do not specify this parameter, the
@@ -35592,14 +35558,14 @@ export interface RunInstancesRequest {
    *             applications. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html"> Amazon EC2 Elastic
    *                 GPUs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
-  ElasticGpuSpecification?: Array<ElasticGpuSpecification>;
+  ElasticGpuSpecification?: ElasticGpuSpecification[];
 
   /**
    * <p>An elastic inference accelerator to associate with the instance. Elastic inference
    *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
    *             your Deep Learning (DL) inference workloads.</p>
    */
-  ElasticInferenceAccelerators?: Array<ElasticInferenceAccelerator>;
+  ElasticInferenceAccelerators?: ElasticInferenceAccelerator[];
 
   /**
    * <p>Indicates whether an instance is enabled for hibernation. For more information, see
@@ -35662,7 +35628,7 @@ export interface RunInstancesRequest {
    *         <p>You cannot specify this option and the network interfaces option in the same
    *             request.</p>
    */
-  Ipv6Addresses?: Array<InstanceIpv6Address>;
+  Ipv6Addresses?: InstanceIpv6Address[];
 
   /**
    * <p>The ID of the kernel.</p>
@@ -35694,7 +35660,7 @@ export interface RunInstancesRequest {
   /**
    * <p>The license configurations.</p>
    */
-  LicenseSpecifications?: Array<LicenseConfigurationRequest>;
+  LicenseSpecifications?: LicenseConfigurationRequest[];
 
   /**
    * <p>The maximum number of instances to launch. If you specify more instances than Amazon
@@ -35732,7 +35698,7 @@ export interface RunInstancesRequest {
    * <p>The network interfaces to associate with the instance. If you specify a network interface,
    *             you must specify any security groups and subnets as part of the network interface.</p>
    */
-  NetworkInterfaces?: Array<InstanceNetworkInterfaceSpecification>;
+  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
 
   /**
    * <p>The placement for the instance.</p>
@@ -35769,7 +35735,7 @@ export interface RunInstancesRequest {
    * 	<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
    *         <p>If you specify a network interface, you must specify any security groups as part of the network interface.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>[EC2-Classic, default VPC] The names of the security groups. For a nondefault VPC, you
@@ -35778,7 +35744,7 @@ export interface RunInstancesRequest {
    *             the network interface.</p>
    *         <p>Default: Amazon EC2 uses the default security group.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p>
@@ -35791,7 +35757,7 @@ export interface RunInstancesRequest {
    *             volumes on launch. The specified tags are applied to all instances or volumes that are
    *             created during launch. To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    */
-  TagSpecifications?: Array<TagSpecification>;
+  TagSpecifications?: TagSpecification[];
 
   /**
    * <p>The user data to make available to the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Running Commands
@@ -35856,7 +35822,7 @@ export interface RunScheduledInstancesResult {
   /**
    * <p>The IDs of the newly launched instances.</p>
    */
-  InstanceIdSet?: Array<string>;
+  InstanceIdSet?: string[];
 }
 
 export namespace RunScheduledInstancesResult {
@@ -36081,7 +36047,7 @@ export interface ScheduledInstanceRecurrence {
   /**
    * <p>The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday).</p>
    */
-  OccurrenceDaySet?: Array<number>;
+  OccurrenceDaySet?: number[];
 
   /**
    * <p>Indicates whether the occurrence is relative to the end of the specified week or month.</p>
@@ -36118,7 +36084,7 @@ export interface ScheduledInstanceRecurrenceRequest {
   /**
    * <p>The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday). You can't specify this value with a daily schedule. If the occurrence is relative to the end of the month, you can specify only a single day.</p>
    */
-  OccurrenceDays?: Array<number>;
+  OccurrenceDays?: number[];
 
   /**
    * <p>Indicates whether the occurrence is relative to the end of the specified week or month. You can't specify this value with a daily schedule.</p>
@@ -36278,7 +36244,7 @@ export interface ScheduledInstancesLaunchSpecification {
   /**
    * <p>The block device mapping entries.</p>
    */
-  BlockDeviceMappings?: Array<ScheduledInstancesBlockDeviceMapping>;
+  BlockDeviceMappings?: ScheduledInstancesBlockDeviceMapping[];
 
   /**
    * <p>Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.</p>
@@ -36320,7 +36286,7 @@ export interface ScheduledInstancesLaunchSpecification {
   /**
    * <p>The network interfaces.</p>
    */
-  NetworkInterfaces?: Array<ScheduledInstancesNetworkInterface>;
+  NetworkInterfaces?: ScheduledInstancesNetworkInterface[];
 
   /**
    * <p>The placement information.</p>
@@ -36335,7 +36301,7 @@ export interface ScheduledInstancesLaunchSpecification {
   /**
    * <p>The IDs of the security groups.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>The ID of the subnet in which to launch the instances.</p>
@@ -36401,7 +36367,7 @@ export interface ScheduledInstancesNetworkInterface {
   /**
    * <p>The IDs of the security groups.</p>
    */
-  Groups?: Array<string>;
+  Groups?: string[];
 
   /**
    * <p>The number of IPv6 addresses to assign to the network interface. The IPv6 addresses are automatically selected from the subnet range.</p>
@@ -36411,7 +36377,7 @@ export interface ScheduledInstancesNetworkInterface {
   /**
    * <p>The specific IPv6 addresses from the subnet range.</p>
    */
-  Ipv6Addresses?: Array<ScheduledInstancesIpv6Address>;
+  Ipv6Addresses?: ScheduledInstancesIpv6Address[];
 
   /**
    * <p>The ID of the network interface.</p>
@@ -36426,7 +36392,7 @@ export interface ScheduledInstancesNetworkInterface {
   /**
    * <p>The private IPv4 addresses.</p>
    */
-  PrivateIpAddressConfigs?: Array<ScheduledInstancesPrivateIpAddressConfig>;
+  PrivateIpAddressConfigs?: ScheduledInstancesPrivateIpAddressConfig[];
 
   /**
    * <p>The number of secondary private IPv4 addresses.</p>
@@ -36498,7 +36464,7 @@ export interface SearchLocalGatewayRoutesRequest {
   /**
    * <p>One or more filters.</p>
    */
-  Filters: Array<Filter> | undefined;
+  Filters: Filter[] | undefined;
 
   /**
    * <p>The ID of the local gateway route table.</p>
@@ -36532,7 +36498,7 @@ export interface SearchLocalGatewayRoutesResult {
   /**
    * <p>Information about the routes.</p>
    */
-  Routes?: Array<LocalGatewayRoute>;
+  Routes?: LocalGatewayRoute[];
 }
 
 export namespace SearchLocalGatewayRoutesResult {
@@ -36594,7 +36560,7 @@ export interface SearchTransitGatewayMulticastGroupsRequest {
    *             </li>
    *          </ul>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -36625,7 +36591,7 @@ export interface SearchTransitGatewayMulticastGroupsResult {
   /**
    * <p>Information about the  transit gateway multicast group.</p>
    */
-  MulticastGroups?: Array<TransitGatewayMulticastGroup>;
+  MulticastGroups?: TransitGatewayMulticastGroup[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -36689,7 +36655,7 @@ export interface SearchTransitGatewayRoutesRequest {
    *             </li>
    *          </ul>
    */
-  Filters: Array<Filter> | undefined;
+  Filters: Filter[] | undefined;
 
   /**
    * <p>The maximum number of routes to return.</p>
@@ -36717,7 +36683,7 @@ export interface SearchTransitGatewayRoutesResult {
   /**
    * <p>Information about the routes.</p>
    */
-  Routes?: Array<TransitGatewayRoute>;
+  Routes?: TransitGatewayRoute[];
 }
 
 export namespace SearchTransitGatewayRoutesResult {
@@ -36748,12 +36714,12 @@ export interface SecurityGroup {
   /**
    * <p>The inbound rules associated with the security group.</p>
    */
-  IpPermissions?: Array<IpPermission>;
+  IpPermissions?: IpPermission[];
 
   /**
    * <p>[VPC only] The outbound rules associated with the security group.</p>
    */
-  IpPermissionsEgress?: Array<IpPermission>;
+  IpPermissionsEgress?: IpPermission[];
 
   /**
    * <p>The AWS account ID of the owner of the security group.</p>
@@ -36763,7 +36729,7 @@ export interface SecurityGroup {
   /**
    * <p>Any tags assigned to the security group.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>[VPC only] The ID of the VPC for the security group.</p>
@@ -36855,12 +36821,12 @@ export interface ServiceConfiguration {
   /**
    * <p>The Availability Zones in which the service is available.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>The DNS names for the service.</p>
    */
-  BaseEndpointDnsNames?: Array<string>;
+  BaseEndpointDnsNames?: string[];
 
   /**
    * <p>Indicates whether the service manages its VPC endpoints. Management of the service VPC
@@ -36871,7 +36837,7 @@ export interface ServiceConfiguration {
   /**
    * <p>The Amazon Resource Names (ARNs) of the Network Load Balancers for the service.</p>
    */
-  NetworkLoadBalancerArns?: Array<string>;
+  NetworkLoadBalancerArns?: string[];
 
   /**
    * <p>The private DNS name for the service.</p>
@@ -36901,12 +36867,12 @@ export interface ServiceConfiguration {
   /**
    * <p>The type of service.</p>
    */
-  ServiceType?: Array<ServiceTypeDetail>;
+  ServiceType?: ServiceTypeDetail[];
 
   /**
    * <p>Any tags assigned to the service.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ServiceConfiguration {
@@ -36927,12 +36893,12 @@ export interface ServiceDetail {
   /**
    * <p>The Availability Zones in which the service is available.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>The DNS names for the service.</p>
    */
-  BaseEndpointDnsNames?: Array<string>;
+  BaseEndpointDnsNames?: string[];
 
   /**
    * <p>Indicates whether the service manages its VPC endpoints. Management of the service VPC
@@ -36969,12 +36935,12 @@ export interface ServiceDetail {
   /**
    * <p>The type of service.</p>
    */
-  ServiceType?: Array<ServiceTypeDetail>;
+  ServiceType?: ServiceTypeDetail[];
 
   /**
    * <p>Any tags assigned to the service.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>Indicates whether the service supports endpoint policies.</p>
@@ -37134,7 +37100,7 @@ export interface Snapshot {
   /**
    * <p>Any tags assigned to the snapshot.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the volume that was used to create the snapshot. Snapshots created by the <a>CopySnapshot</a> action have an arbitrary volume ID that should not be used for any
@@ -37294,7 +37260,7 @@ export interface SnapshotInfo {
   /**
    * <p>Tags associated with this snapshot.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>Source volume from which this snapshot was created.</p>
@@ -37440,7 +37406,7 @@ export interface SpotFleetLaunchSpecification {
    *             encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its
    *             encryption status is used for the volume encryption status.</p>
    */
-  BlockDeviceMappings?: Array<BlockDeviceMapping>;
+  BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
    * <p>Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.</p>
@@ -37483,7 +37449,7 @@ export interface SpotFleetLaunchSpecification {
    * <p>One or more network interfaces. If you specify a network interface, you must specify
    *           subnet IDs and security group IDs using the network interface.</p>
    */
-  NetworkInterfaces?: Array<InstanceNetworkInterfaceSpecification>;
+  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
 
   /**
    * <p>The placement information.</p>
@@ -37498,7 +37464,7 @@ export interface SpotFleetLaunchSpecification {
   /**
    * <p>One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.</p>
    */
-  SecurityGroups?: Array<GroupIdentifier>;
+  SecurityGroups?: GroupIdentifier[];
 
   /**
    * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance.
@@ -37517,7 +37483,7 @@ export interface SpotFleetLaunchSpecification {
   /**
    * <p>The tags to apply during creation.</p>
    */
-  TagSpecifications?: Array<SpotFleetTagSpecification>;
+  TagSpecifications?: SpotFleetTagSpecification[];
 
   /**
    * <p>The Base64-encoded user data that instances use when starting up.</p>
@@ -37661,14 +37627,14 @@ export interface SpotFleetRequestConfigData {
    *                 <code>LaunchTemplateConfigs</code>. If you include On-Demand capacity in your
    *             request, you must use <code>LaunchTemplateConfigs</code>.</p>
    */
-  LaunchSpecifications?: Array<SpotFleetLaunchSpecification>;
+  LaunchSpecifications?: SpotFleetLaunchSpecification[];
 
   /**
    * <p>The launch template and overrides. If you specify <code>LaunchTemplateConfigs</code>,
    *             you can't specify <code>LaunchSpecifications</code>. If you include On-Demand capacity
    *             in your request, you must use <code>LaunchTemplateConfigs</code>.</p>
    */
-  LaunchTemplateConfigs?: Array<LaunchTemplateConfig>;
+  LaunchTemplateConfigs?: LaunchTemplateConfig[];
 
   /**
    * <p>One or more Classic Load Balancers and target groups to attach to the Spot Fleet request.
@@ -37796,7 +37762,7 @@ export interface SpotFleetTagSpecification {
   /**
    * <p>The tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace SpotFleetTagSpecification {
@@ -37894,7 +37860,7 @@ export interface SpotInstanceRequest {
   /**
    * <p>Any tags assigned to the resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The Spot Instance request type.</p>
@@ -38223,12 +38189,12 @@ export interface StaleIpPermission {
   /**
    * <p>The IP ranges. Not applicable for stale security group rules.</p>
    */
-  IpRanges?: Array<string>;
+  IpRanges?: string[];
 
   /**
    * <p>The prefix list IDs for an AWS service. Not applicable for stale security group rules.</p>
    */
-  PrefixListIds?: Array<string>;
+  PrefixListIds?: string[];
 
   /**
    * <p>The end of the port range for the TCP and UDP protocols, or an ICMP type number. A value of
@@ -38239,7 +38205,7 @@ export interface StaleIpPermission {
   /**
    * <p>The security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.</p>
    */
-  UserIdGroupPairs?: Array<UserIdGroupPair>;
+  UserIdGroupPairs?: UserIdGroupPair[];
 }
 
 export namespace StaleIpPermission {
@@ -38270,12 +38236,12 @@ export interface StaleSecurityGroup {
   /**
    * <p>Information about the stale inbound rules in the security group.</p>
    */
-  StaleIpPermissions?: Array<StaleIpPermission>;
+  StaleIpPermissions?: StaleIpPermission[];
 
   /**
    * <p>Information about the stale outbound rules in the security group.</p>
    */
-  StaleIpPermissionsEgress?: Array<StaleIpPermission>;
+  StaleIpPermissionsEgress?: StaleIpPermission[];
 
   /**
    * <p>The ID of the VPC for the security group.</p>
@@ -38305,7 +38271,7 @@ export interface StartInstancesRequest {
   /**
    * <p>The IDs of the instances.</p>
    */
-  InstanceIds: Array<string> | undefined;
+  InstanceIds: string[] | undefined;
 }
 
 export namespace StartInstancesRequest {
@@ -38318,7 +38284,7 @@ export interface StartInstancesResult {
   /**
    * <p>Information about the started instances.</p>
    */
-  StartingInstances?: Array<InstanceStateChange>;
+  StartingInstances?: InstanceStateChange[];
 }
 
 export namespace StartInstancesResult {
@@ -38507,7 +38473,7 @@ export interface StopInstancesRequest {
   /**
    * <p>The IDs of the instances.</p>
    */
-  InstanceIds: Array<string> | undefined;
+  InstanceIds: string[] | undefined;
 }
 
 export namespace StopInstancesRequest {
@@ -38520,7 +38486,7 @@ export interface StopInstancesResult {
   /**
    * <p>Information about the stopped instances.</p>
    */
-  StoppingInstances?: Array<InstanceStateChange>;
+  StoppingInstances?: InstanceStateChange[];
 }
 
 export namespace StopInstancesResult {
@@ -38604,7 +38570,7 @@ export interface Subnet {
   /**
    * <p>Information about the IPv6 CIDR blocks associated with the subnet.</p>
    */
-  Ipv6CidrBlockAssociationSet?: Array<SubnetIpv6CidrBlockAssociation>;
+  Ipv6CidrBlockAssociationSet?: SubnetIpv6CidrBlockAssociation[];
 
   /**
    * <p>Indicates whether instances launched in this subnet receive a public IPv4 address.</p>
@@ -38639,7 +38605,7 @@ export interface Subnet {
   /**
    * <p>Any tags assigned to the subnet.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the VPC the subnet is in.</p>
@@ -38843,7 +38809,7 @@ export interface TagSpecification {
   /**
    * <p>The tags to apply to the resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace TagSpecification {
@@ -39006,7 +38972,7 @@ export interface TargetGroupsConfig {
   /**
    * <p>One or more target groups.</p>
    */
-  TargetGroups?: Array<TargetGroup>;
+  TargetGroups?: TargetGroup[];
 }
 
 export namespace TargetGroupsConfig {
@@ -39032,7 +38998,7 @@ export interface TargetNetwork {
   /**
    * <p>The IDs of the security groups applied to the target network association.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * <p>The current state of the target network association.</p>
@@ -39119,7 +39085,7 @@ export interface TerminateClientVpnConnectionsResult {
   /**
    * <p>The current state of the client connections.</p>
    */
-  ConnectionStatuses?: Array<TerminateConnectionStatus>;
+  ConnectionStatuses?: TerminateConnectionStatus[];
 
   /**
    * <p>The user who established the terminated client connections.</p>
@@ -39172,7 +39138,7 @@ export interface TerminateInstancesRequest {
    *         <p>Constraints: Up to 1000 instance IDs. We recommend breaking up this request into
    *             smaller batches.</p>
    */
-  InstanceIds: Array<string> | undefined;
+  InstanceIds: string[] | undefined;
 }
 
 export namespace TerminateInstancesRequest {
@@ -39185,7 +39151,7 @@ export interface TerminateInstancesResult {
   /**
    * <p>Information about the terminated instances.</p>
    */
-  TerminatingInstances?: Array<InstanceStateChange>;
+  TerminatingInstances?: InstanceStateChange[];
 }
 
 export namespace TerminateInstancesResult {
@@ -39208,22 +39174,22 @@ export interface TrafficMirrorFilter {
   /**
    * <p>Information about the egress rules that are associated with the Traffic Mirror filter.</p>
    */
-  EgressFilterRules?: Array<TrafficMirrorFilterRule>;
+  EgressFilterRules?: TrafficMirrorFilterRule[];
 
   /**
    * <p>Information about the ingress rules that are associated with the Traffic Mirror filter.</p>
    */
-  IngressFilterRules?: Array<TrafficMirrorFilterRule>;
+  IngressFilterRules?: TrafficMirrorFilterRule[];
 
   /**
    * <p>The network service traffic that is associated with the Traffic Mirror filter.</p>
    */
-  NetworkServices?: Array<TrafficMirrorNetworkService | string>;
+  NetworkServices?: TrafficMirrorNetworkService | string[];
 
   /**
    * <p>The tags assigned to the Traffic Mirror filter.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the Traffic Mirror filter.</p>
@@ -39388,7 +39354,7 @@ export interface TrafficMirrorSession {
   /**
    * <p>The tags assigned to the Traffic Mirror session.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the Traffic Mirror filter.</p>
@@ -39449,7 +39415,7 @@ export interface TrafficMirrorTarget {
   /**
    * <p>The tags assigned to the Traffic Mirror target.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the Traffic Mirror target.</p>
@@ -39506,7 +39472,7 @@ export interface TransitGateway {
   /**
    * <p>The tags for the transit gateway.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the transit gateway.</p>
@@ -39604,7 +39570,7 @@ export interface TransitGatewayAttachment {
   /**
    * <p>The tags for the attachment.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the attachment.</p>
@@ -39703,7 +39669,7 @@ export interface TransitGatewayMulticastDeregisteredGroupMembers {
   /**
    * <p>The network interface IDs of the deregistered members.</p>
    */
-  DeregisteredNetworkInterfaceIds?: Array<string>;
+  DeregisteredNetworkInterfaceIds?: string[];
 
   /**
    * <p>The IP address assigned to the  transit gateway multicast group.</p>
@@ -39731,7 +39697,7 @@ export interface TransitGatewayMulticastDeregisteredGroupSources {
   /**
    * <p>The network interface IDs of the non-registered members.</p>
    */
-  DeregisteredNetworkInterfaceIds?: Array<string>;
+  DeregisteredNetworkInterfaceIds?: string[];
 
   /**
    * <p>The IP address assigned to the  transit gateway multicast group.</p>
@@ -39769,7 +39735,7 @@ export interface TransitGatewayMulticastDomain {
   /**
    * <p>The tags for the transit gateway multicast domain.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the transit gateway.</p>
@@ -39836,7 +39802,7 @@ export interface TransitGatewayMulticastDomainAssociations {
   /**
    * <p>The subnets associated with the multicast domain.</p>
    */
-  Subnets?: Array<SubnetAssociation>;
+  Subnets?: SubnetAssociation[];
 
   /**
    * <p>The ID of the transit gateway attachment.</p>
@@ -39934,7 +39900,7 @@ export interface TransitGatewayMulticastRegisteredGroupMembers {
   /**
    * <p>The ID of the registered network interfaces.</p>
    */
-  RegisteredNetworkInterfaceIds?: Array<string>;
+  RegisteredNetworkInterfaceIds?: string[];
 
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
@@ -39962,7 +39928,7 @@ export interface TransitGatewayMulticastRegisteredGroupSources {
   /**
    * <p>The IDs of the network interfaces members registered with the  transit gateway multicast group.</p>
    */
-  RegisteredNetworkInterfaceIds?: Array<string>;
+  RegisteredNetworkInterfaceIds?: string[];
 
   /**
    * <p>The ID of the transit gateway multicast domain.</p>
@@ -40067,7 +40033,7 @@ export interface TransitGatewayPeeringAttachment {
   /**
    * <p>The tags for the transit gateway peering attachment.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the transit gateway peering attachment.</p>
@@ -40187,7 +40153,7 @@ export interface TransitGatewayRoute {
   /**
    * <p>The attachments.</p>
    */
-  TransitGatewayAttachments?: Array<TransitGatewayRouteAttachment>;
+  TransitGatewayAttachments?: TransitGatewayRouteAttachment[];
 
   /**
    * <p>The route type.</p>
@@ -40261,7 +40227,7 @@ export interface TransitGatewayRouteTable {
   /**
    * <p>Any tags assigned to the route table.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the transit gateway.</p>
@@ -40379,12 +40345,12 @@ export interface TransitGatewayVpcAttachment {
   /**
    * <p>The IDs of the subnets.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>The tags for the VPC attachment.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the attachment.</p>
@@ -40448,7 +40414,7 @@ export interface TunnelOption {
   /**
    * <p>The IKE versions that are permitted for the VPN tunnel.</p>
    */
-  IkeVersions?: Array<IKEVersionsListValue>;
+  IkeVersions?: IKEVersionsListValue[];
 
   /**
    * <p>The external IP address of the VPN tunnel.</p>
@@ -40458,17 +40424,17 @@ export interface TunnelOption {
   /**
    * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 1 IKE negotiations.</p>
    */
-  Phase1DHGroupNumbers?: Array<Phase1DHGroupNumbersListValue>;
+  Phase1DHGroupNumbers?: Phase1DHGroupNumbersListValue[];
 
   /**
    * <p>The permitted encryption algorithms for the VPN tunnel for phase 1 IKE negotiations.</p>
    */
-  Phase1EncryptionAlgorithms?: Array<Phase1EncryptionAlgorithmsListValue>;
+  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsListValue[];
 
   /**
    * <p>The permitted integrity algorithms for the VPN tunnel for phase 1 IKE negotiations.</p>
    */
-  Phase1IntegrityAlgorithms?: Array<Phase1IntegrityAlgorithmsListValue>;
+  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsListValue[];
 
   /**
    * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
@@ -40478,17 +40444,17 @@ export interface TunnelOption {
   /**
    * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 2 IKE negotiations.</p>
    */
-  Phase2DHGroupNumbers?: Array<Phase2DHGroupNumbersListValue>;
+  Phase2DHGroupNumbers?: Phase2DHGroupNumbersListValue[];
 
   /**
    * <p>The permitted encryption algorithms for the VPN tunnel for phase 2 IKE negotiations.</p>
    */
-  Phase2EncryptionAlgorithms?: Array<Phase2EncryptionAlgorithmsListValue>;
+  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsListValue[];
 
   /**
    * <p>The permitted integrity algorithms for the VPN tunnel for phase 2 IKE negotiations.</p>
    */
-  Phase2IntegrityAlgorithms?: Array<Phase2IntegrityAlgorithmsListValue>;
+  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsListValue[];
 
   /**
    * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
@@ -40531,7 +40497,7 @@ export interface UnassignIpv6AddressesRequest {
   /**
    * <p>The IPv6 addresses to unassign from the network interface.</p>
    */
-  Ipv6Addresses: Array<string> | undefined;
+  Ipv6Addresses: string[] | undefined;
 
   /**
    * <p>The ID of the network interface.</p>
@@ -40554,7 +40520,7 @@ export interface UnassignIpv6AddressesResult {
   /**
    * <p>The IPv6 addresses that have been unassigned from the network interface.</p>
    */
-  UnassignedIpv6Addresses?: Array<string>;
+  UnassignedIpv6Addresses?: string[];
 }
 
 export namespace UnassignIpv6AddressesResult {
@@ -40575,7 +40541,7 @@ export interface UnassignPrivateIpAddressesRequest {
   /**
    * <p>The secondary private IP addresses to unassign from the network interface. You can specify this option multiple times to unassign more than one IP address.</p>
    */
-  PrivateIpAddresses: Array<string> | undefined;
+  PrivateIpAddresses: string[] | undefined;
 }
 
 export namespace UnassignPrivateIpAddressesRequest {
@@ -40597,7 +40563,7 @@ export interface UnmonitorInstancesRequest {
   /**
    * <p>The IDs of the instances.</p>
    */
-  InstanceIds: Array<string> | undefined;
+  InstanceIds: string[] | undefined;
 }
 
 export namespace UnmonitorInstancesRequest {
@@ -40610,7 +40576,7 @@ export interface UnmonitorInstancesResult {
   /**
    * <p>The monitoring information.</p>
    */
-  InstanceMonitorings?: Array<InstanceMonitoring>;
+  InstanceMonitorings?: InstanceMonitoring[];
 }
 
 export namespace UnmonitorInstancesResult {
@@ -40741,7 +40707,7 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressRequest {
   /**
    * <p>The IP permissions for the security group rule.</p>
    */
-  IpPermissions: Array<IpPermission> | undefined;
+  IpPermissions: IpPermission[] | undefined;
 }
 
 export namespace UpdateSecurityGroupRuleDescriptionsEgressRequest {
@@ -40791,7 +40757,7 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressRequest {
   /**
    * <p>The IP permissions for the security group rule. </p>
    */
-  IpPermissions: Array<IpPermission> | undefined;
+  IpPermissions: IpPermission[] | undefined;
 }
 
 export namespace UpdateSecurityGroupRuleDescriptionsIngressRequest {
@@ -40956,12 +40922,12 @@ export interface VCpuInfo {
   /**
    * <p>List of the valid number of cores that can be configured for the instance type.</p>
    */
-  ValidCores?: Array<number>;
+  ValidCores?: number[];
 
   /**
    * <p>List of the valid number of threads per core that can be configured for the instance type. </p>
    */
-  ValidThreadsPerCore?: Array<number>;
+  ValidThreadsPerCore?: number[];
 }
 
 export namespace VCpuInfo {
@@ -41018,7 +40984,7 @@ export interface Volume {
   /**
    * <p>Information about the volume attachments.</p>
    */
-  Attachments?: Array<VolumeAttachment>;
+  Attachments?: VolumeAttachment[];
 
   /**
    * <p>The Availability Zone for the volume.</p>
@@ -41086,7 +41052,7 @@ export interface Volume {
   /**
    * <p>Any tags assigned to the volume.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the volume.</p>
@@ -41353,7 +41319,7 @@ export interface VolumeStatusInfo {
   /**
    * <p>The details of the volume status.</p>
    */
-  Details?: Array<VolumeStatusDetails>;
+  Details?: VolumeStatusDetails[];
 
   /**
    * <p>The status of the volume.</p>
@@ -41376,7 +41342,7 @@ export interface VolumeStatusItem {
   /**
    * <p>The details of the operation.</p>
    */
-  Actions?: Array<VolumeStatusAction>;
+  Actions?: VolumeStatusAction[];
 
   /**
    * <p>The Availability Zone of the volume.</p>
@@ -41386,7 +41352,7 @@ export interface VolumeStatusItem {
   /**
    * <p>A list of events associated with the volume.</p>
    */
-  Events?: Array<VolumeStatusEvent>;
+  Events?: VolumeStatusEvent[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
@@ -41426,7 +41392,7 @@ export interface Vpc {
   /**
    * <p>Information about the IPv4 CIDR blocks associated with the VPC.</p>
    */
-  CidrBlockAssociationSet?: Array<VpcCidrBlockAssociation>;
+  CidrBlockAssociationSet?: VpcCidrBlockAssociation[];
 
   /**
    * <p>The ID of the set of DHCP options you've associated with the VPC (or <code>default</code>
@@ -41442,7 +41408,7 @@ export interface Vpc {
   /**
    * <p>Information about the IPv6 CIDR blocks associated with the VPC.</p>
    */
-  Ipv6CidrBlockAssociationSet?: Array<VpcIpv6CidrBlockAssociation>;
+  Ipv6CidrBlockAssociationSet?: VpcIpv6CidrBlockAssociation[];
 
   /**
    * <p>Indicates whether the VPC is the default VPC.</p>
@@ -41462,7 +41428,7 @@ export interface Vpc {
   /**
    * <p>Any tags assigned to the VPC.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the VPC.</p>
@@ -41564,7 +41530,7 @@ export interface VpcClassicLink {
   /**
    * <p>Any tags assigned to the VPC.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the VPC.</p>
@@ -41590,13 +41556,13 @@ export interface VpcEndpoint {
   /**
    * <p>(Interface endpoint) The DNS entries for the endpoint.</p>
    */
-  DnsEntries?: Array<DnsEntry>;
+  DnsEntries?: DnsEntry[];
 
   /**
    * <p>(Interface endpoint) Information about the security groups that are associated with
    *             the network interface.</p>
    */
-  Groups?: Array<SecurityGroupIdentifier>;
+  Groups?: SecurityGroupIdentifier[];
 
   /**
    * <p>The last error that occurred for VPC endpoint.</p>
@@ -41606,7 +41572,7 @@ export interface VpcEndpoint {
   /**
    * <p>(Interface endpoint) One or more network interfaces for the endpoint.</p>
    */
-  NetworkInterfaceIds?: Array<string>;
+  NetworkInterfaceIds?: string[];
 
   /**
    * <p>The ID of the AWS account that owns the VPC endpoint.</p>
@@ -41631,7 +41597,7 @@ export interface VpcEndpoint {
   /**
    * <p>(Gateway endpoint) One or more route tables associated with the endpoint.</p>
    */
-  RouteTableIds?: Array<string>;
+  RouteTableIds?: string[];
 
   /**
    * <p>The name of the service to which the endpoint is associated.</p>
@@ -41646,12 +41612,12 @@ export interface VpcEndpoint {
   /**
    * <p>(Interface endpoint) One or more subnets in which the endpoint is located.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>Any tags assigned to the VPC endpoint.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the VPC endpoint.</p>
@@ -41686,12 +41652,12 @@ export interface VpcEndpointConnection {
   /**
    * <p>The DNS entries for the VPC endpoint.</p>
    */
-  DnsEntries?: Array<DnsEntry>;
+  DnsEntries?: DnsEntry[];
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the network load balancers for the service.</p>
    */
-  NetworkLoadBalancerArns?: Array<string>;
+  NetworkLoadBalancerArns?: string[];
 
   /**
    * <p>The ID of the service to which the endpoint is connected.</p>
@@ -41788,7 +41754,7 @@ export interface VpcPeeringConnection {
   /**
    * <p>Any tags assigned to the resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the VPC peering connection.</p>
@@ -41872,12 +41838,12 @@ export interface VpcPeeringConnectionVpcInfo {
   /**
    * <p>Information about the IPv4 CIDR blocks for the VPC.</p>
    */
-  CidrBlockSet?: Array<CidrBlock>;
+  CidrBlockSet?: CidrBlock[];
 
   /**
    * <p>The IPv6 CIDR block for the VPC.</p>
    */
-  Ipv6CidrBlockSet?: Array<Ipv6CidrBlock>;
+  Ipv6CidrBlockSet?: Ipv6CidrBlock[];
 
   /**
    * <p>The AWS account ID of the VPC owner.</p>
@@ -41941,7 +41907,7 @@ export interface VpnConnection {
   /**
    * <p>The static routes associated with the VPN connection.</p>
    */
-  Routes?: Array<VpnStaticRoute>;
+  Routes?: VpnStaticRoute[];
 
   /**
    * <p>The current state of the VPN connection.</p>
@@ -41951,7 +41917,7 @@ export interface VpnConnection {
   /**
    * <p>Any tags assigned to the VPN connection.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the transit gateway associated with the VPN connection.</p>
@@ -41966,7 +41932,7 @@ export interface VpnConnection {
   /**
    * <p>Information about the VPN tunnel.</p>
    */
-  VgwTelemetry?: Array<VgwTelemetry>;
+  VgwTelemetry?: VgwTelemetry[];
 
   /**
    * <p>The ID of the VPN connection.</p>
@@ -42001,7 +41967,7 @@ export interface VpnConnectionOptions {
   /**
    * <p>Indicates the VPN tunnel options.</p>
    */
-  TunnelOptions?: Array<TunnelOption>;
+  TunnelOptions?: TunnelOption[];
 }
 
 export namespace VpnConnectionOptions {
@@ -42033,7 +41999,7 @@ export interface VpnConnectionOptionsSpecification {
   /**
    * <p>The tunnel options for the VPN connection.</p>
    */
-  TunnelOptions?: Array<VpnTunnelOptionsSpecification>;
+  TunnelOptions?: VpnTunnelOptionsSpecification[];
 }
 
 export namespace VpnConnectionOptionsSpecification {
@@ -42066,7 +42032,7 @@ export interface VpnGateway {
   /**
    * <p>Any tags assigned to the virtual private gateway.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The type of VPN connection the virtual private gateway supports.</p>
@@ -42076,7 +42042,7 @@ export interface VpnGateway {
   /**
    * <p>Any VPCs attached to the virtual private gateway.</p>
    */
-  VpcAttachments?: Array<VpcAttachment>;
+  VpcAttachments?: VpcAttachment[];
 
   /**
    * <p>The ID of the virtual private gateway.</p>
@@ -42138,30 +42104,28 @@ export interface VpnTunnelOptionsSpecification {
    *         <p>Valid values: <code>ikev1</code> | <code>ikev2</code>
    *          </p>
    */
-  IKEVersions?: Array<IKEVersionsRequestListValue>;
+  IKEVersions?: IKEVersionsRequestListValue[];
 
   /**
    * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p>
    *         <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code> | <code>24</code>
    *          </p>
    */
-  Phase1DHGroupNumbers?: Array<Phase1DHGroupNumbersRequestListValue>;
+  Phase1DHGroupNumbers?: Phase1DHGroupNumbersRequestListValue[];
 
   /**
    * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p>
    *         <p>Valid values: <code>AES128</code> | <code>AES256</code>
    *          </p>
    */
-  Phase1EncryptionAlgorithms?: Array<
-    Phase1EncryptionAlgorithmsRequestListValue
-  >;
+  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsRequestListValue[];
 
   /**
    * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p>
    *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code>
    *          </p>
    */
-  Phase1IntegrityAlgorithms?: Array<Phase1IntegrityAlgorithmsRequestListValue>;
+  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsRequestListValue[];
 
   /**
    * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
@@ -42176,23 +42140,21 @@ export interface VpnTunnelOptionsSpecification {
    *         <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code> | <code>24</code>
    *          </p>
    */
-  Phase2DHGroupNumbers?: Array<Phase2DHGroupNumbersRequestListValue>;
+  Phase2DHGroupNumbers?: Phase2DHGroupNumbersRequestListValue[];
 
   /**
    * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p>
    *         <p>Valid values: <code>AES128</code> | <code>AES256</code>
    *          </p>
    */
-  Phase2EncryptionAlgorithms?: Array<
-    Phase2EncryptionAlgorithmsRequestListValue
-  >;
+  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsRequestListValue[];
 
   /**
    * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p>
    *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code>
    *          </p>
    */
-  Phase2IntegrityAlgorithms?: Array<Phase2IntegrityAlgorithmsRequestListValue>;
+  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsRequestListValue[];
 
   /**
    * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>

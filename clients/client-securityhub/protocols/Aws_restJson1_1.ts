@@ -5719,7 +5719,7 @@ const serializeAws_restJson1_1AccountDetails = (
 };
 
 const serializeAws_restJson1_1AccountDetailsList = (
-  input: Array<AccountDetails>,
+  input: AccountDetails[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5730,7 +5730,7 @@ const serializeAws_restJson1_1AccountDetailsList = (
 };
 
 const serializeAws_restJson1_1AccountIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5741,7 +5741,7 @@ const serializeAws_restJson1_1AccountIdList = (
 };
 
 const serializeAws_restJson1_1ArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5766,7 +5766,7 @@ const serializeAws_restJson1_1AvailabilityZone = (
 };
 
 const serializeAws_restJson1_1AvailabilityZones = (
-  input: Array<AvailabilityZone>,
+  input: AvailabilityZone[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5853,7 +5853,7 @@ const serializeAws_restJson1_1AwsCloudFrontDistributionOriginItem = (
 };
 
 const serializeAws_restJson1_1AwsCloudFrontDistributionOriginItemList = (
-  input: Array<AwsCloudFrontDistributionOriginItem>,
+  input: AwsCloudFrontDistributionOriginItem[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6220,7 +6220,7 @@ const serializeAws_restJson1_1AwsLambdaFunctionLayer = (
 };
 
 const serializeAws_restJson1_1AwsLambdaFunctionLayerList = (
-  input: Array<AwsLambdaFunctionLayer>,
+  input: AwsLambdaFunctionLayer[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6979,7 +6979,7 @@ const serializeAws_restJson1_1AwsSecurityFindingFilters = (
 };
 
 const serializeAws_restJson1_1AwsSecurityFindingList = (
-  input: Array<AwsSecurityFinding>,
+  input: AwsSecurityFinding[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7029,7 +7029,7 @@ const serializeAws_restJson1_1AwsSnsTopicSubscription = (
 };
 
 const serializeAws_restJson1_1AwsSnsTopicSubscriptionList = (
-  input: Array<AwsSnsTopicSubscription>,
+  input: AwsSnsTopicSubscription[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7114,7 +7114,7 @@ const serializeAws_restJson1_1DateFilter = (
 };
 
 const serializeAws_restJson1_1DateFilterList = (
-  input: Array<DateFilter>,
+  input: DateFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7161,7 +7161,7 @@ const serializeAws_restJson1_1IpFilter = (
 };
 
 const serializeAws_restJson1_1IpFilterList = (
-  input: Array<IpFilter>,
+  input: IpFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7183,7 +7183,7 @@ const serializeAws_restJson1_1KeywordFilter = (
 };
 
 const serializeAws_restJson1_1KeywordFilterList = (
-  input: Array<KeywordFilter>,
+  input: KeywordFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7228,7 +7228,7 @@ const serializeAws_restJson1_1Malware = (
 };
 
 const serializeAws_restJson1_1MalwareList = (
-  input: Array<Malware>,
+  input: Malware[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7256,7 +7256,7 @@ const serializeAws_restJson1_1MapFilter = (
 };
 
 const serializeAws_restJson1_1MapFilterList = (
-  input: Array<MapFilter>,
+  input: MapFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7308,7 +7308,7 @@ const serializeAws_restJson1_1Network = (
 };
 
 const serializeAws_restJson1_1NonEmptyStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7367,7 +7367,7 @@ const serializeAws_restJson1_1NumberFilter = (
 };
 
 const serializeAws_restJson1_1NumberFilterList = (
-  input: Array<NumberFilter>,
+  input: NumberFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7432,7 +7432,7 @@ const serializeAws_restJson1_1RelatedFinding = (
 };
 
 const serializeAws_restJson1_1RelatedFindingList = (
-  input: Array<RelatedFinding>,
+  input: RelatedFinding[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7576,7 +7576,7 @@ const serializeAws_restJson1_1ResourceDetails = (
 };
 
 const serializeAws_restJson1_1ResourceList = (
-  input: Array<Resource>,
+  input: Resource[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7587,7 +7587,7 @@ const serializeAws_restJson1_1ResourceList = (
 };
 
 const serializeAws_restJson1_1SecurityGroups = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7612,7 +7612,7 @@ const serializeAws_restJson1_1Severity = (
 };
 
 const serializeAws_restJson1_1SortCriteria = (
-  input: Array<SortCriterion>,
+  input: SortCriterion[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7648,7 +7648,7 @@ const serializeAws_restJson1_1StandardsInputParameterMap = (
 };
 
 const serializeAws_restJson1_1StandardsSubscriptionArns = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7678,7 +7678,7 @@ const serializeAws_restJson1_1StandardsSubscriptionRequest = (
 };
 
 const serializeAws_restJson1_1StandardsSubscriptionRequests = (
-  input: Array<StandardsSubscriptionRequest>,
+  input: StandardsSubscriptionRequest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7705,7 +7705,7 @@ const serializeAws_restJson1_1StringFilter = (
 };
 
 const serializeAws_restJson1_1StringFilterList = (
-  input: Array<StringFilter>,
+  input: StringFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7716,7 +7716,7 @@ const serializeAws_restJson1_1StringFilterList = (
 };
 
 const serializeAws_restJson1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7764,7 +7764,7 @@ const serializeAws_restJson1_1ThreatIntelIndicator = (
 };
 
 const serializeAws_restJson1_1ThreatIntelIndicatorList = (
-  input: Array<ThreatIntelIndicator>,
+  input: ThreatIntelIndicator[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7775,7 +7775,7 @@ const serializeAws_restJson1_1ThreatIntelIndicatorList = (
 };
 
 const serializeAws_restJson1_1TypeList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7810,7 +7810,7 @@ const deserializeAws_restJson1_1ActionTarget = (
 const deserializeAws_restJson1_1ActionTargetList = (
   output: any,
   context: __SerdeContext
-): Array<ActionTarget> => {
+): ActionTarget[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ActionTarget(entry, context)
   );
@@ -7837,7 +7837,7 @@ const deserializeAws_restJson1_1AvailabilityZone = (
 const deserializeAws_restJson1_1AvailabilityZones = (
   output: any,
   context: __SerdeContext
-): Array<AvailabilityZone> => {
+): AvailabilityZone[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AvailabilityZone(entry, context)
   );
@@ -7941,7 +7941,7 @@ const deserializeAws_restJson1_1AwsCloudFrontDistributionOriginItem = (
 const deserializeAws_restJson1_1AwsCloudFrontDistributionOriginItemList = (
   output: any,
   context: __SerdeContext
-): Array<AwsCloudFrontDistributionOriginItem> => {
+): AwsCloudFrontDistributionOriginItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AwsCloudFrontDistributionOriginItem(
       entry,
@@ -8401,7 +8401,7 @@ const deserializeAws_restJson1_1AwsLambdaFunctionLayer = (
 const deserializeAws_restJson1_1AwsLambdaFunctionLayerList = (
   output: any,
   context: __SerdeContext
-): Array<AwsLambdaFunctionLayer> => {
+): AwsLambdaFunctionLayer[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AwsLambdaFunctionLayer(entry, context)
   );
@@ -9374,7 +9374,7 @@ const deserializeAws_restJson1_1AwsSecurityFindingFilters = (
 const deserializeAws_restJson1_1AwsSecurityFindingList = (
   output: any,
   context: __SerdeContext
-): Array<AwsSecurityFinding> => {
+): AwsSecurityFinding[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AwsSecurityFinding(entry, context)
   );
@@ -9430,7 +9430,7 @@ const deserializeAws_restJson1_1AwsSnsTopicSubscription = (
 const deserializeAws_restJson1_1AwsSnsTopicSubscriptionList = (
   output: any,
   context: __SerdeContext
-): Array<AwsSnsTopicSubscription> => {
+): AwsSnsTopicSubscription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AwsSnsTopicSubscription(entry, context)
   );
@@ -9471,7 +9471,7 @@ const deserializeAws_restJson1_1AwsSqsQueueDetails = (
 const deserializeAws_restJson1_1CategoryList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -9543,7 +9543,7 @@ const deserializeAws_restJson1_1DateFilter = (
 const deserializeAws_restJson1_1DateFilterList = (
   output: any,
   context: __SerdeContext
-): Array<DateFilter> => {
+): DateFilter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DateFilter(entry, context)
   );
@@ -9603,7 +9603,7 @@ const deserializeAws_restJson1_1ImportFindingsError = (
 const deserializeAws_restJson1_1ImportFindingsErrorList = (
   output: any,
   context: __SerdeContext
-): Array<ImportFindingsError> => {
+): ImportFindingsError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ImportFindingsError(entry, context)
   );
@@ -9644,7 +9644,7 @@ const deserializeAws_restJson1_1Insight = (
 const deserializeAws_restJson1_1InsightList = (
   output: any,
   context: __SerdeContext
-): Array<Insight> => {
+): Insight[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Insight(entry, context)
   );
@@ -9674,7 +9674,7 @@ const deserializeAws_restJson1_1InsightResultValue = (
 const deserializeAws_restJson1_1InsightResultValueList = (
   output: any,
   context: __SerdeContext
-): Array<InsightResultValue> => {
+): InsightResultValue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InsightResultValue(entry, context)
   );
@@ -9737,7 +9737,7 @@ const deserializeAws_restJson1_1Invitation = (
 const deserializeAws_restJson1_1InvitationList = (
   output: any,
   context: __SerdeContext
-): Array<Invitation> => {
+): Invitation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Invitation(entry, context)
   );
@@ -9760,7 +9760,7 @@ const deserializeAws_restJson1_1IpFilter = (
 const deserializeAws_restJson1_1IpFilterList = (
   output: any,
   context: __SerdeContext
-): Array<IpFilter> => {
+): IpFilter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1IpFilter(entry, context)
   );
@@ -9783,7 +9783,7 @@ const deserializeAws_restJson1_1KeywordFilter = (
 const deserializeAws_restJson1_1KeywordFilterList = (
   output: any,
   context: __SerdeContext
-): Array<KeywordFilter> => {
+): KeywordFilter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1KeywordFilter(entry, context)
   );
@@ -9836,7 +9836,7 @@ const deserializeAws_restJson1_1Malware = (
 const deserializeAws_restJson1_1MalwareList = (
   output: any,
   context: __SerdeContext
-): Array<Malware> => {
+): Malware[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Malware(entry, context)
   );
@@ -9867,7 +9867,7 @@ const deserializeAws_restJson1_1MapFilter = (
 const deserializeAws_restJson1_1MapFilterList = (
   output: any,
   context: __SerdeContext
-): Array<MapFilter> => {
+): MapFilter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1MapFilter(entry, context)
   );
@@ -9910,7 +9910,7 @@ const deserializeAws_restJson1_1Member = (
 const deserializeAws_restJson1_1MemberList = (
   output: any,
   context: __SerdeContext
-): Array<Member> => {
+): Member[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Member(entry, context)
   );
@@ -9976,7 +9976,7 @@ const deserializeAws_restJson1_1Network = (
 const deserializeAws_restJson1_1NonEmptyStringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10027,7 +10027,7 @@ const deserializeAws_restJson1_1NumberFilter = (
 const deserializeAws_restJson1_1NumberFilterList = (
   output: any,
   context: __SerdeContext
-): Array<NumberFilter> => {
+): NumberFilter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1NumberFilter(entry, context)
   );
@@ -10119,14 +10119,14 @@ const deserializeAws_restJson1_1Product = (
 const deserializeAws_restJson1_1ProductSubscriptionArnList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1ProductsList = (
   output: any,
   context: __SerdeContext
-): Array<Product> => {
+): Product[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Product(entry, context)
   );
@@ -10171,7 +10171,7 @@ const deserializeAws_restJson1_1RelatedFinding = (
 const deserializeAws_restJson1_1RelatedFindingList = (
   output: any,
   context: __SerdeContext
-): Array<RelatedFinding> => {
+): RelatedFinding[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RelatedFinding(entry, context)
   );
@@ -10334,7 +10334,7 @@ const deserializeAws_restJson1_1ResourceDetails = (
 const deserializeAws_restJson1_1ResourceList = (
   output: any,
   context: __SerdeContext
-): Array<Resource> => {
+): Resource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Resource(entry, context)
   );
@@ -10364,7 +10364,7 @@ const deserializeAws_restJson1_1Result = (
 const deserializeAws_restJson1_1ResultList = (
   output: any,
   context: __SerdeContext
-): Array<Result> => {
+): Result[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Result(entry, context)
   );
@@ -10373,7 +10373,7 @@ const deserializeAws_restJson1_1ResultList = (
 const deserializeAws_restJson1_1SecurityGroups = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10450,7 +10450,7 @@ const deserializeAws_restJson1_1StandardsControl = (
 const deserializeAws_restJson1_1StandardsControls = (
   output: any,
   context: __SerdeContext
-): Array<StandardsControl> => {
+): StandardsControl[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1StandardsControl(entry, context)
   );
@@ -10502,7 +10502,7 @@ const deserializeAws_restJson1_1StandardsSubscription = (
 const deserializeAws_restJson1_1StandardsSubscriptions = (
   output: any,
   context: __SerdeContext
-): Array<StandardsSubscription> => {
+): StandardsSubscription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1StandardsSubscription(entry, context)
   );
@@ -10529,7 +10529,7 @@ const deserializeAws_restJson1_1StringFilter = (
 const deserializeAws_restJson1_1StringFilterList = (
   output: any,
   context: __SerdeContext
-): Array<StringFilter> => {
+): StringFilter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1StringFilter(entry, context)
   );
@@ -10538,7 +10538,7 @@ const deserializeAws_restJson1_1StringFilterList = (
 const deserializeAws_restJson1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10590,7 +10590,7 @@ const deserializeAws_restJson1_1ThreatIntelIndicator = (
 const deserializeAws_restJson1_1ThreatIntelIndicatorList = (
   output: any,
   context: __SerdeContext
-): Array<ThreatIntelIndicator> => {
+): ThreatIntelIndicator[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ThreatIntelIndicator(entry, context)
   );
@@ -10599,7 +10599,7 @@ const deserializeAws_restJson1_1ThreatIntelIndicatorList = (
 const deserializeAws_restJson1_1TypeList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

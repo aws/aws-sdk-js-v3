@@ -133,7 +133,7 @@ export interface ArchiveFindingsRequest {
   /**
    * <p>IDs of the findings that you want to archive.</p>
    */
-  FindingIds: Array<string> | undefined;
+  FindingIds: string[] | undefined;
 }
 
 export namespace ArchiveFindingsRequest {
@@ -234,13 +234,13 @@ export interface Condition {
    * <p>Represents the equal condition to be applied to a single field when querying for
    *       findings.</p>
    */
-  Eq?: Array<string>;
+  Eq?: string[];
 
   /**
    * <p>Represents an <b>equal</b> condition to be applied to a single
    *       field when querying for findings.</p>
    */
-  Equals?: Array<string>;
+  Equals?: string[];
 
   /**
    * <p>Represents a greater than condition to be applied to a single field when querying for
@@ -294,13 +294,13 @@ export interface Condition {
    * <p>Represents the not equal condition to be applied to a single field when querying for
    *       findings.</p>
    */
-  Neq?: Array<string>;
+  Neq?: string[];
 
   /**
    * <p>Represents an <b>not equal</b> condition to be applied to a
    *       single field when querying for findings.</p>
    */
-  NotEquals?: Array<string>;
+  NotEquals?: string[];
 }
 
 export namespace Condition {
@@ -497,7 +497,7 @@ export interface CreateMembersRequest {
    * <p>A list of account ID and email address pairs of the accounts that you want to associate
    *       with the master GuardDuty account.</p>
    */
-  AccountDetails: Array<AccountDetail> | undefined;
+  AccountDetails: AccountDetail[] | undefined;
 
   /**
    * <p>The unique ID of the detector of the GuardDuty account with which you want to associate
@@ -517,7 +517,7 @@ export interface CreateMembersResponse {
    * <p>A list of objects containing the unprocessed account and a result string explaining why it
    *       was unprocessed.</p>
    */
-  UnprocessedAccounts: Array<UnprocessedAccount> | undefined;
+  UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
 export namespace CreateMembersResponse {
@@ -578,7 +578,7 @@ export interface CreateSampleFindingsRequest {
   /**
    * <p>Types of sample findings to generate.</p>
    */
-  FindingTypes?: Array<string>;
+  FindingTypes?: string[];
 }
 
 export namespace CreateSampleFindingsRequest {
@@ -661,7 +661,7 @@ export interface DeclineInvitationsRequest {
    * <p>A list of account IDs of the AWS accounts that sent invitations to the current member
    *       account that you want to decline invitations from.</p>
    */
-  AccountIds: Array<string> | undefined;
+  AccountIds: string[] | undefined;
 }
 
 export namespace DeclineInvitationsRequest {
@@ -675,7 +675,7 @@ export interface DeclineInvitationsResponse {
    * <p>A list of objects containing the unprocessed account and a result string explaining why it
    *       was unprocessed.</p>
    */
-  UnprocessedAccounts: Array<UnprocessedAccount> | undefined;
+  UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
 export namespace DeclineInvitationsResponse {
@@ -765,7 +765,7 @@ export interface DeleteInvitationsRequest {
    * <p>A list of account IDs of the AWS accounts that sent invitations to the current member
    *       account that you want to delete invitations from.</p>
    */
-  AccountIds: Array<string> | undefined;
+  AccountIds: string[] | undefined;
 }
 
 export namespace DeleteInvitationsRequest {
@@ -779,7 +779,7 @@ export interface DeleteInvitationsResponse {
    * <p>A list of objects containing the unprocessed account and a result string explaining why it
    *       was unprocessed.</p>
    */
-  UnprocessedAccounts: Array<UnprocessedAccount> | undefined;
+  UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
 export namespace DeleteInvitationsResponse {
@@ -792,7 +792,7 @@ export interface DeleteMembersRequest {
   /**
    * <p>A list of account IDs of the GuardDuty member accounts that you want to delete.</p>
    */
-  AccountIds: Array<string> | undefined;
+  AccountIds: string[] | undefined;
 
   /**
    * <p>The unique ID of the detector of the GuardDuty account whose members you want to
@@ -811,7 +811,7 @@ export interface DeleteMembersResponse {
   /**
    * <p>The accounts that could not be processed.</p>
    */
-  UnprocessedAccounts: Array<UnprocessedAccount> | undefined;
+  UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
 export namespace DeleteMembersResponse {
@@ -1012,7 +1012,7 @@ export interface DisassociateMembersRequest {
    * <p>A list of account IDs of the GuardDuty member accounts that you want to disassociate from
    *       master.</p>
    */
-  AccountIds: Array<string> | undefined;
+  AccountIds: string[] | undefined;
 
   /**
    * <p>The unique ID of the detector of the GuardDuty account whose members you want to
@@ -1032,7 +1032,7 @@ export interface DisassociateMembersResponse {
    * <p>A list of objects containing the unprocessed account and a result string explaining why it
    *       was unprocessed.</p>
    */
-  UnprocessedAccounts: Array<UnprocessedAccount> | undefined;
+  UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
 export namespace DisassociateMembersResponse {
@@ -1079,7 +1079,7 @@ export interface Evidence {
   /**
    * <p>A list of threat intelligence details related to the evidence.</p>
    */
-  ThreatIntelligenceDetails?: Array<ThreatIntelligenceDetail>;
+  ThreatIntelligenceDetails?: ThreatIntelligenceDetail[];
 }
 
 export namespace Evidence {
@@ -1365,7 +1365,7 @@ export interface GetFindingsRequest {
   /**
    * <p>IDs of the findings that you want to retrieve.</p>
    */
-  FindingIds: Array<string> | undefined;
+  FindingIds: string[] | undefined;
 
   /**
    * <p>Represents the criteria used for sorting findings.</p>
@@ -1383,7 +1383,7 @@ export interface GetFindingsResponse {
   /**
    * <p>A list of findings.</p>
    */
-  Findings: Array<Finding> | undefined;
+  Findings: Finding[] | undefined;
 }
 
 export namespace GetFindingsResponse {
@@ -1407,7 +1407,7 @@ export interface GetFindingsStatisticsRequest {
   /**
    * <p>Types of finding statistics to retrieve.</p>
    */
-  FindingStatisticTypes: Array<FindingStatisticType | string> | undefined;
+  FindingStatisticTypes: FindingStatisticType | string[] | undefined;
 }
 
 export namespace GetFindingsStatisticsRequest {
@@ -1533,7 +1533,7 @@ export interface GetMembersRequest {
   /**
    * <p>A list of account IDs of the GuardDuty member accounts that you want to describe.</p>
    */
-  AccountIds: Array<string> | undefined;
+  AccountIds: string[] | undefined;
 
   /**
    * <p>The unique ID of the detector of the GuardDuty account whose members you want to
@@ -1552,13 +1552,13 @@ export interface GetMembersResponse {
   /**
    * <p>A list of members.</p>
    */
-  Members: Array<Member> | undefined;
+  Members: Member[] | undefined;
 
   /**
    * <p>A list of objects containing the unprocessed account and a result string explaining why it
    *       was unprocessed.</p>
    */
-  UnprocessedAccounts: Array<UnprocessedAccount> | undefined;
+  UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
 export namespace GetMembersResponse {
@@ -1688,7 +1688,7 @@ export interface InstanceDetails {
   /**
    * <p>The network interface information of the EC2 instance.</p>
    */
-  NetworkInterfaces?: Array<NetworkInterface>;
+  NetworkInterfaces?: NetworkInterface[];
 
   /**
    * <p>The platform of the EC2 instance.</p>
@@ -1698,12 +1698,12 @@ export interface InstanceDetails {
   /**
    * <p>The product code of the EC2 instance.</p>
    */
-  ProductCodes?: Array<ProductCode>;
+  ProductCodes?: ProductCode[];
 
   /**
    * <p>The tags of the EC2 instance.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace InstanceDetails {
@@ -1772,7 +1772,7 @@ export interface InviteMembersRequest {
    * <p>A list of account IDs of the accounts that you want to invite to GuardDuty as
    *       members.</p>
    */
-  AccountIds: Array<string> | undefined;
+  AccountIds: string[] | undefined;
 
   /**
    * <p>The unique ID of the detector of the GuardDuty account with which you want to invite
@@ -1804,7 +1804,7 @@ export interface InviteMembersResponse {
    * <p>A list of objects containing the unprocessed account and a result string explaining why it
    *       was unprocessed.</p>
    */
-  UnprocessedAccounts: Array<UnprocessedAccount> | undefined;
+  UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
 export namespace InviteMembersResponse {
@@ -1858,7 +1858,7 @@ export interface ListDetectorsResponse {
   /**
    * <p>A list of detector Ids.</p>
    */
-  DetectorIds: Array<string> | undefined;
+  DetectorIds: string[] | undefined;
 
   /**
    * <p>Pagination parameter to be used on the next list operation to retrieve more items.</p>
@@ -1903,7 +1903,7 @@ export interface ListFiltersResponse {
   /**
    * <p>A list of filter names</p>
    */
-  FilterNames: Array<string> | undefined;
+  FilterNames: string[] | undefined;
 
   /**
    * <p>Pagination parameter to be used on the next list operation to retrieve more items.</p>
@@ -2115,7 +2115,7 @@ export interface ListFindingsResponse {
   /**
    * <p>The IDs of the findings you are listing.</p>
    */
-  FindingIds: Array<string> | undefined;
+  FindingIds: string[] | undefined;
 
   /**
    * <p>Pagination parameter to be used on the next list operation to retrieve more items.</p>
@@ -2160,7 +2160,7 @@ export interface ListIPSetsResponse {
   /**
    * <p>The IDs of the IPSet resources.</p>
    */
-  IpSetIds: Array<string> | undefined;
+  IpSetIds: string[] | undefined;
 
   /**
    * <p>Pagination parameter to be used on the next list operation to retrieve more items.</p>
@@ -2200,7 +2200,7 @@ export interface ListInvitationsResponse {
   /**
    * <p>A list of invitation descriptions.</p>
    */
-  Invitations?: Array<Invitation>;
+  Invitations?: Invitation[];
 
   /**
    * <p>Pagination parameter to be used on the next list operation to retrieve more items.</p>
@@ -2251,7 +2251,7 @@ export interface ListMembersResponse {
   /**
    * <p>A list of members.</p>
    */
-  Members?: Array<Member>;
+  Members?: Member[];
 
   /**
    * <p>Pagination parameter to be used on the next list operation to retrieve more items.</p>
@@ -2296,7 +2296,7 @@ export interface ListPublishingDestinationsResponse {
    * <p>A <code>Destinations</code> obect that includes information about each publishing
    *       destination returned.</p>
    */
-  Destinations: Array<Destination> | undefined;
+  Destinations: Destination[] | undefined;
 
   /**
    * <p>A token to use for paginating results returned in the repsonse. Set the value of this
@@ -2375,7 +2375,7 @@ export interface ListThreatIntelSetsResponse {
   /**
    * <p>The IDs of the ThreatIntelSet resources.</p>
    */
-  ThreatIntelSetIds: Array<string> | undefined;
+  ThreatIntelSetIds: string[] | undefined;
 }
 
 export namespace ListThreatIntelSetsResponse {
@@ -2528,7 +2528,7 @@ export interface NetworkInterface {
   /**
    * <p>A list of EC2 instance IPv6 address information.</p>
    */
-  Ipv6Addresses?: Array<string>;
+  Ipv6Addresses?: string[];
 
   /**
    * <p>The ID of the network interface</p>
@@ -2548,7 +2548,7 @@ export interface NetworkInterface {
   /**
    * <p>Other private IP address information of the EC2 instance.</p>
    */
-  PrivateIpAddresses?: Array<PrivateIpAddressDetails>;
+  PrivateIpAddresses?: PrivateIpAddressDetails[];
 
   /**
    * <p>Public DNS name of the EC2 instance.</p>
@@ -2563,7 +2563,7 @@ export interface NetworkInterface {
   /**
    * <p>Security groups associated with the EC2 instance.</p>
    */
-  SecurityGroups?: Array<SecurityGroup>;
+  SecurityGroups?: SecurityGroup[];
 
   /**
    * <p>The subnet ID of the EC2 instance.</p>
@@ -2629,7 +2629,7 @@ export interface PortProbeAction {
   /**
    * <p>A list of port probe details objects.</p>
    */
-  PortProbeDetails?: Array<PortProbeDetail>;
+  PortProbeDetails?: PortProbeDetail[];
 }
 
 export namespace PortProbeAction {
@@ -2899,7 +2899,7 @@ export interface StartMonitoringMembersRequest {
   /**
    * <p>A list of account IDs of the GuardDuty member accounts to start monitoring.</p>
    */
-  AccountIds: Array<string> | undefined;
+  AccountIds: string[] | undefined;
 
   /**
    * <p>The unique ID of the detector of the GuardDuty master account associated with the member accounts to monitor.</p>
@@ -2918,7 +2918,7 @@ export interface StartMonitoringMembersResponse {
    * <p>A list of objects containing the unprocessed account and a result string explaining why it
    *       was unprocessed.</p>
    */
-  UnprocessedAccounts: Array<UnprocessedAccount> | undefined;
+  UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
 export namespace StartMonitoringMembersResponse {
@@ -2932,7 +2932,7 @@ export interface StopMonitoringMembersRequest {
    * <p>A list of account IDs of the GuardDuty member accounts whose findings you want the master
    *       account to stop monitoring.</p>
    */
-  AccountIds: Array<string> | undefined;
+  AccountIds: string[] | undefined;
 
   /**
    * <p>The unique ID of the detector of the GuardDuty account that you want to stop from monitor
@@ -2952,7 +2952,7 @@ export interface StopMonitoringMembersResponse {
    * <p>A list of objects containing the unprocessed account and a result string explaining why it
    *       was unprocessed.</p>
    */
-  UnprocessedAccounts: Array<UnprocessedAccount> | undefined;
+  UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
 export namespace StopMonitoringMembersResponse {
@@ -3041,7 +3041,7 @@ export interface ThreatIntelligenceDetail {
    * <p>A list of names of the threats in the threat intelligence list that triggered the
    *       finding.</p>
    */
-  ThreatNames?: Array<string>;
+  ThreatNames?: string[];
 }
 
 export namespace ThreatIntelligenceDetail {
@@ -3059,7 +3059,7 @@ export interface UnarchiveFindingsRequest {
   /**
    * <p>IDs of the findings to unarchive.</p>
    */
-  FindingIds: Array<string> | undefined;
+  FindingIds: string[] | undefined;
 }
 
 export namespace UnarchiveFindingsRequest {
@@ -3107,7 +3107,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The tag keys to remove from the resource.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -3229,7 +3229,7 @@ export interface UpdateFindingsFeedbackRequest {
   /**
    * <p>IDs of the findings that you want to mark as useful or not useful.</p>
    */
-  FindingIds: Array<string> | undefined;
+  FindingIds: string[] | undefined;
 }
 
 export namespace UpdateFindingsFeedbackRequest {

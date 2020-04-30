@@ -2629,7 +2629,7 @@ const serializeAws_json1_1RotationRulesType = (
 };
 
 const serializeAws_json1_1SecretVersionStagesType = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2651,7 +2651,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyListType = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2662,7 +2662,7 @@ const serializeAws_json1_1TagKeyListType = (
 };
 
 const serializeAws_json1_1TagListType = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3398,7 +3398,7 @@ const deserializeAws_json1_1SecretListEntry = (
 const deserializeAws_json1_1SecretListType = (
   output: any,
   context: __SerdeContext
-): Array<SecretListEntry> => {
+): SecretListEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SecretListEntry(entry, context)
   );
@@ -3407,7 +3407,7 @@ const deserializeAws_json1_1SecretListType = (
 const deserializeAws_json1_1SecretVersionStagesType = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3448,7 +3448,7 @@ const deserializeAws_json1_1SecretVersionsListEntry = (
 const deserializeAws_json1_1SecretVersionsListType = (
   output: any,
   context: __SerdeContext
-): Array<SecretVersionsListEntry> => {
+): SecretVersionsListEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SecretVersionsListEntry(entry, context)
   );
@@ -3457,7 +3457,7 @@ const deserializeAws_json1_1SecretVersionsListType = (
 const deserializeAws_json1_1SecretVersionsToStagesMapType = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<string> } => {
+): { [key: string]: string[] } => {
   const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_1SecretVersionStagesType(
@@ -3489,7 +3489,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagListType = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );

@@ -225,7 +225,7 @@ export interface EventDestination {
   /**
    * An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.
    */
-  MatchingEventTypes?: Array<EventType | string>;
+  MatchingEventTypes?: EventType | string[];
 
   /**
    * A name that identifies the event destination configuration.
@@ -266,7 +266,7 @@ export interface EventDestinationDefinition {
   /**
    * An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.
    */
-  MatchingEventTypes?: Array<EventType | string>;
+  MatchingEventTypes?: EventType | string[];
 
   /**
    * An object that contains information about an event destination that sends data to Amazon SNS.
@@ -312,7 +312,7 @@ export interface GetConfigurationSetEventDestinationsResponse {
   /**
    * An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.
    */
-  EventDestinations?: Array<EventDestination>;
+  EventDestinations?: EventDestination[];
 }
 
 export namespace GetConfigurationSetEventDestinationsResponse {
@@ -401,7 +401,7 @@ export interface ListConfigurationSetsResponse {
   /**
    * An object that contains a list of configuration sets for your account in the current region.
    */
-  ConfigurationSets?: Array<string>;
+  ConfigurationSets?: string[];
 
   /**
    * A token returned from a previous call to ListConfigurationSets to indicate the position in the list of configuration sets.

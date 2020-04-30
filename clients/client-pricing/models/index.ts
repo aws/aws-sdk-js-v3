@@ -71,7 +71,7 @@ export interface DescribeServicesResponse {
   /**
    * <p>The service metadata for the service or services in the response.</p>
    */
-  Services?: Array<Service>;
+  Services?: Service[];
 }
 
 export namespace DescribeServicesResponse {
@@ -172,7 +172,7 @@ export interface GetAttributeValuesResponse {
    *       <code>Provisioned IOPS</code> are two available values for the <code>AmazonEC2</code>
    *             <code>volumeType</code>.</p>
    */
-  AttributeValues?: Array<AttributeValue>;
+  AttributeValues?: AttributeValue[];
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
@@ -191,7 +191,7 @@ export interface GetProductsRequest {
    * <p>The list of filters that limit the returned products. only products that match all filters
    *          are returned.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The format version that you want the response to be in.</p>
@@ -237,7 +237,7 @@ export interface GetProductsResponse {
    * <p>The list of products that match your filters. The list contains both the product metadata and
    *          the price information.</p>
    */
-  PriceList?: Array<__LazyJsonString | string>;
+  PriceList?: __LazyJsonString | string[];
 }
 
 export namespace GetProductsResponse {
@@ -315,7 +315,7 @@ export interface Service {
   /**
    * <p>The attributes that are available for this service.</p>
    */
-  AttributeNames?: Array<string>;
+  AttributeNames?: string[];
 
   /**
    * <p>The code for the AWS service.</p>

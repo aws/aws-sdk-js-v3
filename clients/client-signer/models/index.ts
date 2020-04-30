@@ -168,7 +168,7 @@ export interface EncryptionAlgorithmOptions {
   /**
    * <p>The set of accepted encryption algorithms that are allowed in a code signing job.</p>
    */
-  allowedValues: Array<EncryptionAlgorithm | string> | undefined;
+  allowedValues: EncryptionAlgorithm | string[] | undefined;
 
   /**
    * <p>The default encryption algorithm that is used by a code signing job.</p>
@@ -320,7 +320,7 @@ export interface HashAlgorithmOptions {
   /**
    * <p>The set of accepted hash algorithms allowed in a code signing job.</p>
    */
-  allowedValues: Array<HashAlgorithm | string> | undefined;
+  allowedValues: HashAlgorithm | string[] | undefined;
 
   /**
    * <p>The default hash algorithm that is used in a code signing job.</p>
@@ -396,7 +396,7 @@ export interface ListSigningJobsResponse {
   /**
    * <p>A list of your signing jobs.</p>
    */
-  jobs?: Array<SigningJob>;
+  jobs?: SigningJob[];
 
   /**
    * <p>String for specifying the next set of paginated results.</p>
@@ -454,7 +454,7 @@ export interface ListSigningPlatformsResponse {
   /**
    * <p>A list of all platforms that match the request parameters.</p>
    */
-  platforms?: Array<SigningPlatform>;
+  platforms?: SigningPlatform[];
 }
 
 export namespace ListSigningPlatformsResponse {
@@ -500,7 +500,7 @@ export interface ListSigningProfilesResponse {
    * 			the status of <code>CANCELED</code> if the <code>includeCanceled</code> parameter is set
    * 			to <code>true</code>.</p>
    */
-  profiles?: Array<SigningProfile>;
+  profiles?: SigningProfile[];
 }
 
 export namespace ListSigningProfilesResponse {
@@ -768,7 +768,7 @@ export interface SigningImageFormat {
   /**
    * <p>The supported formats of a code signing signing image.</p>
    */
-  supportedFormats: Array<ImageFormat | string> | undefined;
+  supportedFormats: ImageFormat | string[] | undefined;
 }
 
 export namespace SigningImageFormat {
@@ -1085,7 +1085,7 @@ export interface UntagResourceRequest {
    * 			to be removed from the signing profile
    * 			.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

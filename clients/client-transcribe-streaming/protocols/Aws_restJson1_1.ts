@@ -466,7 +466,7 @@ const deserializeAws_restJson1_1Alternative = (
 const deserializeAws_restJson1_1AlternativeList = (
   output: any,
   context: __SerdeContext
-): Array<Alternative> => {
+): Alternative[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Alternative(entry, context)
   );
@@ -501,7 +501,7 @@ const deserializeAws_restJson1_1Item = (
 const deserializeAws_restJson1_1ItemList = (
   output: any,
   context: __SerdeContext
-): Array<Item> => {
+): Item[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Item(entry, context)
   );
@@ -543,7 +543,7 @@ const deserializeAws_restJson1_1Result = (
 const deserializeAws_restJson1_1ResultList = (
   output: any,
   context: __SerdeContext
-): Array<Result> => {
+): Result[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Result(entry, context)
   );

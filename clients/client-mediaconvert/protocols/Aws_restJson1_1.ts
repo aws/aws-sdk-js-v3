@@ -7975,7 +7975,7 @@ const serializeAws_restJson1_1WavSettings = (
 };
 
 const serializeAws_restJson1_1__listOfAudioDescription = (
-  input: Array<AudioDescription>,
+  input: AudioDescription[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7986,7 +7986,7 @@ const serializeAws_restJson1_1__listOfAudioDescription = (
 };
 
 const serializeAws_restJson1_1__listOfCaptionDescription = (
-  input: Array<CaptionDescription>,
+  input: CaptionDescription[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7997,7 +7997,7 @@ const serializeAws_restJson1_1__listOfCaptionDescription = (
 };
 
 const serializeAws_restJson1_1__listOfCaptionDescriptionPreset = (
-  input: Array<CaptionDescriptionPreset>,
+  input: CaptionDescriptionPreset[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8010,7 +8010,7 @@ const serializeAws_restJson1_1__listOfCaptionDescriptionPreset = (
 };
 
 const serializeAws_restJson1_1__listOfCmafAdditionalManifest = (
-  input: Array<CmafAdditionalManifest>,
+  input: CmafAdditionalManifest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8023,7 +8023,7 @@ const serializeAws_restJson1_1__listOfCmafAdditionalManifest = (
 };
 
 const serializeAws_restJson1_1__listOfDashAdditionalManifest = (
-  input: Array<DashAdditionalManifest>,
+  input: DashAdditionalManifest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8036,7 +8036,7 @@ const serializeAws_restJson1_1__listOfDashAdditionalManifest = (
 };
 
 const serializeAws_restJson1_1__listOfHlsAdMarkers = (
-  input: Array<HlsAdMarkers | string>,
+  input: HlsAdMarkers | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8047,7 +8047,7 @@ const serializeAws_restJson1_1__listOfHlsAdMarkers = (
 };
 
 const serializeAws_restJson1_1__listOfHlsAdditionalManifest = (
-  input: Array<HlsAdditionalManifest>,
+  input: HlsAdditionalManifest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8060,7 +8060,7 @@ const serializeAws_restJson1_1__listOfHlsAdditionalManifest = (
 };
 
 const serializeAws_restJson1_1__listOfHlsCaptionLanguageMapping = (
-  input: Array<HlsCaptionLanguageMapping>,
+  input: HlsCaptionLanguageMapping[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8073,7 +8073,7 @@ const serializeAws_restJson1_1__listOfHlsCaptionLanguageMapping = (
 };
 
 const serializeAws_restJson1_1__listOfId3Insertion = (
-  input: Array<Id3Insertion>,
+  input: Id3Insertion[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8084,7 +8084,7 @@ const serializeAws_restJson1_1__listOfId3Insertion = (
 };
 
 const serializeAws_restJson1_1__listOfInput = (
-  input: Array<Input>,
+  input: Input[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8095,7 +8095,7 @@ const serializeAws_restJson1_1__listOfInput = (
 };
 
 const serializeAws_restJson1_1__listOfInputClipping = (
-  input: Array<InputClipping>,
+  input: InputClipping[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8106,7 +8106,7 @@ const serializeAws_restJson1_1__listOfInputClipping = (
 };
 
 const serializeAws_restJson1_1__listOfInputTemplate = (
-  input: Array<InputTemplate>,
+  input: InputTemplate[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8117,7 +8117,7 @@ const serializeAws_restJson1_1__listOfInputTemplate = (
 };
 
 const serializeAws_restJson1_1__listOfInsertableImage = (
-  input: Array<InsertableImage>,
+  input: InsertableImage[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8128,7 +8128,7 @@ const serializeAws_restJson1_1__listOfInsertableImage = (
 };
 
 const serializeAws_restJson1_1__listOfMsSmoothAdditionalManifest = (
-  input: Array<MsSmoothAdditionalManifest>,
+  input: MsSmoothAdditionalManifest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8141,7 +8141,7 @@ const serializeAws_restJson1_1__listOfMsSmoothAdditionalManifest = (
 };
 
 const serializeAws_restJson1_1__listOfOutput = (
-  input: Array<Output>,
+  input: Output[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8152,7 +8152,7 @@ const serializeAws_restJson1_1__listOfOutput = (
 };
 
 const serializeAws_restJson1_1__listOfOutputChannelMapping = (
-  input: Array<OutputChannelMapping>,
+  input: OutputChannelMapping[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8163,7 +8163,7 @@ const serializeAws_restJson1_1__listOfOutputChannelMapping = (
 };
 
 const serializeAws_restJson1_1__listOfOutputGroup = (
-  input: Array<OutputGroup>,
+  input: OutputGroup[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8174,7 +8174,7 @@ const serializeAws_restJson1_1__listOfOutputGroup = (
 };
 
 const serializeAws_restJson1_1__listOfTeletextPageType = (
-  input: Array<TeletextPageType | string>,
+  input: TeletextPageType | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8185,7 +8185,7 @@ const serializeAws_restJson1_1__listOfTeletextPageType = (
 };
 
 const serializeAws_restJson1_1__listOf__integerMin1Max2147483647 = (
-  input: Array<number>,
+  input: number[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8196,7 +8196,7 @@ const serializeAws_restJson1_1__listOf__integerMin1Max2147483647 = (
 };
 
 const serializeAws_restJson1_1__listOf__integerMin32Max8182 = (
-  input: Array<number>,
+  input: number[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8207,7 +8207,7 @@ const serializeAws_restJson1_1__listOf__integerMin32Max8182 = (
 };
 
 const serializeAws_restJson1_1__listOf__integerMinNegative60Max6 = (
-  input: Array<number>,
+  input: number[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8218,7 +8218,7 @@ const serializeAws_restJson1_1__listOf__integerMinNegative60Max6 = (
 };
 
 const serializeAws_restJson1_1__listOf__string = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8229,7 +8229,7 @@ const serializeAws_restJson1_1__listOf__string = (
 };
 
 const serializeAws_restJson1_1__listOf__stringMin1 = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8240,7 +8240,7 @@ const serializeAws_restJson1_1__listOf__stringMin1 = (
 };
 
 const serializeAws_restJson1_1__listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12 = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8251,7 +8251,7 @@ const serializeAws_restJson1_1__listOf__stringMin36Max36Pattern09aFAF809aFAF409a
 };
 
 const serializeAws_restJson1_1__listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12 = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8262,7 +8262,7 @@ const serializeAws_restJson1_1__listOf__stringPattern09aFAF809aFAF409aFAF409aFAF
 };
 
 const serializeAws_restJson1_1__listOf__stringPatternS3ASSETMAPXml = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14049,7 +14049,7 @@ const deserializeAws_restJson1_1WavSettings = (
 const deserializeAws_restJson1_1__listOfAudioDescription = (
   output: any,
   context: __SerdeContext
-): Array<AudioDescription> => {
+): AudioDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AudioDescription(entry, context)
   );
@@ -14058,7 +14058,7 @@ const deserializeAws_restJson1_1__listOfAudioDescription = (
 const deserializeAws_restJson1_1__listOfCaptionDescription = (
   output: any,
   context: __SerdeContext
-): Array<CaptionDescription> => {
+): CaptionDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CaptionDescription(entry, context)
   );
@@ -14067,7 +14067,7 @@ const deserializeAws_restJson1_1__listOfCaptionDescription = (
 const deserializeAws_restJson1_1__listOfCaptionDescriptionPreset = (
   output: any,
   context: __SerdeContext
-): Array<CaptionDescriptionPreset> => {
+): CaptionDescriptionPreset[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CaptionDescriptionPreset(entry, context)
   );
@@ -14076,7 +14076,7 @@ const deserializeAws_restJson1_1__listOfCaptionDescriptionPreset = (
 const deserializeAws_restJson1_1__listOfCmafAdditionalManifest = (
   output: any,
   context: __SerdeContext
-): Array<CmafAdditionalManifest> => {
+): CmafAdditionalManifest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CmafAdditionalManifest(entry, context)
   );
@@ -14085,7 +14085,7 @@ const deserializeAws_restJson1_1__listOfCmafAdditionalManifest = (
 const deserializeAws_restJson1_1__listOfDashAdditionalManifest = (
   output: any,
   context: __SerdeContext
-): Array<DashAdditionalManifest> => {
+): DashAdditionalManifest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DashAdditionalManifest(entry, context)
   );
@@ -14094,7 +14094,7 @@ const deserializeAws_restJson1_1__listOfDashAdditionalManifest = (
 const deserializeAws_restJson1_1__listOfEndpoint = (
   output: any,
   context: __SerdeContext
-): Array<Endpoint> => {
+): Endpoint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Endpoint(entry, context)
   );
@@ -14103,14 +14103,14 @@ const deserializeAws_restJson1_1__listOfEndpoint = (
 const deserializeAws_restJson1_1__listOfHlsAdMarkers = (
   output: any,
   context: __SerdeContext
-): Array<HlsAdMarkers | string> => {
+): HlsAdMarkers | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1__listOfHlsAdditionalManifest = (
   output: any,
   context: __SerdeContext
-): Array<HlsAdditionalManifest> => {
+): HlsAdditionalManifest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HlsAdditionalManifest(entry, context)
   );
@@ -14119,7 +14119,7 @@ const deserializeAws_restJson1_1__listOfHlsAdditionalManifest = (
 const deserializeAws_restJson1_1__listOfHlsCaptionLanguageMapping = (
   output: any,
   context: __SerdeContext
-): Array<HlsCaptionLanguageMapping> => {
+): HlsCaptionLanguageMapping[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HlsCaptionLanguageMapping(entry, context)
   );
@@ -14128,7 +14128,7 @@ const deserializeAws_restJson1_1__listOfHlsCaptionLanguageMapping = (
 const deserializeAws_restJson1_1__listOfId3Insertion = (
   output: any,
   context: __SerdeContext
-): Array<Id3Insertion> => {
+): Id3Insertion[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Id3Insertion(entry, context)
   );
@@ -14137,7 +14137,7 @@ const deserializeAws_restJson1_1__listOfId3Insertion = (
 const deserializeAws_restJson1_1__listOfInput = (
   output: any,
   context: __SerdeContext
-): Array<Input> => {
+): Input[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Input(entry, context)
   );
@@ -14146,7 +14146,7 @@ const deserializeAws_restJson1_1__listOfInput = (
 const deserializeAws_restJson1_1__listOfInputClipping = (
   output: any,
   context: __SerdeContext
-): Array<InputClipping> => {
+): InputClipping[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InputClipping(entry, context)
   );
@@ -14155,7 +14155,7 @@ const deserializeAws_restJson1_1__listOfInputClipping = (
 const deserializeAws_restJson1_1__listOfInputTemplate = (
   output: any,
   context: __SerdeContext
-): Array<InputTemplate> => {
+): InputTemplate[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InputTemplate(entry, context)
   );
@@ -14164,7 +14164,7 @@ const deserializeAws_restJson1_1__listOfInputTemplate = (
 const deserializeAws_restJson1_1__listOfInsertableImage = (
   output: any,
   context: __SerdeContext
-): Array<InsertableImage> => {
+): InsertableImage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InsertableImage(entry, context)
   );
@@ -14173,7 +14173,7 @@ const deserializeAws_restJson1_1__listOfInsertableImage = (
 const deserializeAws_restJson1_1__listOfJob = (
   output: any,
   context: __SerdeContext
-): Array<Job> => {
+): Job[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Job(entry, context)
   );
@@ -14182,7 +14182,7 @@ const deserializeAws_restJson1_1__listOfJob = (
 const deserializeAws_restJson1_1__listOfJobTemplate = (
   output: any,
   context: __SerdeContext
-): Array<JobTemplate> => {
+): JobTemplate[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JobTemplate(entry, context)
   );
@@ -14191,7 +14191,7 @@ const deserializeAws_restJson1_1__listOfJobTemplate = (
 const deserializeAws_restJson1_1__listOfMsSmoothAdditionalManifest = (
   output: any,
   context: __SerdeContext
-): Array<MsSmoothAdditionalManifest> => {
+): MsSmoothAdditionalManifest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1MsSmoothAdditionalManifest(entry, context)
   );
@@ -14200,7 +14200,7 @@ const deserializeAws_restJson1_1__listOfMsSmoothAdditionalManifest = (
 const deserializeAws_restJson1_1__listOfOutput = (
   output: any,
   context: __SerdeContext
-): Array<Output> => {
+): Output[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Output(entry, context)
   );
@@ -14209,7 +14209,7 @@ const deserializeAws_restJson1_1__listOfOutput = (
 const deserializeAws_restJson1_1__listOfOutputChannelMapping = (
   output: any,
   context: __SerdeContext
-): Array<OutputChannelMapping> => {
+): OutputChannelMapping[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1OutputChannelMapping(entry, context)
   );
@@ -14218,7 +14218,7 @@ const deserializeAws_restJson1_1__listOfOutputChannelMapping = (
 const deserializeAws_restJson1_1__listOfOutputDetail = (
   output: any,
   context: __SerdeContext
-): Array<OutputDetail> => {
+): OutputDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1OutputDetail(entry, context)
   );
@@ -14227,7 +14227,7 @@ const deserializeAws_restJson1_1__listOfOutputDetail = (
 const deserializeAws_restJson1_1__listOfOutputGroup = (
   output: any,
   context: __SerdeContext
-): Array<OutputGroup> => {
+): OutputGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1OutputGroup(entry, context)
   );
@@ -14236,7 +14236,7 @@ const deserializeAws_restJson1_1__listOfOutputGroup = (
 const deserializeAws_restJson1_1__listOfOutputGroupDetail = (
   output: any,
   context: __SerdeContext
-): Array<OutputGroupDetail> => {
+): OutputGroupDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1OutputGroupDetail(entry, context)
   );
@@ -14245,7 +14245,7 @@ const deserializeAws_restJson1_1__listOfOutputGroupDetail = (
 const deserializeAws_restJson1_1__listOfPreset = (
   output: any,
   context: __SerdeContext
-): Array<Preset> => {
+): Preset[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Preset(entry, context)
   );
@@ -14254,7 +14254,7 @@ const deserializeAws_restJson1_1__listOfPreset = (
 const deserializeAws_restJson1_1__listOfQueue = (
   output: any,
   context: __SerdeContext
-): Array<Queue> => {
+): Queue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Queue(entry, context)
   );
@@ -14263,63 +14263,63 @@ const deserializeAws_restJson1_1__listOfQueue = (
 const deserializeAws_restJson1_1__listOfTeletextPageType = (
   output: any,
   context: __SerdeContext
-): Array<TeletextPageType | string> => {
+): TeletextPageType | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1__listOf__integerMin1Max2147483647 = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1__listOf__integerMin32Max8182 = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1__listOf__integerMinNegative60Max6 = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1__listOf__string = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1__listOf__stringMin1 = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1__listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12 = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1__listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12 = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1__listOf__stringPatternS3ASSETMAPXml = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

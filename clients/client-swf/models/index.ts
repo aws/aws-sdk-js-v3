@@ -501,7 +501,7 @@ export interface ActivityTypeInfos {
   /**
    * <p>List of activity type information.</p>
    */
-  typeInfos: Array<ActivityTypeInfo> | undefined;
+  typeInfos: ActivityTypeInfo[] | undefined;
 }
 
 export namespace ActivityTypeInfos {
@@ -1091,7 +1091,7 @@ export interface ContinueAsNewWorkflowExecutionDecisionAttributes {
    *       list workflow executions with a specific tag by calling <a>ListOpenWorkflowExecutions</a> or
    *       <a>ListClosedWorkflowExecutions</a> and specifying a <a>TagFilter</a>.</p>
    */
-  tagList?: Array<string>;
+  tagList?: string[];
 
   /**
    * <p>The task list to use for the decisions of the new (continued) workflow
@@ -1537,7 +1537,7 @@ export interface DecisionTask {
   /**
    * <p>A paginated list of history events of the workflow execution. The decider uses this during the processing of the decision task.</p>
    */
-  events: Array<HistoryEvent> | undefined;
+  events: HistoryEvent[] | undefined;
 
   /**
    * <p>If a <code>NextPageToken</code> was returned by a previous call, there are more
@@ -1862,7 +1862,7 @@ export interface DomainInfos {
   /**
    * <p>A list of DomainInfo structures.</p>
    */
-  domainInfos: Array<DomainInfo> | undefined;
+  domainInfos: DomainInfo[] | undefined;
 
   /**
    * <p>If a <code>NextPageToken</code> was returned by a previous call, there are more
@@ -2095,7 +2095,7 @@ export interface History {
   /**
    * <p>The list of history events.</p>
    */
-  events: Array<HistoryEvent> | undefined;
+  events: HistoryEvent[] | undefined;
 
   /**
    * <p>If a <code>NextPageToken</code> was returned by a previous call, there are more
@@ -3780,7 +3780,7 @@ export interface StartChildWorkflowExecutionDecisionAttributes {
    *       list workflow executions with a specific tag by calling <a>ListOpenWorkflowExecutions</a> or
    *       <a>ListClosedWorkflowExecutions</a> and specifying a <a>TagFilter</a>.</p>
    */
-  tagList?: Array<string>;
+  tagList?: string[];
 
   /**
    * <p>The name of the task list to be used for decision tasks of the child workflow execution.</p>
@@ -3964,7 +3964,7 @@ export interface StartChildWorkflowExecutionInitiatedEventAttributes {
   /**
    * <p>The list of tags to associated with the child workflow execution.</p>
    */
-  tagList?: Array<string>;
+  tagList?: string[];
 
   /**
    * <p>The name of the task list used for the decision tasks of the child workflow execution.</p>
@@ -4565,7 +4565,7 @@ export interface WorkflowExecutionContinuedAsNewEventAttributes {
   /**
    * <p>The list of tags associated with the new workflow execution.</p>
    */
-  tagList?: Array<string>;
+  tagList?: string[];
 
   /**
    * <p>The task list to use for the decisions of the new (continued) workflow
@@ -4774,7 +4774,7 @@ export interface WorkflowExecutionInfo {
   /**
    * <p>The list of tags associated with the workflow execution. Tags can be used to identify and list workflow executions of interest through the visibility APIs. A workflow execution can have a maximum of 5 tags.</p>
    */
-  tagList?: Array<string>;
+  tagList?: string[];
 
   /**
    * <p>The type of the workflow execution.</p>
@@ -4795,7 +4795,7 @@ export interface WorkflowExecutionInfos {
   /**
    * <p>The list of workflow information structures.</p>
    */
-  executionInfos: Array<WorkflowExecutionInfo> | undefined;
+  executionInfos: WorkflowExecutionInfo[] | undefined;
 
   /**
    * <p>If a <code>NextPageToken</code> was returned by a previous call, there are more
@@ -4950,7 +4950,7 @@ export interface WorkflowExecutionStartedEventAttributes {
   /**
    * <p>The list of tags associated with this workflow execution. An execution can have up to 5 tags.</p>
    */
-  tagList?: Array<string>;
+  tagList?: string[];
 
   /**
    * <p>The name of the task list for scheduling the decision tasks for this workflow execution.</p>
@@ -5301,7 +5301,7 @@ export interface WorkflowTypeInfos {
   /**
    * <p>The list of workflow type information.</p>
    */
-  typeInfos: Array<WorkflowTypeInfo> | undefined;
+  typeInfos: WorkflowTypeInfo[] | undefined;
 }
 
 export namespace WorkflowTypeInfos {
@@ -5929,7 +5929,7 @@ export interface ListTagsForResourceOutput {
   /**
    * <p>An array of tags associated with the domain.</p>
    */
-  tags?: Array<ResourceTag>;
+  tags?: ResourceTag[];
 }
 
 export namespace ListTagsForResourceOutput {
@@ -6229,7 +6229,7 @@ export interface RegisterDomainInput {
    * <p>Tags to be added when registering a domain.</p>
    *          <p>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_ . : / = + - @</code>.</p>
    */
-  tags?: Array<ResourceTag>;
+  tags?: ResourceTag[];
 
   /**
    * <p>The duration (in days) that records and histories of workflow executions on the domain
@@ -6484,7 +6484,7 @@ export interface RespondDecisionTaskCompletedInput {
    *       decision task. See the docs for the <a>Decision</a> structure for
    *       details.</p>
    */
-  decisions?: Array<Decision>;
+  decisions?: Decision[];
 
   /**
    * <p>User defined context to add to workflow execution.</p>
@@ -6638,7 +6638,7 @@ export interface StartWorkflowExecutionInput {
    *       5 tags. You can list workflow executions with a specific tag by calling <a>ListOpenWorkflowExecutions</a> or <a>ListClosedWorkflowExecutions</a> and
    *       specifying a <a>TagFilter</a>.</p>
    */
-  tagList?: Array<string>;
+  tagList?: string[];
 
   /**
    * <p>The task list to use for the decision tasks generated for this workflow execution. This
@@ -6719,7 +6719,7 @@ export interface TagResourceInput {
    * <p>The list of tags to add to a domain. </p>
    *          <p>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_ . : / = + - @</code>.</p>
    */
-  tags: Array<ResourceTag> | undefined;
+  tags: ResourceTag[] | undefined;
 }
 
 export namespace TagResourceInput {
@@ -6850,7 +6850,7 @@ export interface UntagResourceInput {
   /**
    * <p>The list of tags to remove from the Amazon SWF domain.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceInput {

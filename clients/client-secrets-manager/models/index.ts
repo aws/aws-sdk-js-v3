@@ -219,7 +219,7 @@ export interface CreateSecretRequest {
    *             </li>
    *          </ul>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateSecretRequest {
@@ -491,7 +491,7 @@ export interface DescribeSecretResponse {
    * <p>The list of user-defined tags that are associated with the secret. To add tags to a
    *       secret, use <a>TagResource</a>. To remove tags, use <a>UntagResource</a>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A list of all of the currently assigned <code>VersionStage</code> staging labels and the
@@ -502,7 +502,7 @@ export interface DescribeSecretResponse {
    *         subject to deletion. Such versions are not included in this list.</p>
    *          </note>
    */
-  VersionIdsToStages?: { [key: string]: Array<string> };
+  VersionIdsToStages?: { [key: string]: string[] };
 }
 
 export namespace DescribeSecretResponse {
@@ -756,7 +756,7 @@ export interface GetSecretValueResponse {
    * <p>A list of all of the staging labels currently attached to this version of the
    *       secret.</p>
    */
-  VersionStages?: Array<string>;
+  VersionStages?: string[];
 }
 
 export namespace GetSecretValueResponse {
@@ -940,7 +940,7 @@ export interface ListSecretVersionIdsResponse {
   /**
    * <p>The list of the currently available versions of the specified secret.</p>
    */
-  Versions?: Array<SecretVersionsListEntry>;
+  Versions?: SecretVersionsListEntry[];
 }
 
 export namespace ListSecretVersionIdsResponse {
@@ -992,7 +992,7 @@ export interface ListSecretsResponse {
   /**
    * <p>A list of the secrets in the account.</p>
    */
-  SecretList?: Array<SecretListEntry>;
+  SecretList?: SecretListEntry[];
 }
 
 export namespace ListSecretsResponse {
@@ -1182,7 +1182,7 @@ export interface PutSecretValueRequest {
    *          <p>If you do not specify a value for <code>VersionStages</code> then Secrets Manager automatically
    *       moves the staging label <code>AWSCURRENT</code> to this new version.</p>
    */
-  VersionStages?: Array<string>;
+  VersionStages?: string[];
 }
 
 export namespace PutSecretValueRequest {
@@ -1212,7 +1212,7 @@ export interface PutSecretValueResponse {
    *       Staging labels are used to track a version as it progresses through the secret rotation
    *       process.</p>
    */
-  VersionStages?: Array<string>;
+  VersionStages?: string[];
 }
 
 export namespace PutSecretValueResponse {
@@ -1478,13 +1478,13 @@ export interface SecretListEntry {
    *         deprecated and subject to deletion. Such versions are not included in this list.</p>
    *          </note>
    */
-  SecretVersionsToStages?: { [key: string]: Array<string> };
+  SecretVersionsToStages?: { [key: string]: string[] };
 
   /**
    * <p>The list of user-defined tags that are associated with the secret. To add tags to a
    *       secret, use <a>TagResource</a>. To remove tags, use <a>UntagResource</a>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace SecretListEntry {
@@ -1517,7 +1517,7 @@ export interface SecretVersionsListEntry {
    * <p>An array of staging labels that are currently associated with this version of the
    *       secret.</p>
    */
-  VersionStages?: Array<string>;
+  VersionStages?: string[];
 }
 
 export namespace SecretVersionsListEntry {
@@ -1573,7 +1573,7 @@ export interface TagResourceRequest {
    *         Key="Key1",Value="Value1",Key="Key2",Value="Value2"[,…]</code>
    *          </p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1606,7 +1606,7 @@ export interface UntagResourceRequest {
    *          <p>This parameter to the API requires a JSON text string argument. For information on how to
    *       format a JSON parameter for the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for Parameters</a> in the <i>AWS CLI User Guide</i>.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

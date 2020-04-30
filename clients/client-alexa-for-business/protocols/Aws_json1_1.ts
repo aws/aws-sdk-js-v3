@@ -8570,7 +8570,7 @@ const serializeAws_json1_1Filter = (
 };
 
 const serializeAws_json1_1FilterList = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8581,7 +8581,7 @@ const serializeAws_json1_1FilterList = (
 };
 
 const serializeAws_json1_1FilterValueList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8651,7 +8651,7 @@ const serializeAws_json1_1Audio = (
 };
 
 const serializeAws_json1_1AudioList = (
-  input: Array<Audio>,
+  input: Audio[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8728,7 +8728,7 @@ const serializeAws_json1_1Ssml = (
 };
 
 const serializeAws_json1_1SsmlList = (
-  input: Array<Ssml>,
+  input: Ssml[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8753,7 +8753,7 @@ const serializeAws_json1_1Text = (
 };
 
 const serializeAws_json1_1TextList = (
-  input: Array<Text>,
+  input: Text[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9544,7 +9544,7 @@ const serializeAws_json1_1DisassociateSkillGroupFromRoomRequest = (
 };
 
 const serializeAws_json1_1EndOfMeetingReminderMinutesList = (
-  input: Array<number>,
+  input: number[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9555,7 +9555,7 @@ const serializeAws_json1_1EndOfMeetingReminderMinutesList = (
 };
 
 const serializeAws_json1_1Features = (
-  input: Array<Feature | string>,
+  input: Feature | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9901,7 +9901,7 @@ const serializeAws_json1_1PhoneNumber = (
 };
 
 const serializeAws_json1_1PhoneNumberList = (
-  input: Array<PhoneNumber>,
+  input: PhoneNumber[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10283,7 +10283,7 @@ const serializeAws_json1_1SendInvitationRequest = (
 };
 
 const serializeAws_json1_1ShortSkillIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10308,7 +10308,7 @@ const serializeAws_json1_1SipAddress = (
 };
 
 const serializeAws_json1_1SipAddressList = (
-  input: Array<SipAddress>,
+  input: SipAddress[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10333,7 +10333,7 @@ const serializeAws_json1_1Sort = (
 };
 
 const serializeAws_json1_1SortList = (
-  input: Array<Sort>,
+  input: Sort[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10386,7 +10386,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10397,7 +10397,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10422,7 +10422,7 @@ const serializeAws_json1_1TagResourceRequest = (
 };
 
 const serializeAws_json1_1TrustAnchorList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10984,7 +10984,7 @@ const deserializeAws_json1_1ConferenceProvider = (
 const deserializeAws_json1_1ConferenceProvidersList = (
   output: any,
   context: __SerdeContext
-): Array<ConferenceProvider> => {
+): ConferenceProvider[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConferenceProvider(entry, context)
   );
@@ -11122,7 +11122,7 @@ const deserializeAws_json1_1AddressBookData = (
 const deserializeAws_json1_1AddressBookDataList = (
   output: any,
   context: __SerdeContext
-): Array<AddressBookData> => {
+): AddressBookData[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AddressBookData(entry, context)
   );
@@ -11201,7 +11201,7 @@ const deserializeAws_json1_1AssociateSkillWithUsersResponse = (
 const deserializeAws_json1_1BulletPoints = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -11341,7 +11341,7 @@ const deserializeAws_json1_1BusinessReportSchedule = (
 const deserializeAws_json1_1BusinessReportScheduleList = (
   output: any,
   context: __SerdeContext
-): Array<BusinessReportSchedule> => {
+): BusinessReportSchedule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BusinessReportSchedule(entry, context)
   );
@@ -11368,7 +11368,7 @@ const deserializeAws_json1_1Category = (
 const deserializeAws_json1_1CategoryList = (
   output: any,
   context: __SerdeContext
-): Array<Category> => {
+): Category[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Category(entry, context)
   );
@@ -11482,7 +11482,7 @@ const deserializeAws_json1_1ContactData = (
 const deserializeAws_json1_1ContactDataList = (
   output: any,
   context: __SerdeContext
-): Array<ContactData> => {
+): ContactData[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ContactData(entry, context)
   );
@@ -11935,7 +11935,7 @@ const deserializeAws_json1_1DeviceData = (
 const deserializeAws_json1_1DeviceDataList = (
   output: any,
   context: __SerdeContext
-): Array<DeviceData> => {
+): DeviceData[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DeviceData(entry, context)
   );
@@ -11966,7 +11966,7 @@ const deserializeAws_json1_1DeviceEvent = (
 const deserializeAws_json1_1DeviceEventList = (
   output: any,
   context: __SerdeContext
-): Array<DeviceEvent> => {
+): DeviceEvent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DeviceEvent(entry, context)
   );
@@ -12023,7 +12023,7 @@ const deserializeAws_json1_1DeviceStatusDetail = (
 const deserializeAws_json1_1DeviceStatusDetails = (
   output: any,
   context: __SerdeContext
-): Array<DeviceStatusDetail> => {
+): DeviceStatusDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DeviceStatusDetail(entry, context)
   );
@@ -12146,7 +12146,7 @@ const deserializeAws_json1_1EndOfMeetingReminder = (
 const deserializeAws_json1_1EndOfMeetingReminderMinutesList = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -12215,7 +12215,7 @@ const deserializeAws_json1_1GatewayGroup = (
 const deserializeAws_json1_1GatewayGroupSummaries = (
   output: any,
   context: __SerdeContext
-): Array<GatewayGroupSummary> => {
+): GatewayGroupSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GatewayGroupSummary(entry, context)
   );
@@ -12246,7 +12246,7 @@ const deserializeAws_json1_1GatewayGroupSummary = (
 const deserializeAws_json1_1GatewaySummaries = (
   output: any,
   context: __SerdeContext
-): Array<GatewaySummary> => {
+): GatewaySummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GatewaySummary(entry, context)
   );
@@ -12285,7 +12285,7 @@ const deserializeAws_json1_1GatewaySummary = (
 const deserializeAws_json1_1GenericKeywords = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -12976,7 +12976,7 @@ const deserializeAws_json1_1NetworkProfileData = (
 const deserializeAws_json1_1NetworkProfileDataList = (
   output: any,
   context: __SerdeContext
-): Array<NetworkProfileData> => {
+): NetworkProfileData[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1NetworkProfileData(entry, context)
   );
@@ -12985,7 +12985,7 @@ const deserializeAws_json1_1NetworkProfileDataList = (
 const deserializeAws_json1_1NewInThisVersionBulletPoints = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -13010,7 +13010,7 @@ const deserializeAws_json1_1PhoneNumber = (
 const deserializeAws_json1_1PhoneNumberList = (
   output: any,
   context: __SerdeContext
-): Array<PhoneNumber> => {
+): PhoneNumber[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PhoneNumber(entry, context)
   );
@@ -13140,7 +13140,7 @@ const deserializeAws_json1_1ProfileData = (
 const deserializeAws_json1_1ProfileDataList = (
   output: any,
   context: __SerdeContext
-): Array<ProfileData> => {
+): ProfileData[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ProfileData(entry, context)
   );
@@ -13367,7 +13367,7 @@ const deserializeAws_json1_1RoomData = (
 const deserializeAws_json1_1RoomDataList = (
   output: any,
   context: __SerdeContext
-): Array<RoomData> => {
+): RoomData[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RoomData(entry, context)
   );
@@ -13394,7 +13394,7 @@ const deserializeAws_json1_1RoomSkillParameter = (
 const deserializeAws_json1_1RoomSkillParameters = (
   output: any,
   context: __SerdeContext
-): Array<RoomSkillParameter> => {
+): RoomSkillParameter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RoomSkillParameter(entry, context)
   );
@@ -13403,7 +13403,7 @@ const deserializeAws_json1_1RoomSkillParameters = (
 const deserializeAws_json1_1SampleUtterances = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -13614,7 +13614,7 @@ const deserializeAws_json1_1SendInvitationResponse = (
 const deserializeAws_json1_1ShortSkillIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -13639,7 +13639,7 @@ const deserializeAws_json1_1SipAddress = (
 const deserializeAws_json1_1SipAddressList = (
   output: any,
   context: __SerdeContext
-): Array<SipAddress> => {
+): SipAddress[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SipAddress(entry, context)
   );
@@ -13769,7 +13769,7 @@ const deserializeAws_json1_1SkillGroupData = (
 const deserializeAws_json1_1SkillGroupDataList = (
   output: any,
   context: __SerdeContext
-): Array<SkillGroupData> => {
+): SkillGroupData[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SkillGroupData(entry, context)
   );
@@ -13822,7 +13822,7 @@ const deserializeAws_json1_1SkillSummary = (
 const deserializeAws_json1_1SkillSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<SkillSummary> => {
+): SkillSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SkillSummary(entry, context)
   );
@@ -13831,7 +13831,7 @@ const deserializeAws_json1_1SkillSummaryList = (
 const deserializeAws_json1_1SkillTypes = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -13888,7 +13888,7 @@ const deserializeAws_json1_1SkillsStoreSkill = (
 const deserializeAws_json1_1SkillsStoreSkillList = (
   output: any,
   context: __SerdeContext
-): Array<SkillsStoreSkill> => {
+): SkillsStoreSkill[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SkillsStoreSkill(entry, context)
   );
@@ -13922,7 +13922,7 @@ const deserializeAws_json1_1SmartHomeAppliance = (
 const deserializeAws_json1_1SmartHomeApplianceList = (
   output: any,
   context: __SerdeContext
-): Array<SmartHomeAppliance> => {
+): SmartHomeAppliance[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SmartHomeAppliance(entry, context)
   );
@@ -13969,7 +13969,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -13988,7 +13988,7 @@ const deserializeAws_json1_1TagResourceResponse = (
 const deserializeAws_json1_1TrustAnchorList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -14152,7 +14152,7 @@ const deserializeAws_json1_1UserData = (
 const deserializeAws_json1_1UserDataList = (
   output: any,
   context: __SerdeContext
-): Array<UserData> => {
+): UserData[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UserData(entry, context)
   );

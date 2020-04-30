@@ -187,7 +187,7 @@ export interface ListResourcesForTagOptionOutput {
   /**
    * <p>Information about the resources.</p>
    */
-  ResourceDetails?: Array<ResourceDetail>;
+  ResourceDetails?: ResourceDetail[];
 }
 
 export namespace ListResourcesForTagOptionOutput {
@@ -254,7 +254,7 @@ export interface ListTagOptionsOutput {
   /**
    * <p>Information about the TagOptions.</p>
    */
-  TagOptionDetails?: Array<TagOptionDetail>;
+  TagOptionDetails?: TagOptionDetail[];
 }
 
 export namespace ListTagOptionsOutput {
@@ -682,7 +682,7 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
   /**
    * <p>One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
    */
-  ServiceActionAssociations: Array<ServiceActionAssociation> | undefined;
+  ServiceActionAssociations: ServiceActionAssociation[] | undefined;
 }
 
 export namespace BatchAssociateServiceActionWithProvisioningArtifactInput {
@@ -697,7 +697,7 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactOutput {
   /**
    * <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
    */
-  FailedServiceActionAssociations?: Array<FailedServiceActionAssociation>;
+  FailedServiceActionAssociations?: FailedServiceActionAssociation[];
 }
 
 export namespace BatchAssociateServiceActionWithProvisioningArtifactOutput {
@@ -731,7 +731,7 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactInput {
   /**
    * <p>One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
    */
-  ServiceActionAssociations: Array<ServiceActionAssociation> | undefined;
+  ServiceActionAssociations: ServiceActionAssociation[] | undefined;
 }
 
 export namespace BatchDisassociateServiceActionFromProvisioningArtifactInput {
@@ -746,7 +746,7 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput {
   /**
    * <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
    */
-  FailedServiceActionAssociations?: Array<FailedServiceActionAssociation>;
+  FailedServiceActionAssociations?: FailedServiceActionAssociation[];
 }
 
 export namespace BatchDisassociateServiceActionFromProvisioningArtifactOutput {
@@ -914,7 +914,7 @@ export interface CopyProductInput {
    * <p>The copy options. If the value is <code>CopyTags</code>, the tags from the source
    *          product are copied to the target product.</p>
    */
-  CopyOptions?: Array<CopyOption | string>;
+  CopyOptions?: CopyOption | string[];
 
   /**
    * <p> A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
@@ -931,7 +931,7 @@ export interface CopyProductInput {
    * <p>The identifiers of the provisioning artifacts (also known as versions) of the product to copy.
    *          By default, all provisioning artifacts are copied.</p>
    */
-  SourceProvisioningArtifactIdentifiers?: Array<{ [key: string]: string }>;
+  SourceProvisioningArtifactIdentifiers?: { [key: string]: string }[];
 
   /**
    * <p>The identifier of the target product. By default, a new product is created.</p>
@@ -1162,7 +1162,7 @@ export interface CreatePortfolioInput {
   /**
    * <p>One or more tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreatePortfolioInput {
@@ -1180,7 +1180,7 @@ export interface CreatePortfolioOutput {
   /**
    * <p>Information about the tags associated with the portfolio.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreatePortfolioOutput {
@@ -1318,7 +1318,7 @@ export interface CreateProductInput {
   /**
    * <p>One or more tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateProductInput {
@@ -1341,7 +1341,7 @@ export interface CreateProductOutput {
   /**
    * <p>Information about the tags associated with the product.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateProductOutput {
@@ -1380,7 +1380,7 @@ export interface CreateProvisionedProductPlanInput {
    * <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
    *          events.</p>
    */
-  NotificationArns?: Array<string>;
+  NotificationArns?: string[];
 
   /**
    * <p>The path identifier of the product. This value is optional if the product
@@ -1419,13 +1419,13 @@ export interface CreateProvisionedProductPlanInput {
    * <p>Parameters specified by the administrator that are required for provisioning the
    *          product.</p>
    */
-  ProvisioningParameters?: Array<UpdateProvisioningParameter>;
+  ProvisioningParameters?: UpdateProvisioningParameter[];
 
   /**
    * <p>One or more tags.</p>
    *          <p>If the plan is for an existing provisioned product, the product must have a <code>RESOURCE_UPDATE</code> constraint with <code>TagUpdatesOnProvisionedProduct</code> set to <code>ALLOWED</code> to allow tag updates.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateProvisionedProductPlanInput {
@@ -2078,7 +2078,7 @@ export interface DescribePortfolioOutput {
   /**
    * <p>Information about the associated budgets.</p>
    */
-  Budgets?: Array<BudgetDetail>;
+  Budgets?: BudgetDetail[];
 
   /**
    * <p>Information about the portfolio.</p>
@@ -2088,12 +2088,12 @@ export interface DescribePortfolioOutput {
   /**
    * <p>Information about the TagOptions associated with the portfolio.</p>
    */
-  TagOptions?: Array<TagOptionDetail>;
+  TagOptions?: TagOptionDetail[];
 
   /**
    * <p>Information about the tags associated with the portfolio.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace DescribePortfolioOutput {
@@ -2184,7 +2184,7 @@ export interface DescribeProductAsAdminOutput {
   /**
    * <p>Information about the associated budgets.</p>
    */
-  Budgets?: Array<BudgetDetail>;
+  Budgets?: BudgetDetail[];
 
   /**
    * <p>Information about the product view.</p>
@@ -2194,17 +2194,17 @@ export interface DescribeProductAsAdminOutput {
   /**
    * <p>Information about the provisioning artifacts (also known as versions) for the specified product.</p>
    */
-  ProvisioningArtifactSummaries?: Array<ProvisioningArtifactSummary>;
+  ProvisioningArtifactSummaries?: ProvisioningArtifactSummary[];
 
   /**
    * <p>Information about the TagOptions associated with the product.</p>
    */
-  TagOptions?: Array<TagOptionDetail>;
+  TagOptions?: TagOptionDetail[];
 
   /**
    * <p>Information about the tags associated with the product.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace DescribeProductAsAdminOutput {
@@ -2249,7 +2249,7 @@ export interface DescribeProductOutput {
   /**
    * <p>Information about the associated budgets.</p>
    */
-  Budgets?: Array<BudgetDetail>;
+  Budgets?: BudgetDetail[];
 
   /**
    * <p>Summary information about the product view.</p>
@@ -2259,7 +2259,7 @@ export interface DescribeProductOutput {
   /**
    * <p>Information about the provisioning artifacts for the specified product.</p>
    */
-  ProvisioningArtifacts?: Array<ProvisioningArtifact>;
+  ProvisioningArtifacts?: ProvisioningArtifact[];
 }
 
 export namespace DescribeProductOutput {
@@ -2309,7 +2309,7 @@ export interface DescribeProductViewOutput {
   /**
    * <p>Information about the provisioning artifacts for the product.</p>
    */
-  ProvisioningArtifacts?: Array<ProvisioningArtifact>;
+  ProvisioningArtifacts?: ProvisioningArtifact[];
 }
 
 export namespace DescribeProductViewOutput {
@@ -2354,7 +2354,7 @@ export interface DescribeProvisionedProductOutput {
   /**
    * <p>Any CloudWatch dashboards that were created when provisioning the product.</p>
    */
-  CloudWatchDashboards?: Array<CloudWatchDashboard>;
+  CloudWatchDashboards?: CloudWatchDashboard[];
 
   /**
    * <p>Information about the provisioned product.</p>
@@ -2424,7 +2424,7 @@ export interface DescribeProvisionedProductPlanOutput {
   /**
    * <p>Information about the resource changes that will occur when the plan is executed.</p>
    */
-  ResourceChanges?: Array<ResourceChange>;
+  ResourceChanges?: ResourceChange[];
 }
 
 export namespace DescribeProvisionedProductPlanOutput {
@@ -2546,12 +2546,12 @@ export interface DescribeProvisioningParametersOutput {
   /**
    * <p>Information about the constraints used to provision the product.</p>
    */
-  ConstraintSummaries?: Array<ConstraintSummary>;
+  ConstraintSummaries?: ConstraintSummary[];
 
   /**
    * <p>Information about the parameters used to provision the product.</p>
    */
-  ProvisioningArtifactParameters?: Array<ProvisioningArtifactParameter>;
+  ProvisioningArtifactParameters?: ProvisioningArtifactParameter[];
 
   /**
    * <p>An object that contains information about preferences, such as regions and accounts, for the provisioning artifact.</p>
@@ -2561,13 +2561,13 @@ export interface DescribeProvisioningParametersOutput {
   /**
    * <p>Information about the TagOptions associated with the resource.</p>
    */
-  TagOptions?: Array<TagOptionSummary>;
+  TagOptions?: TagOptionSummary[];
 
   /**
    * <p>Any additional metadata specifically related to the provisioning of the product. For
    *          example, see the <code>Version</code> field of the CloudFormation template.</p>
    */
-  UsageInstructions?: Array<UsageInstruction>;
+  UsageInstructions?: UsageInstruction[];
 }
 
 export namespace DescribeProvisioningParametersOutput {
@@ -2634,7 +2634,7 @@ export interface DescribeRecordOutput {
    * <p>Information about the product created as the result of a request. For example, the output for
    *          a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.</p>
    */
-  RecordOutputs?: Array<RecordOutput>;
+  RecordOutputs?: RecordOutput[];
 }
 
 export namespace DescribeRecordOutput {
@@ -2658,7 +2658,7 @@ export namespace DescribeServiceActionExecutionParametersInput {
 
 export interface DescribeServiceActionExecutionParametersOutput {
   __type?: "DescribeServiceActionExecutionParametersOutput";
-  ServiceActionParameters?: Array<ExecutionParameter>;
+  ServiceActionParameters?: ExecutionParameter[];
 }
 
 export namespace DescribeServiceActionExecutionParametersOutput {
@@ -3021,7 +3021,7 @@ export interface ExecuteProvisionedProductServiceActionInput {
    */
   ExecuteToken?: string;
 
-  Parameters?: { [key: string]: Array<string> };
+  Parameters?: { [key: string]: string[] };
   /**
    * <p>The identifier of the provisioned product.</p>
    */
@@ -3057,7 +3057,7 @@ export namespace ExecuteProvisionedProductServiceActionOutput {
 
 export interface ExecutionParameter {
   __type?: "ExecutionParameter";
-  DefaultValues?: Array<string>;
+  DefaultValues?: string[];
   Name?: string;
   Type?: string;
 }
@@ -3166,7 +3166,7 @@ export interface LaunchPathSummary {
   /**
    * <p>The constraints on the portfolio-product relationship.</p>
    */
-  ConstraintSummaries?: Array<ConstraintSummary>;
+  ConstraintSummaries?: ConstraintSummary[];
 
   /**
    * <p>The identifier of the product path.</p>
@@ -3181,7 +3181,7 @@ export interface LaunchPathSummary {
   /**
    * <p>The tags associated with this product path.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace LaunchPathSummary {
@@ -3272,7 +3272,7 @@ export interface ListAcceptedPortfolioSharesOutput {
   /**
    * <p>Information about the portfolios.</p>
    */
-  PortfolioDetails?: Array<PortfolioDetail>;
+  PortfolioDetails?: PortfolioDetail[];
 }
 
 export namespace ListAcceptedPortfolioSharesOutput {
@@ -3327,7 +3327,7 @@ export interface ListBudgetsForResourceOutput {
   /**
    * <p>Information about the associated budgets.</p>
    */
-  Budgets?: Array<BudgetDetail>;
+  Budgets?: BudgetDetail[];
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -3392,7 +3392,7 @@ export interface ListConstraintsForPortfolioOutput {
   /**
    * <p>Information about the constraints.</p>
    */
-  ConstraintDetails?: Array<ConstraintDetail>;
+  ConstraintDetails?: ConstraintDetail[];
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -3452,7 +3452,7 @@ export interface ListLaunchPathsOutput {
   /**
    * <p>Information about the launch path.</p>
    */
-  LaunchPathSummaries?: Array<LaunchPathSummary>;
+  LaunchPathSummaries?: LaunchPathSummary[];
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -3536,7 +3536,7 @@ export interface ListOrganizationPortfolioAccessOutput {
   /**
    * <p>Displays information about the organization nodes.</p>
    */
-  OrganizationNodes?: Array<OrganizationNode>;
+  OrganizationNodes?: OrganizationNode[];
 }
 
 export namespace ListOrganizationPortfolioAccessOutput {
@@ -3581,7 +3581,7 @@ export interface ListPortfolioAccessOutput {
   /**
    * <p>Information about the AWS accounts with access to the portfolio.</p>
    */
-  AccountIds?: Array<string>;
+  AccountIds?: string[];
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -3646,7 +3646,7 @@ export interface ListPortfoliosForProductOutput {
   /**
    * <p>Information about the portfolios.</p>
    */
-  PortfolioDetails?: Array<PortfolioDetail>;
+  PortfolioDetails?: PortfolioDetail[];
 }
 
 export namespace ListPortfoliosForProductOutput {
@@ -3701,7 +3701,7 @@ export interface ListPortfoliosOutput {
   /**
    * <p>Information about the portfolios.</p>
    */
-  PortfolioDetails?: Array<PortfolioDetail>;
+  PortfolioDetails?: PortfolioDetail[];
 }
 
 export namespace ListPortfoliosOutput {
@@ -3761,7 +3761,7 @@ export interface ListPrincipalsForPortfolioOutput {
   /**
    * <p>The IAM principals (users or roles) associated with the portfolio.</p>
    */
-  Principals?: Array<Principal>;
+  Principals?: Principal[];
 }
 
 export namespace ListPrincipalsForPortfolioOutput {
@@ -3826,7 +3826,7 @@ export interface ListProvisionedProductPlansOutput {
   /**
    * <p>Information about the plans.</p>
    */
-  ProvisionedProductPlans?: Array<ProvisionedProductPlanSummary>;
+  ProvisionedProductPlans?: ProvisionedProductPlanSummary[];
 }
 
 export namespace ListProvisionedProductPlansOutput {
@@ -3888,7 +3888,7 @@ export interface ListProvisioningArtifactsForServiceActionOutput {
   /**
    * <p>An array of objects with information about product views and provisioning artifacts.</p>
    */
-  ProvisioningArtifactViews?: Array<ProvisioningArtifactView>;
+  ProvisioningArtifactViews?: ProvisioningArtifactView[];
 }
 
 export namespace ListProvisioningArtifactsForServiceActionOutput {
@@ -3940,7 +3940,7 @@ export interface ListProvisioningArtifactsOutput {
   /**
    * <p>Information about the provisioning artifacts.</p>
    */
-  ProvisioningArtifactDetails?: Array<ProvisioningArtifactDetail>;
+  ProvisioningArtifactDetails?: ProvisioningArtifactDetail[];
 }
 
 export namespace ListProvisioningArtifactsOutput {
@@ -4005,7 +4005,7 @@ export interface ListRecordHistoryOutput {
   /**
    * <p>The records, in reverse chronological order.</p>
    */
-  RecordDetails?: Array<RecordDetail>;
+  RecordDetails?: RecordDetail[];
 }
 
 export namespace ListRecordHistoryOutput {
@@ -4103,7 +4103,7 @@ export interface ListServiceActionsForProvisioningArtifactOutput {
   /**
    * <p>An object containing information about the self-service actions associated with the provisioning artifact.</p>
    */
-  ServiceActionSummaries?: Array<ServiceActionSummary>;
+  ServiceActionSummaries?: ServiceActionSummary[];
 }
 
 export namespace ListServiceActionsForProvisioningArtifactOutput {
@@ -4160,7 +4160,7 @@ export interface ListServiceActionsOutput {
   /**
    * <p>An object containing information about the service actions associated with the provisioning artifact.</p>
    */
-  ServiceActionSummaries?: Array<ServiceActionSummary>;
+  ServiceActionSummaries?: ServiceActionSummary[];
 }
 
 export namespace ListServiceActionsOutput {
@@ -4222,7 +4222,7 @@ export interface ListStackInstancesForProvisionedProductOutput {
   /**
    * <p>List of stack instances.</p>
    */
-  StackInstances?: Array<StackInstance>;
+  StackInstances?: StackInstance[];
 }
 
 export namespace ListStackInstancesForProvisionedProductOutput {
@@ -4283,7 +4283,7 @@ export interface ParameterConstraints {
   /**
    * <p>The values that the administrator has allowed for the parameter.</p>
    */
-  AllowedValues?: Array<string>;
+  AllowedValues?: string[];
 }
 
 export namespace ParameterConstraints {
@@ -4554,7 +4554,7 @@ export interface ProvisionProductInput {
    * <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
    *          events.</p>
    */
-  NotificationArns?: Array<string>;
+  NotificationArns?: string[];
 
   /**
    * <p>The path identifier of the product. This value is optional if the product
@@ -4588,7 +4588,7 @@ export interface ProvisionProductInput {
    * <p>Parameters specified by the administrator that are required for provisioning the
    *          product.</p>
    */
-  ProvisioningParameters?: Array<ProvisioningParameter>;
+  ProvisioningParameters?: ProvisioningParameter[];
 
   /**
    * <p>An object that contains information about the provisioning preferences for a stack set.</p>
@@ -4598,7 +4598,7 @@ export interface ProvisionProductInput {
   /**
    * <p>One or more tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ProvisionProductInput {
@@ -4711,7 +4711,7 @@ export interface ProvisionedProductAttribute {
   /**
    * <p>One or more tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.</p>
@@ -4843,7 +4843,7 @@ export interface ProvisionedProductPlanDetails {
    * <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
    *          events.</p>
    */
-  NotificationArns?: Array<string>;
+  NotificationArns?: string[];
 
   /**
    * <p>The path identifier of the product. This value is optional if the product
@@ -4891,7 +4891,7 @@ export interface ProvisionedProductPlanDetails {
    * <p>Parameters specified by the administrator that are required for provisioning the
    *          product.</p>
    */
-  ProvisioningParameters?: Array<UpdateProvisioningParameter>;
+  ProvisioningParameters?: UpdateProvisioningParameter[];
 
   /**
    * <p>The status.</p>
@@ -4906,7 +4906,7 @@ export interface ProvisionedProductPlanDetails {
   /**
    * <p>One or more tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The time when the plan was last updated.</p>
@@ -5138,13 +5138,13 @@ export interface ProvisioningArtifactPreferences {
    * <p>One or more AWS accounts where stack instances are deployed from the stack set. These accounts can be scoped in <code>ProvisioningPreferences$StackSetAccounts</code> and <code>UpdateProvisioningPreferences$StackSetAccounts</code>.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    */
-  StackSetAccounts?: Array<string>;
+  StackSetAccounts?: string[];
 
   /**
    * <p>One or more AWS Regions where stack instances are deployed from the stack set. These regions can be scoped in <code>ProvisioningPreferences$StackSetRegions</code> and <code>UpdateProvisioningPreferences$StackSetRegions</code>.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    */
-  StackSetRegions?: Array<string>;
+  StackSetRegions?: string[];
 }
 
 export namespace ProvisioningArtifactPreferences {
@@ -5304,7 +5304,7 @@ export interface ProvisioningPreferences {
    *          <p>The AWS accounts specified should be within the list of accounts in the <code>STACKSET</code> constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
    *          <p>If no values are specified, the default value is all accounts from the <code>STACKSET</code> constraint.</p>
    */
-  StackSetAccounts?: Array<string>;
+  StackSetAccounts?: string[];
 
   /**
    * <p>The number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p>
@@ -5345,7 +5345,7 @@ export interface ProvisioningPreferences {
    *          <p>The specified regions should be within the list of regions from the <code>STACKSET</code> constraint. To get the list of regions in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
    *          <p>If no values are specified, the default value is all regions from the <code>STACKSET</code> constraint.</p>
    */
-  StackSetRegions?: Array<string>;
+  StackSetRegions?: string[];
 }
 
 export namespace ProvisioningPreferences {
@@ -5396,7 +5396,7 @@ export interface RecordDetail {
   /**
    * <p>The errors that occurred.</p>
    */
-  RecordErrors?: Array<RecordError>;
+  RecordErrors?: RecordError[];
 
   /**
    * <p>The identifier of the record.</p>
@@ -5406,7 +5406,7 @@ export interface RecordDetail {
   /**
    * <p>One or more tags.</p>
    */
-  RecordTags?: Array<RecordTag>;
+  RecordTags?: RecordTag[];
 
   /**
    * <p>The record type.</p>
@@ -5639,7 +5639,7 @@ export interface ResourceChange {
   /**
    * <p>Information about the resource changes.</p>
    */
-  Details?: Array<ResourceChangeDetail>;
+  Details?: ResourceChangeDetail[];
 
   /**
    * <p>The ID of the resource, as defined in the CloudFormation template.</p>
@@ -5665,7 +5665,7 @@ export interface ResourceChange {
   /**
    * <p>The change scope.</p>
    */
-  Scope?: Array<ResourceAttribute | string>;
+  Scope?: ResourceAttribute | string[];
 }
 
 export namespace ResourceChange {
@@ -5812,7 +5812,7 @@ export interface ScanProvisionedProductsOutput {
   /**
    * <p>Information about the provisioned products.</p>
    */
-  ProvisionedProducts?: Array<ProvisionedProductDetail>;
+  ProvisionedProducts?: ProvisionedProductDetail[];
 }
 
 export namespace ScanProvisionedProductsOutput {
@@ -5845,7 +5845,7 @@ export interface SearchProductsAsAdminInput {
    * <p>The search filters. If no search filters are specified, the output includes all products
    *          to which the administrator has access.</p>
    */
-  Filters?: { [key: string]: Array<string> };
+  Filters?: { [key: string]: string[] };
 
   /**
    * <p>The maximum number of items to return with this call.</p>
@@ -5893,7 +5893,7 @@ export interface SearchProductsAsAdminOutput {
   /**
    * <p>Information about the product views.</p>
    */
-  ProductViewDetails?: Array<ProductViewDetail>;
+  ProductViewDetails?: ProductViewDetail[];
 }
 
 export namespace SearchProductsAsAdminOutput {
@@ -5926,7 +5926,7 @@ export interface SearchProductsInput {
    * <p>The search filters. If no search filters are specified, the output includes
    *          all products to which the caller has access.</p>
    */
-  Filters?: { [key: string]: Array<string> };
+  Filters?: { [key: string]: string[] };
 
   /**
    * <p>The maximum number of items to return with this call.</p>
@@ -5964,14 +5964,12 @@ export interface SearchProductsOutput {
   /**
    * <p>The product view aggregations.</p>
    */
-  ProductViewAggregations?: {
-    [key: string]: Array<ProductViewAggregationValue>;
-  };
+  ProductViewAggregations?: { [key: string]: ProductViewAggregationValue[] };
 
   /**
    * <p>Information about the product views.</p>
    */
-  ProductViewSummaries?: Array<ProductViewSummary>;
+  ProductViewSummaries?: ProductViewSummary[];
 }
 
 export namespace SearchProductsOutput {
@@ -6015,7 +6013,7 @@ export interface SearchProvisionedProductsInput {
    *          <p>Example: <code>"SearchQuery":["status:AVAILABLE"]</code>
    *          </p>
    */
-  Filters?: { [key: string]: Array<string> };
+  Filters?: { [key: string]: string[] };
 
   /**
    * <p>The maximum number of items to return with this call.</p>
@@ -6054,7 +6052,7 @@ export interface SearchProvisionedProductsOutput {
   /**
    * <p>Information about the provisioned products.</p>
    */
-  ProvisionedProducts?: Array<ProvisionedProductAttribute>;
+  ProvisionedProducts?: ProvisionedProductAttribute[];
 
   /**
    * <p>The number of provisioned products found.</p>
@@ -6172,12 +6170,12 @@ export interface ShareDetails {
   /**
    * <p>List of errors.</p>
    */
-  ShareErrors?: Array<ShareError>;
+  ShareErrors?: ShareError[];
 
   /**
    * <p>List of accounts for whom the operation succeeded.</p>
    */
-  SuccessfulShares?: Array<string>;
+  SuccessfulShares?: string[];
 }
 
 export namespace ShareDetails {
@@ -6192,7 +6190,7 @@ export interface ShareError {
   /**
    * <p>List of accounts impacted by the error.</p>
    */
-  Accounts?: Array<string>;
+  Accounts?: string[];
 
   /**
    * <p>Error type that happened when processing the operation.</p>
@@ -6329,7 +6327,7 @@ export interface TagOptionSummary {
   /**
    * <p>The TagOption value.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace TagOptionSummary {
@@ -6533,7 +6531,7 @@ export interface UpdatePortfolioInput {
   /**
    * <p>The tags to add.</p>
    */
-  AddTags?: Array<Tag>;
+  AddTags?: Tag[];
 
   /**
    * <p>The updated description of the portfolio.</p>
@@ -6558,7 +6556,7 @@ export interface UpdatePortfolioInput {
   /**
    * <p>The tags to remove.</p>
    */
-  RemoveTags?: Array<string>;
+  RemoveTags?: string[];
 }
 
 export namespace UpdatePortfolioInput {
@@ -6576,7 +6574,7 @@ export interface UpdatePortfolioOutput {
   /**
    * <p>Information about the tags associated with the portfolio.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace UpdatePortfolioOutput {
@@ -6608,7 +6606,7 @@ export interface UpdateProductInput {
   /**
    * <p>The tags to add to the product.</p>
    */
-  AddTags?: Array<Tag>;
+  AddTags?: Tag[];
 
   /**
    * <p>The updated description of the product.</p>
@@ -6638,7 +6636,7 @@ export interface UpdateProductInput {
   /**
    * <p>The tags to remove from the product.</p>
    */
-  RemoveTags?: Array<string>;
+  RemoveTags?: string[];
 
   /**
    * <p>The updated support description for the product.</p>
@@ -6671,7 +6669,7 @@ export interface UpdateProductOutput {
   /**
    * <p>Information about the tags associated with the product.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace UpdateProductOutput {
@@ -6731,7 +6729,7 @@ export interface UpdateProvisionedProductInput {
   /**
    * <p>The new parameters.</p>
    */
-  ProvisioningParameters?: Array<UpdateProvisioningParameter>;
+  ProvisioningParameters?: UpdateProvisioningParameter[];
 
   /**
    * <p>An object that contains information about the provisioning preferences for a stack set.</p>
@@ -6741,7 +6739,7 @@ export interface UpdateProvisionedProductInput {
   /**
    * <p>One or more tags. Requires the product to have <code>RESOURCE_UPDATE</code> constraint with <code>TagUpdatesOnProvisionedProduct</code> set to <code>ALLOWED</code> to allow tag updates.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The idempotency token that uniquely identifies the provisioning update request.</p>
@@ -6968,7 +6966,7 @@ export interface UpdateProvisioningPreferences {
    *          <p>The AWS accounts specified should be within the list of accounts in the <code>STACKSET</code> constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
    *          <p>If no values are specified, the default value is all accounts from the <code>STACKSET</code> constraint.</p>
    */
-  StackSetAccounts?: Array<string>;
+  StackSetAccounts?: string[];
 
   /**
    * <p>The number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p>
@@ -7029,7 +7027,7 @@ export interface UpdateProvisioningPreferences {
    *          <p>The specified regions should be within the list of regions from the <code>STACKSET</code> constraint. To get the list of regions in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
    *          <p>If no values are specified, the default value is all regions from the <code>STACKSET</code> constraint.</p>
    */
-  StackSetRegions?: Array<string>;
+  StackSetRegions?: string[];
 }
 
 export namespace UpdateProvisioningPreferences {

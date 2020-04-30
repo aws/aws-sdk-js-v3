@@ -7200,7 +7200,7 @@ const serializeAws_restJson1_1BackupRuleInput = (
 };
 
 const serializeAws_restJson1_1BackupRulesInput = (
-  input: Array<BackupRuleInput>,
+  input: BackupRuleInput[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7237,7 +7237,7 @@ const serializeAws_restJson1_1BackupSelection = (
 };
 
 const serializeAws_restJson1_1BackupVaultEvents = (
-  input: Array<BackupVaultEvent | string>,
+  input: BackupVaultEvent | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7282,7 +7282,7 @@ const serializeAws_restJson1_1CopyAction = (
 };
 
 const serializeAws_restJson1_1CopyActions = (
-  input: Array<CopyAction>,
+  input: CopyAction[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7307,7 +7307,7 @@ const serializeAws_restJson1_1Lifecycle = (
 };
 
 const serializeAws_restJson1_1ListOfTags = (
-  input: Array<Condition>,
+  input: Condition[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7329,7 +7329,7 @@ const serializeAws_restJson1_1Metadata = (
 };
 
 const serializeAws_restJson1_1ResourceArns = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7340,7 +7340,7 @@ const serializeAws_restJson1_1ResourceArns = (
 };
 
 const serializeAws_restJson1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7461,7 +7461,7 @@ const deserializeAws_restJson1_1BackupJob = (
 const deserializeAws_restJson1_1BackupJobsList = (
   output: any,
   context: __SerdeContext
-): Array<BackupJob> => {
+): BackupJob[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BackupJob(entry, context)
   );
@@ -7491,7 +7491,7 @@ const deserializeAws_restJson1_1BackupPlan = (
 const deserializeAws_restJson1_1BackupPlanTemplatesList = (
   output: any,
   context: __SerdeContext
-): Array<BackupPlanTemplatesListMember> => {
+): BackupPlanTemplatesListMember[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BackupPlanTemplatesListMember(entry, context)
   );
@@ -7524,7 +7524,7 @@ const deserializeAws_restJson1_1BackupPlanTemplatesListMember = (
 const deserializeAws_restJson1_1BackupPlanVersionsList = (
   output: any,
   context: __SerdeContext
-): Array<BackupPlansListMember> => {
+): BackupPlansListMember[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BackupPlansListMember(entry, context)
   );
@@ -7533,7 +7533,7 @@ const deserializeAws_restJson1_1BackupPlanVersionsList = (
 const deserializeAws_restJson1_1BackupPlansList = (
   output: any,
   context: __SerdeContext
-): Array<BackupPlansListMember> => {
+): BackupPlansListMember[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BackupPlansListMember(entry, context)
   );
@@ -7662,7 +7662,7 @@ const deserializeAws_restJson1_1BackupRule = (
 const deserializeAws_restJson1_1BackupRules = (
   output: any,
   context: __SerdeContext
-): Array<BackupRule> => {
+): BackupRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BackupRule(entry, context)
   );
@@ -7703,7 +7703,7 @@ const deserializeAws_restJson1_1BackupSelection = (
 const deserializeAws_restJson1_1BackupSelectionsList = (
   output: any,
   context: __SerdeContext
-): Array<BackupSelectionsListMember> => {
+): BackupSelectionsListMember[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BackupSelectionsListMember(entry, context)
   );
@@ -7749,14 +7749,14 @@ const deserializeAws_restJson1_1BackupSelectionsListMember = (
 const deserializeAws_restJson1_1BackupVaultEvents = (
   output: any,
   context: __SerdeContext
-): Array<BackupVaultEvent | string> => {
+): BackupVaultEvent | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1BackupVaultList = (
   output: any,
   context: __SerdeContext
-): Array<BackupVaultListMember> => {
+): BackupVaultListMember[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BackupVaultListMember(entry, context)
   );
@@ -7877,7 +7877,7 @@ const deserializeAws_restJson1_1CopyAction = (
 const deserializeAws_restJson1_1CopyActions = (
   output: any,
   context: __SerdeContext
-): Array<CopyAction> => {
+): CopyAction[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CopyAction(entry, context)
   );
@@ -7972,7 +7972,7 @@ const deserializeAws_restJson1_1CopyJob = (
 const deserializeAws_restJson1_1CopyJobsList = (
   output: any,
   context: __SerdeContext
-): Array<CopyJob> => {
+): CopyJob[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CopyJob(entry, context)
   );
@@ -8002,7 +8002,7 @@ const deserializeAws_restJson1_1Lifecycle = (
 const deserializeAws_restJson1_1ListOfTags = (
   output: any,
   context: __SerdeContext
-): Array<Condition> => {
+): Condition[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Condition(entry, context)
   );
@@ -8046,7 +8046,7 @@ const deserializeAws_restJson1_1ProtectedResource = (
 const deserializeAws_restJson1_1ProtectedResourcesList = (
   output: any,
   context: __SerdeContext
-): Array<ProtectedResource> => {
+): ProtectedResource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ProtectedResource(entry, context)
   );
@@ -8154,7 +8154,7 @@ const deserializeAws_restJson1_1RecoveryPointByBackupVault = (
 const deserializeAws_restJson1_1RecoveryPointByBackupVaultList = (
   output: any,
   context: __SerdeContext
-): Array<RecoveryPointByBackupVault> => {
+): RecoveryPointByBackupVault[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RecoveryPointByBackupVault(entry, context)
   );
@@ -8203,7 +8203,7 @@ const deserializeAws_restJson1_1RecoveryPointByResource = (
 const deserializeAws_restJson1_1RecoveryPointByResourceList = (
   output: any,
   context: __SerdeContext
-): Array<RecoveryPointByResource> => {
+): RecoveryPointByResource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RecoveryPointByResource(entry, context)
   );
@@ -8241,21 +8241,21 @@ const deserializeAws_restJson1_1RecoveryPointCreator = (
 const deserializeAws_restJson1_1ResourceArns = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1ResourceTypes = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1RestoreJobsList = (
   output: any,
   context: __SerdeContext
-): Array<RestoreJobsListMember> => {
+): RestoreJobsListMember[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RestoreJobsListMember(entry, context)
   );

@@ -868,7 +868,7 @@ export interface AddTagsToResourceMessage {
    * <p>A list of cost allocation tags to be added to this resource. A tag is a key-value pair.
    *           A tag key must be accompanied by a tag value.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace AddTagsToResourceMessage {
@@ -888,7 +888,7 @@ export interface AllowedNodeTypeModificationsMessage {
    *             <code>ModifyReplicationGroup</code>,
    *             use a value from this list for the <code>CacheNodeType</code> parameter.</p>
    */
-  ScaleDownModifications?: Array<string>;
+  ScaleDownModifications?: string[];
 
   /**
    * <p>A string list, each element of which specifies a cache node type which you can use
@@ -897,7 +897,7 @@ export interface AllowedNodeTypeModificationsMessage {
    *             <code>ModifyReplicationGroup</code>,
    *             use a value from this list for the <code>CacheNodeType</code> parameter.</p>
    */
-  ScaleUpModifications?: Array<string>;
+  ScaleUpModifications?: string[];
 }
 
 export namespace AllowedNodeTypeModificationsMessage {
@@ -995,12 +995,12 @@ export interface BatchApplyUpdateActionMessage {
   /**
    * <p>The cache cluster IDs</p>
    */
-  CacheClusterIds?: Array<string>;
+  CacheClusterIds?: string[];
 
   /**
    * <p>The replication group IDs</p>
    */
-  ReplicationGroupIds?: Array<string>;
+  ReplicationGroupIds?: string[];
 
   /**
    * <p>The unique ID of the service update</p>
@@ -1018,12 +1018,12 @@ export interface BatchStopUpdateActionMessage {
   /**
    * <p>The cache cluster IDs</p>
    */
-  CacheClusterIds?: Array<string>;
+  CacheClusterIds?: string[];
 
   /**
    * <p>The replication group IDs</p>
    */
-  ReplicationGroupIds?: Array<string>;
+  ReplicationGroupIds?: string[];
 
   /**
    * <p>The unique ID of the service update</p>
@@ -1268,7 +1268,7 @@ export interface CacheCluster {
   /**
    * <p>A list of cache nodes that are members of the cluster.</p>
    */
-  CacheNodes?: Array<CacheNode>;
+  CacheNodes?: CacheNode[];
 
   /**
    * <p>Status of the cache parameter group.</p>
@@ -1278,7 +1278,7 @@ export interface CacheCluster {
   /**
    * <p>A list of cache security group elements, composed of name and status sub-elements.</p>
    */
-  CacheSecurityGroups?: Array<CacheSecurityGroupMembership>;
+  CacheSecurityGroups?: CacheSecurityGroupMembership[];
 
   /**
    * <p>The name of the cache subnet group associated with the cluster.</p>
@@ -1392,7 +1392,7 @@ export interface CacheCluster {
   /**
    * <p>A list of VPC Security Groups associated with the cluster.</p>
    */
-  SecurityGroups?: Array<SecurityGroupMembership>;
+  SecurityGroups?: SecurityGroupMembership[];
 
   /**
    * <p>The number of days for which ElastiCache retains automatic cluster snapshots before
@@ -1440,7 +1440,7 @@ export interface CacheClusterMessage {
   /**
    * <p>A list of clusters. Each item in the list contains detailed information about one cluster.</p>
    */
-  CacheClusters?: Array<CacheCluster>;
+  CacheClusters?: CacheCluster[];
 
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -1507,7 +1507,7 @@ export interface CacheEngineVersionMessage {
    * <p>A list of cache engine version details.
    *             Each element in the list contains detailed information about one cache engine version.</p>
    */
-  CacheEngineVersions?: Array<CacheEngineVersion>;
+  CacheEngineVersions?: CacheEngineVersion[];
 
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -1745,7 +1745,7 @@ export interface CacheNodeTypeSpecificParameter {
   /**
    * <p>A list of cache node types and their corresponding values for this parameter.</p>
    */
-  CacheNodeTypeSpecificValues?: Array<CacheNodeTypeSpecificValue>;
+  CacheNodeTypeSpecificValues?: CacheNodeTypeSpecificValue[];
 
   /**
    * <p>Indicates whether a change to the parameter is applied immediately
@@ -1909,7 +1909,7 @@ export interface CacheParameterGroupDetails {
    * <p>A list of parameters specific to a particular cache node type.
    *             Each element in the list contains detailed information about one parameter.</p>
    */
-  CacheNodeTypeSpecificParameters?: Array<CacheNodeTypeSpecificParameter>;
+  CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParameter[];
 
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -1919,7 +1919,7 @@ export interface CacheParameterGroupDetails {
   /**
    * <p>A list of <a>Parameter</a> instances.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 }
 
 export namespace CacheParameterGroupDetails {
@@ -1964,7 +1964,7 @@ export interface CacheParameterGroupStatus {
    * <p>A list of the cache node IDs which need to be rebooted for parameter changes to be applied.
    *             A node ID is a numeric identifier (0001, 0002, etc.).</p>
    */
-  CacheNodeIdsToReboot?: Array<string>;
+  CacheNodeIdsToReboot?: string[];
 
   /**
    * <p>The name of the cache parameter group.</p>
@@ -1991,7 +1991,7 @@ export interface CacheParameterGroupsMessage {
    * <p>A list of cache parameter groups. Each element in the list contains detailed information
    *             about one cache parameter group.</p>
    */
-  CacheParameterGroups?: Array<CacheParameterGroup>;
+  CacheParameterGroups?: CacheParameterGroup[];
 
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -2039,7 +2039,7 @@ export interface CacheSecurityGroup {
   /**
    * <p>A list of Amazon EC2 security groups that are associated with this cache security group.</p>
    */
-  EC2SecurityGroups?: Array<EC2SecurityGroup>;
+  EC2SecurityGroups?: EC2SecurityGroup[];
 
   /**
    * <p>The AWS account ID of the cache security group owner.</p>
@@ -2081,7 +2081,7 @@ export interface CacheSecurityGroupMessage {
   /**
    * <p>A list of cache security groups. Each element in the list contains detailed information about one group.</p>
    */
-  CacheSecurityGroups?: Array<CacheSecurityGroup>;
+  CacheSecurityGroups?: CacheSecurityGroup[];
 
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -2124,7 +2124,7 @@ export interface CacheSubnetGroup {
   /**
    * <p>A list of subnets associated with the cache subnet group.</p>
    */
-  Subnets?: Array<Subnet>;
+  Subnets?: Subnet[];
 
   /**
    * <p>The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.</p>
@@ -2145,7 +2145,7 @@ export interface CacheSubnetGroupMessage {
   /**
    * <p>A list of cache subnet groups. Each element in the list contains detailed information about one group.</p>
    */
-  CacheSubnetGroups?: Array<CacheSubnetGroup>;
+  CacheSubnetGroups?: CacheSubnetGroup[];
 
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -2235,7 +2235,7 @@ export interface ConfigureShard {
    *             <code>ReplicaConfiguration</code> is omitted, ElastiCache for Redis selects the availability zone for
    *             each of the replicas.</p>
    */
-  PreferredAvailabilityZones?: Array<string>;
+  PreferredAvailabilityZones?: string[];
 }
 
 export namespace ConfigureShard {
@@ -2531,7 +2531,7 @@ export interface CreateCacheClusterMessage {
    * <p>A list of security group names to associate with this cluster.</p>
    *         <p>Use this parameter only when you are creating a cluster outside of an Amazon Virtual Private Cloud (Amazon VPC).</p>
    */
-  CacheSecurityGroupNames?: Array<string>;
+  CacheSecurityGroupNames?: string[];
 
   /**
    * <p>The name of the subnet group to be used for the cluster.</p>
@@ -2604,7 +2604,7 @@ export interface CreateCacheClusterMessage {
    *             repeat the Availability Zone multiple times in the list.</p>
    *         <p>Default: System chosen Availability Zones.</p>
    */
-  PreferredAvailabilityZones?: Array<string>;
+  PreferredAvailabilityZones?: string[];
 
   /**
    * <p>Specifies the weekly time range during which maintenance
@@ -2673,7 +2673,7 @@ export interface CreateCacheClusterMessage {
    * <p>One or more VPC security groups associated with the cluster.</p>
    *         <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies
@@ -2686,7 +2686,7 @@ export interface CreateCacheClusterMessage {
    *         <p>Example of an Amazon S3 ARN: <code>arn:aws:s3:::my_bucket/snapshot1.rdb</code>
    *          </p>
    */
-  SnapshotArns?: Array<string>;
+  SnapshotArns?: string[];
 
   /**
    * <p>The name of a Redis snapshot from which to restore data into the new node group (shard).
@@ -2722,7 +2722,7 @@ export interface CreateCacheClusterMessage {
   /**
    * <p>A list of cost allocation tags to be added to this resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateCacheClusterMessage {
@@ -2866,7 +2866,7 @@ export interface CreateCacheSubnetGroupMessage {
   /**
    * <p>A list of VPC subnet IDs for the cache subnet group.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 }
 
 export namespace CreateCacheSubnetGroupMessage {
@@ -3162,7 +3162,7 @@ export interface CreateReplicationGroupMessage {
   /**
    * <p>A list of cache security group names to associate with this replication group.</p>
    */
-  CacheSecurityGroupNames?: Array<string>;
+  CacheSecurityGroupNames?: string[];
 
   /**
    * <p>The name of the cache subnet group to be used for the replication group.</p>
@@ -3209,7 +3209,7 @@ export interface CreateReplicationGroupMessage {
    *             Redis (cluster mode enabled) cluster from a S3 rdb file, you must configure each node group (shard) using this parameter
    *             because you must specify the slots for each node group.</p>
    */
-  NodeGroupConfiguration?: Array<NodeGroupConfiguration>;
+  NodeGroupConfiguration?: NodeGroupConfiguration[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS)
@@ -3256,7 +3256,7 @@ export interface CreateReplicationGroupMessage {
    *          </note>
    *         <p>Default: system chosen Availability Zones.</p>
    */
-  PreferredCacheClusterAZs?: Array<string>;
+  PreferredCacheClusterAZs?: string[];
 
   /**
    * <p>Specifies the weekly time range during which maintenance
@@ -3354,7 +3354,7 @@ export interface CreateReplicationGroupMessage {
    * <p>One or more Amazon VPC security groups associated with this replication group.</p>
    *         <p>Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud (Amazon VPC).</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>A list of Amazon Resource Names (ARN) that uniquely identify
@@ -3368,7 +3368,7 @@ export interface CreateReplicationGroupMessage {
    *          <p>Example of an Amazon S3 ARN: <code>arn:aws:s3:::my_bucket/snapshot1.rdb</code>
    *          </p>
    */
-  SnapshotArns?: Array<string>;
+  SnapshotArns?: string[];
 
   /**
    * <p>The name of a snapshot from which to restore data into the new replication group.
@@ -3397,7 +3397,7 @@ export interface CreateReplicationGroupMessage {
    *           Tags are comma-separated key,value pairs (e.g. Key=<code>myKey</code>, Value=<code>myKeyValue</code>. You can include multiple tags as shown following:
    *           Key=<code>myKey</code>, Value=<code>myKeyValue</code> Key=<code>mySecondKey</code>, Value=<code>mySecondKeyValue</code>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A flag that enables in-transit encryption when set to <code>true</code>.</p>
@@ -3545,12 +3545,12 @@ export interface DecreaseReplicaCountMessage {
    *             in a Redis (cluster mode enabled) replication group. The <code>ConfigureShard</code> has three members:
    *             <code>NewReplicaCount</code>, <code>NodeGroupId</code>, and <code>PreferredAvailabilityZones</code>.</p>
    */
-  ReplicaConfiguration?: Array<ConfigureShard>;
+  ReplicaConfiguration?: ConfigureShard[];
 
   /**
    * <p>A list of the node ids to remove from the replication group or node group (shard).</p>
    */
-  ReplicasToRemove?: Array<string>;
+  ReplicasToRemove?: string[];
 
   /**
    * <p>The id of the replication group from which you want to remove replica nodes.</p>
@@ -4631,7 +4631,7 @@ export interface DescribeServiceUpdatesMessage {
   /**
    * <p>The status of the service update</p>
    */
-  ServiceUpdateStatus?: Array<ServiceUpdateStatus | string>;
+  ServiceUpdateStatus?: ServiceUpdateStatus | string[];
 }
 
 export namespace DescribeServiceUpdatesMessage {
@@ -4655,7 +4655,7 @@ export interface DescribeSnapshotsListMessage {
   /**
    * <p>A list of snapshots. Each item in the list contains detailed information about one snapshot.</p>
    */
-  Snapshots?: Array<Snapshot>;
+  Snapshots?: Snapshot[];
 }
 
 export namespace DescribeSnapshotsListMessage {
@@ -4726,7 +4726,7 @@ export interface DescribeUpdateActionsMessage {
   /**
    * <p>The cache cluster IDs</p>
    */
-  CacheClusterIds?: Array<string>;
+  CacheClusterIds?: string[];
 
   /**
    * <p>The Elasticache engine to which the update applies. Either Redis or Memcached </p>
@@ -4749,7 +4749,7 @@ export interface DescribeUpdateActionsMessage {
   /**
    * <p>The replication group IDs</p>
    */
-  ReplicationGroupIds?: Array<string>;
+  ReplicationGroupIds?: string[];
 
   /**
    * <p>The unique ID of the service update</p>
@@ -4759,7 +4759,7 @@ export interface DescribeUpdateActionsMessage {
   /**
    * <p>The status of the service update</p>
    */
-  ServiceUpdateStatus?: Array<ServiceUpdateStatus | string>;
+  ServiceUpdateStatus?: ServiceUpdateStatus | string[];
 
   /**
    * <p>The range of time specified to search for service updates that are in available status</p>
@@ -4774,7 +4774,7 @@ export interface DescribeUpdateActionsMessage {
   /**
    * <p>The status of the update action.</p>
    */
-  UpdateActionStatus?: Array<UpdateActionStatus | string>;
+  UpdateActionStatus?: UpdateActionStatus | string[];
 }
 
 export namespace DescribeUpdateActionsMessage {
@@ -4836,7 +4836,7 @@ export interface EngineDefaults {
   /**
    * <p>A list of parameters specific to a particular cache node type. Each element in the list contains detailed information about one parameter.</p>
    */
-  CacheNodeTypeSpecificParameters?: Array<CacheNodeTypeSpecificParameter>;
+  CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParameter[];
 
   /**
    * <p>Specifies the name of the cache parameter group family to which the engine default parameters apply.</p>
@@ -4860,7 +4860,7 @@ export interface EngineDefaults {
   /**
    * <p>Contains a list of engine default parameters.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 }
 
 export namespace EngineDefaults {
@@ -4909,7 +4909,7 @@ export interface EventsMessage {
   /**
    * <p>A list of events. Each element in the list contains detailed information about one event.</p>
    */
-  Events?: Array<Event>;
+  Events?: Event[];
 
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -4943,7 +4943,7 @@ export interface IncreaseReplicaCountMessage {
    *             in a Redis (cluster mode enabled) replication group. The <code>ConfigureShard</code> has three members:
    *             <code>NewReplicaCount</code>, <code>NodeGroupId</code>, and <code>PreferredAvailabilityZones</code>.</p>
    */
-  ReplicaConfiguration?: Array<ConfigureShard>;
+  ReplicaConfiguration?: ConfigureShard[];
 
   /**
    * <p>The id of the replication group to which you want to add replica nodes.</p>
@@ -5114,7 +5114,7 @@ export interface ModifyCacheClusterMessage {
    *         <p>For example: If you have 3 active cache nodes, 7 pending cache nodes, and the number of cache nodes in this
    *         <code>ModifyCacheCluster</code> call is 5, you must list 2 (7 - 5) cache node IDs to remove.</p>
    */
-  CacheNodeIdsToRemove?: Array<string>;
+  CacheNodeIdsToRemove?: string[];
 
   /**
    * <p>A valid cache node type that you want to scale this cluster up to.</p>
@@ -5134,7 +5134,7 @@ export interface ModifyCacheClusterMessage {
    *         <p>You can use this parameter only with clusters that are created outside of an Amazon Virtual Private Cloud (Amazon VPC).</p>
    *         <p>Constraints: Must contain no more than 255 alphanumeric characters. Must not be "Default".</p>
    */
-  CacheSecurityGroupNames?: Array<string>;
+  CacheSecurityGroupNames?: string[];
 
   /**
    * <p>The upgraded version of the cache engine to be run on the cache nodes.</p>
@@ -5252,7 +5252,7 @@ export interface ModifyCacheClusterMessage {
    *             </li>
    *          </ul>
    */
-  NewAvailabilityZones?: Array<string>;
+  NewAvailabilityZones?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications are sent.</p>
@@ -5353,7 +5353,7 @@ export interface ModifyCacheClusterMessage {
    * <p>Specifies the VPC Security Groups associated with the cluster.</p>
    *         <p>This parameter can be used only with clusters that are created in an Amazon Virtual Private Cloud (Amazon VPC).</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>The number of days for which ElastiCache retains automatic cluster snapshots before
@@ -5403,7 +5403,7 @@ export interface ModifyCacheParameterGroupMessage {
   /**
    * <p>An array of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional. A maximum of 20 parameters may be modified per request.</p>
    */
-  ParameterNameValues: Array<ParameterNameValue> | undefined;
+  ParameterNameValues: ParameterNameValue[] | undefined;
 }
 
 export namespace ModifyCacheParameterGroupMessage {
@@ -5432,7 +5432,7 @@ export interface ModifyCacheSubnetGroupMessage {
   /**
    * <p>The EC2 subnet IDs for the cache subnet group.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 }
 
 export namespace ModifyCacheSubnetGroupMessage {
@@ -5562,7 +5562,7 @@ export interface ModifyReplicationGroupMessage {
    *         <p>This parameter can be used only with replication group containing clusters running outside of an Amazon Virtual Private Cloud (Amazon VPC).</p>
    *         <p>Constraints: Must contain no more than 255 alphanumeric characters. Must not be <code>Default</code>.</p>
    */
-  CacheSecurityGroupNames?: Array<string>;
+  CacheSecurityGroupNames?: string[];
 
   /**
    * <p>The upgraded version of the cache engine to be run on the clusters in the replication group.</p>
@@ -5665,7 +5665,7 @@ export interface ModifyReplicationGroupMessage {
    *         <p>This parameter can be used only with replication group containing clusters running in
    *             an Amazon Virtual Private Cloud (Amazon VPC).</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>The number of days for which ElastiCache retains automatic node group (shard) snapshots before
@@ -5738,7 +5738,7 @@ export interface ModifyReplicationGroupShardConfigurationMessage {
    *         <p>ElastiCache for Redis will attempt to remove all node groups listed by <code>NodeGroupsToRemove</code>
    *             from the cluster.</p>
    */
-  NodeGroupsToRemove?: Array<string>;
+  NodeGroupsToRemove?: string[];
 
   /**
    * <p>If the value of <code>NodeGroupCount</code> is less than the
@@ -5749,7 +5749,7 @@ export interface ModifyReplicationGroupShardConfigurationMessage {
    *         <p>ElastiCache for Redis will attempt to remove all node groups except those listed by <code>NodeGroupsToRetain</code>
    *             from the cluster.</p>
    */
-  NodeGroupsToRetain?: Array<string>;
+  NodeGroupsToRetain?: string[];
 
   /**
    * <p>The name of the Redis (cluster mode enabled) cluster (replication group)
@@ -5766,7 +5766,7 @@ export interface ModifyReplicationGroupShardConfigurationMessage {
    *         <p>You can specify this parameter only if the value of <code>NodeGroupCount</code>
    *             is greater than the current number of node groups (shards).</p>
    */
-  ReshardingConfiguration?: Array<ReshardingConfiguration>;
+  ReshardingConfiguration?: ReshardingConfiguration[];
 }
 
 export namespace ModifyReplicationGroupShardConfigurationMessage {
@@ -5808,7 +5808,7 @@ export interface NodeGroup {
   /**
    * <p>A list containing information about individual nodes within the node group (shard).</p>
    */
-  NodeGroupMembers?: Array<NodeGroupMember>;
+  NodeGroupMembers?: NodeGroupMember[];
 
   /**
    * <p>The endpoint of the primary node in this node group (shard).</p>
@@ -5858,7 +5858,7 @@ export interface NodeGroupConfiguration {
    *             The number of Availability Zones in this list must match the value of <code>ReplicaCount</code>
    *             or <code>ReplicasPerNodeGroup</code> if not specified.</p>
    */
-  ReplicaAvailabilityZones?: Array<string>;
+  ReplicaAvailabilityZones?: string[];
 
   /**
    * <p>The number of read replica nodes in this node group (shard).</p>
@@ -5988,7 +5988,7 @@ export interface NodeGroupUpdateStatus {
   /**
    * <p>The status of the service update on the node group member</p>
    */
-  NodeGroupMemberUpdateStatus?: Array<NodeGroupMemberUpdateStatus>;
+  NodeGroupMemberUpdateStatus?: NodeGroupMemberUpdateStatus[];
 }
 
 export namespace NodeGroupUpdateStatus {
@@ -6178,7 +6178,7 @@ export interface PendingModifiedValues {
    * <p>A list of cache node IDs that are being removed (or will be removed) from the cluster.
    *             A node ID is a 4-digit numeric identifier (0001, 0002, etc.).</p>
    */
-  CacheNodeIdsToRemove?: Array<string>;
+  CacheNodeIdsToRemove?: string[];
 
   /**
    * <p>The cache node type that this cluster or replication group is scaled to.</p>
@@ -6296,7 +6296,7 @@ export interface RebootCacheClusterMessage {
   /**
    * <p>A list of cache node IDs to reboot. A node ID is a numeric identifier (0001, 0002, etc.). To reboot an entire cluster, specify all of the cache node IDs.</p>
    */
-  CacheNodeIdsToReboot: Array<string> | undefined;
+  CacheNodeIdsToReboot: string[] | undefined;
 }
 
 export namespace RebootCacheClusterMessage {
@@ -6355,7 +6355,7 @@ export interface RemoveTagsFromResourceMessage {
   /**
    * <p>A list of <code>TagKeys</code> identifying the tags you want removed from the named resource.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace RemoveTagsFromResourceMessage {
@@ -6444,7 +6444,7 @@ export interface ReplicationGroup {
   /**
    * <p>The names of all the cache clusters that are part of this replication group.</p>
    */
-  MemberClusters?: Array<string>;
+  MemberClusters?: string[];
 
   /**
    * <p>A list of node groups in this replication group.
@@ -6452,7 +6452,7 @@ export interface ReplicationGroup {
    *             For Redis (cluster mode enabled) replication groups, the list contains an entry for each
    *             node group (shard).</p>
    */
-  NodeGroups?: Array<NodeGroup>;
+  NodeGroups?: NodeGroup[];
 
   /**
    * <p>A group of settings to be applied to the replication group,
@@ -6536,7 +6536,7 @@ export interface ReplicationGroupMessage {
   /**
    * <p>A list of replication groups. Each item in the list contains detailed information about one replication group.</p>
    */
-  ReplicationGroups?: Array<ReplicationGroup>;
+  ReplicationGroups?: ReplicationGroup[];
 }
 
 export namespace ReplicationGroupMessage {
@@ -6789,7 +6789,7 @@ export interface ReservedCacheNode {
   /**
    * <p>The recurring price charged to run this reserved cache node.</p>
    */
-  RecurringCharges?: Array<RecurringCharge>;
+  RecurringCharges?: RecurringCharge[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the reserved cache node.</p>
@@ -6842,7 +6842,7 @@ export interface ReservedCacheNodeMessage {
   /**
    * <p>A list of reserved cache nodes. Each element in the list contains detailed information about one node.</p>
    */
-  ReservedCacheNodes?: Array<ReservedCacheNode>;
+  ReservedCacheNodes?: ReservedCacheNode[];
 }
 
 export namespace ReservedCacheNodeMessage {
@@ -7044,7 +7044,7 @@ export interface ReservedCacheNodesOffering {
   /**
    * <p>The recurring price charged to run this reserved cache node.</p>
    */
-  RecurringCharges?: Array<RecurringCharge>;
+  RecurringCharges?: RecurringCharge[];
 
   /**
    * <p>A unique identifier for the reserved cache node offering.</p>
@@ -7075,7 +7075,7 @@ export interface ReservedCacheNodesOfferingMessage {
   /**
    * <p>A list of reserved cache node offerings. Each element in the list contains detailed information about one offering.</p>
    */
-  ReservedCacheNodesOfferings?: Array<ReservedCacheNodesOffering>;
+  ReservedCacheNodesOfferings?: ReservedCacheNodesOffering[];
 }
 
 export namespace ReservedCacheNodesOfferingMessage {
@@ -7100,7 +7100,7 @@ export interface ResetCacheParameterGroupMessage {
    *             If <code>ResetAllParameters</code> is <code>false</code>,
    *             you must specify the name of at least one parameter to reset.</p>
    */
-  ParameterNameValues?: Array<ParameterNameValue>;
+  ParameterNameValues?: ParameterNameValue[];
 
   /**
    * <p>If <code>true</code>,
@@ -7133,7 +7133,7 @@ export interface ReshardingConfiguration {
   /**
    * <p>A list of preferred availability zones for the nodes in this cluster.</p>
    */
-  PreferredAvailabilityZones?: Array<string>;
+  PreferredAvailabilityZones?: string[];
 }
 
 export namespace ReshardingConfiguration {
@@ -7338,7 +7338,7 @@ export interface ServiceUpdatesMessage {
   /**
    * <p>A list of service updates</p>
    */
-  ServiceUpdates?: Array<ServiceUpdate>;
+  ServiceUpdates?: ServiceUpdate[];
 }
 
 export namespace ServiceUpdatesMessage {
@@ -7600,7 +7600,7 @@ export interface Snapshot {
   /**
    * <p>A list of the cache nodes in the source cluster.</p>
    */
-  NodeSnapshots?: Array<NodeSnapshot>;
+  NodeSnapshots?: NodeSnapshot[];
 
   /**
    * <p>The number of cache nodes in the source cluster.</p>
@@ -7747,7 +7747,7 @@ export interface StartMigrationMessage {
   /**
    * <p>List of endpoints from which data should be migrated. For Redis (cluster mode disabled), list should have only one element.</p>
    */
-  CustomerNodeEndpointList: Array<CustomerNodeEndpoint> | undefined;
+  CustomerNodeEndpointList: CustomerNodeEndpoint[] | undefined;
 
   /**
    * <p>The ID of the replication group to which data should be migrated.</p>
@@ -7824,7 +7824,7 @@ export interface TagListMessage {
   /**
    * <p>A list of cost allocation tags as key-value pairs.</p>
    */
-  TagList?: Array<Tag>;
+  TagList?: Tag[];
 }
 
 export namespace TagListMessage {
@@ -7936,7 +7936,7 @@ export interface UpdateAction {
   /**
    * <p>The status of the service update on the cache node</p>
    */
-  CacheNodeUpdateStatus?: Array<CacheNodeUpdateStatus>;
+  CacheNodeUpdateStatus?: CacheNodeUpdateStatus[];
 
   /**
    * <p>The Elasticache engine to which the update applies. Either Redis or Memcached</p>
@@ -7951,7 +7951,7 @@ export interface UpdateAction {
   /**
    * <p>The status of the service update on the node group</p>
    */
-  NodeGroupUpdateStatus?: Array<NodeGroupUpdateStatus>;
+  NodeGroupUpdateStatus?: NodeGroupUpdateStatus[];
 
   /**
    * <p>The progress of the service update on the replication group</p>
@@ -8024,12 +8024,12 @@ export interface UpdateActionResultsMessage {
   /**
    * <p>Update actions that have been processed successfully</p>
    */
-  ProcessedUpdateActions?: Array<ProcessedUpdateAction>;
+  ProcessedUpdateActions?: ProcessedUpdateAction[];
 
   /**
    * <p>Update actions that haven't been processed successfully</p>
    */
-  UnprocessedUpdateActions?: Array<UnprocessedUpdateAction>;
+  UnprocessedUpdateActions?: UnprocessedUpdateAction[];
 }
 
 export namespace UpdateActionResultsMessage {
@@ -8059,7 +8059,7 @@ export interface UpdateActionsMessage {
   /**
    * <p>Returns a list of update actions</p>
    */
-  UpdateActions?: Array<UpdateAction>;
+  UpdateActions?: UpdateAction[];
 }
 
 export namespace UpdateActionsMessage {

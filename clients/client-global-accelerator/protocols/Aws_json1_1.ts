@@ -2380,7 +2380,7 @@ const serializeAws_json1_1EndpointConfiguration = (
 };
 
 const serializeAws_json1_1EndpointConfigurations = (
-  input: Array<EndpointConfiguration>,
+  input: EndpointConfiguration[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2453,7 +2453,7 @@ const serializeAws_json1_1PortRange = (
 };
 
 const serializeAws_json1_1PortRanges = (
-  input: Array<PortRange>,
+  input: PortRange[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2673,7 +2673,7 @@ const deserializeAws_json1_1AcceleratorNotFoundException = (
 const deserializeAws_json1_1Accelerators = (
   output: any,
   context: __SerdeContext
-): Array<Accelerator> => {
+): Accelerator[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Accelerator(entry, context)
   );
@@ -2879,7 +2879,7 @@ const deserializeAws_json1_1EndpointDescription = (
 const deserializeAws_json1_1EndpointDescriptions = (
   output: any,
   context: __SerdeContext
-): Array<EndpointDescription> => {
+): EndpointDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EndpointDescription(entry, context)
   );
@@ -2983,7 +2983,7 @@ const deserializeAws_json1_1EndpointGroupNotFoundException = (
 const deserializeAws_json1_1EndpointGroups = (
   output: any,
   context: __SerdeContext
-): Array<EndpointGroup> => {
+): EndpointGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EndpointGroup(entry, context)
   );
@@ -3048,7 +3048,7 @@ const deserializeAws_json1_1InvalidPortRangeException = (
 const deserializeAws_json1_1IpAddresses = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3076,7 +3076,7 @@ const deserializeAws_json1_1IpSet = (
 const deserializeAws_json1_1IpSets = (
   output: any,
   context: __SerdeContext
-): Array<IpSet> => {
+): IpSet[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IpSet(entry, context)
   );
@@ -3205,7 +3205,7 @@ const deserializeAws_json1_1ListenerNotFoundException = (
 const deserializeAws_json1_1Listeners = (
   output: any,
   context: __SerdeContext
-): Array<Listener> => {
+): Listener[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Listener(entry, context)
   );
@@ -3232,7 +3232,7 @@ const deserializeAws_json1_1PortRange = (
 const deserializeAws_json1_1PortRanges = (
   output: any,
   context: __SerdeContext
-): Array<PortRange> => {
+): PortRange[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PortRange(entry, context)
   );

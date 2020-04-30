@@ -551,7 +551,7 @@ export interface ChangeBatch {
   /**
    * <p>Information about the changes to make to the record sets.</p>
    */
-  Changes: Array<Change> | undefined;
+  Changes: Change[] | undefined;
 
   /**
    * <p>
@@ -655,13 +655,13 @@ export interface ChangeTagsForResourceRequest {
    * 			that you want to edit <code>Value</code> for.</p>
    * 		       <p>You can add a maximum of 10 tags to a health check or a hosted zone.</p>
    */
-  AddTags?: Array<Tag>;
+  AddTags?: Tag[];
 
   /**
    * <p>A complex type that contains a list of the tags that you want to delete from the specified health check or hosted zone.
    * 			You can specify up to 10 keys.</p>
    */
-  RemoveTagKeys?: Array<string>;
+  RemoveTagKeys?: string[];
 
   /**
    * <p>The ID of the resource for which you want to add, change, or delete tags.</p>
@@ -714,7 +714,7 @@ export interface CloudWatchAlarmConfiguration {
    * 			For information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html">Amazon CloudWatch Namespaces, Dimensions, and Metrics Reference</a>
    * 			in the <i>Amazon CloudWatch User Guide</i>.</p>
    */
-  Dimensions?: Array<Dimension>;
+  Dimensions?: Dimension[];
 
   /**
    * <p>For the metric that the CloudWatch alarm is associated with, the number of periods that the metric is compared to the threshold.</p>
@@ -1314,7 +1314,7 @@ export interface DelegationSet {
   /**
    * <p>A complex type that contains a list of the authoritative name servers for a hosted zone or for a reusable delegation set.</p>
    */
-  NameServers: Array<string> | undefined;
+  NameServers: string[] | undefined;
 }
 
 export namespace DelegationSet {
@@ -1886,7 +1886,7 @@ export interface GetCheckerIpRangesResponse {
    * <p>A complex type that contains sorted list of IP ranges in CIDR format for Amazon Route 53 health
    * 			checkers.</p>
    */
-  CheckerIpRanges: Array<string> | undefined;
+  CheckerIpRanges: string[] | undefined;
 }
 
 export namespace GetCheckerIpRangesResponse {
@@ -2026,7 +2026,7 @@ export interface GetHealthCheckLastFailureReasonResponse {
   /**
    * <p>A list that contains one <code>Observation</code> element for each Amazon Route 53 health checker that is reporting a last failure reason. </p>
    */
-  HealthCheckObservations: Array<HealthCheckObservation> | undefined;
+  HealthCheckObservations: HealthCheckObservation[] | undefined;
 }
 
 export namespace GetHealthCheckLastFailureReasonResponse {
@@ -2099,7 +2099,7 @@ export interface GetHealthCheckStatusResponse {
    * <p>A list that contains one <code>HealthCheckObservation</code> element for each Amazon Route 53 health checker that is reporting a status
    * 			about the health check endpoint.</p>
    */
-  HealthCheckObservations: Array<HealthCheckObservation> | undefined;
+  HealthCheckObservations: HealthCheckObservation[] | undefined;
 }
 
 export namespace GetHealthCheckStatusResponse {
@@ -2227,7 +2227,7 @@ export interface GetHostedZoneResponse {
   /**
    * <p>A complex type that contains information about the VPCs that are associated with the specified hosted zone.</p>
    */
-  VPCs?: Array<VPC>;
+  VPCs?: VPC[];
 }
 
 export namespace GetHostedZoneResponse {
@@ -2522,7 +2522,7 @@ export interface HealthCheckConfig {
    * <p>(CALCULATED Health Checks Only) A complex type that contains one <code>ChildHealthCheck</code> element for each health check that
    * 			you want to associate with a <code>CALCULATED</code> health check.</p>
    */
-  ChildHealthChecks?: Array<string>;
+  ChildHealthChecks?: string[];
 
   /**
    * <p>Stops Route 53 from performing health checks. When you disable a health check, here's what happens:</p>
@@ -2748,7 +2748,7 @@ export interface HealthCheckConfig {
    * 			from that region to ensure that some health checkers are always checking the endpoint (for example, if you replace three regions with
    * 			four different regions). </p>
    */
-  Regions?: Array<HealthCheckRegion | string>;
+  Regions?: HealthCheckRegion | string[];
 
   /**
    * <p>The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next
@@ -3176,7 +3176,7 @@ export interface InvalidChangeBatch extends __SmithyException, $MetadataBearer {
   /**
    * <p>Descriptive message for the error response.</p>
    */
-  messages?: Array<string>;
+  messages?: string[];
 }
 
 export namespace InvalidChangeBatch {
@@ -3384,7 +3384,7 @@ export interface ListGeoLocationsResponse {
   /**
    * <p>A complex type that contains one <code>GeoLocationDetails</code> element for each location that Amazon Route 53 supports for geolocation.</p>
    */
-  GeoLocationDetailsList: Array<GeoLocationDetails> | undefined;
+  GeoLocationDetailsList: GeoLocationDetails[] | undefined;
 
   /**
    * <p>A value that indicates whether more locations remain to be listed after the last location in this response. If so, the value of
@@ -3458,7 +3458,7 @@ export interface ListHealthChecksResponse {
    * <p>A complex type that contains one <code>HealthCheck</code> element for each health check that is associated with the current
    * 			AWS account.</p>
    */
-  HealthChecks: Array<HealthCheck> | undefined;
+  HealthChecks: HealthCheck[] | undefined;
 
   /**
    * <p>A flag that indicates whether there are more health checks to be listed. If the response was truncated, you can get the next group of
@@ -3547,7 +3547,7 @@ export interface ListHostedZonesByNameResponse {
   /**
    * <p>A complex type that contains general information about the hosted zone.</p>
    */
-  HostedZones: Array<HostedZone> | undefined;
+  HostedZones: HostedZone[] | undefined;
 
   /**
    * <p>A flag that indicates whether there are more hosted zones to be listed. If the response was truncated, you can get the next group of
@@ -3622,7 +3622,7 @@ export interface ListHostedZonesResponse {
   /**
    * <p>A complex type that contains general information about the hosted zone.</p>
    */
-  HostedZones: Array<HostedZone> | undefined;
+  HostedZones: HostedZone[] | undefined;
 
   /**
    * <p>A flag indicating whether there are more hosted zones to be listed. If the response was truncated, you can get more hosted zones
@@ -3708,7 +3708,7 @@ export interface ListQueryLoggingConfigsResponse {
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_QueryLoggingConfig.html">QueryLoggingConfig</a> element
    * 			for each configuration for DNS query logging that is associated with the current AWS account.</p>
    */
-  QueryLoggingConfigs: Array<QueryLoggingConfig> | undefined;
+  QueryLoggingConfigs: QueryLoggingConfig[] | undefined;
 }
 
 export namespace ListQueryLoggingConfigsResponse {
@@ -3838,7 +3838,7 @@ export interface ListResourceRecordSetsResponse {
   /**
    * <p>Information about multiple resource record sets.</p>
    */
-  ResourceRecordSets: Array<ResourceRecordSet> | undefined;
+  ResourceRecordSets: ResourceRecordSet[] | undefined;
 }
 
 export namespace ListResourceRecordSetsResponse {
@@ -3881,7 +3881,7 @@ export interface ListReusableDelegationSetsResponse {
    * <p>A complex type that contains one <code>DelegationSet</code> element for each reusable delegation set that was created
    * 			by the current AWS account.</p>
    */
-  DelegationSets: Array<DelegationSet> | undefined;
+  DelegationSets: DelegationSet[] | undefined;
 
   /**
    * <p>A flag that indicates whether there are more reusable delegation sets to be listed.</p>
@@ -3966,7 +3966,7 @@ export interface ListTagsForResourcesRequest {
   /**
    * <p>A complex type that contains the ResourceId element for each resource for which you want to get a list of tags.</p>
    */
-  ResourceIds: Array<string> | undefined;
+  ResourceIds: string[] | undefined;
 
   /**
    * <p>The type of the resources.</p>
@@ -3995,7 +3995,7 @@ export interface ListTagsForResourcesResponse {
   /**
    * <p>A list of <code>ResourceTagSet</code>s containing tags associated with the specified resources.</p>
    */
-  ResourceTagSets: Array<ResourceTagSet> | undefined;
+  ResourceTagSets: ResourceTagSet[] | undefined;
 }
 
 export namespace ListTagsForResourcesResponse {
@@ -4059,7 +4059,7 @@ export interface ListTrafficPoliciesResponse {
   /**
    * <p>A list that contains one <code>TrafficPolicySummary</code> element for each traffic policy that was created by the current AWS account.</p>
    */
-  TrafficPolicySummaries: Array<TrafficPolicySummary> | undefined;
+  TrafficPolicySummaries: TrafficPolicySummary[] | undefined;
 }
 
 export namespace ListTrafficPoliciesResponse {
@@ -4145,7 +4145,7 @@ export interface ListTrafficPolicyInstancesByHostedZoneResponse {
   /**
    * <p>A list that contains one <code>TrafficPolicyInstance</code> element for each traffic policy instance that matches the elements in the request. </p>
    */
-  TrafficPolicyInstances: Array<TrafficPolicyInstance> | undefined;
+  TrafficPolicyInstances: TrafficPolicyInstance[] | undefined;
 }
 
 export namespace ListTrafficPolicyInstancesByHostedZoneResponse {
@@ -4251,7 +4251,7 @@ export interface ListTrafficPolicyInstancesByPolicyResponse {
   /**
    * <p>A list that contains one <code>TrafficPolicyInstance</code> element for each traffic policy instance that matches the elements in the request.</p>
    */
-  TrafficPolicyInstances: Array<TrafficPolicyInstance> | undefined;
+  TrafficPolicyInstances: TrafficPolicyInstance[] | undefined;
 }
 
 export namespace ListTrafficPolicyInstancesByPolicyResponse {
@@ -4349,7 +4349,7 @@ export interface ListTrafficPolicyInstancesResponse {
    * <p>A list that contains one <code>TrafficPolicyInstance</code> element for each traffic policy instance that matches the elements
    * 			in the request.</p>
    */
-  TrafficPolicyInstances: Array<TrafficPolicyInstance> | undefined;
+  TrafficPolicyInstances: TrafficPolicyInstance[] | undefined;
 }
 
 export namespace ListTrafficPolicyInstancesResponse {
@@ -4413,7 +4413,7 @@ export interface ListTrafficPolicyVersionsResponse {
    * <p>A list that contains one <code>TrafficPolicy</code> element for each traffic policy
    * 			version that is associated with the specified traffic policy.</p>
    */
-  TrafficPolicies: Array<TrafficPolicy> | undefined;
+  TrafficPolicies: TrafficPolicy[] | undefined;
 
   /**
    * <p>If <code>IsTruncated</code> is <code>true</code>, the value of <code>TrafficPolicyVersionMarker</code> identifies the first traffic policy
@@ -4481,7 +4481,7 @@ export interface ListVPCAssociationAuthorizationsResponse {
   /**
    * <p>The list of VPCs that are authorized to be associated with the specified hosted zone.</p>
    */
-  VPCs: Array<VPC> | undefined;
+  VPCs: VPC[] | undefined;
 }
 
 export namespace ListVPCAssociationAuthorizationsResponse {
@@ -5130,7 +5130,7 @@ export interface ResourceRecordSet {
    *             <p>If you're creating an alias resource record set, omit <code>ResourceRecords</code>.</p>
    *          </note>
    */
-  ResourceRecords?: Array<ResourceRecord>;
+  ResourceRecords?: ResourceRecord[];
 
   /**
    * <p>
@@ -5345,7 +5345,7 @@ export interface ResourceTagSet {
   /**
    * <p>The tags associated with the specified resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ResourceTagSet {
@@ -5536,7 +5536,7 @@ export interface TestDNSAnswerResponse {
   /**
    * <p>A list that contains values that Amazon Route 53 returned for this resource record set.</p>
    */
-  RecordData: Array<string> | undefined;
+  RecordData: string[] | undefined;
 
   /**
    * <p>The name of the resource record set that you submitted a request for.</p>
@@ -5953,7 +5953,7 @@ export interface UpdateHealthCheckRequest {
    * <p>A complex type that contains one <code>ChildHealthCheck</code> element for each health check that you want to associate with a
    * 			<code>CALCULATED</code> health check.</p>
    */
-  ChildHealthChecks?: Array<string>;
+  ChildHealthChecks?: string[];
 
   /**
    * <p>Stops Route 53 from performing health checks. When you disable a health check, here's what happens:</p>
@@ -6210,7 +6210,7 @@ export interface UpdateHealthCheckRequest {
    * <p>A complex type that contains one <code>Region</code> element for each region that you want Amazon Route 53 health checkers to check
    * 			the specified endpoint from.</p>
    */
-  Regions?: Array<HealthCheckRegion | string>;
+  Regions?: HealthCheckRegion | string[];
 
   /**
    * <p>A complex type that contains one <code>ResettableElementName</code> element for each element that you want to reset to the default value.
@@ -6242,7 +6242,7 @@ export interface UpdateHealthCheckRequest {
    *             </li>
    *          </ul>
    */
-  ResetElements?: Array<ResettableElementName | string>;
+  ResetElements?: ResettableElementName | string[];
 
   /**
    * <p>The path that you want Amazon Route 53 to request when performing health checks. The path can be any value for which your endpoint

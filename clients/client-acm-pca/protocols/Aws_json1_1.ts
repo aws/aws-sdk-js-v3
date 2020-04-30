@@ -2846,7 +2846,7 @@ const serializeAws_json1_1ASN1Subject = (
 };
 
 const serializeAws_json1_1ActionList = (
-  input: Array<ActionType | string>,
+  input: ActionType | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3226,7 +3226,7 @@ const serializeAws_json1_1TagCertificateAuthorityRequest = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3364,14 +3364,14 @@ const deserializeAws_json1_1ASN1Subject = (
 const deserializeAws_json1_1ActionList = (
   output: any,
   context: __SerdeContext
-): Array<ActionType | string> => {
+): ActionType | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1CertificateAuthorities = (
   output: any,
   context: __SerdeContext
-): Array<CertificateAuthority> => {
+): CertificateAuthority[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CertificateAuthority(entry, context)
   );
@@ -3953,7 +3953,7 @@ const deserializeAws_json1_1PermissionAlreadyExistsException = (
 const deserializeAws_json1_1PermissionList = (
   output: any,
   context: __SerdeContext
-): Array<Permission> => {
+): Permission[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Permission(entry, context)
   );
@@ -4056,7 +4056,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );

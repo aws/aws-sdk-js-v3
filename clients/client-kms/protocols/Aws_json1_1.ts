@@ -7494,7 +7494,7 @@ const serializeAws_json1_1GrantConstraints = (
 };
 
 const serializeAws_json1_1GrantOperationList = (
-  input: Array<GrantOperation | string>,
+  input: GrantOperation | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7505,7 +7505,7 @@ const serializeAws_json1_1GrantOperationList = (
 };
 
 const serializeAws_json1_1GrantTokenList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7789,7 +7789,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7800,7 +7800,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7921,7 +7921,7 @@ const serializeAws_json1_1VerifyRequest = (
 const deserializeAws_json1_1AliasList = (
   output: any,
   context: __SerdeContext
-): Array<AliasListEntry> => {
+): AliasListEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AliasListEntry(entry, context)
   );
@@ -8168,7 +8168,7 @@ const deserializeAws_json1_1CustomKeyStoreNotFoundException = (
 const deserializeAws_json1_1CustomKeyStoresList = (
   output: any,
   context: __SerdeContext
-): Array<CustomKeyStoresListEntry> => {
+): CustomKeyStoresListEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CustomKeyStoresListEntry(entry, context)
   );
@@ -8370,7 +8370,7 @@ const deserializeAws_json1_1EncryptResponse = (
 const deserializeAws_json1_1EncryptionAlgorithmSpecList = (
   output: any,
   context: __SerdeContext
-): Array<EncryptionAlgorithmSpec | string> => {
+): EncryptionAlgorithmSpec | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8668,7 +8668,7 @@ const deserializeAws_json1_1GrantConstraints = (
 const deserializeAws_json1_1GrantList = (
   output: any,
   context: __SerdeContext
-): Array<GrantListEntry> => {
+): GrantListEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GrantListEntry(entry, context)
   );
@@ -8735,7 +8735,7 @@ const deserializeAws_json1_1GrantListEntry = (
 const deserializeAws_json1_1GrantOperationList = (
   output: any,
   context: __SerdeContext
-): Array<GrantOperation | string> => {
+): GrantOperation | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8948,7 +8948,7 @@ const deserializeAws_json1_1KMSInvalidStateException = (
 const deserializeAws_json1_1KeyList = (
   output: any,
   context: __SerdeContext
-): Array<KeyListEntry> => {
+): KeyListEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1KeyListEntry(entry, context)
   );
@@ -9247,7 +9247,7 @@ const deserializeAws_json1_1NotFoundException = (
 const deserializeAws_json1_1PolicyNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -9334,7 +9334,7 @@ const deserializeAws_json1_1SignResponse = (
 const deserializeAws_json1_1SigningAlgorithmSpecList = (
   output: any,
   context: __SerdeContext
-): Array<SigningAlgorithmSpec | string> => {
+): SigningAlgorithmSpec | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -9373,7 +9373,7 @@ const deserializeAws_json1_1TagException = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );

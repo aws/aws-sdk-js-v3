@@ -4089,7 +4089,7 @@ const serializeAws_restJson1_1CreationInfo = (
 };
 
 const serializeAws_restJson1_1LifecyclePolicies = (
-  input: Array<LifecyclePolicy>,
+  input: LifecyclePolicy[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4148,7 +4148,7 @@ const serializeAws_restJson1_1RootDirectory = (
 };
 
 const serializeAws_restJson1_1SecondaryGids = (
-  input: Array<number>,
+  input: number[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4159,7 +4159,7 @@ const serializeAws_restJson1_1SecondaryGids = (
 };
 
 const serializeAws_restJson1_1SecurityGroups = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4184,7 +4184,7 @@ const serializeAws_restJson1_1Tag = (
 };
 
 const serializeAws_restJson1_1TagKeys = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4195,7 +4195,7 @@ const serializeAws_restJson1_1TagKeys = (
 };
 
 const serializeAws_restJson1_1Tags = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4264,7 +4264,7 @@ const deserializeAws_restJson1_1AccessPointDescription = (
 const deserializeAws_restJson1_1AccessPointDescriptions = (
   output: any,
   context: __SerdeContext
-): Array<AccessPointDescription> => {
+): AccessPointDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AccessPointDescription(entry, context)
   );
@@ -4370,7 +4370,7 @@ const deserializeAws_restJson1_1FileSystemDescription = (
 const deserializeAws_restJson1_1FileSystemDescriptions = (
   output: any,
   context: __SerdeContext
-): Array<FileSystemDescription> => {
+): FileSystemDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1FileSystemDescription(entry, context)
   );
@@ -4405,7 +4405,7 @@ const deserializeAws_restJson1_1FileSystemSize = (
 const deserializeAws_restJson1_1LifecyclePolicies = (
   output: any,
   context: __SerdeContext
-): Array<LifecyclePolicy> => {
+): LifecyclePolicy[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1LifecyclePolicy(entry, context)
   );
@@ -4483,7 +4483,7 @@ const deserializeAws_restJson1_1MountTargetDescription = (
 const deserializeAws_restJson1_1MountTargetDescriptions = (
   output: any,
   context: __SerdeContext
-): Array<MountTargetDescription> => {
+): MountTargetDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1MountTargetDescription(entry, context)
   );
@@ -4538,14 +4538,14 @@ const deserializeAws_restJson1_1RootDirectory = (
 const deserializeAws_restJson1_1SecondaryGids = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1SecurityGroups = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4570,7 +4570,7 @@ const deserializeAws_restJson1_1Tag = (
 const deserializeAws_restJson1_1Tags = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );

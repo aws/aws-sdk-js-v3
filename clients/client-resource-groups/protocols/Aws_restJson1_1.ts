@@ -2089,7 +2089,7 @@ const serializeAws_restJson1_1GroupFilter = (
 };
 
 const serializeAws_restJson1_1GroupFilterList = (
-  input: Array<GroupFilter>,
+  input: GroupFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2100,7 +2100,7 @@ const serializeAws_restJson1_1GroupFilterList = (
 };
 
 const serializeAws_restJson1_1GroupFilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2128,7 +2128,7 @@ const serializeAws_restJson1_1ResourceFilter = (
 };
 
 const serializeAws_restJson1_1ResourceFilterList = (
-  input: Array<ResourceFilter>,
+  input: ResourceFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2139,7 +2139,7 @@ const serializeAws_restJson1_1ResourceFilterList = (
 };
 
 const serializeAws_restJson1_1ResourceFilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2164,7 +2164,7 @@ const serializeAws_restJson1_1ResourceQuery = (
 };
 
 const serializeAws_restJson1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2228,7 +2228,7 @@ const deserializeAws_restJson1_1GroupIdentifier = (
 const deserializeAws_restJson1_1GroupIdentifierList = (
   output: any,
   context: __SerdeContext
-): Array<GroupIdentifier> => {
+): GroupIdentifier[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1GroupIdentifier(entry, context)
   );
@@ -2237,7 +2237,7 @@ const deserializeAws_restJson1_1GroupIdentifierList = (
 const deserializeAws_restJson1_1GroupList = (
   output: any,
   context: __SerdeContext
-): Array<Group> => {
+): Group[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Group(entry, context)
   );
@@ -2285,7 +2285,7 @@ const deserializeAws_restJson1_1QueryError = (
 const deserializeAws_restJson1_1QueryErrorList = (
   output: any,
   context: __SerdeContext
-): Array<QueryError> => {
+): QueryError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1QueryError(entry, context)
   );
@@ -2312,7 +2312,7 @@ const deserializeAws_restJson1_1ResourceIdentifier = (
 const deserializeAws_restJson1_1ResourceIdentifierList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceIdentifier> => {
+): ResourceIdentifier[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ResourceIdentifier(entry, context)
   );
@@ -2339,7 +2339,7 @@ const deserializeAws_restJson1_1ResourceQuery = (
 const deserializeAws_restJson1_1TagKeyList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

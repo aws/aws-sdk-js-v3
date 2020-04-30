@@ -1204,7 +1204,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1CurrencyList = (
-  input: Array<CurrencyCode | string>,
+  input: CurrencyCode | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1215,7 +1215,7 @@ const serializeAws_restJson1_1CurrencyList = (
 };
 
 const serializeAws_restJson1_1DurationsList = (
-  input: Array<number>,
+  input: number[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1226,7 +1226,7 @@ const serializeAws_restJson1_1DurationsList = (
 };
 
 const serializeAws_restJson1_1FilterValuesList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1237,7 +1237,7 @@ const serializeAws_restJson1_1FilterValuesList = (
 };
 
 const serializeAws_restJson1_1SavingsPlanDescriptionsList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1265,7 +1265,7 @@ const serializeAws_restJson1_1SavingsPlanOfferingFilterElement = (
 };
 
 const serializeAws_restJson1_1SavingsPlanOfferingFiltersList = (
-  input: Array<SavingsPlanOfferingFilterElement>,
+  input: SavingsPlanOfferingFilterElement[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1295,7 +1295,7 @@ const serializeAws_restJson1_1SavingsPlanOfferingRateFilterElement = (
 };
 
 const serializeAws_restJson1_1SavingsPlanOfferingRateFiltersList = (
-  input: Array<SavingsPlanOfferingRateFilterElement>,
+  input: SavingsPlanOfferingRateFilterElement[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1311,7 +1311,7 @@ const serializeAws_restJson1_1SavingsPlanOfferingRateFiltersList = (
 };
 
 const serializeAws_restJson1_1UUIDs = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1322,7 +1322,7 @@ const serializeAws_restJson1_1UUIDs = (
 };
 
 const serializeAws_restJson1_1SavingsPlanOperationList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1333,7 +1333,7 @@ const serializeAws_restJson1_1SavingsPlanOperationList = (
 };
 
 const serializeAws_restJson1_1SavingsPlanPaymentOptionList = (
-  input: Array<SavingsPlanPaymentOption | string>,
+  input: SavingsPlanPaymentOption | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1344,7 +1344,7 @@ const serializeAws_restJson1_1SavingsPlanPaymentOptionList = (
 };
 
 const serializeAws_restJson1_1SavingsPlanProductTypeList = (
-  input: Array<SavingsPlanProductType | string>,
+  input: SavingsPlanProductType | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1355,7 +1355,7 @@ const serializeAws_restJson1_1SavingsPlanProductTypeList = (
 };
 
 const serializeAws_restJson1_1SavingsPlanRateOperationList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1366,7 +1366,7 @@ const serializeAws_restJson1_1SavingsPlanRateOperationList = (
 };
 
 const serializeAws_restJson1_1SavingsPlanRateServiceCodeList = (
-  input: Array<SavingsPlanRateServiceCode | string>,
+  input: SavingsPlanRateServiceCode | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1377,7 +1377,7 @@ const serializeAws_restJson1_1SavingsPlanRateServiceCodeList = (
 };
 
 const serializeAws_restJson1_1SavingsPlanRateUsageTypeList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1388,7 +1388,7 @@ const serializeAws_restJson1_1SavingsPlanRateUsageTypeList = (
 };
 
 const serializeAws_restJson1_1SavingsPlanServiceCodeList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1399,7 +1399,7 @@ const serializeAws_restJson1_1SavingsPlanServiceCodeList = (
 };
 
 const serializeAws_restJson1_1SavingsPlanTypeList = (
-  input: Array<SavingsPlanType | string>,
+  input: SavingsPlanType | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1410,7 +1410,7 @@ const serializeAws_restJson1_1SavingsPlanTypeList = (
 };
 
 const serializeAws_restJson1_1SavingsPlanUsageTypeList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1421,7 +1421,7 @@ const serializeAws_restJson1_1SavingsPlanUsageTypeList = (
 };
 
 const serializeAws_restJson1_1ListOfStrings = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1432,7 +1432,7 @@ const serializeAws_restJson1_1ListOfStrings = (
 };
 
 const serializeAws_restJson1_1SavingsPlanArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1460,7 +1460,7 @@ const serializeAws_restJson1_1SavingsPlanFilter = (
 };
 
 const serializeAws_restJson1_1SavingsPlanFilterList = (
-  input: Array<SavingsPlanFilter>,
+  input: SavingsPlanFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1471,7 +1471,7 @@ const serializeAws_restJson1_1SavingsPlanFilterList = (
 };
 
 const serializeAws_restJson1_1SavingsPlanIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1499,7 +1499,7 @@ const serializeAws_restJson1_1SavingsPlanRateFilter = (
 };
 
 const serializeAws_restJson1_1SavingsPlanRateFilterList = (
-  input: Array<SavingsPlanRateFilter>,
+  input: SavingsPlanRateFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1512,7 +1512,7 @@ const serializeAws_restJson1_1SavingsPlanRateFilterList = (
 };
 
 const serializeAws_restJson1_1SavingsPlanStateList = (
-  input: Array<SavingsPlanState | string>,
+  input: SavingsPlanState | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1523,7 +1523,7 @@ const serializeAws_restJson1_1SavingsPlanStateList = (
 };
 
 const serializeAws_restJson1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1659,7 +1659,7 @@ const deserializeAws_restJson1_1SavingsPlanOfferingProperty = (
 const deserializeAws_restJson1_1SavingsPlanOfferingPropertyList = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlanOfferingProperty> => {
+): SavingsPlanOfferingProperty[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SavingsPlanOfferingProperty(entry, context)
   );
@@ -1737,7 +1737,7 @@ const deserializeAws_restJson1_1SavingsPlanOfferingRateProperty = (
 const deserializeAws_restJson1_1SavingsPlanOfferingRatePropertyList = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlanOfferingRateProperty> => {
+): SavingsPlanOfferingRateProperty[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SavingsPlanOfferingRateProperty(entry, context)
   );
@@ -1746,7 +1746,7 @@ const deserializeAws_restJson1_1SavingsPlanOfferingRatePropertyList = (
 const deserializeAws_restJson1_1SavingsPlanOfferingRatesList = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlanOfferingRate> => {
+): SavingsPlanOfferingRate[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SavingsPlanOfferingRate(entry, context)
   );
@@ -1755,7 +1755,7 @@ const deserializeAws_restJson1_1SavingsPlanOfferingRatesList = (
 const deserializeAws_restJson1_1SavingsPlanOfferingsList = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlanOffering> => {
+): SavingsPlanOffering[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SavingsPlanOffering(entry, context)
   );
@@ -1764,7 +1764,7 @@ const deserializeAws_restJson1_1SavingsPlanOfferingsList = (
 const deserializeAws_restJson1_1SavingsPlanProductTypeList = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlanProductType | string> => {
+): SavingsPlanProductType | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1789,7 +1789,7 @@ const deserializeAws_restJson1_1SavingsPlanRateProperty = (
 const deserializeAws_restJson1_1SavingsPlanRatePropertyList = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlanRateProperty> => {
+): SavingsPlanRateProperty[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SavingsPlanRateProperty(entry, context)
   );
@@ -1895,7 +1895,7 @@ const deserializeAws_restJson1_1SavingsPlan = (
 const deserializeAws_restJson1_1SavingsPlanList = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlan> => {
+): SavingsPlan[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SavingsPlan(entry, context)
   );
@@ -1949,7 +1949,7 @@ const deserializeAws_restJson1_1SavingsPlanRate = (
 const deserializeAws_restJson1_1SavingsPlanRateList = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlanRate> => {
+): SavingsPlanRate[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SavingsPlanRate(entry, context)
   );

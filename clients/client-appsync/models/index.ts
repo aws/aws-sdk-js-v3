@@ -388,7 +388,7 @@ export interface CachingConfig {
    * <p>The caching keys for a resolver that has caching enabled.</p>
    *          <p>Valid values are entries from the <code>$context.identity</code> and <code>$context.arguments</code> maps.</p>
    */
-  cachingKeys?: Array<string>;
+  cachingKeys?: string[];
 
   /**
    * <p>The TTL in seconds for a resolver that has caching enabled.</p>
@@ -727,7 +727,7 @@ export interface CreateGraphqlApiRequest {
   /**
    * <p>A list of additional authentication providers for the <code>GraphqlApi</code> API.</p>
    */
-  additionalAuthenticationProviders?: Array<AdditionalAuthenticationProvider>;
+  additionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
 
   /**
    * <p>The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.</p>
@@ -1653,7 +1653,7 @@ export interface GraphqlApi {
   /**
    * <p>A list of additional authentication providers for the <code>GraphqlApi</code> API.</p>
    */
-  additionalAuthenticationProviders?: Array<AdditionalAuthenticationProvider>;
+  additionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
 
   /**
    * <p>The API ID.</p>
@@ -1816,7 +1816,7 @@ export interface ListApiKeysResponse {
   /**
    * <p>The <code>ApiKey</code> objects.</p>
    */
-  apiKeys?: Array<ApiKey>;
+  apiKeys?: ApiKey[];
 
   /**
    * <p>An identifier to be passed in the next request to this operation to return the next set
@@ -1859,7 +1859,7 @@ export interface ListDataSourcesResponse {
   /**
    * <p>The <code>DataSource</code> objects.</p>
    */
-  dataSources?: Array<DataSource>;
+  dataSources?: DataSource[];
 
   /**
    * <p>An identifier to be passed in the next request to this operation to return the next set
@@ -1902,7 +1902,7 @@ export interface ListFunctionsResponse {
   /**
    * <p>A list of <code>Function</code> objects.</p>
    */
-  functions?: Array<FunctionConfiguration>;
+  functions?: FunctionConfiguration[];
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
@@ -1940,7 +1940,7 @@ export interface ListGraphqlApisResponse {
   /**
    * <p>The <code>GraphqlApi</code> objects.</p>
    */
-  graphqlApis?: Array<GraphqlApi>;
+  graphqlApis?: GraphqlApi[];
 
   /**
    * <p>An identifier to be passed in the next request to this operation to return the next set
@@ -1992,7 +1992,7 @@ export interface ListResolversByFunctionResponse {
   /**
    * <p>The list of resolvers.</p>
    */
-  resolvers?: Array<Resolver>;
+  resolvers?: Resolver[];
 }
 
 export namespace ListResolversByFunctionResponse {
@@ -2040,7 +2040,7 @@ export interface ListResolversResponse {
   /**
    * <p>The <code>Resolver</code> objects.</p>
    */
-  resolvers?: Array<Resolver>;
+  resolvers?: Resolver[];
 }
 
 export namespace ListResolversResponse {
@@ -2114,7 +2114,7 @@ export interface ListTypesResponse {
   /**
    * <p>The <code>Type</code> objects.</p>
    */
-  types?: Array<Type>;
+  types?: Type[];
 }
 
 export namespace ListTypesResponse {
@@ -2242,7 +2242,7 @@ export interface PipelineConfig {
   /**
    * <p>A list of <code>Function</code> objects.</p>
    */
-  functions?: Array<string>;
+  functions?: string[];
 }
 
 export namespace PipelineConfig {
@@ -2581,7 +2581,7 @@ export interface UntagResourceRequest {
   /**
    * <p>A list of <code>TagKey</code> objects.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -2866,7 +2866,7 @@ export interface UpdateGraphqlApiRequest {
   /**
    * <p>A list of additional authentication providers for the <code>GraphqlApi</code> API.</p>
    */
-  additionalAuthenticationProviders?: Array<AdditionalAuthenticationProvider>;
+  additionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
 
   /**
    * <p>The API ID.</p>

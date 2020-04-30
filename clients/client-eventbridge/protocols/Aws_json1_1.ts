@@ -3551,7 +3551,7 @@ const serializeAws_json1_1EnableRuleRequest = (
 };
 
 const serializeAws_json1_1EventResourceList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3786,7 +3786,7 @@ const serializeAws_json1_1PutEventsRequestEntry = (
 };
 
 const serializeAws_json1_1PutEventsRequestEntryList = (
-  input: Array<PutEventsRequestEntry>,
+  input: PutEventsRequestEntry[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3839,7 +3839,7 @@ const serializeAws_json1_1PutPartnerEventsRequestEntry = (
 };
 
 const serializeAws_json1_1PutPartnerEventsRequestEntryList = (
-  input: Array<PutPartnerEventsRequestEntry>,
+  input: PutPartnerEventsRequestEntry[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3995,7 +3995,7 @@ const serializeAws_json1_1RunCommandTarget = (
 };
 
 const serializeAws_json1_1RunCommandTargetValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4006,7 +4006,7 @@ const serializeAws_json1_1RunCommandTargetValues = (
 };
 
 const serializeAws_json1_1RunCommandTargets = (
-  input: Array<RunCommandTarget>,
+  input: RunCommandTarget[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4028,7 +4028,7 @@ const serializeAws_json1_1SqsParameters = (
 };
 
 const serializeAws_json1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4050,7 +4050,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4061,7 +4061,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4147,7 +4147,7 @@ const serializeAws_json1_1Target = (
 };
 
 const serializeAws_json1_1TargetIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4158,7 +4158,7 @@ const serializeAws_json1_1TargetIdList = (
 };
 
 const serializeAws_json1_1TargetList = (
-  input: Array<Target>,
+  input: Target[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4519,7 +4519,7 @@ const deserializeAws_json1_1EventBus = (
 const deserializeAws_json1_1EventBusList = (
   output: any,
   context: __SerdeContext
-): Array<EventBus> => {
+): EventBus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EventBus(entry, context)
   );
@@ -4564,7 +4564,7 @@ const deserializeAws_json1_1EventSource = (
 const deserializeAws_json1_1EventSourceList = (
   output: any,
   context: __SerdeContext
-): Array<EventSource> => {
+): EventSource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EventSource(entry, context)
   );
@@ -4844,7 +4844,7 @@ const deserializeAws_json1_1PartnerEventSourceAccount = (
 const deserializeAws_json1_1PartnerEventSourceAccountList = (
   output: any,
   context: __SerdeContext
-): Array<PartnerEventSourceAccount> => {
+): PartnerEventSourceAccount[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PartnerEventSourceAccount(entry, context)
   );
@@ -4853,7 +4853,7 @@ const deserializeAws_json1_1PartnerEventSourceAccountList = (
 const deserializeAws_json1_1PartnerEventSourceList = (
   output: any,
   context: __SerdeContext
-): Array<PartnerEventSource> => {
+): PartnerEventSource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PartnerEventSource(entry, context)
   );
@@ -4908,7 +4908,7 @@ const deserializeAws_json1_1PutEventsResultEntry = (
 const deserializeAws_json1_1PutEventsResultEntryList = (
   output: any,
   context: __SerdeContext
-): Array<PutEventsResultEntry> => {
+): PutEventsResultEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PutEventsResultEntry(entry, context)
   );
@@ -4963,7 +4963,7 @@ const deserializeAws_json1_1PutPartnerEventsResultEntry = (
 const deserializeAws_json1_1PutPartnerEventsResultEntryList = (
   output: any,
   context: __SerdeContext
-): Array<PutPartnerEventsResultEntry> => {
+): PutPartnerEventsResultEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PutPartnerEventsResultEntry(entry, context)
   );
@@ -5032,7 +5032,7 @@ const deserializeAws_json1_1PutTargetsResultEntry = (
 const deserializeAws_json1_1PutTargetsResultEntryList = (
   output: any,
   context: __SerdeContext
-): Array<PutTargetsResultEntry> => {
+): PutTargetsResultEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PutTargetsResultEntry(entry, context)
   );
@@ -5087,7 +5087,7 @@ const deserializeAws_json1_1RemoveTargetsResultEntry = (
 const deserializeAws_json1_1RemoveTargetsResultEntryList = (
   output: any,
   context: __SerdeContext
-): Array<RemoveTargetsResultEntry> => {
+): RemoveTargetsResultEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RemoveTargetsResultEntry(entry, context)
   );
@@ -5145,14 +5145,14 @@ const deserializeAws_json1_1Rule = (
 const deserializeAws_json1_1RuleNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1RuleResponseList = (
   output: any,
   context: __SerdeContext
-): Array<Rule> => {
+): Rule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Rule(entry, context)
   );
@@ -5202,14 +5202,14 @@ const deserializeAws_json1_1RunCommandTarget = (
 const deserializeAws_json1_1RunCommandTargetValues = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1RunCommandTargets = (
   output: any,
   context: __SerdeContext
-): Array<RunCommandTarget> => {
+): RunCommandTarget[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RunCommandTarget(entry, context)
   );
@@ -5232,7 +5232,7 @@ const deserializeAws_json1_1SqsParameters = (
 const deserializeAws_json1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5257,7 +5257,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -5357,7 +5357,7 @@ const deserializeAws_json1_1Target = (
 const deserializeAws_json1_1TargetList = (
   output: any,
   context: __SerdeContext
-): Array<Target> => {
+): Target[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Target(entry, context)
   );

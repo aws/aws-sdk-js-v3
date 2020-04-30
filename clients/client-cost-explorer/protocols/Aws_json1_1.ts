@@ -2268,7 +2268,7 @@ const serializeAws_json1_1CostCategoryRule = (
 };
 
 const serializeAws_json1_1CostCategoryRulesList = (
-  input: Array<CostCategoryRule>,
+  input: CostCategoryRule[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2409,7 +2409,7 @@ const serializeAws_json1_1Expression = (
 };
 
 const serializeAws_json1_1Expressions = (
-  input: Array<Expression>,
+  input: Expression[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2866,7 +2866,7 @@ const serializeAws_json1_1GroupDefinition = (
 };
 
 const serializeAws_json1_1GroupDefinitions = (
-  input: Array<GroupDefinition>,
+  input: GroupDefinition[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2891,7 +2891,7 @@ const serializeAws_json1_1ListCostCategoryDefinitionsRequest = (
 };
 
 const serializeAws_json1_1MetricNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2950,7 +2950,7 @@ const serializeAws_json1_1UpdateCostCategoryDefinitionRequest = (
 };
 
 const serializeAws_json1_1Values = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3051,7 +3051,7 @@ const deserializeAws_json1_1CostCategoryReference = (
 const deserializeAws_json1_1CostCategoryReferencesList = (
   output: any,
   context: __SerdeContext
-): Array<CostCategoryReference> => {
+): CostCategoryReference[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CostCategoryReference(entry, context)
   );
@@ -3078,7 +3078,7 @@ const deserializeAws_json1_1CostCategoryRule = (
 const deserializeAws_json1_1CostCategoryRulesList = (
   output: any,
   context: __SerdeContext
-): Array<CostCategoryRule> => {
+): CostCategoryRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CostCategoryRule(entry, context)
   );
@@ -3252,7 +3252,7 @@ const deserializeAws_json1_1CoverageNormalizedUnits = (
 const deserializeAws_json1_1CoveragesByTime = (
   output: any,
   context: __SerdeContext
-): Array<CoverageByTime> => {
+): CoverageByTime[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CoverageByTime(entry, context)
   );
@@ -3460,7 +3460,7 @@ const deserializeAws_json1_1DimensionValuesWithAttributes = (
 const deserializeAws_json1_1DimensionValuesWithAttributesList = (
   output: any,
   context: __SerdeContext
-): Array<DimensionValuesWithAttributes> => {
+): DimensionValuesWithAttributes[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DimensionValuesWithAttributes(entry, context)
   );
@@ -3738,7 +3738,7 @@ const deserializeAws_json1_1Expression = (
 const deserializeAws_json1_1Expressions = (
   output: any,
   context: __SerdeContext
-): Array<Expression> => {
+): Expression[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Expression(entry, context)
   );
@@ -3782,7 +3782,7 @@ const deserializeAws_json1_1ForecastResult = (
 const deserializeAws_json1_1ForecastResultsByTime = (
   output: any,
   context: __SerdeContext
-): Array<ForecastResult> => {
+): ForecastResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ForecastResult(entry, context)
   );
@@ -4234,7 +4234,7 @@ const deserializeAws_json1_1GroupDefinition = (
 const deserializeAws_json1_1GroupDefinitions = (
   output: any,
   context: __SerdeContext
-): Array<GroupDefinition> => {
+): GroupDefinition[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GroupDefinition(entry, context)
   );
@@ -4243,7 +4243,7 @@ const deserializeAws_json1_1GroupDefinitions = (
 const deserializeAws_json1_1Groups = (
   output: any,
   context: __SerdeContext
-): Array<Group> => {
+): Group[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Group(entry, context)
   );
@@ -4326,7 +4326,7 @@ const deserializeAws_json1_1InvalidNextTokenException = (
 const deserializeAws_json1_1Keys = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4639,7 +4639,7 @@ const deserializeAws_json1_1ReservationCoverageGroup = (
 const deserializeAws_json1_1ReservationCoverageGroups = (
   output: any,
   context: __SerdeContext
-): Array<ReservationCoverageGroup> => {
+): ReservationCoverageGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ReservationCoverageGroup(entry, context)
   );
@@ -4852,7 +4852,7 @@ const deserializeAws_json1_1ReservationPurchaseRecommendationDetail = (
 const deserializeAws_json1_1ReservationPurchaseRecommendationDetails = (
   output: any,
   context: __SerdeContext
-): Array<ReservationPurchaseRecommendationDetail> => {
+): ReservationPurchaseRecommendationDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ReservationPurchaseRecommendationDetail(
       entry,
@@ -4918,7 +4918,7 @@ const deserializeAws_json1_1ReservationPurchaseRecommendationSummary = (
 const deserializeAws_json1_1ReservationPurchaseRecommendations = (
   output: any,
   context: __SerdeContext
-): Array<ReservationPurchaseRecommendation> => {
+): ReservationPurchaseRecommendation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ReservationPurchaseRecommendation(entry, context)
   );
@@ -4959,7 +4959,7 @@ const deserializeAws_json1_1ReservationUtilizationGroup = (
 const deserializeAws_json1_1ReservationUtilizationGroups = (
   output: any,
   context: __SerdeContext
-): Array<ReservationUtilizationGroup> => {
+): ReservationUtilizationGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ReservationUtilizationGroup(entry, context)
   );
@@ -5051,7 +5051,7 @@ const deserializeAws_json1_1ResultByTime = (
 const deserializeAws_json1_1ResultsByTime = (
   output: any,
   context: __SerdeContext
-): Array<ResultByTime> => {
+): ResultByTime[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResultByTime(entry, context)
   );
@@ -5105,7 +5105,7 @@ const deserializeAws_json1_1RightsizingRecommendation = (
 const deserializeAws_json1_1RightsizingRecommendationList = (
   output: any,
   context: __SerdeContext
-): Array<RightsizingRecommendation> => {
+): RightsizingRecommendation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RightsizingRecommendation(entry, context)
   );
@@ -5278,7 +5278,7 @@ const deserializeAws_json1_1SavingsPlansCoverageData = (
 const deserializeAws_json1_1SavingsPlansCoverages = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlansCoverage> => {
+): SavingsPlansCoverage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SavingsPlansCoverage(entry, context)
   );
@@ -5476,7 +5476,7 @@ const deserializeAws_json1_1SavingsPlansPurchaseRecommendationDetail = (
 const deserializeAws_json1_1SavingsPlansPurchaseRecommendationDetailList = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlansPurchaseRecommendationDetail> => {
+): SavingsPlansPurchaseRecommendationDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SavingsPlansPurchaseRecommendationDetail(
       entry,
@@ -5768,7 +5768,7 @@ const deserializeAws_json1_1SavingsPlansUtilizationDetail = (
 const deserializeAws_json1_1SavingsPlansUtilizationDetails = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlansUtilizationDetail> => {
+): SavingsPlansUtilizationDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SavingsPlansUtilizationDetail(entry, context)
   );
@@ -5777,7 +5777,7 @@ const deserializeAws_json1_1SavingsPlansUtilizationDetails = (
 const deserializeAws_json1_1SavingsPlansUtilizationsByTime = (
   output: any,
   context: __SerdeContext
-): Array<SavingsPlansUtilizationByTime> => {
+): SavingsPlansUtilizationByTime[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SavingsPlansUtilizationByTime(entry, context)
   );
@@ -5820,7 +5820,7 @@ const deserializeAws_json1_1ServiceSpecification = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5845,7 +5845,7 @@ const deserializeAws_json1_1TagValues = (
 const deserializeAws_json1_1TagValuesList = (
   output: any,
   context: __SerdeContext
-): Array<TagValues> => {
+): TagValues[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TagValues(entry, context)
   );
@@ -5906,7 +5906,7 @@ const deserializeAws_json1_1TargetInstance = (
 const deserializeAws_json1_1TargetInstancesList = (
   output: any,
   context: __SerdeContext
-): Array<TargetInstance> => {
+): TargetInstance[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TargetInstance(entry, context)
   );
@@ -5999,7 +5999,7 @@ const deserializeAws_json1_1UtilizationByTime = (
 const deserializeAws_json1_1UtilizationsByTime = (
   output: any,
   context: __SerdeContext
-): Array<UtilizationByTime> => {
+): UtilizationByTime[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UtilizationByTime(entry, context)
   );
@@ -6008,7 +6008,7 @@ const deserializeAws_json1_1UtilizationsByTime = (
 const deserializeAws_json1_1Values = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

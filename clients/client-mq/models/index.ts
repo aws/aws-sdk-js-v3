@@ -57,7 +57,7 @@ export interface BrokerEngineType {
   /**
    * The list of engine versions.
    */
-  EngineVersions?: Array<EngineVersion>;
+  EngineVersions?: EngineVersion[];
 }
 
 export namespace BrokerEngineType {
@@ -78,7 +78,7 @@ export interface BrokerInstance {
   /**
    * The broker's wire-level protocol endpoints.
    */
-  Endpoints?: Array<string>;
+  Endpoints?: string[];
 
   /**
    * The IP address of the Elastic Network Interface (ENI) attached to the broker.
@@ -99,7 +99,7 @@ export interface BrokerInstanceOption {
   /**
    * The list of available az.
    */
-  AvailabilityZones?: Array<AvailabilityZone>;
+  AvailabilityZones?: AvailabilityZone[];
 
   /**
    * The type of broker engine.
@@ -119,12 +119,12 @@ export interface BrokerInstanceOption {
   /**
    * The list of supported deployment modes.
    */
-  SupportedDeploymentModes?: Array<DeploymentMode | string>;
+  SupportedDeploymentModes?: DeploymentMode | string[];
 
   /**
    * The list of supported engine versions.
    */
-  SupportedEngineVersions?: Array<string>;
+  SupportedEngineVersions?: string[];
 }
 
 export namespace BrokerInstanceOption {
@@ -311,7 +311,7 @@ export interface Configurations {
   /**
    * The history of configurations applied to the broker.
    */
-  History?: Array<ConfigurationId>;
+  History?: ConfigurationId[];
 
   /**
    * The pending configuration of the broker.
@@ -414,7 +414,7 @@ export interface CreateBrokerRequest {
   /**
    * The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * The broker's storage type.
@@ -424,7 +424,7 @@ export interface CreateBrokerRequest {
   /**
    * The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * Create tags when creating the broker.
@@ -434,7 +434,7 @@ export interface CreateBrokerRequest {
   /**
    * Required. The list of ActiveMQ users (persons or applications) who can access queues and topics. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
    */
-  Users?: Array<User>;
+  Users?: User[];
 }
 
 export namespace CreateBrokerRequest {
@@ -563,7 +563,7 @@ export interface CreateUserRequest {
   /**
    * The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
    */
-  Groups?: Array<string>;
+  Groups?: string[];
 
   /**
    * Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
@@ -636,7 +636,7 @@ export interface DeleteTagsRequest {
   /**
    * An array of tag keys to delete
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace DeleteTagsRequest {
@@ -704,7 +704,7 @@ export interface DescribeBrokerEngineTypesResponse {
   /**
    * List of available engine types and versions.
    */
-  BrokerEngineTypes?: Array<BrokerEngineType>;
+  BrokerEngineTypes?: BrokerEngineType[];
 
   /**
    * Required. The maximum number of engine types that can be returned per page (20 by default). This value must be an integer from 5 to 100.
@@ -760,7 +760,7 @@ export interface DescribeBrokerInstanceOptionsResponse {
   /**
    * List of available broker instance options.
    */
-  BrokerInstanceOptions?: Array<BrokerInstanceOption>;
+  BrokerInstanceOptions?: BrokerInstanceOption[];
 
   /**
    * Required. The maximum number of instance options that can be returned per page (20 by default). This value must be an integer from 5 to 100.
@@ -811,7 +811,7 @@ export interface DescribeBrokerResponse {
   /**
    * A list of information about allocated brokers.
    */
-  BrokerInstances?: Array<BrokerInstance>;
+  BrokerInstances?: BrokerInstance[];
 
   /**
    * The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
@@ -881,7 +881,7 @@ export interface DescribeBrokerResponse {
   /**
    * The list of pending security groups to authorize connections to brokers.
    */
-  PendingSecurityGroups?: Array<string>;
+  PendingSecurityGroups?: string[];
 
   /**
    * Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
@@ -891,7 +891,7 @@ export interface DescribeBrokerResponse {
   /**
    * The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * The broker's storage type.
@@ -901,7 +901,7 @@ export interface DescribeBrokerResponse {
   /**
    * The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * The list of all tags associated with this broker.
@@ -911,7 +911,7 @@ export interface DescribeBrokerResponse {
   /**
    * The list of all ActiveMQ usernames for the specified broker.
    */
-  Users?: Array<UserSummary>;
+  Users?: UserSummary[];
 }
 
 export namespace DescribeBrokerResponse {
@@ -1064,7 +1064,7 @@ export interface DescribeUserResponse {
   /**
    * The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
    */
-  Groups?: Array<string>;
+  Groups?: string[];
 
   /**
    * The status of the changes pending for the ActiveMQ user.
@@ -1191,7 +1191,7 @@ export interface ListBrokersResponse {
   /**
    * A list of information about all brokers.
    */
-  BrokerSummaries?: Array<BrokerSummary>;
+  BrokerSummaries?: BrokerSummary[];
 
   /**
    * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
@@ -1247,7 +1247,7 @@ export interface ListConfigurationRevisionsResponse {
   /**
    * The list of all revisions for the specified configuration.
    */
-  Revisions?: Array<ConfigurationRevision>;
+  Revisions?: ConfigurationRevision[];
 }
 
 export namespace ListConfigurationRevisionsResponse {
@@ -1278,7 +1278,7 @@ export interface ListConfigurationsResponse {
   /**
    * The list of all revisions for the specified configuration.
    */
-  Configurations?: Array<Configuration>;
+  Configurations?: Configuration[];
 
   /**
    * The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
@@ -1365,7 +1365,7 @@ export interface ListUsersResponse {
   /**
    * Required. The list of all ActiveMQ usernames for the specified broker.
    */
-  Users?: Array<UserSummary>;
+  Users?: UserSummary[];
 }
 
 export namespace ListUsersResponse {
@@ -1586,7 +1586,7 @@ export interface UpdateBrokerRequest {
   /**
    * The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 }
 
 export namespace UpdateBrokerRequest {
@@ -1629,7 +1629,7 @@ export interface UpdateBrokerResponse {
   /**
    * The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 }
 
 export namespace UpdateBrokerResponse {
@@ -1693,7 +1693,7 @@ export interface UpdateConfigurationResponse {
   /**
    * The list of the first 20 warnings about the configuration XML elements or attributes that were sanitized.
    */
-  Warnings?: Array<SanitizationWarning>;
+  Warnings?: SanitizationWarning[];
 }
 
 export namespace UpdateConfigurationResponse {
@@ -1719,7 +1719,7 @@ export interface UpdateUserRequest {
   /**
    * The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
    */
-  Groups?: Array<string>;
+  Groups?: string[];
 
   /**
    * The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
@@ -1759,7 +1759,7 @@ export interface User {
   /**
    * The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
    */
-  Groups?: Array<string>;
+  Groups?: string[];
 
   /**
    * Required. The password of the ActiveMQ user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
@@ -1789,7 +1789,7 @@ export interface UserPendingChanges {
   /**
    * The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
    */
-  Groups?: Array<string>;
+  Groups?: string[];
 
   /**
    * Required. The type of change pending for the ActiveMQ user.

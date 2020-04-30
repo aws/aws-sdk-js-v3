@@ -122,7 +122,7 @@ export interface CorsRule {
    *          the rule. Only the headers that were requested are sent back. </p>
    *          <p>This element can contain only one wildcard character (*).</p>
    */
-  AllowedHeaders: Array<string> | undefined;
+  AllowedHeaders: string[] | undefined;
 
   /**
    * <p>Identifies an HTTP method that the origin that is specified in the rule is allowed to
@@ -130,7 +130,7 @@ export interface CorsRule {
    *          <p>Each CORS rule must contain at least one <code>AllowedMethods</code> and one
    *             <code>AllowedOrigins</code> element.</p>
    */
-  AllowedMethods?: Array<MethodName | string>;
+  AllowedMethods?: MethodName | string[];
 
   /**
    * <p>One or more response headers that you want users to be able to access from their
@@ -140,7 +140,7 @@ export interface CorsRule {
    *          Additionally, you can specify only one wildcard character to allow cross-origin access for
    *          all origins.</p>
    */
-  AllowedOrigins: Array<string> | undefined;
+  AllowedOrigins: string[] | undefined;
 
   /**
    * <p>One or more headers in the response that you want users to be able to access from
@@ -148,7 +148,7 @@ export interface CorsRule {
    *          object).</p>
    *          <p>This element is optional for each rule.</p>
    */
-  ExposeHeaders?: Array<string>;
+  ExposeHeaders?: string[];
 
   /**
    * <p>The time in seconds that your browser caches the preflight response for the specified
@@ -177,7 +177,7 @@ export interface CreateContainerInput {
    *            "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50
    *            tags to each container. For more information about tagging, including naming and usage conventions, see <a href="https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html">Tagging Resources in MediaStore</a>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateContainerInput {
@@ -367,7 +367,7 @@ export interface GetCorsPolicyOutput {
   /**
    * <p>The CORS policy assigned to the container.</p>
    */
-  CorsPolicy: Array<CorsRule> | undefined;
+  CorsPolicy: CorsRule[] | undefined;
 }
 
 export namespace GetCorsPolicyOutput {
@@ -459,7 +459,7 @@ export interface ListContainersOutput {
   /**
    * <p>The names of the containers.</p>
    */
-  Containers: Array<Container> | undefined;
+  Containers: Container[] | undefined;
 
   /**
    * <p>
@@ -493,7 +493,7 @@ export interface ListTagsForResourceOutput {
   /**
    * <p>An array of key:value pairs that are assigned to the container.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceOutput {
@@ -570,7 +570,7 @@ export interface PutCorsPolicyInput {
   /**
    * <p>The CORS policy to apply to the container.  </p>
    */
-  CorsPolicy: Array<CorsRule> | undefined;
+  CorsPolicy: CorsRule[] | undefined;
 }
 
 export namespace PutCorsPolicyInput {
@@ -696,7 +696,7 @@ export interface TagResourceInput {
    *             (type:Contract). For TagResource, you specify the following tags: priority:Medium, type:Contract. The result is that your container has three tags:
    *             customer:CompanyA, priority:Medium, and type:Contract.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceInput {
@@ -725,7 +725,7 @@ export interface UntagResourceInput {
    *             and priority:High) and you want to remove one of the tags (priority:High), you specify the key for the tag that you want to remove
    *             (priority).</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceInput {

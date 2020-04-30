@@ -3684,7 +3684,7 @@ const serializeAws_restJson1_1WeeklyStartTime = (
 };
 
 const serializeAws_restJson1_1__listOfUser = (
-  input: Array<User>,
+  input: User[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3695,7 +3695,7 @@ const serializeAws_restJson1_1__listOfUser = (
 };
 
 const serializeAws_restJson1_1__listOf__string = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4186,7 +4186,7 @@ const deserializeAws_restJson1_1WeeklyStartTime = (
 const deserializeAws_restJson1_1__listOfAvailabilityZone = (
   output: any,
   context: __SerdeContext
-): Array<AvailabilityZone> => {
+): AvailabilityZone[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AvailabilityZone(entry, context)
   );
@@ -4195,7 +4195,7 @@ const deserializeAws_restJson1_1__listOfAvailabilityZone = (
 const deserializeAws_restJson1_1__listOfBrokerEngineType = (
   output: any,
   context: __SerdeContext
-): Array<BrokerEngineType> => {
+): BrokerEngineType[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BrokerEngineType(entry, context)
   );
@@ -4204,7 +4204,7 @@ const deserializeAws_restJson1_1__listOfBrokerEngineType = (
 const deserializeAws_restJson1_1__listOfBrokerInstance = (
   output: any,
   context: __SerdeContext
-): Array<BrokerInstance> => {
+): BrokerInstance[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BrokerInstance(entry, context)
   );
@@ -4213,7 +4213,7 @@ const deserializeAws_restJson1_1__listOfBrokerInstance = (
 const deserializeAws_restJson1_1__listOfBrokerInstanceOption = (
   output: any,
   context: __SerdeContext
-): Array<BrokerInstanceOption> => {
+): BrokerInstanceOption[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BrokerInstanceOption(entry, context)
   );
@@ -4222,7 +4222,7 @@ const deserializeAws_restJson1_1__listOfBrokerInstanceOption = (
 const deserializeAws_restJson1_1__listOfBrokerSummary = (
   output: any,
   context: __SerdeContext
-): Array<BrokerSummary> => {
+): BrokerSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BrokerSummary(entry, context)
   );
@@ -4231,7 +4231,7 @@ const deserializeAws_restJson1_1__listOfBrokerSummary = (
 const deserializeAws_restJson1_1__listOfConfiguration = (
   output: any,
   context: __SerdeContext
-): Array<Configuration> => {
+): Configuration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Configuration(entry, context)
   );
@@ -4240,7 +4240,7 @@ const deserializeAws_restJson1_1__listOfConfiguration = (
 const deserializeAws_restJson1_1__listOfConfigurationId = (
   output: any,
   context: __SerdeContext
-): Array<ConfigurationId> => {
+): ConfigurationId[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ConfigurationId(entry, context)
   );
@@ -4249,7 +4249,7 @@ const deserializeAws_restJson1_1__listOfConfigurationId = (
 const deserializeAws_restJson1_1__listOfConfigurationRevision = (
   output: any,
   context: __SerdeContext
-): Array<ConfigurationRevision> => {
+): ConfigurationRevision[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ConfigurationRevision(entry, context)
   );
@@ -4258,14 +4258,14 @@ const deserializeAws_restJson1_1__listOfConfigurationRevision = (
 const deserializeAws_restJson1_1__listOfDeploymentMode = (
   output: any,
   context: __SerdeContext
-): Array<DeploymentMode | string> => {
+): DeploymentMode | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1__listOfEngineVersion = (
   output: any,
   context: __SerdeContext
-): Array<EngineVersion> => {
+): EngineVersion[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1EngineVersion(entry, context)
   );
@@ -4274,7 +4274,7 @@ const deserializeAws_restJson1_1__listOfEngineVersion = (
 const deserializeAws_restJson1_1__listOfSanitizationWarning = (
   output: any,
   context: __SerdeContext
-): Array<SanitizationWarning> => {
+): SanitizationWarning[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SanitizationWarning(entry, context)
   );
@@ -4283,7 +4283,7 @@ const deserializeAws_restJson1_1__listOfSanitizationWarning = (
 const deserializeAws_restJson1_1__listOfUserSummary = (
   output: any,
   context: __SerdeContext
-): Array<UserSummary> => {
+): UserSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UserSummary(entry, context)
   );
@@ -4292,7 +4292,7 @@ const deserializeAws_restJson1_1__listOfUserSummary = (
 const deserializeAws_restJson1_1__listOf__string = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

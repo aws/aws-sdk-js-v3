@@ -9351,7 +9351,7 @@ const serializeAws_json1_1AccountAggregationSource = (
 };
 
 const serializeAws_json1_1AccountAggregationSourceAccountList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9362,7 +9362,7 @@ const serializeAws_json1_1AccountAggregationSourceAccountList = (
 };
 
 const serializeAws_json1_1AccountAggregationSourceList = (
-  input: Array<AccountAggregationSource>,
+  input: AccountAggregationSource[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9396,7 +9396,7 @@ const serializeAws_json1_1AggregateResourceIdentifier = (
 };
 
 const serializeAws_json1_1AggregatedSourceStatusTypeList = (
-  input: Array<AggregatedSourceStatusType | string>,
+  input: AggregatedSourceStatusType | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9407,7 +9407,7 @@ const serializeAws_json1_1AggregatedSourceStatusTypeList = (
 };
 
 const serializeAws_json1_1AggregatorRegionList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9452,7 +9452,7 @@ const serializeAws_json1_1BatchGetResourceConfigRequest = (
 };
 
 const serializeAws_json1_1ComplianceResourceTypes = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9463,7 +9463,7 @@ const serializeAws_json1_1ComplianceResourceTypes = (
 };
 
 const serializeAws_json1_1ComplianceTypes = (
-  input: Array<ComplianceType | string>,
+  input: ComplianceType | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9546,7 +9546,7 @@ const serializeAws_json1_1ConfigRuleComplianceSummaryFilters = (
 };
 
 const serializeAws_json1_1ConfigRuleNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9568,7 +9568,7 @@ const serializeAws_json1_1ConfigSnapshotDeliveryProperties = (
 };
 
 const serializeAws_json1_1ConfigurationAggregatorNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9599,7 +9599,7 @@ const serializeAws_json1_1ConfigurationRecorder = (
 };
 
 const serializeAws_json1_1ConfigurationRecorderNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9629,7 +9629,7 @@ const serializeAws_json1_1ConformancePackComplianceFilters = (
 };
 
 const serializeAws_json1_1ConformancePackComplianceResourceIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9640,7 +9640,7 @@ const serializeAws_json1_1ConformancePackComplianceResourceIds = (
 };
 
 const serializeAws_json1_1ConformancePackConfigRuleNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9695,7 +9695,7 @@ const serializeAws_json1_1ConformancePackInputParameter = (
 };
 
 const serializeAws_json1_1ConformancePackInputParameters = (
-  input: Array<ConformancePackInputParameter>,
+  input: ConformancePackInputParameter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9708,7 +9708,7 @@ const serializeAws_json1_1ConformancePackInputParameters = (
 };
 
 const serializeAws_json1_1ConformancePackNamesList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9719,7 +9719,7 @@ const serializeAws_json1_1ConformancePackNamesList = (
 };
 
 const serializeAws_json1_1ConformancePackNamesToSummarizeList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9945,7 +9945,7 @@ const serializeAws_json1_1DeliveryChannel = (
 };
 
 const serializeAws_json1_1DeliveryChannelNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10469,7 +10469,7 @@ const serializeAws_json1_1Evaluation = (
 };
 
 const serializeAws_json1_1Evaluations = (
-  input: Array<Evaluation>,
+  input: Evaluation[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10480,7 +10480,7 @@ const serializeAws_json1_1Evaluations = (
 };
 
 const serializeAws_json1_1ExcludedAccounts = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10909,7 +10909,7 @@ const serializeAws_json1_1OrganizationAggregationSource = (
 };
 
 const serializeAws_json1_1OrganizationConfigRuleNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10920,7 +10920,7 @@ const serializeAws_json1_1OrganizationConfigRuleNames = (
 };
 
 const serializeAws_json1_1OrganizationConfigRuleTriggerTypes = (
-  input: Array<OrganizationConfigRuleTriggerType | string>,
+  input: OrganizationConfigRuleTriggerType | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10931,7 +10931,7 @@ const serializeAws_json1_1OrganizationConfigRuleTriggerTypes = (
 };
 
 const serializeAws_json1_1OrganizationConformancePackNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11351,7 +11351,7 @@ const serializeAws_json1_1RecordingGroup = (
 };
 
 const serializeAws_json1_1ReevaluateConfigRuleNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11412,7 +11412,7 @@ const serializeAws_json1_1RemediationConfiguration = (
 };
 
 const serializeAws_json1_1RemediationConfigurations = (
-  input: Array<RemediationConfiguration>,
+  input: RemediationConfiguration[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11437,7 +11437,7 @@ const serializeAws_json1_1RemediationExceptionResourceKey = (
 };
 
 const serializeAws_json1_1RemediationExceptionResourceKeys = (
-  input: Array<RemediationExceptionResourceKey>,
+  input: RemediationExceptionResourceKey[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11521,7 +11521,7 @@ const serializeAws_json1_1ResourceFilters = (
 };
 
 const serializeAws_json1_1ResourceIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11532,7 +11532,7 @@ const serializeAws_json1_1ResourceIdList = (
 };
 
 const serializeAws_json1_1ResourceIdentifiersList = (
-  input: Array<AggregateResourceIdentifier>,
+  input: AggregateResourceIdentifier[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11559,7 +11559,7 @@ const serializeAws_json1_1ResourceKey = (
 };
 
 const serializeAws_json1_1ResourceKeys = (
-  input: Array<ResourceKey>,
+  input: ResourceKey[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11570,7 +11570,7 @@ const serializeAws_json1_1ResourceKeys = (
 };
 
 const serializeAws_json1_1ResourceTypeList = (
-  input: Array<ResourceType | string>,
+  input: ResourceType | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11581,7 +11581,7 @@ const serializeAws_json1_1ResourceTypeList = (
 };
 
 const serializeAws_json1_1ResourceTypes = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11592,7 +11592,7 @@ const serializeAws_json1_1ResourceTypes = (
 };
 
 const serializeAws_json1_1ResourceTypesScope = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11614,7 +11614,7 @@ const serializeAws_json1_1ResourceValue = (
 };
 
 const serializeAws_json1_1RetentionConfigurationNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11704,7 +11704,7 @@ const serializeAws_json1_1SourceDetail = (
 };
 
 const serializeAws_json1_1SourceDetails = (
-  input: Array<SourceDetail>,
+  input: SourceDetail[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11774,7 +11774,7 @@ const serializeAws_json1_1StartRemediationExecutionRequest = (
 };
 
 const serializeAws_json1_1StaticParameterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11835,7 +11835,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11846,7 +11846,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11882,7 +11882,7 @@ const serializeAws_json1_1Tags = (
 };
 
 const serializeAws_json1_1TagsList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11940,14 +11940,14 @@ const deserializeAws_json1_1AccountAggregationSource = (
 const deserializeAws_json1_1AccountAggregationSourceAccountList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1AccountAggregationSourceList = (
   output: any,
   context: __SerdeContext
-): Array<AccountAggregationSource> => {
+): AccountAggregationSource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AccountAggregationSource(entry, context)
   );
@@ -11985,7 +11985,7 @@ const deserializeAws_json1_1AggregateComplianceByConfigRule = (
 const deserializeAws_json1_1AggregateComplianceByConfigRuleList = (
   output: any,
   context: __SerdeContext
-): Array<AggregateComplianceByConfigRule> => {
+): AggregateComplianceByConfigRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AggregateComplianceByConfigRule(entry, context)
   );
@@ -12018,7 +12018,7 @@ const deserializeAws_json1_1AggregateComplianceCount = (
 const deserializeAws_json1_1AggregateComplianceCountList = (
   output: any,
   context: __SerdeContext
-): Array<AggregateComplianceCount> => {
+): AggregateComplianceCount[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AggregateComplianceCount(entry, context)
   );
@@ -12081,7 +12081,7 @@ const deserializeAws_json1_1AggregateEvaluationResult = (
 const deserializeAws_json1_1AggregateEvaluationResultList = (
   output: any,
   context: __SerdeContext
-): Array<AggregateEvaluationResult> => {
+): AggregateEvaluationResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AggregateEvaluationResult(entry, context)
   );
@@ -12166,7 +12166,7 @@ const deserializeAws_json1_1AggregatedSourceStatus = (
 const deserializeAws_json1_1AggregatedSourceStatusList = (
   output: any,
   context: __SerdeContext
-): Array<AggregatedSourceStatus> => {
+): AggregatedSourceStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AggregatedSourceStatus(entry, context)
   );
@@ -12210,7 +12210,7 @@ const deserializeAws_json1_1AggregationAuthorization = (
 const deserializeAws_json1_1AggregationAuthorizationList = (
   output: any,
   context: __SerdeContext
-): Array<AggregationAuthorization> => {
+): AggregationAuthorization[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AggregationAuthorization(entry, context)
   );
@@ -12219,7 +12219,7 @@ const deserializeAws_json1_1AggregationAuthorizationList = (
 const deserializeAws_json1_1AggregatorRegionList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -12317,7 +12317,7 @@ const deserializeAws_json1_1BaseConfigurationItem = (
 const deserializeAws_json1_1BaseConfigurationItems = (
   output: any,
   context: __SerdeContext
-): Array<BaseConfigurationItem> => {
+): BaseConfigurationItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BaseConfigurationItem(entry, context)
   );
@@ -12431,7 +12431,7 @@ const deserializeAws_json1_1ComplianceByConfigRule = (
 const deserializeAws_json1_1ComplianceByConfigRules = (
   output: any,
   context: __SerdeContext
-): Array<ComplianceByConfigRule> => {
+): ComplianceByConfigRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ComplianceByConfigRule(entry, context)
   );
@@ -12465,7 +12465,7 @@ const deserializeAws_json1_1ComplianceByResource = (
 const deserializeAws_json1_1ComplianceByResources = (
   output: any,
   context: __SerdeContext
-): Array<ComplianceByResource> => {
+): ComplianceByResource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ComplianceByResource(entry, context)
   );
@@ -12492,14 +12492,14 @@ const deserializeAws_json1_1ComplianceContributorCount = (
 const deserializeAws_json1_1ComplianceResourceTypes = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1ComplianceSummariesByResourceType = (
   output: any,
   context: __SerdeContext
-): Array<ComplianceSummaryByResourceType> => {
+): ComplianceSummaryByResourceType[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ComplianceSummaryByResourceType(entry, context)
   );
@@ -12758,7 +12758,7 @@ const deserializeAws_json1_1ConfigRuleEvaluationStatus = (
 const deserializeAws_json1_1ConfigRuleEvaluationStatusList = (
   output: any,
   context: __SerdeContext
-): Array<ConfigRuleEvaluationStatus> => {
+): ConfigRuleEvaluationStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConfigRuleEvaluationStatus(entry, context)
   );
@@ -12767,7 +12767,7 @@ const deserializeAws_json1_1ConfigRuleEvaluationStatusList = (
 const deserializeAws_json1_1ConfigRules = (
   output: any,
   context: __SerdeContext
-): Array<ConfigRule> => {
+): ConfigRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConfigRule(entry, context)
   );
@@ -12881,7 +12881,7 @@ const deserializeAws_json1_1ConfigurationAggregator = (
 const deserializeAws_json1_1ConfigurationAggregatorList = (
   output: any,
   context: __SerdeContext
-): Array<ConfigurationAggregator> => {
+): ConfigurationAggregator[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConfigurationAggregator(entry, context)
   );
@@ -13006,7 +13006,7 @@ const deserializeAws_json1_1ConfigurationItem = (
 const deserializeAws_json1_1ConfigurationItemList = (
   output: any,
   context: __SerdeContext
-): Array<ConfigurationItem> => {
+): ConfigurationItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConfigurationItem(entry, context)
   );
@@ -13040,7 +13040,7 @@ const deserializeAws_json1_1ConfigurationRecorder = (
 const deserializeAws_json1_1ConfigurationRecorderList = (
   output: any,
   context: __SerdeContext
-): Array<ConfigurationRecorder> => {
+): ConfigurationRecorder[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConfigurationRecorder(entry, context)
   );
@@ -13099,7 +13099,7 @@ const deserializeAws_json1_1ConfigurationRecorderStatus = (
 const deserializeAws_json1_1ConfigurationRecorderStatusList = (
   output: any,
   context: __SerdeContext
-): Array<ConfigurationRecorderStatus> => {
+): ConfigurationRecorderStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConfigurationRecorderStatus(entry, context)
   );
@@ -13133,7 +13133,7 @@ const deserializeAws_json1_1ConformancePackComplianceSummary = (
 const deserializeAws_json1_1ConformancePackComplianceSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<ConformancePackComplianceSummary> => {
+): ConformancePackComplianceSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConformancePackComplianceSummary(entry, context)
   );
@@ -13210,7 +13210,7 @@ const deserializeAws_json1_1ConformancePackDetail = (
 const deserializeAws_json1_1ConformancePackDetailList = (
   output: any,
   context: __SerdeContext
-): Array<ConformancePackDetail> => {
+): ConformancePackDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConformancePackDetail(entry, context)
   );
@@ -13283,7 +13283,7 @@ const deserializeAws_json1_1ConformancePackInputParameter = (
 const deserializeAws_json1_1ConformancePackInputParameters = (
   output: any,
   context: __SerdeContext
-): Array<ConformancePackInputParameter> => {
+): ConformancePackInputParameter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConformancePackInputParameter(entry, context)
   );
@@ -13310,7 +13310,7 @@ const deserializeAws_json1_1ConformancePackRuleCompliance = (
 const deserializeAws_json1_1ConformancePackRuleComplianceList = (
   output: any,
   context: __SerdeContext
-): Array<ConformancePackRuleCompliance> => {
+): ConformancePackRuleCompliance[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConformancePackRuleCompliance(entry, context)
   );
@@ -13319,7 +13319,7 @@ const deserializeAws_json1_1ConformancePackRuleComplianceList = (
 const deserializeAws_json1_1ConformancePackRuleEvaluationResultsList = (
   output: any,
   context: __SerdeContext
-): Array<ConformancePackEvaluationResult> => {
+): ConformancePackEvaluationResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConformancePackEvaluationResult(entry, context)
   );
@@ -13395,7 +13395,7 @@ const deserializeAws_json1_1ConformancePackStatusDetail = (
 const deserializeAws_json1_1ConformancePackStatusDetailsList = (
   output: any,
   context: __SerdeContext
-): Array<ConformancePackStatusDetail> => {
+): ConformancePackStatusDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConformancePackStatusDetail(entry, context)
   );
@@ -13508,7 +13508,7 @@ const deserializeAws_json1_1DeliveryChannel = (
 const deserializeAws_json1_1DeliveryChannelList = (
   output: any,
   context: __SerdeContext
-): Array<DeliveryChannel> => {
+): DeliveryChannel[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DeliveryChannel(entry, context)
   );
@@ -13561,7 +13561,7 @@ const deserializeAws_json1_1DeliveryChannelStatus = (
 const deserializeAws_json1_1DeliveryChannelStatusList = (
   output: any,
   context: __SerdeContext
-): Array<DeliveryChannelStatus> => {
+): DeliveryChannelStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DeliveryChannelStatus(entry, context)
   );
@@ -14130,7 +14130,7 @@ const deserializeAws_json1_1DescribeRetentionConfigurationsResponse = (
 const deserializeAws_json1_1DiscoveredResourceIdentifierList = (
   output: any,
   context: __SerdeContext
-): Array<AggregateResourceIdentifier> => {
+): AggregateResourceIdentifier[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AggregateResourceIdentifier(entry, context)
   );
@@ -14281,7 +14281,7 @@ const deserializeAws_json1_1EvaluationResultQualifier = (
 const deserializeAws_json1_1EvaluationResults = (
   output: any,
   context: __SerdeContext
-): Array<EvaluationResult> => {
+): EvaluationResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EvaluationResult(entry, context)
   );
@@ -14290,7 +14290,7 @@ const deserializeAws_json1_1EvaluationResults = (
 const deserializeAws_json1_1Evaluations = (
   output: any,
   context: __SerdeContext
-): Array<Evaluation> => {
+): Evaluation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Evaluation(entry, context)
   );
@@ -14299,7 +14299,7 @@ const deserializeAws_json1_1Evaluations = (
 const deserializeAws_json1_1ExcludedAccounts = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -14344,7 +14344,7 @@ const deserializeAws_json1_1FailedDeleteRemediationExceptionsBatch = (
 const deserializeAws_json1_1FailedDeleteRemediationExceptionsBatches = (
   output: any,
   context: __SerdeContext
-): Array<FailedDeleteRemediationExceptionsBatch> => {
+): FailedDeleteRemediationExceptionsBatch[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FailedDeleteRemediationExceptionsBatch(entry, context)
   );
@@ -14374,7 +14374,7 @@ const deserializeAws_json1_1FailedRemediationBatch = (
 const deserializeAws_json1_1FailedRemediationBatches = (
   output: any,
   context: __SerdeContext
-): Array<FailedRemediationBatch> => {
+): FailedRemediationBatch[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FailedRemediationBatch(entry, context)
   );
@@ -14404,7 +14404,7 @@ const deserializeAws_json1_1FailedRemediationExceptionBatch = (
 const deserializeAws_json1_1FailedRemediationExceptionBatches = (
   output: any,
   context: __SerdeContext
-): Array<FailedRemediationExceptionBatch> => {
+): FailedRemediationExceptionBatch[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FailedRemediationExceptionBatch(entry, context)
   );
@@ -14427,7 +14427,7 @@ const deserializeAws_json1_1FieldInfo = (
 const deserializeAws_json1_1FieldInfoList = (
   output: any,
   context: __SerdeContext
-): Array<FieldInfo> => {
+): FieldInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FieldInfo(entry, context)
   );
@@ -14804,7 +14804,7 @@ const deserializeAws_json1_1GroupedResourceCount = (
 const deserializeAws_json1_1GroupedResourceCountList = (
   output: any,
   context: __SerdeContext
-): Array<GroupedResourceCount> => {
+): GroupedResourceCount[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GroupedResourceCount(entry, context)
   );
@@ -15591,7 +15591,7 @@ const deserializeAws_json1_1OrganizationConfigRule = (
 const deserializeAws_json1_1OrganizationConfigRuleDetailedStatus = (
   output: any,
   context: __SerdeContext
-): Array<MemberAccountStatus> => {
+): MemberAccountStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MemberAccountStatus(entry, context)
   );
@@ -15638,7 +15638,7 @@ const deserializeAws_json1_1OrganizationConfigRuleStatus = (
 const deserializeAws_json1_1OrganizationConfigRuleStatuses = (
   output: any,
   context: __SerdeContext
-): Array<OrganizationConfigRuleStatus> => {
+): OrganizationConfigRuleStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OrganizationConfigRuleStatus(entry, context)
   );
@@ -15647,14 +15647,14 @@ const deserializeAws_json1_1OrganizationConfigRuleStatuses = (
 const deserializeAws_json1_1OrganizationConfigRuleTriggerTypes = (
   output: any,
   context: __SerdeContext
-): Array<OrganizationConfigRuleTriggerType | string> => {
+): OrganizationConfigRuleTriggerType | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1OrganizationConfigRules = (
   output: any,
   context: __SerdeContext
-): Array<OrganizationConfigRule> => {
+): OrganizationConfigRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OrganizationConfigRule(entry, context)
   );
@@ -15768,7 +15768,7 @@ const deserializeAws_json1_1OrganizationConformancePackDetailedStatus = (
 const deserializeAws_json1_1OrganizationConformancePackDetailedStatuses = (
   output: any,
   context: __SerdeContext
-): Array<OrganizationConformancePackDetailedStatus> => {
+): OrganizationConformancePackDetailedStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OrganizationConformancePackDetailedStatus(
       entry,
@@ -15816,7 +15816,7 @@ const deserializeAws_json1_1OrganizationConformancePackStatus = (
 const deserializeAws_json1_1OrganizationConformancePackStatuses = (
   output: any,
   context: __SerdeContext
-): Array<OrganizationConformancePackStatus> => {
+): OrganizationConformancePackStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OrganizationConformancePackStatus(entry, context)
   );
@@ -15839,7 +15839,7 @@ const deserializeAws_json1_1OrganizationConformancePackTemplateValidationExcepti
 const deserializeAws_json1_1OrganizationConformancePacks = (
   output: any,
   context: __SerdeContext
-): Array<OrganizationConformancePack> => {
+): OrganizationConformancePack[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OrganizationConformancePack(entry, context)
   );
@@ -16001,7 +16001,7 @@ const deserializeAws_json1_1PendingAggregationRequest = (
 const deserializeAws_json1_1PendingAggregationRequestList = (
   output: any,
   context: __SerdeContext
-): Array<PendingAggregationRequest> => {
+): PendingAggregationRequest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PendingAggregationRequest(entry, context)
   );
@@ -16221,7 +16221,7 @@ const deserializeAws_json1_1RecordingGroup = (
 const deserializeAws_json1_1RelatedEventList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -16257,7 +16257,7 @@ const deserializeAws_json1_1Relationship = (
 const deserializeAws_json1_1RelationshipList = (
   output: any,
   context: __SerdeContext
-): Array<Relationship> => {
+): Relationship[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Relationship(entry, context)
   );
@@ -16342,7 +16342,7 @@ const deserializeAws_json1_1RemediationConfiguration = (
 const deserializeAws_json1_1RemediationConfigurations = (
   output: any,
   context: __SerdeContext
-): Array<RemediationConfiguration> => {
+): RemediationConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RemediationConfiguration(entry, context)
   );
@@ -16401,7 +16401,7 @@ const deserializeAws_json1_1RemediationExceptionResourceKey = (
 const deserializeAws_json1_1RemediationExceptionResourceKeys = (
   output: any,
   context: __SerdeContext
-): Array<RemediationExceptionResourceKey> => {
+): RemediationExceptionResourceKey[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RemediationExceptionResourceKey(entry, context)
   );
@@ -16410,7 +16410,7 @@ const deserializeAws_json1_1RemediationExceptionResourceKeys = (
 const deserializeAws_json1_1RemediationExceptions = (
   output: any,
   context: __SerdeContext
-): Array<RemediationException> => {
+): RemediationException[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RemediationException(entry, context)
   );
@@ -16459,7 +16459,7 @@ const deserializeAws_json1_1RemediationExecutionStatus = (
 const deserializeAws_json1_1RemediationExecutionStatuses = (
   output: any,
   context: __SerdeContext
-): Array<RemediationExecutionStatus> => {
+): RemediationExecutionStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RemediationExecutionStatus(entry, context)
   );
@@ -16498,7 +16498,7 @@ const deserializeAws_json1_1RemediationExecutionStep = (
 const deserializeAws_json1_1RemediationExecutionSteps = (
   output: any,
   context: __SerdeContext
-): Array<RemediationExecutionStep> => {
+): RemediationExecutionStep[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RemediationExecutionStep(entry, context)
   );
@@ -16577,7 +16577,7 @@ const deserializeAws_json1_1ResourceCount = (
 const deserializeAws_json1_1ResourceCounts = (
   output: any,
   context: __SerdeContext
-): Array<ResourceCount> => {
+): ResourceCount[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceCount(entry, context)
   );
@@ -16617,7 +16617,7 @@ const deserializeAws_json1_1ResourceIdentifier = (
 const deserializeAws_json1_1ResourceIdentifierList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceIdentifier> => {
+): ResourceIdentifier[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceIdentifier(entry, context)
   );
@@ -16658,7 +16658,7 @@ const deserializeAws_json1_1ResourceKey = (
 const deserializeAws_json1_1ResourceKeys = (
   output: any,
   context: __SerdeContext
-): Array<ResourceKey> => {
+): ResourceKey[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceKey(entry, context)
   );
@@ -16695,14 +16695,14 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 const deserializeAws_json1_1ResourceTypeList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceType | string> => {
+): ResourceType | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1ResourceTypesScope = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -16723,7 +16723,7 @@ const deserializeAws_json1_1ResourceValue = (
 const deserializeAws_json1_1Results = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -16751,7 +16751,7 @@ const deserializeAws_json1_1RetentionConfiguration = (
 const deserializeAws_json1_1RetentionConfigurationList = (
   output: any,
   context: __SerdeContext
-): Array<RetentionConfiguration> => {
+): RetentionConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RetentionConfiguration(entry, context)
   );
@@ -16873,7 +16873,7 @@ const deserializeAws_json1_1SourceDetail = (
 const deserializeAws_json1_1SourceDetails = (
   output: any,
   context: __SerdeContext
-): Array<SourceDetail> => {
+): SourceDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SourceDetail(entry, context)
   );
@@ -16935,7 +16935,7 @@ const deserializeAws_json1_1StartRemediationExecutionResponse = (
 const deserializeAws_json1_1StaticParameterValues = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -16988,7 +16988,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -17022,7 +17022,7 @@ const deserializeAws_json1_1TooManyTagsException = (
 const deserializeAws_json1_1UnprocessedResourceIdentifierList = (
   output: any,
   context: __SerdeContext
-): Array<AggregateResourceIdentifier> => {
+): AggregateResourceIdentifier[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AggregateResourceIdentifier(entry, context)
   );

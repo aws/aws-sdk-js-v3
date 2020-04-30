@@ -3250,7 +3250,7 @@ const deserializeAws_restJson1_1UnprocessableEntityExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1AdTriggers = (
-  input: Array<__AdTriggersElement | string>,
+  input: __AdTriggersElement | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3633,7 +3633,7 @@ const serializeAws_restJson1_1Tags = (
 };
 
 const serializeAws_restJson1_1__listOfHlsManifestCreateOrUpdateParameters = (
-  input: Array<HlsManifestCreateOrUpdateParameters>,
+  input: HlsManifestCreateOrUpdateParameters[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3649,7 +3649,7 @@ const serializeAws_restJson1_1__listOfHlsManifestCreateOrUpdateParameters = (
 };
 
 const serializeAws_restJson1_1__listOf__PeriodTriggersElement = (
-  input: Array<__PeriodTriggersElement | string>,
+  input: __PeriodTriggersElement | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3660,7 +3660,7 @@ const serializeAws_restJson1_1__listOf__PeriodTriggersElement = (
 };
 
 const serializeAws_restJson1_1__listOf__string = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3684,7 +3684,7 @@ const serializeAws_restJson1_1__mapOf__string = (
 const deserializeAws_restJson1_1AdTriggers = (
   output: any,
   context: __SerdeContext
-): Array<__AdTriggersElement | string> => {
+): __AdTriggersElement | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4461,7 +4461,7 @@ const deserializeAws_restJson1_1Tags = (
 const deserializeAws_restJson1_1__listOfChannel = (
   output: any,
   context: __SerdeContext
-): Array<Channel> => {
+): Channel[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Channel(entry, context)
   );
@@ -4470,7 +4470,7 @@ const deserializeAws_restJson1_1__listOfChannel = (
 const deserializeAws_restJson1_1__listOfHarvestJob = (
   output: any,
   context: __SerdeContext
-): Array<HarvestJob> => {
+): HarvestJob[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HarvestJob(entry, context)
   );
@@ -4479,7 +4479,7 @@ const deserializeAws_restJson1_1__listOfHarvestJob = (
 const deserializeAws_restJson1_1__listOfHlsManifest = (
   output: any,
   context: __SerdeContext
-): Array<HlsManifest> => {
+): HlsManifest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HlsManifest(entry, context)
   );
@@ -4488,7 +4488,7 @@ const deserializeAws_restJson1_1__listOfHlsManifest = (
 const deserializeAws_restJson1_1__listOfIngestEndpoint = (
   output: any,
   context: __SerdeContext
-): Array<IngestEndpoint> => {
+): IngestEndpoint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1IngestEndpoint(entry, context)
   );
@@ -4497,7 +4497,7 @@ const deserializeAws_restJson1_1__listOfIngestEndpoint = (
 const deserializeAws_restJson1_1__listOfOriginEndpoint = (
   output: any,
   context: __SerdeContext
-): Array<OriginEndpoint> => {
+): OriginEndpoint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1OriginEndpoint(entry, context)
   );
@@ -4506,14 +4506,14 @@ const deserializeAws_restJson1_1__listOfOriginEndpoint = (
 const deserializeAws_restJson1_1__listOf__PeriodTriggersElement = (
   output: any,
   context: __SerdeContext
-): Array<__PeriodTriggersElement | string> => {
+): __PeriodTriggersElement | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1__listOf__string = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

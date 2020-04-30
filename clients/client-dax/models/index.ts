@@ -83,7 +83,7 @@ export interface Cluster {
   /**
    * <p>A list of nodes to be removed from the cluster.</p>
    */
-  NodeIdsToRemove?: Array<string>;
+  NodeIdsToRemove?: string[];
 
   /**
    * <p>The node type for the nodes in the cluster. (All nodes in a DAX cluster are of
@@ -94,7 +94,7 @@ export interface Cluster {
   /**
    * <p>A list of nodes that are currently in the cluster.</p>
    */
-  Nodes?: Array<Node>;
+  Nodes?: Node[];
 
   /**
    * <p>Describes a notification topic and its status. Notification topics are used for
@@ -123,7 +123,7 @@ export interface Cluster {
   /**
    * <p>A list of security groups, and the status of each, for the nodes in the cluster.</p>
    */
-  SecurityGroups?: Array<SecurityGroupMembership>;
+  SecurityGroups?: SecurityGroupMembership[];
 
   /**
    * <p>The current status of the cluster.</p>
@@ -152,7 +152,7 @@ export interface CreateClusterRequest {
    *          has been created or updated. If provided, the length of this list must equal the <code>ReplicationFactor</code> parameter.
    *          If you omit this parameter, DAX will spread the nodes across Availability Zones for the highest availability.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>The cluster identifier. This parameter is stored as a lowercase
@@ -282,7 +282,7 @@ export interface CreateClusterRequest {
    *         <p>If this parameter is not specified, DAX assigns the default VPC security group to
    *             each node.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>The name of the subnet group to be used for the replication group.</p>
@@ -296,7 +296,7 @@ export interface CreateClusterRequest {
   /**
    * <p>A set of tags to associate with the DAX cluster.  </p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateClusterRequest {
@@ -365,7 +365,7 @@ export interface CreateSubnetGroupRequest {
   /**
    * <p>A list of VPC subnet IDs for the subnet group.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 }
 
 export namespace CreateSubnetGroupRequest {
@@ -392,7 +392,7 @@ export interface DecreaseReplicationFactorRequest {
   /**
    * <p>The Availability Zone(s) from which to remove nodes.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>The name of the DAX cluster from which you want to remove nodes.</p>
@@ -407,7 +407,7 @@ export interface DecreaseReplicationFactorRequest {
   /**
    * <p>The unique identifiers of the nodes to be removed from the cluster.</p>
    */
-  NodeIdsToRemove?: Array<string>;
+  NodeIdsToRemove?: string[];
 }
 
 export namespace DecreaseReplicationFactorRequest {
@@ -514,7 +514,7 @@ export interface DescribeClustersRequest {
   /**
    * <p>The names of the DAX clusters being described.</p>
    */
-  ClusterNames?: Array<string>;
+  ClusterNames?: string[];
 
   /**
    * <p>The maximum number of results to include in the response. If more results exist
@@ -544,7 +544,7 @@ export interface DescribeClustersResponse {
    * <p>The descriptions of your DAX clusters, in response to a
    *             <i>DescribeClusters</i> request.</p>
    */
-  Clusters?: Array<Cluster>;
+  Clusters?: Cluster[];
 
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -591,7 +591,7 @@ export interface DescribeDefaultParametersResponse {
   /**
    * <p>A list of parameters.  Each element in the list represents one parameter.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 }
 
 export namespace DescribeDefaultParametersResponse {
@@ -657,7 +657,7 @@ export interface DescribeEventsResponse {
   /**
    * <p>An array of events.  Each element in the array represents one event.</p>
    */
-  Events?: Array<Event>;
+  Events?: Event[];
 
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -691,7 +691,7 @@ export interface DescribeParameterGroupsRequest {
   /**
    * <p>The names of the parameter groups.</p>
    */
-  ParameterGroupNames?: Array<string>;
+  ParameterGroupNames?: string[];
 }
 
 export namespace DescribeParameterGroupsRequest {
@@ -709,7 +709,7 @@ export interface DescribeParameterGroupsResponse {
   /**
    * <p>An array of parameter groups.  Each element in the array represents one parameter group.</p>
    */
-  ParameterGroups?: Array<ParameterGroup>;
+  ParameterGroups?: ParameterGroup[];
 }
 
 export namespace DescribeParameterGroupsResponse {
@@ -762,7 +762,7 @@ export interface DescribeParametersResponse {
   /**
    * <p>A list of parameters within a parameter group.  Each element in the list represents one parameter.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 }
 
 export namespace DescribeParametersResponse {
@@ -791,7 +791,7 @@ export interface DescribeSubnetGroupsRequest {
   /**
    * <p>The name of the subnet group.</p>
    */
-  SubnetGroupNames?: Array<string>;
+  SubnetGroupNames?: string[];
 }
 
 export namespace DescribeSubnetGroupsRequest {
@@ -809,7 +809,7 @@ export interface DescribeSubnetGroupsResponse {
   /**
    * <p>An array of subnet groups.  Each element in the array represents a single subnet group.</p>
    */
-  SubnetGroups?: Array<SubnetGroup>;
+  SubnetGroups?: SubnetGroup[];
 }
 
 export namespace DescribeSubnetGroupsResponse {
@@ -880,7 +880,7 @@ export interface IncreaseReplicationFactorRequest {
    *             belonging to the cluster are placed in these Availability Zones. Use this parameter if you want
    *             to distribute the nodes across multiple AZs.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>The name of the DAX cluster that will receive additional nodes.</p>
@@ -944,7 +944,7 @@ export interface ListTagsResponse {
   /**
    * <p>A list of tags currently associated with the DAX cluster.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsResponse {
@@ -1077,7 +1077,7 @@ export interface Parameter {
   /**
    * <p>A list of node types, and specific parameter values for each node.</p>
    */
-  NodeTypeSpecificValues?: Array<NodeTypeSpecificValue>;
+  NodeTypeSpecificValues?: NodeTypeSpecificValue[];
 
   /**
    * <p>The name of the parameter.</p>
@@ -1136,7 +1136,7 @@ export interface ParameterGroupStatus {
   /**
    * <p>The node IDs of one or more nodes to be rebooted.</p>
    */
-  NodeIdsToReboot?: Array<string>;
+  NodeIdsToReboot?: string[];
 
   /**
    * <p>The status of parameter updates. </p>
@@ -1335,7 +1335,7 @@ export interface SubnetGroup {
   /**
    * <p>A list of subnets associated with the subnet group. </p>
    */
-  Subnets?: Array<Subnet>;
+  Subnets?: Subnet[];
 
   /**
    * <p>The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group.</p>
@@ -1384,7 +1384,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to be assigned to the DAX resource. </p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1397,7 +1397,7 @@ export interface TagResourceResponse {
   /**
    * <p>The list of tags that are associated with the DAX resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace TagResourceResponse {
@@ -1415,7 +1415,7 @@ export interface UntagResourceRequest {
   /**
    * <p>A list of tag keys. If the DAX cluster has any tags with these keys, then the tags are removed from the cluster.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1428,7 +1428,7 @@ export interface UntagResourceResponse {
   /**
    * <p>The tag keys that have been removed from the cluster.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace UntagResourceResponse {
@@ -1474,7 +1474,7 @@ export interface UpdateClusterRequest {
    * <p>A list of user-specified security group IDs to be assigned to each node in the DAX cluster.  If this parameter is not
    *             specified, DAX assigns the default VPC security group to each node.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 }
 
 export namespace UpdateClusterRequest {
@@ -1506,7 +1506,7 @@ export interface UpdateParameterGroupRequest {
    * <p>An array of name-value pairs for the parameters in the group. Each element in the
    *             array represents a single parameter.</p>
    */
-  ParameterNameValues: Array<ParameterNameValue> | undefined;
+  ParameterNameValues: ParameterNameValue[] | undefined;
 }
 
 export namespace UpdateParameterGroupRequest {
@@ -1542,7 +1542,7 @@ export interface UpdateSubnetGroupRequest {
   /**
    * <p>A list of subnet IDs in the subnet group.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 }
 
 export namespace UpdateSubnetGroupRequest {

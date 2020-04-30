@@ -3713,7 +3713,7 @@ const deserializeAws_json1_1UnauthorizedOperationExceptionResponse = async (
 };
 
 const serializeAws_json1_1AppIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4150,7 +4150,7 @@ const serializeAws_json1_1ServerGroupLaunchConfiguration = (
 };
 
 const serializeAws_json1_1ServerGroupLaunchConfigurations = (
-  input: Array<ServerGroupLaunchConfiguration>,
+  input: ServerGroupLaunchConfiguration[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4182,7 +4182,7 @@ const serializeAws_json1_1ServerGroupReplicationConfiguration = (
 };
 
 const serializeAws_json1_1ServerGroupReplicationConfigurations = (
-  input: Array<ServerGroupReplicationConfiguration>,
+  input: ServerGroupReplicationConfiguration[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4195,7 +4195,7 @@ const serializeAws_json1_1ServerGroupReplicationConfigurations = (
 };
 
 const serializeAws_json1_1ServerGroups = (
-  input: Array<ServerGroup>,
+  input: ServerGroup[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4244,7 +4244,7 @@ const serializeAws_json1_1ServerLaunchConfiguration = (
 };
 
 const serializeAws_json1_1ServerLaunchConfigurations = (
-  input: Array<ServerLaunchConfiguration>,
+  input: ServerLaunchConfiguration[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4257,7 +4257,7 @@ const serializeAws_json1_1ServerLaunchConfigurations = (
 };
 
 const serializeAws_json1_1ServerList = (
-  input: Array<Server>,
+  input: Server[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4287,7 +4287,7 @@ const serializeAws_json1_1ServerReplicationConfiguration = (
 };
 
 const serializeAws_json1_1ServerReplicationConfigurations = (
-  input: Array<ServerReplicationConfiguration>,
+  input: ServerReplicationConfiguration[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4376,7 +4376,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1Tags = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4518,7 +4518,7 @@ const serializeAws_json1_1VmServerAddress = (
 };
 
 const serializeAws_json1_1VmServerAddressList = (
-  input: Array<VmServerAddress>,
+  input: VmServerAddress[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4625,7 +4625,7 @@ const deserializeAws_json1_1AppSummary = (
 const deserializeAws_json1_1Apps = (
   output: any,
   context: __SerdeContext
-): Array<AppSummary> => {
+): AppSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AppSummary(entry, context)
   );
@@ -4687,14 +4687,14 @@ const deserializeAws_json1_1Connector = (
 const deserializeAws_json1_1ConnectorCapabilityList = (
   output: any,
   context: __SerdeContext
-): Array<ConnectorCapability | string> => {
+): ConnectorCapability | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1ConnectorList = (
   output: any,
   context: __SerdeContext
-): Array<Connector> => {
+): Connector[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Connector(entry, context)
   );
@@ -5304,7 +5304,7 @@ const deserializeAws_json1_1ReplicationJobAlreadyExistsException = (
 const deserializeAws_json1_1ReplicationJobList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicationJob> => {
+): ReplicationJob[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ReplicationJob(entry, context)
   );
@@ -5406,7 +5406,7 @@ const deserializeAws_json1_1ReplicationRunLimitExceededException = (
 const deserializeAws_json1_1ReplicationRunList = (
   output: any,
   context: __SerdeContext
-): Array<ReplicationRun> => {
+): ReplicationRun[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ReplicationRun(entry, context)
   );
@@ -5557,7 +5557,7 @@ const deserializeAws_json1_1ServerGroupLaunchConfiguration = (
 const deserializeAws_json1_1ServerGroupLaunchConfigurations = (
   output: any,
   context: __SerdeContext
-): Array<ServerGroupLaunchConfiguration> => {
+): ServerGroupLaunchConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ServerGroupLaunchConfiguration(entry, context)
   );
@@ -5590,7 +5590,7 @@ const deserializeAws_json1_1ServerGroupReplicationConfiguration = (
 const deserializeAws_json1_1ServerGroupReplicationConfigurations = (
   output: any,
   context: __SerdeContext
-): Array<ServerGroupReplicationConfiguration> => {
+): ServerGroupReplicationConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ServerGroupReplicationConfiguration(entry, context)
   );
@@ -5599,7 +5599,7 @@ const deserializeAws_json1_1ServerGroupReplicationConfigurations = (
 const deserializeAws_json1_1ServerGroups = (
   output: any,
   context: __SerdeContext
-): Array<ServerGroup> => {
+): ServerGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ServerGroup(entry, context)
   );
@@ -5660,7 +5660,7 @@ const deserializeAws_json1_1ServerLaunchConfiguration = (
 const deserializeAws_json1_1ServerLaunchConfigurations = (
   output: any,
   context: __SerdeContext
-): Array<ServerLaunchConfiguration> => {
+): ServerLaunchConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ServerLaunchConfiguration(entry, context)
   );
@@ -5669,7 +5669,7 @@ const deserializeAws_json1_1ServerLaunchConfigurations = (
 const deserializeAws_json1_1ServerList = (
   output: any,
   context: __SerdeContext
-): Array<Server> => {
+): Server[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Server(entry, context)
   );
@@ -5702,7 +5702,7 @@ const deserializeAws_json1_1ServerReplicationConfiguration = (
 const deserializeAws_json1_1ServerReplicationConfigurations = (
   output: any,
   context: __SerdeContext
-): Array<ServerReplicationConfiguration> => {
+): ServerReplicationConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ServerReplicationConfiguration(entry, context)
   );
@@ -5807,7 +5807,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1Tags = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );

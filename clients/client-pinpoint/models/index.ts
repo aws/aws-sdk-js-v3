@@ -164,7 +164,7 @@ export interface ADMMessage {
   /**
    * <p>The default message variables to use in the notification message. You can override the default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: Array<string> };
+  Substitutions?: { [key: string]: string[] };
 
   /**
    * <p>The title to display above the notification message on the recipient's device.</p>
@@ -376,7 +376,7 @@ export interface APNSMessage {
   /**
    * <p>The default message variables to use in the notification message. You can override these default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: Array<string> };
+  Substitutions?: { [key: string]: string[] };
 
   /**
    * <p>The key that represents your app-specific identifier for grouping notifications. If you provide a Notification Content app extension, you can use this value to group your notifications together.</p>
@@ -829,7 +829,7 @@ export interface ActivitiesResponse {
   /**
    * <p>An array of responses, one for each activity that was performed by the campaign.</p>
    */
-  Item: Array<ActivityResponse> | undefined;
+  Item: ActivityResponse[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
@@ -991,7 +991,7 @@ export interface AddressConfiguration {
   /**
    * <p>A map of the message variables to merge with the variables specified by properties of the DefaultMessage object. The variables specified in this map take precedence over all other variables.</p>
    */
-  Substitutions?: { [key: string]: Array<string> };
+  Substitutions?: { [key: string]: string[] };
 
   /**
    * <p>The message title to use instead of the default message title. This value overrides the default message title.</p>
@@ -1176,7 +1176,7 @@ export interface ApplicationsResponse {
   /**
    * <p>An array of responses, one for each application that was returned.</p>
    */
-  Item?: Array<ApplicationResponse>;
+  Item?: ApplicationResponse[];
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
@@ -1202,7 +1202,7 @@ export interface AttributeDimension {
   /**
    * <p>The criteria values to use for the segment dimension. Depending on the value of the AttributeType property, endpoints are included or excluded from the segment if their attribute values match the criteria values.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace AttributeDimension {
@@ -1233,7 +1233,7 @@ export interface AttributesResource {
   /**
    * <p>An array that specifies the names of the attributes that were removed from the endpoints.</p>
    */
-  Attributes?: Array<string>;
+  Attributes?: string[];
 }
 
 export namespace AttributesResource {
@@ -1415,7 +1415,7 @@ export interface BaiduMessage {
   /**
    * <p>The default message variables to use in the notification message. You can override the default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: Array<string> };
+  Substitutions?: { [key: string]: string[] };
 
   /**
    * <p>The amount of time, in seconds, that the Baidu Cloud Push service should store the message if the recipient's device is offline. The default value and maximum supported time is 604,800 seconds (7 days).</p>
@@ -1445,7 +1445,7 @@ export interface BaseKpiResult {
   /**
    * <p>An array of objects that provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.</p>
    */
-  Rows: Array<ResultRow> | undefined;
+  Rows: ResultRow[] | undefined;
 }
 
 export namespace BaseKpiResult {
@@ -1614,7 +1614,7 @@ export interface CampaignResponse {
   /**
    * <p>An array of responses, one for each treatment that you defined for the campaign, in addition to the default treatment.</p>
    */
-  AdditionalTreatments?: Array<TreatmentResource>;
+  AdditionalTreatments?: TreatmentResource[];
 
   /**
    * <p>The unique identifier for the application that the campaign applies to.</p>
@@ -1790,7 +1790,7 @@ export interface CampaignsResponse {
   /**
    * <p>An array of responses, one for each campaign that's associated with the application.</p>
    */
-  Item: Array<CampaignResponse> | undefined;
+  Item: CampaignResponse[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
@@ -1897,7 +1897,7 @@ export interface Condition {
   /**
    * <p>The conditions to evaluate for the activity.</p>
    */
-  Conditions?: Array<SimpleCondition>;
+  Conditions?: SimpleCondition[];
 
   /**
    * <p>Specifies how to handle multiple conditions for the activity. For example, if you specify two conditions for an activity, whether both or only one of the conditions must be met for the activity to be performed.</p>
@@ -2305,7 +2305,7 @@ export interface DefaultMessage {
   /**
    * <p>The default message variables to use in the message. You can override these default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: Array<string> };
+  Substitutions?: { [key: string]: string[] };
 }
 
 export namespace DefaultMessage {
@@ -2341,7 +2341,7 @@ export interface DefaultPushNotificationMessage {
   /**
    * <p>The default message variables to use in the notification message. You can override the default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: Array<string> };
+  Substitutions?: { [key: string]: string[] };
 
   /**
    * <p>The default title to display above the notification message on a recipient's device.</p>
@@ -3214,7 +3214,7 @@ export interface EmailMessage {
   /**
    * <p>The reply-to email address(es) for the email message. If a recipient replies to the email, each reply-to address receives the reply.</p>
    */
-  ReplyToAddresses?: Array<string>;
+  ReplyToAddresses?: string[];
 
   /**
    * <p>The email message, composed of a subject, a text part, and an HTML part.</p>
@@ -3224,7 +3224,7 @@ export interface EmailMessage {
   /**
    * <p>The default message variables to use in the email message. You can override the default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: Array<string> };
+  Substitutions?: { [key: string]: string[] };
 }
 
 export namespace EmailMessage {
@@ -3387,7 +3387,7 @@ export interface EndpointBatchItem {
   /**
    * <p>One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["science", "music", "travel"]. You can use these attributes as filter criteria when you create segments.</p> <p>When you define the name of a custom attribute, avoid using the following characters: number sign (#), colon (:), question mark (?), backslash (\), and slash (/). The Amazon Pinpoint console can't display attribute names that contain these characters. This limitation doesn't apply to attribute values.</p>
    */
-  Attributes?: { [key: string]: Array<string> };
+  Attributes?: { [key: string]: string[] };
 
   /**
    * <p>The channel to use when sending messages or push notifications to the endpoint.</p>
@@ -3453,7 +3453,7 @@ export interface EndpointBatchRequest {
   /**
    * <p>An array that defines the endpoints to create or update and, for each endpoint, the property values to set or change. An array can contain a maximum of 100 items.</p>
    */
-  Item: Array<EndpointBatchItem> | undefined;
+  Item: EndpointBatchItem[] | undefined;
 }
 
 export namespace EndpointBatchRequest {
@@ -3628,7 +3628,7 @@ export interface EndpointRequest {
   /**
    * <p>One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["science", "music", "travel"]. You can use these attributes as filter criteria when you create segments.</p> <p>When you define the name of a custom attribute, avoid using the following characters: number sign (#), colon (:), question mark (?), backslash (\), and slash (/). The Amazon Pinpoint console can't display attribute names that contain these characters. This limitation doesn't apply to attribute values.</p>
    */
-  Attributes?: { [key: string]: Array<string> };
+  Attributes?: { [key: string]: string[] };
 
   /**
    * <p>The channel to use when sending messages or push notifications to the endpoint.</p>
@@ -3699,7 +3699,7 @@ export interface EndpointResponse {
   /**
    * <p>One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["science", "music", "travel"]. You can use these attributes as filter criteria when you create segments.</p>
    */
-  Attributes?: { [key: string]: Array<string> };
+  Attributes?: { [key: string]: string[] };
 
   /**
    * <p>The channel that's used when sending messages or push notifications to the endpoint.</p>
@@ -3790,7 +3790,7 @@ export interface EndpointSendConfiguration {
   /**
    * <p>A map of the message variables to merge with the variables specified for the default message (DefaultMessage.Substitutions). The variables specified in this map take precedence over all other variables.</p>
    */
-  Substitutions?: { [key: string]: Array<string> };
+  Substitutions?: { [key: string]: string[] };
 
   /**
    * <p>The title or subject line of the message. If specified, this value overrides the default message title or subject line.</p>
@@ -3811,7 +3811,7 @@ export interface EndpointUser {
   /**
    * <p>One or more custom attributes that describe the user by associating a name with an array of values. For example, the value of an attribute named Interests might be: ["science", "music", "travel"]. You can use these attributes as filter criteria when you create segments.</p> <p>When you define the name of a custom attribute, avoid using the following characters: number sign (#), colon (:), question mark (?), backslash (\), and slash (/). The Amazon Pinpoint console can't display attribute names that contain these characters. This limitation doesn't apply to attribute values.</p>
    */
-  UserAttributes?: { [key: string]: Array<string> };
+  UserAttributes?: { [key: string]: string[] };
 
   /**
    * <p>The unique identifier for the user.</p>
@@ -3831,7 +3831,7 @@ export interface EndpointsResponse {
   /**
    * <p>An array of responses, one for each endpoint that's associated with the user ID.</p>
    */
-  Item: Array<EndpointResponse> | undefined;
+  Item: EndpointResponse[] | undefined;
 }
 
 export namespace EndpointsResponse {
@@ -4160,7 +4160,7 @@ export interface ExportJobResponse {
   /**
    * <p>An array of entries, one for each of the first 100 entries that weren't processed successfully (failed) by the export job, if any.</p>
    */
-  Failures?: Array<string>;
+  Failures?: string[];
 
   /**
    * <p>The unique identifier for the export job.</p>
@@ -4206,7 +4206,7 @@ export interface ExportJobsResponse {
   /**
    * <p>An array of responses, one for each export job that's associated with the application (Export Jobs resource) or segment (Segment Export Jobs resource).</p>
    */
-  Item: Array<ExportJobResponse> | undefined;
+  Item: ExportJobResponse[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
@@ -4420,7 +4420,7 @@ export interface GCMMessage {
   /**
    * <p>The default message variables to use in the notification message. You can override the default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: Array<string> };
+  Substitutions?: { [key: string]: string[] };
 
   /**
    * <p>The amount of time, in seconds, that FCM should store and attempt to deliver the push notification, if the service is unable to deliver the notification the first time. If you don't specify this value, FCM defaults to the maximum value, which is 2,419,200 seconds (28 days).</p> <p>Amazon Pinpoint specifies this value in the FCM time_to_live parameter when it sends the notification message to FCM.</p>
@@ -6057,7 +6057,7 @@ export interface ImportJobResponse {
   /**
    * <p>An array of entries, one for each of the first 100 entries that weren't processed successfully (failed) by the import job, if any.</p>
    */
-  Failures?: Array<string>;
+  Failures?: string[];
 
   /**
    * <p>The unique identifier for the import job.</p>
@@ -6103,7 +6103,7 @@ export interface ImportJobsResponse {
   /**
    * <p>An array of responses, one for each import job that's associated with the application (Import Jobs resource) or segment (Segment Import Jobs resource).</p>
    */
-  Item: Array<ImportJobResponse> | undefined;
+  Item: ImportJobResponse[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
@@ -6478,7 +6478,7 @@ export interface JourneysResponse {
   /**
    * <p>An array of responses, one for each journey that's associated with the application.</p>
    */
-  Item: Array<JourneyResponse> | undefined;
+  Item: JourneyResponse[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
@@ -6962,7 +6962,7 @@ export interface MultiConditionalSplitActivity {
   /**
    * <p>The paths for the activity, including the conditions for entering each path and the activity to perform for each path.</p>
    */
-  Branches?: Array<MultiConditionalBranch>;
+  Branches?: MultiConditionalBranch[];
 
   /**
    * <p>The unique identifier for the activity to perform for participants who don't meet any of the conditions specified for other paths in the activity.</p>
@@ -7149,7 +7149,7 @@ export interface PublicEndpoint {
   /**
    * <p>One or more custom attributes that describe the endpoint by associating a name with an array of values. You can use these attributes as filter criteria when you create segments.</p>
    */
-  Attributes?: { [key: string]: Array<string> };
+  Attributes?: { [key: string]: string[] };
 
   /**
    * <p>The channel that's used when sending messages or push notifications to the endpoint.</p>
@@ -7424,7 +7424,7 @@ export interface RandomSplitActivity {
   /**
    * <p>The paths for the activity, including the percentage of participants to enter each path and the activity to perform for each path.</p>
    */
-  Branches?: Array<RandomSplitEntry>;
+  Branches?: RandomSplitEntry[];
 }
 
 export namespace RandomSplitActivity {
@@ -7538,12 +7538,12 @@ export interface ResultRow {
   /**
    * <p>An array of objects that defines the field and field values that were used to group data in a result set that contains multiple results. This value is null if the data in a result set isn’t grouped.</p>
    */
-  GroupedBys: Array<ResultRowValue> | undefined;
+  GroupedBys: ResultRowValue[] | undefined;
 
   /**
    * <p>An array of objects that provides pre-aggregated values for a standard metric that applies to an application, campaign, or journey.</p>
    */
-  Values: Array<ResultRowValue> | undefined;
+  Values: ResultRowValue[] | undefined;
 }
 
 export namespace ResultRow {
@@ -7716,7 +7716,7 @@ export interface SMSMessage {
   /**
    * <p>The message variables to use in the SMS message. You can override the default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: Array<string> };
+  Substitutions?: { [key: string]: string[] };
 }
 
 export namespace SMSMessage {
@@ -7985,12 +7985,12 @@ export interface SegmentGroup {
   /**
    * <p>An array that defines the dimensions for the segment.</p>
    */
-  Dimensions?: Array<SegmentDimensions>;
+  Dimensions?: SegmentDimensions[];
 
   /**
    * <p>The base segment to build the segment on. A base segment, also referred to as a <i>source segment</i>, defines the initial population of endpoints for a segment. When you add dimensions to a segment, Amazon Pinpoint filters the base segment by using the dimensions that you specify.</p> <p>You can specify more than one dimensional segment or only one imported segment. If you specify an imported segment, the Amazon Pinpoint console displays a segment size estimate that indicates the size of the imported segment without any filters applied to it.</p>
    */
-  SourceSegments?: Array<SegmentReference>;
+  SourceSegments?: SegmentReference[];
 
   /**
    * <p>Specifies how to handle multiple base segments for the segment. For example, if you specify three base segments for the segment, whether the resulting segment is based on all, any, or none of the base segments.</p>
@@ -8015,7 +8015,7 @@ export interface SegmentGroupList {
   /**
    * <p>An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.</p>
    */
-  Groups?: Array<SegmentGroup>;
+  Groups?: SegmentGroup[];
 
   /**
    * <p>Specifies how to handle multiple segment groups for the segment. For example, if the segment includes three segment groups, whether the resulting segment includes endpoints that match all, any, or none of the segment groups.</p>
@@ -8195,7 +8195,7 @@ export interface SegmentsResponse {
   /**
    * <p>An array of responses, one for each segment that's associated with the application (Segments resource) or each version of a segment that's associated with the application (Segment Versions resource).</p>
    */
-  Item: Array<SegmentResponse> | undefined;
+  Item: SegmentResponse[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
@@ -8375,7 +8375,7 @@ export interface SetDimension {
   /**
    * <p>The criteria values to use for the segment dimension. Depending on the value of the DimensionType property, endpoints are included or excluded from the segment if their values match the criteria values.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace SetDimension {
@@ -8706,7 +8706,7 @@ export interface TemplateVersionsResponse {
   /**
    * <p>An array of responses, one for each version of the message template.</p>
    */
-  Item: Array<TemplateVersionResponse> | undefined;
+  Item: TemplateVersionResponse[] | undefined;
 
   /**
    * <p>The message that's returned from the API for the request to retrieve information about all the versions of the message template.</p>
@@ -8737,7 +8737,7 @@ export interface TemplatesResponse {
   /**
    * <p>An array of responses, one for each message template that's associated with your Amazon Pinpoint account and meets any filter criteria that you specified in the request.</p>
    */
-  Item: Array<TemplateResponse> | undefined;
+  Item: TemplateResponse[] | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
@@ -8841,7 +8841,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The key of the tag to remove from the resource. To remove multiple tags, append the tagKeys parameter and argument for each additional tag to remove, separated by an ampersand (&amp;).</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -9043,7 +9043,7 @@ export interface UpdateAttributesRequest {
   /**
    * <p>An array of the attributes to remove from all the endpoints that are associated with the application. The array can specify the complete, exact name of each attribute to remove or it can specify a glob pattern that an attribute name must match in order for the attribute to be removed.</p>
    */
-  Blacklist?: Array<string>;
+  Blacklist?: string[];
 }
 
 export namespace UpdateAttributesRequest {
@@ -9717,7 +9717,7 @@ export interface VoiceMessage {
   /**
    * <p>The default message variables to use in the voice message. You can override the default variables with individual address variables.</p>
    */
-  Substitutions?: { [key: string]: Array<string> };
+  Substitutions?: { [key: string]: string[] };
 
   /**
    * <p>The name of the voice to use when delivering the message. For a list of supported voices, see the <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly Developer Guide</a>.</p>
@@ -9920,7 +9920,7 @@ export interface WriteCampaignRequest {
   /**
    * <p>An array of requests that defines additional treatments for the campaign, in addition to the default treatment for the campaign.</p>
    */
-  AdditionalTreatments?: Array<WriteTreatmentResource>;
+  AdditionalTreatments?: WriteTreatmentResource[];
 
   /**
    * <p>A custom description of the campaign.</p>

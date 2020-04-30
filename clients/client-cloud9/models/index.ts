@@ -226,7 +226,7 @@ export interface DescribeEnvironmentMembershipsRequest {
    *          </ul>
    *          <p>If no value is specified, information about all environment members are returned.</p>
    */
-  permissions?: Array<Permissions | string>;
+  permissions?: Permissions | string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.</p>
@@ -244,7 +244,7 @@ export interface DescribeEnvironmentMembershipsResult {
   /**
    * <p>Information about the environment members for the environment.</p>
    */
-  memberships?: Array<EnvironmentMember>;
+  memberships?: EnvironmentMember[];
 
   /**
    * <p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>
@@ -323,7 +323,7 @@ export interface DescribeEnvironmentsRequest {
   /**
    * <p>The IDs of individual environments to get information about.</p>
    */
-  environmentIds: Array<string> | undefined;
+  environmentIds: string[] | undefined;
 }
 
 export namespace DescribeEnvironmentsRequest {
@@ -336,7 +336,7 @@ export interface DescribeEnvironmentsResult {
   /**
    * <p>Information about the environments that are returned.</p>
    */
-  environments?: Array<Environment>;
+  environments?: Environment[];
 }
 
 export namespace DescribeEnvironmentsResult {
@@ -595,7 +595,7 @@ export interface ListEnvironmentsResult {
   /**
    * <p>The list of environment identifiers.</p>
    */
-  environmentIds?: Array<string>;
+  environmentIds?: string[];
 
   /**
    * <p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>

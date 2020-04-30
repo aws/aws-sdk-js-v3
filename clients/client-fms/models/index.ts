@@ -521,7 +521,7 @@ export interface ListComplianceStatusResponse {
   /**
    * <p>An array of <code>PolicyComplianceStatus</code> objects.</p>
    */
-  PolicyComplianceStatusList?: Array<PolicyComplianceStatus>;
+  PolicyComplianceStatusList?: PolicyComplianceStatus[];
 }
 
 export namespace ListComplianceStatusResponse {
@@ -560,7 +560,7 @@ export interface ListMemberAccountsResponse {
   /**
    * <p>An array of account IDs.</p>
    */
-  MemberAccounts?: Array<string>;
+  MemberAccounts?: string[];
 
   /**
    * <p>If you have more member account IDs than the number that you specified for
@@ -619,7 +619,7 @@ export interface ListPoliciesResponse {
   /**
    * <p>An array of <code>PolicySummary</code> objects.</p>
    */
-  PolicyList?: Array<PolicySummary>;
+  PolicyList?: PolicySummary[];
 }
 
 export namespace ListPoliciesResponse {
@@ -645,7 +645,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with the resource.</p>
    */
-  TagList?: Array<Tag>;
+  TagList?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -666,7 +666,7 @@ export interface Policy {
    *          <p>The key to the map is <code>ACCOUNT</code>. For example, a valid <code>ExcludeMap</code>
    *       would be <code>{“ACCOUNT” : [“accountID1”, “accountID2”]}</code>.</p>
    */
-  ExcludeMap?: { [key: string]: Array<string> };
+  ExcludeMap?: { [key: string]: string[] };
 
   /**
    * <p>If set to <code>True</code>, resources with the tags that are specified in the
@@ -684,7 +684,7 @@ export interface Policy {
    *          <p>The key to the map is <code>ACCOUNT</code>. For example, a valid <code>IncludeMap</code>
    *       would be <code>{“ACCOUNT” : [“accountID1”, “accountID2”]}</code>.</p>
    */
-  IncludeMap?: { [key: string]: Array<string> };
+  IncludeMap?: { [key: string]: string[] };
 
   /**
    * <p>The ID of the AWS Firewall Manager policy.</p>
@@ -713,7 +713,7 @@ export interface Policy {
   /**
    * <p>An array of <code>ResourceTag</code> objects.</p>
    */
-  ResourceTags?: Array<ResourceTag>;
+  ResourceTags?: ResourceTag[];
 
   /**
    * <p>The type of resource protected by or in scope of the policy. This is in the format shown
@@ -730,7 +730,7 @@ export interface Policy {
   /**
    * <p>An array of <code>ResourceType</code>.</p>
    */
-  ResourceTypeList?: Array<string>;
+  ResourceTypeList?: string[];
 
   /**
    * <p>Details about the security service that is being used to protect the resources.</p>
@@ -788,7 +788,7 @@ export interface PolicyComplianceDetail {
    * <p>An array of resources that aren't protected by the AWS WAF or Shield Advanced policy or
    *       that aren't in compliance with the security group policy.</p>
    */
-  Violators?: Array<ComplianceViolator>;
+  Violators?: ComplianceViolator[];
 }
 
 export namespace PolicyComplianceDetail {
@@ -807,7 +807,7 @@ export interface PolicyComplianceStatus {
   /**
    * <p>An array of <code>EvaluationResult</code> objects.</p>
    */
-  EvaluationResults?: Array<EvaluationResult>;
+  EvaluationResults?: EvaluationResult[];
 
   /**
    * <p>Details about problems with dependent services, such as AWS WAF or AWS Config, that are
@@ -931,7 +931,7 @@ export interface PutPolicyRequest {
   /**
    * <p>The tags to add to the AWS resource.</p>
    */
-  TagList?: Array<Tag>;
+  TagList?: Tag[];
 }
 
 export namespace PutPolicyRequest {
@@ -1104,7 +1104,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to add to the resource.</p>
    */
-  TagList: Array<Tag> | undefined;
+  TagList: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1131,7 +1131,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The keys of the tags to remove from the resource. </p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

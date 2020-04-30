@@ -5185,7 +5185,7 @@ const serializeAws_json1_1ListUsersRequest = (
 };
 
 const serializeAws_json1_1PermissionValues = (
-  input: Array<PermissionType | string>,
+  input: PermissionType | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5312,7 +5312,7 @@ const serializeAws_json1_1UpdateResourceRequest = (
 const deserializeAws_json1_1Aliases = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5823,7 +5823,7 @@ const deserializeAws_json1_1Group = (
 const deserializeAws_json1_1Groups = (
   output: any,
   context: __SerdeContext
-): Array<Group> => {
+): Group[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Group(entry, context)
   );
@@ -6095,7 +6095,7 @@ const deserializeAws_json1_1Member = (
 const deserializeAws_json1_1Members = (
   output: any,
   context: __SerdeContext
-): Array<Member> => {
+): Member[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Member(entry, context)
   );
@@ -6146,7 +6146,7 @@ const deserializeAws_json1_1OrganizationStateException = (
 const deserializeAws_json1_1OrganizationSummaries = (
   output: any,
   context: __SerdeContext
-): Array<OrganizationSummary> => {
+): OrganizationSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OrganizationSummary(entry, context)
   );
@@ -6209,14 +6209,14 @@ const deserializeAws_json1_1Permission = (
 const deserializeAws_json1_1PermissionValues = (
   output: any,
   context: __SerdeContext
-): Array<PermissionType | string> => {
+): PermissionType | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1Permissions = (
   output: any,
   context: __SerdeContext
-): Array<Permission> => {
+): Permission[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Permission(entry, context)
   );
@@ -6307,7 +6307,7 @@ const deserializeAws_json1_1Resource = (
 const deserializeAws_json1_1ResourceDelegates = (
   output: any,
   context: __SerdeContext
-): Array<Delegate> => {
+): Delegate[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Delegate(entry, context)
   );
@@ -6316,7 +6316,7 @@ const deserializeAws_json1_1ResourceDelegates = (
 const deserializeAws_json1_1Resources = (
   output: any,
   context: __SerdeContext
-): Array<Resource> => {
+): Resource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Resource(entry, context)
   );
@@ -6411,7 +6411,7 @@ const deserializeAws_json1_1User = (
 const deserializeAws_json1_1Users = (
   output: any,
   context: __SerdeContext
-): Array<User> => {
+): User[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1User(entry, context)
   );

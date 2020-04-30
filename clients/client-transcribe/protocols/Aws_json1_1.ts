@@ -1872,7 +1872,7 @@ const serializeAws_json1_1Media = (
 };
 
 const serializeAws_json1_1Phrases = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1995,7 +1995,7 @@ const serializeAws_json1_1UpdateVocabularyRequest = (
 };
 
 const serializeAws_json1_1Words = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2533,7 +2533,7 @@ const deserializeAws_json1_1TranscriptionJob = (
 const deserializeAws_json1_1TranscriptionJobSummaries = (
   output: any,
   context: __SerdeContext
-): Array<TranscriptionJobSummary> => {
+): TranscriptionJobSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TranscriptionJobSummary(entry, context)
   );
@@ -2656,7 +2656,7 @@ const deserializeAws_json1_1UpdateVocabularyResponse = (
 const deserializeAws_json1_1Vocabularies = (
   output: any,
   context: __SerdeContext
-): Array<VocabularyInfo> => {
+): VocabularyInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1VocabularyInfo(entry, context)
   );
@@ -2695,7 +2695,7 @@ const deserializeAws_json1_1VocabularyFilterInfo = (
 const deserializeAws_json1_1VocabularyFilters = (
   output: any,
   context: __SerdeContext
-): Array<VocabularyFilterInfo> => {
+): VocabularyFilterInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1VocabularyFilterInfo(entry, context)
   );

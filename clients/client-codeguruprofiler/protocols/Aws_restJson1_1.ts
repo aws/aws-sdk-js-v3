@@ -1546,7 +1546,7 @@ const deserializeAws_restJson1_1ProfilingGroupDescription = (
 const deserializeAws_restJson1_1ProfilingGroupDescriptions = (
   output: any,
   context: __SerdeContext
-): Array<ProfilingGroupDescription> => {
+): ProfilingGroupDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ProfilingGroupDescription(entry, context)
   );
@@ -1555,7 +1555,7 @@ const deserializeAws_restJson1_1ProfilingGroupDescriptions = (
 const deserializeAws_restJson1_1ProfilingGroupNames = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1614,7 +1614,7 @@ const deserializeAws_restJson1_1ProfileTime = (
 const deserializeAws_restJson1_1ProfileTimes = (
   output: any,
   context: __SerdeContext
-): Array<ProfileTime> => {
+): ProfileTime[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ProfileTime(entry, context)
   );

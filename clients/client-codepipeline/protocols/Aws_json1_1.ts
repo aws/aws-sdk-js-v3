@@ -4821,7 +4821,7 @@ const serializeAws_json1_1ActionConfigurationProperty = (
 };
 
 const serializeAws_json1_1ActionConfigurationPropertyList = (
-  input: Array<ActionConfigurationProperty>,
+  input: ActionConfigurationProperty[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5227,7 +5227,7 @@ const serializeAws_json1_1InputArtifact = (
 };
 
 const serializeAws_json1_1InputArtifactList = (
-  input: Array<InputArtifact>,
+  input: InputArtifact[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5345,7 +5345,7 @@ const serializeAws_json1_1OutputArtifact = (
 };
 
 const serializeAws_json1_1OutputArtifactList = (
-  input: Array<OutputArtifact>,
+  input: OutputArtifact[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5391,7 +5391,7 @@ const serializeAws_json1_1PipelineDeclaration = (
 };
 
 const serializeAws_json1_1PipelineStageDeclarationList = (
-  input: Array<StageDeclaration>,
+  input: StageDeclaration[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5637,7 +5637,7 @@ const serializeAws_json1_1RetryStageExecutionInput = (
 };
 
 const serializeAws_json1_1StageActionDeclarationList = (
-  input: Array<ActionDeclaration>,
+  input: ActionDeclaration[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5648,7 +5648,7 @@ const serializeAws_json1_1StageActionDeclarationList = (
 };
 
 const serializeAws_json1_1StageBlockerDeclarationList = (
-  input: Array<BlockerDeclaration>,
+  input: BlockerDeclaration[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5730,7 +5730,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5741,7 +5741,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5859,7 +5859,7 @@ const serializeAws_json1_1WebhookFilterRule = (
 };
 
 const serializeAws_json1_1WebhookFilters = (
-  input: Array<WebhookFilterRule>,
+  input: WebhookFilterRule[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6059,7 +6059,7 @@ const deserializeAws_json1_1ActionConfigurationProperty = (
 const deserializeAws_json1_1ActionConfigurationPropertyList = (
   output: any,
   context: __SerdeContext
-): Array<ActionConfigurationProperty> => {
+): ActionConfigurationProperty[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ActionConfigurationProperty(entry, context)
   );
@@ -6250,7 +6250,7 @@ const deserializeAws_json1_1ActionExecutionDetail = (
 const deserializeAws_json1_1ActionExecutionDetailList = (
   output: any,
   context: __SerdeContext
-): Array<ActionExecutionDetail> => {
+): ActionExecutionDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ActionExecutionDetail(entry, context)
   );
@@ -6449,7 +6449,7 @@ const deserializeAws_json1_1ActionState = (
 const deserializeAws_json1_1ActionStateList = (
   output: any,
   context: __SerdeContext
-): Array<ActionState> => {
+): ActionState[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ActionState(entry, context)
   );
@@ -6509,7 +6509,7 @@ const deserializeAws_json1_1ActionType = (
 const deserializeAws_json1_1ActionTypeList = (
   output: any,
   context: __SerdeContext
-): Array<ActionType> => {
+): ActionType[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ActionType(entry, context)
   );
@@ -6591,7 +6591,7 @@ const deserializeAws_json1_1ArtifactDetail = (
 const deserializeAws_json1_1ArtifactDetailList = (
   output: any,
   context: __SerdeContext
-): Array<ArtifactDetail> => {
+): ArtifactDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ArtifactDetail(entry, context)
   );
@@ -6655,7 +6655,7 @@ const deserializeAws_json1_1ArtifactRevision = (
 const deserializeAws_json1_1ArtifactRevisionList = (
   output: any,
   context: __SerdeContext
-): Array<ArtifactRevision> => {
+): ArtifactRevision[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ArtifactRevision(entry, context)
   );
@@ -6969,7 +6969,7 @@ const deserializeAws_json1_1InputArtifact = (
 const deserializeAws_json1_1InputArtifactList = (
   output: any,
   context: __SerdeContext
-): Array<InputArtifact> => {
+): InputArtifact[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1InputArtifact(entry, context)
   );
@@ -7266,7 +7266,7 @@ const deserializeAws_json1_1JobDetails = (
 const deserializeAws_json1_1JobList = (
   output: any,
   context: __SerdeContext
-): Array<Job> => {
+): Job[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Job(entry, context)
   );
@@ -7487,7 +7487,7 @@ const deserializeAws_json1_1OutputArtifact = (
 const deserializeAws_json1_1OutputArtifactList = (
   output: any,
   context: __SerdeContext
-): Array<OutputArtifact> => {
+): OutputArtifact[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OutputArtifact(entry, context)
   );
@@ -7658,7 +7658,7 @@ const deserializeAws_json1_1PipelineExecutionSummary = (
 const deserializeAws_json1_1PipelineExecutionSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<PipelineExecutionSummary> => {
+): PipelineExecutionSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PipelineExecutionSummary(entry, context)
   );
@@ -7667,7 +7667,7 @@ const deserializeAws_json1_1PipelineExecutionSummaryList = (
 const deserializeAws_json1_1PipelineList = (
   output: any,
   context: __SerdeContext
-): Array<PipelineSummary> => {
+): PipelineSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PipelineSummary(entry, context)
   );
@@ -7726,7 +7726,7 @@ const deserializeAws_json1_1PipelineNotFoundException = (
 const deserializeAws_json1_1PipelineStageDeclarationList = (
   output: any,
   context: __SerdeContext
-): Array<StageDeclaration> => {
+): StageDeclaration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1StageDeclaration(entry, context)
   );
@@ -7940,7 +7940,7 @@ const deserializeAws_json1_1SourceRevision = (
 const deserializeAws_json1_1SourceRevisionList = (
   output: any,
   context: __SerdeContext
-): Array<SourceRevision> => {
+): SourceRevision[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SourceRevision(entry, context)
   );
@@ -7949,7 +7949,7 @@ const deserializeAws_json1_1SourceRevisionList = (
 const deserializeAws_json1_1StageActionDeclarationList = (
   output: any,
   context: __SerdeContext
-): Array<ActionDeclaration> => {
+): ActionDeclaration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ActionDeclaration(entry, context)
   );
@@ -7958,7 +7958,7 @@ const deserializeAws_json1_1StageActionDeclarationList = (
 const deserializeAws_json1_1StageBlockerDeclarationList = (
   output: any,
   context: __SerdeContext
-): Array<BlockerDeclaration> => {
+): BlockerDeclaration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BlockerDeclaration(entry, context)
   );
@@ -8082,7 +8082,7 @@ const deserializeAws_json1_1StageState = (
 const deserializeAws_json1_1StageStateList = (
   output: any,
   context: __SerdeContext
-): Array<StageState> => {
+): StageState[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1StageState(entry, context)
   );
@@ -8157,7 +8157,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -8291,7 +8291,7 @@ const deserializeAws_json1_1ThirdPartyJobDetails = (
 const deserializeAws_json1_1ThirdPartyJobList = (
   output: any,
   context: __SerdeContext
-): Array<ThirdPartyJob> => {
+): ThirdPartyJob[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ThirdPartyJob(entry, context)
   );
@@ -8446,7 +8446,7 @@ const deserializeAws_json1_1WebhookFilterRule = (
 const deserializeAws_json1_1WebhookFilters = (
   output: any,
   context: __SerdeContext
-): Array<WebhookFilterRule> => {
+): WebhookFilterRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WebhookFilterRule(entry, context)
   );
@@ -8455,7 +8455,7 @@ const deserializeAws_json1_1WebhookFilters = (
 const deserializeAws_json1_1WebhookList = (
   output: any,
   context: __SerdeContext
-): Array<ListWebhookItem> => {
+): ListWebhookItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ListWebhookItem(entry, context)
   );
@@ -8610,7 +8610,7 @@ const deserializeAws_json1_1Artifact = (
 const deserializeAws_json1_1ArtifactList = (
   output: any,
   context: __SerdeContext
-): Array<Artifact> => {
+): Artifact[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Artifact(entry, context)
   );

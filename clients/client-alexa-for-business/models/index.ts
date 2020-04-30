@@ -66,7 +66,7 @@ export interface Filter {
   /**
    * <p>The values of a filter.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace Filter {
@@ -338,17 +338,17 @@ export interface Content {
   /**
    * <p>The list of audio messages.</p>
    */
-  AudioList?: Array<Audio>;
+  AudioList?: Audio[];
 
   /**
    * <p>The list of SSML messages.</p>
    */
-  SsmlList?: Array<Ssml>;
+  SsmlList?: Ssml[];
 
   /**
    * <p>The list of text messages.</p>
    */
-  TextList?: Array<Text>;
+  TextList?: Text[];
 }
 
 export namespace Content {
@@ -374,7 +374,7 @@ export interface SendAnnouncementRequest {
   /**
    * <p>The filters to use to send an announcement to a specified list of rooms. The supported filter keys are RoomName, ProfileName, RoomArn, and ProfileArn. To send to all rooms, specify an empty RoomFilters list.</p>
    */
-  RoomFilters: Array<Filter> | undefined;
+  RoomFilters: Filter[] | undefined;
 
   /**
    * <p>The time to live for an announcement. Default is 300. If delivery doesn't occur within this time, the
@@ -946,12 +946,12 @@ export interface Contact {
   /**
    * <p>The list of phone numbers for the contact.</p>
    */
-  PhoneNumbers?: Array<PhoneNumber>;
+  PhoneNumbers?: PhoneNumber[];
 
   /**
    * <p>The list of SIP addresses for the contact.</p>
    */
-  SipAddresses?: Array<SipAddress>;
+  SipAddresses?: SipAddress[];
 }
 
 export namespace Contact {
@@ -993,12 +993,12 @@ export interface ContactData {
   /**
    * <p>The list of phone numbers for the contact.</p>
    */
-  PhoneNumbers?: Array<PhoneNumber>;
+  PhoneNumbers?: PhoneNumber[];
 
   /**
    * <p>The list of SIP addresses for the contact.</p>
    */
-  SipAddresses?: Array<SipAddress>;
+  SipAddresses?: SipAddress[];
 }
 
 export namespace ContactData {
@@ -1187,12 +1187,12 @@ export interface CreateContactRequest {
   /**
    * <p>The list of phone numbers for the contact.</p>
    */
-  PhoneNumbers?: Array<PhoneNumber>;
+  PhoneNumbers?: PhoneNumber[];
 
   /**
    * <p>The list of SIP addresses for the contact.</p>
    */
-  SipAddresses?: Array<SipAddress>;
+  SipAddresses?: SipAddress[];
 }
 
 export namespace CreateContactRequest {
@@ -1228,7 +1228,7 @@ export interface CreateEndOfMeetingReminder {
   /**
    * <p> A range of 3 to 15 minutes that determines when the reminder begins.</p>
    */
-  ReminderAtMinutes: Array<number> | undefined;
+  ReminderAtMinutes: number[] | undefined;
 
   /**
    * <p>The type of sound that users hear during the end of meeting reminder. </p>
@@ -1390,7 +1390,7 @@ export interface CreateNetworkProfileRequest {
    * <p>The root certificates of your authentication server that is installed on your devices
    *          and used to trust your authentication server during EAP negotiation. </p>
    */
-  TrustAnchors?: Array<string>;
+  TrustAnchors?: string[];
 }
 
 export namespace CreateNetworkProfileRequest {
@@ -1544,7 +1544,7 @@ export interface CreateRoomRequest {
   /**
    * <p>The tags for the room.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateRoomRequest {
@@ -1628,7 +1628,7 @@ export interface CreateUserRequest {
   /**
    * <p>The tags for the user.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The ARN for the user.</p>
@@ -2247,7 +2247,7 @@ export interface DeviceStatusInfo {
   /**
    * <p>One or more device status detail descriptions.</p>
    */
-  DeviceStatusDetails?: Array<DeviceStatusDetail>;
+  DeviceStatusDetails?: DeviceStatusDetail[];
 }
 
 export namespace DeviceStatusInfo {
@@ -2412,7 +2412,7 @@ export interface EndOfMeetingReminder {
   /**
    * <p>A range of 3 to 15 minutes that determines when the reminder begins.</p>
    */
-  ReminderAtMinutes?: Array<number>;
+  ReminderAtMinutes?: number[];
 
   /**
    * <p>The type of sound that users hear during the end of meeting reminder. </p>
@@ -2801,7 +2801,7 @@ export interface GetInvitationConfigurationResponse {
    * <p>The list of private skill IDs that you want to recommend to the user to enable in the
    *          invitation.</p>
    */
-  PrivateSkillIds?: Array<string>;
+  PrivateSkillIds?: string[];
 }
 
 export namespace GetInvitationConfigurationResponse {
@@ -3077,7 +3077,7 @@ export interface ListBusinessReportSchedulesResponse {
   /**
    * <p>The schedule of the reports.</p>
    */
-  BusinessReportSchedules?: Array<BusinessReportSchedule>;
+  BusinessReportSchedules?: BusinessReportSchedule[];
 
   /**
    * <p>The token used to list the remaining schedules from the previous API call.</p>
@@ -3114,7 +3114,7 @@ export interface ListConferenceProvidersResponse {
   /**
    * <p>The conference providers.</p>
    */
-  ConferenceProviders?: Array<ConferenceProvider>;
+  ConferenceProviders?: ConferenceProvider[];
 
   /**
    * <p>The tokens used for pagination.</p>
@@ -3168,7 +3168,7 @@ export interface ListDeviceEventsResponse {
   /**
    * <p>The device events requested for the device ARN.</p>
    */
-  DeviceEvents?: Array<DeviceEvent>;
+  DeviceEvents?: DeviceEvent[];
 
   /**
    * <p>The token returned to indicate that there is more data available.</p>
@@ -3204,7 +3204,7 @@ export interface ListGatewayGroupsResponse {
   /**
    * <p>The gateway groups in the list.</p>
    */
-  GatewayGroups?: Array<GatewayGroupSummary>;
+  GatewayGroups?: GatewayGroupSummary[];
 
   /**
    * <p>The token used to paginate though multiple pages of gateway group summaries.</p>
@@ -3245,7 +3245,7 @@ export interface ListGatewaysResponse {
   /**
    * <p>The gateways in the list.</p>
    */
-  Gateways?: Array<GatewaySummary>;
+  Gateways?: GatewaySummary[];
 
   /**
    * <p>The token used to paginate though multiple pages of gateway summaries.</p>
@@ -3305,7 +3305,7 @@ export interface ListSkillsResponse {
   /**
    * <p>The list of enabled skills requested. Required.</p>
    */
-  SkillSummaries?: Array<SkillSummary>;
+  SkillSummaries?: SkillSummary[];
 }
 
 export namespace ListSkillsResponse {
@@ -3336,7 +3336,7 @@ export interface ListSkillsStoreCategoriesResponse {
   /**
    * <p>The list of categories.</p>
    */
-  CategoryList?: Array<Category>;
+  CategoryList?: Category[];
 
   /**
    * <p>The tokens used for pagination.</p>
@@ -3383,7 +3383,7 @@ export interface ListSkillsStoreSkillsByCategoryResponse {
   /**
    * <p>The skill store skills.</p>
    */
-  SkillsStoreSkills?: Array<SkillsStoreSkill>;
+  SkillsStoreSkills?: SkillsStoreSkill[];
 }
 
 export namespace ListSkillsStoreSkillsByCategoryResponse {
@@ -3424,7 +3424,7 @@ export interface ListSmartHomeAppliancesResponse {
   /**
    * <p>The smart home appliances.</p>
    */
-  SmartHomeAppliances?: Array<SmartHomeAppliance>;
+  SmartHomeAppliances?: SmartHomeAppliance[];
 }
 
 export namespace ListSmartHomeAppliancesResponse {
@@ -3469,7 +3469,7 @@ export interface ListTagsResponse {
   /**
    * <p>The tags requested for the specified resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsResponse {
@@ -3576,7 +3576,7 @@ export interface NetworkProfile {
    * <p>The root certificates of your authentication server, which is installed on your devices
    *          and used to trust your authentication server during EAP negotiation.</p>
    */
-  TrustAnchors?: Array<string>;
+  TrustAnchors?: string[];
 }
 
 export namespace NetworkProfile {
@@ -3843,7 +3843,7 @@ export interface PutInvitationConfigurationRequest {
    * <p>The list of private skill IDs that you want to recommend to the user to enable in the
    *          invitation.</p>
    */
-  PrivateSkillIds?: Array<string>;
+  PrivateSkillIds?: string[];
 }
 
 export namespace PutInvitationConfigurationRequest {
@@ -4052,7 +4052,7 @@ export interface ResolveRoomResponse {
   /**
    * <p>Response to get the room profile request. Required.</p>
    */
-  RoomSkillParameters?: Array<RoomSkillParameter>;
+  RoomSkillParameters?: RoomSkillParameter[];
 }
 
 export namespace ResolveRoomResponse {
@@ -4206,7 +4206,7 @@ export interface SearchAddressBooksRequest {
    * <p>The filters to use to list a specified set of address books. The supported filter key
    *          is AddressBookName.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to include in the response. If more results exist than
@@ -4226,7 +4226,7 @@ export interface SearchAddressBooksRequest {
    * <p>The sort order to use in listing the specified set of address books. The supported
    *          sort key is AddressBookName.</p>
    */
-  SortCriteria?: Array<Sort>;
+  SortCriteria?: Sort[];
 }
 
 export namespace SearchAddressBooksRequest {
@@ -4240,7 +4240,7 @@ export interface SearchAddressBooksResponse {
    * <p>The address books that meet the specified set of filter criteria, in sort
    *          order.</p>
    */
-  AddressBooks?: Array<AddressBookData>;
+  AddressBooks?: AddressBookData[];
 
   /**
    * <p>The token returned to indicate that there is more data available.</p>
@@ -4264,7 +4264,7 @@ export interface SearchContactsRequest {
    * <p>The filters to use to list a specified set of address books. The supported filter
    *          keys are DisplayName, FirstName, LastName, and AddressBookArns.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to include in the response. If more results exist than
@@ -4284,7 +4284,7 @@ export interface SearchContactsRequest {
    * <p>The sort order to use in listing the specified set of contacts. The supported sort
    *          keys are DisplayName, FirstName, and LastName.</p>
    */
-  SortCriteria?: Array<Sort>;
+  SortCriteria?: Sort[];
 }
 
 export namespace SearchContactsRequest {
@@ -4297,7 +4297,7 @@ export interface SearchContactsResponse {
   /**
    * <p>The contacts that meet the specified set of filter criteria, in sort order.</p>
    */
-  Contacts?: Array<ContactData>;
+  Contacts?: ContactData[];
 
   /**
    * <p>The token returned to indicate that there is more data available.</p>
@@ -4323,7 +4323,7 @@ export interface SearchDevicesRequest {
    *          UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE), NetworkProfileName,
    *          NetworkProfileArn, Feature, and FailureCode.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to include in the response. If more results exist than
@@ -4344,7 +4344,7 @@ export interface SearchDevicesRequest {
    *          are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, ConnectionStatus,
    *          NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.</p>
    */
-  SortCriteria?: Array<Sort>;
+  SortCriteria?: Sort[];
 }
 
 export namespace SearchDevicesRequest {
@@ -4357,7 +4357,7 @@ export interface SearchDevicesResponse {
   /**
    * <p>The devices that meet the specified set of filter criteria, in sort order.</p>
    */
-  Devices?: Array<DeviceData>;
+  Devices?: DeviceData[];
 
   /**
    * <p>The token returned to indicate that there is more data available.</p>
@@ -4381,7 +4381,7 @@ export interface SearchNetworkProfilesRequest {
    * <p>The filters to use to list a specified set of network profiles. Valid filters are
    *          NetworkProfileName, Ssid, and SecurityType.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to include in the response. If more results exist than the
@@ -4401,7 +4401,7 @@ export interface SearchNetworkProfilesRequest {
    * <p>The sort order to use to list the specified set of network profiles. Valid sort criteria
    *          includes NetworkProfileName, Ssid, and SecurityType.</p>
    */
-  SortCriteria?: Array<Sort>;
+  SortCriteria?: Sort[];
 }
 
 export namespace SearchNetworkProfilesRequest {
@@ -4415,7 +4415,7 @@ export interface SearchNetworkProfilesResponse {
    * <p>The network profiles that meet the specified set of filter criteria, in sort order. It
    *          is a list of NetworkProfileData objects. </p>
    */
-  NetworkProfiles?: Array<NetworkProfileData>;
+  NetworkProfiles?: NetworkProfileData[];
 
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
@@ -4441,7 +4441,7 @@ export interface SearchProfilesRequest {
    * <p>The filters to use to list a specified set of room profiles. Supported filter keys
    *          are ProfileName and Address. Required. </p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to include in the response. If more results exist than
@@ -4461,7 +4461,7 @@ export interface SearchProfilesRequest {
    * <p>The sort order to use in listing the specified set of room profiles. Supported sort
    *          keys are ProfileName and Address.</p>
    */
-  SortCriteria?: Array<Sort>;
+  SortCriteria?: Sort[];
 }
 
 export namespace SearchProfilesRequest {
@@ -4479,7 +4479,7 @@ export interface SearchProfilesResponse {
   /**
    * <p>The profiles that meet the specified set of filter criteria, in sort order.</p>
    */
-  Profiles?: Array<ProfileData>;
+  Profiles?: ProfileData[];
 
   /**
    * <p>The total number of room profiles returned.</p>
@@ -4498,7 +4498,7 @@ export interface SearchRoomsRequest {
    * <p>The filters to use to list a specified set of rooms. The supported filter keys are
    *          RoomName and ProfileName.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to include in the response. If more results exist than
@@ -4518,7 +4518,7 @@ export interface SearchRoomsRequest {
    * <p>The sort order to use in listing the specified set of rooms. The supported sort keys
    *          are RoomName and ProfileName.</p>
    */
-  SortCriteria?: Array<Sort>;
+  SortCriteria?: Sort[];
 }
 
 export namespace SearchRoomsRequest {
@@ -4536,7 +4536,7 @@ export interface SearchRoomsResponse {
   /**
    * <p>The rooms that meet the specified set of filter criteria, in sort order.</p>
    */
-  Rooms?: Array<RoomData>;
+  Rooms?: RoomData[];
 
   /**
    * <p>The total number of rooms returned.</p>
@@ -4555,7 +4555,7 @@ export interface SearchSkillGroupsRequest {
    * <p>The filters to use to list a specified set of skill groups. The supported filter key
    *          is SkillGroupName. </p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to include in the response. If more results exist than
@@ -4576,7 +4576,7 @@ export interface SearchSkillGroupsRequest {
    * <p>The sort order to use in listing the specified set of skill groups. The supported
    *          sort key is SkillGroupName. </p>
    */
-  SortCriteria?: Array<Sort>;
+  SortCriteria?: Sort[];
 }
 
 export namespace SearchSkillGroupsRequest {
@@ -4594,7 +4594,7 @@ export interface SearchSkillGroupsResponse {
   /**
    * <p>The skill groups that meet the filter criteria, in sort order.</p>
    */
-  SkillGroups?: Array<SkillGroupData>;
+  SkillGroups?: SkillGroupData[];
 
   /**
    * <p>The total number of skill groups returned.</p>
@@ -4613,7 +4613,7 @@ export interface SearchUsersRequest {
    * <p>The filters to use for listing a specific set of users. Required. Supported filter
    *          keys are UserId, FirstName, LastName, Email, and EnrollmentStatus.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to include in the response. If more results exist than
@@ -4634,7 +4634,7 @@ export interface SearchUsersRequest {
    * <p>The sort order to use in listing the filtered set of users. Required. Supported sort
    *          keys are UserId, FirstName, LastName, Email, and EnrollmentStatus.</p>
    */
-  SortCriteria?: Array<Sort>;
+  SortCriteria?: Sort[];
 }
 
 export namespace SearchUsersRequest {
@@ -4657,7 +4657,7 @@ export interface SearchUsersResponse {
   /**
    * <p>The users that meet the specified set of filter criteria, in sort order.</p>
    */
-  Users?: Array<UserData>;
+  Users?: UserData[];
 }
 
 export namespace SearchUsersResponse {
@@ -4719,7 +4719,7 @@ export interface SkillDetails {
   /**
    * <p>The details about what the skill supports organized as bullet points.</p>
    */
-  BulletPoints?: Array<string>;
+  BulletPoints?: string[];
 
   /**
    * <p>The details about the developer that published the skill.</p>
@@ -4735,7 +4735,7 @@ export interface SkillDetails {
    * <p>The generic keywords associated with the skill that can be used to find a
    *          skill.</p>
    */
-  GenericKeywords?: Array<string>;
+  GenericKeywords?: string[];
 
   /**
    * <p>The phrase used to trigger the skill.</p>
@@ -4745,7 +4745,7 @@ export interface SkillDetails {
   /**
    * <p>The updates added in bullet points.</p>
    */
-  NewInThisVersionBulletPoints?: Array<string>;
+  NewInThisVersionBulletPoints?: string[];
 
   /**
    * <p>The description of the product.</p>
@@ -4765,7 +4765,7 @@ export interface SkillDetails {
   /**
    * <p>The types of skills.</p>
    */
-  SkillTypes?: Array<string>;
+  SkillTypes?: string[];
 }
 
 export namespace SkillDetails {
@@ -4899,7 +4899,7 @@ export interface SkillsStoreSkill {
   /**
    * <p>Sample utterances that interact with the skill.</p>
    */
-  SampleUtterances?: Array<string>;
+  SampleUtterances?: string[];
 
   /**
    * <p>Short description about the skill.</p>
@@ -4994,7 +4994,7 @@ export interface StartDeviceSyncRequest {
   /**
    * <p>Request structure to start the device sync. Required.</p>
    */
-  Features: Array<Feature | string> | undefined;
+  Features: Feature | string[] | undefined;
 
   /**
    * <p>The ARN of the room with which the device to sync is associated. Required.</p>
@@ -5069,7 +5069,7 @@ export interface TagResourceRequest {
    * <p>The tags to be added to the specified resource. Do not provide system tags. Required.
    *       </p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -5102,7 +5102,7 @@ export interface UntagResourceRequest {
    * <p>The tags to be removed from the specified resource. Do not provide system tags.
    *          Required. </p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -5273,12 +5273,12 @@ export interface UpdateContactRequest {
   /**
    * <p>The list of phone numbers for the contact.</p>
    */
-  PhoneNumbers?: Array<PhoneNumber>;
+  PhoneNumbers?: PhoneNumber[];
 
   /**
    * <p>The list of SIP addresses for the contact.</p>
    */
-  SipAddresses?: Array<SipAddress>;
+  SipAddresses?: SipAddress[];
 }
 
 export namespace UpdateContactRequest {
@@ -5338,7 +5338,7 @@ export interface UpdateEndOfMeetingReminder {
    *          profile. The end of meeting reminder enables Alexa to remind users when a meeting is
    *          ending. </p>
    */
-  ReminderAtMinutes?: Array<number>;
+  ReminderAtMinutes?: number[];
 
   /**
    * <p>The type of sound that users hear during the end of meeting reminder. </p>
@@ -5517,7 +5517,7 @@ export interface UpdateNetworkProfileRequest {
    * <p>The root certificate(s) of your authentication server that will be installed on your
    *          devices and used to trust your authentication server during EAP negotiation. </p>
    */
-  TrustAnchors?: Array<string>;
+  TrustAnchors?: string[];
 }
 
 export namespace UpdateNetworkProfileRequest {

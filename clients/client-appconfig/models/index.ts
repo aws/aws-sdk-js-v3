@@ -31,7 +31,7 @@ export interface Applications {
   /**
    * <p>The elements from this collection.</p>
    */
-  Items?: Array<Application>;
+  Items?: Application[];
 
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -119,7 +119,7 @@ export interface ConfigurationProfile {
   /**
    * <p>A list of methods for validating the configuration.</p>
    */
-  Validators?: Array<Validator>;
+  Validators?: Validator[];
 }
 
 export namespace ConfigurationProfile {
@@ -155,7 +155,7 @@ export interface ConfigurationProfileSummary {
   /**
    * <p>The types of validators in the configuration profile.</p>
    */
-  ValidatorTypes?: Array<ValidatorType | string>;
+  ValidatorTypes?: ValidatorType | string[];
 }
 
 export namespace ConfigurationProfileSummary {
@@ -168,7 +168,7 @@ export interface ConfigurationProfiles {
   /**
    * <p>The elements from this collection.</p>
    */
-  Items?: Array<ConfigurationProfileSummary>;
+  Items?: ConfigurationProfileSummary[];
 
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -260,7 +260,7 @@ export interface CreateConfigurationProfileRequest {
   /**
    * <p>A list of methods for validating the configuration.</p>
    */
-  Validators?: Array<Validator>;
+  Validators?: Validator[];
 }
 
 export namespace CreateConfigurationProfileRequest {
@@ -335,7 +335,7 @@ export interface CreateEnvironmentRequest {
   /**
    * <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
    */
-  Monitors?: Array<Monitor>;
+  Monitors?: Monitor[];
 
   /**
    * <p>A name for the environment.</p>
@@ -525,7 +525,7 @@ export interface DeploymentStrategies {
   /**
    * <p>The elements from this collection.</p>
    */
-  Items?: Array<DeploymentStrategy>;
+  Items?: DeploymentStrategy[];
 
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -662,7 +662,7 @@ export interface Deployments {
   /**
    * <p>The elements from this collection.</p>
    */
-  Items?: Array<DeploymentSummary>;
+  Items?: DeploymentSummary[];
 
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -695,7 +695,7 @@ export interface Environment {
   /**
    * <p>Amazon CloudWatch alarms monitored during the deployment.</p>
    */
-  Monitors?: Array<Monitor>;
+  Monitors?: Monitor[];
 
   /**
    * <p>The name of the environment.</p>
@@ -727,7 +727,7 @@ export interface Environments {
   /**
    * <p>The elements from this collection.</p>
    */
-  Items?: Array<Environment>;
+  Items?: Environment[];
 
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -1162,7 +1162,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The tag keys to delete.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1224,7 +1224,7 @@ export interface UpdateConfigurationProfileRequest {
   /**
    * <p>A list of methods for validating the configuration.</p>
    */
-  Validators?: Array<Validator>;
+  Validators?: Validator[];
 }
 
 export namespace UpdateConfigurationProfileRequest {
@@ -1292,7 +1292,7 @@ export interface UpdateEnvironmentRequest {
   /**
    * <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
    */
-  Monitors?: Array<Monitor>;
+  Monitors?: Monitor[];
 
   /**
    * <p>The name of the environment.</p>

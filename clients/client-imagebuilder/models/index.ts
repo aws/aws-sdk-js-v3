@@ -449,7 +449,7 @@ export interface CreateDistributionConfigurationRequest {
   /**
    * <p> The distributions of the distribution configuration. </p>
    */
-  distributions: Array<Distribution> | undefined;
+  distributions: Distribution[] | undefined;
 
   /**
    * <p> The name of the distribution configuration. </p>
@@ -576,7 +576,7 @@ export interface CreateImageRecipeRequest {
   /**
    * <p> The block device mappings of the image recipe. </p>
    */
-  blockDeviceMappings?: Array<InstanceBlockDeviceMapping>;
+  blockDeviceMappings?: InstanceBlockDeviceMapping[];
 
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
@@ -586,7 +586,7 @@ export interface CreateImageRecipeRequest {
   /**
    * <p> The components of the image recipe. </p>
    */
-  components: Array<ComponentConfiguration> | undefined;
+  components: ComponentConfiguration[] | undefined;
 
   /**
    * <p> The description of the image recipe. </p>
@@ -723,7 +723,7 @@ export interface CreateInfrastructureConfigurationRequest {
   /**
    * <p> The instance types of the infrastructure configuration. You may specify one or more instance types to use for this build, the service will pick one of these instance types based on availability. </p>
    */
-  instanceTypes?: Array<string>;
+  instanceTypes?: string[];
 
   /**
    * <p> The key pair of the infrastructure configuration. This can be used to log onto and debug the instance used to create your image. </p>
@@ -743,7 +743,7 @@ export interface CreateInfrastructureConfigurationRequest {
   /**
    * <p> The security group IDs to associate with the instance used to customize your EC2 AMI. </p>
    */
-  securityGroupIds?: Array<string>;
+  securityGroupIds?: string[];
 
   /**
    * <p> The SNS topic on which to send image build events. </p>
@@ -993,7 +993,7 @@ export interface Distribution {
   /**
    * <p> </p>
    */
-  licenseConfigurationArns?: Array<string>;
+  licenseConfigurationArns?: string[];
 
   /**
    * <p> </p>
@@ -1033,7 +1033,7 @@ export interface DistributionConfiguration {
   /**
    * <p>The distributions of the distribution configuration.</p>
    */
-  distributions?: Array<Distribution>;
+  distributions?: Distribution[];
 
   /**
    * <p>The name of the distribution configuration.</p>
@@ -1164,7 +1164,7 @@ export interface Filter {
   /**
    * <p> </p>
    */
-  values?: Array<string>;
+  values?: string[];
 }
 
 export namespace Filter {
@@ -1664,12 +1664,12 @@ export interface ImageRecipe {
   /**
    * <p>The block device mappings to apply when creating images from this recipe.</p>
    */
-  blockDeviceMappings?: Array<InstanceBlockDeviceMapping>;
+  blockDeviceMappings?: InstanceBlockDeviceMapping[];
 
   /**
    * <p>The components of the image recipe.</p>
    */
-  components?: Array<ComponentConfiguration>;
+  components?: ComponentConfiguration[];
 
   /**
    * <p>The date on which this image recipe was created.</p>
@@ -2036,7 +2036,7 @@ export interface InfrastructureConfiguration {
   /**
    * <p>The instance types of the infrastruction configuration.</p>
    */
-  instanceTypes?: Array<string>;
+  instanceTypes?: string[];
 
   /**
    * <p>The EC2 key pair of the infrastruction configuration.</p>
@@ -2056,7 +2056,7 @@ export interface InfrastructureConfiguration {
   /**
    * <p>The security group IDs of the infrastruction configuration.</p>
    */
-  securityGroupIds?: Array<string>;
+  securityGroupIds?: string[];
 
   /**
    * <p>The SNS Topic Amazon Resource Name (ARN) of the infrastruction configuration.</p>
@@ -2260,12 +2260,12 @@ export interface LaunchPermissionConfiguration {
   /**
    * <p> </p>
    */
-  userGroups?: Array<string>;
+  userGroups?: string[];
 
   /**
    * <p> </p>
    */
-  userIds?: Array<string>;
+  userIds?: string[];
 }
 
 export namespace LaunchPermissionConfiguration {
@@ -2301,7 +2301,7 @@ export interface ListComponentBuildVersionsResponse {
   /**
    * <p> The list of component summaries for the specified semantic version. </p>
    */
-  componentSummaryList?: Array<ComponentSummary>;
+  componentSummaryList?: ComponentSummary[];
 
   /**
    * <p> The next token used for paginated responses. When this is not empty then there are additional elements that the service that not include in this request. Use this token with the next request to retrieve additional object. </p>
@@ -2324,7 +2324,7 @@ export interface ListComponentsRequest {
   /**
    * <p> </p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p> The maximum items to return in a request. </p>
@@ -2352,7 +2352,7 @@ export interface ListComponentsResponse {
   /**
    * <p> The list of component semantic versions. </p>
    */
-  componentVersionList?: Array<ComponentVersion>;
+  componentVersionList?: ComponentVersion[];
 
   /**
    * <p> The next token used for paginated responses. When this is not empty then there are additional elements that the service that not include in this request. Use this token with the next request to retrieve additional object. </p>
@@ -2375,7 +2375,7 @@ export interface ListDistributionConfigurationsRequest {
   /**
    * <p> </p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p> The maximum items to return in a request. </p>
@@ -2398,9 +2398,7 @@ export interface ListDistributionConfigurationsResponse {
   /**
    * <p> The list of distributions. </p>
    */
-  distributionConfigurationSummaryList?: Array<
-    DistributionConfigurationSummary
-  >;
+  distributionConfigurationSummaryList?: DistributionConfigurationSummary[];
 
   /**
    * <p> The next token used for paginated responses. When this is not empty then there are additional elements that the service that not include in this request. Use this token with the next request to retrieve additional object. </p>
@@ -2423,7 +2421,7 @@ export interface ListImageBuildVersionsRequest {
   /**
    * <p> </p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p> The Amazon Resource Name (ARN) of the image whose build versions you wish to retrieve. </p>
@@ -2451,7 +2449,7 @@ export interface ListImageBuildVersionsResponse {
   /**
    * <p> The list of image build versions. </p>
    */
-  imageSummaryList?: Array<ImageSummary>;
+  imageSummaryList?: ImageSummary[];
 
   /**
    * <p> The next token used for paginated responses. When this is not empty then there are additional elements that the service that not include in this request. Use this token with the next request to retrieve additional object. </p>
@@ -2474,7 +2472,7 @@ export interface ListImagePipelineImagesRequest {
   /**
    * <p> </p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p> The Amazon Resource Name (ARN) of the image pipeline whose images you wish to view. </p>
@@ -2502,7 +2500,7 @@ export interface ListImagePipelineImagesResponse {
   /**
    * <p> The list of images built by this pipeline. </p>
    */
-  imageSummaryList?: Array<ImageSummary>;
+  imageSummaryList?: ImageSummary[];
 
   /**
    * <p> The next token used for paginated responses. When this is not empty then there are additional elements that the service that not include in this request. Use this token with the next request to retrieve additional object. </p>
@@ -2525,7 +2523,7 @@ export interface ListImagePipelinesRequest {
   /**
    * <p> </p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p> The maximum items to return in a request. </p>
@@ -2548,7 +2546,7 @@ export interface ListImagePipelinesResponse {
   /**
    * <p> The list of image pipelines. </p>
    */
-  imagePipelineList?: Array<ImagePipeline>;
+  imagePipelineList?: ImagePipeline[];
 
   /**
    * <p> The next token used for paginated responses. When this is not empty then there are additional elements that the service that not include in this request. Use this token with the next request to retrieve additional object. </p>
@@ -2571,7 +2569,7 @@ export interface ListImageRecipesRequest {
   /**
    * <p> </p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p> The maximum items to return in a request. </p>
@@ -2599,7 +2597,7 @@ export interface ListImageRecipesResponse {
   /**
    * <p> The list of image pipelines. </p>
    */
-  imageRecipeSummaryList?: Array<ImageRecipeSummary>;
+  imageRecipeSummaryList?: ImageRecipeSummary[];
 
   /**
    * <p> The next token used for paginated responses. When this is not empty then there are additional elements that the service that not include in this request. Use this token with the next request to retrieve additional object. </p>
@@ -2622,7 +2620,7 @@ export interface ListImagesRequest {
   /**
    * <p> </p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p> The maximum items to return in a request. </p>
@@ -2650,7 +2648,7 @@ export interface ListImagesResponse {
   /**
    * <p> The list of image semantic versions. </p>
    */
-  imageVersionList?: Array<ImageVersion>;
+  imageVersionList?: ImageVersion[];
 
   /**
    * <p> The next token used for paginated responses. When this is not empty then there are additional elements that the service that not include in this request. Use this token with the next request to retrieve additional object. </p>
@@ -2673,7 +2671,7 @@ export interface ListInfrastructureConfigurationsRequest {
   /**
    * <p> </p>
    */
-  filters?: Array<Filter>;
+  filters?: Filter[];
 
   /**
    * <p> The maximum items to return in a request. </p>
@@ -2696,9 +2694,7 @@ export interface ListInfrastructureConfigurationsResponse {
   /**
    * <p> The list of infrastructure configurations. </p>
    */
-  infrastructureConfigurationSummaryList?: Array<
-    InfrastructureConfigurationSummary
-  >;
+  infrastructureConfigurationSummaryList?: InfrastructureConfigurationSummary[];
 
   /**
    * <p> The next token used for paginated responses. When this is not empty then there are additional elements that the service that not include in this request. Use this token with the next request to retrieve additional object.</p>
@@ -2765,7 +2761,7 @@ export interface OutputResources {
   /**
    * <p> The EC2 AMIs created by this image. </p>
    */
-  amis?: Array<Ami>;
+  amis?: Ami[];
 }
 
 export namespace OutputResources {
@@ -3114,7 +3110,7 @@ export interface UntagResourceRequest {
   /**
    * <p> The tag keys to remove from the resource. </p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -3151,7 +3147,7 @@ export interface UpdateDistributionConfigurationRequest {
   /**
    * <p> The distributions of the distribution configuration. </p>
    */
-  distributions?: Array<Distribution>;
+  distributions?: Distribution[];
 }
 
 export namespace UpdateDistributionConfigurationRequest {
@@ -3283,7 +3279,7 @@ export interface UpdateInfrastructureConfigurationRequest {
   /**
    * <p> The instance types of the infrastructure configuration. You may specify one or more instance types to use for this build, the service will pick one of these instance types based on availability. </p>
    */
-  instanceTypes?: Array<string>;
+  instanceTypes?: string[];
 
   /**
    * <p> The key pair of the infrastructure configuration. This can be used to log onto and debug the instance used to create your image. </p>
@@ -3298,7 +3294,7 @@ export interface UpdateInfrastructureConfigurationRequest {
   /**
    * <p> The security group IDs to associate with the instance used to customize your EC2 AMI. </p>
    */
-  securityGroupIds?: Array<string>;
+  securityGroupIds?: string[];
 
   /**
    * <p> The SNS topic on which to send image build events. </p>

@@ -151,7 +151,7 @@ export interface Connector {
   /**
    * <p>The capabilities of the connector.</p>
    */
-  capabilityList?: Array<ConnectorCapability | string>;
+  capabilityList?: ConnectorCapability | string[];
 
   /**
    * <p>The identifier of the connector.</p>
@@ -236,12 +236,12 @@ export interface CreateAppRequest {
   /**
    * <p>List of server groups to include in the application.</p>
    */
-  serverGroups?: Array<ServerGroup>;
+  serverGroups?: ServerGroup[];
 
   /**
    * <p>List of tags to be associated with the application.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateAppRequest {
@@ -259,12 +259,12 @@ export interface CreateAppResponse {
   /**
    * <p>List of server groups included in the application.</p>
    */
-  serverGroups?: Array<ServerGroup>;
+  serverGroups?: ServerGroup[];
 
   /**
    * <p>List of taags associated with the application.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateAppResponse {
@@ -594,7 +594,7 @@ export interface GetAppLaunchConfigurationResponse {
   /**
    * <p>List of launch configurations for server groups in this application.</p>
    */
-  serverGroupLaunchConfigurations?: Array<ServerGroupLaunchConfiguration>;
+  serverGroupLaunchConfigurations?: ServerGroupLaunchConfiguration[];
 }
 
 export namespace GetAppLaunchConfigurationResponse {
@@ -620,9 +620,7 @@ export interface GetAppReplicationConfigurationResponse {
   /**
    * <p>Replication configurations associated with server groups in this application.</p>
    */
-  serverGroupReplicationConfigurations?: Array<
-    ServerGroupReplicationConfiguration
-  >;
+  serverGroupReplicationConfigurations?: ServerGroupReplicationConfiguration[];
 }
 
 export namespace GetAppReplicationConfigurationResponse {
@@ -652,12 +650,12 @@ export interface GetAppResponse {
   /**
    * <p>List of server groups belonging to the application.</p>
    */
-  serverGroups?: Array<ServerGroup>;
+  serverGroups?: ServerGroup[];
 
   /**
    * <p>List of tags associated with the application.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace GetAppResponse {
@@ -690,7 +688,7 @@ export interface GetConnectorsResponse {
   /**
    * <p>Information about the registered connectors.</p>
    */
-  connectorList?: Array<Connector>;
+  connectorList?: Connector[];
 
   /**
    * <p>The token required to retrieve the next set of results. This value is null when
@@ -740,7 +738,7 @@ export interface GetReplicationJobsResponse {
   /**
    * <p>Information about the replication jobs.</p>
    */
-  replicationJobList?: Array<ReplicationJob>;
+  replicationJobList?: ReplicationJob[];
 }
 
 export namespace GetReplicationJobsResponse {
@@ -789,7 +787,7 @@ export interface GetReplicationRunsResponse {
   /**
    * <p>Information about the replication runs.</p>
    */
-  replicationRunList?: Array<ReplicationRun>;
+  replicationRunList?: ReplicationRun[];
 }
 
 export namespace GetReplicationRunsResponse {
@@ -814,7 +812,7 @@ export interface GetServersRequest {
   /**
    * <p>List of <code>VmServerAddress</code> objects</p>
    */
-  vmServerAddressList?: Array<VmServerAddress>;
+  vmServerAddressList?: VmServerAddress[];
 }
 
 export namespace GetServersRequest {
@@ -843,7 +841,7 @@ export interface GetServersResponse {
   /**
    * <p>Information about the servers.</p>
    */
-  serverList?: Array<Server>;
+  serverList?: Server[];
 }
 
 export namespace GetServersResponse {
@@ -955,7 +953,7 @@ export interface ListAppsRequest {
   /**
    * <p></p>
    */
-  appIds?: Array<string>;
+  appIds?: string[];
 
   /**
    * <p>The maximum number of results to return in a single call. The default value is
@@ -981,7 +979,7 @@ export interface ListAppsResponse {
   /**
    * <p>A list of application summaries.</p>
    */
-  apps?: Array<AppSummary>;
+  apps?: AppSummary[];
 
   /**
    * <p>The token required to retrieve the next set of results. This value is null when there
@@ -1064,7 +1062,7 @@ export interface PutAppLaunchConfigurationRequest {
   /**
    * <p>Launch configurations for server groups in the application.</p>
    */
-  serverGroupLaunchConfigurations?: Array<ServerGroupLaunchConfiguration>;
+  serverGroupLaunchConfigurations?: ServerGroupLaunchConfiguration[];
 }
 
 export namespace PutAppLaunchConfigurationRequest {
@@ -1091,9 +1089,7 @@ export interface PutAppReplicationConfigurationRequest {
   /**
    * <p>Replication configurations for server groups in the application.</p>
    */
-  serverGroupReplicationConfigurations?: Array<
-    ServerGroupReplicationConfiguration
-  >;
+  serverGroupReplicationConfigurations?: ServerGroupReplicationConfiguration[];
 }
 
 export namespace PutAppReplicationConfigurationRequest {
@@ -1183,7 +1179,7 @@ export interface ReplicationJob {
   /**
    * <p>Information about the replication runs.</p>
    */
-  replicationRunList?: Array<ReplicationRun>;
+  replicationRunList?: ReplicationRun[];
 
   /**
    * <p>The name of the IAM role to be used by the Server Migration Service.</p>
@@ -1509,7 +1505,7 @@ export interface ServerGroup {
   /**
    * <p>List of servers belonging to a server group.</p>
    */
-  serverList?: Array<Server>;
+  serverList?: Server[];
 }
 
 export namespace ServerGroup {
@@ -1534,7 +1530,7 @@ export interface ServerGroupLaunchConfiguration {
   /**
    * <p>Launch configuration for servers in the server group.</p>
    */
-  serverLaunchConfigurations?: Array<ServerLaunchConfiguration>;
+  serverLaunchConfigurations?: ServerLaunchConfiguration[];
 }
 
 export namespace ServerGroupLaunchConfiguration {
@@ -1556,7 +1552,7 @@ export interface ServerGroupReplicationConfiguration {
   /**
    * <p>Replication configuration for servers in the server group.</p>
    */
-  serverReplicationConfigurations?: Array<ServerReplicationConfiguration>;
+  serverReplicationConfigurations?: ServerReplicationConfiguration[];
 }
 
 export namespace ServerGroupReplicationConfiguration {
@@ -1884,12 +1880,12 @@ export interface UpdateAppRequest {
   /**
    * <p>List of server groups in the application to update.</p>
    */
-  serverGroups?: Array<ServerGroup>;
+  serverGroups?: ServerGroup[];
 
   /**
    * <p>List of tags to associate with the application.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace UpdateAppRequest {
@@ -1907,12 +1903,12 @@ export interface UpdateAppResponse {
   /**
    * <p>List of updated server groups in the application.</p>
    */
-  serverGroups?: Array<ServerGroup>;
+  serverGroups?: ServerGroup[];
 
   /**
    * <p>List of tags associated with the application.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace UpdateAppResponse {

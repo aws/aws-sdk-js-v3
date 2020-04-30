@@ -3536,7 +3536,7 @@ const serializeAws_restJson1_1Tls = (
 };
 
 const serializeAws_restJson1_1__listOfBrokerEBSVolumeInfo = (
-  input: Array<BrokerEBSVolumeInfo>,
+  input: BrokerEBSVolumeInfo[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3547,7 +3547,7 @@ const serializeAws_restJson1_1__listOfBrokerEBSVolumeInfo = (
 };
 
 const serializeAws_restJson1_1__listOf__string = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4315,7 +4315,7 @@ const deserializeAws_restJson1_1ZookeeperNodeInfo = (
 const deserializeAws_restJson1_1__listOfBrokerEBSVolumeInfo = (
   output: any,
   context: __SerdeContext
-): Array<BrokerEBSVolumeInfo> => {
+): BrokerEBSVolumeInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BrokerEBSVolumeInfo(entry, context)
   );
@@ -4324,7 +4324,7 @@ const deserializeAws_restJson1_1__listOfBrokerEBSVolumeInfo = (
 const deserializeAws_restJson1_1__listOfClusterInfo = (
   output: any,
   context: __SerdeContext
-): Array<ClusterInfo> => {
+): ClusterInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ClusterInfo(entry, context)
   );
@@ -4333,7 +4333,7 @@ const deserializeAws_restJson1_1__listOfClusterInfo = (
 const deserializeAws_restJson1_1__listOfClusterOperationInfo = (
   output: any,
   context: __SerdeContext
-): Array<ClusterOperationInfo> => {
+): ClusterOperationInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ClusterOperationInfo(entry, context)
   );
@@ -4342,7 +4342,7 @@ const deserializeAws_restJson1_1__listOfClusterOperationInfo = (
 const deserializeAws_restJson1_1__listOfConfiguration = (
   output: any,
   context: __SerdeContext
-): Array<Configuration> => {
+): Configuration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Configuration(entry, context)
   );
@@ -4351,7 +4351,7 @@ const deserializeAws_restJson1_1__listOfConfiguration = (
 const deserializeAws_restJson1_1__listOfConfigurationRevision = (
   output: any,
   context: __SerdeContext
-): Array<ConfigurationRevision> => {
+): ConfigurationRevision[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ConfigurationRevision(entry, context)
   );
@@ -4360,7 +4360,7 @@ const deserializeAws_restJson1_1__listOfConfigurationRevision = (
 const deserializeAws_restJson1_1__listOfNodeInfo = (
   output: any,
   context: __SerdeContext
-): Array<NodeInfo> => {
+): NodeInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1NodeInfo(entry, context)
   );
@@ -4369,7 +4369,7 @@ const deserializeAws_restJson1_1__listOfNodeInfo = (
 const deserializeAws_restJson1_1__listOf__string = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

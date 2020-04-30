@@ -6407,7 +6407,7 @@ const serializeAws_json1_1NewTransitVirtualInterfaceAllocation = (
 };
 
 const serializeAws_json1_1ResourceArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6429,7 +6429,7 @@ const serializeAws_json1_1RouteFilterPrefix = (
 };
 
 const serializeAws_json1_1RouteFilterPrefixList = (
-  input: Array<RouteFilterPrefix>,
+  input: RouteFilterPrefix[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6451,7 +6451,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6462,7 +6462,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6630,7 +6630,7 @@ const deserializeAws_json1_1AssociatedGateway = (
 const deserializeAws_json1_1AvailablePortSpeeds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6683,7 +6683,7 @@ const deserializeAws_json1_1BGPPeer = (
 const deserializeAws_json1_1BGPPeerList = (
   output: any,
   context: __SerdeContext
-): Array<BGPPeer> => {
+): BGPPeer[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BGPPeer(entry, context)
   );
@@ -6841,7 +6841,7 @@ const deserializeAws_json1_1Connection = (
 const deserializeAws_json1_1ConnectionList = (
   output: any,
   context: __SerdeContext
-): Array<Connection> => {
+): Connection[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Connection(entry, context)
   );
@@ -7366,7 +7366,7 @@ const deserializeAws_json1_1DirectConnectGatewayAssociation = (
 const deserializeAws_json1_1DirectConnectGatewayAssociationList = (
   output: any,
   context: __SerdeContext
-): Array<DirectConnectGatewayAssociation> => {
+): DirectConnectGatewayAssociation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DirectConnectGatewayAssociation(entry, context)
   );
@@ -7438,7 +7438,7 @@ const deserializeAws_json1_1DirectConnectGatewayAssociationProposal = (
 const deserializeAws_json1_1DirectConnectGatewayAssociationProposalList = (
   output: any,
   context: __SerdeContext
-): Array<DirectConnectGatewayAssociationProposal> => {
+): DirectConnectGatewayAssociationProposal[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DirectConnectGatewayAssociationProposal(
       entry,
@@ -7503,7 +7503,7 @@ const deserializeAws_json1_1DirectConnectGatewayAttachment = (
 const deserializeAws_json1_1DirectConnectGatewayAttachmentList = (
   output: any,
   context: __SerdeContext
-): Array<DirectConnectGatewayAttachment> => {
+): DirectConnectGatewayAttachment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DirectConnectGatewayAttachment(entry, context)
   );
@@ -7512,7 +7512,7 @@ const deserializeAws_json1_1DirectConnectGatewayAttachmentList = (
 const deserializeAws_json1_1DirectConnectGatewayList = (
   output: any,
   context: __SerdeContext
-): Array<DirectConnectGateway> => {
+): DirectConnectGateway[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DirectConnectGateway(entry, context)
   );
@@ -7627,7 +7627,7 @@ const deserializeAws_json1_1Interconnect = (
 const deserializeAws_json1_1InterconnectList = (
   output: any,
   context: __SerdeContext
-): Array<Interconnect> => {
+): Interconnect[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Interconnect(entry, context)
   );
@@ -7749,7 +7749,7 @@ const deserializeAws_json1_1Lag = (
 const deserializeAws_json1_1LagList = (
   output: any,
   context: __SerdeContext
-): Array<Lag> => {
+): Lag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Lag(entry, context)
   );
@@ -7832,7 +7832,7 @@ const deserializeAws_json1_1Location = (
 const deserializeAws_json1_1LocationList = (
   output: any,
   context: __SerdeContext
-): Array<Location> => {
+): Location[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Location(entry, context)
   );
@@ -7858,7 +7858,7 @@ const deserializeAws_json1_1Locations = (
 const deserializeAws_json1_1ProviderList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7883,7 +7883,7 @@ const deserializeAws_json1_1ResourceTag = (
 const deserializeAws_json1_1ResourceTagList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceTag> => {
+): ResourceTag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceTag(entry, context)
   );
@@ -7906,7 +7906,7 @@ const deserializeAws_json1_1RouteFilterPrefix = (
 const deserializeAws_json1_1RouteFilterPrefixList = (
   output: any,
   context: __SerdeContext
-): Array<RouteFilterPrefix> => {
+): RouteFilterPrefix[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RouteFilterPrefix(entry, context)
   );
@@ -7933,7 +7933,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -8020,7 +8020,7 @@ const deserializeAws_json1_1VirtualGateway = (
 const deserializeAws_json1_1VirtualGatewayList = (
   output: any,
   context: __SerdeContext
-): Array<VirtualGateway> => {
+): VirtualGateway[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1VirtualGateway(entry, context)
   );
@@ -8185,7 +8185,7 @@ const deserializeAws_json1_1VirtualInterface = (
 const deserializeAws_json1_1VirtualInterfaceList = (
   output: any,
   context: __SerdeContext
-): Array<VirtualInterface> => {
+): VirtualInterface[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1VirtualInterface(entry, context)
   );

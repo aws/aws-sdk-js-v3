@@ -1434,7 +1434,7 @@ const serializeAws_restJson1_1Account = (
 };
 
 const serializeAws_restJson1_1AccountIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1445,7 +1445,7 @@ const serializeAws_restJson1_1AccountIdList = (
 };
 
 const serializeAws_restJson1_1AccountList = (
-  input: Array<Account>,
+  input: Account[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1458,7 +1458,7 @@ const serializeAws_restJson1_1AccountList = (
 const deserializeAws_restJson1_1AccountIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1483,7 +1483,7 @@ const deserializeAws_restJson1_1Graph = (
 const deserializeAws_restJson1_1GraphList = (
   output: any,
   context: __SerdeContext
-): Array<Graph> => {
+): Graph[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Graph(entry, context)
   );
@@ -1530,7 +1530,7 @@ const deserializeAws_restJson1_1MemberDetail = (
 const deserializeAws_restJson1_1MemberDetailList = (
   output: any,
   context: __SerdeContext
-): Array<MemberDetail> => {
+): MemberDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1MemberDetail(entry, context)
   );
@@ -1557,7 +1557,7 @@ const deserializeAws_restJson1_1UnprocessedAccount = (
 const deserializeAws_restJson1_1UnprocessedAccountList = (
   output: any,
   context: __SerdeContext
-): Array<UnprocessedAccount> => {
+): UnprocessedAccount[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UnprocessedAccount(entry, context)
   );

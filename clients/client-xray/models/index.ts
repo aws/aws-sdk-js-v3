@@ -17,7 +17,7 @@ export interface Alias {
   /**
    * <p>A list of names for the alias, including the canonical name.</p>
    */
-  Names?: Array<string>;
+  Names?: string[];
 
   /**
    * <p>The type of the alias.</p>
@@ -123,7 +123,7 @@ export interface BatchGetTracesRequest {
   /**
    * <p>Specify the trace IDs of requests for which to retrieve segments.</p>
    */
-  TraceIds: Array<string> | undefined;
+  TraceIds: string[] | undefined;
 }
 
 export namespace BatchGetTracesRequest {
@@ -141,12 +141,12 @@ export interface BatchGetTracesResult {
   /**
    * <p>Full traces for the specified requests.</p>
    */
-  Traces?: Array<Trace>;
+  Traces?: Trace[];
 
   /**
    * <p>Trace IDs of requests that haven't been processed.</p>
    */
-  UnprocessedTraceIds?: Array<string>;
+  UnprocessedTraceIds?: string[];
 }
 
 export namespace BatchGetTracesResult {
@@ -280,7 +280,7 @@ export interface Edge {
   /**
    * <p>Aliases for the edge.</p>
    */
-  Aliases?: Array<Alias>;
+  Aliases?: Alias[];
 
   /**
    * <p>The end time of the last segment on the edge.</p>
@@ -295,7 +295,7 @@ export interface Edge {
   /**
    * <p>A histogram that maps the spread of client response times on an edge.</p>
    */
-  ResponseTimeHistogram?: Array<HistogramEntry>;
+  ResponseTimeHistogram?: HistogramEntry[];
 
   /**
    * <p>The start time of the first segment on the edge.</p>
@@ -394,7 +394,7 @@ export interface ErrorRootCause {
    * <p>A list of services corresponding to an error. A service identifies a segment and it
    *       contains a name, account ID, type, and inferred flag.</p>
    */
-  Services?: Array<ErrorRootCauseService>;
+  Services?: ErrorRootCauseService[];
 }
 
 export namespace ErrorRootCause {
@@ -411,7 +411,7 @@ export interface ErrorRootCauseEntity {
   /**
    * <p>The types and messages of the exceptions.</p>
    */
-  Exceptions?: Array<RootCauseException>;
+  Exceptions?: RootCauseException[];
 
   /**
    * <p>The name of the entity.</p>
@@ -442,7 +442,7 @@ export interface ErrorRootCauseService {
   /**
    * <p>The path of root cause entities found on the service. </p>
    */
-  EntityPath?: Array<ErrorRootCauseEntity>;
+  EntityPath?: ErrorRootCauseEntity[];
 
   /**
    * <p>A Boolean value indicating if the service is inferred from the trace.</p>
@@ -457,7 +457,7 @@ export interface ErrorRootCauseService {
   /**
    * <p>A collection of associated service names.</p>
    */
-  Names?: Array<string>;
+  Names?: string[];
 
   /**
    * <p>The type associated to the service.</p>
@@ -506,7 +506,7 @@ export interface FaultRootCause {
    * <p>A list of corresponding services. A service identifies a segment and it contains a
    *       name, account ID, type, and inferred flag.</p>
    */
-  Services?: Array<FaultRootCauseService>;
+  Services?: FaultRootCauseService[];
 }
 
 export namespace FaultRootCause {
@@ -523,7 +523,7 @@ export interface FaultRootCauseEntity {
   /**
    * <p>The types and messages of the exceptions.</p>
    */
-  Exceptions?: Array<RootCauseException>;
+  Exceptions?: RootCauseException[];
 
   /**
    * <p>The name of the entity.</p>
@@ -554,7 +554,7 @@ export interface FaultRootCauseService {
   /**
    * <p>The path of root cause entities found on the service. </p>
    */
-  EntityPath?: Array<FaultRootCauseEntity>;
+  EntityPath?: FaultRootCauseEntity[];
 
   /**
    * <p>A Boolean value indicating if the service is inferred from the trace.</p>
@@ -569,7 +569,7 @@ export interface FaultRootCauseService {
   /**
    * <p>A collection of associated service names.</p>
    */
-  Names?: Array<string>;
+  Names?: string[];
 
   /**
    * <p>The type associated to the service.</p>
@@ -676,7 +676,7 @@ export interface GetGroupsResult {
   /**
    * <p>The collection of all active groups.</p>
    */
-  Groups?: Array<GroupSummary>;
+  Groups?: GroupSummary[];
 
   /**
    * <p>Pagination token.</p>
@@ -712,7 +712,7 @@ export interface GetSamplingRulesResult {
   /**
    * <p>Rule definitions and metadata.</p>
    */
-  SamplingRuleRecords?: Array<SamplingRuleRecord>;
+  SamplingRuleRecords?: SamplingRuleRecord[];
 }
 
 export namespace GetSamplingRulesResult {
@@ -744,7 +744,7 @@ export interface GetSamplingStatisticSummariesResult {
    * <p>Information about the number of requests instrumented for each sampling
    *          rule.</p>
    */
-  SamplingStatisticSummaries?: Array<SamplingStatisticSummary>;
+  SamplingStatisticSummaries?: SamplingStatisticSummary[];
 }
 
 export namespace GetSamplingStatisticSummariesResult {
@@ -757,7 +757,7 @@ export interface GetSamplingTargetsRequest {
   /**
    * <p>Information about rules that the service is using to sample requests.</p>
    */
-  SamplingStatisticsDocuments: Array<SamplingStatisticsDocument> | undefined;
+  SamplingStatisticsDocuments: SamplingStatisticsDocument[] | undefined;
 }
 
 export namespace GetSamplingTargetsRequest {
@@ -777,13 +777,13 @@ export interface GetSamplingTargetsResult {
   /**
    * <p>Updated rules that the service should use to sample requests.</p>
    */
-  SamplingTargetDocuments?: Array<SamplingTargetDocument>;
+  SamplingTargetDocuments?: SamplingTargetDocument[];
 
   /**
    * <p>Information about <a>SamplingStatisticsDocument</a> that X-Ray could not
    *          process.</p>
    */
-  UnprocessedStatistics?: Array<UnprocessedStatistics>;
+  UnprocessedStatistics?: UnprocessedStatistics[];
 }
 
 export namespace GetSamplingTargetsResult {
@@ -847,7 +847,7 @@ export interface GetServiceGraphResult {
    * <p>The services that have processed a traced request during the specified time
    *       frame.</p>
    */
-  Services?: Array<Service>;
+  Services?: Service[];
 
   /**
    * <p>The start of the time frame for which the graph was generated.</p>
@@ -922,7 +922,7 @@ export interface GetTimeSeriesServiceStatisticsResult {
   /**
    * <p>The collection of statistics.</p>
    */
-  TimeSeriesServiceStatistics?: Array<TimeSeriesServiceStatistics>;
+  TimeSeriesServiceStatistics?: TimeSeriesServiceStatistics[];
 }
 
 export namespace GetTimeSeriesServiceStatisticsResult {
@@ -940,7 +940,7 @@ export interface GetTraceGraphRequest {
   /**
    * <p>Trace IDs of requests for which to generate a service graph.</p>
    */
-  TraceIds: Array<string> | undefined;
+  TraceIds: string[] | undefined;
 }
 
 export namespace GetTraceGraphRequest {
@@ -958,7 +958,7 @@ export interface GetTraceGraphResult {
   /**
    * <p>The services that have processed one of the specified requests.</p>
    */
-  Services?: Array<Service>;
+  Services?: Service[];
 }
 
 export namespace GetTraceGraphResult {
@@ -1031,7 +1031,7 @@ export interface GetTraceSummariesResult {
    * <p>Trace IDs and annotations for traces that were found in the specified time
    *       frame.</p>
    */
-  TraceSummaries?: Array<TraceSummary>;
+  TraceSummaries?: TraceSummary[];
 
   /**
    * <p>The total number of traces processed, including traces that did not match the specified
@@ -1256,7 +1256,7 @@ export interface PutTelemetryRecordsRequest {
   /**
    * <p></p>
    */
-  TelemetryRecords: Array<TelemetryRecord> | undefined;
+  TelemetryRecords: TelemetryRecord[] | undefined;
 }
 
 export namespace PutTelemetryRecordsRequest {
@@ -1279,7 +1279,7 @@ export interface PutTraceSegmentsRequest {
    * <p>A string containing a JSON document defining one or more segments or
    *       subsegments.</p>
    */
-  TraceSegmentDocuments: Array<string> | undefined;
+  TraceSegmentDocuments: string[] | undefined;
 }
 
 export namespace PutTraceSegmentsRequest {
@@ -1292,7 +1292,7 @@ export interface PutTraceSegmentsResult {
   /**
    * <p>Segments that failed processing.</p>
    */
-  UnprocessedTraceSegments?: Array<UnprocessedTraceSegment>;
+  UnprocessedTraceSegments?: UnprocessedTraceSegment[];
 }
 
 export namespace PutTraceSegmentsResult {
@@ -1325,7 +1325,7 @@ export interface ResponseTimeRootCause {
    * <p>A list of corresponding services. A service identifies a segment and contains a name,
    *       account ID, type, and inferred flag.</p>
    */
-  Services?: Array<ResponseTimeRootCauseService>;
+  Services?: ResponseTimeRootCauseService[];
 }
 
 export namespace ResponseTimeRootCause {
@@ -1373,7 +1373,7 @@ export interface ResponseTimeRootCauseService {
   /**
    * <p>The path of root cause entities found on the service. </p>
    */
-  EntityPath?: Array<ResponseTimeRootCauseEntity>;
+  EntityPath?: ResponseTimeRootCauseEntity[];
 
   /**
    * <p>A Boolean value indicating if the service is inferred from the trace.</p>
@@ -1388,7 +1388,7 @@ export interface ResponseTimeRootCauseService {
   /**
    * <p>A collection of associated service names.</p>
    */
-  Names?: Array<string>;
+  Names?: string[];
 
   /**
    * <p>The type associated to the service.</p>
@@ -1801,12 +1801,12 @@ export interface Service {
   /**
    * <p>A histogram that maps the spread of service durations.</p>
    */
-  DurationHistogram?: Array<HistogramEntry>;
+  DurationHistogram?: HistogramEntry[];
 
   /**
    * <p>Connections to downstream services.</p>
    */
-  Edges?: Array<Edge>;
+  Edges?: Edge[];
 
   /**
    * <p>The end time of the last segment that the service generated.</p>
@@ -1821,7 +1821,7 @@ export interface Service {
   /**
    * <p>A list of names for the service, including the canonical name.</p>
    */
-  Names?: Array<string>;
+  Names?: string[];
 
   /**
    * <p>Identifier for the service. Unique within the service map.</p>
@@ -1831,7 +1831,7 @@ export interface Service {
   /**
    * <p>A histogram that maps the spread of service response times.</p>
    */
-  ResponseTimeHistogram?: Array<HistogramEntry>;
+  ResponseTimeHistogram?: HistogramEntry[];
 
   /**
    * <p>Indicates that the service was the first service to process a request.</p>
@@ -1902,7 +1902,7 @@ export interface ServiceId {
   /**
    * <p></p>
    */
-  Names?: Array<string>;
+  Names?: string[];
 
   /**
    * <p></p>
@@ -2023,7 +2023,7 @@ export interface TimeSeriesServiceStatistics {
   /**
    * <p>The response time histogram for the selected entities.</p>
    */
-  ResponseTimeHistogram?: Array<HistogramEntry>;
+  ResponseTimeHistogram?: HistogramEntry[];
 
   /**
    * <p>Response statistics for a service.</p>
@@ -2061,7 +2061,7 @@ export interface Trace {
   /**
    * <p>Segment documents for the segments and subsegments that comprise the trace.</p>
    */
-  Segments?: Array<Segment>;
+  Segments?: Segment[];
 }
 
 export namespace Trace {
@@ -2076,13 +2076,13 @@ export interface TraceSummary {
   /**
    * <p>Annotations from the trace's segment documents.</p>
    */
-  Annotations?: { [key: string]: Array<ValueWithServiceIds> };
+  Annotations?: { [key: string]: ValueWithServiceIds[] };
 
   /**
    * <p>A list of availability zones for any zone corresponding to the trace
    *       segments.</p>
    */
-  AvailabilityZones?: Array<AvailabilityZoneDetail>;
+  AvailabilityZones?: AvailabilityZoneDetail[];
 
   /**
    * <p>The length of time in seconds between the start time of the root segment and the end
@@ -2099,13 +2099,13 @@ export interface TraceSummary {
    * <p>A collection of ErrorRootCause structures corresponding to the trace
    *       segments.</p>
    */
-  ErrorRootCauses?: Array<ErrorRootCause>;
+  ErrorRootCauses?: ErrorRootCause[];
 
   /**
    * <p>A collection of FaultRootCause structures corresponding to the the trace
    *       segments.</p>
    */
-  FaultRootCauses?: Array<FaultRootCause>;
+  FaultRootCauses?: FaultRootCause[];
 
   /**
    * <p>The root segment document has a 400 series error.</p>
@@ -2137,7 +2137,7 @@ export interface TraceSummary {
    * <p>A list of EC2 instance IDs for any instance corresponding to the trace
    *       segments.</p>
    */
-  InstanceIds?: Array<InstanceIdDetail>;
+  InstanceIds?: InstanceIdDetail[];
 
   /**
    * <p>One or more of the segment documents is in progress.</p>
@@ -2152,7 +2152,7 @@ export interface TraceSummary {
   /**
    * <p>A list of resource ARNs for any resource corresponding to the trace segments.</p>
    */
-  ResourceARNs?: Array<ResourceARNDetail>;
+  ResourceARNs?: ResourceARNDetail[];
 
   /**
    * <p>The length of time in seconds between the start and end times of the root segment. If
@@ -2166,7 +2166,7 @@ export interface TraceSummary {
    * <p>A collection of ResponseTimeRootCause structures corresponding to the trace
    *       segments.</p>
    */
-  ResponseTimeRootCauses?: Array<ResponseTimeRootCause>;
+  ResponseTimeRootCauses?: ResponseTimeRootCause[];
 
   /**
    * <p>The revision number of a trace.</p>
@@ -2176,12 +2176,12 @@ export interface TraceSummary {
   /**
    * <p>Service IDs from the trace's segment documents.</p>
    */
-  ServiceIds?: Array<ServiceId>;
+  ServiceIds?: ServiceId[];
 
   /**
    * <p>Users from the trace's segment documents.</p>
    */
-  Users?: Array<TraceUser>;
+  Users?: TraceUser[];
 }
 
 export namespace TraceSummary {
@@ -2196,7 +2196,7 @@ export interface TraceUser {
   /**
    * <p>Services that the user's request hit.</p>
    */
-  ServiceIds?: Array<ServiceId>;
+  ServiceIds?: ServiceId[];
 
   /**
    * <p>The user's name.</p>
@@ -2338,7 +2338,7 @@ export interface ValueWithServiceIds {
   /**
    * <p>Services to which the annotation applies.</p>
    */
-  ServiceIds?: Array<ServiceId>;
+  ServiceIds?: ServiceId[];
 }
 
 export namespace ValueWithServiceIds {

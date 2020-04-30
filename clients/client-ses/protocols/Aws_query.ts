@@ -7241,7 +7241,7 @@ const serializeAws_queryAddHeaderAction = (
 };
 
 const serializeAws_queryAddressList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -7323,7 +7323,7 @@ const serializeAws_queryBouncedRecipientInfo = (
 };
 
 const serializeAws_queryBouncedRecipientInfoList = (
-  input: Array<BouncedRecipientInfo>,
+  input: BouncedRecipientInfo[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -7373,7 +7373,7 @@ const serializeAws_queryBulkEmailDestination = (
 };
 
 const serializeAws_queryBulkEmailDestinationList = (
-  input: Array<BulkEmailDestination>,
+  input: BulkEmailDestination[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -7441,7 +7441,7 @@ const serializeAws_queryCloudWatchDimensionConfiguration = (
 };
 
 const serializeAws_queryCloudWatchDimensionConfigurations = (
-  input: Array<CloudWatchDimensionConfiguration>,
+  input: CloudWatchDimensionConfiguration[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -7471,7 +7471,7 @@ const serializeAws_queryConfigurationSet = (
 };
 
 const serializeAws_queryConfigurationSetAttributeList = (
-  input: Array<ConfigurationSetAttribute | string>,
+  input: ConfigurationSetAttribute | string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -7936,7 +7936,7 @@ const serializeAws_queryEventDestination = (
 };
 
 const serializeAws_queryEventTypes = (
-  input: Array<EventType | string>,
+  input: EventType | string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -7963,7 +7963,7 @@ const serializeAws_queryExtensionField = (
 };
 
 const serializeAws_queryExtensionFieldList = (
-  input: Array<ExtensionField>,
+  input: ExtensionField[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -8094,7 +8094,7 @@ const serializeAws_queryGetTemplateRequest = (
 };
 
 const serializeAws_queryIdentityList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -8274,7 +8274,7 @@ const serializeAws_queryMessageDsn = (
 };
 
 const serializeAws_queryMessageTagList = (
-  input: Array<MessageTag>,
+  input: MessageTag[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -8290,7 +8290,7 @@ const serializeAws_queryMessageTagList = (
 };
 
 const serializeAws_queryPolicyNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -8424,7 +8424,7 @@ const serializeAws_queryReceiptAction = (
 };
 
 const serializeAws_queryReceiptActionsList = (
-  input: Array<ReceiptAction>,
+  input: ReceiptAction[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -8515,7 +8515,7 @@ const serializeAws_queryReceiptRule = (
 };
 
 const serializeAws_queryReceiptRuleNamesList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -8565,7 +8565,7 @@ const serializeAws_queryRecipientDsnFields = (
 };
 
 const serializeAws_queryRecipientsList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -9336,7 +9336,7 @@ const deserializeAws_queryAddHeaderAction = (
 const deserializeAws_queryAddressList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -9447,7 +9447,7 @@ const deserializeAws_queryBulkEmailDestinationStatus = (
 const deserializeAws_queryBulkEmailDestinationStatusList = (
   output: any,
   context: __SerdeContext
-): Array<BulkEmailDestinationStatus> => {
+): BulkEmailDestinationStatus[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -9552,7 +9552,7 @@ const deserializeAws_queryCloudWatchDimensionConfiguration = (
 const deserializeAws_queryCloudWatchDimensionConfigurations = (
   output: any,
   context: __SerdeContext
-): Array<CloudWatchDimensionConfiguration> => {
+): CloudWatchDimensionConfiguration[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -9654,7 +9654,7 @@ const deserializeAws_queryConfigurationSetSendingPausedException = (
 const deserializeAws_queryConfigurationSets = (
   output: any,
   context: __SerdeContext
-): Array<ConfigurationSet> => {
+): ConfigurationSet[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryConfigurationSet(entry, context));
@@ -9845,7 +9845,7 @@ const deserializeAws_queryCustomVerificationEmailTemplateDoesNotExistException =
 const deserializeAws_queryCustomVerificationEmailTemplates = (
   output: any,
   context: __SerdeContext
-): Array<CustomVerificationEmailTemplate> => {
+): CustomVerificationEmailTemplate[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -10234,7 +10234,7 @@ const deserializeAws_queryEventDestinationDoesNotExistException = (
 const deserializeAws_queryEventDestinations = (
   output: any,
   context: __SerdeContext
-): Array<EventDestination> => {
+): EventDestination[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryEventDestination(entry, context));
@@ -10245,7 +10245,7 @@ const deserializeAws_queryEventDestinations = (
 const deserializeAws_queryEventTypes = (
   output: any,
   context: __SerdeContext
-): Array<EventType | string> => {
+): EventType | string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -10600,7 +10600,7 @@ const deserializeAws_queryIdentityDkimAttributes = (
 const deserializeAws_queryIdentityList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -11431,7 +11431,7 @@ const deserializeAws_queryPolicyMap = (
 const deserializeAws_queryPolicyNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -11538,7 +11538,7 @@ const deserializeAws_queryReceiptAction = (
 const deserializeAws_queryReceiptActionsList = (
   output: any,
   context: __SerdeContext
-): Array<ReceiptAction> => {
+): ReceiptAction[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryReceiptAction(entry, context));
@@ -11573,7 +11573,7 @@ const deserializeAws_queryReceiptFilter = (
 const deserializeAws_queryReceiptFilterList = (
   output: any,
   context: __SerdeContext
-): Array<ReceiptFilter> => {
+): ReceiptFilter[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryReceiptFilter(entry, context));
@@ -11701,7 +11701,7 @@ const deserializeAws_queryReceiptRuleSetMetadata = (
 const deserializeAws_queryReceiptRuleSetsLists = (
   output: any,
   context: __SerdeContext
-): Array<ReceiptRuleSetMetadata> => {
+): ReceiptRuleSetMetadata[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryReceiptRuleSetMetadata(entry, context));
@@ -11712,7 +11712,7 @@ const deserializeAws_queryReceiptRuleSetsLists = (
 const deserializeAws_queryReceiptRulesList = (
   output: any,
   context: __SerdeContext
-): Array<ReceiptRule> => {
+): ReceiptRule[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryReceiptRule(entry, context));
@@ -11723,7 +11723,7 @@ const deserializeAws_queryReceiptRulesList = (
 const deserializeAws_queryRecipientsList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -12006,7 +12006,7 @@ const deserializeAws_querySendDataPoint = (
 const deserializeAws_querySendDataPointList = (
   output: any,
   context: __SerdeContext
-): Array<SendDataPoint> => {
+): SendDataPoint[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_querySendDataPoint(entry, context));
@@ -12245,7 +12245,7 @@ const deserializeAws_queryTemplateMetadata = (
 const deserializeAws_queryTemplateMetadataList = (
   output: any,
   context: __SerdeContext
-): Array<TemplateMetadata> => {
+): TemplateMetadata[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryTemplateMetadata(entry, context));
@@ -12392,7 +12392,7 @@ const deserializeAws_queryVerificationAttributes = (
 const deserializeAws_queryVerificationTokenList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);

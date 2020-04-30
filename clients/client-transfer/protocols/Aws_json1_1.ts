@@ -2291,7 +2291,7 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
 };
 
 const serializeAws_json1_1AddressAllocationIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2488,7 +2488,7 @@ const serializeAws_json1_1HomeDirectoryMapEntry = (
 };
 
 const serializeAws_json1_1HomeDirectoryMappings = (
-  input: Array<HomeDirectoryMapEntry>,
+  input: HomeDirectoryMapEntry[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2600,7 +2600,7 @@ const serializeAws_json1_1StopServerRequest = (
 };
 
 const serializeAws_json1_1SubnetIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2622,7 +2622,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeys = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2647,7 +2647,7 @@ const serializeAws_json1_1TagResourceRequest = (
 };
 
 const serializeAws_json1_1Tags = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2773,7 +2773,7 @@ const deserializeAws_json1_1ServiceUnavailableException = (
 const deserializeAws_json1_1AddressAllocationIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3041,7 +3041,7 @@ const deserializeAws_json1_1HomeDirectoryMapEntry = (
 const deserializeAws_json1_1HomeDirectoryMappings = (
   output: any,
   context: __SerdeContext
-): Array<HomeDirectoryMapEntry> => {
+): HomeDirectoryMapEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1HomeDirectoryMapEntry(entry, context)
   );
@@ -3238,7 +3238,7 @@ const deserializeAws_json1_1ListedServer = (
 const deserializeAws_json1_1ListedServers = (
   output: any,
   context: __SerdeContext
-): Array<ListedServer> => {
+): ListedServer[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ListedServer(entry, context)
   );
@@ -3287,7 +3287,7 @@ const deserializeAws_json1_1ListedUser = (
 const deserializeAws_json1_1ListedUsers = (
   output: any,
   context: __SerdeContext
-): Array<ListedUser> => {
+): ListedUser[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ListedUser(entry, context)
   );
@@ -3365,7 +3365,7 @@ const deserializeAws_json1_1SshPublicKey = (
 const deserializeAws_json1_1SshPublicKeys = (
   output: any,
   context: __SerdeContext
-): Array<SshPublicKey> => {
+): SshPublicKey[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SshPublicKey(entry, context)
   );
@@ -3374,7 +3374,7 @@ const deserializeAws_json1_1SshPublicKeys = (
 const deserializeAws_json1_1SubnetIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3399,7 +3399,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1Tags = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );

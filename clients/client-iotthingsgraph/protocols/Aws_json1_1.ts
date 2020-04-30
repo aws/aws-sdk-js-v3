@@ -4766,7 +4766,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4777,7 +4777,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4802,7 +4802,7 @@ const serializeAws_json1_1DefinitionDocument = (
 };
 
 const serializeAws_json1_1Urns = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4830,7 +4830,7 @@ const serializeAws_json1_1EntityFilter = (
 };
 
 const serializeAws_json1_1EntityFilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4841,7 +4841,7 @@ const serializeAws_json1_1EntityFilterValues = (
 };
 
 const serializeAws_json1_1EntityFilters = (
-  input: Array<EntityFilter>,
+  input: EntityFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4852,7 +4852,7 @@ const serializeAws_json1_1EntityFilters = (
 };
 
 const serializeAws_json1_1EntityTypes = (
-  input: Array<EntityType | string>,
+  input: EntityType | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4880,7 +4880,7 @@ const serializeAws_json1_1FlowTemplateFilter = (
 };
 
 const serializeAws_json1_1FlowTemplateFilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4891,7 +4891,7 @@ const serializeAws_json1_1FlowTemplateFilterValues = (
 };
 
 const serializeAws_json1_1FlowTemplateFilters = (
-  input: Array<FlowTemplateFilter>,
+  input: FlowTemplateFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4933,7 +4933,7 @@ const serializeAws_json1_1SystemInstanceFilter = (
 };
 
 const serializeAws_json1_1SystemInstanceFilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4944,7 +4944,7 @@ const serializeAws_json1_1SystemInstanceFilterValues = (
 };
 
 const serializeAws_json1_1SystemInstanceFilters = (
-  input: Array<SystemInstanceFilter>,
+  input: SystemInstanceFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4972,7 +4972,7 @@ const serializeAws_json1_1SystemTemplateFilter = (
 };
 
 const serializeAws_json1_1SystemTemplateFilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4983,7 +4983,7 @@ const serializeAws_json1_1SystemTemplateFilterValues = (
 };
 
 const serializeAws_json1_1SystemTemplateFilters = (
-  input: Array<SystemTemplateFilter>,
+  input: SystemTemplateFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5647,7 +5647,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -5758,7 +5758,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 const deserializeAws_json1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5812,7 +5812,7 @@ const deserializeAws_json1_1EntityDescription = (
 const deserializeAws_json1_1EntityDescriptions = (
   output: any,
   context: __SerdeContext
-): Array<EntityDescription> => {
+): EntityDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EntityDescription(entry, context)
   );
@@ -5839,7 +5839,7 @@ const deserializeAws_json1_1Thing = (
 const deserializeAws_json1_1Things = (
   output: any,
   context: __SerdeContext
-): Array<Thing> => {
+): Thing[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Thing(entry, context)
   );
@@ -5866,7 +5866,7 @@ const deserializeAws_json1_1DependencyRevision = (
 const deserializeAws_json1_1DependencyRevisions = (
   output: any,
   context: __SerdeContext
-): Array<DependencyRevision> => {
+): DependencyRevision[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DependencyRevision(entry, context)
   );
@@ -5901,7 +5901,7 @@ const deserializeAws_json1_1FlowExecutionMessage = (
 const deserializeAws_json1_1FlowExecutionMessages = (
   output: any,
   context: __SerdeContext
-): Array<FlowExecutionMessage> => {
+): FlowExecutionMessage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FlowExecutionMessage(entry, context)
   );
@@ -5910,7 +5910,7 @@ const deserializeAws_json1_1FlowExecutionMessages = (
 const deserializeAws_json1_1FlowExecutionSummaries = (
   output: any,
   context: __SerdeContext
-): Array<FlowExecutionSummary> => {
+): FlowExecutionSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FlowExecutionSummary(entry, context)
   );
@@ -5987,7 +5987,7 @@ const deserializeAws_json1_1FlowTemplateDescription = (
 const deserializeAws_json1_1FlowTemplateSummaries = (
   output: any,
   context: __SerdeContext
-): Array<FlowTemplateSummary> => {
+): FlowTemplateSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FlowTemplateSummary(entry, context)
   );
@@ -6108,7 +6108,7 @@ const deserializeAws_json1_1SystemInstanceDescription = (
 const deserializeAws_json1_1SystemInstanceSummaries = (
   output: any,
   context: __SerdeContext
-): Array<SystemInstanceSummary> => {
+): SystemInstanceSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SystemInstanceSummary(entry, context)
   );
@@ -6203,7 +6203,7 @@ const deserializeAws_json1_1SystemTemplateDescription = (
 const deserializeAws_json1_1SystemTemplateSummaries = (
   output: any,
   context: __SerdeContext
-): Array<SystemTemplateSummary> => {
+): SystemTemplateSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SystemTemplateSummary(entry, context)
   );

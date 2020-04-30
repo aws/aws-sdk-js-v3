@@ -19166,7 +19166,7 @@ const serializeAws_restJson1_1JourneyStateRequest = (
 };
 
 const serializeAws_restJson1_1ListOfEndpointBatchItem = (
-  input: Array<EndpointBatchItem>,
+  input: EndpointBatchItem[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -19177,7 +19177,7 @@ const serializeAws_restJson1_1ListOfEndpointBatchItem = (
 };
 
 const serializeAws_restJson1_1ListOfMultiConditionalBranch = (
-  input: Array<MultiConditionalBranch>,
+  input: MultiConditionalBranch[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -19190,7 +19190,7 @@ const serializeAws_restJson1_1ListOfMultiConditionalBranch = (
 };
 
 const serializeAws_restJson1_1ListOfRandomSplitEntry = (
-  input: Array<RandomSplitEntry>,
+  input: RandomSplitEntry[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -19201,7 +19201,7 @@ const serializeAws_restJson1_1ListOfRandomSplitEntry = (
 };
 
 const serializeAws_restJson1_1ListOfSegmentDimensions = (
-  input: Array<SegmentDimensions>,
+  input: SegmentDimensions[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -19212,7 +19212,7 @@ const serializeAws_restJson1_1ListOfSegmentDimensions = (
 };
 
 const serializeAws_restJson1_1ListOfSegmentGroup = (
-  input: Array<SegmentGroup>,
+  input: SegmentGroup[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -19223,7 +19223,7 @@ const serializeAws_restJson1_1ListOfSegmentGroup = (
 };
 
 const serializeAws_restJson1_1ListOfSegmentReference = (
-  input: Array<SegmentReference>,
+  input: SegmentReference[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -19234,7 +19234,7 @@ const serializeAws_restJson1_1ListOfSegmentReference = (
 };
 
 const serializeAws_restJson1_1ListOfSimpleCondition = (
-  input: Array<SimpleCondition>,
+  input: SimpleCondition[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -19245,7 +19245,7 @@ const serializeAws_restJson1_1ListOfSimpleCondition = (
 };
 
 const serializeAws_restJson1_1ListOfWriteTreatmentResource = (
-  input: Array<WriteTreatmentResource>,
+  input: WriteTreatmentResource[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -19258,7 +19258,7 @@ const serializeAws_restJson1_1ListOfWriteTreatmentResource = (
 };
 
 const serializeAws_restJson1_1ListOf__string = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -19344,7 +19344,7 @@ const serializeAws_restJson1_1MapOfEventsBatch = (
 };
 
 const serializeAws_restJson1_1MapOfListOf__string = (
-  input: { [key: string]: Array<string> },
+  input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
   const mapParams: any = {};
@@ -23240,7 +23240,7 @@ const deserializeAws_restJson1_1JourneysResponse = (
 const deserializeAws_restJson1_1ListOfActivityResponse = (
   output: any,
   context: __SerdeContext
-): Array<ActivityResponse> => {
+): ActivityResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ActivityResponse(entry, context)
   );
@@ -23249,7 +23249,7 @@ const deserializeAws_restJson1_1ListOfActivityResponse = (
 const deserializeAws_restJson1_1ListOfApplicationResponse = (
   output: any,
   context: __SerdeContext
-): Array<ApplicationResponse> => {
+): ApplicationResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ApplicationResponse(entry, context)
   );
@@ -23258,7 +23258,7 @@ const deserializeAws_restJson1_1ListOfApplicationResponse = (
 const deserializeAws_restJson1_1ListOfCampaignResponse = (
   output: any,
   context: __SerdeContext
-): Array<CampaignResponse> => {
+): CampaignResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CampaignResponse(entry, context)
   );
@@ -23267,7 +23267,7 @@ const deserializeAws_restJson1_1ListOfCampaignResponse = (
 const deserializeAws_restJson1_1ListOfEndpointResponse = (
   output: any,
   context: __SerdeContext
-): Array<EndpointResponse> => {
+): EndpointResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1EndpointResponse(entry, context)
   );
@@ -23276,7 +23276,7 @@ const deserializeAws_restJson1_1ListOfEndpointResponse = (
 const deserializeAws_restJson1_1ListOfExportJobResponse = (
   output: any,
   context: __SerdeContext
-): Array<ExportJobResponse> => {
+): ExportJobResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ExportJobResponse(entry, context)
   );
@@ -23285,7 +23285,7 @@ const deserializeAws_restJson1_1ListOfExportJobResponse = (
 const deserializeAws_restJson1_1ListOfImportJobResponse = (
   output: any,
   context: __SerdeContext
-): Array<ImportJobResponse> => {
+): ImportJobResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ImportJobResponse(entry, context)
   );
@@ -23294,7 +23294,7 @@ const deserializeAws_restJson1_1ListOfImportJobResponse = (
 const deserializeAws_restJson1_1ListOfJourneyResponse = (
   output: any,
   context: __SerdeContext
-): Array<JourneyResponse> => {
+): JourneyResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JourneyResponse(entry, context)
   );
@@ -23303,7 +23303,7 @@ const deserializeAws_restJson1_1ListOfJourneyResponse = (
 const deserializeAws_restJson1_1ListOfMultiConditionalBranch = (
   output: any,
   context: __SerdeContext
-): Array<MultiConditionalBranch> => {
+): MultiConditionalBranch[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1MultiConditionalBranch(entry, context)
   );
@@ -23312,7 +23312,7 @@ const deserializeAws_restJson1_1ListOfMultiConditionalBranch = (
 const deserializeAws_restJson1_1ListOfRandomSplitEntry = (
   output: any,
   context: __SerdeContext
-): Array<RandomSplitEntry> => {
+): RandomSplitEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RandomSplitEntry(entry, context)
   );
@@ -23321,7 +23321,7 @@ const deserializeAws_restJson1_1ListOfRandomSplitEntry = (
 const deserializeAws_restJson1_1ListOfResultRow = (
   output: any,
   context: __SerdeContext
-): Array<ResultRow> => {
+): ResultRow[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ResultRow(entry, context)
   );
@@ -23330,7 +23330,7 @@ const deserializeAws_restJson1_1ListOfResultRow = (
 const deserializeAws_restJson1_1ListOfResultRowValue = (
   output: any,
   context: __SerdeContext
-): Array<ResultRowValue> => {
+): ResultRowValue[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ResultRowValue(entry, context)
   );
@@ -23339,7 +23339,7 @@ const deserializeAws_restJson1_1ListOfResultRowValue = (
 const deserializeAws_restJson1_1ListOfSegmentDimensions = (
   output: any,
   context: __SerdeContext
-): Array<SegmentDimensions> => {
+): SegmentDimensions[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SegmentDimensions(entry, context)
   );
@@ -23348,7 +23348,7 @@ const deserializeAws_restJson1_1ListOfSegmentDimensions = (
 const deserializeAws_restJson1_1ListOfSegmentGroup = (
   output: any,
   context: __SerdeContext
-): Array<SegmentGroup> => {
+): SegmentGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SegmentGroup(entry, context)
   );
@@ -23357,7 +23357,7 @@ const deserializeAws_restJson1_1ListOfSegmentGroup = (
 const deserializeAws_restJson1_1ListOfSegmentReference = (
   output: any,
   context: __SerdeContext
-): Array<SegmentReference> => {
+): SegmentReference[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SegmentReference(entry, context)
   );
@@ -23366,7 +23366,7 @@ const deserializeAws_restJson1_1ListOfSegmentReference = (
 const deserializeAws_restJson1_1ListOfSegmentResponse = (
   output: any,
   context: __SerdeContext
-): Array<SegmentResponse> => {
+): SegmentResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SegmentResponse(entry, context)
   );
@@ -23375,7 +23375,7 @@ const deserializeAws_restJson1_1ListOfSegmentResponse = (
 const deserializeAws_restJson1_1ListOfSimpleCondition = (
   output: any,
   context: __SerdeContext
-): Array<SimpleCondition> => {
+): SimpleCondition[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SimpleCondition(entry, context)
   );
@@ -23384,7 +23384,7 @@ const deserializeAws_restJson1_1ListOfSimpleCondition = (
 const deserializeAws_restJson1_1ListOfTemplateResponse = (
   output: any,
   context: __SerdeContext
-): Array<TemplateResponse> => {
+): TemplateResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TemplateResponse(entry, context)
   );
@@ -23393,7 +23393,7 @@ const deserializeAws_restJson1_1ListOfTemplateResponse = (
 const deserializeAws_restJson1_1ListOfTemplateVersionResponse = (
   output: any,
   context: __SerdeContext
-): Array<TemplateVersionResponse> => {
+): TemplateVersionResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TemplateVersionResponse(entry, context)
   );
@@ -23402,7 +23402,7 @@ const deserializeAws_restJson1_1ListOfTemplateVersionResponse = (
 const deserializeAws_restJson1_1ListOfTreatmentResource = (
   output: any,
   context: __SerdeContext
-): Array<TreatmentResource> => {
+): TreatmentResource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TreatmentResource(entry, context)
   );
@@ -23411,7 +23411,7 @@ const deserializeAws_restJson1_1ListOfTreatmentResource = (
 const deserializeAws_restJson1_1ListOf__string = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -23499,7 +23499,7 @@ const deserializeAws_restJson1_1MapOfItemResponse = (
 const deserializeAws_restJson1_1MapOfListOf__string = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<string> } => {
+): { [key: string]: string[] } => {
   const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1ListOf__string(

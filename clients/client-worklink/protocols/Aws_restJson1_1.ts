@@ -4415,7 +4415,7 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1SecurityGroupIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4426,7 +4426,7 @@ const serializeAws_restJson1_1SecurityGroupIds = (
 };
 
 const serializeAws_restJson1_1SubnetIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4457,7 +4457,7 @@ const deserializeAws_restJson1_1DeviceSummary = (
 const deserializeAws_restJson1_1DeviceSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<DeviceSummary> => {
+): DeviceSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DeviceSummary(entry, context)
   );
@@ -4492,7 +4492,7 @@ const deserializeAws_restJson1_1DomainSummary = (
 const deserializeAws_restJson1_1DomainSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<DomainSummary> => {
+): DomainSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DomainSummary(entry, context)
   );
@@ -4541,7 +4541,7 @@ const deserializeAws_restJson1_1FleetSummary = (
 const deserializeAws_restJson1_1FleetSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<FleetSummary> => {
+): FleetSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1FleetSummary(entry, context)
   );
@@ -4550,14 +4550,14 @@ const deserializeAws_restJson1_1FleetSummaryList = (
 const deserializeAws_restJson1_1SecurityGroupIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1SubnetIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4596,7 +4596,7 @@ const deserializeAws_restJson1_1WebsiteAuthorizationProviderSummary = (
 const deserializeAws_restJson1_1WebsiteAuthorizationProvidersSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<WebsiteAuthorizationProviderSummary> => {
+): WebsiteAuthorizationProviderSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1WebsiteAuthorizationProviderSummary(
       entry,
@@ -4630,7 +4630,7 @@ const deserializeAws_restJson1_1WebsiteCaSummary = (
 const deserializeAws_restJson1_1WebsiteCaSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<WebsiteCaSummary> => {
+): WebsiteCaSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1WebsiteCaSummary(entry, context)
   );

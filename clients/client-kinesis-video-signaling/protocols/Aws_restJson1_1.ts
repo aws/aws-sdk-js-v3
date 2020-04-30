@@ -438,7 +438,7 @@ const deserializeAws_restJson1_1IceServer = (
 const deserializeAws_restJson1_1IceServerList = (
   output: any,
   context: __SerdeContext
-): Array<IceServer> => {
+): IceServer[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1IceServer(entry, context)
   );
@@ -447,7 +447,7 @@ const deserializeAws_restJson1_1IceServerList = (
 const deserializeAws_restJson1_1Uris = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

@@ -63,7 +63,7 @@ export interface BundleDetails {
    *             Developer desktop or mobile app or website platforms.
    *         </p>
    */
-  availablePlatforms?: Array<Platform | string>;
+  availablePlatforms?: Platform | string[];
 
   /**
    * <p>
@@ -201,7 +201,7 @@ export interface DeleteProjectResult {
    *             Resources which were deleted.
    *         </p>
    */
-  deletedResources?: Array<Resource>;
+  deletedResources?: Resource[];
 
   /**
    * <p>
@@ -209,7 +209,7 @@ export interface DeleteProjectResult {
    *             important data or files.
    *         </p>
    */
-  orphanedResources?: Array<Resource>;
+  orphanedResources?: Resource[];
 }
 
 export namespace DeleteProjectResult {
@@ -521,7 +521,7 @@ export interface ListBundlesResult {
    *             A list of bundles.
    *         </p>
    */
-  bundleList?: Array<BundleDetails>;
+  bundleList?: BundleDetails[];
 
   /**
    * <p>
@@ -587,7 +587,7 @@ export interface ListProjectsResult {
    *             List of projects.
    *         </p>
    */
-  projects?: Array<ProjectSummary>;
+  projects?: ProjectSummary[];
 }
 
 export namespace ListProjectsResult {
@@ -680,7 +680,7 @@ export interface ProjectDetails {
    *             List of AWS resources associated with a project.
    *         </p>
    */
-  resources?: Array<Resource>;
+  resources?: Resource[];
 
   /**
    * <p>

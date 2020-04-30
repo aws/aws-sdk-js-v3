@@ -31957,7 +31957,7 @@ const serializeAws_ec2AcceptVpcPeeringConnectionRequest = (
 };
 
 const serializeAws_ec2AccountAttributeNameStringList = (
-  input: Array<AccountAttributeName | string>,
+  input: AccountAttributeName | string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -32049,7 +32049,7 @@ const serializeAws_ec2AllocateHostsRequest = (
 };
 
 const serializeAws_ec2AllocationIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -32337,7 +32337,7 @@ const serializeAws_ec2AssociateVpcCidrBlockRequest = (
 };
 
 const serializeAws_ec2AssociationIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -32592,7 +32592,7 @@ const serializeAws_ec2AuthorizeSecurityGroupIngressRequest = (
 };
 
 const serializeAws_ec2AvailabilityZoneStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -32605,7 +32605,7 @@ const serializeAws_ec2AvailabilityZoneStringList = (
 };
 
 const serializeAws_ec2BillingProductList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -32653,7 +32653,7 @@ const serializeAws_ec2BlockDeviceMapping = (
 };
 
 const serializeAws_ec2BlockDeviceMappingList = (
-  input: Array<BlockDeviceMapping>,
+  input: BlockDeviceMapping[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -32669,7 +32669,7 @@ const serializeAws_ec2BlockDeviceMappingList = (
 };
 
 const serializeAws_ec2BlockDeviceMappingRequestList = (
-  input: Array<BlockDeviceMapping>,
+  input: BlockDeviceMapping[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -32685,7 +32685,7 @@ const serializeAws_ec2BlockDeviceMappingRequestList = (
 };
 
 const serializeAws_ec2BundleIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -32850,7 +32850,7 @@ const serializeAws_ec2CancelSpotInstanceRequestsRequest = (
 };
 
 const serializeAws_ec2CapacityReservationIdSet = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -32944,7 +32944,7 @@ const serializeAws_ec2ClassicLoadBalancer = (
 };
 
 const serializeAws_ec2ClassicLoadBalancers = (
-  input: Array<ClassicLoadBalancer>,
+  input: ClassicLoadBalancer[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -33030,7 +33030,7 @@ const serializeAws_ec2ClientVpnAuthenticationRequest = (
 };
 
 const serializeAws_ec2ClientVpnAuthenticationRequestList = (
-  input: Array<ClientVpnAuthenticationRequest>,
+  input: ClientVpnAuthenticationRequest[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -33049,7 +33049,7 @@ const serializeAws_ec2ClientVpnAuthenticationRequestList = (
 };
 
 const serializeAws_ec2ClientVpnSecurityGroupIdSet = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -33062,7 +33062,7 @@ const serializeAws_ec2ClientVpnSecurityGroupIdSet = (
 };
 
 const serializeAws_ec2CoipPoolIdSet = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -33109,7 +33109,7 @@ const serializeAws_ec2ConnectionLogOptions = (
 };
 
 const serializeAws_ec2ConversionIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -34680,7 +34680,7 @@ const serializeAws_ec2CreateVolumePermission = (
 };
 
 const serializeAws_ec2CreateVolumePermissionList = (
-  input: Array<CreateVolumePermission>,
+  input: CreateVolumePermission[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -35027,7 +35027,7 @@ const serializeAws_ec2CreditSpecificationRequest = (
 };
 
 const serializeAws_ec2CustomerGatewayIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -35369,7 +35369,7 @@ const serializeAws_ec2DeletePlacementGroupRequest = (
 };
 
 const serializeAws_ec2DeleteQueuedReservedInstancesIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -39508,7 +39508,7 @@ const serializeAws_ec2DetachVpnGatewayRequest = (
 };
 
 const serializeAws_ec2DhcpOptionsIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -39798,7 +39798,7 @@ const serializeAws_ec2DiskImageDetail = (
 };
 
 const serializeAws_ec2DiskImageList = (
-  input: Array<DiskImage>,
+  input: DiskImage[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -39878,7 +39878,7 @@ const serializeAws_ec2EbsInstanceBlockDeviceSpecification = (
 };
 
 const serializeAws_ec2EgressOnlyInternetGatewayIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -39891,7 +39891,7 @@ const serializeAws_ec2EgressOnlyInternetGatewayIdList = (
 };
 
 const serializeAws_ec2ElasticGpuIdSet = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -39915,7 +39915,7 @@ const serializeAws_ec2ElasticGpuSpecification = (
 };
 
 const serializeAws_ec2ElasticGpuSpecificationList = (
-  input: Array<ElasticGpuSpecification>,
+  input: ElasticGpuSpecification[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -39934,7 +39934,7 @@ const serializeAws_ec2ElasticGpuSpecificationList = (
 };
 
 const serializeAws_ec2ElasticGpuSpecifications = (
-  input: Array<ElasticGpuSpecification>,
+  input: ElasticGpuSpecification[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -39967,7 +39967,7 @@ const serializeAws_ec2ElasticInferenceAccelerator = (
 };
 
 const serializeAws_ec2ElasticInferenceAccelerators = (
-  input: Array<ElasticInferenceAccelerator>,
+  input: ElasticInferenceAccelerator[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -40098,7 +40098,7 @@ const serializeAws_ec2EnableVpcClassicLinkRequest = (
 };
 
 const serializeAws_ec2ExecutableByStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -40178,7 +40178,7 @@ const serializeAws_ec2ExportImageRequest = (
 };
 
 const serializeAws_ec2ExportImageTaskIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -40191,7 +40191,7 @@ const serializeAws_ec2ExportImageTaskIdList = (
 };
 
 const serializeAws_ec2ExportTaskIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -40283,7 +40283,7 @@ const serializeAws_ec2Filter = (
 };
 
 const serializeAws_ec2FilterList = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -40299,7 +40299,7 @@ const serializeAws_ec2FilterList = (
 };
 
 const serializeAws_ec2FleetIdSet = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -40312,7 +40312,7 @@ const serializeAws_ec2FleetIdSet = (
 };
 
 const serializeAws_ec2FleetLaunchTemplateConfigListRequest = (
-  input: Array<FleetLaunchTemplateConfigRequest>,
+  input: FleetLaunchTemplateConfigRequest[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -40359,7 +40359,7 @@ const serializeAws_ec2FleetLaunchTemplateConfigRequest = (
 };
 
 const serializeAws_ec2FleetLaunchTemplateOverridesListRequest = (
-  input: Array<FleetLaunchTemplateOverridesRequest>,
+  input: FleetLaunchTemplateOverridesRequest[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -40445,7 +40445,7 @@ const serializeAws_ec2FleetLaunchTemplateSpecificationRequest = (
 };
 
 const serializeAws_ec2FpgaImageIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -40784,7 +40784,7 @@ const serializeAws_ec2GetTransitGatewayRouteTablePropagationsRequest = (
 };
 
 const serializeAws_ec2GroupIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -40811,7 +40811,7 @@ const serializeAws_ec2GroupIdentifier = (
 };
 
 const serializeAws_ec2GroupIdentifierList = (
-  input: Array<GroupIdentifier>,
+  input: GroupIdentifier[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -40827,7 +40827,7 @@ const serializeAws_ec2GroupIdentifierList = (
 };
 
 const serializeAws_ec2GroupIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -40840,7 +40840,7 @@ const serializeAws_ec2GroupIds = (
 };
 
 const serializeAws_ec2GroupNameStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -40864,7 +40864,7 @@ const serializeAws_ec2HibernationOptionsRequest = (
 };
 
 const serializeAws_ec2HostReservationIdSet = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -40877,7 +40877,7 @@ const serializeAws_ec2HostReservationIdSet = (
 };
 
 const serializeAws_ec2IKEVersionsRequestList = (
-  input: Array<IKEVersionsRequestListValue>,
+  input: IKEVersionsRequestListValue[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -40965,7 +40965,7 @@ const serializeAws_ec2ImageDiskContainer = (
 };
 
 const serializeAws_ec2ImageDiskContainerList = (
-  input: Array<ImageDiskContainer>,
+  input: ImageDiskContainer[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -40981,7 +40981,7 @@ const serializeAws_ec2ImageDiskContainerList = (
 };
 
 const serializeAws_ec2ImageIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41022,7 +41022,7 @@ const serializeAws_ec2ImportImageLicenseConfigurationRequest = (
 };
 
 const serializeAws_ec2ImportImageLicenseSpecificationListRequest = (
-  input: Array<ImportImageLicenseConfigurationRequest>,
+  input: ImportImageLicenseConfigurationRequest[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41271,7 +41271,7 @@ const serializeAws_ec2ImportSnapshotRequest = (
 };
 
 const serializeAws_ec2ImportTaskIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41342,7 +41342,7 @@ const serializeAws_ec2InstanceBlockDeviceMappingSpecification = (
 };
 
 const serializeAws_ec2InstanceBlockDeviceMappingSpecificationList = (
-  input: Array<InstanceBlockDeviceMappingSpecification>,
+  input: InstanceBlockDeviceMappingSpecification[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41361,7 +41361,7 @@ const serializeAws_ec2InstanceBlockDeviceMappingSpecificationList = (
 };
 
 const serializeAws_ec2InstanceCreditSpecificationListRequest = (
-  input: Array<InstanceCreditSpecificationRequest>,
+  input: InstanceCreditSpecificationRequest[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41394,7 +41394,7 @@ const serializeAws_ec2InstanceCreditSpecificationRequest = (
 };
 
 const serializeAws_ec2InstanceIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41418,7 +41418,7 @@ const serializeAws_ec2InstanceIpv6Address = (
 };
 
 const serializeAws_ec2InstanceIpv6AddressList = (
-  input: Array<InstanceIpv6Address>,
+  input: InstanceIpv6Address[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41434,7 +41434,7 @@ const serializeAws_ec2InstanceIpv6AddressList = (
 };
 
 const serializeAws_ec2InstanceIpv6AddressListRequest = (
-  input: Array<InstanceIpv6AddressRequest>,
+  input: InstanceIpv6AddressRequest[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41571,7 +41571,7 @@ const serializeAws_ec2InstanceNetworkInterfaceSpecification = (
 };
 
 const serializeAws_ec2InstanceNetworkInterfaceSpecificationList = (
-  input: Array<InstanceNetworkInterfaceSpecification>,
+  input: InstanceNetworkInterfaceSpecification[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41604,7 +41604,7 @@ const serializeAws_ec2InstanceSpecification = (
 };
 
 const serializeAws_ec2InstanceTypeList = (
-  input: Array<_InstanceType | string>,
+  input: _InstanceType | string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41671,7 +41671,7 @@ const serializeAws_ec2IpPermission = (
 };
 
 const serializeAws_ec2IpPermissionList = (
-  input: Array<IpPermission>,
+  input: IpPermission[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41701,7 +41701,7 @@ const serializeAws_ec2IpRange = (
 };
 
 const serializeAws_ec2IpRangeList = (
-  input: Array<IpRange>,
+  input: IpRange[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41717,7 +41717,7 @@ const serializeAws_ec2IpRangeList = (
 };
 
 const serializeAws_ec2Ipv6AddressList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41744,7 +41744,7 @@ const serializeAws_ec2Ipv6Range = (
 };
 
 const serializeAws_ec2Ipv6RangeList = (
-  input: Array<Ipv6Range>,
+  input: Ipv6Range[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41760,7 +41760,7 @@ const serializeAws_ec2Ipv6RangeList = (
 };
 
 const serializeAws_ec2KeyNameStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41773,7 +41773,7 @@ const serializeAws_ec2KeyNameStringList = (
 };
 
 const serializeAws_ec2KeyPairIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41800,7 +41800,7 @@ const serializeAws_ec2LaunchPermission = (
 };
 
 const serializeAws_ec2LaunchPermissionList = (
-  input: Array<LaunchPermission>,
+  input: LaunchPermission[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41844,7 +41844,7 @@ const serializeAws_ec2LaunchPermissionModifications = (
 };
 
 const serializeAws_ec2LaunchSpecsList = (
-  input: Array<SpotFleetLaunchSpecification>,
+  input: SpotFleetLaunchSpecification[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41890,7 +41890,7 @@ const serializeAws_ec2LaunchTemplateBlockDeviceMappingRequest = (
 };
 
 const serializeAws_ec2LaunchTemplateBlockDeviceMappingRequestList = (
-  input: Array<LaunchTemplateBlockDeviceMappingRequest>,
+  input: LaunchTemplateBlockDeviceMappingRequest[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41959,7 +41959,7 @@ const serializeAws_ec2LaunchTemplateConfig = (
 };
 
 const serializeAws_ec2LaunchTemplateConfigList = (
-  input: Array<LaunchTemplateConfig>,
+  input: LaunchTemplateConfig[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -42032,7 +42032,7 @@ const serializeAws_ec2LaunchTemplateElasticInferenceAccelerator = (
 };
 
 const serializeAws_ec2LaunchTemplateElasticInferenceAcceleratorList = (
-  input: Array<LaunchTemplateElasticInferenceAccelerator>,
+  input: LaunchTemplateElasticInferenceAccelerator[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -42183,7 +42183,7 @@ const serializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
 };
 
 const serializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList = (
-  input: Array<LaunchTemplateInstanceNetworkInterfaceSpecificationRequest>,
+  input: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -42214,7 +42214,7 @@ const serializeAws_ec2LaunchTemplateLicenseConfigurationRequest = (
 };
 
 const serializeAws_ec2LaunchTemplateLicenseSpecificationListRequest = (
-  input: Array<LaunchTemplateLicenseConfigurationRequest>,
+  input: LaunchTemplateLicenseConfigurationRequest[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -42233,7 +42233,7 @@ const serializeAws_ec2LaunchTemplateLicenseSpecificationListRequest = (
 };
 
 const serializeAws_ec2LaunchTemplateNameStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -42272,7 +42272,7 @@ const serializeAws_ec2LaunchTemplateOverrides = (
 };
 
 const serializeAws_ec2LaunchTemplateOverridesList = (
-  input: Array<LaunchTemplateOverrides>,
+  input: LaunchTemplateOverrides[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -42382,7 +42382,7 @@ const serializeAws_ec2LaunchTemplateTagSpecificationRequest = (
 };
 
 const serializeAws_ec2LaunchTemplateTagSpecificationRequestList = (
-  input: Array<LaunchTemplateTagSpecificationRequest>,
+  input: LaunchTemplateTagSpecificationRequest[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -42424,7 +42424,7 @@ const serializeAws_ec2LicenseConfigurationRequest = (
 };
 
 const serializeAws_ec2LicenseSpecificationListRequest = (
-  input: Array<LicenseConfigurationRequest>,
+  input: LicenseConfigurationRequest[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -42471,7 +42471,7 @@ const serializeAws_ec2LoadBalancersConfig = (
 };
 
 const serializeAws_ec2LoadPermissionListRequest = (
-  input: Array<LoadPermissionRequest>,
+  input: LoadPermissionRequest[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -42529,7 +42529,7 @@ const serializeAws_ec2LoadPermissionRequest = (
 };
 
 const serializeAws_ec2LocalGatewayIdSet = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -42542,7 +42542,7 @@ const serializeAws_ec2LocalGatewayIdSet = (
 };
 
 const serializeAws_ec2LocalGatewayRouteTableIdSet = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -42555,7 +42555,7 @@ const serializeAws_ec2LocalGatewayRouteTableIdSet = (
 };
 
 const serializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociationIdSet = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -42568,7 +42568,7 @@ const serializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociationIdSe
 };
 
 const serializeAws_ec2LocalGatewayRouteTableVpcAssociationIdSet = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -42581,7 +42581,7 @@ const serializeAws_ec2LocalGatewayRouteTableVpcAssociationIdSet = (
 };
 
 const serializeAws_ec2LocalGatewayVirtualInterfaceGroupIdSet = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -42594,7 +42594,7 @@ const serializeAws_ec2LocalGatewayVirtualInterfaceGroupIdSet = (
 };
 
 const serializeAws_ec2LocalGatewayVirtualInterfaceIdSet = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44155,7 +44155,7 @@ const serializeAws_ec2NetworkInterfaceAttachmentChanges = (
 };
 
 const serializeAws_ec2NetworkInterfaceIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44168,7 +44168,7 @@ const serializeAws_ec2NetworkInterfaceIdList = (
 };
 
 const serializeAws_ec2NetworkInterfacePermissionIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44202,7 +44202,7 @@ const serializeAws_ec2NewDhcpConfiguration = (
 };
 
 const serializeAws_ec2NewDhcpConfigurationList = (
-  input: Array<NewDhcpConfiguration>,
+  input: NewDhcpConfiguration[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44218,7 +44218,7 @@ const serializeAws_ec2NewDhcpConfigurationList = (
 };
 
 const serializeAws_ec2OccurrenceDayRequestSet = (
-  input: Array<number>,
+  input: number[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44264,7 +44264,7 @@ const serializeAws_ec2OnDemandOptionsRequest = (
 };
 
 const serializeAws_ec2OwnerStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44297,7 +44297,7 @@ const serializeAws_ec2PeeringConnectionOptionsRequest = (
 };
 
 const serializeAws_ec2Phase1DHGroupNumbersRequestList = (
-  input: Array<Phase1DHGroupNumbersRequestListValue>,
+  input: Phase1DHGroupNumbersRequestListValue[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44327,7 +44327,7 @@ const serializeAws_ec2Phase1DHGroupNumbersRequestListValue = (
 };
 
 const serializeAws_ec2Phase1EncryptionAlgorithmsRequestList = (
-  input: Array<Phase1EncryptionAlgorithmsRequestListValue>,
+  input: Phase1EncryptionAlgorithmsRequestListValue[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44357,7 +44357,7 @@ const serializeAws_ec2Phase1EncryptionAlgorithmsRequestListValue = (
 };
 
 const serializeAws_ec2Phase1IntegrityAlgorithmsRequestList = (
-  input: Array<Phase1IntegrityAlgorithmsRequestListValue>,
+  input: Phase1IntegrityAlgorithmsRequestListValue[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44387,7 +44387,7 @@ const serializeAws_ec2Phase1IntegrityAlgorithmsRequestListValue = (
 };
 
 const serializeAws_ec2Phase2DHGroupNumbersRequestList = (
-  input: Array<Phase2DHGroupNumbersRequestListValue>,
+  input: Phase2DHGroupNumbersRequestListValue[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44417,7 +44417,7 @@ const serializeAws_ec2Phase2DHGroupNumbersRequestListValue = (
 };
 
 const serializeAws_ec2Phase2EncryptionAlgorithmsRequestList = (
-  input: Array<Phase2EncryptionAlgorithmsRequestListValue>,
+  input: Phase2EncryptionAlgorithmsRequestListValue[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44447,7 +44447,7 @@ const serializeAws_ec2Phase2EncryptionAlgorithmsRequestListValue = (
 };
 
 const serializeAws_ec2Phase2IntegrityAlgorithmsRequestList = (
-  input: Array<Phase2IntegrityAlgorithmsRequestListValue>,
+  input: Phase2IntegrityAlgorithmsRequestListValue[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44509,7 +44509,7 @@ const serializeAws_ec2Placement = (
 };
 
 const serializeAws_ec2PlacementGroupIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44522,7 +44522,7 @@ const serializeAws_ec2PlacementGroupIdStringList = (
 };
 
 const serializeAws_ec2PlacementGroupStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44563,7 +44563,7 @@ const serializeAws_ec2PrefixListId = (
 };
 
 const serializeAws_ec2PrefixListIdList = (
-  input: Array<PrefixListId>,
+  input: PrefixListId[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44596,7 +44596,7 @@ const serializeAws_ec2PriceScheduleSpecification = (
 };
 
 const serializeAws_ec2PriceScheduleSpecificationList = (
-  input: Array<PriceScheduleSpecification>,
+  input: PriceScheduleSpecification[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44615,7 +44615,7 @@ const serializeAws_ec2PriceScheduleSpecificationList = (
 };
 
 const serializeAws_ec2PrivateIpAddressConfigSet = (
-  input: Array<ScheduledInstancesPrivateIpAddressConfig>,
+  input: ScheduledInstancesPrivateIpAddressConfig[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44649,7 +44649,7 @@ const serializeAws_ec2PrivateIpAddressSpecification = (
 };
 
 const serializeAws_ec2PrivateIpAddressSpecificationList = (
-  input: Array<PrivateIpAddressSpecification>,
+  input: PrivateIpAddressSpecification[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44668,7 +44668,7 @@ const serializeAws_ec2PrivateIpAddressSpecificationList = (
 };
 
 const serializeAws_ec2PrivateIpAddressStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44681,7 +44681,7 @@ const serializeAws_ec2PrivateIpAddressStringList = (
 };
 
 const serializeAws_ec2ProductCodeStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44694,7 +44694,7 @@ const serializeAws_ec2ProductCodeStringList = (
 };
 
 const serializeAws_ec2ProductDescriptionList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44737,7 +44737,7 @@ const serializeAws_ec2ProvisionByoipCidrRequest = (
 };
 
 const serializeAws_ec2PublicIpStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44794,7 +44794,7 @@ const serializeAws_ec2PurchaseRequest = (
 };
 
 const serializeAws_ec2PurchaseRequestSet = (
-  input: Array<PurchaseRequest>,
+  input: PurchaseRequest[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44868,7 +44868,7 @@ const serializeAws_ec2PurchaseScheduledInstancesRequest = (
 };
 
 const serializeAws_ec2ReasonCodesList = (
-  input: Array<ReportInstanceReasonCodes | string>,
+  input: ReportInstanceReasonCodes | string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44902,7 +44902,7 @@ const serializeAws_ec2RebootInstancesRequest = (
 };
 
 const serializeAws_ec2RegionNameStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -45353,7 +45353,7 @@ const serializeAws_ec2ReportInstanceStatusRequest = (
 };
 
 const serializeAws_ec2RequestHostIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -45366,7 +45366,7 @@ const serializeAws_ec2RequestHostIdList = (
 };
 
 const serializeAws_ec2RequestHostIdSet = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -45379,7 +45379,7 @@ const serializeAws_ec2RequestHostIdSet = (
 };
 
 const serializeAws_ec2RequestInstanceTypeList = (
-  input: Array<_InstanceType | string>,
+  input: _InstanceType | string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -45780,7 +45780,7 @@ const serializeAws_ec2RequestSpotLaunchSpecification = (
 };
 
 const serializeAws_ec2ReservedInstanceIdSet = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -45830,7 +45830,7 @@ const serializeAws_ec2ReservedInstancesConfiguration = (
 };
 
 const serializeAws_ec2ReservedInstancesConfigurationList = (
-  input: Array<ReservedInstancesConfiguration>,
+  input: ReservedInstancesConfiguration[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -45849,7 +45849,7 @@ const serializeAws_ec2ReservedInstancesConfigurationList = (
 };
 
 const serializeAws_ec2ReservedInstancesIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -45862,7 +45862,7 @@ const serializeAws_ec2ReservedInstancesIdStringList = (
 };
 
 const serializeAws_ec2ReservedInstancesModificationIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -45875,7 +45875,7 @@ const serializeAws_ec2ReservedInstancesModificationIdStringList = (
 };
 
 const serializeAws_ec2ReservedInstancesOfferingIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -45984,7 +45984,7 @@ const serializeAws_ec2ResetSnapshotAttributeRequest = (
 };
 
 const serializeAws_ec2ResourceIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -45997,7 +45997,7 @@ const serializeAws_ec2ResourceIdList = (
 };
 
 const serializeAws_ec2ResourceList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -46010,7 +46010,7 @@ const serializeAws_ec2ResourceList = (
 };
 
 const serializeAws_ec2RestorableByStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -46465,7 +46465,7 @@ const serializeAws_ec2S3Storage = (
 };
 
 const serializeAws_ec2ScheduledInstanceIdRequestSet = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -46535,7 +46535,7 @@ const serializeAws_ec2ScheduledInstancesBlockDeviceMapping = (
 };
 
 const serializeAws_ec2ScheduledInstancesBlockDeviceMappingSet = (
-  input: Array<ScheduledInstancesBlockDeviceMapping>,
+  input: ScheduledInstancesBlockDeviceMapping[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -46605,7 +46605,7 @@ const serializeAws_ec2ScheduledInstancesIpv6Address = (
 };
 
 const serializeAws_ec2ScheduledInstancesIpv6AddressList = (
-  input: Array<ScheduledInstancesIpv6Address>,
+  input: ScheduledInstancesIpv6Address[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -46795,7 +46795,7 @@ const serializeAws_ec2ScheduledInstancesNetworkInterface = (
 };
 
 const serializeAws_ec2ScheduledInstancesNetworkInterfaceSet = (
-  input: Array<ScheduledInstancesNetworkInterface>,
+  input: ScheduledInstancesNetworkInterface[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -46842,7 +46842,7 @@ const serializeAws_ec2ScheduledInstancesPrivateIpAddressConfig = (
 };
 
 const serializeAws_ec2ScheduledInstancesSecurityGroupIdSet = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -46934,7 +46934,7 @@ const serializeAws_ec2SearchTransitGatewayRoutesRequest = (
 };
 
 const serializeAws_ec2SecurityGroupIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -46947,7 +46947,7 @@ const serializeAws_ec2SecurityGroupIdStringList = (
 };
 
 const serializeAws_ec2SecurityGroupStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47028,7 +47028,7 @@ const serializeAws_ec2SnapshotDiskContainer = (
 };
 
 const serializeAws_ec2SnapshotIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47281,7 +47281,7 @@ const serializeAws_ec2SpotFleetTagSpecification = (
 };
 
 const serializeAws_ec2SpotFleetTagSpecificationList = (
-  input: Array<SpotFleetTagSpecification>,
+  input: SpotFleetTagSpecification[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47300,7 +47300,7 @@ const serializeAws_ec2SpotFleetTagSpecificationList = (
 };
 
 const serializeAws_ec2SpotInstanceRequestIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47478,7 +47478,7 @@ const serializeAws_ec2StorageLocation = (
 };
 
 const serializeAws_ec2SubnetIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47502,7 +47502,7 @@ const serializeAws_ec2Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_ec2TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47536,7 +47536,7 @@ const serializeAws_ec2TagSpecification = (
 };
 
 const serializeAws_ec2TagSpecificationList = (
-  input: Array<TagSpecification>,
+  input: TagSpecification[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47586,7 +47586,7 @@ const serializeAws_ec2TargetConfigurationRequest = (
 };
 
 const serializeAws_ec2TargetConfigurationRequestSet = (
-  input: Array<TargetConfigurationRequest>,
+  input: TargetConfigurationRequest[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47617,7 +47617,7 @@ const serializeAws_ec2TargetGroup = (
 };
 
 const serializeAws_ec2TargetGroups = (
-  input: Array<TargetGroup>,
+  input: TargetGroup[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47692,7 +47692,7 @@ const serializeAws_ec2TerminateInstancesRequest = (
 };
 
 const serializeAws_ec2TrafficMirrorFilterRuleFieldList = (
-  input: Array<TrafficMirrorFilterRuleField | string>,
+  input: TrafficMirrorFilterRuleField | string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47705,7 +47705,7 @@ const serializeAws_ec2TrafficMirrorFilterRuleFieldList = (
 };
 
 const serializeAws_ec2TrafficMirrorNetworkServiceList = (
-  input: Array<TrafficMirrorNetworkService | string>,
+  input: TrafficMirrorNetworkService | string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47732,7 +47732,7 @@ const serializeAws_ec2TrafficMirrorPortRangeRequest = (
 };
 
 const serializeAws_ec2TrafficMirrorSessionFieldList = (
-  input: Array<TrafficMirrorSessionField | string>,
+  input: TrafficMirrorSessionField | string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47745,7 +47745,7 @@ const serializeAws_ec2TrafficMirrorSessionFieldList = (
 };
 
 const serializeAws_ec2TransitGatewayAttachmentIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47758,7 +47758,7 @@ const serializeAws_ec2TransitGatewayAttachmentIdStringList = (
 };
 
 const serializeAws_ec2TransitGatewayIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47771,7 +47771,7 @@ const serializeAws_ec2TransitGatewayIdStringList = (
 };
 
 const serializeAws_ec2TransitGatewayMulticastDomainIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47815,7 +47815,7 @@ const serializeAws_ec2TransitGatewayRequestOptions = (
 };
 
 const serializeAws_ec2TransitGatewayRouteTableIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47970,7 +47970,7 @@ const serializeAws_ec2UserData = (
 };
 
 const serializeAws_ec2UserGroupStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -48012,7 +48012,7 @@ const serializeAws_ec2UserIdGroupPair = (
 };
 
 const serializeAws_ec2UserIdGroupPairList = (
-  input: Array<UserIdGroupPair>,
+  input: UserIdGroupPair[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -48028,7 +48028,7 @@ const serializeAws_ec2UserIdGroupPairList = (
 };
 
 const serializeAws_ec2UserIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -48041,7 +48041,7 @@ const serializeAws_ec2UserIdStringList = (
 };
 
 const serializeAws_ec2ValueStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -48054,7 +48054,7 @@ const serializeAws_ec2ValueStringList = (
 };
 
 const serializeAws_ec2VersionStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -48078,7 +48078,7 @@ const serializeAws_ec2VolumeDetail = (
 };
 
 const serializeAws_ec2VolumeIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -48091,7 +48091,7 @@ const serializeAws_ec2VolumeIdStringList = (
 };
 
 const serializeAws_ec2VpcClassicLinkIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -48104,7 +48104,7 @@ const serializeAws_ec2VpcClassicLinkIdList = (
 };
 
 const serializeAws_ec2VpcIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -48117,7 +48117,7 @@ const serializeAws_ec2VpcIdStringList = (
 };
 
 const serializeAws_ec2VpnConnectionIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -48154,7 +48154,7 @@ const serializeAws_ec2VpnConnectionOptionsSpecification = (
 };
 
 const serializeAws_ec2VpnGatewayIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -48277,7 +48277,7 @@ const serializeAws_ec2VpnTunnelOptionsSpecification = (
 };
 
 const serializeAws_ec2VpnTunnelOptionsSpecificationsList = (
-  input: Array<VpnTunnelOptionsSpecification>,
+  input: VpnTunnelOptionsSpecification[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -48310,7 +48310,7 @@ const serializeAws_ec2WithdrawByoipCidrRequest = (
 };
 
 const serializeAws_ec2ZoneIdStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -48323,7 +48323,7 @@ const serializeAws_ec2ZoneIdStringList = (
 };
 
 const serializeAws_ec2ZoneNameStringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -48467,7 +48467,7 @@ const deserializeAws_ec2AccountAttribute = (
 const deserializeAws_ec2AccountAttributeList = (
   output: any,
   context: __SerdeContext
-): Array<AccountAttribute> => {
+): AccountAttribute[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2AccountAttribute(entry, context));
@@ -48495,7 +48495,7 @@ const deserializeAws_ec2AccountAttributeValue = (
 const deserializeAws_ec2AccountAttributeValueList = (
   output: any,
   context: __SerdeContext
-): Array<AccountAttributeValue> => {
+): AccountAttributeValue[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2AccountAttributeValue(entry, context));
@@ -48544,7 +48544,7 @@ const deserializeAws_ec2ActiveInstance = (
 const deserializeAws_ec2ActiveInstanceSet = (
   output: any,
   context: __SerdeContext
-): Array<ActiveInstance> => {
+): ActiveInstance[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ActiveInstance(entry, context));
@@ -48663,7 +48663,7 @@ const deserializeAws_ec2Address = (
 const deserializeAws_ec2AddressList = (
   output: any,
   context: __SerdeContext
-): Array<Address> => {
+): Address[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2Address(entry, context));
@@ -48801,7 +48801,7 @@ const deserializeAws_ec2AllowedPrincipal = (
 const deserializeAws_ec2AllowedPrincipalSet = (
   output: any,
   context: __SerdeContext
-): Array<AllowedPrincipal> => {
+): AllowedPrincipal[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2AllowedPrincipal(entry, context));
@@ -48839,7 +48839,7 @@ const deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkResult = (
 const deserializeAws_ec2ArchitectureTypeList = (
   output: any,
   context: __SerdeContext
-): Array<ArchitectureType | string> => {
+): ArchitectureType | string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -48935,7 +48935,7 @@ const deserializeAws_ec2AssignedPrivateIpAddress = (
 const deserializeAws_ec2AssignedPrivateIpAddressList = (
   output: any,
   context: __SerdeContext
-): Array<AssignedPrivateIpAddress> => {
+): AssignedPrivateIpAddress[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2AssignedPrivateIpAddress(entry, context));
@@ -49141,7 +49141,7 @@ const deserializeAws_ec2AssociatedTargetNetwork = (
 const deserializeAws_ec2AssociatedTargetNetworkSet = (
   output: any,
   context: __SerdeContext
-): Array<AssociatedTargetNetwork> => {
+): AssociatedTargetNetwork[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2AssociatedTargetNetwork(entry, context));
@@ -49313,7 +49313,7 @@ const deserializeAws_ec2AuthorizationRule = (
 const deserializeAws_ec2AuthorizationRuleSet = (
   output: any,
   context: __SerdeContext
-): Array<AuthorizationRule> => {
+): AuthorizationRule[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2AuthorizationRule(entry, context));
@@ -49417,7 +49417,7 @@ const deserializeAws_ec2AvailabilityZone = (
 const deserializeAws_ec2AvailabilityZoneList = (
   output: any,
   context: __SerdeContext
-): Array<AvailabilityZone> => {
+): AvailabilityZone[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2AvailabilityZone(entry, context));
@@ -49445,7 +49445,7 @@ const deserializeAws_ec2AvailabilityZoneMessage = (
 const deserializeAws_ec2AvailabilityZoneMessageList = (
   output: any,
   context: __SerdeContext
-): Array<AvailabilityZoneMessage> => {
+): AvailabilityZoneMessage[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2AvailabilityZoneMessage(entry, context));
@@ -49491,7 +49491,7 @@ const deserializeAws_ec2AvailableCapacity = (
 const deserializeAws_ec2AvailableInstanceCapacityList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceCapacity> => {
+): InstanceCapacity[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2InstanceCapacity(entry, context));
@@ -49537,7 +49537,7 @@ const deserializeAws_ec2BlockDeviceMapping = (
 const deserializeAws_ec2BlockDeviceMappingList = (
   output: any,
   context: __SerdeContext
-): Array<BlockDeviceMapping> => {
+): BlockDeviceMapping[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2BlockDeviceMapping(entry, context));
@@ -49646,7 +49646,7 @@ const deserializeAws_ec2BundleTaskError = (
 const deserializeAws_ec2BundleTaskList = (
   output: any,
   context: __SerdeContext
-): Array<BundleTask> => {
+): BundleTask[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2BundleTask(entry, context));
@@ -49695,7 +49695,7 @@ const deserializeAws_ec2ByoipCidr = (
 const deserializeAws_ec2ByoipCidrSet = (
   output: any,
   context: __SerdeContext
-): Array<ByoipCidr> => {
+): ByoipCidr[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ByoipCidr(entry, context));
@@ -49846,7 +49846,7 @@ const deserializeAws_ec2CancelSpotFleetRequestsErrorItem = (
 const deserializeAws_ec2CancelSpotFleetRequestsErrorSet = (
   output: any,
   context: __SerdeContext
-): Array<CancelSpotFleetRequestsErrorItem> => {
+): CancelSpotFleetRequestsErrorItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -49934,7 +49934,7 @@ const deserializeAws_ec2CancelSpotFleetRequestsSuccessItem = (
 const deserializeAws_ec2CancelSpotFleetRequestsSuccessSet = (
   output: any,
   context: __SerdeContext
-): Array<CancelSpotFleetRequestsSuccessItem> => {
+): CancelSpotFleetRequestsSuccessItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -49998,7 +49998,7 @@ const deserializeAws_ec2CancelledSpotInstanceRequest = (
 const deserializeAws_ec2CancelledSpotInstanceRequestList = (
   output: any,
   context: __SerdeContext
-): Array<CancelledSpotInstanceRequest> => {
+): CancelledSpotInstanceRequest[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -50167,7 +50167,7 @@ const deserializeAws_ec2CapacityReservationOptions = (
 const deserializeAws_ec2CapacityReservationSet = (
   output: any,
   context: __SerdeContext
-): Array<CapacityReservation> => {
+): CapacityReservation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2CapacityReservation(entry, context));
@@ -50253,7 +50253,7 @@ const deserializeAws_ec2CidrBlock = (
 const deserializeAws_ec2CidrBlockSet = (
   output: any,
   context: __SerdeContext
-): Array<CidrBlock> => {
+): CidrBlock[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2CidrBlock(entry, context));
@@ -50288,7 +50288,7 @@ const deserializeAws_ec2ClassicLinkDnsSupport = (
 const deserializeAws_ec2ClassicLinkDnsSupportList = (
   output: any,
   context: __SerdeContext
-): Array<ClassicLinkDnsSupport> => {
+): ClassicLinkDnsSupport[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ClassicLinkDnsSupport(entry, context));
@@ -50354,7 +50354,7 @@ const deserializeAws_ec2ClassicLinkInstance = (
 const deserializeAws_ec2ClassicLinkInstanceList = (
   output: any,
   context: __SerdeContext
-): Array<ClassicLinkInstance> => {
+): ClassicLinkInstance[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ClassicLinkInstance(entry, context));
@@ -50382,7 +50382,7 @@ const deserializeAws_ec2ClassicLoadBalancer = (
 const deserializeAws_ec2ClassicLoadBalancers = (
   output: any,
   context: __SerdeContext
-): Array<ClassicLoadBalancer> => {
+): ClassicLoadBalancer[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ClassicLoadBalancer(entry, context));
@@ -50475,7 +50475,7 @@ const deserializeAws_ec2ClientVpnAuthentication = (
 const deserializeAws_ec2ClientVpnAuthenticationList = (
   output: any,
   context: __SerdeContext
-): Array<ClientVpnAuthentication> => {
+): ClientVpnAuthentication[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ClientVpnAuthentication(entry, context));
@@ -50611,7 +50611,7 @@ const deserializeAws_ec2ClientVpnConnection = (
 const deserializeAws_ec2ClientVpnConnectionSet = (
   output: any,
   context: __SerdeContext
-): Array<ClientVpnConnection> => {
+): ClientVpnConnection[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ClientVpnConnection(entry, context));
@@ -50896,7 +50896,7 @@ const deserializeAws_ec2ClientVpnRoute = (
 const deserializeAws_ec2ClientVpnRouteSet = (
   output: any,
   context: __SerdeContext
-): Array<ClientVpnRoute> => {
+): ClientVpnRoute[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ClientVpnRoute(entry, context));
@@ -50931,7 +50931,7 @@ const deserializeAws_ec2ClientVpnRouteStatus = (
 const deserializeAws_ec2ClientVpnSecurityGroupIdSet = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -50980,7 +50980,7 @@ const deserializeAws_ec2CoipAddressUsage = (
 const deserializeAws_ec2CoipAddressUsageSet = (
   output: any,
   context: __SerdeContext
-): Array<CoipAddressUsage> => {
+): CoipAddressUsage[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2CoipAddressUsage(entry, context));
@@ -51046,7 +51046,7 @@ const deserializeAws_ec2CoipPool = (
 const deserializeAws_ec2CoipPoolSet = (
   output: any,
   context: __SerdeContext
-): Array<CoipPool> => {
+): CoipPool[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2CoipPool(entry, context));
@@ -51181,7 +51181,7 @@ const deserializeAws_ec2ConnectionNotification = (
 const deserializeAws_ec2ConnectionNotificationSet = (
   output: any,
   context: __SerdeContext
-): Array<ConnectionNotification> => {
+): ConnectionNotification[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ConnectionNotification(entry, context));
@@ -51323,7 +51323,7 @@ const deserializeAws_ec2CopySnapshotResult = (
 const deserializeAws_ec2CoreCountList = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -51551,7 +51551,7 @@ const deserializeAws_ec2CreateFleetError = (
 const deserializeAws_ec2CreateFleetErrorsSet = (
   output: any,
   context: __SerdeContext
-): Array<CreateFleetError> => {
+): CreateFleetError[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2CreateFleetError(entry, context));
@@ -51617,7 +51617,7 @@ const deserializeAws_ec2CreateFleetInstance = (
 const deserializeAws_ec2CreateFleetInstancesSet = (
   output: any,
   context: __SerdeContext
-): Array<CreateFleetInstance> => {
+): CreateFleetInstance[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2CreateFleetInstance(entry, context));
@@ -52303,7 +52303,7 @@ const deserializeAws_ec2CreateVolumePermission = (
 const deserializeAws_ec2CreateVolumePermissionList = (
   output: any,
   context: __SerdeContext
-): Array<CreateVolumePermission> => {
+): CreateVolumePermission[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2CreateVolumePermission(entry, context));
@@ -52541,7 +52541,7 @@ const deserializeAws_ec2CustomerGateway = (
 const deserializeAws_ec2CustomerGatewayList = (
   output: any,
   context: __SerdeContext
-): Array<CustomerGateway> => {
+): CustomerGateway[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2CustomerGateway(entry, context));
@@ -52651,7 +52651,7 @@ const deserializeAws_ec2DeleteFleetErrorItem = (
 const deserializeAws_ec2DeleteFleetErrorSet = (
   output: any,
   context: __SerdeContext
-): Array<DeleteFleetErrorItem> => {
+): DeleteFleetErrorItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2DeleteFleetErrorItem(entry, context));
@@ -52693,7 +52693,7 @@ const deserializeAws_ec2DeleteFleetSuccessItem = (
 const deserializeAws_ec2DeleteFleetSuccessSet = (
   output: any,
   context: __SerdeContext
-): Array<DeleteFleetSuccessItem> => {
+): DeleteFleetSuccessItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2DeleteFleetSuccessItem(entry, context));
@@ -52848,7 +52848,7 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResponseErrorItem = (
 const deserializeAws_ec2DeleteLaunchTemplateVersionsResponseErrorSet = (
   output: any,
   context: __SerdeContext
-): Array<DeleteLaunchTemplateVersionsResponseErrorItem> => {
+): DeleteLaunchTemplateVersionsResponseErrorItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -52896,7 +52896,7 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResponseSuccessItem = (
 const deserializeAws_ec2DeleteLaunchTemplateVersionsResponseSuccessSet = (
   output: any,
   context: __SerdeContext
-): Array<DeleteLaunchTemplateVersionsResponseSuccessItem> => {
+): DeleteLaunchTemplateVersionsResponseSuccessItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -53847,7 +53847,7 @@ const deserializeAws_ec2DescribeCoipPoolsResult = (
 const deserializeAws_ec2DescribeConversionTaskList = (
   output: any,
   context: __SerdeContext
-): Array<ConversionTask> => {
+): ConversionTask[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ConversionTask(entry, context));
@@ -54155,7 +54155,7 @@ const deserializeAws_ec2DescribeFastSnapshotRestoreSuccessItem = (
 const deserializeAws_ec2DescribeFastSnapshotRestoreSuccessSet = (
   output: any,
   context: __SerdeContext
-): Array<DescribeFastSnapshotRestoreSuccessItem> => {
+): DescribeFastSnapshotRestoreSuccessItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -54330,7 +54330,7 @@ const deserializeAws_ec2DescribeFleetInstancesResult = (
 const deserializeAws_ec2DescribeFleetsErrorSet = (
   output: any,
   context: __SerdeContext
-): Array<DescribeFleetError> => {
+): DescribeFleetError[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2DescribeFleetError(entry, context));
@@ -54396,7 +54396,7 @@ const deserializeAws_ec2DescribeFleetsInstances = (
 const deserializeAws_ec2DescribeFleetsInstancesSet = (
   output: any,
   context: __SerdeContext
-): Array<DescribeFleetsInstances> => {
+): DescribeFleetsInstances[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2DescribeFleetsInstances(entry, context));
@@ -57306,7 +57306,7 @@ const deserializeAws_ec2DhcpConfiguration = (
 const deserializeAws_ec2DhcpConfigurationList = (
   output: any,
   context: __SerdeContext
-): Array<DhcpConfiguration> => {
+): DhcpConfiguration[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2DhcpConfiguration(entry, context));
@@ -57317,7 +57317,7 @@ const deserializeAws_ec2DhcpConfigurationList = (
 const deserializeAws_ec2DhcpConfigurationValueList = (
   output: any,
   context: __SerdeContext
-): Array<AttributeValue> => {
+): AttributeValue[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2AttributeValue(entry, context));
@@ -57383,7 +57383,7 @@ const deserializeAws_ec2DhcpOptions = (
 const deserializeAws_ec2DhcpOptionsList = (
   output: any,
   context: __SerdeContext
-): Array<DhcpOptions> => {
+): DhcpOptions[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2DhcpOptions(entry, context));
@@ -57462,7 +57462,7 @@ const deserializeAws_ec2DisableFastSnapshotRestoreErrorItem = (
 const deserializeAws_ec2DisableFastSnapshotRestoreErrorSet = (
   output: any,
   context: __SerdeContext
-): Array<DisableFastSnapshotRestoreErrorItem> => {
+): DisableFastSnapshotRestoreErrorItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -57523,7 +57523,7 @@ const deserializeAws_ec2DisableFastSnapshotRestoreStateErrorItem = (
 const deserializeAws_ec2DisableFastSnapshotRestoreStateErrorSet = (
   output: any,
   context: __SerdeContext
-): Array<DisableFastSnapshotRestoreStateErrorItem> => {
+): DisableFastSnapshotRestoreStateErrorItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -57608,7 +57608,7 @@ const deserializeAws_ec2DisableFastSnapshotRestoreSuccessItem = (
 const deserializeAws_ec2DisableFastSnapshotRestoreSuccessSet = (
   output: any,
   context: __SerdeContext
-): Array<DisableFastSnapshotRestoreSuccessItem> => {
+): DisableFastSnapshotRestoreSuccessItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -57943,7 +57943,7 @@ const deserializeAws_ec2DiskInfo = (
 const deserializeAws_ec2DiskInfoList = (
   output: any,
   context: __SerdeContext
-): Array<DiskInfo> => {
+): DiskInfo[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2DiskInfo(entry, context));
@@ -57978,7 +57978,7 @@ const deserializeAws_ec2DnsEntry = (
 const deserializeAws_ec2DnsEntrySet = (
   output: any,
   context: __SerdeContext
-): Array<DnsEntry> => {
+): DnsEntry[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2DnsEntry(entry, context));
@@ -58157,7 +58157,7 @@ const deserializeAws_ec2EgressOnlyInternetGateway = (
 const deserializeAws_ec2EgressOnlyInternetGatewayList = (
   output: any,
   context: __SerdeContext
-): Array<EgressOnlyInternetGateway> => {
+): EgressOnlyInternetGateway[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2EgressOnlyInternetGateway(entry, context));
@@ -58206,7 +58206,7 @@ const deserializeAws_ec2ElasticGpuAssociation = (
 const deserializeAws_ec2ElasticGpuAssociationList = (
   output: any,
   context: __SerdeContext
-): Array<ElasticGpuAssociation> => {
+): ElasticGpuAssociation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ElasticGpuAssociation(entry, context));
@@ -58234,7 +58234,7 @@ const deserializeAws_ec2ElasticGpuHealth = (
 const deserializeAws_ec2ElasticGpuSet = (
   output: any,
   context: __SerdeContext
-): Array<ElasticGpus> => {
+): ElasticGpus[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ElasticGpus(entry, context));
@@ -58262,7 +58262,7 @@ const deserializeAws_ec2ElasticGpuSpecificationResponse = (
 const deserializeAws_ec2ElasticGpuSpecificationResponseList = (
   output: any,
   context: __SerdeContext
-): Array<ElasticGpuSpecificationResponse> => {
+): ElasticGpuSpecificationResponse[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -58379,7 +58379,7 @@ const deserializeAws_ec2ElasticInferenceAcceleratorAssociation = (
 const deserializeAws_ec2ElasticInferenceAcceleratorAssociationList = (
   output: any,
   context: __SerdeContext
-): Array<ElasticInferenceAcceleratorAssociation> => {
+): ElasticInferenceAcceleratorAssociation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -58443,7 +58443,7 @@ const deserializeAws_ec2EnableFastSnapshotRestoreErrorItem = (
 const deserializeAws_ec2EnableFastSnapshotRestoreErrorSet = (
   output: any,
   context: __SerdeContext
-): Array<EnableFastSnapshotRestoreErrorItem> => {
+): EnableFastSnapshotRestoreErrorItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -58504,7 +58504,7 @@ const deserializeAws_ec2EnableFastSnapshotRestoreStateErrorItem = (
 const deserializeAws_ec2EnableFastSnapshotRestoreStateErrorSet = (
   output: any,
   context: __SerdeContext
-): Array<EnableFastSnapshotRestoreStateErrorItem> => {
+): EnableFastSnapshotRestoreStateErrorItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -58589,7 +58589,7 @@ const deserializeAws_ec2EnableFastSnapshotRestoreSuccessItem = (
 const deserializeAws_ec2EnableFastSnapshotRestoreSuccessSet = (
   output: any,
   context: __SerdeContext
-): Array<EnableFastSnapshotRestoreSuccessItem> => {
+): EnableFastSnapshotRestoreSuccessItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -58697,7 +58697,7 @@ const deserializeAws_ec2EnableVpcClassicLinkResult = (
 const deserializeAws_ec2EndpointSet = (
   output: any,
   context: __SerdeContext
-): Array<ClientVpnEndpoint> => {
+): ClientVpnEndpoint[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ClientVpnEndpoint(entry, context));
@@ -58912,7 +58912,7 @@ const deserializeAws_ec2ExportImageTask = (
 const deserializeAws_ec2ExportImageTaskList = (
   output: any,
   context: __SerdeContext
-): Array<ExportImageTask> => {
+): ExportImageTask[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ExportImageTask(entry, context));
@@ -58989,7 +58989,7 @@ const deserializeAws_ec2ExportTask = (
 const deserializeAws_ec2ExportTaskList = (
   output: any,
   context: __SerdeContext
-): Array<ExportTask> => {
+): ExportTask[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ExportTask(entry, context));
@@ -59103,7 +59103,7 @@ const deserializeAws_ec2FailedQueuedPurchaseDeletion = (
 const deserializeAws_ec2FailedQueuedPurchaseDeletionSet = (
   output: any,
   context: __SerdeContext
-): Array<FailedQueuedPurchaseDeletion> => {
+): FailedQueuedPurchaseDeletion[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -59330,7 +59330,7 @@ const deserializeAws_ec2FleetLaunchTemplateConfig = (
 const deserializeAws_ec2FleetLaunchTemplateConfigList = (
   output: any,
   context: __SerdeContext
-): Array<FleetLaunchTemplateConfig> => {
+): FleetLaunchTemplateConfig[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2FleetLaunchTemplateConfig(entry, context));
@@ -59402,7 +59402,7 @@ const deserializeAws_ec2FleetLaunchTemplateOverrides = (
 const deserializeAws_ec2FleetLaunchTemplateOverridesList = (
   output: any,
   context: __SerdeContext
-): Array<FleetLaunchTemplateOverrides> => {
+): FleetLaunchTemplateOverrides[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -59446,7 +59446,7 @@ const deserializeAws_ec2FleetLaunchTemplateSpecification = (
 const deserializeAws_ec2FleetSet = (
   output: any,
   context: __SerdeContext
-): Array<FleetData> => {
+): FleetData[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2FleetData(entry, context));
@@ -59548,7 +59548,7 @@ const deserializeAws_ec2FlowLog = (
 const deserializeAws_ec2FlowLogSet = (
   output: any,
   context: __SerdeContext
-): Array<FlowLog> => {
+): FlowLog[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2FlowLog(entry, context));
@@ -59598,7 +59598,7 @@ const deserializeAws_ec2FpgaDeviceInfo = (
 const deserializeAws_ec2FpgaDeviceInfoList = (
   output: any,
   context: __SerdeContext
-): Array<FpgaDeviceInfo> => {
+): FpgaDeviceInfo[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2FpgaDeviceInfo(entry, context));
@@ -59809,7 +59809,7 @@ const deserializeAws_ec2FpgaImageAttribute = (
 const deserializeAws_ec2FpgaImageList = (
   output: any,
   context: __SerdeContext
-): Array<FpgaImage> => {
+): FpgaImage[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2FpgaImage(entry, context));
@@ -60479,7 +60479,7 @@ const deserializeAws_ec2GpuDeviceInfo = (
 const deserializeAws_ec2GpuDeviceInfoList = (
   output: any,
   context: __SerdeContext
-): Array<GpuDeviceInfo> => {
+): GpuDeviceInfo[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2GpuDeviceInfo(entry, context));
@@ -60537,7 +60537,7 @@ const deserializeAws_ec2GpuInfo = (
 const deserializeAws_ec2GroupIdStringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -60572,7 +60572,7 @@ const deserializeAws_ec2GroupIdentifier = (
 const deserializeAws_ec2GroupIdentifierList = (
   output: any,
   context: __SerdeContext
-): Array<GroupIdentifier> => {
+): GroupIdentifier[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2GroupIdentifier(entry, context));
@@ -60583,7 +60583,7 @@ const deserializeAws_ec2GroupIdentifierList = (
 const deserializeAws_ec2GroupIdentifierSet = (
   output: any,
   context: __SerdeContext
-): Array<SecurityGroupIdentifier> => {
+): SecurityGroupIdentifier[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2SecurityGroupIdentifier(entry, context));
@@ -60667,7 +60667,7 @@ const deserializeAws_ec2HistoryRecordEntry = (
 const deserializeAws_ec2HistoryRecordSet = (
   output: any,
   context: __SerdeContext
-): Array<HistoryRecordEntry> => {
+): HistoryRecordEntry[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2HistoryRecordEntry(entry, context));
@@ -60678,7 +60678,7 @@ const deserializeAws_ec2HistoryRecordSet = (
 const deserializeAws_ec2HistoryRecords = (
   output: any,
   context: __SerdeContext
-): Array<HistoryRecord> => {
+): HistoryRecord[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2HistoryRecord(entry, context));
@@ -60857,7 +60857,7 @@ const deserializeAws_ec2HostInstance = (
 const deserializeAws_ec2HostInstanceList = (
   output: any,
   context: __SerdeContext
-): Array<HostInstance> => {
+): HostInstance[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2HostInstance(entry, context));
@@ -60868,7 +60868,7 @@ const deserializeAws_ec2HostInstanceList = (
 const deserializeAws_ec2HostList = (
   output: any,
   context: __SerdeContext
-): Array<Host> => {
+): Host[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2Host(entry, context));
@@ -60939,7 +60939,7 @@ const deserializeAws_ec2HostOffering = (
 const deserializeAws_ec2HostOfferingSet = (
   output: any,
   context: __SerdeContext
-): Array<HostOffering> => {
+): HostOffering[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2HostOffering(entry, context));
@@ -61119,7 +61119,7 @@ const deserializeAws_ec2HostReservation = (
 const deserializeAws_ec2HostReservationSet = (
   output: any,
   context: __SerdeContext
-): Array<HostReservation> => {
+): HostReservation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2HostReservation(entry, context));
@@ -61130,7 +61130,7 @@ const deserializeAws_ec2HostReservationSet = (
 const deserializeAws_ec2IKEVersionsList = (
   output: any,
   context: __SerdeContext
-): Array<IKEVersionsListValue> => {
+): IKEVersionsListValue[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2IKEVersionsListValue(entry, context));
@@ -61224,7 +61224,7 @@ const deserializeAws_ec2IamInstanceProfileAssociation = (
 const deserializeAws_ec2IamInstanceProfileAssociationSet = (
   output: any,
   context: __SerdeContext
-): Array<IamInstanceProfileAssociation> => {
+): IamInstanceProfileAssociation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -61315,7 +61315,7 @@ const deserializeAws_ec2IdFormat = (
 const deserializeAws_ec2IdFormatList = (
   output: any,
   context: __SerdeContext
-): Array<IdFormat> => {
+): IdFormat[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2IdFormat(entry, context));
@@ -61627,7 +61627,7 @@ const deserializeAws_ec2ImageAttribute = (
 const deserializeAws_ec2ImageList = (
   output: any,
   context: __SerdeContext
-): Array<Image> => {
+): Image[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2Image(entry, context));
@@ -61672,7 +61672,7 @@ const deserializeAws_ec2ImportImageLicenseConfigurationResponse = (
 const deserializeAws_ec2ImportImageLicenseSpecificationListResponse = (
   output: any,
   context: __SerdeContext
-): Array<ImportImageLicenseConfigurationResponse> => {
+): ImportImageLicenseConfigurationResponse[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -61955,7 +61955,7 @@ const deserializeAws_ec2ImportImageTask = (
 const deserializeAws_ec2ImportImageTaskList = (
   output: any,
   context: __SerdeContext
-): Array<ImportImageTask> => {
+): ImportImageTask[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ImportImageTask(entry, context));
@@ -62091,7 +62091,7 @@ const deserializeAws_ec2ImportInstanceVolumeDetailItem = (
 const deserializeAws_ec2ImportInstanceVolumeDetailSet = (
   output: any,
   context: __SerdeContext
-): Array<ImportInstanceVolumeDetailItem> => {
+): ImportInstanceVolumeDetailItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -62204,7 +62204,7 @@ const deserializeAws_ec2ImportSnapshotTask = (
 const deserializeAws_ec2ImportSnapshotTaskList = (
   output: any,
   context: __SerdeContext
-): Array<ImportSnapshotTask> => {
+): ImportSnapshotTask[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ImportSnapshotTask(entry, context));
@@ -62337,7 +62337,7 @@ const deserializeAws_ec2InferenceDeviceInfo = (
 const deserializeAws_ec2InferenceDeviceInfoList = (
   output: any,
   context: __SerdeContext
-): Array<InferenceDeviceInfo> => {
+): InferenceDeviceInfo[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2InferenceDeviceInfo(entry, context));
@@ -62929,7 +62929,7 @@ const deserializeAws_ec2InstanceBlockDeviceMapping = (
 const deserializeAws_ec2InstanceBlockDeviceMappingList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceBlockDeviceMapping> => {
+): InstanceBlockDeviceMapping[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2InstanceBlockDeviceMapping(entry, context));
@@ -62998,7 +62998,7 @@ const deserializeAws_ec2InstanceCount = (
 const deserializeAws_ec2InstanceCountList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceCount> => {
+): InstanceCount[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2InstanceCount(entry, context));
@@ -63033,7 +63033,7 @@ const deserializeAws_ec2InstanceCreditSpecification = (
 const deserializeAws_ec2InstanceCreditSpecificationList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceCreditSpecification> => {
+): InstanceCreditSpecification[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -63094,7 +63094,7 @@ const deserializeAws_ec2InstanceFamilyCreditSpecification = (
 const deserializeAws_ec2InstanceIdSet = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -63105,7 +63105,7 @@ const deserializeAws_ec2InstanceIdSet = (
 const deserializeAws_ec2InstanceIdsSet = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -63133,7 +63133,7 @@ const deserializeAws_ec2InstanceIpv6Address = (
 const deserializeAws_ec2InstanceIpv6AddressList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceIpv6Address> => {
+): InstanceIpv6Address[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2InstanceIpv6Address(entry, context));
@@ -63144,7 +63144,7 @@ const deserializeAws_ec2InstanceIpv6AddressList = (
 const deserializeAws_ec2InstanceList = (
   output: any,
   context: __SerdeContext
-): Array<Instance> => {
+): Instance[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2Instance(entry, context));
@@ -63218,7 +63218,7 @@ const deserializeAws_ec2InstanceMonitoring = (
 const deserializeAws_ec2InstanceMonitoringList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceMonitoring> => {
+): InstanceMonitoring[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2InstanceMonitoring(entry, context));
@@ -63455,7 +63455,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceAttachment = (
 const deserializeAws_ec2InstanceNetworkInterfaceList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceNetworkInterface> => {
+): InstanceNetworkInterface[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2InstanceNetworkInterface(entry, context));
@@ -63600,7 +63600,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
 const deserializeAws_ec2InstanceNetworkInterfaceSpecificationList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceNetworkInterfaceSpecification> => {
+): InstanceNetworkInterfaceSpecification[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -63651,7 +63651,7 @@ const deserializeAws_ec2InstancePrivateIpAddress = (
 const deserializeAws_ec2InstancePrivateIpAddressList = (
   output: any,
   context: __SerdeContext
-): Array<InstancePrivateIpAddress> => {
+): InstancePrivateIpAddress[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2InstancePrivateIpAddress(entry, context));
@@ -63718,7 +63718,7 @@ const deserializeAws_ec2InstanceStateChange = (
 const deserializeAws_ec2InstanceStateChangeList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceStateChange> => {
+): InstanceStateChange[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2InstanceStateChange(entry, context));
@@ -63826,7 +63826,7 @@ const deserializeAws_ec2InstanceStatusDetails = (
 const deserializeAws_ec2InstanceStatusDetailsList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceStatusDetails> => {
+): InstanceStatusDetails[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2InstanceStatusDetails(entry, context));
@@ -63880,7 +63880,7 @@ const deserializeAws_ec2InstanceStatusEvent = (
 const deserializeAws_ec2InstanceStatusEventList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceStatusEvent> => {
+): InstanceStatusEvent[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2InstanceStatusEvent(entry, context));
@@ -63891,7 +63891,7 @@ const deserializeAws_ec2InstanceStatusEventList = (
 const deserializeAws_ec2InstanceStatusList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceStatus> => {
+): InstanceStatus[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2InstanceStatus(entry, context));
@@ -64137,7 +64137,7 @@ const deserializeAws_ec2InstanceTypeInfo = (
 const deserializeAws_ec2InstanceTypeInfoList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceTypeInfo> => {
+): InstanceTypeInfo[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2InstanceTypeInfo(entry, context));
@@ -64179,7 +64179,7 @@ const deserializeAws_ec2InstanceTypeOffering = (
 const deserializeAws_ec2InstanceTypeOfferingsList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceTypeOffering> => {
+): InstanceTypeOffering[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2InstanceTypeOffering(entry, context));
@@ -64215,7 +64215,7 @@ const deserializeAws_ec2InstanceUsage = (
 const deserializeAws_ec2InstanceUsageSet = (
   output: any,
   context: __SerdeContext
-): Array<InstanceUsage> => {
+): InstanceUsage[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2InstanceUsage(entry, context));
@@ -64305,7 +64305,7 @@ const deserializeAws_ec2InternetGatewayAttachment = (
 const deserializeAws_ec2InternetGatewayAttachmentList = (
   output: any,
   context: __SerdeContext
-): Array<InternetGatewayAttachment> => {
+): InternetGatewayAttachment[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2InternetGatewayAttachment(entry, context));
@@ -64316,7 +64316,7 @@ const deserializeAws_ec2InternetGatewayAttachmentList = (
 const deserializeAws_ec2InternetGatewayList = (
   output: any,
   context: __SerdeContext
-): Array<InternetGateway> => {
+): InternetGateway[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2InternetGateway(entry, context));
@@ -64422,7 +64422,7 @@ const deserializeAws_ec2IpPermission = (
 const deserializeAws_ec2IpPermissionList = (
   output: any,
   context: __SerdeContext
-): Array<IpPermission> => {
+): IpPermission[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2IpPermission(entry, context));
@@ -64457,7 +64457,7 @@ const deserializeAws_ec2IpRange = (
 const deserializeAws_ec2IpRangeList = (
   output: any,
   context: __SerdeContext
-): Array<IpRange> => {
+): IpRange[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2IpRange(entry, context));
@@ -64468,7 +64468,7 @@ const deserializeAws_ec2IpRangeList = (
 const deserializeAws_ec2IpRanges = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -64479,7 +64479,7 @@ const deserializeAws_ec2IpRanges = (
 const deserializeAws_ec2Ipv6AddressList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -64514,7 +64514,7 @@ const deserializeAws_ec2Ipv6CidrAssociation = (
 const deserializeAws_ec2Ipv6CidrAssociationSet = (
   output: any,
   context: __SerdeContext
-): Array<Ipv6CidrAssociation> => {
+): Ipv6CidrAssociation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2Ipv6CidrAssociation(entry, context));
@@ -64542,7 +64542,7 @@ const deserializeAws_ec2Ipv6CidrBlock = (
 const deserializeAws_ec2Ipv6CidrBlockSet = (
   output: any,
   context: __SerdeContext
-): Array<Ipv6CidrBlock> => {
+): Ipv6CidrBlock[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2Ipv6CidrBlock(entry, context));
@@ -64608,7 +64608,7 @@ const deserializeAws_ec2Ipv6Pool = (
 const deserializeAws_ec2Ipv6PoolSet = (
   output: any,
   context: __SerdeContext
-): Array<Ipv6Pool> => {
+): Ipv6Pool[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2Ipv6Pool(entry, context));
@@ -64643,7 +64643,7 @@ const deserializeAws_ec2Ipv6Range = (
 const deserializeAws_ec2Ipv6RangeList = (
   output: any,
   context: __SerdeContext
-): Array<Ipv6Range> => {
+): Ipv6Range[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2Ipv6Range(entry, context));
@@ -64737,7 +64737,7 @@ const deserializeAws_ec2KeyPairInfo = (
 const deserializeAws_ec2KeyPairList = (
   output: any,
   context: __SerdeContext
-): Array<KeyPairInfo> => {
+): KeyPairInfo[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2KeyPairInfo(entry, context));
@@ -64796,7 +64796,7 @@ const deserializeAws_ec2LaunchPermission = (
 const deserializeAws_ec2LaunchPermissionList = (
   output: any,
   context: __SerdeContext
-): Array<LaunchPermission> => {
+): LaunchPermission[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2LaunchPermission(entry, context));
@@ -64952,7 +64952,7 @@ const deserializeAws_ec2LaunchSpecification = (
 const deserializeAws_ec2LaunchSpecsList = (
   output: any,
   context: __SerdeContext
-): Array<SpotFleetLaunchSpecification> => {
+): SpotFleetLaunchSpecification[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -65092,7 +65092,7 @@ const deserializeAws_ec2LaunchTemplateBlockDeviceMapping = (
 const deserializeAws_ec2LaunchTemplateBlockDeviceMappingList = (
   output: any,
   context: __SerdeContext
-): Array<LaunchTemplateBlockDeviceMapping> => {
+): LaunchTemplateBlockDeviceMapping[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -65163,7 +65163,7 @@ const deserializeAws_ec2LaunchTemplateConfig = (
 const deserializeAws_ec2LaunchTemplateConfigList = (
   output: any,
   context: __SerdeContext
-): Array<LaunchTemplateConfig> => {
+): LaunchTemplateConfig[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2LaunchTemplateConfig(entry, context));
@@ -65286,7 +65286,7 @@ const deserializeAws_ec2LaunchTemplateElasticInferenceAcceleratorResponse = (
 const deserializeAws_ec2LaunchTemplateElasticInferenceAcceleratorResponseList = (
   output: any,
   context: __SerdeContext
-): Array<LaunchTemplateElasticInferenceAcceleratorResponse> => {
+): LaunchTemplateElasticInferenceAcceleratorResponse[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -65537,7 +65537,7 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification = (
 const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecificationList = (
   output: any,
   context: __SerdeContext
-): Array<LaunchTemplateInstanceNetworkInterfaceSpecification> => {
+): LaunchTemplateInstanceNetworkInterfaceSpecification[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -65570,7 +65570,7 @@ const deserializeAws_ec2LaunchTemplateLicenseConfiguration = (
 const deserializeAws_ec2LaunchTemplateLicenseList = (
   output: any,
   context: __SerdeContext
-): Array<LaunchTemplateLicenseConfiguration> => {
+): LaunchTemplateLicenseConfiguration[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -65637,7 +65637,7 @@ const deserializeAws_ec2LaunchTemplateOverrides = (
 const deserializeAws_ec2LaunchTemplateOverridesList = (
   output: any,
   context: __SerdeContext
-): Array<LaunchTemplateOverrides> => {
+): LaunchTemplateOverrides[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2LaunchTemplateOverrides(entry, context));
@@ -65715,7 +65715,7 @@ const deserializeAws_ec2LaunchTemplatePlacement = (
 const deserializeAws_ec2LaunchTemplateSet = (
   output: any,
   context: __SerdeContext
-): Array<LaunchTemplate> => {
+): LaunchTemplate[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2LaunchTemplate(entry, context));
@@ -65800,7 +65800,7 @@ const deserializeAws_ec2LaunchTemplateTagSpecification = (
 const deserializeAws_ec2LaunchTemplateTagSpecificationList = (
   output: any,
   context: __SerdeContext
-): Array<LaunchTemplateTagSpecification> => {
+): LaunchTemplateTagSpecification[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -65877,7 +65877,7 @@ const deserializeAws_ec2LaunchTemplateVersion = (
 const deserializeAws_ec2LaunchTemplateVersionSet = (
   output: any,
   context: __SerdeContext
-): Array<LaunchTemplateVersion> => {
+): LaunchTemplateVersion[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2LaunchTemplateVersion(entry, context));
@@ -65922,7 +65922,7 @@ const deserializeAws_ec2LicenseConfiguration = (
 const deserializeAws_ec2LicenseList = (
   output: any,
   context: __SerdeContext
-): Array<LicenseConfiguration> => {
+): LicenseConfiguration[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2LicenseConfiguration(entry, context));
@@ -65981,7 +65981,7 @@ const deserializeAws_ec2LoadPermission = (
 const deserializeAws_ec2LoadPermissionList = (
   output: any,
   context: __SerdeContext
-): Array<LoadPermission> => {
+): LoadPermission[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2LoadPermission(entry, context));
@@ -66089,7 +66089,7 @@ const deserializeAws_ec2LocalGatewayRoute = (
 const deserializeAws_ec2LocalGatewayRouteList = (
   output: any,
   context: __SerdeContext
-): Array<LocalGatewayRoute> => {
+): LocalGatewayRoute[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2LocalGatewayRoute(entry, context));
@@ -66152,7 +66152,7 @@ const deserializeAws_ec2LocalGatewayRouteTable = (
 const deserializeAws_ec2LocalGatewayRouteTableSet = (
   output: any,
   context: __SerdeContext
-): Array<LocalGatewayRouteTable> => {
+): LocalGatewayRouteTable[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2LocalGatewayRouteTable(entry, context));
@@ -66229,7 +66229,7 @@ const deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociation =
 const deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet = (
   output: any,
   context: __SerdeContext
-): Array<LocalGatewayRouteTableVirtualInterfaceGroupAssociation> => {
+): LocalGatewayRouteTableVirtualInterfaceGroupAssociation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -66304,7 +66304,7 @@ const deserializeAws_ec2LocalGatewayRouteTableVpcAssociation = (
 const deserializeAws_ec2LocalGatewayRouteTableVpcAssociationSet = (
   output: any,
   context: __SerdeContext
-): Array<LocalGatewayRouteTableVpcAssociation> => {
+): LocalGatewayRouteTableVpcAssociation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -66317,7 +66317,7 @@ const deserializeAws_ec2LocalGatewayRouteTableVpcAssociationSet = (
 const deserializeAws_ec2LocalGatewaySet = (
   output: any,
   context: __SerdeContext
-): Array<LocalGateway> => {
+): LocalGateway[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2LocalGateway(entry, context));
@@ -66459,7 +66459,7 @@ const deserializeAws_ec2LocalGatewayVirtualInterfaceGroup = (
 const deserializeAws_ec2LocalGatewayVirtualInterfaceGroupSet = (
   output: any,
   context: __SerdeContext
-): Array<LocalGatewayVirtualInterfaceGroup> => {
+): LocalGatewayVirtualInterfaceGroup[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -66472,7 +66472,7 @@ const deserializeAws_ec2LocalGatewayVirtualInterfaceGroupSet = (
 const deserializeAws_ec2LocalGatewayVirtualInterfaceIdSet = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -66483,7 +66483,7 @@ const deserializeAws_ec2LocalGatewayVirtualInterfaceIdSet = (
 const deserializeAws_ec2LocalGatewayVirtualInterfaceSet = (
   output: any,
   context: __SerdeContext
-): Array<LocalGatewayVirtualInterface> => {
+): LocalGatewayVirtualInterface[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -67169,7 +67169,7 @@ const deserializeAws_ec2MovingAddressStatus = (
 const deserializeAws_ec2MovingAddressStatusSet = (
   output: any,
   context: __SerdeContext
-): Array<MovingAddressStatus> => {
+): MovingAddressStatus[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2MovingAddressStatus(entry, context));
@@ -67316,7 +67316,7 @@ const deserializeAws_ec2NatGatewayAddress = (
 const deserializeAws_ec2NatGatewayAddressList = (
   output: any,
   context: __SerdeContext
-): Array<NatGatewayAddress> => {
+): NatGatewayAddress[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2NatGatewayAddress(entry, context));
@@ -67327,7 +67327,7 @@ const deserializeAws_ec2NatGatewayAddressList = (
 const deserializeAws_ec2NatGatewayList = (
   output: any,
   context: __SerdeContext
-): Array<NatGateway> => {
+): NatGateway[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2NatGateway(entry, context));
@@ -67455,7 +67455,7 @@ const deserializeAws_ec2NetworkAclAssociation = (
 const deserializeAws_ec2NetworkAclAssociationList = (
   output: any,
   context: __SerdeContext
-): Array<NetworkAclAssociation> => {
+): NetworkAclAssociation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2NetworkAclAssociation(entry, context));
@@ -67533,7 +67533,7 @@ const deserializeAws_ec2NetworkAclEntry = (
 const deserializeAws_ec2NetworkAclEntryList = (
   output: any,
   context: __SerdeContext
-): Array<NetworkAclEntry> => {
+): NetworkAclEntry[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2NetworkAclEntry(entry, context));
@@ -67544,7 +67544,7 @@ const deserializeAws_ec2NetworkAclEntryList = (
 const deserializeAws_ec2NetworkAclList = (
   output: any,
   context: __SerdeContext
-): Array<NetworkAcl> => {
+): NetworkAcl[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2NetworkAcl(entry, context));
@@ -67923,7 +67923,7 @@ const deserializeAws_ec2NetworkInterfaceIpv6Address = (
 const deserializeAws_ec2NetworkInterfaceIpv6AddressesList = (
   output: any,
   context: __SerdeContext
-): Array<NetworkInterfaceIpv6Address> => {
+): NetworkInterfaceIpv6Address[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -67936,7 +67936,7 @@ const deserializeAws_ec2NetworkInterfaceIpv6AddressesList = (
 const deserializeAws_ec2NetworkInterfaceList = (
   output: any,
   context: __SerdeContext
-): Array<NetworkInterface> => {
+): NetworkInterface[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2NetworkInterface(entry, context));
@@ -67999,7 +67999,7 @@ const deserializeAws_ec2NetworkInterfacePermission = (
 const deserializeAws_ec2NetworkInterfacePermissionList = (
   output: any,
   context: __SerdeContext
-): Array<NetworkInterfacePermission> => {
+): NetworkInterfacePermission[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2NetworkInterfacePermission(entry, context));
@@ -68072,7 +68072,7 @@ const deserializeAws_ec2NetworkInterfacePrivateIpAddress = (
 const deserializeAws_ec2NetworkInterfacePrivateIpAddressList = (
   output: any,
   context: __SerdeContext
-): Array<NetworkInterfacePrivateIpAddress> => {
+): NetworkInterfacePrivateIpAddress[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -68085,7 +68085,7 @@ const deserializeAws_ec2NetworkInterfacePrivateIpAddressList = (
 const deserializeAws_ec2OccurrenceDaySet = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -68277,7 +68277,7 @@ const deserializeAws_ec2PeeringTgwInfo = (
 const deserializeAws_ec2Phase1DHGroupNumbersList = (
   output: any,
   context: __SerdeContext
-): Array<Phase1DHGroupNumbersListValue> => {
+): Phase1DHGroupNumbersListValue[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -68308,7 +68308,7 @@ const deserializeAws_ec2Phase1DHGroupNumbersListValue = (
 const deserializeAws_ec2Phase1EncryptionAlgorithmsList = (
   output: any,
   context: __SerdeContext
-): Array<Phase1EncryptionAlgorithmsListValue> => {
+): Phase1EncryptionAlgorithmsListValue[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -68338,7 +68338,7 @@ const deserializeAws_ec2Phase1EncryptionAlgorithmsListValue = (
 const deserializeAws_ec2Phase1IntegrityAlgorithmsList = (
   output: any,
   context: __SerdeContext
-): Array<Phase1IntegrityAlgorithmsListValue> => {
+): Phase1IntegrityAlgorithmsListValue[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -68368,7 +68368,7 @@ const deserializeAws_ec2Phase1IntegrityAlgorithmsListValue = (
 const deserializeAws_ec2Phase2DHGroupNumbersList = (
   output: any,
   context: __SerdeContext
-): Array<Phase2DHGroupNumbersListValue> => {
+): Phase2DHGroupNumbersListValue[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -68399,7 +68399,7 @@ const deserializeAws_ec2Phase2DHGroupNumbersListValue = (
 const deserializeAws_ec2Phase2EncryptionAlgorithmsList = (
   output: any,
   context: __SerdeContext
-): Array<Phase2EncryptionAlgorithmsListValue> => {
+): Phase2EncryptionAlgorithmsListValue[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -68429,7 +68429,7 @@ const deserializeAws_ec2Phase2EncryptionAlgorithmsListValue = (
 const deserializeAws_ec2Phase2IntegrityAlgorithmsList = (
   output: any,
   context: __SerdeContext
-): Array<Phase2IntegrityAlgorithmsListValue> => {
+): Phase2IntegrityAlgorithmsListValue[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -68613,7 +68613,7 @@ const deserializeAws_ec2PlacementGroupInfo = (
 const deserializeAws_ec2PlacementGroupList = (
   output: any,
   context: __SerdeContext
-): Array<PlacementGroup> => {
+): PlacementGroup[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2PlacementGroup(entry, context));
@@ -68624,7 +68624,7 @@ const deserializeAws_ec2PlacementGroupList = (
 const deserializeAws_ec2PlacementGroupStrategyList = (
   output: any,
   context: __SerdeContext
-): Array<PlacementGroupStrategy | string> => {
+): PlacementGroupStrategy | string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -68669,7 +68669,7 @@ const deserializeAws_ec2PoolCidrBlock = (
 const deserializeAws_ec2PoolCidrBlocksSet = (
   output: any,
   context: __SerdeContext
-): Array<PoolCidrBlock> => {
+): PoolCidrBlock[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2PoolCidrBlock(entry, context));
@@ -68766,7 +68766,7 @@ const deserializeAws_ec2PrefixListId = (
 const deserializeAws_ec2PrefixListIdList = (
   output: any,
   context: __SerdeContext
-): Array<PrefixListId> => {
+): PrefixListId[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2PrefixListId(entry, context));
@@ -68777,7 +68777,7 @@ const deserializeAws_ec2PrefixListIdList = (
 const deserializeAws_ec2PrefixListIdSet = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -68788,7 +68788,7 @@ const deserializeAws_ec2PrefixListIdSet = (
 const deserializeAws_ec2PrefixListSet = (
   output: any,
   context: __SerdeContext
-): Array<PrefixList> => {
+): PrefixList[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2PrefixList(entry, context));
@@ -68839,7 +68839,7 @@ const deserializeAws_ec2PriceSchedule = (
 const deserializeAws_ec2PriceScheduleList = (
   output: any,
   context: __SerdeContext
-): Array<PriceSchedule> => {
+): PriceSchedule[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2PriceSchedule(entry, context));
@@ -68876,7 +68876,7 @@ const deserializeAws_ec2PricingDetail = (
 const deserializeAws_ec2PricingDetailsList = (
   output: any,
   context: __SerdeContext
-): Array<PricingDetail> => {
+): PricingDetail[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2PricingDetail(entry, context));
@@ -68918,7 +68918,7 @@ const deserializeAws_ec2PrincipalIdFormat = (
 const deserializeAws_ec2PrincipalIdFormatList = (
   output: any,
   context: __SerdeContext
-): Array<PrincipalIdFormat> => {
+): PrincipalIdFormat[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2PrincipalIdFormat(entry, context));
@@ -68991,7 +68991,7 @@ const deserializeAws_ec2PrivateIpAddressSpecification = (
 const deserializeAws_ec2PrivateIpAddressSpecificationList = (
   output: any,
   context: __SerdeContext
-): Array<PrivateIpAddressSpecification> => {
+): PrivateIpAddressSpecification[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -69063,7 +69063,7 @@ const deserializeAws_ec2ProductCode = (
 const deserializeAws_ec2ProductCodeList = (
   output: any,
   context: __SerdeContext
-): Array<ProductCode> => {
+): ProductCode[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ProductCode(entry, context));
@@ -69091,7 +69091,7 @@ const deserializeAws_ec2PropagatingVgw = (
 const deserializeAws_ec2PropagatingVgwList = (
   output: any,
   context: __SerdeContext
-): Array<PropagatingVgw> => {
+): PropagatingVgw[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2PropagatingVgw(entry, context));
@@ -69255,7 +69255,7 @@ const deserializeAws_ec2PublicIpv4PoolRange = (
 const deserializeAws_ec2PublicIpv4PoolRangeSet = (
   output: any,
   context: __SerdeContext
-): Array<PublicIpv4PoolRange> => {
+): PublicIpv4PoolRange[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2PublicIpv4PoolRange(entry, context));
@@ -69266,7 +69266,7 @@ const deserializeAws_ec2PublicIpv4PoolRangeSet = (
 const deserializeAws_ec2PublicIpv4PoolSet = (
   output: any,
   context: __SerdeContext
-): Array<PublicIpv4Pool> => {
+): PublicIpv4Pool[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2PublicIpv4Pool(entry, context));
@@ -69450,7 +69450,7 @@ const deserializeAws_ec2PurchaseScheduledInstancesResult = (
 const deserializeAws_ec2PurchaseSet = (
   output: any,
   context: __SerdeContext
-): Array<Purchase> => {
+): Purchase[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2Purchase(entry, context));
@@ -69461,7 +69461,7 @@ const deserializeAws_ec2PurchaseSet = (
 const deserializeAws_ec2PurchasedScheduledInstanceSet = (
   output: any,
   context: __SerdeContext
-): Array<ScheduledInstance> => {
+): ScheduledInstance[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ScheduledInstance(entry, context));
@@ -69497,7 +69497,7 @@ const deserializeAws_ec2RecurringCharge = (
 const deserializeAws_ec2RecurringChargesList = (
   output: any,
   context: __SerdeContext
-): Array<RecurringCharge> => {
+): RecurringCharge[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2RecurringCharge(entry, context));
@@ -69539,7 +69539,7 @@ const deserializeAws_ec2Region = (
 const deserializeAws_ec2RegionList = (
   output: any,
   context: __SerdeContext
-): Array<Region> => {
+): Region[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2Region(entry, context));
@@ -69904,7 +69904,7 @@ const deserializeAws_ec2Reservation = (
 const deserializeAws_ec2ReservationList = (
   output: any,
   context: __SerdeContext
-): Array<Reservation> => {
+): Reservation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2Reservation(entry, context));
@@ -69970,7 +69970,7 @@ const deserializeAws_ec2ReservedInstanceReservationValue = (
 const deserializeAws_ec2ReservedInstanceReservationValueSet = (
   output: any,
   context: __SerdeContext
-): Array<ReservedInstanceReservationValue> => {
+): ReservedInstanceReservationValue[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -70197,7 +70197,7 @@ const deserializeAws_ec2ReservedInstancesId = (
 const deserializeAws_ec2ReservedInstancesList = (
   output: any,
   context: __SerdeContext
-): Array<ReservedInstances> => {
+): ReservedInstances[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ReservedInstances(entry, context));
@@ -70309,7 +70309,7 @@ const deserializeAws_ec2ReservedInstancesListing = (
 const deserializeAws_ec2ReservedInstancesListingList = (
   output: any,
   context: __SerdeContext
-): Array<ReservedInstancesListing> => {
+): ReservedInstancesListing[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ReservedInstancesListing(entry, context));
@@ -70404,7 +70404,7 @@ const deserializeAws_ec2ReservedInstancesModification = (
 const deserializeAws_ec2ReservedInstancesModificationList = (
   output: any,
   context: __SerdeContext
-): Array<ReservedInstancesModification> => {
+): ReservedInstancesModification[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -70441,7 +70441,7 @@ const deserializeAws_ec2ReservedInstancesModificationResult = (
 const deserializeAws_ec2ReservedInstancesModificationResultList = (
   output: any,
   context: __SerdeContext
-): Array<ReservedInstancesModificationResult> => {
+): ReservedInstancesModificationResult[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -70592,7 +70592,7 @@ const deserializeAws_ec2ReservedInstancesOffering = (
 const deserializeAws_ec2ReservedInstancesOfferingList = (
   output: any,
   context: __SerdeContext
-): Array<ReservedInstancesOffering> => {
+): ReservedInstancesOffering[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ReservedInstancesOffering(entry, context));
@@ -70603,7 +70603,7 @@ const deserializeAws_ec2ReservedInstancesOfferingList = (
 const deserializeAws_ec2ReservedIntancesIds = (
   output: any,
   context: __SerdeContext
-): Array<ReservedInstancesId> => {
+): ReservedInstancesId[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ReservedInstancesId(entry, context));
@@ -70672,7 +70672,7 @@ const deserializeAws_ec2ResponseError = (
 const deserializeAws_ec2ResponseHostIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -70683,7 +70683,7 @@ const deserializeAws_ec2ResponseHostIdList = (
 const deserializeAws_ec2ResponseHostIdSet = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -71007,7 +71007,7 @@ const deserializeAws_ec2RevokeClientVpnIngressResult = (
 const deserializeAws_ec2RootDeviceTypeList = (
   output: any,
   context: __SerdeContext
-): Array<RootDeviceType | string> => {
+): RootDeviceType | string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -71126,7 +71126,7 @@ const deserializeAws_ec2Route = (
 const deserializeAws_ec2RouteList = (
   output: any,
   context: __SerdeContext
-): Array<Route> => {
+): Route[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2Route(entry, context));
@@ -71282,7 +71282,7 @@ const deserializeAws_ec2RouteTableAssociation = (
 const deserializeAws_ec2RouteTableAssociationList = (
   output: any,
   context: __SerdeContext
-): Array<RouteTableAssociation> => {
+): RouteTableAssociation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2RouteTableAssociation(entry, context));
@@ -71317,7 +71317,7 @@ const deserializeAws_ec2RouteTableAssociationState = (
 const deserializeAws_ec2RouteTableList = (
   output: any,
   context: __SerdeContext
-): Array<RouteTable> => {
+): RouteTable[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2RouteTable(entry, context));
@@ -71624,7 +71624,7 @@ const deserializeAws_ec2ScheduledInstanceAvailability = (
 const deserializeAws_ec2ScheduledInstanceAvailabilitySet = (
   output: any,
   context: __SerdeContext
-): Array<ScheduledInstanceAvailability> => {
+): ScheduledInstanceAvailability[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -71693,7 +71693,7 @@ const deserializeAws_ec2ScheduledInstanceRecurrence = (
 const deserializeAws_ec2ScheduledInstanceSet = (
   output: any,
   context: __SerdeContext
-): Array<ScheduledInstance> => {
+): ScheduledInstance[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ScheduledInstance(entry, context));
@@ -71899,7 +71899,7 @@ const deserializeAws_ec2SecurityGroup = (
 const deserializeAws_ec2SecurityGroupIdStringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -71934,7 +71934,7 @@ const deserializeAws_ec2SecurityGroupIdentifier = (
 const deserializeAws_ec2SecurityGroupList = (
   output: any,
   context: __SerdeContext
-): Array<SecurityGroup> => {
+): SecurityGroup[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2SecurityGroup(entry, context));
@@ -71976,7 +71976,7 @@ const deserializeAws_ec2SecurityGroupReference = (
 const deserializeAws_ec2SecurityGroupReferences = (
   output: any,
   context: __SerdeContext
-): Array<SecurityGroupReference> => {
+): SecurityGroupReference[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2SecurityGroupReference(entry, context));
@@ -72128,7 +72128,7 @@ const deserializeAws_ec2ServiceConfiguration = (
 const deserializeAws_ec2ServiceConfigurationSet = (
   output: any,
   context: __SerdeContext
-): Array<ServiceConfiguration> => {
+): ServiceConfiguration[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ServiceConfiguration(entry, context));
@@ -72270,7 +72270,7 @@ const deserializeAws_ec2ServiceDetail = (
 const deserializeAws_ec2ServiceDetailSet = (
   output: any,
   context: __SerdeContext
-): Array<ServiceDetail> => {
+): ServiceDetail[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ServiceDetail(entry, context));
@@ -72298,7 +72298,7 @@ const deserializeAws_ec2ServiceTypeDetail = (
 const deserializeAws_ec2ServiceTypeDetailSet = (
   output: any,
   context: __SerdeContext
-): Array<ServiceTypeDetail> => {
+): ServiceTypeDetail[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2ServiceTypeDetail(entry, context));
@@ -72503,7 +72503,7 @@ const deserializeAws_ec2SnapshotDetail = (
 const deserializeAws_ec2SnapshotDetailList = (
   output: any,
   context: __SerdeContext
-): Array<SnapshotDetail> => {
+): SnapshotDetail[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2SnapshotDetail(entry, context));
@@ -72599,7 +72599,7 @@ const deserializeAws_ec2SnapshotInfo = (
 const deserializeAws_ec2SnapshotList = (
   output: any,
   context: __SerdeContext
-): Array<Snapshot> => {
+): Snapshot[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2Snapshot(entry, context));
@@ -72610,7 +72610,7 @@ const deserializeAws_ec2SnapshotList = (
 const deserializeAws_ec2SnapshotSet = (
   output: any,
   context: __SerdeContext
-): Array<SnapshotInfo> => {
+): SnapshotInfo[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2SnapshotInfo(entry, context));
@@ -73173,7 +73173,7 @@ const deserializeAws_ec2SpotFleetRequestConfigData = (
 const deserializeAws_ec2SpotFleetRequestConfigSet = (
   output: any,
   context: __SerdeContext
-): Array<SpotFleetRequestConfig> => {
+): SpotFleetRequestConfig[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2SpotFleetRequestConfig(entry, context));
@@ -73212,7 +73212,7 @@ const deserializeAws_ec2SpotFleetTagSpecification = (
 const deserializeAws_ec2SpotFleetTagSpecificationList = (
   output: any,
   context: __SerdeContext
-): Array<SpotFleetTagSpecification> => {
+): SpotFleetTagSpecification[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2SpotFleetTagSpecification(entry, context));
@@ -73365,7 +73365,7 @@ const deserializeAws_ec2SpotInstanceRequest = (
 const deserializeAws_ec2SpotInstanceRequestList = (
   output: any,
   context: __SerdeContext
-): Array<SpotInstanceRequest> => {
+): SpotInstanceRequest[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2SpotInstanceRequest(entry, context));
@@ -73562,7 +73562,7 @@ const deserializeAws_ec2SpotPrice = (
 const deserializeAws_ec2SpotPriceHistoryList = (
   output: any,
   context: __SerdeContext
-): Array<SpotPrice> => {
+): SpotPrice[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2SpotPrice(entry, context));
@@ -73654,7 +73654,7 @@ const deserializeAws_ec2StaleIpPermission = (
 const deserializeAws_ec2StaleIpPermissionSet = (
   output: any,
   context: __SerdeContext
-): Array<StaleIpPermission> => {
+): StaleIpPermission[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2StaleIpPermission(entry, context));
@@ -73737,7 +73737,7 @@ const deserializeAws_ec2StaleSecurityGroup = (
 const deserializeAws_ec2StaleSecurityGroupSet = (
   output: any,
   context: __SerdeContext
-): Array<StaleSecurityGroup> => {
+): StaleSecurityGroup[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2StaleSecurityGroup(entry, context));
@@ -74014,7 +74014,7 @@ const deserializeAws_ec2SubnetAssociation = (
 const deserializeAws_ec2SubnetAssociationList = (
   output: any,
   context: __SerdeContext
-): Array<SubnetAssociation> => {
+): SubnetAssociation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2SubnetAssociation(entry, context));
@@ -74080,7 +74080,7 @@ const deserializeAws_ec2SubnetIpv6CidrBlockAssociation = (
 const deserializeAws_ec2SubnetIpv6CidrBlockAssociationSet = (
   output: any,
   context: __SerdeContext
-): Array<SubnetIpv6CidrBlockAssociation> => {
+): SubnetIpv6CidrBlockAssociation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -74093,7 +74093,7 @@ const deserializeAws_ec2SubnetIpv6CidrBlockAssociationSet = (
 const deserializeAws_ec2SubnetList = (
   output: any,
   context: __SerdeContext
-): Array<Subnet> => {
+): Subnet[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2Subnet(entry, context));
@@ -74121,7 +74121,7 @@ const deserializeAws_ec2SuccessfulInstanceCreditSpecificationItem = (
 const deserializeAws_ec2SuccessfulInstanceCreditSpecificationSet = (
   output: any,
   context: __SerdeContext
-): Array<SuccessfulInstanceCreditSpecificationItem> => {
+): SuccessfulInstanceCreditSpecificationItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -74154,7 +74154,7 @@ const deserializeAws_ec2SuccessfulQueuedPurchaseDeletion = (
 const deserializeAws_ec2SuccessfulQueuedPurchaseDeletionSet = (
   output: any,
   context: __SerdeContext
-): Array<SuccessfulQueuedPurchaseDeletion> => {
+): SuccessfulQueuedPurchaseDeletion[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -74226,7 +74226,7 @@ const deserializeAws_ec2TagDescription = (
 const deserializeAws_ec2TagDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<TagDescription> => {
+): TagDescription[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2TagDescription(entry, context));
@@ -74237,7 +74237,7 @@ const deserializeAws_ec2TagDescriptionList = (
 const deserializeAws_ec2TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2Tag(entry, context));
@@ -74331,7 +74331,7 @@ const deserializeAws_ec2TargetGroup = (
 const deserializeAws_ec2TargetGroups = (
   output: any,
   context: __SerdeContext
-): Array<TargetGroup> => {
+): TargetGroup[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2TargetGroup(entry, context));
@@ -74431,7 +74431,7 @@ const deserializeAws_ec2TargetNetwork = (
 const deserializeAws_ec2TargetNetworkSet = (
   output: any,
   context: __SerdeContext
-): Array<TargetNetwork> => {
+): TargetNetwork[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2TargetNetwork(entry, context));
@@ -74466,7 +74466,7 @@ const deserializeAws_ec2TargetReservationValue = (
 const deserializeAws_ec2TargetReservationValueSet = (
   output: any,
   context: __SerdeContext
-): Array<TargetReservationValue> => {
+): TargetReservationValue[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2TargetReservationValue(entry, context));
@@ -74549,7 +74549,7 @@ const deserializeAws_ec2TerminateConnectionStatus = (
 const deserializeAws_ec2TerminateConnectionStatusSet = (
   output: any,
   context: __SerdeContext
-): Array<TerminateConnectionStatus> => {
+): TerminateConnectionStatus[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2TerminateConnectionStatus(entry, context));
@@ -74587,7 +74587,7 @@ const deserializeAws_ec2TerminateInstancesResult = (
 const deserializeAws_ec2ThreadsPerCoreList = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -74778,7 +74778,7 @@ const deserializeAws_ec2TrafficMirrorFilterRule = (
 const deserializeAws_ec2TrafficMirrorFilterRuleList = (
   output: any,
   context: __SerdeContext
-): Array<TrafficMirrorFilterRule> => {
+): TrafficMirrorFilterRule[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2TrafficMirrorFilterRule(entry, context));
@@ -74789,7 +74789,7 @@ const deserializeAws_ec2TrafficMirrorFilterRuleList = (
 const deserializeAws_ec2TrafficMirrorFilterSet = (
   output: any,
   context: __SerdeContext
-): Array<TrafficMirrorFilter> => {
+): TrafficMirrorFilter[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2TrafficMirrorFilter(entry, context));
@@ -74800,7 +74800,7 @@ const deserializeAws_ec2TrafficMirrorFilterSet = (
 const deserializeAws_ec2TrafficMirrorNetworkServiceList = (
   output: any,
   context: __SerdeContext
-): Array<TrafficMirrorNetworkService | string> => {
+): TrafficMirrorNetworkService | string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -74927,7 +74927,7 @@ const deserializeAws_ec2TrafficMirrorSession = (
 const deserializeAws_ec2TrafficMirrorSessionSet = (
   output: any,
   context: __SerdeContext
-): Array<TrafficMirrorSession> => {
+): TrafficMirrorSession[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2TrafficMirrorSession(entry, context));
@@ -75004,7 +75004,7 @@ const deserializeAws_ec2TrafficMirrorTarget = (
 const deserializeAws_ec2TrafficMirrorTargetSet = (
   output: any,
   context: __SerdeContext
-): Array<TrafficMirrorTarget> => {
+): TrafficMirrorTarget[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2TrafficMirrorTarget(entry, context));
@@ -75238,7 +75238,7 @@ const deserializeAws_ec2TransitGatewayAttachmentAssociation = (
 const deserializeAws_ec2TransitGatewayAttachmentList = (
   output: any,
   context: __SerdeContext
-): Array<TransitGatewayAttachment> => {
+): TransitGatewayAttachment[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2TransitGatewayAttachment(entry, context));
@@ -75273,7 +75273,7 @@ const deserializeAws_ec2TransitGatewayAttachmentPropagation = (
 const deserializeAws_ec2TransitGatewayAttachmentPropagationList = (
   output: any,
   context: __SerdeContext
-): Array<TransitGatewayAttachmentPropagation> => {
+): TransitGatewayAttachmentPropagation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -75286,7 +75286,7 @@ const deserializeAws_ec2TransitGatewayAttachmentPropagationList = (
 const deserializeAws_ec2TransitGatewayList = (
   output: any,
   context: __SerdeContext
-): Array<TransitGateway> => {
+): TransitGateway[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2TransitGateway(entry, context));
@@ -75466,7 +75466,7 @@ const deserializeAws_ec2TransitGatewayMulticastDomainAssociation = (
 const deserializeAws_ec2TransitGatewayMulticastDomainAssociationList = (
   output: any,
   context: __SerdeContext
-): Array<TransitGatewayMulticastDomainAssociation> => {
+): TransitGatewayMulticastDomainAssociation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -75534,7 +75534,7 @@ const deserializeAws_ec2TransitGatewayMulticastDomainAssociations = (
 const deserializeAws_ec2TransitGatewayMulticastDomainList = (
   output: any,
   context: __SerdeContext
-): Array<TransitGatewayMulticastDomain> => {
+): TransitGatewayMulticastDomain[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -75627,7 +75627,7 @@ const deserializeAws_ec2TransitGatewayMulticastGroup = (
 const deserializeAws_ec2TransitGatewayMulticastGroupList = (
   output: any,
   context: __SerdeContext
-): Array<TransitGatewayMulticastGroup> => {
+): TransitGatewayMulticastGroup[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -75859,7 +75859,7 @@ const deserializeAws_ec2TransitGatewayPeeringAttachment = (
 const deserializeAws_ec2TransitGatewayPeeringAttachmentList = (
   output: any,
   context: __SerdeContext
-): Array<TransitGatewayPeeringAttachment> => {
+): TransitGatewayPeeringAttachment[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -75996,7 +75996,7 @@ const deserializeAws_ec2TransitGatewayRouteAttachment = (
 const deserializeAws_ec2TransitGatewayRouteAttachmentList = (
   output: any,
   context: __SerdeContext
-): Array<TransitGatewayRouteAttachment> => {
+): TransitGatewayRouteAttachment[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -76009,7 +76009,7 @@ const deserializeAws_ec2TransitGatewayRouteAttachmentList = (
 const deserializeAws_ec2TransitGatewayRouteList = (
   output: any,
   context: __SerdeContext
-): Array<TransitGatewayRoute> => {
+): TransitGatewayRoute[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2TransitGatewayRoute(entry, context));
@@ -76121,7 +76121,7 @@ const deserializeAws_ec2TransitGatewayRouteTableAssociation = (
 const deserializeAws_ec2TransitGatewayRouteTableAssociationList = (
   output: any,
   context: __SerdeContext
-): Array<TransitGatewayRouteTableAssociation> => {
+): TransitGatewayRouteTableAssociation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -76134,7 +76134,7 @@ const deserializeAws_ec2TransitGatewayRouteTableAssociationList = (
 const deserializeAws_ec2TransitGatewayRouteTableList = (
   output: any,
   context: __SerdeContext
-): Array<TransitGatewayRouteTable> => {
+): TransitGatewayRouteTable[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2TransitGatewayRouteTable(entry, context));
@@ -76183,7 +76183,7 @@ const deserializeAws_ec2TransitGatewayRouteTablePropagation = (
 const deserializeAws_ec2TransitGatewayRouteTablePropagationList = (
   output: any,
   context: __SerdeContext
-): Array<TransitGatewayRouteTablePropagation> => {
+): TransitGatewayRouteTablePropagation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -76283,7 +76283,7 @@ const deserializeAws_ec2TransitGatewayVpcAttachment = (
 const deserializeAws_ec2TransitGatewayVpcAttachmentList = (
   output: any,
   context: __SerdeContext
-): Array<TransitGatewayVpcAttachment> => {
+): TransitGatewayVpcAttachment[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -76518,7 +76518,7 @@ const deserializeAws_ec2TunnelOption = (
 const deserializeAws_ec2TunnelOptionsList = (
   output: any,
   context: __SerdeContext
-): Array<TunnelOption> => {
+): TunnelOption[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2TunnelOption(entry, context));
@@ -76638,7 +76638,7 @@ const deserializeAws_ec2UnsuccessfulInstanceCreditSpecificationItemError = (
 const deserializeAws_ec2UnsuccessfulInstanceCreditSpecificationSet = (
   output: any,
   context: __SerdeContext
-): Array<UnsuccessfulInstanceCreditSpecificationItem> => {
+): UnsuccessfulInstanceCreditSpecificationItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -76702,7 +76702,7 @@ const deserializeAws_ec2UnsuccessfulItemError = (
 const deserializeAws_ec2UnsuccessfulItemList = (
   output: any,
   context: __SerdeContext
-): Array<UnsuccessfulItem> => {
+): UnsuccessfulItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2UnsuccessfulItem(entry, context));
@@ -76713,7 +76713,7 @@ const deserializeAws_ec2UnsuccessfulItemList = (
 const deserializeAws_ec2UnsuccessfulItemSet = (
   output: any,
   context: __SerdeContext
-): Array<UnsuccessfulItem> => {
+): UnsuccessfulItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2UnsuccessfulItem(entry, context));
@@ -76758,7 +76758,7 @@ const deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressResult = (
 const deserializeAws_ec2UsageClassTypeList = (
   output: any,
   context: __SerdeContext
-): Array<UsageClassType | string> => {
+): UsageClassType | string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -76852,7 +76852,7 @@ const deserializeAws_ec2UserIdGroupPair = (
 const deserializeAws_ec2UserIdGroupPairList = (
   output: any,
   context: __SerdeContext
-): Array<UserIdGroupPair> => {
+): UserIdGroupPair[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2UserIdGroupPair(entry, context));
@@ -76863,7 +76863,7 @@ const deserializeAws_ec2UserIdGroupPairList = (
 const deserializeAws_ec2UserIdGroupPairSet = (
   output: any,
   context: __SerdeContext
-): Array<UserIdGroupPair> => {
+): UserIdGroupPair[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2UserIdGroupPair(entry, context));
@@ -76939,7 +76939,7 @@ const deserializeAws_ec2VCpuInfo = (
 const deserializeAws_ec2ValueStringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -77000,7 +77000,7 @@ const deserializeAws_ec2VgwTelemetry = (
 const deserializeAws_ec2VgwTelemetryList = (
   output: any,
   context: __SerdeContext
-): Array<VgwTelemetry> => {
+): VgwTelemetry[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2VgwTelemetry(entry, context));
@@ -77184,7 +77184,7 @@ const deserializeAws_ec2VolumeAttachment = (
 const deserializeAws_ec2VolumeAttachmentList = (
   output: any,
   context: __SerdeContext
-): Array<VolumeAttachment> => {
+): VolumeAttachment[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2VolumeAttachment(entry, context));
@@ -77195,7 +77195,7 @@ const deserializeAws_ec2VolumeAttachmentList = (
 const deserializeAws_ec2VolumeList = (
   output: any,
   context: __SerdeContext
-): Array<Volume> => {
+): Volume[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2Volume(entry, context));
@@ -77299,7 +77299,7 @@ const deserializeAws_ec2VolumeModification = (
 const deserializeAws_ec2VolumeModificationList = (
   output: any,
   context: __SerdeContext
-): Array<VolumeModification> => {
+): VolumeModification[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2VolumeModification(entry, context));
@@ -77348,7 +77348,7 @@ const deserializeAws_ec2VolumeStatusAction = (
 const deserializeAws_ec2VolumeStatusActionsList = (
   output: any,
   context: __SerdeContext
-): Array<VolumeStatusAction> => {
+): VolumeStatusAction[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2VolumeStatusAction(entry, context));
@@ -77383,7 +77383,7 @@ const deserializeAws_ec2VolumeStatusDetails = (
 const deserializeAws_ec2VolumeStatusDetailsList = (
   output: any,
   context: __SerdeContext
-): Array<VolumeStatusDetails> => {
+): VolumeStatusDetails[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2VolumeStatusDetails(entry, context));
@@ -77433,7 +77433,7 @@ const deserializeAws_ec2VolumeStatusEvent = (
 const deserializeAws_ec2VolumeStatusEventsList = (
   output: any,
   context: __SerdeContext
-): Array<VolumeStatusEvent> => {
+): VolumeStatusEvent[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2VolumeStatusEvent(entry, context));
@@ -77550,7 +77550,7 @@ const deserializeAws_ec2VolumeStatusItem = (
 const deserializeAws_ec2VolumeStatusList = (
   output: any,
   context: __SerdeContext
-): Array<VolumeStatusItem> => {
+): VolumeStatusItem[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2VolumeStatusItem(entry, context));
@@ -77689,7 +77689,7 @@ const deserializeAws_ec2VpcAttachment = (
 const deserializeAws_ec2VpcAttachmentList = (
   output: any,
   context: __SerdeContext
-): Array<VpcAttachment> => {
+): VpcAttachment[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2VpcAttachment(entry, context));
@@ -77731,7 +77731,7 @@ const deserializeAws_ec2VpcCidrBlockAssociation = (
 const deserializeAws_ec2VpcCidrBlockAssociationSet = (
   output: any,
   context: __SerdeContext
-): Array<VpcCidrBlockAssociation> => {
+): VpcCidrBlockAssociation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2VpcCidrBlockAssociation(entry, context));
@@ -77804,7 +77804,7 @@ const deserializeAws_ec2VpcClassicLink = (
 const deserializeAws_ec2VpcClassicLinkList = (
   output: any,
   context: __SerdeContext
-): Array<VpcClassicLink> => {
+): VpcClassicLink[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2VpcClassicLink(entry, context));
@@ -78068,7 +78068,7 @@ const deserializeAws_ec2VpcEndpointConnection = (
 const deserializeAws_ec2VpcEndpointConnectionSet = (
   output: any,
   context: __SerdeContext
-): Array<VpcEndpointConnection> => {
+): VpcEndpointConnection[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2VpcEndpointConnection(entry, context));
@@ -78079,7 +78079,7 @@ const deserializeAws_ec2VpcEndpointConnectionSet = (
 const deserializeAws_ec2VpcEndpointSet = (
   output: any,
   context: __SerdeContext
-): Array<VpcEndpoint> => {
+): VpcEndpoint[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2VpcEndpoint(entry, context));
@@ -78135,7 +78135,7 @@ const deserializeAws_ec2VpcIpv6CidrBlockAssociation = (
 const deserializeAws_ec2VpcIpv6CidrBlockAssociationSet = (
   output: any,
   context: __SerdeContext
-): Array<VpcIpv6CidrBlockAssociation> => {
+): VpcIpv6CidrBlockAssociation[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(
@@ -78148,7 +78148,7 @@ const deserializeAws_ec2VpcIpv6CidrBlockAssociationSet = (
 const deserializeAws_ec2VpcList = (
   output: any,
   context: __SerdeContext
-): Array<Vpc> => {
+): Vpc[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2Vpc(entry, context));
@@ -78215,7 +78215,7 @@ const deserializeAws_ec2VpcPeeringConnection = (
 const deserializeAws_ec2VpcPeeringConnectionList = (
   output: any,
   context: __SerdeContext
-): Array<VpcPeeringConnection> => {
+): VpcPeeringConnection[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2VpcPeeringConnection(entry, context));
@@ -78483,7 +78483,7 @@ const deserializeAws_ec2VpnConnection = (
 const deserializeAws_ec2VpnConnectionList = (
   output: any,
   context: __SerdeContext
-): Array<VpnConnection> => {
+): VpnConnection[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2VpnConnection(entry, context));
@@ -78612,7 +78612,7 @@ const deserializeAws_ec2VpnGateway = (
 const deserializeAws_ec2VpnGatewayList = (
   output: any,
   context: __SerdeContext
-): Array<VpnGateway> => {
+): VpnGateway[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2VpnGateway(entry, context));
@@ -78654,7 +78654,7 @@ const deserializeAws_ec2VpnStaticRoute = (
 const deserializeAws_ec2VpnStaticRouteList = (
   output: any,
   context: __SerdeContext
-): Array<VpnStaticRoute> => {
+): VpnStaticRoute[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_ec2VpnStaticRoute(entry, context));

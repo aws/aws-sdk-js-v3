@@ -2017,7 +2017,7 @@ const deserializeAws_json1_1PolicyNotFoundExceptionResponse = async (
 };
 
 const serializeAws_json1_1AllowedHeaders = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2028,7 +2028,7 @@ const serializeAws_json1_1AllowedHeaders = (
 };
 
 const serializeAws_json1_1AllowedMethods = (
-  input: Array<MethodName | string>,
+  input: MethodName | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2039,7 +2039,7 @@ const serializeAws_json1_1AllowedMethods = (
 };
 
 const serializeAws_json1_1AllowedOrigins = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2050,7 +2050,7 @@ const serializeAws_json1_1AllowedOrigins = (
 };
 
 const serializeAws_json1_1CorsPolicy = (
-  input: Array<CorsRule>,
+  input: CorsRule[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2165,7 +2165,7 @@ const serializeAws_json1_1DescribeContainerInput = (
 };
 
 const serializeAws_json1_1ExposeHeaders = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2312,7 +2312,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2323,7 +2323,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2367,21 +2367,21 @@ const serializeAws_json1_1UntagResourceInput = (
 const deserializeAws_json1_1AllowedHeaders = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1AllowedMethods = (
   output: any,
   context: __SerdeContext
-): Array<MethodName | string> => {
+): MethodName | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1AllowedOrigins = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2439,7 +2439,7 @@ const deserializeAws_json1_1ContainerInUseException = (
 const deserializeAws_json1_1ContainerList = (
   output: any,
   context: __SerdeContext
-): Array<Container> => {
+): Container[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Container(entry, context)
   );
@@ -2462,7 +2462,7 @@ const deserializeAws_json1_1ContainerNotFoundException = (
 const deserializeAws_json1_1CorsPolicy = (
   output: any,
   context: __SerdeContext
-): Array<CorsRule> => {
+): CorsRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CorsRule(entry, context)
   );
@@ -2601,7 +2601,7 @@ const deserializeAws_json1_1DescribeContainerOutput = (
 const deserializeAws_json1_1ExposeHeaders = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2798,7 +2798,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );

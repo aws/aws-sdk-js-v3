@@ -2436,7 +2436,7 @@ const serializeAws_json1_1Filter = (
 };
 
 const serializeAws_json1_1FilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2447,7 +2447,7 @@ const serializeAws_json1_1FilterValues = (
 };
 
 const serializeAws_json1_1Filters = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2494,7 +2494,7 @@ const serializeAws_json1_1InventoryFilter = (
 };
 
 const serializeAws_json1_1InventoryFilterList = (
-  input: Array<InventoryFilter>,
+  input: InventoryFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2516,7 +2516,7 @@ const serializeAws_json1_1LicenseSpecification = (
 };
 
 const serializeAws_json1_1LicenseSpecifications = (
-  input: Array<LicenseSpecification>,
+  input: LicenseSpecification[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2706,7 +2706,7 @@ const serializeAws_json1_1ProductInformationFilter = (
 };
 
 const serializeAws_json1_1ProductInformationFilterList = (
-  input: Array<ProductInformationFilter>,
+  input: ProductInformationFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2717,7 +2717,7 @@ const serializeAws_json1_1ProductInformationFilterList = (
 };
 
 const serializeAws_json1_1ProductInformationList = (
-  input: Array<ProductInformation>,
+  input: ProductInformation[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2728,7 +2728,7 @@ const serializeAws_json1_1ProductInformationList = (
 };
 
 const serializeAws_json1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2750,7 +2750,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2761,7 +2761,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2961,7 +2961,7 @@ const deserializeAws_json1_1ConsumedLicenseSummary = (
 const deserializeAws_json1_1ConsumedLicenseSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<ConsumedLicenseSummary> => {
+): ConsumedLicenseSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ConsumedLicenseSummary(entry, context)
   );
@@ -3352,7 +3352,7 @@ const deserializeAws_json1_1LicenseConfigurationAssociation = (
 const deserializeAws_json1_1LicenseConfigurationAssociations = (
   output: any,
   context: __SerdeContext
-): Array<LicenseConfigurationAssociation> => {
+): LicenseConfigurationAssociation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LicenseConfigurationAssociation(entry, context)
   );
@@ -3400,7 +3400,7 @@ const deserializeAws_json1_1LicenseConfigurationUsage = (
 const deserializeAws_json1_1LicenseConfigurationUsageList = (
   output: any,
   context: __SerdeContext
-): Array<LicenseConfigurationUsage> => {
+): LicenseConfigurationUsage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LicenseConfigurationUsage(entry, context)
   );
@@ -3409,7 +3409,7 @@ const deserializeAws_json1_1LicenseConfigurationUsageList = (
 const deserializeAws_json1_1LicenseConfigurations = (
   output: any,
   context: __SerdeContext
-): Array<LicenseConfiguration> => {
+): LicenseConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LicenseConfiguration(entry, context)
   );
@@ -3466,7 +3466,7 @@ const deserializeAws_json1_1LicenseOperationFailure = (
 const deserializeAws_json1_1LicenseOperationFailureList = (
   output: any,
   context: __SerdeContext
-): Array<LicenseOperationFailure> => {
+): LicenseOperationFailure[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LicenseOperationFailure(entry, context)
   );
@@ -3492,7 +3492,7 @@ const deserializeAws_json1_1LicenseSpecification = (
 const deserializeAws_json1_1LicenseSpecifications = (
   output: any,
   context: __SerdeContext
-): Array<LicenseSpecification> => {
+): LicenseSpecification[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LicenseSpecification(entry, context)
   );
@@ -3694,7 +3694,7 @@ const deserializeAws_json1_1ManagedResourceSummary = (
 const deserializeAws_json1_1ManagedResourceSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<ManagedResourceSummary> => {
+): ManagedResourceSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ManagedResourceSummary(entry, context)
   );
@@ -3721,7 +3721,7 @@ const deserializeAws_json1_1Metadata = (
 const deserializeAws_json1_1MetadataList = (
   output: any,
   context: __SerdeContext
-): Array<Metadata> => {
+): Metadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Metadata(entry, context)
   );
@@ -3806,7 +3806,7 @@ const deserializeAws_json1_1ProductInformationFilter = (
 const deserializeAws_json1_1ProductInformationFilterList = (
   output: any,
   context: __SerdeContext
-): Array<ProductInformationFilter> => {
+): ProductInformationFilter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ProductInformationFilter(entry, context)
   );
@@ -3815,7 +3815,7 @@ const deserializeAws_json1_1ProductInformationFilterList = (
 const deserializeAws_json1_1ProductInformationList = (
   output: any,
   context: __SerdeContext
-): Array<ProductInformation> => {
+): ProductInformation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ProductInformation(entry, context)
   );
@@ -3875,7 +3875,7 @@ const deserializeAws_json1_1ResourceInventory = (
 const deserializeAws_json1_1ResourceInventoryList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceInventory> => {
+): ResourceInventory[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceInventory(entry, context)
   );
@@ -3912,7 +3912,7 @@ const deserializeAws_json1_1ServerInternalException = (
 const deserializeAws_json1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3937,7 +3937,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );

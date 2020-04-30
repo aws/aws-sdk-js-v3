@@ -289,14 +289,14 @@ export interface CreateFargateProfileRequest {
    *             associated namespace. Optionally, you can also specify labels for a namespace. You may
    *             specify up to five selectors in a Fargate profile.</p>
    */
-  selectors?: Array<FargateProfileSelector>;
+  selectors?: FargateProfileSelector[];
 
   /**
    * <p>The IDs of subnets to launch your pods into. At this time, pods running on Fargate are
    *             not assigned public IP addresses, so only private subnets (with no direct route to an
    *             Internet Gateway) are accepted for this parameter.</p>
    */
-  subnets?: Array<string>;
+  subnets?: string[];
 
   /**
    * <p>The metadata to apply to the Fargate profile to assist with categorization and
@@ -358,7 +358,7 @@ export interface CreateNodegroupRequest {
    *                 <code>t3.medium</code>. If you choose a GPU instance type, be sure to specify the
    *                 <code>AL2_x86_64_GPU</code> with the <code>amiType</code> parameter.</p>
    */
-  instanceTypes?: Array<string>;
+  instanceTypes?: string[];
 
   /**
    * <p>The Kubernetes labels to be applied to the nodes in the node group when they are
@@ -408,7 +408,7 @@ export interface CreateNodegroupRequest {
    *             a value of <code>shared</code>, where <code>CLUSTER_NAME</code> is replaced with the
    *             name of your cluster.</p>
    */
-  subnets: Array<string> | undefined;
+  subnets: string[] | undefined;
 
   /**
    * <p>The metadata to apply to the node group to assist with categorization and
@@ -725,7 +725,7 @@ export interface ErrorDetail {
   /**
    * <p>An optional field that contains the resource IDs associated with the error.</p>
    */
-  resourceIds?: Array<string>;
+  resourceIds?: string[];
 }
 
 export namespace ErrorDetail {
@@ -767,7 +767,7 @@ export interface FargateProfile {
   /**
    * <p>The selectors to match for pods to use this Fargate profile.</p>
    */
-  selectors?: Array<FargateProfileSelector>;
+  selectors?: FargateProfileSelector[];
 
   /**
    * <p>The current status of the Fargate profile.</p>
@@ -777,7 +777,7 @@ export interface FargateProfile {
   /**
    * <p>The IDs of subnets to launch pods into.</p>
    */
-  subnets?: Array<string>;
+  subnets?: string[];
 
   /**
    * <p>The metadata applied to the Fargate profile to assist with categorization and
@@ -993,7 +993,7 @@ export interface Issue {
   /**
    * <p>The AWS resources that are afflicted by this issue.</p>
    */
-  resourceIds?: Array<string>;
+  resourceIds?: string[];
 }
 
 export namespace Issue {
@@ -1037,7 +1037,7 @@ export interface ListClustersResponse {
   /**
    * <p>A list of all of the clusters for your account in the specified Region.</p>
    */
-  clusters?: Array<string>;
+  clusters?: string[];
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListClusters</code>
@@ -1093,7 +1093,7 @@ export interface ListFargateProfilesResponse {
   /**
    * <p>A list of all of the Fargate profiles associated with the specified cluster.</p>
    */
-  fargateProfileNames?: Array<string>;
+  fargateProfileNames?: string[];
 
   /**
    * <p>The <code>nextToken</code> value to include in a future
@@ -1157,7 +1157,7 @@ export interface ListNodegroupsResponse {
   /**
    * <p>A list of all of the node groups associated with the specified cluster.</p>
    */
-  nodegroups?: Array<string>;
+  nodegroups?: string[];
 }
 
 export namespace ListNodegroupsResponse {
@@ -1244,7 +1244,7 @@ export interface ListUpdatesResponse {
   /**
    * <p>A list of all the updates for the specified cluster and Region.</p>
    */
-  updateIds?: Array<string>;
+  updateIds?: string[];
 }
 
 export namespace ListUpdatesResponse {
@@ -1268,7 +1268,7 @@ export interface LogSetup {
   /**
    * <p>The available cluster control plane log types.</p>
    */
-  types?: Array<LogType | string>;
+  types?: LogType | string[];
 }
 
 export namespace LogSetup {
@@ -1291,7 +1291,7 @@ export interface Logging {
   /**
    * <p>The cluster control plane logging configuration for your cluster.</p>
    */
-  clusterLogging?: Array<LogSetup>;
+  clusterLogging?: LogSetup[];
 }
 
 export namespace Logging {
@@ -1337,7 +1337,7 @@ export interface Nodegroup {
   /**
    * <p>The instance types associated with your node group.</p>
    */
-  instanceTypes?: Array<string>;
+  instanceTypes?: string[];
 
   /**
    * <p>The Kubernetes labels applied to the nodes in the node group.</p>
@@ -1410,7 +1410,7 @@ export interface Nodegroup {
    *                 <code>kubernetes.io/cluster/CLUSTER_NAME</code>, where <code>CLUSTER_NAME</code> is
    *             replaced with the name of your cluster.</p>
    */
-  subnets?: Array<string>;
+  subnets?: string[];
 
   /**
    * <p>The metadata applied to the node group to assist with categorization and organization.
@@ -1438,7 +1438,7 @@ export interface NodegroupHealth {
   /**
    * <p>Any issues that are associated with the node group. </p>
    */
-  issues?: Array<Issue>;
+  issues?: Issue[];
 }
 
 export namespace NodegroupHealth {
@@ -1470,7 +1470,7 @@ export interface NodegroupResources {
   /**
    * <p>The Auto Scaling groups associated with the node group.</p>
    */
-  autoScalingGroups?: Array<AutoScalingGroup>;
+  autoScalingGroups?: AutoScalingGroup[];
 
   /**
    * <p>The remote access security group associated with the node group. This security group
@@ -1573,7 +1573,7 @@ export interface RemoteAccessConfig {
    *             (0.0.0.0/0). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
    *                 Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
-  sourceSecurityGroups?: Array<string>;
+  sourceSecurityGroups?: string[];
 }
 
 export namespace RemoteAccessConfig {
@@ -1756,7 +1756,7 @@ export interface UnsupportedAvailabilityZoneException
    * <p>The supported Availability Zones for your account. Choose subnets in these
    *             Availability Zones for your cluster.</p>
    */
-  validZones?: Array<string>;
+  validZones?: string[];
 }
 
 export namespace UnsupportedAvailabilityZoneException {
@@ -1775,7 +1775,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The keys of the tags to be removed.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1805,7 +1805,7 @@ export interface Update {
   /**
    * <p>Any errors associated with a <code>Failed</code> update.</p>
    */
-  errors?: Array<ErrorDetail>;
+  errors?: ErrorDetail[];
 
   /**
    * <p>A UUID that is used to track the update.</p>
@@ -1815,7 +1815,7 @@ export interface Update {
   /**
    * <p>A key-value map that contains the parameters associated with the update.</p>
    */
-  params?: Array<UpdateParam>;
+  params?: UpdateParam[];
 
   /**
    * <p>The current status of the update.</p>
@@ -1933,7 +1933,7 @@ export interface UpdateLabelsPayload {
   /**
    * <p>Kubernetes labels to be removed.</p>
    */
-  removeLabels?: Array<string>;
+  removeLabels?: string[];
 }
 
 export namespace UpdateLabelsPayload {
@@ -2143,7 +2143,7 @@ export interface VpcConfigRequest {
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    */
-  publicAccessCidrs?: Array<string>;
+  publicAccessCidrs?: string[];
 
   /**
    * <p>Specify one or more security groups for the cross-account elastic network interfaces
@@ -2151,14 +2151,14 @@ export interface VpcConfigRequest {
    *             Kubernetes control plane. If you don't specify a security group, the default security
    *             group for your VPC is used.</p>
    */
-  securityGroupIds?: Array<string>;
+  securityGroupIds?: string[];
 
   /**
    * <p>Specify subnets for your Amazon EKS worker nodes. Amazon EKS creates cross-account elastic
    *             network interfaces in these subnets to allow communication between your worker nodes and
    *             the Kubernetes control plane.</p>
    */
-  subnetIds?: Array<string>;
+  subnetIds?: string[];
 }
 
 export namespace VpcConfigRequest {
@@ -2209,19 +2209,19 @@ export interface VpcConfigResponse {
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    */
-  publicAccessCidrs?: Array<string>;
+  publicAccessCidrs?: string[];
 
   /**
    * <p>The security groups associated with the cross-account elastic network interfaces that
    *             are used to allow communication between your worker nodes and the Kubernetes control
    *             plane.</p>
    */
-  securityGroupIds?: Array<string>;
+  securityGroupIds?: string[];
 
   /**
    * <p>The subnets associated with your cluster.</p>
    */
-  subnetIds?: Array<string>;
+  subnetIds?: string[];
 
   /**
    * <p>The VPC associated with your cluster.</p>

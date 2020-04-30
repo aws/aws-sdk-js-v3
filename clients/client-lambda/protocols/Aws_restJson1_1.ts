@@ -9562,7 +9562,7 @@ const serializeAws_restJson1_1AliasRoutingConfiguration = (
 };
 
 const serializeAws_restJson1_1CompatibleRuntimes = (
-  input: Array<Runtime | string>,
+  input: Runtime | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9649,7 +9649,7 @@ const serializeAws_restJson1_1FunctionCode = (
 };
 
 const serializeAws_restJson1_1LayerList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9702,7 +9702,7 @@ const serializeAws_restJson1_1OnSuccess = (
 };
 
 const serializeAws_restJson1_1SecurityGroupIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9713,7 +9713,7 @@ const serializeAws_restJson1_1SecurityGroupIds = (
 };
 
 const serializeAws_restJson1_1SubnetIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9874,7 +9874,7 @@ const deserializeAws_restJson1_1AliasConfiguration = (
 const deserializeAws_restJson1_1AliasList = (
   output: any,
   context: __SerdeContext
-): Array<AliasConfiguration> => {
+): AliasConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AliasConfiguration(entry, context)
   );
@@ -9903,7 +9903,7 @@ const deserializeAws_restJson1_1AliasRoutingConfiguration = (
 const deserializeAws_restJson1_1CompatibleRuntimes = (
   output: any,
   context: __SerdeContext
-): Array<Runtime | string> => {
+): Runtime | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10112,7 +10112,7 @@ const deserializeAws_restJson1_1EventSourceMappingConfiguration = (
 const deserializeAws_restJson1_1EventSourceMappingsList = (
   output: any,
   context: __SerdeContext
-): Array<EventSourceMappingConfiguration> => {
+): EventSourceMappingConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1EventSourceMappingConfiguration(entry, context)
   );
@@ -10322,7 +10322,7 @@ const deserializeAws_restJson1_1FunctionEventInvokeConfig = (
 const deserializeAws_restJson1_1FunctionEventInvokeConfigList = (
   output: any,
   context: __SerdeContext
-): Array<FunctionEventInvokeConfig> => {
+): FunctionEventInvokeConfig[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1FunctionEventInvokeConfig(entry, context)
   );
@@ -10331,7 +10331,7 @@ const deserializeAws_restJson1_1FunctionEventInvokeConfigList = (
 const deserializeAws_restJson1_1FunctionList = (
   output: any,
   context: __SerdeContext
-): Array<FunctionConfiguration> => {
+): FunctionConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1FunctionConfiguration(entry, context)
   );
@@ -10380,7 +10380,7 @@ const deserializeAws_restJson1_1LayerVersionContentOutput = (
 const deserializeAws_restJson1_1LayerVersionsList = (
   output: any,
   context: __SerdeContext
-): Array<LayerVersionsListItem> => {
+): LayerVersionsListItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1LayerVersionsListItem(entry, context)
   );
@@ -10429,7 +10429,7 @@ const deserializeAws_restJson1_1LayerVersionsListItem = (
 const deserializeAws_restJson1_1LayersList = (
   output: any,
   context: __SerdeContext
-): Array<LayersListItem> => {
+): LayersListItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1LayersListItem(entry, context)
   );
@@ -10466,7 +10466,7 @@ const deserializeAws_restJson1_1LayersListItem = (
 const deserializeAws_restJson1_1LayersReferenceList = (
   output: any,
   context: __SerdeContext
-): Array<Layer> => {
+): Layer[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Layer(entry, context)
   );
@@ -10503,7 +10503,7 @@ const deserializeAws_restJson1_1OnSuccess = (
 const deserializeAws_restJson1_1ProvisionedConcurrencyConfigList = (
   output: any,
   context: __SerdeContext
-): Array<ProvisionedConcurrencyConfigListItem> => {
+): ProvisionedConcurrencyConfigListItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ProvisionedConcurrencyConfigListItem(
       entry,
@@ -10565,14 +10565,14 @@ const deserializeAws_restJson1_1ProvisionedConcurrencyConfigListItem = (
 const deserializeAws_restJson1_1SecurityGroupIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1SubnetIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

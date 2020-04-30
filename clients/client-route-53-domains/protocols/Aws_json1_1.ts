@@ -2856,7 +2856,7 @@ const serializeAws_json1_1ExtraParam = (
 };
 
 const serializeAws_json1_1ExtraParamList = (
-  input: Array<ExtraParam>,
+  input: ExtraParam[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2917,7 +2917,7 @@ const serializeAws_json1_1GetOperationDetailRequest = (
 };
 
 const serializeAws_json1_1GlueIpList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2989,7 +2989,7 @@ const serializeAws_json1_1Nameserver = (
 };
 
 const serializeAws_json1_1NameserverList = (
-  input: Array<Nameserver>,
+  input: Nameserver[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3098,7 +3098,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3109,7 +3109,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3315,7 +3315,7 @@ const deserializeAws_json1_1BillingRecord = (
 const deserializeAws_json1_1BillingRecords = (
   output: any,
   context: __SerdeContext
-): Array<BillingRecord> => {
+): BillingRecord[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BillingRecord(entry, context)
   );
@@ -3475,7 +3475,7 @@ const deserializeAws_json1_1DomainLimitExceeded = (
 const deserializeAws_json1_1DomainStatusList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3500,7 +3500,7 @@ const deserializeAws_json1_1DomainSuggestion = (
 const deserializeAws_json1_1DomainSuggestionsList = (
   output: any,
   context: __SerdeContext
-): Array<DomainSuggestion> => {
+): DomainSuggestion[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DomainSuggestion(entry, context)
   );
@@ -3535,7 +3535,7 @@ const deserializeAws_json1_1DomainSummary = (
 const deserializeAws_json1_1DomainSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<DomainSummary> => {
+): DomainSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DomainSummary(entry, context)
   );
@@ -3614,7 +3614,7 @@ const deserializeAws_json1_1ExtraParam = (
 const deserializeAws_json1_1ExtraParamList = (
   output: any,
   context: __SerdeContext
-): Array<ExtraParam> => {
+): ExtraParam[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ExtraParam(entry, context)
   );
@@ -3818,7 +3818,7 @@ const deserializeAws_json1_1GetOperationDetailResponse = (
 const deserializeAws_json1_1GlueIpList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3916,7 +3916,7 @@ const deserializeAws_json1_1Nameserver = (
 const deserializeAws_json1_1NameserverList = (
   output: any,
   context: __SerdeContext
-): Array<Nameserver> => {
+): Nameserver[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Nameserver(entry, context)
   );
@@ -3965,7 +3965,7 @@ const deserializeAws_json1_1OperationSummary = (
 const deserializeAws_json1_1OperationSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<OperationSummary> => {
+): OperationSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OperationSummary(entry, context)
   );
@@ -4073,7 +4073,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );

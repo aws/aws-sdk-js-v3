@@ -175,7 +175,7 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
 };
 
 const serializeAws_json1_1FilterValueList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -186,7 +186,7 @@ const serializeAws_json1_1FilterValueList = (
 };
 
 const serializeAws_json1_1GetEntitlementFilters = (
-  input: { [key: string]: Array<string> },
+  input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
   const mapParams: any = {};
@@ -260,7 +260,7 @@ const deserializeAws_json1_1Entitlement = (
 const deserializeAws_json1_1EntitlementList = (
   output: any,
   context: __SerdeContext
-): Array<Entitlement> => {
+): Entitlement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Entitlement(entry, context)
   );

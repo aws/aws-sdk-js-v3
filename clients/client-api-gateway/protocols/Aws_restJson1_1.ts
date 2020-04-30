@@ -22718,7 +22718,7 @@ const serializeAws_restJson1_1EndpointConfiguration = (
 };
 
 const serializeAws_restJson1_1ListOfARNs = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -22729,7 +22729,7 @@ const serializeAws_restJson1_1ListOfARNs = (
 };
 
 const serializeAws_restJson1_1ListOfApiStage = (
-  input: Array<ApiStage>,
+  input: ApiStage[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -22740,7 +22740,7 @@ const serializeAws_restJson1_1ListOfApiStage = (
 };
 
 const serializeAws_restJson1_1ListOfEndpointType = (
-  input: Array<EndpointType | string>,
+  input: EndpointType | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -22751,7 +22751,7 @@ const serializeAws_restJson1_1ListOfEndpointType = (
 };
 
 const serializeAws_restJson1_1ListOfStageKeys = (
-  input: Array<StageKey>,
+  input: StageKey[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -22787,7 +22787,7 @@ const serializeAws_restJson1_1MapOfStringToBoolean = (
 };
 
 const serializeAws_restJson1_1MapOfStringToList = (
-  input: { [key: string]: Array<string> },
+  input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
   const mapParams: any = {};
@@ -22854,7 +22854,7 @@ const serializeAws_restJson1_1ThrottleSettings = (
 };
 
 const serializeAws_restJson1_1ListOfPatchOperation = (
-  input: Array<PatchOperation>,
+  input: PatchOperation[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -22865,7 +22865,7 @@ const serializeAws_restJson1_1ListOfPatchOperation = (
 };
 
 const serializeAws_restJson1_1ListOfString = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -23578,14 +23578,14 @@ const deserializeAws_restJson1_1IntegrationResponse = (
 const deserializeAws_restJson1_1ListOfARNs = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1ListOfApiKey = (
   output: any,
   context: __SerdeContext
-): Array<ApiKey> => {
+): ApiKey[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ApiKey(entry, context)
   );
@@ -23594,7 +23594,7 @@ const deserializeAws_restJson1_1ListOfApiKey = (
 const deserializeAws_restJson1_1ListOfApiStage = (
   output: any,
   context: __SerdeContext
-): Array<ApiStage> => {
+): ApiStage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ApiStage(entry, context)
   );
@@ -23603,7 +23603,7 @@ const deserializeAws_restJson1_1ListOfApiStage = (
 const deserializeAws_restJson1_1ListOfAuthorizer = (
   output: any,
   context: __SerdeContext
-): Array<Authorizer> => {
+): Authorizer[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Authorizer(entry, context)
   );
@@ -23612,7 +23612,7 @@ const deserializeAws_restJson1_1ListOfAuthorizer = (
 const deserializeAws_restJson1_1ListOfBasePathMapping = (
   output: any,
   context: __SerdeContext
-): Array<BasePathMapping> => {
+): BasePathMapping[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BasePathMapping(entry, context)
   );
@@ -23621,7 +23621,7 @@ const deserializeAws_restJson1_1ListOfBasePathMapping = (
 const deserializeAws_restJson1_1ListOfClientCertificate = (
   output: any,
   context: __SerdeContext
-): Array<ClientCertificate> => {
+): ClientCertificate[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ClientCertificate(entry, context)
   );
@@ -23630,7 +23630,7 @@ const deserializeAws_restJson1_1ListOfClientCertificate = (
 const deserializeAws_restJson1_1ListOfDeployment = (
   output: any,
   context: __SerdeContext
-): Array<Deployment> => {
+): Deployment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Deployment(entry, context)
   );
@@ -23639,7 +23639,7 @@ const deserializeAws_restJson1_1ListOfDeployment = (
 const deserializeAws_restJson1_1ListOfDocumentationPart = (
   output: any,
   context: __SerdeContext
-): Array<DocumentationPart> => {
+): DocumentationPart[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DocumentationPart(entry, context)
   );
@@ -23648,7 +23648,7 @@ const deserializeAws_restJson1_1ListOfDocumentationPart = (
 const deserializeAws_restJson1_1ListOfDocumentationVersion = (
   output: any,
   context: __SerdeContext
-): Array<DocumentationVersion> => {
+): DocumentationVersion[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DocumentationVersion(entry, context)
   );
@@ -23657,7 +23657,7 @@ const deserializeAws_restJson1_1ListOfDocumentationVersion = (
 const deserializeAws_restJson1_1ListOfDomainName = (
   output: any,
   context: __SerdeContext
-): Array<DomainName> => {
+): DomainName[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DomainName(entry, context)
   );
@@ -23666,14 +23666,14 @@ const deserializeAws_restJson1_1ListOfDomainName = (
 const deserializeAws_restJson1_1ListOfEndpointType = (
   output: any,
   context: __SerdeContext
-): Array<EndpointType | string> => {
+): EndpointType | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1ListOfGatewayResponse = (
   output: any,
   context: __SerdeContext
-): Array<GatewayResponse> => {
+): GatewayResponse[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1GatewayResponse(entry, context)
   );
@@ -23682,14 +23682,14 @@ const deserializeAws_restJson1_1ListOfGatewayResponse = (
 const deserializeAws_restJson1_1ListOfLong = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1ListOfModel = (
   output: any,
   context: __SerdeContext
-): Array<Model> => {
+): Model[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Model(entry, context)
   );
@@ -23698,7 +23698,7 @@ const deserializeAws_restJson1_1ListOfModel = (
 const deserializeAws_restJson1_1ListOfRequestValidator = (
   output: any,
   context: __SerdeContext
-): Array<RequestValidator> => {
+): RequestValidator[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RequestValidator(entry, context)
   );
@@ -23707,7 +23707,7 @@ const deserializeAws_restJson1_1ListOfRequestValidator = (
 const deserializeAws_restJson1_1ListOfResource = (
   output: any,
   context: __SerdeContext
-): Array<Resource> => {
+): Resource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Resource(entry, context)
   );
@@ -23716,7 +23716,7 @@ const deserializeAws_restJson1_1ListOfResource = (
 const deserializeAws_restJson1_1ListOfRestApi = (
   output: any,
   context: __SerdeContext
-): Array<RestApi> => {
+): RestApi[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RestApi(entry, context)
   );
@@ -23725,7 +23725,7 @@ const deserializeAws_restJson1_1ListOfRestApi = (
 const deserializeAws_restJson1_1ListOfSdkConfigurationProperty = (
   output: any,
   context: __SerdeContext
-): Array<SdkConfigurationProperty> => {
+): SdkConfigurationProperty[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SdkConfigurationProperty(entry, context)
   );
@@ -23734,7 +23734,7 @@ const deserializeAws_restJson1_1ListOfSdkConfigurationProperty = (
 const deserializeAws_restJson1_1ListOfSdkType = (
   output: any,
   context: __SerdeContext
-): Array<SdkType> => {
+): SdkType[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SdkType(entry, context)
   );
@@ -23743,7 +23743,7 @@ const deserializeAws_restJson1_1ListOfSdkType = (
 const deserializeAws_restJson1_1ListOfStage = (
   output: any,
   context: __SerdeContext
-): Array<Stage> => {
+): Stage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Stage(entry, context)
   );
@@ -23752,7 +23752,7 @@ const deserializeAws_restJson1_1ListOfStage = (
 const deserializeAws_restJson1_1ListOfUsage = (
   output: any,
   context: __SerdeContext
-): Array<Array<number>> => {
+): number[][] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ListOfLong(entry, context)
   );
@@ -23761,7 +23761,7 @@ const deserializeAws_restJson1_1ListOfUsage = (
 const deserializeAws_restJson1_1ListOfUsagePlan = (
   output: any,
   context: __SerdeContext
-): Array<UsagePlan> => {
+): UsagePlan[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UsagePlan(entry, context)
   );
@@ -23770,7 +23770,7 @@ const deserializeAws_restJson1_1ListOfUsagePlan = (
 const deserializeAws_restJson1_1ListOfUsagePlanKey = (
   output: any,
   context: __SerdeContext
-): Array<UsagePlanKey> => {
+): UsagePlanKey[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UsagePlanKey(entry, context)
   );
@@ -23779,7 +23779,7 @@ const deserializeAws_restJson1_1ListOfUsagePlanKey = (
 const deserializeAws_restJson1_1ListOfVpcLink = (
   output: any,
   context: __SerdeContext
-): Array<VpcLink> => {
+): VpcLink[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1VpcLink(entry, context)
   );
@@ -23816,7 +23816,7 @@ const deserializeAws_restJson1_1MapOfIntegrationResponse = (
 const deserializeAws_restJson1_1MapOfKeyUsages = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<Array<number>> } => {
+): { [key: string]: number[][] } => {
   const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1ListOfUsage(
@@ -23894,7 +23894,7 @@ const deserializeAws_restJson1_1MapOfStringToBoolean = (
 const deserializeAws_restJson1_1MapOfStringToList = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<string> } => {
+): { [key: string]: string[] } => {
   const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1ListOfString(
@@ -24655,7 +24655,7 @@ const deserializeAws_restJson1_1VpcLink = (
 const deserializeAws_restJson1_1ListOfString = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

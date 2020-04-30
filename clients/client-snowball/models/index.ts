@@ -667,7 +667,7 @@ export interface DescribeAddressesResult {
   /**
    * <p>The Snowball shipping addresses that were created for this account.</p>
    */
-  Addresses?: Array<Address>;
+  Addresses?: Address[];
 
   /**
    * <p>HTTP requests are stateless. If you use the automatically generated
@@ -735,7 +735,7 @@ export interface DescribeJobResult {
    * <p>Information about a specific job part (in the case of an export job), including
    *       shipping information, job status, and other important metadata.</p>
    */
-  SubJobMetadata?: Array<JobMetadata>;
+  SubJobMetadata?: JobMetadata[];
 }
 
 export namespace DescribeJobResult {
@@ -1224,17 +1224,17 @@ export interface JobResource {
   /**
    * <p>The Amazon Machine Images (AMIs) associated with this job.</p>
    */
-  Ec2AmiResources?: Array<Ec2AmiResource>;
+  Ec2AmiResources?: Ec2AmiResource[];
 
   /**
    * <p>The Python-language Lambda functions for this job.</p>
    */
-  LambdaResources?: Array<LambdaResource>;
+  LambdaResources?: LambdaResource[];
 
   /**
    * <p>An array of <code>S3Resource</code> objects.</p>
    */
-  S3Resources?: Array<S3Resource>;
+  S3Resources?: S3Resource[];
 }
 
 export namespace JobResource {
@@ -1313,7 +1313,7 @@ export interface LambdaResource {
   /**
    * <p>The array of ARNs for <a>S3Resource</a> objects to trigger the <a>LambdaResource</a> objects associated with this job.</p>
    */
-  EventTriggers?: Array<EventTriggerDefinition>;
+  EventTriggers?: EventTriggerDefinition[];
 
   /**
    * <p>An Amazon Resource Name (ARN) that represents an AWS Lambda function to be triggered by
@@ -1359,7 +1359,7 @@ export interface ListClusterJobsResult {
    * <p>Each <code>JobListEntry</code> object contains a job's state, a job's ID, and a value
    *       that indicates whether the job is a job part, in the case of export jobs. </p>
    */
-  JobListEntries?: Array<JobListEntry>;
+  JobListEntries?: JobListEntry[];
 
   /**
    * <p>HTTP requests are stateless. If you use the automatically generated
@@ -1400,7 +1400,7 @@ export interface ListClustersResult {
    * <p>Each <code>ClusterListEntry</code> object contains a cluster's state, a cluster's ID,
    *       and other important status information.</p>
    */
-  ClusterListEntries?: Array<ClusterListEntry>;
+  ClusterListEntries?: ClusterListEntry[];
 
   /**
    * <p>HTTP requests are stateless. If you use the automatically generated
@@ -1442,7 +1442,7 @@ export interface ListCompatibleImagesResult {
    * <p>A JSON-formatted object that describes a compatible AMI, including the ID and name for
    *       a Snowball Edge AMI.</p>
    */
-  CompatibleImages?: Array<CompatibleImage>;
+  CompatibleImages?: CompatibleImage[];
 
   /**
    * <p>Because HTTP requests are stateless, this is the starting point for your next list of
@@ -1482,7 +1482,7 @@ export interface ListJobsResult {
    * <p>Each <code>JobListEntry</code> object contains a job's state, a job's ID, and a value
    *       that indicates whether the job is a job part, in the case of export jobs. </p>
    */
-  JobListEntries?: Array<JobListEntry>;
+  JobListEntries?: JobListEntry[];
 
   /**
    * <p>HTTP requests are stateless. If you use this automatically generated
@@ -1513,7 +1513,7 @@ export interface Notification {
   /**
    * <p>The list of job states that will trigger a notification for this job.</p>
    */
-  JobStatesToNotify?: Array<JobState | string>;
+  JobStatesToNotify?: JobState | string[];
 
   /**
    * <p>Any change in job state will trigger a notification for this job.</p>

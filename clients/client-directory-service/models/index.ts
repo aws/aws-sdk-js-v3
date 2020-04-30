@@ -64,7 +64,7 @@ export interface AddIpRoutesRequest {
   /**
    * <p>IP address blocks, using CIDR format, of the traffic to route. This is often the IP address block of the DNS server used for your on-premises domain.</p>
    */
-  IpRoutes: Array<IpRoute> | undefined;
+  IpRoutes: IpRoute[] | undefined;
 
   /**
    * <p>If set to true, updates the inbound and outbound rules of the security group that has the description: "AWS created security group for <i>directory ID</i> directory controllers."
@@ -161,7 +161,7 @@ export interface AddTagsToResourceRequest {
   /**
    * <p>The tags to be assigned to the directory.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace AddTagsToResourceRequest {
@@ -452,7 +452,7 @@ export interface Computer {
    * <p>An array of <a>Attribute</a> objects containing the LDAP attributes that belong to the
    *             computer account.</p>
    */
-  ComputerAttributes?: Array<Attribute>;
+  ComputerAttributes?: Attribute[];
 
   /**
    * <p>The identifier of the computer.</p>
@@ -477,7 +477,7 @@ export interface ConditionalForwarder {
   /**
    * <p>The IP addresses of the remote DNS server associated with RemoteDomainName. This is the IP address of the DNS server that your conditional forwarder points to.</p>
    */
-  DnsIpAddrs?: Array<string>;
+  DnsIpAddrs?: string[];
 
   /**
    * <p>The fully qualified domain name (FQDN) of the remote domains pointed to by the conditional forwarder.</p>
@@ -537,7 +537,7 @@ export interface ConnectDirectoryRequest {
   /**
    * <p>The tags to be assigned to AD Connector.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ConnectDirectoryRequest {
@@ -614,7 +614,7 @@ export interface CreateComputerRequest {
    * <p>An array of <a>Attribute</a> objects that contain any LDAP attributes to apply to the
    *             computer account.</p>
    */
-  ComputerAttributes?: Array<Attribute>;
+  ComputerAttributes?: Attribute[];
 
   /**
    * <p>The name of the computer account.</p>
@@ -671,7 +671,7 @@ export interface CreateConditionalForwarderRequest {
   /**
    * <p>The IP addresses of the remote DNS server associated with RemoteDomainName.</p>
    */
-  DnsIpAddrs: Array<string> | undefined;
+  DnsIpAddrs: string[] | undefined;
 
   /**
    * <p>The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.</p>
@@ -732,7 +732,7 @@ export interface CreateDirectoryRequest {
   /**
    * <p>The tags to be assigned to the Simple AD directory.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A <a>DirectoryVpcSettings</a> object that contains additional information for the
@@ -826,7 +826,7 @@ export interface CreateMicrosoftADRequest {
   /**
    * <p>The tags to be assigned to the AWS Managed Microsoft AD directory.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>Contains VPC information for the <a>CreateDirectory</a> or <a>CreateMicrosoftAD</a> operation.</p>
@@ -901,7 +901,7 @@ export interface CreateTrustRequest {
   /**
    * <p>The IP addresses of the remote DNS server associated with RemoteDomainName.</p>
    */
-  ConditionalForwarderIpAddrs?: Array<string>;
+  ConditionalForwarderIpAddrs?: string[];
 
   /**
    * <p>The Directory ID of the AWS Managed Microsoft AD directory for which to establish the trust relationship.</p>
@@ -1216,7 +1216,7 @@ export interface DescribeConditionalForwardersRequest {
   /**
    * <p>The fully qualified domain names (FQDN) of the remote domains for which to get the list of associated conditional forwarders. If this member is null, all conditional forwarders are returned.</p>
    */
-  RemoteDomainNames?: Array<string>;
+  RemoteDomainNames?: string[];
 }
 
 export namespace DescribeConditionalForwardersRequest {
@@ -1232,7 +1232,7 @@ export interface DescribeConditionalForwardersResult {
   /**
    * <p>The list of conditional forwarders that have been created.</p>
    */
-  ConditionalForwarders?: Array<ConditionalForwarder>;
+  ConditionalForwarders?: ConditionalForwarder[];
 }
 
 export namespace DescribeConditionalForwardersResult {
@@ -1249,7 +1249,7 @@ export interface DescribeDirectoriesRequest {
    * <p>A list of identifiers of the directories for which to obtain the information. If this member is null, all directories that belong to the current account are returned.</p>
    *          <p>An empty list results in an <code>InvalidParameterException</code> being thrown.</p>
    */
-  DirectoryIds?: Array<string>;
+  DirectoryIds?: string[];
 
   /**
    * <p>The maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.</p>
@@ -1280,7 +1280,7 @@ export interface DescribeDirectoriesResult {
    *          number of items left to retrieve, or if the limitations of the operation have been
    *          exceeded.</p>
    */
-  DirectoryDescriptions?: Array<DirectoryDescription>;
+  DirectoryDescriptions?: DirectoryDescription[];
 
   /**
    * <p>If not null, more results are available. Pass this value for the <code>NextToken</code> parameter
@@ -1304,7 +1304,7 @@ export interface DescribeDomainControllersRequest {
   /**
    * <p>A list of identifiers for the domain controllers whose information will be provided.</p>
    */
-  DomainControllerIds?: Array<string>;
+  DomainControllerIds?: string[];
 
   /**
    * <p>The maximum number of items to return.</p>
@@ -1327,7 +1327,7 @@ export interface DescribeDomainControllersResult {
   /**
    * <p>List of the <a>DomainController</a> objects that were retrieved.</p>
    */
-  DomainControllers?: Array<DomainController>;
+  DomainControllers?: DomainController[];
 
   /**
    * <p>If not null, more results are available. Pass this value for the <code>NextToken</code> parameter in a subsequent call to <a>DescribeDomainControllers</a> retrieve the next set of items.</p>
@@ -1354,7 +1354,7 @@ export interface DescribeEventTopicsRequest {
    * <p>A list of SNS topic names for which to obtain the information. If this member is null, all associations for the specified Directory ID are returned.</p>
    *          <p>An empty list results in an <code>InvalidParameterException</code> being thrown.</p>
    */
-  TopicNames?: Array<string>;
+  TopicNames?: string[];
 }
 
 export namespace DescribeEventTopicsRequest {
@@ -1370,7 +1370,7 @@ export interface DescribeEventTopicsResult {
   /**
    * <p>A list of SNS topic names that receive status messages from the specified Directory ID.</p>
    */
-  EventTopics?: Array<EventTopic>;
+  EventTopics?: EventTopic[];
 }
 
 export namespace DescribeEventTopicsResult {
@@ -1413,7 +1413,7 @@ export interface DescribeLDAPSSettingsResult {
    * <p>Information about LDAP security for the specified directory, including status of
    *       enablement, state last updated date time, and the reason for the state.</p>
    */
-  LDAPSSettingsInfo?: Array<LDAPSSettingInfo>;
+  LDAPSSettingsInfo?: LDAPSSettingInfo[];
 
   /**
    * <p>The next token used to retrieve the LDAPS settings if the number of setting types exceeds page limit and there is another page.</p>
@@ -1448,7 +1448,7 @@ export interface DescribeSharedDirectoriesRequest {
   /**
    * <p>A list of identifiers of all shared directories in your account. </p>
    */
-  SharedDirectoryIds?: Array<string>;
+  SharedDirectoryIds?: string[];
 }
 
 export namespace DescribeSharedDirectoriesRequest {
@@ -1467,7 +1467,7 @@ export interface DescribeSharedDirectoriesResult {
   /**
    * <p>A list of all shared directories in your account.</p>
    */
-  SharedDirectories?: Array<SharedDirectory>;
+  SharedDirectories?: SharedDirectory[];
 }
 
 export namespace DescribeSharedDirectoriesResult {
@@ -1501,7 +1501,7 @@ export interface DescribeSnapshotsRequest {
    *          null or empty, all snapshots are returned using the <i>Limit</i> and <i>NextToken</i>
    *          members.</p>
    */
-  SnapshotIds?: Array<string>;
+  SnapshotIds?: string[];
 }
 
 export namespace DescribeSnapshotsRequest {
@@ -1527,7 +1527,7 @@ export interface DescribeSnapshotsResult {
    *          number of items left to retrieve, or if the limitations of the operation have been
    *          exceeded.</p>
    */
-  Snapshots?: Array<Snapshot>;
+  Snapshots?: Snapshot[];
 }
 
 export namespace DescribeSnapshotsResult {
@@ -1560,7 +1560,7 @@ export interface DescribeTrustsRequest {
    * <p>A list of identifiers of the trust relationships for which to obtain the information. If this member is null, all trust relationships that belong to the current account are returned.</p>
    *          <p>An empty list results in an <code>InvalidParameterException</code> being thrown.</p>
    */
-  TrustIds?: Array<string>;
+  TrustIds?: string[];
 }
 
 export namespace DescribeTrustsRequest {
@@ -1586,7 +1586,7 @@ export interface DescribeTrustsResult {
    *          number of items left to retrieve, or if the limitations of the operation have been
    *          exceeded.</p>
    */
-  Trusts?: Array<Trust>;
+  Trusts?: Trust[];
 }
 
 export namespace DescribeTrustsResult {
@@ -1627,7 +1627,7 @@ export interface DirectoryConnectSettings {
   /**
    * <p>A list of one or more IP addresses of DNS servers or domain controllers in the on-premises directory.</p>
    */
-  CustomerDnsIps: Array<string> | undefined;
+  CustomerDnsIps: string[] | undefined;
 
   /**
    * <p>The user name of an account in the on-premises directory that is used to connect to
@@ -1649,7 +1649,7 @@ export interface DirectoryConnectSettings {
   /**
    * <p>A list of subnet identifiers in the VPC in which the AD Connector is created.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 
   /**
    * <p>The identifier of the VPC in which the AD Connector is created.</p>
@@ -1670,12 +1670,12 @@ export interface DirectoryConnectSettingsDescription {
   /**
    * <p>A list of the Availability Zones that the directory is in.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>The IP addresses of the AD Connector servers.</p>
    */
-  ConnectIps?: Array<string>;
+  ConnectIps?: string[];
 
   /**
    * <p>The user name of the service account in the on-premises directory.</p>
@@ -1690,7 +1690,7 @@ export interface DirectoryConnectSettingsDescription {
   /**
    * <p>A list of subnet identifiers in the VPC that the AD Connector is in.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>The identifier of the VPC that the AD Connector is in.</p>
@@ -1749,7 +1749,7 @@ export interface DirectoryDescription {
   /**
    * <p>The IP addresses of the DNS servers for the directory. For a Simple AD or Microsoft AD directory, these are the IP addresses of the Simple AD or Microsoft AD directory servers. For an AD Connector directory, these are the IP addresses of the DNS servers or domain controllers in the on-premises directory to which the AD Connector is connected.</p>
    */
-  DnsIpAddrs?: Array<string>;
+  DnsIpAddrs?: string[];
 
   /**
    * <p>The edition associated with this directory.</p>
@@ -2043,7 +2043,7 @@ export interface DirectoryVpcSettings {
   /**
    * <p>The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service creates a directory server and a DNS server in each of these subnets.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 
   /**
    * <p>The identifier of the VPC in which to create the directory.</p>
@@ -2064,7 +2064,7 @@ export interface DirectoryVpcSettingsDescription {
   /**
    * <p>The list of Availability Zones that the directory is in.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>The domain controller security group identifier for the directory.</p>
@@ -2074,7 +2074,7 @@ export interface DirectoryVpcSettingsDescription {
   /**
    * <p>The identifiers of the subnets for the directory servers.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>The identifier of the VPC that the directory is in.</p>
@@ -2861,7 +2861,7 @@ export interface ListCertificatesResult {
    * <p>A list of certificates with basic details including certificate ID, certificate common
    *       name, certificate state.</p>
    */
-  CertificatesInfo?: Array<CertificateInfo>;
+  CertificatesInfo?: CertificateInfo[];
 
   /**
    * <p>Indicates whether another page of certificates is available when the number of available
@@ -2904,7 +2904,7 @@ export interface ListIpRoutesResult {
   /**
    * <p>A list of <a>IpRoute</a>s.</p>
    */
-  IpRoutesInfo?: Array<IpRouteInfo>;
+  IpRoutesInfo?: IpRouteInfo[];
 
   /**
    * <p>If not null, more results are available. Pass this value for the <i>NextToken</i> parameter
@@ -2946,7 +2946,7 @@ export interface ListLogSubscriptionsResult {
   /**
    * <p>A list of active <a>LogSubscription</a> objects for calling the AWS account.</p>
    */
-  LogSubscriptions?: Array<LogSubscription>;
+  LogSubscriptions?: LogSubscription[];
 
   /**
    * <p>The token for the next set of items to return.</p>
@@ -2992,7 +2992,7 @@ export interface ListSchemaExtensionsResult {
   /**
    * <p>Information about the schema extensions applied to the directory.</p>
    */
-  SchemaExtensionsInfo?: Array<SchemaExtensionInfo>;
+  SchemaExtensionsInfo?: SchemaExtensionInfo[];
 }
 
 export namespace ListSchemaExtensionsResult {
@@ -3033,7 +3033,7 @@ export interface ListTagsForResourceResult {
   /**
    * <p>List of tags returned by the ListTagsForResource operation.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResult {
@@ -3134,7 +3134,7 @@ export interface OwnerDirectoryDescription {
   /**
    * <p>IP address of the directory’s domain controllers.</p>
    */
-  DnsIpAddrs?: Array<string>;
+  DnsIpAddrs?: string[];
 
   /**
    * <p>A <a>RadiusSettings</a> object that contains information about the RADIUS server.</p>
@@ -3192,7 +3192,7 @@ export interface RadiusSettings {
   /**
    * <p>An array of strings that contains the IP addresses of the RADIUS server endpoints, or the IP addresses of your RADIUS server load balancer.</p>
    */
-  RadiusServers?: Array<string>;
+  RadiusServers?: string[];
 
   /**
    * <p>The amount of time, in seconds, to wait for the RADIUS server to respond.</p>
@@ -3316,7 +3316,7 @@ export interface RemoveIpRoutesRequest {
   /**
    * <p>IP address blocks that you want to remove.</p>
    */
-  CidrIps: Array<string> | undefined;
+  CidrIps: string[] | undefined;
 
   /**
    * <p>Identifier (ID) of the directory from which you want to remove the IP addresses.</p>
@@ -3348,7 +3348,7 @@ export interface RemoveTagsFromResourceRequest {
   /**
    * <p>The tag key (name) of the tag to be removed.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace RemoveTagsFromResourceRequest {
@@ -4059,7 +4059,7 @@ export interface UpdateConditionalForwarderRequest {
   /**
    * <p>The updated IP addresses of the remote DNS server associated with the conditional forwarder.</p>
    */
-  DnsIpAddrs: Array<string> | undefined;
+  DnsIpAddrs: string[] | undefined;
 
   /**
    * <p>The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.</p>

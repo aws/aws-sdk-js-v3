@@ -2404,7 +2404,7 @@ const serializeAws_restJson1_1StreamSelection = (
 };
 
 const serializeAws_restJson1_1__listOfDashManifest = (
-  input: Array<DashManifest>,
+  input: DashManifest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2415,7 +2415,7 @@ const serializeAws_restJson1_1__listOfDashManifest = (
 };
 
 const serializeAws_restJson1_1__listOfHlsManifest = (
-  input: Array<HlsManifest>,
+  input: HlsManifest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2426,7 +2426,7 @@ const serializeAws_restJson1_1__listOfHlsManifest = (
 };
 
 const serializeAws_restJson1_1__listOfMssManifest = (
-  input: Array<MssManifest>,
+  input: MssManifest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2437,7 +2437,7 @@ const serializeAws_restJson1_1__listOfMssManifest = (
 };
 
 const serializeAws_restJson1_1__listOf__string = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2962,7 +2962,7 @@ const deserializeAws_restJson1_1StreamSelection = (
 const deserializeAws_restJson1_1__listOfAssetShallow = (
   output: any,
   context: __SerdeContext
-): Array<AssetShallow> => {
+): AssetShallow[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AssetShallow(entry, context)
   );
@@ -2971,7 +2971,7 @@ const deserializeAws_restJson1_1__listOfAssetShallow = (
 const deserializeAws_restJson1_1__listOfDashManifest = (
   output: any,
   context: __SerdeContext
-): Array<DashManifest> => {
+): DashManifest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DashManifest(entry, context)
   );
@@ -2980,7 +2980,7 @@ const deserializeAws_restJson1_1__listOfDashManifest = (
 const deserializeAws_restJson1_1__listOfEgressEndpoint = (
   output: any,
   context: __SerdeContext
-): Array<EgressEndpoint> => {
+): EgressEndpoint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1EgressEndpoint(entry, context)
   );
@@ -2989,7 +2989,7 @@ const deserializeAws_restJson1_1__listOfEgressEndpoint = (
 const deserializeAws_restJson1_1__listOfHlsManifest = (
   output: any,
   context: __SerdeContext
-): Array<HlsManifest> => {
+): HlsManifest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HlsManifest(entry, context)
   );
@@ -2998,7 +2998,7 @@ const deserializeAws_restJson1_1__listOfHlsManifest = (
 const deserializeAws_restJson1_1__listOfMssManifest = (
   output: any,
   context: __SerdeContext
-): Array<MssManifest> => {
+): MssManifest[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1MssManifest(entry, context)
   );
@@ -3007,7 +3007,7 @@ const deserializeAws_restJson1_1__listOfMssManifest = (
 const deserializeAws_restJson1_1__listOfPackagingConfiguration = (
   output: any,
   context: __SerdeContext
-): Array<PackagingConfiguration> => {
+): PackagingConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PackagingConfiguration(entry, context)
   );
@@ -3016,7 +3016,7 @@ const deserializeAws_restJson1_1__listOfPackagingConfiguration = (
 const deserializeAws_restJson1_1__listOfPackagingGroup = (
   output: any,
   context: __SerdeContext
-): Array<PackagingGroup> => {
+): PackagingGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PackagingGroup(entry, context)
   );
@@ -3025,7 +3025,7 @@ const deserializeAws_restJson1_1__listOfPackagingGroup = (
 const deserializeAws_restJson1_1__listOf__string = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

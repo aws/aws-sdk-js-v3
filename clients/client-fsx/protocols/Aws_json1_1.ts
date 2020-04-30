@@ -2281,7 +2281,7 @@ const deserializeAws_json1_1UnsupportedOperationResponse = async (
 };
 
 const serializeAws_json1_1BackupIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2551,7 +2551,7 @@ const serializeAws_json1_1DataRepositoryTaskFilter = (
 };
 
 const serializeAws_json1_1DataRepositoryTaskFilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2562,7 +2562,7 @@ const serializeAws_json1_1DataRepositoryTaskFilterValues = (
 };
 
 const serializeAws_json1_1DataRepositoryTaskFilters = (
-  input: Array<DataRepositoryTaskFilter>,
+  input: DataRepositoryTaskFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2573,7 +2573,7 @@ const serializeAws_json1_1DataRepositoryTaskFilters = (
 };
 
 const serializeAws_json1_1DataRepositoryTaskPaths = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2709,7 +2709,7 @@ const serializeAws_json1_1DescribeFileSystemsRequest = (
 };
 
 const serializeAws_json1_1DnsIps = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2720,7 +2720,7 @@ const serializeAws_json1_1DnsIps = (
 };
 
 const serializeAws_json1_1FileSystemIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2748,7 +2748,7 @@ const serializeAws_json1_1Filter = (
 };
 
 const serializeAws_json1_1FilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2759,7 +2759,7 @@ const serializeAws_json1_1FilterValues = (
 };
 
 const serializeAws_json1_1Filters = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2787,7 +2787,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 };
 
 const serializeAws_json1_1SecurityGroupIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2843,7 +2843,7 @@ const serializeAws_json1_1SelfManagedActiveDirectoryConfigurationUpdates = (
 };
 
 const serializeAws_json1_1SubnetIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2865,7 +2865,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeys = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2890,7 +2890,7 @@ const serializeAws_json1_1TagResourceRequest = (
 };
 
 const serializeAws_json1_1Tags = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2901,7 +2901,7 @@ const serializeAws_json1_1Tags = (
 };
 
 const serializeAws_json1_1TaskIds = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3171,7 +3171,7 @@ const deserializeAws_json1_1BackupRestoring = (
 const deserializeAws_json1_1Backups = (
   output: any,
   context: __SerdeContext
-): Array<Backup> => {
+): Backup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Backup(entry, context)
   );
@@ -3461,7 +3461,7 @@ const deserializeAws_json1_1DataRepositoryTaskNotFound = (
 const deserializeAws_json1_1DataRepositoryTaskPaths = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3496,7 +3496,7 @@ const deserializeAws_json1_1DataRepositoryTaskStatus = (
 const deserializeAws_json1_1DataRepositoryTasks = (
   output: any,
   context: __SerdeContext
-): Array<DataRepositoryTask> => {
+): DataRepositoryTask[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DataRepositoryTask(entry, context)
   );
@@ -3632,7 +3632,7 @@ const deserializeAws_json1_1DescribeFileSystemsResponse = (
 const deserializeAws_json1_1DnsIps = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3751,7 +3751,7 @@ const deserializeAws_json1_1FileSystemFailureDetails = (
 const deserializeAws_json1_1FileSystemMaintenanceOperations = (
   output: any,
   context: __SerdeContext
-): Array<FileSystemMaintenanceOperation | string> => {
+): FileSystemMaintenanceOperation | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3772,7 +3772,7 @@ const deserializeAws_json1_1FileSystemNotFound = (
 const deserializeAws_json1_1FileSystems = (
   output: any,
   context: __SerdeContext
-): Array<FileSystem> => {
+): FileSystem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FileSystem(entry, context)
   );
@@ -3925,7 +3925,7 @@ const deserializeAws_json1_1MissingFileSystemConfiguration = (
 const deserializeAws_json1_1NetworkInterfaceIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4042,7 +4042,7 @@ const deserializeAws_json1_1ServiceLimitExceeded = (
 const deserializeAws_json1_1SubnetIds = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4077,7 +4077,7 @@ const deserializeAws_json1_1TagResourceResponse = (
 const deserializeAws_json1_1Tags = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );

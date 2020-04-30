@@ -348,7 +348,7 @@ const deserializeAws_json1_1LimitExceededException = (
 const deserializeAws_json1_1Predictions = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<DataPoint> } => {
+): { [key: string]: DataPoint[] } => {
   const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_1TimeSeries(output[key], context);
@@ -404,7 +404,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 const deserializeAws_json1_1TimeSeries = (
   output: any,
   context: __SerdeContext
-): Array<DataPoint> => {
+): DataPoint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DataPoint(entry, context)
   );

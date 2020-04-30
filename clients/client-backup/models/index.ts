@@ -186,7 +186,7 @@ export interface BackupPlan {
    * <p>An array of <code>BackupRule</code> objects, each of which specifies a scheduled task
    *          that is used to back up a selection of resources.</p>
    */
-  Rules: Array<BackupRule> | undefined;
+  Rules: BackupRule[] | undefined;
 }
 
 export namespace BackupPlan {
@@ -209,7 +209,7 @@ export interface BackupPlanInput {
    * <p>An array of <code>BackupRule</code> objects, each of which specifies a scheduled task
    *          that is used to back up a selection of resources.</p>
    */
-  Rules: Array<BackupRuleInput> | undefined;
+  Rules: BackupRuleInput[] | undefined;
 }
 
 export namespace BackupPlanInput {
@@ -315,7 +315,7 @@ export interface BackupRule {
   /**
    * <p>An array of <code>CopyAction</code> objects, which contains the details of the copy operation.</p>
    */
-  CopyActions?: Array<CopyAction>;
+  CopyActions?: CopyAction[];
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
@@ -382,7 +382,7 @@ export interface BackupRuleInput {
   /**
    * <p>An array of <code>CopyAction</code> objects, which contains the details of the copy operation.</p>
    */
-  CopyActions?: Array<CopyAction>;
+  CopyActions?: CopyAction[];
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
@@ -445,13 +445,13 @@ export interface BackupSelection {
    *          for example, <code>"STRINGEQUALS": {"ec2:ResourceTag/Department":
    *          "accounting"</code>.</p>
    */
-  ListOfTags?: Array<Condition>;
+  ListOfTags?: Condition[];
 
   /**
    * <p>An array of strings that contain Amazon Resource Names (ARNs)  of resources to assign
    *          to a backup plan.</p>
    */
-  Resources?: Array<string>;
+  Resources?: string[];
 
   /**
    * <p>The display name of a resource selection document.</p>
@@ -1872,7 +1872,7 @@ export interface GetBackupVaultNotificationsOutput {
    * <p>An array of events that indicate the status of jobs to back up resources to the backup
    *          vault.</p>
    */
-  BackupVaultEvents?: Array<BackupVaultEvent | string>;
+  BackupVaultEvents?: BackupVaultEvent | string[];
 
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -1968,7 +1968,7 @@ export interface GetSupportedResourceTypesOutput {
    *             </li>
    *          </ul>
    */
-  ResourceTypes?: Array<string>;
+  ResourceTypes?: string[];
 }
 
 export namespace GetSupportedResourceTypesOutput {
@@ -2167,7 +2167,7 @@ export interface ListBackupJobsOutput {
    * <p>An array of structures containing metadata about your backup jobs returned in JSON
    *          format.</p>
    */
-  BackupJobs?: Array<BackupJob>;
+  BackupJobs?: BackupJob[];
 
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -2209,7 +2209,7 @@ export interface ListBackupPlanTemplatesOutput {
   /**
    * <p>An array of template list items containing metadata about your saved templates.</p>
    */
-  BackupPlanTemplatesList?: Array<BackupPlanTemplatesListMember>;
+  BackupPlanTemplatesList?: BackupPlanTemplatesListMember[];
 
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -2256,7 +2256,7 @@ export interface ListBackupPlanVersionsOutput {
   /**
    * <p>An array of version list items containing metadata about your backup plans.</p>
    */
-  BackupPlanVersionsList?: Array<BackupPlansListMember>;
+  BackupPlanVersionsList?: BackupPlansListMember[];
 
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -2305,7 +2305,7 @@ export interface ListBackupPlansOutput {
    * <p>An array of backup plan list items containing metadata about your saved backup
    *          plans.</p>
    */
-  BackupPlansList?: Array<BackupPlansListMember>;
+  BackupPlansList?: BackupPlansListMember[];
 
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -2353,7 +2353,7 @@ export interface ListBackupSelectionsOutput {
    * <p>An array of backup selection list items containing metadata about each resource in the
    *          list.</p>
    */
-  BackupSelectionsList?: Array<BackupSelectionsListMember>;
+  BackupSelectionsList?: BackupSelectionsListMember[];
 
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -2397,7 +2397,7 @@ export interface ListBackupVaultsOutput {
    *          Resource Name (ARN), display name, creation date, number of saved recovery points, and
    *          encryption information if the resources saved in the backup vault are encrypted.</p>
    */
-  BackupVaultList?: Array<BackupVaultListMember>;
+  BackupVaultList?: BackupVaultListMember[];
 
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -2490,7 +2490,7 @@ export interface ListCopyJobsOutput {
   /**
    * <p>An array of structures containing metadata about your copy jobs returned in JSON format. </p>
    */
-  CopyJobs?: Array<CopyJob>;
+  CopyJobs?: CopyJob[];
 
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is made to return maxResults number of items,
@@ -2540,7 +2540,7 @@ export interface ListProtectedResourcesOutput {
    *          resource was saved, an Amazon Resource Name (ARN) of the resource, and a resource
    *          type.</p>
    */
-  Results?: Array<ProtectedResource>;
+  Results?: ProtectedResource[];
 }
 
 export namespace ListProtectedResourcesOutput {
@@ -2616,7 +2616,7 @@ export interface ListRecoveryPointsByBackupVaultOutput {
    * <p>An array of objects that contain detailed information about recovery points saved in a
    *          backup vault.</p>
    */
-  RecoveryPoints?: Array<RecoveryPointByBackupVault>;
+  RecoveryPoints?: RecoveryPointByBackupVault[];
 }
 
 export namespace ListRecoveryPointsByBackupVaultOutput {
@@ -2665,7 +2665,7 @@ export interface ListRecoveryPointsByResourceOutput {
    * <p>An array of objects that contain detailed information about recovery points of the
    *          specified resource type.</p>
    */
-  RecoveryPoints?: Array<RecoveryPointByResource>;
+  RecoveryPoints?: RecoveryPointByResource[];
 }
 
 export namespace ListRecoveryPointsByResourceOutput {
@@ -2708,7 +2708,7 @@ export interface ListRestoreJobsOutput {
    * <p>An array of objects that contain detailed information about jobs to restore saved
    *          resources.</p>
    */
-  RestoreJobs?: Array<RestoreJobsListMember>;
+  RestoreJobs?: RestoreJobsListMember[];
 }
 
 export namespace ListRestoreJobsOutput {
@@ -2848,7 +2848,7 @@ export interface PutBackupVaultNotificationsInput {
    * <p>An array of events that indicate the status of jobs to back up resources to the backup
    *          vault.</p>
    */
-  BackupVaultEvents: Array<BackupVaultEvent | string> | undefined;
+  BackupVaultEvents: BackupVaultEvent | string[] | undefined;
 
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -3528,7 +3528,7 @@ export interface UntagResourceInput {
   /**
    * <p>A list of keys to identify which key-value tags to remove from a resource.</p>
    */
-  TagKeyList: Array<string> | undefined;
+  TagKeyList: string[] | undefined;
 }
 
 export namespace UntagResourceInput {

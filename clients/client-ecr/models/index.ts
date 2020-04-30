@@ -62,7 +62,7 @@ export interface BatchCheckLayerAvailabilityRequest {
   /**
    * <p>The digests of the image layers to check.</p>
    */
-  layerDigests: Array<string> | undefined;
+  layerDigests: string[] | undefined;
 
   /**
    * <p>The AWS account ID associated with the registry that contains the image layers to
@@ -86,13 +86,13 @@ export interface BatchCheckLayerAvailabilityResponse {
   /**
    * <p>Any failures associated with the call.</p>
    */
-  failures?: Array<LayerFailure>;
+  failures?: LayerFailure[];
 
   /**
    * <p>A list of image layer objects corresponding to the image layer references in the
    *             request.</p>
    */
-  layers?: Array<Layer>;
+  layers?: Layer[];
 }
 
 export namespace BatchCheckLayerAvailabilityResponse {
@@ -111,7 +111,7 @@ export interface BatchDeleteImageRequest {
    *                 <code>imageIds</code> reference is <code>imageTag=tag</code> or
    *                 <code>imageDigest=digest</code>.</p>
    */
-  imageIds: Array<ImageIdentifier> | undefined;
+  imageIds: ImageIdentifier[] | undefined;
 
   /**
    * <p>The AWS account ID associated with the registry that contains the image to delete.
@@ -135,12 +135,12 @@ export interface BatchDeleteImageResponse {
   /**
    * <p>Any failures associated with the call.</p>
    */
-  failures?: Array<ImageFailure>;
+  failures?: ImageFailure[];
 
   /**
    * <p>The image IDs of the deleted images.</p>
    */
-  imageIds?: Array<ImageIdentifier>;
+  imageIds?: ImageIdentifier[];
 }
 
 export namespace BatchDeleteImageResponse {
@@ -157,14 +157,14 @@ export interface BatchGetImageRequest {
    *                 <code>application/vnd.oci.image.manifest.v1+json</code>
    *          </p>
    */
-  acceptedMediaTypes?: Array<string>;
+  acceptedMediaTypes?: string[];
 
   /**
    * <p>A list of image ID references that correspond to images to describe. The format of the
    *                 <code>imageIds</code> reference is <code>imageTag=tag</code> or
    *                 <code>imageDigest=digest</code>.</p>
    */
-  imageIds: Array<ImageIdentifier> | undefined;
+  imageIds: ImageIdentifier[] | undefined;
 
   /**
    * <p>The AWS account ID associated with the registry that contains the images to describe.
@@ -188,12 +188,12 @@ export interface BatchGetImageResponse {
   /**
    * <p>Any failures associated with the call.</p>
    */
-  failures?: Array<ImageFailure>;
+  failures?: ImageFailure[];
 
   /**
    * <p>A list of image objects corresponding to the image references in the request.</p>
    */
-  images?: Array<Image>;
+  images?: Image[];
 }
 
 export namespace BatchGetImageResponse {
@@ -206,7 +206,7 @@ export interface CompleteLayerUploadRequest {
   /**
    * <p>The <code>sha256</code> digest of the image layer.</p>
    */
-  layerDigests: Array<string> | undefined;
+  layerDigests: string[] | undefined;
 
   /**
    * <p>The AWS account ID associated with the registry to which to upload layers.
@@ -289,7 +289,7 @@ export interface CreateRepositoryRequest {
    *             Tag keys can have a maximum character length of 128 characters, and tag values can have
    *             a maximum length of 256 characters.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateRepositoryRequest {
@@ -556,7 +556,7 @@ export interface DescribeImagesRequest {
   /**
    * <p>The list of image IDs for the requested repository.</p>
    */
-  imageIds?: Array<ImageIdentifier>;
+  imageIds?: ImageIdentifier[];
 
   /**
    * <p>The maximum number of repository results returned by <code>DescribeImages</code> in
@@ -604,7 +604,7 @@ export interface DescribeImagesResponse {
    * <p>A list of <a>ImageDetail</a> objects that contain data about the
    *             image.</p>
    */
-  imageDetails?: Array<ImageDetail>;
+  imageDetails?: ImageDetail[];
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>DescribeImages</code>
@@ -661,7 +661,7 @@ export interface DescribeRepositoriesRequest {
    * <p>A list of repositories to describe. If this parameter is omitted, then all
    *             repositories in a registry are described.</p>
    */
-  repositoryNames?: Array<string>;
+  repositoryNames?: string[];
 }
 
 export namespace DescribeRepositoriesRequest {
@@ -683,7 +683,7 @@ export interface DescribeRepositoriesResponse {
   /**
    * <p>A list of repository objects corresponding to valid repositories.</p>
    */
-  repositories?: Array<Repository>;
+  repositories?: Repository[];
 }
 
 export namespace DescribeRepositoriesResponse {
@@ -725,7 +725,7 @@ export interface GetAuthorizationTokenRequest {
    * <p>A list of AWS account IDs that are associated with the registries for which to get
    *             authorization tokens. If you do not specify a registry, the default registry is assumed.</p>
    */
-  registryIds?: Array<string>;
+  registryIds?: string[];
 }
 
 export namespace GetAuthorizationTokenRequest {
@@ -739,7 +739,7 @@ export interface GetAuthorizationTokenResponse {
    * <p>A list of authorization token data objects that correspond to the
    *                 <code>registryIds</code> values in the request.</p>
    */
-  authorizationData?: Array<AuthorizationData>;
+  authorizationData?: AuthorizationData[];
 }
 
 export namespace GetAuthorizationTokenResponse {
@@ -800,7 +800,7 @@ export interface GetLifecyclePolicyPreviewRequest {
   /**
    * <p>The list of imageIDs to be included.</p>
    */
-  imageIds?: Array<ImageIdentifier>;
+  imageIds?: ImageIdentifier[];
 
   /**
    * <p>The maximum number of repository results returned by
@@ -863,7 +863,7 @@ export interface GetLifecyclePolicyPreviewResponse {
   /**
    * <p>The results of the lifecycle policy preview request.</p>
    */
-  previewResults?: Array<LifecyclePolicyPreviewResult>;
+  previewResults?: LifecyclePolicyPreviewResult[];
 
   /**
    * <p>The registry ID associated with the request.</p>
@@ -1075,7 +1075,7 @@ export interface ImageDetail {
   /**
    * <p>The list of tags associated with this image.</p>
    */
-  imageTags?: Array<string>;
+  imageTags?: string[];
 
   /**
    * <p>The AWS account ID associated with the registry to which this image belongs.</p>
@@ -1170,7 +1170,7 @@ export interface ImageScanFinding {
   /**
    * <p>A collection of attributes of the host from which the finding is generated.</p>
    */
-  attributes?: Array<Attribute>;
+  attributes?: Attribute[];
 
   /**
    * <p>The description of the finding.</p>
@@ -1211,7 +1211,7 @@ export interface ImageScanFindings {
   /**
    * <p>The findings from the image scan.</p>
    */
-  findings?: Array<ImageScanFinding>;
+  findings?: ImageScanFinding[];
 
   /**
    * <p>The time of the last completed image scan.</p>
@@ -1693,7 +1693,7 @@ export interface LifecyclePolicyPreviewResult {
   /**
    * <p>The list of tags associated with this image.</p>
    */
-  imageTags?: Array<string>;
+  imageTags?: string[];
 }
 
 export namespace LifecyclePolicyPreviewResult {
@@ -1834,7 +1834,7 @@ export interface ListImagesResponse {
   /**
    * <p>The list of image IDs for the requested repository.</p>
    */
-  imageIds?: Array<ImageIdentifier>;
+  imageIds?: ImageIdentifier[];
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListImages</code>
@@ -1870,7 +1870,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -2437,7 +2437,7 @@ export interface TagResourceRequest {
    *             Tag keys can have a maximum character length of 128 characters, and tag values can have
    *             a maximum length of 256 characters.</p>
    */
-  tags: Array<Tag> | undefined;
+  tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -2488,7 +2488,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The keys of the tags to be removed.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

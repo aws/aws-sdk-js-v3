@@ -601,7 +601,7 @@ export interface GetMediaForFragmentListInput {
    * <p>A list of the numbers of fragments for which to retrieve media. You retrieve these
    *             values with <a>ListFragments</a>.</p>
    */
-  Fragments: Array<string> | undefined;
+  Fragments: string[] | undefined;
 
   /**
    * <p>The name of the stream from which to retrieve fragment media.</p>
@@ -818,7 +818,7 @@ export interface ListFragmentsOutput {
    * <p>A list of archived <a>Fragment</a> objects from the stream that meet the
    *             selector criteria. Results are in no specific order, even across pages.</p>
    */
-  Fragments?: Array<Fragment>;
+  Fragments?: Fragment[];
 
   /**
    * <p>If the returned list is truncated, the operation returns this token to use to retrieve

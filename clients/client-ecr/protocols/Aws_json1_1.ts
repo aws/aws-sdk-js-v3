@@ -3964,7 +3964,7 @@ const serializeAws_json1_1BatchGetImageRequest = (
 };
 
 const serializeAws_json1_1BatchedOperationLayerDigestList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4160,7 +4160,7 @@ const serializeAws_json1_1DescribeRepositoriesRequest = (
 };
 
 const serializeAws_json1_1GetAuthorizationTokenRegistryIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4278,7 +4278,7 @@ const serializeAws_json1_1ImageIdentifier = (
 };
 
 const serializeAws_json1_1ImageIdentifierList = (
-  input: Array<ImageIdentifier>,
+  input: ImageIdentifier[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4314,7 +4314,7 @@ const serializeAws_json1_1InitiateLayerUploadRequest = (
 };
 
 const serializeAws_json1_1LayerDigestList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4384,7 +4384,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 };
 
 const serializeAws_json1_1MediaTypeList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4471,7 +4471,7 @@ const serializeAws_json1_1PutLifecyclePolicyRequest = (
 };
 
 const serializeAws_json1_1RepositoryNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4550,7 +4550,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4561,7 +4561,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4649,7 +4649,7 @@ const deserializeAws_json1_1Attribute = (
 const deserializeAws_json1_1AttributeList = (
   output: any,
   context: __SerdeContext
-): Array<Attribute> => {
+): Attribute[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Attribute(entry, context)
   );
@@ -4683,7 +4683,7 @@ const deserializeAws_json1_1AuthorizationData = (
 const deserializeAws_json1_1AuthorizationDataList = (
   output: any,
   context: __SerdeContext
-): Array<AuthorizationData> => {
+): AuthorizationData[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AuthorizationData(entry, context)
   );
@@ -5222,7 +5222,7 @@ const deserializeAws_json1_1ImageDetail = (
 const deserializeAws_json1_1ImageDetailList = (
   output: any,
   context: __SerdeContext
-): Array<ImageDetail> => {
+): ImageDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ImageDetail(entry, context)
   );
@@ -5256,7 +5256,7 @@ const deserializeAws_json1_1ImageFailure = (
 const deserializeAws_json1_1ImageFailureList = (
   output: any,
   context: __SerdeContext
-): Array<ImageFailure> => {
+): ImageFailure[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ImageFailure(entry, context)
   );
@@ -5283,7 +5283,7 @@ const deserializeAws_json1_1ImageIdentifier = (
 const deserializeAws_json1_1ImageIdentifierList = (
   output: any,
   context: __SerdeContext
-): Array<ImageIdentifier> => {
+): ImageIdentifier[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ImageIdentifier(entry, context)
   );
@@ -5292,7 +5292,7 @@ const deserializeAws_json1_1ImageIdentifierList = (
 const deserializeAws_json1_1ImageList = (
   output: any,
   context: __SerdeContext
-): Array<Image> => {
+): Image[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Image(entry, context)
   );
@@ -5348,7 +5348,7 @@ const deserializeAws_json1_1ImageScanFinding = (
 const deserializeAws_json1_1ImageScanFindingList = (
   output: any,
   context: __SerdeContext
-): Array<ImageScanFinding> => {
+): ImageScanFinding[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ImageScanFinding(entry, context)
   );
@@ -5486,7 +5486,7 @@ const deserializeAws_json1_1ImageTagAlreadyExistsException = (
 const deserializeAws_json1_1ImageTagList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5651,7 +5651,7 @@ const deserializeAws_json1_1LayerFailure = (
 const deserializeAws_json1_1LayerFailureList = (
   output: any,
   context: __SerdeContext
-): Array<LayerFailure> => {
+): LayerFailure[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LayerFailure(entry, context)
   );
@@ -5674,7 +5674,7 @@ const deserializeAws_json1_1LayerInaccessibleException = (
 const deserializeAws_json1_1LayerList = (
   output: any,
   context: __SerdeContext
-): Array<Layer> => {
+): Layer[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Layer(entry, context)
   );
@@ -5792,7 +5792,7 @@ const deserializeAws_json1_1LifecyclePolicyPreviewResult = (
 const deserializeAws_json1_1LifecyclePolicyPreviewResultList = (
   output: any,
   context: __SerdeContext
-): Array<LifecyclePolicyPreviewResult> => {
+): LifecyclePolicyPreviewResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LifecyclePolicyPreviewResult(entry, context)
   );
@@ -6034,7 +6034,7 @@ const deserializeAws_json1_1RepositoryAlreadyExistsException = (
 const deserializeAws_json1_1RepositoryList = (
   output: any,
   context: __SerdeContext
-): Array<Repository> => {
+): Repository[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Repository(entry, context)
   );
@@ -6214,7 +6214,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );

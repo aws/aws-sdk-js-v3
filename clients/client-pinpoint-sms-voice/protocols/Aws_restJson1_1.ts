@@ -1323,7 +1323,7 @@ const serializeAws_restJson1_1EventDestinationDefinition = (
 };
 
 const serializeAws_restJson1_1EventTypes = (
-  input: Array<EventType | string>,
+  input: EventType | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1443,7 +1443,7 @@ const deserializeAws_restJson1_1CloudWatchLogsDestination = (
 const deserializeAws_restJson1_1ConfigurationSets = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1505,7 +1505,7 @@ const deserializeAws_restJson1_1EventDestination = (
 const deserializeAws_restJson1_1EventDestinations = (
   output: any,
   context: __SerdeContext
-): Array<EventDestination> => {
+): EventDestination[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1EventDestination(entry, context)
   );
@@ -1514,7 +1514,7 @@ const deserializeAws_restJson1_1EventDestinations = (
 const deserializeAws_restJson1_1EventTypes = (
   output: any,
   context: __SerdeContext
-): Array<EventType | string> => {
+): EventType | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

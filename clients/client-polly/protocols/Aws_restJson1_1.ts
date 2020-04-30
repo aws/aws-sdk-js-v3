@@ -1712,7 +1712,7 @@ const deserializeAws_restJson1_1UnsupportedPlsLanguageExceptionResponse = async 
 };
 
 const serializeAws_restJson1_1LexiconNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1723,7 +1723,7 @@ const serializeAws_restJson1_1LexiconNameList = (
 };
 
 const serializeAws_restJson1_1SpeechMarkTypeList = (
-  input: Array<SpeechMarkType | string>,
+  input: SpeechMarkType | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1736,14 +1736,14 @@ const serializeAws_restJson1_1SpeechMarkTypeList = (
 const deserializeAws_restJson1_1EngineList = (
   output: any,
   context: __SerdeContext
-): Array<Engine | string> => {
+): Engine | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1LanguageCodeList = (
   output: any,
   context: __SerdeContext
-): Array<LanguageCode | string> => {
+): LanguageCode | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1823,7 +1823,7 @@ const deserializeAws_restJson1_1LexiconDescription = (
 const deserializeAws_restJson1_1LexiconDescriptionList = (
   output: any,
   context: __SerdeContext
-): Array<LexiconDescription> => {
+): LexiconDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1LexiconDescription(entry, context)
   );
@@ -1832,14 +1832,14 @@ const deserializeAws_restJson1_1LexiconDescriptionList = (
 const deserializeAws_restJson1_1LexiconNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1SpeechMarkTypeList = (
   output: any,
   context: __SerdeContext
-): Array<SpeechMarkType | string> => {
+): SpeechMarkType | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1928,7 +1928,7 @@ const deserializeAws_restJson1_1SynthesisTask = (
 const deserializeAws_restJson1_1SynthesisTasks = (
   output: any,
   context: __SerdeContext
-): Array<SynthesisTask> => {
+): SynthesisTask[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SynthesisTask(entry, context)
   );
@@ -1987,7 +1987,7 @@ const deserializeAws_restJson1_1Voice = (
 const deserializeAws_restJson1_1VoiceList = (
   output: any,
   context: __SerdeContext
-): Array<Voice> => {
+): Voice[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Voice(entry, context)
   );

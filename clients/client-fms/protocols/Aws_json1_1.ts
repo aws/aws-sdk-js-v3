@@ -1961,7 +1961,7 @@ const serializeAws_json1_1AssociateAdminAccountRequest = (
 };
 
 const serializeAws_json1_1CustomerPolicyScopeIdList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1972,7 +1972,7 @@ const serializeAws_json1_1CustomerPolicyScopeIdList = (
 };
 
 const serializeAws_json1_1CustomerPolicyScopeMap = (
-  input: { [key: string]: Array<string> },
+  input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
   const mapParams: any = {};
@@ -2239,7 +2239,7 @@ const serializeAws_json1_1ResourceTag = (
 };
 
 const serializeAws_json1_1ResourceTags = (
-  input: Array<ResourceTag>,
+  input: ResourceTag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2250,7 +2250,7 @@ const serializeAws_json1_1ResourceTags = (
 };
 
 const serializeAws_json1_1ResourceTypeList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2286,7 +2286,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2297,7 +2297,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2363,7 +2363,7 @@ const deserializeAws_json1_1ComplianceViolator = (
 const deserializeAws_json1_1ComplianceViolators = (
   output: any,
   context: __SerdeContext
-): Array<ComplianceViolator> => {
+): ComplianceViolator[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ComplianceViolator(entry, context)
   );
@@ -2372,14 +2372,14 @@ const deserializeAws_json1_1ComplianceViolators = (
 const deserializeAws_json1_1CustomerPolicyScopeIdList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1CustomerPolicyScopeMap = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<string> } => {
+): { [key: string]: string[] } => {
   const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_1CustomerPolicyScopeIdList(
@@ -2421,7 +2421,7 @@ const deserializeAws_json1_1EvaluationResult = (
 const deserializeAws_json1_1EvaluationResults = (
   output: any,
   context: __SerdeContext
-): Array<EvaluationResult> => {
+): EvaluationResult[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EvaluationResult(entry, context)
   );
@@ -2691,7 +2691,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 const deserializeAws_json1_1MemberAccounts = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2876,7 +2876,7 @@ const deserializeAws_json1_1PolicyComplianceStatus = (
 const deserializeAws_json1_1PolicyComplianceStatusList = (
   output: any,
   context: __SerdeContext
-): Array<PolicyComplianceStatus> => {
+): PolicyComplianceStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PolicyComplianceStatus(entry, context)
   );
@@ -2925,7 +2925,7 @@ const deserializeAws_json1_1PolicySummary = (
 const deserializeAws_json1_1PolicySummaryList = (
   output: any,
   context: __SerdeContext
-): Array<PolicySummary> => {
+): PolicySummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PolicySummary(entry, context)
   );
@@ -2984,7 +2984,7 @@ const deserializeAws_json1_1ResourceTag = (
 const deserializeAws_json1_1ResourceTags = (
   output: any,
   context: __SerdeContext
-): Array<ResourceTag> => {
+): ResourceTag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceTag(entry, context)
   );
@@ -2993,7 +2993,7 @@ const deserializeAws_json1_1ResourceTags = (
 const deserializeAws_json1_1ResourceTypeList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3039,7 +3039,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );

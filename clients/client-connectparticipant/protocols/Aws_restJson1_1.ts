@@ -787,7 +787,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1ConnectionTypeList = (
-  input: Array<ConnectionType | string>,
+  input: ConnectionType | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -859,7 +859,7 @@ const deserializeAws_restJson1_1Item = (
 const deserializeAws_restJson1_1Transcript = (
   output: any,
   context: __SerdeContext
-): Array<Item> => {
+): Item[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Item(entry, context)
   );

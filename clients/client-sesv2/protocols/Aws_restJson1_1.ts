@@ -6748,7 +6748,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1SuppressionListReasons = (
-  input: Array<SuppressionListReason | string>,
+  input: SuppressionListReason | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6789,7 +6789,7 @@ const serializeAws_restJson1_1Tag = (
 };
 
 const serializeAws_restJson1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6847,7 +6847,7 @@ const serializeAws_restJson1_1CloudWatchDimensionConfiguration = (
 };
 
 const serializeAws_restJson1_1CloudWatchDimensionConfigurations = (
-  input: Array<CloudWatchDimensionConfiguration>,
+  input: CloudWatchDimensionConfiguration[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6952,7 +6952,7 @@ const serializeAws_restJson1_1DomainDeliverabilityTrackingOption = (
 };
 
 const serializeAws_restJson1_1DomainDeliverabilityTrackingOptions = (
-  input: Array<DomainDeliverabilityTrackingOption>,
+  input: DomainDeliverabilityTrackingOption[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6965,7 +6965,7 @@ const serializeAws_restJson1_1DomainDeliverabilityTrackingOptions = (
 };
 
 const serializeAws_restJson1_1EmailAddressList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7046,7 +7046,7 @@ const serializeAws_restJson1_1EventDestinationDefinition = (
 };
 
 const serializeAws_restJson1_1EventTypes = (
-  input: Array<EventType | string>,
+  input: EventType | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7074,7 +7074,7 @@ const serializeAws_restJson1_1InboxPlacementTrackingOption = (
 };
 
 const serializeAws_restJson1_1IspNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7130,7 +7130,7 @@ const serializeAws_restJson1_1MessageTag = (
 };
 
 const serializeAws_restJson1_1MessageTagList = (
-  input: Array<MessageTag>,
+  input: MessageTag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7248,7 +7248,7 @@ const deserializeAws_restJson1_1SuppressionAttributes = (
 const deserializeAws_restJson1_1SuppressionListReasons = (
   output: any,
   context: __SerdeContext
-): Array<SuppressionListReason | string> => {
+): SuppressionListReason | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7293,7 +7293,7 @@ const deserializeAws_restJson1_1Tag = (
 const deserializeAws_restJson1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );
@@ -7302,7 +7302,7 @@ const deserializeAws_restJson1_1TagList = (
 const deserializeAws_restJson1_1BlacklistEntries = (
   output: any,
   context: __SerdeContext
-): Array<BlacklistEntry> => {
+): BlacklistEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BlacklistEntry(entry, context)
   );
@@ -7333,7 +7333,7 @@ const deserializeAws_restJson1_1BlacklistEntry = (
 const deserializeAws_restJson1_1BlacklistReport = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<BlacklistEntry> } => {
+): { [key: string]: BlacklistEntry[] } => {
   const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_restJson1_1BlacklistEntries(
@@ -7395,7 +7395,7 @@ const deserializeAws_restJson1_1CloudWatchDimensionConfiguration = (
 const deserializeAws_restJson1_1CloudWatchDimensionConfigurations = (
   output: any,
   context: __SerdeContext
-): Array<CloudWatchDimensionConfiguration> => {
+): CloudWatchDimensionConfiguration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CloudWatchDimensionConfiguration(entry, context)
   );
@@ -7404,7 +7404,7 @@ const deserializeAws_restJson1_1CloudWatchDimensionConfigurations = (
 const deserializeAws_restJson1_1ConfigurationSetNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7445,7 +7445,7 @@ const deserializeAws_restJson1_1DailyVolume = (
 const deserializeAws_restJson1_1DailyVolumes = (
   output: any,
   context: __SerdeContext
-): Array<DailyVolume> => {
+): DailyVolume[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DailyVolume(entry, context)
   );
@@ -7483,7 +7483,7 @@ const deserializeAws_restJson1_1DedicatedIp = (
 const deserializeAws_restJson1_1DedicatedIpList = (
   output: any,
   context: __SerdeContext
-): Array<DedicatedIp> => {
+): DedicatedIp[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DedicatedIp(entry, context)
   );
@@ -7532,7 +7532,7 @@ const deserializeAws_restJson1_1DeliverabilityTestReport = (
 const deserializeAws_restJson1_1DeliverabilityTestReports = (
   output: any,
   context: __SerdeContext
-): Array<DeliverabilityTestReport> => {
+): DeliverabilityTestReport[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DeliverabilityTestReport(entry, context)
   );
@@ -7591,7 +7591,7 @@ const deserializeAws_restJson1_1DkimAttributes = (
 const deserializeAws_restJson1_1DnsTokenList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7677,7 +7677,7 @@ const deserializeAws_restJson1_1DomainDeliverabilityCampaign = (
 const deserializeAws_restJson1_1DomainDeliverabilityCampaignList = (
   output: any,
   context: __SerdeContext
-): Array<DomainDeliverabilityCampaign> => {
+): DomainDeliverabilityCampaign[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DomainDeliverabilityCampaign(entry, context)
   );
@@ -7719,7 +7719,7 @@ const deserializeAws_restJson1_1DomainDeliverabilityTrackingOption = (
 const deserializeAws_restJson1_1DomainDeliverabilityTrackingOptions = (
   output: any,
   context: __SerdeContext
-): Array<DomainDeliverabilityTrackingOption> => {
+): DomainDeliverabilityTrackingOption[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DomainDeliverabilityTrackingOption(entry, context)
   );
@@ -7758,7 +7758,7 @@ const deserializeAws_restJson1_1DomainIspPlacement = (
 const deserializeAws_restJson1_1DomainIspPlacements = (
   output: any,
   context: __SerdeContext
-): Array<DomainIspPlacement> => {
+): DomainIspPlacement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DomainIspPlacement(entry, context)
   );
@@ -7767,7 +7767,7 @@ const deserializeAws_restJson1_1DomainIspPlacements = (
 const deserializeAws_restJson1_1Esps = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7839,7 +7839,7 @@ const deserializeAws_restJson1_1EventDestination = (
 const deserializeAws_restJson1_1EventDestinations = (
   output: any,
   context: __SerdeContext
-): Array<EventDestination> => {
+): EventDestination[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1EventDestination(entry, context)
   );
@@ -7848,7 +7848,7 @@ const deserializeAws_restJson1_1EventDestinations = (
 const deserializeAws_restJson1_1EventTypes = (
   output: any,
   context: __SerdeContext
-): Array<EventType | string> => {
+): EventType | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7877,7 +7877,7 @@ const deserializeAws_restJson1_1IdentityInfo = (
 const deserializeAws_restJson1_1IdentityInfoList = (
   output: any,
   context: __SerdeContext
-): Array<IdentityInfo> => {
+): IdentityInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1IdentityInfo(entry, context)
   );
@@ -7907,14 +7907,14 @@ const deserializeAws_restJson1_1InboxPlacementTrackingOption = (
 const deserializeAws_restJson1_1IpList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1IspNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7945,7 +7945,7 @@ const deserializeAws_restJson1_1IspPlacement = (
 const deserializeAws_restJson1_1IspPlacements = (
   output: any,
   context: __SerdeContext
-): Array<IspPlacement> => {
+): IspPlacement[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1IspPlacement(entry, context)
   );
@@ -7975,7 +7975,7 @@ const deserializeAws_restJson1_1KinesisFirehoseDestination = (
 const deserializeAws_restJson1_1ListOfDedicatedIpPools = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8213,7 +8213,7 @@ const deserializeAws_restJson1_1SuppressedDestinationAttributes = (
 const deserializeAws_restJson1_1SuppressedDestinationSummaries = (
   output: any,
   context: __SerdeContext
-): Array<SuppressedDestinationSummary> => {
+): SuppressedDestinationSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SuppressedDestinationSummary(entry, context)
   );

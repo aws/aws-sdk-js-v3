@@ -4986,7 +4986,7 @@ const serializeAws_restJson1_1Tag = (
 };
 
 const serializeAws_restJson1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5050,7 +5050,7 @@ const deserializeAws_restJson1_1CustomerGatewayAssociation = (
 const deserializeAws_restJson1_1CustomerGatewayAssociationList = (
   output: any,
   context: __SerdeContext
-): Array<CustomerGatewayAssociation> => {
+): CustomerGatewayAssociation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CustomerGatewayAssociation(entry, context)
   );
@@ -5124,7 +5124,7 @@ const deserializeAws_restJson1_1Device = (
 const deserializeAws_restJson1_1DeviceList = (
   output: any,
   context: __SerdeContext
-): Array<Device> => {
+): Device[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Device(entry, context)
   );
@@ -5170,7 +5170,7 @@ const deserializeAws_restJson1_1GlobalNetwork = (
 const deserializeAws_restJson1_1GlobalNetworkList = (
   output: any,
   context: __SerdeContext
-): Array<GlobalNetwork> => {
+): GlobalNetwork[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1GlobalNetwork(entry, context)
   );
@@ -5265,7 +5265,7 @@ const deserializeAws_restJson1_1LinkAssociation = (
 const deserializeAws_restJson1_1LinkAssociationList = (
   output: any,
   context: __SerdeContext
-): Array<LinkAssociation> => {
+): LinkAssociation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1LinkAssociation(entry, context)
   );
@@ -5274,7 +5274,7 @@ const deserializeAws_restJson1_1LinkAssociationList = (
 const deserializeAws_restJson1_1LinkList = (
   output: any,
   context: __SerdeContext
-): Array<Link> => {
+): Link[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Link(entry, context)
   );
@@ -5350,7 +5350,7 @@ const deserializeAws_restJson1_1Site = (
 const deserializeAws_restJson1_1SiteList = (
   output: any,
   context: __SerdeContext
-): Array<Site> => {
+): Site[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Site(entry, context)
   );
@@ -5377,7 +5377,7 @@ const deserializeAws_restJson1_1Tag = (
 const deserializeAws_restJson1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );
@@ -5414,7 +5414,7 @@ const deserializeAws_restJson1_1TransitGatewayRegistration = (
 const deserializeAws_restJson1_1TransitGatewayRegistrationList = (
   output: any,
   context: __SerdeContext
-): Array<TransitGatewayRegistration> => {
+): TransitGatewayRegistration[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TransitGatewayRegistration(entry, context)
   );
@@ -5459,7 +5459,7 @@ const deserializeAws_restJson1_1ValidationExceptionField = (
 const deserializeAws_restJson1_1ValidationExceptionFieldList = (
   output: any,
   context: __SerdeContext
-): Array<ValidationExceptionField> => {
+): ValidationExceptionField[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ValidationExceptionField(entry, context)
   );

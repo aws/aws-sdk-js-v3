@@ -2248,7 +2248,7 @@ const serializeAws_json1_1Ec2AmiResource = (
 };
 
 const serializeAws_json1_1Ec2AmiResourceList = (
-  input: Array<Ec2AmiResource>,
+  input: Ec2AmiResource[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2270,7 +2270,7 @@ const serializeAws_json1_1EventTriggerDefinition = (
 };
 
 const serializeAws_json1_1EventTriggerDefinitionList = (
-  input: Array<EventTriggerDefinition>,
+  input: EventTriggerDefinition[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2348,7 +2348,7 @@ const serializeAws_json1_1JobResource = (
 };
 
 const serializeAws_json1_1JobStateList = (
-  input: Array<JobState | string>,
+  input: JobState | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2392,7 +2392,7 @@ const serializeAws_json1_1LambdaResource = (
 };
 
 const serializeAws_json1_1LambdaResourceList = (
-  input: Array<LambdaResource>,
+  input: LambdaResource[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2499,7 +2499,7 @@ const serializeAws_json1_1S3Resource = (
 };
 
 const serializeAws_json1_1S3ResourceList = (
-  input: Array<S3Resource>,
+  input: S3Resource[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2660,7 +2660,7 @@ const deserializeAws_json1_1Address = (
 const deserializeAws_json1_1AddressList = (
   output: any,
   context: __SerdeContext
-): Array<Address> => {
+): Address[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Address(entry, context)
   );
@@ -2729,7 +2729,7 @@ const deserializeAws_json1_1ClusterListEntry = (
 const deserializeAws_json1_1ClusterListEntryList = (
   output: any,
   context: __SerdeContext
-): Array<ClusterListEntry> => {
+): ClusterListEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ClusterListEntry(entry, context)
   );
@@ -2827,7 +2827,7 @@ const deserializeAws_json1_1CompatibleImage = (
 const deserializeAws_json1_1CompatibleImageList = (
   output: any,
   context: __SerdeContext
-): Array<CompatibleImage> => {
+): CompatibleImage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CompatibleImage(entry, context)
   );
@@ -3004,7 +3004,7 @@ const deserializeAws_json1_1Ec2AmiResource = (
 const deserializeAws_json1_1Ec2AmiResourceList = (
   output: any,
   context: __SerdeContext
-): Array<Ec2AmiResource> => {
+): Ec2AmiResource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Ec2AmiResource(entry, context)
   );
@@ -3044,7 +3044,7 @@ const deserializeAws_json1_1EventTriggerDefinition = (
 const deserializeAws_json1_1EventTriggerDefinitionList = (
   output: any,
   context: __SerdeContext
-): Array<EventTriggerDefinition> => {
+): EventTriggerDefinition[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EventTriggerDefinition(entry, context)
   );
@@ -3225,7 +3225,7 @@ const deserializeAws_json1_1JobListEntry = (
 const deserializeAws_json1_1JobListEntryList = (
   output: any,
   context: __SerdeContext
-): Array<JobListEntry> => {
+): JobListEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1JobListEntry(entry, context)
   );
@@ -3367,7 +3367,7 @@ const deserializeAws_json1_1JobMetadata = (
 const deserializeAws_json1_1JobMetadataList = (
   output: any,
   context: __SerdeContext
-): Array<JobMetadata> => {
+): JobMetadata[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1JobMetadata(entry, context)
   );
@@ -3407,7 +3407,7 @@ const deserializeAws_json1_1JobResource = (
 const deserializeAws_json1_1JobStateList = (
   output: any,
   context: __SerdeContext
-): Array<JobState | string> => {
+): JobState | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3467,7 +3467,7 @@ const deserializeAws_json1_1LambdaResource = (
 const deserializeAws_json1_1LambdaResourceList = (
   output: any,
   context: __SerdeContext
-): Array<LambdaResource> => {
+): LambdaResource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LambdaResource(entry, context)
   );
@@ -3615,7 +3615,7 @@ const deserializeAws_json1_1S3Resource = (
 const deserializeAws_json1_1S3ResourceList = (
   output: any,
   context: __SerdeContext
-): Array<S3Resource> => {
+): S3Resource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1S3Resource(entry, context)
   );

@@ -30,7 +30,7 @@ export interface CreateParticipantConnectionRequest {
   /**
    * <p>Type of connection information required.</p>
    */
-  Type: Array<ConnectionType | string> | undefined;
+  Type: ConnectionType | string[] | undefined;
 }
 
 export namespace CreateParticipantConnectionRequest {
@@ -146,7 +146,7 @@ export interface GetTranscriptResponse {
   /**
    * <p>The list of messages in the session.</p>
    */
-  Transcript?: Array<Item>;
+  Transcript?: Item[];
 }
 
 export namespace GetTranscriptResponse {

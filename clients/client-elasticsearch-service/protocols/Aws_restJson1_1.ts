@@ -3560,7 +3560,7 @@ const serializeAws_restJson1_1DomainEndpointOptions = (
 };
 
 const serializeAws_restJson1_1DomainNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3698,7 +3698,7 @@ const serializeAws_restJson1_1SnapshotOptions = (
 };
 
 const serializeAws_restJson1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3723,7 +3723,7 @@ const serializeAws_restJson1_1Tag = (
 };
 
 const serializeAws_restJson1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3809,7 +3809,7 @@ const deserializeAws_restJson1_1AdditionalLimit = (
 const deserializeAws_restJson1_1AdditionalLimitList = (
   output: any,
   context: __SerdeContext
-): Array<AdditionalLimit> => {
+): AdditionalLimit[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AdditionalLimit(entry, context)
   );
@@ -3903,7 +3903,7 @@ const deserializeAws_restJson1_1CognitoOptionsStatus = (
 const deserializeAws_restJson1_1CompatibleElasticsearchVersionsList = (
   output: any,
   context: __SerdeContext
-): Array<CompatibleVersionsMap> => {
+): CompatibleVersionsMap[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CompatibleVersionsMap(entry, context)
   );
@@ -3992,7 +3992,7 @@ const deserializeAws_restJson1_1DomainInfo = (
 const deserializeAws_restJson1_1DomainInfoList = (
   output: any,
   context: __SerdeContext
-): Array<DomainInfo> => {
+): DomainInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DomainInfo(entry, context)
   );
@@ -4413,7 +4413,7 @@ const deserializeAws_restJson1_1ElasticsearchDomainStatus = (
 const deserializeAws_restJson1_1ElasticsearchDomainStatusList = (
   output: any,
   context: __SerdeContext
-): Array<ElasticsearchDomainStatus> => {
+): ElasticsearchDomainStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ElasticsearchDomainStatus(entry, context)
   );
@@ -4422,14 +4422,14 @@ const deserializeAws_restJson1_1ElasticsearchDomainStatusList = (
 const deserializeAws_restJson1_1ElasticsearchInstanceTypeList = (
   output: any,
   context: __SerdeContext
-): Array<ESPartitionInstanceType | string> => {
+): ESPartitionInstanceType | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1ElasticsearchVersionList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4554,14 +4554,14 @@ const deserializeAws_restJson1_1InstanceLimits = (
 const deserializeAws_restJson1_1Issues = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1LimitValueList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4764,7 +4764,7 @@ const deserializeAws_restJson1_1RecurringCharge = (
 const deserializeAws_restJson1_1RecurringChargeList = (
   output: any,
   context: __SerdeContext
-): Array<RecurringCharge> => {
+): RecurringCharge[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RecurringCharge(entry, context)
   );
@@ -4855,7 +4855,7 @@ const deserializeAws_restJson1_1ReservedElasticsearchInstance = (
 const deserializeAws_restJson1_1ReservedElasticsearchInstanceList = (
   output: any,
   context: __SerdeContext
-): Array<ReservedElasticsearchInstance> => {
+): ReservedElasticsearchInstance[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ReservedElasticsearchInstance(entry, context)
   );
@@ -4919,7 +4919,7 @@ const deserializeAws_restJson1_1ReservedElasticsearchInstanceOffering = (
 const deserializeAws_restJson1_1ReservedElasticsearchInstanceOfferingList = (
   output: any,
   context: __SerdeContext
-): Array<ReservedElasticsearchInstanceOffering> => {
+): ReservedElasticsearchInstanceOffering[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ReservedElasticsearchInstanceOffering(
       entry,
@@ -5067,7 +5067,7 @@ const deserializeAws_restJson1_1StorageTypeLimit = (
 const deserializeAws_restJson1_1StorageTypeLimitList = (
   output: any,
   context: __SerdeContext
-): Array<StorageTypeLimit> => {
+): StorageTypeLimit[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1StorageTypeLimit(entry, context)
   );
@@ -5076,7 +5076,7 @@ const deserializeAws_restJson1_1StorageTypeLimitList = (
 const deserializeAws_restJson1_1StorageTypeList = (
   output: any,
   context: __SerdeContext
-): Array<StorageType> => {
+): StorageType[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1StorageType(entry, context)
   );
@@ -5085,7 +5085,7 @@ const deserializeAws_restJson1_1StorageTypeList = (
 const deserializeAws_restJson1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5110,7 +5110,7 @@ const deserializeAws_restJson1_1Tag = (
 const deserializeAws_restJson1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );
@@ -5150,7 +5150,7 @@ const deserializeAws_restJson1_1UpgradeHistory = (
 const deserializeAws_restJson1_1UpgradeHistoryList = (
   output: any,
   context: __SerdeContext
-): Array<UpgradeHistory> => {
+): UpgradeHistory[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UpgradeHistory(entry, context)
   );
@@ -5188,7 +5188,7 @@ const deserializeAws_restJson1_1UpgradeStepItem = (
 const deserializeAws_restJson1_1UpgradeStepsList = (
   output: any,
   context: __SerdeContext
-): Array<UpgradeStepItem> => {
+): UpgradeStepItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UpgradeStepItem(entry, context)
   );

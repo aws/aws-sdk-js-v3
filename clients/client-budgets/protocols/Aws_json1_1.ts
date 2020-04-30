@@ -2034,7 +2034,7 @@ const serializeAws_json1_1CalculatedSpend = (
 };
 
 const serializeAws_json1_1CostFilters = (
-  input: { [key: string]: Array<string> },
+  input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
   const mapParams: any = {};
@@ -2323,7 +2323,7 @@ const serializeAws_json1_1DescribeSubscribersForNotificationRequest = (
 };
 
 const serializeAws_json1_1DimensionValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2377,7 +2377,7 @@ const serializeAws_json1_1NotificationWithSubscribers = (
 };
 
 const serializeAws_json1_1NotificationWithSubscribersList = (
-  input: Array<NotificationWithSubscribers>,
+  input: NotificationWithSubscribers[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2429,7 +2429,7 @@ const serializeAws_json1_1Subscriber = (
 };
 
 const serializeAws_json1_1Subscribers = (
-  input: Array<Subscriber>,
+  input: Subscriber[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2695,7 +2695,7 @@ const deserializeAws_json1_1BudgetedAndActualAmounts = (
 const deserializeAws_json1_1BudgetedAndActualAmountsList = (
   output: any,
   context: __SerdeContext
-): Array<BudgetedAndActualAmounts> => {
+): BudgetedAndActualAmounts[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BudgetedAndActualAmounts(entry, context)
   );
@@ -2704,7 +2704,7 @@ const deserializeAws_json1_1BudgetedAndActualAmountsList = (
 const deserializeAws_json1_1Budgets = (
   output: any,
   context: __SerdeContext
-): Array<Budget> => {
+): Budget[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Budget(entry, context)
   );
@@ -2737,7 +2737,7 @@ const deserializeAws_json1_1CalculatedSpend = (
 const deserializeAws_json1_1CostFilters = (
   output: any,
   context: __SerdeContext
-): { [key: string]: Array<string> } => {
+): { [key: string]: string[] } => {
   const mapParams: any = {};
   Object.keys(output).forEach(key => {
     mapParams[key] = deserializeAws_json1_1DimensionValues(
@@ -2986,7 +2986,7 @@ const deserializeAws_json1_1DescribeSubscribersForNotificationResponse = (
 const deserializeAws_json1_1DimensionValues = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3116,7 +3116,7 @@ const deserializeAws_json1_1Notification = (
 const deserializeAws_json1_1Notifications = (
   output: any,
   context: __SerdeContext
-): Array<Notification> => {
+): Notification[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Notification(entry, context)
   );
@@ -3175,7 +3175,7 @@ const deserializeAws_json1_1Subscriber = (
 const deserializeAws_json1_1Subscribers = (
   output: any,
   context: __SerdeContext
-): Array<Subscriber> => {
+): Subscriber[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Subscriber(entry, context)
   );

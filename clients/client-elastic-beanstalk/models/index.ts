@@ -51,7 +51,7 @@ export interface ApplicationDescription {
   /**
    * <p>The names of the configuration templates associated with this application.</p>
    */
-  ConfigurationTemplates?: Array<string>;
+  ConfigurationTemplates?: string[];
 
   /**
    * <p>The date when the application was created.</p>
@@ -76,7 +76,7 @@ export interface ApplicationDescription {
   /**
    * <p>The names of the versions for this application.</p>
    */
-  Versions?: Array<string>;
+  Versions?: string[];
 }
 
 export namespace ApplicationDescription {
@@ -108,7 +108,7 @@ export interface ApplicationDescriptionsMessage {
   /**
    * <p>This parameter contains a list of <a>ApplicationDescription</a>.</p>
    */
-  Applications?: Array<ApplicationDescription>;
+  Applications?: ApplicationDescription[];
 }
 
 export namespace ApplicationDescriptionsMessage {
@@ -321,7 +321,7 @@ export interface ApplicationVersionDescriptionsMessage {
    * <p>List of <code>ApplicationVersionDescription</code> objects sorted in order of
    *       creation.</p>
    */
-  ApplicationVersions?: Array<ApplicationVersionDescription>;
+  ApplicationVersions?: ApplicationVersionDescription[];
 
   /**
    * <p>In a paginated request, the token that you can pass in a subsequent request to get the
@@ -672,7 +672,7 @@ export interface ComposeEnvironmentsMessage {
    *       specifies the name of the environment and the name of the solution stack to use, and
    *       optionally can specify environment links to create.</p>
    */
-  VersionLabels?: Array<string>;
+  VersionLabels?: string[];
 }
 
 export namespace ComposeEnvironmentsMessage {
@@ -781,7 +781,7 @@ export interface ConfigurationOptionDescription {
    * <p>If specified, values for the configuration option are selected from this
    *       list.</p>
    */
-  ValueOptions?: Array<string>;
+  ValueOptions?: string[];
 
   /**
    * <p>An indication of which type of values this option has and whether it is allowable to
@@ -861,7 +861,7 @@ export interface ConfigurationOptionsDescription {
   /**
    * <p> A list of <a>ConfigurationOptionDescription</a>. </p>
    */
-  Options?: Array<ConfigurationOptionDescription>;
+  Options?: ConfigurationOptionDescription[];
 
   /**
    * <p>The ARN of the platform.</p>
@@ -943,7 +943,7 @@ export interface ConfigurationSettingsDescription {
    * <p>A list of the configuration options and their values in this configuration
    *       set.</p>
    */
-  OptionSettings?: Array<ConfigurationOptionSetting>;
+  OptionSettings?: ConfigurationOptionSetting[];
 
   /**
    * <p>The ARN of the platform.</p>
@@ -976,7 +976,7 @@ export interface ConfigurationSettingsDescriptions {
   /**
    * <p> A list of <a>ConfigurationSettingsDescription</a>. </p>
    */
-  ConfigurationSettings?: Array<ConfigurationSettingsDescription>;
+  ConfigurationSettings?: ConfigurationSettingsDescription[];
 }
 
 export namespace ConfigurationSettingsDescriptions {
@@ -992,7 +992,7 @@ export interface ConfigurationSettingsValidationMessages {
   /**
    * <p> A list of <a>ValidationMessage</a>. </p>
    */
-  Messages?: Array<ValidationMessage>;
+  Messages?: ValidationMessage[];
 }
 
 export namespace ConfigurationSettingsValidationMessages {
@@ -1028,7 +1028,7 @@ export interface CreateApplicationMessage {
    *          <p>Elastic Beanstalk applies these tags only to the application. Environments that you create in the
    *       application don't inherit the tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateApplicationMessage {
@@ -1105,7 +1105,7 @@ export interface CreateApplicationVersionMessage {
    *          <p>Elastic Beanstalk applies these tags only to the application version. Environments that use the
    *       application version don't inherit the tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A label identifying this version.</p>
@@ -1148,7 +1148,7 @@ export interface CreateConfigurationTemplateMessage {
    *       requested value. The new value overrides the value obtained from the solution stack or the
    *       source configuration template.</p>
    */
-  OptionSettings?: Array<ConfigurationOptionSetting>;
+  OptionSettings?: ConfigurationOptionSetting[];
 
   /**
    * <p>The ARN of the custom platform.</p>
@@ -1189,7 +1189,7 @@ export interface CreateConfigurationTemplateMessage {
   /**
    * <p>Specifies the tags applied to the configuration template.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The name of the configuration template.</p>
@@ -1254,13 +1254,13 @@ export interface CreateEnvironmentMessage {
    *       requested value in the configuration set for the new environment. These override the values
    *       obtained from the solution stack or the configuration template.</p>
    */
-  OptionSettings?: Array<ConfigurationOptionSetting>;
+  OptionSettings?: ConfigurationOptionSetting[];
 
   /**
    * <p>A list of custom user-defined configuration options to remove from the configuration
    *       set for this new environment.</p>
    */
-  OptionsToRemove?: Array<OptionSpecification>;
+  OptionsToRemove?: OptionSpecification[];
 
   /**
    * <p>The ARN of the platform.</p>
@@ -1279,7 +1279,7 @@ export interface CreateEnvironmentMessage {
   /**
    * <p>Specifies the tags applied to resources in the environment.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p> The name of the configuration template to use in deployment. If no configuration
@@ -1321,7 +1321,7 @@ export interface CreatePlatformVersionRequest {
   /**
    * <p>The configuration option settings to apply to the builder environment.</p>
    */
-  OptionSettings?: Array<ConfigurationOptionSetting>;
+  OptionSettings?: ConfigurationOptionSetting[];
 
   /**
    * <p>The location of the platform definition archive in Amazon S3.</p>
@@ -1343,7 +1343,7 @@ export interface CreatePlatformVersionRequest {
    *          <p>Elastic Beanstalk applies these tags only to the platform version. Environments that you create using
    *       the platform version don't inherit the tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreatePlatformVersionRequest {
@@ -1611,7 +1611,7 @@ export interface DescribeApplicationVersionsMessage {
   /**
    * <p>Specify a version label to show a specific application version.</p>
    */
-  VersionLabels?: Array<string>;
+  VersionLabels?: string[];
 }
 
 export namespace DescribeApplicationVersionsMessage {
@@ -1628,7 +1628,7 @@ export interface DescribeApplicationsMessage {
    * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include
    *       those with the specified names.</p>
    */
-  ApplicationNames?: Array<string>;
+  ApplicationNames?: string[];
 }
 
 export namespace DescribeApplicationsMessage {
@@ -1656,7 +1656,7 @@ export interface DescribeConfigurationOptionsMessage {
   /**
    * <p>If specified, restricts the descriptions to only the specified options.</p>
    */
-  Options?: Array<OptionSpecification>;
+  Options?: OptionSpecification[];
 
   /**
    * <p>The ARN of the custom platform.</p>
@@ -1726,7 +1726,7 @@ export interface DescribeEnvironmentHealthRequest {
    *         <code>All</code>. If no attribute names are specified, returns the name of the
    *       environment.</p>
    */
-  AttributeNames?: Array<EnvironmentHealthAttribute | string>;
+  AttributeNames?: EnvironmentHealthAttribute | string[];
 
   /**
    * <p>Specify the environment by ID.</p>
@@ -1760,7 +1760,7 @@ export interface DescribeEnvironmentHealthResult {
    * <p>Descriptions of the data that contributed to the environment's current health
    *       status.</p>
    */
-  Causes?: Array<string>;
+  Causes?: string[];
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">health color</a> of the
@@ -1842,7 +1842,7 @@ export interface DescribeEnvironmentManagedActionHistoryResult {
   /**
    * <p>A list of completed and failed managed actions.</p>
    */
-  ManagedActionHistoryItems?: Array<ManagedActionHistoryItem>;
+  ManagedActionHistoryItems?: ManagedActionHistoryItem[];
 
   /**
    * <p>A pagination token that you pass to <a>DescribeEnvironmentManagedActionHistory</a> to get the next page of
@@ -1892,7 +1892,7 @@ export interface DescribeEnvironmentManagedActionsResult {
   /**
    * <p>A list of upcoming and in-progress managed actions.</p>
    */
-  ManagedActions?: Array<ManagedAction>;
+  ManagedActions?: ManagedAction[];
 }
 
 export namespace DescribeEnvironmentManagedActionsResult {
@@ -1942,13 +1942,13 @@ export interface DescribeEnvironmentsMessage {
    * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only
    *       those that have the specified IDs.</p>
    */
-  EnvironmentIds?: Array<string>;
+  EnvironmentIds?: string[];
 
   /**
    * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only
    *       those that have the specified names.</p>
    */
-  EnvironmentNames?: Array<string>;
+  EnvironmentNames?: string[];
 
   /**
    * <p>Indicates whether to include deleted environments:</p>
@@ -2084,7 +2084,7 @@ export interface DescribeInstancesHealthRequest {
    *         <code>All</code>. If no attribute names are specified, returns a list of
    *       instances.</p>
    */
-  AttributeNames?: Array<InstancesHealthAttribute | string>;
+  AttributeNames?: InstancesHealthAttribute | string[];
 
   /**
    * <p>Specify the AWS Elastic Beanstalk environment by ID.</p>
@@ -2118,7 +2118,7 @@ export interface DescribeInstancesHealthResult {
    *          <p>The output differs slightly between Linux and Windows environments. There is a difference
    *       in the members that are supported under the <code><CPUUtilization></code> type.</p>
    */
-  InstanceHealthList?: Array<SingleInstanceHealth>;
+  InstanceHealthList?: SingleInstanceHealth[];
 
   /**
    * <p>Pagination token for the next page of results, if available.</p>
@@ -2240,7 +2240,7 @@ export interface EnvironmentDescription {
   /**
    * <p>A list of links to other environments in the same group.</p>
    */
-  EnvironmentLinks?: Array<EnvironmentLink>;
+  EnvironmentLinks?: EnvironmentLink[];
 
   /**
    * <p>The name of this environment.</p>
@@ -2359,7 +2359,7 @@ export interface EnvironmentDescriptionsMessage {
   /**
    * <p> Returns an <a>EnvironmentDescription</a> list. </p>
    */
-  Environments?: Array<EnvironmentDescription>;
+  Environments?: EnvironmentDescription[];
 
   /**
    * <p>In a paginated request, the token that you can pass in a subsequent request to get the
@@ -2465,7 +2465,7 @@ export interface EnvironmentResourceDescription {
   /**
    * <p> The <code>AutoScalingGroups</code> used by this environment. </p>
    */
-  AutoScalingGroups?: Array<AutoScalingGroup>;
+  AutoScalingGroups?: AutoScalingGroup[];
 
   /**
    * <p>The name of the environment.</p>
@@ -2475,32 +2475,32 @@ export interface EnvironmentResourceDescription {
   /**
    * <p>The Amazon EC2 instances used by this environment.</p>
    */
-  Instances?: Array<Instance>;
+  Instances?: Instance[];
 
   /**
    * <p>The Auto Scaling launch configurations in use by this environment.</p>
    */
-  LaunchConfigurations?: Array<LaunchConfiguration>;
+  LaunchConfigurations?: LaunchConfiguration[];
 
   /**
    * <p>The Amazon EC2 launch templates in use by this environment.</p>
    */
-  LaunchTemplates?: Array<LaunchTemplate>;
+  LaunchTemplates?: LaunchTemplate[];
 
   /**
    * <p>The LoadBalancers in use by this environment.</p>
    */
-  LoadBalancers?: Array<LoadBalancer>;
+  LoadBalancers?: LoadBalancer[];
 
   /**
    * <p>The queues used by this environment.</p>
    */
-  Queues?: Array<Queue>;
+  Queues?: Queue[];
 
   /**
    * <p>The <code>AutoScaling</code> triggers in use by this environment. </p>
    */
-  Triggers?: Array<Trigger>;
+  Triggers?: Trigger[];
 }
 
 export namespace EnvironmentResourceDescription {
@@ -2665,7 +2665,7 @@ export interface EventDescriptionsMessage {
   /**
    * <p> A list of <a>EventDescription</a>. </p>
    */
-  Events?: Array<EventDescription>;
+  Events?: EventDescription[];
 
   /**
    * <p> If returned, this indicates that there are more results to obtain. Use this token in
@@ -2931,12 +2931,12 @@ export interface ListAvailableSolutionStacksResultMessage {
   /**
    * <p> A list of available solution stacks and their <a>SolutionStackDescription</a>. </p>
    */
-  SolutionStackDetails?: Array<SolutionStackDescription>;
+  SolutionStackDetails?: SolutionStackDescription[];
 
   /**
    * <p>A list of available solution stacks.</p>
    */
-  SolutionStacks?: Array<string>;
+  SolutionStacks?: string[];
 }
 
 export namespace ListAvailableSolutionStacksResultMessage {
@@ -2950,7 +2950,7 @@ export interface ListPlatformVersionsRequest {
    * <p>List only the platforms where the platform member
    *       value relates to one of the supplied values.</p>
    */
-  Filters?: Array<PlatformFilter>;
+  Filters?: PlatformFilter[];
 
   /**
    * <p>The maximum number of platform values returned in one call.</p>
@@ -2983,7 +2983,7 @@ export interface ListPlatformVersionsResult {
   /**
    * <p>Detailed information about the platforms.</p>
    */
-  PlatformSummaryList?: Array<PlatformSummary>;
+  PlatformSummaryList?: PlatformSummary[];
 }
 
 export namespace ListPlatformVersionsResult {
@@ -3053,7 +3053,7 @@ export interface LoadBalancerDescription {
   /**
    * <p>A list of Listeners used by the LoadBalancer.</p>
    */
-  Listeners?: Array<Listener>;
+  Listeners?: Listener[];
 
   /**
    * <p>The name of the LoadBalancer.</p>
@@ -3306,7 +3306,7 @@ export interface PlatformDescription {
   /**
    * <p>The custom AMIs supported by the platform.</p>
    */
-  CustomAmiList?: Array<CustomAmi>;
+  CustomAmiList?: CustomAmi[];
 
   /**
    * <p>The date when the platform was created.</p>
@@ -3326,7 +3326,7 @@ export interface PlatformDescription {
   /**
    * <p>The frameworks supported by the platform.</p>
    */
-  Frameworks?: Array<PlatformFramework>;
+  Frameworks?: PlatformFramework[];
 
   /**
    * <p>Information about the maintainer of the platform.</p>
@@ -3376,7 +3376,7 @@ export interface PlatformDescription {
   /**
    * <p>The programming languages supported by the platform.</p>
    */
-  ProgrammingLanguages?: Array<PlatformProgrammingLanguage>;
+  ProgrammingLanguages?: PlatformProgrammingLanguage[];
 
   /**
    * <p>The name of the solution stack used by the platform.</p>
@@ -3386,12 +3386,12 @@ export interface PlatformDescription {
   /**
    * <p>The additions supported by the platform.</p>
    */
-  SupportedAddonList?: Array<string>;
+  SupportedAddonList?: string[];
 
   /**
    * <p>The tiers supported by the platform.</p>
    */
-  SupportedTierList?: Array<string>;
+  SupportedTierList?: string[];
 }
 
 export namespace PlatformDescription {
@@ -3449,7 +3449,7 @@ export interface PlatformFilter {
   /**
    * <p>The list of values applied to the custom platform attribute.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace PlatformFilter {
@@ -3545,12 +3545,12 @@ export interface PlatformSummary {
   /**
    * <p>The additions associated with the platform.</p>
    */
-  SupportedAddonList?: Array<string>;
+  SupportedAddonList?: string[];
 
   /**
    * <p>The tiers in which the platform runs.</p>
    */
-  SupportedTierList?: Array<string>;
+  SupportedTierList?: string[];
 }
 
 export namespace PlatformSummary {
@@ -3744,7 +3744,7 @@ export interface ResourceTagsDescriptionMessage {
   /**
    * <p>A list of tag key-value pairs.</p>
    */
-  ResourceTags?: Array<Tag>;
+  ResourceTags?: Tag[];
 }
 
 export namespace ResourceTagsDescriptionMessage {
@@ -3841,7 +3841,7 @@ export interface RetrieveEnvironmentInfoResultMessage {
   /**
    * <p> The <a>EnvironmentInfoDescription</a> of the environment. </p>
    */
-  EnvironmentInfo?: Array<EnvironmentInfoDescription>;
+  EnvironmentInfo?: EnvironmentInfoDescription[];
 }
 
 export namespace RetrieveEnvironmentInfoResultMessage {
@@ -3939,7 +3939,7 @@ export interface SingleInstanceHealth {
    * <p>Represents the causes, which provide more information about the current health
    *       status.</p>
    */
-  Causes?: Array<string>;
+  Causes?: string[];
 
   /**
    * <p>Represents the color indicator that gives you information about the health of the EC2
@@ -3993,7 +3993,7 @@ export interface SolutionStackDescription {
   /**
    * <p>The permitted file types allowed for a solution stack.</p>
    */
-  PermittedFileTypes?: Array<string>;
+  PermittedFileTypes?: string[];
 
   /**
    * <p>The name of the solution stack.</p>
@@ -4213,7 +4213,7 @@ export interface SystemStatus {
    *       For more information, see
    *         <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os">Operating System Metrics</a>.</p>
    */
-  LoadAverage?: Array<number>;
+  LoadAverage?: number[];
 }
 
 export namespace SystemStatus {
@@ -4543,14 +4543,14 @@ export interface UpdateConfigurationTemplateMessage {
    * <p>A list of configuration option settings to update with the new specified option
    *       value.</p>
    */
-  OptionSettings?: Array<ConfigurationOptionSetting>;
+  OptionSettings?: ConfigurationOptionSetting[];
 
   /**
    * <p>A list of configuration options to remove from the configuration set.</p>
    *          <p> Constraint: You can remove only <code>UserDefined</code> configuration options.
    *     </p>
    */
-  OptionsToRemove?: Array<OptionSpecification>;
+  OptionsToRemove?: OptionSpecification[];
 
   /**
    * <p>The name of the configuration template to update.</p>
@@ -4614,13 +4614,13 @@ export interface UpdateEnvironmentMessage {
    *       running environment and sets the specified configuration options to the requested
    *       value.</p>
    */
-  OptionSettings?: Array<ConfigurationOptionSetting>;
+  OptionSettings?: ConfigurationOptionSetting[];
 
   /**
    * <p>A list of custom user-defined configuration options to remove from the configuration
    *       set for this environment.</p>
    */
-  OptionsToRemove?: Array<OptionSpecification>;
+  OptionsToRemove?: OptionSpecification[];
 
   /**
    * <p>The ARN of the platform, if used.</p>
@@ -4672,13 +4672,13 @@ export interface UpdateTagsForResourceMessage {
    * <p>A list of tags to add or update.</p>
    *          <p>If a key of an existing tag is added, the tag's value is updated.</p>
    */
-  TagsToAdd?: Array<Tag>;
+  TagsToAdd?: Tag[];
 
   /**
    * <p>A list of tag keys to remove.</p>
    *          <p>If a tag key doesn't exist, it is silently ignored.</p>
    */
-  TagsToRemove?: Array<string>;
+  TagsToRemove?: string[];
 }
 
 export namespace UpdateTagsForResourceMessage {
@@ -4706,7 +4706,7 @@ export interface ValidateConfigurationSettingsMessage {
   /**
    * <p>A list of the options and desired values to evaluate.</p>
    */
-  OptionSettings: Array<ConfigurationOptionSetting> | undefined;
+  OptionSettings: ConfigurationOptionSetting[] | undefined;
 
   /**
    * <p>The name of the configuration template to validate the settings against.</p>

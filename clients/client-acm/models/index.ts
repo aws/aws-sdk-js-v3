@@ -21,7 +21,7 @@ export interface AddTagsToCertificateRequest {
   /**
    * <p>The key-value pair that defines the tag. The tag value is optional.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace AddTagsToCertificateRequest {
@@ -68,14 +68,14 @@ export interface CertificateDetail {
    *       result of the <a>RequestCertificate</a> request. This field exists only when the
    *       certificate type is <code>AMAZON_ISSUED</code>. </p>
    */
-  DomainValidationOptions?: Array<DomainValidation>;
+  DomainValidationOptions?: DomainValidation[];
 
   /**
    * <p>Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a
    *       purpose for which the certificate public key can be used and consists of a name and an object
    *       identifier (OID). </p>
    */
-  ExtendedKeyUsages?: Array<ExtendedKeyUsage>;
+  ExtendedKeyUsages?: ExtendedKeyUsage[];
 
   /**
    * <p>The reason the certificate request failed. This value exists only when the certificate
@@ -94,7 +94,7 @@ export interface CertificateDetail {
    * <p>A list of ARNs for the AWS resources that are using the certificate. A certificate can
    *       be used by multiple AWS resources. </p>
    */
-  InUseBy?: Array<string>;
+  InUseBy?: string[];
 
   /**
    * <p>The time at which the certificate was issued. This value exists only when the certificate
@@ -117,7 +117,7 @@ export interface CertificateDetail {
    *       identifies the purpose of the public key contained in the certificate. Possible extension
    *       values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.</p>
    */
-  KeyUsages?: Array<KeyUsage>;
+  KeyUsages?: KeyUsage[];
 
   /**
    * <p>The time after which the certificate is not valid.</p>
@@ -189,7 +189,7 @@ export interface CertificateDetail {
    *       certificate. The subject alternative names include the canonical domain name (CN) of the
    *       certificate and additional domain names that can be used to connect to the website. </p>
    */
-  SubjectAlternativeNames?: Array<string>;
+  SubjectAlternativeNames?: string[];
 
   /**
    * <p>The source of the certificate. For certificates provided by ACM, this value is
@@ -362,7 +362,7 @@ export interface DomainValidation {
   /**
    * <p>A list of email addresses that ACM used to send domain validation emails.</p>
    */
-  ValidationEmails?: Array<string>;
+  ValidationEmails?: string[];
 
   /**
    * <p>Specifies the domain validation method.</p>
@@ -606,7 +606,7 @@ export interface Filters {
   /**
    * <p>Specify one or more <a>ExtendedKeyUsage</a> extension values.</p>
    */
-  extendedKeyUsage?: Array<ExtendedKeyUsageName | string>;
+  extendedKeyUsage?: ExtendedKeyUsageName | string[];
 
   /**
    * <p>Specify one or more algorithms that can be used to generate key pairs.</p>
@@ -615,12 +615,12 @@ export interface Filters {
    *         <code>"keyTypes": ["RSA_2048,RSA_4096"]</code>  returns both <code>RSA_2048</code> and
    *         <code>RSA_4096</code> certificates.</p>
    */
-  keyTypes?: Array<KeyAlgorithm | string>;
+  keyTypes?: KeyAlgorithm | string[];
 
   /**
    * <p>Specify one or more <a>KeyUsage</a> extension values.</p>
    */
-  keyUsage?: Array<KeyUsageName | string>;
+  keyUsage?: KeyUsageName | string[];
 }
 
 export namespace Filters {
@@ -692,7 +692,7 @@ export interface ImportCertificateRequest {
    * <p>One or more resource tags to associate with the imported certificate. </p>
    *          <p>Note: You cannot apply tags when reimporting a certificate.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ImportCertificateRequest {
@@ -872,7 +872,7 @@ export interface ListCertificatesRequest {
   /**
    * <p>Filter the certificate list by status value.</p>
    */
-  CertificateStatuses?: Array<CertificateStatus | string>;
+  CertificateStatuses?: CertificateStatus | string[];
 
   /**
    * <p>Filter the certificate list. For more information, see the <a>Filters</a>
@@ -906,7 +906,7 @@ export interface ListCertificatesResponse {
   /**
    * <p>A list of ACM certificates.</p>
    */
-  CertificateSummaryList?: Array<CertificateSummary>;
+  CertificateSummaryList?: CertificateSummary[];
 
   /**
    * <p>When the list is truncated, this value is present and contains the value to use for the
@@ -943,7 +943,7 @@ export interface ListTagsForCertificateResponse {
   /**
    * <p>The key-value pairs that define the applied tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForCertificateResponse {
@@ -972,7 +972,7 @@ export interface RemoveTagsFromCertificateRequest {
   /**
    * <p>The key-value pair that defines the tag to remove.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace RemoveTagsFromCertificateRequest {
@@ -1023,7 +1023,7 @@ export interface RenewalSummary {
    *       the <a>RequestCertificate</a> request. This field exists only when the certificate
    *       type is <code>AMAZON_ISSUED</code>.</p>
    */
-  DomainValidationOptions: Array<DomainValidation> | undefined;
+  DomainValidationOptions: DomainValidation[] | undefined;
 
   /**
    * <p>The status of ACM's <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> of the certificate.</p>
@@ -1075,7 +1075,7 @@ export interface RequestCertificateRequest {
    * <p>The domain name that you want ACM to use to send you emails so that you can validate
    *       domain ownership.</p>
    */
-  DomainValidationOptions?: Array<DomainValidationOption>;
+  DomainValidationOptions?: DomainValidationOption[];
 
   /**
    * <p>Customer chosen string that can be used to distinguish between calls to
@@ -1126,12 +1126,12 @@ export interface RequestCertificateRequest {
    *             </li>
    *          </ul>
    */
-  SubjectAlternativeNames?: Array<string>;
+  SubjectAlternativeNames?: string[];
 
   /**
    * <p>One or more resource tags to associate with the certificate.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The method you want to use if you are requesting a public certificate to validate that you

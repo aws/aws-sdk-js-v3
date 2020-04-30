@@ -791,7 +791,7 @@ const deserializeAws_restJson1_1InstanceTypeItem = (
 const deserializeAws_restJson1_1InstanceTypeListDefinition = (
   output: any,
   context: __SerdeContext
-): Array<InstanceTypeItem> => {
+): InstanceTypeItem[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InstanceTypeItem(entry, context)
   );
@@ -878,7 +878,7 @@ const deserializeAws_restJson1_1Site = (
 const deserializeAws_restJson1_1outpostListDefinition = (
   output: any,
   context: __SerdeContext
-): Array<Outpost> => {
+): Outpost[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Outpost(entry, context)
   );
@@ -887,7 +887,7 @@ const deserializeAws_restJson1_1outpostListDefinition = (
 const deserializeAws_restJson1_1siteListDefinition = (
   output: any,
   context: __SerdeContext
-): Array<Site> => {
+): Site[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Site(entry, context)
   );

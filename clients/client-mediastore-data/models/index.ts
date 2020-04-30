@@ -276,7 +276,7 @@ export interface ListItemsResponse {
   /**
    * <p>The metadata entries for the folders and objects at the requested path.</p>
    */
-  Items?: Array<Item>;
+  Items?: Item[];
 
   /**
    * <p>The token that can be used in a request to view the next set of results. For example,

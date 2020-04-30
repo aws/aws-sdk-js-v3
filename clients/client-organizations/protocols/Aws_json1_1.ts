@@ -8222,7 +8222,7 @@ const serializeAws_json1_1CreateAccountRequest = (
 };
 
 const serializeAws_json1_1CreateAccountStates = (
-  input: Array<CreateAccountState | string>,
+  input: CreateAccountState | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8797,7 +8797,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeys = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8822,7 +8822,7 @@ const serializeAws_json1_1TagResourceRequest = (
 };
 
 const serializeAws_json1_1Tags = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9014,7 +9014,7 @@ const deserializeAws_json1_1AccountOwnerNotVerifiedException = (
 const deserializeAws_json1_1Accounts = (
   output: any,
   context: __SerdeContext
-): Array<Account> => {
+): Account[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Account(entry, context)
   );
@@ -9086,7 +9086,7 @@ const deserializeAws_json1_1ChildNotFoundException = (
 const deserializeAws_json1_1Children = (
   output: any,
   context: __SerdeContext
-): Array<Child> => {
+): Child[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Child(entry, context)
   );
@@ -9216,7 +9216,7 @@ const deserializeAws_json1_1CreateAccountStatusNotFoundException = (
 const deserializeAws_json1_1CreateAccountStatuses = (
   output: any,
   context: __SerdeContext
-): Array<CreateAccountStatus> => {
+): CreateAccountStatus[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CreateAccountStatus(entry, context)
   );
@@ -9627,7 +9627,7 @@ const deserializeAws_json1_1EnabledServicePrincipal = (
 const deserializeAws_json1_1EnabledServicePrincipals = (
   output: any,
   context: __SerdeContext
-): Array<EnabledServicePrincipal> => {
+): EnabledServicePrincipal[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EnabledServicePrincipal(entry, context)
   );
@@ -9754,7 +9754,7 @@ const deserializeAws_json1_1HandshakeNotFoundException = (
 const deserializeAws_json1_1HandshakeParties = (
   output: any,
   context: __SerdeContext
-): Array<HandshakeParty> => {
+): HandshakeParty[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1HandshakeParty(entry, context)
   );
@@ -9806,7 +9806,7 @@ const deserializeAws_json1_1HandshakeResource = (
 const deserializeAws_json1_1HandshakeResources = (
   output: any,
   context: __SerdeContext
-): Array<HandshakeResource> => {
+): HandshakeResource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1HandshakeResource(entry, context)
   );
@@ -9815,7 +9815,7 @@ const deserializeAws_json1_1HandshakeResources = (
 const deserializeAws_json1_1Handshakes = (
   output: any,
   context: __SerdeContext
-): Array<Handshake> => {
+): Handshake[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Handshake(entry, context)
   );
@@ -10309,7 +10309,7 @@ const deserializeAws_json1_1OrganizationalUnitNotFoundException = (
 const deserializeAws_json1_1OrganizationalUnits = (
   output: any,
   context: __SerdeContext
-): Array<OrganizationalUnit> => {
+): OrganizationalUnit[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OrganizationalUnit(entry, context)
   );
@@ -10350,7 +10350,7 @@ const deserializeAws_json1_1ParentNotFoundException = (
 const deserializeAws_json1_1Parents = (
   output: any,
   context: __SerdeContext
-): Array<Parent> => {
+): Parent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Parent(entry, context)
   );
@@ -10359,7 +10359,7 @@ const deserializeAws_json1_1Parents = (
 const deserializeAws_json1_1Policies = (
   output: any,
   context: __SerdeContext
-): Array<PolicySummary> => {
+): PolicySummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PolicySummary(entry, context)
   );
@@ -10505,7 +10505,7 @@ const deserializeAws_json1_1PolicyTargetSummary = (
 const deserializeAws_json1_1PolicyTargets = (
   output: any,
   context: __SerdeContext
-): Array<PolicyTargetSummary> => {
+): PolicyTargetSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PolicyTargetSummary(entry, context)
   );
@@ -10574,7 +10574,7 @@ const deserializeAws_json1_1PolicyTypeSummary = (
 const deserializeAws_json1_1PolicyTypes = (
   output: any,
   context: __SerdeContext
-): Array<PolicyTypeSummary> => {
+): PolicyTypeSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PolicyTypeSummary(entry, context)
   );
@@ -10626,7 +10626,7 @@ const deserializeAws_json1_1RootNotFoundException = (
 const deserializeAws_json1_1Roots = (
   output: any,
   context: __SerdeContext
-): Array<Root> => {
+): Root[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Root(entry, context)
   );
@@ -10681,7 +10681,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1Tags = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );

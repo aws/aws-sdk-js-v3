@@ -97,7 +97,7 @@ export interface CreateAgentRequest {
   /**
    * <p>The ARNs of the security groups used to protect your data transfer task subnets. See <a>CreateAgentRequest$SubnetArns</a>.</p>
    */
-  SecurityGroupArns?: Array<string>;
+  SecurityGroupArns?: string[];
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic
@@ -107,7 +107,7 @@ export interface CreateAgentRequest {
    *       creates four network interfaces for each task in your subnet. For a data transfer to work, the
    *       agent must be able to route to all these four network interfaces.</p>
    */
-  SubnetArns?: Array<string>;
+  SubnetArns?: string[];
 
   /**
    * <p>The key-value pair that represents the tag that you want to associate with the agent.
@@ -118,7 +118,7 @@ export interface CreateAgentRequest {
    *         UTF-8 format, and the following special characters: + - = . _ : / @. </p>
    *          </note>
    */
-  Tags?: Array<TagListEntry>;
+  Tags?: TagListEntry[];
 
   /**
    * <p>The ID of the VPC (Virtual Private Cloud) endpoint that the agent has access to. This is
@@ -206,7 +206,7 @@ export interface CreateLocationEfsRequest {
    *       value can be an empty string. This value helps you manage, filter, and search for your
    *       resources. We recommend that you create a name tag for your location.</p>
    */
-  Tags?: Array<TagListEntry>;
+  Tags?: TagListEntry[];
 }
 
 export namespace CreateLocationEfsRequest {
@@ -283,7 +283,7 @@ export interface CreateLocationNfsRequest {
    * <p>The key-value pair that represents the tag that you want to add to the location. The
    *       value can be an empty string. We recommend using tags to name your resources.</p>
    */
-  Tags?: Array<TagListEntry>;
+  Tags?: TagListEntry[];
 }
 
 export namespace CreateLocationNfsRequest {
@@ -345,7 +345,7 @@ export interface CreateLocationS3Request {
    * <p>The key-value pair that represents the tag that you want to add to the location. The
    *       value can be an empty string. We recommend using tags to name your resources.</p>
    */
-  Tags?: Array<TagListEntry>;
+  Tags?: TagListEntry[];
 }
 
 export namespace CreateLocationS3Request {
@@ -379,7 +379,7 @@ export interface CreateLocationSmbRequest {
    * <p>The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB)
    *       location. </p>
    */
-  AgentArns: Array<string> | undefined;
+  AgentArns: string[] | undefined;
 
   /**
    * <p>The name of the Windows domain that the SMB server belongs to.</p>
@@ -432,7 +432,7 @@ export interface CreateLocationSmbRequest {
    * <p>The key-value pair that represents the tag that you want to add to the location. The value
    *       can be an empty string. We recommend using tags to name your resources.</p>
    */
-  Tags?: Array<TagListEntry>;
+  Tags?: TagListEntry[];
 
   /**
    * <p>The user who can mount the share, has the permissions to access files and folders in the
@@ -496,7 +496,7 @@ export interface CreateTaskRequest {
    *          <p>
    *     </p>
    */
-  Excludes?: Array<FilterRule>;
+  Excludes?: FilterRule[];
 
   /**
    * <p>The name of a task. This value is a text reference that is used to identify the task in
@@ -530,7 +530,7 @@ export interface CreateTaskRequest {
    * <p>The key-value pair that represents the tag that you want to add to the resource. The
    *       value can be an empty string. </p>
    */
-  Tags?: Array<TagListEntry>;
+  Tags?: TagListEntry[];
 }
 
 export namespace CreateTaskRequest {
@@ -884,7 +884,7 @@ export interface DescribeLocationSmbResponse {
    * <p>The Amazon Resource Name (ARN) of the source SMB file system location that is
    *       created.</p>
    */
-  AgentArns?: Array<string>;
+  AgentArns?: string[];
 
   /**
    * <p>The time that the SMB location was created.</p>
@@ -977,7 +977,7 @@ export interface DescribeTaskExecutionResponse {
    *          <p>
    *     </p>
    */
-  Excludes?: Array<FilterRule>;
+  Excludes?: FilterRule[];
 
   /**
    * <p>The actual number of files that was transferred over the network. This value is
@@ -999,7 +999,7 @@ export interface DescribeTaskExecutionResponse {
    *          <p>
    *     </p>
    */
-  Includes?: Array<FilterRule>;
+  Includes?: FilterRule[];
 
   /**
    * <p>Represents the options that are available to control the behavior of a <a>StartTaskExecution</a> operation. Behavior includes preserving metadata such as user
@@ -1099,7 +1099,7 @@ export interface DescribeTaskResponse {
    * <p>The Amazon Resource Name (ARN) of the destination ENIs (Elastic Network Interface) that
    *       was created for your subnet.</p>
    */
-  DestinationNetworkInterfaceArns?: Array<string>;
+  DestinationNetworkInterfaceArns?: string[];
 
   /**
    * <p>Errors that AWS DataSync encountered during execution of the task. You can use this
@@ -1121,7 +1121,7 @@ export interface DescribeTaskResponse {
    *          <p>
    *     </p>
    */
-  Excludes?: Array<FilterRule>;
+  Excludes?: FilterRule[];
 
   /**
    * <p>The name of the task that was described.</p>
@@ -1153,7 +1153,7 @@ export interface DescribeTaskResponse {
    * <p>The Amazon Resource Name (ARN) of the source ENIs (Elastic Network Interface) that was
    *       created for your subnet.</p>
    */
-  SourceNetworkInterfaceArns?: Array<string>;
+  SourceNetworkInterfaceArns?: string[];
 
   /**
    * <p>The status of the task that was described.</p>
@@ -1188,7 +1188,7 @@ export interface Ec2Config {
    * <p>The Amazon Resource Names (ARNs) of the security groups that are configured for the
    *       Amazon EC2 resource.</p>
    */
-  SecurityGroupArns: Array<string> | undefined;
+  SecurityGroupArns: string[] | undefined;
 
   /**
    * <p>The ARN of the subnet and the security group that DataSync uses to access the target
@@ -1306,7 +1306,7 @@ export interface ListAgentsResponse {
   /**
    * <p>A list of agents in your account.</p>
    */
-  Agents?: Array<AgentListEntry>;
+  Agents?: AgentListEntry[];
 
   /**
    * <p>An opaque string that indicates the position at which to begin returning the next list
@@ -1350,7 +1350,7 @@ export interface ListLocationsResponse {
   /**
    * <p>An array that contains a list of locations.</p>
    */
-  Locations?: Array<LocationListEntry>;
+  Locations?: LocationListEntry[];
 
   /**
    * <p>An opaque string that indicates the position at which to begin returning the next list
@@ -1405,7 +1405,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>Array of resource tags.</p>
    */
-  Tags?: Array<TagListEntry>;
+  Tags?: TagListEntry[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1454,7 +1454,7 @@ export interface ListTaskExecutionsResponse {
   /**
    * <p>A list of executed tasks.</p>
    */
-  TaskExecutions?: Array<TaskExecutionListEntry>;
+  TaskExecutions?: TaskExecutionListEntry[];
 }
 
 export namespace ListTaskExecutionsResponse {
@@ -1498,7 +1498,7 @@ export interface ListTasksResponse {
   /**
    * <p>A list of all the tasks that are returned.</p>
    */
-  Tasks?: Array<TaskListEntry>;
+  Tasks?: TaskListEntry[];
 }
 
 export namespace ListTasksResponse {
@@ -1611,7 +1611,7 @@ export interface OnPremConfig {
   /**
    * <p>ARNs)of the agents to use for an NFS location.</p>
    */
-  AgentArns: Array<string> | undefined;
+  AgentArns: string[] | undefined;
 }
 
 export namespace OnPremConfig {
@@ -1801,13 +1801,13 @@ export interface PrivateLinkConfig {
    *       resource that hosts an agent activated in a VPC or an agent that has access to a VPC
    *       endpoint.</p>
    */
-  SecurityGroupArns?: Array<string>;
+  SecurityGroupArns?: string[];
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the subnets that are configured for an agent activated
    *       in a VPC or an agent that has access to a VPC endpoint.</p>
    */
-  SubnetArns?: Array<string>;
+  SubnetArns?: string[];
 
   /**
    * <p>The ID of the VPC endpoint that is configured for an agent. An agent that is configured
@@ -1887,7 +1887,7 @@ export interface StartTaskExecutionRequest {
    *          <p>
    *     </p>
    */
-  Includes?: Array<FilterRule>;
+  Includes?: FilterRule[];
 
   /**
    * <p>Represents the options that are available to control the behavior of a <a>StartTaskExecution</a> operation. Behavior includes preserving metadata such as user
@@ -1963,7 +1963,7 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to apply.</p>
    */
-  Tags: Array<TagListEntry> | undefined;
+  Tags: TagListEntry[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -2149,7 +2149,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The keys in the key-value pair in the tag to remove.</p>
    */
-  Keys: Array<string> | undefined;
+  Keys: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to remove the tag from.</p>
@@ -2220,7 +2220,7 @@ export interface UpdateTaskRequest {
    *          <p>
    *     </p>
    */
-  Excludes?: Array<FilterRule>;
+  Excludes?: FilterRule[];
 
   /**
    * <p>The name of the task to update.</p>

@@ -77,7 +77,7 @@ export interface DescribeVoicesOutput {
   /**
    * <p>A list of voices with their properties.</p>
    */
-  Voices?: Array<Voice>;
+  Voices?: Voice[];
 }
 
 export namespace DescribeVoicesOutput {
@@ -494,7 +494,7 @@ export interface ListLexiconsOutput {
   /**
    * <p>A list of lexicon names and attributes.</p>
    */
-  Lexicons?: Array<LexiconDescription>;
+  Lexicons?: LexiconDescription[];
 
   /**
    * <p>The pagination token to use in the next request to continue
@@ -545,7 +545,7 @@ export interface ListSpeechSynthesisTasksOutput {
    * <p>List of SynthesisTask objects that provides information from the specified task in the list request,
    *       including output format, creation time, task status, and so on.</p>
    */
-  SynthesisTasks?: Array<SynthesisTask>;
+  SynthesisTasks?: SynthesisTask[];
 }
 
 export namespace ListSpeechSynthesisTasksOutput {
@@ -700,7 +700,7 @@ export interface StartSpeechSynthesisTaskInput {
    *       to apply during synthesis. Lexicons are applied only if the language
    *       of the lexicon is the same as the language of the voice. </p>
    */
-  LexiconNames?: Array<string>;
+  LexiconNames?: string[];
 
   /**
    * <p>The format in which the returned output will be encoded. For
@@ -735,7 +735,7 @@ export interface StartSpeechSynthesisTaskInput {
   /**
    * <p>The type of speech marks returned for the input text.</p>
    */
-  SpeechMarkTypes?: Array<SpeechMarkType | string>;
+  SpeechMarkTypes?: SpeechMarkType | string[];
 
   /**
    * <p>The input text to synthesize. If you specify
@@ -803,7 +803,7 @@ export interface SynthesisTask {
    *       to apply during synthesis. Lexicons are applied only if the language
    *       of the lexicon is the same as the language of the voice. </p>
    */
-  LexiconNames?: Array<string>;
+  LexiconNames?: string[];
 
   /**
    * <p>The format in which the returned output will be encoded. For
@@ -838,7 +838,7 @@ export interface SynthesisTask {
   /**
    * <p>The type of speech marks returned for the input text.</p>
    */
-  SpeechMarkTypes?: Array<SpeechMarkType | string>;
+  SpeechMarkTypes?: SpeechMarkType | string[];
 
   /**
    * <p>The Amazon Polly generated identifier for a speech synthesis task.</p>
@@ -911,7 +911,7 @@ export interface SynthesizeSpeechInput {
    *       as the language of the voice. For information about storing lexicons,
    *       see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html">PutLexicon</a>.</p>
    */
-  LexiconNames?: Array<string>;
+  LexiconNames?: string[];
 
   /**
    * <p>
@@ -932,7 +932,7 @@ export interface SynthesizeSpeechInput {
   /**
    * <p>The type of speech marks returned for the input text.</p>
    */
-  SpeechMarkTypes?: Array<SpeechMarkType | string>;
+  SpeechMarkTypes?: SpeechMarkType | string[];
 
   /**
    * <p>
@@ -1093,7 +1093,7 @@ export interface Voice {
    *          <p>For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since
    *     Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code <code>hi-IN</code>.</p>
    */
-  AdditionalLanguageCodes?: Array<LanguageCode | string>;
+  AdditionalLanguageCodes?: LanguageCode | string[];
 
   /**
    * <p>Gender of the voice.</p>
@@ -1126,7 +1126,7 @@ export interface Voice {
   /**
    * <p>Specifies which engines (<code>standard</code> or <code>neural</code>) that are supported by a given voice.</p>
    */
-  SupportedEngines?: Array<Engine | string>;
+  SupportedEngines?: Engine | string[];
 }
 
 export namespace Voice {

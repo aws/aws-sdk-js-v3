@@ -5334,7 +5334,7 @@ const serializeAws_restJson1_1AttributeNameMapping = (
 };
 
 const serializeAws_restJson1_1AttributeNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5473,7 +5473,7 @@ const serializeAws_restJson1_1DatasetAction = (
 };
 
 const serializeAws_restJson1_1DatasetActions = (
-  input: Array<DatasetAction>,
+  input: DatasetAction[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5527,7 +5527,7 @@ const serializeAws_restJson1_1DatasetContentDeliveryRule = (
 };
 
 const serializeAws_restJson1_1DatasetContentDeliveryRules = (
-  input: Array<DatasetContentDeliveryRule>,
+  input: DatasetContentDeliveryRule[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5571,7 +5571,7 @@ const serializeAws_restJson1_1DatasetTrigger = (
 };
 
 const serializeAws_restJson1_1DatasetTriggers = (
-  input: Array<DatasetTrigger>,
+  input: DatasetTrigger[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5782,7 +5782,7 @@ const serializeAws_restJson1_1MathActivity = (
 };
 
 const serializeAws_restJson1_1MessagePayloads = (
-  input: Array<Uint8Array>,
+  input: Uint8Array[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5804,7 +5804,7 @@ const serializeAws_restJson1_1OutputFileUriValue = (
 };
 
 const serializeAws_restJson1_1PipelineActivities = (
-  input: Array<PipelineActivity>,
+  input: PipelineActivity[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5905,7 +5905,7 @@ const serializeAws_restJson1_1QueryFilter = (
 };
 
 const serializeAws_restJson1_1QueryFilters = (
-  input: Array<QueryFilter>,
+  input: QueryFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6065,7 +6065,7 @@ const serializeAws_restJson1_1Tag = (
 };
 
 const serializeAws_restJson1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6120,7 +6120,7 @@ const serializeAws_restJson1_1Variable = (
 };
 
 const serializeAws_restJson1_1Variables = (
-  input: Array<Variable>,
+  input: Variable[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6159,7 +6159,7 @@ const serializeAws_restJson1_1Message = (
 };
 
 const serializeAws_restJson1_1Messages = (
-  input: Array<Message>,
+  input: Message[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6208,7 +6208,7 @@ const deserializeAws_restJson1_1AttributeNameMapping = (
 const deserializeAws_restJson1_1AttributeNames = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6360,7 +6360,7 @@ const deserializeAws_restJson1_1ChannelStorageSummary = (
 const deserializeAws_restJson1_1ChannelSummaries = (
   output: any,
   context: __SerdeContext
-): Array<ChannelSummary> => {
+): ChannelSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ChannelSummary(entry, context)
   );
@@ -6631,7 +6631,7 @@ const deserializeAws_restJson1_1DatasetAction = (
 const deserializeAws_restJson1_1DatasetActionSummaries = (
   output: any,
   context: __SerdeContext
-): Array<DatasetActionSummary> => {
+): DatasetActionSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DatasetActionSummary(entry, context)
   );
@@ -6658,7 +6658,7 @@ const deserializeAws_restJson1_1DatasetActionSummary = (
 const deserializeAws_restJson1_1DatasetActions = (
   output: any,
   context: __SerdeContext
-): Array<DatasetAction> => {
+): DatasetAction[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DatasetAction(entry, context)
   );
@@ -6718,7 +6718,7 @@ const deserializeAws_restJson1_1DatasetContentDeliveryRule = (
 const deserializeAws_restJson1_1DatasetContentDeliveryRules = (
   output: any,
   context: __SerdeContext
-): Array<DatasetContentDeliveryRule> => {
+): DatasetContentDeliveryRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DatasetContentDeliveryRule(entry, context)
   );
@@ -6745,7 +6745,7 @@ const deserializeAws_restJson1_1DatasetContentStatus = (
 const deserializeAws_restJson1_1DatasetContentSummaries = (
   output: any,
   context: __SerdeContext
-): Array<DatasetContentSummary> => {
+): DatasetContentSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DatasetContentSummary(entry, context)
   );
@@ -6803,7 +6803,7 @@ const deserializeAws_restJson1_1DatasetContentVersionValue = (
 const deserializeAws_restJson1_1DatasetEntries = (
   output: any,
   context: __SerdeContext
-): Array<DatasetEntry> => {
+): DatasetEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DatasetEntry(entry, context)
   );
@@ -6830,7 +6830,7 @@ const deserializeAws_restJson1_1DatasetEntry = (
 const deserializeAws_restJson1_1DatasetSummaries = (
   output: any,
   context: __SerdeContext
-): Array<DatasetSummary> => {
+): DatasetSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DatasetSummary(entry, context)
   );
@@ -6905,7 +6905,7 @@ const deserializeAws_restJson1_1DatasetTrigger = (
 const deserializeAws_restJson1_1DatasetTriggers = (
   output: any,
   context: __SerdeContext
-): Array<DatasetTrigger> => {
+): DatasetTrigger[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DatasetTrigger(entry, context)
   );
@@ -7055,7 +7055,7 @@ const deserializeAws_restJson1_1DatastoreStorageSummary = (
 const deserializeAws_restJson1_1DatastoreSummaries = (
   output: any,
   context: __SerdeContext
-): Array<DatastoreSummary> => {
+): DatastoreSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DatastoreSummary(entry, context)
   );
@@ -7333,7 +7333,7 @@ const deserializeAws_restJson1_1MathActivity = (
 const deserializeAws_restJson1_1MessagePayloads = (
   output: any,
   context: __SerdeContext
-): Array<Uint8Array> => {
+): Uint8Array[] => {
   return (output || []).map((entry: any) => context.base64Decoder(entry));
 };
 
@@ -7399,7 +7399,7 @@ const deserializeAws_restJson1_1Pipeline = (
 const deserializeAws_restJson1_1PipelineActivities = (
   output: any,
   context: __SerdeContext
-): Array<PipelineActivity> => {
+): PipelineActivity[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PipelineActivity(entry, context)
   );
@@ -7500,7 +7500,7 @@ const deserializeAws_restJson1_1PipelineActivity = (
 const deserializeAws_restJson1_1PipelineSummaries = (
   output: any,
   context: __SerdeContext
-): Array<PipelineSummary> => {
+): PipelineSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PipelineSummary(entry, context)
   );
@@ -7560,7 +7560,7 @@ const deserializeAws_restJson1_1QueryFilter = (
 const deserializeAws_restJson1_1QueryFilters = (
   output: any,
   context: __SerdeContext
-): Array<QueryFilter> => {
+): QueryFilter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1QueryFilter(entry, context)
   );
@@ -7594,7 +7594,7 @@ const deserializeAws_restJson1_1RemoveAttributesActivity = (
 const deserializeAws_restJson1_1ReprocessingSummaries = (
   output: any,
   context: __SerdeContext
-): Array<ReprocessingSummary> => {
+): ReprocessingSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ReprocessingSummary(entry, context)
   );
@@ -7811,7 +7811,7 @@ const deserializeAws_restJson1_1Tag = (
 const deserializeAws_restJson1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Tag(entry, context)
   );
@@ -7876,7 +7876,7 @@ const deserializeAws_restJson1_1Variable = (
 const deserializeAws_restJson1_1Variables = (
   output: any,
   context: __SerdeContext
-): Array<Variable> => {
+): Variable[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Variable(entry, context)
   );
@@ -7903,7 +7903,7 @@ const deserializeAws_restJson1_1VersioningConfiguration = (
 const deserializeAws_restJson1_1BatchPutMessageErrorEntries = (
   output: any,
   context: __SerdeContext
-): Array<BatchPutMessageErrorEntry> => {
+): BatchPutMessageErrorEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1BatchPutMessageErrorEntry(entry, context)
   );

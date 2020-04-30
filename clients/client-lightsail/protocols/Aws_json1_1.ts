@@ -15755,7 +15755,7 @@ const serializeAws_json1_1AddOnRequest = (
 };
 
 const serializeAws_json1_1AddOnRequestList = (
-  input: Array<AddOnRequest>,
+  input: AddOnRequest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -15839,7 +15839,7 @@ const serializeAws_json1_1AttachStaticIpRequest = (
 };
 
 const serializeAws_json1_1AttachedDiskMap = (
-  input: { [key: string]: Array<DiskMap> },
+  input: { [key: string]: DiskMap[] },
   context: __SerdeContext
 ): any => {
   const mapParams: any = {};
@@ -16559,7 +16559,7 @@ const serializeAws_json1_1DiskMap = (
 };
 
 const serializeAws_json1_1DiskMapList = (
-  input: Array<DiskMap>,
+  input: DiskMap[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -16610,7 +16610,7 @@ const serializeAws_json1_1DomainEntryOptions = (
 };
 
 const serializeAws_json1_1DomainNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -17285,7 +17285,7 @@ const serializeAws_json1_1InstanceEntry = (
 };
 
 const serializeAws_json1_1InstanceEntryList = (
-  input: Array<InstanceEntry>,
+  input: InstanceEntry[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -17304,7 +17304,7 @@ const serializeAws_json1_1IsVpcPeeredRequest = (
 };
 
 const serializeAws_json1_1MetricStatisticList = (
-  input: Array<MetricStatistic | string>,
+  input: MetricStatistic | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -17357,7 +17357,7 @@ const serializeAws_json1_1PortInfo = (
 };
 
 const serializeAws_json1_1PortInfoList = (
-  input: Array<PortInfo>,
+  input: PortInfo[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -17439,7 +17439,7 @@ const serializeAws_json1_1RelationalDatabaseParameter = (
 };
 
 const serializeAws_json1_1RelationalDatabaseParameterList = (
-  input: Array<RelationalDatabaseParameter>,
+  input: RelationalDatabaseParameter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -17463,7 +17463,7 @@ const serializeAws_json1_1ReleaseStaticIpRequest = (
 };
 
 const serializeAws_json1_1ResourceNameList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -17525,7 +17525,7 @@ const serializeAws_json1_1StopRelationalDatabaseRequest = (
 };
 
 const serializeAws_json1_1StringList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -17547,7 +17547,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_json1_1TagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -17558,7 +17558,7 @@ const serializeAws_json1_1TagKeyList = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -17791,7 +17791,7 @@ const deserializeAws_json1_1AddOn = (
 const deserializeAws_json1_1AddOnList = (
   output: any,
   context: __SerdeContext
-): Array<AddOn> => {
+): AddOn[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AddOn(entry, context)
   );
@@ -17903,7 +17903,7 @@ const deserializeAws_json1_1AttachedDisk = (
 const deserializeAws_json1_1AttachedDiskList = (
   output: any,
   context: __SerdeContext
-): Array<AttachedDisk> => {
+): AttachedDisk[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AttachedDisk(entry, context)
   );
@@ -17944,7 +17944,7 @@ const deserializeAws_json1_1AutoSnapshotDetails = (
 const deserializeAws_json1_1AutoSnapshotDetailsList = (
   output: any,
   context: __SerdeContext
-): Array<AutoSnapshotDetails> => {
+): AutoSnapshotDetails[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AutoSnapshotDetails(entry, context)
   );
@@ -17971,7 +17971,7 @@ const deserializeAws_json1_1AvailabilityZone = (
 const deserializeAws_json1_1AvailabilityZoneList = (
   output: any,
   context: __SerdeContext
-): Array<AvailabilityZone> => {
+): AvailabilityZone[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AvailabilityZone(entry, context)
   );
@@ -18038,7 +18038,7 @@ const deserializeAws_json1_1Blueprint = (
 const deserializeAws_json1_1BlueprintList = (
   output: any,
   context: __SerdeContext
-): Array<Blueprint> => {
+): Blueprint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Blueprint(entry, context)
   );
@@ -18110,7 +18110,7 @@ const deserializeAws_json1_1Bundle = (
 const deserializeAws_json1_1BundleList = (
   output: any,
   context: __SerdeContext
-): Array<Bundle> => {
+): Bundle[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Bundle(entry, context)
   );
@@ -18187,7 +18187,7 @@ const deserializeAws_json1_1CloudFormationStackRecord = (
 const deserializeAws_json1_1CloudFormationStackRecordList = (
   output: any,
   context: __SerdeContext
-): Array<CloudFormationStackRecord> => {
+): CloudFormationStackRecord[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CloudFormationStackRecord(entry, context)
   );
@@ -18218,7 +18218,7 @@ const deserializeAws_json1_1CloudFormationStackRecordSourceInfo = (
 const deserializeAws_json1_1CloudFormationStackRecordSourceInfoList = (
   output: any,
   context: __SerdeContext
-): Array<CloudFormationStackRecordSourceInfo> => {
+): CloudFormationStackRecordSourceInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CloudFormationStackRecordSourceInfo(entry, context)
   );
@@ -18928,7 +18928,7 @@ const deserializeAws_json1_1DiskInfo = (
 const deserializeAws_json1_1DiskInfoList = (
   output: any,
   context: __SerdeContext
-): Array<DiskInfo> => {
+): DiskInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DiskInfo(entry, context)
   );
@@ -18937,7 +18937,7 @@ const deserializeAws_json1_1DiskInfoList = (
 const deserializeAws_json1_1DiskList = (
   output: any,
   context: __SerdeContext
-): Array<Disk> => {
+): Disk[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Disk(entry, context)
   );
@@ -19039,7 +19039,7 @@ const deserializeAws_json1_1DiskSnapshotInfo = (
 const deserializeAws_json1_1DiskSnapshotList = (
   output: any,
   context: __SerdeContext
-): Array<DiskSnapshot> => {
+): DiskSnapshot[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DiskSnapshot(entry, context)
   );
@@ -19133,7 +19133,7 @@ const deserializeAws_json1_1DomainEntry = (
 const deserializeAws_json1_1DomainEntryList = (
   output: any,
   context: __SerdeContext
-): Array<DomainEntry> => {
+): DomainEntry[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DomainEntry(entry, context)
   );
@@ -19153,7 +19153,7 @@ const deserializeAws_json1_1DomainEntryOptions = (
 const deserializeAws_json1_1DomainList = (
   output: any,
   context: __SerdeContext
-): Array<Domain> => {
+): Domain[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Domain(entry, context)
   );
@@ -19251,7 +19251,7 @@ const deserializeAws_json1_1ExportSnapshotRecord = (
 const deserializeAws_json1_1ExportSnapshotRecordList = (
   output: any,
   context: __SerdeContext
-): Array<ExportSnapshotRecord> => {
+): ExportSnapshotRecord[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ExportSnapshotRecord(entry, context)
   );
@@ -20266,7 +20266,7 @@ const deserializeAws_json1_1HostKeyAttributes = (
 const deserializeAws_json1_1HostKeysList = (
   output: any,
   context: __SerdeContext
-): Array<HostKeyAttributes> => {
+): HostKeyAttributes[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1HostKeyAttributes(entry, context)
   );
@@ -20497,7 +20497,7 @@ const deserializeAws_json1_1InstanceHealthSummary = (
 const deserializeAws_json1_1InstanceHealthSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceHealthSummary> => {
+): InstanceHealthSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1InstanceHealthSummary(entry, context)
   );
@@ -20506,7 +20506,7 @@ const deserializeAws_json1_1InstanceHealthSummaryList = (
 const deserializeAws_json1_1InstanceList = (
   output: any,
   context: __SerdeContext
-): Array<Instance> => {
+): Instance[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Instance(entry, context)
   );
@@ -20539,7 +20539,7 @@ const deserializeAws_json1_1InstanceNetworking = (
 const deserializeAws_json1_1InstancePlatformList = (
   output: any,
   context: __SerdeContext
-): Array<InstancePlatform | string> => {
+): InstancePlatform | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -20584,7 +20584,7 @@ const deserializeAws_json1_1InstancePortInfo = (
 const deserializeAws_json1_1InstancePortInfoList = (
   output: any,
   context: __SerdeContext
-): Array<InstancePortInfo> => {
+): InstancePortInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1InstancePortInfo(entry, context)
   );
@@ -20619,7 +20619,7 @@ const deserializeAws_json1_1InstancePortState = (
 const deserializeAws_json1_1InstancePortStateList = (
   output: any,
   context: __SerdeContext
-): Array<InstancePortState> => {
+): InstancePortState[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1InstancePortState(entry, context)
   );
@@ -20742,7 +20742,7 @@ const deserializeAws_json1_1InstanceSnapshotInfo = (
 const deserializeAws_json1_1InstanceSnapshotList = (
   output: any,
   context: __SerdeContext
-): Array<InstanceSnapshot> => {
+): InstanceSnapshot[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1InstanceSnapshot(entry, context)
   );
@@ -20854,7 +20854,7 @@ const deserializeAws_json1_1KeyPair = (
 const deserializeAws_json1_1KeyPairList = (
   output: any,
   context: __SerdeContext
-): Array<KeyPair> => {
+): KeyPair[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1KeyPair(entry, context)
   );
@@ -20972,7 +20972,7 @@ const deserializeAws_json1_1LoadBalancerConfigurationOptions = (
 const deserializeAws_json1_1LoadBalancerList = (
   output: any,
   context: __SerdeContext
-): Array<LoadBalancer> => {
+): LoadBalancer[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LoadBalancer(entry, context)
   );
@@ -21139,7 +21139,7 @@ const deserializeAws_json1_1LoadBalancerTlsCertificateDomainValidationOption = (
 const deserializeAws_json1_1LoadBalancerTlsCertificateDomainValidationOptionList = (
   output: any,
   context: __SerdeContext
-): Array<LoadBalancerTlsCertificateDomainValidationOption> => {
+): LoadBalancerTlsCertificateDomainValidationOption[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LoadBalancerTlsCertificateDomainValidationOption(
       entry,
@@ -21184,7 +21184,7 @@ const deserializeAws_json1_1LoadBalancerTlsCertificateDomainValidationRecord = (
 const deserializeAws_json1_1LoadBalancerTlsCertificateDomainValidationRecordList = (
   output: any,
   context: __SerdeContext
-): Array<LoadBalancerTlsCertificateDomainValidationRecord> => {
+): LoadBalancerTlsCertificateDomainValidationRecord[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LoadBalancerTlsCertificateDomainValidationRecord(
       entry,
@@ -21196,7 +21196,7 @@ const deserializeAws_json1_1LoadBalancerTlsCertificateDomainValidationRecordList
 const deserializeAws_json1_1LoadBalancerTlsCertificateList = (
   output: any,
   context: __SerdeContext
-): Array<LoadBalancerTlsCertificate> => {
+): LoadBalancerTlsCertificate[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LoadBalancerTlsCertificate(entry, context)
   );
@@ -21247,7 +21247,7 @@ const deserializeAws_json1_1LoadBalancerTlsCertificateSummary = (
 const deserializeAws_json1_1LoadBalancerTlsCertificateSummaryList = (
   output: any,
   context: __SerdeContext
-): Array<LoadBalancerTlsCertificateSummary> => {
+): LoadBalancerTlsCertificateSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LoadBalancerTlsCertificateSummary(entry, context)
   );
@@ -21274,7 +21274,7 @@ const deserializeAws_json1_1LogEvent = (
 const deserializeAws_json1_1LogEventList = (
   output: any,
   context: __SerdeContext
-): Array<LogEvent> => {
+): LogEvent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LogEvent(entry, context)
   );
@@ -21321,7 +21321,7 @@ const deserializeAws_json1_1MetricDatapoint = (
 const deserializeAws_json1_1MetricDatapointList = (
   output: any,
   context: __SerdeContext
-): Array<MetricDatapoint> => {
+): MetricDatapoint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MetricDatapoint(entry, context)
   );
@@ -21482,7 +21482,7 @@ const deserializeAws_json1_1OperationFailureException = (
 const deserializeAws_json1_1OperationList = (
   output: any,
   context: __SerdeContext
-): Array<Operation> => {
+): Operation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Operation(entry, context)
   );
@@ -21553,7 +21553,7 @@ const deserializeAws_json1_1PendingMaintenanceAction = (
 const deserializeAws_json1_1PendingMaintenanceActionList = (
   output: any,
   context: __SerdeContext
-): Array<PendingMaintenanceAction> => {
+): PendingMaintenanceAction[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PendingMaintenanceAction(entry, context)
   );
@@ -21590,7 +21590,7 @@ const deserializeAws_json1_1PendingModifiedRelationalDatabaseValues = (
 const deserializeAws_json1_1PortList = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -21694,7 +21694,7 @@ const deserializeAws_json1_1Region = (
 const deserializeAws_json1_1RegionList = (
   output: any,
   context: __SerdeContext
-): Array<Region> => {
+): Region[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Region(entry, context)
   );
@@ -21914,7 +21914,7 @@ const deserializeAws_json1_1RelationalDatabaseBlueprint = (
 const deserializeAws_json1_1RelationalDatabaseBlueprintList = (
   output: any,
   context: __SerdeContext
-): Array<RelationalDatabaseBlueprint> => {
+): RelationalDatabaseBlueprint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RelationalDatabaseBlueprint(entry, context)
   );
@@ -21972,7 +21972,7 @@ const deserializeAws_json1_1RelationalDatabaseBundle = (
 const deserializeAws_json1_1RelationalDatabaseBundleList = (
   output: any,
   context: __SerdeContext
-): Array<RelationalDatabaseBundle> => {
+): RelationalDatabaseBundle[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RelationalDatabaseBundle(entry, context)
   );
@@ -22028,7 +22028,7 @@ const deserializeAws_json1_1RelationalDatabaseEvent = (
 const deserializeAws_json1_1RelationalDatabaseEventList = (
   output: any,
   context: __SerdeContext
-): Array<RelationalDatabaseEvent> => {
+): RelationalDatabaseEvent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RelationalDatabaseEvent(entry, context)
   );
@@ -22059,7 +22059,7 @@ const deserializeAws_json1_1RelationalDatabaseHardware = (
 const deserializeAws_json1_1RelationalDatabaseList = (
   output: any,
   context: __SerdeContext
-): Array<RelationalDatabase> => {
+): RelationalDatabase[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RelationalDatabase(entry, context)
   );
@@ -22110,7 +22110,7 @@ const deserializeAws_json1_1RelationalDatabaseParameter = (
 const deserializeAws_json1_1RelationalDatabaseParameterList = (
   output: any,
   context: __SerdeContext
-): Array<RelationalDatabaseParameter> => {
+): RelationalDatabaseParameter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RelationalDatabaseParameter(entry, context)
   );
@@ -22206,7 +22206,7 @@ const deserializeAws_json1_1RelationalDatabaseSnapshot = (
 const deserializeAws_json1_1RelationalDatabaseSnapshotList = (
   output: any,
   context: __SerdeContext
-): Array<RelationalDatabaseSnapshot> => {
+): RelationalDatabaseSnapshot[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RelationalDatabaseSnapshot(entry, context)
   );
@@ -22362,7 +22362,7 @@ const deserializeAws_json1_1StaticIp = (
 const deserializeAws_json1_1StaticIpList = (
   output: any,
   context: __SerdeContext
-): Array<StaticIp> => {
+): StaticIp[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1StaticIp(entry, context)
   );
@@ -22405,7 +22405,7 @@ const deserializeAws_json1_1StopRelationalDatabaseResult = (
 const deserializeAws_json1_1StringList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -22430,7 +22430,7 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );

@@ -98,12 +98,12 @@ export interface AssociateResourceShareRequest {
   /**
    * <p>The principals.</p>
    */
-  principals?: Array<string>;
+  principals?: string[];
 
   /**
    * <p>The Amazon Resource Names (ARN) of the resources.</p>
    */
-  resourceArns?: Array<string>;
+  resourceArns?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource share.</p>
@@ -126,7 +126,7 @@ export interface AssociateResourceShareResponse {
   /**
    * <p>Information about the associations.</p>
    */
-  resourceShareAssociations?: Array<ResourceShareAssociation>;
+  resourceShareAssociations?: ResourceShareAssociation[];
 }
 
 export namespace AssociateResourceShareResponse {
@@ -156,23 +156,23 @@ export interface CreateResourceShareRequest {
    * 			for the permission, AWS RAM automatically attaches the default version of the permission
    * 			for each resource type.</p>
    */
-  permissionArns?: Array<string>;
+  permissionArns?: string[];
 
   /**
    * <p>The principals to associate with the resource share. The possible values are IDs of AWS accounts,
    *           the ARN of an OU or organization from AWS Organizations.</p>
    */
-  principals?: Array<string>;
+  principals?: string[];
 
   /**
    * <p>The Amazon Resource Names (ARN) of the resources to associate with the resource share.</p>
    */
-  resourceArns?: Array<string>;
+  resourceArns?: string[];
 
   /**
    * <p>One or more tags.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateResourceShareRequest {
@@ -289,12 +289,12 @@ export interface DisassociateResourceShareRequest {
   /**
    * <p>The principals.</p>
    */
-  principals?: Array<string>;
+  principals?: string[];
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the resources.</p>
    */
-  resourceArns?: Array<string>;
+  resourceArns?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource share.</p>
@@ -317,7 +317,7 @@ export interface DisassociateResourceShareResponse {
   /**
    * <p>Information about the associations.</p>
    */
-  resourceShareAssociations?: Array<ResourceShareAssociation>;
+  resourceShareAssociations?: ResourceShareAssociation[];
 }
 
 export namespace DisassociateResourceShareResponse {
@@ -399,7 +399,7 @@ export interface GetResourcePoliciesRequest {
   /**
    * <p>The Amazon Resource Names (ARN) of the resources.</p>
    */
-  resourceArns: Array<string> | undefined;
+  resourceArns: string[] | undefined;
 }
 
 export namespace GetResourcePoliciesRequest {
@@ -417,7 +417,7 @@ export interface GetResourcePoliciesResponse {
   /**
    * <p>A key policy document, in JSON format.</p>
    */
-  policies?: Array<string>;
+  policies?: string[];
 }
 
 export namespace GetResourcePoliciesResponse {
@@ -465,7 +465,7 @@ export interface GetResourceShareAssociationsRequest {
   /**
    * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
    */
-  resourceShareArns?: Array<string>;
+  resourceShareArns?: string[];
 }
 
 export namespace GetResourceShareAssociationsRequest {
@@ -483,7 +483,7 @@ export interface GetResourceShareAssociationsResponse {
   /**
    * <p>Information about the associations.</p>
    */
-  resourceShareAssociations?: Array<ResourceShareAssociation>;
+  resourceShareAssociations?: ResourceShareAssociation[];
 }
 
 export namespace GetResourceShareAssociationsResponse {
@@ -507,12 +507,12 @@ export interface GetResourceShareInvitationsRequest {
   /**
    * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
    */
-  resourceShareArns?: Array<string>;
+  resourceShareArns?: string[];
 
   /**
    * <p>The Amazon Resource Names (ARN) of the invitations.</p>
    */
-  resourceShareInvitationArns?: Array<string>;
+  resourceShareInvitationArns?: string[];
 }
 
 export namespace GetResourceShareInvitationsRequest {
@@ -530,7 +530,7 @@ export interface GetResourceShareInvitationsResponse {
   /**
    * <p>Information about the invitations.</p>
    */
-  resourceShareInvitations?: Array<ResourceShareInvitation>;
+  resourceShareInvitations?: ResourceShareInvitation[];
 }
 
 export namespace GetResourceShareInvitationsResponse {
@@ -564,7 +564,7 @@ export interface GetResourceSharesRequest {
   /**
    * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
    */
-  resourceShareArns?: Array<string>;
+  resourceShareArns?: string[];
 
   /**
    * <p>The status of the resource share.</p>
@@ -574,7 +574,7 @@ export interface GetResourceSharesRequest {
   /**
    * <p>One or more tag filters.</p>
    */
-  tagFilters?: Array<TagFilter>;
+  tagFilters?: TagFilter[];
 }
 
 export namespace GetResourceSharesRequest {
@@ -592,7 +592,7 @@ export interface GetResourceSharesResponse {
   /**
    * <p>Information about the resource shares.</p>
    */
-  resourceShares?: Array<ResourceShare>;
+  resourceShares?: ResourceShare[];
 }
 
 export namespace GetResourceSharesResponse {
@@ -747,7 +747,7 @@ export interface ListPendingInvitationResourcesResponse {
   /**
    * <p>Information about the resources included the resource share.</p>
    */
-  resources?: Array<Resource>;
+  resources?: Resource[];
 }
 
 export namespace ListPendingInvitationResourcesResponse {
@@ -790,7 +790,7 @@ export interface ListPermissionsResponse {
   /**
    * <p>Information about the permissions.</p>
    */
-  permissions?: Array<ResourceSharePermissionSummary>;
+  permissions?: ResourceSharePermissionSummary[];
 }
 
 export namespace ListPermissionsResponse {
@@ -814,7 +814,7 @@ export interface ListPrincipalsRequest {
   /**
    * <p>The principals.</p>
    */
-  principals?: Array<string>;
+  principals?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -829,7 +829,7 @@ export interface ListPrincipalsRequest {
   /**
    * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
    */
-  resourceShareArns?: Array<string>;
+  resourceShareArns?: string[];
 
   /**
    * <p>The resource type.</p>
@@ -858,7 +858,7 @@ export interface ListPrincipalsResponse {
   /**
    * <p>The principals.</p>
    */
-  principals?: Array<Principal>;
+  principals?: Principal[];
 }
 
 export namespace ListPrincipalsResponse {
@@ -900,7 +900,7 @@ export interface ListResourceSharePermissionsResponse {
   /**
    * <p>The permissions associated with the resource share.</p>
    */
-  permissions?: Array<ResourceSharePermissionSummary>;
+  permissions?: ResourceSharePermissionSummary[];
 }
 
 export namespace ListResourceSharePermissionsResponse {
@@ -929,7 +929,7 @@ export interface ListResourcesRequest {
   /**
    * <p>The Amazon Resource Names (ARN) of the resources.</p>
    */
-  resourceArns?: Array<string>;
+  resourceArns?: string[];
 
   /**
    * <p>The type of owner.</p>
@@ -939,7 +939,7 @@ export interface ListResourcesRequest {
   /**
    * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
    */
-  resourceShareArns?: Array<string>;
+  resourceShareArns?: string[];
 
   /**
    * <p>The resource type.</p>
@@ -968,7 +968,7 @@ export interface ListResourcesResponse {
   /**
    * <p>Information about the resources.</p>
    */
-  resources?: Array<Resource>;
+  resources?: Resource[];
 }
 
 export namespace ListResourcesResponse {
@@ -1271,7 +1271,7 @@ export interface ResourceShare {
   /**
    * <p>The tags for the resource share.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace ResourceShare {
@@ -1375,7 +1375,7 @@ export interface ResourceShareInvitation {
    *       	<a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPendingInvitationResources.html">
    *       		ListPendingInvitationResources</a>.</p>
    */
-  resourceShareAssociations?: Array<ResourceShareAssociation>;
+  resourceShareAssociations?: ResourceShareAssociation[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the invitation.</p>
@@ -1679,7 +1679,7 @@ export interface TagFilter {
   /**
    * <p>The tag values.</p>
    */
-  tagValues?: Array<string>;
+  tagValues?: string[];
 }
 
 export namespace TagFilter {
@@ -1728,7 +1728,7 @@ export interface TagResourceRequest {
   /**
    * <p>One or more tags.</p>
    */
-  tags: Array<Tag> | undefined;
+  tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1771,7 +1771,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The tag keys of the tags to remove.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

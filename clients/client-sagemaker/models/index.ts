@@ -17,7 +17,7 @@ export interface AddTagsInput {
    *                 <code>key</code> parameter is required. If you don't specify a value, Amazon SageMaker sets the
    *             value to an empty string. </p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace AddTagsInput {
@@ -29,7 +29,7 @@ export interface AddTagsOutput {
   /**
    * <p>A list of tags associated with the Amazon SageMaker resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace AddTagsOutput {
@@ -91,7 +91,7 @@ export interface AlgorithmSpecification {
    * <p>A list of metric definition objects. Each object specifies the metric name and regular
    *             expressions used to parse algorithm logs. Amazon SageMaker publishes each metric to Amazon CloudWatch.</p>
    */
-  MetricDefinitions?: Array<MetricDefinition>;
+  MetricDefinitions?: MetricDefinition[];
 
   /**
    * <p>The registry path of the Docker image
@@ -145,12 +145,12 @@ export interface AlgorithmStatusDetails {
   /**
    * <p>The status of the scan of the algorithm's Docker image container.</p>
    */
-  ImageScanStatuses?: Array<AlgorithmStatusItem>;
+  ImageScanStatuses?: AlgorithmStatusItem[];
 
   /**
    * <p>The status of algorithm validation.</p>
    */
-  ValidationStatuses?: Array<AlgorithmStatusItem>;
+  ValidationStatuses?: AlgorithmStatusItem[];
 }
 
 export namespace AlgorithmStatusDetails {
@@ -262,7 +262,7 @@ export interface AlgorithmValidationSpecification {
    * <p>An array of <code>AlgorithmValidationProfile</code> objects, each of which specifies a
    *             training job and batch transform job that Amazon SageMaker runs to validate your algorithm.</p>
    */
-  ValidationProfiles: Array<AlgorithmValidationProfile> | undefined;
+  ValidationProfiles: AlgorithmValidationProfile[] | undefined;
 
   /**
    * <p>The IAM roles that Amazon SageMaker uses to run the training jobs.</p>
@@ -763,12 +763,12 @@ export interface AppSpecification {
   /**
    * <p>The arguments for a container used to run a processing job.</p>
    */
-  ContainerArguments?: Array<string>;
+  ContainerArguments?: string[];
 
   /**
    * <p>The entrypoint for a container used to run a processing job.</p>
    */
-  ContainerEntrypoint?: Array<string>;
+  ContainerEntrypoint?: string[];
 
   /**
    * <p>The container image to be run by the processing job.</p>
@@ -860,7 +860,7 @@ export interface AutoMLCandidate {
   /**
    * <p>The candidate's steps.</p>
    */
-  CandidateSteps: Array<AutoMLCandidateStep> | undefined;
+  CandidateSteps: AutoMLCandidateStep[] | undefined;
 
   /**
    * <p>The creation time.</p>
@@ -885,7 +885,7 @@ export interface AutoMLCandidate {
   /**
    * <p>The inference containers.</p>
    */
-  InferenceContainers?: Array<AutoMLContainerDefinition>;
+  InferenceContainers?: AutoMLContainerDefinition[];
 
   /**
    * <p>The last modified time.</p>
@@ -1298,12 +1298,12 @@ export interface CaptureContentTypeHeader {
   /**
    * <p></p>
    */
-  CsvContentTypes?: Array<string>;
+  CsvContentTypes?: string[];
 
   /**
    * <p></p>
    */
-  JsonContentTypes?: Array<string>;
+  JsonContentTypes?: string[];
 }
 
 export namespace CaptureContentTypeHeader {
@@ -1351,7 +1351,7 @@ export interface CategoricalParameterRange {
    *             for
    *             the hyperparameter.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace CategoricalParameterRange {
@@ -1367,7 +1367,7 @@ export interface CategoricalParameterRangeSpecification {
   /**
    * <p>The allowed categories for the hyperparameter.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace CategoricalParameterRangeSpecification {
@@ -1473,12 +1473,12 @@ export interface ChannelSpecification {
   /**
    * <p>The allowed compression types, if data compression is used.</p>
    */
-  SupportedCompressionTypes?: Array<CompressionType | string>;
+  SupportedCompressionTypes?: CompressionType | string[];
 
   /**
    * <p>The supported MIME types for the data.</p>
    */
-  SupportedContentTypes: Array<string> | undefined;
+  SupportedContentTypes: string[] | undefined;
 
   /**
    * <p>The allowed input mode, either FILE or PIPE.</p>
@@ -1488,7 +1488,7 @@ export interface ChannelSpecification {
    *         <p>In PIPE mode, Amazon SageMaker streams input data from the source directly to your
    *             algorithm without using the EBS volume.</p>
    */
-  SupportedInputModes: Array<TrainingInputMode | string> | undefined;
+  SupportedInputModes: TrainingInputMode | string[] | undefined;
 }
 
 export namespace ChannelSpecification {
@@ -1992,7 +1992,7 @@ export interface CreateAppRequest {
    * <p>Each tag consists of a key and an optional value.
    *          Tag keys must be unique per resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The user profile name.</p>
@@ -2047,7 +2047,7 @@ export interface CreateAutoMLJobRequest {
    * <p>Similar to InputDataConfig supported by Tuning.
    *           Format(s) supported: CSV.</p>
    */
-  InputDataConfig: Array<AutoMLChannel> | undefined;
+  InputDataConfig: AutoMLChannel[] | undefined;
 
   /**
    * <p>Similar to OutputDataConfig supported by Tuning.
@@ -2070,7 +2070,7 @@ export interface CreateAutoMLJobRequest {
    * <p>Each tag consists of a key and an optional value.
    *           Tag keys must be unique per resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateAutoMLJobRequest {
@@ -2229,13 +2229,13 @@ export interface CreateDomainRequest {
   /**
    * <p>Security setting to limit to a set of subnets.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 
   /**
    * <p>Each tag consists of a key and an optional value.
    *          Tag keys must be unique per resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>Security setting to limit the domain's communication to a Amazon Virtual Private Cloud.</p>
@@ -2327,14 +2327,14 @@ export interface CreateEndpointConfigInput {
    * <p>An list of <code>ProductionVariant</code> objects, one for each model that you want
    *             to host at this endpoint.</p>
    */
-  ProductionVariants: Array<ProductionVariant> | undefined;
+  ProductionVariants: ProductionVariant[] | undefined;
 
   /**
    * <p>A list of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
    *                 Cost Allocation Tags</a> in the <i> AWS Billing and Cost Management User
    *                 Guide</i>. </p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateEndpointConfigInput {
@@ -2376,7 +2376,7 @@ export interface CreateEndpointInput {
    *
    *         </p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateEndpointInput {
@@ -2421,7 +2421,7 @@ export interface CreateExperimentRequest {
    * <p>A list of tags to associate with the experiment. You can use <a>Search</a> API
    *       to search on the tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateExperimentRequest {
@@ -2472,7 +2472,7 @@ export interface CreateFlowDefinitionRequest {
   /**
    * <p>An array of key-value pairs that contain metadata to help you categorize and organize a flow definition. Each tag consists of a key and a value, both of which you define.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateFlowDefinitionRequest {
@@ -2503,7 +2503,7 @@ export interface CreateHumanTaskUiRequest {
   /**
    * <p>An array of key-value pairs that contain metadata to help you categorize and organize a human review workflow user interface. Each tag consists of a key and a value, both of which you define.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The Liquid template for the worker user interface.</p>
@@ -2556,7 +2556,7 @@ export interface CreateHyperParameterTuningJobRequest {
    *         <p>Tags that you specify for the tuning job are also added to all training jobs that the
    *             tuning job launches.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The <a>HyperParameterTrainingJobDefinition</a> object that describes the
@@ -2570,7 +2570,7 @@ export interface CreateHyperParameterTuningJobRequest {
   /**
    * <p></p>
    */
-  TrainingJobDefinitions?: Array<HyperParameterTrainingJobDefinition>;
+  TrainingJobDefinitions?: HyperParameterTrainingJobDefinition[];
 
   /**
    * <p>Specifies the configuration for starting the hyperparameter tuning job using one or
@@ -2720,7 +2720,7 @@ export interface CreateLabelingJobRequest {
    * <p>An array of key/value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management
    *                 User Guide</i>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateLabelingJobRequest {
@@ -2747,7 +2747,7 @@ export interface CreateModelInput {
   /**
    * <p>Specifies the containers in the inference pipeline.</p>
    */
-  Containers?: Array<ContainerDefinition>;
+  Containers?: ContainerDefinition[];
 
   /**
    * <p>Isolates the model container. No inbound or outbound network calls can be made to or
@@ -2786,7 +2786,7 @@ export interface CreateModelInput {
    *                 Guide</i>.
    *         </p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your model to connect
@@ -2902,7 +2902,7 @@ export interface CreateMonitoringScheduleRequest {
    * <p>(Optional) An array of key-value pairs. For more information, see <a href=" https://docs-aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management
    *             User Guide</i>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateMonitoringScheduleRequest {
@@ -2930,7 +2930,7 @@ export interface CreateNotebookInstanceInput {
    *             instance. Currently, only one instance type can be associated with a notebook instance.
    *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.</p>
    */
-  AcceleratorTypes?: Array<NotebookInstanceAcceleratorType | string>;
+  AcceleratorTypes?: NotebookInstanceAcceleratorType | string[];
 
   /**
    * <p>An array of up to three Git repositories to associate with the notebook instance.
@@ -2940,7 +2940,7 @@ export interface CreateNotebookInstanceInput {
    *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
    *                 Repositories with Amazon SageMaker Notebook Instances</a>.</p>
    */
-  AdditionalCodeRepositories?: Array<string>;
+  AdditionalCodeRepositories?: string[];
 
   /**
    * <p>A Git repository to associate with the notebook instance as its default code
@@ -3017,7 +3017,7 @@ export interface CreateNotebookInstanceInput {
    * <p>The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be
    *             for the same VPC as specified in the subnet. </p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>The ID of the subnet in a VPC to which you would like to have a connectivity from
@@ -3029,7 +3029,7 @@ export interface CreateNotebookInstanceInput {
    * <p>A list of tags to associate with the notebook instance. You can add tags later by
    *             using the <code>CreateTags</code> API.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The size, in GB, of the ML storage volume to attach to the notebook instance. The
@@ -3054,13 +3054,13 @@ export interface CreateNotebookInstanceLifecycleConfigInput {
    * <p>A shell script that runs only once, when you create a notebook instance. The shell
    *             script must be a base64-encoded string.</p>
    */
-  OnCreate?: Array<NotebookInstanceLifecycleHook>;
+  OnCreate?: NotebookInstanceLifecycleHook[];
 
   /**
    * <p>A shell script that runs every time you start a notebook instance, including when you
    *             create the notebook instance. The shell script must be a base64-encoded string.</p>
    */
-  OnStart?: Array<NotebookInstanceLifecycleHook>;
+  OnStart?: NotebookInstanceLifecycleHook[];
 }
 
 export namespace CreateNotebookInstanceLifecycleConfigInput {
@@ -3191,7 +3191,7 @@ export interface CreateProcessingJobRequest {
    * <p>For each input, data is downloaded from S3 into the processing container before the
    *             processing job begins running if "S3InputMode" is set to <code>File</code>.</p>
    */
-  ProcessingInputs?: Array<ProcessingInput>;
+  ProcessingInputs?: ProcessingInput[];
 
   /**
    * <p> The name of the processing job. The name must be unique within an AWS Region in the
@@ -3225,7 +3225,7 @@ export interface CreateProcessingJobRequest {
    * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs-aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management
    *                 User Guide</i>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateProcessingJobRequest {
@@ -3272,7 +3272,7 @@ export interface CreateTrainingJobRequest {
   /**
    * <p>Configuration information for debugging rules.</p>
    */
-  DebugRuleConfigurations?: Array<DebugRuleConfiguration>;
+  DebugRuleConfigurations?: DebugRuleConfiguration[];
 
   /**
    * <p>To encrypt all communications between ML compute instances in distributed training,
@@ -3337,7 +3337,7 @@ export interface CreateTrainingJobRequest {
    *             files will be made available as input streams. They do not need to be
    *             downloaded.</p>
    */
-  InputDataConfig?: Array<Channel>;
+  InputDataConfig?: Channel[];
 
   /**
    * <p>Specifies the path to the S3 location where you want to store model artifacts. Amazon SageMaker
@@ -3387,7 +3387,7 @@ export interface CreateTrainingJobRequest {
    *
    *         </p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>Configuration of storage locations for TensorBoard output.</p>
@@ -3508,7 +3508,7 @@ export interface CreateTransformJobRequest {
    *                 Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User
    *                 Guide</i>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>Describes the input source and
@@ -3611,7 +3611,7 @@ export interface CreateTrialComponentRequest {
    * <p>A list of tags to associate with the component. You can use <a>Search</a> API
    *       to search on the tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The name of the component. The name must be unique in your AWS account and is not
@@ -3656,7 +3656,7 @@ export interface CreateTrialRequest {
    * <p>A list of tags to associate with the trial. You can use <a>Search</a> API
    *       to search on the tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The name of the trial. The name must be unique in your AWS account and is not
@@ -3708,7 +3708,7 @@ export interface CreateUserProfileRequest {
    * <p>Each tag consists of a key and an optional value.
    *          Tag keys must be unique per resource.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A name for the UserProfile.</p>
@@ -3754,7 +3754,7 @@ export interface CreateWorkteamRequest {
    *             definition must have the same <code>ClientId</code> and <code>UserPool</code>
    *             values.</p>
    */
-  MemberDefinitions: Array<MemberDefinition> | undefined;
+  MemberDefinitions: MemberDefinition[] | undefined;
 
   /**
    * <p>Configures notification of workers regarding available or expiring work items.</p>
@@ -3768,7 +3768,7 @@ export interface CreateWorkteamRequest {
    *                 Cost Allocation Tags</a> in the <i> AWS Billing and Cost Management User
    *                 Guide</i>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The name of the work team. Use this name to identify the work team.</p>
@@ -3808,7 +3808,7 @@ export interface DataCaptureConfig {
   /**
    * <p></p>
    */
-  CaptureOptions: Array<CaptureOption> | undefined;
+  CaptureOptions: CaptureOption[] | undefined;
 
   /**
    * <p></p>
@@ -3959,7 +3959,7 @@ export interface DebugHookConfig {
   /**
    * <p>Configuration information for tensor collections.</p>
    */
-  CollectionConfigurations?: Array<CollectionConfiguration>;
+  CollectionConfigurations?: CollectionConfiguration[];
 
   /**
    * <p>Configuration information for the debug hook parameters.</p>
@@ -4294,7 +4294,7 @@ export interface DeleteTagsInput {
   /**
    * <p>An array or one or more tag keys to delete.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace DeleteTagsInput {
@@ -4687,7 +4687,7 @@ export interface DescribeAutoMLJobResponse {
   /**
    * <p>Returns the job's input data config.</p>
    */
-  InputDataConfig: Array<AutoMLChannel> | undefined;
+  InputDataConfig: AutoMLChannel[] | undefined;
 
   /**
    * <p>Returns the job's last modified time.</p>
@@ -4952,7 +4952,7 @@ export interface DescribeDomainResponse {
   /**
    * <p>Security setting to limit to a set of subnets.</p>
    */
-  SubnetIds?: Array<string>;
+  SubnetIds?: string[];
 
   /**
    * <p>The domain's URL.</p>
@@ -5015,7 +5015,7 @@ export interface DescribeEndpointConfigOutput {
    * <p>An array of <code>ProductionVariant</code> objects, one for each model that you
    *             want to host at this endpoint.</p>
    */
-  ProductionVariants: Array<ProductionVariant> | undefined;
+  ProductionVariants: ProductionVariant[] | undefined;
 }
 
 export namespace DescribeEndpointConfigOutput {
@@ -5131,7 +5131,7 @@ export interface DescribeEndpointOutput {
    * <p> An array of <a>ProductionVariantSummary</a> objects, one for each model
    *             hosted behind this endpoint. </p>
    */
-  ProductionVariants?: Array<ProductionVariantSummary>;
+  ProductionVariants?: ProductionVariantSummary[];
 }
 
 export namespace DescribeEndpointOutput {
@@ -5405,7 +5405,7 @@ export interface DescribeHyperParameterTuningJobResponse {
   /**
    * <p></p>
    */
-  TrainingJobDefinitions?: Array<HyperParameterTrainingJobDefinition>;
+  TrainingJobDefinitions?: HyperParameterTrainingJobDefinition[];
 
   /**
    * <p>The <a>TrainingJobStatusCounters</a> object that specifies the number of
@@ -5595,7 +5595,7 @@ export interface DescribeLabelingJobResponse {
    *                 Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User
    *                 Guide</i>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace DescribeLabelingJobResponse {
@@ -5621,7 +5621,7 @@ export interface DescribeModelOutput {
   /**
    * <p>The containers in the inference pipeline.</p>
    */
-  Containers?: Array<ContainerDefinition>;
+  Containers?: ContainerDefinition[];
 
   /**
    * <p>A timestamp that shows when the model was created.</p>
@@ -5865,13 +5865,13 @@ export interface DescribeNotebookInstanceLifecycleConfigOutput {
   /**
    * <p>The shell script that runs only once, when you create a notebook instance.</p>
    */
-  OnCreate?: Array<NotebookInstanceLifecycleHook>;
+  OnCreate?: NotebookInstanceLifecycleHook[];
 
   /**
    * <p>The shell script that runs every time you start a notebook instance, including when
    *             you create the notebook instance.</p>
    */
-  OnStart?: Array<NotebookInstanceLifecycleHook>;
+  OnStart?: NotebookInstanceLifecycleHook[];
 }
 
 export namespace DescribeNotebookInstanceLifecycleConfigOutput {
@@ -5889,7 +5889,7 @@ export interface DescribeNotebookInstanceOutput {
    *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
    *                 SageMaker</a>.</p>
    */
-  AcceleratorTypes?: Array<NotebookInstanceAcceleratorType | string>;
+  AcceleratorTypes?: NotebookInstanceAcceleratorType | string[];
 
   /**
    * <p>An array of up to three Git repositories associated with the notebook instance. These
@@ -5899,7 +5899,7 @@ export interface DescribeNotebookInstanceOutput {
    *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
    *                 Repositories with Amazon SageMaker Notebook Instances</a>.</p>
    */
-  AdditionalCodeRepositories?: Array<string>;
+  AdditionalCodeRepositories?: string[];
 
   /**
    * <p>A timestamp. Use this parameter to return the time when the notebook instance was
@@ -5996,7 +5996,7 @@ export interface DescribeNotebookInstanceOutput {
   /**
    * <p>The IDs of the VPC security groups.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * <p>The ID of the VPC subnet.</p>
@@ -6097,7 +6097,7 @@ export interface DescribeProcessingJobResponse {
   /**
    * <p>The inputs for a processing job.</p>
    */
-  ProcessingInputs?: Array<ProcessingInput>;
+  ProcessingInputs?: ProcessingInput[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the processing job.</p>
@@ -6234,12 +6234,12 @@ export interface DescribeTrainingJobResponse {
   /**
    * <p>Configuration information for debugging rules.</p>
    */
-  DebugRuleConfigurations?: Array<DebugRuleConfiguration>;
+  DebugRuleConfigurations?: DebugRuleConfiguration[];
 
   /**
    * <p>Status about the debug rule evaluation.</p>
    */
-  DebugRuleEvaluationStatuses?: Array<DebugRuleEvaluationStatus>;
+  DebugRuleEvaluationStatuses?: DebugRuleEvaluationStatus[];
 
   /**
    * <p>To encrypt all communications between ML compute instances in distributed training,
@@ -6279,7 +6279,7 @@ export interface DescribeTrainingJobResponse {
    * <p>A collection of <code>MetricData</code> objects that specify the names, values, and
    *             dates and times that the training algorithm emitted to Amazon CloudWatch.</p>
    */
-  FinalMetricDataList?: Array<MetricData>;
+  FinalMetricDataList?: MetricData[];
 
   /**
    * <p>Algorithm-specific parameters. </p>
@@ -6290,7 +6290,7 @@ export interface DescribeTrainingJobResponse {
    * <p>An array of <code>Channel</code> objects that describes each data input channel.
    *         </p>
    */
-  InputDataConfig?: Array<Channel>;
+  InputDataConfig?: Channel[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling job that created the
@@ -6442,7 +6442,7 @@ export interface DescribeTrainingJobResponse {
    * <p>A history of all of the secondary statuses that the training job has transitioned
    *             through.</p>
    */
-  SecondaryStatusTransitions?: Array<SecondaryStatusTransition>;
+  SecondaryStatusTransitions?: SecondaryStatusTransition[];
 
   /**
    * <p>Specifies a limit to how long a model training job can run. It also specifies the
@@ -6758,7 +6758,7 @@ export interface DescribeTrialComponentResponse {
   /**
    * <p>The metrics for the component.</p>
    */
-  Metrics?: Array<TrialComponentMetricSummary>;
+  Metrics?: TrialComponentMetricSummary[];
 
   /**
    * <p>The output artifacts of the component.</p>
@@ -7392,7 +7392,7 @@ export interface Experiment {
    * <p>The list of tags that are associated with the experiment. You can use
    *       <a>Search</a> API to search on the tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace Experiment {
@@ -7833,7 +7833,7 @@ export interface GetSearchSuggestionsResponse {
    * <p>A list of property names for a <code>Resource</code> that match a
    *       <code>SuggestionQuery</code>.</p>
    */
-  PropertyNameSuggestions?: Array<PropertyNameSuggestion>;
+  PropertyNameSuggestions?: PropertyNameSuggestion[];
 }
 
 export namespace GetSearchSuggestionsResponse {
@@ -8268,7 +8268,7 @@ export interface HumanLoopConfig {
   /**
    * <p>Keywords used to describe the task so that workers can discover the task.</p>
    */
-  TaskKeywords?: Array<string>;
+  TaskKeywords?: string[];
 
   /**
    * <p>The amount of time that a worker has to complete a task.</p>
@@ -8963,7 +8963,7 @@ export interface HumanTaskConfig {
    * <p>Keywords used to describe the task so that workers on Amazon Mechanical Turk can
    *             discover the task.</p>
    */
-  TaskKeywords?: Array<string>;
+  TaskKeywords?: string[];
 
   /**
    * <p>The amount of time that a worker has to complete a task.</p>
@@ -9038,7 +9038,7 @@ export interface HyperParameterAlgorithmSpecification {
    *             metrics
    *             that the algorithm emits.</p>
    */
-  MetricDefinitions?: Array<MetricDefinition>;
+  MetricDefinitions?: MetricDefinition[];
 
   /**
    * <p> The registry path of the Docker image that contains the training algorithm. For
@@ -9200,7 +9200,7 @@ export interface HyperParameterTrainingJobDefinition {
    *             the
    *             input for the training jobs that the tuning job launches.</p>
    */
-  InputDataConfig?: Array<Channel>;
+  InputDataConfig?: Channel[];
 
   /**
    * <p>Specifies the path to the Amazon S3 bucket where you
@@ -9613,9 +9613,7 @@ export interface HyperParameterTuningJobWarmStartConfig {
    *         <p>Hyperparameter tuning jobs created before October 1, 2018 cannot be used as parent
    *             jobs for warm start tuning jobs.</p>
    */
-  ParentHyperParameterTuningJobs:
-    | Array<ParentHyperParameterTuningJob>
-    | undefined;
+  ParentHyperParameterTuningJobs: ParentHyperParameterTuningJob[] | undefined;
 
   /**
    * <p>Specifies one of the following:</p>
@@ -9669,32 +9667,31 @@ export interface InferenceSpecification {
   /**
    * <p>The Amazon ECR registry path of the Docker image that contains the inference code.</p>
    */
-  Containers: Array<ModelPackageContainerDefinition> | undefined;
+  Containers: ModelPackageContainerDefinition[] | undefined;
 
   /**
    * <p>The supported MIME types for the input data.</p>
    */
-  SupportedContentTypes: Array<string> | undefined;
+  SupportedContentTypes: string[] | undefined;
 
   /**
    * <p>A list of the instance types that are used to generate inferences in real-time.</p>
    */
   SupportedRealtimeInferenceInstanceTypes:
-    | Array<ProductionVariantInstanceType | string>
+    | ProductionVariantInstanceType
+    | string[]
     | undefined;
 
   /**
    * <p>The supported MIME types for the output data.</p>
    */
-  SupportedResponseMIMETypes: Array<string> | undefined;
+  SupportedResponseMIMETypes: string[] | undefined;
 
   /**
    * <p>A list of the instance types on which a transformation job can be run or on which an
    *             endpoint can be deployed.</p>
    */
-  SupportedTransformInstanceTypes:
-    | Array<TransformInstanceType | string>
-    | undefined;
+  SupportedTransformInstanceTypes: TransformInstanceType | string[] | undefined;
 }
 
 export namespace InferenceSpecification {
@@ -10200,7 +10197,7 @@ export interface LabelingJobDataAttributes {
    *             content. Amazon SageMaker may restrict the Amazon Mechanical Turk workers that can view your task
    *             based on this information.</p>
    */
-  ContentClassifiers?: Array<ContentClassifier | string>;
+  ContentClassifiers?: ContentClassifier | string[];
 }
 
 export namespace LabelingJobDataAttributes {
@@ -10558,7 +10555,7 @@ export interface ListAlgorithmsOutput {
    * <p>>An array of <code>AlgorithmSummary</code> objects, each of which lists an
    *             algorithm.</p>
    */
-  AlgorithmSummaryList: Array<AlgorithmSummary> | undefined;
+  AlgorithmSummaryList: AlgorithmSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
@@ -10616,7 +10613,7 @@ export interface ListAppsResponse {
   /**
    * <p>The list of apps.</p>
    */
-  Apps?: Array<AppDetails>;
+  Apps?: AppDetails[];
 
   /**
    * <p>If the previous response was truncated, you will receive this token.
@@ -10694,7 +10691,7 @@ export interface ListAutoMLJobsResponse {
   /**
    * <p>Returns a summary list of jobs.</p>
    */
-  AutoMLJobSummaries: Array<AutoMLJobSummary> | undefined;
+  AutoMLJobSummaries: AutoMLJobSummary[] | undefined;
 
   /**
    * <p>If the previous response was truncated, you will receive this token.
@@ -10757,7 +10754,7 @@ export interface ListCandidatesForAutoMLJobResponse {
   /**
    * <p>Summaries about the Candidates.</p>
    */
-  Candidates: Array<AutoMLCandidate> | undefined;
+  Candidates: AutoMLCandidate[] | undefined;
 
   /**
    * <p>If the previous response was truncated, you will receive this token.
@@ -10856,7 +10853,7 @@ export interface ListCodeRepositoriesOutput {
    *             </li>
    *          </ul>
    */
-  CodeRepositorySummaryList: Array<CodeRepositorySummary> | undefined;
+  CodeRepositorySummaryList: CodeRepositorySummary[] | undefined;
 
   /**
    * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the
@@ -10942,7 +10939,7 @@ export interface ListCompilationJobsResponse {
    * <p>An array of <a>CompilationJobSummary</a> objects, each describing a model
    *             compilation job. </p>
    */
-  CompilationJobSummaries: Array<CompilationJobSummary> | undefined;
+  CompilationJobSummaries: CompilationJobSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this <code>NextToken</code>. To retrieve
@@ -10986,7 +10983,7 @@ export interface ListDomainsResponse {
   /**
    * <p>The list of domains.</p>
    */
-  Domains?: Array<DomainDetails>;
+  Domains?: DomainDetails[];
 
   /**
    * <p>If the previous response was truncated, you will receive this token.
@@ -11053,7 +11050,7 @@ export interface ListEndpointConfigsOutput {
   /**
    * <p>An array of endpoint configurations.</p>
    */
-  EndpointConfigs: Array<EndpointConfigSummary> | undefined;
+  EndpointConfigs: EndpointConfigSummary[] | undefined;
 
   /**
    * <p> If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
@@ -11137,7 +11134,7 @@ export interface ListEndpointsOutput {
   /**
    * <p> An array or endpoint objects. </p>
    */
-  Endpoints: Array<EndpointSummary> | undefined;
+  Endpoints: EndpointSummary[] | undefined;
 
   /**
    * <p> If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
@@ -11195,7 +11192,7 @@ export interface ListExperimentsResponse {
   /**
    * <p>A list of the summaries of your experiments.</p>
    */
-  ExperimentSummaries?: Array<ExperimentSummary>;
+  ExperimentSummaries?: ExperimentSummary[];
 
   /**
    * <p>A token for getting the next set of experiments, if there are any.</p>
@@ -11246,7 +11243,7 @@ export interface ListFlowDefinitionsResponse {
   /**
    * <p>An array of objects describing the flow definitions.</p>
    */
-  FlowDefinitionSummaries: Array<FlowDefinitionSummary> | undefined;
+  FlowDefinitionSummaries: FlowDefinitionSummary[] | undefined;
 
   /**
    * <p>A token to resume pagination.</p>
@@ -11297,7 +11294,7 @@ export interface ListHumanTaskUisResponse {
   /**
    * <p>An array of objects describing the human task user interfaces.</p>
    */
-  HumanTaskUiSummaries: Array<HumanTaskUiSummary> | undefined;
+  HumanTaskUiSummaries: HumanTaskUiSummary[] | undefined;
 
   /**
    * <p>A token to resume pagination.</p>
@@ -11394,7 +11391,7 @@ export interface ListHyperParameterTuningJobsResponse {
    *             request returned.</p>
    */
   HyperParameterTuningJobSummaries:
-    | Array<HyperParameterTuningJobSummary>
+    | HyperParameterTuningJobSummary[]
     | undefined;
 
   /**
@@ -11470,7 +11467,7 @@ export interface ListLabelingJobsForWorkteamResponse {
    * <p>An array of <code>LabelingJobSummary</code> objects, each describing a labeling
    *             job.</p>
    */
-  LabelingJobSummaryList: Array<LabelingJobForWorkteamSummary> | undefined;
+  LabelingJobSummaryList: LabelingJobForWorkteamSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
@@ -11559,7 +11556,7 @@ export interface ListLabelingJobsResponse {
    * <p>An array of <code>LabelingJobSummary</code> objects, each describing a labeling
    *             job.</p>
    */
-  LabelingJobSummaryList?: Array<LabelingJobSummary>;
+  LabelingJobSummaryList?: LabelingJobSummary[];
 
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
@@ -11628,7 +11625,7 @@ export interface ListModelPackagesOutput {
    * <p>An array of <code>ModelPackageSummary</code> objects, each of which lists a model
    *             package.</p>
    */
-  ModelPackageSummaryList: Array<ModelPackageSummary> | undefined;
+  ModelPackageSummaryList: ModelPackageSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
@@ -11696,7 +11693,7 @@ export interface ListModelsOutput {
    * <p>An array of <code>ModelSummary</code> objects, each of which lists a
    *             model.</p>
    */
-  Models: Array<ModelSummary> | undefined;
+  Models: ModelSummary[] | undefined;
 
   /**
    * <p> If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
@@ -11791,7 +11788,7 @@ export interface ListMonitoringExecutionsResponse {
   /**
    * <p>A JSON array in which each element is a summary for a monitoring execution.</p>
    */
-  MonitoringExecutionSummaries: Array<MonitoringExecutionSummary> | undefined;
+  MonitoringExecutionSummaries: MonitoringExecutionSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
@@ -11876,7 +11873,7 @@ export interface ListMonitoringSchedulesResponse {
   /**
    * <p>A JSON array in which each element is a summary for a monitoring schedule.</p>
    */
-  MonitoringScheduleSummaries: Array<MonitoringScheduleSummary> | undefined;
+  MonitoringScheduleSummaries: MonitoringScheduleSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs,
@@ -11962,9 +11959,7 @@ export interface ListNotebookInstanceLifecycleConfigsOutput {
    * <p>An array of <code>NotebookInstanceLifecycleConfiguration</code> objects, each listing
    *             a lifecycle configuration.</p>
    */
-  NotebookInstanceLifecycleConfigs?: Array<
-    NotebookInstanceLifecycleConfigSummary
-  >;
+  NotebookInstanceLifecycleConfigs?: NotebookInstanceLifecycleConfigSummary[];
 }
 
 export namespace ListNotebookInstanceLifecycleConfigsOutput {
@@ -12078,7 +12073,7 @@ export interface ListNotebookInstancesOutput {
    * <p>An array of <code>NotebookInstanceSummary</code> objects, one for each notebook
    *             instance.</p>
    */
-  NotebookInstances?: Array<NotebookInstanceSummary>;
+  NotebookInstances?: NotebookInstanceSummary[];
 }
 
 export namespace ListNotebookInstancesOutput {
@@ -12159,7 +12154,7 @@ export interface ListProcessingJobsResponse {
    * <p>An array of <code>ProcessingJobSummary</code> objects, each listing a processing
    *             job.</p>
    */
-  ProcessingJobSummaries: Array<ProcessingJobSummary> | undefined;
+  ProcessingJobSummaries: ProcessingJobSummary[] | undefined;
 }
 
 export namespace ListProcessingJobsResponse {
@@ -12204,7 +12199,7 @@ export interface ListSubscribedWorkteamsResponse {
   /**
    * <p>An array of <code>Workteam</code> objects, each describing a work team.</p>
    */
-  SubscribedWorkteams: Array<SubscribedWorkteam> | undefined;
+  SubscribedWorkteams: SubscribedWorkteam[] | undefined;
 }
 
 export namespace ListSubscribedWorkteamsResponse {
@@ -12248,7 +12243,7 @@ export interface ListTagsOutput {
   /**
    * <p>An array of <code>Tag</code> objects, each with a tag key and a value.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ListTagsOutput {
@@ -12321,7 +12316,7 @@ export interface ListTrainingJobsForHyperParameterTuningJobResponse {
    *             the training jobs that the
    *                 <code>ListTrainingJobsForHyperParameterTuningJob</code> request returned.</p>
    */
-  TrainingJobSummaries: Array<HyperParameterTrainingJobSummary> | undefined;
+  TrainingJobSummaries: HyperParameterTrainingJobSummary[] | undefined;
 }
 
 export namespace ListTrainingJobsForHyperParameterTuningJobResponse {
@@ -12408,7 +12403,7 @@ export interface ListTrainingJobsResponse {
    * <p>An array of <code>TrainingJobSummary</code> objects, each listing a training
    *             job.</p>
    */
-  TrainingJobSummaries: Array<TrainingJobSummary> | undefined;
+  TrainingJobSummaries: TrainingJobSummary[] | undefined;
 }
 
 export namespace ListTrainingJobsResponse {
@@ -12493,7 +12488,7 @@ export interface ListTransformJobsResponse {
    *                 <code>TransformJobSummary</code>
    *             objects.</p>
    */
-  TransformJobSummaries: Array<TransformJobSummary> | undefined;
+  TransformJobSummaries: TransformJobSummary[] | undefined;
 }
 
 export namespace ListTransformJobsResponse {
@@ -12571,7 +12566,7 @@ export interface ListTrialComponentsResponse {
   /**
    * <p>A list of the summaries of your trial components.</p>
    */
-  TrialComponentSummaries?: Array<TrialComponentSummary>;
+  TrialComponentSummaries?: TrialComponentSummary[];
 }
 
 export namespace ListTrialComponentsResponse {
@@ -12633,7 +12628,7 @@ export interface ListTrialsResponse {
   /**
    * <p>A list of the summaries of your trials.</p>
    */
-  TrialSummaries?: Array<TrialSummary>;
+  TrialSummaries?: TrialSummary[];
 }
 
 export namespace ListTrialsResponse {
@@ -12691,7 +12686,7 @@ export interface ListUserProfilesResponse {
   /**
    * <p>The list of user profiles.</p>
    */
-  UserProfiles?: Array<UserProfileDetails>;
+  UserProfiles?: UserProfileDetails[];
 }
 
 export namespace ListUserProfilesResponse {
@@ -12746,7 +12741,7 @@ export interface ListWorkteamsResponse {
   /**
    * <p>An array of <code>Workteam</code> objects, each describing a work team.</p>
    */
-  Workteams: Array<Workteam> | undefined;
+  Workteams: Workteam[] | undefined;
 }
 
 export namespace ListWorkteamsResponse {
@@ -12916,12 +12911,12 @@ export interface ModelPackageStatusDetails {
   /**
    * <p>The status of the scan of the Docker image container for the model package.</p>
    */
-  ImageScanStatuses?: Array<ModelPackageStatusItem>;
+  ImageScanStatuses?: ModelPackageStatusItem[];
 
   /**
    * <p>The validation status of the model package.</p>
    */
-  ValidationStatuses: Array<ModelPackageStatusItem> | undefined;
+  ValidationStatuses: ModelPackageStatusItem[] | undefined;
 }
 
 export namespace ModelPackageStatusDetails {
@@ -13025,7 +13020,7 @@ export interface ModelPackageValidationSpecification {
    * <p>An array of <code>ModelPackageValidationProfile</code> objects, each of which
    *             specifies a batch transform job that Amazon SageMaker runs to validate your model package.</p>
    */
-  ValidationProfiles: Array<ModelPackageValidationProfile> | undefined;
+  ValidationProfiles: ModelPackageValidationProfile[] | undefined;
 
   /**
    * <p>The IAM roles to be used for the validation of the model package.</p>
@@ -13076,12 +13071,12 @@ export interface MonitoringAppSpecification {
   /**
    * <p>An array of arguments for the container used to run the monitoring job.</p>
    */
-  ContainerArguments?: Array<string>;
+  ContainerArguments?: string[];
 
   /**
    * <p>Specifies the entrypoint for a container used to run the monitoring job.</p>
    */
-  ContainerEntrypoint?: Array<string>;
+  ContainerEntrypoint?: string[];
 
   /**
    * <p>The container image to be run by the monitoring job.</p>
@@ -13282,7 +13277,7 @@ export interface MonitoringJobDefinition {
    * <p>The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker
    *          Endpoint.</p>
    */
-  MonitoringInputs: Array<MonitoringInput> | undefined;
+  MonitoringInputs: MonitoringInput[] | undefined;
 
   /**
    * <p>The array of outputs from the monitoring job to be uploaded to Amazon Simple Storage
@@ -13349,7 +13344,7 @@ export interface MonitoringOutputConfig {
    * <p>Monitoring outputs for monitoring jobs. This is where the output of the periodic
    *          monitoring jobs is uploaded.</p>
    */
-  MonitoringOutputs: Array<MonitoringOutput> | undefined;
+  MonitoringOutputs: MonitoringOutput[] | undefined;
 }
 
 export namespace MonitoringOutputConfig {
@@ -13536,7 +13531,7 @@ export interface NestedFilters {
    *       <code>InputDataConfig</code> property:
    *       <code>InputDataConfig.DataSource.S3DataSource.S3Uri</code>.</p>
    */
-  Filters: Array<Filter> | undefined;
+  Filters: Filter[] | undefined;
 
   /**
    * <p>The name of the property to use in the nested filters. The value must match a listed property name,
@@ -13688,7 +13683,7 @@ export interface NotebookInstanceSummary {
    *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
    *                 Repositories with Amazon SageMaker Notebook Instances</a>.</p>
    */
-  AdditionalCodeRepositories?: Array<string>;
+  AdditionalCodeRepositories?: string[];
 
   /**
    * <p>A timestamp that shows when the notebook instance was created.</p>
@@ -13973,19 +13968,19 @@ export interface ParameterRanges {
    * <p>The array of <a>CategoricalParameterRange</a> objects that specify ranges
    *             of categorical hyperparameters that a hyperparameter tuning job searches.</p>
    */
-  CategoricalParameterRanges?: Array<CategoricalParameterRange>;
+  CategoricalParameterRanges?: CategoricalParameterRange[];
 
   /**
    * <p>The array of <a>ContinuousParameterRange</a> objects that specify ranges of
    *             continuous hyperparameters that a hyperparameter tuning job searches.</p>
    */
-  ContinuousParameterRanges?: Array<ContinuousParameterRange>;
+  ContinuousParameterRanges?: ContinuousParameterRange[];
 
   /**
    * <p>The array of <a>IntegerParameterRange</a> objects that specify ranges of
    *             integer hyperparameters that a hyperparameter tuning job searches.</p>
    */
-  IntegerParameterRanges?: Array<IntegerParameterRange>;
+  IntegerParameterRanges?: IntegerParameterRange[];
 }
 
 export namespace ParameterRanges {
@@ -14241,7 +14236,7 @@ export interface ProcessingOutputConfig {
   /**
    * <p>Output configuration information for a processing job.</p>
    */
-  Outputs: Array<ProcessingOutput> | undefined;
+  Outputs: ProcessingOutput[] | undefined;
 }
 
 export namespace ProcessingOutputConfig {
@@ -14545,7 +14540,7 @@ export interface ProductionVariantSummary {
    * <p>An array of <code>DeployedImage</code> objects that specify the Amazon EC2 Container Registry paths of the
    *             inference images deployed on instances of this <code>ProductionVariant</code>.</p>
    */
-  DeployedImages?: Array<DeployedImage>;
+  DeployedImages?: DeployedImage[];
 
   /**
    * <p>The number of instances requested in the
@@ -14958,7 +14953,7 @@ export interface RenderUiTemplateResponse {
    * <p>A list of one or more <code>RenderingError</code> objects if any were encountered
    *             while rendering the template. If there were no errors, the list is empty.</p>
    */
-  Errors: Array<RenderingError> | undefined;
+  Errors: RenderingError[] | undefined;
 
   /**
    * <p>A Liquid template that renders the HTML for the worker UI.</p>
@@ -15263,7 +15258,7 @@ export interface S3DataSource {
    * <p>A list of one or more attribute names to use that are found in a specified augmented
    *             manifest file.</p>
    */
-  AttributeNames?: Array<string>;
+  AttributeNames?: string[];
 
   /**
    * <p>If you want Amazon SageMaker to replicate the entire dataset on each ML compute instance that
@@ -15478,12 +15473,12 @@ export interface SearchExpression {
   /**
    * <p>A list of filter objects.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p>A list of nested filter objects.</p>
    */
-  NestedFilters?: Array<NestedFilters>;
+  NestedFilters?: NestedFilters[];
 
   /**
    * <p>A Boolean operator used to evaluate the search expression. If you want every
@@ -15497,7 +15492,7 @@ export interface SearchExpression {
   /**
    * <p>A list of search expression objects.</p>
    */
-  SubExpressions?: Array<SearchExpression>;
+  SubExpressions?: SearchExpression[];
 }
 
 export namespace SearchExpression {
@@ -15595,7 +15590,7 @@ export interface SearchResponse {
   /**
    * <p>A list of <code>SearchResult</code> objects.</p>
    */
-  Results?: Array<SearchRecord>;
+  Results?: SearchRecord[];
 }
 
 export namespace SearchResponse {
@@ -15936,7 +15931,7 @@ export interface SourceAlgorithmSpecification {
   /**
    * <p>A list of the algorithms that were used to create a model package.</p>
    */
-  SourceAlgorithms: Array<SourceAlgorithm> | undefined;
+  SourceAlgorithms: SourceAlgorithm[] | undefined;
 }
 
 export namespace SourceAlgorithmSpecification {
@@ -15958,7 +15953,7 @@ export interface SourceIpConfig {
    *                 the CIDR value list.</p>
    *         </note>
    */
-  Cidrs: Array<string> | undefined;
+  Cidrs: string[] | undefined;
 }
 
 export namespace SourceIpConfig {
@@ -16374,12 +16369,12 @@ export interface TrainingJob {
   /**
    * <p>Information about the debug rule configuration.</p>
    */
-  DebugRuleConfigurations?: Array<DebugRuleConfiguration>;
+  DebugRuleConfigurations?: DebugRuleConfiguration[];
 
   /**
    * <p>Information about the evaluation status of the rules for the training job.</p>
    */
-  DebugRuleEvaluationStatuses?: Array<DebugRuleEvaluationStatus>;
+  DebugRuleEvaluationStatuses?: DebugRuleEvaluationStatus[];
 
   /**
    * <p>To encrypt all communications between ML compute instances in distributed training,
@@ -16417,7 +16412,7 @@ export interface TrainingJob {
    * <p>A list of final metric values that are set when the training job completes. Used only
    *             if the training job was configured to use metrics.</p>
    */
-  FinalMetricDataList?: Array<MetricData>;
+  FinalMetricDataList?: MetricData[];
 
   /**
    * <p>Algorithm-specific parameters.</p>
@@ -16428,7 +16423,7 @@ export interface TrainingJob {
    * <p>An array of <code>Channel</code> objects that describes each data input
    *             channel.</p>
    */
-  InputDataConfig?: Array<Channel>;
+  InputDataConfig?: Channel[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the labeling job.</p>
@@ -16568,7 +16563,7 @@ export interface TrainingJob {
    * <p>A history of all of the secondary statuses that the training job has transitioned
    *             through.</p>
    */
-  SecondaryStatusTransitions?: Array<SecondaryStatusTransition>;
+  SecondaryStatusTransitions?: SecondaryStatusTransition[];
 
   /**
    * <p>Specifies a limit to how long a model training job can run. When the job reaches the
@@ -16584,7 +16579,7 @@ export interface TrainingJob {
    *                 Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User
    *                 Guide</i>.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>Configuration of storage locations for TensorBoard output.</p>
@@ -16688,7 +16683,7 @@ export interface TrainingJobDefinition {
    * <p>An array of <code>Channel</code> objects, each of which specifies an input
    *             source.</p>
    */
-  InputDataConfig: Array<Channel> | undefined;
+  InputDataConfig: Channel[] | undefined;
 
   /**
    * <p>the path to the S3 bucket where you want to store model artifacts. Amazon SageMaker creates
@@ -16842,27 +16837,25 @@ export interface TrainingSpecification {
    * <p>A list of <code>MetricDefinition</code> objects, which are used for parsing metrics
    *             generated by the algorithm.</p>
    */
-  MetricDefinitions?: Array<MetricDefinition>;
+  MetricDefinitions?: MetricDefinition[];
 
   /**
    * <p>A list of the <code>HyperParameterSpecification</code> objects, that define the
    *             supported hyperparameters. This is required if the algorithm supports automatic model
    *             tuning.></p>
    */
-  SupportedHyperParameters?: Array<HyperParameterSpecification>;
+  SupportedHyperParameters?: HyperParameterSpecification[];
 
   /**
    * <p>A list of the instance types that this algorithm can use for training.</p>
    */
-  SupportedTrainingInstanceTypes:
-    | Array<TrainingInstanceType | string>
-    | undefined;
+  SupportedTrainingInstanceTypes: TrainingInstanceType | string[] | undefined;
 
   /**
    * <p>A list of the metrics that the algorithm emits that can be used as the objective
    *             metric in a hyperparameter tuning job.</p>
    */
-  SupportedTuningJobObjectiveMetrics?: Array<HyperParameterTuningJobObjective>;
+  SupportedTuningJobObjectiveMetrics?: HyperParameterTuningJobObjective[];
 
   /**
    * <p>Indicates whether the algorithm supports distributed training. If set to false, buyers
@@ -16874,7 +16867,7 @@ export interface TrainingSpecification {
    * <p>A list of <code>ChannelSpecification</code> objects, which specify the input sources
    *             to be used by the algorithm.</p>
    */
-  TrainingChannels: Array<ChannelSpecification> | undefined;
+  TrainingChannels: ChannelSpecification[] | undefined;
 
   /**
    * <p>The Amazon ECR registry path of the Docker image that contains the training
@@ -17392,7 +17385,7 @@ export interface Trial {
    * <p>The list of tags that are associated with the trial. You can use
    *       <a>Search</a> API to search on the tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the trial.</p>
@@ -17403,7 +17396,7 @@ export interface Trial {
    * <p>A list of the components associated with the trial. For each component, a summary of the
    *       component's properties is included.</p>
    */
-  TrialComponentSummaries?: Array<TrialComponentSimpleSummary>;
+  TrialComponentSummaries?: TrialComponentSimpleSummary[];
 
   /**
    * <p>The name of the trial.</p>
@@ -17462,7 +17455,7 @@ export interface TrialComponent {
   /**
    * <p>The metrics for the component.</p>
    */
-  Metrics?: Array<TrialComponentMetricSummary>;
+  Metrics?: TrialComponentMetricSummary[];
 
   /**
    * <p>The output artifacts of the component.</p>
@@ -17479,7 +17472,7 @@ export interface TrialComponent {
    *       associated with and the experiment the trial is part of. A component might not have any
    *       parents.</p>
    */
-  Parents?: Array<Parent>;
+  Parents?: Parent[];
 
   /**
    * <p>The source of the trial component.</p>
@@ -17505,7 +17498,7 @@ export interface TrialComponent {
    * <p>The list of tags that are associated with the component. You can use
    *       <a>Search</a> API to search on the tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the trial component.</p>
@@ -18080,7 +18073,7 @@ export interface UpdateEndpointWeightsAndCapacitiesInput {
   /**
    * <p>An object that provides new capacity and weight values for a variant.</p>
    */
-  DesiredWeightsAndCapacities: Array<DesiredWeightAndCapacity> | undefined;
+  DesiredWeightsAndCapacities: DesiredWeightAndCapacity[] | undefined;
 
   /**
    * <p>The name of an existing Amazon SageMaker endpoint.</p>
@@ -18185,7 +18178,7 @@ export interface UpdateNotebookInstanceInput {
    *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
    *                 SageMaker</a>.</p>
    */
-  AcceleratorTypes?: Array<NotebookInstanceAcceleratorType | string>;
+  AcceleratorTypes?: NotebookInstanceAcceleratorType | string[];
 
   /**
    * <p>An array of up to three Git repositories to associate with the notebook instance.
@@ -18195,7 +18188,7 @@ export interface UpdateNotebookInstanceInput {
    *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
    *                 Repositories with Amazon SageMaker Notebook Instances</a>.</p>
    */
-  AdditionalCodeRepositories?: Array<string>;
+  AdditionalCodeRepositories?: string[];
 
   /**
    * <p>The Git repository to associate with the notebook instance as its default code
@@ -18303,14 +18296,14 @@ export interface UpdateNotebookInstanceLifecycleConfigInput {
    * <p>The shell script that runs only once, when you create a notebook instance. The shell
    *             script must be a base64-encoded string.</p>
    */
-  OnCreate?: Array<NotebookInstanceLifecycleHook>;
+  OnCreate?: NotebookInstanceLifecycleHook[];
 
   /**
    * <p>The shell script that runs every time you start a notebook instance, including when
    *             you create the notebook instance. The shell script must be a base64-encoded
    *             string.</p>
    */
-  OnStart?: Array<NotebookInstanceLifecycleHook>;
+  OnStart?: NotebookInstanceLifecycleHook[];
 }
 
 export namespace UpdateNotebookInstanceLifecycleConfigInput {
@@ -18362,7 +18355,7 @@ export interface UpdateTrialComponentRequest {
   /**
    * <p>The input artifacts to remove from the component.</p>
    */
-  InputArtifactsToRemove?: Array<string>;
+  InputArtifactsToRemove?: string[];
 
   /**
    * <p>Replaces all of the component's output artifacts with the specified artifacts.</p>
@@ -18372,7 +18365,7 @@ export interface UpdateTrialComponentRequest {
   /**
    * <p>The output artifacts to remove from the component.</p>
    */
-  OutputArtifactsToRemove?: Array<string>;
+  OutputArtifactsToRemove?: string[];
 
   /**
    * <p>Replaces all of the component's hyperparameters with the specified hyperparameters.</p>
@@ -18382,7 +18375,7 @@ export interface UpdateTrialComponentRequest {
   /**
    * <p>The hyperparameters to remove from the component.</p>
    */
-  ParametersToRemove?: Array<string>;
+  ParametersToRemove?: string[];
 
   /**
    * <p>When the component started.</p>
@@ -18536,7 +18529,7 @@ export interface UpdateWorkteamRequest {
    * <p>A list of <code>MemberDefinition</code> objects that contain the updated work team
    *             members.</p>
    */
-  MemberDefinitions?: Array<MemberDefinition>;
+  MemberDefinitions?: MemberDefinition[];
 
   /**
    * <p>Configures SNS topic notifications for available or expiring work items</p>
@@ -18664,7 +18657,7 @@ export interface UserSettings {
   /**
    * <p>The security groups.</p>
    */
-  SecurityGroups?: Array<string>;
+  SecurityGroups?: string[];
 
   /**
    * <p>The sharing settings.</p>
@@ -18693,7 +18686,7 @@ export interface VpcConfig {
    * <p>The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for
    *             the VPC that is specified in the <code>Subnets</code> field.</p>
    */
-  SecurityGroupIds: Array<string> | undefined;
+  SecurityGroupIds: string[] | undefined;
 
   /**
    * <p>The ID of the subnets in the VPC to which you want to connect your training job or
@@ -18705,7 +18698,7 @@ export interface VpcConfig {
    *                 zones instead.</p>
    *         </note>
    */
-  Subnets: Array<string> | undefined;
+  Subnets: string[] | undefined;
 }
 
 export namespace VpcConfig {
@@ -18773,7 +18766,7 @@ export interface Workteam {
   /**
    * <p>The Amazon Cognito user groups that make up the work team.</p>
    */
-  MemberDefinitions: Array<MemberDefinition> | undefined;
+  MemberDefinitions: MemberDefinition[] | undefined;
 
   /**
    * <p>Configures SNS notifications of available or expiring work items for work
@@ -18784,7 +18777,7 @@ export interface Workteam {
   /**
    * <p>The Amazon Marketplace identifier for a vendor's work team.</p>
    */
-  ProductListingIds?: Array<string>;
+  ProductListingIds?: string[];
 
   /**
    * <p>The URI of the labeling job's user interface. Workers open this URI to start labeling

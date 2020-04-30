@@ -174,7 +174,7 @@ export interface AddResourcePermissionsRequest {
   /**
    * <p>The users, groups, or organization being granted permission.</p>
    */
-  Principals: Array<SharePrincipal> | undefined;
+  Principals: SharePrincipal[] | undefined;
 
   /**
    * <p>The ID of the resource.</p>
@@ -192,7 +192,7 @@ export interface AddResourcePermissionsResponse {
   /**
    * <p>The share results.</p>
    */
-  ShareResults?: Array<ShareResult>;
+  ShareResults?: ShareResult[];
 }
 
 export namespace AddResourcePermissionsResponse {
@@ -494,7 +494,7 @@ export interface CreateLabelsRequest {
   /**
    * <p>List of labels to add to the resource.</p>
    */
-  Labels: Array<string> | undefined;
+  Labels: string[] | undefined;
 
   /**
    * <p>The ID of the resource.</p>
@@ -725,7 +725,7 @@ export interface DeleteCustomMetadataRequest {
   /**
    * <p>List of properties to remove.</p>
    */
-  Keys?: Array<string>;
+  Keys?: string[];
 
   /**
    * <p>The ID of the resource, either a document or folder.</p>
@@ -826,7 +826,7 @@ export interface DeleteLabelsRequest {
   /**
    * <p>List of labels to delete from the resource.</p>
    */
-  Labels?: Array<string>;
+  Labels?: string[];
 
   /**
    * <p>The ID of the resource.</p>
@@ -963,7 +963,7 @@ export interface DescribeActivitiesResponse {
   /**
    * <p>The list of activities for the specified user and time period.</p>
    */
-  UserActivities?: Array<Activity>;
+  UserActivities?: Activity[];
 }
 
 export namespace DescribeActivitiesResponse {
@@ -1011,7 +1011,7 @@ export interface DescribeCommentsResponse {
   /**
    * <p>The list of comments for the specified document version.</p>
    */
-  Comments?: Array<Comment>;
+  Comments?: Comment[];
 
   /**
    * <p>The marker for the next set of results. This marker was received from a previous
@@ -1072,7 +1072,7 @@ export interface DescribeDocumentVersionsResponse {
   /**
    * <p>The document versions.</p>
    */
-  DocumentVersions?: Array<DocumentVersionMetadata>;
+  DocumentVersions?: DocumentVersionMetadata[];
 
   /**
    * <p>The marker to use when requesting the next set of results. If there are no
@@ -1142,12 +1142,12 @@ export interface DescribeFolderContentsResponse {
   /**
    * <p>The documents in the specified folder.</p>
    */
-  Documents?: Array<DocumentMetadata>;
+  Documents?: DocumentMetadata[];
 
   /**
    * <p>The subfolders in the specified folder.</p>
    */
-  Folders?: Array<FolderMetadata>;
+  Folders?: FolderMetadata[];
 
   /**
    * <p>The marker to use when requesting the next set of results. If there are no
@@ -1201,7 +1201,7 @@ export interface DescribeGroupsResponse {
   /**
    * <p>The list of groups.</p>
    */
-  Groups?: Array<GroupMetadata>;
+  Groups?: GroupMetadata[];
 
   /**
    * <p>The marker to use when requesting the next set of results. If there are no additional
@@ -1250,7 +1250,7 @@ export interface DescribeNotificationSubscriptionsResponse {
   /**
    * <p>The subscriptions.</p>
    */
-  Subscriptions?: Array<Subscription>;
+  Subscriptions?: Subscription[];
 }
 
 export namespace DescribeNotificationSubscriptionsResponse {
@@ -1304,7 +1304,7 @@ export interface DescribeResourcePermissionsResponse {
   /**
    * <p>The principals.</p>
    */
-  Principals?: Array<Principal>;
+  Principals?: Principal[];
 }
 
 export namespace DescribeResourcePermissionsResponse {
@@ -1342,7 +1342,7 @@ export interface DescribeRootFoldersResponse {
   /**
    * <p>The user's special folders.</p>
    */
-  Folders?: Array<FolderMetadata>;
+  Folders?: FolderMetadata[];
 
   /**
    * <p>The marker for the next set of results.</p>
@@ -1432,7 +1432,7 @@ export interface DescribeUsersResponse {
   /**
    * <p>The users.</p>
    */
-  Users?: Array<User>;
+  Users?: User[];
 }
 
 export namespace DescribeUsersResponse {
@@ -1480,7 +1480,7 @@ export interface DocumentMetadata {
   /**
    * <p>List of labels on the document.</p>
    */
-  Labels?: Array<string>;
+  Labels?: string[];
 
   /**
    * <p>The latest version of the document.</p>
@@ -1645,7 +1645,7 @@ export interface EntityNotExistsException
     $MetadataBearer {
   name: "EntityNotExistsException";
   $fault: "client";
-  EntityIds?: Array<string>;
+  EntityIds?: string[];
   Message?: string;
 }
 
@@ -1701,7 +1701,7 @@ export interface FolderMetadata {
   /**
    * <p>List of labels on the folder.</p>
    */
-  Labels?: Array<string>;
+  Labels?: string[];
 
   /**
    * <p>The size of the latest version of the folder metadata.</p>
@@ -2046,12 +2046,12 @@ export interface GetResourcesResponse {
   /**
    * <p>The documents in the specified collection.</p>
    */
-  Documents?: Array<DocumentMetadata>;
+  Documents?: DocumentMetadata[];
 
   /**
    * <p>The folders in the specified folder.</p>
    */
-  Folders?: Array<FolderMetadata>;
+  Folders?: FolderMetadata[];
 
   /**
    * <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
@@ -2296,12 +2296,12 @@ export interface Participants {
   /**
    * <p>The list of user groups.</p>
    */
-  Groups?: Array<GroupMetadata>;
+  Groups?: GroupMetadata[];
 
   /**
    * <p>The list of users.</p>
    */
-  Users?: Array<UserMetadata>;
+  Users?: UserMetadata[];
 }
 
 export namespace Participants {
@@ -2342,7 +2342,7 @@ export interface Principal {
   /**
    * <p>The permission information for the resource.</p>
    */
-  Roles?: Array<PermissionInfo>;
+  Roles?: PermissionInfo[];
 
   /**
    * <p>The type of resource.</p>
@@ -2517,7 +2517,7 @@ export interface ResourcePath {
   /**
    * <p>The components of the resource path.</p>
    */
-  Components?: Array<ResourcePathComponent>;
+  Components?: ResourcePathComponent[];
 }
 
 export namespace ResourcePath {

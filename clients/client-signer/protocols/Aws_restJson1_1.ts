@@ -2033,7 +2033,7 @@ const deserializeAws_restJson1_1EncryptionAlgorithmOptions = (
 const deserializeAws_restJson1_1EncryptionAlgorithms = (
   output: any,
   context: __SerdeContext
-): Array<EncryptionAlgorithm | string> => {
+): EncryptionAlgorithm | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2061,14 +2061,14 @@ const deserializeAws_restJson1_1HashAlgorithmOptions = (
 const deserializeAws_restJson1_1HashAlgorithms = (
   output: any,
   context: __SerdeContext
-): Array<HashAlgorithm | string> => {
+): HashAlgorithm | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1ImageFormats = (
   output: any,
   context: __SerdeContext
-): Array<ImageFormat | string> => {
+): ImageFormat | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2244,7 +2244,7 @@ const deserializeAws_restJson1_1SigningJob = (
 const deserializeAws_restJson1_1SigningJobs = (
   output: any,
   context: __SerdeContext
-): Array<SigningJob> => {
+): SigningJob[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SigningJob(entry, context)
   );
@@ -2352,7 +2352,7 @@ const deserializeAws_restJson1_1SigningPlatformOverrides = (
 const deserializeAws_restJson1_1SigningPlatforms = (
   output: any,
   context: __SerdeContext
-): Array<SigningPlatform> => {
+): SigningPlatform[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SigningPlatform(entry, context)
   );
@@ -2408,7 +2408,7 @@ const deserializeAws_restJson1_1SigningProfile = (
 const deserializeAws_restJson1_1SigningProfiles = (
   output: any,
   context: __SerdeContext
-): Array<SigningProfile> => {
+): SigningProfile[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SigningProfile(entry, context)
   );

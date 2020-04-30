@@ -286,7 +286,7 @@ export interface ContinueUpdateRollbackInput {
    *             stacks, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks">Using ResourcesToSkip to recover a nested stacks hierarchy</a>. </p>
    *          </note>
    */
-  ResourcesToSkip?: Array<string>;
+  ResourcesToSkip?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
@@ -438,7 +438,7 @@ export interface CreateChangeSetInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: Array<Capability | string>;
+  Capabilities?: Capability | string[];
 
   /**
    * <p>The name of the change set. The name must be unique among all change sets that are
@@ -484,13 +484,13 @@ export interface CreateChangeSetInput {
    *          topics that AWS CloudFormation associates with the stack. To remove all associated
    *          notification topics, specify an empty list.</p>
    */
-  NotificationARNs?: Array<string>;
+  NotificationARNs?: string[];
 
   /**
    * <p>A list of <code>Parameter</code> structures that specify input parameters for the
    *          change set. For more information, see the <a>Parameter</a> data type.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 
   /**
    * <p>The template resource types that you have permissions to work with if you execute
@@ -503,12 +503,12 @@ export interface CreateChangeSetInput {
    *             AWS Identity and Access Management</a> in the AWS CloudFormation User
    *          Guide.</p>
    */
-  ResourceTypes?: Array<string>;
+  ResourceTypes?: string[];
 
   /**
    * <p>The resources to import into your stack.</p>
    */
-  ResourcesToImport?: Array<ResourceToImport>;
+  ResourcesToImport?: ResourceToImport[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
@@ -541,7 +541,7 @@ export interface CreateChangeSetInput {
    * <p>Key-value pairs to associate with this stack. AWS CloudFormation also propagates
    *          these tags to resources in the stack. You can specify a maximum of 50 tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>A structure that contains the body of the revised template, with a minimum length of
@@ -704,7 +704,7 @@ export interface CreateStackInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: Array<Capability | string>;
+  Capabilities?: Capability | string[];
 
   /**
    * <p>A unique identifier for this <code>CreateStack</code> request. Specify this token if
@@ -751,7 +751,7 @@ export interface CreateStackInput {
    *          can find your SNS topic ARNs using the SNS console or your Command Line Interface
    *          (CLI).</p>
    */
-  NotificationARNs?: Array<string>;
+  NotificationARNs?: string[];
 
   /**
    * <p>Determines what action will be taken if stack creation fails. This must be one of:
@@ -767,7 +767,7 @@ export interface CreateStackInput {
    *          stack. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a> data
    *          type.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 
   /**
    * <p>The template resource types that you have permissions to work with for this create
@@ -785,7 +785,7 @@ export interface CreateStackInput {
    *          types. AWS Identity and Access Management (IAM) uses this parameter for AWS
    *          CloudFormation-specific condition keys in IAM policies. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling Access with AWS Identity and Access Management</a>.</p>
    */
-  ResourceTypes?: Array<string>;
+  ResourceTypes?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
@@ -838,7 +838,7 @@ export interface CreateStackInput {
    *          these tags to the resources created in the stack. A maximum number of 50 tags can be
    *          specified.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
@@ -954,7 +954,7 @@ export interface DeleteStackInput {
    *          <p>Retaining resources is useful when you cannot delete a resource, such as a non-empty
    *          S3 bucket, but you want to delete the stack.</p>
    */
-  RetainResources?: Array<string>;
+  RetainResources?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
@@ -1044,7 +1044,7 @@ export interface DescribeAccountLimitsOutput {
    * <p>An account limit structure that contain a list of AWS CloudFormation account limits
    *          and their values.</p>
    */
-  AccountLimits?: Array<AccountLimit>;
+  AccountLimits?: AccountLimit[];
 
   /**
    * <p>If the output exceeds 1 MB in size, a string that identifies the next page of limits.
@@ -1096,7 +1096,7 @@ export interface DescribeChangeSetOutput {
    * <p>If you execute the change set, the list of capabilities that were explicitly
    *          acknowledged when the change set was created.</p>
    */
-  Capabilities?: Array<Capability | string>;
+  Capabilities?: Capability | string[];
 
   /**
    * <p>The ARN of the change set.</p>
@@ -1112,7 +1112,7 @@ export interface DescribeChangeSetOutput {
    * <p>A list of <code>Change</code> structures that describes the resources AWS
    *          CloudFormation changes if you execute the change set.</p>
    */
-  Changes?: Array<Change>;
+  Changes?: Change[];
 
   /**
    * <p>The start time when the change set was created, in UTC.</p>
@@ -1143,13 +1143,13 @@ export interface DescribeChangeSetOutput {
    * <p>The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics that will be
    *          associated with the stack if you execute the change set.</p>
    */
-  NotificationARNs?: Array<string>;
+  NotificationARNs?: string[];
 
   /**
    * <p>A list of <code>Parameter</code> structures that describes the input parameters and
    *          their values used to create the change set. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a> data type.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 
   /**
    * <p>The rollback triggers for AWS CloudFormation to monitor during stack creation and
@@ -1183,7 +1183,7 @@ export interface DescribeChangeSetOutput {
    * <p>If you execute the change set, the tags that will be associated with the
    *          stack.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace DescribeChangeSetOutput {
@@ -1345,7 +1345,7 @@ export interface DescribeStackEventsOutput {
   /**
    * <p>A list of <code>StackEvents</code> structures.</p>
    */
-  StackEvents?: Array<StackEvent>;
+  StackEvents?: StackEvent[];
 }
 
 export namespace DescribeStackEventsOutput {
@@ -1398,7 +1398,7 @@ export interface DescribeStackResourceDriftsInput {
    *             </li>
    *          </ul>
    */
-  StackResourceDriftStatusFilters?: Array<StackResourceDriftStatus | string>;
+  StackResourceDriftStatusFilters?: StackResourceDriftStatus | string[];
 }
 
 export namespace DescribeStackResourceDriftsInput {
@@ -1427,7 +1427,7 @@ export interface DescribeStackResourceDriftsOutput {
    *          checked, and so not included. For a list of resources that support drift detection, see
    *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources that Support Drift Detection</a>.</p>
    */
-  StackResourceDrifts: Array<StackResourceDrift> | undefined;
+  StackResourceDrifts: StackResourceDrift[] | undefined;
 }
 
 export namespace DescribeStackResourceDriftsOutput {
@@ -1541,7 +1541,7 @@ export interface DescribeStackResourcesOutput {
   /**
    * <p>A list of <code>StackResource</code> structures.</p>
    */
-  StackResources?: Array<StackResource>;
+  StackResources?: StackResource[];
 }
 
 export namespace DescribeStackResourcesOutput {
@@ -1595,7 +1595,7 @@ export interface DescribeStacksOutput {
   /**
    * <p>A list of stack structures.</p>
    */
-  Stacks?: Array<Stack>;
+  Stacks?: Stack[];
 }
 
 export namespace DescribeStacksOutput {
@@ -1829,7 +1829,7 @@ export interface DetectStackDriftInput {
   /**
    * <p>The logical names of any resources you want to use as filters.</p>
    */
-  LogicalResourceIds?: Array<string>;
+  LogicalResourceIds?: string[];
 
   /**
    * <p>The name of the stack for which you want to detect drift. </p>
@@ -1905,7 +1905,7 @@ export interface EstimateTemplateCostInput {
   /**
    * <p>A list of <code>Parameter</code> structures that specify input parameters.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 
   /**
    * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
@@ -2128,7 +2128,7 @@ export interface GetTemplateOutput {
    *          CloudFormation finishes creating the change set, the <code>Processed</code> template
    *          becomes available.</p>
    */
-  StagesAvailable?: Array<TemplateStage | string>;
+  StagesAvailable?: TemplateStage | string[];
 
   /**
    * <p>Structure containing the template body. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the AWS CloudFormation User Guide.)</p>
@@ -2204,7 +2204,7 @@ export interface GetTemplateSummaryOutput {
    *          your template; otherwise, those actions return an InsufficientCapabilities error.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in AWS CloudFormation Templates</a>.</p>
    */
-  Capabilities?: Array<Capability | string>;
+  Capabilities?: Capability | string[];
 
   /**
    * <p>The list of resources that generated the values in the <code>Capabilities</code>
@@ -2215,7 +2215,7 @@ export interface GetTemplateSummaryOutput {
   /**
    * <p>A list of the transforms that are declared in the template.</p>
    */
-  DeclaredTransforms?: Array<string>;
+  DeclaredTransforms?: string[];
 
   /**
    * <p>The value that is defined in the <code>Description</code> property of the
@@ -2233,7 +2233,7 @@ export interface GetTemplateSummaryOutput {
    * <p>A list of parameter declarations that describe various properties for each
    *          parameter.</p>
    */
-  Parameters?: Array<ParameterDeclaration>;
+  Parameters?: ParameterDeclaration[];
 
   /**
    * <p>A list of resource identifier summaries that describe the target resources of an import
@@ -2241,14 +2241,14 @@ export interface GetTemplateSummaryOutput {
    *          resources. For example, <code>BucketName</code> is a possible identifier property for an
    *             <code>AWS::S3::Bucket</code> resource. </p>
    */
-  ResourceIdentifierSummaries?: Array<ResourceIdentifierSummary>;
+  ResourceIdentifierSummaries?: ResourceIdentifierSummary[];
 
   /**
    * <p>A list of all the template resource types that are defined in the template, such as
    *             <code>AWS::EC2::Instance</code>, <code>AWS::Dynamo::Table</code>, and
    *             <code>Custom::MyCustomInstance</code>.</p>
    */
-  ResourceTypes?: Array<string>;
+  ResourceTypes?: string[];
 
   /**
    * <p>The AWS template format version, which identifies the capabilities of the
@@ -2386,7 +2386,7 @@ export interface ListChangeSetsOutput {
    * <p>A list of <code>ChangeSetSummary</code> structures that provides the ID and status of
    *          each change set for the specified stack.</p>
    */
-  Summaries?: Array<ChangeSetSummary>;
+  Summaries?: ChangeSetSummary[];
 }
 
 export namespace ListChangeSetsOutput {
@@ -2413,7 +2413,7 @@ export interface ListExportsOutput {
   /**
    * <p>The output for the <a>ListExports</a> action.</p>
    */
-  Exports?: Array<Export>;
+  Exports?: Export[];
 
   /**
    * <p>If the output exceeds 100 exported output values, a string that identifies the next
@@ -2454,7 +2454,7 @@ export interface ListImportsOutput {
    * <p>A list of stack names that are importing the specified exported output value.
    *       </p>
    */
-  Imports?: Array<string>;
+  Imports?: string[];
 
   /**
    * <p>A string that identifies the next page of exports. If there is no additional page,
@@ -2515,7 +2515,7 @@ export interface ListStackResourcesOutput {
   /**
    * <p>A list of <code>StackResourceSummary</code> structures.</p>
    */
-  StackResourceSummaries?: Array<StackResourceSummary>;
+  StackResourceSummaries?: StackResourceSummary[];
 }
 
 export namespace ListStackResourcesOutput {
@@ -2538,7 +2538,7 @@ export interface ListStacksInput {
    *          stacks with the specified status codes. For a complete list of stack status codes, see the
    *             <code>StackStatus</code> parameter of the <a>Stack</a> data type.</p>
    */
-  StackStatusFilter?: Array<StackStatus | string>;
+  StackStatusFilter?: StackStatus | string[];
 }
 
 export namespace ListStacksInput {
@@ -2561,7 +2561,7 @@ export interface ListStacksOutput {
    * <p>A list of <code>StackSummary</code> structures containing information about the
    *          specified stacks.</p>
    */
-  StackSummaries?: Array<StackSummary>;
+  StackSummaries?: StackSummary[];
 }
 
 export namespace ListStacksOutput {
@@ -2623,7 +2623,7 @@ export interface ListTypeRegistrationsOutput {
    *                <a>DescribeTypeRegistration</a>
    *             </code> to return detailed information about a type registration request.</p>
    */
-  RegistrationTokenList?: Array<string>;
+  RegistrationTokenList?: string[];
 }
 
 export namespace ListTypeRegistrationsOutput {
@@ -2693,7 +2693,7 @@ export interface ListTypeVersionsOutput {
   /**
    * <p>A list of <code>TypeVersionSummary</code> structures that contain information about the specified type's versions.</p>
    */
-  TypeVersionSummaries?: Array<TypeVersionSummary>;
+  TypeVersionSummaries?: TypeVersionSummary[];
 }
 
 export namespace ListTypeVersionsOutput {
@@ -2781,7 +2781,7 @@ export interface ListTypesOutput {
   /**
    * <p>A list of <code>TypeSummary</code> structures that contain information about the specified types.</p>
    */
-  TypeSummaries?: Array<TypeSummary>;
+  TypeSummaries?: TypeSummary[];
 }
 
 export namespace ListTypesOutput {
@@ -2914,7 +2914,7 @@ export interface ParameterConstraints {
   /**
    * <p>A list of values that are permitted for a parameter.</p>
    */
-  AllowedValues?: Array<string>;
+  AllowedValues?: string[];
 }
 
 export namespace ParameterConstraints {
@@ -3241,7 +3241,7 @@ export interface ResourceChange {
    *          structures that describes the changes that AWS CloudFormation will make to the resource.
    *       </p>
    */
-  Details?: Array<ResourceChangeDetail>;
+  Details?: ResourceChangeDetail[];
 
   /**
    * <p>The resource's logical ID, which is defined in the stack's template.</p>
@@ -3282,7 +3282,7 @@ export interface ResourceChange {
    *          this update, such as a change in the resource attribute's <code>Metadata</code>,
    *             <code>Properties</code>, or <code>Tags</code>.</p>
    */
-  Scope?: Array<ResourceAttribute | string>;
+  Scope?: ResourceAttribute | string[];
 }
 
 export namespace ResourceChange {
@@ -3389,14 +3389,14 @@ export interface ResourceIdentifierSummary {
    * <p>The logical IDs of the target resources of the specified <code>ResourceType</code>, as
    *          defined in the import template.</p>
    */
-  LogicalResourceIds?: Array<string>;
+  LogicalResourceIds?: string[];
 
   /**
    * <p>The resource properties you can provide during the import to identify your target
    *          resources. For example, <code>BucketName</code> is a possible identifier property for
    *             <code>AWS::S3::Bucket</code> resources.</p>
    */
-  ResourceIdentifiers?: Array<string>;
+  ResourceIdentifiers?: string[];
 
   /**
    * <p>The template resource type of the target resources, such as
@@ -3549,7 +3549,7 @@ export interface RollbackConfiguration {
    *          <p>If a specified trigger is missing, the entire stack operation fails and is rolled
    *          back. </p>
    */
-  RollbackTriggers?: Array<RollbackTrigger>;
+  RollbackTriggers?: RollbackTrigger[];
 }
 
 export namespace RollbackConfiguration {
@@ -3699,7 +3699,7 @@ export interface Stack {
   /**
    * <p>The capabilities allowed in the stack.</p>
    */
-  Capabilities?: Array<Capability | string>;
+  Capabilities?: Capability | string[];
 
   /**
    * <p>The unique ID of the change set.</p>
@@ -3762,17 +3762,17 @@ export interface Stack {
   /**
    * <p>SNS topic ARNs to which stack related events are published.</p>
    */
-  NotificationARNs?: Array<string>;
+  NotificationARNs?: string[];
 
   /**
    * <p>A list of output structures.</p>
    */
-  Outputs?: Array<Output>;
+  Outputs?: Output[];
 
   /**
    * <p>A list of <code>Parameter</code> structures.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 
   /**
    * <p>For nested stacks--stacks created as resources for another stack--the stack ID of the
@@ -3827,7 +3827,7 @@ export interface Stack {
   /**
    * <p>A list of <code>Tag</code>s that specify information about the stack.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The amount of time within which stack creation should complete.</p>
@@ -4212,7 +4212,7 @@ export interface StackResourceDrift {
    *          to uniquely identify that resource. Each context key-value pair specifies a unique resource
    *          that contains the targeted resource.</p>
    */
-  PhysicalResourceIdContext?: Array<PhysicalResourceIdContextKeyValuePair>;
+  PhysicalResourceIdContext?: PhysicalResourceIdContextKeyValuePair[];
 
   /**
    * <p>A collection of the resource properties whose actual values differ from their
@@ -4220,7 +4220,7 @@ export interface StackResourceDrift {
    *             <code>StackResourceDriftStatus</code> is <code>MODIFIED</code>.
    *          </p>
    */
-  PropertyDifferences?: Array<PropertyDifference>;
+  PropertyDifferences?: PropertyDifference[];
 
   /**
    * <p>The type of the resource.</p>
@@ -4832,7 +4832,7 @@ export interface UpdateStackInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: Array<Capability | string>;
+  Capabilities?: Capability | string[];
 
   /**
    * <p>A unique identifier for this <code>UpdateStack</code> request. Specify this token if
@@ -4858,14 +4858,14 @@ export interface UpdateStackInput {
    *          CloudFormation associates with the stack. Specify an empty list to remove all notification
    *          topics.</p>
    */
-  NotificationARNs?: Array<string>;
+  NotificationARNs?: string[];
 
   /**
    * <p>A list of <code>Parameter</code> structures that specify input parameters for the
    *          stack. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a> data
    *          type.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 
   /**
    * <p>The template resource types that you have permissions to work with for this update
@@ -4876,7 +4876,7 @@ export interface UpdateStackInput {
    *          types. AWS Identity and Access Management (IAM) uses this parameter for AWS
    *          CloudFormation-specific condition keys in IAM policies. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling Access with AWS Identity and Access Management</a>.</p>
    */
-  ResourceTypes?: Array<string>;
+  ResourceTypes?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
@@ -4952,7 +4952,7 @@ export interface UpdateStackInput {
    *          tags. If you specify an empty value, AWS CloudFormation removes all associated
    *          tags.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
@@ -5079,7 +5079,7 @@ export interface ValidateTemplateOutput {
    *          your template; otherwise, those actions return an InsufficientCapabilities error.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in AWS CloudFormation Templates</a>.</p>
    */
-  Capabilities?: Array<Capability | string>;
+  Capabilities?: Capability | string[];
 
   /**
    * <p>The list of resources that generated the values in the <code>Capabilities</code>
@@ -5090,7 +5090,7 @@ export interface ValidateTemplateOutput {
   /**
    * <p>A list of the transforms that are declared in the template.</p>
    */
-  DeclaredTransforms?: Array<string>;
+  DeclaredTransforms?: string[];
 
   /**
    * <p>The description found within the template.</p>
@@ -5100,7 +5100,7 @@ export interface ValidateTemplateOutput {
   /**
    * <p>A list of <code>TemplateParameter</code> structures.</p>
    */
-  Parameters?: Array<TemplateParameter>;
+  Parameters?: TemplateParameter[];
 }
 
 export namespace ValidateTemplateOutput {
@@ -5191,7 +5191,7 @@ export interface CreateStackInstancesInput {
    * <p>The names of one or more AWS accounts that you want to create stack instances in the
    *          specified region(s) for.</p>
    */
-  Accounts: Array<string> | undefined;
+  Accounts: string[] | undefined;
 
   /**
    * <p>The unique identifier for this stack set operation. </p>
@@ -5249,13 +5249,13 @@ export interface CreateStackInstancesInput {
    *          <p>You can only override the parameter <i>values</i> that are specified in
    *          the stack set; to add or delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a> to update the stack set template.</p>
    */
-  ParameterOverrides?: Array<Parameter>;
+  ParameterOverrides?: Parameter[];
 
   /**
    * <p>The names of one or more regions where you want to create stack instances using the
    *          specified AWS account(s). </p>
    */
-  Regions: Array<string> | undefined;
+  Regions: string[] | undefined;
 
   /**
    * <p>The name or unique ID of the stack set that you want to create stack instances
@@ -5390,7 +5390,7 @@ export interface CreateStackSetInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: Array<Capability | string>;
+  Capabilities?: Capability | string[];
 
   /**
    * <p>A unique identifier for this <code>CreateStackSet</code> request. Specify this token
@@ -5422,7 +5422,7 @@ export interface CreateStackSetInput {
   /**
    * <p>The input parameters for the stack set template. </p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 
   /**
    * <p>The name to associate with the stack set. The name must be unique in the region where
@@ -5444,7 +5444,7 @@ export interface CreateStackSetInput {
    *          you don't, the entire <code>CreateStackSet</code> action fails with an <code>access
    *             denied</code> error, and the stack set is not created.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The structure that contains the template body, with a minimum length of 1 byte and a
@@ -5505,7 +5505,7 @@ export interface DeleteStackInstancesInput {
   /**
    * <p>The names of the AWS accounts that you want to delete stack instances for.</p>
    */
-  Accounts: Array<string> | undefined;
+  Accounts: string[] | undefined;
 
   /**
    * <p>The unique identifier for this stack set operation. </p>
@@ -5527,7 +5527,7 @@ export interface DeleteStackInstancesInput {
   /**
    * <p>The regions where you want to delete stack set instances. </p>
    */
-  Regions: Array<string> | undefined;
+  Regions: string[] | undefined;
 
   /**
    * <p>Removes the stack instances from the specified stack set, but doesn't delete the
@@ -5794,7 +5794,7 @@ export interface ListStackInstancesOutput {
    * <p>A list of <code>StackInstanceSummary</code> structures that contain information about
    *          the specified stack instances.</p>
    */
-  Summaries?: Array<StackInstanceSummary>;
+  Summaries?: StackInstanceSummary[];
 }
 
 export namespace ListStackInstancesOutput {
@@ -5854,7 +5854,7 @@ export interface ListStackSetOperationResultsOutput {
    *          information about the specified operation results, for accounts and regions that are
    *          included in the operation.</p>
    */
-  Summaries?: Array<StackSetOperationResultSummary>;
+  Summaries?: StackSetOperationResultSummary[];
 }
 
 export namespace ListStackSetOperationResultsOutput {
@@ -5908,7 +5908,7 @@ export interface ListStackSetOperationsOutput {
    * <p>A list of <code>StackSetOperationSummary</code> structures that contain summary
    *          information about operations for the specified stack set.</p>
    */
-  Summaries?: Array<StackSetOperationSummary>;
+  Summaries?: StackSetOperationSummary[];
 }
 
 export namespace ListStackSetOperationsOutput {
@@ -5963,7 +5963,7 @@ export interface ListStackSetsOutput {
    * <p>A list of <code>StackSetSummary</code> structures that contain information about the
    *          user's stack sets.</p>
    */
-  Summaries?: Array<StackSetSummary>;
+  Summaries?: StackSetSummary[];
 }
 
 export namespace ListStackSetsOutput {
@@ -6091,7 +6091,7 @@ export interface StackInstance {
    * <p>A list of parameters from the stack set template whose values have been overridden in
    *          this stack instance.</p>
    */
-  ParameterOverrides?: Array<Parameter>;
+  ParameterOverrides?: Parameter[];
 
   /**
    * <p>The name of the AWS region that the stack instance is associated with.</p>
@@ -6311,7 +6311,7 @@ export interface StackSet {
    *          new AWS Identity and Access Management (IAM) users. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in AWS CloudFormation Templates.</a>
    *          </p>
    */
-  Capabilities?: Array<Capability | string>;
+  Capabilities?: Capability | string[];
 
   /**
    * <p>A description of the stack set that you specify when the stack set is created or
@@ -6331,7 +6331,7 @@ export interface StackSet {
   /**
    * <p>A list of input parameters for a stack set.</p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 
   /**
    * <p>The Amazon Resource Number (ARN) of the stack set.</p>
@@ -6365,7 +6365,7 @@ export interface StackSet {
    * <p>A list of tags that specify information about the stack set. A maximum number of 50
    *          tags can be specified.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The structure that contains the body of the template that was used to create or
@@ -6725,7 +6725,7 @@ export interface StackSetOperationPreferences {
   /**
    * <p>The order of the regions in where you want to perform the stack operation.</p>
    */
-  RegionOrder?: Array<string>;
+  RegionOrder?: string[];
 }
 
 export namespace StackSetOperationPreferences {
@@ -7018,7 +7018,7 @@ export interface UpdateStackInstancesInput {
    *          for stack instances. The overridden parameter values will be applied to all stack instances
    *          in the specified accounts and regions.</p>
    */
-  Accounts: Array<string> | undefined;
+  Accounts: string[] | undefined;
 
   /**
    * <p>The unique identifier for this stack set operation. </p>
@@ -7081,14 +7081,14 @@ export interface UpdateStackInstancesInput {
    *          new parameter, you can then override the parameter value using
    *             <code>UpdateStackInstances</code>.</p>
    */
-  ParameterOverrides?: Array<Parameter>;
+  ParameterOverrides?: Parameter[];
 
   /**
    * <p>The names of one or more regions in which you want to update parameter values for
    *          stack instances. The overridden parameter values will be applied to all stack instances in
    *          the specified accounts and regions.</p>
    */
-  Regions: Array<string> | undefined;
+  Regions: string[] | undefined;
 
   /**
    * <p>The name or unique ID of the stack set associated with the stack instances.</p>
@@ -7129,7 +7129,7 @@ export interface UpdateStackSetInput {
    *          parameters, AWS CloudFormation updates the stack instances in the specified accounts and regions, while
    *          leaving all other stack instances with their existing stack instance status. </p>
    */
-  Accounts?: Array<string>;
+  Accounts?: string[];
 
   /**
    * <p>The Amazon Resource Number (ARN) of the IAM role to use to update this stack set.</p>
@@ -7240,7 +7240,7 @@ export interface UpdateStackSetInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: Array<Capability | string>;
+  Capabilities?: Capability | string[];
 
   /**
    * <p>A brief description of updates that you are making.</p>
@@ -7283,7 +7283,7 @@ export interface UpdateStackSetInput {
   /**
    * <p>A list of input parameters for the stack set template. </p>
    */
-  Parameters?: Array<Parameter>;
+  Parameters?: Parameter[];
 
   /**
    * <p>The regions in which to update associated stack instances. If you specify regions, you
@@ -7298,7 +7298,7 @@ export interface UpdateStackSetInput {
    *          parameters, AWS CloudFormation updates the stack instances in the specified accounts and regions, while
    *          leaving all other stack instances with their existing stack instance status. </p>
    */
-  Regions?: Array<string>;
+  Regions?: string[];
 
   /**
    * <p>The name or unique ID of the stack set that you want to update.</p>
@@ -7337,7 +7337,7 @@ export interface UpdateStackSetInput {
    *          necessary permission(s), the entire <code>UpdateStackSet</code> action fails with an
    *             <code>access denied</code> error, and the stack set is not updated.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The structure that contains the template body, with a minimum length of 1 byte and a

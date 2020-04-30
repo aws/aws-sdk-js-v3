@@ -12528,7 +12528,7 @@ const serializeAws_restJson1_1WebvttDestinationSettings = (
 };
 
 const serializeAws_restJson1_1__listOfAudioChannelMapping = (
-  input: Array<AudioChannelMapping>,
+  input: AudioChannelMapping[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12539,7 +12539,7 @@ const serializeAws_restJson1_1__listOfAudioChannelMapping = (
 };
 
 const serializeAws_restJson1_1__listOfAudioDescription = (
-  input: Array<AudioDescription>,
+  input: AudioDescription[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12550,7 +12550,7 @@ const serializeAws_restJson1_1__listOfAudioDescription = (
 };
 
 const serializeAws_restJson1_1__listOfAudioSelector = (
-  input: Array<AudioSelector>,
+  input: AudioSelector[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12561,7 +12561,7 @@ const serializeAws_restJson1_1__listOfAudioSelector = (
 };
 
 const serializeAws_restJson1_1__listOfCaptionDescription = (
-  input: Array<CaptionDescription>,
+  input: CaptionDescription[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12572,7 +12572,7 @@ const serializeAws_restJson1_1__listOfCaptionDescription = (
 };
 
 const serializeAws_restJson1_1__listOfCaptionLanguageMapping = (
-  input: Array<CaptionLanguageMapping>,
+  input: CaptionLanguageMapping[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12585,7 +12585,7 @@ const serializeAws_restJson1_1__listOfCaptionLanguageMapping = (
 };
 
 const serializeAws_restJson1_1__listOfCaptionSelector = (
-  input: Array<CaptionSelector>,
+  input: CaptionSelector[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12596,7 +12596,7 @@ const serializeAws_restJson1_1__listOfCaptionSelector = (
 };
 
 const serializeAws_restJson1_1__listOfHlsAdMarkers = (
-  input: Array<HlsAdMarkers | string>,
+  input: HlsAdMarkers | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12607,7 +12607,7 @@ const serializeAws_restJson1_1__listOfHlsAdMarkers = (
 };
 
 const serializeAws_restJson1_1__listOfInputAttachment = (
-  input: Array<InputAttachment>,
+  input: InputAttachment[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12618,7 +12618,7 @@ const serializeAws_restJson1_1__listOfInputAttachment = (
 };
 
 const serializeAws_restJson1_1__listOfInputChannelLevel = (
-  input: Array<InputChannelLevel>,
+  input: InputChannelLevel[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12629,7 +12629,7 @@ const serializeAws_restJson1_1__listOfInputChannelLevel = (
 };
 
 const serializeAws_restJson1_1__listOfInputDestinationRequest = (
-  input: Array<InputDestinationRequest>,
+  input: InputDestinationRequest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12642,7 +12642,7 @@ const serializeAws_restJson1_1__listOfInputDestinationRequest = (
 };
 
 const serializeAws_restJson1_1__listOfInputSourceRequest = (
-  input: Array<InputSourceRequest>,
+  input: InputSourceRequest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12653,7 +12653,7 @@ const serializeAws_restJson1_1__listOfInputSourceRequest = (
 };
 
 const serializeAws_restJson1_1__listOfInputWhitelistRuleCidr = (
-  input: Array<InputWhitelistRuleCidr>,
+  input: InputWhitelistRuleCidr[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12666,7 +12666,7 @@ const serializeAws_restJson1_1__listOfInputWhitelistRuleCidr = (
 };
 
 const serializeAws_restJson1_1__listOfMediaConnectFlowRequest = (
-  input: Array<MediaConnectFlowRequest>,
+  input: MediaConnectFlowRequest[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12679,7 +12679,7 @@ const serializeAws_restJson1_1__listOfMediaConnectFlowRequest = (
 };
 
 const serializeAws_restJson1_1__listOfMediaPackageOutputDestinationSettings = (
-  input: Array<MediaPackageOutputDestinationSettings>,
+  input: MediaPackageOutputDestinationSettings[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12695,7 +12695,7 @@ const serializeAws_restJson1_1__listOfMediaPackageOutputDestinationSettings = (
 };
 
 const serializeAws_restJson1_1__listOfOutput = (
-  input: Array<Output>,
+  input: Output[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12706,7 +12706,7 @@ const serializeAws_restJson1_1__listOfOutput = (
 };
 
 const serializeAws_restJson1_1__listOfOutputDestination = (
-  input: Array<OutputDestination>,
+  input: OutputDestination[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12717,7 +12717,7 @@ const serializeAws_restJson1_1__listOfOutputDestination = (
 };
 
 const serializeAws_restJson1_1__listOfOutputDestinationSettings = (
-  input: Array<OutputDestinationSettings>,
+  input: OutputDestinationSettings[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12730,7 +12730,7 @@ const serializeAws_restJson1_1__listOfOutputDestinationSettings = (
 };
 
 const serializeAws_restJson1_1__listOfOutputGroup = (
-  input: Array<OutputGroup>,
+  input: OutputGroup[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12741,7 +12741,7 @@ const serializeAws_restJson1_1__listOfOutputGroup = (
 };
 
 const serializeAws_restJson1_1__listOfPipelinePauseStateSettings = (
-  input: Array<PipelinePauseStateSettings>,
+  input: PipelinePauseStateSettings[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12754,7 +12754,7 @@ const serializeAws_restJson1_1__listOfPipelinePauseStateSettings = (
 };
 
 const serializeAws_restJson1_1__listOfScheduleAction = (
-  input: Array<ScheduleAction>,
+  input: ScheduleAction[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12765,7 +12765,7 @@ const serializeAws_restJson1_1__listOfScheduleAction = (
 };
 
 const serializeAws_restJson1_1__listOfScte35Descriptor = (
-  input: Array<Scte35Descriptor>,
+  input: Scte35Descriptor[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12776,7 +12776,7 @@ const serializeAws_restJson1_1__listOfScte35Descriptor = (
 };
 
 const serializeAws_restJson1_1__listOfVideoDescription = (
-  input: Array<VideoDescription>,
+  input: VideoDescription[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12787,7 +12787,7 @@ const serializeAws_restJson1_1__listOfVideoDescription = (
 };
 
 const serializeAws_restJson1_1__listOf__string = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -18955,7 +18955,7 @@ const deserializeAws_restJson1_1WebvttDestinationSettings = (
 const deserializeAws_restJson1_1__listOfAudioChannelMapping = (
   output: any,
   context: __SerdeContext
-): Array<AudioChannelMapping> => {
+): AudioChannelMapping[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AudioChannelMapping(entry, context)
   );
@@ -18964,7 +18964,7 @@ const deserializeAws_restJson1_1__listOfAudioChannelMapping = (
 const deserializeAws_restJson1_1__listOfAudioDescription = (
   output: any,
   context: __SerdeContext
-): Array<AudioDescription> => {
+): AudioDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AudioDescription(entry, context)
   );
@@ -18973,7 +18973,7 @@ const deserializeAws_restJson1_1__listOfAudioDescription = (
 const deserializeAws_restJson1_1__listOfAudioSelector = (
   output: any,
   context: __SerdeContext
-): Array<AudioSelector> => {
+): AudioSelector[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AudioSelector(entry, context)
   );
@@ -18982,7 +18982,7 @@ const deserializeAws_restJson1_1__listOfAudioSelector = (
 const deserializeAws_restJson1_1__listOfCaptionDescription = (
   output: any,
   context: __SerdeContext
-): Array<CaptionDescription> => {
+): CaptionDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CaptionDescription(entry, context)
   );
@@ -18991,7 +18991,7 @@ const deserializeAws_restJson1_1__listOfCaptionDescription = (
 const deserializeAws_restJson1_1__listOfCaptionLanguageMapping = (
   output: any,
   context: __SerdeContext
-): Array<CaptionLanguageMapping> => {
+): CaptionLanguageMapping[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CaptionLanguageMapping(entry, context)
   );
@@ -19000,7 +19000,7 @@ const deserializeAws_restJson1_1__listOfCaptionLanguageMapping = (
 const deserializeAws_restJson1_1__listOfCaptionSelector = (
   output: any,
   context: __SerdeContext
-): Array<CaptionSelector> => {
+): CaptionSelector[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CaptionSelector(entry, context)
   );
@@ -19009,7 +19009,7 @@ const deserializeAws_restJson1_1__listOfCaptionSelector = (
 const deserializeAws_restJson1_1__listOfChannelEgressEndpoint = (
   output: any,
   context: __SerdeContext
-): Array<ChannelEgressEndpoint> => {
+): ChannelEgressEndpoint[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ChannelEgressEndpoint(entry, context)
   );
@@ -19018,7 +19018,7 @@ const deserializeAws_restJson1_1__listOfChannelEgressEndpoint = (
 const deserializeAws_restJson1_1__listOfChannelSummary = (
   output: any,
   context: __SerdeContext
-): Array<ChannelSummary> => {
+): ChannelSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ChannelSummary(entry, context)
   );
@@ -19027,14 +19027,14 @@ const deserializeAws_restJson1_1__listOfChannelSummary = (
 const deserializeAws_restJson1_1__listOfHlsAdMarkers = (
   output: any,
   context: __SerdeContext
-): Array<HlsAdMarkers | string> => {
+): HlsAdMarkers | string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1__listOfInput = (
   output: any,
   context: __SerdeContext
-): Array<Input> => {
+): Input[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Input(entry, context)
   );
@@ -19043,7 +19043,7 @@ const deserializeAws_restJson1_1__listOfInput = (
 const deserializeAws_restJson1_1__listOfInputAttachment = (
   output: any,
   context: __SerdeContext
-): Array<InputAttachment> => {
+): InputAttachment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InputAttachment(entry, context)
   );
@@ -19052,7 +19052,7 @@ const deserializeAws_restJson1_1__listOfInputAttachment = (
 const deserializeAws_restJson1_1__listOfInputChannelLevel = (
   output: any,
   context: __SerdeContext
-): Array<InputChannelLevel> => {
+): InputChannelLevel[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InputChannelLevel(entry, context)
   );
@@ -19061,7 +19061,7 @@ const deserializeAws_restJson1_1__listOfInputChannelLevel = (
 const deserializeAws_restJson1_1__listOfInputDestination = (
   output: any,
   context: __SerdeContext
-): Array<InputDestination> => {
+): InputDestination[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InputDestination(entry, context)
   );
@@ -19070,7 +19070,7 @@ const deserializeAws_restJson1_1__listOfInputDestination = (
 const deserializeAws_restJson1_1__listOfInputSecurityGroup = (
   output: any,
   context: __SerdeContext
-): Array<InputSecurityGroup> => {
+): InputSecurityGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InputSecurityGroup(entry, context)
   );
@@ -19079,7 +19079,7 @@ const deserializeAws_restJson1_1__listOfInputSecurityGroup = (
 const deserializeAws_restJson1_1__listOfInputSource = (
   output: any,
   context: __SerdeContext
-): Array<InputSource> => {
+): InputSource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InputSource(entry, context)
   );
@@ -19088,7 +19088,7 @@ const deserializeAws_restJson1_1__listOfInputSource = (
 const deserializeAws_restJson1_1__listOfInputWhitelistRule = (
   output: any,
   context: __SerdeContext
-): Array<InputWhitelistRule> => {
+): InputWhitelistRule[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InputWhitelistRule(entry, context)
   );
@@ -19097,7 +19097,7 @@ const deserializeAws_restJson1_1__listOfInputWhitelistRule = (
 const deserializeAws_restJson1_1__listOfMediaConnectFlow = (
   output: any,
   context: __SerdeContext
-): Array<MediaConnectFlow> => {
+): MediaConnectFlow[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1MediaConnectFlow(entry, context)
   );
@@ -19106,7 +19106,7 @@ const deserializeAws_restJson1_1__listOfMediaConnectFlow = (
 const deserializeAws_restJson1_1__listOfMediaPackageOutputDestinationSettings = (
   output: any,
   context: __SerdeContext
-): Array<MediaPackageOutputDestinationSettings> => {
+): MediaPackageOutputDestinationSettings[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1MediaPackageOutputDestinationSettings(
       entry,
@@ -19118,7 +19118,7 @@ const deserializeAws_restJson1_1__listOfMediaPackageOutputDestinationSettings = 
 const deserializeAws_restJson1_1__listOfMultiplexOutputDestination = (
   output: any,
   context: __SerdeContext
-): Array<MultiplexOutputDestination> => {
+): MultiplexOutputDestination[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1MultiplexOutputDestination(entry, context)
   );
@@ -19127,7 +19127,7 @@ const deserializeAws_restJson1_1__listOfMultiplexOutputDestination = (
 const deserializeAws_restJson1_1__listOfMultiplexProgramSummary = (
   output: any,
   context: __SerdeContext
-): Array<MultiplexProgramSummary> => {
+): MultiplexProgramSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1MultiplexProgramSummary(entry, context)
   );
@@ -19136,7 +19136,7 @@ const deserializeAws_restJson1_1__listOfMultiplexProgramSummary = (
 const deserializeAws_restJson1_1__listOfMultiplexSummary = (
   output: any,
   context: __SerdeContext
-): Array<MultiplexSummary> => {
+): MultiplexSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1MultiplexSummary(entry, context)
   );
@@ -19145,7 +19145,7 @@ const deserializeAws_restJson1_1__listOfMultiplexSummary = (
 const deserializeAws_restJson1_1__listOfOffering = (
   output: any,
   context: __SerdeContext
-): Array<Offering> => {
+): Offering[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Offering(entry, context)
   );
@@ -19154,7 +19154,7 @@ const deserializeAws_restJson1_1__listOfOffering = (
 const deserializeAws_restJson1_1__listOfOutput = (
   output: any,
   context: __SerdeContext
-): Array<Output> => {
+): Output[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Output(entry, context)
   );
@@ -19163,7 +19163,7 @@ const deserializeAws_restJson1_1__listOfOutput = (
 const deserializeAws_restJson1_1__listOfOutputDestination = (
   output: any,
   context: __SerdeContext
-): Array<OutputDestination> => {
+): OutputDestination[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1OutputDestination(entry, context)
   );
@@ -19172,7 +19172,7 @@ const deserializeAws_restJson1_1__listOfOutputDestination = (
 const deserializeAws_restJson1_1__listOfOutputDestinationSettings = (
   output: any,
   context: __SerdeContext
-): Array<OutputDestinationSettings> => {
+): OutputDestinationSettings[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1OutputDestinationSettings(entry, context)
   );
@@ -19181,7 +19181,7 @@ const deserializeAws_restJson1_1__listOfOutputDestinationSettings = (
 const deserializeAws_restJson1_1__listOfOutputGroup = (
   output: any,
   context: __SerdeContext
-): Array<OutputGroup> => {
+): OutputGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1OutputGroup(entry, context)
   );
@@ -19190,7 +19190,7 @@ const deserializeAws_restJson1_1__listOfOutputGroup = (
 const deserializeAws_restJson1_1__listOfPipelineDetail = (
   output: any,
   context: __SerdeContext
-): Array<PipelineDetail> => {
+): PipelineDetail[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PipelineDetail(entry, context)
   );
@@ -19199,7 +19199,7 @@ const deserializeAws_restJson1_1__listOfPipelineDetail = (
 const deserializeAws_restJson1_1__listOfPipelinePauseStateSettings = (
   output: any,
   context: __SerdeContext
-): Array<PipelinePauseStateSettings> => {
+): PipelinePauseStateSettings[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PipelinePauseStateSettings(entry, context)
   );
@@ -19208,7 +19208,7 @@ const deserializeAws_restJson1_1__listOfPipelinePauseStateSettings = (
 const deserializeAws_restJson1_1__listOfReservation = (
   output: any,
   context: __SerdeContext
-): Array<Reservation> => {
+): Reservation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Reservation(entry, context)
   );
@@ -19217,7 +19217,7 @@ const deserializeAws_restJson1_1__listOfReservation = (
 const deserializeAws_restJson1_1__listOfScheduleAction = (
   output: any,
   context: __SerdeContext
-): Array<ScheduleAction> => {
+): ScheduleAction[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ScheduleAction(entry, context)
   );
@@ -19226,7 +19226,7 @@ const deserializeAws_restJson1_1__listOfScheduleAction = (
 const deserializeAws_restJson1_1__listOfScte35Descriptor = (
   output: any,
   context: __SerdeContext
-): Array<Scte35Descriptor> => {
+): Scte35Descriptor[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Scte35Descriptor(entry, context)
   );
@@ -19235,7 +19235,7 @@ const deserializeAws_restJson1_1__listOfScte35Descriptor = (
 const deserializeAws_restJson1_1__listOfValidationError = (
   output: any,
   context: __SerdeContext
-): Array<ValidationError> => {
+): ValidationError[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ValidationError(entry, context)
   );
@@ -19244,7 +19244,7 @@ const deserializeAws_restJson1_1__listOfValidationError = (
 const deserializeAws_restJson1_1__listOfVideoDescription = (
   output: any,
   context: __SerdeContext
-): Array<VideoDescription> => {
+): VideoDescription[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1VideoDescription(entry, context)
   );
@@ -19253,14 +19253,14 @@ const deserializeAws_restJson1_1__listOfVideoDescription = (
 const deserializeAws_restJson1_1__listOf__integer = (
   output: any,
   context: __SerdeContext
-): Array<number> => {
+): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1__listOf__string = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

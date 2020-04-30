@@ -625,7 +625,7 @@ const deserializeAws_restJson1_1AccountInfo = (
 const deserializeAws_restJson1_1AccountListType = (
   output: any,
   context: __SerdeContext
-): Array<AccountInfo> => {
+): AccountInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AccountInfo(entry, context)
   );
@@ -678,7 +678,7 @@ const deserializeAws_restJson1_1RoleInfo = (
 const deserializeAws_restJson1_1RoleListType = (
   output: any,
   context: __SerdeContext
-): Array<RoleInfo> => {
+): RoleInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RoleInfo(entry, context)
   );

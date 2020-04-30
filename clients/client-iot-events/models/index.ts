@@ -146,7 +146,7 @@ export interface CreateDetectorModelRequest {
   /**
    * <p>Metadata that can be used to manage the detector model.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateDetectorModelRequest {
@@ -187,7 +187,7 @@ export interface CreateInputRequest {
   /**
    * <p>Metadata that can be used to manage the input.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateInputRequest {
@@ -450,7 +450,7 @@ export interface DetectorModelDefinition {
   /**
    * <p>Information about the states of the detector.</p>
    */
-  states: Array<State> | undefined;
+  states: State[] | undefined;
 }
 
 export namespace DetectorModelDefinition {
@@ -559,7 +559,7 @@ export interface Event {
   /**
    * <p>The actions to be performed.</p>
    */
-  actions?: Array<Action>;
+  actions?: Action[];
 
   /**
    * <p>[Optional] The Boolean expression that when TRUE causes the <code>"actions"</code> to be performed.
@@ -675,7 +675,7 @@ export interface InputDefinition {
    *           specified here are available for use in the <code>"condition"</code> expressions used by
    *           detectors that monitor this input. </p>
    */
-  attributes: Array<Attribute> | undefined;
+  attributes: Attribute[] | undefined;
 }
 
 export namespace InputDefinition {
@@ -807,7 +807,7 @@ export interface ListDetectorModelVersionsResponse {
   /**
    * <p>Summary information about the detector model versions.</p>
    */
-  detectorModelVersionSummaries?: Array<DetectorModelVersionSummary>;
+  detectorModelVersionSummaries?: DetectorModelVersionSummary[];
 
   /**
    * <p>A token to retrieve the next set of results, or <code>null</code> if there are no additional
@@ -844,7 +844,7 @@ export interface ListDetectorModelsResponse {
   /**
    * <p>Summary information about the detector models.</p>
    */
-  detectorModelSummaries?: Array<DetectorModelSummary>;
+  detectorModelSummaries?: DetectorModelSummary[];
 
   /**
    * <p>A token to retrieve the next set of results, or <code>null</code> if there are no additional
@@ -881,7 +881,7 @@ export interface ListInputsResponse {
   /**
    * <p>Summary information about the inputs.</p>
    */
-  inputSummaries?: Array<InputSummary>;
+  inputSummaries?: InputSummary[];
 
   /**
    * <p>A token to retrieve the next set of results, or <code>null</code> if there are no additional
@@ -913,7 +913,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags assigned to the resource.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -936,7 +936,7 @@ export interface LoggingOptions {
    * <p>Information that identifies those detector models and their detectors (instances) for which the
    *        logging level is given.</p>
    */
-  detectorDebugOptions?: Array<DetectorDebugOption>;
+  detectorDebugOptions?: DetectorDebugOption[];
 
   /**
    * <p>If TRUE, logging is enabled for AWS IoT Events.</p>
@@ -969,7 +969,7 @@ export interface OnEnterLifecycle {
    * <p>Specifies the actions that are performed when the state is entered and the
    *        <code>"condition"</code> is TRUE.</p>
    */
-  events?: Array<Event>;
+  events?: Event[];
 }
 
 export namespace OnEnterLifecycle {
@@ -987,7 +987,7 @@ export interface OnExitLifecycle {
    * <p>Specifies the <code>"actions"</code> that are performed when the state is exited and the
    *         <code>"condition"</code> is TRUE.</p>
    */
-  events?: Array<Event>;
+  events?: Event[];
 }
 
 export namespace OnExitLifecycle {
@@ -1003,13 +1003,13 @@ export interface OnInputLifecycle {
   /**
    * <p>Specifies the actions performed when the <code>"condition"</code> evaluates to TRUE.</p>
    */
-  events?: Array<Event>;
+  events?: Event[];
 
   /**
    * <p>Specifies the actions performed, and the next state entered, when a <code>"condition"</code>
    *         evaluates to TRUE.</p>
    */
-  transitionEvents?: Array<TransitionEvent>;
+  transitionEvents?: TransitionEvent[];
 }
 
 export namespace OnInputLifecycle {
@@ -1189,7 +1189,7 @@ export interface TagResourceRequest {
   /**
    * <p>The new or modified tags for the resource.</p>
    */
-  tags: Array<Tag> | undefined;
+  tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1215,7 +1215,7 @@ export interface TransitionEvent {
   /**
    * <p>The actions to be performed.</p>
    */
-  actions?: Array<Action>;
+  actions?: Action[];
 
   /**
    * <p>[Required] A Boolean expression that when TRUE causes the actions to be performed and
@@ -1249,7 +1249,7 @@ export interface UntagResourceRequest {
   /**
    * <p>A list of the keys of the tags to be removed from the resource.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

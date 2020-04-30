@@ -68,7 +68,7 @@ export interface UntagResourceRequest {
   /**
    * <p>Tags to remove from this resource.</p>
    */
-  TagsToRemove: Array<string> | undefined;
+  TagsToRemove: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -413,7 +413,7 @@ export interface BatchCreatePartitionRequest {
    * <p>A list of <code>PartitionInput</code> structures that define
    *       the partitions to be created.</p>
    */
-  PartitionInputList: Array<PartitionInput> | undefined;
+  PartitionInputList: PartitionInput[] | undefined;
 
   /**
    * <p>The name of the metadata table in which the partition is to be created.</p>
@@ -431,7 +431,7 @@ export interface BatchCreatePartitionResponse {
   /**
    * <p>The errors encountered when trying to create the requested partitions.</p>
    */
-  Errors?: Array<PartitionError>;
+  Errors?: PartitionError[];
 }
 
 export namespace BatchCreatePartitionResponse {
@@ -450,7 +450,7 @@ export interface BatchDeleteConnectionRequest {
   /**
    * <p>A list of names of the connections to delete.</p>
    */
-  ConnectionNameList: Array<string> | undefined;
+  ConnectionNameList: string[] | undefined;
 }
 
 export namespace BatchDeleteConnectionRequest {
@@ -470,7 +470,7 @@ export interface BatchDeleteConnectionResponse {
    * <p>A list of names of the connection definitions that were
    *        successfully deleted.</p>
    */
-  Succeeded?: Array<string>;
+  Succeeded?: string[];
 }
 
 export namespace BatchDeleteConnectionResponse {
@@ -496,7 +496,7 @@ export interface BatchDeletePartitionRequest {
    * <p>A list of <code>PartitionInput</code> structures that define
    *       the partitions to be deleted.</p>
    */
-  PartitionsToDelete: Array<PartitionValueList> | undefined;
+  PartitionsToDelete: PartitionValueList[] | undefined;
 
   /**
    * <p>The name of the table that contains the partitions to be deleted.</p>
@@ -514,7 +514,7 @@ export interface BatchDeletePartitionResponse {
   /**
    * <p>The errors encountered when trying to delete the requested partitions.</p>
    */
-  Errors?: Array<PartitionError>;
+  Errors?: PartitionError[];
 }
 
 export namespace BatchDeletePartitionResponse {
@@ -539,7 +539,7 @@ export interface BatchDeleteTableRequest {
   /**
    * <p>A list of the table to delete.</p>
    */
-  TablesToDelete: Array<string> | undefined;
+  TablesToDelete: string[] | undefined;
 }
 
 export namespace BatchDeleteTableRequest {
@@ -552,7 +552,7 @@ export interface BatchDeleteTableResponse {
   /**
    * <p>A list of errors encountered in attempting to delete the specified tables.</p>
    */
-  Errors?: Array<TableError>;
+  Errors?: TableError[];
 }
 
 export namespace BatchDeleteTableResponse {
@@ -583,7 +583,7 @@ export interface BatchDeleteTableVersionRequest {
   /**
    * <p>A list of the IDs of versions to be deleted. A <code>VersionId</code> is a string representation of an integer. Each version is incremented by 1.</p>
    */
-  VersionIds: Array<string> | undefined;
+  VersionIds: string[] | undefined;
 }
 
 export namespace BatchDeleteTableVersionRequest {
@@ -597,7 +597,7 @@ export interface BatchDeleteTableVersionResponse {
    * <p>A list of errors encountered while trying to delete
    *       the specified table versions.</p>
    */
-  Errors?: Array<TableVersionError>;
+  Errors?: TableVersionError[];
 }
 
 export namespace BatchDeleteTableVersionResponse {
@@ -621,7 +621,7 @@ export interface BatchGetPartitionRequest {
   /**
    * <p>A list of partition values identifying the partitions to retrieve.</p>
    */
-  PartitionsToGet: Array<PartitionValueList> | undefined;
+  PartitionsToGet: PartitionValueList[] | undefined;
 
   /**
    * <p>The name of the partitions' table.</p>
@@ -639,13 +639,13 @@ export interface BatchGetPartitionResponse {
   /**
    * <p>A list of the requested partitions.</p>
    */
-  Partitions?: Array<Partition>;
+  Partitions?: Partition[];
 
   /**
    * <p>A list of the partition values in the request for which partitions were not
    *       returned.</p>
    */
-  UnprocessedKeys?: Array<PartitionValueList>;
+  UnprocessedKeys?: PartitionValueList[];
 }
 
 export namespace BatchGetPartitionResponse {
@@ -837,7 +837,7 @@ export interface Connection {
   /**
    * <p>A list of criteria that can be used in selecting this connection.</p>
    */
-  MatchCriteria?: Array<string>;
+  MatchCriteria?: string[];
 
   /**
    * <p>The name of the connection definition.</p>
@@ -879,7 +879,7 @@ export interface ConnectionInput {
   /**
    * <p>A list of criteria that can be used in selecting this connection.</p>
    */
-  MatchCriteria?: Array<string>;
+  MatchCriteria?: string[];
 
   /**
    * <p>The name of the connection.</p>
@@ -1175,7 +1175,7 @@ export interface Database {
   /**
    * <p>Creates a set of default permissions on the table for principals. </p>
    */
-  CreateTableDefaultPermissions?: Array<PrincipalPermissions>;
+  CreateTableDefaultPermissions?: PrincipalPermissions[];
 
   /**
    * <p>The time at which the metadata database was created in the catalog.</p>
@@ -1217,7 +1217,7 @@ export interface DatabaseInput {
   /**
    * <p>Creates a set of default permissions on the table for principals. </p>
    */
-  CreateTableDefaultPermissions?: Array<PrincipalPermissions>;
+  CreateTableDefaultPermissions?: PrincipalPermissions[];
 
   /**
    * <p>A description of the database.</p>
@@ -1321,7 +1321,7 @@ export interface DeletePartitionRequest {
   /**
    * <p>The values that define the partition.</p>
    */
-  PartitionValues: Array<string> | undefined;
+  PartitionValues: string[] | undefined;
 
   /**
    * <p>The name of the table that contains the partition to be deleted.</p>
@@ -1577,7 +1577,7 @@ export interface GetConnectionsFilter {
    * <p>A criteria string that must match the criteria recorded in the
    *        connection definition for that connection definition to be returned.</p>
    */
-  MatchCriteria?: Array<string>;
+  MatchCriteria?: string[];
 }
 
 export namespace GetConnectionsFilter {
@@ -1628,7 +1628,7 @@ export interface GetConnectionsResponse {
   /**
    * <p>A list of requested connection definitions.</p>
    */
-  ConnectionList?: Array<Connection>;
+  ConnectionList?: Connection[];
 
   /**
    * <p>A continuation token, if the list of connections returned does not
@@ -1731,7 +1731,7 @@ export interface GetDatabasesResponse {
   /**
    * <p>A list of <code>Database</code> objects from the specified catalog.</p>
    */
-  DatabaseList: Array<Database> | undefined;
+  DatabaseList: Database[] | undefined;
 
   /**
    * <p>A continuation token for paginating the returned list of tokens,
@@ -1761,7 +1761,7 @@ export interface GetPartitionRequest {
   /**
    * <p>The values that define the partition.</p>
    */
-  PartitionValues: Array<string> | undefined;
+  PartitionValues: string[] | undefined;
 
   /**
    * <p>The name of the partition's table.</p>
@@ -1949,7 +1949,7 @@ export interface GetPartitionsResponse {
   /**
    * <p>A list of requested partitions.</p>
    */
-  Partitions?: Array<Partition>;
+  Partitions?: Partition[];
 }
 
 export namespace GetPartitionsResponse {
@@ -2125,7 +2125,7 @@ export interface GetTableVersionsResponse {
    * <p>A list of strings identifying available versions of the
    *       specified table.</p>
    */
-  TableVersions?: Array<TableVersion>;
+  TableVersions?: TableVersion[];
 }
 
 export namespace GetTableVersionsResponse {
@@ -2180,7 +2180,7 @@ export interface GetTablesResponse {
   /**
    * <p>A list of the requested <code>Table</code> objects.</p>
    */
-  TableList?: Array<Table>;
+  TableList?: Table[];
 }
 
 export namespace GetTablesResponse {
@@ -2271,7 +2271,7 @@ export interface GetUserDefinedFunctionsResponse {
   /**
    * <p>A list of requested function definitions.</p>
    */
-  UserDefinedFunctions?: Array<UserDefinedFunction>;
+  UserDefinedFunctions?: UserDefinedFunction[];
 }
 
 export namespace GetUserDefinedFunctionsResponse {
@@ -2367,7 +2367,7 @@ export interface Partition {
   /**
    * <p>The values of the partition.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace Partition {
@@ -2387,7 +2387,7 @@ export interface PartitionError {
   /**
    * <p>The values that define the partition.</p>
    */
-  PartitionValues?: Array<string>;
+  PartitionValues?: string[];
 }
 
 export namespace PartitionError {
@@ -2426,7 +2426,7 @@ export interface PartitionInput {
    *
    * 	        <p>The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue will add the values to the wrong keys.</p>
    */
-  Values?: Array<string>;
+  Values?: string[];
 }
 
 export namespace PartitionInput {
@@ -2442,7 +2442,7 @@ export interface PartitionValueList {
   /**
    * <p>The list of values.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace PartitionValueList {
@@ -2477,7 +2477,7 @@ export interface PhysicalConnectionRequirements {
   /**
    * <p>The security group ID list used by the connection.</p>
    */
-  SecurityGroupIdList?: Array<string>;
+  SecurityGroupIdList?: string[];
 
   /**
    * <p>The subnet ID used by the connection.</p>
@@ -2498,7 +2498,7 @@ export interface PrincipalPermissions {
   /**
    * <p>The permissions that are granted to the principal.</p>
    */
-  Permissions?: Array<Permission | string>;
+  Permissions?: Permission | string[];
 
   /**
    * <p>The principal who is granted permissions.</p>
@@ -2650,7 +2650,7 @@ export interface SearchTablesRequest {
   /**
    * <p>A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.</p>
    */
-  Filters?: Array<PropertyPredicate>;
+  Filters?: PropertyPredicate[];
 
   /**
    * <p>The maximum number of tables to return in a single response.</p>
@@ -2671,7 +2671,7 @@ export interface SearchTablesRequest {
   /**
    * <p>A list of criteria for sorting the results by a field name, in an ascending or descending order.</p>
    */
-  SortCriteria?: Array<SortCriterion>;
+  SortCriteria?: SortCriterion[];
 }
 
 export namespace SearchTablesRequest {
@@ -2689,7 +2689,7 @@ export interface SearchTablesResponse {
   /**
    * <p>A list of the requested <code>Table</code> objects. The <code>SearchTables</code> response returns only the tables that you have access to.</p>
    */
-  TableList?: Array<Table>;
+  TableList?: Table[];
 }
 
 export namespace SearchTablesResponse {
@@ -2755,7 +2755,7 @@ export interface SkewedInfo {
   /**
    * <p>A list of names of columns that contain skewed values.</p>
    */
-  SkewedColumnNames?: Array<string>;
+  SkewedColumnNames?: string[];
 
   /**
    * <p>A mapping of skewed values to the columns that contain them.</p>
@@ -2766,7 +2766,7 @@ export interface SkewedInfo {
    * <p>A list of values that appear so frequently as to be considered
    *       skewed.</p>
    */
-  SkewedColumnValues?: Array<string>;
+  SkewedColumnValues?: string[];
 }
 
 export namespace SkewedInfo {
@@ -2807,12 +2807,12 @@ export interface StorageDescriptor {
    * <p>A list of reducer grouping columns, clustering columns, and
    *       bucketing columns in the table.</p>
    */
-  BucketColumns?: Array<string>;
+  BucketColumns?: string[];
 
   /**
    * <p>A list of the <code>Columns</code> in the table.</p>
    */
-  Columns?: Array<Column>;
+  Columns?: Column[];
 
   /**
    * <p>
@@ -2863,7 +2863,7 @@ export interface StorageDescriptor {
   /**
    * <p>A list specifying the sort order of each bucket in the table.</p>
    */
-  SortColumns?: Array<Order>;
+  SortColumns?: Order[];
 
   /**
    * <p>
@@ -2946,7 +2946,7 @@ export interface Table {
    *             <code>"PartitionKeys": []</code>
    *          </p>
    */
-  PartitionKeys?: Array<Column>;
+  PartitionKeys?: Column[];
 
   /**
    * <p>The retention time for this table.</p>
@@ -3050,7 +3050,7 @@ export interface TableInput {
    *             <code>"PartitionKeys": []</code>
    *          </p>
    */
-  PartitionKeys?: Array<Column>;
+  PartitionKeys?: Column[];
 
   /**
    * <p>The retention time for this table.</p>
@@ -3220,7 +3220,7 @@ export interface UpdatePartitionRequest {
   /**
    * <p>A list of the values defining the partition.</p>
    */
-  PartitionValueList: Array<string> | undefined;
+  PartitionValueList: string[] | undefined;
 
   /**
    * <p>The name of the table in which the partition to be updated is located.</p>
@@ -3358,7 +3358,7 @@ export interface UserDefinedFunction {
   /**
    * <p>The resource URIs for the function.</p>
    */
-  ResourceUris?: Array<ResourceUri>;
+  ResourceUris?: ResourceUri[];
 }
 
 export namespace UserDefinedFunction {
@@ -3394,7 +3394,7 @@ export interface UserDefinedFunctionInput {
   /**
    * <p>The resource URIs for the function.</p>
    */
-  ResourceUris?: Array<ResourceUri>;
+  ResourceUris?: ResourceUri[];
 }
 
 export namespace UserDefinedFunctionInput {
@@ -3408,7 +3408,7 @@ export interface BatchGetDevEndpointsRequest {
    * <p>The list of <code>DevEndpoint</code> names, which might be the names returned from the
    *         <code>ListDevEndpoint</code> operation.</p>
    */
-  DevEndpointNames: Array<string> | undefined;
+  DevEndpointNames: string[] | undefined;
 }
 
 export namespace BatchGetDevEndpointsRequest {
@@ -3421,12 +3421,12 @@ export interface BatchGetDevEndpointsResponse {
   /**
    * <p>A list of <code>DevEndpoint</code> definitions.</p>
    */
-  DevEndpoints?: Array<DevEndpoint>;
+  DevEndpoints?: DevEndpoint[];
 
   /**
    * <p>A list of <code>DevEndpoints</code> not found.</p>
    */
-  DevEndpointsNotFound?: Array<string>;
+  DevEndpointsNotFound?: string[];
 }
 
 export namespace BatchGetDevEndpointsResponse {
@@ -3528,7 +3528,7 @@ export interface CreateDevEndpointRequest {
    *           <code>addPublicKeys</code> attribute.</p>
    *          </note>
    */
-  PublicKeys?: Array<string>;
+  PublicKeys?: string[];
 
   /**
    * <p>The IAM role for the <code>DevEndpoint</code>.</p>
@@ -3545,7 +3545,7 @@ export interface CreateDevEndpointRequest {
    * <p>Security group IDs for the security groups to be used by the new
    *       <code>DevEndpoint</code>.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>The subnet ID for the new <code>DevEndpoint</code> to use.</p>
@@ -3671,7 +3671,7 @@ export interface CreateDevEndpointResponse {
   /**
    * <p>The security groups assigned to the new <code>DevEndpoint</code>.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>The current status of the new <code>DevEndpoint</code>.</p>
@@ -3928,7 +3928,7 @@ export interface DevEndpoint {
    *         new keys in the <code>addPublicKeys</code> attribute.</p>
    *          </note>
    */
-  PublicKeys?: Array<string>;
+  PublicKeys?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used in this
@@ -3945,7 +3945,7 @@ export interface DevEndpoint {
   /**
    * <p>A list of security group identifiers used in this <code>DevEndpoint</code>.</p>
    */
-  SecurityGroupIds?: Array<string>;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>The current status of this <code>DevEndpoint</code>.</p>
@@ -4046,7 +4046,7 @@ export interface EncryptionConfiguration {
   /**
    * <p>The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.</p>
    */
-  S3Encryption?: Array<S3Encryption>;
+  S3Encryption?: S3Encryption[];
 }
 
 export namespace EncryptionConfiguration {
@@ -4103,7 +4103,7 @@ export interface GetDevEndpointsResponse {
   /**
    * <p>A list of <code>DevEndpoint</code> definitions.</p>
    */
-  DevEndpoints?: Array<DevEndpoint>;
+  DevEndpoints?: DevEndpoint[];
 
   /**
    * <p>A continuation token, if not all <code>DevEndpoint</code> definitions have yet been
@@ -4203,7 +4203,7 @@ export interface GetSecurityConfigurationsResponse {
   /**
    * <p>A list of security configurations.</p>
    */
-  SecurityConfigurations?: Array<SecurityConfiguration>;
+  SecurityConfigurations?: SecurityConfiguration[];
 }
 
 export namespace GetSecurityConfigurationsResponse {
@@ -4307,7 +4307,7 @@ export interface ListDevEndpointsResponse {
    * <p>The names of all the <code>DevEndpoint</code>s in the account, or the
    *         <code>DevEndpoint</code>s with the specified tags.</p>
    */
-  DevEndpointNames?: Array<string>;
+  DevEndpointNames?: string[];
 
   /**
    * <p>A continuation token, if the returned list does not contain the
@@ -4430,7 +4430,7 @@ export interface UpdateDevEndpointRequest {
   /**
    * <p>The list of public keys for the <code>DevEndpoint</code> to use.</p>
    */
-  AddPublicKeys?: Array<string>;
+  AddPublicKeys?: string[];
 
   /**
    * <p>Custom Python or Java libraries to be loaded in the <code>DevEndpoint</code>.</p>
@@ -4441,12 +4441,12 @@ export interface UpdateDevEndpointRequest {
    * <p>The list of argument keys to be deleted from the map of arguments used to configure the
    *         <code>DevEndpoint</code>.</p>
    */
-  DeleteArguments?: Array<string>;
+  DeleteArguments?: string[];
 
   /**
    * <p>The list of public keys to be deleted from the <code>DevEndpoint</code>.</p>
    */
-  DeletePublicKeys?: Array<string>;
+  DeletePublicKeys?: string[];
 
   /**
    * <p>The name of the <code>DevEndpoint</code> to be updated.</p>
@@ -4572,7 +4572,7 @@ export interface CreateMLTransformRequest {
   /**
    * <p>A list of AWS Glue table definitions used by the transform.</p>
    */
-  InputRecordTables: Array<GlueTable> | undefined;
+  InputRecordTables: GlueTable[] | undefined;
 
   /**
    * <p>The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
@@ -5006,7 +5006,7 @@ export interface GetMLTaskRunsResponse {
   /**
    * <p>A list of task runs that are associated with the transform.</p>
    */
-  TaskRuns?: Array<TaskRun>;
+  TaskRuns?: TaskRun[];
 }
 
 export namespace GetMLTaskRunsResponse {
@@ -5053,7 +5053,7 @@ export interface GetMLTransformResponse {
   /**
    * <p>A list of AWS Glue table definitions used by the transform.</p>
    */
-  InputRecordTables?: Array<GlueTable>;
+  InputRecordTables?: GlueTable[];
 
   /**
    * <p>The number of labels available for this transform.</p>
@@ -5105,7 +5105,7 @@ export interface GetMLTransformResponse {
    * <p>The <code>Map<Column, Type></code> object that represents the schema that this
    *       transform accepts. Has an upper bound of 100 columns.</p>
    */
-  Schema?: Array<SchemaColumn>;
+  Schema?: SchemaColumn[];
 
   /**
    * <p>The last known status of the transform (to indicate whether it can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
@@ -5183,7 +5183,7 @@ export interface GetMLTransformsResponse {
   /**
    * <p>A list of machine learning transforms.</p>
    */
-  Transforms: Array<MLTransform> | undefined;
+  Transforms: MLTransform[] | undefined;
 }
 
 export namespace GetMLTransformsResponse {
@@ -5289,7 +5289,7 @@ export interface MLTransform {
   /**
    * <p>A list of AWS Glue table definitions used by the transform.</p>
    */
-  InputRecordTables?: Array<GlueTable>;
+  InputRecordTables?: GlueTable[];
 
   /**
    * <p>A count identifier for the labeling files generated by AWS Glue for this transform. As you create a better transform, you can iteratively download, label, and upload the labeling file.</p>
@@ -5373,7 +5373,7 @@ export interface MLTransform {
    * <p>A map of key-value pairs representing the columns and data types that this transform can
    *       run against. Has an upper bound of 100 columns.</p>
    */
-  Schema?: Array<SchemaColumn>;
+  Schema?: SchemaColumn[];
 
   /**
    * <p>The current status of the machine learning transform.</p>
@@ -5822,7 +5822,7 @@ export interface TransformFilterCriteria {
    *         <code>Column</code> is the name of a column, and <code>Type</code> is the type of the data
    *       such as an integer or string. Has an upper bound of 100 columns.</p>
    */
-  Schema?: Array<SchemaColumn>;
+  Schema?: SchemaColumn[];
 
   /**
    * <p>Filters the list of machine learning transforms by the last known status of the transforms (to indicate whether a transform can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
@@ -6052,7 +6052,7 @@ export interface BatchGetJobsRequest {
    * <p>A list of job names, which might be the names returned from the <code>ListJobs</code>
    *       operation.</p>
    */
-  JobNames: Array<string> | undefined;
+  JobNames: string[] | undefined;
 }
 
 export namespace BatchGetJobsRequest {
@@ -6065,12 +6065,12 @@ export interface BatchGetJobsResponse {
   /**
    * <p>A list of job definitions.</p>
    */
-  Jobs?: Array<Job>;
+  Jobs?: Job[];
 
   /**
    * <p>A list of names of jobs not found.</p>
    */
-  JobsNotFound?: Array<string>;
+  JobsNotFound?: string[];
 }
 
 export namespace BatchGetJobsResponse {
@@ -6083,7 +6083,7 @@ export interface BatchGetTriggersRequest {
   /**
    * <p>A list of trigger names, which may be the names returned from the <code>ListTriggers</code> operation.</p>
    */
-  TriggerNames: Array<string> | undefined;
+  TriggerNames: string[] | undefined;
 }
 
 export namespace BatchGetTriggersRequest {
@@ -6096,12 +6096,12 @@ export interface BatchGetTriggersResponse {
   /**
    * <p>A list of trigger definitions.</p>
    */
-  Triggers?: Array<Trigger>;
+  Triggers?: Trigger[];
 
   /**
    * <p>A list of names of triggers not found.</p>
    */
-  TriggersNotFound?: Array<string>;
+  TriggersNotFound?: string[];
 }
 
 export namespace BatchGetTriggersResponse {
@@ -6119,7 +6119,7 @@ export interface BatchGetWorkflowsRequest {
   /**
    * <p>A list of workflow names, which may be the names returned from the <code>ListWorkflows</code> operation.</p>
    */
-  Names: Array<string> | undefined;
+  Names: string[] | undefined;
 }
 
 export namespace BatchGetWorkflowsRequest {
@@ -6132,12 +6132,12 @@ export interface BatchGetWorkflowsResponse {
   /**
    * <p>A list of names of workflows not found.</p>
    */
-  MissingWorkflows?: Array<string>;
+  MissingWorkflows?: string[];
 
   /**
    * <p>A list of workflow resource metadata.</p>
    */
-  Workflows?: Array<Workflow>;
+  Workflows?: Workflow[];
 }
 
 export namespace BatchGetWorkflowsResponse {
@@ -6183,7 +6183,7 @@ export interface BatchStopJobRunRequest {
    * <p>A list of the <code>JobRunIds</code> that should be stopped for that job
    *       definition.</p>
    */
-  JobRunIds: Array<string> | undefined;
+  JobRunIds: string[] | undefined;
 }
 
 export namespace BatchStopJobRunRequest {
@@ -6198,12 +6198,12 @@ export interface BatchStopJobRunResponse {
    *       including the <code>JobRunId</code> for which each error was encountered and details about the
    *       error.</p>
    */
-  Errors?: Array<BatchStopJobRunError>;
+  Errors?: BatchStopJobRunError[];
 
   /**
    * <p>A list of the JobRuns that were successfully submitted for stopping.</p>
    */
-  SuccessfulSubmissions?: Array<BatchStopJobRunSuccessfulSubmission>;
+  SuccessfulSubmissions?: BatchStopJobRunSuccessfulSubmission[];
 }
 
 export namespace BatchStopJobRunResponse {
@@ -6277,7 +6277,7 @@ export interface ConnectionsList {
   /**
    * <p>A list of connections used by the job.</p>
    */
-  Connections?: Array<string>;
+  Connections?: string[];
 }
 
 export namespace ConnectionsList {
@@ -6340,7 +6340,7 @@ export interface CrawlerNodeDetails {
   /**
    * <p>A list of crawls represented by the crawl node.</p>
    */
-  Crawls?: Array<Crawl>;
+  Crawls?: Crawl[];
 }
 
 export namespace CrawlerNodeDetails {
@@ -6512,7 +6512,7 @@ export interface CreateTriggerRequest {
   /**
    * <p>The actions initiated by this trigger when it fires.</p>
    */
-  Actions: Array<Action> | undefined;
+  Actions: Action[] | undefined;
 
   /**
    * <p>A description of the new trigger.</p>
@@ -6828,7 +6828,7 @@ export interface GetJobRunsResponse {
   /**
    * <p>A list of job-run metadata objects.</p>
    */
-  JobRuns?: Array<JobRun>;
+  JobRuns?: JobRun[];
 
   /**
    * <p>A continuation token, if not all requested job runs have been returned.</p>
@@ -6864,7 +6864,7 @@ export interface GetJobsResponse {
   /**
    * <p>A list of job definitions.</p>
    */
-  Jobs?: Array<Job>;
+  Jobs?: Job[];
 
   /**
    * <p>A continuation token, if not all job definitions have yet been returned.</p>
@@ -6938,7 +6938,7 @@ export interface GetTriggersResponse {
   /**
    * <p>A list of triggers for the specified job.</p>
    */
-  Triggers?: Array<Trigger>;
+  Triggers?: Trigger[];
 }
 
 export namespace GetTriggersResponse {
@@ -7082,7 +7082,7 @@ export interface GetWorkflowRunsResponse {
   /**
    * <p>A list of workflow run metadata objects.</p>
    */
-  Runs?: Array<WorkflowRun>;
+  Runs?: WorkflowRun[];
 }
 
 export namespace GetWorkflowRunsResponse {
@@ -7279,7 +7279,7 @@ export interface JobNodeDetails {
   /**
    * <p>The information for the job runs represented by the job node.</p>
    */
-  JobRuns?: Array<JobRun>;
+  JobRuns?: JobRun[];
 }
 
 export namespace JobNodeDetails {
@@ -7408,7 +7408,7 @@ export interface JobRun {
   /**
    * <p>A list of predecessors to this job run.</p>
    */
-  PredecessorRuns?: Array<Predecessor>;
+  PredecessorRuns?: Predecessor[];
 
   /**
    * <p>The ID of the previous run of this job. For example, the <code>JobRunId</code> specified
@@ -7635,7 +7635,7 @@ export interface ListJobsResponse {
   /**
    * <p>The names of all jobs in the account, or the jobs with the specified tags.</p>
    */
-  JobNames?: Array<string>;
+  JobNames?: string[];
 
   /**
    * <p>A continuation token, if the returned list does not contain the
@@ -7689,7 +7689,7 @@ export interface ListTriggersResponse {
   /**
    * <p>The names of all triggers in the account, or the triggers with the specified tags.</p>
    */
-  TriggerNames?: Array<string>;
+  TriggerNames?: string[];
 }
 
 export namespace ListTriggersResponse {
@@ -7725,7 +7725,7 @@ export interface ListWorkflowsResponse {
   /**
    * <p>List of names of workflows in the account.</p>
    */
-  Workflows?: Array<string>;
+  Workflows?: string[];
 }
 
 export namespace ListWorkflowsResponse {
@@ -7834,7 +7834,7 @@ export interface Predicate {
   /**
    * <p>A list of the conditions that determine when the trigger will fire.</p>
    */
-  Conditions?: Array<Condition>;
+  Conditions?: Condition[];
 
   /**
    * <p>An optional field if only one condition is listed. If multiple conditions are listed, then
@@ -8079,7 +8079,7 @@ export interface Trigger {
   /**
    * <p>The actions initiated by this trigger.</p>
    */
-  Actions?: Array<Action>;
+  Actions?: Action[];
 
   /**
    * <p>A description of this trigger.</p>
@@ -8171,7 +8171,7 @@ export interface TriggerUpdate {
   /**
    * <p>The actions initiated by this trigger.</p>
    */
-  Actions?: Array<Action>;
+  Actions?: Action[];
 
   /**
    * <p>A description of this trigger.</p>
@@ -8355,12 +8355,12 @@ export interface WorkflowGraph {
   /**
    * <p>A list of all the directed connections between the nodes belonging to the workflow.</p>
    */
-  Edges?: Array<Edge>;
+  Edges?: Edge[];
 
   /**
    * <p>A list of the the AWS Glue components belong to the workflow represented as nodes.</p>
    */
-  Nodes?: Array<Node>;
+  Nodes?: Node[];
 }
 
 export namespace WorkflowGraph {
@@ -8470,7 +8470,7 @@ export interface BatchGetCrawlersRequest {
    * <p>A list of crawler names, which might be the names returned from the
    *         <code>ListCrawlers</code> operation.</p>
    */
-  CrawlerNames: Array<string> | undefined;
+  CrawlerNames: string[] | undefined;
 }
 
 export namespace BatchGetCrawlersRequest {
@@ -8483,12 +8483,12 @@ export interface BatchGetCrawlersResponse {
   /**
    * <p>A list of crawler definitions.</p>
    */
-  Crawlers?: Array<Crawler>;
+  Crawlers?: Crawler[];
 
   /**
    * <p>A list of names of crawlers that were not found.</p>
    */
-  CrawlersNotFound?: Array<string>;
+  CrawlersNotFound?: string[];
 }
 
 export namespace BatchGetCrawlersResponse {
@@ -8529,7 +8529,7 @@ export interface CatalogTarget {
   /**
    * <p>A list of the tables to be synchronized.</p>
    */
-  Tables: Array<string> | undefined;
+  Tables: string[] | undefined;
 }
 
 export namespace CatalogTarget {
@@ -8606,7 +8606,7 @@ export interface CodeGenNode {
   /**
    * <p>Properties of the node, in the form of name-value pairs.</p>
    */
-  Args: Array<CodeGenNodeArg> | undefined;
+  Args: CodeGenNodeArg[] | undefined;
 
   /**
    * <p>A node identifier that is unique within the node's graph.</p>
@@ -8665,7 +8665,7 @@ export interface Crawler {
    * <p>A list of UTF-8 strings that specify the custom classifiers that are associated
    *      with the crawler.</p>
    */
-  Classifiers?: Array<string>;
+  Classifiers?: string[];
 
   /**
    * <p>Crawler configuration information. This versioned JSON string allows users
@@ -8880,22 +8880,22 @@ export interface CrawlerTargets {
   /**
    * <p>Specifies AWS Glue Data Catalog targets.</p>
    */
-  CatalogTargets?: Array<CatalogTarget>;
+  CatalogTargets?: CatalogTarget[];
 
   /**
    * <p>Specifies Amazon DynamoDB targets.</p>
    */
-  DynamoDBTargets?: Array<DynamoDBTarget>;
+  DynamoDBTargets?: DynamoDBTarget[];
 
   /**
    * <p>Specifies JDBC targets.</p>
    */
-  JdbcTargets?: Array<JdbcTarget>;
+  JdbcTargets?: JdbcTarget[];
 
   /**
    * <p>Specifies Amazon Simple Storage Service (Amazon S3) targets.</p>
    */
-  S3Targets?: Array<S3Target>;
+  S3Targets?: S3Target[];
 }
 
 export namespace CrawlerTargets {
@@ -8951,7 +8951,7 @@ export interface CreateCrawlerRequest {
    *       classifiers are included in a crawl, but these custom classifiers always override the default
    *       classifiers for a given classification.</p>
    */
-  Classifiers?: Array<string>;
+  Classifiers?: string[];
 
   /**
    * <p>The crawler configuration information. This versioned JSON string allows users to specify
@@ -9060,7 +9060,7 @@ export interface CreateCsvClassifierRequest {
   /**
    * <p>A list of strings representing column names.</p>
    */
-  Header?: Array<string>;
+  Header?: string[];
 
   /**
    * <p>The name of the classifier.</p>
@@ -9138,12 +9138,12 @@ export interface CreateScriptRequest {
   /**
    * <p>A list of the edges in the DAG.</p>
    */
-  DagEdges?: Array<CodeGenEdge>;
+  DagEdges?: CodeGenEdge[];
 
   /**
    * <p>A list of the nodes in the DAG.</p>
    */
-  DagNodes?: Array<CodeGenNode>;
+  DagNodes?: CodeGenNode[];
 
   /**
    * <p>The programming language of the resulting code from the DAG.</p>
@@ -9238,7 +9238,7 @@ export interface CsvClassifier {
   /**
    * <p>A list of strings representing column names.</p>
    */
-  Header?: Array<string>;
+  Header?: string[];
 
   /**
    * <p>The time that this classifier was last updated.</p>
@@ -9388,7 +9388,7 @@ export interface GetClassifiersResponse {
    * <p>The requested list of classifier
    *       objects.</p>
    */
-  Classifiers?: Array<Classifier>;
+  Classifiers?: Classifier[];
 
   /**
    * <p>A continuation token.</p>
@@ -9406,7 +9406,7 @@ export interface GetCrawlerMetricsRequest {
   /**
    * <p>A list of the names of crawlers about which to retrieve metrics.</p>
    */
-  CrawlerNameList?: Array<string>;
+  CrawlerNameList?: string[];
 
   /**
    * <p>The maximum size of a list to return.</p>
@@ -9429,7 +9429,7 @@ export interface GetCrawlerMetricsResponse {
   /**
    * <p>A list of metrics for the specified crawler.</p>
    */
-  CrawlerMetricsList?: Array<CrawlerMetrics>;
+  CrawlerMetricsList?: CrawlerMetrics[];
 
   /**
    * <p>A continuation token, if the returned list does not contain the
@@ -9492,7 +9492,7 @@ export interface GetCrawlersResponse {
   /**
    * <p>A list of crawler metadata.</p>
    */
-  Crawlers?: Array<Crawler>;
+  Crawlers?: Crawler[];
 
   /**
    * <p>A continuation token, if the returned list has not reached the end
@@ -9524,12 +9524,12 @@ export interface GetDataflowGraphResponse {
   /**
    * <p>A list of the edges in the resulting DAG.</p>
    */
-  DagEdges?: Array<CodeGenEdge>;
+  DagEdges?: CodeGenEdge[];
 
   /**
    * <p>A list of the nodes in the resulting DAG.</p>
    */
-  DagNodes?: Array<CodeGenNode>;
+  DagNodes?: CodeGenNode[];
 }
 
 export namespace GetDataflowGraphResponse {
@@ -9547,7 +9547,7 @@ export interface GetMappingRequest {
   /**
    * <p>A list of target tables.</p>
    */
-  Sinks?: Array<CatalogEntry>;
+  Sinks?: CatalogEntry[];
 
   /**
    * <p>Specifies the source table.</p>
@@ -9565,7 +9565,7 @@ export interface GetMappingResponse {
   /**
    * <p>A list of mappings to the specified targets.</p>
    */
-  Mapping: Array<MappingEntry> | undefined;
+  Mapping: MappingEntry[] | undefined;
 }
 
 export namespace GetMappingResponse {
@@ -9588,12 +9588,12 @@ export interface GetPlanRequest {
   /**
    * <p>The list of mappings from a source table to target tables.</p>
    */
-  Mapping: Array<MappingEntry> | undefined;
+  Mapping: MappingEntry[] | undefined;
 
   /**
    * <p>The target tables.</p>
    */
-  Sinks?: Array<CatalogEntry>;
+  Sinks?: CatalogEntry[];
 
   /**
    * <p>The source table.</p>
@@ -9688,7 +9688,7 @@ export interface JdbcTarget {
    * <p>A list of glob patterns used to exclude from the crawl.
    *       For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/add-crawler.html">Catalog Tables with a Crawler</a>.</p>
    */
-  Exclusions?: Array<string>;
+  Exclusions?: string[];
 
   /**
    * <p>The path of the JDBC target.</p>
@@ -9816,7 +9816,7 @@ export interface ListCrawlersResponse {
   /**
    * <p>The names of all crawlers in the account, or the crawlers with the specified tags.</p>
    */
-  CrawlerNames?: Array<string>;
+  CrawlerNames?: string[];
 
   /**
    * <p>A continuation token, if the returned list does not contain the
@@ -9838,17 +9838,17 @@ export interface Location {
   /**
    * <p>An Amazon DynamoDB table location.</p>
    */
-  DynamoDB?: Array<CodeGenNodeArg>;
+  DynamoDB?: CodeGenNodeArg[];
 
   /**
    * <p>A JDBC location.</p>
    */
-  Jdbc?: Array<CodeGenNodeArg>;
+  Jdbc?: CodeGenNodeArg[];
 
   /**
    * <p>An Amazon Simple Storage Service (Amazon S3) location.</p>
    */
-  S3?: Array<CodeGenNodeArg>;
+  S3?: CodeGenNodeArg[];
 }
 
 export namespace Location {
@@ -9923,7 +9923,7 @@ export interface S3Target {
    * <p>A list of glob patterns used to exclude from the crawl.
    *       For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/add-crawler.html">Catalog Tables with a Crawler</a>.</p>
    */
-  Exclusions?: Array<string>;
+  Exclusions?: string[];
 
   /**
    * <p>The path to the Amazon S3 target.</p>
@@ -10179,7 +10179,7 @@ export interface UpdateCrawlerRequest {
    *       but these custom classifiers always override the default classifiers
    *       for a given classification.</p>
    */
-  Classifiers?: Array<string>;
+  Classifiers?: string[];
 
   /**
    * <p>The crawler configuration information. This versioned JSON string allows users to specify
@@ -10310,7 +10310,7 @@ export interface UpdateCsvClassifierRequest {
   /**
    * <p>A list of strings representing column names.</p>
    */
-  Header?: Array<string>;
+  Header?: string[];
 
   /**
    * <p>The name of the classifier.</p>

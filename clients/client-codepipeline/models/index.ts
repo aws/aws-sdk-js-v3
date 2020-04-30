@@ -183,7 +183,7 @@ export interface ActionDeclaration {
    * <p>The name or ID of the artifact consumed by the action, such as a test or build
    *             artifact.</p>
    */
-  inputArtifacts?: Array<InputArtifact>;
+  inputArtifacts?: InputArtifact[];
 
   /**
    * <p>The action declaration's name.</p>
@@ -200,7 +200,7 @@ export interface ActionDeclaration {
    * <p>The name or ID of the result of the action declaration, such as a test or build
    *             artifact.</p>
    */
-  outputArtifacts?: Array<OutputArtifact>;
+  outputArtifacts?: OutputArtifact[];
 
   /**
    * <p>The action declaration's AWS Region, such as us-east-1.</p>
@@ -384,7 +384,7 @@ export interface ActionExecutionInput {
    * <p>Details of input artifacts of the action that correspond to the action
    *             execution.</p>
    */
-  inputArtifacts?: Array<ArtifactDetail>;
+  inputArtifacts?: ArtifactDetail[];
 
   /**
    * <p>The variable namespace associated with the action. All variables produced as output by
@@ -431,7 +431,7 @@ export interface ActionExecutionOutput {
    * <p>Details of output artifacts of the action that correspond to the action
    *             execution.</p>
    */
-  outputArtifacts?: Array<ArtifactDetail>;
+  outputArtifacts?: ArtifactDetail[];
 
   /**
    * <p>The outputVariables field shows the key-value pairs that were output as part of that
@@ -572,7 +572,7 @@ export interface ActionType {
   /**
    * <p>The configuration properties for the action type.</p>
    */
-  actionConfigurationProperties?: Array<ActionConfigurationProperty>;
+  actionConfigurationProperties?: ActionConfigurationProperty[];
 
   /**
    * <p>Represents information about an action type.</p>
@@ -882,7 +882,7 @@ export interface CreateCustomActionTypeInput {
    *                     Custom Action for a Pipeline</a>.</p>
    *         </note>
    */
-  configurationProperties?: Array<ActionConfigurationProperty>;
+  configurationProperties?: ActionConfigurationProperty[];
 
   /**
    * <p>The details of the input artifact for the action, such as its commit ID.</p>
@@ -908,7 +908,7 @@ export interface CreateCustomActionTypeInput {
   /**
    * <p>The tags for the custom action.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The version identifier of the custom action.</p>
@@ -934,7 +934,7 @@ export interface CreateCustomActionTypeOutput {
   /**
    * <p>Specifies the tags applied to the custom action.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreateCustomActionTypeOutput {
@@ -956,7 +956,7 @@ export interface CreatePipelineInput {
   /**
    * <p>The tags for the pipeline.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreatePipelineInput {
@@ -978,7 +978,7 @@ export interface CreatePipelineOutput {
   /**
    * <p>Specifies the tags applied to the pipeline.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace CreatePipelineOutput {
@@ -1371,7 +1371,7 @@ export interface GetPipelineStateOutput {
    * <p>A list of the pipeline stage output information, including stage name, state, most
    *             recent run details, whether the stage is disabled, and other data.</p>
    */
-  stageStates?: Array<StageState>;
+  stageStates?: StageState[];
 
   /**
    * <p>The date and time the pipeline was last updated, in timestamp format.</p>
@@ -1739,12 +1739,12 @@ export interface JobData {
   /**
    * <p>The artifact supplied to the job.</p>
    */
-  inputArtifacts?: Array<Artifact>;
+  inputArtifacts?: Artifact[];
 
   /**
    * <p>The output of the job.</p>
    */
-  outputArtifacts?: Array<Artifact>;
+  outputArtifacts?: Artifact[];
 
   /**
    * <p>Represents information about a pipeline to a job worker.</p>
@@ -1847,7 +1847,7 @@ export interface ListActionExecutionsOutput {
   /**
    * <p>The details for a list of recent executions, such as action execution ID.</p>
    */
-  actionExecutionDetails?: Array<ActionExecutionDetail>;
+  actionExecutionDetails?: ActionExecutionDetail[];
 
   /**
    * <p>If the amount of returned information is significantly large, an identifier is also
@@ -1892,7 +1892,7 @@ export interface ListActionTypesOutput {
   /**
    * <p>Provides details of the action types.</p>
    */
-  actionTypes: Array<ActionType> | undefined;
+  actionTypes: ActionType[] | undefined;
 
   /**
    * <p>If the amount of returned information is significantly large, an identifier is also
@@ -1954,7 +1954,7 @@ export interface ListPipelineExecutionsOutput {
   /**
    * <p>A list of executions in the history of a pipeline.</p>
    */
-  pipelineExecutionSummaries?: Array<PipelineExecutionSummary>;
+  pipelineExecutionSummaries?: PipelineExecutionSummary[];
 }
 
 export namespace ListPipelineExecutionsOutput {
@@ -1994,7 +1994,7 @@ export interface ListPipelinesOutput {
   /**
    * <p>The list of pipelines.</p>
    */
-  pipelines?: Array<PipelineSummary>;
+  pipelines?: PipelineSummary[];
 }
 
 export namespace ListPipelinesOutput {
@@ -2040,7 +2040,7 @@ export interface ListTagsForResourceOutput {
   /**
    * <p>The tags for the resource.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 }
 
 export namespace ListTagsForResourceOutput {
@@ -2084,7 +2084,7 @@ export interface ListWebhookItem {
   /**
    * <p>Specifies the tags applied to the webhook.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>A unique URL generated by CodePipeline. When a POST request is made to this URL,
@@ -2133,7 +2133,7 @@ export interface ListWebhooksOutput {
    * <p>The JSON detail returned for each webhook in the list output for the ListWebhooks
    *             call.</p>
    */
-  webhooks?: Array<ListWebhookItem>;
+  webhooks?: ListWebhookItem[];
 }
 
 export namespace ListWebhooksOutput {
@@ -2229,7 +2229,7 @@ export interface PipelineDeclaration {
   /**
    * <p>The stage in which to perform the action.</p>
    */
-  stages: Array<StageDeclaration> | undefined;
+  stages: StageDeclaration[] | undefined;
 
   /**
    * <p>The version number of the pipeline. A new pipeline always has a version number of
@@ -2252,7 +2252,7 @@ export interface PipelineExecution {
    * <p>A list of <code>ArtifactRevision</code> objects included in a pipeline
    *             execution.</p>
    */
-  artifactRevisions?: Array<ArtifactRevision>;
+  artifactRevisions?: ArtifactRevision[];
 
   /**
    * <p>The ID of the pipeline execution.</p>
@@ -2371,7 +2371,7 @@ export interface PipelineExecutionSummary {
    * <p>A list of the source artifact revisions that initiated a pipeline
    *             execution.</p>
    */
-  sourceRevisions?: Array<SourceRevision>;
+  sourceRevisions?: SourceRevision[];
 
   /**
    * <p>The date and time when the pipeline execution began, in timestamp format.</p>
@@ -2578,7 +2578,7 @@ export interface PollForJobsOutput {
   /**
    * <p>Information about the jobs to take action on.</p>
    */
-  jobs?: Array<Job>;
+  jobs?: Job[];
 }
 
 export namespace PollForJobsOutput {
@@ -2615,7 +2615,7 @@ export interface PollForThirdPartyJobsOutput {
   /**
    * <p>Information about the jobs to take action on.</p>
    */
-  jobs?: Array<ThirdPartyJob>;
+  jobs?: ThirdPartyJob[];
 }
 
 export namespace PollForThirdPartyJobsOutput {
@@ -2876,7 +2876,7 @@ export interface PutWebhookInput {
   /**
    * <p>The tags for the webhook.</p>
    */
-  tags?: Array<Tag>;
+  tags?: Tag[];
 
   /**
    * <p>The detail provided in an input file to create the webhook, such as the webhook
@@ -3044,12 +3044,12 @@ export interface StageDeclaration {
   /**
    * <p>The actions included in a stage.</p>
    */
-  actions: Array<ActionDeclaration> | undefined;
+  actions: ActionDeclaration[] | undefined;
 
   /**
    * <p>Reserved for future use.</p>
    */
-  blockers?: Array<BlockerDeclaration>;
+  blockers?: BlockerDeclaration[];
 
   /**
    * <p>The name of the stage.</p>
@@ -3144,7 +3144,7 @@ export interface StageState {
   /**
    * <p>The state of the stage.</p>
    */
-  actionStates?: Array<ActionState>;
+  actionStates?: ActionState[];
 
   /**
    * <p>The state of the inbound transition, which is either enabled or disabled.</p>
@@ -3304,7 +3304,7 @@ export interface TagResourceInput {
   /**
    * <p>The tags you want to modify or add to the resource.</p>
    */
-  tags: Array<Tag> | undefined;
+  tags: Tag[] | undefined;
 }
 
 export namespace TagResourceInput {
@@ -3386,14 +3386,14 @@ export interface ThirdPartyJobData {
    *             is created. The input artifact name must match the name of an output artifact generated
    *             by an action in an earlier action or stage of the pipeline.</p>
    */
-  inputArtifacts?: Array<Artifact>;
+  inputArtifacts?: Artifact[];
 
   /**
    * <p>The name of the artifact that is the result of the action, if any. This name might
    *             be system-generated, such as "MyBuiltApp", or it might be defined by the user when the
    *             action is created.</p>
    */
-  outputArtifacts?: Array<Artifact>;
+  outputArtifacts?: Artifact[];
 
   /**
    * <p>Represents information about a pipeline to a job worker.</p>
@@ -3507,7 +3507,7 @@ export interface UntagResourceInput {
   /**
    * <p>The list of keys for the tags to be removed from the resource.</p>
    */
-  tagKeys: Array<string> | undefined;
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceInput {
@@ -3626,7 +3626,7 @@ export interface WebhookDefinition {
    *             URL. All defined rules must pass for the request to be accepted and the pipeline
    *             started.</p>
    */
-  filters: Array<WebhookFilterRule> | undefined;
+  filters: WebhookFilterRule[] | undefined;
 
   /**
    * <p>The name of the webhook.</p>

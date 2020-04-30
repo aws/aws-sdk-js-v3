@@ -3196,7 +3196,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1ApplicationArnList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3280,7 +3280,7 @@ const serializeAws_restJson1_1RecordPatch = (
 };
 
 const serializeAws_restJson1_1RecordPatchList = (
-  input: Array<RecordPatch>,
+  input: RecordPatch[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3293,7 +3293,7 @@ const serializeAws_restJson1_1RecordPatchList = (
 const deserializeAws_restJson1_1ApplicationArnList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3369,7 +3369,7 @@ const deserializeAws_restJson1_1Dataset = (
 const deserializeAws_restJson1_1DatasetList = (
   output: any,
   context: __SerdeContext
-): Array<Dataset> => {
+): Dataset[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Dataset(entry, context)
   );
@@ -3423,7 +3423,7 @@ const deserializeAws_restJson1_1IdentityPoolUsage = (
 const deserializeAws_restJson1_1IdentityPoolUsageList = (
   output: any,
   context: __SerdeContext
-): Array<IdentityPoolUsage> => {
+): IdentityPoolUsage[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1IdentityPoolUsage(entry, context)
   );
@@ -3467,7 +3467,7 @@ const deserializeAws_restJson1_1IdentityUsage = (
 const deserializeAws_restJson1_1MergedDatasetNameList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3539,7 +3539,7 @@ const deserializeAws_restJson1_1_Record = (
 const deserializeAws_restJson1_1RecordList = (
   output: any,
   context: __SerdeContext
-): Array<_Record> => {
+): _Record[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1_Record(entry, context)
   );

@@ -1151,7 +1151,7 @@ const serializeAws_json1_1GetTagValuesInput = (
 };
 
 const serializeAws_json1_1GroupBy = (
-  input: Array<GroupByAttribute | string>,
+  input: GroupByAttribute | string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1162,7 +1162,7 @@ const serializeAws_json1_1GroupBy = (
 };
 
 const serializeAws_json1_1RegionFilterList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1173,7 +1173,7 @@ const serializeAws_json1_1RegionFilterList = (
 };
 
 const serializeAws_json1_1ResourceARNList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1184,7 +1184,7 @@ const serializeAws_json1_1ResourceARNList = (
 };
 
 const serializeAws_json1_1ResourceTypeFilterList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1223,7 +1223,7 @@ const serializeAws_json1_1TagFilter = (
 };
 
 const serializeAws_json1_1TagFilterList = (
-  input: Array<TagFilter>,
+  input: TagFilter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1234,7 +1234,7 @@ const serializeAws_json1_1TagFilterList = (
 };
 
 const serializeAws_json1_1TagKeyFilterList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1245,7 +1245,7 @@ const serializeAws_json1_1TagKeyFilterList = (
 };
 
 const serializeAws_json1_1TagKeyListForUntag = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1284,7 +1284,7 @@ const serializeAws_json1_1TagResourcesInput = (
 };
 
 const serializeAws_json1_1TagValueList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1295,7 +1295,7 @@ const serializeAws_json1_1TagValueList = (
 };
 
 const serializeAws_json1_1TargetIdFilterList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1609,7 +1609,7 @@ const deserializeAws_json1_1ResourceTagMapping = (
 const deserializeAws_json1_1ResourceTagMappingList = (
   output: any,
   context: __SerdeContext
-): Array<ResourceTagMapping> => {
+): ResourceTagMapping[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceTagMapping(entry, context)
   );
@@ -1665,7 +1665,7 @@ const deserializeAws_json1_1Summary = (
 const deserializeAws_json1_1SummaryList = (
   output: any,
   context: __SerdeContext
-): Array<Summary> => {
+): Summary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Summary(entry, context)
   );
@@ -1692,14 +1692,14 @@ const deserializeAws_json1_1Tag = (
 const deserializeAws_json1_1TagKeyList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1TagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
@@ -1728,7 +1728,7 @@ const deserializeAws_json1_1TagResourcesOutput = (
 const deserializeAws_json1_1TagValuesOutputList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

@@ -4622,7 +4622,7 @@ const deserializeAws_queryTopicLimitExceededExceptionResponse = async (
 };
 
 const serializeAws_queryActionsList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -4776,7 +4776,7 @@ const serializeAws_queryCreateTopicInput = (
 };
 
 const serializeAws_queryDelegatesList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -4920,7 +4920,7 @@ const serializeAws_queryListPlatformApplicationsInput = (
 };
 
 const serializeAws_queryListString = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5241,7 +5241,7 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_queryTagKeyList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5254,7 +5254,7 @@ const serializeAws_queryTagKeyList = (
 };
 
 const serializeAws_queryTagList = (
-  input: Array<Tag>,
+  input: Tag[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5859,7 +5859,7 @@ const deserializeAws_queryListEndpointsByPlatformApplicationResponse = (
 const deserializeAws_queryListOfEndpoints = (
   output: any,
   context: __SerdeContext
-): Array<Endpoint> => {
+): Endpoint[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryEndpoint(entry, context));
@@ -5870,7 +5870,7 @@ const deserializeAws_queryListOfEndpoints = (
 const deserializeAws_queryListOfPlatformApplications = (
   output: any,
   context: __SerdeContext
-): Array<PlatformApplication> => {
+): PlatformApplication[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryPlatformApplication(entry, context));
@@ -6110,7 +6110,7 @@ const deserializeAws_queryOptInPhoneNumberResponse = (
 const deserializeAws_queryPhoneNumberList = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -6326,7 +6326,7 @@ const deserializeAws_querySubscriptionLimitExceededException = (
 const deserializeAws_querySubscriptionsList = (
   output: any,
   context: __SerdeContext
-): Array<Subscription> => {
+): Subscription[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_querySubscription(entry, context));
@@ -6375,7 +6375,7 @@ const deserializeAws_queryTagLimitExceededException = (
 const deserializeAws_queryTagList = (
   output: any,
   context: __SerdeContext
-): Array<Tag> => {
+): Tag[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryTag(entry, context));
@@ -6478,7 +6478,7 @@ const deserializeAws_queryTopicLimitExceededException = (
 const deserializeAws_queryTopicsList = (
   output: any,
   context: __SerdeContext
-): Array<Topic> => {
+): Topic[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(deserializeAws_queryTopic(entry, context));

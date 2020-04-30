@@ -4832,7 +4832,7 @@ const serializeAws_json1_1InputLogEvent = (
 };
 
 const serializeAws_json1_1InputLogEvents = (
-  input: Array<InputLogEvent>,
+  input: InputLogEvent[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4843,7 +4843,7 @@ const serializeAws_json1_1InputLogEvents = (
 };
 
 const serializeAws_json1_1InputLogStreamNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4865,7 +4865,7 @@ const serializeAws_json1_1ListTagsLogGroupRequest = (
 };
 
 const serializeAws_json1_1LogGroupNames = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4896,7 +4896,7 @@ const serializeAws_json1_1MetricTransformation = (
 };
 
 const serializeAws_json1_1MetricTransformations = (
-  input: Array<MetricTransformation>,
+  input: MetricTransformation[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5080,7 +5080,7 @@ const serializeAws_json1_1StopQueryRequest = (
 };
 
 const serializeAws_json1_1TagList = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5116,7 +5116,7 @@ const serializeAws_json1_1Tags = (
 };
 
 const serializeAws_json1_1TestEventMessages = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5403,7 +5403,7 @@ const deserializeAws_json1_1Destination = (
 const deserializeAws_json1_1Destinations = (
   output: any,
   context: __SerdeContext
-): Array<Destination> => {
+): Destination[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Destination(entry, context)
   );
@@ -5503,7 +5503,7 @@ const deserializeAws_json1_1ExportTaskStatus = (
 const deserializeAws_json1_1ExportTasks = (
   output: any,
   context: __SerdeContext
-): Array<ExportTask> => {
+): ExportTask[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ExportTask(entry, context)
   );
@@ -5584,7 +5584,7 @@ const deserializeAws_json1_1FilteredLogEvent = (
 const deserializeAws_json1_1FilteredLogEvents = (
   output: any,
   context: __SerdeContext
-): Array<FilteredLogEvent> => {
+): FilteredLogEvent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FilteredLogEvent(entry, context)
   );
@@ -5822,7 +5822,7 @@ const deserializeAws_json1_1LogGroupField = (
 const deserializeAws_json1_1LogGroupFieldList = (
   output: any,
   context: __SerdeContext
-): Array<LogGroupField> => {
+): LogGroupField[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LogGroupField(entry, context)
   );
@@ -5831,7 +5831,7 @@ const deserializeAws_json1_1LogGroupFieldList = (
 const deserializeAws_json1_1LogGroups = (
   output: any,
   context: __SerdeContext
-): Array<LogGroup> => {
+): LogGroup[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LogGroup(entry, context)
   );
@@ -5905,7 +5905,7 @@ const deserializeAws_json1_1LogStream = (
 const deserializeAws_json1_1LogStreams = (
   output: any,
   context: __SerdeContext
-): Array<LogStream> => {
+): LogStream[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LogStream(entry, context)
   );
@@ -5999,7 +5999,7 @@ const deserializeAws_json1_1MetricFilterMatchRecord = (
 const deserializeAws_json1_1MetricFilterMatches = (
   output: any,
   context: __SerdeContext
-): Array<MetricFilterMatchRecord> => {
+): MetricFilterMatchRecord[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MetricFilterMatchRecord(entry, context)
   );
@@ -6008,7 +6008,7 @@ const deserializeAws_json1_1MetricFilterMatches = (
 const deserializeAws_json1_1MetricFilters = (
   output: any,
   context: __SerdeContext
-): Array<MetricFilter> => {
+): MetricFilter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MetricFilter(entry, context)
   );
@@ -6043,7 +6043,7 @@ const deserializeAws_json1_1MetricTransformation = (
 const deserializeAws_json1_1MetricTransformations = (
   output: any,
   context: __SerdeContext
-): Array<MetricTransformation> => {
+): MetricTransformation[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MetricTransformation(entry, context)
   );
@@ -6088,7 +6088,7 @@ const deserializeAws_json1_1OutputLogEvent = (
 const deserializeAws_json1_1OutputLogEvents = (
   output: any,
   context: __SerdeContext
-): Array<OutputLogEvent> => {
+): OutputLogEvent[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OutputLogEvent(entry, context)
   );
@@ -6227,7 +6227,7 @@ const deserializeAws_json1_1QueryInfo = (
 const deserializeAws_json1_1QueryInfoList = (
   output: any,
   context: __SerdeContext
-): Array<QueryInfo> => {
+): QueryInfo[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1QueryInfo(entry, context)
   );
@@ -6236,7 +6236,7 @@ const deserializeAws_json1_1QueryInfoList = (
 const deserializeAws_json1_1QueryResults = (
   output: any,
   context: __SerdeContext
-): Array<Array<ResultField>> => {
+): ResultField[][] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResultRows(entry, context)
   );
@@ -6326,7 +6326,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 const deserializeAws_json1_1ResourcePolicies = (
   output: any,
   context: __SerdeContext
-): Array<ResourcePolicy> => {
+): ResourcePolicy[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourcePolicy(entry, context)
   );
@@ -6375,7 +6375,7 @@ const deserializeAws_json1_1ResultField = (
 const deserializeAws_json1_1ResultRows = (
   output: any,
   context: __SerdeContext
-): Array<ResultField> => {
+): ResultField[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResultField(entry, context)
   );
@@ -6405,7 +6405,7 @@ const deserializeAws_json1_1SearchedLogStream = (
 const deserializeAws_json1_1SearchedLogStreams = (
   output: any,
   context: __SerdeContext
-): Array<SearchedLogStream> => {
+): SearchedLogStream[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SearchedLogStream(entry, context)
   );
@@ -6494,7 +6494,7 @@ const deserializeAws_json1_1SubscriptionFilter = (
 const deserializeAws_json1_1SubscriptionFilters = (
   output: any,
   context: __SerdeContext
-): Array<SubscriptionFilter> => {
+): SubscriptionFilter[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SubscriptionFilter(entry, context)
   );

@@ -5893,7 +5893,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1Arns = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5924,7 +5924,7 @@ const serializeAws_restJson1_1DataSourceConfig = (
 };
 
 const serializeAws_restJson1_1DataSourceConfigs = (
-  input: Array<DataSourceConfig>,
+  input: DataSourceConfig[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5955,7 +5955,7 @@ const serializeAws_restJson1_1DeploymentApplicationConfig = (
 };
 
 const serializeAws_restJson1_1DeploymentApplicationConfigs = (
-  input: Array<DeploymentApplicationConfig>,
+  input: DeploymentApplicationConfig[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6049,7 +6049,7 @@ const serializeAws_restJson1_1Filter = (
 };
 
 const serializeAws_restJson1_1FilterValues = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6060,7 +6060,7 @@ const serializeAws_restJson1_1FilterValues = (
 };
 
 const serializeAws_restJson1_1Filters = (
-  input: Array<Filter>,
+  input: Filter[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6157,7 +6157,7 @@ const serializeAws_restJson1_1PortMapping = (
 };
 
 const serializeAws_restJson1_1PortMappingList = (
-  input: Array<PortMapping>,
+  input: PortMapping[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6202,7 +6202,7 @@ const serializeAws_restJson1_1RobotApplicationConfig = (
 };
 
 const serializeAws_restJson1_1RobotApplicationConfigs = (
-  input: Array<RobotApplicationConfig>,
+  input: RobotApplicationConfig[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6229,7 +6229,7 @@ const serializeAws_restJson1_1RobotSoftwareSuite = (
 };
 
 const serializeAws_restJson1_1S3Keys = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6257,7 +6257,7 @@ const serializeAws_restJson1_1S3Object = (
 };
 
 const serializeAws_restJson1_1SecurityGroups = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6288,7 +6288,7 @@ const serializeAws_restJson1_1SimulationApplicationConfig = (
 };
 
 const serializeAws_restJson1_1SimulationApplicationConfigs = (
-  input: Array<SimulationApplicationConfig>,
+  input: SimulationApplicationConfig[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6332,7 +6332,7 @@ const serializeAws_restJson1_1SourceConfig = (
 };
 
 const serializeAws_restJson1_1SourceConfigs = (
-  input: Array<SourceConfig>,
+  input: SourceConfig[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6343,7 +6343,7 @@ const serializeAws_restJson1_1SourceConfigs = (
 };
 
 const serializeAws_restJson1_1Subnets = (
-  input: Array<string>,
+  input: string[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6390,7 +6390,7 @@ const serializeAws_restJson1_1VPCConfig = (
 const deserializeAws_restJson1_1Arns = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6422,14 +6422,14 @@ const deserializeAws_restJson1_1DataSource = (
 const deserializeAws_restJson1_1DataSourceNames = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1DataSources = (
   output: any,
   context: __SerdeContext
-): Array<DataSource> => {
+): DataSource[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DataSource(entry, context)
   );
@@ -6466,7 +6466,7 @@ const deserializeAws_restJson1_1DeploymentApplicationConfig = (
 const deserializeAws_restJson1_1DeploymentApplicationConfigs = (
   output: any,
   context: __SerdeContext
-): Array<DeploymentApplicationConfig> => {
+): DeploymentApplicationConfig[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DeploymentApplicationConfig(entry, context)
   );
@@ -6572,7 +6572,7 @@ const deserializeAws_restJson1_1DeploymentJob = (
 const deserializeAws_restJson1_1DeploymentJobs = (
   output: any,
   context: __SerdeContext
-): Array<DeploymentJob> => {
+): DeploymentJob[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DeploymentJob(entry, context)
   );
@@ -6673,7 +6673,7 @@ const deserializeAws_restJson1_1Fleet = (
 const deserializeAws_restJson1_1Fleets = (
   output: any,
   context: __SerdeContext
-): Array<Fleet> => {
+): Fleet[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Fleet(entry, context)
   );
@@ -6825,7 +6825,7 @@ const deserializeAws_restJson1_1PortMapping = (
 const deserializeAws_restJson1_1PortMappingList = (
   output: any,
   context: __SerdeContext
-): Array<PortMapping> => {
+): PortMapping[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PortMapping(entry, context)
   );
@@ -6967,7 +6967,7 @@ const deserializeAws_restJson1_1RobotApplicationConfig = (
 const deserializeAws_restJson1_1RobotApplicationConfigs = (
   output: any,
   context: __SerdeContext
-): Array<RobotApplicationConfig> => {
+): RobotApplicationConfig[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RobotApplicationConfig(entry, context)
   );
@@ -6976,14 +6976,14 @@ const deserializeAws_restJson1_1RobotApplicationConfigs = (
 const deserializeAws_restJson1_1RobotApplicationNames = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1RobotApplicationSummaries = (
   output: any,
   context: __SerdeContext
-): Array<RobotApplicationSummary> => {
+): RobotApplicationSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RobotApplicationSummary(entry, context)
   );
@@ -7079,7 +7079,7 @@ const deserializeAws_restJson1_1RobotDeployment = (
 const deserializeAws_restJson1_1RobotDeploymentSummary = (
   output: any,
   context: __SerdeContext
-): Array<RobotDeployment> => {
+): RobotDeployment[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RobotDeployment(entry, context)
   );
@@ -7106,7 +7106,7 @@ const deserializeAws_restJson1_1RobotSoftwareSuite = (
 const deserializeAws_restJson1_1Robots = (
   output: any,
   context: __SerdeContext
-): Array<Robot> => {
+): Robot[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Robot(entry, context)
   );
@@ -7133,7 +7133,7 @@ const deserializeAws_restJson1_1S3KeyOutput = (
 const deserializeAws_restJson1_1S3KeyOutputs = (
   output: any,
   context: __SerdeContext
-): Array<S3KeyOutput> => {
+): S3KeyOutput[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1S3KeyOutput(entry, context)
   );
@@ -7164,7 +7164,7 @@ const deserializeAws_restJson1_1S3Object = (
 const deserializeAws_restJson1_1SecurityGroups = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7199,7 +7199,7 @@ const deserializeAws_restJson1_1SimulationApplicationConfig = (
 const deserializeAws_restJson1_1SimulationApplicationConfigs = (
   output: any,
   context: __SerdeContext
-): Array<SimulationApplicationConfig> => {
+): SimulationApplicationConfig[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SimulationApplicationConfig(entry, context)
   );
@@ -7208,14 +7208,14 @@ const deserializeAws_restJson1_1SimulationApplicationConfigs = (
 const deserializeAws_restJson1_1SimulationApplicationNames = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1SimulationApplicationSummaries = (
   output: any,
   context: __SerdeContext
-): Array<SimulationApplicationSummary> => {
+): SimulationApplicationSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SimulationApplicationSummary(entry, context)
   );
@@ -7399,7 +7399,7 @@ const deserializeAws_restJson1_1SimulationJob = (
 const deserializeAws_restJson1_1SimulationJobSummaries = (
   output: any,
   context: __SerdeContext
-): Array<SimulationJobSummary> => {
+): SimulationJobSummary[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SimulationJobSummary(entry, context)
   );
@@ -7461,7 +7461,7 @@ const deserializeAws_restJson1_1SimulationJobSummary = (
 const deserializeAws_restJson1_1SimulationJobs = (
   output: any,
   context: __SerdeContext
-): Array<SimulationJob> => {
+): SimulationJob[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SimulationJob(entry, context)
   );
@@ -7514,7 +7514,7 @@ const deserializeAws_restJson1_1Source = (
 const deserializeAws_restJson1_1Sources = (
   output: any,
   context: __SerdeContext
-): Array<Source> => {
+): Source[] => {
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Source(entry, context)
   );
@@ -7523,7 +7523,7 @@ const deserializeAws_restJson1_1Sources = (
 const deserializeAws_restJson1_1Subnets = (
   output: any,
   context: __SerdeContext
-): Array<string> => {
+): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 

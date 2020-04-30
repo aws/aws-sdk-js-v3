@@ -63,7 +63,7 @@ export interface PutEventsRequest {
   /**
    * <p>A list of event data from the session.</p>
    */
-  eventList: Array<Event> | undefined;
+  eventList: Event[] | undefined;
 
   /**
    * <p>The session ID associated with the user's visit.</p>

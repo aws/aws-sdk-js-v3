@@ -398,7 +398,7 @@ export interface AddTagsToResourceMessage {
   /**
    * <p>One or more tags to be assigned to the resource.</p>
    */
-  Tags: Array<Tag> | undefined;
+  Tags: Tag[] | undefined;
 }
 
 export namespace AddTagsToResourceMessage {
@@ -787,7 +787,7 @@ export interface CreateEndpointMessage {
   /**
    * <p>One or more tags to be assigned to the endpoint.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>The user name to be used to log in to the endpoint database.</p>
@@ -834,7 +834,7 @@ export interface CreateEventSubscriptionMessage {
    *                    Guide.</i>
    *          </p>
    */
-  EventCategories?: Array<string>;
+  EventCategories?: string[];
 
   /**
    * <p> The Amazon Resource Name (ARN) of the Amazon SNS topic created for event notification.
@@ -849,7 +849,7 @@ export interface CreateEventSubscriptionMessage {
    *             specify a database instance ID, then all of the other values must be database instance
    *             IDs.</p>
    */
-  SourceIds?: Array<string>;
+  SourceIds?: string[];
 
   /**
    * <p> The type of AWS DMS resource that generates the events. For example, if you want to be
@@ -869,7 +869,7 @@ export interface CreateEventSubscriptionMessage {
   /**
    * <p>One or more tags to be assigned to the event subscription.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateEventSubscriptionMessage {
@@ -1004,13 +1004,13 @@ export interface CreateReplicationInstanceMessage {
   /**
    * <p>One or more tags to be assigned to the replication instance.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p> Specifies the VPC security group to be used with the replication instance. The VPC
    *          security group must work with the VPC containing the replication instance. </p>
    */
-  VpcSecurityGroupIds?: Array<string>;
+  VpcSecurityGroupIds?: string[];
 }
 
 export namespace CreateReplicationInstanceMessage {
@@ -1057,12 +1057,12 @@ export interface CreateReplicationSubnetGroupMessage {
   /**
    * <p>One or more subnet IDs to be assigned to the subnet group.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 
   /**
    * <p>One or more tags to be assigned to the subnet group.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace CreateReplicationSubnetGroupMessage {
@@ -1178,7 +1178,7 @@ export interface CreateReplicationTaskMessage {
   /**
    * <p>One or more tags to be assigned to the replication task.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies the target endpoint.</p>
@@ -1451,7 +1451,7 @@ export interface DescribeAccountAttributesResponse {
   /**
    * <p>Account quota information.</p>
    */
-  AccountQuotas?: Array<AccountQuota>;
+  AccountQuotas?: AccountQuota[];
 
   /**
    * <p>A unique AWS DMS identifier for an account in a particular AWS Region. The value of this
@@ -1480,7 +1480,7 @@ export interface DescribeCertificatesMessage {
   /**
    * <p>Filters applied to the certificate described in the form of key-value pairs.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -1509,7 +1509,7 @@ export interface DescribeCertificatesResponse {
    * <p>The Secure Sockets Layer (SSL) certificates associated with the replication
    *          instance.</p>
    */
-  Certificates?: Array<Certificate>;
+  Certificates?: Certificate[];
 
   /**
    * <p>The pagination token.</p>
@@ -1531,7 +1531,7 @@ export interface DescribeConnectionsMessage {
    * <p>The filters applied to the connection.</p>
    *          <p>Valid filter names: endpoint-arn | replication-instance-arn</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -1563,7 +1563,7 @@ export interface DescribeConnectionsResponse {
   /**
    * <p>A description of the connections.</p>
    */
-  Connections?: Array<Connection>;
+  Connections?: Connection[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -1587,7 +1587,7 @@ export interface DescribeEndpointTypesMessage {
    * <p>Filters applied to the describe action.</p>
    *          <p>Valid filter names: engine-name | endpoint-type</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -1626,7 +1626,7 @@ export interface DescribeEndpointTypesResponse {
   /**
    * <p>The types of endpoints that are supported.</p>
    */
-  SupportedEndpointTypes?: Array<SupportedEndpointType>;
+  SupportedEndpointTypes?: SupportedEndpointType[];
 }
 
 export namespace DescribeEndpointTypesResponse {
@@ -1643,7 +1643,7 @@ export interface DescribeEndpointsMessage {
    * <p>Filters applied to the describe action.</p>
    *          <p>Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -1675,7 +1675,7 @@ export interface DescribeEndpointsResponse {
   /**
    * <p>Endpoint description.</p>
    */
-  Endpoints?: Array<Endpoint>;
+  Endpoints?: Endpoint[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -1698,7 +1698,7 @@ export interface DescribeEventCategoriesMessage {
   /**
    * <p>Filters applied to the action.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> The type of AWS DMS resource that generates events. </p>
@@ -1720,7 +1720,7 @@ export interface DescribeEventCategoriesResponse {
   /**
    * <p>A list of event categories.</p>
    */
-  EventCategoryGroupList?: Array<EventCategoryGroup>;
+  EventCategoryGroupList?: EventCategoryGroup[];
 }
 
 export namespace DescribeEventCategoriesResponse {
@@ -1736,7 +1736,7 @@ export interface DescribeEventSubscriptionsMessage {
   /**
    * <p>Filters applied to the action.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -1773,7 +1773,7 @@ export interface DescribeEventSubscriptionsResponse {
   /**
    * <p>A list of event subscriptions.</p>
    */
-  EventSubscriptionsList?: Array<EventSubscription>;
+  EventSubscriptionsList?: EventSubscription[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -1806,12 +1806,12 @@ export interface DescribeEventsMessage {
   /**
    * <p>A list of event categories for the source type that you've chosen.</p>
    */
-  EventCategories?: Array<string>;
+  EventCategories?: string[];
 
   /**
    * <p>Filters applied to the action.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -1859,7 +1859,7 @@ export interface DescribeEventsResponse {
   /**
    * <p>The events described.</p>
    */
-  Events?: Array<Event>;
+  Events?: Event[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -1918,7 +1918,7 @@ export interface DescribeOrderableReplicationInstancesResponse {
   /**
    * <p>The order-able replication instances available.</p>
    */
-  OrderableReplicationInstances?: Array<OrderableReplicationInstance>;
+  OrderableReplicationInstances?: OrderableReplicationInstance[];
 }
 
 export namespace DescribeOrderableReplicationInstancesResponse {
@@ -1936,7 +1936,7 @@ export interface DescribePendingMaintenanceActionsMessage {
   /**
    * <p></p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -1980,7 +1980,7 @@ export interface DescribePendingMaintenanceActionsResponse {
   /**
    * <p>The pending maintenance action.</p>
    */
-  PendingMaintenanceActions?: Array<ResourcePendingMaintenanceActions>;
+  PendingMaintenanceActions?: ResourcePendingMaintenanceActions[];
 }
 
 export namespace DescribePendingMaintenanceActionsResponse {
@@ -2069,7 +2069,7 @@ export interface DescribeReplicationInstanceTaskLogsResponse {
    * <p>An array of replication task log metadata. Each member of the array contains the
    *          replication task name, ARN, and task log size (in bytes). </p>
    */
-  ReplicationInstanceTaskLogs?: Array<ReplicationInstanceTaskLog>;
+  ReplicationInstanceTaskLogs?: ReplicationInstanceTaskLog[];
 }
 
 export namespace DescribeReplicationInstanceTaskLogsResponse {
@@ -2089,7 +2089,7 @@ export interface DescribeReplicationInstancesMessage {
    *          <p>Valid filter names: replication-instance-arn | replication-instance-id |
    *          replication-instance-class | engine-version</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -2128,7 +2128,7 @@ export interface DescribeReplicationInstancesResponse {
   /**
    * <p>The replication instances described.</p>
    */
-  ReplicationInstances?: Array<ReplicationInstance>;
+  ReplicationInstances?: ReplicationInstance[];
 }
 
 export namespace DescribeReplicationInstancesResponse {
@@ -2144,7 +2144,7 @@ export interface DescribeReplicationSubnetGroupsMessage {
   /**
    * <p>Filters applied to the describe action.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -2183,7 +2183,7 @@ export interface DescribeReplicationSubnetGroupsResponse {
   /**
    * <p>A description of the replication subnet groups.</p>
    */
-  ReplicationSubnetGroups?: Array<ReplicationSubnetGroup>;
+  ReplicationSubnetGroups?: ReplicationSubnetGroup[];
 }
 
 export namespace DescribeReplicationSubnetGroupsResponse {
@@ -2247,7 +2247,7 @@ export interface DescribeReplicationTaskAssessmentResultsResponse {
   /**
    * <p> The task assessment report. </p>
    */
-  ReplicationTaskAssessmentResults?: Array<ReplicationTaskAssessmentResult>;
+  ReplicationTaskAssessmentResults?: ReplicationTaskAssessmentResult[];
 }
 
 export namespace DescribeReplicationTaskAssessmentResultsResponse {
@@ -2267,7 +2267,7 @@ export interface DescribeReplicationTasksMessage {
    *          <p>Valid filter names: replication-task-arn | replication-task-id | migration-type |
    *          endpoint-arn | replication-instance-arn</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -2313,7 +2313,7 @@ export interface DescribeReplicationTasksResponse {
   /**
    * <p>A description of the replication tasks.</p>
    */
-  ReplicationTasks?: Array<ReplicationTask>;
+  ReplicationTasks?: ReplicationTask[];
 }
 
 export namespace DescribeReplicationTasksResponse {
@@ -2368,7 +2368,7 @@ export interface DescribeSchemasResponse {
   /**
    * <p>The described schema.</p>
    */
-  Schemas?: Array<string>;
+  Schemas?: string[];
 }
 
 export namespace DescribeSchemasResponse {
@@ -2387,7 +2387,7 @@ export interface DescribeTableStatisticsMessage {
    *          <p>A combination of filters creates an AND condition where each record matches all
    *          specified filters.</p>
    */
-  Filters?: Array<Filter>;
+  Filters?: Filter[];
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -2436,7 +2436,7 @@ export interface DescribeTableStatisticsResponse {
   /**
    * <p>The table statistics.</p>
    */
-  TableStatistics?: Array<TableStatistics>;
+  TableStatistics?: TableStatistics[];
 }
 
 export namespace DescribeTableStatisticsResponse {
@@ -2715,7 +2715,7 @@ export interface Event {
   /**
    * <p>The event categories available for the specified source type.</p>
    */
-  EventCategories?: Array<string>;
+  EventCategories?: string[];
 
   /**
    * <p>The event message.</p>
@@ -2746,7 +2746,7 @@ export interface EventCategoryGroup {
   /**
    * <p> A list of event categories from a source type that you've chosen.</p>
    */
-  EventCategories?: Array<string>;
+  EventCategories?: string[];
 
   /**
    * <p> The type of AWS DMS resource that generates events. </p>
@@ -2785,7 +2785,7 @@ export interface EventSubscription {
   /**
    * <p>A lists of event categories.</p>
    */
-  EventCategoriesList?: Array<string>;
+  EventCategoriesList?: string[];
 
   /**
    * <p>The topic ARN of the AWS DMS event notification subscription.</p>
@@ -2795,7 +2795,7 @@ export interface EventSubscription {
   /**
    * <p>A list of source Ids for the event subscription.</p>
    */
-  SourceIdsList?: Array<string>;
+  SourceIdsList?: string[];
 
   /**
    * <p> The type of AWS DMS resource that generates events. </p>
@@ -2839,7 +2839,7 @@ export interface Filter {
   /**
    * <p>The filter value.</p>
    */
-  Values: Array<string> | undefined;
+  Values: string[] | undefined;
 }
 
 export namespace Filter {
@@ -2868,7 +2868,7 @@ export interface ImportCertificateMessage {
   /**
    * <p>The tags associated with the certificate.</p>
    */
-  Tags?: Array<Tag>;
+  Tags?: Tag[];
 }
 
 export namespace ImportCertificateMessage {
@@ -2942,7 +2942,7 @@ export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags for the resource.</p>
    */
-  TagList?: Array<Tag>;
+  TagList?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -3150,7 +3150,7 @@ export interface ModifyEventSubscriptionMessage {
    * <p> A list of event categories for a source type that you want to subscribe to. Use the
    *             <code>DescribeEventCategories</code> action to see a list of event categories. </p>
    */
-  EventCategories?: Array<string>;
+  EventCategories?: string[];
 
   /**
    * <p> The Amazon Resource Name (ARN) of the Amazon SNS topic created for event notification.
@@ -3275,7 +3275,7 @@ export interface ModifyReplicationInstanceMessage {
    * <p> Specifies the VPC security group to be used with the replication instance. The VPC
    *          security group must work with the VPC containing the replication instance. </p>
    */
-  VpcSecurityGroupIds?: Array<string>;
+  VpcSecurityGroupIds?: string[];
 }
 
 export namespace ModifyReplicationInstanceMessage {
@@ -3317,7 +3317,7 @@ export interface ModifyReplicationSubnetGroupMessage {
   /**
    * <p>A list of subnet IDs.</p>
    */
-  SubnetIds: Array<string> | undefined;
+  SubnetIds: string[] | undefined;
 }
 
 export namespace ModifyReplicationSubnetGroupMessage {
@@ -3547,7 +3547,7 @@ export interface OrderableReplicationInstance {
   /**
    * <p>List of Availability Zones for this replication instance.</p>
    */
-  AvailabilityZones?: Array<string>;
+  AvailabilityZones?: string[];
 
   /**
    * <p>The default amount of storage (in gigabytes) that is allocated for the replication
@@ -3985,7 +3985,7 @@ export interface ReloadTablesMessage {
   /**
    * <p>The name and schema of the table to be reloaded. </p>
    */
-  TablesToReload: Array<TableToReload> | undefined;
+  TablesToReload: TableToReload[] | undefined;
 }
 
 export namespace ReloadTablesMessage {
@@ -4019,7 +4019,7 @@ export interface RemoveTagsFromResourceMessage {
   /**
    * <p>The tag key (name) of the tag to be removed.</p>
    */
-  TagKeys: Array<string> | undefined;
+  TagKeys: string[] | undefined;
 }
 
 export namespace RemoveTagsFromResourceMessage {
@@ -4163,7 +4163,7 @@ export interface ReplicationInstance {
   /**
    * <p>One or more private IP addresses for the replication instance.</p>
    */
-  ReplicationInstancePrivateIpAddresses?: Array<string>;
+  ReplicationInstancePrivateIpAddresses?: string[];
 
   /**
    * <p>The public IP address of the replication instance.</p>
@@ -4173,7 +4173,7 @@ export interface ReplicationInstance {
   /**
    * <p>One or more public IP addresses for the replication instance.</p>
    */
-  ReplicationInstancePublicIpAddresses?: Array<string>;
+  ReplicationInstancePublicIpAddresses?: string[];
 
   /**
    * <p>The status of the replication instance.</p>
@@ -4194,7 +4194,7 @@ export interface ReplicationInstance {
   /**
    * <p>The VPC security group for the instance.</p>
    */
-  VpcSecurityGroups?: Array<VpcSecurityGroupMembership>;
+  VpcSecurityGroups?: VpcSecurityGroupMembership[];
 }
 
 export namespace ReplicationInstance {
@@ -4288,7 +4288,7 @@ export interface ReplicationSubnetGroup {
   /**
    * <p>The subnets that are in the subnet group.</p>
    */
-  Subnets?: Array<Subnet>;
+  Subnets?: Subnet[];
 
   /**
    * <p>The ID of the VPC.</p>
@@ -4544,7 +4544,7 @@ export interface ResourcePendingMaintenanceActions {
   /**
    * <p>Detailed information about the pending maintenance action.</p>
    */
-  PendingMaintenanceActionDetails?: Array<PendingMaintenanceAction>;
+  PendingMaintenanceActionDetails?: PendingMaintenanceAction[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the DMS resource that the pending maintenance action
