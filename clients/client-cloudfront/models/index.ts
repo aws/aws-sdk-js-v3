@@ -157,7 +157,7 @@ export interface AllowedMethods {
    * <p>A complex type that contains the HTTP methods that you want CloudFront to process and forward
    * 			to your origin.</p>
    */
-  Items: Method | string[] | undefined;
+  Items: (Method | string)[] | undefined;
 
   /**
    * <p>The number of HTTP methods that you want CloudFront to forward to your origin. Valid values
@@ -415,7 +415,7 @@ export interface CachedMethods {
    * <p>A complex type that contains the HTTP methods that you want CloudFront to cache responses
    * 			to.</p>
    */
-  Items: Method | string[] | undefined;
+  Items: (Method | string)[] | undefined;
 
   /**
    * <p>The number of HTTP methods for which you want CloudFront to cache responses. Valid values are
@@ -4034,7 +4034,7 @@ export interface OriginSslProtocols {
   /**
    * <p>A list that contains allowed SSL/TLS protocols for this distribution.</p>
    */
-  Items: SslProtocol | string[] | undefined;
+  Items: (SslProtocol | string)[] | undefined;
 
   /**
    * <p>The number of SSL/TLS protocols that you want to allow CloudFront to use when establishing an

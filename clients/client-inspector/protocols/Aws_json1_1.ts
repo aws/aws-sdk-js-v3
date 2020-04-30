@@ -4705,7 +4705,7 @@ const serializeAws_json1_1AgentFilter = (
 };
 
 const serializeAws_json1_1AgentHealthCodeList = (
-  input: AgentHealthCode | string[],
+  input: (AgentHealthCode | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4716,7 +4716,7 @@ const serializeAws_json1_1AgentHealthCodeList = (
 };
 
 const serializeAws_json1_1AgentHealthList = (
-  input: AgentHealth | string[],
+  input: (AgentHealth | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4787,7 +4787,7 @@ const serializeAws_json1_1AssessmentRunFilter = (
 };
 
 const serializeAws_json1_1AssessmentRunStateList = (
-  input: AssessmentRunState | string[],
+  input: (AssessmentRunState | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5549,7 +5549,7 @@ const serializeAws_json1_1SetTagsForResourceRequest = (
 };
 
 const serializeAws_json1_1SeverityList = (
-  input: Severity | string[],
+  input: (Severity | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];

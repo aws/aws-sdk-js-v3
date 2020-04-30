@@ -1761,7 +1761,7 @@ export interface StartExportTaskRequest {
    *             <i>option has been deprecated.</i>
    *          </p>
    */
-  exportDataFormat?: ExportDataFormat | string[];
+  exportDataFormat?: (ExportDataFormat | string)[];
 
   /**
    * <p>If a filter is present, it selects the single <code>agentId</code> of the Application

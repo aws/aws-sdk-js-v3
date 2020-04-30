@@ -3751,7 +3751,7 @@ const deserializeAws_json1_1FileSystemFailureDetails = (
 const deserializeAws_json1_1FileSystemMaintenanceOperations = (
   output: any,
   context: __SerdeContext
-): FileSystemMaintenanceOperation | string[] => {
+): (FileSystemMaintenanceOperation | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

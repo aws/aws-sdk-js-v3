@@ -2748,7 +2748,7 @@ export interface HealthCheckConfig {
    * 			from that region to ensure that some health checkers are always checking the endpoint (for example, if you replace three regions with
    * 			four different regions). </p>
    */
-  Regions?: HealthCheckRegion | string[];
+  Regions?: (HealthCheckRegion | string)[];
 
   /**
    * <p>The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next
@@ -6210,7 +6210,7 @@ export interface UpdateHealthCheckRequest {
    * <p>A complex type that contains one <code>Region</code> element for each region that you want Amazon Route 53 health checkers to check
    * 			the specified endpoint from.</p>
    */
-  Regions?: HealthCheckRegion | string[];
+  Regions?: (HealthCheckRegion | string)[];
 
   /**
    * <p>A complex type that contains one <code>ResettableElementName</code> element for each element that you want to reset to the default value.
@@ -6242,7 +6242,7 @@ export interface UpdateHealthCheckRequest {
    *             </li>
    *          </ul>
    */
-  ResetElements?: ResettableElementName | string[];
+  ResetElements?: (ResettableElementName | string)[];
 
   /**
    * <p>The path that you want Amazon Route 53 to request when performing health checks. The path can be any value for which your endpoint

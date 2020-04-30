@@ -2498,7 +2498,7 @@ export interface PrincipalPermissions {
   /**
    * <p>The permissions that are granted to the principal.</p>
    */
-  Permissions?: Permission | string[];
+  Permissions?: (Permission | string)[];
 
   /**
    * <p>The principal who is granted permissions.</p>

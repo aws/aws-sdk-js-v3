@@ -606,7 +606,7 @@ export interface Filters {
   /**
    * <p>Specify one or more <a>ExtendedKeyUsage</a> extension values.</p>
    */
-  extendedKeyUsage?: ExtendedKeyUsageName | string[];
+  extendedKeyUsage?: (ExtendedKeyUsageName | string)[];
 
   /**
    * <p>Specify one or more algorithms that can be used to generate key pairs.</p>
@@ -615,12 +615,12 @@ export interface Filters {
    *         <code>"keyTypes": ["RSA_2048,RSA_4096"]</code>  returns both <code>RSA_2048</code> and
    *         <code>RSA_4096</code> certificates.</p>
    */
-  keyTypes?: KeyAlgorithm | string[];
+  keyTypes?: (KeyAlgorithm | string)[];
 
   /**
    * <p>Specify one or more <a>KeyUsage</a> extension values.</p>
    */
-  keyUsage?: KeyUsageName | string[];
+  keyUsage?: (KeyUsageName | string)[];
 }
 
 export namespace Filters {
@@ -872,7 +872,7 @@ export interface ListCertificatesRequest {
   /**
    * <p>Filter the certificate list by status value.</p>
    */
-  CertificateStatuses?: CertificateStatus | string[];
+  CertificateStatuses?: (CertificateStatus | string)[];
 
   /**
    * <p>Filter the certificate list. For more information, see the <a>Filters</a>

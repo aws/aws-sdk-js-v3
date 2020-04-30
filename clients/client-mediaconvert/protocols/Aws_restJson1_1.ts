@@ -8036,7 +8036,7 @@ const serializeAws_restJson1_1__listOfDashAdditionalManifest = (
 };
 
 const serializeAws_restJson1_1__listOfHlsAdMarkers = (
-  input: HlsAdMarkers | string[],
+  input: (HlsAdMarkers | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8174,7 +8174,7 @@ const serializeAws_restJson1_1__listOfOutputGroup = (
 };
 
 const serializeAws_restJson1_1__listOfTeletextPageType = (
-  input: TeletextPageType | string[],
+  input: (TeletextPageType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -14103,7 +14103,7 @@ const deserializeAws_restJson1_1__listOfEndpoint = (
 const deserializeAws_restJson1_1__listOfHlsAdMarkers = (
   output: any,
   context: __SerdeContext
-): HlsAdMarkers | string[] => {
+): (HlsAdMarkers | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -14263,7 +14263,7 @@ const deserializeAws_restJson1_1__listOfQueue = (
 const deserializeAws_restJson1_1__listOfTeletextPageType = (
   output: any,
   context: __SerdeContext
-): TeletextPageType | string[] => {
+): (TeletextPageType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

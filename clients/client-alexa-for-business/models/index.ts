@@ -4994,7 +4994,7 @@ export interface StartDeviceSyncRequest {
   /**
    * <p>Request structure to start the device sync. Required.</p>
    */
-  Features: Feature | string[] | undefined;
+  Features: (Feature | string)[] | undefined;
 
   /**
    * <p>The ARN of the room with which the device to sync is associated. Required.</p>

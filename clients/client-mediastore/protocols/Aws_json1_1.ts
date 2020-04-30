@@ -2028,7 +2028,7 @@ const serializeAws_json1_1AllowedHeaders = (
 };
 
 const serializeAws_json1_1AllowedMethods = (
-  input: MethodName | string[],
+  input: (MethodName | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2374,7 +2374,7 @@ const deserializeAws_json1_1AllowedHeaders = (
 const deserializeAws_json1_1AllowedMethods = (
   output: any,
   context: __SerdeContext
-): MethodName | string[] => {
+): (MethodName | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

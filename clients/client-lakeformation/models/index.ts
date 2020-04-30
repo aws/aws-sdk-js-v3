@@ -69,12 +69,12 @@ export interface BatchPermissionsRequestEntry {
   /**
    * <p>The permissions to be granted.</p>
    */
-  Permissions?: Permission | string[];
+  Permissions?: (Permission | string)[];
 
   /**
    * <p>Indicates if the option to pass permissions is granted.</p>
    */
-  PermissionsWithGrantOption?: Permission | string[];
+  PermissionsWithGrantOption?: (Permission | string)[];
 
   /**
    * <p>The principal to be granted a permission.</p>
@@ -362,12 +362,12 @@ export interface GrantPermissionsRequest {
   /**
    * <p>The permissions granted to the principal on the resource. AWS Lake Formation defines privileges to grant and revoke access to metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. AWS Lake Formation requires that each principal be authorized to perform a specific task on AWS Lake Formation resources. </p>
    */
-  Permissions: Permission | string[] | undefined;
+  Permissions: (Permission | string)[] | undefined;
 
   /**
    * <p>Indicates a list of the granted permissions that the principal may pass to other users. These permissions may only be a subset of the permissions granted in the <code>Privileges</code>.</p>
    */
-  PermissionsWithGrantOption?: Permission | string[];
+  PermissionsWithGrantOption?: (Permission | string)[];
 
   /**
    * <p>The principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles, and they are defined by their principal type and their ARN.</p>
@@ -513,7 +513,7 @@ export interface PrincipalPermissions {
   /**
    * <p>The permissions that are granted to the principal.</p>
    */
-  Permissions?: Permission | string[];
+  Permissions?: (Permission | string)[];
 
   /**
    * <p>The principal who is granted permissions.</p>
@@ -534,12 +534,12 @@ export interface PrincipalResourcePermissions {
   /**
    * <p>The permissions to be granted or revoked on the resource.</p>
    */
-  Permissions?: Permission | string[];
+  Permissions?: (Permission | string)[];
 
   /**
    * <p>Indicates whether to grant the ability to grant permissions (as a subset of permissions granted).</p>
    */
-  PermissionsWithGrantOption?: Permission | string[];
+  PermissionsWithGrantOption?: (Permission | string)[];
 
   /**
    * <p>The Data Lake principal to be granted or revoked permissions.</p>
@@ -662,12 +662,12 @@ export interface RevokePermissionsRequest {
    * <p>The permissions revoked to the principal on the resource. For information about permissions, see <a href="https://docs-aws.amazon.com/michigan/latest/dg/security-data-access.html">Security
    *       and Access Control to Metadata and Data</a>.</p>
    */
-  Permissions: Permission | string[] | undefined;
+  Permissions: (Permission | string)[] | undefined;
 
   /**
    * <p>Indicates a list of permissions for which to revoke the grant option allowing the principal to pass permissions to other principals.</p>
    */
-  PermissionsWithGrantOption?: Permission | string[];
+  PermissionsWithGrantOption?: (Permission | string)[];
 
   /**
    * <p>The principal to be revoked permissions on the resource.</p>

@@ -1407,7 +1407,7 @@ export interface GetFindingsStatisticsRequest {
   /**
    * <p>Types of finding statistics to retrieve.</p>
    */
-  FindingStatisticTypes: FindingStatisticType | string[] | undefined;
+  FindingStatisticTypes: (FindingStatisticType | string)[] | undefined;
 }
 
 export namespace GetFindingsStatisticsRequest {

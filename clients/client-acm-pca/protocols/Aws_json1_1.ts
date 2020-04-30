@@ -2846,7 +2846,7 @@ const serializeAws_json1_1ASN1Subject = (
 };
 
 const serializeAws_json1_1ActionList = (
-  input: ActionType | string[],
+  input: (ActionType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3364,7 +3364,7 @@ const deserializeAws_json1_1ASN1Subject = (
 const deserializeAws_json1_1ActionList = (
   output: any,
   context: __SerdeContext
-): ActionType | string[] => {
+): (ActionType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

@@ -225,7 +225,7 @@ export interface EventDestination {
   /**
    * An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.
    */
-  MatchingEventTypes?: EventType | string[];
+  MatchingEventTypes?: (EventType | string)[];
 
   /**
    * A name that identifies the event destination configuration.
@@ -266,7 +266,7 @@ export interface EventDestinationDefinition {
   /**
    * An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.
    */
-  MatchingEventTypes?: EventType | string[];
+  MatchingEventTypes?: (EventType | string)[];
 
   /**
    * An object that contains information about an event destination that sends data to Amazon SNS.

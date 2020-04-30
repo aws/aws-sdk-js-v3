@@ -2930,7 +2930,7 @@ const serializeAws_restJson1_1ChannelNameCondition = (
 };
 
 const serializeAws_restJson1_1ListOfProtocols = (
-  input: ChannelProtocol | string[],
+  input: (ChannelProtocol | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];

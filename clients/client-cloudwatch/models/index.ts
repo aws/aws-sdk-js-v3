@@ -1185,7 +1185,7 @@ export interface GetMetricStatisticsInput {
    * 		    use <code>ExtendedStatistics</code>. When calling <code>GetMetricStatistics</code>, you must
    * 		specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both.</p>
    */
-  Statistics?: Statistic | string[];
+  Statistics?: (Statistic | string)[];
 
   /**
    * <p>The unit for a given metric.

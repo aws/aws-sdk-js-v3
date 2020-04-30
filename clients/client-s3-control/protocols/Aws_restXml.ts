@@ -2075,7 +2075,7 @@ const serializeAws_restXmlJobManifest = (
 };
 
 const serializeAws_restXmlJobManifestFieldList = (
-  input: JobManifestFieldName | string[],
+  input: (JobManifestFieldName | string)[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -3024,7 +3024,7 @@ const deserializeAws_restXmlJobManifest = (
 const deserializeAws_restXmlJobManifestFieldList = (
   output: any,
   context: __SerdeContext
-): JobManifestFieldName | string[] => {
+): (JobManifestFieldName | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);

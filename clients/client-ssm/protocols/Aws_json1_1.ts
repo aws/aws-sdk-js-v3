@@ -19152,7 +19152,7 @@ const serializeAws_json1_1NotificationConfig = (
 };
 
 const serializeAws_json1_1NotificationEventList = (
-  input: NotificationEvent | string[],
+  input: (NotificationEvent | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -27890,7 +27890,7 @@ const deserializeAws_json1_1NotificationConfig = (
 const deserializeAws_json1_1NotificationEventList = (
   output: any,
   context: __SerdeContext
-): NotificationEvent | string[] => {
+): (NotificationEvent | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -29085,7 +29085,7 @@ const deserializeAws_json1_1PatchStatus = (
 const deserializeAws_json1_1PlatformTypeList = (
   output: any,
   context: __SerdeContext
-): PlatformType | string[] => {
+): (PlatformType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

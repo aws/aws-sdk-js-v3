@@ -30,7 +30,7 @@ export interface CreateParticipantConnectionRequest {
   /**
    * <p>Type of connection information required.</p>
    */
-  Type: ConnectionType | string[] | undefined;
+  Type: (ConnectionType | string)[] | undefined;
 }
 
 export namespace CreateParticipantConnectionRequest {

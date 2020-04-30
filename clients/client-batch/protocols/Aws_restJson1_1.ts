@@ -2211,7 +2211,7 @@ const serializeAws_restJson1_1Device = (
 };
 
 const serializeAws_restJson1_1DeviceCgroupPermissions = (
-  input: DeviceCgroupPermission | string[],
+  input: (DeviceCgroupPermission | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3184,7 +3184,7 @@ const deserializeAws_restJson1_1Device = (
 const deserializeAws_restJson1_1DeviceCgroupPermissions = (
   output: any,
   context: __SerdeContext
-): DeviceCgroupPermission | string[] => {
+): (DeviceCgroupPermission | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

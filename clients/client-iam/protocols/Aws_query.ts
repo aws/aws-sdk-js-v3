@@ -17680,7 +17680,7 @@ const serializeAws_queryclientIDListType = (
 };
 
 const serializeAws_queryentityListType = (
-  input: EntityType | string[],
+  input: (EntityType | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};

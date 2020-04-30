@@ -718,7 +718,7 @@ export interface EntityFilter {
    * <p>A list of entity status codes (<code>IMPAIRED</code>, <code>UNIMPAIRED</code>, or
    *             <code>UNKNOWN</code>).</p>
    */
-  statusCodes?: EntityStatusCode | string[];
+  statusCodes?: (EntityStatusCode | string)[];
 
   /**
    * <p>A map of entity tags attached to the affected entity.</p>
@@ -948,13 +948,13 @@ export interface EventFilter {
   /**
    * <p>A list of event status codes.</p>
    */
-  eventStatusCodes?: EventStatusCode | string[];
+  eventStatusCodes?: (EventStatusCode | string)[];
 
   /**
    * <p>A list of event type category codes (<code>issue</code>,
    *          <code>scheduledChange</code>, or <code>accountNotification</code>).</p>
    */
-  eventTypeCategories?: EventTypeCategory | string[];
+  eventTypeCategories?: (EventTypeCategory | string)[];
 
   /**
    * <p>A list of unique identifiers for event types. For example, <code>"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".</code>
@@ -1032,7 +1032,7 @@ export interface EventTypeFilter {
    * <p>A list of event type category codes (<code>issue</code>,
    *          <code>scheduledChange</code>, or <code>accountNotification</code>).</p>
    */
-  eventTypeCategories?: EventTypeCategory | string[];
+  eventTypeCategories?: (EventTypeCategory | string)[];
 
   /**
    * <p>A list of event type codes.</p>
@@ -1252,12 +1252,12 @@ export interface OrganizationEventFilter {
   /**
    * <p>A list of event status codes.</p>
    */
-  eventStatusCodes?: EventStatusCode | string[];
+  eventStatusCodes?: (EventStatusCode | string)[];
 
   /**
    * <p>REPLACEME</p>
    */
-  eventTypeCategories?: EventTypeCategory | string[];
+  eventTypeCategories?: (EventTypeCategory | string)[];
 
   /**
    * <p>A list of unique identifiers for event types. For example, <code>"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".</code>

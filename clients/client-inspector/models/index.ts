@@ -109,12 +109,12 @@ export interface AgentFilter {
   /**
    * <p>The detailed health state of the agent. Values can be set to <b>IDLE</b>, <b>RUNNING</b>, <b>SHUTDOWN</b>, <b>UNHEALTHY</b>, <b>THROTTLED</b>, and <b>UNKNOWN</b>. </p>
    */
-  agentHealthCodes: AgentHealthCode | string[] | undefined;
+  agentHealthCodes: (AgentHealthCode | string)[] | undefined;
 
   /**
    * <p>The current health state of the agent. Values can be set to <b>HEALTHY</b> or <b>UNHEALTHY</b>.</p>
    */
-  agentHealths: AgentHealth | string[] | undefined;
+  agentHealths: (AgentHealth | string)[] | undefined;
 }
 
 export namespace AgentFilter {
@@ -419,7 +419,7 @@ export interface AssessmentRunFilter {
    *          property must be the exact match of the value of the <b>assessmentRunState</b> property of the <a>AssessmentRun</a> data
    *          type.</p>
    */
-  states?: AssessmentRunState | string[];
+  states?: (AssessmentRunState | string)[];
 }
 
 export namespace AssessmentRunFilter {
@@ -1533,7 +1533,7 @@ export interface FindingFilter {
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>severity</b> property of the <a>Finding</a> data type.</p>
    */
-  severities?: Severity | string[];
+  severities?: (Severity | string)[];
 
   /**
    * <p>For a record to match a filter, the value that is specified for this data type

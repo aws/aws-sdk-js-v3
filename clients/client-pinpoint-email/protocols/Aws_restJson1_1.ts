@@ -6071,7 +6071,7 @@ const serializeAws_restJson1_1EventDestinationDefinition = (
 };
 
 const serializeAws_restJson1_1EventTypes = (
-  input: EventType | string[],
+  input: (EventType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6819,7 +6819,7 @@ const deserializeAws_restJson1_1EventDestinations = (
 const deserializeAws_restJson1_1EventTypes = (
   output: any,
   context: __SerdeContext
-): EventType | string[] => {
+): (EventType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

@@ -17549,7 +17549,7 @@ const deserializeAws_restJson1_1InviteList = (
 const deserializeAws_restJson1_1LicenseList = (
   output: any,
   context: __SerdeContext
-): License | string[] => {
+): (License | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

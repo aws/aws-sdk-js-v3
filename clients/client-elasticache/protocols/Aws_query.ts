@@ -9089,7 +9089,7 @@ const serializeAws_querySecurityGroupIdsList = (
 };
 
 const serializeAws_queryServiceUpdateStatusList = (
-  input: ServiceUpdateStatus | string[],
+  input: (ServiceUpdateStatus | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -9204,7 +9204,7 @@ const serializeAws_queryTimeRangeFilter = (
 };
 
 const serializeAws_queryUpdateActionStatusList = (
-  input: UpdateActionStatus | string[],
+  input: (UpdateActionStatus | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};

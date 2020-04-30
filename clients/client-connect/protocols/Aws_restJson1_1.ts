@@ -4852,7 +4852,7 @@ const serializeAws_restJson1_1ParticipantDetails = (
 };
 
 const serializeAws_restJson1_1Channels = (
-  input: Channel | string[],
+  input: (Channel | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4908,7 +4908,7 @@ const serializeAws_restJson1_1Filters = (
 };
 
 const serializeAws_restJson1_1Groupings = (
-  input: Grouping | string[],
+  input: (Grouping | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];

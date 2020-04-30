@@ -1028,7 +1028,7 @@ export interface DetectFacesRequest {
    *          <p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND
    *       operator to determine which attributes to return (in this case, all attributes). </p>
    */
-  Attributes?: Attribute | string[];
+  Attributes?: (Attribute | string)[];
 
   /**
    * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call
@@ -2179,7 +2179,7 @@ export interface HumanLoopDataAttributes {
   /**
    * <p>Sets whether the input image is free of personally identifiable information.</p>
    */
-  ContentClassifiers?: ContentClassifier | string[];
+  ContentClassifiers?: (ContentClassifier | string)[];
 }
 
 export namespace HumanLoopDataAttributes {
@@ -2328,7 +2328,7 @@ export interface IndexFacesRequest {
    *          <p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND
    *       operator to determine which attributes to return (in this case, all attributes). </p>
    */
-  DetectionAttributes?: Attribute | string[];
+  DetectionAttributes?: (Attribute | string)[];
 
   /**
    * <p>The ID you want to assign to all the faces detected in the image.</p>
@@ -4349,7 +4349,7 @@ export interface UnindexedFace {
    *             </li>
    *          </ul>
    */
-  Reasons?: Reason | string[];
+  Reasons?: (Reason | string)[];
 }
 
 export namespace UnindexedFace {

@@ -155,7 +155,7 @@ export interface ConfigurationProfileSummary {
   /**
    * <p>The types of validators in the configuration profile.</p>
    */
-  ValidatorTypes?: ValidatorType | string[];
+  ValidatorTypes?: (ValidatorType | string)[];
 }
 
 export namespace ConfigurationProfileSummary {

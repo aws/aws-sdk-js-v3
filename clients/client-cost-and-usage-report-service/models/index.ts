@@ -214,12 +214,12 @@ export interface ReportDefinition {
   /**
    * <p>A list of manifests that you want Amazon Web Services to create for this report.</p>
    */
-  AdditionalArtifacts?: AdditionalArtifact | string[];
+  AdditionalArtifacts?: (AdditionalArtifact | string)[];
 
   /**
    * <p>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs. </p>
    */
-  AdditionalSchemaElements: SchemaElement | string[] | undefined;
+  AdditionalSchemaElements: (SchemaElement | string)[] | undefined;
 
   /**
    * <p>The compression format that AWS uses for the report.</p>

@@ -3813,7 +3813,7 @@ const serializeAws_json1_1ProjectCache = (
 };
 
 const serializeAws_json1_1ProjectCacheModes = (
-  input: CacheMode | string[],
+  input: (CacheMode | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5904,7 +5904,7 @@ const deserializeAws_json1_1ProjectCache = (
 const deserializeAws_json1_1ProjectCacheModes = (
   output: any,
   context: __SerdeContext
-): CacheMode | string[] => {
+): (CacheMode | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

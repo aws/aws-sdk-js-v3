@@ -8222,7 +8222,7 @@ const serializeAws_json1_1CreateAccountRequest = (
 };
 
 const serializeAws_json1_1CreateAccountStates = (
-  input: CreateAccountState | string[],
+  input: (CreateAccountState | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];

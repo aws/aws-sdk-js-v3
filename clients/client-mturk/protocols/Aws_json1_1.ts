@@ -3778,7 +3778,7 @@ const serializeAws_json1_1ApproveAssignmentRequest = (
 };
 
 const serializeAws_json1_1AssignmentStatusList = (
-  input: AssignmentStatus | string[],
+  input: (AssignmentStatus | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4100,7 +4100,7 @@ const serializeAws_json1_1DisassociateQualificationFromWorkerRequest = (
 };
 
 const serializeAws_json1_1EventTypeList = (
-  input: EventType | string[],
+  input: (EventType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4631,7 +4631,7 @@ const serializeAws_json1_1ReviewPolicy = (
 };
 
 const serializeAws_json1_1ReviewPolicyLevelList = (
-  input: ReviewPolicyLevel | string[],
+  input: (ReviewPolicyLevel | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];

@@ -288,7 +288,7 @@ export interface BuiltinIntentMetadata {
   /**
    * <p>A list of identifiers for the locales that the intent supports.</p>
    */
-  supportedLocales?: Locale | string[];
+  supportedLocales?: (Locale | string)[];
 }
 
 export namespace BuiltinIntentMetadata {
@@ -326,7 +326,7 @@ export interface BuiltinSlotTypeMetadata {
   /**
    * <p>A list of target locales for the slot. </p>
    */
-  supportedLocales?: Locale | string[];
+  supportedLocales?: (Locale | string)[];
 }
 
 export namespace BuiltinSlotTypeMetadata {
@@ -1568,7 +1568,7 @@ export interface GetBuiltinIntentResponse {
   /**
    * <p>A list of locales that the intent supports.</p>
    */
-  supportedLocales?: Locale | string[];
+  supportedLocales?: (Locale | string)[];
 }
 
 export namespace GetBuiltinIntentResponse {

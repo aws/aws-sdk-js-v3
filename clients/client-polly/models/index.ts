@@ -735,7 +735,7 @@ export interface StartSpeechSynthesisTaskInput {
   /**
    * <p>The type of speech marks returned for the input text.</p>
    */
-  SpeechMarkTypes?: SpeechMarkType | string[];
+  SpeechMarkTypes?: (SpeechMarkType | string)[];
 
   /**
    * <p>The input text to synthesize. If you specify
@@ -838,7 +838,7 @@ export interface SynthesisTask {
   /**
    * <p>The type of speech marks returned for the input text.</p>
    */
-  SpeechMarkTypes?: SpeechMarkType | string[];
+  SpeechMarkTypes?: (SpeechMarkType | string)[];
 
   /**
    * <p>The Amazon Polly generated identifier for a speech synthesis task.</p>
@@ -932,7 +932,7 @@ export interface SynthesizeSpeechInput {
   /**
    * <p>The type of speech marks returned for the input text.</p>
    */
-  SpeechMarkTypes?: SpeechMarkType | string[];
+  SpeechMarkTypes?: (SpeechMarkType | string)[];
 
   /**
    * <p>
@@ -1093,7 +1093,7 @@ export interface Voice {
    *          <p>For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since
    *     Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code <code>hi-IN</code>.</p>
    */
-  AdditionalLanguageCodes?: LanguageCode | string[];
+  AdditionalLanguageCodes?: (LanguageCode | string)[];
 
   /**
    * <p>Gender of the voice.</p>
@@ -1126,7 +1126,7 @@ export interface Voice {
   /**
    * <p>Specifies which engines (<code>standard</code> or <code>neural</code>) that are supported by a given voice.</p>
    */
-  SupportedEngines?: Engine | string[];
+  SupportedEngines?: (Engine | string)[];
 }
 
 export namespace Voice {

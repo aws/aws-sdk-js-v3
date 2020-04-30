@@ -130,7 +130,7 @@ export interface CorsRule {
    *          <p>Each CORS rule must contain at least one <code>AllowedMethods</code> and one
    *             <code>AllowedOrigins</code> element.</p>
    */
-  AllowedMethods?: MethodName | string[];
+  AllowedMethods?: (MethodName | string)[];
 
   /**
    * <p>One or more response headers that you want users to be able to access from their

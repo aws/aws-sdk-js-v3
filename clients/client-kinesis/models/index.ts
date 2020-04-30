@@ -393,7 +393,7 @@ export interface DisableEnhancedMonitoringInput {
    *                 Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
-  ShardLevelMetrics: MetricsName | string[] | undefined;
+  ShardLevelMetrics: (MetricsName | string)[] | undefined;
 
   /**
    * <p>The name of the Kinesis data stream for which to disable enhanced
@@ -462,7 +462,7 @@ export interface EnableEnhancedMonitoringInput {
    *                 Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
-  ShardLevelMetrics: MetricsName | string[] | undefined;
+  ShardLevelMetrics: (MetricsName | string)[] | undefined;
 
   /**
    * <p>The name of the stream for which to enable enhanced monitoring.</p>
@@ -535,7 +535,7 @@ export interface EnhancedMetrics {
    *                 Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
-  ShardLevelMetrics?: MetricsName | string[];
+  ShardLevelMetrics?: (MetricsName | string)[];
 }
 
 export namespace EnhancedMetrics {
@@ -552,12 +552,12 @@ export interface EnhancedMonitoringOutput {
   /**
    * <p>Represents the current state of the metrics that are in the enhanced state before the operation.</p>
    */
-  CurrentShardLevelMetrics?: MetricsName | string[];
+  CurrentShardLevelMetrics?: (MetricsName | string)[];
 
   /**
    * <p>Represents the list of all the metrics that would be in the enhanced state after the operation.</p>
    */
-  DesiredShardLevelMetrics?: MetricsName | string[];
+  DesiredShardLevelMetrics?: (MetricsName | string)[];
 
   /**
    * <p>The name of the Kinesis data stream.</p>

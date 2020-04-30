@@ -30,7 +30,7 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
   /**
    * <p>The AWS products.</p>
    */
-  products?: SavingsPlanProductType | string[];
+  products?: (SavingsPlanProductType | string)[];
 
   /**
    * <p>The IDs of the offerings.</p>
@@ -40,17 +40,17 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
   /**
    * <p>The payment options.</p>
    */
-  savingsPlanPaymentOptions?: SavingsPlanPaymentOption | string[];
+  savingsPlanPaymentOptions?: (SavingsPlanPaymentOption | string)[];
 
   /**
    * <p>The plan types.</p>
    */
-  savingsPlanTypes?: SavingsPlanType | string[];
+  savingsPlanTypes?: (SavingsPlanType | string)[];
 
   /**
    * <p>The services.</p>
    */
-  serviceCodes?: SavingsPlanRateServiceCode | string[];
+  serviceCodes?: (SavingsPlanRateServiceCode | string)[];
 
   /**
    * <p>The usage details of the line item in the billing report.</p>
@@ -87,7 +87,7 @@ export interface DescribeSavingsPlansOfferingsRequest {
   /**
    * <p>The currencies.</p>
    */
-  currencies?: CurrencyCode | string[];
+  currencies?: (CurrencyCode | string)[];
 
   /**
    * <p>The descriptions.</p>
@@ -128,12 +128,12 @@ export interface DescribeSavingsPlansOfferingsRequest {
   /**
    * <p>The payment options.</p>
    */
-  paymentOptions?: SavingsPlanPaymentOption | string[];
+  paymentOptions?: (SavingsPlanPaymentOption | string)[];
 
   /**
    * <p>The plan type.</p>
    */
-  planTypes?: SavingsPlanType | string[];
+  planTypes?: (SavingsPlanType | string)[];
 
   /**
    * <p>The product type.</p>
@@ -259,7 +259,7 @@ export interface SavingsPlanOffering {
   /**
    * <p>The product type.</p>
    */
-  productTypes?: SavingsPlanProductType | string[];
+  productTypes?: (SavingsPlanProductType | string)[];
 
   /**
    * <p>The properties.</p>
@@ -624,7 +624,7 @@ export interface DescribeSavingsPlansRequest {
   /**
    * <p>The states.</p>
    */
-  states?: SavingsPlanState | string[];
+  states?: (SavingsPlanState | string)[];
 }
 
 export namespace DescribeSavingsPlansRequest {
@@ -752,7 +752,7 @@ export interface SavingsPlan {
   /**
    * <p>The product types.</p>
    */
-  productTypes?: SavingsPlanProductType | string[];
+  productTypes?: (SavingsPlanProductType | string)[];
 
   /**
    * <p>The recurring payment amount.</p>

@@ -2933,7 +2933,7 @@ const deserializeAws_restJson1_1__listOfApplicationSummary = (
 const deserializeAws_restJson1_1__listOfCapability = (
   output: any,
   context: __SerdeContext
-): Capability | string[] => {
+): (Capability | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

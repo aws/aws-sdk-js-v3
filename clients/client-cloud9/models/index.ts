@@ -226,7 +226,7 @@ export interface DescribeEnvironmentMembershipsRequest {
    *          </ul>
    *          <p>If no value is specified, information about all environment members are returned.</p>
    */
-  permissions?: Permissions | string[];
+  permissions?: (Permissions | string)[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.</p>

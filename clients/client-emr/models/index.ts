@@ -997,7 +997,7 @@ export interface DescribeJobFlowsInput {
   /**
    * <p>Return only job flows whose state is contained in this list.</p>
    */
-  JobFlowStates?: JobFlowExecutionState | string[];
+  JobFlowStates?: (JobFlowExecutionState | string)[];
 }
 
 export namespace DescribeJobFlowsInput {
@@ -2808,7 +2808,7 @@ export interface ListClustersInput {
   /**
    * <p>The cluster state filters to apply when listing clusters.</p>
    */
-  ClusterStates?: ClusterState | string[];
+  ClusterStates?: (ClusterState | string)[];
 
   /**
    * <p>The creation date and time beginning value filter for listing clusters.</p>
@@ -2958,12 +2958,12 @@ export interface ListInstancesInput {
   /**
    * <p>The type of instance group for which to list the instances.</p>
    */
-  InstanceGroupTypes?: InstanceGroupType | string[];
+  InstanceGroupTypes?: (InstanceGroupType | string)[];
 
   /**
    * <p>A list of instance states that will filter the instances returned with this request.</p>
    */
-  InstanceStates?: InstanceState | string[];
+  InstanceStates?: (InstanceState | string)[];
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
@@ -3051,7 +3051,7 @@ export interface ListStepsInput {
   /**
    * <p>The filter to limit the step list based on certain states.</p>
    */
-  StepStates?: StepState | string[];
+  StepStates?: (StepState | string)[];
 }
 
 export namespace ListStepsInput {

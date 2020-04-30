@@ -1229,7 +1229,7 @@ export interface GeoMatchStatement {
   /**
    * <p>An array of two-character country codes, for example, <code>[ "US", "CN" ]</code>, from the alpha-2 country ISO codes of the ISO 3166 international standard. </p>
    */
-  CountryCodes?: CountryCode | string[];
+  CountryCodes?: (CountryCode | string)[];
 }
 
 export namespace GeoMatchStatement {

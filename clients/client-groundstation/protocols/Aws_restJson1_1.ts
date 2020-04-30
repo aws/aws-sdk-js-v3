@@ -3659,7 +3659,7 @@ const serializeAws_restJson1_1EndpointDetailsList = (
 };
 
 const serializeAws_restJson1_1StatusList = (
-  input: ContactStatus | string[],
+  input: (ContactStatus | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];

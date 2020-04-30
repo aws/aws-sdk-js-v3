@@ -9486,7 +9486,7 @@ const serializeAws_restXmlHealthCheckConfig = (
 };
 
 const serializeAws_restXmlHealthCheckRegionList = (
-  input: HealthCheckRegion | string[],
+  input: (HealthCheckRegion | string)[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -9520,7 +9520,7 @@ const serializeAws_restXmlHostedZoneConfig = (
 };
 
 const serializeAws_restXmlResettableElementNameList = (
-  input: ResettableElementName | string[],
+  input: (ResettableElementName | string)[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -10394,7 +10394,7 @@ const deserializeAws_restXmlHealthCheckObservations = (
 const deserializeAws_restXmlHealthCheckRegionList = (
   output: any,
   context: __SerdeContext
-): HealthCheckRegion | string[] => {
+): (HealthCheckRegion | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);

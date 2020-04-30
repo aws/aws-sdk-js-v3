@@ -397,7 +397,7 @@ export interface CreateApplicationVersionResponse {
    *  all permissions associated with the application before deploying. If you don't specify
    *  this parameter for an application that requires capabilities, the call will fail.</p>
    */
-  RequiredCapabilities?: Capability | string[];
+  RequiredCapabilities?: (Capability | string)[];
 
   /**
    * <p>Whether all of the AWS resources contained in this application are supported in the region
@@ -1433,7 +1433,7 @@ export interface Version {
    *  all permissions associated with the application before deploying. If you don't specify
    *  this parameter for an application that requires capabilities, the call will fail.</p>
    */
-  RequiredCapabilities: Capability | string[] | undefined;
+  RequiredCapabilities: (Capability | string)[] | undefined;
 
   /**
    * <p>Whether all of the AWS resources contained in this application are supported in the region

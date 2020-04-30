@@ -195,7 +195,7 @@ export interface GetLifecyclePoliciesRequest {
   /**
    * <p>The resource type.</p>
    */
-  ResourceTypes?: ResourceTypeValues | string[];
+  ResourceTypes?: (ResourceTypeValues | string)[];
 
   /**
    * <p>The activation state.</p>
@@ -482,7 +482,7 @@ export interface PolicyDetails {
   /**
    * <p>The resource type.</p>
    */
-  ResourceTypes?: ResourceTypeValues | string[];
+  ResourceTypes?: (ResourceTypeValues | string)[];
 
   /**
    * <p>The schedule of policy-defined actions.</p>

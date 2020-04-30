@@ -1702,7 +1702,7 @@ const serializeAws_json1_1CertificateOptions = (
 };
 
 const serializeAws_json1_1CertificateStatuses = (
-  input: CertificateStatus | string[],
+  input: (CertificateStatus | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1785,7 +1785,7 @@ const serializeAws_json1_1ExportCertificateRequest = (
 };
 
 const serializeAws_json1_1ExtendedKeyUsageFilterList = (
-  input: ExtendedKeyUsageName | string[],
+  input: (ExtendedKeyUsageName | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1860,7 +1860,7 @@ const serializeAws_json1_1ImportCertificateRequest = (
 };
 
 const serializeAws_json1_1KeyAlgorithmList = (
-  input: KeyAlgorithm | string[],
+  input: (KeyAlgorithm | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1871,7 +1871,7 @@ const serializeAws_json1_1KeyAlgorithmList = (
 };
 
 const serializeAws_json1_1KeyUsageFilterList = (
-  input: KeyUsageName | string[],
+  input: (KeyUsageName | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];

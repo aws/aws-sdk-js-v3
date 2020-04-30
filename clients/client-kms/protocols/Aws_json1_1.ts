@@ -7494,7 +7494,7 @@ const serializeAws_json1_1GrantConstraints = (
 };
 
 const serializeAws_json1_1GrantOperationList = (
-  input: GrantOperation | string[],
+  input: (GrantOperation | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8370,7 +8370,7 @@ const deserializeAws_json1_1EncryptResponse = (
 const deserializeAws_json1_1EncryptionAlgorithmSpecList = (
   output: any,
   context: __SerdeContext
-): EncryptionAlgorithmSpec | string[] => {
+): (EncryptionAlgorithmSpec | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8735,7 +8735,7 @@ const deserializeAws_json1_1GrantListEntry = (
 const deserializeAws_json1_1GrantOperationList = (
   output: any,
   context: __SerdeContext
-): GrantOperation | string[] => {
+): (GrantOperation | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -9334,7 +9334,7 @@ const deserializeAws_json1_1SignResponse = (
 const deserializeAws_json1_1SigningAlgorithmSpecList = (
   output: any,
   context: __SerdeContext
-): SigningAlgorithmSpec | string[] => {
+): (SigningAlgorithmSpec | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

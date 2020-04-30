@@ -29,7 +29,7 @@ export interface SuppressionAttributes {
    *             </li>
    *          </ul>
    */
-  SuppressedReasons?: SuppressionListReason | string[];
+  SuppressedReasons?: (SuppressionListReason | string)[];
 }
 
 export namespace SuppressionAttributes {
@@ -67,7 +67,7 @@ export interface SuppressionOptions {
    *             </li>
    *          </ul>
    */
-  SuppressedReasons?: SuppressionListReason | string[];
+  SuppressedReasons?: (SuppressionListReason | string)[];
 }
 
 export namespace SuppressionOptions {
@@ -1356,7 +1356,7 @@ export interface EventDestination {
   /**
    * <p>The types of events that Amazon SES sends to the specified event destinations.</p>
    */
-  MatchingEventTypes: EventType | string[] | undefined;
+  MatchingEventTypes: (EventType | string)[] | undefined;
 
   /**
    * <p>A name that identifies the event destination.</p>
@@ -1416,7 +1416,7 @@ export interface EventDestinationDefinition {
    * <p>An array that specifies which events the Amazon SES API v2 should send to the destinations in
    *             this <code>EventDestinationDefinition</code>.</p>
    */
-  MatchingEventTypes?: EventType | string[];
+  MatchingEventTypes?: (EventType | string)[];
 
   /**
    * <p>An object that defines an Amazon Pinpoint project destination for email events. You can send
@@ -2542,7 +2542,7 @@ export interface ListSuppressedDestinationsRequest {
   /**
    * <p>The factors that caused the email address to be added to .</p>
    */
-  Reasons?: SuppressionListReason | string[];
+  Reasons?: (SuppressionListReason | string)[];
 
   /**
    * <p>Used to filter the list of suppressed email destinations so that it only includes
@@ -2967,7 +2967,7 @@ export interface PutAccountSuppressionAttributesRequest {
    *             </li>
    *          </ul>
    */
-  SuppressedReasons?: SuppressionListReason | string[];
+  SuppressedReasons?: (SuppressionListReason | string)[];
 }
 
 export namespace PutAccountSuppressionAttributesRequest {
@@ -3144,7 +3144,7 @@ export interface PutConfigurationSetSuppressionOptionsRequest {
    *             </li>
    *          </ul>
    */
-  SuppressedReasons?: SuppressionListReason | string[];
+  SuppressedReasons?: (SuppressionListReason | string)[];
 }
 
 export namespace PutConfigurationSetSuppressionOptionsRequest {

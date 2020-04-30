@@ -681,7 +681,7 @@ export interface JobManifestSpec {
   /**
    * <p>If the specified manifest object is in the <code>S3BatchOperations_CSV_20180820</code> format, this element describes which columns contain the required data.</p>
    */
-  Fields?: JobManifestFieldName | string[];
+  Fields?: (JobManifestFieldName | string)[];
 
   /**
    * <p>Indicates which of the available formats the specified manifest uses.</p>
@@ -902,7 +902,7 @@ export interface ListJobsRequest {
   /**
    * <p>The <code>List Jobs</code> request returns jobs that match the statuses listed in this element.</p>
    */
-  JobStatuses?: JobStatus | string[];
+  JobStatuses?: (JobStatus | string)[];
 
   /**
    * <p>The maximum number of jobs that Amazon S3 will include in the <code>List Jobs</code> response. If there are more jobs than this number, the response will include a pagination token in the <code>NextToken</code> field to enable you to retrieve the next page of results.</p>

@@ -12596,7 +12596,7 @@ const serializeAws_restJson1_1__listOfCaptionSelector = (
 };
 
 const serializeAws_restJson1_1__listOfHlsAdMarkers = (
-  input: HlsAdMarkers | string[],
+  input: (HlsAdMarkers | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -19027,7 +19027,7 @@ const deserializeAws_restJson1_1__listOfChannelSummary = (
 const deserializeAws_restJson1_1__listOfHlsAdMarkers = (
   output: any,
   context: __SerdeContext
-): HlsAdMarkers | string[] => {
+): (HlsAdMarkers | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

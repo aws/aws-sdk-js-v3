@@ -1726,7 +1726,7 @@ export interface DescribeEnvironmentHealthRequest {
    *         <code>All</code>. If no attribute names are specified, returns the name of the
    *       environment.</p>
    */
-  AttributeNames?: EnvironmentHealthAttribute | string[];
+  AttributeNames?: (EnvironmentHealthAttribute | string)[];
 
   /**
    * <p>Specify the environment by ID.</p>
@@ -2084,7 +2084,7 @@ export interface DescribeInstancesHealthRequest {
    *         <code>All</code>. If no attribute names are specified, returns a list of
    *       instances.</p>
    */
-  AttributeNames?: InstancesHealthAttribute | string[];
+  AttributeNames?: (InstancesHealthAttribute | string)[];
 
   /**
    * <p>Specify the AWS Elastic Beanstalk environment by ID.</p>

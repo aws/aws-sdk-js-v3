@@ -422,7 +422,7 @@ export interface Filters {
   /**
    * <p>The channel to use to filter the metrics.</p>
    */
-  Channels?: Channel | string[];
+  Channels?: (Channel | string)[];
 
   /**
    * <p>The queues to use to filter the metrics. You can specify up to 100 queues per
@@ -1010,7 +1010,7 @@ export interface GetCurrentMetricDataRequest {
    *          <p>If no <code>Grouping</code> is included in the request, a summary of metrics is
    *    returned.</p>
    */
-  Groupings?: Grouping | string[];
+  Groupings?: (Grouping | string)[];
 
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -1112,7 +1112,7 @@ export interface GetMetricDataRequest {
    *          <p>The only supported grouping is <code>QUEUE</code>.</p>
    *          <p>If no grouping is specified, a summary of metrics for all queues is returned.</p>
    */
-  Groupings?: Grouping | string[];
+  Groupings?: (Grouping | string)[];
 
   /**
    * <p>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The
@@ -1567,7 +1567,7 @@ export interface ListContactFlowsRequest {
   /**
    * <p>The type of contact flow.</p>
    */
-  ContactFlowTypes?: ContactFlowType | string[];
+  ContactFlowTypes?: (ContactFlowType | string)[];
 
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -1672,12 +1672,12 @@ export interface ListPhoneNumbersRequest {
   /**
    * <p>The ISO country code.</p>
    */
-  PhoneNumberCountryCodes?: PhoneNumberCountryCode | string[];
+  PhoneNumberCountryCodes?: (PhoneNumberCountryCode | string)[];
 
   /**
    * <p>The type of phone number.</p>
    */
-  PhoneNumberTypes?: PhoneNumberType | string[];
+  PhoneNumberTypes?: (PhoneNumberType | string)[];
 }
 
 export namespace ListPhoneNumbersRequest {
@@ -1724,7 +1724,7 @@ export interface ListQueuesRequest {
   /**
    * <p>The type of queue.</p>
    */
-  QueueTypes?: QueueType | string[];
+  QueueTypes?: (QueueType | string)[];
 }
 
 export namespace ListQueuesRequest {

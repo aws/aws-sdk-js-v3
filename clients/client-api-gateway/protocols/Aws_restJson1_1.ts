@@ -22740,7 +22740,7 @@ const serializeAws_restJson1_1ListOfApiStage = (
 };
 
 const serializeAws_restJson1_1ListOfEndpointType = (
-  input: EndpointType | string[],
+  input: (EndpointType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -23666,7 +23666,7 @@ const deserializeAws_restJson1_1ListOfDomainName = (
 const deserializeAws_restJson1_1ListOfEndpointType = (
   output: any,
   context: __SerdeContext
-): EndpointType | string[] => {
+): (EndpointType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

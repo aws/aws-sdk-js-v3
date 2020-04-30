@@ -7092,7 +7092,7 @@ const deserializeAws_restJson1_1ListsOfUtterances = (
 const deserializeAws_restJson1_1LocaleList = (
   output: any,
   context: __SerdeContext
-): Locale | string[] => {
+): (Locale | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

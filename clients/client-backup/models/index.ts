@@ -1872,7 +1872,7 @@ export interface GetBackupVaultNotificationsOutput {
    * <p>An array of events that indicate the status of jobs to back up resources to the backup
    *          vault.</p>
    */
-  BackupVaultEvents?: BackupVaultEvent | string[];
+  BackupVaultEvents?: (BackupVaultEvent | string)[];
 
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -2848,7 +2848,7 @@ export interface PutBackupVaultNotificationsInput {
    * <p>An array of events that indicate the status of jobs to back up resources to the backup
    *          vault.</p>
    */
-  BackupVaultEvents: BackupVaultEvent | string[] | undefined;
+  BackupVaultEvents: (BackupVaultEvent | string)[] | undefined;
 
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified

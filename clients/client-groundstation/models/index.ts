@@ -1002,7 +1002,7 @@ export interface ListContactsRequest {
   /**
    * <p>Status of a contact reservation.</p>
    */
-  statusList: ContactStatus | string[] | undefined;
+  statusList: (ContactStatus | string)[] | undefined;
 }
 
 export namespace ListContactsRequest {

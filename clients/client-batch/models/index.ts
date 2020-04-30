@@ -1218,7 +1218,7 @@ export interface Device {
    * <p>The explicit permissions to provide to the container for the device. By default, the container has permissions
    *    for <code>read</code>, <code>write</code>, and <code>mknod</code> for the device.</p>
    */
-  permissions?: DeviceCgroupPermission | string[];
+  permissions?: (DeviceCgroupPermission | string)[];
 }
 
 export namespace Device {

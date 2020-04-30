@@ -1204,7 +1204,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1CurrencyList = (
-  input: CurrencyCode | string[],
+  input: (CurrencyCode | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1333,7 +1333,7 @@ const serializeAws_restJson1_1SavingsPlanOperationList = (
 };
 
 const serializeAws_restJson1_1SavingsPlanPaymentOptionList = (
-  input: SavingsPlanPaymentOption | string[],
+  input: (SavingsPlanPaymentOption | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1344,7 +1344,7 @@ const serializeAws_restJson1_1SavingsPlanPaymentOptionList = (
 };
 
 const serializeAws_restJson1_1SavingsPlanProductTypeList = (
-  input: SavingsPlanProductType | string[],
+  input: (SavingsPlanProductType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1366,7 +1366,7 @@ const serializeAws_restJson1_1SavingsPlanRateOperationList = (
 };
 
 const serializeAws_restJson1_1SavingsPlanRateServiceCodeList = (
-  input: SavingsPlanRateServiceCode | string[],
+  input: (SavingsPlanRateServiceCode | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1399,7 +1399,7 @@ const serializeAws_restJson1_1SavingsPlanServiceCodeList = (
 };
 
 const serializeAws_restJson1_1SavingsPlanTypeList = (
-  input: SavingsPlanType | string[],
+  input: (SavingsPlanType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1512,7 +1512,7 @@ const serializeAws_restJson1_1SavingsPlanRateFilterList = (
 };
 
 const serializeAws_restJson1_1SavingsPlanStateList = (
-  input: SavingsPlanState | string[],
+  input: (SavingsPlanState | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1764,7 +1764,7 @@ const deserializeAws_restJson1_1SavingsPlanOfferingsList = (
 const deserializeAws_restJson1_1SavingsPlanProductTypeList = (
   output: any,
   context: __SerdeContext
-): SavingsPlanProductType | string[] => {
+): (SavingsPlanProductType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

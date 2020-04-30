@@ -1320,7 +1320,7 @@ const serializeAws_restJson1_1PolicyDetails = (
 };
 
 const serializeAws_restJson1_1ResourceTypeValuesList = (
-  input: ResourceTypeValues | string[],
+  input: (ResourceTypeValues | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1767,7 +1767,7 @@ const deserializeAws_restJson1_1PolicyIdList = (
 const deserializeAws_restJson1_1ResourceTypeValuesList = (
   output: any,
   context: __SerdeContext
-): ResourceTypeValues | string[] => {
+): (ResourceTypeValues | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

@@ -67,7 +67,7 @@ export interface Account {
   /**
    * <p>Supported licenses for the Amazon Chime account.</p>
    */
-  SupportedLicenses?: License | string[];
+  SupportedLicenses?: (License | string)[];
 }
 
 export namespace Account {

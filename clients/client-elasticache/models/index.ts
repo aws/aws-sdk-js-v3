@@ -4631,7 +4631,7 @@ export interface DescribeServiceUpdatesMessage {
   /**
    * <p>The status of the service update</p>
    */
-  ServiceUpdateStatus?: ServiceUpdateStatus | string[];
+  ServiceUpdateStatus?: (ServiceUpdateStatus | string)[];
 }
 
 export namespace DescribeServiceUpdatesMessage {
@@ -4759,7 +4759,7 @@ export interface DescribeUpdateActionsMessage {
   /**
    * <p>The status of the service update</p>
    */
-  ServiceUpdateStatus?: ServiceUpdateStatus | string[];
+  ServiceUpdateStatus?: (ServiceUpdateStatus | string)[];
 
   /**
    * <p>The range of time specified to search for service updates that are in available status</p>
@@ -4774,7 +4774,7 @@ export interface DescribeUpdateActionsMessage {
   /**
    * <p>The status of the update action.</p>
    */
-  UpdateActionStatus?: UpdateActionStatus | string[];
+  UpdateActionStatus?: (UpdateActionStatus | string)[];
 }
 
 export namespace DescribeUpdateActionsMessage {

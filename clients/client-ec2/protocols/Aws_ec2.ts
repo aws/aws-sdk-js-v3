@@ -31957,7 +31957,7 @@ const serializeAws_ec2AcceptVpcPeeringConnectionRequest = (
 };
 
 const serializeAws_ec2AccountAttributeNameStringList = (
-  input: AccountAttributeName | string[],
+  input: (AccountAttributeName | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -41604,7 +41604,7 @@ const serializeAws_ec2InstanceSpecification = (
 };
 
 const serializeAws_ec2InstanceTypeList = (
-  input: _InstanceType | string[],
+  input: (_InstanceType | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -44868,7 +44868,7 @@ const serializeAws_ec2PurchaseScheduledInstancesRequest = (
 };
 
 const serializeAws_ec2ReasonCodesList = (
-  input: ReportInstanceReasonCodes | string[],
+  input: (ReportInstanceReasonCodes | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -45379,7 +45379,7 @@ const serializeAws_ec2RequestHostIdSet = (
 };
 
 const serializeAws_ec2RequestInstanceTypeList = (
-  input: _InstanceType | string[],
+  input: (_InstanceType | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47692,7 +47692,7 @@ const serializeAws_ec2TerminateInstancesRequest = (
 };
 
 const serializeAws_ec2TrafficMirrorFilterRuleFieldList = (
-  input: TrafficMirrorFilterRuleField | string[],
+  input: (TrafficMirrorFilterRuleField | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47705,7 +47705,7 @@ const serializeAws_ec2TrafficMirrorFilterRuleFieldList = (
 };
 
 const serializeAws_ec2TrafficMirrorNetworkServiceList = (
-  input: TrafficMirrorNetworkService | string[],
+  input: (TrafficMirrorNetworkService | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -47732,7 +47732,7 @@ const serializeAws_ec2TrafficMirrorPortRangeRequest = (
 };
 
 const serializeAws_ec2TrafficMirrorSessionFieldList = (
-  input: TrafficMirrorSessionField | string[],
+  input: (TrafficMirrorSessionField | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -48839,7 +48839,7 @@ const deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkResult = (
 const deserializeAws_ec2ArchitectureTypeList = (
   output: any,
   context: __SerdeContext
-): ArchitectureType | string[] => {
+): (ArchitectureType | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -68624,7 +68624,7 @@ const deserializeAws_ec2PlacementGroupList = (
 const deserializeAws_ec2PlacementGroupStrategyList = (
   output: any,
   context: __SerdeContext
-): PlacementGroupStrategy | string[] => {
+): (PlacementGroupStrategy | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -71007,7 +71007,7 @@ const deserializeAws_ec2RevokeClientVpnIngressResult = (
 const deserializeAws_ec2RootDeviceTypeList = (
   output: any,
   context: __SerdeContext
-): RootDeviceType | string[] => {
+): (RootDeviceType | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -74800,7 +74800,7 @@ const deserializeAws_ec2TrafficMirrorFilterSet = (
 const deserializeAws_ec2TrafficMirrorNetworkServiceList = (
   output: any,
   context: __SerdeContext
-): TrafficMirrorNetworkService | string[] => {
+): (TrafficMirrorNetworkService | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -76758,7 +76758,7 @@ const deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressResult = (
 const deserializeAws_ec2UsageClassTypeList = (
   output: any,
   context: __SerdeContext
-): UsageClassType | string[] => {
+): (UsageClassType | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);

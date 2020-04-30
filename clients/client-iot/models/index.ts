@@ -8162,7 +8162,7 @@ export interface CreateOTAUpdateRequest {
    * <p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both
    *              HTTP and MQTT are specified, the target device can choose the protocol.</p>
    */
-  protocols?: Protocol | string[];
+  protocols?: (Protocol | string)[];
 
   /**
    * <p>The IAM role that allows access to the AWS IoT Jobs service.</p>
@@ -8522,7 +8522,7 @@ export interface OTAUpdateInfo {
    * <p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both
    *              HTTP and MQTT are specified, the target device can choose the protocol.</p>
    */
-  protocols?: Protocol | string[];
+  protocols?: (Protocol | string)[];
 
   /**
    * <p>Specifies whether the OTA update will continue to run (CONTINUOUS), or will be complete after all those

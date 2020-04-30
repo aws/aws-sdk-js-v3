@@ -168,7 +168,7 @@ export interface EncryptionAlgorithmOptions {
   /**
    * <p>The set of accepted encryption algorithms that are allowed in a code signing job.</p>
    */
-  allowedValues: EncryptionAlgorithm | string[] | undefined;
+  allowedValues: (EncryptionAlgorithm | string)[] | undefined;
 
   /**
    * <p>The default encryption algorithm that is used by a code signing job.</p>
@@ -320,7 +320,7 @@ export interface HashAlgorithmOptions {
   /**
    * <p>The set of accepted hash algorithms allowed in a code signing job.</p>
    */
-  allowedValues: HashAlgorithm | string[] | undefined;
+  allowedValues: (HashAlgorithm | string)[] | undefined;
 
   /**
    * <p>The default hash algorithm that is used in a code signing job.</p>
@@ -768,7 +768,7 @@ export interface SigningImageFormat {
   /**
    * <p>The supported formats of a code signing signing image.</p>
    */
-  supportedFormats: ImageFormat | string[] | undefined;
+  supportedFormats: (ImageFormat | string)[] | undefined;
 }
 
 export namespace SigningImageFormat {

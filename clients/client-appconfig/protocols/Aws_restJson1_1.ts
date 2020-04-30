@@ -4939,7 +4939,7 @@ const deserializeAws_restJson1_1ValidatorList = (
 const deserializeAws_restJson1_1ValidatorTypeList = (
   output: any,
   context: __SerdeContext
-): ValidatorType | string[] => {
+): (ValidatorType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

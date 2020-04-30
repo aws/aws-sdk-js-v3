@@ -7471,7 +7471,7 @@ const serializeAws_queryConfigurationSet = (
 };
 
 const serializeAws_queryConfigurationSetAttributeList = (
-  input: ConfigurationSetAttribute | string[],
+  input: (ConfigurationSetAttribute | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -7936,7 +7936,7 @@ const serializeAws_queryEventDestination = (
 };
 
 const serializeAws_queryEventTypes = (
-  input: EventType | string[],
+  input: (EventType | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -10245,7 +10245,7 @@ const deserializeAws_queryEventDestinations = (
 const deserializeAws_queryEventTypes = (
   output: any,
   context: __SerdeContext
-): EventType | string[] => {
+): (EventType | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);

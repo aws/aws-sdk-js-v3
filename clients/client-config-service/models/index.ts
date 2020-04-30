@@ -2172,7 +2172,7 @@ export interface DescribeComplianceByConfigRuleRequest {
    * <p>Filters the results by compliance.</p>
    * 		       <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>.</p>
    */
-  ComplianceTypes?: ComplianceType | string[];
+  ComplianceTypes?: (ComplianceType | string)[];
 
   /**
    * <p>Specify one or more AWS Config rule names to filter the results
@@ -2225,7 +2225,7 @@ export interface DescribeComplianceByResourceRequest {
    * <p>Filters the results by compliance.</p>
    * 		       <p>The allowed values are <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>INSUFFICIENT_DATA</code>.</p>
    */
-  ComplianceTypes?: ComplianceType | string[];
+  ComplianceTypes?: (ComplianceType | string)[];
 
   /**
    * <p>The maximum number of evaluation results returned on each page.
@@ -2433,7 +2433,7 @@ export interface DescribeConfigurationAggregatorSourcesStatusRequest {
    * 			         </li>
    *          </ul>
    */
-  UpdateStatus?: AggregatedSourceStatusType | string[];
+  UpdateStatus?: (AggregatedSourceStatusType | string)[];
 }
 
 export namespace DescribeConfigurationAggregatorSourcesStatusRequest {
@@ -3688,7 +3688,7 @@ export interface GetComplianceDetailsByConfigRuleRequest {
    * 				<code>NON_COMPLIANT</code>, and
    * 			<code>NOT_APPLICABLE</code>.</p>
    */
-  ComplianceTypes?: ComplianceType | string[];
+  ComplianceTypes?: (ComplianceType | string)[];
 
   /**
    * <p>The name of the AWS Config rule for which you want compliance
@@ -3750,7 +3750,7 @@ export interface GetComplianceDetailsByResourceRequest {
    * 				<code>NON_COMPLIANT</code>, and
    * 			<code>NOT_APPLICABLE</code>.</p>
    */
-  ComplianceTypes?: ComplianceType | string[];
+  ComplianceTypes?: (ComplianceType | string)[];
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page
@@ -5848,8 +5848,7 @@ export interface OrganizationCustomRuleMetadata {
    *          </ul>
    */
   OrganizationConfigRuleTriggerTypes:
-    | OrganizationConfigRuleTriggerType
-    | string[]
+    | (OrganizationConfigRuleTriggerType | string)[]
     | undefined;
 
   /**
@@ -6686,7 +6685,7 @@ export interface RecordingGroup {
    * 				<b>resourceType Value</b> column in
    * 				<a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported AWS Resource Types</a>.</p>
    */
-  resourceTypes?: ResourceType | string[];
+  resourceTypes?: (ResourceType | string)[];
 }
 
 export namespace RecordingGroup {

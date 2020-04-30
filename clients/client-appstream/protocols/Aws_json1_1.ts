@@ -5934,7 +5934,7 @@ const serializeAws_json1_1ExpireSessionRequest = (
 };
 
 const serializeAws_json1_1FleetAttributes = (
-  input: FleetAttribute | string[],
+  input: (FleetAttribute | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6034,7 +6034,7 @@ const serializeAws_json1_1ServiceAccountCredentials = (
 };
 
 const serializeAws_json1_1StackAttributes = (
-  input: StackAttribute | string[],
+  input: (StackAttribute | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];

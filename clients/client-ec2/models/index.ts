@@ -9079,7 +9079,7 @@ export interface DescribeAccountAttributesRequest {
   /**
    * <p>The account attribute names.</p>
    */
-  AttributeNames?: AccountAttributeName | string[];
+  AttributeNames?: (AccountAttributeName | string)[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -12254,7 +12254,7 @@ export interface DescribeInstanceTypesRequest {
    * <p>The instance types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
    *     Cloud User Guide</i>.</p>
    */
-  InstanceTypes?: _InstanceType | string[];
+  InstanceTypes?: (_InstanceType | string)[];
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results
@@ -16228,7 +16228,7 @@ export interface DescribeSpotPriceHistoryRequest {
   /**
    * <p>Filters the results by the specified instance types.</p>
    */
-  InstanceTypes?: _InstanceType | string[];
+  InstanceTypes?: (_InstanceType | string)[];
 
   /**
    * <p>The maximum number of results to return in a single call.
@@ -26304,12 +26304,12 @@ export interface InstanceTypeInfo {
   /**
    * <p>Indicates the supported root device types.</p>
    */
-  SupportedRootDeviceTypes?: RootDeviceType | string[];
+  SupportedRootDeviceTypes?: (RootDeviceType | string)[];
 
   /**
    * <p>Indicates whether the instance type is offered for spot or On-Demand.</p>
    */
-  SupportedUsageClasses?: UsageClassType | string[];
+  SupportedUsageClasses?: (UsageClassType | string)[];
 
   /**
    * <p>Describes the vCPU configurations for the instance type.</p>
@@ -29684,7 +29684,7 @@ export interface ModifyTrafficMirrorFilterNetworkServicesRequest {
   /**
    * <p>The network service, for example Amazon DNS, that you want to mirror.</p>
    */
-  AddNetworkServices?: TrafficMirrorNetworkService | string[];
+  AddNetworkServices?: (TrafficMirrorNetworkService | string)[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -29696,7 +29696,7 @@ export interface ModifyTrafficMirrorFilterNetworkServicesRequest {
   /**
    * <p>The network service, for example Amazon DNS, that you no longer want to mirror.</p>
    */
-  RemoveNetworkServices?: TrafficMirrorNetworkService | string[];
+  RemoveNetworkServices?: (TrafficMirrorNetworkService | string)[];
 
   /**
    * <p>The ID of the Traffic Mirror filter.</p>
@@ -29759,7 +29759,7 @@ export interface ModifyTrafficMirrorFilterRuleRequest {
    * <p>The properties that you want to remove from the Traffic Mirror filter rule.</p>
    *          <p>When you remove a property from a Traffic Mirror filter rule, the property is set to the default.</p>
    */
-  RemoveFields?: TrafficMirrorFilterRuleField | string[];
+  RemoveFields?: (TrafficMirrorFilterRuleField | string)[];
 
   /**
    * <p>The action to assign to the rule.</p>
@@ -29834,7 +29834,7 @@ export interface ModifyTrafficMirrorSessionRequest {
    * <p>The properties that you want to remove from the Traffic Mirror session.</p>
    *          <p>When you remove a property from a Traffic Mirror session, the property is set to the default.</p>
    */
-  RemoveFields?: TrafficMirrorSessionField | string[];
+  RemoveFields?: (TrafficMirrorSessionField | string)[];
 
   /**
    * <p>The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.</p>
@@ -32055,7 +32055,7 @@ export interface PlacementGroupInfo {
   /**
    * <p>A list of supported placement groups types.</p>
    */
-  SupportedStrategies?: PlacementGroupStrategy | string[];
+  SupportedStrategies?: (PlacementGroupStrategy | string)[];
 }
 
 export namespace PlacementGroupInfo {
@@ -32349,7 +32349,7 @@ export interface ProcessorInfo {
   /**
    * <p>A list of architectures supported by the instance type.</p>
    */
-  SupportedArchitectures?: ArchitectureType | string[];
+  SupportedArchitectures?: (ArchitectureType | string)[];
 
   /**
    * <p>The speed of the processor, in GHz.</p>
@@ -33678,7 +33678,7 @@ export interface ReportInstanceStatusRequest {
    *             </li>
    *          </ul>
    */
-  ReasonCodes: ReportInstanceReasonCodes | string[] | undefined;
+  ReasonCodes: (ReportInstanceReasonCodes | string)[] | undefined;
 
   /**
    * <p>The time at which the reported instance health state began.</p>
@@ -39184,7 +39184,7 @@ export interface TrafficMirrorFilter {
   /**
    * <p>The network service traffic that is associated with the Traffic Mirror filter.</p>
    */
-  NetworkServices?: TrafficMirrorNetworkService | string[];
+  NetworkServices?: (TrafficMirrorNetworkService | string)[];
 
   /**
    * <p>The tags assigned to the Traffic Mirror filter.</p>

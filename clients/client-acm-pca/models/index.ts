@@ -404,7 +404,7 @@ export interface CreatePermissionRequest {
    * 				<code>IssueCertificate</code>, <code>GetCertificate</code>, and
    * 				<code>ListPermissions</code>.</p>
    */
-  Actions: ActionType | string[] | undefined;
+  Actions: (ActionType | string)[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can find the ARN
@@ -1310,7 +1310,7 @@ export interface Permission {
   /**
    * <p>The private CA actions that can be performed by the designated AWS service.</p>
    */
-  Actions?: ActionType | string[];
+  Actions?: (ActionType | string)[];
 
   /**
    * <p>The Amazon Resource Number (ARN) of the private CA from which the permission was

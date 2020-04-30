@@ -2340,7 +2340,7 @@ export interface WindowsFileSystemConfiguration {
   /**
    * <p>The list of maintenance operations in progress for this file system.</p>
    */
-  MaintenanceOperationsInProgress?: FileSystemMaintenanceOperation | string[];
+  MaintenanceOperationsInProgress?: (FileSystemMaintenanceOperation | string)[];
 
   /**
    * <p>For <code>MULTI_AZ_1</code> deployment types, the IP address of the primary, or preferred, file server.</p>

@@ -3872,7 +3872,7 @@ const serializeAws_json1_1DisassociateConfigurationItemsFromApplicationRequest =
 };
 
 const serializeAws_json1_1ExportDataFormats = (
-  input: ExportDataFormat | string[],
+  input: (ExportDataFormat | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];

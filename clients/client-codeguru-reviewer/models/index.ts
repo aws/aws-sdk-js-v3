@@ -209,12 +209,12 @@ export interface ListRepositoryAssociationsRequest {
   /**
    * <p>List of provider types to use as a filter.</p>
    */
-  ProviderTypes?: ProviderType | string[];
+  ProviderTypes?: (ProviderType | string)[];
 
   /**
    * <p>List of states to use as a filter.</p>
    */
-  States?: RepositoryAssociationState | string[];
+  States?: (RepositoryAssociationState | string)[];
 }
 
 export namespace ListRepositoryAssociationsRequest {

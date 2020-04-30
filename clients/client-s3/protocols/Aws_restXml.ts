@@ -11326,7 +11326,7 @@ const serializeAws_restXmlErrorDocument = (
 };
 
 const serializeAws_restXmlEventList = (
-  input: Event | string[],
+  input: (Event | string)[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -11633,7 +11633,7 @@ const serializeAws_restXmlInventoryFilter = (
 };
 
 const serializeAws_restXmlInventoryOptionalFields = (
-  input: InventoryOptionalField | string[],
+  input: (InventoryOptionalField | string)[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -14007,7 +14007,7 @@ const deserializeAws_restXmlErrors = (
 const deserializeAws_restXmlEventList = (
   output: any,
   context: __SerdeContext
-): Event | string[] => {
+): (Event | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -14334,7 +14334,7 @@ const deserializeAws_restXmlInventoryFilter = (
 const deserializeAws_restXmlInventoryOptionalFields = (
   output: any,
   context: __SerdeContext
-): InventoryOptionalField | string[] => {
+): (InventoryOptionalField | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);

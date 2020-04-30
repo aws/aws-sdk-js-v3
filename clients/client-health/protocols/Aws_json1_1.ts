@@ -1248,7 +1248,7 @@ const serializeAws_json1_1entityArnList = (
 };
 
 const serializeAws_json1_1entityStatusCodeList = (
-  input: EntityStatusCode | string[],
+  input: (EntityStatusCode | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1281,7 +1281,7 @@ const serializeAws_json1_1eventArnList = (
 };
 
 const serializeAws_json1_1eventStatusCodeList = (
-  input: EventStatusCode | string[],
+  input: (EventStatusCode | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1292,7 +1292,7 @@ const serializeAws_json1_1eventStatusCodeList = (
 };
 
 const serializeAws_json1_1eventTypeCategoryList = (
-  input: EventTypeCategory | string[],
+  input: (EventTypeCategory | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1752,7 +1752,7 @@ const serializeAws_json1_1EventFilter = (
 };
 
 const serializeAws_json1_1EventTypeCategoryList = (
-  input: EventTypeCategory | string[],
+  input: (EventTypeCategory | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];

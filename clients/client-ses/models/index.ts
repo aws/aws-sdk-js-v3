@@ -1483,7 +1483,7 @@ export interface DescribeConfigurationSetRequest {
   /**
    * <p>A list of configuration set attributes to return.</p>
    */
-  ConfigurationSetAttributeNames?: ConfigurationSetAttribute | string[];
+  ConfigurationSetAttributeNames?: (ConfigurationSetAttribute | string)[];
 
   /**
    * <p>The name of the configuration set to describe.</p>
@@ -1701,7 +1701,7 @@ export interface EventDestination {
   /**
    * <p>The type of email sending events to publish to the event destination.</p>
    */
-  MatchingEventTypes: EventType | string[] | undefined;
+  MatchingEventTypes: (EventType | string)[] | undefined;
 
   /**
    * <p>The name of the event destination. The name must:</p>

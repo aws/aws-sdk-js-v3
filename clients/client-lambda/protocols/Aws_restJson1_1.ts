@@ -9562,7 +9562,7 @@ const serializeAws_restJson1_1AliasRoutingConfiguration = (
 };
 
 const serializeAws_restJson1_1CompatibleRuntimes = (
-  input: Runtime | string[],
+  input: (Runtime | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9903,7 +9903,7 @@ const deserializeAws_restJson1_1AliasRoutingConfiguration = (
 const deserializeAws_restJson1_1CompatibleRuntimes = (
   output: any,
   context: __SerdeContext
-): Runtime | string[] => {
+): (Runtime | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

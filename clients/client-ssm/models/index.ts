@@ -5414,7 +5414,7 @@ export interface DocumentDescription {
   /**
    * <p>The list of OS platforms compatible with this Systems Manager document. </p>
    */
-  PlatformTypes?: PlatformType | string[];
+  PlatformTypes?: (PlatformType | string)[];
 
   /**
    * <p>A list of SSM documents required by a document. For example, an
@@ -5540,7 +5540,7 @@ export interface DocumentIdentifier {
   /**
    * <p>The operating system platform. </p>
    */
-  PlatformTypes?: PlatformType | string[];
+  PlatformTypes?: (PlatformType | string)[];
 
   /**
    * <p>A list of SSM documents required by a document. For example, an
@@ -10768,7 +10768,7 @@ export interface NotificationConfig {
    *    these events, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Configuring Amazon
    *     SNS Notifications for AWS Systems Manager</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
-  NotificationEvents?: NotificationEvent | string[];
+  NotificationEvents?: (NotificationEvent | string)[];
 
   /**
    * <p>Command: Receive notification when the status of a command changes. Invocation: For commands

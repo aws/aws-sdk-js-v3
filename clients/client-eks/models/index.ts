@@ -1268,7 +1268,7 @@ export interface LogSetup {
   /**
    * <p>The available cluster control plane log types.</p>
    */
-  types?: LogType | string[];
+  types?: (LogType | string)[];
 }
 
 export namespace LogSetup {

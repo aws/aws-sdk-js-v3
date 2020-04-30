@@ -572,7 +572,7 @@ export interface Bundle {
    *       supports the <code>WINDOWS</code> platform. <code>LINUX_UNIX</code> blueprints require a
    *         <code>LINUX_UNIX</code> bundle.</p>
    */
-  supportedPlatforms?: InstancePlatform | string[];
+  supportedPlatforms?: (InstancePlatform | string)[];
 
   /**
    * <p>The data transfer rate per month in GB (e.g., <code>2000</code>).</p>
@@ -3558,7 +3558,7 @@ export interface GetInstanceMetricDataRequest {
   /**
    * <p>The instance statistics. </p>
    */
-  statistics: MetricStatistic | string[] | undefined;
+  statistics: (MetricStatistic | string)[] | undefined;
 
   /**
    * <p>The unit. The list of valid values is below.</p>
@@ -4037,7 +4037,7 @@ export interface GetLoadBalancerMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  statistics: MetricStatistic | string[] | undefined;
+  statistics: (MetricStatistic | string)[] | undefined;
 
   /**
    * <p>The unit for the time period request. Valid values are listed below.</p>
@@ -4781,7 +4781,7 @@ export interface GetRelationalDatabaseMetricDataRequest {
   /**
    * <p>The array of statistics for your metric data request.</p>
    */
-  statistics: MetricStatistic | string[] | undefined;
+  statistics: (MetricStatistic | string)[] | undefined;
 
   /**
    * <p>The unit for the metric data request.</p>

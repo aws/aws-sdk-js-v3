@@ -1356,7 +1356,7 @@ export interface ListAssignmentsForHITRequest {
    * <p>The status of the assignments to return: Submitted | Approved
    *             | Rejected</p>
    */
-  AssignmentStatuses?: AssignmentStatus | string[];
+  AssignmentStatuses?: (AssignmentStatus | string)[];
 
   /**
    * <p>The ID of the HIT.</p>
@@ -1721,7 +1721,7 @@ export interface ListReviewPolicyResultsForHITRequest {
    *             For a list of all the described policies, see Review Policies.
    *         </p>
    */
-  PolicyLevels?: ReviewPolicyLevel | string[];
+  PolicyLevels?: (ReviewPolicyLevel | string)[];
 
   /**
    * <p>
@@ -2019,7 +2019,7 @@ export interface NotificationSpecification {
    *             the SendTestEventNotification operation.
    *         </p>
    */
-  EventTypes: EventType | string[] | undefined;
+  EventTypes: (EventType | string)[] | undefined;
 
   /**
    * <p> The method Amazon Mechanical Turk uses to send the

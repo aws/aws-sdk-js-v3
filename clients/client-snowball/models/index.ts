@@ -1513,7 +1513,7 @@ export interface Notification {
   /**
    * <p>The list of job states that will trigger a notification for this job.</p>
    */
-  JobStatesToNotify?: JobState | string[];
+  JobStatesToNotify?: (JobState | string)[];
 
   /**
    * <p>Any change in job state will trigger a notification for this job.</p>

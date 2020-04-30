@@ -63,7 +63,7 @@ export interface BundleDetails {
    *             Developer desktop or mobile app or website platforms.
    *         </p>
    */
-  availablePlatforms?: Platform | string[];
+  availablePlatforms?: (Platform | string)[];
 
   /**
    * <p>

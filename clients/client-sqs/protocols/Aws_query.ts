@@ -2120,7 +2120,7 @@ const serializeAws_queryAddPermissionRequest = (
 };
 
 const serializeAws_queryAttributeNameList = (
-  input: QueueAttributeName | string[],
+  input: (QueueAttributeName | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};

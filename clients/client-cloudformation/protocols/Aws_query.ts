@@ -5361,7 +5361,7 @@ const serializeAws_queryCancelUpdateStackInput = (
 };
 
 const serializeAws_queryCapabilities = (
-  input: Capability | string[],
+  input: (Capability | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6430,7 +6430,7 @@ const serializeAws_querySignalResourceInput = (
 };
 
 const serializeAws_queryStackResourceDriftStatusFilters = (
-  input: StackResourceDriftStatus | string[],
+  input: (StackResourceDriftStatus | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6443,7 +6443,7 @@ const serializeAws_queryStackResourceDriftStatusFilters = (
 };
 
 const serializeAws_queryStackStatusFilter = (
-  input: StackStatus | string[],
+  input: (StackStatus | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -7216,7 +7216,7 @@ const deserializeAws_queryCFNRegistryException = (
 const deserializeAws_queryCapabilities = (
   output: any,
   context: __SerdeContext
-): Capability | string[] => {
+): (Capability | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -9278,7 +9278,7 @@ const deserializeAws_queryRollbackTriggers = (
 const deserializeAws_queryScope = (
   output: any,
   context: __SerdeContext
-): ResourceAttribute | string[] => {
+): (ResourceAttribute | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -10136,7 +10136,7 @@ const deserializeAws_queryStacks = (
 const deserializeAws_queryStageList = (
   output: any,
   context: __SerdeContext
-): TemplateStage | string[] => {
+): (TemplateStage | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);

@@ -3231,7 +3231,7 @@ export interface UpdateFleetRequest {
   /**
    * <p>The fleet attributes to delete.</p>
    */
-  AttributesToDelete?: FleetAttribute | string[];
+  AttributesToDelete?: (FleetAttribute | string)[];
 
   /**
    * <p>The desired capacity for the fleet.</p>
@@ -3454,7 +3454,7 @@ export interface UpdateStackRequest {
   /**
    * <p>The stack attributes to delete.</p>
    */
-  AttributesToDelete?: StackAttribute | string[];
+  AttributesToDelete?: (StackAttribute | string)[];
 
   /**
    * <p>Deletes the storage connectors currently enabled for the stack.</p>

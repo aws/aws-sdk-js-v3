@@ -4852,7 +4852,7 @@ const serializeAws_json1_1EntityFilters = (
 };
 
 const serializeAws_json1_1EntityTypes = (
-  input: EntityType | string[],
+  input: (EntityType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];

@@ -3250,7 +3250,7 @@ const deserializeAws_restJson1_1UnprocessableEntityExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1AdTriggers = (
-  input: __AdTriggersElement | string[],
+  input: (__AdTriggersElement | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3649,7 +3649,7 @@ const serializeAws_restJson1_1__listOfHlsManifestCreateOrUpdateParameters = (
 };
 
 const serializeAws_restJson1_1__listOf__PeriodTriggersElement = (
-  input: __PeriodTriggersElement | string[],
+  input: (__PeriodTriggersElement | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3684,7 +3684,7 @@ const serializeAws_restJson1_1__mapOf__string = (
 const deserializeAws_restJson1_1AdTriggers = (
   output: any,
   context: __SerdeContext
-): __AdTriggersElement | string[] => {
+): (__AdTriggersElement | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4506,7 +4506,7 @@ const deserializeAws_restJson1_1__listOfOriginEndpoint = (
 const deserializeAws_restJson1_1__listOf__PeriodTriggersElement = (
   output: any,
   context: __SerdeContext
-): __PeriodTriggersElement | string[] => {
+): (__PeriodTriggersElement | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

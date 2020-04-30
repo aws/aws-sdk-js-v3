@@ -7237,7 +7237,7 @@ const serializeAws_restJson1_1BackupSelection = (
 };
 
 const serializeAws_restJson1_1BackupVaultEvents = (
-  input: BackupVaultEvent | string[],
+  input: (BackupVaultEvent | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7749,7 +7749,7 @@ const deserializeAws_restJson1_1BackupSelectionsListMember = (
 const deserializeAws_restJson1_1BackupVaultEvents = (
   output: any,
   context: __SerdeContext
-): BackupVaultEvent | string[] => {
+): (BackupVaultEvent | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

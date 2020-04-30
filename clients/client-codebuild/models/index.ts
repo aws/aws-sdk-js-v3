@@ -2851,7 +2851,7 @@ export interface ProjectCache {
    *             </li>
    *          </ul>
    */
-  modes?: CacheMode | string[];
+  modes?: (CacheMode | string)[];
 
   /**
    * <p>The type of cache used by the build project. Valid values include:</p>

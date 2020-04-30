@@ -406,7 +406,7 @@ export interface CreateGrantRequest {
   /**
    * <p>A list of operations that the grant permits.</p>
    */
-  Operations: GrantOperation | string[] | undefined;
+  Operations: (GrantOperation | string)[] | undefined;
 
   /**
    * <p>The principal that is given permission to retire the grant by using <a>RetireGrant</a> operation.</p>
@@ -2073,7 +2073,7 @@ export interface GetPublicKeyResponse {
    *          <p>This field appears in the response only when the <code>KeyUsage</code> of the public key
    *       is <code>ENCRYPT_DECRYPT</code>.</p>
    */
-  EncryptionAlgorithms?: EncryptionAlgorithmSpec | string[];
+  EncryptionAlgorithms?: (EncryptionAlgorithmSpec | string)[];
 
   /**
    * <p>The identifier of the asymmetric CMK from which the public key was downloaded.</p>
@@ -2102,7 +2102,7 @@ export interface GetPublicKeyResponse {
    *          <p>This field appears in the response only when the <code>KeyUsage</code> of the public key
    *       is <code>SIGN_VERIFY</code>.</p>
    */
-  SigningAlgorithms?: SigningAlgorithmSpec | string[];
+  SigningAlgorithms?: (SigningAlgorithmSpec | string)[];
 }
 
 export namespace GetPublicKeyResponse {
@@ -2224,7 +2224,7 @@ export interface GrantListEntry {
   /**
    * <p>The list of operations permitted by the grant.</p>
    */
-  Operations?: GrantOperation | string[];
+  Operations?: (GrantOperation | string)[];
 
   /**
    * <p>The principal that can retire the grant.</p>
@@ -2675,7 +2675,7 @@ export interface KeyMetadata {
    *          <p>This field appears only when the <code>KeyUsage</code> of the CMK is
    *         <code>ENCRYPT_DECRYPT</code>.</p>
    */
-  EncryptionAlgorithms?: EncryptionAlgorithmSpec | string[];
+  EncryptionAlgorithms?: (EncryptionAlgorithmSpec | string)[];
 
   /**
    * <p>Specifies whether the CMK's key material expires. This value is present only when
@@ -2722,7 +2722,7 @@ export interface KeyMetadata {
    *          <p>This field appears only when the <code>KeyUsage</code> of the CMK is
    *         <code>SIGN_VERIFY</code>.</p>
    */
-  SigningAlgorithms?: SigningAlgorithmSpec | string[];
+  SigningAlgorithms?: (SigningAlgorithmSpec | string)[];
 
   /**
    * <p>The time at which the imported key material expires. When the key material expires, AWS KMS

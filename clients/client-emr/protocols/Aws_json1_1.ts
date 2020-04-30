@@ -3014,7 +3014,7 @@ const serializeAws_json1_1CloudWatchAlarmDefinition = (
 };
 
 const serializeAws_json1_1ClusterStateList = (
-  input: ClusterState | string[],
+  input: (ClusterState | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3432,7 +3432,7 @@ const serializeAws_json1_1InstanceGroupModifyConfigList = (
 };
 
 const serializeAws_json1_1InstanceGroupTypeList = (
-  input: InstanceGroupType | string[],
+  input: (InstanceGroupType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3466,7 +3466,7 @@ const serializeAws_json1_1InstanceResizePolicy = (
 };
 
 const serializeAws_json1_1InstanceStateList = (
-  input: InstanceState | string[],
+  input: (InstanceState | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3521,7 +3521,7 @@ const serializeAws_json1_1InstanceTypeConfigList = (
 };
 
 const serializeAws_json1_1JobFlowExecutionStateList = (
-  input: JobFlowExecutionState | string[],
+  input: (JobFlowExecutionState | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4353,7 +4353,7 @@ const serializeAws_json1_1StepIdsList = (
 };
 
 const serializeAws_json1_1StepStateList = (
-  input: StepState | string[],
+  input: (StepState | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];

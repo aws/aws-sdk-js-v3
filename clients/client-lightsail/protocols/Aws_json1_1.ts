@@ -17304,7 +17304,7 @@ const serializeAws_json1_1IsVpcPeeredRequest = (
 };
 
 const serializeAws_json1_1MetricStatisticList = (
-  input: MetricStatistic | string[],
+  input: (MetricStatistic | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -20539,7 +20539,7 @@ const deserializeAws_json1_1InstanceNetworking = (
 const deserializeAws_json1_1InstancePlatformList = (
   output: any,
   context: __SerdeContext
-): InstancePlatform | string[] => {
+): (InstancePlatform | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

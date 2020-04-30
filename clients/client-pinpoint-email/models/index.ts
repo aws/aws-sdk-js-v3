@@ -1182,7 +1182,7 @@ export interface EventDestination {
   /**
    * <p>The types of events that Amazon Pinpoint sends to the specified event destinations.</p>
    */
-  MatchingEventTypes: EventType | string[] | undefined;
+  MatchingEventTypes: (EventType | string)[] | undefined;
 
   /**
    * <p>A name that identifies the event destination.</p>
@@ -1241,7 +1241,7 @@ export interface EventDestinationDefinition {
    * <p>An array that specifies which events Amazon Pinpoint should send to the destinations in this
    *                 <code>EventDestinationDefinition</code>.</p>
    */
-  MatchingEventTypes?: EventType | string[];
+  MatchingEventTypes?: (EventType | string)[];
 
   /**
    * <p>An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events

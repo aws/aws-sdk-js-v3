@@ -5395,7 +5395,7 @@ const serializeAws_restJson1_1GrpcRetryPolicy = (
 };
 
 const serializeAws_restJson1_1GrpcRetryPolicyEvents = (
-  input: GrpcRetryPolicyEvent | string[],
+  input: (GrpcRetryPolicyEvent | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -5860,7 +5860,7 @@ const serializeAws_restJson1_1TagRef = (
 };
 
 const serializeAws_restJson1_1TcpRetryPolicyEvents = (
-  input: TcpRetryPolicyEvent | string[],
+  input: (TcpRetryPolicyEvent | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6251,7 +6251,7 @@ const deserializeAws_restJson1_1GrpcRetryPolicy = (
 const deserializeAws_restJson1_1GrpcRetryPolicyEvents = (
   output: any,
   context: __SerdeContext
-): GrpcRetryPolicyEvent | string[] => {
+): (GrpcRetryPolicyEvent | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7019,7 +7019,7 @@ const deserializeAws_restJson1_1TagRef = (
 const deserializeAws_restJson1_1TcpRetryPolicyEvents = (
   output: any,
   context: __SerdeContext
-): TcpRetryPolicyEvent | string[] => {
+): (TcpRetryPolicyEvent | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

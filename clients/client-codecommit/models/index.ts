@@ -3927,7 +3927,7 @@ export interface GetMergeOptionsOutput {
   /**
    * <p>The merge option or strategy used to merge the code.</p>
    */
-  mergeOptions: MergeOptionTypeEnum | string[] | undefined;
+  mergeOptions: (MergeOptionTypeEnum | string)[] | undefined;
 
   /**
    * <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
@@ -8017,7 +8017,7 @@ export interface RepositoryTrigger {
    *             <p>The valid value "all" cannot be used with any other values.</p>
    *          </note>
    */
-  events: RepositoryTriggerEventEnum | string[] | undefined;
+  events: (RepositoryTriggerEventEnum | string)[] | undefined;
 
   /**
    * <p>The name of the trigger.</p>

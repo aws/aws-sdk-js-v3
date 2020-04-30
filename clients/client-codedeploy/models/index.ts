@@ -294,7 +294,7 @@ export interface AutoRollbackConfiguration {
   /**
    * <p>The event type or types that trigger a rollback.</p>
    */
-  events?: AutoRollbackEvent | string[];
+  events?: (AutoRollbackEvent | string)[];
 }
 
 export namespace AutoRollbackConfiguration {
@@ -5021,14 +5021,14 @@ export interface ListDeploymentInstancesInput {
    *             </li>
    *          </ul>
    */
-  instanceStatusFilter?: InstanceStatus | string[];
+  instanceStatusFilter?: (InstanceStatus | string)[];
 
   /**
    * <p>The set of instances in a blue/green deployment, either those in the original
    *             environment ("BLUE") or those in the replacement environment ("GREEN"), for which you
    *             want to view instance information.</p>
    */
-  instanceTypeFilter?: _InstanceType | string[];
+  instanceTypeFilter?: (_InstanceType | string)[];
 
   /**
    * <p>An identifier returned from the previous list deployment instances call. It can be
@@ -5178,7 +5178,7 @@ export interface ListDeploymentsInput {
    *             </li>
    *          </ul>
    */
-  includeOnlyStatuses?: DeploymentStatus | string[];
+  includeOnlyStatuses?: (DeploymentStatus | string)[];
 
   /**
    * <p>An identifier returned from the previous list deployments call. It can be used to
@@ -6404,7 +6404,7 @@ export interface TriggerConfig {
   /**
    * <p>The event type or types for which notifications are triggered.</p>
    */
-  triggerEvents?: TriggerEventType | string[];
+  triggerEvents?: (TriggerEventType | string)[];
 
   /**
    * <p>The name of the notification trigger.</p>

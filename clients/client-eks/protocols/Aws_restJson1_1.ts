@@ -3678,7 +3678,7 @@ const serializeAws_restJson1_1LogSetups = (
 };
 
 const serializeAws_restJson1_1LogTypes = (
-  input: LogType | string[],
+  input: (LogType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -4170,7 +4170,7 @@ const deserializeAws_restJson1_1LogSetups = (
 const deserializeAws_restJson1_1LogTypes = (
   output: any,
   context: __SerdeContext
-): LogType | string[] => {
+): (LogType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

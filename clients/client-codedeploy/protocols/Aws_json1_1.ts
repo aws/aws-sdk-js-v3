@@ -9041,7 +9041,7 @@ const serializeAws_json1_1AutoRollbackConfiguration = (
 };
 
 const serializeAws_json1_1AutoRollbackEventsList = (
-  input: AutoRollbackEvent | string[],
+  input: (AutoRollbackEvent | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9507,7 +9507,7 @@ const serializeAws_json1_1DeploymentReadyOption = (
 };
 
 const serializeAws_json1_1DeploymentStatusList = (
-  input: DeploymentStatus | string[],
+  input: (DeploymentStatus | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9804,7 +9804,7 @@ const serializeAws_json1_1InstanceNameList = (
 };
 
 const serializeAws_json1_1InstanceStatusList = (
-  input: InstanceStatus | string[],
+  input: (InstanceStatus | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9815,7 +9815,7 @@ const serializeAws_json1_1InstanceStatusList = (
 };
 
 const serializeAws_json1_1InstanceTypeList = (
-  input: _InstanceType | string[],
+  input: (_InstanceType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10575,7 +10575,7 @@ const serializeAws_json1_1TriggerConfigList = (
 };
 
 const serializeAws_json1_1TriggerEventTypeList = (
-  input: TriggerEventType | string[],
+  input: (TriggerEventType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10946,7 +10946,7 @@ const deserializeAws_json1_1AutoRollbackConfiguration = (
 const deserializeAws_json1_1AutoRollbackEventsList = (
   output: any,
   context: __SerdeContext
-): AutoRollbackEvent | string[] => {
+): (AutoRollbackEvent | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -14877,7 +14877,7 @@ const deserializeAws_json1_1TriggerConfigList = (
 const deserializeAws_json1_1TriggerEventTypeList = (
   output: any,
   context: __SerdeContext
-): TriggerEventType | string[] => {
+): (TriggerEventType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

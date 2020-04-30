@@ -10645,7 +10645,7 @@ const serializeAws_restXmlLoggingConfig = (
 };
 
 const serializeAws_restXmlMethodsList = (
-  input: Method | string[],
+  input: (Method | string)[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -11149,7 +11149,7 @@ const serializeAws_restXmlS3OriginConfig = (
 };
 
 const serializeAws_restXmlSslProtocolsList = (
-  input: SslProtocol | string[],
+  input: (SslProtocol | string)[],
   context: __SerdeContext
 ): any => {
   const collectedNodes: any = [];
@@ -13763,7 +13763,7 @@ const deserializeAws_restXmlLoggingConfig = (
 const deserializeAws_restXmlMethodsList = (
   output: any,
   context: __SerdeContext
-): Method | string[] => {
+): (Method | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);
@@ -14535,7 +14535,7 @@ const deserializeAws_restXmlSignerList = (
 const deserializeAws_restXmlSslProtocolsList = (
   output: any,
   context: __SerdeContext
-): SslProtocol | string[] => {
+): (SslProtocol | string)[] => {
   const contents: any = [];
   (output || []).map((entry: any) => {
     contents.push(entry["#text"] !== undefined ? entry["#text"] : entry);

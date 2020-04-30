@@ -531,7 +531,7 @@ export interface DashPackage {
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
    */
-  AdTriggers?: __AdTriggersElement | string[];
+  AdTriggers?: (__AdTriggersElement | string)[];
 
   /**
    * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
@@ -576,7 +576,7 @@ export interface DashPackage {
    * be partitioned into more than one period. If the list contains "ADS", new periods will be created where
    * the Channel source contains SCTE-35 ad markers.
    */
-  PeriodTriggers?: __PeriodTriggersElement | string[];
+  PeriodTriggers?: (__PeriodTriggersElement | string)[];
 
   /**
    * The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
@@ -1088,7 +1088,7 @@ export interface HlsManifestCreateOrUpdateParameters {
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
    */
-  AdTriggers?: __AdTriggersElement | string[];
+  AdTriggers?: (__AdTriggersElement | string)[];
 
   /**
    * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
@@ -1168,7 +1168,7 @@ export interface HlsPackage {
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
    */
-  AdTriggers?: __AdTriggersElement | string[];
+  AdTriggers?: (__AdTriggersElement | string)[];
 
   /**
    * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to

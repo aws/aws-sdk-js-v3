@@ -182,7 +182,7 @@ export interface GetComplianceSummaryInput {
    * <p>A list of attributes to group the counts of noncompliant resources by. If supplied,
    *             the counts are sorted by those attributes.</p>
    */
-  GroupBy?: GroupByAttribute | string[];
+  GroupBy?: (GroupByAttribute | string)[];
 
   /**
    * <p>A limit that restricts the number of results that are returned per page.</p>

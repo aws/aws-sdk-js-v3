@@ -4187,7 +4187,7 @@ const serializeAws_queryStatisticSet = (
 };
 
 const serializeAws_queryStatistics = (
-  input: Statistic | string[],
+  input: (Statistic | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};

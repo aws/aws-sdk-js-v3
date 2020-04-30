@@ -1723,7 +1723,7 @@ const serializeAws_restJson1_1LexiconNameList = (
 };
 
 const serializeAws_restJson1_1SpeechMarkTypeList = (
-  input: SpeechMarkType | string[],
+  input: (SpeechMarkType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1736,14 +1736,14 @@ const serializeAws_restJson1_1SpeechMarkTypeList = (
 const deserializeAws_restJson1_1EngineList = (
   output: any,
   context: __SerdeContext
-): Engine | string[] => {
+): (Engine | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1LanguageCodeList = (
   output: any,
   context: __SerdeContext
-): LanguageCode | string[] => {
+): (LanguageCode | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1839,7 +1839,7 @@ const deserializeAws_restJson1_1LexiconNameList = (
 const deserializeAws_restJson1_1SpeechMarkTypeList = (
   output: any,
   context: __SerdeContext
-): SpeechMarkType | string[] => {
+): (SpeechMarkType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

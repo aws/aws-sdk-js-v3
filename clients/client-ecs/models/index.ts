@@ -2836,7 +2836,7 @@ export interface DescribeCapacityProvidersRequest {
    *             If <code>TAGS</code> is specified, the tags are included in the response. If this field
    *             is omitted, tags are not included in the response.</p>
    */
-  include?: CapacityProviderField | string[];
+  include?: (CapacityProviderField | string)[];
 
   /**
    * <p>The maximum number of account setting results returned by
@@ -2944,7 +2944,7 @@ export interface DescribeClustersRequest {
    *         <p>If <code>TAGS</code> is specified, the metadata tags associated with the cluster are
    *             included.</p>
    */
-  include?: ClusterField | string[];
+  include?: (ClusterField | string)[];
 }
 
 export namespace DescribeClustersRequest {
@@ -2990,7 +2990,7 @@ export interface DescribeContainerInstancesRequest {
    *                 <code>TAGS</code> is specified, the tags are included in the response. If this field
    *             is omitted, tags are not included in the response.</p>
    */
-  include?: ContainerInstanceField | string[];
+  include?: (ContainerInstanceField | string)[];
 }
 
 export namespace DescribeContainerInstancesRequest {
@@ -3030,7 +3030,7 @@ export interface DescribeServicesRequest {
    *                 <code>TAGS</code> is specified, the tags are included in the response. If this field
    *             is omitted, tags are not included in the response.</p>
    */
-  include?: ServiceField | string[];
+  include?: (ServiceField | string)[];
 
   /**
    * <p>A list of services to describe. You may specify up to 10 services to describe in a
@@ -3069,7 +3069,7 @@ export interface DescribeTaskDefinitionRequest {
    *                 <code>TAGS</code> is specified, the tags are included in the response. If this field
    *             is omitted, tags are not included in the response.</p>
    */
-  include?: TaskDefinitionField | string[];
+  include?: (TaskDefinitionField | string)[];
 
   /**
    * <p>The <code>family</code> for the latest <code>ACTIVE</code> revision,
@@ -3193,7 +3193,7 @@ export interface DescribeTasksRequest {
    *             is specified, the tags are included in the response. If this field is omitted, tags are
    *             not included in the response.</p>
    */
-  include?: TaskField | string[];
+  include?: (TaskField | string)[];
 
   /**
    * <p>A list of up to 100 task IDs or full ARN entries.</p>
@@ -3250,7 +3250,7 @@ export interface Device {
    *             container has permissions for <code>read</code>, <code>write</code>, and
    *                 <code>mknod</code> for the device.</p>
    */
-  permissions?: DeviceCgroupPermission | string[];
+  permissions?: (DeviceCgroupPermission | string)[];
 }
 
 export namespace Device {
@@ -5678,7 +5678,7 @@ export interface RegisterTaskDefinitionRequest {
    * <p>The launch type required by the task. If no value is specified, it defaults to
    *                 <code>EC2</code>.</p>
    */
-  requiresCompatibilities?: Compatibility | string[];
+  requiresCompatibilities?: (Compatibility | string)[];
 
   /**
    * <p>The metadata that you apply to the task definition to help you categorize and organize
@@ -7397,7 +7397,7 @@ export interface TaskDefinition {
    * <p>The launch type to use with your task. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
    *                 Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  compatibilities?: Compatibility | string[];
+  compatibilities?: (Compatibility | string)[];
 
   /**
    * <p>A list of container definitions in JSON format that describe the different containers
@@ -7599,7 +7599,7 @@ export interface TaskDefinition {
    *                 <code>EC2</code>. Valid values include <code>EC2</code> and
    *             <code>FARGATE</code>.</p>
    */
-  requiresCompatibilities?: Compatibility | string[];
+  requiresCompatibilities?: (Compatibility | string)[];
 
   /**
    * <p>The revision of the task in a particular family. The revision is a version number of a

@@ -807,7 +807,7 @@ export interface SingleMasterChannelEndpointConfiguration {
    *             API returns a websocket endpoint. If <code>HTTPS</code> is specified, this API returns
    *             an <code>HTTPS</code> endpoint.</p>
    */
-  Protocols?: ChannelProtocol | string[];
+  Protocols?: (ChannelProtocol | string)[];
 
   /**
    * <p>This property is used to determine messaging permissions in this

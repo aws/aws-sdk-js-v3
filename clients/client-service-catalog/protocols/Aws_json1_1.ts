@@ -8688,7 +8688,7 @@ const serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifact
 };
 
 const serializeAws_json1_1CopyOptions = (
-  input: CopyOption | string[],
+  input: (CopyOption | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -13695,7 +13695,7 @@ const deserializeAws_json1_1ScanProvisionedProductsOutput = (
 const deserializeAws_json1_1Scope = (
   output: any,
   context: __SerdeContext
-): ResourceAttribute | string[] => {
+): (ResourceAttribute | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

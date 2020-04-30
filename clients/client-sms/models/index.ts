@@ -151,7 +151,7 @@ export interface Connector {
   /**
    * <p>The capabilities of the connector.</p>
    */
-  capabilityList?: ConnectorCapability | string[];
+  capabilityList?: (ConnectorCapability | string)[];
 
   /**
    * <p>The identifier of the connector.</p>

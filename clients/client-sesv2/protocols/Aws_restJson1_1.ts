@@ -6748,7 +6748,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
 };
 
 const serializeAws_restJson1_1SuppressionListReasons = (
-  input: SuppressionListReason | string[],
+  input: (SuppressionListReason | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7046,7 +7046,7 @@ const serializeAws_restJson1_1EventDestinationDefinition = (
 };
 
 const serializeAws_restJson1_1EventTypes = (
-  input: EventType | string[],
+  input: (EventType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7248,7 +7248,7 @@ const deserializeAws_restJson1_1SuppressionAttributes = (
 const deserializeAws_restJson1_1SuppressionListReasons = (
   output: any,
   context: __SerdeContext
-): SuppressionListReason | string[] => {
+): (SuppressionListReason | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7848,7 +7848,7 @@ const deserializeAws_restJson1_1EventDestinations = (
 const deserializeAws_restJson1_1EventTypes = (
   output: any,
   context: __SerdeContext
-): EventType | string[] => {
+): (EventType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

@@ -5185,7 +5185,7 @@ const serializeAws_json1_1ListUsersRequest = (
 };
 
 const serializeAws_json1_1PermissionValues = (
-  input: PermissionType | string[],
+  input: (PermissionType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6209,7 +6209,7 @@ const deserializeAws_json1_1Permission = (
 const deserializeAws_json1_1PermissionValues = (
   output: any,
   context: __SerdeContext
-): PermissionType | string[] => {
+): (PermissionType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

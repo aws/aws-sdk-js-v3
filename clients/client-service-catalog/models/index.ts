@@ -914,7 +914,7 @@ export interface CopyProductInput {
    * <p>The copy options. If the value is <code>CopyTags</code>, the tags from the source
    *          product are copied to the target product.</p>
    */
-  CopyOptions?: CopyOption | string[];
+  CopyOptions?: (CopyOption | string)[];
 
   /**
    * <p> A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
@@ -5665,7 +5665,7 @@ export interface ResourceChange {
   /**
    * <p>The change scope.</p>
    */
-  Scope?: ResourceAttribute | string[];
+  Scope?: (ResourceAttribute | string)[];
 }
 
 export namespace ResourceChange {

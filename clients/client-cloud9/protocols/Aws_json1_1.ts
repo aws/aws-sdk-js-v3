@@ -1804,7 +1804,7 @@ const serializeAws_json1_1ListEnvironmentsRequest = (
 };
 
 const serializeAws_json1_1PermissionsList = (
-  input: Permissions | string[],
+  input: (Permissions | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];

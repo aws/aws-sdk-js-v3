@@ -2348,7 +2348,7 @@ const serializeAws_json1_1JobResource = (
 };
 
 const serializeAws_json1_1JobStateList = (
-  input: JobState | string[],
+  input: (JobState | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -3407,7 +3407,7 @@ const deserializeAws_json1_1JobResource = (
 const deserializeAws_json1_1JobStateList = (
   output: any,
   context: __SerdeContext
-): JobState | string[] => {
+): (JobState | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

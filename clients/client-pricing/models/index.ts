@@ -237,7 +237,7 @@ export interface GetProductsResponse {
    * <p>The list of products that match your filters. The list contains both the product metadata and
    *          the price information.</p>
    */
-  PriceList?: __LazyJsonString | string[];
+  PriceList?: (__LazyJsonString | string)[];
 }
 
 export namespace GetProductsResponse {

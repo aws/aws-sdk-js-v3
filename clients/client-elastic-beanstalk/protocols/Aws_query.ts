@@ -5238,7 +5238,7 @@ const serializeAws_queryDescribePlatformVersionRequest = (
 };
 
 const serializeAws_queryEnvironmentHealthAttributes = (
-  input: EnvironmentHealthAttribute | string[],
+  input: (EnvironmentHealthAttribute | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5294,7 +5294,7 @@ const serializeAws_queryEnvironmentTier = (
 };
 
 const serializeAws_queryInstancesHealthAttributes = (
-  input: InstancesHealthAttribute | string[],
+  input: (InstancesHealthAttribute | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};

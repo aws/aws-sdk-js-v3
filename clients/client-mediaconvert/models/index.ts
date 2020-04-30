@@ -4007,7 +4007,7 @@ export interface HlsGroupSettings {
   /**
    * Choose one or more ad marker types to decorate your Apple HLS manifest. This setting does not determine whether SCTE-35 markers appear in the outputs themselves.
    */
-  AdMarkers?: HlsAdMarkers | string[];
+  AdMarkers?: (HlsAdMarkers | string)[];
 
   /**
    * By default, the service creates one top-level .m3u8 HLS manifest for each HLS output group in your job. This default manifest references every output in the output group. To create additional top-level manifests that reference a subset of the outputs in the output group, specify a list of them here.
@@ -7507,7 +7507,7 @@ export interface TeletextDestinationSettings {
   /**
    * Specify the page types for this Teletext page. If you don't specify a value here, the service sets the page type to the default value Subtitle (PAGE_TYPE_SUBTITLE). If you pass through the entire set of Teletext data, don't use this field. When you pass through a set of Teletext pages, your output has the same page types as your input.
    */
-  PageTypes?: TeletextPageType | string[];
+  PageTypes?: (TeletextPageType | string)[];
 }
 
 export namespace TeletextDestinationSettings {

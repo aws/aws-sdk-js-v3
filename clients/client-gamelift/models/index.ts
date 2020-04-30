@@ -3214,7 +3214,7 @@ export interface FleetAttributes {
   /**
    * <p>List of fleet actions that have been suspended using <a>StopFleetActions</a>. This includes auto-scaling.</p>
    */
-  StoppedActions?: FleetAction | string[];
+  StoppedActions?: (FleetAction | string)[];
 
   /**
    * <p>Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</p>
@@ -6460,7 +6460,7 @@ export interface StartFleetActionsInput {
   /**
    * <p>List of actions to restart on the fleet.</p>
    */
-  Actions: FleetAction | string[] | undefined;
+  Actions: (FleetAction | string)[] | undefined;
 
   /**
    * <p>A unique identifier for a fleet to start actions on.  You can use either the fleet ID or ARN value.</p>
@@ -6683,7 +6683,7 @@ export interface StopFleetActionsInput {
   /**
    * <p>List of actions to suspend on the fleet. </p>
    */
-  Actions: FleetAction | string[] | undefined;
+  Actions: (FleetAction | string)[] | undefined;
 
   /**
    * <p>A unique identifier for a fleet to stop actions on.  You can use either the fleet ID or ARN value.</p>

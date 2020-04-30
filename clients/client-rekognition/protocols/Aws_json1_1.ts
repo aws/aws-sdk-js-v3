@@ -6722,7 +6722,7 @@ const serializeAws_json1_1Assets = (
 };
 
 const serializeAws_json1_1Attributes = (
-  input: Attribute | string[],
+  input: (Attribute | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6759,7 +6759,7 @@ const serializeAws_json1_1CompareFacesRequest = (
 };
 
 const serializeAws_json1_1ContentClassifiers = (
-  input: ContentClassifier | string[],
+  input: (ContentClassifier | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -10185,7 +10185,7 @@ const deserializeAws_json1_1ProvisionedThroughputExceededException = (
 const deserializeAws_json1_1Reasons = (
   output: any,
   context: __SerdeContext
-): Reason | string[] => {
+): (Reason | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

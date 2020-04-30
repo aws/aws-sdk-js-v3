@@ -40,7 +40,7 @@ export interface AnalyzeDocumentRequest {
    *             <code>FeatureTypes</code>. All lines and words detected in the document are included in
    *          the response (including text that isn't related to the value of <code>FeatureTypes</code>). </p>
    */
-  FeatureTypes: FeatureType | string[] | undefined;
+  FeatureTypes: (FeatureType | string)[] | undefined;
 
   /**
    * <p>Sets the configuration for the human in the loop workflow for analyzing documents.</p>
@@ -216,7 +216,7 @@ export interface Block {
    *             <code>EntityTypes</code> isn't returned by <code>DetectDocumentText</code> and
    *             <code>GetDocumentTextDetection</code>.</p>
    */
-  EntityTypes?: EntityType | string[];
+  EntityTypes?: (EntityType | string)[];
 
   /**
    * <p>The location of the recognized text on the image. It includes an axis-aligned, coarse
@@ -722,7 +722,7 @@ export interface HumanLoopDataAttributes {
   /**
    * <p>Sets whether the input image is free of personally identifiable information or adult content.</p>
    */
-  ContentClassifiers?: ContentClassifier | string[];
+  ContentClassifiers?: (ContentClassifier | string)[];
 }
 
 export namespace HumanLoopDataAttributes {
@@ -1034,7 +1034,7 @@ export interface StartDocumentAnalysisRequest {
    *          included in the response (including text that isn't related to the value of
    *             <code>FeatureTypes</code>). </p>
    */
-  FeatureTypes: FeatureType | string[] | undefined;
+  FeatureTypes: (FeatureType | string)[] | undefined;
 
   /**
    * <p>An identifier that you specify that's included in the completion notification published

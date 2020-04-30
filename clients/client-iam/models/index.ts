@@ -2270,7 +2270,7 @@ export interface GetAccountAuthorizationDetailsRequest {
    *          <p>The format for this parameter is a comma-separated (if more than one) list of strings.
    *          Each string value in the list must be one of the valid values listed below.</p>
    */
-  Filter?: EntityType | string[];
+  Filter?: (EntityType | string)[];
 
   /**
    * <p>Use this parameter only when paginating results and only after

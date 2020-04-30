@@ -2386,7 +2386,7 @@ export interface ListCreateAccountStatusRequest {
    * <p>A list of one or more states that you want included in the response. If this parameter
    *       isn't present, all requests are included in the response.</p>
    */
-  States?: CreateAccountState | string[];
+  States?: (CreateAccountState | string)[];
 }
 
 export namespace ListCreateAccountStatusRequest {

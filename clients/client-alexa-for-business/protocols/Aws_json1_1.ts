@@ -9555,7 +9555,7 @@ const serializeAws_json1_1EndOfMeetingReminderMinutesList = (
 };
 
 const serializeAws_json1_1Features = (
-  input: Feature | string[],
+  input: (Feature | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];

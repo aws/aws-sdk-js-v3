@@ -835,7 +835,7 @@ export interface SearchEntitiesRequest {
   /**
    * <p>The entity types for which to search.</p>
    */
-  entityTypes: EntityType | string[] | undefined;
+  entityTypes: (EntityType | string)[] | undefined;
 
   /**
    * <p>Optional filter to apply to the search. Valid filters are <code>NAME</code>

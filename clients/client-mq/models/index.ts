@@ -119,7 +119,7 @@ export interface BrokerInstanceOption {
   /**
    * The list of supported deployment modes.
    */
-  SupportedDeploymentModes?: DeploymentMode | string[];
+  SupportedDeploymentModes?: (DeploymentMode | string)[];
 
   /**
    * The list of supported engine versions.

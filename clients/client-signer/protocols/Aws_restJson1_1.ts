@@ -2033,7 +2033,7 @@ const deserializeAws_restJson1_1EncryptionAlgorithmOptions = (
 const deserializeAws_restJson1_1EncryptionAlgorithms = (
   output: any,
   context: __SerdeContext
-): EncryptionAlgorithm | string[] => {
+): (EncryptionAlgorithm | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2061,14 +2061,14 @@ const deserializeAws_restJson1_1HashAlgorithmOptions = (
 const deserializeAws_restJson1_1HashAlgorithms = (
   output: any,
   context: __SerdeContext
-): HashAlgorithm | string[] => {
+): (HashAlgorithm | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1ImageFormats = (
   output: any,
   context: __SerdeContext
-): ImageFormat | string[] => {
+): (ImageFormat | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

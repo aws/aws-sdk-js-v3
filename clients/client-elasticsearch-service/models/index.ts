@@ -1554,7 +1554,7 @@ export interface ListElasticsearchInstanceTypesResponse {
    *       </code>
    *     </p>
    */
-  ElasticsearchInstanceTypes?: ESPartitionInstanceType | string[];
+  ElasticsearchInstanceTypes?: (ESPartitionInstanceType | string)[];
 
   /**
    * <p>In case if there are more results available NextToken would be

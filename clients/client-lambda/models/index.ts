@@ -1661,7 +1661,7 @@ export interface GetLayerVersionResponse {
   /**
    * <p>The layer's compatible runtimes.</p>
    */
-  CompatibleRuntimes?: Runtime | string[];
+  CompatibleRuntimes?: (Runtime | string)[];
 
   /**
    * <p>Details about the layer version.</p>
@@ -2290,7 +2290,7 @@ export interface LayerVersionsListItem {
   /**
    * <p>The layer's compatible runtimes.</p>
    */
-  CompatibleRuntimes?: Runtime | string[];
+  CompatibleRuntimes?: (Runtime | string)[];
 
   /**
    * <p>The date that the version was created, in ISO 8601 format. For example, <code>2018-11-27T15:10:45.123+0000</code>.</p>
@@ -2998,7 +2998,7 @@ export interface PublishLayerVersionRequest {
    * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function
    *         runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p>
    */
-  CompatibleRuntimes?: Runtime | string[];
+  CompatibleRuntimes?: (Runtime | string)[];
 
   /**
    * <p>The function layer archive.</p>
@@ -3044,7 +3044,7 @@ export interface PublishLayerVersionResponse {
   /**
    * <p>The layer's compatible runtimes.</p>
    */
-  CompatibleRuntimes?: Runtime | string[];
+  CompatibleRuntimes?: (Runtime | string)[];
 
   /**
    * <p>Details about the layer version.</p>

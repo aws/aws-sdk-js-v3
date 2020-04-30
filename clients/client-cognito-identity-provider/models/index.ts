@@ -324,7 +324,7 @@ export interface AdminCreateUserRequest {
    *             Specify <code>"SMS"</code> if the phone number will be used. The default value is
    *                 <code>"SMS"</code>. More than one value can be specified.</p>
    */
-  DesiredDeliveryMediums?: DeliveryMediumType | string[];
+  DesiredDeliveryMediums?: (DeliveryMediumType | string)[];
 
   /**
    * <p>This parameter is only used if the <code>phone_number_verified</code> or
@@ -2297,7 +2297,7 @@ export interface CompromisedCredentialsRiskConfigurationType {
    * <p>Perform the action for these events. The default is to perform all events if no event
    *             filter is specified.</p>
    */
-  EventFilter?: EventFilterType | string[];
+  EventFilter?: (EventFilterType | string)[];
 }
 
 export namespace CompromisedCredentialsRiskConfigurationType {
@@ -2826,7 +2826,7 @@ export interface CreateUserPoolClientRequest {
    *         <p>Set to <code>token</code> to specify that the client should get the access token (and,
    *             optionally, ID token, based on scopes) directly.</p>
    */
-  AllowedOAuthFlows?: OAuthFlowType | string[];
+  AllowedOAuthFlows?: (OAuthFlowType | string)[];
 
   /**
    * <p>Set to <code>True</code> if the client is allowed to follow the OAuth protocol when
@@ -2922,7 +2922,7 @@ export interface CreateUserPoolClientRequest {
    *             </li>
    *          </ul>
    */
-  ExplicitAuthFlows?: ExplicitAuthFlowsType | string[];
+  ExplicitAuthFlows?: (ExplicitAuthFlowsType | string)[];
 
   /**
    * <p>Boolean to specify whether you want to generate a secret for the user pool client
@@ -3119,12 +3119,12 @@ export interface CreateUserPoolRequest {
    * <p>Attributes supported as an alias for this user pool. Possible values: <b>phone_number</b>, <b>email</b>, or
    *                 <b>preferred_username</b>.</p>
    */
-  AliasAttributes?: AliasAttributeType | string[];
+  AliasAttributes?: (AliasAttributeType | string)[];
 
   /**
    * <p>The attributes to be auto-verified. Possible values: <b>email</b>, <b>phone_number</b>.</p>
    */
-  AutoVerifiedAttributes?: VerifiedAttributeType | string[];
+  AutoVerifiedAttributes?: (VerifiedAttributeType | string)[];
 
   /**
    * <p>The device configuration.</p>
@@ -3214,7 +3214,7 @@ export interface CreateUserPoolRequest {
    * <p>Specifies whether email addresses or phone numbers can be specified as usernames when
    *             a user signs up.</p>
    */
-  UsernameAttributes?: UsernameAttributeType | string[];
+  UsernameAttributes?: (UsernameAttributeType | string)[];
 
   /**
    * <p>The template for the verification message that the user sees when the app requests
@@ -7791,7 +7791,7 @@ export interface UpdateUserPoolClientRequest {
    *             authorization code as the response. This code can be exchanged for access tokens with
    *             the token endpoint.</p>
    */
-  AllowedOAuthFlows?: OAuthFlowType | string[];
+  AllowedOAuthFlows?: (OAuthFlowType | string)[];
 
   /**
    * <p>Set to TRUE if the client is allowed to follow the OAuth protocol when interacting
@@ -7892,7 +7892,7 @@ export interface UpdateUserPoolClientRequest {
    *             </li>
    *          </ul>
    */
-  ExplicitAuthFlows?: ExplicitAuthFlowsType | string[];
+  ExplicitAuthFlows?: (ExplicitAuthFlowsType | string)[];
 
   /**
    * <p>A list of allowed logout URLs for the identity providers.</p>
@@ -8082,7 +8082,7 @@ export interface UpdateUserPoolRequest {
    * <p>The attributes that are automatically verified when the Amazon Cognito service makes a
    *             request to update user pools.</p>
    */
-  AutoVerifiedAttributes?: VerifiedAttributeType | string[];
+  AutoVerifiedAttributes?: (VerifiedAttributeType | string)[];
 
   /**
    * <p>Device configuration.</p>
@@ -8493,7 +8493,7 @@ export interface UserPoolClientType {
    *         <p>Set to <code>token</code> to specify that the client should get the access token (and,
    *             optionally, ID token, based on scopes) directly.</p>
    */
-  AllowedOAuthFlows?: OAuthFlowType | string[];
+  AllowedOAuthFlows?: (OAuthFlowType | string)[];
 
   /**
    * <p>Set to TRUE if the client is allowed to follow the OAuth protocol when interacting
@@ -8603,7 +8603,7 @@ export interface UserPoolClientType {
    *             </li>
    *          </ul>
    */
-  ExplicitAuthFlows?: ExplicitAuthFlowsType | string[];
+  ExplicitAuthFlows?: (ExplicitAuthFlowsType | string)[];
 
   /**
    * <p>The date the user pool client was last modified.</p>
@@ -8808,7 +8808,7 @@ export interface UserPoolType {
   /**
    * <p>Specifies the attributes that are aliased in a user pool.</p>
    */
-  AliasAttributes?: AliasAttributeType | string[];
+  AliasAttributes?: (AliasAttributeType | string)[];
 
   /**
    * <p>The Amazon Resource Name (ARN) for the user pool.</p>
@@ -8818,7 +8818,7 @@ export interface UserPoolType {
   /**
    * <p>Specifies the attributes that are auto-verified in a user pool.</p>
    */
-  AutoVerifiedAttributes?: VerifiedAttributeType | string[];
+  AutoVerifiedAttributes?: (VerifiedAttributeType | string)[];
 
   /**
    * <p>The date the user pool was created.</p>
@@ -8961,7 +8961,7 @@ export interface UserPoolType {
    * <p>Specifies whether email addresses or phone numbers can be specified as usernames when
    *             a user signs up.</p>
    */
-  UsernameAttributes?: UsernameAttributeType | string[];
+  UsernameAttributes?: (UsernameAttributeType | string)[];
 
   /**
    * <p>The template for verification messages.</p>

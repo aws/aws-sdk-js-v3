@@ -438,7 +438,7 @@ export interface CreateChangeSetInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: Capability | string[];
+  Capabilities?: (Capability | string)[];
 
   /**
    * <p>The name of the change set. The name must be unique among all change sets that are
@@ -704,7 +704,7 @@ export interface CreateStackInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: Capability | string[];
+  Capabilities?: (Capability | string)[];
 
   /**
    * <p>A unique identifier for this <code>CreateStack</code> request. Specify this token if
@@ -1096,7 +1096,7 @@ export interface DescribeChangeSetOutput {
    * <p>If you execute the change set, the list of capabilities that were explicitly
    *          acknowledged when the change set was created.</p>
    */
-  Capabilities?: Capability | string[];
+  Capabilities?: (Capability | string)[];
 
   /**
    * <p>The ARN of the change set.</p>
@@ -1398,7 +1398,7 @@ export interface DescribeStackResourceDriftsInput {
    *             </li>
    *          </ul>
    */
-  StackResourceDriftStatusFilters?: StackResourceDriftStatus | string[];
+  StackResourceDriftStatusFilters?: (StackResourceDriftStatus | string)[];
 }
 
 export namespace DescribeStackResourceDriftsInput {
@@ -2128,7 +2128,7 @@ export interface GetTemplateOutput {
    *          CloudFormation finishes creating the change set, the <code>Processed</code> template
    *          becomes available.</p>
    */
-  StagesAvailable?: TemplateStage | string[];
+  StagesAvailable?: (TemplateStage | string)[];
 
   /**
    * <p>Structure containing the template body. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the AWS CloudFormation User Guide.)</p>
@@ -2204,7 +2204,7 @@ export interface GetTemplateSummaryOutput {
    *          your template; otherwise, those actions return an InsufficientCapabilities error.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in AWS CloudFormation Templates</a>.</p>
    */
-  Capabilities?: Capability | string[];
+  Capabilities?: (Capability | string)[];
 
   /**
    * <p>The list of resources that generated the values in the <code>Capabilities</code>
@@ -2538,7 +2538,7 @@ export interface ListStacksInput {
    *          stacks with the specified status codes. For a complete list of stack status codes, see the
    *             <code>StackStatus</code> parameter of the <a>Stack</a> data type.</p>
    */
-  StackStatusFilter?: StackStatus | string[];
+  StackStatusFilter?: (StackStatus | string)[];
 }
 
 export namespace ListStacksInput {
@@ -3282,7 +3282,7 @@ export interface ResourceChange {
    *          this update, such as a change in the resource attribute's <code>Metadata</code>,
    *             <code>Properties</code>, or <code>Tags</code>.</p>
    */
-  Scope?: ResourceAttribute | string[];
+  Scope?: (ResourceAttribute | string)[];
 }
 
 export namespace ResourceChange {
@@ -3699,7 +3699,7 @@ export interface Stack {
   /**
    * <p>The capabilities allowed in the stack.</p>
    */
-  Capabilities?: Capability | string[];
+  Capabilities?: (Capability | string)[];
 
   /**
    * <p>The unique ID of the change set.</p>
@@ -4832,7 +4832,7 @@ export interface UpdateStackInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: Capability | string[];
+  Capabilities?: (Capability | string)[];
 
   /**
    * <p>A unique identifier for this <code>UpdateStack</code> request. Specify this token if
@@ -5079,7 +5079,7 @@ export interface ValidateTemplateOutput {
    *          your template; otherwise, those actions return an InsufficientCapabilities error.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in AWS CloudFormation Templates</a>.</p>
    */
-  Capabilities?: Capability | string[];
+  Capabilities?: (Capability | string)[];
 
   /**
    * <p>The list of resources that generated the values in the <code>Capabilities</code>
@@ -5390,7 +5390,7 @@ export interface CreateStackSetInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: Capability | string[];
+  Capabilities?: (Capability | string)[];
 
   /**
    * <p>A unique identifier for this <code>CreateStackSet</code> request. Specify this token
@@ -6311,7 +6311,7 @@ export interface StackSet {
    *          new AWS Identity and Access Management (IAM) users. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in AWS CloudFormation Templates.</a>
    *          </p>
    */
-  Capabilities?: Capability | string[];
+  Capabilities?: (Capability | string)[];
 
   /**
    * <p>A description of the stack set that you specify when the stack set is created or
@@ -7240,7 +7240,7 @@ export interface UpdateStackSetInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: Capability | string[];
+  Capabilities?: (Capability | string)[];
 
   /**
    * <p>A brief description of updates that you are making.</p>

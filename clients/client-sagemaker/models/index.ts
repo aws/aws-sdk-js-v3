@@ -1473,7 +1473,7 @@ export interface ChannelSpecification {
   /**
    * <p>The allowed compression types, if data compression is used.</p>
    */
-  SupportedCompressionTypes?: CompressionType | string[];
+  SupportedCompressionTypes?: (CompressionType | string)[];
 
   /**
    * <p>The supported MIME types for the data.</p>
@@ -1488,7 +1488,7 @@ export interface ChannelSpecification {
    *         <p>In PIPE mode, Amazon SageMaker streams input data from the source directly to your
    *             algorithm without using the EBS volume.</p>
    */
-  SupportedInputModes: TrainingInputMode | string[] | undefined;
+  SupportedInputModes: (TrainingInputMode | string)[] | undefined;
 }
 
 export namespace ChannelSpecification {
@@ -2930,7 +2930,7 @@ export interface CreateNotebookInstanceInput {
    *             instance. Currently, only one instance type can be associated with a notebook instance.
    *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.</p>
    */
-  AcceleratorTypes?: NotebookInstanceAcceleratorType | string[];
+  AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
 
   /**
    * <p>An array of up to three Git repositories to associate with the notebook instance.
@@ -5889,7 +5889,7 @@ export interface DescribeNotebookInstanceOutput {
    *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
    *                 SageMaker</a>.</p>
    */
-  AcceleratorTypes?: NotebookInstanceAcceleratorType | string[];
+  AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
 
   /**
    * <p>An array of up to three Git repositories associated with the notebook instance. These
@@ -9678,8 +9678,7 @@ export interface InferenceSpecification {
    * <p>A list of the instance types that are used to generate inferences in real-time.</p>
    */
   SupportedRealtimeInferenceInstanceTypes:
-    | ProductionVariantInstanceType
-    | string[]
+    | (ProductionVariantInstanceType | string)[]
     | undefined;
 
   /**
@@ -9691,7 +9690,9 @@ export interface InferenceSpecification {
    * <p>A list of the instance types on which a transformation job can be run or on which an
    *             endpoint can be deployed.</p>
    */
-  SupportedTransformInstanceTypes: TransformInstanceType | string[] | undefined;
+  SupportedTransformInstanceTypes:
+    | (TransformInstanceType | string)[]
+    | undefined;
 }
 
 export namespace InferenceSpecification {
@@ -10197,7 +10198,7 @@ export interface LabelingJobDataAttributes {
    *             content. Amazon SageMaker may restrict the Amazon Mechanical Turk workers that can view your task
    *             based on this information.</p>
    */
-  ContentClassifiers?: ContentClassifier | string[];
+  ContentClassifiers?: (ContentClassifier | string)[];
 }
 
 export namespace LabelingJobDataAttributes {
@@ -16849,7 +16850,7 @@ export interface TrainingSpecification {
   /**
    * <p>A list of the instance types that this algorithm can use for training.</p>
    */
-  SupportedTrainingInstanceTypes: TrainingInstanceType | string[] | undefined;
+  SupportedTrainingInstanceTypes: (TrainingInstanceType | string)[] | undefined;
 
   /**
    * <p>A list of the metrics that the algorithm emits that can be used as the objective
@@ -18178,7 +18179,7 @@ export interface UpdateNotebookInstanceInput {
    *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
    *                 SageMaker</a>.</p>
    */
-  AcceleratorTypes?: NotebookInstanceAcceleratorType | string[];
+  AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
 
   /**
    * <p>An array of up to three Git repositories to associate with the notebook instance.

@@ -1151,7 +1151,7 @@ const serializeAws_json1_1GetTagValuesInput = (
 };
 
 const serializeAws_json1_1GroupBy = (
-  input: GroupByAttribute | string[],
+  input: (GroupByAttribute | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];

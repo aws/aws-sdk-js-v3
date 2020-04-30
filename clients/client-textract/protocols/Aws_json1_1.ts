@@ -1325,7 +1325,7 @@ const serializeAws_json1_1AnalyzeDocumentRequest = (
 };
 
 const serializeAws_json1_1ContentClassifiers = (
-  input: ContentClassifier | string[],
+  input: (ContentClassifier | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1381,7 +1381,7 @@ const serializeAws_json1_1DocumentLocation = (
 };
 
 const serializeAws_json1_1FeatureTypes = (
-  input: FeatureType | string[],
+  input: (FeatureType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -1798,7 +1798,7 @@ const deserializeAws_json1_1DocumentTooLargeException = (
 const deserializeAws_json1_1EntityTypes = (
   output: any,
   context: __SerdeContext
-): EntityType | string[] => {
+): (EntityType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

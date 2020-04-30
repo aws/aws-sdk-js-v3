@@ -723,7 +723,7 @@ export interface GetQueueAttributesRequest {
    *             </li>
    *          </ul>
    */
-  AttributeNames?: QueueAttributeName | string[];
+  AttributeNames?: (QueueAttributeName | string)[];
 
   /**
    * <p>The URL of the Amazon SQS queue whose attribute information is retrieved.</p>
@@ -1326,7 +1326,7 @@ export interface ReceiveMessageRequest {
    *             </li>
    *          </ul>
    */
-  AttributeNames?: QueueAttributeName | string[];
+  AttributeNames?: (QueueAttributeName | string)[];
 
   /**
    * <p>The maximum number of messages to return. Amazon SQS never returns more messages than this value (however, fewer messages might be returned). Valid values: 1 to 10. Default: 1.</p>

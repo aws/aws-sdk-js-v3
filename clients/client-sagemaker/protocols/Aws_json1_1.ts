@@ -11370,7 +11370,7 @@ const serializeAws_json1_1CollectionParameters = (
 };
 
 const serializeAws_json1_1CompressionTypes = (
-  input: CompressionType | string[],
+  input: (CompressionType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -11443,7 +11443,7 @@ const serializeAws_json1_1ContainerEntrypoint = (
 };
 
 const serializeAws_json1_1ContentClassifiers = (
-  input: ContentClassifier | string[],
+  input: (ContentClassifier | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -13935,7 +13935,7 @@ const serializeAws_json1_1InputDataConfig = (
 };
 
 const serializeAws_json1_1InputModes = (
-  input: TrainingInputMode | string[],
+  input: (TrainingInputMode | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -15790,7 +15790,7 @@ const serializeAws_json1_1NetworkConfig = (
 };
 
 const serializeAws_json1_1NotebookInstanceAcceleratorTypes = (
-  input: NotebookInstanceAcceleratorType | string[],
+  input: (NotebookInstanceAcceleratorType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -16198,7 +16198,7 @@ const serializeAws_json1_1PublicWorkforceTaskPrice = (
 };
 
 const serializeAws_json1_1RealtimeInferenceInstanceTypes = (
-  input: ProductionVariantInstanceType | string[],
+  input: (ProductionVariantInstanceType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -16749,7 +16749,7 @@ const serializeAws_json1_1TensorBoardOutputConfig = (
 };
 
 const serializeAws_json1_1TrainingInstanceTypes = (
-  input: TrainingInstanceType | string[],
+  input: (TrainingInstanceType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -16903,7 +16903,7 @@ const serializeAws_json1_1TransformInput = (
 };
 
 const serializeAws_json1_1TransformInstanceTypes = (
-  input: TransformInstanceType | string[],
+  input: (TransformInstanceType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -18750,7 +18750,7 @@ const deserializeAws_json1_1CompilationJobSummary = (
 const deserializeAws_json1_1CompressionTypes = (
   output: any,
   context: __SerdeContext
-): CompressionType | string[] => {
+): (CompressionType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -18837,7 +18837,7 @@ const deserializeAws_json1_1ContainerEntrypoint = (
 const deserializeAws_json1_1ContentClassifiers = (
   output: any,
   context: __SerdeContext
-): ContentClassifier | string[] => {
+): (ContentClassifier | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -23432,7 +23432,7 @@ const deserializeAws_json1_1InputDataConfig = (
 const deserializeAws_json1_1InputModes = (
   output: any,
   context: __SerdeContext
-): TrainingInputMode | string[] => {
+): (TrainingInputMode | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -25519,7 +25519,7 @@ const deserializeAws_json1_1NetworkConfig = (
 const deserializeAws_json1_1NotebookInstanceAcceleratorTypes = (
   output: any,
   context: __SerdeContext
-): NotebookInstanceAcceleratorType | string[] => {
+): (NotebookInstanceAcceleratorType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -26333,7 +26333,7 @@ const deserializeAws_json1_1PublicWorkforceTaskPrice = (
 const deserializeAws_json1_1RealtimeInferenceInstanceTypes = (
   output: any,
   context: __SerdeContext
-): ProductionVariantInstanceType | string[] => {
+): (ProductionVariantInstanceType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -26954,7 +26954,7 @@ const deserializeAws_json1_1TensorBoardOutputConfig = (
 const deserializeAws_json1_1TrainingInstanceTypes = (
   output: any,
   context: __SerdeContext
-): TrainingInstanceType | string[] => {
+): (TrainingInstanceType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -27499,7 +27499,7 @@ const deserializeAws_json1_1TransformInput = (
 const deserializeAws_json1_1TransformInstanceTypes = (
   output: any,
   context: __SerdeContext
-): TransformInstanceType | string[] => {
+): (TransformInstanceType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

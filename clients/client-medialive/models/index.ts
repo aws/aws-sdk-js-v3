@@ -4472,7 +4472,7 @@ export interface HlsGroupSettings {
   /**
    * Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
    */
-  AdMarkers?: HlsAdMarkers | string[];
+  AdMarkers?: (HlsAdMarkers | string)[];
 
   /**
    * A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.

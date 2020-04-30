@@ -1633,7 +1633,7 @@ const deserializeAws_restJson1_1BundleList = (
 const deserializeAws_restJson1_1Platforms = (
   output: any,
   context: __SerdeContext
-): Platform | string[] => {
+): (Platform | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

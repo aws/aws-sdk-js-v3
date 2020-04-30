@@ -4750,7 +4750,7 @@ const serializeAws_json1_1CountAction = (
 };
 
 const serializeAws_json1_1CountryCodes = (
-  input: CountryCode | string[],
+  input: (CountryCode | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6267,7 +6267,7 @@ const deserializeAws_json1_1CountAction = (
 const deserializeAws_json1_1CountryCodes = (
   output: any,
   context: __SerdeContext
-): CountryCode | string[] => {
+): (CountryCode | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

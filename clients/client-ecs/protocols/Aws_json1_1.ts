@@ -6538,7 +6538,7 @@ const serializeAws_json1_1AwsVpcConfiguration = (
 };
 
 const serializeAws_json1_1CapacityProviderFieldList = (
-  input: CapacityProviderField | string[],
+  input: (CapacityProviderField | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6579,7 +6579,7 @@ const serializeAws_json1_1CapacityProviderStrategyItem = (
 };
 
 const serializeAws_json1_1ClusterFieldList = (
-  input: ClusterField | string[],
+  input: (ClusterField | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6615,7 +6615,7 @@ const serializeAws_json1_1ClusterSettings = (
 };
 
 const serializeAws_json1_1CompatibilityList = (
-  input: Compatibility | string[],
+  input: (Compatibility | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -6853,7 +6853,7 @@ const serializeAws_json1_1ContainerDependency = (
 };
 
 const serializeAws_json1_1ContainerInstanceFieldList = (
-  input: ContainerInstanceField | string[],
+  input: (ContainerInstanceField | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -7481,7 +7481,7 @@ const serializeAws_json1_1Device = (
 };
 
 const serializeAws_json1_1DeviceCgroupPermissions = (
-  input: DeviceCgroupPermission | string[],
+  input: (DeviceCgroupPermission | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8669,7 +8669,7 @@ const serializeAws_json1_1SecretList = (
 };
 
 const serializeAws_json1_1ServiceFieldList = (
-  input: ServiceField | string[],
+  input: (ServiceField | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -8973,7 +8973,7 @@ const serializeAws_json1_1Tags = (
 };
 
 const serializeAws_json1_1TaskDefinitionFieldList = (
-  input: TaskDefinitionField | string[],
+  input: (TaskDefinitionField | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9011,7 +9011,7 @@ const serializeAws_json1_1TaskDefinitionPlacementConstraints = (
 };
 
 const serializeAws_json1_1TaskFieldList = (
-  input: TaskField | string[],
+  input: (TaskField | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -9833,7 +9833,7 @@ const deserializeAws_json1_1Clusters = (
 const deserializeAws_json1_1CompatibilityList = (
   output: any,
   context: __SerdeContext
-): Compatibility | string[] => {
+): (Compatibility | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10894,7 +10894,7 @@ const deserializeAws_json1_1Device = (
 const deserializeAws_json1_1DeviceCgroupPermissions = (
   output: any,
   context: __SerdeContext
-): DeviceCgroupPermission | string[] => {
+): (DeviceCgroupPermission | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

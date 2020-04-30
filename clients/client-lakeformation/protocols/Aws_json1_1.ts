@@ -1855,7 +1855,7 @@ const serializeAws_json1_1ListResourcesRequest = (
 };
 
 const serializeAws_json1_1PermissionList = (
-  input: Permission | string[],
+  input: (Permission | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -2469,7 +2469,7 @@ const deserializeAws_json1_1ListResourcesResponse = (
 const deserializeAws_json1_1PermissionList = (
   output: any,
   context: __SerdeContext
-): Permission | string[] => {
+): (Permission | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

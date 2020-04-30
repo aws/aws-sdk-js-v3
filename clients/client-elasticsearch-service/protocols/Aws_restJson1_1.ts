@@ -4422,7 +4422,7 @@ const deserializeAws_restJson1_1ElasticsearchDomainStatusList = (
 const deserializeAws_restJson1_1ElasticsearchInstanceTypeList = (
   output: any,
   context: __SerdeContext
-): ESPartitionInstanceType | string[] => {
+): (ESPartitionInstanceType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

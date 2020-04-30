@@ -5437,7 +5437,7 @@ export interface InventoryConfiguration {
   /**
    * <p>Contains the optional fields that are included in the inventory results.</p>
    */
-  OptionalFields?: InventoryOptionalField | string[];
+  OptionalFields?: (InventoryOptionalField | string)[];
 
   /**
    * <p>Specifies the schedule for generating inventory results.</p>
@@ -5620,7 +5620,7 @@ export interface LambdaFunctionConfiguration {
    *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event Types</a> in the
    *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
-  Events: Event | string[] | undefined;
+  Events: (Event | string)[] | undefined;
 
   /**
    * <p>Specifies object key name filtering rules. For information about key name filtering, see
@@ -8407,7 +8407,7 @@ export interface QueueConfiguration {
   /**
    * <p>A collection of bucket events for which to send notifications</p>
    */
-  Events: Event | string[] | undefined;
+  Events: (Event | string)[] | undefined;
 
   /**
    * <p>Specifies object key name filtering rules. For information about key name filtering, see
@@ -9521,7 +9521,7 @@ export interface TopicConfiguration {
    *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event
    *             Types</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
-  Events: Event | string[] | undefined;
+  Events: (Event | string)[] | undefined;
 
   /**
    * <p>Specifies object key name filtering rules. For information about key name filtering, see

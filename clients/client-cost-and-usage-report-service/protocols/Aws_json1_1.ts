@@ -493,7 +493,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 };
 
 const serializeAws_json1_1AdditionalArtifactList = (
-  input: AdditionalArtifact | string[],
+  input: (AdditionalArtifact | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -611,7 +611,7 @@ const serializeAws_json1_1ReportDefinition = (
 };
 
 const serializeAws_json1_1SchemaElementList = (
-  input: SchemaElement | string[],
+  input: (SchemaElement | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -624,7 +624,7 @@ const serializeAws_json1_1SchemaElementList = (
 const deserializeAws_json1_1AdditionalArtifactList = (
   output: any,
   context: __SerdeContext
-): AdditionalArtifact | string[] => {
+): (AdditionalArtifact | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -812,7 +812,7 @@ const deserializeAws_json1_1ReportLimitReachedException = (
 const deserializeAws_json1_1SchemaElementList = (
   output: any,
   context: __SerdeContext
-): SchemaElement | string[] => {
+): (SchemaElement | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

@@ -911,7 +911,7 @@ export interface GrpcRetryPolicy {
   /**
    * <p>Specify at least one of the valid values.</p>
    */
-  grpcRetryEvents?: GrpcRetryPolicyEvent | string[];
+  grpcRetryEvents?: (GrpcRetryPolicyEvent | string)[];
 
   /**
    * <p>Specify at least one of the following values.</p>
@@ -952,7 +952,7 @@ export interface GrpcRetryPolicy {
   /**
    * <p>Specify a valid value.</p>
    */
-  tcpRetryEvents?: TcpRetryPolicyEvent | string[];
+  tcpRetryEvents?: (TcpRetryPolicyEvent | string)[];
 }
 
 export namespace GrpcRetryPolicy {
@@ -1364,7 +1364,7 @@ export interface HttpRetryPolicy {
   /**
    * <p>Specify a valid value.</p>
    */
-  tcpRetryEvents?: TcpRetryPolicyEvent | string[];
+  tcpRetryEvents?: (TcpRetryPolicyEvent | string)[];
 }
 
 export namespace HttpRetryPolicy {

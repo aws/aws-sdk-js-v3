@@ -10425,7 +10425,7 @@ const serializeAws_json1_1DesiredPlayerSessionList = (
 };
 
 const serializeAws_json1_1FleetActionList = (
-  input: FleetAction | string[],
+  input: (FleetAction | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -12553,7 +12553,7 @@ const deserializeAws_json1_1EventList = (
 const deserializeAws_json1_1FleetActionList = (
   output: any,
   context: __SerdeContext
-): FleetAction | string[] => {
+): (FleetAction | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

@@ -6309,7 +6309,7 @@ const serializeAws_restJson1_1FindingIds = (
 };
 
 const serializeAws_restJson1_1FindingStatisticTypes = (
-  input: FindingStatisticType | string[],
+  input: (FindingStatisticType | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];

@@ -33312,7 +33312,7 @@ const serializeAws_restJson1_1OTAUpdateFiles = (
 };
 
 const serializeAws_restJson1_1Protocols = (
-  input: Protocol | string[],
+  input: (Protocol | string)[],
   context: __SerdeContext
 ): any => {
   const contents = [];
@@ -37401,7 +37401,7 @@ const deserializeAws_restJson1_1OTAUpdatesSummary = (
 const deserializeAws_restJson1_1Protocols = (
   output: any,
   context: __SerdeContext
-): Protocol | string[] => {
+): (Protocol | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
