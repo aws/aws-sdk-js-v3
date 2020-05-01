@@ -3287,7 +3287,6 @@ export interface VirtualNodeSpec {
 export namespace VirtualNodeSpec {
   export const filterSensitiveLog = (obj: VirtualNodeSpec) => ({
     ...obj,
-    ...(obj.backends && { backends: obj.backends.map(item => item) }),
     ...(obj.listeners && {
       listeners: obj.listeners.map(Listener.filterSensitiveLog)
     }),

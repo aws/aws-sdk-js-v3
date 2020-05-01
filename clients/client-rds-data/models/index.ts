@@ -571,9 +571,6 @@ export namespace ExecuteStatementResponse {
     ...(obj.columnMetadata && {
       columnMetadata: obj.columnMetadata.map(ColumnMetadata.filterSensitiveLog)
     }),
-    ...(obj.generatedFields && {
-      generatedFields: obj.generatedFields.map(item => item)
-    }),
     ...(obj.records && {
       records: obj.records.map(item => item.map(item => item))
     })
@@ -799,8 +796,7 @@ export interface _Record {
 
 export namespace _Record {
   export const filterSensitiveLog = (obj: _Record) => ({
-    ...obj,
-    ...(obj.values && { values: obj.values.map(item => item) })
+    ...obj
   });
   export const isa = (o: any): o is _Record => __isa(o, "Record");
 }
@@ -1022,8 +1018,7 @@ export interface StructValue {
 
 export namespace StructValue {
   export const filterSensitiveLog = (obj: StructValue) => ({
-    ...obj,
-    ...(obj.attributes && { attributes: obj.attributes.map(item => item) })
+    ...obj
   });
   export const isa = (o: any): o is StructValue => __isa(o, "StructValue");
 }
@@ -1041,10 +1036,7 @@ export interface UpdateResult {
 
 export namespace UpdateResult {
   export const filterSensitiveLog = (obj: UpdateResult) => ({
-    ...obj,
-    ...(obj.generatedFields && {
-      generatedFields: obj.generatedFields.map(item => item)
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateResult => __isa(o, "UpdateResult");
 }
