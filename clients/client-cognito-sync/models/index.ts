@@ -872,7 +872,7 @@ export namespace ListDatasetsResponse {
   export const filterSensitiveLog = (obj: ListDatasetsResponse) => ({
     ...obj,
     ...(obj.Datasets && {
-      Datasets: obj.Datasets.map(item => item.map(Dataset.filterSensitiveLog))
+      Datasets: obj.Datasets.map(Dataset.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListDatasetsResponse =>
@@ -933,8 +933,8 @@ export namespace ListIdentityPoolUsageResponse {
   export const filterSensitiveLog = (obj: ListIdentityPoolUsageResponse) => ({
     ...obj,
     ...(obj.IdentityPoolUsages && {
-      IdentityPoolUsages: obj.IdentityPoolUsages.map(item =>
-        item.map(IdentityPoolUsage.filterSensitiveLog)
+      IdentityPoolUsages: obj.IdentityPoolUsages.map(
+        IdentityPoolUsage.filterSensitiveLog
       )
     })
   });
@@ -1045,9 +1045,7 @@ export interface ListRecordsResponse {
 export namespace ListRecordsResponse {
   export const filterSensitiveLog = (obj: ListRecordsResponse) => ({
     ...obj,
-    ...(obj.Records && {
-      Records: obj.Records.map(item => item.map(_Record.filterSensitiveLog))
-    })
+    ...(obj.Records && { Records: obj.Records.map(_Record.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListRecordsResponse =>
     __isa(o, "ListRecordsResponse");
@@ -1541,9 +1539,7 @@ export namespace UpdateRecordsRequest {
   export const filterSensitiveLog = (obj: UpdateRecordsRequest) => ({
     ...obj,
     ...(obj.RecordPatches && {
-      RecordPatches: obj.RecordPatches.map(item =>
-        item.map(RecordPatch.filterSensitiveLog)
-      )
+      RecordPatches: obj.RecordPatches.map(RecordPatch.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateRecordsRequest =>
@@ -1564,9 +1560,7 @@ export interface UpdateRecordsResponse {
 export namespace UpdateRecordsResponse {
   export const filterSensitiveLog = (obj: UpdateRecordsResponse) => ({
     ...obj,
-    ...(obj.Records && {
-      Records: obj.Records.map(item => item.map(_Record.filterSensitiveLog))
-    })
+    ...(obj.Records && { Records: obj.Records.map(_Record.filterSensitiveLog) })
   });
   export const isa = (o: any): o is UpdateRecordsResponse =>
     __isa(o, "UpdateRecordsResponse");

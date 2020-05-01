@@ -182,8 +182,8 @@ export namespace BudgetPerformanceHistory {
   export const filterSensitiveLog = (obj: BudgetPerformanceHistory) => ({
     ...obj,
     ...(obj.BudgetedAndActualAmountsList && {
-      BudgetedAndActualAmountsList: obj.BudgetedAndActualAmountsList.map(item =>
-        item.map(BudgetedAndActualAmounts.filterSensitiveLog)
+      BudgetedAndActualAmountsList: obj.BudgetedAndActualAmountsList.map(
+        BudgetedAndActualAmounts.filterSensitiveLog
       )
     }),
     ...(obj.CostTypes && {
@@ -385,8 +385,8 @@ export namespace CreateBudgetRequest {
     ...obj,
     ...(obj.Budget && { Budget: Budget.filterSensitiveLog(obj.Budget) }),
     ...(obj.NotificationsWithSubscribers && {
-      NotificationsWithSubscribers: obj.NotificationsWithSubscribers.map(item =>
-        item.map(NotificationWithSubscribers.filterSensitiveLog)
+      NotificationsWithSubscribers: obj.NotificationsWithSubscribers.map(
+        NotificationWithSubscribers.filterSensitiveLog
       )
     })
   });
@@ -442,9 +442,7 @@ export namespace CreateNotificationRequest {
       Notification: Notification.filterSensitiveLog(obj.Notification)
     }),
     ...(obj.Subscribers && {
-      Subscribers: obj.Subscribers.map(item =>
-        item.map(Subscriber.filterSensitiveLog)
-      )
+      Subscribers: obj.Subscribers.map(Subscriber.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateNotificationRequest =>
@@ -846,9 +844,7 @@ export interface DescribeBudgetsResponse {
 export namespace DescribeBudgetsResponse {
   export const filterSensitiveLog = (obj: DescribeBudgetsResponse) => ({
     ...obj,
-    ...(obj.Budgets && {
-      Budgets: obj.Budgets.map(item => item.map(Budget.filterSensitiveLog))
-    })
+    ...(obj.Budgets && { Budgets: obj.Budgets.map(Budget.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeBudgetsResponse =>
     __isa(o, "DescribeBudgetsResponse");
@@ -912,9 +908,7 @@ export namespace DescribeNotificationsForBudgetResponse {
   ) => ({
     ...obj,
     ...(obj.Notifications && {
-      Notifications: obj.Notifications.map(item =>
-        item.map(Notification.filterSensitiveLog)
-      )
+      Notifications: obj.Notifications.map(Notification.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeNotificationsForBudgetResponse =>
@@ -987,9 +981,7 @@ export namespace DescribeSubscribersForNotificationResponse {
   ) => ({
     ...obj,
     ...(obj.Subscribers && {
-      Subscribers: obj.Subscribers.map(item =>
-        item.map(Subscriber.filterSensitiveLog)
-      )
+      Subscribers: obj.Subscribers.map(Subscriber.filterSensitiveLog)
     })
   });
   export const isa = (
@@ -1219,9 +1211,7 @@ export namespace NotificationWithSubscribers {
       Notification: Notification.filterSensitiveLog(obj.Notification)
     }),
     ...(obj.Subscribers && {
-      Subscribers: obj.Subscribers.map(item =>
-        item.map(Subscriber.filterSensitiveLog)
-      )
+      Subscribers: obj.Subscribers.map(Subscriber.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is NotificationWithSubscribers =>

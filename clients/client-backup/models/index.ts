@@ -202,9 +202,7 @@ export interface BackupPlan {
 export namespace BackupPlan {
   export const filterSensitiveLog = (obj: BackupPlan) => ({
     ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => item.map(BackupRule.filterSensitiveLog))
-    })
+    ...(obj.Rules && { Rules: obj.Rules.map(BackupRule.filterSensitiveLog) })
   });
   export const isa = (o: any): o is BackupPlan => __isa(o, "BackupPlan");
 }
@@ -232,7 +230,7 @@ export namespace BackupPlanInput {
   export const filterSensitiveLog = (obj: BackupPlanInput) => ({
     ...obj,
     ...(obj.Rules && {
-      Rules: obj.Rules.map(item => item.map(BackupRuleInput.filterSensitiveLog))
+      Rules: obj.Rules.map(BackupRuleInput.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BackupPlanInput =>
@@ -396,9 +394,7 @@ export namespace BackupRule {
   export const filterSensitiveLog = (obj: BackupRule) => ({
     ...obj,
     ...(obj.CopyActions && {
-      CopyActions: obj.CopyActions.map(item =>
-        item.map(CopyAction.filterSensitiveLog)
-      )
+      CopyActions: obj.CopyActions.map(CopyAction.filterSensitiveLog)
     }),
     ...(obj.Lifecycle && {
       Lifecycle: Lifecycle.filterSensitiveLog(obj.Lifecycle)
@@ -468,9 +464,7 @@ export namespace BackupRuleInput {
   export const filterSensitiveLog = (obj: BackupRuleInput) => ({
     ...obj,
     ...(obj.CopyActions && {
-      CopyActions: obj.CopyActions.map(item =>
-        item.map(CopyAction.filterSensitiveLog)
-      )
+      CopyActions: obj.CopyActions.map(CopyAction.filterSensitiveLog)
     }),
     ...(obj.Lifecycle && {
       Lifecycle: Lifecycle.filterSensitiveLog(obj.Lifecycle)
@@ -515,9 +509,7 @@ export namespace BackupSelection {
   export const filterSensitiveLog = (obj: BackupSelection) => ({
     ...obj,
     ...(obj.ListOfTags && {
-      ListOfTags: obj.ListOfTags.map(item =>
-        item.map(Condition.filterSensitiveLog)
-      )
+      ListOfTags: obj.ListOfTags.map(Condition.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BackupSelection =>
@@ -2460,9 +2452,7 @@ export namespace ListBackupJobsOutput {
   export const filterSensitiveLog = (obj: ListBackupJobsOutput) => ({
     ...obj,
     ...(obj.BackupJobs && {
-      BackupJobs: obj.BackupJobs.map(item =>
-        item.map(BackupJob.filterSensitiveLog)
-      )
+      BackupJobs: obj.BackupJobs.map(BackupJob.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListBackupJobsOutput =>
@@ -2513,8 +2503,8 @@ export namespace ListBackupPlanTemplatesOutput {
   export const filterSensitiveLog = (obj: ListBackupPlanTemplatesOutput) => ({
     ...obj,
     ...(obj.BackupPlanTemplatesList && {
-      BackupPlanTemplatesList: obj.BackupPlanTemplatesList.map(item =>
-        item.map(BackupPlanTemplatesListMember.filterSensitiveLog)
+      BackupPlanTemplatesList: obj.BackupPlanTemplatesList.map(
+        BackupPlanTemplatesListMember.filterSensitiveLog
       )
     })
   });
@@ -2571,8 +2561,8 @@ export namespace ListBackupPlanVersionsOutput {
   export const filterSensitiveLog = (obj: ListBackupPlanVersionsOutput) => ({
     ...obj,
     ...(obj.BackupPlanVersionsList && {
-      BackupPlanVersionsList: obj.BackupPlanVersionsList.map(item =>
-        item.map(BackupPlansListMember.filterSensitiveLog)
+      BackupPlanVersionsList: obj.BackupPlanVersionsList.map(
+        BackupPlansListMember.filterSensitiveLog
       )
     })
   });
@@ -2631,8 +2621,8 @@ export namespace ListBackupPlansOutput {
   export const filterSensitiveLog = (obj: ListBackupPlansOutput) => ({
     ...obj,
     ...(obj.BackupPlansList && {
-      BackupPlansList: obj.BackupPlansList.map(item =>
-        item.map(BackupPlansListMember.filterSensitiveLog)
+      BackupPlansList: obj.BackupPlansList.map(
+        BackupPlansListMember.filterSensitiveLog
       )
     })
   });
@@ -2690,8 +2680,8 @@ export namespace ListBackupSelectionsOutput {
   export const filterSensitiveLog = (obj: ListBackupSelectionsOutput) => ({
     ...obj,
     ...(obj.BackupSelectionsList && {
-      BackupSelectionsList: obj.BackupSelectionsList.map(item =>
-        item.map(BackupSelectionsListMember.filterSensitiveLog)
+      BackupSelectionsList: obj.BackupSelectionsList.map(
+        BackupSelectionsListMember.filterSensitiveLog
       )
     })
   });
@@ -2745,8 +2735,8 @@ export namespace ListBackupVaultsOutput {
   export const filterSensitiveLog = (obj: ListBackupVaultsOutput) => ({
     ...obj,
     ...(obj.BackupVaultList && {
-      BackupVaultList: obj.BackupVaultList.map(item =>
-        item.map(BackupVaultListMember.filterSensitiveLog)
+      BackupVaultList: obj.BackupVaultList.map(
+        BackupVaultListMember.filterSensitiveLog
       )
     })
   });
@@ -2847,7 +2837,7 @@ export namespace ListCopyJobsOutput {
   export const filterSensitiveLog = (obj: ListCopyJobsOutput) => ({
     ...obj,
     ...(obj.CopyJobs && {
-      CopyJobs: obj.CopyJobs.map(item => item.map(CopyJob.filterSensitiveLog))
+      CopyJobs: obj.CopyJobs.map(CopyJob.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListCopyJobsOutput =>
@@ -2900,9 +2890,7 @@ export namespace ListProtectedResourcesOutput {
   export const filterSensitiveLog = (obj: ListProtectedResourcesOutput) => ({
     ...obj,
     ...(obj.Results && {
-      Results: obj.Results.map(item =>
-        item.map(ProtectedResource.filterSensitiveLog)
-      )
+      Results: obj.Results.map(ProtectedResource.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListProtectedResourcesOutput =>
@@ -2991,8 +2979,8 @@ export namespace ListRecoveryPointsByBackupVaultOutput {
   ) => ({
     ...obj,
     ...(obj.RecoveryPoints && {
-      RecoveryPoints: obj.RecoveryPoints.map(item =>
-        item.map(RecoveryPointByBackupVault.filterSensitiveLog)
+      RecoveryPoints: obj.RecoveryPoints.map(
+        RecoveryPointByBackupVault.filterSensitiveLog
       )
     })
   });
@@ -3055,8 +3043,8 @@ export namespace ListRecoveryPointsByResourceOutput {
   ) => ({
     ...obj,
     ...(obj.RecoveryPoints && {
-      RecoveryPoints: obj.RecoveryPoints.map(item =>
-        item.map(RecoveryPointByResource.filterSensitiveLog)
+      RecoveryPoints: obj.RecoveryPoints.map(
+        RecoveryPointByResource.filterSensitiveLog
       )
     })
   });
@@ -3109,9 +3097,7 @@ export namespace ListRestoreJobsOutput {
   export const filterSensitiveLog = (obj: ListRestoreJobsOutput) => ({
     ...obj,
     ...(obj.RestoreJobs && {
-      RestoreJobs: obj.RestoreJobs.map(item =>
-        item.map(RestoreJobsListMember.filterSensitiveLog)
-      )
+      RestoreJobs: obj.RestoreJobs.map(RestoreJobsListMember.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListRestoreJobsOutput =>

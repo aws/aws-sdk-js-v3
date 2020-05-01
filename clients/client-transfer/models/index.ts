@@ -116,9 +116,7 @@ export namespace CreateServerRequest {
         obj.IdentityProviderDetails
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateServerRequest =>
     __isa(o, "CreateServerRequest");
@@ -249,13 +247,11 @@ export namespace CreateUserRequest {
   export const filterSensitiveLog = (obj: CreateUserRequest) => ({
     ...obj,
     ...(obj.HomeDirectoryMappings && {
-      HomeDirectoryMappings: obj.HomeDirectoryMappings.map(item =>
-        item.map(HomeDirectoryMapEntry.filterSensitiveLog)
+      HomeDirectoryMappings: obj.HomeDirectoryMappings.map(
+        HomeDirectoryMapEntry.filterSensitiveLog
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateUserRequest =>
     __isa(o, "CreateUserRequest");
@@ -524,9 +520,7 @@ export namespace DescribedServer {
         obj.IdentityProviderDetails
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribedServer =>
     __isa(o, "DescribedServer");
@@ -616,18 +610,14 @@ export namespace DescribedUser {
   export const filterSensitiveLog = (obj: DescribedUser) => ({
     ...obj,
     ...(obj.HomeDirectoryMappings && {
-      HomeDirectoryMappings: obj.HomeDirectoryMappings.map(item =>
-        item.map(HomeDirectoryMapEntry.filterSensitiveLog)
+      HomeDirectoryMappings: obj.HomeDirectoryMappings.map(
+        HomeDirectoryMapEntry.filterSensitiveLog
       )
     }),
     ...(obj.SshPublicKeys && {
-      SshPublicKeys: obj.SshPublicKeys.map(item =>
-        item.map(SshPublicKey.filterSensitiveLog)
-      )
+      SshPublicKeys: obj.SshPublicKeys.map(SshPublicKey.filterSensitiveLog)
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribedUser => __isa(o, "DescribedUser");
 }
@@ -901,9 +891,7 @@ export namespace ListServersResponse {
   export const filterSensitiveLog = (obj: ListServersResponse) => ({
     ...obj,
     ...(obj.Servers && {
-      Servers: obj.Servers.map(item =>
-        item.map(ListedServer.filterSensitiveLog)
-      )
+      Servers: obj.Servers.map(ListedServer.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListServersResponse =>
@@ -965,9 +953,7 @@ export interface ListTagsForResourceResponse {
 export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -1030,9 +1016,7 @@ export interface ListUsersResponse {
 export namespace ListUsersResponse {
   export const filterSensitiveLog = (obj: ListUsersResponse) => ({
     ...obj,
-    ...(obj.Users && {
-      Users: obj.Users.map(item => item.map(ListedUser.filterSensitiveLog))
-    })
+    ...(obj.Users && { Users: obj.Users.map(ListedUser.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListUsersResponse =>
     __isa(o, "ListUsersResponse");
@@ -1321,9 +1305,7 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -1608,8 +1590,8 @@ export namespace UpdateUserRequest {
   export const filterSensitiveLog = (obj: UpdateUserRequest) => ({
     ...obj,
     ...(obj.HomeDirectoryMappings && {
-      HomeDirectoryMappings: obj.HomeDirectoryMappings.map(item =>
-        item.map(HomeDirectoryMapEntry.filterSensitiveLog)
+      HomeDirectoryMappings: obj.HomeDirectoryMappings.map(
+        HomeDirectoryMapEntry.filterSensitiveLog
       )
     })
   });

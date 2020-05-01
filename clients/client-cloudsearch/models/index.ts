@@ -861,8 +861,8 @@ export namespace DescribeAnalysisSchemesResponse {
   export const filterSensitiveLog = (obj: DescribeAnalysisSchemesResponse) => ({
     ...obj,
     ...(obj.AnalysisSchemes && {
-      AnalysisSchemes: obj.AnalysisSchemes.map(item =>
-        item.map(AnalysisSchemeStatus.filterSensitiveLog)
+      AnalysisSchemes: obj.AnalysisSchemes.map(
+        AnalysisSchemeStatus.filterSensitiveLog
       )
     })
   });
@@ -1008,8 +1008,8 @@ export namespace DescribeDomainsResponse {
   export const filterSensitiveLog = (obj: DescribeDomainsResponse) => ({
     ...obj,
     ...(obj.DomainStatusList && {
-      DomainStatusList: obj.DomainStatusList.map(item =>
-        item.map(DomainStatus.filterSensitiveLog)
+      DomainStatusList: obj.DomainStatusList.map(
+        DomainStatus.filterSensitiveLog
       )
     })
   });
@@ -1062,9 +1062,7 @@ export namespace DescribeExpressionsResponse {
   export const filterSensitiveLog = (obj: DescribeExpressionsResponse) => ({
     ...obj,
     ...(obj.Expressions && {
-      Expressions: obj.Expressions.map(item =>
-        item.map(ExpressionStatus.filterSensitiveLog)
-      )
+      Expressions: obj.Expressions.map(ExpressionStatus.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeExpressionsResponse =>
@@ -1115,9 +1113,7 @@ export namespace DescribeIndexFieldsResponse {
   export const filterSensitiveLog = (obj: DescribeIndexFieldsResponse) => ({
     ...obj,
     ...(obj.IndexFields && {
-      IndexFields: obj.IndexFields.map(item =>
-        item.map(IndexFieldStatus.filterSensitiveLog)
-      )
+      IndexFields: obj.IndexFields.map(IndexFieldStatus.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeIndexFieldsResponse =>
@@ -1267,9 +1263,7 @@ export namespace DescribeSuggestersResponse {
   export const filterSensitiveLog = (obj: DescribeSuggestersResponse) => ({
     ...obj,
     ...(obj.Suggesters && {
-      Suggesters: obj.Suggesters.map(item =>
-        item.map(SuggesterStatus.filterSensitiveLog)
-      )
+      Suggesters: obj.Suggesters.map(SuggesterStatus.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeSuggestersResponse =>

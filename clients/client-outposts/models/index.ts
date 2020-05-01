@@ -146,9 +146,7 @@ export namespace GetOutpostInstanceTypesOutput {
   export const filterSensitiveLog = (obj: GetOutpostInstanceTypesOutput) => ({
     ...obj,
     ...(obj.InstanceTypes && {
-      InstanceTypes: obj.InstanceTypes.map(item =>
-        item.map(InstanceTypeItem.filterSensitiveLog)
-      )
+      InstanceTypes: obj.InstanceTypes.map(InstanceTypeItem.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetOutpostInstanceTypesOutput =>
@@ -248,7 +246,7 @@ export namespace ListOutpostsOutput {
   export const filterSensitiveLog = (obj: ListOutpostsOutput) => ({
     ...obj,
     ...(obj.Outposts && {
-      Outposts: obj.Outposts.map(item => item.map(Outpost.filterSensitiveLog))
+      Outposts: obj.Outposts.map(Outpost.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListOutpostsOutput =>
@@ -292,9 +290,7 @@ export interface ListSitesOutput {
 export namespace ListSitesOutput {
   export const filterSensitiveLog = (obj: ListSitesOutput) => ({
     ...obj,
-    ...(obj.Sites && {
-      Sites: obj.Sites.map(item => item.map(Site.filterSensitiveLog))
-    })
+    ...(obj.Sites && { Sites: obj.Sites.map(Site.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListSitesOutput =>
     __isa(o, "ListSitesOutput");

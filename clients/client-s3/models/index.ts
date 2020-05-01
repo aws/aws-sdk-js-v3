@@ -118,9 +118,7 @@ export interface AccessControlPolicy {
 export namespace AccessControlPolicy {
   export const filterSensitiveLog = (obj: AccessControlPolicy) => ({
     ...obj,
-    ...(obj.Grants && {
-      Grants: obj.Grants.map(item => item.map(Grant.filterSensitiveLog))
-    }),
+    ...(obj.Grants && { Grants: obj.Grants.map(Grant.filterSensitiveLog) }),
     ...(obj.Owner && { Owner: Owner.filterSensitiveLog(obj.Owner) })
   });
   export const isa = (o: any): o is AccessControlPolicy =>
@@ -166,9 +164,7 @@ export interface AnalyticsAndOperator {
 export namespace AnalyticsAndOperator {
   export const filterSensitiveLog = (obj: AnalyticsAndOperator) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AnalyticsAndOperator =>
     __isa(o, "AnalyticsAndOperator");
@@ -392,9 +388,7 @@ export interface BucketLifecycleConfiguration {
 export namespace BucketLifecycleConfiguration {
   export const filterSensitiveLog = (obj: BucketLifecycleConfiguration) => ({
     ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => item.map(LifecycleRule.filterSensitiveLog))
-    })
+    ...(obj.Rules && { Rules: obj.Rules.map(LifecycleRule.filterSensitiveLog) })
   });
   export const isa = (o: any): o is BucketLifecycleConfiguration =>
     __isa(o, "BucketLifecycleConfiguration");
@@ -458,9 +452,7 @@ export namespace CORSConfiguration {
   export const filterSensitiveLog = (obj: CORSConfiguration) => ({
     ...obj,
     ...(obj.CORSRules && {
-      CORSRules: obj.CORSRules.map(item =>
-        item.map(CORSRule.filterSensitiveLog)
-      )
+      CORSRules: obj.CORSRules.map(CORSRule.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CORSConfiguration =>
@@ -775,9 +767,7 @@ export interface CompletedMultipartUpload {
 export namespace CompletedMultipartUpload {
   export const filterSensitiveLog = (obj: CompletedMultipartUpload) => ({
     ...obj,
-    ...(obj.Parts && {
-      Parts: obj.Parts.map(item => item.map(CompletedPart.filterSensitiveLog))
-    })
+    ...(obj.Parts && { Parts: obj.Parts.map(CompletedPart.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CompletedMultipartUpload =>
     __isa(o, "CompletedMultipartUpload");
@@ -1586,9 +1576,7 @@ export namespace Delete {
   export const filterSensitiveLog = (obj: Delete) => ({
     ...obj,
     ...(obj.Objects && {
-      Objects: obj.Objects.map(item =>
-        item.map(ObjectIdentifier.filterSensitiveLog)
-      )
+      Objects: obj.Objects.map(ObjectIdentifier.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Delete => __isa(o, "Delete");
@@ -2003,13 +1991,9 @@ export namespace DeleteObjectsOutput {
   export const filterSensitiveLog = (obj: DeleteObjectsOutput) => ({
     ...obj,
     ...(obj.Deleted && {
-      Deleted: obj.Deleted.map(item =>
-        item.map(DeletedObject.filterSensitiveLog)
-      )
+      Deleted: obj.Deleted.map(DeletedObject.filterSensitiveLog)
     }),
-    ...(obj.Errors && {
-      Errors: obj.Errors.map(item => item.map(_Error.filterSensitiveLog))
-    })
+    ...(obj.Errors && { Errors: obj.Errors.map(_Error.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DeleteObjectsOutput =>
     __isa(o, "DeleteObjectsOutput");
@@ -4257,9 +4241,7 @@ export interface GetBucketAclOutput {
 export namespace GetBucketAclOutput {
   export const filterSensitiveLog = (obj: GetBucketAclOutput) => ({
     ...obj,
-    ...(obj.Grants && {
-      Grants: obj.Grants.map(item => item.map(Grant.filterSensitiveLog))
-    }),
+    ...(obj.Grants && { Grants: obj.Grants.map(Grant.filterSensitiveLog) }),
     ...(obj.Owner && { Owner: Owner.filterSensitiveLog(obj.Owner) })
   });
   export const isa = (o: any): o is GetBucketAclOutput =>
@@ -4340,9 +4322,7 @@ export namespace GetBucketCorsOutput {
   export const filterSensitiveLog = (obj: GetBucketCorsOutput) => ({
     ...obj,
     ...(obj.CORSRules && {
-      CORSRules: obj.CORSRules.map(item =>
-        item.map(CORSRule.filterSensitiveLog)
-      )
+      CORSRules: obj.CORSRules.map(CORSRule.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetBucketCorsOutput =>
@@ -4461,9 +4441,7 @@ export namespace GetBucketLifecycleConfigurationOutput {
     obj: GetBucketLifecycleConfigurationOutput
   ) => ({
     ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => item.map(LifecycleRule.filterSensitiveLog))
-    })
+    ...(obj.Rules && { Rules: obj.Rules.map(LifecycleRule.filterSensitiveLog) })
   });
   export const isa = (o: any): o is GetBucketLifecycleConfigurationOutput =>
     __isa(o, "GetBucketLifecycleConfigurationOutput");
@@ -4770,9 +4748,7 @@ export interface GetBucketTaggingOutput {
 export namespace GetBucketTaggingOutput {
   export const filterSensitiveLog = (obj: GetBucketTaggingOutput) => ({
     ...obj,
-    ...(obj.TagSet && {
-      TagSet: obj.TagSet.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.TagSet && { TagSet: obj.TagSet.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is GetBucketTaggingOutput =>
     __isa(o, "GetBucketTaggingOutput");
@@ -4869,9 +4845,7 @@ export namespace GetBucketWebsiteOutput {
       )
     }),
     ...(obj.RoutingRules && {
-      RoutingRules: obj.RoutingRules.map(item =>
-        item.map(RoutingRule.filterSensitiveLog)
-      )
+      RoutingRules: obj.RoutingRules.map(RoutingRule.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetBucketWebsiteOutput =>
@@ -4916,9 +4890,7 @@ export interface GetObjectAclOutput {
 export namespace GetObjectAclOutput {
   export const filterSensitiveLog = (obj: GetObjectAclOutput) => ({
     ...obj,
-    ...(obj.Grants && {
-      Grants: obj.Grants.map(item => item.map(Grant.filterSensitiveLog))
-    }),
+    ...(obj.Grants && { Grants: obj.Grants.map(Grant.filterSensitiveLog) }),
     ...(obj.Owner && { Owner: Owner.filterSensitiveLog(obj.Owner) })
   });
   export const isa = (o: any): o is GetObjectAclOutput =>
@@ -5421,9 +5393,7 @@ export interface GetObjectTaggingOutput {
 export namespace GetObjectTaggingOutput {
   export const filterSensitiveLog = (obj: GetObjectTaggingOutput) => ({
     ...obj,
-    ...(obj.TagSet && {
-      TagSet: obj.TagSet.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.TagSet && { TagSet: obj.TagSet.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is GetObjectTaggingOutput =>
     __isa(o, "GetObjectTaggingOutput");
@@ -6419,14 +6389,12 @@ export namespace LifecycleRule {
       )
     }),
     ...(obj.NoncurrentVersionTransitions && {
-      NoncurrentVersionTransitions: obj.NoncurrentVersionTransitions.map(item =>
-        item.map(NoncurrentVersionTransition.filterSensitiveLog)
+      NoncurrentVersionTransitions: obj.NoncurrentVersionTransitions.map(
+        NoncurrentVersionTransition.filterSensitiveLog
       )
     }),
     ...(obj.Transitions && {
-      Transitions: obj.Transitions.map(item =>
-        item.map(Transition.filterSensitiveLog)
-      )
+      Transitions: obj.Transitions.map(Transition.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is LifecycleRule => __isa(o, "LifecycleRule");
@@ -6451,9 +6419,7 @@ export interface LifecycleRuleAndOperator {
 export namespace LifecycleRuleAndOperator {
   export const filterSensitiveLog = (obj: LifecycleRuleAndOperator) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is LifecycleRuleAndOperator =>
     __isa(o, "LifecycleRuleAndOperator");
@@ -6527,8 +6493,8 @@ export namespace ListBucketAnalyticsConfigurationsOutput {
   ) => ({
     ...obj,
     ...(obj.AnalyticsConfigurationList && {
-      AnalyticsConfigurationList: obj.AnalyticsConfigurationList.map(item =>
-        item.map(AnalyticsConfiguration.filterSensitiveLog)
+      AnalyticsConfigurationList: obj.AnalyticsConfigurationList.map(
+        AnalyticsConfiguration.filterSensitiveLog
       )
     })
   });
@@ -6591,8 +6557,8 @@ export namespace ListBucketInventoryConfigurationsOutput {
   ) => ({
     ...obj,
     ...(obj.InventoryConfigurationList && {
-      InventoryConfigurationList: obj.InventoryConfigurationList.map(item =>
-        item.map(InventoryConfiguration.filterSensitiveLog)
+      InventoryConfigurationList: obj.InventoryConfigurationList.map(
+        InventoryConfiguration.filterSensitiveLog
       )
     })
   });
@@ -6654,8 +6620,8 @@ export namespace ListBucketMetricsConfigurationsOutput {
   ) => ({
     ...obj,
     ...(obj.MetricsConfigurationList && {
-      MetricsConfigurationList: obj.MetricsConfigurationList.map(item =>
-        item.map(MetricsConfiguration.filterSensitiveLog)
+      MetricsConfigurationList: obj.MetricsConfigurationList.map(
+        MetricsConfiguration.filterSensitiveLog
       )
     })
   });
@@ -6702,9 +6668,7 @@ export interface ListBucketsOutput {
 export namespace ListBucketsOutput {
   export const filterSensitiveLog = (obj: ListBucketsOutput) => ({
     ...obj,
-    ...(obj.Buckets && {
-      Buckets: obj.Buckets.map(item => item.map(Bucket.filterSensitiveLog))
-    }),
+    ...(obj.Buckets && { Buckets: obj.Buckets.map(Bucket.filterSensitiveLog) }),
     ...(obj.Owner && { Owner: Owner.filterSensitiveLog(obj.Owner) })
   });
   export const isa = (o: any): o is ListBucketsOutput =>
@@ -6786,14 +6750,10 @@ export namespace ListMultipartUploadsOutput {
   export const filterSensitiveLog = (obj: ListMultipartUploadsOutput) => ({
     ...obj,
     ...(obj.CommonPrefixes && {
-      CommonPrefixes: obj.CommonPrefixes.map(item =>
-        item.map(CommonPrefix.filterSensitiveLog)
-      )
+      CommonPrefixes: obj.CommonPrefixes.map(CommonPrefix.filterSensitiveLog)
     }),
     ...(obj.Uploads && {
-      Uploads: obj.Uploads.map(item =>
-        item.map(MultipartUpload.filterSensitiveLog)
-      )
+      Uploads: obj.Uploads.map(MultipartUpload.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListMultipartUploadsOutput =>
@@ -6946,19 +6906,13 @@ export namespace ListObjectVersionsOutput {
   export const filterSensitiveLog = (obj: ListObjectVersionsOutput) => ({
     ...obj,
     ...(obj.CommonPrefixes && {
-      CommonPrefixes: obj.CommonPrefixes.map(item =>
-        item.map(CommonPrefix.filterSensitiveLog)
-      )
+      CommonPrefixes: obj.CommonPrefixes.map(CommonPrefix.filterSensitiveLog)
     }),
     ...(obj.DeleteMarkers && {
-      DeleteMarkers: obj.DeleteMarkers.map(item =>
-        item.map(DeleteMarkerEntry.filterSensitiveLog)
-      )
+      DeleteMarkers: obj.DeleteMarkers.map(DeleteMarkerEntry.filterSensitiveLog)
     }),
     ...(obj.Versions && {
-      Versions: obj.Versions.map(item =>
-        item.map(ObjectVersion.filterSensitiveLog)
-      )
+      Versions: obj.Versions.map(ObjectVersion.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListObjectVersionsOutput =>
@@ -7082,12 +7036,10 @@ export namespace ListObjectsOutput {
   export const filterSensitiveLog = (obj: ListObjectsOutput) => ({
     ...obj,
     ...(obj.CommonPrefixes && {
-      CommonPrefixes: obj.CommonPrefixes.map(item =>
-        item.map(CommonPrefix.filterSensitiveLog)
-      )
+      CommonPrefixes: obj.CommonPrefixes.map(CommonPrefix.filterSensitiveLog)
     }),
     ...(obj.Contents && {
-      Contents: obj.Contents.map(item => item.map(_Object.filterSensitiveLog))
+      Contents: obj.Contents.map(_Object.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListObjectsOutput =>
@@ -7232,12 +7184,10 @@ export namespace ListObjectsV2Output {
   export const filterSensitiveLog = (obj: ListObjectsV2Output) => ({
     ...obj,
     ...(obj.CommonPrefixes && {
-      CommonPrefixes: obj.CommonPrefixes.map(item =>
-        item.map(CommonPrefix.filterSensitiveLog)
-      )
+      CommonPrefixes: obj.CommonPrefixes.map(CommonPrefix.filterSensitiveLog)
     }),
     ...(obj.Contents && {
-      Contents: obj.Contents.map(item => item.map(_Object.filterSensitiveLog))
+      Contents: obj.Contents.map(_Object.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListObjectsV2Output =>
@@ -7393,9 +7343,7 @@ export namespace ListPartsOutput {
       Initiator: Initiator.filterSensitiveLog(obj.Initiator)
     }),
     ...(obj.Owner && { Owner: Owner.filterSensitiveLog(obj.Owner) }),
-    ...(obj.Parts && {
-      Parts: obj.Parts.map(item => item.map(Part.filterSensitiveLog))
-    })
+    ...(obj.Parts && { Parts: obj.Parts.map(Part.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListPartsOutput =>
     __isa(o, "ListPartsOutput");
@@ -7479,9 +7427,7 @@ export namespace LoggingEnabled {
   export const filterSensitiveLog = (obj: LoggingEnabled) => ({
     ...obj,
     ...(obj.TargetGrants && {
-      TargetGrants: obj.TargetGrants.map(item =>
-        item.map(TargetGrant.filterSensitiveLog)
-      )
+      TargetGrants: obj.TargetGrants.map(TargetGrant.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is LoggingEnabled =>
@@ -7572,9 +7518,7 @@ export interface MetricsAndOperator {
 export namespace MetricsAndOperator {
   export const filterSensitiveLog = (obj: MetricsAndOperator) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is MetricsAndOperator =>
     __isa(o, "MetricsAndOperator");
@@ -7811,18 +7755,18 @@ export namespace NotificationConfiguration {
   export const filterSensitiveLog = (obj: NotificationConfiguration) => ({
     ...obj,
     ...(obj.LambdaFunctionConfigurations && {
-      LambdaFunctionConfigurations: obj.LambdaFunctionConfigurations.map(item =>
-        item.map(LambdaFunctionConfiguration.filterSensitiveLog)
+      LambdaFunctionConfigurations: obj.LambdaFunctionConfigurations.map(
+        LambdaFunctionConfiguration.filterSensitiveLog
       )
     }),
     ...(obj.QueueConfigurations && {
-      QueueConfigurations: obj.QueueConfigurations.map(item =>
-        item.map(QueueConfiguration.filterSensitiveLog)
+      QueueConfigurations: obj.QueueConfigurations.map(
+        QueueConfiguration.filterSensitiveLog
       )
     }),
     ...(obj.TopicConfigurations && {
-      TopicConfigurations: obj.TopicConfigurations.map(item =>
-        item.map(TopicConfiguration.filterSensitiveLog)
+      TopicConfigurations: obj.TopicConfigurations.map(
+        TopicConfiguration.filterSensitiveLog
       )
     })
   });
@@ -9734,7 +9678,7 @@ export namespace ReplicationConfiguration {
   export const filterSensitiveLog = (obj: ReplicationConfiguration) => ({
     ...obj,
     ...(obj.Rules && {
-      Rules: obj.Rules.map(item => item.map(ReplicationRule.filterSensitiveLog))
+      Rules: obj.Rules.map(ReplicationRule.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ReplicationConfiguration =>
@@ -9882,9 +9826,7 @@ export interface ReplicationRuleAndOperator {
 export namespace ReplicationRuleAndOperator {
   export const filterSensitiveLog = (obj: ReplicationRuleAndOperator) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ReplicationRuleAndOperator =>
     __isa(o, "ReplicationRuleAndOperator");
@@ -10220,9 +10162,7 @@ export namespace S3KeyFilter {
   export const filterSensitiveLog = (obj: S3KeyFilter) => ({
     ...obj,
     ...(obj.FilterRules && {
-      FilterRules: obj.FilterRules.map(item =>
-        item.map(FilterRule.filterSensitiveLog)
-      )
+      FilterRules: obj.FilterRules.map(FilterRule.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is S3KeyFilter => __isa(o, "S3KeyFilter");
@@ -10278,18 +10218,14 @@ export namespace S3Location {
   export const filterSensitiveLog = (obj: S3Location) => ({
     ...obj,
     ...(obj.AccessControlList && {
-      AccessControlList: obj.AccessControlList.map(item =>
-        item.map(Grant.filterSensitiveLog)
-      )
+      AccessControlList: obj.AccessControlList.map(Grant.filterSensitiveLog)
     }),
     ...(obj.Encryption && {
       Encryption: Encryption.filterSensitiveLog(obj.Encryption)
     }),
     ...(obj.Tagging && { Tagging: Tagging.filterSensitiveLog(obj.Tagging) }),
     ...(obj.UserMetadata && {
-      UserMetadata: obj.UserMetadata.map(item =>
-        item.map(MetadataEntry.filterSensitiveLog)
-      )
+      UserMetadata: obj.UserMetadata.map(MetadataEntry.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
@@ -10671,9 +10607,7 @@ export namespace ServerSideEncryptionConfiguration {
   ) => ({
     ...obj,
     ...(obj.Rules && {
-      Rules: obj.Rules.map(item =>
-        item.map(ServerSideEncryptionRule.filterSensitiveLog)
-      )
+      Rules: obj.Rules.map(ServerSideEncryptionRule.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ServerSideEncryptionConfiguration =>
@@ -10903,9 +10837,7 @@ export interface Tagging {
 export namespace Tagging {
   export const filterSensitiveLog = (obj: Tagging) => ({
     ...obj,
-    ...(obj.TagSet && {
-      TagSet: obj.TagSet.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.TagSet && { TagSet: obj.TagSet.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is Tagging => __isa(o, "Tagging");
 }
@@ -11381,9 +11313,7 @@ export namespace WebsiteConfiguration {
       )
     }),
     ...(obj.RoutingRules && {
-      RoutingRules: obj.RoutingRules.map(item =>
-        item.map(RoutingRule.filterSensitiveLog)
-      )
+      RoutingRules: obj.RoutingRules.map(RoutingRule.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is WebsiteConfiguration =>

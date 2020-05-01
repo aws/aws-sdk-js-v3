@@ -150,7 +150,7 @@ export namespace ListAccountRolesResponse {
   export const filterSensitiveLog = (obj: ListAccountRolesResponse) => ({
     ...obj,
     ...(obj.roleList && {
-      roleList: obj.roleList.map(item => item.map(RoleInfo.filterSensitiveLog))
+      roleList: obj.roleList.map(RoleInfo.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListAccountRolesResponse =>
@@ -202,9 +202,7 @@ export namespace ListAccountsResponse {
   export const filterSensitiveLog = (obj: ListAccountsResponse) => ({
     ...obj,
     ...(obj.accountList && {
-      accountList: obj.accountList.map(item =>
-        item.map(AccountInfo.filterSensitiveLog)
-      )
+      accountList: obj.accountList.map(AccountInfo.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListAccountsResponse =>

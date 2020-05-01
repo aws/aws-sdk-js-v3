@@ -145,13 +145,13 @@ export namespace AutoScalingGroupRecommendation {
       )
     }),
     ...(obj.recommendationOptions && {
-      recommendationOptions: obj.recommendationOptions.map(item =>
-        item.map(AutoScalingGroupRecommendationOption.filterSensitiveLog)
+      recommendationOptions: obj.recommendationOptions.map(
+        AutoScalingGroupRecommendationOption.filterSensitiveLog
       )
     }),
     ...(obj.utilizationMetrics && {
-      utilizationMetrics: obj.utilizationMetrics.map(item =>
-        item.map(UtilizationMetric.filterSensitiveLog)
+      utilizationMetrics: obj.utilizationMetrics.map(
+        UtilizationMetric.filterSensitiveLog
       )
     })
   });
@@ -202,8 +202,8 @@ export namespace AutoScalingGroupRecommendationOption {
       )
     }),
     ...(obj.projectedUtilizationMetrics && {
-      projectedUtilizationMetrics: obj.projectedUtilizationMetrics.map(item =>
-        item.map(UtilizationMetric.filterSensitiveLog)
+      projectedUtilizationMetrics: obj.projectedUtilizationMetrics.map(
+        UtilizationMetric.filterSensitiveLog
       )
     })
   });
@@ -298,9 +298,7 @@ export namespace GetAutoScalingGroupRecommendationsRequest {
     obj: GetAutoScalingGroupRecommendationsRequest
   ) => ({
     ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.filters && { filters: obj.filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is GetAutoScalingGroupRecommendationsRequest =>
     __isa(o, "GetAutoScalingGroupRecommendationsRequest");
@@ -335,13 +333,11 @@ export namespace GetAutoScalingGroupRecommendationsResponse {
     ...obj,
     ...(obj.autoScalingGroupRecommendations && {
       autoScalingGroupRecommendations: obj.autoScalingGroupRecommendations.map(
-        item => item.map(AutoScalingGroupRecommendation.filterSensitiveLog)
+        AutoScalingGroupRecommendation.filterSensitiveLog
       )
     }),
     ...(obj.errors && {
-      errors: obj.errors.map(item =>
-        item.map(GetRecommendationError.filterSensitiveLog)
-      )
+      errors: obj.errors.map(GetRecommendationError.filterSensitiveLog)
     })
   });
   export const isa = (
@@ -388,9 +384,7 @@ export namespace GetEC2InstanceRecommendationsRequest {
     obj: GetEC2InstanceRecommendationsRequest
   ) => ({
     ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.filters && { filters: obj.filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is GetEC2InstanceRecommendationsRequest =>
     __isa(o, "GetEC2InstanceRecommendationsRequest");
@@ -424,13 +418,11 @@ export namespace GetEC2InstanceRecommendationsResponse {
   ) => ({
     ...obj,
     ...(obj.errors && {
-      errors: obj.errors.map(item =>
-        item.map(GetRecommendationError.filterSensitiveLog)
-      )
+      errors: obj.errors.map(GetRecommendationError.filterSensitiveLog)
     }),
     ...(obj.instanceRecommendations && {
-      instanceRecommendations: obj.instanceRecommendations.map(item =>
-        item.map(InstanceRecommendation.filterSensitiveLog)
+      instanceRecommendations: obj.instanceRecommendations.map(
+        InstanceRecommendation.filterSensitiveLog
       )
     })
   });
@@ -494,7 +486,7 @@ export namespace GetEC2RecommendationProjectedMetricsResponse {
     ...obj,
     ...(obj.recommendedOptionProjectedMetrics && {
       recommendedOptionProjectedMetrics: obj.recommendedOptionProjectedMetrics.map(
-        item => item.map(RecommendedOptionProjectedMetric.filterSensitiveLog)
+        RecommendedOptionProjectedMetric.filterSensitiveLog
       )
     })
   });
@@ -629,8 +621,8 @@ export namespace GetRecommendationSummariesResponse {
   ) => ({
     ...obj,
     ...(obj.recommendationSummaries && {
-      recommendationSummaries: obj.recommendationSummaries.map(item =>
-        item.map(RecommendationSummary.filterSensitiveLog)
+      recommendationSummaries: obj.recommendationSummaries.map(
+        RecommendationSummary.filterSensitiveLog
       )
     })
   });
@@ -738,18 +730,18 @@ export namespace InstanceRecommendation {
   export const filterSensitiveLog = (obj: InstanceRecommendation) => ({
     ...obj,
     ...(obj.recommendationOptions && {
-      recommendationOptions: obj.recommendationOptions.map(item =>
-        item.map(InstanceRecommendationOption.filterSensitiveLog)
+      recommendationOptions: obj.recommendationOptions.map(
+        InstanceRecommendationOption.filterSensitiveLog
       )
     }),
     ...(obj.recommendationSources && {
-      recommendationSources: obj.recommendationSources.map(item =>
-        item.map(RecommendationSource.filterSensitiveLog)
+      recommendationSources: obj.recommendationSources.map(
+        RecommendationSource.filterSensitiveLog
       )
     }),
     ...(obj.utilizationMetrics && {
-      utilizationMetrics: obj.utilizationMetrics.map(item =>
-        item.map(UtilizationMetric.filterSensitiveLog)
+      utilizationMetrics: obj.utilizationMetrics.map(
+        UtilizationMetric.filterSensitiveLog
       )
     })
   });
@@ -793,8 +785,8 @@ export namespace InstanceRecommendationOption {
   export const filterSensitiveLog = (obj: InstanceRecommendationOption) => ({
     ...obj,
     ...(obj.projectedUtilizationMetrics && {
-      projectedUtilizationMetrics: obj.projectedUtilizationMetrics.map(item =>
-        item.map(UtilizationMetric.filterSensitiveLog)
+      projectedUtilizationMetrics: obj.projectedUtilizationMetrics.map(
+        UtilizationMetric.filterSensitiveLog
       )
     })
   });
@@ -979,7 +971,7 @@ export namespace RecommendationSummary {
   export const filterSensitiveLog = (obj: RecommendationSummary) => ({
     ...obj,
     ...(obj.summaries && {
-      summaries: obj.summaries.map(item => item.map(Summary.filterSensitiveLog))
+      summaries: obj.summaries.map(Summary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is RecommendationSummary =>
@@ -1017,8 +1009,8 @@ export namespace RecommendedOptionProjectedMetric {
   ) => ({
     ...obj,
     ...(obj.projectedMetrics && {
-      projectedMetrics: obj.projectedMetrics.map(item =>
-        item.map(ProjectedMetric.filterSensitiveLog)
+      projectedMetrics: obj.projectedMetrics.map(
+        ProjectedMetric.filterSensitiveLog
       )
     })
   });

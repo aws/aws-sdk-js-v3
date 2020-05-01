@@ -50,9 +50,7 @@ export interface AddTagsRequest {
 export namespace AddTagsRequest {
   export const filterSensitiveLog = (obj: AddTagsRequest) => ({
     ...obj,
-    ...(obj.TagList && {
-      TagList: obj.TagList.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AddTagsRequest =>
     __isa(o, "AddTagsRequest");
@@ -622,8 +620,8 @@ export namespace DescribeElasticsearchDomainsResponse {
   ) => ({
     ...obj,
     ...(obj.DomainStatusList && {
-      DomainStatusList: obj.DomainStatusList.map(item =>
-        item.map(ElasticsearchDomainStatus.filterSensitiveLog)
+      DomainStatusList: obj.DomainStatusList.map(
+        ElasticsearchDomainStatus.filterSensitiveLog
       )
     })
   });
@@ -785,8 +783,7 @@ export namespace DescribeReservedElasticsearchInstanceOfferingsResponse {
     ...obj,
     ...(obj.ReservedElasticsearchInstanceOfferings && {
       ReservedElasticsearchInstanceOfferings: obj.ReservedElasticsearchInstanceOfferings.map(
-        item =>
-          item.map(ReservedElasticsearchInstanceOffering.filterSensitiveLog)
+        ReservedElasticsearchInstanceOffering.filterSensitiveLog
       )
     })
   });
@@ -853,7 +850,7 @@ export namespace DescribeReservedElasticsearchInstancesResponse {
     ...obj,
     ...(obj.ReservedElasticsearchInstances && {
       ReservedElasticsearchInstances: obj.ReservedElasticsearchInstances.map(
-        item => item.map(ReservedElasticsearchInstance.filterSensitiveLog)
+        ReservedElasticsearchInstance.filterSensitiveLog
       )
     })
   });
@@ -1579,7 +1576,7 @@ export namespace GetCompatibleElasticsearchVersionsResponse {
     ...obj,
     ...(obj.CompatibleElasticsearchVersions && {
       CompatibleElasticsearchVersions: obj.CompatibleElasticsearchVersions.map(
-        item => item.map(CompatibleVersionsMap.filterSensitiveLog)
+        CompatibleVersionsMap.filterSensitiveLog
       )
     })
   });
@@ -1665,8 +1662,8 @@ export namespace GetUpgradeHistoryResponse {
   export const filterSensitiveLog = (obj: GetUpgradeHistoryResponse) => ({
     ...obj,
     ...(obj.UpgradeHistories && {
-      UpgradeHistories: obj.UpgradeHistories.map(item =>
-        item.map(UpgradeHistory.filterSensitiveLog)
+      UpgradeHistories: obj.UpgradeHistories.map(
+        UpgradeHistory.filterSensitiveLog
       )
     })
   });
@@ -1860,17 +1857,15 @@ export namespace Limits {
   export const filterSensitiveLog = (obj: Limits) => ({
     ...obj,
     ...(obj.AdditionalLimits && {
-      AdditionalLimits: obj.AdditionalLimits.map(item =>
-        item.map(AdditionalLimit.filterSensitiveLog)
+      AdditionalLimits: obj.AdditionalLimits.map(
+        AdditionalLimit.filterSensitiveLog
       )
     }),
     ...(obj.InstanceLimits && {
       InstanceLimits: InstanceLimits.filterSensitiveLog(obj.InstanceLimits)
     }),
     ...(obj.StorageTypes && {
-      StorageTypes: obj.StorageTypes.map(item =>
-        item.map(StorageType.filterSensitiveLog)
-      )
+      StorageTypes: obj.StorageTypes.map(StorageType.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Limits => __isa(o, "Limits");
@@ -1891,9 +1886,7 @@ export namespace ListDomainNamesResponse {
   export const filterSensitiveLog = (obj: ListDomainNamesResponse) => ({
     ...obj,
     ...(obj.DomainNames && {
-      DomainNames: obj.DomainNames.map(item =>
-        item.map(DomainInfo.filterSensitiveLog)
-      )
+      DomainNames: obj.DomainNames.map(DomainInfo.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListDomainNamesResponse =>
@@ -2115,9 +2108,7 @@ export interface ListTagsResponse {
 export namespace ListTagsResponse {
   export const filterSensitiveLog = (obj: ListTagsResponse) => ({
     ...obj,
-    ...(obj.TagList && {
-      TagList: obj.TagList.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsResponse =>
     __isa(o, "ListTagsResponse");
@@ -2456,8 +2447,8 @@ export namespace ReservedElasticsearchInstance {
   export const filterSensitiveLog = (obj: ReservedElasticsearchInstance) => ({
     ...obj,
     ...(obj.RecurringCharges && {
-      RecurringCharges: obj.RecurringCharges.map(item =>
-        item.map(RecurringCharge.filterSensitiveLog)
+      RecurringCharges: obj.RecurringCharges.map(
+        RecurringCharge.filterSensitiveLog
       )
     })
   });
@@ -2517,8 +2508,8 @@ export namespace ReservedElasticsearchInstanceOffering {
   ) => ({
     ...obj,
     ...(obj.RecurringCharges && {
-      RecurringCharges: obj.RecurringCharges.map(item =>
-        item.map(RecurringCharge.filterSensitiveLog)
+      RecurringCharges: obj.RecurringCharges.map(
+        RecurringCharge.filterSensitiveLog
       )
     })
   });
@@ -2724,8 +2715,8 @@ export namespace StorageType {
   export const filterSensitiveLog = (obj: StorageType) => ({
     ...obj,
     ...(obj.StorageTypeLimits && {
-      StorageTypeLimits: obj.StorageTypeLimits.map(item =>
-        item.map(StorageTypeLimit.filterSensitiveLog)
+      StorageTypeLimits: obj.StorageTypeLimits.map(
+        StorageTypeLimit.filterSensitiveLog
       )
     })
   });
@@ -3048,9 +3039,7 @@ export namespace UpgradeHistory {
   export const filterSensitiveLog = (obj: UpgradeHistory) => ({
     ...obj,
     ...(obj.StepsList && {
-      StepsList: obj.StepsList.map(item =>
-        item.map(UpgradeStepItem.filterSensitiveLog)
-      )
+      StepsList: obj.StepsList.map(UpgradeStepItem.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpgradeHistory =>

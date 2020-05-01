@@ -108,9 +108,7 @@ export namespace CustomizedMetricSpecification {
   export const filterSensitiveLog = (obj: CustomizedMetricSpecification) => ({
     ...obj,
     ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item =>
-        item.map(MetricDimension.filterSensitiveLog)
-      )
+      Dimensions: obj.Dimensions.map(MetricDimension.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CustomizedMetricSpecification =>
@@ -717,8 +715,8 @@ export namespace DescribeScalableTargetsResponse {
   export const filterSensitiveLog = (obj: DescribeScalableTargetsResponse) => ({
     ...obj,
     ...(obj.ScalableTargets && {
-      ScalableTargets: obj.ScalableTargets.map(item =>
-        item.map(ScalableTarget.filterSensitiveLog)
+      ScalableTargets: obj.ScalableTargets.map(
+        ScalableTarget.filterSensitiveLog
       )
     })
   });
@@ -894,8 +892,8 @@ export namespace DescribeScalingActivitiesResponse {
   ) => ({
     ...obj,
     ...(obj.ScalingActivities && {
-      ScalingActivities: obj.ScalingActivities.map(item =>
-        item.map(ScalingActivity.filterSensitiveLog)
+      ScalingActivities: obj.ScalingActivities.map(
+        ScalingActivity.filterSensitiveLog
       )
     })
   });
@@ -1072,9 +1070,7 @@ export namespace DescribeScalingPoliciesResponse {
   export const filterSensitiveLog = (obj: DescribeScalingPoliciesResponse) => ({
     ...obj,
     ...(obj.ScalingPolicies && {
-      ScalingPolicies: obj.ScalingPolicies.map(item =>
-        item.map(ScalingPolicy.filterSensitiveLog)
-      )
+      ScalingPolicies: obj.ScalingPolicies.map(ScalingPolicy.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeScalingPoliciesResponse =>
@@ -1252,8 +1248,8 @@ export namespace DescribeScheduledActionsResponse {
   ) => ({
     ...obj,
     ...(obj.ScheduledActions && {
-      ScheduledActions: obj.ScheduledActions.map(item =>
-        item.map(ScheduledAction.filterSensitiveLog)
+      ScheduledActions: obj.ScheduledActions.map(
+        ScheduledAction.filterSensitiveLog
       )
     })
   });
@@ -1651,9 +1647,7 @@ export interface PutScalingPolicyResponse {
 export namespace PutScalingPolicyResponse {
   export const filterSensitiveLog = (obj: PutScalingPolicyResponse) => ({
     ...obj,
-    ...(obj.Alarms && {
-      Alarms: obj.Alarms.map(item => item.map(Alarm.filterSensitiveLog))
-    })
+    ...(obj.Alarms && { Alarms: obj.Alarms.map(Alarm.filterSensitiveLog) })
   });
   export const isa = (o: any): o is PutScalingPolicyResponse =>
     __isa(o, "PutScalingPolicyResponse");
@@ -2589,9 +2583,7 @@ export interface ScalingPolicy {
 export namespace ScalingPolicy {
   export const filterSensitiveLog = (obj: ScalingPolicy) => ({
     ...obj,
-    ...(obj.Alarms && {
-      Alarms: obj.Alarms.map(item => item.map(Alarm.filterSensitiveLog))
-    }),
+    ...(obj.Alarms && { Alarms: obj.Alarms.map(Alarm.filterSensitiveLog) }),
     ...(obj.StepScalingPolicyConfiguration && {
       StepScalingPolicyConfiguration: StepScalingPolicyConfiguration.filterSensitiveLog(
         obj.StepScalingPolicyConfiguration
@@ -2944,8 +2936,8 @@ export namespace StepScalingPolicyConfiguration {
   export const filterSensitiveLog = (obj: StepScalingPolicyConfiguration) => ({
     ...obj,
     ...(obj.StepAdjustments && {
-      StepAdjustments: obj.StepAdjustments.map(item =>
-        item.map(StepAdjustment.filterSensitiveLog)
+      StepAdjustments: obj.StepAdjustments.map(
+        StepAdjustment.filterSensitiveLog
       )
     })
   });

@@ -407,9 +407,7 @@ export namespace CurrentMetricResult {
   export const filterSensitiveLog = (obj: CurrentMetricResult) => ({
     ...obj,
     ...(obj.Collections && {
-      Collections: obj.Collections.map(item =>
-        item.map(CurrentMetricData.filterSensitiveLog)
-      )
+      Collections: obj.Collections.map(CurrentMetricData.filterSensitiveLog)
     }),
     ...(obj.Dimensions && {
       Dimensions: Dimensions.filterSensitiveLog(obj.Dimensions)
@@ -584,9 +582,7 @@ export namespace HistoricalMetricResult {
   export const filterSensitiveLog = (obj: HistoricalMetricResult) => ({
     ...obj,
     ...(obj.Collections && {
-      Collections: obj.Collections.map(item =>
-        item.map(HistoricalMetricData.filterSensitiveLog)
-      )
+      Collections: obj.Collections.map(HistoricalMetricData.filterSensitiveLog)
     }),
     ...(obj.Dimensions && {
       Dimensions: Dimensions.filterSensitiveLog(obj.Dimensions)
@@ -1169,9 +1165,7 @@ export namespace GetCurrentMetricDataRequest {
   export const filterSensitiveLog = (obj: GetCurrentMetricDataRequest) => ({
     ...obj,
     ...(obj.CurrentMetrics && {
-      CurrentMetrics: obj.CurrentMetrics.map(item =>
-        item.map(CurrentMetric.filterSensitiveLog)
-      )
+      CurrentMetrics: obj.CurrentMetrics.map(CurrentMetric.filterSensitiveLog)
     }),
     ...(obj.Filters && { Filters: Filters.filterSensitiveLog(obj.Filters) })
   });
@@ -1203,8 +1197,8 @@ export namespace GetCurrentMetricDataResponse {
   export const filterSensitiveLog = (obj: GetCurrentMetricDataResponse) => ({
     ...obj,
     ...(obj.MetricResults && {
-      MetricResults: obj.MetricResults.map(item =>
-        item.map(CurrentMetricResult.filterSensitiveLog)
+      MetricResults: obj.MetricResults.map(
+        CurrentMetricResult.filterSensitiveLog
       )
     })
   });
@@ -1440,8 +1434,8 @@ export namespace GetMetricDataRequest {
     ...obj,
     ...(obj.Filters && { Filters: Filters.filterSensitiveLog(obj.Filters) }),
     ...(obj.HistoricalMetrics && {
-      HistoricalMetrics: obj.HistoricalMetrics.map(item =>
-        item.map(HistoricalMetric.filterSensitiveLog)
+      HistoricalMetrics: obj.HistoricalMetrics.map(
+        HistoricalMetric.filterSensitiveLog
       )
     })
   });
@@ -1469,8 +1463,8 @@ export namespace GetMetricDataResponse {
   export const filterSensitiveLog = (obj: GetMetricDataResponse) => ({
     ...obj,
     ...(obj.MetricResults && {
-      MetricResults: obj.MetricResults.map(item =>
-        item.map(HistoricalMetricResult.filterSensitiveLog)
+      MetricResults: obj.MetricResults.map(
+        HistoricalMetricResult.filterSensitiveLog
       )
     })
   });
@@ -1851,8 +1845,8 @@ export namespace ListContactFlowsResponse {
   export const filterSensitiveLog = (obj: ListContactFlowsResponse) => ({
     ...obj,
     ...(obj.ContactFlowSummaryList && {
-      ContactFlowSummaryList: obj.ContactFlowSummaryList.map(item =>
-        item.map(ContactFlowSummary.filterSensitiveLog)
+      ContactFlowSummaryList: obj.ContactFlowSummaryList.map(
+        ContactFlowSummary.filterSensitiveLog
       )
     })
   });
@@ -1904,8 +1898,8 @@ export namespace ListHoursOfOperationsResponse {
   export const filterSensitiveLog = (obj: ListHoursOfOperationsResponse) => ({
     ...obj,
     ...(obj.HoursOfOperationSummaryList && {
-      HoursOfOperationSummaryList: obj.HoursOfOperationSummaryList.map(item =>
-        item.map(HoursOfOperationSummary.filterSensitiveLog)
+      HoursOfOperationSummaryList: obj.HoursOfOperationSummaryList.map(
+        HoursOfOperationSummary.filterSensitiveLog
       )
     })
   });
@@ -1967,8 +1961,8 @@ export namespace ListPhoneNumbersResponse {
   export const filterSensitiveLog = (obj: ListPhoneNumbersResponse) => ({
     ...obj,
     ...(obj.PhoneNumberSummaryList && {
-      PhoneNumberSummaryList: obj.PhoneNumberSummaryList.map(item =>
-        item.map(PhoneNumberSummary.filterSensitiveLog)
+      PhoneNumberSummaryList: obj.PhoneNumberSummaryList.map(
+        PhoneNumberSummary.filterSensitiveLog
       )
     })
   });
@@ -2025,8 +2019,8 @@ export namespace ListQueuesResponse {
   export const filterSensitiveLog = (obj: ListQueuesResponse) => ({
     ...obj,
     ...(obj.QueueSummaryList && {
-      QueueSummaryList: obj.QueueSummaryList.map(item =>
-        item.map(QueueSummary.filterSensitiveLog)
+      QueueSummaryList: obj.QueueSummaryList.map(
+        QueueSummary.filterSensitiveLog
       )
     })
   });
@@ -2078,8 +2072,8 @@ export namespace ListRoutingProfilesResponse {
   export const filterSensitiveLog = (obj: ListRoutingProfilesResponse) => ({
     ...obj,
     ...(obj.RoutingProfileSummaryList && {
-      RoutingProfileSummaryList: obj.RoutingProfileSummaryList.map(item =>
-        item.map(RoutingProfileSummary.filterSensitiveLog)
+      RoutingProfileSummaryList: obj.RoutingProfileSummaryList.map(
+        RoutingProfileSummary.filterSensitiveLog
       )
     })
   });
@@ -2131,8 +2125,8 @@ export namespace ListSecurityProfilesResponse {
   export const filterSensitiveLog = (obj: ListSecurityProfilesResponse) => ({
     ...obj,
     ...(obj.SecurityProfileSummaryList && {
-      SecurityProfileSummaryList: obj.SecurityProfileSummaryList.map(item =>
-        item.map(SecurityProfileSummary.filterSensitiveLog)
+      SecurityProfileSummaryList: obj.SecurityProfileSummaryList.map(
+        SecurityProfileSummary.filterSensitiveLog
       )
     })
   });
@@ -2217,7 +2211,7 @@ export namespace ListUserHierarchyGroupsResponse {
     ...obj,
     ...(obj.UserHierarchyGroupSummaryList && {
       UserHierarchyGroupSummaryList: obj.UserHierarchyGroupSummaryList.map(
-        item => item.map(HierarchyGroupSummary.filterSensitiveLog)
+        HierarchyGroupSummary.filterSensitiveLog
       )
     })
   });
@@ -2269,9 +2263,7 @@ export namespace ListUsersResponse {
   export const filterSensitiveLog = (obj: ListUsersResponse) => ({
     ...obj,
     ...(obj.UserSummaryList && {
-      UserSummaryList: obj.UserSummaryList.map(item =>
-        item.map(UserSummary.filterSensitiveLog)
-      )
+      UserSummaryList: obj.UserSummaryList.map(UserSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListUsersResponse =>

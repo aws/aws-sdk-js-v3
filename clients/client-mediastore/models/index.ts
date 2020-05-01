@@ -199,9 +199,7 @@ export interface CreateContainerInput {
 export namespace CreateContainerInput {
   export const filterSensitiveLog = (obj: CreateContainerInput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateContainerInput =>
     __isa(o, "CreateContainerInput");
@@ -444,9 +442,7 @@ export namespace GetCorsPolicyOutput {
   export const filterSensitiveLog = (obj: GetCorsPolicyOutput) => ({
     ...obj,
     ...(obj.CorsPolicy && {
-      CorsPolicy: obj.CorsPolicy.map(item =>
-        item.map(CorsRule.filterSensitiveLog)
-      )
+      CorsPolicy: obj.CorsPolicy.map(CorsRule.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetCorsPolicyOutput =>
@@ -567,9 +563,7 @@ export namespace ListContainersOutput {
   export const filterSensitiveLog = (obj: ListContainersOutput) => ({
     ...obj,
     ...(obj.Containers && {
-      Containers: obj.Containers.map(item =>
-        item.map(Container.filterSensitiveLog)
-      )
+      Containers: obj.Containers.map(Container.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListContainersOutput =>
@@ -603,9 +597,7 @@ export interface ListTagsForResourceOutput {
 export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsForResourceOutput =>
     __isa(o, "ListTagsForResourceOutput");
@@ -696,9 +688,7 @@ export namespace PutCorsPolicyInput {
   export const filterSensitiveLog = (obj: PutCorsPolicyInput) => ({
     ...obj,
     ...(obj.CorsPolicy && {
-      CorsPolicy: obj.CorsPolicy.map(item =>
-        item.map(CorsRule.filterSensitiveLog)
-      )
+      CorsPolicy: obj.CorsPolicy.map(CorsRule.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is PutCorsPolicyInput =>
@@ -853,9 +843,7 @@ export interface TagResourceInput {
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagResourceInput =>
     __isa(o, "TagResourceInput");

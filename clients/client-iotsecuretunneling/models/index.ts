@@ -176,9 +176,7 @@ export interface ListTagsForResourceResponse {
 export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -227,9 +225,7 @@ export namespace ListTunnelsResponse {
   export const filterSensitiveLog = (obj: ListTunnelsResponse) => ({
     ...obj,
     ...(obj.tunnelSummaries && {
-      tunnelSummaries: obj.tunnelSummaries.map(item =>
-        item.map(TunnelSummary.filterSensitiveLog)
-      )
+      tunnelSummaries: obj.tunnelSummaries.map(TunnelSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListTunnelsResponse =>
@@ -267,9 +263,7 @@ export namespace OpenTunnelRequest {
         obj.destinationConfig
       )
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    }),
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) }),
     ...(obj.timeoutConfig && {
       timeoutConfig: TimeoutConfig.filterSensitiveLog(obj.timeoutConfig)
     })
@@ -376,9 +370,7 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -499,9 +491,7 @@ export namespace Tunnel {
         obj.sourceConnectionState
       )
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    }),
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) }),
     ...(obj.timeoutConfig && {
       timeoutConfig: TimeoutConfig.filterSensitiveLog(obj.timeoutConfig)
     })

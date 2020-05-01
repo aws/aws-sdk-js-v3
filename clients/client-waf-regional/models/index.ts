@@ -294,9 +294,7 @@ export namespace ActivatedRule {
     ...obj,
     ...(obj.Action && { Action: WafAction.filterSensitiveLog(obj.Action) }),
     ...(obj.ExcludedRules && {
-      ExcludedRules: obj.ExcludedRules.map(item =>
-        item.map(ExcludedRule.filterSensitiveLog)
-      )
+      ExcludedRules: obj.ExcludedRules.map(ExcludedRule.filterSensitiveLog)
     }),
     ...(obj.OverrideAction && {
       OverrideAction: WafOverrideAction.filterSensitiveLog(obj.OverrideAction)
@@ -340,8 +338,8 @@ export namespace ByteMatchSet {
   export const filterSensitiveLog = (obj: ByteMatchSet) => ({
     ...obj,
     ...(obj.ByteMatchTuples && {
-      ByteMatchTuples: obj.ByteMatchTuples.map(item =>
-        item.map(ByteMatchTuple.filterSensitiveLog)
+      ByteMatchTuples: obj.ByteMatchTuples.map(
+        ByteMatchTuple.filterSensitiveLog
       )
     })
   });
@@ -845,9 +843,7 @@ export interface CreateRateBasedRuleRequest {
 export namespace CreateRateBasedRuleRequest {
   export const filterSensitiveLog = (obj: CreateRateBasedRuleRequest) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateRateBasedRuleRequest =>
     __isa(o, "CreateRateBasedRuleRequest");
@@ -997,9 +993,7 @@ export interface CreateRuleGroupRequest {
 export namespace CreateRuleGroupRequest {
   export const filterSensitiveLog = (obj: CreateRuleGroupRequest) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateRuleGroupRequest =>
     __isa(o, "CreateRuleGroupRequest");
@@ -1055,9 +1049,7 @@ export interface CreateRuleRequest {
 export namespace CreateRuleRequest {
   export const filterSensitiveLog = (obj: CreateRuleRequest) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateRuleRequest =>
     __isa(o, "CreateRuleRequest");
@@ -1228,9 +1220,7 @@ export namespace CreateWebACLRequest {
     ...(obj.DefaultAction && {
       DefaultAction: WafAction.filterSensitiveLog(obj.DefaultAction)
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateWebACLRequest =>
     __isa(o, "CreateWebACLRequest");
@@ -2252,8 +2242,8 @@ export namespace GeoMatchSet {
   export const filterSensitiveLog = (obj: GeoMatchSet) => ({
     ...obj,
     ...(obj.GeoMatchConstraints && {
-      GeoMatchConstraints: obj.GeoMatchConstraints.map(item =>
-        item.map(GeoMatchConstraint.filterSensitiveLog)
+      GeoMatchConstraints: obj.GeoMatchConstraints.map(
+        GeoMatchConstraint.filterSensitiveLog
       )
     })
   });
@@ -2897,8 +2887,8 @@ export namespace GetSampledRequestsResponse {
   export const filterSensitiveLog = (obj: GetSampledRequestsResponse) => ({
     ...obj,
     ...(obj.SampledRequests && {
-      SampledRequests: obj.SampledRequests.map(item =>
-        item.map(SampledHTTPRequest.filterSensitiveLog)
+      SampledRequests: obj.SampledRequests.map(
+        SampledHTTPRequest.filterSensitiveLog
       )
     }),
     ...(obj.TimeWindow && {
@@ -3230,7 +3220,7 @@ export namespace HTTPRequest {
   export const filterSensitiveLog = (obj: HTTPRequest) => ({
     ...obj,
     ...(obj.Headers && {
-      Headers: obj.Headers.map(item => item.map(HTTPHeader.filterSensitiveLog))
+      Headers: obj.Headers.map(HTTPHeader.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is HTTPRequest => __isa(o, "HTTPRequest");
@@ -3272,8 +3262,8 @@ export namespace IPSet {
   export const filterSensitiveLog = (obj: IPSet) => ({
     ...obj,
     ...(obj.IPSetDescriptors && {
-      IPSetDescriptors: obj.IPSetDescriptors.map(item =>
-        item.map(IPSetDescriptor.filterSensitiveLog)
+      IPSetDescriptors: obj.IPSetDescriptors.map(
+        IPSetDescriptor.filterSensitiveLog
       )
     })
   });
@@ -3431,9 +3421,7 @@ export namespace ListActivatedRulesInRuleGroupResponse {
   ) => ({
     ...obj,
     ...(obj.ActivatedRules && {
-      ActivatedRules: obj.ActivatedRules.map(item =>
-        item.map(ActivatedRule.filterSensitiveLog)
-      )
+      ActivatedRules: obj.ActivatedRules.map(ActivatedRule.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListActivatedRulesInRuleGroupResponse =>
@@ -3486,8 +3474,8 @@ export namespace ListByteMatchSetsResponse {
   export const filterSensitiveLog = (obj: ListByteMatchSetsResponse) => ({
     ...obj,
     ...(obj.ByteMatchSets && {
-      ByteMatchSets: obj.ByteMatchSets.map(item =>
-        item.map(ByteMatchSetSummary.filterSensitiveLog)
+      ByteMatchSets: obj.ByteMatchSets.map(
+        ByteMatchSetSummary.filterSensitiveLog
       )
     })
   });
@@ -3541,9 +3529,7 @@ export namespace ListGeoMatchSetsResponse {
   export const filterSensitiveLog = (obj: ListGeoMatchSetsResponse) => ({
     ...obj,
     ...(obj.GeoMatchSets && {
-      GeoMatchSets: obj.GeoMatchSets.map(item =>
-        item.map(GeoMatchSetSummary.filterSensitiveLog)
-      )
+      GeoMatchSets: obj.GeoMatchSets.map(GeoMatchSetSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListGeoMatchSetsResponse =>
@@ -3595,7 +3581,7 @@ export namespace ListIPSetsResponse {
   export const filterSensitiveLog = (obj: ListIPSetsResponse) => ({
     ...obj,
     ...(obj.IPSets && {
-      IPSets: obj.IPSets.map(item => item.map(IPSetSummary.filterSensitiveLog))
+      IPSets: obj.IPSets.map(IPSetSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListIPSetsResponse =>
@@ -3647,8 +3633,8 @@ export namespace ListLoggingConfigurationsResponse {
   ) => ({
     ...obj,
     ...(obj.LoggingConfigurations && {
-      LoggingConfigurations: obj.LoggingConfigurations.map(item =>
-        item.map(LoggingConfiguration.filterSensitiveLog)
+      LoggingConfigurations: obj.LoggingConfigurations.map(
+        LoggingConfiguration.filterSensitiveLog
       )
     })
   });
@@ -3705,9 +3691,7 @@ export interface ListRateBasedRulesResponse {
 export namespace ListRateBasedRulesResponse {
   export const filterSensitiveLog = (obj: ListRateBasedRulesResponse) => ({
     ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => item.map(RuleSummary.filterSensitiveLog))
-    })
+    ...(obj.Rules && { Rules: obj.Rules.map(RuleSummary.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListRateBasedRulesResponse =>
     __isa(o, "ListRateBasedRulesResponse");
@@ -3759,8 +3743,8 @@ export namespace ListRegexMatchSetsResponse {
   export const filterSensitiveLog = (obj: ListRegexMatchSetsResponse) => ({
     ...obj,
     ...(obj.RegexMatchSets && {
-      RegexMatchSets: obj.RegexMatchSets.map(item =>
-        item.map(RegexMatchSetSummary.filterSensitiveLog)
+      RegexMatchSets: obj.RegexMatchSets.map(
+        RegexMatchSetSummary.filterSensitiveLog
       )
     })
   });
@@ -3814,8 +3798,8 @@ export namespace ListRegexPatternSetsResponse {
   export const filterSensitiveLog = (obj: ListRegexPatternSetsResponse) => ({
     ...obj,
     ...(obj.RegexPatternSets && {
-      RegexPatternSets: obj.RegexPatternSets.map(item =>
-        item.map(RegexPatternSetSummary.filterSensitiveLog)
+      RegexPatternSets: obj.RegexPatternSets.map(
+        RegexPatternSetSummary.filterSensitiveLog
       )
     })
   });
@@ -3864,9 +3848,7 @@ export namespace ListRuleGroupsResponse {
   export const filterSensitiveLog = (obj: ListRuleGroupsResponse) => ({
     ...obj,
     ...(obj.RuleGroups && {
-      RuleGroups: obj.RuleGroups.map(item =>
-        item.map(RuleGroupSummary.filterSensitiveLog)
-      )
+      RuleGroups: obj.RuleGroups.map(RuleGroupSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListRuleGroupsResponse =>
@@ -3916,9 +3898,7 @@ export interface ListRulesResponse {
 export namespace ListRulesResponse {
   export const filterSensitiveLog = (obj: ListRulesResponse) => ({
     ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => item.map(RuleSummary.filterSensitiveLog))
-    })
+    ...(obj.Rules && { Rules: obj.Rules.map(RuleSummary.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListRulesResponse =>
     __isa(o, "ListRulesResponse");
@@ -3969,8 +3949,8 @@ export namespace ListSizeConstraintSetsResponse {
   export const filterSensitiveLog = (obj: ListSizeConstraintSetsResponse) => ({
     ...obj,
     ...(obj.SizeConstraintSets && {
-      SizeConstraintSets: obj.SizeConstraintSets.map(item =>
-        item.map(SizeConstraintSetSummary.filterSensitiveLog)
+      SizeConstraintSets: obj.SizeConstraintSets.map(
+        SizeConstraintSetSummary.filterSensitiveLog
       )
     })
   });
@@ -4034,8 +4014,8 @@ export namespace ListSqlInjectionMatchSetsResponse {
   ) => ({
     ...obj,
     ...(obj.SqlInjectionMatchSets && {
-      SqlInjectionMatchSets: obj.SqlInjectionMatchSets.map(item =>
-        item.map(SqlInjectionMatchSetSummary.filterSensitiveLog)
+      SqlInjectionMatchSets: obj.SqlInjectionMatchSets.map(
+        SqlInjectionMatchSetSummary.filterSensitiveLog
       )
     })
   });
@@ -4091,8 +4071,8 @@ export namespace ListSubscribedRuleGroupsResponse {
   ) => ({
     ...obj,
     ...(obj.RuleGroups && {
-      RuleGroups: obj.RuleGroups.map(item =>
-        item.map(SubscribedRuleGroupSummary.filterSensitiveLog)
+      RuleGroups: obj.RuleGroups.map(
+        SubscribedRuleGroupSummary.filterSensitiveLog
       )
     })
   });
@@ -4180,9 +4160,7 @@ export namespace ListWebACLsResponse {
   export const filterSensitiveLog = (obj: ListWebACLsResponse) => ({
     ...obj,
     ...(obj.WebACLs && {
-      WebACLs: obj.WebACLs.map(item =>
-        item.map(WebACLSummary.filterSensitiveLog)
-      )
+      WebACLs: obj.WebACLs.map(WebACLSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListWebACLsResponse =>
@@ -4241,9 +4219,7 @@ export namespace ListXssMatchSetsResponse {
   export const filterSensitiveLog = (obj: ListXssMatchSetsResponse) => ({
     ...obj,
     ...(obj.XssMatchSets && {
-      XssMatchSets: obj.XssMatchSets.map(item =>
-        item.map(XssMatchSetSummary.filterSensitiveLog)
-      )
+      XssMatchSets: obj.XssMatchSets.map(XssMatchSetSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListXssMatchSetsResponse =>
@@ -4280,9 +4256,7 @@ export namespace LoggingConfiguration {
   export const filterSensitiveLog = (obj: LoggingConfiguration) => ({
     ...obj,
     ...(obj.RedactedFields && {
-      RedactedFields: obj.RedactedFields.map(item =>
-        item.map(FieldToMatch.filterSensitiveLog)
-      )
+      RedactedFields: obj.RedactedFields.map(FieldToMatch.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is LoggingConfiguration =>
@@ -4536,9 +4510,7 @@ export namespace RateBasedRule {
   export const filterSensitiveLog = (obj: RateBasedRule) => ({
     ...obj,
     ...(obj.MatchPredicates && {
-      MatchPredicates: obj.MatchPredicates.map(item =>
-        item.map(Predicate.filterSensitiveLog)
-      )
+      MatchPredicates: obj.MatchPredicates.map(Predicate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is RateBasedRule => __isa(o, "RateBasedRule");
@@ -4595,8 +4567,8 @@ export namespace RegexMatchSet {
   export const filterSensitiveLog = (obj: RegexMatchSet) => ({
     ...obj,
     ...(obj.RegexMatchTuples && {
-      RegexMatchTuples: obj.RegexMatchTuples.map(item =>
-        item.map(RegexMatchTuple.filterSensitiveLog)
+      RegexMatchTuples: obj.RegexMatchTuples.map(
+        RegexMatchTuple.filterSensitiveLog
       )
     })
   });
@@ -4939,9 +4911,7 @@ export namespace Rule {
   export const filterSensitiveLog = (obj: Rule) => ({
     ...obj,
     ...(obj.Predicates && {
-      Predicates: obj.Predicates.map(item =>
-        item.map(Predicate.filterSensitiveLog)
-      )
+      Predicates: obj.Predicates.map(Predicate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Rule => __isa(o, "Rule");
@@ -5342,8 +5312,8 @@ export namespace SizeConstraintSet {
   export const filterSensitiveLog = (obj: SizeConstraintSet) => ({
     ...obj,
     ...(obj.SizeConstraints && {
-      SizeConstraints: obj.SizeConstraints.map(item =>
-        item.map(SizeConstraint.filterSensitiveLog)
+      SizeConstraints: obj.SizeConstraints.map(
+        SizeConstraint.filterSensitiveLog
       )
     })
   });
@@ -5447,8 +5417,8 @@ export namespace SqlInjectionMatchSet {
   export const filterSensitiveLog = (obj: SqlInjectionMatchSet) => ({
     ...obj,
     ...(obj.SqlInjectionMatchTuples && {
-      SqlInjectionMatchTuples: obj.SqlInjectionMatchTuples.map(item =>
-        item.map(SqlInjectionMatchTuple.filterSensitiveLog)
+      SqlInjectionMatchTuples: obj.SqlInjectionMatchTuples.map(
+        SqlInjectionMatchTuple.filterSensitiveLog
       )
     })
   });
@@ -5688,9 +5658,7 @@ export interface TagInfoForResource {
 export namespace TagInfoForResource {
   export const filterSensitiveLog = (obj: TagInfoForResource) => ({
     ...obj,
-    ...(obj.TagList && {
-      TagList: obj.TagList.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagInfoForResource =>
     __isa(o, "TagInfoForResource");
@@ -5705,9 +5673,7 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -5833,9 +5799,7 @@ export namespace UpdateByteMatchSetRequest {
   export const filterSensitiveLog = (obj: UpdateByteMatchSetRequest) => ({
     ...obj,
     ...(obj.Updates && {
-      Updates: obj.Updates.map(item =>
-        item.map(ByteMatchSetUpdate.filterSensitiveLog)
-      )
+      Updates: obj.Updates.map(ByteMatchSetUpdate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateByteMatchSetRequest =>
@@ -5896,9 +5860,7 @@ export namespace UpdateGeoMatchSetRequest {
   export const filterSensitiveLog = (obj: UpdateGeoMatchSetRequest) => ({
     ...obj,
     ...(obj.Updates && {
-      Updates: obj.Updates.map(item =>
-        item.map(GeoMatchSetUpdate.filterSensitiveLog)
-      )
+      Updates: obj.Updates.map(GeoMatchSetUpdate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateGeoMatchSetRequest =>
@@ -5959,7 +5921,7 @@ export namespace UpdateIPSetRequest {
   export const filterSensitiveLog = (obj: UpdateIPSetRequest) => ({
     ...obj,
     ...(obj.Updates && {
-      Updates: obj.Updates.map(item => item.map(IPSetUpdate.filterSensitiveLog))
+      Updates: obj.Updates.map(IPSetUpdate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateIPSetRequest =>
@@ -6015,7 +5977,7 @@ export namespace UpdateRateBasedRuleRequest {
   export const filterSensitiveLog = (obj: UpdateRateBasedRuleRequest) => ({
     ...obj,
     ...(obj.Updates && {
-      Updates: obj.Updates.map(item => item.map(RuleUpdate.filterSensitiveLog))
+      Updates: obj.Updates.map(RuleUpdate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateRateBasedRuleRequest =>
@@ -6064,9 +6026,7 @@ export namespace UpdateRegexMatchSetRequest {
   export const filterSensitiveLog = (obj: UpdateRegexMatchSetRequest) => ({
     ...obj,
     ...(obj.Updates && {
-      Updates: obj.Updates.map(item =>
-        item.map(RegexMatchSetUpdate.filterSensitiveLog)
-      )
+      Updates: obj.Updates.map(RegexMatchSetUpdate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateRegexMatchSetRequest =>
@@ -6113,9 +6073,7 @@ export namespace UpdateRegexPatternSetRequest {
   export const filterSensitiveLog = (obj: UpdateRegexPatternSetRequest) => ({
     ...obj,
     ...(obj.Updates && {
-      Updates: obj.Updates.map(item =>
-        item.map(RegexPatternSetUpdate.filterSensitiveLog)
-      )
+      Updates: obj.Updates.map(RegexPatternSetUpdate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateRegexPatternSetRequest =>
@@ -6166,9 +6124,7 @@ export namespace UpdateRuleGroupRequest {
   export const filterSensitiveLog = (obj: UpdateRuleGroupRequest) => ({
     ...obj,
     ...(obj.Updates && {
-      Updates: obj.Updates.map(item =>
-        item.map(RuleGroupUpdate.filterSensitiveLog)
-      )
+      Updates: obj.Updates.map(RuleGroupUpdate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateRuleGroupRequest =>
@@ -6233,7 +6189,7 @@ export namespace UpdateRuleRequest {
   export const filterSensitiveLog = (obj: UpdateRuleRequest) => ({
     ...obj,
     ...(obj.Updates && {
-      Updates: obj.Updates.map(item => item.map(RuleUpdate.filterSensitiveLog))
+      Updates: obj.Updates.map(RuleUpdate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateRuleRequest =>
@@ -6299,9 +6255,7 @@ export namespace UpdateSizeConstraintSetRequest {
   export const filterSensitiveLog = (obj: UpdateSizeConstraintSetRequest) => ({
     ...obj,
     ...(obj.Updates && {
-      Updates: obj.Updates.map(item =>
-        item.map(SizeConstraintSetUpdate.filterSensitiveLog)
-      )
+      Updates: obj.Updates.map(SizeConstraintSetUpdate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateSizeConstraintSetRequest =>
@@ -6371,9 +6325,7 @@ export namespace UpdateSqlInjectionMatchSetRequest {
   ) => ({
     ...obj,
     ...(obj.Updates && {
-      Updates: obj.Updates.map(item =>
-        item.map(SqlInjectionMatchSetUpdate.filterSensitiveLog)
-      )
+      Updates: obj.Updates.map(SqlInjectionMatchSetUpdate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateSqlInjectionMatchSetRequest =>
@@ -6459,9 +6411,7 @@ export namespace UpdateWebACLRequest {
       DefaultAction: WafAction.filterSensitiveLog(obj.DefaultAction)
     }),
     ...(obj.Updates && {
-      Updates: obj.Updates.map(item =>
-        item.map(WebACLUpdate.filterSensitiveLog)
-      )
+      Updates: obj.Updates.map(WebACLUpdate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateWebACLRequest =>
@@ -6531,9 +6481,7 @@ export namespace UpdateXssMatchSetRequest {
   export const filterSensitiveLog = (obj: UpdateXssMatchSetRequest) => ({
     ...obj,
     ...(obj.Updates && {
-      Updates: obj.Updates.map(item =>
-        item.map(XssMatchSetUpdate.filterSensitiveLog)
-      )
+      Updates: obj.Updates.map(XssMatchSetUpdate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateXssMatchSetRequest =>
@@ -7177,9 +7125,7 @@ export namespace WebACL {
     ...(obj.DefaultAction && {
       DefaultAction: WafAction.filterSensitiveLog(obj.DefaultAction)
     }),
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => item.map(ActivatedRule.filterSensitiveLog))
-    })
+    ...(obj.Rules && { Rules: obj.Rules.map(ActivatedRule.filterSensitiveLog) })
   });
   export const isa = (o: any): o is WebACL => __isa(o, "WebACL");
 }
@@ -7273,9 +7219,7 @@ export namespace XssMatchSet {
   export const filterSensitiveLog = (obj: XssMatchSet) => ({
     ...obj,
     ...(obj.XssMatchTuples && {
-      XssMatchTuples: obj.XssMatchTuples.map(item =>
-        item.map(XssMatchTuple.filterSensitiveLog)
-      )
+      XssMatchTuples: obj.XssMatchTuples.map(XssMatchTuple.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is XssMatchSet => __isa(o, "XssMatchSet");

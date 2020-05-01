@@ -234,9 +234,7 @@ export namespace CreateSecretRequest {
     ...obj,
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
     ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateSecretRequest =>
     __isa(o, "CreateSecretRequest");
@@ -547,9 +545,7 @@ export namespace DescribeSecretResponse {
     ...(obj.RotationRules && {
       RotationRules: RotationRulesType.filterSensitiveLog(obj.RotationRules)
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeSecretResponse =>
     __isa(o, "DescribeSecretResponse");
@@ -1034,9 +1030,7 @@ export namespace ListSecretVersionIdsResponse {
   export const filterSensitiveLog = (obj: ListSecretVersionIdsResponse) => ({
     ...obj,
     ...(obj.Versions && {
-      Versions: obj.Versions.map(item =>
-        item.map(SecretVersionsListEntry.filterSensitiveLog)
-      )
+      Versions: obj.Versions.map(SecretVersionsListEntry.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListSecretVersionIdsResponse =>
@@ -1097,9 +1091,7 @@ export namespace ListSecretsResponse {
   export const filterSensitiveLog = (obj: ListSecretsResponse) => ({
     ...obj,
     ...(obj.SecretList && {
-      SecretList: obj.SecretList.map(item =>
-        item.map(SecretListEntry.filterSensitiveLog)
-      )
+      SecretList: obj.SecretList.map(SecretListEntry.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListSecretsResponse =>
@@ -1645,9 +1637,7 @@ export namespace SecretListEntry {
     ...(obj.RotationRules && {
       RotationRules: RotationRulesType.filterSensitiveLog(obj.RotationRules)
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is SecretListEntry =>
     __isa(o, "SecretListEntry");
@@ -1746,9 +1736,7 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");

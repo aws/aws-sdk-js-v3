@@ -65,8 +65,8 @@ export namespace DescribeSavingsPlansOfferingRatesRequest {
   ) => ({
     ...obj,
     ...(obj.filters && {
-      filters: obj.filters.map(item =>
-        item.map(SavingsPlanOfferingRateFilterElement.filterSensitiveLog)
+      filters: obj.filters.map(
+        SavingsPlanOfferingRateFilterElement.filterSensitiveLog
       )
     })
   });
@@ -94,8 +94,8 @@ export namespace DescribeSavingsPlansOfferingRatesResponse {
   ) => ({
     ...obj,
     ...(obj.searchResults && {
-      searchResults: obj.searchResults.map(item =>
-        item.map(SavingsPlanOfferingRate.filterSensitiveLog)
+      searchResults: obj.searchResults.map(
+        SavingsPlanOfferingRate.filterSensitiveLog
       )
     })
   });
@@ -178,8 +178,8 @@ export namespace DescribeSavingsPlansOfferingsRequest {
   ) => ({
     ...obj,
     ...(obj.filters && {
-      filters: obj.filters.map(item =>
-        item.map(SavingsPlanOfferingFilterElement.filterSensitiveLog)
+      filters: obj.filters.map(
+        SavingsPlanOfferingFilterElement.filterSensitiveLog
       )
     })
   });
@@ -207,8 +207,8 @@ export namespace DescribeSavingsPlansOfferingsResponse {
   ) => ({
     ...obj,
     ...(obj.searchResults && {
-      searchResults: obj.searchResults.map(item =>
-        item.map(SavingsPlanOffering.filterSensitiveLog)
+      searchResults: obj.searchResults.map(
+        SavingsPlanOffering.filterSensitiveLog
       )
     })
   });
@@ -325,8 +325,8 @@ export namespace SavingsPlanOffering {
   export const filterSensitiveLog = (obj: SavingsPlanOffering) => ({
     ...obj,
     ...(obj.properties && {
-      properties: obj.properties.map(item =>
-        item.map(SavingsPlanOfferingProperty.filterSensitiveLog)
+      properties: obj.properties.map(
+        SavingsPlanOfferingProperty.filterSensitiveLog
       )
     })
   });
@@ -444,8 +444,8 @@ export namespace SavingsPlanOfferingRate {
   export const filterSensitiveLog = (obj: SavingsPlanOfferingRate) => ({
     ...obj,
     ...(obj.properties && {
-      properties: obj.properties.map(item =>
-        item.map(SavingsPlanOfferingRateProperty.filterSensitiveLog)
+      properties: obj.properties.map(
+        SavingsPlanOfferingRateProperty.filterSensitiveLog
       )
     }),
     ...(obj.savingsPlanOffering && {
@@ -658,9 +658,7 @@ export namespace DescribeSavingsPlanRatesRequest {
   export const filterSensitiveLog = (obj: DescribeSavingsPlanRatesRequest) => ({
     ...obj,
     ...(obj.filters && {
-      filters: obj.filters.map(item =>
-        item.map(SavingsPlanRateFilter.filterSensitiveLog)
-      )
+      filters: obj.filters.map(SavingsPlanRateFilter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeSavingsPlanRatesRequest =>
@@ -692,9 +690,7 @@ export namespace DescribeSavingsPlanRatesResponse {
   ) => ({
     ...obj,
     ...(obj.searchResults && {
-      searchResults: obj.searchResults.map(item =>
-        item.map(SavingsPlanRate.filterSensitiveLog)
-      )
+      searchResults: obj.searchResults.map(SavingsPlanRate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeSavingsPlanRatesResponse =>
@@ -739,9 +735,7 @@ export namespace DescribeSavingsPlansRequest {
   export const filterSensitiveLog = (obj: DescribeSavingsPlansRequest) => ({
     ...obj,
     ...(obj.filters && {
-      filters: obj.filters.map(item =>
-        item.map(SavingsPlanFilter.filterSensitiveLog)
-      )
+      filters: obj.filters.map(SavingsPlanFilter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeSavingsPlansRequest =>
@@ -766,9 +760,7 @@ export namespace DescribeSavingsPlansResponse {
   export const filterSensitiveLog = (obj: DescribeSavingsPlansResponse) => ({
     ...obj,
     ...(obj.savingsPlans && {
-      savingsPlans: obj.savingsPlans.map(item =>
-        item.map(SavingsPlan.filterSensitiveLog)
-      )
+      savingsPlans: obj.savingsPlans.map(SavingsPlan.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeSavingsPlansResponse =>
@@ -1022,9 +1014,7 @@ export namespace SavingsPlanRate {
   export const filterSensitiveLog = (obj: SavingsPlanRate) => ({
     ...obj,
     ...(obj.properties && {
-      properties: obj.properties.map(item =>
-        item.map(SavingsPlanRateProperty.filterSensitiveLog)
-      )
+      properties: obj.properties.map(SavingsPlanRateProperty.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is SavingsPlanRate =>

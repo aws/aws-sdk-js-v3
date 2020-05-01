@@ -178,9 +178,7 @@ export interface CreateSnapshotInput {
 export namespace CreateSnapshotInput {
   export const filterSensitiveLog = (obj: CreateSnapshotInput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateSnapshotInput =>
     __isa(o, "CreateSnapshotInput");
@@ -319,9 +317,7 @@ export interface CreateStorediSCSIVolumeInput {
 export namespace CreateStorediSCSIVolumeInput {
   export const filterSensitiveLog = (obj: CreateStorediSCSIVolumeInput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateStorediSCSIVolumeInput =>
     __isa(o, "CreateStorediSCSIVolumeInput");
@@ -641,9 +637,7 @@ export namespace DescribeChapCredentialsOutput {
   export const filterSensitiveLog = (obj: DescribeChapCredentialsOutput) => ({
     ...obj,
     ...(obj.ChapCredentials && {
-      ChapCredentials: obj.ChapCredentials.map(item =>
-        item.map(ChapInfo.filterSensitiveLog)
-      )
+      ChapCredentials: obj.ChapCredentials.map(ChapInfo.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeChapCredentialsOutput =>
@@ -1581,9 +1575,7 @@ export interface UpdateSnapshotScheduleInput {
 export namespace UpdateSnapshotScheduleInput {
   export const filterSensitiveLog = (obj: UpdateSnapshotScheduleInput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is UpdateSnapshotScheduleInput =>
     __isa(o, "UpdateSnapshotScheduleInput");
@@ -1811,9 +1803,7 @@ export interface CreateCachediSCSIVolumeInput {
 export namespace CreateCachediSCSIVolumeInput {
   export const filterSensitiveLog = (obj: CreateCachediSCSIVolumeInput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateCachediSCSIVolumeInput =>
     __isa(o, "CreateCachediSCSIVolumeInput");
@@ -2078,8 +2068,8 @@ export namespace ListVolumeRecoveryPointsOutput {
   export const filterSensitiveLog = (obj: ListVolumeRecoveryPointsOutput) => ({
     ...obj,
     ...(obj.VolumeRecoveryPointInfos && {
-      VolumeRecoveryPointInfos: obj.VolumeRecoveryPointInfos.map(item =>
-        item.map(VolumeRecoveryPointInfo.filterSensitiveLog)
+      VolumeRecoveryPointInfos: obj.VolumeRecoveryPointInfos.map(
+        VolumeRecoveryPointInfo.filterSensitiveLog
       )
     })
   });
@@ -2247,9 +2237,7 @@ export interface ActivateGatewayInput {
 export namespace ActivateGatewayInput {
   export const filterSensitiveLog = (obj: ActivateGatewayInput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ActivateGatewayInput =>
     __isa(o, "ActivateGatewayInput");
@@ -2290,9 +2278,7 @@ export interface AddTagsToResourceInput {
 export namespace AddTagsToResourceInput {
   export const filterSensitiveLog = (obj: AddTagsToResourceInput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AddTagsToResourceInput =>
     __isa(o, "AddTagsToResourceInput");
@@ -2768,9 +2754,7 @@ export namespace CreateNFSFileShareInput {
         obj.NFSFileShareDefaults
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateNFSFileShareInput =>
     __isa(o, "CreateNFSFileShareInput");
@@ -2932,9 +2916,7 @@ export interface CreateSMBFileShareInput {
 export namespace CreateSMBFileShareInput {
   export const filterSensitiveLog = (obj: CreateSMBFileShareInput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateSMBFileShareInput =>
     __isa(o, "CreateSMBFileShareInput");
@@ -2992,9 +2974,7 @@ export namespace CreateSnapshotFromVolumeRecoveryPointInput {
     obj: CreateSnapshotFromVolumeRecoveryPointInput
   ) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (
     o: any
@@ -3066,9 +3046,7 @@ export interface CreateTapeWithBarcodeInput {
 export namespace CreateTapeWithBarcodeInput {
   export const filterSensitiveLog = (obj: CreateTapeWithBarcodeInput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateTapeWithBarcodeInput =>
     __isa(o, "CreateTapeWithBarcodeInput");
@@ -3174,9 +3152,7 @@ export interface CreateTapesInput {
 export namespace CreateTapesInput {
   export const filterSensitiveLog = (obj: CreateTapesInput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateTapesInput =>
     __isa(o, "CreateTapesInput");
@@ -3435,8 +3411,8 @@ export namespace DescribeCachediSCSIVolumesOutput {
   ) => ({
     ...obj,
     ...(obj.CachediSCSIVolumes && {
-      CachediSCSIVolumes: obj.CachediSCSIVolumes.map(item =>
-        item.map(CachediSCSIVolume.filterSensitiveLog)
+      CachediSCSIVolumes: obj.CachediSCSIVolumes.map(
+        CachediSCSIVolume.filterSensitiveLog
       )
     })
   });
@@ -3541,13 +3517,11 @@ export namespace DescribeGatewayInformationOutput {
   ) => ({
     ...obj,
     ...(obj.GatewayNetworkInterfaces && {
-      GatewayNetworkInterfaces: obj.GatewayNetworkInterfaces.map(item =>
-        item.map(NetworkInterface.filterSensitiveLog)
+      GatewayNetworkInterfaces: obj.GatewayNetworkInterfaces.map(
+        NetworkInterface.filterSensitiveLog
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeGatewayInformationOutput =>
     __isa(o, "DescribeGatewayInformationOutput");
@@ -3674,8 +3648,8 @@ export namespace DescribeNFSFileSharesOutput {
   export const filterSensitiveLog = (obj: DescribeNFSFileSharesOutput) => ({
     ...obj,
     ...(obj.NFSFileShareInfoList && {
-      NFSFileShareInfoList: obj.NFSFileShareInfoList.map(item =>
-        item.map(NFSFileShareInfo.filterSensitiveLog)
+      NFSFileShareInfoList: obj.NFSFileShareInfoList.map(
+        NFSFileShareInfo.filterSensitiveLog
       )
     })
   });
@@ -3718,8 +3692,8 @@ export namespace DescribeSMBFileSharesOutput {
   export const filterSensitiveLog = (obj: DescribeSMBFileSharesOutput) => ({
     ...obj,
     ...(obj.SMBFileShareInfoList && {
-      SMBFileShareInfoList: obj.SMBFileShareInfoList.map(item =>
-        item.map(SMBFileShareInfo.filterSensitiveLog)
+      SMBFileShareInfoList: obj.SMBFileShareInfoList.map(
+        SMBFileShareInfo.filterSensitiveLog
       )
     })
   });
@@ -3861,9 +3835,7 @@ export interface DescribeSnapshotScheduleOutput {
 export namespace DescribeSnapshotScheduleOutput {
   export const filterSensitiveLog = (obj: DescribeSnapshotScheduleOutput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeSnapshotScheduleOutput =>
     __isa(o, "DescribeSnapshotScheduleOutput");
@@ -3984,8 +3956,8 @@ export namespace DescribeStorediSCSIVolumesOutput {
   ) => ({
     ...obj,
     ...(obj.StorediSCSIVolumes && {
-      StorediSCSIVolumes: obj.StorediSCSIVolumes.map(item =>
-        item.map(StorediSCSIVolume.filterSensitiveLog)
+      StorediSCSIVolumes: obj.StorediSCSIVolumes.map(
+        StorediSCSIVolume.filterSensitiveLog
       )
     })
   });
@@ -4051,9 +4023,7 @@ export namespace DescribeTapeArchivesOutput {
   export const filterSensitiveLog = (obj: DescribeTapeArchivesOutput) => ({
     ...obj,
     ...(obj.TapeArchives && {
-      TapeArchives: obj.TapeArchives.map(item =>
-        item.map(TapeArchive.filterSensitiveLog)
-      )
+      TapeArchives: obj.TapeArchives.map(TapeArchive.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeTapeArchivesOutput =>
@@ -4125,8 +4095,8 @@ export namespace DescribeTapeRecoveryPointsOutput {
   ) => ({
     ...obj,
     ...(obj.TapeRecoveryPointInfos && {
-      TapeRecoveryPointInfos: obj.TapeRecoveryPointInfos.map(item =>
-        item.map(TapeRecoveryPointInfo.filterSensitiveLog)
+      TapeRecoveryPointInfos: obj.TapeRecoveryPointInfos.map(
+        TapeRecoveryPointInfo.filterSensitiveLog
       )
     })
   });
@@ -4199,9 +4169,7 @@ export interface DescribeTapesOutput {
 export namespace DescribeTapesOutput {
   export const filterSensitiveLog = (obj: DescribeTapesOutput) => ({
     ...obj,
-    ...(obj.Tapes && {
-      Tapes: obj.Tapes.map(item => item.map(Tape.filterSensitiveLog))
-    })
+    ...(obj.Tapes && { Tapes: obj.Tapes.map(Tape.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeTapesOutput =>
     __isa(o, "DescribeTapesOutput");
@@ -4279,9 +4247,7 @@ export namespace DescribeVTLDevicesOutput {
   export const filterSensitiveLog = (obj: DescribeVTLDevicesOutput) => ({
     ...obj,
     ...(obj.VTLDevices && {
-      VTLDevices: obj.VTLDevices.map(item =>
-        item.map(VTLDevice.filterSensitiveLog)
-      )
+      VTLDevices: obj.VTLDevices.map(VTLDevice.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeVTLDevicesOutput =>
@@ -4736,8 +4702,8 @@ export namespace ListFileSharesOutput {
   export const filterSensitiveLog = (obj: ListFileSharesOutput) => ({
     ...obj,
     ...(obj.FileShareInfoList && {
-      FileShareInfoList: obj.FileShareInfoList.map(item =>
-        item.map(FileShareInfo.filterSensitiveLog)
+      FileShareInfoList: obj.FileShareInfoList.map(
+        FileShareInfo.filterSensitiveLog
       )
     })
   });
@@ -4763,9 +4729,7 @@ export namespace ListGatewaysOutput {
   export const filterSensitiveLog = (obj: ListGatewaysOutput) => ({
     ...obj,
     ...(obj.Gateways && {
-      Gateways: obj.Gateways.map(item =>
-        item.map(GatewayInfo.filterSensitiveLog)
-      )
+      Gateways: obj.Gateways.map(GatewayInfo.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListGatewaysOutput =>
@@ -4796,9 +4760,7 @@ export interface ListLocalDisksOutput {
 export namespace ListLocalDisksOutput {
   export const filterSensitiveLog = (obj: ListLocalDisksOutput) => ({
     ...obj,
-    ...(obj.Disks && {
-      Disks: obj.Disks.map(item => item.map(Disk.filterSensitiveLog))
-    })
+    ...(obj.Disks && { Disks: obj.Disks.map(Disk.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListLocalDisksOutput =>
     __isa(o, "ListLocalDisksOutput");
@@ -4862,9 +4824,7 @@ export interface ListTagsForResourceOutput {
 export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsForResourceOutput =>
     __isa(o, "ListTagsForResourceOutput");
@@ -4954,9 +4914,7 @@ export namespace ListTapesOutput {
   export const filterSensitiveLog = (obj: ListTapesOutput) => ({
     ...obj,
     ...(obj.TapeInfos && {
-      TapeInfos: obj.TapeInfos.map(item =>
-        item.map(TapeInfo.filterSensitiveLog)
-      )
+      TapeInfos: obj.TapeInfos.map(TapeInfo.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListTapesOutput =>
@@ -5044,9 +5002,7 @@ export namespace ListVolumesOutput {
   export const filterSensitiveLog = (obj: ListVolumesOutput) => ({
     ...obj,
     ...(obj.VolumeInfos && {
-      VolumeInfos: obj.VolumeInfos.map(item =>
-        item.map(VolumeInfo.filterSensitiveLog)
-      )
+      VolumeInfos: obj.VolumeInfos.map(VolumeInfo.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListVolumesOutput =>
@@ -5243,9 +5199,7 @@ export namespace NFSFileShareInfo {
         obj.NFSFileShareDefaults
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is NFSFileShareInfo =>
     __isa(o, "NFSFileShareInfo");
@@ -5683,9 +5637,7 @@ export interface SMBFileShareInfo {
 export namespace SMBFileShareInfo {
   export const filterSensitiveLog = (obj: SMBFileShareInfo) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is SMBFileShareInfo =>
     __isa(o, "SMBFileShareInfo");

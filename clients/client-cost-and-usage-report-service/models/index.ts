@@ -118,8 +118,8 @@ export namespace DescribeReportDefinitionsResponse {
   ) => ({
     ...obj,
     ...(obj.ReportDefinitions && {
-      ReportDefinitions: obj.ReportDefinitions.map(item =>
-        item.map(ReportDefinition.filterSensitiveLog)
+      ReportDefinitions: obj.ReportDefinitions.map(
+        ReportDefinition.filterSensitiveLog
       )
     })
   });

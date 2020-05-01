@@ -349,9 +349,7 @@ export namespace DescribeDestinationsResponse {
   export const filterSensitiveLog = (obj: DescribeDestinationsResponse) => ({
     ...obj,
     ...(obj.destinations && {
-      destinations: obj.destinations.map(item =>
-        item.map(Destination.filterSensitiveLog)
-      )
+      destinations: obj.destinations.map(Destination.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeDestinationsResponse =>
@@ -406,9 +404,7 @@ export namespace DescribeExportTasksResponse {
   export const filterSensitiveLog = (obj: DescribeExportTasksResponse) => ({
     ...obj,
     ...(obj.exportTasks && {
-      exportTasks: obj.exportTasks.map(item =>
-        item.map(ExportTask.filterSensitiveLog)
-      )
+      exportTasks: obj.exportTasks.map(ExportTask.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeExportTasksResponse =>
@@ -458,9 +454,7 @@ export namespace DescribeLogGroupsResponse {
   export const filterSensitiveLog = (obj: DescribeLogGroupsResponse) => ({
     ...obj,
     ...(obj.logGroups && {
-      logGroups: obj.logGroups.map(item =>
-        item.map(LogGroup.filterSensitiveLog)
-      )
+      logGroups: obj.logGroups.map(LogGroup.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeLogGroupsResponse =>
@@ -537,9 +531,7 @@ export namespace DescribeLogStreamsResponse {
   export const filterSensitiveLog = (obj: DescribeLogStreamsResponse) => ({
     ...obj,
     ...(obj.logStreams && {
-      logStreams: obj.logStreams.map(item =>
-        item.map(LogStream.filterSensitiveLog)
-      )
+      logStreams: obj.logStreams.map(LogStream.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeLogStreamsResponse =>
@@ -606,9 +598,7 @@ export namespace DescribeMetricFiltersResponse {
   export const filterSensitiveLog = (obj: DescribeMetricFiltersResponse) => ({
     ...obj,
     ...(obj.metricFilters && {
-      metricFilters: obj.metricFilters.map(item =>
-        item.map(MetricFilter.filterSensitiveLog)
-      )
+      metricFilters: obj.metricFilters.map(MetricFilter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeMetricFiltersResponse =>
@@ -664,7 +654,7 @@ export namespace DescribeQueriesResponse {
   export const filterSensitiveLog = (obj: DescribeQueriesResponse) => ({
     ...obj,
     ...(obj.queries && {
-      queries: obj.queries.map(item => item.map(QueryInfo.filterSensitiveLog))
+      queries: obj.queries.map(QueryInfo.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeQueriesResponse =>
@@ -711,8 +701,8 @@ export namespace DescribeResourcePoliciesResponse {
   ) => ({
     ...obj,
     ...(obj.resourcePolicies && {
-      resourcePolicies: obj.resourcePolicies.map(item =>
-        item.map(ResourcePolicy.filterSensitiveLog)
+      resourcePolicies: obj.resourcePolicies.map(
+        ResourcePolicy.filterSensitiveLog
       )
     })
   });
@@ -772,8 +762,8 @@ export namespace DescribeSubscriptionFiltersResponse {
   ) => ({
     ...obj,
     ...(obj.subscriptionFilters && {
-      subscriptionFilters: obj.subscriptionFilters.map(item =>
-        item.map(SubscriptionFilter.filterSensitiveLog)
+      subscriptionFilters: obj.subscriptionFilters.map(
+        SubscriptionFilter.filterSensitiveLog
       )
     })
   });
@@ -1068,13 +1058,11 @@ export namespace FilterLogEventsResponse {
   export const filterSensitiveLog = (obj: FilterLogEventsResponse) => ({
     ...obj,
     ...(obj.events && {
-      events: obj.events.map(item =>
-        item.map(FilteredLogEvent.filterSensitiveLog)
-      )
+      events: obj.events.map(FilteredLogEvent.filterSensitiveLog)
     }),
     ...(obj.searchedLogStreams && {
-      searchedLogStreams: obj.searchedLogStreams.map(item =>
-        item.map(SearchedLogStream.filterSensitiveLog)
+      searchedLogStreams: obj.searchedLogStreams.map(
+        SearchedLogStream.filterSensitiveLog
       )
     })
   });
@@ -1202,9 +1190,7 @@ export namespace GetLogEventsResponse {
   export const filterSensitiveLog = (obj: GetLogEventsResponse) => ({
     ...obj,
     ...(obj.events && {
-      events: obj.events.map(item =>
-        item.map(OutputLogEvent.filterSensitiveLog)
-      )
+      events: obj.events.map(OutputLogEvent.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetLogEventsResponse =>
@@ -1249,9 +1235,7 @@ export namespace GetLogGroupFieldsResponse {
   export const filterSensitiveLog = (obj: GetLogGroupFieldsResponse) => ({
     ...obj,
     ...(obj.logGroupFields && {
-      logGroupFields: obj.logGroupFields.map(item =>
-        item.map(LogGroupField.filterSensitiveLog)
-      )
+      logGroupFields: obj.logGroupFields.map(LogGroupField.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetLogGroupFieldsResponse =>
@@ -1340,9 +1324,7 @@ export namespace GetQueryResultsResponse {
   export const filterSensitiveLog = (obj: GetQueryResultsResponse) => ({
     ...obj,
     ...(obj.results && {
-      results: obj.results.map(item =>
-        item.map(item => item.map(ResultField.filterSensitiveLog))
-      )
+      results: obj.results.map(item => item.map(ResultField.filterSensitiveLog))
     }),
     ...(obj.statistics && {
       statistics: QueryStatistics.filterSensitiveLog(obj.statistics)
@@ -1698,8 +1680,8 @@ export namespace MetricFilter {
   export const filterSensitiveLog = (obj: MetricFilter) => ({
     ...obj,
     ...(obj.metricTransformations && {
-      metricTransformations: obj.metricTransformations.map(item =>
-        item.map(MetricTransformation.filterSensitiveLog)
+      metricTransformations: obj.metricTransformations.map(
+        MetricTransformation.filterSensitiveLog
       )
     })
   });
@@ -1925,9 +1907,7 @@ export namespace PutLogEventsRequest {
   export const filterSensitiveLog = (obj: PutLogEventsRequest) => ({
     ...obj,
     ...(obj.logEvents && {
-      logEvents: obj.logEvents.map(item =>
-        item.map(InputLogEvent.filterSensitiveLog)
-      )
+      logEvents: obj.logEvents.map(InputLogEvent.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is PutLogEventsRequest =>
@@ -1987,8 +1967,8 @@ export namespace PutMetricFilterRequest {
   export const filterSensitiveLog = (obj: PutMetricFilterRequest) => ({
     ...obj,
     ...(obj.metricTransformations && {
-      metricTransformations: obj.metricTransformations.map(item =>
-        item.map(MetricTransformation.filterSensitiveLog)
+      metricTransformations: obj.metricTransformations.map(
+        MetricTransformation.filterSensitiveLog
       )
     })
   });
@@ -2648,9 +2628,7 @@ export namespace TestMetricFilterResponse {
   export const filterSensitiveLog = (obj: TestMetricFilterResponse) => ({
     ...obj,
     ...(obj.matches && {
-      matches: obj.matches.map(item =>
-        item.map(MetricFilterMatchRecord.filterSensitiveLog)
-      )
+      matches: obj.matches.map(MetricFilterMatchRecord.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is TestMetricFilterResponse =>

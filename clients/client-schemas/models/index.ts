@@ -721,9 +721,7 @@ export namespace ListDiscoverersResponse {
   export const filterSensitiveLog = (obj: ListDiscoverersResponse) => ({
     ...obj,
     ...(obj.Discoverers && {
-      Discoverers: obj.Discoverers.map(item =>
-        item.map(DiscovererSummary.filterSensitiveLog)
-      )
+      Discoverers: obj.Discoverers.map(DiscovererSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListDiscoverersResponse =>
@@ -763,9 +761,7 @@ export namespace ListRegistriesResponse {
   export const filterSensitiveLog = (obj: ListRegistriesResponse) => ({
     ...obj,
     ...(obj.Registries && {
-      Registries: obj.Registries.map(item =>
-        item.map(RegistrySummary.filterSensitiveLog)
-      )
+      Registries: obj.Registries.map(RegistrySummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListRegistriesResponse =>
@@ -805,8 +801,8 @@ export namespace ListSchemaVersionsResponse {
   export const filterSensitiveLog = (obj: ListSchemaVersionsResponse) => ({
     ...obj,
     ...(obj.SchemaVersions && {
-      SchemaVersions: obj.SchemaVersions.map(item =>
-        item.map(SchemaVersionSummary.filterSensitiveLog)
+      SchemaVersions: obj.SchemaVersions.map(
+        SchemaVersionSummary.filterSensitiveLog
       )
     })
   });
@@ -847,9 +843,7 @@ export namespace ListSchemasResponse {
   export const filterSensitiveLog = (obj: ListSchemasResponse) => ({
     ...obj,
     ...(obj.Schemas && {
-      Schemas: obj.Schemas.map(item =>
-        item.map(SchemaSummary.filterSensitiveLog)
-      )
+      Schemas: obj.Schemas.map(SchemaSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListSchemasResponse =>
@@ -910,8 +904,8 @@ export namespace LockServiceLinkedRoleResponse {
   export const filterSensitiveLog = (obj: LockServiceLinkedRoleResponse) => ({
     ...obj,
     ...(obj.RelatedResources && {
-      RelatedResources: obj.RelatedResources.map(item =>
-        item.map(DiscovererSummary.filterSensitiveLog)
+      RelatedResources: obj.RelatedResources.map(
+        DiscovererSummary.filterSensitiveLog
       )
     })
   });
@@ -1105,8 +1099,8 @@ export namespace SearchSchemaSummary {
   export const filterSensitiveLog = (obj: SearchSchemaSummary) => ({
     ...obj,
     ...(obj.SchemaVersions && {
-      SchemaVersions: obj.SchemaVersions.map(item =>
-        item.map(SearchSchemaVersionSummary.filterSensitiveLog)
+      SchemaVersions: obj.SchemaVersions.map(
+        SearchSchemaVersionSummary.filterSensitiveLog
       )
     })
   });
@@ -1164,9 +1158,7 @@ export namespace SearchSchemasResponse {
   export const filterSensitiveLog = (obj: SearchSchemasResponse) => ({
     ...obj,
     ...(obj.Schemas && {
-      Schemas: obj.Schemas.map(item =>
-        item.map(SearchSchemaSummary.filterSensitiveLog)
-      )
+      Schemas: obj.Schemas.map(SearchSchemaSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is SearchSchemasResponse =>

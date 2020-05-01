@@ -62,9 +62,7 @@ export interface Attribute {
 export namespace Attribute {
   export const filterSensitiveLog = (obj: Attribute) => ({
     ...obj,
-    ...(obj.Traits && {
-      Traits: obj.Traits.map(item => item.map(Trait.filterSensitiveLog))
-    })
+    ...(obj.Traits && { Traits: obj.Traits.map(Trait.filterSensitiveLog) })
   });
   export const isa = (o: any): o is Attribute => __isa(o, "Attribute");
 }
@@ -344,11 +342,11 @@ export namespace DetectEntitiesResponse {
   export const filterSensitiveLog = (obj: DetectEntitiesResponse) => ({
     ...obj,
     ...(obj.Entities && {
-      Entities: obj.Entities.map(item => item.map(Entity.filterSensitiveLog))
+      Entities: obj.Entities.map(Entity.filterSensitiveLog)
     }),
     ...(obj.UnmappedAttributes && {
-      UnmappedAttributes: obj.UnmappedAttributes.map(item =>
-        item.map(UnmappedAttribute.filterSensitiveLog)
+      UnmappedAttributes: obj.UnmappedAttributes.map(
+        UnmappedAttribute.filterSensitiveLog
       )
     })
   });
@@ -405,11 +403,11 @@ export namespace DetectEntitiesV2Response {
   export const filterSensitiveLog = (obj: DetectEntitiesV2Response) => ({
     ...obj,
     ...(obj.Entities && {
-      Entities: obj.Entities.map(item => item.map(Entity.filterSensitiveLog))
+      Entities: obj.Entities.map(Entity.filterSensitiveLog)
     }),
     ...(obj.UnmappedAttributes && {
-      UnmappedAttributes: obj.UnmappedAttributes.map(item =>
-        item.map(UnmappedAttribute.filterSensitiveLog)
+      UnmappedAttributes: obj.UnmappedAttributes.map(
+        UnmappedAttribute.filterSensitiveLog
       )
     })
   });
@@ -461,7 +459,7 @@ export namespace DetectPHIResponse {
   export const filterSensitiveLog = (obj: DetectPHIResponse) => ({
     ...obj,
     ...(obj.Entities && {
-      Entities: obj.Entities.map(item => item.map(Entity.filterSensitiveLog))
+      Entities: obj.Entities.map(Entity.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DetectPHIResponse =>
@@ -526,13 +524,9 @@ export namespace Entity {
   export const filterSensitiveLog = (obj: Entity) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(Attribute.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(Attribute.filterSensitiveLog)
     }),
-    ...(obj.Traits && {
-      Traits: obj.Traits.map(item => item.map(Trait.filterSensitiveLog))
-    })
+    ...(obj.Traits && { Traits: obj.Traits.map(Trait.filterSensitiveLog) })
   });
   export const isa = (o: any): o is Entity => __isa(o, "Entity");
 }
@@ -636,7 +630,7 @@ export namespace ICD10CMAttribute {
   export const filterSensitiveLog = (obj: ICD10CMAttribute) => ({
     ...obj,
     ...(obj.Traits && {
-      Traits: obj.Traits.map(item => item.map(ICD10CMTrait.filterSensitiveLog))
+      Traits: obj.Traits.map(ICD10CMTrait.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ICD10CMAttribute =>
@@ -756,17 +750,15 @@ export namespace ICD10CMEntity {
   export const filterSensitiveLog = (obj: ICD10CMEntity) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(ICD10CMAttribute.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(ICD10CMAttribute.filterSensitiveLog)
     }),
     ...(obj.ICD10CMConcepts && {
-      ICD10CMConcepts: obj.ICD10CMConcepts.map(item =>
-        item.map(ICD10CMConcept.filterSensitiveLog)
+      ICD10CMConcepts: obj.ICD10CMConcepts.map(
+        ICD10CMConcept.filterSensitiveLog
       )
     }),
     ...(obj.Traits && {
-      Traits: obj.Traits.map(item => item.map(ICD10CMTrait.filterSensitiveLog))
+      Traits: obj.Traits.map(ICD10CMTrait.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ICD10CMEntity => __isa(o, "ICD10CMEntity");
@@ -856,9 +848,7 @@ export namespace InferICD10CMResponse {
   export const filterSensitiveLog = (obj: InferICD10CMResponse) => ({
     ...obj,
     ...(obj.Entities && {
-      Entities: obj.Entities.map(item =>
-        item.map(ICD10CMEntity.filterSensitiveLog)
-      )
+      Entities: obj.Entities.map(ICD10CMEntity.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is InferICD10CMResponse =>
@@ -908,9 +898,7 @@ export namespace InferRxNormResponse {
   export const filterSensitiveLog = (obj: InferRxNormResponse) => ({
     ...obj,
     ...(obj.Entities && {
-      Entities: obj.Entities.map(item =>
-        item.map(RxNormEntity.filterSensitiveLog)
-      )
+      Entities: obj.Entities.map(RxNormEntity.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is InferRxNormResponse =>
@@ -1069,7 +1057,7 @@ export namespace ListEntitiesDetectionV2JobsResponse {
     ...obj,
     ...(obj.ComprehendMedicalAsyncJobPropertiesList && {
       ComprehendMedicalAsyncJobPropertiesList: obj.ComprehendMedicalAsyncJobPropertiesList.map(
-        item => item.map(ComprehendMedicalAsyncJobProperties.filterSensitiveLog)
+        ComprehendMedicalAsyncJobProperties.filterSensitiveLog
       )
     })
   });
@@ -1125,7 +1113,7 @@ export namespace ListPHIDetectionJobsResponse {
     ...obj,
     ...(obj.ComprehendMedicalAsyncJobPropertiesList && {
       ComprehendMedicalAsyncJobPropertiesList: obj.ComprehendMedicalAsyncJobPropertiesList.map(
-        item => item.map(ComprehendMedicalAsyncJobProperties.filterSensitiveLog)
+        ComprehendMedicalAsyncJobProperties.filterSensitiveLog
       )
     })
   });
@@ -1240,7 +1228,7 @@ export namespace RxNormAttribute {
   export const filterSensitiveLog = (obj: RxNormAttribute) => ({
     ...obj,
     ...(obj.Traits && {
-      Traits: obj.Traits.map(item => item.map(RxNormTrait.filterSensitiveLog))
+      Traits: obj.Traits.map(RxNormTrait.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is RxNormAttribute =>
@@ -1359,17 +1347,13 @@ export namespace RxNormEntity {
   export const filterSensitiveLog = (obj: RxNormEntity) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(RxNormAttribute.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(RxNormAttribute.filterSensitiveLog)
     }),
     ...(obj.RxNormConcepts && {
-      RxNormConcepts: obj.RxNormConcepts.map(item =>
-        item.map(RxNormConcept.filterSensitiveLog)
-      )
+      RxNormConcepts: obj.RxNormConcepts.map(RxNormConcept.filterSensitiveLog)
     }),
     ...(obj.Traits && {
-      Traits: obj.Traits.map(item => item.map(RxNormTrait.filterSensitiveLog))
+      Traits: obj.Traits.map(RxNormTrait.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is RxNormEntity => __isa(o, "RxNormEntity");

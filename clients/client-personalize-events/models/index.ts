@@ -91,7 +91,7 @@ export namespace PutEventsRequest {
   export const filterSensitiveLog = (obj: PutEventsRequest) => ({
     ...obj,
     ...(obj.eventList && {
-      eventList: obj.eventList.map(item => item.map(Event.filterSensitiveLog))
+      eventList: obj.eventList.map(Event.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is PutEventsRequest =>

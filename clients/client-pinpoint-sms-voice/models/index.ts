@@ -408,8 +408,8 @@ export namespace GetConfigurationSetEventDestinationsResponse {
   ) => ({
     ...obj,
     ...(obj.EventDestinations && {
-      EventDestinations: obj.EventDestinations.map(item =>
-        item.map(EventDestination.filterSensitiveLog)
+      EventDestinations: obj.EventDestinations.map(
+        EventDestination.filterSensitiveLog
       )
     })
   });

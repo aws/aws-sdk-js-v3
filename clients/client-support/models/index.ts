@@ -286,9 +286,7 @@ export namespace Communication {
   export const filterSensitiveLog = (obj: Communication) => ({
     ...obj,
     ...(obj.attachmentSet && {
-      attachmentSet: obj.attachmentSet.map(item =>
-        item.map(AttachmentDetails.filterSensitiveLog)
-      )
+      attachmentSet: obj.attachmentSet.map(AttachmentDetails.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Communication => __isa(o, "Communication");
@@ -314,9 +312,7 @@ export namespace RecentCaseCommunications {
   export const filterSensitiveLog = (obj: RecentCaseCommunications) => ({
     ...obj,
     ...(obj.communications && {
-      communications: obj.communications.map(item =>
-        item.map(Communication.filterSensitiveLog)
-      )
+      communications: obj.communications.map(Communication.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is RecentCaseCommunications =>
@@ -354,9 +350,7 @@ export namespace Service {
   export const filterSensitiveLog = (obj: Service) => ({
     ...obj,
     ...(obj.categories && {
-      categories: obj.categories.map(item =>
-        item.map(Category.filterSensitiveLog)
-      )
+      categories: obj.categories.map(Category.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Service => __isa(o, "Service");
@@ -591,9 +585,7 @@ export namespace AddAttachmentsToSetRequest {
   export const filterSensitiveLog = (obj: AddAttachmentsToSetRequest) => ({
     ...obj,
     ...(obj.attachments && {
-      attachments: obj.attachments.map(item =>
-        item.map(Attachment.filterSensitiveLog)
-      )
+      attachments: obj.attachments.map(Attachment.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is AddAttachmentsToSetRequest =>
@@ -900,9 +892,7 @@ export interface DescribeCasesResponse {
 export namespace DescribeCasesResponse {
   export const filterSensitiveLog = (obj: DescribeCasesResponse) => ({
     ...obj,
-    ...(obj.cases && {
-      cases: obj.cases.map(item => item.map(CaseDetails.filterSensitiveLog))
-    })
+    ...(obj.cases && { cases: obj.cases.map(CaseDetails.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeCasesResponse =>
     __isa(o, "DescribeCasesResponse");
@@ -970,9 +960,7 @@ export namespace DescribeCommunicationsResponse {
   export const filterSensitiveLog = (obj: DescribeCommunicationsResponse) => ({
     ...obj,
     ...(obj.communications && {
-      communications: obj.communications.map(item =>
-        item.map(Communication.filterSensitiveLog)
-      )
+      communications: obj.communications.map(Communication.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeCommunicationsResponse =>
@@ -1018,7 +1006,7 @@ export namespace DescribeServicesResponse {
   export const filterSensitiveLog = (obj: DescribeServicesResponse) => ({
     ...obj,
     ...(obj.services && {
-      services: obj.services.map(item => item.map(Service.filterSensitiveLog))
+      services: obj.services.map(Service.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeServicesResponse =>
@@ -1059,9 +1047,7 @@ export namespace DescribeSeverityLevelsResponse {
   export const filterSensitiveLog = (obj: DescribeSeverityLevelsResponse) => ({
     ...obj,
     ...(obj.severityLevels && {
-      severityLevels: obj.severityLevels.map(item =>
-        item.map(SeverityLevel.filterSensitiveLog)
-      )
+      severityLevels: obj.severityLevels.map(SeverityLevel.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeSeverityLevelsResponse =>
@@ -1216,8 +1202,8 @@ export namespace DescribeTrustedAdvisorCheckRefreshStatusesResponse {
   ) => ({
     ...obj,
     ...(obj.statuses && {
-      statuses: obj.statuses.map(item =>
-        item.map(TrustedAdvisorCheckRefreshStatus.filterSensitiveLog)
+      statuses: obj.statuses.map(
+        TrustedAdvisorCheckRefreshStatus.filterSensitiveLog
       )
     })
   });
@@ -1316,8 +1302,8 @@ export namespace DescribeTrustedAdvisorCheckSummariesResponse {
   ) => ({
     ...obj,
     ...(obj.summaries && {
-      summaries: obj.summaries.map(item =>
-        item.map(TrustedAdvisorCheckSummary.filterSensitiveLog)
+      summaries: obj.summaries.map(
+        TrustedAdvisorCheckSummary.filterSensitiveLog
       )
     })
   });
@@ -1367,9 +1353,7 @@ export namespace DescribeTrustedAdvisorChecksResponse {
   ) => ({
     ...obj,
     ...(obj.checks && {
-      checks: obj.checks.map(item =>
-        item.map(TrustedAdvisorCheckDescription.filterSensitiveLog)
-      )
+      checks: obj.checks.map(TrustedAdvisorCheckDescription.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeTrustedAdvisorChecksResponse =>
@@ -1600,8 +1584,8 @@ export namespace TrustedAdvisorCheckResult {
       )
     }),
     ...(obj.flaggedResources && {
-      flaggedResources: obj.flaggedResources.map(item =>
-        item.map(TrustedAdvisorResourceDetail.filterSensitiveLog)
+      flaggedResources: obj.flaggedResources.map(
+        TrustedAdvisorResourceDetail.filterSensitiveLog
       )
     }),
     ...(obj.resourcesSummary && {

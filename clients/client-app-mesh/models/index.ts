@@ -90,8 +90,8 @@ export namespace AwsCloudMapServiceDiscovery {
   export const filterSensitiveLog = (obj: AwsCloudMapServiceDiscovery) => ({
     ...obj,
     ...(obj.attributes && {
-      attributes: obj.attributes.map(item =>
-        item.map(AwsCloudMapInstanceAttribute.filterSensitiveLog)
+      attributes: obj.attributes.map(
+        AwsCloudMapInstanceAttribute.filterSensitiveLog
       )
     })
   });
@@ -202,9 +202,7 @@ export namespace CreateMeshInput {
   export const filterSensitiveLog = (obj: CreateMeshInput) => ({
     ...obj,
     ...(obj.spec && { spec: MeshSpec.filterSensitiveLog(obj.spec) }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(TagRef.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(TagRef.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateMeshInput =>
     __isa(o, "CreateMeshInput");
@@ -274,9 +272,7 @@ export namespace CreateRouteInput {
   export const filterSensitiveLog = (obj: CreateRouteInput) => ({
     ...obj,
     ...(obj.spec && { spec: RouteSpec.filterSensitiveLog(obj.spec) }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(TagRef.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(TagRef.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateRouteInput =>
     __isa(o, "CreateRouteInput");
@@ -341,9 +337,7 @@ export namespace CreateVirtualNodeInput {
   export const filterSensitiveLog = (obj: CreateVirtualNodeInput) => ({
     ...obj,
     ...(obj.spec && { spec: VirtualNodeSpec.filterSensitiveLog(obj.spec) }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(TagRef.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(TagRef.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateVirtualNodeInput =>
     __isa(o, "CreateVirtualNodeInput");
@@ -410,9 +404,7 @@ export namespace CreateVirtualRouterInput {
   export const filterSensitiveLog = (obj: CreateVirtualRouterInput) => ({
     ...obj,
     ...(obj.spec && { spec: VirtualRouterSpec.filterSensitiveLog(obj.spec) }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(TagRef.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(TagRef.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateVirtualRouterInput =>
     __isa(o, "CreateVirtualRouterInput");
@@ -479,9 +471,7 @@ export namespace CreateVirtualServiceInput {
   export const filterSensitiveLog = (obj: CreateVirtualServiceInput) => ({
     ...obj,
     ...(obj.spec && { spec: VirtualServiceSpec.filterSensitiveLog(obj.spec) }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(TagRef.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(TagRef.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateVirtualServiceInput =>
     __isa(o, "CreateVirtualServiceInput");
@@ -1200,8 +1190,8 @@ export namespace GrpcRouteAction {
   export const filterSensitiveLog = (obj: GrpcRouteAction) => ({
     ...obj,
     ...(obj.weightedTargets && {
-      weightedTargets: obj.weightedTargets.map(item =>
-        item.map(WeightedTarget.filterSensitiveLog)
+      weightedTargets: obj.weightedTargets.map(
+        WeightedTarget.filterSensitiveLog
       )
     })
   });
@@ -1234,9 +1224,7 @@ export namespace GrpcRouteMatch {
   export const filterSensitiveLog = (obj: GrpcRouteMatch) => ({
     ...obj,
     ...(obj.metadata && {
-      metadata: obj.metadata.map(item =>
-        item.map(GrpcRouteMetadata.filterSensitiveLog)
-      )
+      metadata: obj.metadata.map(GrpcRouteMetadata.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GrpcRouteMatch =>
@@ -1645,8 +1633,8 @@ export namespace HttpRouteAction {
   export const filterSensitiveLog = (obj: HttpRouteAction) => ({
     ...obj,
     ...(obj.weightedTargets && {
-      weightedTargets: obj.weightedTargets.map(item =>
-        item.map(WeightedTarget.filterSensitiveLog)
+      weightedTargets: obj.weightedTargets.map(
+        WeightedTarget.filterSensitiveLog
       )
     })
   });
@@ -1719,9 +1707,7 @@ export namespace HttpRouteMatch {
   export const filterSensitiveLog = (obj: HttpRouteMatch) => ({
     ...obj,
     ...(obj.headers && {
-      headers: obj.headers.map(item =>
-        item.map(HttpRouteHeader.filterSensitiveLog)
-      )
+      headers: obj.headers.map(HttpRouteHeader.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is HttpRouteMatch =>
@@ -1833,9 +1819,7 @@ export interface ListMeshesOutput {
 export namespace ListMeshesOutput {
   export const filterSensitiveLog = (obj: ListMeshesOutput) => ({
     ...obj,
-    ...(obj.meshes && {
-      meshes: obj.meshes.map(item => item.map(MeshRef.filterSensitiveLog))
-    })
+    ...(obj.meshes && { meshes: obj.meshes.map(MeshRef.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListMeshesOutput =>
     __isa(o, "ListMeshesOutput");
@@ -1907,9 +1891,7 @@ export interface ListRoutesOutput {
 export namespace ListRoutesOutput {
   export const filterSensitiveLog = (obj: ListRoutesOutput) => ({
     ...obj,
-    ...(obj.routes && {
-      routes: obj.routes.map(item => item.map(RouteRef.filterSensitiveLog))
-    })
+    ...(obj.routes && { routes: obj.routes.map(RouteRef.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListRoutesOutput =>
     __isa(o, "ListRoutesOutput");
@@ -1976,9 +1958,7 @@ export interface ListTagsForResourceOutput {
 export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(TagRef.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(TagRef.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsForResourceOutput =>
     __isa(o, "ListTagsForResourceOutput");
@@ -2046,9 +2026,7 @@ export namespace ListVirtualNodesOutput {
   export const filterSensitiveLog = (obj: ListVirtualNodesOutput) => ({
     ...obj,
     ...(obj.virtualNodes && {
-      virtualNodes: obj.virtualNodes.map(item =>
-        item.map(VirtualNodeRef.filterSensitiveLog)
-      )
+      virtualNodes: obj.virtualNodes.map(VirtualNodeRef.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListVirtualNodesOutput =>
@@ -2117,8 +2095,8 @@ export namespace ListVirtualRoutersOutput {
   export const filterSensitiveLog = (obj: ListVirtualRoutersOutput) => ({
     ...obj,
     ...(obj.virtualRouters && {
-      virtualRouters: obj.virtualRouters.map(item =>
-        item.map(VirtualRouterRef.filterSensitiveLog)
+      virtualRouters: obj.virtualRouters.map(
+        VirtualRouterRef.filterSensitiveLog
       )
     })
   });
@@ -2188,8 +2166,8 @@ export namespace ListVirtualServicesOutput {
   export const filterSensitiveLog = (obj: ListVirtualServicesOutput) => ({
     ...obj,
     ...(obj.virtualServices && {
-      virtualServices: obj.virtualServices.map(item =>
-        item.map(VirtualServiceRef.filterSensitiveLog)
+      virtualServices: obj.virtualServices.map(
+        VirtualServiceRef.filterSensitiveLog
       )
     })
   });
@@ -2748,9 +2726,7 @@ export interface TagResourceInput {
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(TagRef.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(TagRef.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagResourceInput =>
     __isa(o, "TagResourceInput");
@@ -2809,8 +2785,8 @@ export namespace TcpRouteAction {
   export const filterSensitiveLog = (obj: TcpRouteAction) => ({
     ...obj,
     ...(obj.weightedTargets && {
-      weightedTargets: obj.weightedTargets.map(item =>
-        item.map(WeightedTarget.filterSensitiveLog)
+      weightedTargets: obj.weightedTargets.map(
+        WeightedTarget.filterSensitiveLog
       )
     })
   });
@@ -3311,11 +3287,9 @@ export interface VirtualNodeSpec {
 export namespace VirtualNodeSpec {
   export const filterSensitiveLog = (obj: VirtualNodeSpec) => ({
     ...obj,
-    ...(obj.backends && { backends: obj.backends.map(item => item.map()) }),
+    ...(obj.backends && { backends: obj.backends.map() }),
     ...(obj.listeners && {
-      listeners: obj.listeners.map(item =>
-        item.map(Listener.filterSensitiveLog)
-      )
+      listeners: obj.listeners.map(Listener.filterSensitiveLog)
     }),
     ...(obj.logging && { logging: Logging.filterSensitiveLog(obj.logging) })
   });
@@ -3480,9 +3454,7 @@ export namespace VirtualRouterSpec {
   export const filterSensitiveLog = (obj: VirtualRouterSpec) => ({
     ...obj,
     ...(obj.listeners && {
-      listeners: obj.listeners.map(item =>
-        item.map(VirtualRouterListener.filterSensitiveLog)
-      )
+      listeners: obj.listeners.map(VirtualRouterListener.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is VirtualRouterSpec =>

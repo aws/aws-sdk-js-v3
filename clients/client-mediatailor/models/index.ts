@@ -308,9 +308,7 @@ export namespace ListPlaybackConfigurationsResponse {
   ) => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(item =>
-        item.map(PlaybackConfiguration.filterSensitiveLog)
-      )
+      Items: obj.Items.map(PlaybackConfiguration.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListPlaybackConfigurationsResponse =>

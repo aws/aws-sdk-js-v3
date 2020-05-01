@@ -511,9 +511,7 @@ export namespace CreateDistributionConfigurationRequest {
   ) => ({
     ...obj,
     ...(obj.distributions && {
-      distributions: obj.distributions.map(item =>
-        item.map(Distribution.filterSensitiveLog)
-      )
+      distributions: obj.distributions.map(Distribution.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateDistributionConfigurationRequest =>
@@ -688,14 +686,12 @@ export namespace CreateImageRecipeRequest {
   export const filterSensitiveLog = (obj: CreateImageRecipeRequest) => ({
     ...obj,
     ...(obj.blockDeviceMappings && {
-      blockDeviceMappings: obj.blockDeviceMappings.map(item =>
-        item.map(InstanceBlockDeviceMapping.filterSensitiveLog)
+      blockDeviceMappings: obj.blockDeviceMappings.map(
+        InstanceBlockDeviceMapping.filterSensitiveLog
       )
     }),
     ...(obj.components && {
-      components: obj.components.map(item =>
-        item.map(ComponentConfiguration.filterSensitiveLog)
-      )
+      components: obj.components.map(ComponentConfiguration.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateImageRecipeRequest =>
@@ -1215,9 +1211,7 @@ export namespace DistributionConfiguration {
   export const filterSensitiveLog = (obj: DistributionConfiguration) => ({
     ...obj,
     ...(obj.distributions && {
-      distributions: obj.distributions.map(item =>
-        item.map(Distribution.filterSensitiveLog)
-      )
+      distributions: obj.distributions.map(Distribution.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DistributionConfiguration =>
@@ -2021,14 +2015,12 @@ export namespace ImageRecipe {
   export const filterSensitiveLog = (obj: ImageRecipe) => ({
     ...obj,
     ...(obj.blockDeviceMappings && {
-      blockDeviceMappings: obj.blockDeviceMappings.map(item =>
-        item.map(InstanceBlockDeviceMapping.filterSensitiveLog)
+      blockDeviceMappings: obj.blockDeviceMappings.map(
+        InstanceBlockDeviceMapping.filterSensitiveLog
       )
     }),
     ...(obj.components && {
-      components: obj.components.map(item =>
-        item.map(ComponentConfiguration.filterSensitiveLog)
-      )
+      components: obj.components.map(ComponentConfiguration.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ImageRecipe => __isa(o, "ImageRecipe");
@@ -2706,8 +2698,8 @@ export namespace ListComponentBuildVersionsResponse {
   ) => ({
     ...obj,
     ...(obj.componentSummaryList && {
-      componentSummaryList: obj.componentSummaryList.map(item =>
-        item.map(ComponentSummary.filterSensitiveLog)
+      componentSummaryList: obj.componentSummaryList.map(
+        ComponentSummary.filterSensitiveLog
       )
     })
   });
@@ -2741,9 +2733,7 @@ export interface ListComponentsRequest {
 export namespace ListComponentsRequest {
   export const filterSensitiveLog = (obj: ListComponentsRequest) => ({
     ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.filters && { filters: obj.filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListComponentsRequest =>
     __isa(o, "ListComponentsRequest");
@@ -2771,8 +2761,8 @@ export namespace ListComponentsResponse {
   export const filterSensitiveLog = (obj: ListComponentsResponse) => ({
     ...obj,
     ...(obj.componentVersionList && {
-      componentVersionList: obj.componentVersionList.map(item =>
-        item.map(ComponentVersion.filterSensitiveLog)
+      componentVersionList: obj.componentVersionList.map(
+        ComponentVersion.filterSensitiveLog
       )
     })
   });
@@ -2803,9 +2793,7 @@ export namespace ListDistributionConfigurationsRequest {
     obj: ListDistributionConfigurationsRequest
   ) => ({
     ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.filters && { filters: obj.filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListDistributionConfigurationsRequest =>
     __isa(o, "ListDistributionConfigurationsRequest");
@@ -2836,7 +2824,7 @@ export namespace ListDistributionConfigurationsResponse {
     ...obj,
     ...(obj.distributionConfigurationSummaryList && {
       distributionConfigurationSummaryList: obj.distributionConfigurationSummaryList.map(
-        item => item.map(DistributionConfigurationSummary.filterSensitiveLog)
+        DistributionConfigurationSummary.filterSensitiveLog
       )
     })
   });
@@ -2870,9 +2858,7 @@ export interface ListImageBuildVersionsRequest {
 export namespace ListImageBuildVersionsRequest {
   export const filterSensitiveLog = (obj: ListImageBuildVersionsRequest) => ({
     ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.filters && { filters: obj.filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListImageBuildVersionsRequest =>
     __isa(o, "ListImageBuildVersionsRequest");
@@ -2900,8 +2886,8 @@ export namespace ListImageBuildVersionsResponse {
   export const filterSensitiveLog = (obj: ListImageBuildVersionsResponse) => ({
     ...obj,
     ...(obj.imageSummaryList && {
-      imageSummaryList: obj.imageSummaryList.map(item =>
-        item.map(ImageSummary.filterSensitiveLog)
+      imageSummaryList: obj.imageSummaryList.map(
+        ImageSummary.filterSensitiveLog
       )
     })
   });
@@ -2935,9 +2921,7 @@ export interface ListImagePipelineImagesRequest {
 export namespace ListImagePipelineImagesRequest {
   export const filterSensitiveLog = (obj: ListImagePipelineImagesRequest) => ({
     ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.filters && { filters: obj.filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListImagePipelineImagesRequest =>
     __isa(o, "ListImagePipelineImagesRequest");
@@ -2965,8 +2949,8 @@ export namespace ListImagePipelineImagesResponse {
   export const filterSensitiveLog = (obj: ListImagePipelineImagesResponse) => ({
     ...obj,
     ...(obj.imageSummaryList && {
-      imageSummaryList: obj.imageSummaryList.map(item =>
-        item.map(ImageSummary.filterSensitiveLog)
+      imageSummaryList: obj.imageSummaryList.map(
+        ImageSummary.filterSensitiveLog
       )
     })
   });
@@ -2995,9 +2979,7 @@ export interface ListImagePipelinesRequest {
 export namespace ListImagePipelinesRequest {
   export const filterSensitiveLog = (obj: ListImagePipelinesRequest) => ({
     ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.filters && { filters: obj.filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListImagePipelinesRequest =>
     __isa(o, "ListImagePipelinesRequest");
@@ -3025,8 +3007,8 @@ export namespace ListImagePipelinesResponse {
   export const filterSensitiveLog = (obj: ListImagePipelinesResponse) => ({
     ...obj,
     ...(obj.imagePipelineList && {
-      imagePipelineList: obj.imagePipelineList.map(item =>
-        item.map(ImagePipeline.filterSensitiveLog)
+      imagePipelineList: obj.imagePipelineList.map(
+        ImagePipeline.filterSensitiveLog
       )
     })
   });
@@ -3060,9 +3042,7 @@ export interface ListImageRecipesRequest {
 export namespace ListImageRecipesRequest {
   export const filterSensitiveLog = (obj: ListImageRecipesRequest) => ({
     ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.filters && { filters: obj.filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListImageRecipesRequest =>
     __isa(o, "ListImageRecipesRequest");
@@ -3090,8 +3070,8 @@ export namespace ListImageRecipesResponse {
   export const filterSensitiveLog = (obj: ListImageRecipesResponse) => ({
     ...obj,
     ...(obj.imageRecipeSummaryList && {
-      imageRecipeSummaryList: obj.imageRecipeSummaryList.map(item =>
-        item.map(ImageRecipeSummary.filterSensitiveLog)
+      imageRecipeSummaryList: obj.imageRecipeSummaryList.map(
+        ImageRecipeSummary.filterSensitiveLog
       )
     })
   });
@@ -3125,9 +3105,7 @@ export interface ListImagesRequest {
 export namespace ListImagesRequest {
   export const filterSensitiveLog = (obj: ListImagesRequest) => ({
     ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.filters && { filters: obj.filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListImagesRequest =>
     __isa(o, "ListImagesRequest");
@@ -3155,8 +3133,8 @@ export namespace ListImagesResponse {
   export const filterSensitiveLog = (obj: ListImagesResponse) => ({
     ...obj,
     ...(obj.imageVersionList && {
-      imageVersionList: obj.imageVersionList.map(item =>
-        item.map(ImageVersion.filterSensitiveLog)
+      imageVersionList: obj.imageVersionList.map(
+        ImageVersion.filterSensitiveLog
       )
     })
   });
@@ -3187,9 +3165,7 @@ export namespace ListInfrastructureConfigurationsRequest {
     obj: ListInfrastructureConfigurationsRequest
   ) => ({
     ...obj,
-    ...(obj.filters && {
-      filters: obj.filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.filters && { filters: obj.filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListInfrastructureConfigurationsRequest =>
     __isa(o, "ListInfrastructureConfigurationsRequest");
@@ -3220,7 +3196,7 @@ export namespace ListInfrastructureConfigurationsResponse {
     ...obj,
     ...(obj.infrastructureConfigurationSummaryList && {
       infrastructureConfigurationSummaryList: obj.infrastructureConfigurationSummaryList.map(
-        item => item.map(InfrastructureConfigurationSummary.filterSensitiveLog)
+        InfrastructureConfigurationSummary.filterSensitiveLog
       )
     })
   });
@@ -3293,9 +3269,7 @@ export interface OutputResources {
 export namespace OutputResources {
   export const filterSensitiveLog = (obj: OutputResources) => ({
     ...obj,
-    ...(obj.amis && {
-      amis: obj.amis.map(item => item.map(Ami.filterSensitiveLog))
-    })
+    ...(obj.amis && { amis: obj.amis.map(Ami.filterSensitiveLog) })
   });
   export const isa = (o: any): o is OutputResources =>
     __isa(o, "OutputResources");
@@ -3752,9 +3726,7 @@ export namespace UpdateDistributionConfigurationRequest {
   ) => ({
     ...obj,
     ...(obj.distributions && {
-      distributions: obj.distributions.map(item =>
-        item.map(Distribution.filterSensitiveLog)
-      )
+      distributions: obj.distributions.map(Distribution.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateDistributionConfigurationRequest =>

@@ -477,9 +477,7 @@ export interface ListSigningJobsResponse {
 export namespace ListSigningJobsResponse {
   export const filterSensitiveLog = (obj: ListSigningJobsResponse) => ({
     ...obj,
-    ...(obj.jobs && {
-      jobs: obj.jobs.map(item => item.map(SigningJob.filterSensitiveLog))
-    })
+    ...(obj.jobs && { jobs: obj.jobs.map(SigningJob.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListSigningJobsResponse =>
     __isa(o, "ListSigningJobsResponse");
@@ -540,9 +538,7 @@ export namespace ListSigningPlatformsResponse {
   export const filterSensitiveLog = (obj: ListSigningPlatformsResponse) => ({
     ...obj,
     ...(obj.platforms && {
-      platforms: obj.platforms.map(item =>
-        item.map(SigningPlatform.filterSensitiveLog)
-      )
+      platforms: obj.platforms.map(SigningPlatform.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListSigningPlatformsResponse =>
@@ -597,9 +593,7 @@ export namespace ListSigningProfilesResponse {
   export const filterSensitiveLog = (obj: ListSigningProfilesResponse) => ({
     ...obj,
     ...(obj.profiles && {
-      profiles: obj.profiles.map(item =>
-        item.map(SigningProfile.filterSensitiveLog)
-      )
+      profiles: obj.profiles.map(SigningProfile.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListSigningProfilesResponse =>

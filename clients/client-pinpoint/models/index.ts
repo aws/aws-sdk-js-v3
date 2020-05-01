@@ -880,9 +880,7 @@ export interface ActivitiesResponse {
 export namespace ActivitiesResponse {
   export const filterSensitiveLog = (obj: ActivitiesResponse) => ({
     ...obj,
-    ...(obj.Item && {
-      Item: obj.Item.map(item => item.map(ActivityResponse.filterSensitiveLog))
-    })
+    ...(obj.Item && { Item: obj.Item.map(ActivityResponse.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ActivitiesResponse =>
     __isa(o, "ActivitiesResponse");
@@ -1287,9 +1285,7 @@ export namespace ApplicationsResponse {
   export const filterSensitiveLog = (obj: ApplicationsResponse) => ({
     ...obj,
     ...(obj.Item && {
-      Item: obj.Item.map(item =>
-        item.map(ApplicationResponse.filterSensitiveLog)
-      )
+      Item: obj.Item.map(ApplicationResponse.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ApplicationsResponse =>
@@ -1576,9 +1572,7 @@ export interface BaseKpiResult {
 export namespace BaseKpiResult {
   export const filterSensitiveLog = (obj: BaseKpiResult) => ({
     ...obj,
-    ...(obj.Rows && {
-      Rows: obj.Rows.map(item => item.map(ResultRow.filterSensitiveLog))
-    })
+    ...(obj.Rows && { Rows: obj.Rows.map(ResultRow.filterSensitiveLog) })
   });
   export const isa = (o: any): o is BaseKpiResult => __isa(o, "BaseKpiResult");
 }
@@ -1883,8 +1877,8 @@ export namespace CampaignResponse {
   export const filterSensitiveLog = (obj: CampaignResponse) => ({
     ...obj,
     ...(obj.AdditionalTreatments && {
-      AdditionalTreatments: obj.AdditionalTreatments.map(item =>
-        item.map(TreatmentResource.filterSensitiveLog)
+      AdditionalTreatments: obj.AdditionalTreatments.map(
+        TreatmentResource.filterSensitiveLog
       )
     }),
     ...(obj.DefaultState && {
@@ -1988,9 +1982,7 @@ export interface CampaignsResponse {
 export namespace CampaignsResponse {
   export const filterSensitiveLog = (obj: CampaignsResponse) => ({
     ...obj,
-    ...(obj.Item && {
-      Item: obj.Item.map(item => item.map(CampaignResponse.filterSensitiveLog))
-    })
+    ...(obj.Item && { Item: obj.Item.map(CampaignResponse.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CampaignsResponse =>
     __isa(o, "CampaignsResponse");
@@ -2108,9 +2100,7 @@ export namespace Condition {
   export const filterSensitiveLog = (obj: Condition) => ({
     ...obj,
     ...(obj.Conditions && {
-      Conditions: obj.Conditions.map(item =>
-        item.map(SimpleCondition.filterSensitiveLog)
-      )
+      Conditions: obj.Conditions.map(SimpleCondition.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Condition => __isa(o, "Condition");
@@ -4139,7 +4129,7 @@ export namespace EndpointBatchRequest {
   export const filterSensitiveLog = (obj: EndpointBatchRequest) => ({
     ...obj,
     ...(obj.Item && {
-      Item: obj.Item.map(item => item.map(EndpointBatchItem.filterSensitiveLog))
+      Item: obj.Item.map(EndpointBatchItem.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is EndpointBatchRequest =>
@@ -4560,9 +4550,7 @@ export interface EndpointsResponse {
 export namespace EndpointsResponse {
   export const filterSensitiveLog = (obj: EndpointsResponse) => ({
     ...obj,
-    ...(obj.Item && {
-      Item: obj.Item.map(item => item.map(EndpointResponse.filterSensitiveLog))
-    })
+    ...(obj.Item && { Item: obj.Item.map(EndpointResponse.filterSensitiveLog) })
   });
   export const isa = (o: any): o is EndpointsResponse =>
     __isa(o, "EndpointsResponse");
@@ -4993,7 +4981,7 @@ export namespace ExportJobsResponse {
   export const filterSensitiveLog = (obj: ExportJobsResponse) => ({
     ...obj,
     ...(obj.Item && {
-      Item: obj.Item.map(item => item.map(ExportJobResponse.filterSensitiveLog))
+      Item: obj.Item.map(ExportJobResponse.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ExportJobsResponse =>
@@ -7402,7 +7390,7 @@ export namespace ImportJobsResponse {
   export const filterSensitiveLog = (obj: ImportJobsResponse) => ({
     ...obj,
     ...(obj.Item && {
-      Item: obj.Item.map(item => item.map(ImportJobResponse.filterSensitiveLog))
+      Item: obj.Item.map(ImportJobResponse.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ImportJobsResponse =>
@@ -7832,9 +7820,7 @@ export interface JourneysResponse {
 export namespace JourneysResponse {
   export const filterSensitiveLog = (obj: JourneysResponse) => ({
     ...obj,
-    ...(obj.Item && {
-      Item: obj.Item.map(item => item.map(JourneyResponse.filterSensitiveLog))
-    })
+    ...(obj.Item && { Item: obj.Item.map(JourneyResponse.filterSensitiveLog) })
   });
   export const isa = (o: any): o is JourneysResponse =>
     __isa(o, "JourneysResponse");
@@ -8431,9 +8417,7 @@ export namespace MultiConditionalSplitActivity {
   export const filterSensitiveLog = (obj: MultiConditionalSplitActivity) => ({
     ...obj,
     ...(obj.Branches && {
-      Branches: obj.Branches.map(item =>
-        item.map(MultiConditionalBranch.filterSensitiveLog)
-      )
+      Branches: obj.Branches.map(MultiConditionalBranch.filterSensitiveLog)
     }),
     ...(obj.EvaluationWaitTime && {
       EvaluationWaitTime: WaitTime.filterSensitiveLog(obj.EvaluationWaitTime)
@@ -8996,9 +8980,7 @@ export namespace RandomSplitActivity {
   export const filterSensitiveLog = (obj: RandomSplitActivity) => ({
     ...obj,
     ...(obj.Branches && {
-      Branches: obj.Branches.map(item =>
-        item.map(RandomSplitEntry.filterSensitiveLog)
-      )
+      Branches: obj.Branches.map(RandomSplitEntry.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is RandomSplitActivity =>
@@ -9148,14 +9130,10 @@ export namespace ResultRow {
   export const filterSensitiveLog = (obj: ResultRow) => ({
     ...obj,
     ...(obj.GroupedBys && {
-      GroupedBys: obj.GroupedBys.map(item =>
-        item.map(ResultRowValue.filterSensitiveLog)
-      )
+      GroupedBys: obj.GroupedBys.map(ResultRowValue.filterSensitiveLog)
     }),
     ...(obj.Values && {
-      Values: obj.Values.map(item =>
-        item.map(ResultRowValue.filterSensitiveLog)
-      )
+      Values: obj.Values.map(ResultRowValue.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ResultRow => __isa(o, "ResultRow");
@@ -9683,13 +9661,11 @@ export namespace SegmentGroup {
   export const filterSensitiveLog = (obj: SegmentGroup) => ({
     ...obj,
     ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item =>
-        item.map(SegmentDimensions.filterSensitiveLog)
-      )
+      Dimensions: obj.Dimensions.map(SegmentDimensions.filterSensitiveLog)
     }),
     ...(obj.SourceSegments && {
-      SourceSegments: obj.SourceSegments.map(item =>
-        item.map(SegmentReference.filterSensitiveLog)
+      SourceSegments: obj.SourceSegments.map(
+        SegmentReference.filterSensitiveLog
       )
     })
   });
@@ -9716,7 +9692,7 @@ export namespace SegmentGroupList {
   export const filterSensitiveLog = (obj: SegmentGroupList) => ({
     ...obj,
     ...(obj.Groups && {
-      Groups: obj.Groups.map(item => item.map(SegmentGroup.filterSensitiveLog))
+      Groups: obj.Groups.map(SegmentGroup.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is SegmentGroupList =>
@@ -9930,9 +9906,7 @@ export interface SegmentsResponse {
 export namespace SegmentsResponse {
   export const filterSensitiveLog = (obj: SegmentsResponse) => ({
     ...obj,
-    ...(obj.Item && {
-      Item: obj.Item.map(item => item.map(SegmentResponse.filterSensitiveLog))
-    })
+    ...(obj.Item && { Item: obj.Item.map(SegmentResponse.filterSensitiveLog) })
   });
   export const isa = (o: any): o is SegmentsResponse =>
     __isa(o, "SegmentsResponse");
@@ -10583,9 +10557,7 @@ export namespace TemplateVersionsResponse {
   export const filterSensitiveLog = (obj: TemplateVersionsResponse) => ({
     ...obj,
     ...(obj.Item && {
-      Item: obj.Item.map(item =>
-        item.map(TemplateVersionResponse.filterSensitiveLog)
-      )
+      Item: obj.Item.map(TemplateVersionResponse.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is TemplateVersionsResponse =>
@@ -10611,9 +10583,7 @@ export interface TemplatesResponse {
 export namespace TemplatesResponse {
   export const filterSensitiveLog = (obj: TemplatesResponse) => ({
     ...obj,
-    ...(obj.Item && {
-      Item: obj.Item.map(item => item.map(TemplateResponse.filterSensitiveLog))
-    })
+    ...(obj.Item && { Item: obj.Item.map(TemplateResponse.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TemplatesResponse =>
     __isa(o, "TemplatesResponse");
@@ -12270,8 +12240,8 @@ export namespace WriteCampaignRequest {
   export const filterSensitiveLog = (obj: WriteCampaignRequest) => ({
     ...obj,
     ...(obj.AdditionalTreatments && {
-      AdditionalTreatments: obj.AdditionalTreatments.map(item =>
-        item.map(WriteTreatmentResource.filterSensitiveLog)
+      AdditionalTreatments: obj.AdditionalTreatments.map(
+        WriteTreatmentResource.filterSensitiveLog
       )
     }),
     ...(obj.Hook && { Hook: CampaignHook.filterSensitiveLog(obj.Hook) }),

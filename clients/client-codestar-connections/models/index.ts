@@ -233,9 +233,7 @@ export namespace ListConnectionsOutput {
   export const filterSensitiveLog = (obj: ListConnectionsOutput) => ({
     ...obj,
     ...(obj.Connections && {
-      Connections: obj.Connections.map(item =>
-        item.map(Connection.filterSensitiveLog)
-      )
+      Connections: obj.Connections.map(Connection.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListConnectionsOutput =>

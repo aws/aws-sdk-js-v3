@@ -43,9 +43,7 @@ export interface BucketInfo {
 export namespace BucketInfo {
   export const filterSensitiveLog = (obj: BucketInfo) => ({
     ...obj,
-    ...(obj.buckets && {
-      buckets: obj.buckets.map(item => item.map(Bucket.filterSensitiveLog))
-    })
+    ...(obj.buckets && { buckets: obj.buckets.map(Bucket.filterSensitiveLog) })
   });
   export const isa = (o: any): o is BucketInfo => __isa(o, "BucketInfo");
 }
@@ -216,9 +214,7 @@ export interface Hits {
 export namespace Hits {
   export const filterSensitiveLog = (obj: Hits) => ({
     ...obj,
-    ...(obj.hit && {
-      hit: obj.hit.map(item => item.map(Hit.filterSensitiveLog))
-    })
+    ...(obj.hit && { hit: obj.hit.map(Hit.filterSensitiveLog) })
   });
   export const isa = (o: any): o is Hits => __isa(o, "Hits");
 }
@@ -622,9 +618,7 @@ export namespace SuggestModel {
   export const filterSensitiveLog = (obj: SuggestModel) => ({
     ...obj,
     ...(obj.suggestions && {
-      suggestions: obj.suggestions.map(item =>
-        item.map(SuggestionMatch.filterSensitiveLog)
-      )
+      suggestions: obj.suggestions.map(SuggestionMatch.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is SuggestModel => __isa(o, "SuggestModel");
@@ -797,9 +791,7 @@ export namespace UploadDocumentsResponse {
   export const filterSensitiveLog = (obj: UploadDocumentsResponse) => ({
     ...obj,
     ...(obj.warnings && {
-      warnings: obj.warnings.map(item =>
-        item.map(DocumentServiceWarning.filterSensitiveLog)
-      )
+      warnings: obj.warnings.map(DocumentServiceWarning.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UploadDocumentsResponse =>

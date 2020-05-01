@@ -161,9 +161,7 @@ export namespace ExecuteStatementRequest {
   export const filterSensitiveLog = (obj: ExecuteStatementRequest) => ({
     ...obj,
     ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item =>
-        item.map(ValueHolder.filterSensitiveLog)
-      )
+      Parameters: obj.Parameters.map(ValueHolder.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ExecuteStatementRequest =>
@@ -312,7 +310,7 @@ export namespace Page {
   export const filterSensitiveLog = (obj: Page) => ({
     ...obj,
     ...(obj.Values && {
-      Values: obj.Values.map(item => item.map(ValueHolder.filterSensitiveLog))
+      Values: obj.Values.map(ValueHolder.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Page => __isa(o, "Page");

@@ -471,9 +471,7 @@ export namespace ListPlacementsResponse {
   export const filterSensitiveLog = (obj: ListPlacementsResponse) => ({
     ...obj,
     ...(obj.placements && {
-      placements: obj.placements.map(item =>
-        item.map(PlacementSummary.filterSensitiveLog)
-      )
+      placements: obj.placements.map(PlacementSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListPlacementsResponse =>
@@ -520,9 +518,7 @@ export namespace ListProjectsResponse {
   export const filterSensitiveLog = (obj: ListProjectsResponse) => ({
     ...obj,
     ...(obj.projects && {
-      projects: obj.projects.map(item =>
-        item.map(ProjectSummary.filterSensitiveLog)
-      )
+      projects: obj.projects.map(ProjectSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListProjectsResponse =>

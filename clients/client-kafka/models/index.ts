@@ -1247,8 +1247,8 @@ export namespace ListClusterOperationsResponse {
   export const filterSensitiveLog = (obj: ListClusterOperationsResponse) => ({
     ...obj,
     ...(obj.ClusterOperationInfoList && {
-      ClusterOperationInfoList: obj.ClusterOperationInfoList.map(item =>
-        item.map(ClusterOperationInfo.filterSensitiveLog)
+      ClusterOperationInfoList: obj.ClusterOperationInfoList.map(
+        ClusterOperationInfo.filterSensitiveLog
       )
     })
   });
@@ -1301,9 +1301,7 @@ export namespace ListClustersResponse {
   export const filterSensitiveLog = (obj: ListClustersResponse) => ({
     ...obj,
     ...(obj.ClusterInfoList && {
-      ClusterInfoList: obj.ClusterInfoList.map(item =>
-        item.map(ClusterInfo.filterSensitiveLog)
-      )
+      ClusterInfoList: obj.ClusterInfoList.map(ClusterInfo.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListClustersResponse =>
@@ -1358,9 +1356,7 @@ export namespace ListConfigurationRevisionsResponse {
   ) => ({
     ...obj,
     ...(obj.Revisions && {
-      Revisions: obj.Revisions.map(item =>
-        item.map(ConfigurationRevision.filterSensitiveLog)
-      )
+      Revisions: obj.Revisions.map(ConfigurationRevision.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListConfigurationRevisionsResponse =>
@@ -1407,9 +1403,7 @@ export namespace ListConfigurationsResponse {
   export const filterSensitiveLog = (obj: ListConfigurationsResponse) => ({
     ...obj,
     ...(obj.Configurations && {
-      Configurations: obj.Configurations.map(item =>
-        item.map(Configuration.filterSensitiveLog)
-      )
+      Configurations: obj.Configurations.map(Configuration.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListConfigurationsResponse =>
@@ -1461,9 +1455,7 @@ export namespace ListNodesResponse {
   export const filterSensitiveLog = (obj: ListNodesResponse) => ({
     ...obj,
     ...(obj.NodeInfoList && {
-      NodeInfoList: obj.NodeInfoList.map(item =>
-        item.map(NodeInfo.filterSensitiveLog)
-      )
+      NodeInfoList: obj.NodeInfoList.map(NodeInfo.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListNodesResponse =>
@@ -1537,8 +1529,8 @@ export namespace MutableClusterInfo {
   export const filterSensitiveLog = (obj: MutableClusterInfo) => ({
     ...obj,
     ...(obj.BrokerEBSVolumeInfo && {
-      BrokerEBSVolumeInfo: obj.BrokerEBSVolumeInfo.map(item =>
-        item.map(BrokerEBSVolumeInfo.filterSensitiveLog)
+      BrokerEBSVolumeInfo: obj.BrokerEBSVolumeInfo.map(
+        BrokerEBSVolumeInfo.filterSensitiveLog
       )
     }),
     ...(obj.ConfigurationInfo && {
@@ -2024,8 +2016,8 @@ export namespace UpdateBrokerStorageRequest {
   export const filterSensitiveLog = (obj: UpdateBrokerStorageRequest) => ({
     ...obj,
     ...(obj.TargetBrokerEBSVolumeInfo && {
-      TargetBrokerEBSVolumeInfo: obj.TargetBrokerEBSVolumeInfo.map(item =>
-        item.map(BrokerEBSVolumeInfo.filterSensitiveLog)
+      TargetBrokerEBSVolumeInfo: obj.TargetBrokerEBSVolumeInfo.map(
+        BrokerEBSVolumeInfo.filterSensitiveLog
       )
     })
   });

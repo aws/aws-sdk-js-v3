@@ -165,9 +165,7 @@ export namespace AllocateStaticIpResult {
   export const filterSensitiveLog = (obj: AllocateStaticIpResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is AllocateStaticIpResult =>
@@ -213,9 +211,7 @@ export namespace AttachDiskResult {
   export const filterSensitiveLog = (obj: AttachDiskResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is AttachDiskResult =>
@@ -265,9 +261,7 @@ export namespace AttachInstancesToLoadBalancerResult {
   ) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is AttachInstancesToLoadBalancerResult =>
@@ -314,9 +308,7 @@ export namespace AttachLoadBalancerTlsCertificateResult {
   ) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is AttachLoadBalancerTlsCertificateResult =>
@@ -356,9 +348,7 @@ export namespace AttachStaticIpResult {
   export const filterSensitiveLog = (obj: AttachStaticIpResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is AttachStaticIpResult =>
@@ -484,8 +474,8 @@ export namespace AutoSnapshotDetails {
   export const filterSensitiveLog = (obj: AutoSnapshotDetails) => ({
     ...obj,
     ...(obj.fromAttachedDisks && {
-      fromAttachedDisks: obj.fromAttachedDisks.map(item =>
-        item.map(AttachedDisk.filterSensitiveLog)
+      fromAttachedDisks: obj.fromAttachedDisks.map(
+        AttachedDisk.filterSensitiveLog
       )
     })
   });
@@ -792,8 +782,8 @@ export namespace CloudFormationStackRecord {
       location: ResourceLocation.filterSensitiveLog(obj.location)
     }),
     ...(obj.sourceInfo && {
-      sourceInfo: obj.sourceInfo.map(item =>
-        item.map(CloudFormationStackRecordSourceInfo.filterSensitiveLog)
+      sourceInfo: obj.sourceInfo.map(
+        CloudFormationStackRecordSourceInfo.filterSensitiveLog
       )
     })
   });
@@ -934,9 +924,7 @@ export namespace CopySnapshotResult {
   export const filterSensitiveLog = (obj: CopySnapshotResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CopySnapshotResult =>
@@ -959,9 +947,7 @@ export namespace CreateCloudFormationStackRequest {
   ) => ({
     ...obj,
     ...(obj.instances && {
-      instances: obj.instances.map(item =>
-        item.map(InstanceEntry.filterSensitiveLog)
-      )
+      instances: obj.instances.map(InstanceEntry.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateCloudFormationStackRequest =>
@@ -980,9 +966,7 @@ export namespace CreateCloudFormationStackResult {
   export const filterSensitiveLog = (obj: CreateCloudFormationStackResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateCloudFormationStackResult =>
@@ -1097,11 +1081,9 @@ export namespace CreateDiskFromSnapshotRequest {
   export const filterSensitiveLog = (obj: CreateDiskFromSnapshotRequest) => ({
     ...obj,
     ...(obj.addOns && {
-      addOns: obj.addOns.map(item => item.map(AddOnRequest.filterSensitiveLog))
+      addOns: obj.addOns.map(AddOnRequest.filterSensitiveLog)
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateDiskFromSnapshotRequest =>
     __isa(o, "CreateDiskFromSnapshotRequest");
@@ -1119,9 +1101,7 @@ export namespace CreateDiskFromSnapshotResult {
   export const filterSensitiveLog = (obj: CreateDiskFromSnapshotResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateDiskFromSnapshotResult =>
@@ -1166,11 +1146,9 @@ export namespace CreateDiskRequest {
   export const filterSensitiveLog = (obj: CreateDiskRequest) => ({
     ...obj,
     ...(obj.addOns && {
-      addOns: obj.addOns.map(item => item.map(AddOnRequest.filterSensitiveLog))
+      addOns: obj.addOns.map(AddOnRequest.filterSensitiveLog)
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateDiskRequest =>
     __isa(o, "CreateDiskRequest");
@@ -1188,9 +1166,7 @@ export namespace CreateDiskResult {
   export const filterSensitiveLog = (obj: CreateDiskResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateDiskResult =>
@@ -1237,9 +1213,7 @@ export interface CreateDiskSnapshotRequest {
 export namespace CreateDiskSnapshotRequest {
   export const filterSensitiveLog = (obj: CreateDiskSnapshotRequest) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateDiskSnapshotRequest =>
     __isa(o, "CreateDiskSnapshotRequest");
@@ -1257,9 +1231,7 @@ export namespace CreateDiskSnapshotResult {
   export const filterSensitiveLog = (obj: CreateDiskSnapshotResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateDiskSnapshotResult =>
@@ -1335,9 +1307,7 @@ export interface CreateDomainRequest {
 export namespace CreateDomainRequest {
   export const filterSensitiveLog = (obj: CreateDomainRequest) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateDomainRequest =>
     __isa(o, "CreateDomainRequest");
@@ -1386,9 +1356,7 @@ export interface CreateInstanceSnapshotRequest {
 export namespace CreateInstanceSnapshotRequest {
   export const filterSensitiveLog = (obj: CreateInstanceSnapshotRequest) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateInstanceSnapshotRequest =>
     __isa(o, "CreateInstanceSnapshotRequest");
@@ -1407,9 +1375,7 @@ export namespace CreateInstanceSnapshotResult {
   export const filterSensitiveLog = (obj: CreateInstanceSnapshotResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateInstanceSnapshotResult =>
@@ -1552,11 +1518,9 @@ export namespace CreateInstancesFromSnapshotRequest {
   ) => ({
     ...obj,
     ...(obj.addOns && {
-      addOns: obj.addOns.map(item => item.map(AddOnRequest.filterSensitiveLog))
+      addOns: obj.addOns.map(AddOnRequest.filterSensitiveLog)
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateInstancesFromSnapshotRequest =>
     __isa(o, "CreateInstancesFromSnapshotRequest");
@@ -1577,9 +1541,7 @@ export namespace CreateInstancesFromSnapshotResult {
   ) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateInstancesFromSnapshotResult =>
@@ -1668,11 +1630,9 @@ export namespace CreateInstancesRequest {
   export const filterSensitiveLog = (obj: CreateInstancesRequest) => ({
     ...obj,
     ...(obj.addOns && {
-      addOns: obj.addOns.map(item => item.map(AddOnRequest.filterSensitiveLog))
+      addOns: obj.addOns.map(AddOnRequest.filterSensitiveLog)
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateInstancesRequest =>
     __isa(o, "CreateInstancesRequest");
@@ -1691,9 +1651,7 @@ export namespace CreateInstancesResult {
   export const filterSensitiveLog = (obj: CreateInstancesResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateInstancesResult =>
@@ -1718,9 +1676,7 @@ export interface CreateKeyPairRequest {
 export namespace CreateKeyPairRequest {
   export const filterSensitiveLog = (obj: CreateKeyPairRequest) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateKeyPairRequest =>
     __isa(o, "CreateKeyPairRequest");
@@ -1817,9 +1773,7 @@ export interface CreateLoadBalancerRequest {
 export namespace CreateLoadBalancerRequest {
   export const filterSensitiveLog = (obj: CreateLoadBalancerRequest) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateLoadBalancerRequest =>
     __isa(o, "CreateLoadBalancerRequest");
@@ -1837,9 +1791,7 @@ export namespace CreateLoadBalancerResult {
   export const filterSensitiveLog = (obj: CreateLoadBalancerResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateLoadBalancerResult =>
@@ -1889,9 +1841,7 @@ export namespace CreateLoadBalancerTlsCertificateRequest {
     obj: CreateLoadBalancerTlsCertificateRequest
   ) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateLoadBalancerTlsCertificateRequest =>
     __isa(o, "CreateLoadBalancerTlsCertificateRequest");
@@ -1911,9 +1861,7 @@ export namespace CreateLoadBalancerTlsCertificateResult {
   ) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateLoadBalancerTlsCertificateResult =>
@@ -2020,9 +1968,7 @@ export namespace CreateRelationalDatabaseFromSnapshotRequest {
     obj: CreateRelationalDatabaseFromSnapshotRequest
   ) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (
     o: any
@@ -2045,9 +1991,7 @@ export namespace CreateRelationalDatabaseFromSnapshotResult {
   ) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (
@@ -2215,9 +2159,7 @@ export namespace CreateRelationalDatabaseRequest {
   export const filterSensitiveLog = (obj: CreateRelationalDatabaseRequest) => ({
     ...obj,
     ...(obj.masterUserPassword && { masterUserPassword: SENSITIVE_STRING }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateRelationalDatabaseRequest =>
     __isa(o, "CreateRelationalDatabaseRequest");
@@ -2235,9 +2177,7 @@ export namespace CreateRelationalDatabaseResult {
   export const filterSensitiveLog = (obj: CreateRelationalDatabaseResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateRelationalDatabaseResult =>
@@ -2278,9 +2218,7 @@ export namespace CreateRelationalDatabaseSnapshotRequest {
     obj: CreateRelationalDatabaseSnapshotRequest
   ) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateRelationalDatabaseSnapshotRequest =>
     __isa(o, "CreateRelationalDatabaseSnapshotRequest");
@@ -2301,9 +2239,7 @@ export namespace CreateRelationalDatabaseSnapshotResult {
   ) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateRelationalDatabaseSnapshotResult =>
@@ -2346,9 +2282,7 @@ export namespace DeleteAutoSnapshotResult {
   export const filterSensitiveLog = (obj: DeleteAutoSnapshotResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DeleteAutoSnapshotResult =>
@@ -2388,9 +2322,7 @@ export namespace DeleteDiskResult {
   export const filterSensitiveLog = (obj: DeleteDiskResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DeleteDiskResult =>
@@ -2426,9 +2358,7 @@ export namespace DeleteDiskSnapshotResult {
   export const filterSensitiveLog = (obj: DeleteDiskSnapshotResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DeleteDiskSnapshotResult =>
@@ -2549,9 +2479,7 @@ export namespace DeleteInstanceResult {
   export const filterSensitiveLog = (obj: DeleteInstanceResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DeleteInstanceResult =>
@@ -2587,9 +2515,7 @@ export namespace DeleteInstanceSnapshotResult {
   export const filterSensitiveLog = (obj: DeleteInstanceSnapshotResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DeleteInstanceSnapshotResult =>
@@ -2660,9 +2586,7 @@ export namespace DeleteKnownHostKeysResult {
   export const filterSensitiveLog = (obj: DeleteKnownHostKeysResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DeleteKnownHostKeysResult =>
@@ -2697,9 +2621,7 @@ export namespace DeleteLoadBalancerResult {
   export const filterSensitiveLog = (obj: DeleteLoadBalancerResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DeleteLoadBalancerResult =>
@@ -2751,9 +2673,7 @@ export namespace DeleteLoadBalancerTlsCertificateResult {
   ) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DeleteLoadBalancerTlsCertificateResult =>
@@ -2819,9 +2739,7 @@ export namespace DeleteRelationalDatabaseResult {
   export const filterSensitiveLog = (obj: DeleteRelationalDatabaseResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DeleteRelationalDatabaseResult =>
@@ -2861,9 +2779,7 @@ export namespace DeleteRelationalDatabaseSnapshotResult {
   ) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DeleteRelationalDatabaseSnapshotResult =>
@@ -2923,9 +2839,7 @@ export namespace DetachDiskResult {
   export const filterSensitiveLog = (obj: DetachDiskResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DetachDiskResult =>
@@ -2970,9 +2884,7 @@ export namespace DetachInstancesFromLoadBalancerResult {
   ) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DetachInstancesFromLoadBalancerResult =>
@@ -3008,9 +2920,7 @@ export namespace DetachStaticIpResult {
   export const filterSensitiveLog = (obj: DetachStaticIpResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DetachStaticIpResult =>
@@ -3050,9 +2960,7 @@ export namespace DisableAddOnResult {
   export const filterSensitiveLog = (obj: DisableAddOnResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DisableAddOnResult =>
@@ -3167,15 +3075,11 @@ export interface Disk {
 export namespace Disk {
   export const filterSensitiveLog = (obj: Disk) => ({
     ...obj,
-    ...(obj.addOns && {
-      addOns: obj.addOns.map(item => item.map(AddOn.filterSensitiveLog))
-    }),
+    ...(obj.addOns && { addOns: obj.addOns.map(AddOn.filterSensitiveLog) }),
     ...(obj.location && {
       location: ResourceLocation.filterSensitiveLog(obj.location)
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is Disk => __isa(o, "Disk");
 }
@@ -3333,9 +3237,7 @@ export namespace DiskSnapshot {
     ...(obj.location && {
       location: ResourceLocation.filterSensitiveLog(obj.location)
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DiskSnapshot => __isa(o, "DiskSnapshot");
 }
@@ -3429,16 +3331,12 @@ export namespace Domain {
   export const filterSensitiveLog = (obj: Domain) => ({
     ...obj,
     ...(obj.domainEntries && {
-      domainEntries: obj.domainEntries.map(item =>
-        item.map(DomainEntry.filterSensitiveLog)
-      )
+      domainEntries: obj.domainEntries.map(DomainEntry.filterSensitiveLog)
     }),
     ...(obj.location && {
       location: ResourceLocation.filterSensitiveLog(obj.location)
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is Domain => __isa(o, "Domain");
 }
@@ -3605,9 +3503,7 @@ export namespace EnableAddOnResult {
   export const filterSensitiveLog = (obj: EnableAddOnResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is EnableAddOnResult =>
@@ -3777,9 +3673,7 @@ export namespace ExportSnapshotResult {
   export const filterSensitiveLog = (obj: ExportSnapshotResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ExportSnapshotResult =>
@@ -3864,8 +3758,8 @@ export namespace GetAutoSnapshotsResult {
   export const filterSensitiveLog = (obj: GetAutoSnapshotsResult) => ({
     ...obj,
     ...(obj.autoSnapshots && {
-      autoSnapshots: obj.autoSnapshots.map(item =>
-        item.map(AutoSnapshotDetails.filterSensitiveLog)
+      autoSnapshots: obj.autoSnapshots.map(
+        AutoSnapshotDetails.filterSensitiveLog
       )
     })
   });
@@ -3915,9 +3809,7 @@ export namespace GetBlueprintsResult {
   export const filterSensitiveLog = (obj: GetBlueprintsResult) => ({
     ...obj,
     ...(obj.blueprints && {
-      blueprints: obj.blueprints.map(item =>
-        item.map(Blueprint.filterSensitiveLog)
-      )
+      blueprints: obj.blueprints.map(Blueprint.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetBlueprintsResult =>
@@ -3965,9 +3857,7 @@ export interface GetBundlesResult {
 export namespace GetBundlesResult {
   export const filterSensitiveLog = (obj: GetBundlesResult) => ({
     ...obj,
-    ...(obj.bundles && {
-      bundles: obj.bundles.map(item => item.map(Bundle.filterSensitiveLog))
-    })
+    ...(obj.bundles && { bundles: obj.bundles.map(Bundle.filterSensitiveLog) })
   });
   export const isa = (o: any): o is GetBundlesResult =>
     __isa(o, "GetBundlesResult");
@@ -4012,8 +3902,8 @@ export namespace GetCloudFormationStackRecordsResult {
   ) => ({
     ...obj,
     ...(obj.cloudFormationStackRecords && {
-      cloudFormationStackRecords: obj.cloudFormationStackRecords.map(item =>
-        item.map(CloudFormationStackRecord.filterSensitiveLog)
+      cloudFormationStackRecords: obj.cloudFormationStackRecords.map(
+        CloudFormationStackRecord.filterSensitiveLog
       )
     })
   });
@@ -4124,9 +4014,7 @@ export namespace GetDiskSnapshotsResult {
   export const filterSensitiveLog = (obj: GetDiskSnapshotsResult) => ({
     ...obj,
     ...(obj.diskSnapshots && {
-      diskSnapshots: obj.diskSnapshots.map(item =>
-        item.map(DiskSnapshot.filterSensitiveLog)
-      )
+      diskSnapshots: obj.diskSnapshots.map(DiskSnapshot.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetDiskSnapshotsResult =>
@@ -4167,9 +4055,7 @@ export interface GetDisksResult {
 export namespace GetDisksResult {
   export const filterSensitiveLog = (obj: GetDisksResult) => ({
     ...obj,
-    ...(obj.disks && {
-      disks: obj.disks.map(item => item.map(Disk.filterSensitiveLog))
-    })
+    ...(obj.disks && { disks: obj.disks.map(Disk.filterSensitiveLog) })
   });
   export const isa = (o: any): o is GetDisksResult =>
     __isa(o, "GetDisksResult");
@@ -4244,9 +4130,7 @@ export interface GetDomainsResult {
 export namespace GetDomainsResult {
   export const filterSensitiveLog = (obj: GetDomainsResult) => ({
     ...obj,
-    ...(obj.domains && {
-      domains: obj.domains.map(item => item.map(Domain.filterSensitiveLog))
-    })
+    ...(obj.domains && { domains: obj.domains.map(Domain.filterSensitiveLog) })
   });
   export const isa = (o: any): o is GetDomainsResult =>
     __isa(o, "GetDomainsResult");
@@ -4287,8 +4171,8 @@ export namespace GetExportSnapshotRecordsResult {
   export const filterSensitiveLog = (obj: GetExportSnapshotRecordsResult) => ({
     ...obj,
     ...(obj.exportSnapshotRecords && {
-      exportSnapshotRecords: obj.exportSnapshotRecords.map(item =>
-        item.map(ExportSnapshotRecord.filterSensitiveLog)
+      exportSnapshotRecords: obj.exportSnapshotRecords.map(
+        ExportSnapshotRecord.filterSensitiveLog
       )
     })
   });
@@ -4402,9 +4286,7 @@ export namespace GetInstanceMetricDataResult {
   export const filterSensitiveLog = (obj: GetInstanceMetricDataResult) => ({
     ...obj,
     ...(obj.metricData && {
-      metricData: obj.metricData.map(item =>
-        item.map(MetricDatapoint.filterSensitiveLog)
-      )
+      metricData: obj.metricData.map(MetricDatapoint.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetInstanceMetricDataResult =>
@@ -4439,9 +4321,7 @@ export namespace GetInstancePortStatesResult {
   export const filterSensitiveLog = (obj: GetInstancePortStatesResult) => ({
     ...obj,
     ...(obj.portStates && {
-      portStates: obj.portStates.map(item =>
-        item.map(InstancePortState.filterSensitiveLog)
-      )
+      portStates: obj.portStates.map(InstancePortState.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetInstancePortStatesResult =>
@@ -4556,8 +4436,8 @@ export namespace GetInstanceSnapshotsResult {
   export const filterSensitiveLog = (obj: GetInstanceSnapshotsResult) => ({
     ...obj,
     ...(obj.instanceSnapshots && {
-      instanceSnapshots: obj.instanceSnapshots.map(item =>
-        item.map(InstanceSnapshot.filterSensitiveLog)
+      instanceSnapshots: obj.instanceSnapshots.map(
+        InstanceSnapshot.filterSensitiveLog
       )
     })
   });
@@ -4633,9 +4513,7 @@ export namespace GetInstancesResult {
   export const filterSensitiveLog = (obj: GetInstancesResult) => ({
     ...obj,
     ...(obj.instances && {
-      instances: obj.instances.map(item =>
-        item.map(Instance.filterSensitiveLog)
-      )
+      instances: obj.instances.map(Instance.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetInstancesResult =>
@@ -4710,7 +4588,7 @@ export namespace GetKeyPairsResult {
   export const filterSensitiveLog = (obj: GetKeyPairsResult) => ({
     ...obj,
     ...(obj.keyPairs && {
-      keyPairs: obj.keyPairs.map(item => item.map(KeyPair.filterSensitiveLog))
+      keyPairs: obj.keyPairs.map(KeyPair.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetKeyPairsResult =>
@@ -5108,9 +4986,7 @@ export namespace GetLoadBalancerMetricDataResult {
   export const filterSensitiveLog = (obj: GetLoadBalancerMetricDataResult) => ({
     ...obj,
     ...(obj.metricData && {
-      metricData: obj.metricData.map(item =>
-        item.map(MetricDatapoint.filterSensitiveLog)
-      )
+      metricData: obj.metricData.map(MetricDatapoint.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetLoadBalancerMetricDataResult =>
@@ -5185,8 +5061,8 @@ export namespace GetLoadBalancerTlsCertificatesResult {
   ) => ({
     ...obj,
     ...(obj.tlsCertificates && {
-      tlsCertificates: obj.tlsCertificates.map(item =>
-        item.map(LoadBalancerTlsCertificate.filterSensitiveLog)
+      tlsCertificates: obj.tlsCertificates.map(
+        LoadBalancerTlsCertificate.filterSensitiveLog
       )
     })
   });
@@ -5228,9 +5104,7 @@ export namespace GetLoadBalancersResult {
   export const filterSensitiveLog = (obj: GetLoadBalancersResult) => ({
     ...obj,
     ...(obj.loadBalancers && {
-      loadBalancers: obj.loadBalancers.map(item =>
-        item.map(LoadBalancer.filterSensitiveLog)
-      )
+      loadBalancers: obj.loadBalancers.map(LoadBalancer.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetLoadBalancersResult =>
@@ -5324,9 +5198,7 @@ export namespace GetOperationsForResourceResult {
   export const filterSensitiveLog = (obj: GetOperationsForResourceResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetOperationsForResourceResult =>
@@ -5369,9 +5241,7 @@ export namespace GetOperationsResult {
   export const filterSensitiveLog = (obj: GetOperationsResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetOperationsResult =>
@@ -5415,9 +5285,7 @@ export interface GetRegionsResult {
 export namespace GetRegionsResult {
   export const filterSensitiveLog = (obj: GetRegionsResult) => ({
     ...obj,
-    ...(obj.regions && {
-      regions: obj.regions.map(item => item.map(Region.filterSensitiveLog))
-    })
+    ...(obj.regions && { regions: obj.regions.map(Region.filterSensitiveLog) })
   });
   export const isa = (o: any): o is GetRegionsResult =>
     __isa(o, "GetRegionsResult");
@@ -5463,8 +5331,8 @@ export namespace GetRelationalDatabaseBlueprintsResult {
   ) => ({
     ...obj,
     ...(obj.blueprints && {
-      blueprints: obj.blueprints.map(item =>
-        item.map(RelationalDatabaseBlueprint.filterSensitiveLog)
+      blueprints: obj.blueprints.map(
+        RelationalDatabaseBlueprint.filterSensitiveLog
       )
     })
   });
@@ -5512,9 +5380,7 @@ export namespace GetRelationalDatabaseBundlesResult {
   ) => ({
     ...obj,
     ...(obj.bundles && {
-      bundles: obj.bundles.map(item =>
-        item.map(RelationalDatabaseBundle.filterSensitiveLog)
-      )
+      bundles: obj.bundles.map(RelationalDatabaseBundle.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetRelationalDatabaseBundlesResult =>
@@ -5575,8 +5441,8 @@ export namespace GetRelationalDatabaseEventsResult {
   ) => ({
     ...obj,
     ...(obj.relationalDatabaseEvents && {
-      relationalDatabaseEvents: obj.relationalDatabaseEvents.map(item =>
-        item.map(RelationalDatabaseEvent.filterSensitiveLog)
+      relationalDatabaseEvents: obj.relationalDatabaseEvents.map(
+        RelationalDatabaseEvent.filterSensitiveLog
       )
     })
   });
@@ -5686,9 +5552,7 @@ export namespace GetRelationalDatabaseLogEventsResult {
   ) => ({
     ...obj,
     ...(obj.resourceLogEvents && {
-      resourceLogEvents: obj.resourceLogEvents.map(item =>
-        item.map(LogEvent.filterSensitiveLog)
-      )
+      resourceLogEvents: obj.resourceLogEvents.map(LogEvent.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetRelationalDatabaseLogEventsResult =>
@@ -5883,9 +5747,7 @@ export namespace GetRelationalDatabaseMetricDataResult {
   ) => ({
     ...obj,
     ...(obj.metricData && {
-      metricData: obj.metricData.map(item =>
-        item.map(MetricDatapoint.filterSensitiveLog)
-      )
+      metricData: obj.metricData.map(MetricDatapoint.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetRelationalDatabaseMetricDataResult =>
@@ -5937,8 +5799,8 @@ export namespace GetRelationalDatabaseParametersResult {
   ) => ({
     ...obj,
     ...(obj.parameters && {
-      parameters: obj.parameters.map(item =>
-        item.map(RelationalDatabaseParameter.filterSensitiveLog)
+      parameters: obj.parameters.map(
+        RelationalDatabaseParameter.filterSensitiveLog
       )
     })
   });
@@ -6064,8 +5926,8 @@ export namespace GetRelationalDatabaseSnapshotsResult {
   ) => ({
     ...obj,
     ...(obj.relationalDatabaseSnapshots && {
-      relationalDatabaseSnapshots: obj.relationalDatabaseSnapshots.map(item =>
-        item.map(RelationalDatabaseSnapshot.filterSensitiveLog)
+      relationalDatabaseSnapshots: obj.relationalDatabaseSnapshots.map(
+        RelationalDatabaseSnapshot.filterSensitiveLog
       )
     })
   });
@@ -6108,8 +5970,8 @@ export namespace GetRelationalDatabasesResult {
   export const filterSensitiveLog = (obj: GetRelationalDatabasesResult) => ({
     ...obj,
     ...(obj.relationalDatabases && {
-      relationalDatabases: obj.relationalDatabases.map(item =>
-        item.map(RelationalDatabase.filterSensitiveLog)
+      relationalDatabases: obj.relationalDatabases.map(
+        RelationalDatabase.filterSensitiveLog
       )
     })
   });
@@ -6187,9 +6049,7 @@ export namespace GetStaticIpsResult {
   export const filterSensitiveLog = (obj: GetStaticIpsResult) => ({
     ...obj,
     ...(obj.staticIps && {
-      staticIps: obj.staticIps.map(item =>
-        item.map(StaticIp.filterSensitiveLog)
-      )
+      staticIps: obj.staticIps.map(StaticIp.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetStaticIpsResult =>
@@ -6438,9 +6298,7 @@ export interface Instance {
 export namespace Instance {
   export const filterSensitiveLog = (obj: Instance) => ({
     ...obj,
-    ...(obj.addOns && {
-      addOns: obj.addOns.map(item => item.map(AddOn.filterSensitiveLog))
-    }),
+    ...(obj.addOns && { addOns: obj.addOns.map(AddOn.filterSensitiveLog) }),
     ...(obj.hardware && {
       hardware: InstanceHardware.filterSensitiveLog(obj.hardware)
     }),
@@ -6451,9 +6309,7 @@ export namespace Instance {
       networking: InstanceNetworking.filterSensitiveLog(obj.networking)
     }),
     ...(obj.state && { state: InstanceState.filterSensitiveLog(obj.state) }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is Instance => __isa(o, "Instance");
 }
@@ -6535,9 +6391,7 @@ export namespace InstanceAccessDetails {
   export const filterSensitiveLog = (obj: InstanceAccessDetails) => ({
     ...obj,
     ...(obj.hostKeys && {
-      hostKeys: obj.hostKeys.map(item =>
-        item.map(HostKeyAttributes.filterSensitiveLog)
-      )
+      hostKeys: obj.hostKeys.map(HostKeyAttributes.filterSensitiveLog)
     }),
     ...(obj.passwordData && {
       passwordData: PasswordData.filterSensitiveLog(obj.passwordData)
@@ -6639,9 +6493,7 @@ export interface InstanceHardware {
 export namespace InstanceHardware {
   export const filterSensitiveLog = (obj: InstanceHardware) => ({
     ...obj,
-    ...(obj.disks && {
-      disks: obj.disks.map(item => item.map(Disk.filterSensitiveLog))
-    })
+    ...(obj.disks && { disks: obj.disks.map(Disk.filterSensitiveLog) })
   });
   export const isa = (o: any): o is InstanceHardware =>
     __isa(o, "InstanceHardware");
@@ -6851,9 +6703,7 @@ export namespace InstanceNetworking {
       monthlyTransfer: MonthlyTransfer.filterSensitiveLog(obj.monthlyTransfer)
     }),
     ...(obj.ports && {
-      ports: obj.ports.map(item =>
-        item.map(InstancePortInfo.filterSensitiveLog)
-      )
+      ports: obj.ports.map(InstancePortInfo.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is InstanceNetworking =>
@@ -7101,16 +6951,12 @@ export namespace InstanceSnapshot {
   export const filterSensitiveLog = (obj: InstanceSnapshot) => ({
     ...obj,
     ...(obj.fromAttachedDisks && {
-      fromAttachedDisks: obj.fromAttachedDisks.map(item =>
-        item.map(Disk.filterSensitiveLog)
-      )
+      fromAttachedDisks: obj.fromAttachedDisks.map(Disk.filterSensitiveLog)
     }),
     ...(obj.location && {
       location: ResourceLocation.filterSensitiveLog(obj.location)
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is InstanceSnapshot =>
     __isa(o, "InstanceSnapshot");
@@ -7143,9 +6989,7 @@ export namespace InstanceSnapshotInfo {
   export const filterSensitiveLog = (obj: InstanceSnapshotInfo) => ({
     ...obj,
     ...(obj.fromDiskInfo && {
-      fromDiskInfo: obj.fromDiskInfo.map(item =>
-        item.map(DiskInfo.filterSensitiveLog)
-      )
+      fromDiskInfo: obj.fromDiskInfo.map(DiskInfo.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is InstanceSnapshotInfo =>
@@ -7298,9 +7142,7 @@ export namespace KeyPair {
     ...(obj.location && {
       location: ResourceLocation.filterSensitiveLog(obj.location)
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is KeyPair => __isa(o, "KeyPair");
 }
@@ -7409,19 +7251,17 @@ export namespace LoadBalancer {
   export const filterSensitiveLog = (obj: LoadBalancer) => ({
     ...obj,
     ...(obj.instanceHealthSummary && {
-      instanceHealthSummary: obj.instanceHealthSummary.map(item =>
-        item.map(InstanceHealthSummary.filterSensitiveLog)
+      instanceHealthSummary: obj.instanceHealthSummary.map(
+        InstanceHealthSummary.filterSensitiveLog
       )
     }),
     ...(obj.location && {
       location: ResourceLocation.filterSensitiveLog(obj.location)
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    }),
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) }),
     ...(obj.tlsCertificateSummaries && {
-      tlsCertificateSummaries: obj.tlsCertificateSummaries.map(item =>
-        item.map(LoadBalancerTlsCertificateSummary.filterSensitiveLog)
+      tlsCertificateSummaries: obj.tlsCertificateSummaries.map(
+        LoadBalancerTlsCertificateSummary.filterSensitiveLog
       )
     })
   });
@@ -7682,10 +7522,8 @@ export namespace LoadBalancerTlsCertificate {
   export const filterSensitiveLog = (obj: LoadBalancerTlsCertificate) => ({
     ...obj,
     ...(obj.domainValidationRecords && {
-      domainValidationRecords: obj.domainValidationRecords.map(item =>
-        item.map(
-          LoadBalancerTlsCertificateDomainValidationRecord.filterSensitiveLog
-        )
+      domainValidationRecords: obj.domainValidationRecords.map(
+        LoadBalancerTlsCertificateDomainValidationRecord.filterSensitiveLog
       )
     }),
     ...(obj.location && {
@@ -7696,9 +7534,7 @@ export namespace LoadBalancerTlsCertificate {
         obj.renewalSummary
       )
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is LoadBalancerTlsCertificate =>
     __isa(o, "LoadBalancerTlsCertificate");
@@ -7826,10 +7662,8 @@ export namespace LoadBalancerTlsCertificateRenewalSummary {
   ) => ({
     ...obj,
     ...(obj.domainValidationOptions && {
-      domainValidationOptions: obj.domainValidationOptions.map(item =>
-        item.map(
-          LoadBalancerTlsCertificateDomainValidationOption.filterSensitiveLog
-        )
+      domainValidationOptions: obj.domainValidationOptions.map(
+        LoadBalancerTlsCertificateDomainValidationOption.filterSensitiveLog
       )
     })
   });
@@ -8438,9 +8272,7 @@ export namespace PutInstancePublicPortsRequest {
   export const filterSensitiveLog = (obj: PutInstancePublicPortsRequest) => ({
     ...obj,
     ...(obj.portInfos && {
-      portInfos: obj.portInfos.map(item =>
-        item.map(PortInfo.filterSensitiveLog)
-      )
+      portInfos: obj.portInfos.map(PortInfo.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is PutInstancePublicPortsRequest =>
@@ -8495,9 +8327,7 @@ export namespace RebootInstanceResult {
   export const filterSensitiveLog = (obj: RebootInstanceResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is RebootInstanceResult =>
@@ -8532,9 +8362,7 @@ export namespace RebootRelationalDatabaseResult {
   export const filterSensitiveLog = (obj: RebootRelationalDatabaseResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is RebootRelationalDatabaseResult =>
@@ -8590,13 +8418,13 @@ export namespace Region {
   export const filterSensitiveLog = (obj: Region) => ({
     ...obj,
     ...(obj.availabilityZones && {
-      availabilityZones: obj.availabilityZones.map(item =>
-        item.map(AvailabilityZone.filterSensitiveLog)
+      availabilityZones: obj.availabilityZones.map(
+        AvailabilityZone.filterSensitiveLog
       )
     }),
     ...(obj.relationalDatabaseAvailabilityZones && {
       relationalDatabaseAvailabilityZones: obj.relationalDatabaseAvailabilityZones.map(
-        item => item.map(AvailabilityZone.filterSensitiveLog)
+        AvailabilityZone.filterSensitiveLog
       )
     })
   });
@@ -8787,8 +8615,8 @@ export namespace RelationalDatabase {
       )
     }),
     ...(obj.pendingMaintenanceActions && {
-      pendingMaintenanceActions: obj.pendingMaintenanceActions.map(item =>
-        item.map(PendingMaintenanceAction.filterSensitiveLog)
+      pendingMaintenanceActions: obj.pendingMaintenanceActions.map(
+        PendingMaintenanceAction.filterSensitiveLog
       )
     }),
     ...(obj.pendingModifiedValues && {
@@ -8796,9 +8624,7 @@ export namespace RelationalDatabase {
         obj.pendingModifiedValues
       )
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is RelationalDatabase =>
     __isa(o, "RelationalDatabase");
@@ -9169,9 +8995,7 @@ export namespace RelationalDatabaseSnapshot {
     ...(obj.location && {
       location: ResourceLocation.filterSensitiveLog(obj.location)
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is RelationalDatabaseSnapshot =>
     __isa(o, "RelationalDatabaseSnapshot");
@@ -9206,9 +9030,7 @@ export namespace ReleaseStaticIpResult {
   export const filterSensitiveLog = (obj: ReleaseStaticIpResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ReleaseStaticIpResult =>
@@ -9306,9 +9128,7 @@ export namespace StartInstanceResult {
   export const filterSensitiveLog = (obj: StartInstanceResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is StartInstanceResult =>
@@ -9343,9 +9163,7 @@ export namespace StartRelationalDatabaseResult {
   export const filterSensitiveLog = (obj: StartRelationalDatabaseResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is StartRelationalDatabaseResult =>
@@ -9458,9 +9276,7 @@ export namespace StopInstanceResult {
   export const filterSensitiveLog = (obj: StopInstanceResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is StopInstanceResult =>
@@ -9501,9 +9317,7 @@ export namespace StopRelationalDatabaseResult {
   export const filterSensitiveLog = (obj: StopRelationalDatabaseResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is StopRelationalDatabaseResult =>
@@ -9560,9 +9374,7 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -9580,9 +9392,7 @@ export namespace TagResourceResult {
   export const filterSensitiveLog = (obj: TagResourceResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is TagResourceResult =>
@@ -9681,9 +9491,7 @@ export namespace UntagResourceResult {
   export const filterSensitiveLog = (obj: UntagResourceResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UntagResourceResult =>
@@ -9727,9 +9535,7 @@ export namespace UpdateDomainEntryResult {
   export const filterSensitiveLog = (obj: UpdateDomainEntryResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateDomainEntryResult =>
@@ -9779,9 +9585,7 @@ export namespace UpdateLoadBalancerAttributeResult {
   ) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateLoadBalancerAttributeResult =>
@@ -9807,8 +9611,8 @@ export namespace UpdateRelationalDatabaseParametersRequest {
   ) => ({
     ...obj,
     ...(obj.parameters && {
-      parameters: obj.parameters.map(item =>
-        item.map(RelationalDatabaseParameter.filterSensitiveLog)
+      parameters: obj.parameters.map(
+        RelationalDatabaseParameter.filterSensitiveLog
       )
     })
   });
@@ -9831,9 +9635,7 @@ export namespace UpdateRelationalDatabaseParametersResult {
   ) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateRelationalDatabaseParametersResult =>
@@ -9973,9 +9775,7 @@ export namespace UpdateRelationalDatabaseResult {
   export const filterSensitiveLog = (obj: UpdateRelationalDatabaseResult) => ({
     ...obj,
     ...(obj.operations && {
-      operations: obj.operations.map(item =>
-        item.map(Operation.filterSensitiveLog)
-      )
+      operations: obj.operations.map(Operation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateRelationalDatabaseResult =>

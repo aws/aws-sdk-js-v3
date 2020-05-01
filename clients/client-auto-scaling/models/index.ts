@@ -26,9 +26,7 @@ export namespace ActivitiesType {
   export const filterSensitiveLog = (obj: ActivitiesType) => ({
     ...obj,
     ...(obj.Activities && {
-      Activities: obj.Activities.map(item =>
-        item.map(Activity.filterSensitiveLog)
-      )
+      Activities: obj.Activities.map(Activity.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ActivitiesType =>
@@ -419,14 +417,10 @@ export namespace AutoScalingGroup {
   export const filterSensitiveLog = (obj: AutoScalingGroup) => ({
     ...obj,
     ...(obj.EnabledMetrics && {
-      EnabledMetrics: obj.EnabledMetrics.map(item =>
-        item.map(EnabledMetric.filterSensitiveLog)
-      )
+      EnabledMetrics: obj.EnabledMetrics.map(EnabledMetric.filterSensitiveLog)
     }),
     ...(obj.Instances && {
-      Instances: obj.Instances.map(item =>
-        item.map(Instance.filterSensitiveLog)
-      )
+      Instances: obj.Instances.map(Instance.filterSensitiveLog)
     }),
     ...(obj.LaunchTemplate && {
       LaunchTemplate: LaunchTemplateSpecification.filterSensitiveLog(
@@ -439,13 +433,11 @@ export namespace AutoScalingGroup {
       )
     }),
     ...(obj.SuspendedProcesses && {
-      SuspendedProcesses: obj.SuspendedProcesses.map(item =>
-        item.map(SuspendedProcess.filterSensitiveLog)
+      SuspendedProcesses: obj.SuspendedProcesses.map(
+        SuspendedProcess.filterSensitiveLog
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(TagDescription.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(TagDescription.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AutoScalingGroup =>
     __isa(o, "AutoScalingGroup");
@@ -502,8 +494,8 @@ export namespace AutoScalingGroupsType {
   export const filterSensitiveLog = (obj: AutoScalingGroupsType) => ({
     ...obj,
     ...(obj.AutoScalingGroups && {
-      AutoScalingGroups: obj.AutoScalingGroups.map(item =>
-        item.map(AutoScalingGroup.filterSensitiveLog)
+      AutoScalingGroups: obj.AutoScalingGroups.map(
+        AutoScalingGroup.filterSensitiveLog
       )
     })
   });
@@ -605,8 +597,8 @@ export namespace AutoScalingInstancesType {
   export const filterSensitiveLog = (obj: AutoScalingInstancesType) => ({
     ...obj,
     ...(obj.AutoScalingInstances && {
-      AutoScalingInstances: obj.AutoScalingInstances.map(item =>
-        item.map(AutoScalingInstanceDetails.filterSensitiveLog)
+      AutoScalingInstances: obj.AutoScalingInstances.map(
+        AutoScalingInstanceDetails.filterSensitiveLog
       )
     })
   });
@@ -629,8 +621,8 @@ export namespace BatchDeleteScheduledActionAnswer {
   ) => ({
     ...obj,
     ...(obj.FailedScheduledActions && {
-      FailedScheduledActions: obj.FailedScheduledActions.map(item =>
-        item.map(FailedScheduledUpdateGroupActionRequest.filterSensitiveLog)
+      FailedScheduledActions: obj.FailedScheduledActions.map(
+        FailedScheduledUpdateGroupActionRequest.filterSensitiveLog
       )
     })
   });
@@ -676,8 +668,7 @@ export namespace BatchPutScheduledUpdateGroupActionAnswer {
     ...obj,
     ...(obj.FailedScheduledUpdateGroupActions && {
       FailedScheduledUpdateGroupActions: obj.FailedScheduledUpdateGroupActions.map(
-        item =>
-          item.map(FailedScheduledUpdateGroupActionRequest.filterSensitiveLog)
+        FailedScheduledUpdateGroupActionRequest.filterSensitiveLog
       )
     })
   });
@@ -704,8 +695,8 @@ export namespace BatchPutScheduledUpdateGroupActionType {
   ) => ({
     ...obj,
     ...(obj.ScheduledUpdateGroupActions && {
-      ScheduledUpdateGroupActions: obj.ScheduledUpdateGroupActions.map(item =>
-        item.map(ScheduledUpdateGroupActionRequest.filterSensitiveLog)
+      ScheduledUpdateGroupActions: obj.ScheduledUpdateGroupActions.map(
+        ScheduledUpdateGroupActionRequest.filterSensitiveLog
       )
     })
   });
@@ -1011,7 +1002,7 @@ export namespace CreateAutoScalingGroupType {
     }),
     ...(obj.LifecycleHookSpecificationList && {
       LifecycleHookSpecificationList: obj.LifecycleHookSpecificationList.map(
-        item => item.map(LifecycleHookSpecification.filterSensitiveLog)
+        LifecycleHookSpecification.filterSensitiveLog
       )
     }),
     ...(obj.MixedInstancesPolicy && {
@@ -1019,9 +1010,7 @@ export namespace CreateAutoScalingGroupType {
         obj.MixedInstancesPolicy
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateAutoScalingGroupType =>
     __isa(o, "CreateAutoScalingGroupType");
@@ -1217,8 +1206,8 @@ export namespace CreateLaunchConfigurationType {
   export const filterSensitiveLog = (obj: CreateLaunchConfigurationType) => ({
     ...obj,
     ...(obj.BlockDeviceMappings && {
-      BlockDeviceMappings: obj.BlockDeviceMappings.map(item =>
-        item.map(BlockDeviceMapping.filterSensitiveLog)
+      BlockDeviceMappings: obj.BlockDeviceMappings.map(
+        BlockDeviceMapping.filterSensitiveLog
       )
     }),
     ...(obj.InstanceMonitoring && {
@@ -1242,9 +1231,7 @@ export interface CreateOrUpdateTagsType {
 export namespace CreateOrUpdateTagsType {
   export const filterSensitiveLog = (obj: CreateOrUpdateTagsType) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateOrUpdateTagsType =>
     __isa(o, "CreateOrUpdateTagsType");
@@ -1306,9 +1293,7 @@ export namespace CustomizedMetricSpecification {
   export const filterSensitiveLog = (obj: CustomizedMetricSpecification) => ({
     ...obj,
     ...(obj.Dimensions && {
-      Dimensions: obj.Dimensions.map(item =>
-        item.map(MetricDimension.filterSensitiveLog)
-      )
+      Dimensions: obj.Dimensions.map(MetricDimension.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CustomizedMetricSpecification =>
@@ -1448,9 +1433,7 @@ export interface DeleteTagsType {
 export namespace DeleteTagsType {
   export const filterSensitiveLog = (obj: DeleteTagsType) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DeleteTagsType =>
     __isa(o, "DeleteTagsType");
@@ -1501,8 +1484,8 @@ export namespace DescribeAdjustmentTypesAnswer {
   export const filterSensitiveLog = (obj: DescribeAdjustmentTypesAnswer) => ({
     ...obj,
     ...(obj.AdjustmentTypes && {
-      AdjustmentTypes: obj.AdjustmentTypes.map(item =>
-        item.map(AdjustmentType.filterSensitiveLog)
+      AdjustmentTypes: obj.AdjustmentTypes.map(
+        AdjustmentType.filterSensitiveLog
       )
     })
   });
@@ -1592,9 +1575,7 @@ export namespace DescribeLifecycleHooksAnswer {
   export const filterSensitiveLog = (obj: DescribeLifecycleHooksAnswer) => ({
     ...obj,
     ...(obj.LifecycleHooks && {
-      LifecycleHooks: obj.LifecycleHooks.map(item =>
-        item.map(LifecycleHook.filterSensitiveLog)
-      )
+      LifecycleHooks: obj.LifecycleHooks.map(LifecycleHook.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeLifecycleHooksAnswer =>
@@ -1675,8 +1656,8 @@ export namespace DescribeLoadBalancerTargetGroupsResponse {
   ) => ({
     ...obj,
     ...(obj.LoadBalancerTargetGroups && {
-      LoadBalancerTargetGroups: obj.LoadBalancerTargetGroups.map(item =>
-        item.map(LoadBalancerTargetGroupState.filterSensitiveLog)
+      LoadBalancerTargetGroups: obj.LoadBalancerTargetGroups.map(
+        LoadBalancerTargetGroupState.filterSensitiveLog
       )
     })
   });
@@ -1732,9 +1713,7 @@ export namespace DescribeLoadBalancersResponse {
   export const filterSensitiveLog = (obj: DescribeLoadBalancersResponse) => ({
     ...obj,
     ...(obj.LoadBalancers && {
-      LoadBalancers: obj.LoadBalancers.map(item =>
-        item.map(LoadBalancerState.filterSensitiveLog)
-      )
+      LoadBalancers: obj.LoadBalancers.map(LoadBalancerState.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeLoadBalancersResponse =>
@@ -1760,14 +1739,12 @@ export namespace DescribeMetricCollectionTypesAnswer {
   ) => ({
     ...obj,
     ...(obj.Granularities && {
-      Granularities: obj.Granularities.map(item =>
-        item.map(MetricGranularityType.filterSensitiveLog)
+      Granularities: obj.Granularities.map(
+        MetricGranularityType.filterSensitiveLog
       )
     }),
     ...(obj.Metrics && {
-      Metrics: obj.Metrics.map(item =>
-        item.map(MetricCollectionType.filterSensitiveLog)
-      )
+      Metrics: obj.Metrics.map(MetricCollectionType.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeMetricCollectionTypesAnswer =>
@@ -1796,8 +1773,8 @@ export namespace DescribeNotificationConfigurationsAnswer {
   ) => ({
     ...obj,
     ...(obj.NotificationConfigurations && {
-      NotificationConfigurations: obj.NotificationConfigurations.map(item =>
-        item.map(NotificationConfiguration.filterSensitiveLog)
+      NotificationConfigurations: obj.NotificationConfigurations.map(
+        NotificationConfiguration.filterSensitiveLog
       )
     })
   });
@@ -1984,9 +1961,7 @@ export interface DescribeTagsType {
 export namespace DescribeTagsType {
   export const filterSensitiveLog = (obj: DescribeTagsType) => ({
     ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeTagsType =>
     __isa(o, "DescribeTagsType");
@@ -2025,9 +2000,7 @@ export namespace DetachInstancesAnswer {
   export const filterSensitiveLog = (obj: DetachInstancesAnswer) => ({
     ...obj,
     ...(obj.Activities && {
-      Activities: obj.Activities.map(item =>
-        item.map(Activity.filterSensitiveLog)
-      )
+      Activities: obj.Activities.map(Activity.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DetachInstancesAnswer =>
@@ -2433,9 +2406,7 @@ export namespace EnterStandbyAnswer {
   export const filterSensitiveLog = (obj: EnterStandbyAnswer) => ({
     ...obj,
     ...(obj.Activities && {
-      Activities: obj.Activities.map(item =>
-        item.map(Activity.filterSensitiveLog)
-      )
+      Activities: obj.Activities.map(Activity.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is EnterStandbyAnswer =>
@@ -2532,9 +2503,7 @@ export namespace ExitStandbyAnswer {
   export const filterSensitiveLog = (obj: ExitStandbyAnswer) => ({
     ...obj,
     ...(obj.Activities && {
-      Activities: obj.Activities.map(item =>
-        item.map(Activity.filterSensitiveLog)
-      )
+      Activities: obj.Activities.map(Activity.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ExitStandbyAnswer =>
@@ -2975,8 +2944,8 @@ export namespace LaunchConfiguration {
   export const filterSensitiveLog = (obj: LaunchConfiguration) => ({
     ...obj,
     ...(obj.BlockDeviceMappings && {
-      BlockDeviceMappings: obj.BlockDeviceMappings.map(item =>
-        item.map(BlockDeviceMapping.filterSensitiveLog)
+      BlockDeviceMappings: obj.BlockDeviceMappings.map(
+        BlockDeviceMapping.filterSensitiveLog
       )
     }),
     ...(obj.InstanceMonitoring && {
@@ -3054,8 +3023,8 @@ export namespace LaunchConfigurationsType {
   export const filterSensitiveLog = (obj: LaunchConfigurationsType) => ({
     ...obj,
     ...(obj.LaunchConfigurations && {
-      LaunchConfigurations: obj.LaunchConfigurations.map(item =>
-        item.map(LaunchConfiguration.filterSensitiveLog)
+      LaunchConfigurations: obj.LaunchConfigurations.map(
+        LaunchConfiguration.filterSensitiveLog
       )
     })
   });
@@ -3098,9 +3067,7 @@ export namespace LaunchTemplate {
       )
     }),
     ...(obj.Overrides && {
-      Overrides: obj.Overrides.map(item =>
-        item.map(LaunchTemplateOverrides.filterSensitiveLog)
-      )
+      Overrides: obj.Overrides.map(LaunchTemplateOverrides.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is LaunchTemplate =>
@@ -3757,9 +3724,7 @@ export namespace PoliciesType {
   export const filterSensitiveLog = (obj: PoliciesType) => ({
     ...obj,
     ...(obj.ScalingPolicies && {
-      ScalingPolicies: obj.ScalingPolicies.map(item =>
-        item.map(ScalingPolicy.filterSensitiveLog)
-      )
+      ScalingPolicies: obj.ScalingPolicies.map(ScalingPolicy.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is PoliciesType => __isa(o, "PoliciesType");
@@ -3784,9 +3749,7 @@ export interface PolicyARNType {
 export namespace PolicyARNType {
   export const filterSensitiveLog = (obj: PolicyARNType) => ({
     ...obj,
-    ...(obj.Alarms && {
-      Alarms: obj.Alarms.map(item => item.map(Alarm.filterSensitiveLog))
-    })
+    ...(obj.Alarms && { Alarms: obj.Alarms.map(Alarm.filterSensitiveLog) })
   });
   export const isa = (o: any): o is PolicyARNType => __isa(o, "PolicyARNType");
 }
@@ -3928,9 +3891,7 @@ export namespace ProcessesType {
   export const filterSensitiveLog = (obj: ProcessesType) => ({
     ...obj,
     ...(obj.Processes && {
-      Processes: obj.Processes.map(item =>
-        item.map(ProcessType.filterSensitiveLog)
-      )
+      Processes: obj.Processes.map(ProcessType.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ProcessesType => __isa(o, "ProcessesType");
@@ -4172,8 +4133,8 @@ export namespace PutScalingPolicyType {
   export const filterSensitiveLog = (obj: PutScalingPolicyType) => ({
     ...obj,
     ...(obj.StepAdjustments && {
-      StepAdjustments: obj.StepAdjustments.map(item =>
-        item.map(StepAdjustment.filterSensitiveLog)
+      StepAdjustments: obj.StepAdjustments.map(
+        StepAdjustment.filterSensitiveLog
       )
     }),
     ...(obj.TargetTrackingConfiguration && {
@@ -4479,12 +4440,10 @@ export interface ScalingPolicy {
 export namespace ScalingPolicy {
   export const filterSensitiveLog = (obj: ScalingPolicy) => ({
     ...obj,
-    ...(obj.Alarms && {
-      Alarms: obj.Alarms.map(item => item.map(Alarm.filterSensitiveLog))
-    }),
+    ...(obj.Alarms && { Alarms: obj.Alarms.map(Alarm.filterSensitiveLog) }),
     ...(obj.StepAdjustments && {
-      StepAdjustments: obj.StepAdjustments.map(item =>
-        item.map(StepAdjustment.filterSensitiveLog)
+      StepAdjustments: obj.StepAdjustments.map(
+        StepAdjustment.filterSensitiveLog
       )
     }),
     ...(obj.TargetTrackingConfiguration && {
@@ -4580,8 +4539,8 @@ export namespace ScheduledActionsType {
   export const filterSensitiveLog = (obj: ScheduledActionsType) => ({
     ...obj,
     ...(obj.ScheduledUpdateGroupActions && {
-      ScheduledUpdateGroupActions: obj.ScheduledUpdateGroupActions.map(item =>
-        item.map(ScheduledUpdateGroupAction.filterSensitiveLog)
+      ScheduledUpdateGroupActions: obj.ScheduledUpdateGroupActions.map(
+        ScheduledUpdateGroupAction.filterSensitiveLog
       )
     })
   });
@@ -5043,9 +5002,7 @@ export interface TagsType {
 export namespace TagsType {
   export const filterSensitiveLog = (obj: TagsType) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(TagDescription.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(TagDescription.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagsType => __isa(o, "TagsType");
 }

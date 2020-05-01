@@ -299,9 +299,7 @@ export namespace GetDeviceMethodsResponse {
   export const filterSensitiveLog = (obj: GetDeviceMethodsResponse) => ({
     ...obj,
     ...(obj.DeviceMethods && {
-      DeviceMethods: obj.DeviceMethods.map(item =>
-        item.map(DeviceMethod.filterSensitiveLog)
-      )
+      DeviceMethods: obj.DeviceMethods.map(DeviceMethod.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetDeviceMethodsResponse =>
@@ -492,7 +490,7 @@ export namespace ListDeviceEventsResponse {
   export const filterSensitiveLog = (obj: ListDeviceEventsResponse) => ({
     ...obj,
     ...(obj.Events && {
-      Events: obj.Events.map(item => item.map(DeviceEvent.filterSensitiveLog))
+      Events: obj.Events.map(DeviceEvent.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListDeviceEventsResponse =>
@@ -543,9 +541,7 @@ export namespace ListDevicesResponse {
   export const filterSensitiveLog = (obj: ListDevicesResponse) => ({
     ...obj,
     ...(obj.Devices && {
-      Devices: obj.Devices.map(item =>
-        item.map(DeviceDescription.filterSensitiveLog)
-      )
+      Devices: obj.Devices.map(DeviceDescription.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListDevicesResponse =>

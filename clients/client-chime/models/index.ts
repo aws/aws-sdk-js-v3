@@ -78,8 +78,8 @@ export namespace Account {
   export const filterSensitiveLog = (obj: Account) => ({
     ...obj,
     ...(obj.SigninDelegateGroups && {
-      SigninDelegateGroups: obj.SigninDelegateGroups.map(item =>
-        item.map(SigninDelegateGroup.filterSensitiveLog)
+      SigninDelegateGroups: obj.SigninDelegateGroups.map(
+        SigninDelegateGroup.filterSensitiveLog
       )
     })
   });
@@ -235,8 +235,8 @@ export namespace AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
   ) => ({
     ...obj,
     ...(obj.PhoneNumberErrors && {
-      PhoneNumberErrors: obj.PhoneNumberErrors.map(item =>
-        item.map(PhoneNumberError.filterSensitiveLog)
+      PhoneNumberErrors: obj.PhoneNumberErrors.map(
+        PhoneNumberError.filterSensitiveLog
       )
     })
   });
@@ -290,8 +290,8 @@ export namespace AssociatePhoneNumbersWithVoiceConnectorResponse {
   ) => ({
     ...obj,
     ...(obj.PhoneNumberErrors && {
-      PhoneNumberErrors: obj.PhoneNumberErrors.map(item =>
-        item.map(PhoneNumberError.filterSensitiveLog)
+      PhoneNumberErrors: obj.PhoneNumberErrors.map(
+        PhoneNumberError.filterSensitiveLog
       )
     })
   });
@@ -320,8 +320,8 @@ export namespace AssociateSigninDelegateGroupsWithAccountRequest {
   ) => ({
     ...obj,
     ...(obj.SigninDelegateGroups && {
-      SigninDelegateGroups: obj.SigninDelegateGroups.map(item =>
-        item.map(SigninDelegateGroup.filterSensitiveLog)
+      SigninDelegateGroups: obj.SigninDelegateGroups.map(
+        SigninDelegateGroup.filterSensitiveLog
       )
     })
   });
@@ -417,9 +417,7 @@ export namespace BatchCreateAttendeeRequest {
   export const filterSensitiveLog = (obj: BatchCreateAttendeeRequest) => ({
     ...obj,
     ...(obj.Attendees && {
-      Attendees: obj.Attendees.map(item =>
-        item.map(CreateAttendeeRequestItem.filterSensitiveLog)
-      )
+      Attendees: obj.Attendees.map(CreateAttendeeRequestItem.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchCreateAttendeeRequest =>
@@ -443,14 +441,10 @@ export namespace BatchCreateAttendeeResponse {
   export const filterSensitiveLog = (obj: BatchCreateAttendeeResponse) => ({
     ...obj,
     ...(obj.Attendees && {
-      Attendees: obj.Attendees.map(item =>
-        item.map(Attendee.filterSensitiveLog)
-      )
+      Attendees: obj.Attendees.map(Attendee.filterSensitiveLog)
     }),
     ...(obj.Errors && {
-      Errors: obj.Errors.map(item =>
-        item.map(CreateAttendeeError.filterSensitiveLog)
-      )
+      Errors: obj.Errors.map(CreateAttendeeError.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchCreateAttendeeResponse =>
@@ -481,8 +475,8 @@ export namespace BatchCreateRoomMembershipRequest {
   ) => ({
     ...obj,
     ...(obj.MembershipItemList && {
-      MembershipItemList: obj.MembershipItemList.map(item =>
-        item.map(MembershipItem.filterSensitiveLog)
+      MembershipItemList: obj.MembershipItemList.map(
+        MembershipItem.filterSensitiveLog
       )
     })
   });
@@ -504,7 +498,7 @@ export namespace BatchCreateRoomMembershipResponse {
   ) => ({
     ...obj,
     ...(obj.Errors && {
-      Errors: obj.Errors.map(item => item.map(MemberError.filterSensitiveLog))
+      Errors: obj.Errors.map(MemberError.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchCreateRoomMembershipResponse =>
@@ -539,8 +533,8 @@ export namespace BatchDeletePhoneNumberResponse {
   export const filterSensitiveLog = (obj: BatchDeletePhoneNumberResponse) => ({
     ...obj,
     ...(obj.PhoneNumberErrors && {
-      PhoneNumberErrors: obj.PhoneNumberErrors.map(item =>
-        item.map(PhoneNumberError.filterSensitiveLog)
+      PhoneNumberErrors: obj.PhoneNumberErrors.map(
+        PhoneNumberError.filterSensitiveLog
       )
     })
   });
@@ -583,9 +577,7 @@ export namespace BatchSuspendUserResponse {
   export const filterSensitiveLog = (obj: BatchSuspendUserResponse) => ({
     ...obj,
     ...(obj.UserErrors && {
-      UserErrors: obj.UserErrors.map(item =>
-        item.map(UserError.filterSensitiveLog)
-      )
+      UserErrors: obj.UserErrors.map(UserError.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchSuspendUserResponse =>
@@ -627,9 +619,7 @@ export namespace BatchUnsuspendUserResponse {
   export const filterSensitiveLog = (obj: BatchUnsuspendUserResponse) => ({
     ...obj,
     ...(obj.UserErrors && {
-      UserErrors: obj.UserErrors.map(item =>
-        item.map(UserError.filterSensitiveLog)
-      )
+      UserErrors: obj.UserErrors.map(UserError.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchUnsuspendUserResponse =>
@@ -649,7 +639,7 @@ export namespace BatchUpdatePhoneNumberRequest {
     ...obj,
     ...(obj.UpdatePhoneNumberRequestItems && {
       UpdatePhoneNumberRequestItems: obj.UpdatePhoneNumberRequestItems.map(
-        item => item.map(UpdatePhoneNumberRequestItem.filterSensitiveLog)
+        UpdatePhoneNumberRequestItem.filterSensitiveLog
       )
     })
   });
@@ -669,8 +659,8 @@ export namespace BatchUpdatePhoneNumberResponse {
   export const filterSensitiveLog = (obj: BatchUpdatePhoneNumberResponse) => ({
     ...obj,
     ...(obj.PhoneNumberErrors && {
-      PhoneNumberErrors: obj.PhoneNumberErrors.map(item =>
-        item.map(PhoneNumberError.filterSensitiveLog)
+      PhoneNumberErrors: obj.PhoneNumberErrors.map(
+        PhoneNumberError.filterSensitiveLog
       )
     })
   });
@@ -695,8 +685,8 @@ export namespace BatchUpdateUserRequest {
   export const filterSensitiveLog = (obj: BatchUpdateUserRequest) => ({
     ...obj,
     ...(obj.UpdateUserRequestItems && {
-      UpdateUserRequestItems: obj.UpdateUserRequestItems.map(item =>
-        item.map(UpdateUserRequestItem.filterSensitiveLog)
+      UpdateUserRequestItems: obj.UpdateUserRequestItems.map(
+        UpdateUserRequestItem.filterSensitiveLog
       )
     })
   });
@@ -718,9 +708,7 @@ export namespace BatchUpdateUserResponse {
   export const filterSensitiveLog = (obj: BatchUpdateUserResponse) => ({
     ...obj,
     ...(obj.UserErrors && {
-      UserErrors: obj.UserErrors.map(item =>
-        item.map(UserError.filterSensitiveLog)
-      )
+      UserErrors: obj.UserErrors.map(UserError.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchUpdateUserResponse =>
@@ -1264,8 +1252,8 @@ export namespace CreateVoiceConnectorGroupRequest {
   ) => ({
     ...obj,
     ...(obj.VoiceConnectorItems && {
-      VoiceConnectorItems: obj.VoiceConnectorItems.map(item =>
-        item.map(VoiceConnectorItem.filterSensitiveLog)
+      VoiceConnectorItems: obj.VoiceConnectorItems.map(
+        VoiceConnectorItem.filterSensitiveLog
       )
     })
   });
@@ -1709,8 +1697,8 @@ export namespace DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
   ) => ({
     ...obj,
     ...(obj.PhoneNumberErrors && {
-      PhoneNumberErrors: obj.PhoneNumberErrors.map(item =>
-        item.map(PhoneNumberError.filterSensitiveLog)
+      PhoneNumberErrors: obj.PhoneNumberErrors.map(
+        PhoneNumberError.filterSensitiveLog
       )
     })
   });
@@ -1759,8 +1747,8 @@ export namespace DisassociatePhoneNumbersFromVoiceConnectorResponse {
   ) => ({
     ...obj,
     ...(obj.PhoneNumberErrors && {
-      PhoneNumberErrors: obj.PhoneNumberErrors.map(item =>
-        item.map(PhoneNumberError.filterSensitiveLog)
+      PhoneNumberErrors: obj.PhoneNumberErrors.map(
+        PhoneNumberError.filterSensitiveLog
       )
     })
   });
@@ -2706,9 +2694,7 @@ export interface InviteUsersResponse {
 export namespace InviteUsersResponse {
   export const filterSensitiveLog = (obj: InviteUsersResponse) => ({
     ...obj,
-    ...(obj.Invites && {
-      Invites: obj.Invites.map(item => item.map(Invite.filterSensitiveLog))
-    })
+    ...(obj.Invites && { Invites: obj.Invites.map(Invite.filterSensitiveLog) })
   });
   export const isa = (o: any): o is InviteUsersResponse =>
     __isa(o, "InviteUsersResponse");
@@ -2770,7 +2756,7 @@ export namespace ListAccountsResponse {
   export const filterSensitiveLog = (obj: ListAccountsResponse) => ({
     ...obj,
     ...(obj.Accounts && {
-      Accounts: obj.Accounts.map(item => item.map(Account.filterSensitiveLog))
+      Accounts: obj.Accounts.map(Account.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListAccountsResponse =>
@@ -2820,9 +2806,7 @@ export namespace ListAttendeesResponse {
   export const filterSensitiveLog = (obj: ListAttendeesResponse) => ({
     ...obj,
     ...(obj.Attendees && {
-      Attendees: obj.Attendees.map(item =>
-        item.map(Attendee.filterSensitiveLog)
-      )
+      Attendees: obj.Attendees.map(Attendee.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListAttendeesResponse =>
@@ -2871,9 +2855,7 @@ export interface ListBotsResponse {
 export namespace ListBotsResponse {
   export const filterSensitiveLog = (obj: ListBotsResponse) => ({
     ...obj,
-    ...(obj.Bots && {
-      Bots: obj.Bots.map(item => item.map(Bot.filterSensitiveLog))
-    })
+    ...(obj.Bots && { Bots: obj.Bots.map(Bot.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListBotsResponse =>
     __isa(o, "ListBotsResponse");
@@ -2917,7 +2899,7 @@ export namespace ListMeetingsResponse {
   export const filterSensitiveLog = (obj: ListMeetingsResponse) => ({
     ...obj,
     ...(obj.Meetings && {
-      Meetings: obj.Meetings.map(item => item.map(Meeting.filterSensitiveLog))
+      Meetings: obj.Meetings.map(Meeting.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListMeetingsResponse =>
@@ -2962,8 +2944,8 @@ export namespace ListPhoneNumberOrdersResponse {
   export const filterSensitiveLog = (obj: ListPhoneNumberOrdersResponse) => ({
     ...obj,
     ...(obj.PhoneNumberOrders && {
-      PhoneNumberOrders: obj.PhoneNumberOrders.map(item =>
-        item.map(PhoneNumberOrder.filterSensitiveLog)
+      PhoneNumberOrders: obj.PhoneNumberOrders.map(
+        PhoneNumberOrder.filterSensitiveLog
       )
     })
   });
@@ -3029,9 +3011,7 @@ export namespace ListPhoneNumbersResponse {
   export const filterSensitiveLog = (obj: ListPhoneNumbersResponse) => ({
     ...obj,
     ...(obj.PhoneNumbers && {
-      PhoneNumbers: obj.PhoneNumbers.map(item =>
-        item.map(PhoneNumber.filterSensitiveLog)
-      )
+      PhoneNumbers: obj.PhoneNumbers.map(PhoneNumber.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListPhoneNumbersResponse =>
@@ -3086,8 +3066,8 @@ export namespace ListRoomMembershipsResponse {
   export const filterSensitiveLog = (obj: ListRoomMembershipsResponse) => ({
     ...obj,
     ...(obj.RoomMemberships && {
-      RoomMemberships: obj.RoomMemberships.map(item =>
-        item.map(RoomMembership.filterSensitiveLog)
+      RoomMemberships: obj.RoomMemberships.map(
+        RoomMembership.filterSensitiveLog
       )
     })
   });
@@ -3142,9 +3122,7 @@ export interface ListRoomsResponse {
 export namespace ListRoomsResponse {
   export const filterSensitiveLog = (obj: ListRoomsResponse) => ({
     ...obj,
-    ...(obj.Rooms && {
-      Rooms: obj.Rooms.map(item => item.map(Room.filterSensitiveLog))
-    })
+    ...(obj.Rooms && { Rooms: obj.Rooms.map(Room.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListRoomsResponse =>
     __isa(o, "ListRoomsResponse");
@@ -3203,9 +3181,7 @@ export interface ListUsersResponse {
 export namespace ListUsersResponse {
   export const filterSensitiveLog = (obj: ListUsersResponse) => ({
     ...obj,
-    ...(obj.Users && {
-      Users: obj.Users.map(item => item.map(User.filterSensitiveLog))
-    })
+    ...(obj.Users && { Users: obj.Users.map(User.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListUsersResponse =>
     __isa(o, "ListUsersResponse");
@@ -3251,8 +3227,8 @@ export namespace ListVoiceConnectorGroupsResponse {
   ) => ({
     ...obj,
     ...(obj.VoiceConnectorGroups && {
-      VoiceConnectorGroups: obj.VoiceConnectorGroups.map(item =>
-        item.map(VoiceConnectorGroup.filterSensitiveLog)
+      VoiceConnectorGroups: obj.VoiceConnectorGroups.map(
+        VoiceConnectorGroup.filterSensitiveLog
       )
     })
   });
@@ -3338,8 +3314,8 @@ export namespace ListVoiceConnectorsResponse {
   export const filterSensitiveLog = (obj: ListVoiceConnectorsResponse) => ({
     ...obj,
     ...(obj.VoiceConnectors && {
-      VoiceConnectors: obj.VoiceConnectors.map(item =>
-        item.map(VoiceConnector.filterSensitiveLog)
+      VoiceConnectors: obj.VoiceConnectors.map(
+        VoiceConnector.filterSensitiveLog
       )
     })
   });
@@ -3672,9 +3648,7 @@ export namespace Origination {
   export const filterSensitiveLog = (obj: Origination) => ({
     ...obj,
     ...(obj.Routes && {
-      Routes: obj.Routes.map(item =>
-        item.map(OriginationRoute.filterSensitiveLog)
-      )
+      Routes: obj.Routes.map(OriginationRoute.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Origination => __isa(o, "Origination");
@@ -3799,8 +3773,8 @@ export namespace PhoneNumber {
   export const filterSensitiveLog = (obj: PhoneNumber) => ({
     ...obj,
     ...(obj.Associations && {
-      Associations: obj.Associations.map(item =>
-        item.map(PhoneNumberAssociation.filterSensitiveLog)
+      Associations: obj.Associations.map(
+        PhoneNumberAssociation.filterSensitiveLog
       )
     }),
     ...(obj.CallingName && { CallingName: SENSITIVE_STRING }),
@@ -3966,8 +3940,8 @@ export namespace PhoneNumberOrder {
   export const filterSensitiveLog = (obj: PhoneNumberOrder) => ({
     ...obj,
     ...(obj.OrderedPhoneNumbers && {
-      OrderedPhoneNumbers: obj.OrderedPhoneNumbers.map(item =>
-        item.map(OrderedPhoneNumber.filterSensitiveLog)
+      OrderedPhoneNumbers: obj.OrderedPhoneNumbers.map(
+        OrderedPhoneNumber.filterSensitiveLog
       )
     })
   });
@@ -4235,9 +4209,7 @@ export namespace PutVoiceConnectorTerminationCredentialsRequest {
   ) => ({
     ...obj,
     ...(obj.Credentials && {
-      Credentials: obj.Credentials.map(item =>
-        item.map(Credential.filterSensitiveLog)
-      )
+      Credentials: obj.Credentials.map(Credential.filterSensitiveLog)
     })
   });
   export const isa = (
@@ -5312,8 +5284,8 @@ export namespace UpdateVoiceConnectorGroupRequest {
   ) => ({
     ...obj,
     ...(obj.VoiceConnectorItems && {
-      VoiceConnectorItems: obj.VoiceConnectorItems.map(item =>
-        item.map(VoiceConnectorItem.filterSensitiveLog)
+      VoiceConnectorItems: obj.VoiceConnectorItems.map(
+        VoiceConnectorItem.filterSensitiveLog
       )
     })
   });
@@ -5627,8 +5599,8 @@ export namespace VoiceConnectorGroup {
   export const filterSensitiveLog = (obj: VoiceConnectorGroup) => ({
     ...obj,
     ...(obj.VoiceConnectorItems && {
-      VoiceConnectorItems: obj.VoiceConnectorItems.map(item =>
-        item.map(VoiceConnectorItem.filterSensitiveLog)
+      VoiceConnectorItems: obj.VoiceConnectorItems.map(
+        VoiceConnectorItem.filterSensitiveLog
       )
     })
   });

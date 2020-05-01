@@ -65,9 +65,7 @@ export namespace AddAttributesToFindingsRequest {
   export const filterSensitiveLog = (obj: AddAttributesToFindingsRequest) => ({
     ...obj,
     ...(obj.attributes && {
-      attributes: obj.attributes.map(item =>
-        item.map(Attribute.filterSensitiveLog)
-      )
+      attributes: obj.attributes.map(Attribute.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is AddAttributesToFindingsRequest =>
@@ -250,9 +248,7 @@ export namespace AgentsAlreadyRunningAssessmentException {
   ) => ({
     ...obj,
     ...(obj.agents && {
-      agents: obj.agents.map(item =>
-        item.map(AgentAlreadyRunningAssessment.filterSensitiveLog)
-      )
+      agents: obj.agents.map(AgentAlreadyRunningAssessment.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is AgentsAlreadyRunningAssessmentException =>
@@ -351,18 +347,18 @@ export namespace AssessmentRun {
   export const filterSensitiveLog = (obj: AssessmentRun) => ({
     ...obj,
     ...(obj.notifications && {
-      notifications: obj.notifications.map(item =>
-        item.map(AssessmentRunNotification.filterSensitiveLog)
+      notifications: obj.notifications.map(
+        AssessmentRunNotification.filterSensitiveLog
       )
     }),
     ...(obj.stateChanges && {
-      stateChanges: obj.stateChanges.map(item =>
-        item.map(AssessmentRunStateChange.filterSensitiveLog)
+      stateChanges: obj.stateChanges.map(
+        AssessmentRunStateChange.filterSensitiveLog
       )
     }),
     ...(obj.userAttributesForFindings && {
-      userAttributesForFindings: obj.userAttributesForFindings.map(item =>
-        item.map(Attribute.filterSensitiveLog)
+      userAttributesForFindings: obj.userAttributesForFindings.map(
+        Attribute.filterSensitiveLog
       )
     })
   });
@@ -417,8 +413,8 @@ export namespace AssessmentRunAgent {
   export const filterSensitiveLog = (obj: AssessmentRunAgent) => ({
     ...obj,
     ...(obj.telemetryMetadata && {
-      telemetryMetadata: obj.telemetryMetadata.map(item =>
-        item.map(TelemetryMetadata.filterSensitiveLog)
+      telemetryMetadata: obj.telemetryMetadata.map(
+        TelemetryMetadata.filterSensitiveLog
       )
     })
   });
@@ -767,8 +763,8 @@ export namespace AssessmentTemplate {
   export const filterSensitiveLog = (obj: AssessmentTemplate) => ({
     ...obj,
     ...(obj.userAttributesForFindings && {
-      userAttributesForFindings: obj.userAttributesForFindings.map(item =>
-        item.map(Attribute.filterSensitiveLog)
+      userAttributesForFindings: obj.userAttributesForFindings.map(
+        Attribute.filterSensitiveLog
       )
     })
   });
@@ -869,13 +865,11 @@ export namespace AssetAttributes {
   export const filterSensitiveLog = (obj: AssetAttributes) => ({
     ...obj,
     ...(obj.networkInterfaces && {
-      networkInterfaces: obj.networkInterfaces.map(item =>
-        item.map(NetworkInterface.filterSensitiveLog)
+      networkInterfaces: obj.networkInterfaces.map(
+        NetworkInterface.filterSensitiveLog
       )
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AssetAttributes =>
     __isa(o, "AssetAttributes");
@@ -989,8 +983,8 @@ export namespace CreateAssessmentTemplateRequest {
   export const filterSensitiveLog = (obj: CreateAssessmentTemplateRequest) => ({
     ...obj,
     ...(obj.userAttributesForFindings && {
-      userAttributesForFindings: obj.userAttributesForFindings.map(item =>
-        item.map(Attribute.filterSensitiveLog)
+      userAttributesForFindings: obj.userAttributesForFindings.map(
+        Attribute.filterSensitiveLog
       )
     })
   });
@@ -1065,8 +1059,8 @@ export namespace CreateResourceGroupRequest {
   export const filterSensitiveLog = (obj: CreateResourceGroupRequest) => ({
     ...obj,
     ...(obj.resourceGroupTags && {
-      resourceGroupTags: obj.resourceGroupTags.map(item =>
-        item.map(ResourceGroupTag.filterSensitiveLog)
+      resourceGroupTags: obj.resourceGroupTags.map(
+        ResourceGroupTag.filterSensitiveLog
       )
     })
   });
@@ -1172,9 +1166,7 @@ export namespace DescribeAssessmentRunsResponse {
   export const filterSensitiveLog = (obj: DescribeAssessmentRunsResponse) => ({
     ...obj,
     ...(obj.assessmentRuns && {
-      assessmentRuns: obj.assessmentRuns.map(item =>
-        item.map(AssessmentRun.filterSensitiveLog)
-      )
+      assessmentRuns: obj.assessmentRuns.map(AssessmentRun.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeAssessmentRunsResponse =>
@@ -1219,8 +1211,8 @@ export namespace DescribeAssessmentTargetsResponse {
   ) => ({
     ...obj,
     ...(obj.assessmentTargets && {
-      assessmentTargets: obj.assessmentTargets.map(item =>
-        item.map(AssessmentTarget.filterSensitiveLog)
+      assessmentTargets: obj.assessmentTargets.map(
+        AssessmentTarget.filterSensitiveLog
       )
     })
   });
@@ -1263,8 +1255,8 @@ export namespace DescribeAssessmentTemplatesResponse {
   ) => ({
     ...obj,
     ...(obj.assessmentTemplates && {
-      assessmentTemplates: obj.assessmentTemplates.map(item =>
-        item.map(AssessmentTemplate.filterSensitiveLog)
+      assessmentTemplates: obj.assessmentTemplates.map(
+        AssessmentTemplate.filterSensitiveLog
       )
     })
   });
@@ -1386,7 +1378,7 @@ export namespace DescribeFindingsResponse {
   export const filterSensitiveLog = (obj: DescribeFindingsResponse) => ({
     ...obj,
     ...(obj.findings && {
-      findings: obj.findings.map(item => item.map(Finding.filterSensitiveLog))
+      findings: obj.findings.map(Finding.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeFindingsResponse =>
@@ -1427,9 +1419,7 @@ export namespace DescribeResourceGroupsResponse {
   export const filterSensitiveLog = (obj: DescribeResourceGroupsResponse) => ({
     ...obj,
     ...(obj.resourceGroups && {
-      resourceGroups: obj.resourceGroups.map(item =>
-        item.map(ResourceGroup.filterSensitiveLog)
-      )
+      resourceGroups: obj.resourceGroups.map(ResourceGroup.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeResourceGroupsResponse =>
@@ -1475,9 +1465,7 @@ export namespace DescribeRulesPackagesResponse {
   export const filterSensitiveLog = (obj: DescribeRulesPackagesResponse) => ({
     ...obj,
     ...(obj.rulesPackages && {
-      rulesPackages: obj.rulesPackages.map(item =>
-        item.map(RulesPackage.filterSensitiveLog)
-      )
+      rulesPackages: obj.rulesPackages.map(RulesPackage.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeRulesPackagesResponse =>
@@ -1574,13 +1562,9 @@ export namespace Exclusion {
   export const filterSensitiveLog = (obj: Exclusion) => ({
     ...obj,
     ...(obj.attributes && {
-      attributes: obj.attributes.map(item =>
-        item.map(Attribute.filterSensitiveLog)
-      )
+      attributes: obj.attributes.map(Attribute.filterSensitiveLog)
     }),
-    ...(obj.scopes && {
-      scopes: obj.scopes.map(item => item.map(Scope.filterSensitiveLog))
-    })
+    ...(obj.scopes && { scopes: obj.scopes.map(Scope.filterSensitiveLog) })
   });
   export const isa = (o: any): o is Exclusion => __isa(o, "Exclusion");
 }
@@ -1621,13 +1605,9 @@ export namespace ExclusionPreview {
   export const filterSensitiveLog = (obj: ExclusionPreview) => ({
     ...obj,
     ...(obj.attributes && {
-      attributes: obj.attributes.map(item =>
-        item.map(Attribute.filterSensitiveLog)
-      )
+      attributes: obj.attributes.map(Attribute.filterSensitiveLog)
     }),
-    ...(obj.scopes && {
-      scopes: obj.scopes.map(item => item.map(Scope.filterSensitiveLog))
-    })
+    ...(obj.scopes && { scopes: obj.scopes.map(Scope.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ExclusionPreview =>
     __isa(o, "ExclusionPreview");
@@ -1772,9 +1752,7 @@ export namespace Finding {
       assetAttributes: AssetAttributes.filterSensitiveLog(obj.assetAttributes)
     }),
     ...(obj.attributes && {
-      attributes: obj.attributes.map(item =>
-        item.map(Attribute.filterSensitiveLog)
-      )
+      attributes: obj.attributes.map(Attribute.filterSensitiveLog)
     }),
     ...(obj.serviceAttributes && {
       serviceAttributes: InspectorServiceAttributes.filterSensitiveLog(
@@ -1782,9 +1760,7 @@ export namespace Finding {
       )
     }),
     ...(obj.userAttributes && {
-      userAttributes: obj.userAttributes.map(item =>
-        item.map(Attribute.filterSensitiveLog)
-      )
+      userAttributes: obj.userAttributes.map(Attribute.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Finding => __isa(o, "Finding");
@@ -1851,9 +1827,7 @@ export namespace FindingFilter {
   export const filterSensitiveLog = (obj: FindingFilter) => ({
     ...obj,
     ...(obj.attributes && {
-      attributes: obj.attributes.map(item =>
-        item.map(Attribute.filterSensitiveLog)
-      )
+      attributes: obj.attributes.map(Attribute.filterSensitiveLog)
     }),
     ...(obj.creationTimeRange && {
       creationTimeRange: TimestampRange.filterSensitiveLog(
@@ -1861,9 +1835,7 @@ export namespace FindingFilter {
       )
     }),
     ...(obj.userAttributes && {
-      userAttributes: obj.userAttributes.map(item =>
-        item.map(Attribute.filterSensitiveLog)
-      )
+      userAttributes: obj.userAttributes.map(Attribute.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is FindingFilter => __isa(o, "FindingFilter");
@@ -1988,8 +1960,8 @@ export namespace GetExclusionsPreviewResponse {
   export const filterSensitiveLog = (obj: GetExclusionsPreviewResponse) => ({
     ...obj,
     ...(obj.exclusionPreviews && {
-      exclusionPreviews: obj.exclusionPreviews.map(item =>
-        item.map(ExclusionPreview.filterSensitiveLog)
+      exclusionPreviews: obj.exclusionPreviews.map(
+        ExclusionPreview.filterSensitiveLog
       )
     })
   });
@@ -2026,8 +1998,8 @@ export namespace GetTelemetryMetadataResponse {
   export const filterSensitiveLog = (obj: GetTelemetryMetadataResponse) => ({
     ...obj,
     ...(obj.telemetryMetadata && {
-      telemetryMetadata: obj.telemetryMetadata.map(item =>
-        item.map(TelemetryMetadata.filterSensitiveLog)
+      telemetryMetadata: obj.telemetryMetadata.map(
+        TelemetryMetadata.filterSensitiveLog
       )
     })
   });
@@ -2328,8 +2300,8 @@ export namespace ListAssessmentRunAgentsResponse {
   export const filterSensitiveLog = (obj: ListAssessmentRunAgentsResponse) => ({
     ...obj,
     ...(obj.assessmentRunAgents && {
-      assessmentRunAgents: obj.assessmentRunAgents.map(item =>
-        item.map(AssessmentRunAgent.filterSensitiveLog)
+      assessmentRunAgents: obj.assessmentRunAgents.map(
+        AssessmentRunAgent.filterSensitiveLog
       )
     })
   });
@@ -2586,9 +2558,7 @@ export namespace ListEventSubscriptionsResponse {
   export const filterSensitiveLog = (obj: ListEventSubscriptionsResponse) => ({
     ...obj,
     ...(obj.subscriptions && {
-      subscriptions: obj.subscriptions.map(item =>
-        item.map(Subscription.filterSensitiveLog)
-      )
+      subscriptions: obj.subscriptions.map(Subscription.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListEventSubscriptionsResponse =>
@@ -2791,9 +2761,7 @@ export interface ListTagsForResourceResponse {
 export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -2867,14 +2835,12 @@ export namespace NetworkInterface {
   export const filterSensitiveLog = (obj: NetworkInterface) => ({
     ...obj,
     ...(obj.privateIpAddresses && {
-      privateIpAddresses: obj.privateIpAddresses.map(item =>
-        item.map(PrivateIp.filterSensitiveLog)
+      privateIpAddresses: obj.privateIpAddresses.map(
+        PrivateIp.filterSensitiveLog
       )
     }),
     ...(obj.securityGroups && {
-      securityGroups: obj.securityGroups.map(item =>
-        item.map(SecurityGroup.filterSensitiveLog)
-      )
+      securityGroups: obj.securityGroups.map(SecurityGroup.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is NetworkInterface =>
@@ -2975,9 +2941,7 @@ export namespace PreviewAgentsResponse {
   export const filterSensitiveLog = (obj: PreviewAgentsResponse) => ({
     ...obj,
     ...(obj.agentPreviews && {
-      agentPreviews: obj.agentPreviews.map(item =>
-        item.map(AgentPreview.filterSensitiveLog)
-      )
+      agentPreviews: obj.agentPreviews.map(AgentPreview.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is PreviewAgentsResponse =>
@@ -3142,9 +3106,7 @@ export interface ResourceGroup {
 export namespace ResourceGroup {
   export const filterSensitiveLog = (obj: ResourceGroup) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(ResourceGroupTag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(ResourceGroupTag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ResourceGroup => __isa(o, "ResourceGroup");
 }
@@ -3313,9 +3275,7 @@ export interface SetTagsForResourceRequest {
 export namespace SetTagsForResourceRequest {
   export const filterSensitiveLog = (obj: SetTagsForResourceRequest) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is SetTagsForResourceRequest =>
     __isa(o, "SetTagsForResourceRequest");
@@ -3451,8 +3411,8 @@ export namespace Subscription {
   export const filterSensitiveLog = (obj: Subscription) => ({
     ...obj,
     ...(obj.eventSubscriptions && {
-      eventSubscriptions: obj.eventSubscriptions.map(item =>
-        item.map(EventSubscription.filterSensitiveLog)
+      eventSubscriptions: obj.eventSubscriptions.map(
+        EventSubscription.filterSensitiveLog
       )
     })
   });

@@ -28,9 +28,7 @@ export interface AddTagsToCertificateRequest {
 export namespace AddTagsToCertificateRequest {
   export const filterSensitiveLog = (obj: AddTagsToCertificateRequest) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AddTagsToCertificateRequest =>
     __isa(o, "AddTagsToCertificateRequest");
@@ -213,19 +211,17 @@ export namespace CertificateDetail {
   export const filterSensitiveLog = (obj: CertificateDetail) => ({
     ...obj,
     ...(obj.DomainValidationOptions && {
-      DomainValidationOptions: obj.DomainValidationOptions.map(item =>
-        item.map(DomainValidation.filterSensitiveLog)
+      DomainValidationOptions: obj.DomainValidationOptions.map(
+        DomainValidation.filterSensitiveLog
       )
     }),
     ...(obj.ExtendedKeyUsages && {
-      ExtendedKeyUsages: obj.ExtendedKeyUsages.map(item =>
-        item.map(ExtendedKeyUsage.filterSensitiveLog)
+      ExtendedKeyUsages: obj.ExtendedKeyUsages.map(
+        ExtendedKeyUsage.filterSensitiveLog
       )
     }),
     ...(obj.KeyUsages && {
-      KeyUsages: obj.KeyUsages.map(item =>
-        item.map(KeyUsage.filterSensitiveLog)
-      )
+      KeyUsages: obj.KeyUsages.map(KeyUsage.filterSensitiveLog)
     }),
     ...(obj.Options && {
       Options: CertificateOptions.filterSensitiveLog(obj.Options)
@@ -777,9 +773,7 @@ export namespace ImportCertificateRequest {
   export const filterSensitiveLog = (obj: ImportCertificateRequest) => ({
     ...obj,
     ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ImportCertificateRequest =>
     __isa(o, "ImportCertificateRequest");
@@ -1037,8 +1031,8 @@ export namespace ListCertificatesResponse {
   export const filterSensitiveLog = (obj: ListCertificatesResponse) => ({
     ...obj,
     ...(obj.CertificateSummaryList && {
-      CertificateSummaryList: obj.CertificateSummaryList.map(item =>
-        item.map(CertificateSummary.filterSensitiveLog)
+      CertificateSummaryList: obj.CertificateSummaryList.map(
+        CertificateSummary.filterSensitiveLog
       )
     })
   });
@@ -1078,9 +1072,7 @@ export interface ListTagsForCertificateResponse {
 export namespace ListTagsForCertificateResponse {
   export const filterSensitiveLog = (obj: ListTagsForCertificateResponse) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsForCertificateResponse =>
     __isa(o, "ListTagsForCertificateResponse");
@@ -1115,9 +1107,7 @@ export namespace RemoveTagsFromCertificateRequest {
     obj: RemoveTagsFromCertificateRequest
   ) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is RemoveTagsFromCertificateRequest =>
     __isa(o, "RemoveTagsFromCertificateRequest");
@@ -1191,8 +1181,8 @@ export namespace RenewalSummary {
   export const filterSensitiveLog = (obj: RenewalSummary) => ({
     ...obj,
     ...(obj.DomainValidationOptions && {
-      DomainValidationOptions: obj.DomainValidationOptions.map(item =>
-        item.map(DomainValidation.filterSensitiveLog)
+      DomainValidationOptions: obj.DomainValidationOptions.map(
+        DomainValidation.filterSensitiveLog
       )
     })
   });
@@ -1299,16 +1289,14 @@ export namespace RequestCertificateRequest {
   export const filterSensitiveLog = (obj: RequestCertificateRequest) => ({
     ...obj,
     ...(obj.DomainValidationOptions && {
-      DomainValidationOptions: obj.DomainValidationOptions.map(item =>
-        item.map(DomainValidationOption.filterSensitiveLog)
+      DomainValidationOptions: obj.DomainValidationOptions.map(
+        DomainValidationOption.filterSensitiveLog
       )
     }),
     ...(obj.Options && {
       Options: CertificateOptions.filterSensitiveLog(obj.Options)
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is RequestCertificateRequest =>
     __isa(o, "RequestCertificateRequest");

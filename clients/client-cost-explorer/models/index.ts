@@ -88,9 +88,7 @@ export namespace CostCategory {
   export const filterSensitiveLog = (obj: CostCategory) => ({
     ...obj,
     ...(obj.Rules && {
-      Rules: obj.Rules.map(item =>
-        item.map(CostCategoryRule.filterSensitiveLog)
-      )
+      Rules: obj.Rules.map(CostCategoryRule.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CostCategory => __isa(o, "CostCategory");
@@ -277,9 +275,7 @@ export namespace CoverageByTime {
   export const filterSensitiveLog = (obj: CoverageByTime) => ({
     ...obj,
     ...(obj.Groups && {
-      Groups: obj.Groups.map(item =>
-        item.map(ReservationCoverageGroup.filterSensitiveLog)
-      )
+      Groups: obj.Groups.map(ReservationCoverageGroup.filterSensitiveLog)
     }),
     ...(obj.TimePeriod && {
       TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
@@ -414,9 +410,7 @@ export namespace CreateCostCategoryDefinitionRequest {
   ) => ({
     ...obj,
     ...(obj.Rules && {
-      Rules: obj.Rules.map(item =>
-        item.map(CostCategoryRule.filterSensitiveLog)
-      )
+      Rules: obj.Rules.map(CostCategoryRule.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateCostCategoryDefinitionRequest =>
@@ -517,9 +511,7 @@ export namespace CurrentInstance {
         obj.ResourceUtilization
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(TagValues.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(TagValues.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CurrentInstance =>
     __isa(o, "CurrentInstance");
@@ -1107,9 +1099,7 @@ export interface Expression {
 export namespace Expression {
   export const filterSensitiveLog = (obj: Expression) => ({
     ...obj,
-    ...(obj.And && {
-      And: obj.And.map(item => item.map(Expression.filterSensitiveLog))
-    }),
+    ...(obj.And && { And: obj.And.map(Expression.filterSensitiveLog) }),
     ...(obj.CostCategories && {
       CostCategories: CostCategoryValues.filterSensitiveLog(obj.CostCategories)
     }),
@@ -1117,9 +1107,7 @@ export namespace Expression {
       Dimensions: DimensionValues.filterSensitiveLog(obj.Dimensions)
     }),
     ...(obj.Not && { Not: Expression.filterSensitiveLog(obj.Not) }),
-    ...(obj.Or && {
-      Or: obj.Or.map(item => item.map(Expression.filterSensitiveLog))
-    }),
+    ...(obj.Or && { Or: obj.Or.map(Expression.filterSensitiveLog) }),
     ...(obj.Tags && { Tags: TagValues.filterSensitiveLog(obj.Tags) })
   });
   export const isa = (o: any): o is Expression => __isa(o, "Expression");
@@ -1222,9 +1210,7 @@ export namespace GetCostAndUsageRequest {
     ...obj,
     ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
     ...(obj.GroupBy && {
-      GroupBy: obj.GroupBy.map(item =>
-        item.map(GroupDefinition.filterSensitiveLog)
-      )
+      GroupBy: obj.GroupBy.map(GroupDefinition.filterSensitiveLog)
     }),
     ...(obj.TimePeriod && {
       TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
@@ -1256,14 +1242,12 @@ export namespace GetCostAndUsageResponse {
   export const filterSensitiveLog = (obj: GetCostAndUsageResponse) => ({
     ...obj,
     ...(obj.GroupDefinitions && {
-      GroupDefinitions: obj.GroupDefinitions.map(item =>
-        item.map(GroupDefinition.filterSensitiveLog)
+      GroupDefinitions: obj.GroupDefinitions.map(
+        GroupDefinition.filterSensitiveLog
       )
     }),
     ...(obj.ResultsByTime && {
-      ResultsByTime: obj.ResultsByTime.map(item =>
-        item.map(ResultByTime.filterSensitiveLog)
-      )
+      ResultsByTime: obj.ResultsByTime.map(ResultByTime.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetCostAndUsageResponse =>
@@ -1335,9 +1319,7 @@ export namespace GetCostAndUsageWithResourcesRequest {
     ...obj,
     ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
     ...(obj.GroupBy && {
-      GroupBy: obj.GroupBy.map(item =>
-        item.map(GroupDefinition.filterSensitiveLog)
-      )
+      GroupBy: obj.GroupBy.map(GroupDefinition.filterSensitiveLog)
     }),
     ...(obj.TimePeriod && {
       TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
@@ -1372,14 +1354,12 @@ export namespace GetCostAndUsageWithResourcesResponse {
   ) => ({
     ...obj,
     ...(obj.GroupDefinitions && {
-      GroupDefinitions: obj.GroupDefinitions.map(item =>
-        item.map(GroupDefinition.filterSensitiveLog)
+      GroupDefinitions: obj.GroupDefinitions.map(
+        GroupDefinition.filterSensitiveLog
       )
     }),
     ...(obj.ResultsByTime && {
-      ResultsByTime: obj.ResultsByTime.map(item =>
-        item.map(ResultByTime.filterSensitiveLog)
-      )
+      ResultsByTime: obj.ResultsByTime.map(ResultByTime.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetCostAndUsageWithResourcesResponse =>
@@ -1467,8 +1447,8 @@ export namespace GetCostForecastResponse {
   export const filterSensitiveLog = (obj: GetCostForecastResponse) => ({
     ...obj,
     ...(obj.ForecastResultsByTime && {
-      ForecastResultsByTime: obj.ForecastResultsByTime.map(item =>
-        item.map(ForecastResult.filterSensitiveLog)
+      ForecastResultsByTime: obj.ForecastResultsByTime.map(
+        ForecastResult.filterSensitiveLog
       )
     }),
     ...(obj.Total && { Total: MetricValue.filterSensitiveLog(obj.Total) })
@@ -1764,8 +1744,8 @@ export namespace GetDimensionValuesResponse {
   export const filterSensitiveLog = (obj: GetDimensionValuesResponse) => ({
     ...obj,
     ...(obj.DimensionValues && {
-      DimensionValues: obj.DimensionValues.map(item =>
-        item.map(DimensionValuesWithAttributes.filterSensitiveLog)
+      DimensionValues: obj.DimensionValues.map(
+        DimensionValuesWithAttributes.filterSensitiveLog
       )
     })
   });
@@ -1896,9 +1876,7 @@ export namespace GetReservationCoverageRequest {
     ...obj,
     ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
     ...(obj.GroupBy && {
-      GroupBy: obj.GroupBy.map(item =>
-        item.map(GroupDefinition.filterSensitiveLog)
-      )
+      GroupBy: obj.GroupBy.map(GroupDefinition.filterSensitiveLog)
     }),
     ...(obj.TimePeriod && {
       TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
@@ -1930,8 +1908,8 @@ export namespace GetReservationCoverageResponse {
   export const filterSensitiveLog = (obj: GetReservationCoverageResponse) => ({
     ...obj,
     ...(obj.CoveragesByTime && {
-      CoveragesByTime: obj.CoveragesByTime.map(item =>
-        item.map(CoverageByTime.filterSensitiveLog)
+      CoveragesByTime: obj.CoveragesByTime.map(
+        CoverageByTime.filterSensitiveLog
       )
     }),
     ...(obj.Total && { Total: Coverage.filterSensitiveLog(obj.Total) })
@@ -2037,8 +2015,8 @@ export namespace GetReservationPurchaseRecommendationResponse {
       )
     }),
     ...(obj.Recommendations && {
-      Recommendations: obj.Recommendations.map(item =>
-        item.map(ReservationPurchaseRecommendation.filterSensitiveLog)
+      Recommendations: obj.Recommendations.map(
+        ReservationPurchaseRecommendation.filterSensitiveLog
       )
     })
   });
@@ -2127,9 +2105,7 @@ export namespace GetReservationUtilizationRequest {
     ...obj,
     ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
     ...(obj.GroupBy && {
-      GroupBy: obj.GroupBy.map(item =>
-        item.map(GroupDefinition.filterSensitiveLog)
-      )
+      GroupBy: obj.GroupBy.map(GroupDefinition.filterSensitiveLog)
     }),
     ...(obj.TimePeriod && {
       TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
@@ -2166,8 +2142,8 @@ export namespace GetReservationUtilizationResponse {
       Total: ReservationAggregates.filterSensitiveLog(obj.Total)
     }),
     ...(obj.UtilizationsByTime && {
-      UtilizationsByTime: obj.UtilizationsByTime.map(item =>
-        item.map(UtilizationByTime.filterSensitiveLog)
+      UtilizationsByTime: obj.UtilizationsByTime.map(
+        UtilizationByTime.filterSensitiveLog
       )
     })
   });
@@ -2294,8 +2270,8 @@ export namespace GetRightsizingRecommendationResponse {
       )
     }),
     ...(obj.RightsizingRecommendations && {
-      RightsizingRecommendations: obj.RightsizingRecommendations.map(item =>
-        item.map(RightsizingRecommendation.filterSensitiveLog)
+      RightsizingRecommendations: obj.RightsizingRecommendations.map(
+        RightsizingRecommendation.filterSensitiveLog
       )
     }),
     ...(obj.Summary && {
@@ -2376,9 +2352,7 @@ export namespace GetSavingsPlansCoverageRequest {
     ...obj,
     ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
     ...(obj.GroupBy && {
-      GroupBy: obj.GroupBy.map(item =>
-        item.map(GroupDefinition.filterSensitiveLog)
-      )
+      GroupBy: obj.GroupBy.map(GroupDefinition.filterSensitiveLog)
     }),
     ...(obj.TimePeriod && {
       TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
@@ -2405,8 +2379,8 @@ export namespace GetSavingsPlansCoverageResponse {
   export const filterSensitiveLog = (obj: GetSavingsPlansCoverageResponse) => ({
     ...obj,
     ...(obj.SavingsPlansCoverages && {
-      SavingsPlansCoverages: obj.SavingsPlansCoverages.map(item =>
-        item.map(SavingsPlansCoverage.filterSensitiveLog)
+      SavingsPlansCoverages: obj.SavingsPlansCoverages.map(
+        SavingsPlansCoverage.filterSensitiveLog
       )
     })
   });
@@ -2598,7 +2572,7 @@ export namespace GetSavingsPlansUtilizationDetailsResponse {
     ...obj,
     ...(obj.SavingsPlansUtilizationDetails && {
       SavingsPlansUtilizationDetails: obj.SavingsPlansUtilizationDetails.map(
-        item => item.map(SavingsPlansUtilizationDetail.filterSensitiveLog)
+        SavingsPlansUtilizationDetail.filterSensitiveLog
       )
     }),
     ...(obj.TimePeriod && {
@@ -2701,7 +2675,7 @@ export namespace GetSavingsPlansUtilizationResponse {
     ...obj,
     ...(obj.SavingsPlansUtilizationsByTime && {
       SavingsPlansUtilizationsByTime: obj.SavingsPlansUtilizationsByTime.map(
-        item => item.map(SavingsPlansUtilizationByTime.filterSensitiveLog)
+        SavingsPlansUtilizationByTime.filterSensitiveLog
       )
     }),
     ...(obj.Total && {
@@ -2849,8 +2823,8 @@ export namespace GetUsageForecastResponse {
   export const filterSensitiveLog = (obj: GetUsageForecastResponse) => ({
     ...obj,
     ...(obj.ForecastResultsByTime && {
-      ForecastResultsByTime: obj.ForecastResultsByTime.map(item =>
-        item.map(ForecastResult.filterSensitiveLog)
+      ForecastResultsByTime: obj.ForecastResultsByTime.map(
+        ForecastResult.filterSensitiveLog
       )
     }),
     ...(obj.Total && { Total: MetricValue.filterSensitiveLog(obj.Total) })
@@ -3072,8 +3046,8 @@ export namespace ListCostCategoryDefinitionsResponse {
   ) => ({
     ...obj,
     ...(obj.CostCategoryReferences && {
-      CostCategoryReferences: obj.CostCategoryReferences.map(item =>
-        item.map(CostCategoryReference.filterSensitiveLog)
+      CostCategoryReferences: obj.CostCategoryReferences.map(
+        CostCategoryReference.filterSensitiveLog
       )
     })
   });
@@ -3135,8 +3109,8 @@ export namespace ModifyRecommendationDetail {
   export const filterSensitiveLog = (obj: ModifyRecommendationDetail) => ({
     ...obj,
     ...(obj.TargetInstances && {
-      TargetInstances: obj.TargetInstances.map(item =>
-        item.map(TargetInstance.filterSensitiveLog)
+      TargetInstances: obj.TargetInstances.map(
+        TargetInstance.filterSensitiveLog
       )
     })
   });
@@ -3453,8 +3427,8 @@ export namespace ReservationPurchaseRecommendation {
   ) => ({
     ...obj,
     ...(obj.RecommendationDetails && {
-      RecommendationDetails: obj.RecommendationDetails.map(item =>
-        item.map(ReservationPurchaseRecommendationDetail.filterSensitiveLog)
+      RecommendationDetails: obj.RecommendationDetails.map(
+        ReservationPurchaseRecommendationDetail.filterSensitiveLog
       )
     }),
     ...(obj.RecommendationSummary && {
@@ -3800,9 +3774,7 @@ export interface ResultByTime {
 export namespace ResultByTime {
   export const filterSensitiveLog = (obj: ResultByTime) => ({
     ...obj,
-    ...(obj.Groups && {
-      Groups: obj.Groups.map(item => item.map(Group.filterSensitiveLog))
-    }),
+    ...(obj.Groups && { Groups: obj.Groups.map(Group.filterSensitiveLog) }),
     ...(obj.TimePeriod && {
       TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
     })
@@ -4105,8 +4077,7 @@ export namespace SavingsPlansPurchaseRecommendation {
     ...obj,
     ...(obj.SavingsPlansPurchaseRecommendationDetails && {
       SavingsPlansPurchaseRecommendationDetails: obj.SavingsPlansPurchaseRecommendationDetails.map(
-        item =>
-          item.map(SavingsPlansPurchaseRecommendationDetail.filterSensitiveLog)
+        SavingsPlansPurchaseRecommendationDetail.filterSensitiveLog
       )
     }),
     ...(obj.SavingsPlansPurchaseRecommendationSummary && {
@@ -4727,9 +4698,7 @@ export namespace UpdateCostCategoryDefinitionRequest {
   ) => ({
     ...obj,
     ...(obj.Rules && {
-      Rules: obj.Rules.map(item =>
-        item.map(CostCategoryRule.filterSensitiveLog)
-      )
+      Rules: obj.Rules.map(CostCategoryRule.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateCostCategoryDefinitionRequest =>
@@ -4788,9 +4757,7 @@ export namespace UtilizationByTime {
   export const filterSensitiveLog = (obj: UtilizationByTime) => ({
     ...obj,
     ...(obj.Groups && {
-      Groups: obj.Groups.map(item =>
-        item.map(ReservationUtilizationGroup.filterSensitiveLog)
-      )
+      Groups: obj.Groups.map(ReservationUtilizationGroup.filterSensitiveLog)
     }),
     ...(obj.TimePeriod && {
       TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)

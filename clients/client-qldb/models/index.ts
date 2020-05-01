@@ -680,8 +680,8 @@ export namespace ListJournalS3ExportsForLedgerResponse {
   ) => ({
     ...obj,
     ...(obj.JournalS3Exports && {
-      JournalS3Exports: obj.JournalS3Exports.map(item =>
-        item.map(JournalS3ExportDescription.filterSensitiveLog)
+      JournalS3Exports: obj.JournalS3Exports.map(
+        JournalS3ExportDescription.filterSensitiveLog
       )
     })
   });
@@ -743,8 +743,8 @@ export namespace ListJournalS3ExportsResponse {
   export const filterSensitiveLog = (obj: ListJournalS3ExportsResponse) => ({
     ...obj,
     ...(obj.JournalS3Exports && {
-      JournalS3Exports: obj.JournalS3Exports.map(item =>
-        item.map(JournalS3ExportDescription.filterSensitiveLog)
+      JournalS3Exports: obj.JournalS3Exports.map(
+        JournalS3ExportDescription.filterSensitiveLog
       )
     })
   });
@@ -805,9 +805,7 @@ export namespace ListLedgersResponse {
   export const filterSensitiveLog = (obj: ListLedgersResponse) => ({
     ...obj,
     ...(obj.Ledgers && {
-      Ledgers: obj.Ledgers.map(item =>
-        item.map(LedgerSummary.filterSensitiveLog)
-      )
+      Ledgers: obj.Ledgers.map(LedgerSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListLedgersResponse =>

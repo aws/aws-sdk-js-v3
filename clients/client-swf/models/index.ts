@@ -588,9 +588,7 @@ export namespace ActivityTypeInfos {
   export const filterSensitiveLog = (obj: ActivityTypeInfos) => ({
     ...obj,
     ...(obj.typeInfos && {
-      typeInfos: obj.typeInfos.map(item =>
-        item.map(ActivityTypeInfo.filterSensitiveLog)
-      )
+      typeInfos: obj.typeInfos.map(ActivityTypeInfo.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ActivityTypeInfos =>
@@ -1853,7 +1851,7 @@ export namespace DecisionTask {
   export const filterSensitiveLog = (obj: DecisionTask) => ({
     ...obj,
     ...(obj.events && {
-      events: obj.events.map(item => item.map(HistoryEvent.filterSensitiveLog))
+      events: obj.events.map(HistoryEvent.filterSensitiveLog)
     }),
     ...(obj.workflowExecution && {
       workflowExecution: WorkflowExecution.filterSensitiveLog(
@@ -2212,9 +2210,7 @@ export namespace DomainInfos {
   export const filterSensitiveLog = (obj: DomainInfos) => ({
     ...obj,
     ...(obj.domainInfos && {
-      domainInfos: obj.domainInfos.map(item =>
-        item.map(DomainInfo.filterSensitiveLog)
-      )
+      domainInfos: obj.domainInfos.map(DomainInfo.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DomainInfos => __isa(o, "DomainInfos");
@@ -2486,7 +2482,7 @@ export namespace History {
   export const filterSensitiveLog = (obj: History) => ({
     ...obj,
     ...(obj.events && {
-      events: obj.events.map(item => item.map(HistoryEvent.filterSensitiveLog))
+      events: obj.events.map(HistoryEvent.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is History => __isa(o, "History");
@@ -5728,8 +5724,8 @@ export namespace WorkflowExecutionInfos {
   export const filterSensitiveLog = (obj: WorkflowExecutionInfos) => ({
     ...obj,
     ...(obj.executionInfos && {
-      executionInfos: obj.executionInfos.map(item =>
-        item.map(WorkflowExecutionInfo.filterSensitiveLog)
+      executionInfos: obj.executionInfos.map(
+        WorkflowExecutionInfo.filterSensitiveLog
       )
     })
   });
@@ -6302,9 +6298,7 @@ export namespace WorkflowTypeInfos {
   export const filterSensitiveLog = (obj: WorkflowTypeInfos) => ({
     ...obj,
     ...(obj.typeInfos && {
-      typeInfos: obj.typeInfos.map(item =>
-        item.map(WorkflowTypeInfo.filterSensitiveLog)
-      )
+      typeInfos: obj.typeInfos.map(WorkflowTypeInfo.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is WorkflowTypeInfos =>
@@ -7100,9 +7094,7 @@ export interface ListTagsForResourceOutput {
 export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(ResourceTag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(ResourceTag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsForResourceOutput =>
     __isa(o, "ListTagsForResourceOutput");
@@ -7441,9 +7433,7 @@ export interface RegisterDomainInput {
 export namespace RegisterDomainInput {
   export const filterSensitiveLog = (obj: RegisterDomainInput) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(ResourceTag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(ResourceTag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is RegisterDomainInput =>
     __isa(o, "RegisterDomainInput");
@@ -7732,9 +7722,7 @@ export namespace RespondDecisionTaskCompletedInput {
   ) => ({
     ...obj,
     ...(obj.decisions && {
-      decisions: obj.decisions.map(item =>
-        item.map(Decision.filterSensitiveLog)
-      )
+      decisions: obj.decisions.map(Decision.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is RespondDecisionTaskCompletedInput =>
@@ -7973,9 +7961,7 @@ export interface TagResourceInput {
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(ResourceTag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(ResourceTag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagResourceInput =>
     __isa(o, "TagResourceInput");

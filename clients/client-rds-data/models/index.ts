@@ -179,7 +179,7 @@ export namespace BatchExecuteStatementRequest {
     ...obj,
     ...(obj.parameterSets && {
       parameterSets: obj.parameterSets.map(item =>
-        item.map(item => item.map(SqlParameter.filterSensitiveLog))
+        item.map(SqlParameter.filterSensitiveLog)
       )
     })
   });
@@ -203,9 +203,7 @@ export namespace BatchExecuteStatementResponse {
   export const filterSensitiveLog = (obj: BatchExecuteStatementResponse) => ({
     ...obj,
     ...(obj.updateResults && {
-      updateResults: obj.updateResults.map(item =>
-        item.map(UpdateResult.filterSensitiveLog)
-      )
+      updateResults: obj.updateResults.map(UpdateResult.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchExecuteStatementResponse =>
@@ -458,8 +456,8 @@ export namespace ExecuteSqlResponse {
   export const filterSensitiveLog = (obj: ExecuteSqlResponse) => ({
     ...obj,
     ...(obj.sqlStatementResults && {
-      sqlStatementResults: obj.sqlStatementResults.map(item =>
-        item.map(SqlStatementResult.filterSensitiveLog)
+      sqlStatementResults: obj.sqlStatementResults.map(
+        SqlStatementResult.filterSensitiveLog
       )
     })
   });
@@ -533,9 +531,7 @@ export namespace ExecuteStatementRequest {
   export const filterSensitiveLog = (obj: ExecuteStatementRequest) => ({
     ...obj,
     ...(obj.parameters && {
-      parameters: obj.parameters.map(item =>
-        item.map(SqlParameter.filterSensitiveLog)
-      )
+      parameters: obj.parameters.map(SqlParameter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ExecuteStatementRequest =>
@@ -573,16 +569,10 @@ export namespace ExecuteStatementResponse {
   export const filterSensitiveLog = (obj: ExecuteStatementResponse) => ({
     ...obj,
     ...(obj.columnMetadata && {
-      columnMetadata: obj.columnMetadata.map(item =>
-        item.map(ColumnMetadata.filterSensitiveLog)
-      )
+      columnMetadata: obj.columnMetadata.map(ColumnMetadata.filterSensitiveLog)
     }),
-    ...(obj.generatedFields && {
-      generatedFields: obj.generatedFields.map(item => item.map())
-    }),
-    ...(obj.records && {
-      records: obj.records.map(item => item.map(item => item.map()))
-    })
+    ...(obj.generatedFields && { generatedFields: obj.generatedFields.map() }),
+    ...(obj.records && { records: obj.records.map(item => item.map()) })
   });
   export const isa = (o: any): o is ExecuteStatementResponse =>
     __isa(o, "ExecuteStatementResponse");
@@ -806,7 +796,7 @@ export interface _Record {
 export namespace _Record {
   export const filterSensitiveLog = (obj: _Record) => ({
     ...obj,
-    ...(obj.values && { values: obj.values.map(item => item.map()) })
+    ...(obj.values && { values: obj.values.map() })
   });
   export const isa = (o: any): o is _Record => __isa(o, "Record");
 }
@@ -831,7 +821,7 @@ export namespace ResultFrame {
   export const filterSensitiveLog = (obj: ResultFrame) => ({
     ...obj,
     ...(obj.records && {
-      records: obj.records.map(item => item.map(_Record.filterSensitiveLog))
+      records: obj.records.map(_Record.filterSensitiveLog)
     }),
     ...(obj.resultSetMetadata && {
       resultSetMetadata: ResultSetMetadata.filterSensitiveLog(
@@ -862,9 +852,7 @@ export namespace ResultSetMetadata {
   export const filterSensitiveLog = (obj: ResultSetMetadata) => ({
     ...obj,
     ...(obj.columnMetadata && {
-      columnMetadata: obj.columnMetadata.map(item =>
-        item.map(ColumnMetadata.filterSensitiveLog)
-      )
+      columnMetadata: obj.columnMetadata.map(ColumnMetadata.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ResultSetMetadata =>
@@ -1031,9 +1019,7 @@ export interface StructValue {
 export namespace StructValue {
   export const filterSensitiveLog = (obj: StructValue) => ({
     ...obj,
-    ...(obj.attributes && {
-      attributes: obj.attributes.map(item => item.map())
-    })
+    ...(obj.attributes && { attributes: obj.attributes.map() })
   });
   export const isa = (o: any): o is StructValue => __isa(o, "StructValue");
 }
@@ -1052,9 +1038,7 @@ export interface UpdateResult {
 export namespace UpdateResult {
   export const filterSensitiveLog = (obj: UpdateResult) => ({
     ...obj,
-    ...(obj.generatedFields && {
-      generatedFields: obj.generatedFields.map(item => item.map())
-    })
+    ...(obj.generatedFields && { generatedFields: obj.generatedFields.map() })
   });
   export const isa = (o: any): o is UpdateResult => __isa(o, "UpdateResult");
 }

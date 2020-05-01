@@ -128,9 +128,7 @@ export interface GetRecordsOutput {
 export namespace GetRecordsOutput {
   export const filterSensitiveLog = (obj: GetRecordsOutput) => ({
     ...obj,
-    ...(obj.Records && {
-      Records: obj.Records.map(item => item.map(_Record.filterSensitiveLog))
-    })
+    ...(obj.Records && { Records: obj.Records.map(_Record.filterSensitiveLog) })
   });
   export const isa = (o: any): o is GetRecordsOutput =>
     __isa(o, "GetRecordsOutput");
@@ -292,9 +290,7 @@ export interface ListStreamsOutput {
 export namespace ListStreamsOutput {
   export const filterSensitiveLog = (obj: ListStreamsOutput) => ({
     ...obj,
-    ...(obj.Streams && {
-      Streams: obj.Streams.map(item => item.map(_Stream.filterSensitiveLog))
-    })
+    ...(obj.Streams && { Streams: obj.Streams.map(_Stream.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListStreamsOutput =>
     __isa(o, "ListStreamsOutput");
@@ -600,13 +596,9 @@ export namespace StreamDescription {
   export const filterSensitiveLog = (obj: StreamDescription) => ({
     ...obj,
     ...(obj.KeySchema && {
-      KeySchema: obj.KeySchema.map(item =>
-        item.map(KeySchemaElement.filterSensitiveLog)
-      )
+      KeySchema: obj.KeySchema.map(KeySchemaElement.filterSensitiveLog)
     }),
-    ...(obj.Shards && {
-      Shards: obj.Shards.map(item => item.map(Shard.filterSensitiveLog))
-    })
+    ...(obj.Shards && { Shards: obj.Shards.map(Shard.filterSensitiveLog) })
   });
   export const isa = (o: any): o is StreamDescription =>
     __isa(o, "StreamDescription");
@@ -773,9 +765,7 @@ export interface AttributeValue {
 export namespace AttributeValue {
   export const filterSensitiveLog = (obj: AttributeValue) => ({
     ...obj,
-    ...(obj.L && {
-      L: obj.L.map(item => item.map(AttributeValue.filterSensitiveLog))
-    })
+    ...(obj.L && { L: obj.L.map(AttributeValue.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AttributeValue =>
     __isa(o, "AttributeValue");

@@ -396,9 +396,7 @@ export interface CreateDevicePoolRequest {
 export namespace CreateDevicePoolRequest {
   export const filterSensitiveLog = (obj: CreateDevicePoolRequest) => ({
     ...obj,
-    ...(obj.rules && {
-      rules: obj.rules.map(item => item.map(Rule.filterSensitiveLog))
-    })
+    ...(obj.rules && { rules: obj.rules.map(Rule.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateDevicePoolRequest =>
     __isa(o, "CreateDevicePoolRequest");
@@ -1561,9 +1559,7 @@ export namespace Device {
     ...obj,
     ...(obj.cpu && { cpu: CPU.filterSensitiveLog(obj.cpu) }),
     ...(obj.instances && {
-      instances: obj.instances.map(item =>
-        item.map(DeviceInstance.filterSensitiveLog)
-      )
+      instances: obj.instances.map(DeviceInstance.filterSensitiveLog)
     }),
     ...(obj.resolution && {
       resolution: Resolution.filterSensitiveLog(obj.resolution)
@@ -1905,9 +1901,7 @@ export interface DevicePool {
 export namespace DevicePool {
   export const filterSensitiveLog = (obj: DevicePool) => ({
     ...obj,
-    ...(obj.rules && {
-      rules: obj.rules.map(item => item.map(Rule.filterSensitiveLog))
-    })
+    ...(obj.rules && { rules: obj.rules.map(Rule.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DevicePool => __isa(o, "DevicePool");
 }
@@ -1938,8 +1932,8 @@ export namespace DevicePoolCompatibilityResult {
     ...obj,
     ...(obj.device && { device: Device.filterSensitiveLog(obj.device) }),
     ...(obj.incompatibilityMessages && {
-      incompatibilityMessages: obj.incompatibilityMessages.map(item =>
-        item.map(IncompatibilityMessage.filterSensitiveLog)
+      incompatibilityMessages: obj.incompatibilityMessages.map(
+        IncompatibilityMessage.filterSensitiveLog
       )
     })
   });
@@ -2094,9 +2088,7 @@ export namespace DeviceSelectionConfiguration {
   export const filterSensitiveLog = (obj: DeviceSelectionConfiguration) => ({
     ...obj,
     ...(obj.filters && {
-      filters: obj.filters.map(item =>
-        item.map(DeviceFilter.filterSensitiveLog)
-      )
+      filters: obj.filters.map(DeviceFilter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DeviceSelectionConfiguration =>
@@ -2130,9 +2122,7 @@ export namespace DeviceSelectionResult {
   export const filterSensitiveLog = (obj: DeviceSelectionResult) => ({
     ...obj,
     ...(obj.filters && {
-      filters: obj.filters.map(item =>
-        item.map(DeviceFilter.filterSensitiveLog)
-      )
+      filters: obj.filters.map(DeviceFilter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DeviceSelectionResult =>
@@ -2410,13 +2400,13 @@ export namespace GetDevicePoolCompatibilityResult {
   ) => ({
     ...obj,
     ...(obj.compatibleDevices && {
-      compatibleDevices: obj.compatibleDevices.map(item =>
-        item.map(DevicePoolCompatibilityResult.filterSensitiveLog)
+      compatibleDevices: obj.compatibleDevices.map(
+        DevicePoolCompatibilityResult.filterSensitiveLog
       )
     }),
     ...(obj.incompatibleDevices && {
-      incompatibleDevices: obj.incompatibleDevices.map(item =>
-        item.map(DevicePoolCompatibilityResult.filterSensitiveLog)
+      incompatibleDevices: obj.incompatibleDevices.map(
+        DevicePoolCompatibilityResult.filterSensitiveLog
       )
     })
   });
@@ -3535,9 +3525,7 @@ export namespace ListArtifactsResult {
   export const filterSensitiveLog = (obj: ListArtifactsResult) => ({
     ...obj,
     ...(obj.artifacts && {
-      artifacts: obj.artifacts.map(item =>
-        item.map(Artifact.filterSensitiveLog)
-      )
+      artifacts: obj.artifacts.map(Artifact.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListArtifactsResult =>
@@ -3584,8 +3572,8 @@ export namespace ListDeviceInstancesResult {
   export const filterSensitiveLog = (obj: ListDeviceInstancesResult) => ({
     ...obj,
     ...(obj.deviceInstances && {
-      deviceInstances: obj.deviceInstances.map(item =>
-        item.map(DeviceInstance.filterSensitiveLog)
+      deviceInstances: obj.deviceInstances.map(
+        DeviceInstance.filterSensitiveLog
       )
     })
   });
@@ -3656,9 +3644,7 @@ export namespace ListDevicePoolsResult {
   export const filterSensitiveLog = (obj: ListDevicePoolsResult) => ({
     ...obj,
     ...(obj.devicePools && {
-      devicePools: obj.devicePools.map(item =>
-        item.map(DevicePool.filterSensitiveLog)
-      )
+      devicePools: obj.devicePools.map(DevicePool.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListDevicePoolsResult =>
@@ -3781,9 +3767,7 @@ export namespace ListDevicesRequest {
   export const filterSensitiveLog = (obj: ListDevicesRequest) => ({
     ...obj,
     ...(obj.filters && {
-      filters: obj.filters.map(item =>
-        item.map(DeviceFilter.filterSensitiveLog)
-      )
+      filters: obj.filters.map(DeviceFilter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListDevicesRequest =>
@@ -3811,9 +3795,7 @@ export interface ListDevicesResult {
 export namespace ListDevicesResult {
   export const filterSensitiveLog = (obj: ListDevicesResult) => ({
     ...obj,
-    ...(obj.devices && {
-      devices: obj.devices.map(item => item.map(Device.filterSensitiveLog))
-    })
+    ...(obj.devices && { devices: obj.devices.map(Device.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListDevicesResult =>
     __isa(o, "ListDevicesResult");
@@ -3859,8 +3841,8 @@ export namespace ListInstanceProfilesResult {
   export const filterSensitiveLog = (obj: ListInstanceProfilesResult) => ({
     ...obj,
     ...(obj.instanceProfiles && {
-      instanceProfiles: obj.instanceProfiles.map(item =>
-        item.map(InstanceProfile.filterSensitiveLog)
+      instanceProfiles: obj.instanceProfiles.map(
+        InstanceProfile.filterSensitiveLog
       )
     })
   });
@@ -3914,9 +3896,7 @@ export interface ListJobsResult {
 export namespace ListJobsResult {
   export const filterSensitiveLog = (obj: ListJobsResult) => ({
     ...obj,
-    ...(obj.jobs && {
-      jobs: obj.jobs.map(item => item.map(Job.filterSensitiveLog))
-    })
+    ...(obj.jobs && { jobs: obj.jobs.map(Job.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListJobsResult =>
     __isa(o, "ListJobsResult");
@@ -3968,8 +3948,8 @@ export namespace ListNetworkProfilesResult {
   export const filterSensitiveLog = (obj: ListNetworkProfilesResult) => ({
     ...obj,
     ...(obj.networkProfiles && {
-      networkProfiles: obj.networkProfiles.map(item =>
-        item.map(NetworkProfile.filterSensitiveLog)
+      networkProfiles: obj.networkProfiles.map(
+        NetworkProfile.filterSensitiveLog
       )
     })
   });
@@ -4012,8 +3992,8 @@ export namespace ListOfferingPromotionsResult {
   export const filterSensitiveLog = (obj: ListOfferingPromotionsResult) => ({
     ...obj,
     ...(obj.offeringPromotions && {
-      offeringPromotions: obj.offeringPromotions.map(item =>
-        item.map(OfferingPromotion.filterSensitiveLog)
+      offeringPromotions: obj.offeringPromotions.map(
+        OfferingPromotion.filterSensitiveLog
       )
     })
   });
@@ -4063,8 +4043,8 @@ export namespace ListOfferingTransactionsResult {
   export const filterSensitiveLog = (obj: ListOfferingTransactionsResult) => ({
     ...obj,
     ...(obj.offeringTransactions && {
-      offeringTransactions: obj.offeringTransactions.map(item =>
-        item.map(OfferingTransaction.filterSensitiveLog)
+      offeringTransactions: obj.offeringTransactions.map(
+        OfferingTransaction.filterSensitiveLog
       )
     })
   });
@@ -4113,9 +4093,7 @@ export namespace ListOfferingsResult {
   export const filterSensitiveLog = (obj: ListOfferingsResult) => ({
     ...obj,
     ...(obj.offerings && {
-      offerings: obj.offerings.map(item =>
-        item.map(Offering.filterSensitiveLog)
-      )
+      offerings: obj.offerings.map(Offering.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListOfferingsResult =>
@@ -4171,7 +4149,7 @@ export namespace ListProjectsResult {
   export const filterSensitiveLog = (obj: ListProjectsResult) => ({
     ...obj,
     ...(obj.projects && {
-      projects: obj.projects.map(item => item.map(Project.filterSensitiveLog))
+      projects: obj.projects.map(Project.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListProjectsResult =>
@@ -4228,8 +4206,8 @@ export namespace ListRemoteAccessSessionsResult {
   export const filterSensitiveLog = (obj: ListRemoteAccessSessionsResult) => ({
     ...obj,
     ...(obj.remoteAccessSessions && {
-      remoteAccessSessions: obj.remoteAccessSessions.map(item =>
-        item.map(RemoteAccessSession.filterSensitiveLog)
+      remoteAccessSessions: obj.remoteAccessSessions.map(
+        RemoteAccessSession.filterSensitiveLog
       )
     })
   });
@@ -4284,9 +4262,7 @@ export interface ListRunsResult {
 export namespace ListRunsResult {
   export const filterSensitiveLog = (obj: ListRunsResult) => ({
     ...obj,
-    ...(obj.runs && {
-      runs: obj.runs.map(item => item.map(Run.filterSensitiveLog))
-    })
+    ...(obj.runs && { runs: obj.runs.map(Run.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListRunsResult =>
     __isa(o, "ListRunsResult");
@@ -4338,9 +4314,7 @@ export interface ListSamplesResult {
 export namespace ListSamplesResult {
   export const filterSensitiveLog = (obj: ListSamplesResult) => ({
     ...obj,
-    ...(obj.samples && {
-      samples: obj.samples.map(item => item.map(Sample.filterSensitiveLog))
-    })
+    ...(obj.samples && { samples: obj.samples.map(Sample.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListSamplesResult =>
     __isa(o, "ListSamplesResult");
@@ -4392,9 +4366,7 @@ export interface ListSuitesResult {
 export namespace ListSuitesResult {
   export const filterSensitiveLog = (obj: ListSuitesResult) => ({
     ...obj,
-    ...(obj.suites && {
-      suites: obj.suites.map(item => item.map(Suite.filterSensitiveLog))
-    })
+    ...(obj.suites && { suites: obj.suites.map(Suite.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListSuitesResult =>
     __isa(o, "ListSuitesResult");
@@ -4432,9 +4404,7 @@ export interface ListTagsForResourceResponse {
 export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -4479,8 +4449,8 @@ export namespace ListTestGridProjectsResult {
   export const filterSensitiveLog = (obj: ListTestGridProjectsResult) => ({
     ...obj,
     ...(obj.testGridProjects && {
-      testGridProjects: obj.testGridProjects.map(item =>
-        item.map(TestGridProject.filterSensitiveLog)
+      testGridProjects: obj.testGridProjects.map(
+        TestGridProject.filterSensitiveLog
       )
     })
   });
@@ -4535,9 +4505,7 @@ export namespace ListTestGridSessionActionsResult {
   ) => ({
     ...obj,
     ...(obj.actions && {
-      actions: obj.actions.map(item =>
-        item.map(TestGridSessionAction.filterSensitiveLog)
-      )
+      actions: obj.actions.map(TestGridSessionAction.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListTestGridSessionActionsResult =>
@@ -4596,9 +4564,7 @@ export namespace ListTestGridSessionArtifactsResult {
   ) => ({
     ...obj,
     ...(obj.artifacts && {
-      artifacts: obj.artifacts.map(item =>
-        item.map(TestGridSessionArtifact.filterSensitiveLog)
-      )
+      artifacts: obj.artifacts.map(TestGridSessionArtifact.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListTestGridSessionArtifactsResult =>
@@ -4673,8 +4639,8 @@ export namespace ListTestGridSessionsResult {
   export const filterSensitiveLog = (obj: ListTestGridSessionsResult) => ({
     ...obj,
     ...(obj.testGridSessions && {
-      testGridSessions: obj.testGridSessions.map(item =>
-        item.map(TestGridSession.filterSensitiveLog)
+      testGridSessions: obj.testGridSessions.map(
+        TestGridSession.filterSensitiveLog
       )
     })
   });
@@ -4728,9 +4694,7 @@ export interface ListTestsResult {
 export namespace ListTestsResult {
   export const filterSensitiveLog = (obj: ListTestsResult) => ({
     ...obj,
-    ...(obj.tests && {
-      tests: obj.tests.map(item => item.map(Test.filterSensitiveLog))
-    })
+    ...(obj.tests && { tests: obj.tests.map(Test.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTestsResult =>
     __isa(o, "ListTestsResult");
@@ -4962,9 +4926,7 @@ export interface ListUploadsResult {
 export namespace ListUploadsResult {
   export const filterSensitiveLog = (obj: ListUploadsResult) => ({
     ...obj,
-    ...(obj.uploads && {
-      uploads: obj.uploads.map(item => item.map(Upload.filterSensitiveLog))
-    })
+    ...(obj.uploads && { uploads: obj.uploads.map(Upload.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListUploadsResult =>
     __isa(o, "ListUploadsResult");
@@ -5011,8 +4973,8 @@ export namespace ListVPCEConfigurationsResult {
   export const filterSensitiveLog = (obj: ListVPCEConfigurationsResult) => ({
     ...obj,
     ...(obj.vpceConfigurations && {
-      vpceConfigurations: obj.vpceConfigurations.map(item =>
-        item.map(VPCEConfiguration.filterSensitiveLog)
+      vpceConfigurations: obj.vpceConfigurations.map(
+        VPCEConfiguration.filterSensitiveLog
       )
     })
   });
@@ -5233,8 +5195,8 @@ export namespace Offering {
   export const filterSensitiveLog = (obj: Offering) => ({
     ...obj,
     ...(obj.recurringCharges && {
-      recurringCharges: obj.recurringCharges.map(item =>
-        item.map(RecurringCharge.filterSensitiveLog)
+      recurringCharges: obj.recurringCharges.map(
+        RecurringCharge.filterSensitiveLog
       )
     })
   });
@@ -7286,9 +7248,7 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -7752,7 +7712,7 @@ export namespace UniqueProblem {
   export const filterSensitiveLog = (obj: UniqueProblem) => ({
     ...obj,
     ...(obj.problems && {
-      problems: obj.problems.map(item => item.map(Problem.filterSensitiveLog))
+      problems: obj.problems.map(Problem.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UniqueProblem => __isa(o, "UniqueProblem");
@@ -7892,9 +7852,7 @@ export interface UpdateDevicePoolRequest {
 export namespace UpdateDevicePoolRequest {
   export const filterSensitiveLog = (obj: UpdateDevicePoolRequest) => ({
     ...obj,
-    ...(obj.rules && {
-      rules: obj.rules.map(item => item.map(Rule.filterSensitiveLog))
-    })
+    ...(obj.rules && { rules: obj.rules.map(Rule.filterSensitiveLog) })
   });
   export const isa = (o: any): o is UpdateDevicePoolRequest =>
     __isa(o, "UpdateDevicePoolRequest");

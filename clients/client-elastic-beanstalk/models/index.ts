@@ -133,8 +133,8 @@ export namespace ApplicationDescriptionsMessage {
   export const filterSensitiveLog = (obj: ApplicationDescriptionsMessage) => ({
     ...obj,
     ...(obj.Applications && {
-      Applications: obj.Applications.map(item =>
-        item.map(ApplicationDescription.filterSensitiveLog)
+      Applications: obj.Applications.map(
+        ApplicationDescription.filterSensitiveLog
       )
     })
   });
@@ -410,8 +410,8 @@ export namespace ApplicationVersionDescriptionsMessage {
   ) => ({
     ...obj,
     ...(obj.ApplicationVersions && {
-      ApplicationVersions: obj.ApplicationVersions.map(item =>
-        item.map(ApplicationVersionDescription.filterSensitiveLog)
+      ApplicationVersions: obj.ApplicationVersions.map(
+        ApplicationVersionDescription.filterSensitiveLog
       )
     })
   });
@@ -1020,8 +1020,8 @@ export namespace ConfigurationOptionsDescription {
   export const filterSensitiveLog = (obj: ConfigurationOptionsDescription) => ({
     ...obj,
     ...(obj.Options && {
-      Options: obj.Options.map(item =>
-        item.map(ConfigurationOptionDescription.filterSensitiveLog)
+      Options: obj.Options.map(
+        ConfigurationOptionDescription.filterSensitiveLog
       )
     })
   });
@@ -1118,8 +1118,8 @@ export namespace ConfigurationSettingsDescription {
   ) => ({
     ...obj,
     ...(obj.OptionSettings && {
-      OptionSettings: obj.OptionSettings.map(item =>
-        item.map(ConfigurationOptionSetting.filterSensitiveLog)
+      OptionSettings: obj.OptionSettings.map(
+        ConfigurationOptionSetting.filterSensitiveLog
       )
     })
   });
@@ -1145,8 +1145,8 @@ export namespace ConfigurationSettingsDescriptions {
   ) => ({
     ...obj,
     ...(obj.ConfigurationSettings && {
-      ConfigurationSettings: obj.ConfigurationSettings.map(item =>
-        item.map(ConfigurationSettingsDescription.filterSensitiveLog)
+      ConfigurationSettings: obj.ConfigurationSettings.map(
+        ConfigurationSettingsDescription.filterSensitiveLog
       )
     })
   });
@@ -1171,9 +1171,7 @@ export namespace ConfigurationSettingsValidationMessages {
   ) => ({
     ...obj,
     ...(obj.Messages && {
-      Messages: obj.Messages.map(item =>
-        item.map(ValidationMessage.filterSensitiveLog)
-      )
+      Messages: obj.Messages.map(ValidationMessage.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ConfigurationSettingsValidationMessages =>
@@ -1219,9 +1217,7 @@ export namespace CreateApplicationMessage {
         obj.ResourceLifecycleConfig
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateApplicationMessage =>
     __isa(o, "CreateApplicationMessage");
@@ -1323,9 +1319,7 @@ export namespace CreateApplicationVersionMessage {
     ...(obj.SourceBundle && {
       SourceBundle: S3Location.filterSensitiveLog(obj.SourceBundle)
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateApplicationVersionMessage =>
     __isa(o, "CreateApplicationVersionMessage");
@@ -1417,8 +1411,8 @@ export namespace CreateConfigurationTemplateMessage {
   ) => ({
     ...obj,
     ...(obj.OptionSettings && {
-      OptionSettings: obj.OptionSettings.map(item =>
-        item.map(ConfigurationOptionSetting.filterSensitiveLog)
+      OptionSettings: obj.OptionSettings.map(
+        ConfigurationOptionSetting.filterSensitiveLog
       )
     }),
     ...(obj.SourceConfiguration && {
@@ -1426,9 +1420,7 @@ export namespace CreateConfigurationTemplateMessage {
         obj.SourceConfiguration
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateConfigurationTemplateMessage =>
     __isa(o, "CreateConfigurationTemplateMessage");
@@ -1535,18 +1527,16 @@ export namespace CreateEnvironmentMessage {
   export const filterSensitiveLog = (obj: CreateEnvironmentMessage) => ({
     ...obj,
     ...(obj.OptionSettings && {
-      OptionSettings: obj.OptionSettings.map(item =>
-        item.map(ConfigurationOptionSetting.filterSensitiveLog)
+      OptionSettings: obj.OptionSettings.map(
+        ConfigurationOptionSetting.filterSensitiveLog
       )
     }),
     ...(obj.OptionsToRemove && {
-      OptionsToRemove: obj.OptionsToRemove.map(item =>
-        item.map(OptionSpecification.filterSensitiveLog)
+      OptionsToRemove: obj.OptionsToRemove.map(
+        OptionSpecification.filterSensitiveLog
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    }),
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
     ...(obj.Tier && { Tier: EnvironmentTier.filterSensitiveLog(obj.Tier) })
   });
   export const isa = (o: any): o is CreateEnvironmentMessage =>
@@ -1595,8 +1585,8 @@ export namespace CreatePlatformVersionRequest {
   export const filterSensitiveLog = (obj: CreatePlatformVersionRequest) => ({
     ...obj,
     ...(obj.OptionSettings && {
-      OptionSettings: obj.OptionSettings.map(item =>
-        item.map(ConfigurationOptionSetting.filterSensitiveLog)
+      OptionSettings: obj.OptionSettings.map(
+        ConfigurationOptionSetting.filterSensitiveLog
       )
     }),
     ...(obj.PlatformDefinitionBundle && {
@@ -1604,9 +1594,7 @@ export namespace CreatePlatformVersionRequest {
         obj.PlatformDefinitionBundle
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreatePlatformVersionRequest =>
     __isa(o, "CreatePlatformVersionRequest");
@@ -2000,9 +1988,7 @@ export namespace DescribeConfigurationOptionsMessage {
   ) => ({
     ...obj,
     ...(obj.Options && {
-      Options: obj.Options.map(item =>
-        item.map(OptionSpecification.filterSensitiveLog)
-      )
+      Options: obj.Options.map(OptionSpecification.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeConfigurationOptionsMessage =>
@@ -2213,8 +2199,8 @@ export namespace DescribeEnvironmentManagedActionHistoryResult {
   ) => ({
     ...obj,
     ...(obj.ManagedActionHistoryItems && {
-      ManagedActionHistoryItems: obj.ManagedActionHistoryItems.map(item =>
-        item.map(ManagedActionHistoryItem.filterSensitiveLog)
+      ManagedActionHistoryItems: obj.ManagedActionHistoryItems.map(
+        ManagedActionHistoryItem.filterSensitiveLog
       )
     })
   });
@@ -2272,9 +2258,7 @@ export namespace DescribeEnvironmentManagedActionsResult {
   ) => ({
     ...obj,
     ...(obj.ManagedActions && {
-      ManagedActions: obj.ManagedActions.map(item =>
-        item.map(ManagedAction.filterSensitiveLog)
-      )
+      ManagedActions: obj.ManagedActions.map(ManagedAction.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeEnvironmentManagedActionsResult =>
@@ -2530,8 +2514,8 @@ export namespace DescribeInstancesHealthResult {
   export const filterSensitiveLog = (obj: DescribeInstancesHealthResult) => ({
     ...obj,
     ...(obj.InstanceHealthList && {
-      InstanceHealthList: obj.InstanceHealthList.map(item =>
-        item.map(SingleInstanceHealth.filterSensitiveLog)
+      InstanceHealthList: obj.InstanceHealthList.map(
+        SingleInstanceHealth.filterSensitiveLog
       )
     })
   });
@@ -2769,8 +2753,8 @@ export namespace EnvironmentDescription {
   export const filterSensitiveLog = (obj: EnvironmentDescription) => ({
     ...obj,
     ...(obj.EnvironmentLinks && {
-      EnvironmentLinks: obj.EnvironmentLinks.map(item =>
-        item.map(EnvironmentLink.filterSensitiveLog)
+      EnvironmentLinks: obj.EnvironmentLinks.map(
+        EnvironmentLink.filterSensitiveLog
       )
     }),
     ...(obj.Resources && {
@@ -2805,8 +2789,8 @@ export namespace EnvironmentDescriptionsMessage {
   export const filterSensitiveLog = (obj: EnvironmentDescriptionsMessage) => ({
     ...obj,
     ...(obj.Environments && {
-      Environments: obj.Environments.map(item =>
-        item.map(EnvironmentDescription.filterSensitiveLog)
+      Environments: obj.Environments.map(
+        EnvironmentDescription.filterSensitiveLog
       )
     })
   });
@@ -2954,35 +2938,29 @@ export namespace EnvironmentResourceDescription {
   export const filterSensitiveLog = (obj: EnvironmentResourceDescription) => ({
     ...obj,
     ...(obj.AutoScalingGroups && {
-      AutoScalingGroups: obj.AutoScalingGroups.map(item =>
-        item.map(AutoScalingGroup.filterSensitiveLog)
+      AutoScalingGroups: obj.AutoScalingGroups.map(
+        AutoScalingGroup.filterSensitiveLog
       )
     }),
     ...(obj.Instances && {
-      Instances: obj.Instances.map(item =>
-        item.map(Instance.filterSensitiveLog)
-      )
+      Instances: obj.Instances.map(Instance.filterSensitiveLog)
     }),
     ...(obj.LaunchConfigurations && {
-      LaunchConfigurations: obj.LaunchConfigurations.map(item =>
-        item.map(LaunchConfiguration.filterSensitiveLog)
+      LaunchConfigurations: obj.LaunchConfigurations.map(
+        LaunchConfiguration.filterSensitiveLog
       )
     }),
     ...(obj.LaunchTemplates && {
-      LaunchTemplates: obj.LaunchTemplates.map(item =>
-        item.map(LaunchTemplate.filterSensitiveLog)
+      LaunchTemplates: obj.LaunchTemplates.map(
+        LaunchTemplate.filterSensitiveLog
       )
     }),
     ...(obj.LoadBalancers && {
-      LoadBalancers: obj.LoadBalancers.map(item =>
-        item.map(LoadBalancer.filterSensitiveLog)
-      )
+      LoadBalancers: obj.LoadBalancers.map(LoadBalancer.filterSensitiveLog)
     }),
-    ...(obj.Queues && {
-      Queues: obj.Queues.map(item => item.map(Queue.filterSensitiveLog))
-    }),
+    ...(obj.Queues && { Queues: obj.Queues.map(Queue.filterSensitiveLog) }),
     ...(obj.Triggers && {
-      Triggers: obj.Triggers.map(item => item.map(Trigger.filterSensitiveLog))
+      Triggers: obj.Triggers.map(Trigger.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is EnvironmentResourceDescription =>
@@ -3181,9 +3159,7 @@ export namespace EventDescriptionsMessage {
   export const filterSensitiveLog = (obj: EventDescriptionsMessage) => ({
     ...obj,
     ...(obj.Events && {
-      Events: obj.Events.map(item =>
-        item.map(EventDescription.filterSensitiveLog)
-      )
+      Events: obj.Events.map(EventDescription.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is EventDescriptionsMessage =>
@@ -3477,8 +3453,8 @@ export namespace ListAvailableSolutionStacksResultMessage {
   ) => ({
     ...obj,
     ...(obj.SolutionStackDetails && {
-      SolutionStackDetails: obj.SolutionStackDetails.map(item =>
-        item.map(SolutionStackDescription.filterSensitiveLog)
+      SolutionStackDetails: obj.SolutionStackDetails.map(
+        SolutionStackDescription.filterSensitiveLog
       )
     })
   });
@@ -3511,9 +3487,7 @@ export namespace ListPlatformVersionsRequest {
   export const filterSensitiveLog = (obj: ListPlatformVersionsRequest) => ({
     ...obj,
     ...(obj.Filters && {
-      Filters: obj.Filters.map(item =>
-        item.map(PlatformFilter.filterSensitiveLog)
-      )
+      Filters: obj.Filters.map(PlatformFilter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListPlatformVersionsRequest =>
@@ -3540,8 +3514,8 @@ export namespace ListPlatformVersionsResult {
   export const filterSensitiveLog = (obj: ListPlatformVersionsResult) => ({
     ...obj,
     ...(obj.PlatformSummaryList && {
-      PlatformSummaryList: obj.PlatformSummaryList.map(item =>
-        item.map(PlatformSummary.filterSensitiveLog)
+      PlatformSummaryList: obj.PlatformSummaryList.map(
+        PlatformSummary.filterSensitiveLog
       )
     })
   });
@@ -3632,9 +3606,7 @@ export namespace LoadBalancerDescription {
   export const filterSensitiveLog = (obj: LoadBalancerDescription) => ({
     ...obj,
     ...(obj.Listeners && {
-      Listeners: obj.Listeners.map(item =>
-        item.map(Listener.filterSensitiveLog)
-      )
+      Listeners: obj.Listeners.map(Listener.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is LoadBalancerDescription =>
@@ -3999,18 +3971,14 @@ export namespace PlatformDescription {
   export const filterSensitiveLog = (obj: PlatformDescription) => ({
     ...obj,
     ...(obj.CustomAmiList && {
-      CustomAmiList: obj.CustomAmiList.map(item =>
-        item.map(CustomAmi.filterSensitiveLog)
-      )
+      CustomAmiList: obj.CustomAmiList.map(CustomAmi.filterSensitiveLog)
     }),
     ...(obj.Frameworks && {
-      Frameworks: obj.Frameworks.map(item =>
-        item.map(PlatformFramework.filterSensitiveLog)
-      )
+      Frameworks: obj.Frameworks.map(PlatformFramework.filterSensitiveLog)
     }),
     ...(obj.ProgrammingLanguages && {
-      ProgrammingLanguages: obj.ProgrammingLanguages.map(item =>
-        item.map(PlatformProgrammingLanguage.filterSensitiveLog)
+      ProgrammingLanguages: obj.ProgrammingLanguages.map(
+        PlatformProgrammingLanguage.filterSensitiveLog
       )
     })
   });
@@ -4426,9 +4394,7 @@ export namespace ResourceTagsDescriptionMessage {
   export const filterSensitiveLog = (obj: ResourceTagsDescriptionMessage) => ({
     ...obj,
     ...(obj.ResourceTags && {
-      ResourceTags: obj.ResourceTags.map(item =>
-        item.map(Tag.filterSensitiveLog)
-      )
+      ResourceTags: obj.ResourceTags.map(Tag.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ResourceTagsDescriptionMessage =>
@@ -4544,8 +4510,8 @@ export namespace RetrieveEnvironmentInfoResultMessage {
   ) => ({
     ...obj,
     ...(obj.EnvironmentInfo && {
-      EnvironmentInfo: obj.EnvironmentInfo.map(item =>
-        item.map(EnvironmentInfoDescription.filterSensitiveLog)
+      EnvironmentInfo: obj.EnvironmentInfo.map(
+        EnvironmentInfoDescription.filterSensitiveLog
       )
     })
   });
@@ -5368,13 +5334,13 @@ export namespace UpdateConfigurationTemplateMessage {
   ) => ({
     ...obj,
     ...(obj.OptionSettings && {
-      OptionSettings: obj.OptionSettings.map(item =>
-        item.map(ConfigurationOptionSetting.filterSensitiveLog)
+      OptionSettings: obj.OptionSettings.map(
+        ConfigurationOptionSetting.filterSensitiveLog
       )
     }),
     ...(obj.OptionsToRemove && {
-      OptionsToRemove: obj.OptionsToRemove.map(item =>
-        item.map(OptionSpecification.filterSensitiveLog)
+      OptionsToRemove: obj.OptionsToRemove.map(
+        OptionSpecification.filterSensitiveLog
       )
     })
   });
@@ -5475,13 +5441,13 @@ export namespace UpdateEnvironmentMessage {
   export const filterSensitiveLog = (obj: UpdateEnvironmentMessage) => ({
     ...obj,
     ...(obj.OptionSettings && {
-      OptionSettings: obj.OptionSettings.map(item =>
-        item.map(ConfigurationOptionSetting.filterSensitiveLog)
+      OptionSettings: obj.OptionSettings.map(
+        ConfigurationOptionSetting.filterSensitiveLog
       )
     }),
     ...(obj.OptionsToRemove && {
-      OptionsToRemove: obj.OptionsToRemove.map(item =>
-        item.map(OptionSpecification.filterSensitiveLog)
+      OptionsToRemove: obj.OptionsToRemove.map(
+        OptionSpecification.filterSensitiveLog
       )
     }),
     ...(obj.Tier && { Tier: EnvironmentTier.filterSensitiveLog(obj.Tier) })
@@ -5515,7 +5481,7 @@ export namespace UpdateTagsForResourceMessage {
   export const filterSensitiveLog = (obj: UpdateTagsForResourceMessage) => ({
     ...obj,
     ...(obj.TagsToAdd && {
-      TagsToAdd: obj.TagsToAdd.map(item => item.map(Tag.filterSensitiveLog))
+      TagsToAdd: obj.TagsToAdd.map(Tag.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateTagsForResourceMessage =>
@@ -5557,8 +5523,8 @@ export namespace ValidateConfigurationSettingsMessage {
   ) => ({
     ...obj,
     ...(obj.OptionSettings && {
-      OptionSettings: obj.OptionSettings.map(item =>
-        item.map(ConfigurationOptionSetting.filterSensitiveLog)
+      OptionSettings: obj.OptionSettings.map(
+        ConfigurationOptionSetting.filterSensitiveLog
       )
     })
   });

@@ -194,13 +194,9 @@ export namespace AssumeRoleRequest {
   export const filterSensitiveLog = (obj: AssumeRoleRequest) => ({
     ...obj,
     ...(obj.PolicyArns && {
-      PolicyArns: obj.PolicyArns.map(item =>
-        item.map(PolicyDescriptorType.filterSensitiveLog)
-      )
+      PolicyArns: obj.PolicyArns.map(PolicyDescriptorType.filterSensitiveLog)
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AssumeRoleRequest =>
     __isa(o, "AssumeRoleRequest");
@@ -356,9 +352,7 @@ export namespace AssumeRoleWithSAMLRequest {
   export const filterSensitiveLog = (obj: AssumeRoleWithSAMLRequest) => ({
     ...obj,
     ...(obj.PolicyArns && {
-      PolicyArns: obj.PolicyArns.map(item =>
-        item.map(PolicyDescriptorType.filterSensitiveLog)
-      )
+      PolicyArns: obj.PolicyArns.map(PolicyDescriptorType.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is AssumeRoleWithSAMLRequest =>
@@ -569,9 +563,7 @@ export namespace AssumeRoleWithWebIdentityRequest {
   ) => ({
     ...obj,
     ...(obj.PolicyArns && {
-      PolicyArns: obj.PolicyArns.map(item =>
-        item.map(PolicyDescriptorType.filterSensitiveLog)
-      )
+      PolicyArns: obj.PolicyArns.map(PolicyDescriptorType.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is AssumeRoleWithWebIdentityRequest =>
@@ -1006,13 +998,9 @@ export namespace GetFederationTokenRequest {
   export const filterSensitiveLog = (obj: GetFederationTokenRequest) => ({
     ...obj,
     ...(obj.PolicyArns && {
-      PolicyArns: obj.PolicyArns.map(item =>
-        item.map(PolicyDescriptorType.filterSensitiveLog)
-      )
+      PolicyArns: obj.PolicyArns.map(PolicyDescriptorType.filterSensitiveLog)
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is GetFederationTokenRequest =>
     __isa(o, "GetFederationTokenRequest");

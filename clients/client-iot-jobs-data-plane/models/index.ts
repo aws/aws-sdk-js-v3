@@ -255,14 +255,12 @@ export namespace GetPendingJobExecutionsResponse {
   export const filterSensitiveLog = (obj: GetPendingJobExecutionsResponse) => ({
     ...obj,
     ...(obj.inProgressJobs && {
-      inProgressJobs: obj.inProgressJobs.map(item =>
-        item.map(JobExecutionSummary.filterSensitiveLog)
+      inProgressJobs: obj.inProgressJobs.map(
+        JobExecutionSummary.filterSensitiveLog
       )
     }),
     ...(obj.queuedJobs && {
-      queuedJobs: obj.queuedJobs.map(item =>
-        item.map(JobExecutionSummary.filterSensitiveLog)
-      )
+      queuedJobs: obj.queuedJobs.map(JobExecutionSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetPendingJobExecutionsResponse =>

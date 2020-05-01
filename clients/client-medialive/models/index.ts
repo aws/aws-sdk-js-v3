@@ -326,8 +326,8 @@ export namespace AudioChannelMapping {
   export const filterSensitiveLog = (obj: AudioChannelMapping) => ({
     ...obj,
     ...(obj.InputChannelLevels && {
-      InputChannelLevels: obj.InputChannelLevels.map(item =>
-        item.map(InputChannelLevel.filterSensitiveLog)
+      InputChannelLevels: obj.InputChannelLevels.map(
+        InputChannelLevel.filterSensitiveLog
       )
     })
   });
@@ -851,8 +851,8 @@ export namespace BatchScheduleActionCreateRequest {
   ) => ({
     ...obj,
     ...(obj.ScheduleActions && {
-      ScheduleActions: obj.ScheduleActions.map(item =>
-        item.map(ScheduleAction.filterSensitiveLog)
+      ScheduleActions: obj.ScheduleActions.map(
+        ScheduleAction.filterSensitiveLog
       )
     })
   });
@@ -875,8 +875,8 @@ export namespace BatchScheduleActionCreateResult {
   export const filterSensitiveLog = (obj: BatchScheduleActionCreateResult) => ({
     ...obj,
     ...(obj.ScheduleActions && {
-      ScheduleActions: obj.ScheduleActions.map(item =>
-        item.map(ScheduleAction.filterSensitiveLog)
+      ScheduleActions: obj.ScheduleActions.map(
+        ScheduleAction.filterSensitiveLog
       )
     })
   });
@@ -920,8 +920,8 @@ export namespace BatchScheduleActionDeleteResult {
   export const filterSensitiveLog = (obj: BatchScheduleActionDeleteResult) => ({
     ...obj,
     ...(obj.ScheduleActions && {
-      ScheduleActions: obj.ScheduleActions.map(item =>
-        item.map(ScheduleAction.filterSensitiveLog)
+      ScheduleActions: obj.ScheduleActions.map(
+        ScheduleAction.filterSensitiveLog
       )
     })
   });
@@ -1595,21 +1595,19 @@ export namespace Channel {
   export const filterSensitiveLog = (obj: Channel) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(OutputDestination.filterSensitiveLog)
-      )
+      Destinations: obj.Destinations.map(OutputDestination.filterSensitiveLog)
     }),
     ...(obj.EgressEndpoints && {
-      EgressEndpoints: obj.EgressEndpoints.map(item =>
-        item.map(ChannelEgressEndpoint.filterSensitiveLog)
+      EgressEndpoints: obj.EgressEndpoints.map(
+        ChannelEgressEndpoint.filterSensitiveLog
       )
     }),
     ...(obj.EncoderSettings && {
       EncoderSettings: EncoderSettings.filterSensitiveLog(obj.EncoderSettings)
     }),
     ...(obj.InputAttachments && {
-      InputAttachments: obj.InputAttachments.map(item =>
-        item.map(InputAttachment.filterSensitiveLog)
+      InputAttachments: obj.InputAttachments.map(
+        InputAttachment.filterSensitiveLog
       )
     }),
     ...(obj.InputSpecification && {
@@ -1618,8 +1616,8 @@ export namespace Channel {
       )
     }),
     ...(obj.PipelineDetails && {
-      PipelineDetails: obj.PipelineDetails.map(item =>
-        item.map(PipelineDetail.filterSensitiveLog)
+      PipelineDetails: obj.PipelineDetails.map(
+        PipelineDetail.filterSensitiveLog
       )
     })
   });
@@ -1741,18 +1739,16 @@ export namespace ChannelSummary {
   export const filterSensitiveLog = (obj: ChannelSummary) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(OutputDestination.filterSensitiveLog)
-      )
+      Destinations: obj.Destinations.map(OutputDestination.filterSensitiveLog)
     }),
     ...(obj.EgressEndpoints && {
-      EgressEndpoints: obj.EgressEndpoints.map(item =>
-        item.map(ChannelEgressEndpoint.filterSensitiveLog)
+      EgressEndpoints: obj.EgressEndpoints.map(
+        ChannelEgressEndpoint.filterSensitiveLog
       )
     }),
     ...(obj.InputAttachments && {
-      InputAttachments: obj.InputAttachments.map(item =>
-        item.map(InputAttachment.filterSensitiveLog)
+      InputAttachments: obj.InputAttachments.map(
+        InputAttachment.filterSensitiveLog
       )
     }),
     ...(obj.InputSpecification && {
@@ -1866,16 +1862,14 @@ export namespace CreateChannelRequest {
   export const filterSensitiveLog = (obj: CreateChannelRequest) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(OutputDestination.filterSensitiveLog)
-      )
+      Destinations: obj.Destinations.map(OutputDestination.filterSensitiveLog)
     }),
     ...(obj.EncoderSettings && {
       EncoderSettings: EncoderSettings.filterSensitiveLog(obj.EncoderSettings)
     }),
     ...(obj.InputAttachments && {
-      InputAttachments: obj.InputAttachments.map(item =>
-        item.map(InputAttachment.filterSensitiveLog)
+      InputAttachments: obj.InputAttachments.map(
+        InputAttachment.filterSensitiveLog
       )
     }),
     ...(obj.InputSpecification && {
@@ -1976,19 +1970,17 @@ export namespace CreateInputRequest {
   export const filterSensitiveLog = (obj: CreateInputRequest) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(InputDestinationRequest.filterSensitiveLog)
+      Destinations: obj.Destinations.map(
+        InputDestinationRequest.filterSensitiveLog
       )
     }),
     ...(obj.MediaConnectFlows && {
-      MediaConnectFlows: obj.MediaConnectFlows.map(item =>
-        item.map(MediaConnectFlowRequest.filterSensitiveLog)
+      MediaConnectFlows: obj.MediaConnectFlows.map(
+        MediaConnectFlowRequest.filterSensitiveLog
       )
     }),
     ...(obj.Sources && {
-      Sources: obj.Sources.map(item =>
-        item.map(InputSourceRequest.filterSensitiveLog)
-      )
+      Sources: obj.Sources.map(InputSourceRequest.filterSensitiveLog)
     }),
     ...(obj.Vpc && { Vpc: InputVpcRequest.filterSensitiveLog(obj.Vpc) })
   });
@@ -2036,8 +2028,8 @@ export namespace CreateInputSecurityGroupRequest {
   export const filterSensitiveLog = (obj: CreateInputSecurityGroupRequest) => ({
     ...obj,
     ...(obj.WhitelistRules && {
-      WhitelistRules: obj.WhitelistRules.map(item =>
-        item.map(InputWhitelistRuleCidr.filterSensitiveLog)
+      WhitelistRules: obj.WhitelistRules.map(
+        InputWhitelistRuleCidr.filterSensitiveLog
       )
     })
   });
@@ -2330,21 +2322,19 @@ export namespace DeleteChannelResponse {
   export const filterSensitiveLog = (obj: DeleteChannelResponse) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(OutputDestination.filterSensitiveLog)
-      )
+      Destinations: obj.Destinations.map(OutputDestination.filterSensitiveLog)
     }),
     ...(obj.EgressEndpoints && {
-      EgressEndpoints: obj.EgressEndpoints.map(item =>
-        item.map(ChannelEgressEndpoint.filterSensitiveLog)
+      EgressEndpoints: obj.EgressEndpoints.map(
+        ChannelEgressEndpoint.filterSensitiveLog
       )
     }),
     ...(obj.EncoderSettings && {
       EncoderSettings: EncoderSettings.filterSensitiveLog(obj.EncoderSettings)
     }),
     ...(obj.InputAttachments && {
-      InputAttachments: obj.InputAttachments.map(item =>
-        item.map(InputAttachment.filterSensitiveLog)
+      InputAttachments: obj.InputAttachments.map(
+        InputAttachment.filterSensitiveLog
       )
     }),
     ...(obj.InputSpecification && {
@@ -2353,8 +2343,8 @@ export namespace DeleteChannelResponse {
       )
     }),
     ...(obj.PipelineDetails && {
-      PipelineDetails: obj.PipelineDetails.map(item =>
-        item.map(PipelineDetail.filterSensitiveLog)
+      PipelineDetails: obj.PipelineDetails.map(
+        PipelineDetail.filterSensitiveLog
       )
     })
   });
@@ -2579,8 +2569,8 @@ export namespace DeleteMultiplexResponse {
   export const filterSensitiveLog = (obj: DeleteMultiplexResponse) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(MultiplexOutputDestination.filterSensitiveLog)
+      Destinations: obj.Destinations.map(
+        MultiplexOutputDestination.filterSensitiveLog
       )
     }),
     ...(obj.MultiplexSettings && {
@@ -2885,21 +2875,19 @@ export namespace DescribeChannelResponse {
   export const filterSensitiveLog = (obj: DescribeChannelResponse) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(OutputDestination.filterSensitiveLog)
-      )
+      Destinations: obj.Destinations.map(OutputDestination.filterSensitiveLog)
     }),
     ...(obj.EgressEndpoints && {
-      EgressEndpoints: obj.EgressEndpoints.map(item =>
-        item.map(ChannelEgressEndpoint.filterSensitiveLog)
+      EgressEndpoints: obj.EgressEndpoints.map(
+        ChannelEgressEndpoint.filterSensitiveLog
       )
     }),
     ...(obj.EncoderSettings && {
       EncoderSettings: EncoderSettings.filterSensitiveLog(obj.EncoderSettings)
     }),
     ...(obj.InputAttachments && {
-      InputAttachments: obj.InputAttachments.map(item =>
-        item.map(InputAttachment.filterSensitiveLog)
+      InputAttachments: obj.InputAttachments.map(
+        InputAttachment.filterSensitiveLog
       )
     }),
     ...(obj.InputSpecification && {
@@ -2908,8 +2896,8 @@ export namespace DescribeChannelResponse {
       )
     }),
     ...(obj.PipelineDetails && {
-      PipelineDetails: obj.PipelineDetails.map(item =>
-        item.map(PipelineDetail.filterSensitiveLog)
+      PipelineDetails: obj.PipelineDetails.map(
+        PipelineDetail.filterSensitiveLog
       )
     })
   });
@@ -3018,17 +3006,15 @@ export namespace DescribeInputResponse {
   export const filterSensitiveLog = (obj: DescribeInputResponse) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(InputDestination.filterSensitiveLog)
-      )
+      Destinations: obj.Destinations.map(InputDestination.filterSensitiveLog)
     }),
     ...(obj.MediaConnectFlows && {
-      MediaConnectFlows: obj.MediaConnectFlows.map(item =>
-        item.map(MediaConnectFlow.filterSensitiveLog)
+      MediaConnectFlows: obj.MediaConnectFlows.map(
+        MediaConnectFlow.filterSensitiveLog
       )
     }),
     ...(obj.Sources && {
-      Sources: obj.Sources.map(item => item.map(InputSource.filterSensitiveLog))
+      Sources: obj.Sources.map(InputSource.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeInputResponse =>
@@ -3098,8 +3084,8 @@ export namespace DescribeInputSecurityGroupResponse {
   ) => ({
     ...obj,
     ...(obj.WhitelistRules && {
-      WhitelistRules: obj.WhitelistRules.map(item =>
-        item.map(InputWhitelistRule.filterSensitiveLog)
+      WhitelistRules: obj.WhitelistRules.map(
+        InputWhitelistRule.filterSensitiveLog
       )
     })
   });
@@ -3256,8 +3242,8 @@ export namespace DescribeMultiplexResponse {
   export const filterSensitiveLog = (obj: DescribeMultiplexResponse) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(MultiplexOutputDestination.filterSensitiveLog)
+      Destinations: obj.Destinations.map(
+        MultiplexOutputDestination.filterSensitiveLog
       )
     }),
     ...(obj.MultiplexSettings && {
@@ -3540,8 +3526,8 @@ export namespace DescribeScheduleResponse {
   export const filterSensitiveLog = (obj: DescribeScheduleResponse) => ({
     ...obj,
     ...(obj.ScheduleActions && {
-      ScheduleActions: obj.ScheduleActions.map(item =>
-        item.map(ScheduleAction.filterSensitiveLog)
+      ScheduleActions: obj.ScheduleActions.map(
+        ScheduleAction.filterSensitiveLog
       )
     })
   });
@@ -4133,8 +4119,8 @@ export namespace EncoderSettings {
   export const filterSensitiveLog = (obj: EncoderSettings) => ({
     ...obj,
     ...(obj.AudioDescriptions && {
-      AudioDescriptions: obj.AudioDescriptions.map(item =>
-        item.map(AudioDescription.filterSensitiveLog)
+      AudioDescriptions: obj.AudioDescriptions.map(
+        AudioDescription.filterSensitiveLog
       )
     }),
     ...(obj.AvailBlanking && {
@@ -4149,8 +4135,8 @@ export namespace EncoderSettings {
       BlackoutSlate: BlackoutSlate.filterSensitiveLog(obj.BlackoutSlate)
     }),
     ...(obj.CaptionDescriptions && {
-      CaptionDescriptions: obj.CaptionDescriptions.map(item =>
-        item.map(CaptionDescription.filterSensitiveLog)
+      CaptionDescriptions: obj.CaptionDescriptions.map(
+        CaptionDescription.filterSensitiveLog
       )
     }),
     ...(obj.GlobalConfiguration && {
@@ -4164,16 +4150,14 @@ export namespace EncoderSettings {
       )
     }),
     ...(obj.OutputGroups && {
-      OutputGroups: obj.OutputGroups.map(item =>
-        item.map(OutputGroup.filterSensitiveLog)
-      )
+      OutputGroups: obj.OutputGroups.map(OutputGroup.filterSensitiveLog)
     }),
     ...(obj.TimecodeConfig && {
       TimecodeConfig: TimecodeConfig.filterSensitiveLog(obj.TimecodeConfig)
     }),
     ...(obj.VideoDescriptions && {
-      VideoDescriptions: obj.VideoDescriptions.map(item =>
-        item.map(VideoDescription.filterSensitiveLog)
+      VideoDescriptions: obj.VideoDescriptions.map(
+        VideoDescription.filterSensitiveLog
       )
     })
   });
@@ -5611,8 +5595,8 @@ export namespace HlsGroupSettings {
   export const filterSensitiveLog = (obj: HlsGroupSettings) => ({
     ...obj,
     ...(obj.CaptionLanguageMappings && {
-      CaptionLanguageMappings: obj.CaptionLanguageMappings.map(item =>
-        item.map(CaptionLanguageMapping.filterSensitiveLog)
+      CaptionLanguageMappings: obj.CaptionLanguageMappings.map(
+        CaptionLanguageMapping.filterSensitiveLog
       )
     }),
     ...(obj.Destination && {
@@ -6050,17 +6034,15 @@ export namespace Input {
   export const filterSensitiveLog = (obj: Input) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(InputDestination.filterSensitiveLog)
-      )
+      Destinations: obj.Destinations.map(InputDestination.filterSensitiveLog)
     }),
     ...(obj.MediaConnectFlows && {
-      MediaConnectFlows: obj.MediaConnectFlows.map(item =>
-        item.map(MediaConnectFlow.filterSensitiveLog)
+      MediaConnectFlows: obj.MediaConnectFlows.map(
+        MediaConnectFlow.filterSensitiveLog
       )
     }),
     ...(obj.Sources && {
-      Sources: obj.Sources.map(item => item.map(InputSource.filterSensitiveLog))
+      Sources: obj.Sources.map(InputSource.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Input => __isa(o, "Input");
@@ -6415,8 +6397,8 @@ export namespace InputSecurityGroup {
   export const filterSensitiveLog = (obj: InputSecurityGroup) => ({
     ...obj,
     ...(obj.WhitelistRules && {
-      WhitelistRules: obj.WhitelistRules.map(item =>
-        item.map(InputWhitelistRule.filterSensitiveLog)
+      WhitelistRules: obj.WhitelistRules.map(
+        InputWhitelistRule.filterSensitiveLog
       )
     })
   });
@@ -6489,13 +6471,11 @@ export namespace InputSettings {
   export const filterSensitiveLog = (obj: InputSettings) => ({
     ...obj,
     ...(obj.AudioSelectors && {
-      AudioSelectors: obj.AudioSelectors.map(item =>
-        item.map(AudioSelector.filterSensitiveLog)
-      )
+      AudioSelectors: obj.AudioSelectors.map(AudioSelector.filterSensitiveLog)
     }),
     ...(obj.CaptionSelectors && {
-      CaptionSelectors: obj.CaptionSelectors.map(item =>
-        item.map(CaptionSelector.filterSensitiveLog)
+      CaptionSelectors: obj.CaptionSelectors.map(
+        CaptionSelector.filterSensitiveLog
       )
     }),
     ...(obj.NetworkInputSettings && {
@@ -6829,9 +6809,7 @@ export namespace ListChannelsResponse {
   export const filterSensitiveLog = (obj: ListChannelsResponse) => ({
     ...obj,
     ...(obj.Channels && {
-      Channels: obj.Channels.map(item =>
-        item.map(ChannelSummary.filterSensitiveLog)
-      )
+      Channels: obj.Channels.map(ChannelSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListChannelsResponse =>
@@ -6882,8 +6860,8 @@ export namespace ListInputSecurityGroupsResponse {
   export const filterSensitiveLog = (obj: ListInputSecurityGroupsResponse) => ({
     ...obj,
     ...(obj.InputSecurityGroups && {
-      InputSecurityGroups: obj.InputSecurityGroups.map(item =>
-        item.map(InputSecurityGroup.filterSensitiveLog)
+      InputSecurityGroups: obj.InputSecurityGroups.map(
+        InputSecurityGroup.filterSensitiveLog
       )
     })
   });
@@ -6934,9 +6912,7 @@ export interface ListInputsResponse {
 export namespace ListInputsResponse {
   export const filterSensitiveLog = (obj: ListInputsResponse) => ({
     ...obj,
-    ...(obj.Inputs && {
-      Inputs: obj.Inputs.map(item => item.map(Input.filterSensitiveLog))
-    })
+    ...(obj.Inputs && { Inputs: obj.Inputs.map(Input.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListInputsResponse =>
     __isa(o, "ListInputsResponse");
@@ -6991,8 +6967,8 @@ export namespace ListMultiplexProgramsResponse {
   export const filterSensitiveLog = (obj: ListMultiplexProgramsResponse) => ({
     ...obj,
     ...(obj.MultiplexPrograms && {
-      MultiplexPrograms: obj.MultiplexPrograms.map(item =>
-        item.map(MultiplexProgramSummary.filterSensitiveLog)
+      MultiplexPrograms: obj.MultiplexPrograms.map(
+        MultiplexProgramSummary.filterSensitiveLog
       )
     })
   });
@@ -7044,9 +7020,7 @@ export namespace ListMultiplexesResponse {
   export const filterSensitiveLog = (obj: ListMultiplexesResponse) => ({
     ...obj,
     ...(obj.Multiplexes && {
-      Multiplexes: obj.Multiplexes.map(item =>
-        item.map(MultiplexSummary.filterSensitiveLog)
-      )
+      Multiplexes: obj.Multiplexes.map(MultiplexSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListMultiplexesResponse =>
@@ -7147,9 +7121,7 @@ export namespace ListOfferingsResponse {
   export const filterSensitiveLog = (obj: ListOfferingsResponse) => ({
     ...obj,
     ...(obj.Offerings && {
-      Offerings: obj.Offerings.map(item =>
-        item.map(Offering.filterSensitiveLog)
-      )
+      Offerings: obj.Offerings.map(Offering.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListOfferingsResponse =>
@@ -7240,9 +7212,7 @@ export namespace ListReservationsResponse {
   export const filterSensitiveLog = (obj: ListReservationsResponse) => ({
     ...obj,
     ...(obj.Reservations && {
-      Reservations: obj.Reservations.map(item =>
-        item.map(Reservation.filterSensitiveLog)
-      )
+      Reservations: obj.Reservations.map(Reservation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListReservationsResponse =>
@@ -8113,8 +8083,8 @@ export namespace Multiplex {
   export const filterSensitiveLog = (obj: Multiplex) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(MultiplexOutputDestination.filterSensitiveLog)
+      Destinations: obj.Destinations.map(
+        MultiplexOutputDestination.filterSensitiveLog
       )
     }),
     ...(obj.MultiplexSettings && {
@@ -8872,8 +8842,8 @@ export namespace OutputDestination {
   export const filterSensitiveLog = (obj: OutputDestination) => ({
     ...obj,
     ...(obj.MediaPackageSettings && {
-      MediaPackageSettings: obj.MediaPackageSettings.map(item =>
-        item.map(MediaPackageOutputDestinationSettings.filterSensitiveLog)
+      MediaPackageSettings: obj.MediaPackageSettings.map(
+        MediaPackageOutputDestinationSettings.filterSensitiveLog
       )
     }),
     ...(obj.MultiplexSettings && {
@@ -8882,9 +8852,7 @@ export namespace OutputDestination {
       )
     }),
     ...(obj.Settings && {
-      Settings: obj.Settings.map(item =>
-        item.map(OutputDestinationSettings.filterSensitiveLog)
-      )
+      Settings: obj.Settings.map(OutputDestinationSettings.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is OutputDestination =>
@@ -8954,9 +8922,7 @@ export namespace OutputGroup {
         obj.OutputGroupSettings
       )
     }),
-    ...(obj.Outputs && {
-      Outputs: obj.Outputs.map(item => item.map(Output.filterSensitiveLog))
-    })
+    ...(obj.Outputs && { Outputs: obj.Outputs.map(Output.filterSensitiveLog) })
   });
   export const isa = (o: any): o is OutputGroup => __isa(o, "OutputGroup");
 }
@@ -9200,8 +9166,8 @@ export namespace PauseStateScheduleActionSettings {
   ) => ({
     ...obj,
     ...(obj.Pipelines && {
-      Pipelines: obj.Pipelines.map(item =>
-        item.map(PipelinePauseStateSettings.filterSensitiveLog)
+      Pipelines: obj.Pipelines.map(
+        PipelinePauseStateSettings.filterSensitiveLog
       )
     })
   });
@@ -9384,8 +9350,8 @@ export namespace RemixSettings {
   export const filterSensitiveLog = (obj: RemixSettings) => ({
     ...obj,
     ...(obj.ChannelMappings && {
-      ChannelMappings: obj.ChannelMappings.map(item =>
-        item.map(AudioChannelMapping.filterSensitiveLog)
+      ChannelMappings: obj.ChannelMappings.map(
+        AudioChannelMapping.filterSensitiveLog
       )
     })
   });
@@ -10325,8 +10291,8 @@ export namespace Scte35TimeSignalScheduleActionSettings {
   ) => ({
     ...obj,
     ...(obj.Scte35Descriptors && {
-      Scte35Descriptors: obj.Scte35Descriptors.map(item =>
-        item.map(Scte35Descriptor.filterSensitiveLog)
+      Scte35Descriptors: obj.Scte35Descriptors.map(
+        Scte35Descriptor.filterSensitiveLog
       )
     })
   });
@@ -10528,21 +10494,19 @@ export namespace StartChannelResponse {
   export const filterSensitiveLog = (obj: StartChannelResponse) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(OutputDestination.filterSensitiveLog)
-      )
+      Destinations: obj.Destinations.map(OutputDestination.filterSensitiveLog)
     }),
     ...(obj.EgressEndpoints && {
-      EgressEndpoints: obj.EgressEndpoints.map(item =>
-        item.map(ChannelEgressEndpoint.filterSensitiveLog)
+      EgressEndpoints: obj.EgressEndpoints.map(
+        ChannelEgressEndpoint.filterSensitiveLog
       )
     }),
     ...(obj.EncoderSettings && {
       EncoderSettings: EncoderSettings.filterSensitiveLog(obj.EncoderSettings)
     }),
     ...(obj.InputAttachments && {
-      InputAttachments: obj.InputAttachments.map(item =>
-        item.map(InputAttachment.filterSensitiveLog)
+      InputAttachments: obj.InputAttachments.map(
+        InputAttachment.filterSensitiveLog
       )
     }),
     ...(obj.InputSpecification && {
@@ -10551,8 +10515,8 @@ export namespace StartChannelResponse {
       )
     }),
     ...(obj.PipelineDetails && {
-      PipelineDetails: obj.PipelineDetails.map(item =>
-        item.map(PipelineDetail.filterSensitiveLog)
+      PipelineDetails: obj.PipelineDetails.map(
+        PipelineDetail.filterSensitiveLog
       )
     })
   });
@@ -10639,8 +10603,8 @@ export namespace StartMultiplexResponse {
   export const filterSensitiveLog = (obj: StartMultiplexResponse) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(MultiplexOutputDestination.filterSensitiveLog)
+      Destinations: obj.Destinations.map(
+        MultiplexOutputDestination.filterSensitiveLog
       )
     }),
     ...(obj.MultiplexSettings && {
@@ -10899,21 +10863,19 @@ export namespace StopChannelResponse {
   export const filterSensitiveLog = (obj: StopChannelResponse) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(OutputDestination.filterSensitiveLog)
-      )
+      Destinations: obj.Destinations.map(OutputDestination.filterSensitiveLog)
     }),
     ...(obj.EgressEndpoints && {
-      EgressEndpoints: obj.EgressEndpoints.map(item =>
-        item.map(ChannelEgressEndpoint.filterSensitiveLog)
+      EgressEndpoints: obj.EgressEndpoints.map(
+        ChannelEgressEndpoint.filterSensitiveLog
       )
     }),
     ...(obj.EncoderSettings && {
       EncoderSettings: EncoderSettings.filterSensitiveLog(obj.EncoderSettings)
     }),
     ...(obj.InputAttachments && {
-      InputAttachments: obj.InputAttachments.map(item =>
-        item.map(InputAttachment.filterSensitiveLog)
+      InputAttachments: obj.InputAttachments.map(
+        InputAttachment.filterSensitiveLog
       )
     }),
     ...(obj.InputSpecification && {
@@ -10922,8 +10884,8 @@ export namespace StopChannelResponse {
       )
     }),
     ...(obj.PipelineDetails && {
-      PipelineDetails: obj.PipelineDetails.map(item =>
-        item.map(PipelineDetail.filterSensitiveLog)
+      PipelineDetails: obj.PipelineDetails.map(
+        PipelineDetail.filterSensitiveLog
       )
     })
   });
@@ -11010,8 +10972,8 @@ export namespace StopMultiplexResponse {
   export const filterSensitiveLog = (obj: StopMultiplexResponse) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(MultiplexOutputDestination.filterSensitiveLog)
+      Destinations: obj.Destinations.map(
+        MultiplexOutputDestination.filterSensitiveLog
       )
     }),
     ...(obj.MultiplexSettings && {
@@ -11287,8 +11249,8 @@ export namespace UnprocessableEntityException {
   export const filterSensitiveLog = (obj: UnprocessableEntityException) => ({
     ...obj,
     ...(obj.ValidationErrors && {
-      ValidationErrors: obj.ValidationErrors.map(item =>
-        item.map(ValidationError.filterSensitiveLog)
+      ValidationErrors: obj.ValidationErrors.map(
+        ValidationError.filterSensitiveLog
       )
     })
   });
@@ -11321,9 +11283,7 @@ export namespace UpdateChannelClassRequest {
   export const filterSensitiveLog = (obj: UpdateChannelClassRequest) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(OutputDestination.filterSensitiveLog)
-      )
+      Destinations: obj.Destinations.map(OutputDestination.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateChannelClassRequest =>
@@ -11400,16 +11360,14 @@ export namespace UpdateChannelRequest {
   export const filterSensitiveLog = (obj: UpdateChannelRequest) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(OutputDestination.filterSensitiveLog)
-      )
+      Destinations: obj.Destinations.map(OutputDestination.filterSensitiveLog)
     }),
     ...(obj.EncoderSettings && {
       EncoderSettings: EncoderSettings.filterSensitiveLog(obj.EncoderSettings)
     }),
     ...(obj.InputAttachments && {
-      InputAttachments: obj.InputAttachments.map(item =>
-        item.map(InputAttachment.filterSensitiveLog)
+      InputAttachments: obj.InputAttachments.map(
+        InputAttachment.filterSensitiveLog
       )
     }),
     ...(obj.InputSpecification && {
@@ -11491,19 +11449,17 @@ export namespace UpdateInputRequest {
   export const filterSensitiveLog = (obj: UpdateInputRequest) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(InputDestinationRequest.filterSensitiveLog)
+      Destinations: obj.Destinations.map(
+        InputDestinationRequest.filterSensitiveLog
       )
     }),
     ...(obj.MediaConnectFlows && {
-      MediaConnectFlows: obj.MediaConnectFlows.map(item =>
-        item.map(MediaConnectFlowRequest.filterSensitiveLog)
+      MediaConnectFlows: obj.MediaConnectFlows.map(
+        MediaConnectFlowRequest.filterSensitiveLog
       )
     }),
     ...(obj.Sources && {
-      Sources: obj.Sources.map(item =>
-        item.map(InputSourceRequest.filterSensitiveLog)
-      )
+      Sources: obj.Sources.map(InputSourceRequest.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateInputRequest =>
@@ -11555,8 +11511,8 @@ export namespace UpdateInputSecurityGroupRequest {
   export const filterSensitiveLog = (obj: UpdateInputSecurityGroupRequest) => ({
     ...obj,
     ...(obj.WhitelistRules && {
-      WhitelistRules: obj.WhitelistRules.map(item =>
-        item.map(InputWhitelistRuleCidr.filterSensitiveLog)
+      WhitelistRules: obj.WhitelistRules.map(
+        InputWhitelistRuleCidr.filterSensitiveLog
       )
     })
   });

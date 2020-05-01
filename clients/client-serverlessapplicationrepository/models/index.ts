@@ -460,8 +460,8 @@ export namespace CreateApplicationVersionResponse {
   ) => ({
     ...obj,
     ...(obj.ParameterDefinitions && {
-      ParameterDefinitions: obj.ParameterDefinitions.map(item =>
-        item.map(ParameterDefinition.filterSensitiveLog)
+      ParameterDefinitions: obj.ParameterDefinitions.map(
+        ParameterDefinition.filterSensitiveLog
       )
     })
   });
@@ -575,8 +575,8 @@ export namespace CreateCloudFormationChangeSetRequest {
   ) => ({
     ...obj,
     ...(obj.ParameterOverrides && {
-      ParameterOverrides: obj.ParameterOverrides.map(item =>
-        item.map(ParameterValue.filterSensitiveLog)
+      ParameterOverrides: obj.ParameterOverrides.map(
+        ParameterValue.filterSensitiveLog
       )
     }),
     ...(obj.RollbackConfiguration && {
@@ -584,9 +584,7 @@ export namespace CreateCloudFormationChangeSetRequest {
         obj.RollbackConfiguration
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateCloudFormationChangeSetRequest =>
     __isa(o, "CreateCloudFormationChangeSetRequest");
@@ -774,8 +772,8 @@ export namespace GetApplicationPolicyResponse {
   export const filterSensitiveLog = (obj: GetApplicationPolicyResponse) => ({
     ...obj,
     ...(obj.Statements && {
-      Statements: obj.Statements.map(item =>
-        item.map(ApplicationPolicyStatement.filterSensitiveLog)
+      Statements: obj.Statements.map(
+        ApplicationPolicyStatement.filterSensitiveLog
       )
     })
   });
@@ -1036,8 +1034,8 @@ export namespace ListApplicationDependenciesResponse {
   ) => ({
     ...obj,
     ...(obj.Dependencies && {
-      Dependencies: obj.Dependencies.map(item =>
-        item.map(ApplicationDependencySummary.filterSensitiveLog)
+      Dependencies: obj.Dependencies.map(
+        ApplicationDependencySummary.filterSensitiveLog
       )
     })
   });
@@ -1088,9 +1086,7 @@ export namespace ListApplicationVersionsResponse {
   export const filterSensitiveLog = (obj: ListApplicationVersionsResponse) => ({
     ...obj,
     ...(obj.Versions && {
-      Versions: obj.Versions.map(item =>
-        item.map(VersionSummary.filterSensitiveLog)
-      )
+      Versions: obj.Versions.map(VersionSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListApplicationVersionsResponse =>
@@ -1135,9 +1131,7 @@ export namespace ListApplicationsResponse {
   export const filterSensitiveLog = (obj: ListApplicationsResponse) => ({
     ...obj,
     ...(obj.Applications && {
-      Applications: obj.Applications.map(item =>
-        item.map(ApplicationSummary.filterSensitiveLog)
-      )
+      Applications: obj.Applications.map(ApplicationSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListApplicationsResponse =>
@@ -1307,8 +1301,8 @@ export namespace PutApplicationPolicyRequest {
   export const filterSensitiveLog = (obj: PutApplicationPolicyRequest) => ({
     ...obj,
     ...(obj.Statements && {
-      Statements: obj.Statements.map(item =>
-        item.map(ApplicationPolicyStatement.filterSensitiveLog)
+      Statements: obj.Statements.map(
+        ApplicationPolicyStatement.filterSensitiveLog
       )
     })
   });
@@ -1328,8 +1322,8 @@ export namespace PutApplicationPolicyResponse {
   export const filterSensitiveLog = (obj: PutApplicationPolicyResponse) => ({
     ...obj,
     ...(obj.Statements && {
-      Statements: obj.Statements.map(item =>
-        item.map(ApplicationPolicyStatement.filterSensitiveLog)
+      Statements: obj.Statements.map(
+        ApplicationPolicyStatement.filterSensitiveLog
       )
     })
   });
@@ -1360,8 +1354,8 @@ export namespace RollbackConfiguration {
   export const filterSensitiveLog = (obj: RollbackConfiguration) => ({
     ...obj,
     ...(obj.RollbackTriggers && {
-      RollbackTriggers: obj.RollbackTriggers.map(item =>
-        item.map(RollbackTrigger.filterSensitiveLog)
+      RollbackTriggers: obj.RollbackTriggers.map(
+        RollbackTrigger.filterSensitiveLog
       )
     })
   });
@@ -1660,8 +1654,8 @@ export namespace Version {
   export const filterSensitiveLog = (obj: Version) => ({
     ...obj,
     ...(obj.ParameterDefinitions && {
-      ParameterDefinitions: obj.ParameterDefinitions.map(item =>
-        item.map(ParameterDefinition.filterSensitiveLog)
+      ParameterDefinitions: obj.ParameterDefinitions.map(
+        ParameterDefinition.filterSensitiveLog
       )
     })
   });

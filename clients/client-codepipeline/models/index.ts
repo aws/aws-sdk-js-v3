@@ -242,13 +242,11 @@ export namespace ActionDeclaration {
       actionTypeId: ActionTypeId.filterSensitiveLog(obj.actionTypeId)
     }),
     ...(obj.inputArtifacts && {
-      inputArtifacts: obj.inputArtifacts.map(item =>
-        item.map(InputArtifact.filterSensitiveLog)
-      )
+      inputArtifacts: obj.inputArtifacts.map(InputArtifact.filterSensitiveLog)
     }),
     ...(obj.outputArtifacts && {
-      outputArtifacts: obj.outputArtifacts.map(item =>
-        item.map(OutputArtifact.filterSensitiveLog)
+      outputArtifacts: obj.outputArtifacts.map(
+        OutputArtifact.filterSensitiveLog
       )
     })
   });
@@ -467,9 +465,7 @@ export namespace ActionExecutionInput {
       actionTypeId: ActionTypeId.filterSensitiveLog(obj.actionTypeId)
     }),
     ...(obj.inputArtifacts && {
-      inputArtifacts: obj.inputArtifacts.map(item =>
-        item.map(ArtifactDetail.filterSensitiveLog)
-      )
+      inputArtifacts: obj.inputArtifacts.map(ArtifactDetail.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ActionExecutionInput =>
@@ -510,8 +506,8 @@ export namespace ActionExecutionOutput {
       )
     }),
     ...(obj.outputArtifacts && {
-      outputArtifacts: obj.outputArtifacts.map(item =>
-        item.map(ArtifactDetail.filterSensitiveLog)
+      outputArtifacts: obj.outputArtifacts.map(
+        ArtifactDetail.filterSensitiveLog
       )
     })
   });
@@ -692,7 +688,7 @@ export namespace ActionType {
     ...obj,
     ...(obj.actionConfigurationProperties && {
       actionConfigurationProperties: obj.actionConfigurationProperties.map(
-        item => item.map(ActionConfigurationProperty.filterSensitiveLog)
+        ActionConfigurationProperty.filterSensitiveLog
       )
     }),
     ...(obj.id && { id: ActionTypeId.filterSensitiveLog(obj.id) }),
@@ -1069,8 +1065,8 @@ export namespace CreateCustomActionTypeInput {
   export const filterSensitiveLog = (obj: CreateCustomActionTypeInput) => ({
     ...obj,
     ...(obj.configurationProperties && {
-      configurationProperties: obj.configurationProperties.map(item =>
-        item.map(ActionConfigurationProperty.filterSensitiveLog)
+      configurationProperties: obj.configurationProperties.map(
+        ActionConfigurationProperty.filterSensitiveLog
       )
     }),
     ...(obj.inputArtifactDetails && {
@@ -1086,9 +1082,7 @@ export namespace CreateCustomActionTypeInput {
     ...(obj.settings && {
       settings: ActionTypeSettings.filterSensitiveLog(obj.settings)
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateCustomActionTypeInput =>
     __isa(o, "CreateCustomActionTypeInput");
@@ -1116,9 +1110,7 @@ export namespace CreateCustomActionTypeOutput {
     ...(obj.actionType && {
       actionType: ActionType.filterSensitiveLog(obj.actionType)
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateCustomActionTypeOutput =>
     __isa(o, "CreateCustomActionTypeOutput");
@@ -1147,9 +1139,7 @@ export namespace CreatePipelineInput {
     ...(obj.pipeline && {
       pipeline: PipelineDeclaration.filterSensitiveLog(obj.pipeline)
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreatePipelineInput =>
     __isa(o, "CreatePipelineInput");
@@ -1178,9 +1168,7 @@ export namespace CreatePipelineOutput {
     ...(obj.pipeline && {
       pipeline: PipelineDeclaration.filterSensitiveLog(obj.pipeline)
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreatePipelineOutput =>
     __isa(o, "CreatePipelineOutput");
@@ -1655,9 +1643,7 @@ export namespace GetPipelineStateOutput {
   export const filterSensitiveLog = (obj: GetPipelineStateOutput) => ({
     ...obj,
     ...(obj.stageStates && {
-      stageStates: obj.stageStates.map(item =>
-        item.map(StageState.filterSensitiveLog)
-      )
+      stageStates: obj.stageStates.map(StageState.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetPipelineStateOutput =>
@@ -2114,14 +2100,10 @@ export namespace JobData {
       encryptionKey: EncryptionKey.filterSensitiveLog(obj.encryptionKey)
     }),
     ...(obj.inputArtifacts && {
-      inputArtifacts: obj.inputArtifacts.map(item =>
-        item.map(Artifact.filterSensitiveLog)
-      )
+      inputArtifacts: obj.inputArtifacts.map(Artifact.filterSensitiveLog)
     }),
     ...(obj.outputArtifacts && {
-      outputArtifacts: obj.outputArtifacts.map(item =>
-        item.map(Artifact.filterSensitiveLog)
-      )
+      outputArtifacts: obj.outputArtifacts.map(Artifact.filterSensitiveLog)
     }),
     ...(obj.pipelineContext && {
       pipelineContext: PipelineContext.filterSensitiveLog(obj.pipelineContext)
@@ -2244,8 +2226,8 @@ export namespace ListActionExecutionsOutput {
   export const filterSensitiveLog = (obj: ListActionExecutionsOutput) => ({
     ...obj,
     ...(obj.actionExecutionDetails && {
-      actionExecutionDetails: obj.actionExecutionDetails.map(item =>
-        item.map(ActionExecutionDetail.filterSensitiveLog)
+      actionExecutionDetails: obj.actionExecutionDetails.map(
+        ActionExecutionDetail.filterSensitiveLog
       )
     })
   });
@@ -2300,9 +2282,7 @@ export namespace ListActionTypesOutput {
   export const filterSensitiveLog = (obj: ListActionTypesOutput) => ({
     ...obj,
     ...(obj.actionTypes && {
-      actionTypes: obj.actionTypes.map(item =>
-        item.map(ActionType.filterSensitiveLog)
-      )
+      actionTypes: obj.actionTypes.map(ActionType.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListActionTypesOutput =>
@@ -2366,8 +2346,8 @@ export namespace ListPipelineExecutionsOutput {
   export const filterSensitiveLog = (obj: ListPipelineExecutionsOutput) => ({
     ...obj,
     ...(obj.pipelineExecutionSummaries && {
-      pipelineExecutionSummaries: obj.pipelineExecutionSummaries.map(item =>
-        item.map(PipelineExecutionSummary.filterSensitiveLog)
+      pipelineExecutionSummaries: obj.pipelineExecutionSummaries.map(
+        PipelineExecutionSummary.filterSensitiveLog
       )
     })
   });
@@ -2417,9 +2397,7 @@ export namespace ListPipelinesOutput {
   export const filterSensitiveLog = (obj: ListPipelinesOutput) => ({
     ...obj,
     ...(obj.pipelines && {
-      pipelines: obj.pipelines.map(item =>
-        item.map(PipelineSummary.filterSensitiveLog)
-      )
+      pipelines: obj.pipelines.map(PipelineSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListPipelinesOutput =>
@@ -2473,9 +2451,7 @@ export interface ListTagsForResourceOutput {
 export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsForResourceOutput =>
     __isa(o, "ListTagsForResourceOutput");
@@ -2534,9 +2510,7 @@ export namespace ListWebhookItem {
     ...(obj.definition && {
       definition: WebhookDefinition.filterSensitiveLog(obj.definition)
     }),
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListWebhookItem =>
     __isa(o, "ListWebhookItem");
@@ -2585,9 +2559,7 @@ export namespace ListWebhooksOutput {
   export const filterSensitiveLog = (obj: ListWebhooksOutput) => ({
     ...obj,
     ...(obj.webhooks && {
-      webhooks: obj.webhooks.map(item =>
-        item.map(ListWebhookItem.filterSensitiveLog)
-      )
+      webhooks: obj.webhooks.map(ListWebhookItem.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListWebhooksOutput =>
@@ -2706,9 +2678,7 @@ export namespace PipelineDeclaration {
       artifactStore: ArtifactStore.filterSensitiveLog(obj.artifactStore)
     }),
     ...(obj.stages && {
-      stages: obj.stages.map(item =>
-        item.map(StageDeclaration.filterSensitiveLog)
-      )
+      stages: obj.stages.map(StageDeclaration.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is PipelineDeclaration =>
@@ -2776,8 +2746,8 @@ export namespace PipelineExecution {
   export const filterSensitiveLog = (obj: PipelineExecution) => ({
     ...obj,
     ...(obj.artifactRevisions && {
-      artifactRevisions: obj.artifactRevisions.map(item =>
-        item.map(ArtifactRevision.filterSensitiveLog)
+      artifactRevisions: obj.artifactRevisions.map(
+        ArtifactRevision.filterSensitiveLog
       )
     })
   });
@@ -2914,8 +2884,8 @@ export namespace PipelineExecutionSummary {
   export const filterSensitiveLog = (obj: PipelineExecutionSummary) => ({
     ...obj,
     ...(obj.sourceRevisions && {
-      sourceRevisions: obj.sourceRevisions.map(item =>
-        item.map(SourceRevision.filterSensitiveLog)
+      sourceRevisions: obj.sourceRevisions.map(
+        SourceRevision.filterSensitiveLog
       )
     }),
     ...(obj.stopTrigger && {
@@ -3111,9 +3081,7 @@ export interface PollForJobsOutput {
 export namespace PollForJobsOutput {
   export const filterSensitiveLog = (obj: PollForJobsOutput) => ({
     ...obj,
-    ...(obj.jobs && {
-      jobs: obj.jobs.map(item => item.map(Job.filterSensitiveLog))
-    })
+    ...(obj.jobs && { jobs: obj.jobs.map(Job.filterSensitiveLog) })
   });
   export const isa = (o: any): o is PollForJobsOutput =>
     __isa(o, "PollForJobsOutput");
@@ -3160,9 +3128,7 @@ export interface PollForThirdPartyJobsOutput {
 export namespace PollForThirdPartyJobsOutput {
   export const filterSensitiveLog = (obj: PollForThirdPartyJobsOutput) => ({
     ...obj,
-    ...(obj.jobs && {
-      jobs: obj.jobs.map(item => item.map(ThirdPartyJob.filterSensitiveLog))
-    })
+    ...(obj.jobs && { jobs: obj.jobs.map(ThirdPartyJob.filterSensitiveLog) })
   });
   export const isa = (o: any): o is PollForThirdPartyJobsOutput =>
     __isa(o, "PollForThirdPartyJobsOutput");
@@ -3489,9 +3455,7 @@ export interface PutWebhookInput {
 export namespace PutWebhookInput {
   export const filterSensitiveLog = (obj: PutWebhookInput) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    }),
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) }),
     ...(obj.webhook && {
       webhook: WebhookDefinition.filterSensitiveLog(obj.webhook)
     })
@@ -3697,14 +3661,10 @@ export namespace StageDeclaration {
   export const filterSensitiveLog = (obj: StageDeclaration) => ({
     ...obj,
     ...(obj.actions && {
-      actions: obj.actions.map(item =>
-        item.map(ActionDeclaration.filterSensitiveLog)
-      )
+      actions: obj.actions.map(ActionDeclaration.filterSensitiveLog)
     }),
     ...(obj.blockers && {
-      blockers: obj.blockers.map(item =>
-        item.map(BlockerDeclaration.filterSensitiveLog)
-      )
+      blockers: obj.blockers.map(BlockerDeclaration.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is StageDeclaration =>
@@ -3825,9 +3785,7 @@ export namespace StageState {
   export const filterSensitiveLog = (obj: StageState) => ({
     ...obj,
     ...(obj.actionStates && {
-      actionStates: obj.actionStates.map(item =>
-        item.map(ActionState.filterSensitiveLog)
-      )
+      actionStates: obj.actionStates.map(ActionState.filterSensitiveLog)
     }),
     ...(obj.inboundTransitionState && {
       inboundTransitionState: TransitionState.filterSensitiveLog(
@@ -4002,9 +3960,7 @@ export interface TagResourceInput {
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput) => ({
     ...obj,
-    ...(obj.tags && {
-      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagResourceInput =>
     __isa(o, "TagResourceInput");
@@ -4125,14 +4081,10 @@ export namespace ThirdPartyJobData {
       encryptionKey: EncryptionKey.filterSensitiveLog(obj.encryptionKey)
     }),
     ...(obj.inputArtifacts && {
-      inputArtifacts: obj.inputArtifacts.map(item =>
-        item.map(Artifact.filterSensitiveLog)
-      )
+      inputArtifacts: obj.inputArtifacts.map(Artifact.filterSensitiveLog)
     }),
     ...(obj.outputArtifacts && {
-      outputArtifacts: obj.outputArtifacts.map(item =>
-        item.map(Artifact.filterSensitiveLog)
-      )
+      outputArtifacts: obj.outputArtifacts.map(Artifact.filterSensitiveLog)
     }),
     ...(obj.pipelineContext && {
       pipelineContext: PipelineContext.filterSensitiveLog(obj.pipelineContext)
@@ -4417,9 +4369,7 @@ export namespace WebhookDefinition {
       )
     }),
     ...(obj.filters && {
-      filters: obj.filters.map(item =>
-        item.map(WebhookFilterRule.filterSensitiveLog)
-      )
+      filters: obj.filters.map(WebhookFilterRule.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is WebhookDefinition =>

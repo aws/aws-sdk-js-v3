@@ -1632,19 +1632,17 @@ export namespace DefaultHyperParameterRanges {
     ...obj,
     ...(obj.categoricalHyperParameterRanges && {
       categoricalHyperParameterRanges: obj.categoricalHyperParameterRanges.map(
-        item =>
-          item.map(DefaultCategoricalHyperParameterRange.filterSensitiveLog)
+        DefaultCategoricalHyperParameterRange.filterSensitiveLog
       )
     }),
     ...(obj.continuousHyperParameterRanges && {
       continuousHyperParameterRanges: obj.continuousHyperParameterRanges.map(
-        item =>
-          item.map(DefaultContinuousHyperParameterRange.filterSensitiveLog)
+        DefaultContinuousHyperParameterRange.filterSensitiveLog
       )
     }),
     ...(obj.integerHyperParameterRanges && {
-      integerHyperParameterRanges: obj.integerHyperParameterRanges.map(item =>
-        item.map(DefaultIntegerHyperParameterRange.filterSensitiveLog)
+      integerHyperParameterRanges: obj.integerHyperParameterRanges.map(
+        DefaultIntegerHyperParameterRange.filterSensitiveLog
       )
     })
   });
@@ -2558,17 +2556,17 @@ export namespace HyperParameterRanges {
     ...obj,
     ...(obj.categoricalHyperParameterRanges && {
       categoricalHyperParameterRanges: obj.categoricalHyperParameterRanges.map(
-        item => item.map(CategoricalHyperParameterRange.filterSensitiveLog)
+        CategoricalHyperParameterRange.filterSensitiveLog
       )
     }),
     ...(obj.continuousHyperParameterRanges && {
       continuousHyperParameterRanges: obj.continuousHyperParameterRanges.map(
-        item => item.map(ContinuousHyperParameterRange.filterSensitiveLog)
+        ContinuousHyperParameterRange.filterSensitiveLog
       )
     }),
     ...(obj.integerHyperParameterRanges && {
-      integerHyperParameterRanges: obj.integerHyperParameterRanges.map(item =>
-        item.map(IntegerHyperParameterRange.filterSensitiveLog)
+      integerHyperParameterRanges: obj.integerHyperParameterRanges.map(
+        IntegerHyperParameterRange.filterSensitiveLog
       )
     })
   });
@@ -2651,8 +2649,8 @@ export namespace ListBatchInferenceJobsResponse {
   export const filterSensitiveLog = (obj: ListBatchInferenceJobsResponse) => ({
     ...obj,
     ...(obj.batchInferenceJobs && {
-      batchInferenceJobs: obj.batchInferenceJobs.map(item =>
-        item.map(BatchInferenceJobSummary.filterSensitiveLog)
+      batchInferenceJobs: obj.batchInferenceJobs.map(
+        BatchInferenceJobSummary.filterSensitiveLog
       )
     })
   });
@@ -2705,9 +2703,7 @@ export namespace ListCampaignsResponse {
   export const filterSensitiveLog = (obj: ListCampaignsResponse) => ({
     ...obj,
     ...(obj.campaigns && {
-      campaigns: obj.campaigns.map(item =>
-        item.map(CampaignSummary.filterSensitiveLog)
-      )
+      campaigns: obj.campaigns.map(CampaignSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListCampaignsResponse =>
@@ -2753,8 +2749,8 @@ export namespace ListDatasetGroupsResponse {
   export const filterSensitiveLog = (obj: ListDatasetGroupsResponse) => ({
     ...obj,
     ...(obj.datasetGroups && {
-      datasetGroups: obj.datasetGroups.map(item =>
-        item.map(DatasetGroupSummary.filterSensitiveLog)
+      datasetGroups: obj.datasetGroups.map(
+        DatasetGroupSummary.filterSensitiveLog
       )
     })
   });
@@ -2806,8 +2802,8 @@ export namespace ListDatasetImportJobsResponse {
   export const filterSensitiveLog = (obj: ListDatasetImportJobsResponse) => ({
     ...obj,
     ...(obj.datasetImportJobs && {
-      datasetImportJobs: obj.datasetImportJobs.map(item =>
-        item.map(DatasetImportJobSummary.filterSensitiveLog)
+      datasetImportJobs: obj.datasetImportJobs.map(
+        DatasetImportJobSummary.filterSensitiveLog
       )
     })
   });
@@ -2860,9 +2856,7 @@ export namespace ListDatasetsResponse {
   export const filterSensitiveLog = (obj: ListDatasetsResponse) => ({
     ...obj,
     ...(obj.datasets && {
-      datasets: obj.datasets.map(item =>
-        item.map(DatasetSummary.filterSensitiveLog)
-      )
+      datasets: obj.datasets.map(DatasetSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListDatasetsResponse =>
@@ -2913,8 +2907,8 @@ export namespace ListEventTrackersResponse {
   export const filterSensitiveLog = (obj: ListEventTrackersResponse) => ({
     ...obj,
     ...(obj.eventTrackers && {
-      eventTrackers: obj.eventTrackers.map(item =>
-        item.map(EventTrackerSummary.filterSensitiveLog)
+      eventTrackers: obj.eventTrackers.map(
+        EventTrackerSummary.filterSensitiveLog
       )
     })
   });
@@ -2966,9 +2960,7 @@ export namespace ListRecipesResponse {
   export const filterSensitiveLog = (obj: ListRecipesResponse) => ({
     ...obj,
     ...(obj.recipes && {
-      recipes: obj.recipes.map(item =>
-        item.map(RecipeSummary.filterSensitiveLog)
-      )
+      recipes: obj.recipes.map(RecipeSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListRecipesResponse =>
@@ -3014,9 +3006,7 @@ export namespace ListSchemasResponse {
   export const filterSensitiveLog = (obj: ListSchemasResponse) => ({
     ...obj,
     ...(obj.schemas && {
-      schemas: obj.schemas.map(item =>
-        item.map(DatasetSchemaSummary.filterSensitiveLog)
-      )
+      schemas: obj.schemas.map(DatasetSchemaSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListSchemasResponse =>
@@ -3067,8 +3057,8 @@ export namespace ListSolutionVersionsResponse {
   export const filterSensitiveLog = (obj: ListSolutionVersionsResponse) => ({
     ...obj,
     ...(obj.solutionVersions && {
-      solutionVersions: obj.solutionVersions.map(item =>
-        item.map(SolutionVersionSummary.filterSensitiveLog)
+      solutionVersions: obj.solutionVersions.map(
+        SolutionVersionSummary.filterSensitiveLog
       )
     })
   });
@@ -3120,9 +3110,7 @@ export namespace ListSolutionsResponse {
   export const filterSensitiveLog = (obj: ListSolutionsResponse) => ({
     ...obj,
     ...(obj.solutions && {
-      solutions: obj.solutions.map(item =>
-        item.map(SolutionSummary.filterSensitiveLog)
-      )
+      solutions: obj.solutions.map(SolutionSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListSolutionsResponse =>

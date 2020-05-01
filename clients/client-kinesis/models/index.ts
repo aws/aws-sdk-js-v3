@@ -741,9 +741,7 @@ export interface GetRecordsOutput {
 export namespace GetRecordsOutput {
   export const filterSensitiveLog = (obj: GetRecordsOutput) => ({
     ...obj,
-    ...(obj.Records && {
-      Records: obj.Records.map(item => item.map(_Record.filterSensitiveLog))
-    })
+    ...(obj.Records && { Records: obj.Records.map(_Record.filterSensitiveLog) })
   });
   export const isa = (o: any): o is GetRecordsOutput =>
     __isa(o, "GetRecordsOutput");
@@ -1177,9 +1175,7 @@ export interface ListShardsOutput {
 export namespace ListShardsOutput {
   export const filterSensitiveLog = (obj: ListShardsOutput) => ({
     ...obj,
-    ...(obj.Shards && {
-      Shards: obj.Shards.map(item => item.map(Shard.filterSensitiveLog))
-    })
+    ...(obj.Shards && { Shards: obj.Shards.map(Shard.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListShardsOutput =>
     __isa(o, "ListShardsOutput");
@@ -1271,9 +1267,7 @@ export namespace ListStreamConsumersOutput {
   export const filterSensitiveLog = (obj: ListStreamConsumersOutput) => ({
     ...obj,
     ...(obj.Consumers && {
-      Consumers: obj.Consumers.map(item =>
-        item.map(Consumer.filterSensitiveLog)
-      )
+      Consumers: obj.Consumers.map(Consumer.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListStreamConsumersOutput =>
@@ -1384,9 +1378,7 @@ export interface ListTagsForStreamOutput {
 export namespace ListTagsForStreamOutput {
   export const filterSensitiveLog = (obj: ListTagsForStreamOutput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsForStreamOutput =>
     __isa(o, "ListTagsForStreamOutput");
@@ -1570,9 +1562,7 @@ export namespace PutRecordsInput {
   export const filterSensitiveLog = (obj: PutRecordsInput) => ({
     ...obj,
     ...(obj.Records && {
-      Records: obj.Records.map(item =>
-        item.map(PutRecordsRequestEntry.filterSensitiveLog)
-      )
+      Records: obj.Records.map(PutRecordsRequestEntry.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is PutRecordsInput =>
@@ -1620,9 +1610,7 @@ export namespace PutRecordsOutput {
   export const filterSensitiveLog = (obj: PutRecordsOutput) => ({
     ...obj,
     ...(obj.Records && {
-      Records: obj.Records.map(item =>
-        item.map(PutRecordsResultEntry.filterSensitiveLog)
-      )
+      Records: obj.Records.map(PutRecordsResultEntry.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is PutRecordsOutput =>
@@ -2234,13 +2222,11 @@ export namespace StreamDescription {
   export const filterSensitiveLog = (obj: StreamDescription) => ({
     ...obj,
     ...(obj.EnhancedMonitoring && {
-      EnhancedMonitoring: obj.EnhancedMonitoring.map(item =>
-        item.map(EnhancedMetrics.filterSensitiveLog)
+      EnhancedMonitoring: obj.EnhancedMonitoring.map(
+        EnhancedMetrics.filterSensitiveLog
       )
     }),
-    ...(obj.Shards && {
-      Shards: obj.Shards.map(item => item.map(Shard.filterSensitiveLog))
-    })
+    ...(obj.Shards && { Shards: obj.Shards.map(Shard.filterSensitiveLog) })
   });
   export const isa = (o: any): o is StreamDescription =>
     __isa(o, "StreamDescription");
@@ -2372,8 +2358,8 @@ export namespace StreamDescriptionSummary {
   export const filterSensitiveLog = (obj: StreamDescriptionSummary) => ({
     ...obj,
     ...(obj.EnhancedMonitoring && {
-      EnhancedMonitoring: obj.EnhancedMonitoring.map(item =>
-        item.map(EnhancedMetrics.filterSensitiveLog)
+      EnhancedMonitoring: obj.EnhancedMonitoring.map(
+        EnhancedMetrics.filterSensitiveLog
       )
     })
   });
@@ -2413,9 +2399,7 @@ export interface SubscribeToShardEvent {
 export namespace SubscribeToShardEvent {
   export const filterSensitiveLog = (obj: SubscribeToShardEvent) => ({
     ...obj,
-    ...(obj.Records && {
-      Records: obj.Records.map(item => item.map(_Record.filterSensitiveLog))
-    })
+    ...(obj.Records && { Records: obj.Records.map(_Record.filterSensitiveLog) })
   });
   export const isa = (o: any): o is SubscribeToShardEvent =>
     __isa(o, "SubscribeToShardEvent");

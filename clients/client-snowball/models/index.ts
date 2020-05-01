@@ -759,7 +759,7 @@ export namespace DescribeAddressesResult {
   export const filterSensitiveLog = (obj: DescribeAddressesResult) => ({
     ...obj,
     ...(obj.Addresses && {
-      Addresses: obj.Addresses.map(item => item.map(Address.filterSensitiveLog))
+      Addresses: obj.Addresses.map(Address.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeAddressesResult =>
@@ -841,9 +841,7 @@ export namespace DescribeJobResult {
       JobMetadata: JobMetadata.filterSensitiveLog(obj.JobMetadata)
     }),
     ...(obj.SubJobMetadata && {
-      SubJobMetadata: obj.SubJobMetadata.map(item =>
-        item.map(JobMetadata.filterSensitiveLog)
-      )
+      SubJobMetadata: obj.SubJobMetadata.map(JobMetadata.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeJobResult =>
@@ -1424,19 +1422,17 @@ export namespace JobResource {
   export const filterSensitiveLog = (obj: JobResource) => ({
     ...obj,
     ...(obj.Ec2AmiResources && {
-      Ec2AmiResources: obj.Ec2AmiResources.map(item =>
-        item.map(Ec2AmiResource.filterSensitiveLog)
+      Ec2AmiResources: obj.Ec2AmiResources.map(
+        Ec2AmiResource.filterSensitiveLog
       )
     }),
     ...(obj.LambdaResources && {
-      LambdaResources: obj.LambdaResources.map(item =>
-        item.map(LambdaResource.filterSensitiveLog)
+      LambdaResources: obj.LambdaResources.map(
+        LambdaResource.filterSensitiveLog
       )
     }),
     ...(obj.S3Resources && {
-      S3Resources: obj.S3Resources.map(item =>
-        item.map(S3Resource.filterSensitiveLog)
-      )
+      S3Resources: obj.S3Resources.map(S3Resource.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is JobResource => __isa(o, "JobResource");
@@ -1533,8 +1529,8 @@ export namespace LambdaResource {
   export const filterSensitiveLog = (obj: LambdaResource) => ({
     ...obj,
     ...(obj.EventTriggers && {
-      EventTriggers: obj.EventTriggers.map(item =>
-        item.map(EventTriggerDefinition.filterSensitiveLog)
+      EventTriggers: obj.EventTriggers.map(
+        EventTriggerDefinition.filterSensitiveLog
       )
     })
   });
@@ -1591,9 +1587,7 @@ export namespace ListClusterJobsResult {
   export const filterSensitiveLog = (obj: ListClusterJobsResult) => ({
     ...obj,
     ...(obj.JobListEntries && {
-      JobListEntries: obj.JobListEntries.map(item =>
-        item.map(JobListEntry.filterSensitiveLog)
-      )
+      JobListEntries: obj.JobListEntries.map(JobListEntry.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListClusterJobsResult =>
@@ -1643,8 +1637,8 @@ export namespace ListClustersResult {
   export const filterSensitiveLog = (obj: ListClustersResult) => ({
     ...obj,
     ...(obj.ClusterListEntries && {
-      ClusterListEntries: obj.ClusterListEntries.map(item =>
-        item.map(ClusterListEntry.filterSensitiveLog)
+      ClusterListEntries: obj.ClusterListEntries.map(
+        ClusterListEntry.filterSensitiveLog
       )
     })
   });
@@ -1695,8 +1689,8 @@ export namespace ListCompatibleImagesResult {
   export const filterSensitiveLog = (obj: ListCompatibleImagesResult) => ({
     ...obj,
     ...(obj.CompatibleImages && {
-      CompatibleImages: obj.CompatibleImages.map(item =>
-        item.map(CompatibleImage.filterSensitiveLog)
+      CompatibleImages: obj.CompatibleImages.map(
+        CompatibleImage.filterSensitiveLog
       )
     })
   });
@@ -1747,9 +1741,7 @@ export namespace ListJobsResult {
   export const filterSensitiveLog = (obj: ListJobsResult) => ({
     ...obj,
     ...(obj.JobListEntries && {
-      JobListEntries: obj.JobListEntries.map(item =>
-        item.map(JobListEntry.filterSensitiveLog)
-      )
+      JobListEntries: obj.JobListEntries.map(JobListEntry.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListJobsResult =>

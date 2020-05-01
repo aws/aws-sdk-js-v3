@@ -27,9 +27,7 @@ export interface AddTagsRequest {
 export namespace AddTagsRequest {
   export const filterSensitiveLog = (obj: AddTagsRequest) => ({
     ...obj,
-    ...(obj.TagsList && {
-      TagsList: obj.TagsList.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.TagsList && { TagsList: obj.TagsList.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AddTagsRequest =>
     __isa(o, "AddTagsRequest");
@@ -239,9 +237,7 @@ export interface CreateTrailRequest {
 export namespace CreateTrailRequest {
   export const filterSensitiveLog = (obj: CreateTrailRequest) => ({
     ...obj,
-    ...(obj.TagsList && {
-      TagsList: obj.TagsList.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.TagsList && { TagsList: obj.TagsList.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateTrailRequest =>
     __isa(o, "CreateTrailRequest");
@@ -542,7 +538,7 @@ export namespace DescribeTrailsResponse {
   export const filterSensitiveLog = (obj: DescribeTrailsResponse) => ({
     ...obj,
     ...(obj.trailList && {
-      trailList: obj.trailList.map(item => item.map(Trail.filterSensitiveLog))
+      trailList: obj.trailList.map(Trail.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeTrailsResponse =>
@@ -605,9 +601,7 @@ export namespace Event {
   export const filterSensitiveLog = (obj: Event) => ({
     ...obj,
     ...(obj.Resources && {
-      Resources: obj.Resources.map(item =>
-        item.map(Resource.filterSensitiveLog)
-      )
+      Resources: obj.Resources.map(Resource.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Event => __isa(o, "Event");
@@ -665,9 +659,7 @@ export namespace EventSelector {
   export const filterSensitiveLog = (obj: EventSelector) => ({
     ...obj,
     ...(obj.DataResources && {
-      DataResources: obj.DataResources.map(item =>
-        item.map(DataResource.filterSensitiveLog)
-      )
+      DataResources: obj.DataResources.map(DataResource.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is EventSelector => __isa(o, "EventSelector");
@@ -729,9 +721,7 @@ export namespace GetEventSelectorsResponse {
   export const filterSensitiveLog = (obj: GetEventSelectorsResponse) => ({
     ...obj,
     ...(obj.EventSelectors && {
-      EventSelectors: obj.EventSelectors.map(item =>
-        item.map(EventSelector.filterSensitiveLog)
-      )
+      EventSelectors: obj.EventSelectors.map(EventSelector.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetEventSelectorsResponse =>
@@ -794,8 +784,8 @@ export namespace GetInsightSelectorsResponse {
   export const filterSensitiveLog = (obj: GetInsightSelectorsResponse) => ({
     ...obj,
     ...(obj.InsightSelectors && {
-      InsightSelectors: obj.InsightSelectors.map(item =>
-        item.map(InsightSelector.filterSensitiveLog)
+      InsightSelectors: obj.InsightSelectors.map(
+        InsightSelector.filterSensitiveLog
       )
     })
   });
@@ -1679,9 +1669,7 @@ export namespace ListPublicKeysResponse {
   export const filterSensitiveLog = (obj: ListPublicKeysResponse) => ({
     ...obj,
     ...(obj.PublicKeyList && {
-      PublicKeyList: obj.PublicKeyList.map(item =>
-        item.map(PublicKey.filterSensitiveLog)
-      )
+      PublicKeyList: obj.PublicKeyList.map(PublicKey.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListPublicKeysResponse =>
@@ -1735,9 +1723,7 @@ export namespace ListTagsResponse {
   export const filterSensitiveLog = (obj: ListTagsResponse) => ({
     ...obj,
     ...(obj.ResourceTagList && {
-      ResourceTagList: obj.ResourceTagList.map(item =>
-        item.map(ResourceTag.filterSensitiveLog)
-      )
+      ResourceTagList: obj.ResourceTagList.map(ResourceTag.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListTagsResponse =>
@@ -1782,9 +1768,7 @@ export interface ListTrailsResponse {
 export namespace ListTrailsResponse {
   export const filterSensitiveLog = (obj: ListTrailsResponse) => ({
     ...obj,
-    ...(obj.Trails && {
-      Trails: obj.Trails.map(item => item.map(TrailInfo.filterSensitiveLog))
-    })
+    ...(obj.Trails && { Trails: obj.Trails.map(TrailInfo.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTrailsResponse =>
     __isa(o, "ListTrailsResponse");
@@ -1867,8 +1851,8 @@ export namespace LookupEventsRequest {
   export const filterSensitiveLog = (obj: LookupEventsRequest) => ({
     ...obj,
     ...(obj.LookupAttributes && {
-      LookupAttributes: obj.LookupAttributes.map(item =>
-        item.map(LookupAttribute.filterSensitiveLog)
+      LookupAttributes: obj.LookupAttributes.map(
+        LookupAttribute.filterSensitiveLog
       )
     })
   });
@@ -1898,9 +1882,7 @@ export interface LookupEventsResponse {
 export namespace LookupEventsResponse {
   export const filterSensitiveLog = (obj: LookupEventsResponse) => ({
     ...obj,
-    ...(obj.Events && {
-      Events: obj.Events.map(item => item.map(Event.filterSensitiveLog))
-    })
+    ...(obj.Events && { Events: obj.Events.map(Event.filterSensitiveLog) })
   });
   export const isa = (o: any): o is LookupEventsResponse =>
     __isa(o, "LookupEventsResponse");
@@ -2100,9 +2082,7 @@ export namespace PutEventSelectorsRequest {
   export const filterSensitiveLog = (obj: PutEventSelectorsRequest) => ({
     ...obj,
     ...(obj.EventSelectors && {
-      EventSelectors: obj.EventSelectors.map(item =>
-        item.map(EventSelector.filterSensitiveLog)
-      )
+      EventSelectors: obj.EventSelectors.map(EventSelector.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is PutEventSelectorsRequest =>
@@ -2130,9 +2110,7 @@ export namespace PutEventSelectorsResponse {
   export const filterSensitiveLog = (obj: PutEventSelectorsResponse) => ({
     ...obj,
     ...(obj.EventSelectors && {
-      EventSelectors: obj.EventSelectors.map(item =>
-        item.map(EventSelector.filterSensitiveLog)
-      )
+      EventSelectors: obj.EventSelectors.map(EventSelector.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is PutEventSelectorsResponse =>
@@ -2156,8 +2134,8 @@ export namespace PutInsightSelectorsRequest {
   export const filterSensitiveLog = (obj: PutInsightSelectorsRequest) => ({
     ...obj,
     ...(obj.InsightSelectors && {
-      InsightSelectors: obj.InsightSelectors.map(item =>
-        item.map(InsightSelector.filterSensitiveLog)
+      InsightSelectors: obj.InsightSelectors.map(
+        InsightSelector.filterSensitiveLog
       )
     })
   });
@@ -2182,8 +2160,8 @@ export namespace PutInsightSelectorsResponse {
   export const filterSensitiveLog = (obj: PutInsightSelectorsResponse) => ({
     ...obj,
     ...(obj.InsightSelectors && {
-      InsightSelectors: obj.InsightSelectors.map(item =>
-        item.map(InsightSelector.filterSensitiveLog)
+      InsightSelectors: obj.InsightSelectors.map(
+        InsightSelector.filterSensitiveLog
       )
     })
   });
@@ -2219,9 +2197,7 @@ export interface RemoveTagsRequest {
 export namespace RemoveTagsRequest {
   export const filterSensitiveLog = (obj: RemoveTagsRequest) => ({
     ...obj,
-    ...(obj.TagsList && {
-      TagsList: obj.TagsList.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.TagsList && { TagsList: obj.TagsList.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is RemoveTagsRequest =>
     __isa(o, "RemoveTagsRequest");
@@ -2309,9 +2285,7 @@ export interface ResourceTag {
 export namespace ResourceTag {
   export const filterSensitiveLog = (obj: ResourceTag) => ({
     ...obj,
-    ...(obj.TagsList && {
-      TagsList: obj.TagsList.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.TagsList && { TagsList: obj.TagsList.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ResourceTag => __isa(o, "ResourceTag");
 }

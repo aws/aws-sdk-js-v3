@@ -236,9 +236,7 @@ export interface ApiKeys {
 export namespace ApiKeys {
   export const filterSensitiveLog = (obj: ApiKeys) => ({
     ...obj,
-    ...(obj.items && {
-      items: obj.items.map(item => item.map(ApiKey.filterSensitiveLog))
-    })
+    ...(obj.items && { items: obj.items.map(ApiKey.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ApiKeys => __isa(o, "ApiKeys");
 }
@@ -371,9 +369,7 @@ export interface Authorizers {
 export namespace Authorizers {
   export const filterSensitiveLog = (obj: Authorizers) => ({
     ...obj,
-    ...(obj.items && {
-      items: obj.items.map(item => item.map(Authorizer.filterSensitiveLog))
-    })
+    ...(obj.items && { items: obj.items.map(Authorizer.filterSensitiveLog) })
   });
   export const isa = (o: any): o is Authorizers => __isa(o, "Authorizers");
 }
@@ -434,7 +430,7 @@ export namespace BasePathMappings {
   export const filterSensitiveLog = (obj: BasePathMappings) => ({
     ...obj,
     ...(obj.items && {
-      items: obj.items.map(item => item.map(BasePathMapping.filterSensitiveLog))
+      items: obj.items.map(BasePathMapping.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BasePathMappings =>
@@ -565,9 +561,7 @@ export namespace ClientCertificates {
   export const filterSensitiveLog = (obj: ClientCertificates) => ({
     ...obj,
     ...(obj.items && {
-      items: obj.items.map(item =>
-        item.map(ClientCertificate.filterSensitiveLog)
-      )
+      items: obj.items.map(ClientCertificate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ClientCertificates =>
@@ -637,9 +631,7 @@ export namespace CreateApiKeyRequest {
   export const filterSensitiveLog = (obj: CreateApiKeyRequest) => ({
     ...obj,
     ...(obj.stageKeys && {
-      stageKeys: obj.stageKeys.map(item =>
-        item.map(StageKey.filterSensitiveLog)
-      )
+      stageKeys: obj.stageKeys.map(StageKey.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateApiKeyRequest =>
@@ -1320,9 +1312,7 @@ export namespace CreateUsagePlanRequest {
   export const filterSensitiveLog = (obj: CreateUsagePlanRequest) => ({
     ...obj,
     ...(obj.apiStages && {
-      apiStages: obj.apiStages.map(item =>
-        item.map(ApiStage.filterSensitiveLog)
-      )
+      apiStages: obj.apiStages.map(ApiStage.filterSensitiveLog)
     }),
     ...(obj.quota && { quota: QuotaSettings.filterSensitiveLog(obj.quota) }),
     ...(obj.throttle && {
@@ -2076,9 +2066,7 @@ export interface Deployments {
 export namespace Deployments {
   export const filterSensitiveLog = (obj: Deployments) => ({
     ...obj,
-    ...(obj.items && {
-      items: obj.items.map(item => item.map(Deployment.filterSensitiveLog))
-    })
+    ...(obj.items && { items: obj.items.map(Deployment.filterSensitiveLog) })
   });
   export const isa = (o: any): o is Deployments => __isa(o, "Deployments");
 }
@@ -2227,9 +2215,7 @@ export namespace DocumentationParts {
   export const filterSensitiveLog = (obj: DocumentationParts) => ({
     ...obj,
     ...(obj.items && {
-      items: obj.items.map(item =>
-        item.map(DocumentationPart.filterSensitiveLog)
-      )
+      items: obj.items.map(DocumentationPart.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DocumentationParts =>
@@ -2293,9 +2279,7 @@ export namespace DocumentationVersions {
   export const filterSensitiveLog = (obj: DocumentationVersions) => ({
     ...obj,
     ...(obj.items && {
-      items: obj.items.map(item =>
-        item.map(DocumentationVersion.filterSensitiveLog)
-      )
+      items: obj.items.map(DocumentationVersion.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DocumentationVersions =>
@@ -2430,9 +2414,7 @@ export interface DomainNames {
 export namespace DomainNames {
   export const filterSensitiveLog = (obj: DomainNames) => ({
     ...obj,
-    ...(obj.items && {
-      items: obj.items.map(item => item.map(DomainName.filterSensitiveLog))
-    })
+    ...(obj.items && { items: obj.items.map(DomainName.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DomainNames => __isa(o, "DomainNames");
 }
@@ -3221,7 +3203,7 @@ export namespace GatewayResponses {
   export const filterSensitiveLog = (obj: GatewayResponses) => ({
     ...obj,
     ...(obj.items && {
-      items: obj.items.map(item => item.map(GatewayResponse.filterSensitiveLog))
+      items: obj.items.map(GatewayResponse.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GatewayResponses =>
@@ -5662,9 +5644,7 @@ export interface Models {
 export namespace Models {
   export const filterSensitiveLog = (obj: Models) => ({
     ...obj,
-    ...(obj.items && {
-      items: obj.items.map(item => item.map(Model.filterSensitiveLog))
-    })
+    ...(obj.items && { items: obj.items.map(Model.filterSensitiveLog) })
   });
   export const isa = (o: any): o is Models => __isa(o, "Models");
 }
@@ -6157,9 +6137,7 @@ export namespace RequestValidators {
   export const filterSensitiveLog = (obj: RequestValidators) => ({
     ...obj,
     ...(obj.items && {
-      items: obj.items.map(item =>
-        item.map(RequestValidator.filterSensitiveLog)
-      )
+      items: obj.items.map(RequestValidator.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is RequestValidators =>
@@ -6381,9 +6359,7 @@ export interface Resources {
 export namespace Resources {
   export const filterSensitiveLog = (obj: Resources) => ({
     ...obj,
-    ...(obj.items && {
-      items: obj.items.map(item => item.map(Resource.filterSensitiveLog))
-    })
+    ...(obj.items && { items: obj.items.map(Resource.filterSensitiveLog) })
   });
   export const isa = (o: any): o is Resources => __isa(o, "Resources");
 }
@@ -6491,9 +6467,7 @@ export interface RestApis {
 export namespace RestApis {
   export const filterSensitiveLog = (obj: RestApis) => ({
     ...obj,
-    ...(obj.items && {
-      items: obj.items.map(item => item.map(RestApi.filterSensitiveLog))
-    })
+    ...(obj.items && { items: obj.items.map(RestApi.filterSensitiveLog) })
   });
   export const isa = (o: any): o is RestApis => __isa(o, "RestApis");
 }
@@ -6595,8 +6569,8 @@ export namespace SdkType {
   export const filterSensitiveLog = (obj: SdkType) => ({
     ...obj,
     ...(obj.configurationProperties && {
-      configurationProperties: obj.configurationProperties.map(item =>
-        item.map(SdkConfigurationProperty.filterSensitiveLog)
+      configurationProperties: obj.configurationProperties.map(
+        SdkConfigurationProperty.filterSensitiveLog
       )
     })
   });
@@ -6617,9 +6591,7 @@ export interface SdkTypes {
 export namespace SdkTypes {
   export const filterSensitiveLog = (obj: SdkTypes) => ({
     ...obj,
-    ...(obj.items && {
-      items: obj.items.map(item => item.map(SdkType.filterSensitiveLog))
-    })
+    ...(obj.items && { items: obj.items.map(SdkType.filterSensitiveLog) })
   });
   export const isa = (o: any): o is SdkTypes => __isa(o, "SdkTypes");
 }
@@ -6774,9 +6746,7 @@ export interface Stages {
 export namespace Stages {
   export const filterSensitiveLog = (obj: Stages) => ({
     ...obj,
-    ...(obj.item && {
-      item: obj.item.map(item => item.map(Stage.filterSensitiveLog))
-    })
+    ...(obj.item && { item: obj.item.map(Stage.filterSensitiveLog) })
   });
   export const isa = (o: any): o is Stages => __isa(o, "Stages");
 }
@@ -7133,8 +7103,8 @@ export namespace UpdateAccountRequest {
   export const filterSensitiveLog = (obj: UpdateAccountRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7167,8 +7137,8 @@ export namespace UpdateApiKeyRequest {
   export const filterSensitiveLog = (obj: UpdateApiKeyRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7206,8 +7176,8 @@ export namespace UpdateAuthorizerRequest {
   export const filterSensitiveLog = (obj: UpdateAuthorizerRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7246,8 +7216,8 @@ export namespace UpdateBasePathMappingRequest {
   export const filterSensitiveLog = (obj: UpdateBasePathMappingRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7280,8 +7250,8 @@ export namespace UpdateClientCertificateRequest {
   export const filterSensitiveLog = (obj: UpdateClientCertificateRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7319,8 +7289,8 @@ export namespace UpdateDeploymentRequest {
   export const filterSensitiveLog = (obj: UpdateDeploymentRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7358,8 +7328,8 @@ export namespace UpdateDocumentationPartRequest {
   export const filterSensitiveLog = (obj: UpdateDocumentationPartRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7399,8 +7369,8 @@ export namespace UpdateDocumentationVersionRequest {
   ) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7433,8 +7403,8 @@ export namespace UpdateDomainNameRequest {
   export const filterSensitiveLog = (obj: UpdateDomainNameRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7472,8 +7442,8 @@ export namespace UpdateGatewayResponseRequest {
   export const filterSensitiveLog = (obj: UpdateGatewayResponseRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7516,8 +7486,8 @@ export namespace UpdateIntegrationRequest {
   export const filterSensitiveLog = (obj: UpdateIntegrationRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7567,8 +7537,8 @@ export namespace UpdateIntegrationResponseRequest {
   ) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7611,8 +7581,8 @@ export namespace UpdateMethodRequest {
   export const filterSensitiveLog = (obj: UpdateMethodRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7660,8 +7630,8 @@ export namespace UpdateMethodResponseRequest {
   export const filterSensitiveLog = (obj: UpdateMethodResponseRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7699,8 +7669,8 @@ export namespace UpdateModelRequest {
   export const filterSensitiveLog = (obj: UpdateModelRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7738,8 +7708,8 @@ export namespace UpdateRequestValidatorRequest {
   export const filterSensitiveLog = (obj: UpdateRequestValidatorRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7777,8 +7747,8 @@ export namespace UpdateResourceRequest {
   export const filterSensitiveLog = (obj: UpdateResourceRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7811,8 +7781,8 @@ export namespace UpdateRestApiRequest {
   export const filterSensitiveLog = (obj: UpdateRestApiRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7850,8 +7820,8 @@ export namespace UpdateStageRequest {
   export const filterSensitiveLog = (obj: UpdateStageRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7883,8 +7853,8 @@ export namespace UpdateUsagePlanRequest {
   export const filterSensitiveLog = (obj: UpdateUsagePlanRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7921,8 +7891,8 @@ export namespace UpdateUsageRequest {
   export const filterSensitiveLog = (obj: UpdateUsageRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -7954,8 +7924,8 @@ export namespace UpdateVpcLinkRequest {
   export const filterSensitiveLog = (obj: UpdateVpcLinkRequest) => ({
     ...obj,
     ...(obj.patchOperations && {
-      patchOperations: obj.patchOperations.map(item =>
-        item.map(PatchOperation.filterSensitiveLog)
+      patchOperations: obj.patchOperations.map(
+        PatchOperation.filterSensitiveLog
       )
     })
   });
@@ -8062,9 +8032,7 @@ export namespace UsagePlan {
   export const filterSensitiveLog = (obj: UsagePlan) => ({
     ...obj,
     ...(obj.apiStages && {
-      apiStages: obj.apiStages.map(item =>
-        item.map(ApiStage.filterSensitiveLog)
-      )
+      apiStages: obj.apiStages.map(ApiStage.filterSensitiveLog)
     }),
     ...(obj.quota && { quota: QuotaSettings.filterSensitiveLog(obj.quota) }),
     ...(obj.throttle && {
@@ -8135,9 +8103,7 @@ export interface UsagePlanKeys {
 export namespace UsagePlanKeys {
   export const filterSensitiveLog = (obj: UsagePlanKeys) => ({
     ...obj,
-    ...(obj.items && {
-      items: obj.items.map(item => item.map(UsagePlanKey.filterSensitiveLog))
-    })
+    ...(obj.items && { items: obj.items.map(UsagePlanKey.filterSensitiveLog) })
   });
   export const isa = (o: any): o is UsagePlanKeys => __isa(o, "UsagePlanKeys");
 }
@@ -8164,9 +8130,7 @@ export interface UsagePlans {
 export namespace UsagePlans {
   export const filterSensitiveLog = (obj: UsagePlans) => ({
     ...obj,
-    ...(obj.items && {
-      items: obj.items.map(item => item.map(UsagePlan.filterSensitiveLog))
-    })
+    ...(obj.items && { items: obj.items.map(UsagePlan.filterSensitiveLog) })
   });
   export const isa = (o: any): o is UsagePlans => __isa(o, "UsagePlans");
 }
@@ -8256,9 +8220,7 @@ export interface VpcLinks {
 export namespace VpcLinks {
   export const filterSensitiveLog = (obj: VpcLinks) => ({
     ...obj,
-    ...(obj.items && {
-      items: obj.items.map(item => item.map(VpcLink.filterSensitiveLog))
-    })
+    ...(obj.items && { items: obj.items.map(VpcLink.filterSensitiveLog) })
   });
   export const isa = (o: any): o is VpcLinks => __isa(o, "VpcLinks");
 }

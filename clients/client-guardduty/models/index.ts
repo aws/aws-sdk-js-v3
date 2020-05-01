@@ -592,9 +592,7 @@ export namespace CreateMembersRequest {
   export const filterSensitiveLog = (obj: CreateMembersRequest) => ({
     ...obj,
     ...(obj.AccountDetails && {
-      AccountDetails: obj.AccountDetails.map(item =>
-        item.map(AccountDetail.filterSensitiveLog)
-      )
+      AccountDetails: obj.AccountDetails.map(AccountDetail.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateMembersRequest =>
@@ -614,8 +612,8 @@ export namespace CreateMembersResponse {
   export const filterSensitiveLog = (obj: CreateMembersResponse) => ({
     ...obj,
     ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        item.map(UnprocessedAccount.filterSensitiveLog)
+      UnprocessedAccounts: obj.UnprocessedAccounts.map(
+        UnprocessedAccount.filterSensitiveLog
       )
     })
   });
@@ -810,8 +808,8 @@ export namespace DeclineInvitationsResponse {
   export const filterSensitiveLog = (obj: DeclineInvitationsResponse) => ({
     ...obj,
     ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        item.map(UnprocessedAccount.filterSensitiveLog)
+      UnprocessedAccounts: obj.UnprocessedAccounts.map(
+        UnprocessedAccount.filterSensitiveLog
       )
     })
   });
@@ -943,8 +941,8 @@ export namespace DeleteInvitationsResponse {
   export const filterSensitiveLog = (obj: DeleteInvitationsResponse) => ({
     ...obj,
     ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        item.map(UnprocessedAccount.filterSensitiveLog)
+      UnprocessedAccounts: obj.UnprocessedAccounts.map(
+        UnprocessedAccount.filterSensitiveLog
       )
     })
   });
@@ -986,8 +984,8 @@ export namespace DeleteMembersResponse {
   export const filterSensitiveLog = (obj: DeleteMembersResponse) => ({
     ...obj,
     ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        item.map(UnprocessedAccount.filterSensitiveLog)
+      UnprocessedAccounts: obj.UnprocessedAccounts.map(
+        UnprocessedAccount.filterSensitiveLog
       )
     })
   });
@@ -1265,8 +1263,8 @@ export namespace DisassociateMembersResponse {
   export const filterSensitiveLog = (obj: DisassociateMembersResponse) => ({
     ...obj,
     ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        item.map(UnprocessedAccount.filterSensitiveLog)
+      UnprocessedAccounts: obj.UnprocessedAccounts.map(
+        UnprocessedAccount.filterSensitiveLog
       )
     })
   });
@@ -1326,8 +1324,8 @@ export namespace Evidence {
   export const filterSensitiveLog = (obj: Evidence) => ({
     ...obj,
     ...(obj.ThreatIntelligenceDetails && {
-      ThreatIntelligenceDetails: obj.ThreatIntelligenceDetails.map(item =>
-        item.map(ThreatIntelligenceDetail.filterSensitiveLog)
+      ThreatIntelligenceDetails: obj.ThreatIntelligenceDetails.map(
+        ThreatIntelligenceDetail.filterSensitiveLog
       )
     })
   });
@@ -1675,7 +1673,7 @@ export namespace GetFindingsResponse {
   export const filterSensitiveLog = (obj: GetFindingsResponse) => ({
     ...obj,
     ...(obj.Findings && {
-      Findings: obj.Findings.map(item => item.map(Finding.filterSensitiveLog))
+      Findings: obj.Findings.map(Finding.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetFindingsResponse =>
@@ -1891,12 +1889,10 @@ export interface GetMembersResponse {
 export namespace GetMembersResponse {
   export const filterSensitiveLog = (obj: GetMembersResponse) => ({
     ...obj,
-    ...(obj.Members && {
-      Members: obj.Members.map(item => item.map(Member.filterSensitiveLog))
-    }),
+    ...(obj.Members && { Members: obj.Members.map(Member.filterSensitiveLog) }),
     ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        item.map(UnprocessedAccount.filterSensitiveLog)
+      UnprocessedAccounts: obj.UnprocessedAccounts.map(
+        UnprocessedAccount.filterSensitiveLog
       )
     })
   });
@@ -2062,18 +2058,14 @@ export namespace InstanceDetails {
       )
     }),
     ...(obj.NetworkInterfaces && {
-      NetworkInterfaces: obj.NetworkInterfaces.map(item =>
-        item.map(NetworkInterface.filterSensitiveLog)
+      NetworkInterfaces: obj.NetworkInterfaces.map(
+        NetworkInterface.filterSensitiveLog
       )
     }),
     ...(obj.ProductCodes && {
-      ProductCodes: obj.ProductCodes.map(item =>
-        item.map(ProductCode.filterSensitiveLog)
-      )
+      ProductCodes: obj.ProductCodes.map(ProductCode.filterSensitiveLog)
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is InstanceDetails =>
     __isa(o, "InstanceDetails");
@@ -2188,8 +2180,8 @@ export namespace InviteMembersResponse {
   export const filterSensitiveLog = (obj: InviteMembersResponse) => ({
     ...obj,
     ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        item.map(UnprocessedAccount.filterSensitiveLog)
+      UnprocessedAccounts: obj.UnprocessedAccounts.map(
+        UnprocessedAccount.filterSensitiveLog
       )
     })
   });
@@ -2630,9 +2622,7 @@ export namespace ListInvitationsResponse {
   export const filterSensitiveLog = (obj: ListInvitationsResponse) => ({
     ...obj,
     ...(obj.Invitations && {
-      Invitations: obj.Invitations.map(item =>
-        item.map(Invitation.filterSensitiveLog)
-      )
+      Invitations: obj.Invitations.map(Invitation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListInvitationsResponse =>
@@ -2691,9 +2681,7 @@ export interface ListMembersResponse {
 export namespace ListMembersResponse {
   export const filterSensitiveLog = (obj: ListMembersResponse) => ({
     ...obj,
-    ...(obj.Members && {
-      Members: obj.Members.map(item => item.map(Member.filterSensitiveLog))
-    })
+    ...(obj.Members && { Members: obj.Members.map(Member.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListMembersResponse =>
     __isa(o, "ListMembersResponse");
@@ -2753,9 +2741,7 @@ export namespace ListPublishingDestinationsResponse {
   ) => ({
     ...obj,
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(Destination.filterSensitiveLog)
-      )
+      Destinations: obj.Destinations.map(Destination.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListPublishingDestinationsResponse =>
@@ -3067,14 +3053,12 @@ export namespace NetworkInterface {
   export const filterSensitiveLog = (obj: NetworkInterface) => ({
     ...obj,
     ...(obj.PrivateIpAddresses && {
-      PrivateIpAddresses: obj.PrivateIpAddresses.map(item =>
-        item.map(PrivateIpAddressDetails.filterSensitiveLog)
+      PrivateIpAddresses: obj.PrivateIpAddresses.map(
+        PrivateIpAddressDetails.filterSensitiveLog
       )
     }),
     ...(obj.SecurityGroups && {
-      SecurityGroups: obj.SecurityGroups.map(item =>
-        item.map(SecurityGroup.filterSensitiveLog)
-      )
+      SecurityGroups: obj.SecurityGroups.map(SecurityGroup.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is NetworkInterface =>
@@ -3139,8 +3123,8 @@ export namespace PortProbeAction {
   export const filterSensitiveLog = (obj: PortProbeAction) => ({
     ...obj,
     ...(obj.PortProbeDetails && {
-      PortProbeDetails: obj.PortProbeDetails.map(item =>
-        item.map(PortProbeDetail.filterSensitiveLog)
+      PortProbeDetails: obj.PortProbeDetails.map(
+        PortProbeDetail.filterSensitiveLog
       )
     })
   });
@@ -3492,8 +3476,8 @@ export namespace StartMonitoringMembersResponse {
   export const filterSensitiveLog = (obj: StartMonitoringMembersResponse) => ({
     ...obj,
     ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        item.map(UnprocessedAccount.filterSensitiveLog)
+      UnprocessedAccounts: obj.UnprocessedAccounts.map(
+        UnprocessedAccount.filterSensitiveLog
       )
     })
   });
@@ -3537,8 +3521,8 @@ export namespace StopMonitoringMembersResponse {
   export const filterSensitiveLog = (obj: StopMonitoringMembersResponse) => ({
     ...obj,
     ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        item.map(UnprocessedAccount.filterSensitiveLog)
+      UnprocessedAccounts: obj.UnprocessedAccounts.map(
+        UnprocessedAccount.filterSensitiveLog
       )
     })
   });

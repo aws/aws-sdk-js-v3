@@ -264,9 +264,7 @@ export namespace GetLifecyclePoliciesResponse {
   export const filterSensitiveLog = (obj: GetLifecyclePoliciesResponse) => ({
     ...obj,
     ...(obj.Policies && {
-      Policies: obj.Policies.map(item =>
-        item.map(LifecyclePolicySummary.filterSensitiveLog)
-      )
+      Policies: obj.Policies.map(LifecyclePolicySummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetLifecyclePoliciesResponse =>
@@ -580,12 +578,10 @@ export namespace PolicyDetails {
       Parameters: _Parameters.filterSensitiveLog(obj.Parameters)
     }),
     ...(obj.Schedules && {
-      Schedules: obj.Schedules.map(item =>
-        item.map(Schedule.filterSensitiveLog)
-      )
+      Schedules: obj.Schedules.map(Schedule.filterSensitiveLog)
     }),
     ...(obj.TargetTags && {
-      TargetTags: obj.TargetTags.map(item => item.map(Tag.filterSensitiveLog))
+      TargetTags: obj.TargetTags.map(Tag.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is PolicyDetails => __isa(o, "PolicyDetails");
@@ -717,8 +713,8 @@ export namespace Schedule {
       CreateRule: CreateRule.filterSensitiveLog(obj.CreateRule)
     }),
     ...(obj.CrossRegionCopyRules && {
-      CrossRegionCopyRules: obj.CrossRegionCopyRules.map(item =>
-        item.map(CrossRegionCopyRule.filterSensitiveLog)
+      CrossRegionCopyRules: obj.CrossRegionCopyRules.map(
+        CrossRegionCopyRule.filterSensitiveLog
       )
     }),
     ...(obj.FastRestoreRule && {
@@ -728,12 +724,10 @@ export namespace Schedule {
       RetainRule: RetainRule.filterSensitiveLog(obj.RetainRule)
     }),
     ...(obj.TagsToAdd && {
-      TagsToAdd: obj.TagsToAdd.map(item => item.map(Tag.filterSensitiveLog))
+      TagsToAdd: obj.TagsToAdd.map(Tag.filterSensitiveLog)
     }),
     ...(obj.VariableTags && {
-      VariableTags: obj.VariableTags.map(item =>
-        item.map(Tag.filterSensitiveLog)
-      )
+      VariableTags: obj.VariableTags.map(Tag.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Schedule => __isa(o, "Schedule");

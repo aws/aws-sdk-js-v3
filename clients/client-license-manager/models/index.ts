@@ -162,13 +162,11 @@ export namespace CreateLicenseConfigurationRequest {
   ) => ({
     ...obj,
     ...(obj.ProductInformationList && {
-      ProductInformationList: obj.ProductInformationList.map(item =>
-        item.map(ProductInformation.filterSensitiveLog)
+      ProductInformationList: obj.ProductInformationList.map(
+        ProductInformation.filterSensitiveLog
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateLicenseConfigurationRequest =>
     __isa(o, "CreateLicenseConfigurationRequest");
@@ -395,23 +393,21 @@ export namespace GetLicenseConfigurationResponse {
       )
     }),
     ...(obj.ConsumedLicenseSummaryList && {
-      ConsumedLicenseSummaryList: obj.ConsumedLicenseSummaryList.map(item =>
-        item.map(ConsumedLicenseSummary.filterSensitiveLog)
+      ConsumedLicenseSummaryList: obj.ConsumedLicenseSummaryList.map(
+        ConsumedLicenseSummary.filterSensitiveLog
       )
     }),
     ...(obj.ManagedResourceSummaryList && {
-      ManagedResourceSummaryList: obj.ManagedResourceSummaryList.map(item =>
-        item.map(ManagedResourceSummary.filterSensitiveLog)
+      ManagedResourceSummaryList: obj.ManagedResourceSummaryList.map(
+        ManagedResourceSummary.filterSensitiveLog
       )
     }),
     ...(obj.ProductInformationList && {
-      ProductInformationList: obj.ProductInformationList.map(item =>
-        item.map(ProductInformation.filterSensitiveLog)
+      ProductInformationList: obj.ProductInformationList.map(
+        ProductInformation.filterSensitiveLog
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is GetLicenseConfigurationResponse =>
     __isa(o, "GetLicenseConfigurationResponse");
@@ -643,18 +639,18 @@ export namespace LicenseConfiguration {
       )
     }),
     ...(obj.ConsumedLicenseSummaryList && {
-      ConsumedLicenseSummaryList: obj.ConsumedLicenseSummaryList.map(item =>
-        item.map(ConsumedLicenseSummary.filterSensitiveLog)
+      ConsumedLicenseSummaryList: obj.ConsumedLicenseSummaryList.map(
+        ConsumedLicenseSummary.filterSensitiveLog
       )
     }),
     ...(obj.ManagedResourceSummaryList && {
-      ManagedResourceSummaryList: obj.ManagedResourceSummaryList.map(item =>
-        item.map(ManagedResourceSummary.filterSensitiveLog)
+      ManagedResourceSummaryList: obj.ManagedResourceSummaryList.map(
+        ManagedResourceSummary.filterSensitiveLog
       )
     }),
     ...(obj.ProductInformationList && {
-      ProductInformationList: obj.ProductInformationList.map(item =>
-        item.map(ProductInformation.filterSensitiveLog)
+      ProductInformationList: obj.ProductInformationList.map(
+        ProductInformation.filterSensitiveLog
       )
     })
   });
@@ -802,9 +798,7 @@ export namespace LicenseOperationFailure {
   export const filterSensitiveLog = (obj: LicenseOperationFailure) => ({
     ...obj,
     ...(obj.MetadataList && {
-      MetadataList: obj.MetadataList.map(item =>
-        item.map(Metadata.filterSensitiveLog)
-      )
+      MetadataList: obj.MetadataList.map(Metadata.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is LicenseOperationFailure =>
@@ -899,7 +893,7 @@ export namespace ListAssociationsForLicenseConfigurationResponse {
     ...obj,
     ...(obj.LicenseConfigurationAssociations && {
       LicenseConfigurationAssociations: obj.LicenseConfigurationAssociations.map(
-        item => item.map(LicenseConfigurationAssociation.filterSensitiveLog)
+        LicenseConfigurationAssociation.filterSensitiveLog
       )
     })
   });
@@ -958,8 +952,8 @@ export namespace ListFailuresForLicenseConfigurationOperationsResponse {
   ) => ({
     ...obj,
     ...(obj.LicenseOperationFailureList && {
-      LicenseOperationFailureList: obj.LicenseOperationFailureList.map(item =>
-        item.map(LicenseOperationFailure.filterSensitiveLog)
+      LicenseOperationFailureList: obj.LicenseOperationFailureList.map(
+        LicenseOperationFailure.filterSensitiveLog
       )
     })
   });
@@ -1015,9 +1009,7 @@ export namespace ListLicenseConfigurationsRequest {
     obj: ListLicenseConfigurationsRequest
   ) => ({
     ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListLicenseConfigurationsRequest =>
     __isa(o, "ListLicenseConfigurationsRequest");
@@ -1042,8 +1034,8 @@ export namespace ListLicenseConfigurationsResponse {
   ) => ({
     ...obj,
     ...(obj.LicenseConfigurations && {
-      LicenseConfigurations: obj.LicenseConfigurations.map(item =>
-        item.map(LicenseConfiguration.filterSensitiveLog)
+      LicenseConfigurations: obj.LicenseConfigurations.map(
+        LicenseConfiguration.filterSensitiveLog
       )
     })
   });
@@ -1100,8 +1092,8 @@ export namespace ListLicenseSpecificationsForResourceResponse {
   ) => ({
     ...obj,
     ...(obj.LicenseSpecifications && {
-      LicenseSpecifications: obj.LicenseSpecifications.map(item =>
-        item.map(LicenseSpecification.filterSensitiveLog)
+      LicenseSpecifications: obj.LicenseSpecifications.map(
+        LicenseSpecification.filterSensitiveLog
       )
     })
   });
@@ -1165,9 +1157,7 @@ export namespace ListResourceInventoryRequest {
   export const filterSensitiveLog = (obj: ListResourceInventoryRequest) => ({
     ...obj,
     ...(obj.Filters && {
-      Filters: obj.Filters.map(item =>
-        item.map(InventoryFilter.filterSensitiveLog)
-      )
+      Filters: obj.Filters.map(InventoryFilter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListResourceInventoryRequest =>
@@ -1191,8 +1181,8 @@ export namespace ListResourceInventoryResponse {
   export const filterSensitiveLog = (obj: ListResourceInventoryResponse) => ({
     ...obj,
     ...(obj.ResourceInventoryList && {
-      ResourceInventoryList: obj.ResourceInventoryList.map(item =>
-        item.map(ResourceInventory.filterSensitiveLog)
+      ResourceInventoryList: obj.ResourceInventoryList.map(
+        ResourceInventory.filterSensitiveLog
       )
     })
   });
@@ -1227,9 +1217,7 @@ export interface ListTagsForResourceResponse {
 export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -1281,9 +1269,7 @@ export namespace ListUsageForLicenseConfigurationRequest {
     obj: ListUsageForLicenseConfigurationRequest
   ) => ({
     ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListUsageForLicenseConfigurationRequest =>
     __isa(o, "ListUsageForLicenseConfigurationRequest");
@@ -1309,7 +1295,7 @@ export namespace ListUsageForLicenseConfigurationResponse {
     ...obj,
     ...(obj.LicenseConfigurationUsageList && {
       LicenseConfigurationUsageList: obj.LicenseConfigurationUsageList.map(
-        item => item.map(LicenseConfigurationUsage.filterSensitiveLog)
+        LicenseConfigurationUsage.filterSensitiveLog
       )
     })
   });
@@ -1440,8 +1426,8 @@ export namespace ProductInformation {
   export const filterSensitiveLog = (obj: ProductInformation) => ({
     ...obj,
     ...(obj.ProductInformationFilterList && {
-      ProductInformationFilterList: obj.ProductInformationFilterList.map(item =>
-        item.map(ProductInformationFilter.filterSensitiveLog)
+      ProductInformationFilterList: obj.ProductInformationFilterList.map(
+        ProductInformationFilter.filterSensitiveLog
       )
     })
   });
@@ -1626,9 +1612,7 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -1728,8 +1712,8 @@ export namespace UpdateLicenseConfigurationRequest {
   ) => ({
     ...obj,
     ...(obj.ProductInformationList && {
-      ProductInformationList: obj.ProductInformationList.map(item =>
-        item.map(ProductInformation.filterSensitiveLog)
+      ProductInformationList: obj.ProductInformationList.map(
+        ProductInformation.filterSensitiveLog
       )
     })
   });
@@ -1775,13 +1759,13 @@ export namespace UpdateLicenseSpecificationsForResourceRequest {
   ) => ({
     ...obj,
     ...(obj.AddLicenseSpecifications && {
-      AddLicenseSpecifications: obj.AddLicenseSpecifications.map(item =>
-        item.map(LicenseSpecification.filterSensitiveLog)
+      AddLicenseSpecifications: obj.AddLicenseSpecifications.map(
+        LicenseSpecification.filterSensitiveLog
       )
     }),
     ...(obj.RemoveLicenseSpecifications && {
-      RemoveLicenseSpecifications: obj.RemoveLicenseSpecifications.map(item =>
-        item.map(LicenseSpecification.filterSensitiveLog)
+      RemoveLicenseSpecifications: obj.RemoveLicenseSpecifications.map(
+        LicenseSpecification.filterSensitiveLog
       )
     })
   });

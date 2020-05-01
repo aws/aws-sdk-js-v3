@@ -265,9 +265,7 @@ export namespace CreateDeliveryStreamInput {
         obj.SplunkDestinationConfiguration
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateDeliveryStreamInput =>
     __isa(o, "CreateDeliveryStreamInput");
@@ -480,8 +478,8 @@ export namespace DeliveryStreamDescription {
       )
     }),
     ...(obj.Destinations && {
-      Destinations: obj.Destinations.map(item =>
-        item.map(DestinationDescription.filterSensitiveLog)
+      Destinations: obj.Destinations.map(
+        DestinationDescription.filterSensitiveLog
       )
     }),
     ...(obj.FailureDescription && {
@@ -1882,9 +1880,7 @@ export interface ListTagsForDeliveryStreamOutput {
 export namespace ListTagsForDeliveryStreamOutput {
   export const filterSensitiveLog = (obj: ListTagsForDeliveryStreamOutput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsForDeliveryStreamOutput =>
     __isa(o, "ListTagsForDeliveryStreamOutput");
@@ -2130,9 +2126,7 @@ export namespace ProcessingConfiguration {
   export const filterSensitiveLog = (obj: ProcessingConfiguration) => ({
     ...obj,
     ...(obj.Processors && {
-      Processors: obj.Processors.map(item =>
-        item.map(Processor.filterSensitiveLog)
-      )
+      Processors: obj.Processors.map(Processor.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ProcessingConfiguration =>
@@ -2159,9 +2153,7 @@ export namespace Processor {
   export const filterSensitiveLog = (obj: Processor) => ({
     ...obj,
     ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item =>
-        item.map(ProcessorParameter.filterSensitiveLog)
-      )
+      Parameters: obj.Parameters.map(ProcessorParameter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Processor => __isa(o, "Processor");
@@ -2217,9 +2209,7 @@ export interface PutRecordBatchInput {
 export namespace PutRecordBatchInput {
   export const filterSensitiveLog = (obj: PutRecordBatchInput) => ({
     ...obj,
-    ...(obj.Records && {
-      Records: obj.Records.map(item => item.map(_Record.filterSensitiveLog))
-    })
+    ...(obj.Records && { Records: obj.Records.map(_Record.filterSensitiveLog) })
   });
   export const isa = (o: any): o is PutRecordBatchInput =>
     __isa(o, "PutRecordBatchInput");
@@ -2251,8 +2241,8 @@ export namespace PutRecordBatchOutput {
   export const filterSensitiveLog = (obj: PutRecordBatchOutput) => ({
     ...obj,
     ...(obj.RequestResponses && {
-      RequestResponses: obj.RequestResponses.map(item =>
-        item.map(PutRecordBatchResponseEntry.filterSensitiveLog)
+      RequestResponses: obj.RequestResponses.map(
+        PutRecordBatchResponseEntry.filterSensitiveLog
       )
     })
   });
@@ -3499,9 +3489,7 @@ export interface TagDeliveryStreamInput {
 export namespace TagDeliveryStreamInput {
   export const filterSensitiveLog = (obj: TagDeliveryStreamInput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagDeliveryStreamInput =>
     __isa(o, "TagDeliveryStreamInput");

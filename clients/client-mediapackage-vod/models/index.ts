@@ -112,9 +112,7 @@ export namespace CmafPackage {
       Encryption: CmafEncryption.filterSensitiveLog(obj.Encryption)
     }),
     ...(obj.HlsManifests && {
-      HlsManifests: obj.HlsManifests.map(item =>
-        item.map(HlsManifest.filterSensitiveLog)
-      )
+      HlsManifests: obj.HlsManifests.map(HlsManifest.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CmafPackage => __isa(o, "CmafPackage");
@@ -206,8 +204,8 @@ export namespace CreateAssetResponse {
   export const filterSensitiveLog = (obj: CreateAssetResponse) => ({
     ...obj,
     ...(obj.EgressEndpoints && {
-      EgressEndpoints: obj.EgressEndpoints.map(item =>
-        item.map(EgressEndpoint.filterSensitiveLog)
+      EgressEndpoints: obj.EgressEndpoints.map(
+        EgressEndpoint.filterSensitiveLog
       )
     })
   });
@@ -464,9 +462,7 @@ export namespace DashPackage {
   export const filterSensitiveLog = (obj: DashPackage) => ({
     ...obj,
     ...(obj.DashManifests && {
-      DashManifests: obj.DashManifests.map(item =>
-        item.map(DashManifest.filterSensitiveLog)
-      )
+      DashManifests: obj.DashManifests.map(DashManifest.filterSensitiveLog)
     }),
     ...(obj.Encryption && {
       Encryption: DashEncryption.filterSensitiveLog(obj.Encryption)
@@ -626,8 +622,8 @@ export namespace DescribeAssetResponse {
   export const filterSensitiveLog = (obj: DescribeAssetResponse) => ({
     ...obj,
     ...(obj.EgressEndpoints && {
-      EgressEndpoints: obj.EgressEndpoints.map(item =>
-        item.map(EgressEndpoint.filterSensitiveLog)
+      EgressEndpoints: obj.EgressEndpoints.map(
+        EgressEndpoint.filterSensitiveLog
       )
     })
   });
@@ -928,9 +924,7 @@ export namespace HlsPackage {
       Encryption: HlsEncryption.filterSensitiveLog(obj.Encryption)
     }),
     ...(obj.HlsManifests && {
-      HlsManifests: obj.HlsManifests.map(item =>
-        item.map(HlsManifest.filterSensitiveLog)
-      )
+      HlsManifests: obj.HlsManifests.map(HlsManifest.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is HlsPackage => __isa(o, "HlsPackage");
@@ -998,7 +992,7 @@ export namespace ListAssetsResponse {
   export const filterSensitiveLog = (obj: ListAssetsResponse) => ({
     ...obj,
     ...(obj.Assets && {
-      Assets: obj.Assets.map(item => item.map(AssetShallow.filterSensitiveLog))
+      Assets: obj.Assets.map(AssetShallow.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListAssetsResponse =>
@@ -1052,8 +1046,8 @@ export namespace ListPackagingConfigurationsResponse {
   ) => ({
     ...obj,
     ...(obj.PackagingConfigurations && {
-      PackagingConfigurations: obj.PackagingConfigurations.map(item =>
-        item.map(PackagingConfiguration.filterSensitiveLog)
+      PackagingConfigurations: obj.PackagingConfigurations.map(
+        PackagingConfiguration.filterSensitiveLog
       )
     })
   });
@@ -1099,8 +1093,8 @@ export namespace ListPackagingGroupsResponse {
   export const filterSensitiveLog = (obj: ListPackagingGroupsResponse) => ({
     ...obj,
     ...(obj.PackagingGroups && {
-      PackagingGroups: obj.PackagingGroups.map(item =>
-        item.map(PackagingGroup.filterSensitiveLog)
+      PackagingGroups: obj.PackagingGroups.map(
+        PackagingGroup.filterSensitiveLog
       )
     })
   });
@@ -1185,9 +1179,7 @@ export namespace MssPackage {
       Encryption: MssEncryption.filterSensitiveLog(obj.Encryption)
     }),
     ...(obj.MssManifests && {
-      MssManifests: obj.MssManifests.map(item =>
-        item.map(MssManifest.filterSensitiveLog)
-      )
+      MssManifests: obj.MssManifests.map(MssManifest.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is MssPackage => __isa(o, "MssPackage");

@@ -181,8 +181,8 @@ export namespace DescribeAffectedEntitiesForOrganizationRequest {
   ) => ({
     ...obj,
     ...(obj.organizationEntityFilters && {
-      organizationEntityFilters: obj.organizationEntityFilters.map(item =>
-        item.map(EventAccountFilter.filterSensitiveLog)
+      organizationEntityFilters: obj.organizationEntityFilters.map(
+        EventAccountFilter.filterSensitiveLog
       )
     })
   });
@@ -222,13 +222,11 @@ export namespace DescribeAffectedEntitiesForOrganizationResponse {
   ) => ({
     ...obj,
     ...(obj.entities && {
-      entities: obj.entities.map(item =>
-        item.map(AffectedEntity.filterSensitiveLog)
-      )
+      entities: obj.entities.map(AffectedEntity.filterSensitiveLog)
     }),
     ...(obj.failedSet && {
-      failedSet: obj.failedSet.map(item =>
-        item.map(OrganizationAffectedEntitiesErrorItem.filterSensitiveLog)
+      failedSet: obj.failedSet.map(
+        OrganizationAffectedEntitiesErrorItem.filterSensitiveLog
       )
     })
   });
@@ -295,9 +293,7 @@ export namespace DescribeAffectedEntitiesResponse {
   ) => ({
     ...obj,
     ...(obj.entities && {
-      entities: obj.entities.map(item =>
-        item.map(AffectedEntity.filterSensitiveLog)
-      )
+      entities: obj.entities.map(AffectedEntity.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeAffectedEntitiesResponse =>
@@ -335,8 +331,8 @@ export namespace DescribeEntityAggregatesResponse {
   ) => ({
     ...obj,
     ...(obj.entityAggregates && {
-      entityAggregates: obj.entityAggregates.map(item =>
-        item.map(EntityAggregate.filterSensitiveLog)
+      entityAggregates: obj.entityAggregates.map(
+        EntityAggregate.filterSensitiveLog
       )
     })
   });
@@ -400,8 +396,8 @@ export namespace DescribeEventAggregatesResponse {
   export const filterSensitiveLog = (obj: DescribeEventAggregatesResponse) => ({
     ...obj,
     ...(obj.eventAggregates && {
-      eventAggregates: obj.eventAggregates.map(item =>
-        item.map(EventAggregate.filterSensitiveLog)
+      eventAggregates: obj.eventAggregates.map(
+        EventAggregate.filterSensitiveLog
       )
     })
   });
@@ -430,7 +426,7 @@ export namespace DescribeEventDetailsForOrganizationRequest {
     ...obj,
     ...(obj.organizationEventDetailFilters && {
       organizationEventDetailFilters: obj.organizationEventDetailFilters.map(
-        item => item.map(EventAccountFilter.filterSensitiveLog)
+        EventAccountFilter.filterSensitiveLog
       )
     })
   });
@@ -459,13 +455,13 @@ export namespace DescribeEventDetailsForOrganizationResponse {
   ) => ({
     ...obj,
     ...(obj.failedSet && {
-      failedSet: obj.failedSet.map(item =>
-        item.map(OrganizationEventDetailsErrorItem.filterSensitiveLog)
+      failedSet: obj.failedSet.map(
+        OrganizationEventDetailsErrorItem.filterSensitiveLog
       )
     }),
     ...(obj.successfulSet && {
-      successfulSet: obj.successfulSet.map(item =>
-        item.map(OrganizationEventDetails.filterSensitiveLog)
+      successfulSet: obj.successfulSet.map(
+        OrganizationEventDetails.filterSensitiveLog
       )
     })
   });
@@ -514,14 +510,10 @@ export namespace DescribeEventDetailsResponse {
   export const filterSensitiveLog = (obj: DescribeEventDetailsResponse) => ({
     ...obj,
     ...(obj.failedSet && {
-      failedSet: obj.failedSet.map(item =>
-        item.map(EventDetailsErrorItem.filterSensitiveLog)
-      )
+      failedSet: obj.failedSet.map(EventDetailsErrorItem.filterSensitiveLog)
     }),
     ...(obj.successfulSet && {
-      successfulSet: obj.successfulSet.map(item =>
-        item.map(EventDetails.filterSensitiveLog)
-      )
+      successfulSet: obj.successfulSet.map(EventDetails.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeEventDetailsResponse =>
@@ -591,9 +583,7 @@ export namespace DescribeEventTypesResponse {
   export const filterSensitiveLog = (obj: DescribeEventTypesResponse) => ({
     ...obj,
     ...(obj.eventTypes && {
-      eventTypes: obj.eventTypes.map(item =>
-        item.map(EventType.filterSensitiveLog)
-      )
+      eventTypes: obj.eventTypes.map(EventType.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeEventTypesResponse =>
@@ -661,9 +651,7 @@ export namespace DescribeEventsForOrganizationResponse {
   ) => ({
     ...obj,
     ...(obj.events && {
-      events: obj.events.map(item =>
-        item.map(OrganizationEvent.filterSensitiveLog)
-      )
+      events: obj.events.map(OrganizationEvent.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeEventsForOrganizationResponse =>
@@ -724,9 +712,7 @@ export interface DescribeEventsResponse {
 export namespace DescribeEventsResponse {
   export const filterSensitiveLog = (obj: DescribeEventsResponse) => ({
     ...obj,
-    ...(obj.events && {
-      events: obj.events.map(item => item.map(Event.filterSensitiveLog))
-    })
+    ...(obj.events && { events: obj.events.map(Event.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeEventsResponse =>
     __isa(o, "DescribeEventsResponse");
@@ -911,11 +897,11 @@ export namespace EntityFilter {
   export const filterSensitiveLog = (obj: EntityFilter) => ({
     ...obj,
     ...(obj.lastUpdatedTimes && {
-      lastUpdatedTimes: obj.lastUpdatedTimes.map(item =>
-        item.map(DateTimeRange.filterSensitiveLog)
+      lastUpdatedTimes: obj.lastUpdatedTimes.map(
+        DateTimeRange.filterSensitiveLog
       )
     }),
-    ...(obj.tags && { tags: obj.tags.map(item => item.map()) })
+    ...(obj.tags && { tags: obj.tags.map() })
   });
   export const isa = (o: any): o is EntityFilter => __isa(o, "EntityFilter");
 }
@@ -1206,21 +1192,17 @@ export namespace EventFilter {
   export const filterSensitiveLog = (obj: EventFilter) => ({
     ...obj,
     ...(obj.endTimes && {
-      endTimes: obj.endTimes.map(item =>
-        item.map(DateTimeRange.filterSensitiveLog)
-      )
+      endTimes: obj.endTimes.map(DateTimeRange.filterSensitiveLog)
     }),
     ...(obj.lastUpdatedTimes && {
-      lastUpdatedTimes: obj.lastUpdatedTimes.map(item =>
-        item.map(DateTimeRange.filterSensitiveLog)
+      lastUpdatedTimes: obj.lastUpdatedTimes.map(
+        DateTimeRange.filterSensitiveLog
       )
     }),
     ...(obj.startTimes && {
-      startTimes: obj.startTimes.map(item =>
-        item.map(DateTimeRange.filterSensitiveLog)
-      )
+      startTimes: obj.startTimes.map(DateTimeRange.filterSensitiveLog)
     }),
-    ...(obj.tags && { tags: obj.tags.map(item => item.map()) })
+    ...(obj.tags && { tags: obj.tags.map() })
   });
   export const isa = (o: any): o is EventFilter => __isa(o, "EventFilter");
 }

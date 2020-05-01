@@ -410,9 +410,7 @@ export namespace DiscoverInstancesResponse {
   export const filterSensitiveLog = (obj: DiscoverInstancesResponse) => ({
     ...obj,
     ...(obj.Instances && {
-      Instances: obj.Instances.map(item =>
-        item.map(HttpInstanceSummary.filterSensitiveLog)
-      )
+      Instances: obj.Instances.map(HttpInstanceSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DiscoverInstancesResponse =>
@@ -479,9 +477,7 @@ export namespace DnsConfig {
   export const filterSensitiveLog = (obj: DnsConfig) => ({
     ...obj,
     ...(obj.DnsRecords && {
-      DnsRecords: obj.DnsRecords.map(item =>
-        item.map(DnsRecord.filterSensitiveLog)
-      )
+      DnsRecords: obj.DnsRecords.map(DnsRecord.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DnsConfig => __isa(o, "DnsConfig");
@@ -504,9 +500,7 @@ export namespace DnsConfigChange {
   export const filterSensitiveLog = (obj: DnsConfigChange) => ({
     ...obj,
     ...(obj.DnsRecords && {
-      DnsRecords: obj.DnsRecords.map(item =>
-        item.map(DnsRecord.filterSensitiveLog)
-      )
+      DnsRecords: obj.DnsRecords.map(DnsRecord.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DnsConfigChange =>
@@ -1441,9 +1435,7 @@ export namespace ListInstancesResponse {
   export const filterSensitiveLog = (obj: ListInstancesResponse) => ({
     ...obj,
     ...(obj.Instances && {
-      Instances: obj.Instances.map(item =>
-        item.map(InstanceSummary.filterSensitiveLog)
-      )
+      Instances: obj.Instances.map(InstanceSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListInstancesResponse =>
@@ -1481,9 +1473,7 @@ export namespace ListNamespacesRequest {
   export const filterSensitiveLog = (obj: ListNamespacesRequest) => ({
     ...obj,
     ...(obj.Filters && {
-      Filters: obj.Filters.map(item =>
-        item.map(NamespaceFilter.filterSensitiveLog)
-      )
+      Filters: obj.Filters.map(NamespaceFilter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListNamespacesRequest =>
@@ -1513,9 +1503,7 @@ export namespace ListNamespacesResponse {
   export const filterSensitiveLog = (obj: ListNamespacesResponse) => ({
     ...obj,
     ...(obj.Namespaces && {
-      Namespaces: obj.Namespaces.map(item =>
-        item.map(NamespaceSummary.filterSensitiveLog)
-      )
+      Namespaces: obj.Namespaces.map(NamespaceSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListNamespacesResponse =>
@@ -1554,9 +1542,7 @@ export namespace ListOperationsRequest {
   export const filterSensitiveLog = (obj: ListOperationsRequest) => ({
     ...obj,
     ...(obj.Filters && {
-      Filters: obj.Filters.map(item =>
-        item.map(OperationFilter.filterSensitiveLog)
-      )
+      Filters: obj.Filters.map(OperationFilter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListOperationsRequest =>
@@ -1586,9 +1572,7 @@ export namespace ListOperationsResponse {
   export const filterSensitiveLog = (obj: ListOperationsResponse) => ({
     ...obj,
     ...(obj.Operations && {
-      Operations: obj.Operations.map(item =>
-        item.map(OperationSummary.filterSensitiveLog)
-      )
+      Operations: obj.Operations.map(OperationSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListOperationsResponse =>
@@ -1626,9 +1610,7 @@ export namespace ListServicesRequest {
   export const filterSensitiveLog = (obj: ListServicesRequest) => ({
     ...obj,
     ...(obj.Filters && {
-      Filters: obj.Filters.map(item =>
-        item.map(ServiceFilter.filterSensitiveLog)
-      )
+      Filters: obj.Filters.map(ServiceFilter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListServicesRequest =>
@@ -1658,9 +1640,7 @@ export namespace ListServicesResponse {
   export const filterSensitiveLog = (obj: ListServicesResponse) => ({
     ...obj,
     ...(obj.Services && {
-      Services: obj.Services.map(item =>
-        item.map(ServiceSummary.filterSensitiveLog)
-      )
+      Services: obj.Services.map(ServiceSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListServicesResponse =>

@@ -646,8 +646,8 @@ export namespace ListApplicationStatesResult {
   export const filterSensitiveLog = (obj: ListApplicationStatesResult) => ({
     ...obj,
     ...(obj.ApplicationStateList && {
-      ApplicationStateList: obj.ApplicationStateList.map(item =>
-        item.map(ApplicationState.filterSensitiveLog)
+      ApplicationStateList: obj.ApplicationStateList.map(
+        ApplicationState.filterSensitiveLog
       )
     })
   });
@@ -709,8 +709,8 @@ export namespace ListCreatedArtifactsResult {
   export const filterSensitiveLog = (obj: ListCreatedArtifactsResult) => ({
     ...obj,
     ...(obj.CreatedArtifactList && {
-      CreatedArtifactList: obj.CreatedArtifactList.map(item =>
-        item.map(CreatedArtifact.filterSensitiveLog)
+      CreatedArtifactList: obj.CreatedArtifactList.map(
+        CreatedArtifact.filterSensitiveLog
       )
     })
   });
@@ -771,8 +771,8 @@ export namespace ListDiscoveredResourcesResult {
   export const filterSensitiveLog = (obj: ListDiscoveredResourcesResult) => ({
     ...obj,
     ...(obj.DiscoveredResourceList && {
-      DiscoveredResourceList: obj.DiscoveredResourceList.map(item =>
-        item.map(DiscoveredResource.filterSensitiveLog)
+      DiscoveredResourceList: obj.DiscoveredResourceList.map(
+        DiscoveredResource.filterSensitiveLog
       )
     })
   });
@@ -828,8 +828,8 @@ export namespace ListMigrationTasksResult {
   export const filterSensitiveLog = (obj: ListMigrationTasksResult) => ({
     ...obj,
     ...(obj.MigrationTaskSummaryList && {
-      MigrationTaskSummaryList: obj.MigrationTaskSummaryList.map(item =>
-        item.map(MigrationTaskSummary.filterSensitiveLog)
+      MigrationTaskSummaryList: obj.MigrationTaskSummaryList.map(
+        MigrationTaskSummary.filterSensitiveLog
       )
     })
   });
@@ -882,7 +882,7 @@ export namespace ListProgressUpdateStreamsResult {
     ...obj,
     ...(obj.ProgressUpdateStreamSummaryList && {
       ProgressUpdateStreamSummaryList: obj.ProgressUpdateStreamSummaryList.map(
-        item => item.map(ProgressUpdateStreamSummary.filterSensitiveLog)
+        ProgressUpdateStreamSummary.filterSensitiveLog
       )
     })
   });
@@ -928,8 +928,8 @@ export namespace MigrationTask {
   export const filterSensitiveLog = (obj: MigrationTask) => ({
     ...obj,
     ...(obj.ResourceAttributeList && {
-      ResourceAttributeList: obj.ResourceAttributeList.map(item =>
-        item.map(ResourceAttribute.filterSensitiveLog)
+      ResourceAttributeList: obj.ResourceAttributeList.map(
+        ResourceAttribute.filterSensitiveLog
       )
     }),
     ...(obj.Task && { Task: Task.filterSensitiveLog(obj.Task) })
@@ -1190,8 +1190,8 @@ export namespace PutResourceAttributesRequest {
   export const filterSensitiveLog = (obj: PutResourceAttributesRequest) => ({
     ...obj,
     ...(obj.ResourceAttributeList && {
-      ResourceAttributeList: obj.ResourceAttributeList.map(item =>
-        item.map(ResourceAttribute.filterSensitiveLog)
+      ResourceAttributeList: obj.ResourceAttributeList.map(
+        ResourceAttribute.filterSensitiveLog
       )
     })
   });

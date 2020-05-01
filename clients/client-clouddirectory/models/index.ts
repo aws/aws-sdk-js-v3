@@ -52,8 +52,8 @@ export namespace AddFacetToObjectRequest {
   export const filterSensitiveLog = (obj: AddFacetToObjectRequest) => ({
     ...obj,
     ...(obj.ObjectAttributeList && {
-      ObjectAttributeList: obj.ObjectAttributeList.map(item =>
-        item.map(AttributeKeyAndValue.filterSensitiveLog)
+      ObjectAttributeList: obj.ObjectAttributeList.map(
+        AttributeKeyAndValue.filterSensitiveLog
       )
     }),
     ...(obj.ObjectReference && {
@@ -308,9 +308,7 @@ export namespace AttachTypedLinkRequest {
   export const filterSensitiveLog = (obj: AttachTypedLinkRequest) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(AttributeNameAndValue.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(AttributeNameAndValue.filterSensitiveLog)
     }),
     ...(obj.SourceObjectReference && {
       SourceObjectReference: ObjectReference.filterSensitiveLog(
@@ -462,8 +460,8 @@ export namespace BatchAddFacetToObject {
   export const filterSensitiveLog = (obj: BatchAddFacetToObject) => ({
     ...obj,
     ...(obj.ObjectAttributeList && {
-      ObjectAttributeList: obj.ObjectAttributeList.map(item =>
-        item.map(AttributeKeyAndValue.filterSensitiveLog)
+      ObjectAttributeList: obj.ObjectAttributeList.map(
+        AttributeKeyAndValue.filterSensitiveLog
       )
     }),
     ...(obj.ObjectReference && {
@@ -672,9 +670,7 @@ export namespace BatchAttachTypedLink {
   export const filterSensitiveLog = (obj: BatchAttachTypedLink) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(AttributeNameAndValue.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(AttributeNameAndValue.filterSensitiveLog)
     }),
     ...(obj.SourceObjectReference && {
       SourceObjectReference: ObjectReference.filterSensitiveLog(
@@ -757,8 +753,8 @@ export namespace BatchCreateIndex {
   export const filterSensitiveLog = (obj: BatchCreateIndex) => ({
     ...obj,
     ...(obj.OrderedIndexedAttributeList && {
-      OrderedIndexedAttributeList: obj.OrderedIndexedAttributeList.map(item =>
-        item.map(AttributeKey.filterSensitiveLog)
+      OrderedIndexedAttributeList: obj.OrderedIndexedAttributeList.map(
+        AttributeKey.filterSensitiveLog
       )
     }),
     ...(obj.ParentReference && {
@@ -825,17 +821,15 @@ export namespace BatchCreateObject {
   export const filterSensitiveLog = (obj: BatchCreateObject) => ({
     ...obj,
     ...(obj.ObjectAttributeList && {
-      ObjectAttributeList: obj.ObjectAttributeList.map(item =>
-        item.map(AttributeKeyAndValue.filterSensitiveLog)
+      ObjectAttributeList: obj.ObjectAttributeList.map(
+        AttributeKeyAndValue.filterSensitiveLog
       )
     }),
     ...(obj.ParentReference && {
       ParentReference: ObjectReference.filterSensitiveLog(obj.ParentReference)
     }),
     ...(obj.SchemaFacet && {
-      SchemaFacet: obj.SchemaFacet.map(item =>
-        item.map(SchemaFacet.filterSensitiveLog)
-      )
+      SchemaFacet: obj.SchemaFacet.map(SchemaFacet.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchCreateObject =>
@@ -1127,9 +1121,7 @@ export namespace BatchGetLinkAttributesResponse {
   export const filterSensitiveLog = (obj: BatchGetLinkAttributesResponse) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(AttributeKeyAndValue.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(AttributeKeyAndValue.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchGetLinkAttributesResponse =>
@@ -1188,9 +1180,7 @@ export namespace BatchGetObjectAttributesResponse {
   ) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(AttributeKeyAndValue.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(AttributeKeyAndValue.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchGetObjectAttributesResponse =>
@@ -1241,9 +1231,7 @@ export namespace BatchGetObjectInformationResponse {
   ) => ({
     ...obj,
     ...(obj.SchemaFacets && {
-      SchemaFacets: obj.SchemaFacets.map(item =>
-        item.map(SchemaFacet.filterSensitiveLog)
-      )
+      SchemaFacets: obj.SchemaFacets.map(SchemaFacet.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchGetObjectInformationResponse =>
@@ -1304,8 +1292,8 @@ export namespace BatchListAttachedIndicesResponse {
   ) => ({
     ...obj,
     ...(obj.IndexAttachments && {
-      IndexAttachments: obj.IndexAttachments.map(item =>
-        item.map(IndexAttachment.filterSensitiveLog)
+      IndexAttachments: obj.IndexAttachments.map(
+        IndexAttachment.filterSensitiveLog
       )
     })
   });
@@ -1351,8 +1339,8 @@ export namespace BatchListIncomingTypedLinks {
   export const filterSensitiveLog = (obj: BatchListIncomingTypedLinks) => ({
     ...obj,
     ...(obj.FilterAttributeRanges && {
-      FilterAttributeRanges: obj.FilterAttributeRanges.map(item =>
-        item.map(TypedLinkAttributeRange.filterSensitiveLog)
+      FilterAttributeRanges: obj.FilterAttributeRanges.map(
+        TypedLinkAttributeRange.filterSensitiveLog
       )
     }),
     ...(obj.FilterTypedLink && {
@@ -1390,8 +1378,8 @@ export namespace BatchListIncomingTypedLinksResponse {
   ) => ({
     ...obj,
     ...(obj.LinkSpecifiers && {
-      LinkSpecifiers: obj.LinkSpecifiers.map(item =>
-        item.map(TypedLinkSpecifier.filterSensitiveLog)
+      LinkSpecifiers: obj.LinkSpecifiers.map(
+        TypedLinkSpecifier.filterSensitiveLog
       )
     })
   });
@@ -1432,8 +1420,8 @@ export namespace BatchListIndex {
       IndexReference: ObjectReference.filterSensitiveLog(obj.IndexReference)
     }),
     ...(obj.RangesOnIndexedValues && {
-      RangesOnIndexedValues: obj.RangesOnIndexedValues.map(item =>
-        item.map(ObjectAttributeRange.filterSensitiveLog)
+      RangesOnIndexedValues: obj.RangesOnIndexedValues.map(
+        ObjectAttributeRange.filterSensitiveLog
       )
     })
   });
@@ -1461,8 +1449,8 @@ export namespace BatchListIndexResponse {
   export const filterSensitiveLog = (obj: BatchListIndexResponse) => ({
     ...obj,
     ...(obj.IndexAttachments && {
-      IndexAttachments: obj.IndexAttachments.map(item =>
-        item.map(IndexAttachment.filterSensitiveLog)
+      IndexAttachments: obj.IndexAttachments.map(
+        IndexAttachment.filterSensitiveLog
       )
     })
   });
@@ -1535,9 +1523,7 @@ export namespace BatchListObjectAttributesResponse {
   ) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(AttributeKeyAndValue.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(AttributeKeyAndValue.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchListObjectAttributesResponse =>
@@ -1657,8 +1643,8 @@ export namespace BatchListObjectParentPathsResponse {
   ) => ({
     ...obj,
     ...(obj.PathToObjectIdentifiersList && {
-      PathToObjectIdentifiersList: obj.PathToObjectIdentifiersList.map(item =>
-        item.map(PathToObjectIdentifiers.filterSensitiveLog)
+      PathToObjectIdentifiersList: obj.PathToObjectIdentifiersList.map(
+        PathToObjectIdentifiers.filterSensitiveLog
       )
     })
   });
@@ -1697,8 +1683,8 @@ export namespace BatchListObjectParentsResponse {
   export const filterSensitiveLog = (obj: BatchListObjectParentsResponse) => ({
     ...obj,
     ...(obj.ParentLinks && {
-      ParentLinks: obj.ParentLinks.map(item =>
-        item.map(ObjectIdentifierAndLinkNameTuple.filterSensitiveLog)
+      ParentLinks: obj.ParentLinks.map(
+        ObjectIdentifierAndLinkNameTuple.filterSensitiveLog
       )
     })
   });
@@ -1801,8 +1787,8 @@ export namespace BatchListOutgoingTypedLinks {
   export const filterSensitiveLog = (obj: BatchListOutgoingTypedLinks) => ({
     ...obj,
     ...(obj.FilterAttributeRanges && {
-      FilterAttributeRanges: obj.FilterAttributeRanges.map(item =>
-        item.map(TypedLinkAttributeRange.filterSensitiveLog)
+      FilterAttributeRanges: obj.FilterAttributeRanges.map(
+        TypedLinkAttributeRange.filterSensitiveLog
       )
     }),
     ...(obj.FilterTypedLink && {
@@ -1840,8 +1826,8 @@ export namespace BatchListOutgoingTypedLinksResponse {
   ) => ({
     ...obj,
     ...(obj.TypedLinkSpecifiers && {
-      TypedLinkSpecifiers: obj.TypedLinkSpecifiers.map(item =>
-        item.map(TypedLinkSpecifier.filterSensitiveLog)
+      TypedLinkSpecifiers: obj.TypedLinkSpecifiers.map(
+        TypedLinkSpecifier.filterSensitiveLog
       )
     })
   });
@@ -1961,8 +1947,8 @@ export namespace BatchLookupPolicyResponse {
   export const filterSensitiveLog = (obj: BatchLookupPolicyResponse) => ({
     ...obj,
     ...(obj.PolicyToPathList && {
-      PolicyToPathList: obj.PolicyToPathList.map(item =>
-        item.map(PolicyToPath.filterSensitiveLog)
+      PolicyToPathList: obj.PolicyToPathList.map(
+        PolicyToPath.filterSensitiveLog
       )
     })
   });
@@ -2226,9 +2212,7 @@ export namespace BatchReadRequest {
   export const filterSensitiveLog = (obj: BatchReadRequest) => ({
     ...obj,
     ...(obj.Operations && {
-      Operations: obj.Operations.map(item =>
-        item.map(BatchReadOperation.filterSensitiveLog)
-      )
+      Operations: obj.Operations.map(BatchReadOperation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchReadRequest =>
@@ -2247,8 +2231,8 @@ export namespace BatchReadResponse {
   export const filterSensitiveLog = (obj: BatchReadResponse) => ({
     ...obj,
     ...(obj.Responses && {
-      Responses: obj.Responses.map(item =>
-        item.map(BatchReadOperationResponse.filterSensitiveLog)
+      Responses: obj.Responses.map(
+        BatchReadOperationResponse.filterSensitiveLog
       )
     })
   });
@@ -2482,8 +2466,8 @@ export namespace BatchUpdateLinkAttributes {
   export const filterSensitiveLog = (obj: BatchUpdateLinkAttributes) => ({
     ...obj,
     ...(obj.AttributeUpdates && {
-      AttributeUpdates: obj.AttributeUpdates.map(item =>
-        item.map(LinkAttributeUpdate.filterSensitiveLog)
+      AttributeUpdates: obj.AttributeUpdates.map(
+        LinkAttributeUpdate.filterSensitiveLog
       )
     }),
     ...(obj.TypedLinkSpecifier && {
@@ -2533,8 +2517,8 @@ export namespace BatchUpdateObjectAttributes {
   export const filterSensitiveLog = (obj: BatchUpdateObjectAttributes) => ({
     ...obj,
     ...(obj.AttributeUpdates && {
-      AttributeUpdates: obj.AttributeUpdates.map(item =>
-        item.map(ObjectAttributeUpdate.filterSensitiveLog)
+      AttributeUpdates: obj.AttributeUpdates.map(
+        ObjectAttributeUpdate.filterSensitiveLog
       )
     }),
     ...(obj.ObjectReference && {
@@ -2938,9 +2922,7 @@ export namespace BatchWriteRequest {
   export const filterSensitiveLog = (obj: BatchWriteRequest) => ({
     ...obj,
     ...(obj.Operations && {
-      Operations: obj.Operations.map(item =>
-        item.map(BatchWriteOperation.filterSensitiveLog)
-      )
+      Operations: obj.Operations.map(BatchWriteOperation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchWriteRequest =>
@@ -2959,8 +2941,8 @@ export namespace BatchWriteResponse {
   export const filterSensitiveLog = (obj: BatchWriteResponse) => ({
     ...obj,
     ...(obj.Responses && {
-      Responses: obj.Responses.map(item =>
-        item.map(BatchWriteOperationResponse.filterSensitiveLog)
+      Responses: obj.Responses.map(
+        BatchWriteOperationResponse.filterSensitiveLog
       )
     })
   });
@@ -3104,9 +3086,7 @@ export namespace CreateFacetRequest {
   export const filterSensitiveLog = (obj: CreateFacetRequest) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(FacetAttribute.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(FacetAttribute.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateFacetRequest =>
@@ -3159,8 +3139,8 @@ export namespace CreateIndexRequest {
   export const filterSensitiveLog = (obj: CreateIndexRequest) => ({
     ...obj,
     ...(obj.OrderedIndexedAttributeList && {
-      OrderedIndexedAttributeList: obj.OrderedIndexedAttributeList.map(item =>
-        item.map(AttributeKey.filterSensitiveLog)
+      OrderedIndexedAttributeList: obj.OrderedIndexedAttributeList.map(
+        AttributeKey.filterSensitiveLog
       )
     }),
     ...(obj.ParentReference && {
@@ -3221,17 +3201,15 @@ export namespace CreateObjectRequest {
   export const filterSensitiveLog = (obj: CreateObjectRequest) => ({
     ...obj,
     ...(obj.ObjectAttributeList && {
-      ObjectAttributeList: obj.ObjectAttributeList.map(item =>
-        item.map(AttributeKeyAndValue.filterSensitiveLog)
+      ObjectAttributeList: obj.ObjectAttributeList.map(
+        AttributeKeyAndValue.filterSensitiveLog
       )
     }),
     ...(obj.ParentReference && {
       ParentReference: ObjectReference.filterSensitiveLog(obj.ParentReference)
     }),
     ...(obj.SchemaFacets && {
-      SchemaFacets: obj.SchemaFacets.map(item =>
-        item.map(SchemaFacet.filterSensitiveLog)
-      )
+      SchemaFacets: obj.SchemaFacets.map(SchemaFacet.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateObjectRequest =>
@@ -4256,9 +4234,7 @@ export namespace GetLinkAttributesResponse {
   export const filterSensitiveLog = (obj: GetLinkAttributesResponse) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(AttributeKeyAndValue.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(AttributeKeyAndValue.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetLinkAttributesResponse =>
@@ -4319,9 +4295,7 @@ export namespace GetObjectAttributesResponse {
   export const filterSensitiveLog = (obj: GetObjectAttributesResponse) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(AttributeKeyAndValue.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(AttributeKeyAndValue.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetObjectAttributesResponse =>
@@ -4374,9 +4348,7 @@ export namespace GetObjectInformationResponse {
   export const filterSensitiveLog = (obj: GetObjectInformationResponse) => ({
     ...obj,
     ...(obj.SchemaFacets && {
-      SchemaFacets: obj.SchemaFacets.map(item =>
-        item.map(SchemaFacet.filterSensitiveLog)
-      )
+      SchemaFacets: obj.SchemaFacets.map(SchemaFacet.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetObjectInformationResponse =>
@@ -4506,8 +4478,8 @@ export namespace IndexAttachment {
   export const filterSensitiveLog = (obj: IndexAttachment) => ({
     ...obj,
     ...(obj.IndexedAttributes && {
-      IndexedAttributes: obj.IndexedAttributes.map(item =>
-        item.map(AttributeKeyAndValue.filterSensitiveLog)
+      IndexedAttributes: obj.IndexedAttributes.map(
+        AttributeKeyAndValue.filterSensitiveLog
       )
     })
   });
@@ -4898,8 +4870,8 @@ export namespace ListAttachedIndicesResponse {
   export const filterSensitiveLog = (obj: ListAttachedIndicesResponse) => ({
     ...obj,
     ...(obj.IndexAttachments && {
-      IndexAttachments: obj.IndexAttachments.map(item =>
-        item.map(IndexAttachment.filterSensitiveLog)
+      IndexAttachments: obj.IndexAttachments.map(
+        IndexAttachment.filterSensitiveLog
       )
     })
   });
@@ -4998,9 +4970,7 @@ export namespace ListDirectoriesResponse {
   export const filterSensitiveLog = (obj: ListDirectoriesResponse) => ({
     ...obj,
     ...(obj.Directories && {
-      Directories: obj.Directories.map(item =>
-        item.map(Directory.filterSensitiveLog)
-      )
+      Directories: obj.Directories.map(Directory.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListDirectoriesResponse =>
@@ -5055,9 +5025,7 @@ export namespace ListFacetAttributesResponse {
   export const filterSensitiveLog = (obj: ListFacetAttributesResponse) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(FacetAttribute.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(FacetAttribute.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListFacetAttributesResponse =>
@@ -5157,8 +5125,8 @@ export namespace ListIncomingTypedLinksRequest {
   export const filterSensitiveLog = (obj: ListIncomingTypedLinksRequest) => ({
     ...obj,
     ...(obj.FilterAttributeRanges && {
-      FilterAttributeRanges: obj.FilterAttributeRanges.map(item =>
-        item.map(TypedLinkAttributeRange.filterSensitiveLog)
+      FilterAttributeRanges: obj.FilterAttributeRanges.map(
+        TypedLinkAttributeRange.filterSensitiveLog
       )
     }),
     ...(obj.FilterTypedLink && {
@@ -5191,8 +5159,8 @@ export namespace ListIncomingTypedLinksResponse {
   export const filterSensitiveLog = (obj: ListIncomingTypedLinksResponse) => ({
     ...obj,
     ...(obj.LinkSpecifiers && {
-      LinkSpecifiers: obj.LinkSpecifiers.map(item =>
-        item.map(TypedLinkSpecifier.filterSensitiveLog)
+      LinkSpecifiers: obj.LinkSpecifiers.map(
+        TypedLinkSpecifier.filterSensitiveLog
       )
     })
   });
@@ -5240,8 +5208,8 @@ export namespace ListIndexRequest {
       IndexReference: ObjectReference.filterSensitiveLog(obj.IndexReference)
     }),
     ...(obj.RangesOnIndexedValues && {
-      RangesOnIndexedValues: obj.RangesOnIndexedValues.map(item =>
-        item.map(ObjectAttributeRange.filterSensitiveLog)
+      RangesOnIndexedValues: obj.RangesOnIndexedValues.map(
+        ObjectAttributeRange.filterSensitiveLog
       )
     })
   });
@@ -5266,8 +5234,8 @@ export namespace ListIndexResponse {
   export const filterSensitiveLog = (obj: ListIndexResponse) => ({
     ...obj,
     ...(obj.IndexAttachments && {
-      IndexAttachments: obj.IndexAttachments.map(item =>
-        item.map(IndexAttachment.filterSensitiveLog)
+      IndexAttachments: obj.IndexAttachments.map(
+        IndexAttachment.filterSensitiveLog
       )
     })
   });
@@ -5391,9 +5359,7 @@ export namespace ListObjectAttributesResponse {
   export const filterSensitiveLog = (obj: ListObjectAttributesResponse) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(AttributeKeyAndValue.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(AttributeKeyAndValue.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListObjectAttributesResponse =>
@@ -5518,8 +5484,8 @@ export namespace ListObjectParentPathsResponse {
   export const filterSensitiveLog = (obj: ListObjectParentPathsResponse) => ({
     ...obj,
     ...(obj.PathToObjectIdentifiersList && {
-      PathToObjectIdentifiersList: obj.PathToObjectIdentifiersList.map(item =>
-        item.map(PathToObjectIdentifiers.filterSensitiveLog)
+      PathToObjectIdentifiersList: obj.PathToObjectIdentifiersList.map(
+        PathToObjectIdentifiers.filterSensitiveLog
       )
     })
   });
@@ -5598,8 +5564,8 @@ export namespace ListObjectParentsResponse {
   export const filterSensitiveLog = (obj: ListObjectParentsResponse) => ({
     ...obj,
     ...(obj.ParentLinks && {
-      ParentLinks: obj.ParentLinks.map(item =>
-        item.map(ObjectIdentifierAndLinkNameTuple.filterSensitiveLog)
+      ParentLinks: obj.ParentLinks.map(
+        ObjectIdentifierAndLinkNameTuple.filterSensitiveLog
       )
     })
   });
@@ -5717,8 +5683,8 @@ export namespace ListOutgoingTypedLinksRequest {
   export const filterSensitiveLog = (obj: ListOutgoingTypedLinksRequest) => ({
     ...obj,
     ...(obj.FilterAttributeRanges && {
-      FilterAttributeRanges: obj.FilterAttributeRanges.map(item =>
-        item.map(TypedLinkAttributeRange.filterSensitiveLog)
+      FilterAttributeRanges: obj.FilterAttributeRanges.map(
+        TypedLinkAttributeRange.filterSensitiveLog
       )
     }),
     ...(obj.FilterTypedLink && {
@@ -5751,8 +5717,8 @@ export namespace ListOutgoingTypedLinksResponse {
   export const filterSensitiveLog = (obj: ListOutgoingTypedLinksResponse) => ({
     ...obj,
     ...(obj.TypedLinkSpecifiers && {
-      TypedLinkSpecifiers: obj.TypedLinkSpecifiers.map(item =>
-        item.map(TypedLinkSpecifier.filterSensitiveLog)
+      TypedLinkSpecifiers: obj.TypedLinkSpecifiers.map(
+        TypedLinkSpecifier.filterSensitiveLog
       )
     })
   });
@@ -5915,9 +5881,7 @@ export interface ListTagsForResourceResponse {
 export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -5976,8 +5940,8 @@ export namespace ListTypedLinkFacetAttributesResponse {
   ) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(TypedLinkAttributeDefinition.filterSensitiveLog)
+      Attributes: obj.Attributes.map(
+        TypedLinkAttributeDefinition.filterSensitiveLog
       )
     })
   });
@@ -6088,8 +6052,8 @@ export namespace LookupPolicyResponse {
   export const filterSensitiveLog = (obj: LookupPolicyResponse) => ({
     ...obj,
     ...(obj.PolicyToPathList && {
-      PolicyToPathList: obj.PolicyToPathList.map(item =>
-        item.map(PolicyToPath.filterSensitiveLog)
+      PolicyToPathList: obj.PolicyToPathList.map(
+        PolicyToPath.filterSensitiveLog
       )
     })
   });
@@ -6427,9 +6391,7 @@ export namespace PolicyToPath {
   export const filterSensitiveLog = (obj: PolicyToPath) => ({
     ...obj,
     ...(obj.Policies && {
-      Policies: obj.Policies.map(item =>
-        item.map(PolicyAttachment.filterSensitiveLog)
-      )
+      Policies: obj.Policies.map(PolicyAttachment.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is PolicyToPath => __isa(o, "PolicyToPath");
@@ -6769,9 +6731,7 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -6970,8 +6930,8 @@ export namespace TypedLinkFacet {
   export const filterSensitiveLog = (obj: TypedLinkFacet) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(TypedLinkAttributeDefinition.filterSensitiveLog)
+      Attributes: obj.Attributes.map(
+        TypedLinkAttributeDefinition.filterSensitiveLog
       )
     })
   });
@@ -7066,8 +7026,8 @@ export namespace TypedLinkSpecifier {
   export const filterSensitiveLog = (obj: TypedLinkSpecifier) => ({
     ...obj,
     ...(obj.IdentityAttributeValues && {
-      IdentityAttributeValues: obj.IdentityAttributeValues.map(item =>
-        item.map(AttributeNameAndValue.filterSensitiveLog)
+      IdentityAttributeValues: obj.IdentityAttributeValues.map(
+        AttributeNameAndValue.filterSensitiveLog
       )
     }),
     ...(obj.SourceObjectReference && {
@@ -7178,8 +7138,8 @@ export namespace UpdateFacetRequest {
   export const filterSensitiveLog = (obj: UpdateFacetRequest) => ({
     ...obj,
     ...(obj.AttributeUpdates && {
-      AttributeUpdates: obj.AttributeUpdates.map(item =>
-        item.map(FacetAttributeUpdate.filterSensitiveLog)
+      AttributeUpdates: obj.AttributeUpdates.map(
+        FacetAttributeUpdate.filterSensitiveLog
       )
     })
   });
@@ -7221,8 +7181,8 @@ export namespace UpdateLinkAttributesRequest {
   export const filterSensitiveLog = (obj: UpdateLinkAttributesRequest) => ({
     ...obj,
     ...(obj.AttributeUpdates && {
-      AttributeUpdates: obj.AttributeUpdates.map(item =>
-        item.map(LinkAttributeUpdate.filterSensitiveLog)
+      AttributeUpdates: obj.AttributeUpdates.map(
+        LinkAttributeUpdate.filterSensitiveLog
       )
     }),
     ...(obj.TypedLinkSpecifier && {
@@ -7270,8 +7230,8 @@ export namespace UpdateObjectAttributesRequest {
   export const filterSensitiveLog = (obj: UpdateObjectAttributesRequest) => ({
     ...obj,
     ...(obj.AttributeUpdates && {
-      AttributeUpdates: obj.AttributeUpdates.map(item =>
-        item.map(ObjectAttributeUpdate.filterSensitiveLog)
+      AttributeUpdates: obj.AttributeUpdates.map(
+        ObjectAttributeUpdate.filterSensitiveLog
       )
     }),
     ...(obj.ObjectReference && {
@@ -7369,8 +7329,8 @@ export namespace UpdateTypedLinkFacetRequest {
   export const filterSensitiveLog = (obj: UpdateTypedLinkFacetRequest) => ({
     ...obj,
     ...(obj.AttributeUpdates && {
-      AttributeUpdates: obj.AttributeUpdates.map(item =>
-        item.map(TypedLinkFacetAttributeUpdate.filterSensitiveLog)
+      AttributeUpdates: obj.AttributeUpdates.map(
+        TypedLinkFacetAttributeUpdate.filterSensitiveLog
       )
     })
   });

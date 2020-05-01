@@ -194,8 +194,8 @@ export namespace BatchAssociateUserStackRequest {
   export const filterSensitiveLog = (obj: BatchAssociateUserStackRequest) => ({
     ...obj,
     ...(obj.UserStackAssociations && {
-      UserStackAssociations: obj.UserStackAssociations.map(item =>
-        item.map(UserStackAssociation.filterSensitiveLog)
+      UserStackAssociations: obj.UserStackAssociations.map(
+        UserStackAssociation.filterSensitiveLog
       )
     })
   });
@@ -215,9 +215,7 @@ export namespace BatchAssociateUserStackResult {
   export const filterSensitiveLog = (obj: BatchAssociateUserStackResult) => ({
     ...obj,
     ...(obj.errors && {
-      errors: obj.errors.map(item =>
-        item.map(UserStackAssociationError.filterSensitiveLog)
-      )
+      errors: obj.errors.map(UserStackAssociationError.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchAssociateUserStackResult =>
@@ -238,8 +236,8 @@ export namespace BatchDisassociateUserStackRequest {
   ) => ({
     ...obj,
     ...(obj.UserStackAssociations && {
-      UserStackAssociations: obj.UserStackAssociations.map(item =>
-        item.map(UserStackAssociation.filterSensitiveLog)
+      UserStackAssociations: obj.UserStackAssociations.map(
+        UserStackAssociation.filterSensitiveLog
       )
     })
   });
@@ -261,9 +259,7 @@ export namespace BatchDisassociateUserStackResult {
   ) => ({
     ...obj,
     ...(obj.errors && {
-      errors: obj.errors.map(item =>
-        item.map(UserStackAssociationError.filterSensitiveLog)
-      )
+      errors: obj.errors.map(UserStackAssociationError.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchDisassociateUserStackResult =>
@@ -802,8 +798,8 @@ export namespace CreateImageBuilderRequest {
   export const filterSensitiveLog = (obj: CreateImageBuilderRequest) => ({
     ...obj,
     ...(obj.AccessEndpoints && {
-      AccessEndpoints: obj.AccessEndpoints.map(item =>
-        item.map(AccessEndpoint.filterSensitiveLog)
+      AccessEndpoints: obj.AccessEndpoints.map(
+        AccessEndpoint.filterSensitiveLog
       )
     }),
     ...(obj.DomainJoinInfo && {
@@ -952,8 +948,8 @@ export namespace CreateStackRequest {
   export const filterSensitiveLog = (obj: CreateStackRequest) => ({
     ...obj,
     ...(obj.AccessEndpoints && {
-      AccessEndpoints: obj.AccessEndpoints.map(item =>
-        item.map(AccessEndpoint.filterSensitiveLog)
+      AccessEndpoints: obj.AccessEndpoints.map(
+        AccessEndpoint.filterSensitiveLog
       )
     }),
     ...(obj.ApplicationSettings && {
@@ -962,14 +958,12 @@ export namespace CreateStackRequest {
       )
     }),
     ...(obj.StorageConnectors && {
-      StorageConnectors: obj.StorageConnectors.map(item =>
-        item.map(StorageConnector.filterSensitiveLog)
+      StorageConnectors: obj.StorageConnectors.map(
+        StorageConnector.filterSensitiveLog
       )
     }),
     ...(obj.UserSettings && {
-      UserSettings: obj.UserSettings.map(item =>
-        item.map(UserSetting.filterSensitiveLog)
-      )
+      UserSettings: obj.UserSettings.map(UserSetting.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateStackRequest =>
@@ -1453,8 +1447,8 @@ export namespace DescribeDirectoryConfigsResult {
   export const filterSensitiveLog = (obj: DescribeDirectoryConfigsResult) => ({
     ...obj,
     ...(obj.DirectoryConfigs && {
-      DirectoryConfigs: obj.DirectoryConfigs.map(item =>
-        item.map(DirectoryConfig.filterSensitiveLog)
+      DirectoryConfigs: obj.DirectoryConfigs.map(
+        DirectoryConfig.filterSensitiveLog
       )
     })
   });
@@ -1499,9 +1493,7 @@ export interface DescribeFleetsResult {
 export namespace DescribeFleetsResult {
   export const filterSensitiveLog = (obj: DescribeFleetsResult) => ({
     ...obj,
-    ...(obj.Fleets && {
-      Fleets: obj.Fleets.map(item => item.map(Fleet.filterSensitiveLog))
-    })
+    ...(obj.Fleets && { Fleets: obj.Fleets.map(Fleet.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeFleetsResult =>
     __isa(o, "DescribeFleetsResult");
@@ -1550,9 +1542,7 @@ export namespace DescribeImageBuildersResult {
   export const filterSensitiveLog = (obj: DescribeImageBuildersResult) => ({
     ...obj,
     ...(obj.ImageBuilders && {
-      ImageBuilders: obj.ImageBuilders.map(item =>
-        item.map(ImageBuilder.filterSensitiveLog)
-      )
+      ImageBuilders: obj.ImageBuilders.map(ImageBuilder.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeImageBuildersResult =>
@@ -1612,8 +1602,8 @@ export namespace DescribeImagePermissionsResult {
   export const filterSensitiveLog = (obj: DescribeImagePermissionsResult) => ({
     ...obj,
     ...(obj.SharedImagePermissionsList && {
-      SharedImagePermissionsList: obj.SharedImagePermissionsList.map(item =>
-        item.map(SharedImagePermissions.filterSensitiveLog)
+      SharedImagePermissionsList: obj.SharedImagePermissionsList.map(
+        SharedImagePermissions.filterSensitiveLog
       )
     })
   });
@@ -1673,9 +1663,7 @@ export interface DescribeImagesResult {
 export namespace DescribeImagesResult {
   export const filterSensitiveLog = (obj: DescribeImagesResult) => ({
     ...obj,
-    ...(obj.Images && {
-      Images: obj.Images.map(item => item.map(Image.filterSensitiveLog))
-    })
+    ...(obj.Images && { Images: obj.Images.map(Image.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeImagesResult =>
     __isa(o, "DescribeImagesResult");
@@ -1741,7 +1729,7 @@ export namespace DescribeSessionsResult {
   export const filterSensitiveLog = (obj: DescribeSessionsResult) => ({
     ...obj,
     ...(obj.Sessions && {
-      Sessions: obj.Sessions.map(item => item.map(Session.filterSensitiveLog))
+      Sessions: obj.Sessions.map(Session.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeSessionsResult =>
@@ -1785,9 +1773,7 @@ export interface DescribeStacksResult {
 export namespace DescribeStacksResult {
   export const filterSensitiveLog = (obj: DescribeStacksResult) => ({
     ...obj,
-    ...(obj.Stacks && {
-      Stacks: obj.Stacks.map(item => item.map(Stack.filterSensitiveLog))
-    })
+    ...(obj.Stacks && { Stacks: obj.Stacks.map(Stack.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeStacksResult =>
     __isa(o, "DescribeStacksResult");
@@ -1835,8 +1821,8 @@ export namespace DescribeUsageReportSubscriptionsResult {
   ) => ({
     ...obj,
     ...(obj.UsageReportSubscriptions && {
-      UsageReportSubscriptions: obj.UsageReportSubscriptions.map(item =>
-        item.map(UsageReportSubscription.filterSensitiveLog)
+      UsageReportSubscriptions: obj.UsageReportSubscriptions.map(
+        UsageReportSubscription.filterSensitiveLog
       )
     })
   });
@@ -1906,8 +1892,8 @@ export namespace DescribeUserStackAssociationsResult {
   ) => ({
     ...obj,
     ...(obj.UserStackAssociations && {
-      UserStackAssociations: obj.UserStackAssociations.map(item =>
-        item.map(UserStackAssociation.filterSensitiveLog)
+      UserStackAssociations: obj.UserStackAssociations.map(
+        UserStackAssociation.filterSensitiveLog
       )
     })
   });
@@ -1957,9 +1943,7 @@ export interface DescribeUsersResult {
 export namespace DescribeUsersResult {
   export const filterSensitiveLog = (obj: DescribeUsersResult) => ({
     ...obj,
-    ...(obj.Users && {
-      Users: obj.Users.map(item => item.map(User.filterSensitiveLog))
-    })
+    ...(obj.Users && { Users: obj.Users.map(User.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeUsersResult =>
     __isa(o, "DescribeUsersResult");
@@ -2371,9 +2355,7 @@ export namespace Fleet {
       DomainJoinInfo: DomainJoinInfo.filterSensitiveLog(obj.DomainJoinInfo)
     }),
     ...(obj.FleetErrors && {
-      FleetErrors: obj.FleetErrors.map(item =>
-        item.map(FleetError.filterSensitiveLog)
-      )
+      FleetErrors: obj.FleetErrors.map(FleetError.filterSensitiveLog)
     }),
     ...(obj.VpcConfig && {
       VpcConfig: VpcConfig.filterSensitiveLog(obj.VpcConfig)
@@ -2547,9 +2529,7 @@ export namespace Image {
   export const filterSensitiveLog = (obj: Image) => ({
     ...obj,
     ...(obj.Applications && {
-      Applications: obj.Applications.map(item =>
-        item.map(Application.filterSensitiveLog)
-      )
+      Applications: obj.Applications.map(Application.filterSensitiveLog)
     }),
     ...(obj.ImagePermissions && {
       ImagePermissions: ImagePermissions.filterSensitiveLog(
@@ -2729,16 +2709,16 @@ export namespace ImageBuilder {
   export const filterSensitiveLog = (obj: ImageBuilder) => ({
     ...obj,
     ...(obj.AccessEndpoints && {
-      AccessEndpoints: obj.AccessEndpoints.map(item =>
-        item.map(AccessEndpoint.filterSensitiveLog)
+      AccessEndpoints: obj.AccessEndpoints.map(
+        AccessEndpoint.filterSensitiveLog
       )
     }),
     ...(obj.DomainJoinInfo && {
       DomainJoinInfo: DomainJoinInfo.filterSensitiveLog(obj.DomainJoinInfo)
     }),
     ...(obj.ImageBuilderErrors && {
-      ImageBuilderErrors: obj.ImageBuilderErrors.map(item =>
-        item.map(ResourceError.filterSensitiveLog)
+      ImageBuilderErrors: obj.ImageBuilderErrors.map(
+        ResourceError.filterSensitiveLog
       )
     }),
     ...(obj.NetworkAccessConfiguration && {
@@ -3504,8 +3484,8 @@ export namespace Stack {
   export const filterSensitiveLog = (obj: Stack) => ({
     ...obj,
     ...(obj.AccessEndpoints && {
-      AccessEndpoints: obj.AccessEndpoints.map(item =>
-        item.map(AccessEndpoint.filterSensitiveLog)
+      AccessEndpoints: obj.AccessEndpoints.map(
+        AccessEndpoint.filterSensitiveLog
       )
     }),
     ...(obj.ApplicationSettings && {
@@ -3514,19 +3494,15 @@ export namespace Stack {
       )
     }),
     ...(obj.StackErrors && {
-      StackErrors: obj.StackErrors.map(item =>
-        item.map(StackError.filterSensitiveLog)
-      )
+      StackErrors: obj.StackErrors.map(StackError.filterSensitiveLog)
     }),
     ...(obj.StorageConnectors && {
-      StorageConnectors: obj.StorageConnectors.map(item =>
-        item.map(StorageConnector.filterSensitiveLog)
+      StorageConnectors: obj.StorageConnectors.map(
+        StorageConnector.filterSensitiveLog
       )
     }),
     ...(obj.UserSettings && {
-      UserSettings: obj.UserSettings.map(item =>
-        item.map(UserSetting.filterSensitiveLog)
-      )
+      UserSettings: obj.UserSettings.map(UserSetting.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Stack => __isa(o, "Stack");
@@ -4168,8 +4144,8 @@ export namespace UpdateStackRequest {
   export const filterSensitiveLog = (obj: UpdateStackRequest) => ({
     ...obj,
     ...(obj.AccessEndpoints && {
-      AccessEndpoints: obj.AccessEndpoints.map(item =>
-        item.map(AccessEndpoint.filterSensitiveLog)
+      AccessEndpoints: obj.AccessEndpoints.map(
+        AccessEndpoint.filterSensitiveLog
       )
     }),
     ...(obj.ApplicationSettings && {
@@ -4178,14 +4154,12 @@ export namespace UpdateStackRequest {
       )
     }),
     ...(obj.StorageConnectors && {
-      StorageConnectors: obj.StorageConnectors.map(item =>
-        item.map(StorageConnector.filterSensitiveLog)
+      StorageConnectors: obj.StorageConnectors.map(
+        StorageConnector.filterSensitiveLog
       )
     }),
     ...(obj.UserSettings && {
-      UserSettings: obj.UserSettings.map(item =>
-        item.map(UserSetting.filterSensitiveLog)
-      )
+      UserSettings: obj.UserSettings.map(UserSetting.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateStackRequest =>
@@ -4255,8 +4229,8 @@ export namespace UsageReportSubscription {
   export const filterSensitiveLog = (obj: UsageReportSubscription) => ({
     ...obj,
     ...(obj.SubscriptionErrors && {
-      SubscriptionErrors: obj.SubscriptionErrors.map(item =>
-        item.map(LastReportGenerationExecutionError.filterSensitiveLog)
+      SubscriptionErrors: obj.SubscriptionErrors.map(
+        LastReportGenerationExecutionError.filterSensitiveLog
       )
     })
   });

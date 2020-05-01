@@ -187,7 +187,7 @@ export namespace GetTranscriptResponse {
   export const filterSensitiveLog = (obj: GetTranscriptResponse) => ({
     ...obj,
     ...(obj.Transcript && {
-      Transcript: obj.Transcript.map(item => item.map(Item.filterSensitiveLog))
+      Transcript: obj.Transcript.map(Item.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetTranscriptResponse =>

@@ -158,9 +158,7 @@ export namespace Cluster {
         obj.ClusterDiscoveryEndpoint
       )
     }),
-    ...(obj.Nodes && {
-      Nodes: obj.Nodes.map(item => item.map(Node.filterSensitiveLog))
-    }),
+    ...(obj.Nodes && { Nodes: obj.Nodes.map(Node.filterSensitiveLog) }),
     ...(obj.NotificationConfiguration && {
       NotificationConfiguration: NotificationConfiguration.filterSensitiveLog(
         obj.NotificationConfiguration
@@ -175,8 +173,8 @@ export namespace Cluster {
       SSEDescription: SSEDescription.filterSensitiveLog(obj.SSEDescription)
     }),
     ...(obj.SecurityGroups && {
-      SecurityGroups: obj.SecurityGroups.map(item =>
-        item.map(SecurityGroupMembership.filterSensitiveLog)
+      SecurityGroups: obj.SecurityGroups.map(
+        SecurityGroupMembership.filterSensitiveLog
       )
     })
   });
@@ -345,9 +343,7 @@ export namespace CreateClusterRequest {
         obj.SSESpecification
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateClusterRequest =>
     __isa(o, "CreateClusterRequest");
@@ -660,7 +656,7 @@ export namespace DescribeClustersResponse {
   export const filterSensitiveLog = (obj: DescribeClustersResponse) => ({
     ...obj,
     ...(obj.Clusters && {
-      Clusters: obj.Clusters.map(item => item.map(Cluster.filterSensitiveLog))
+      Clusters: obj.Clusters.map(Cluster.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeClustersResponse =>
@@ -715,9 +711,7 @@ export namespace DescribeDefaultParametersResponse {
   ) => ({
     ...obj,
     ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item =>
-        item.map(Parameter.filterSensitiveLog)
-      )
+      Parameters: obj.Parameters.map(Parameter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeDefaultParametersResponse =>
@@ -796,9 +790,7 @@ export interface DescribeEventsResponse {
 export namespace DescribeEventsResponse {
   export const filterSensitiveLog = (obj: DescribeEventsResponse) => ({
     ...obj,
-    ...(obj.Events && {
-      Events: obj.Events.map(item => item.map(Event.filterSensitiveLog))
-    })
+    ...(obj.Events && { Events: obj.Events.map(Event.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeEventsResponse =>
     __isa(o, "DescribeEventsResponse");
@@ -853,8 +845,8 @@ export namespace DescribeParameterGroupsResponse {
   export const filterSensitiveLog = (obj: DescribeParameterGroupsResponse) => ({
     ...obj,
     ...(obj.ParameterGroups && {
-      ParameterGroups: obj.ParameterGroups.map(item =>
-        item.map(ParameterGroup.filterSensitiveLog)
+      ParameterGroups: obj.ParameterGroups.map(
+        ParameterGroup.filterSensitiveLog
       )
     })
   });
@@ -917,9 +909,7 @@ export namespace DescribeParametersResponse {
   export const filterSensitiveLog = (obj: DescribeParametersResponse) => ({
     ...obj,
     ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item =>
-        item.map(Parameter.filterSensitiveLog)
-      )
+      Parameters: obj.Parameters.map(Parameter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeParametersResponse =>
@@ -975,9 +965,7 @@ export namespace DescribeSubnetGroupsResponse {
   export const filterSensitiveLog = (obj: DescribeSubnetGroupsResponse) => ({
     ...obj,
     ...(obj.SubnetGroups && {
-      SubnetGroups: obj.SubnetGroups.map(item =>
-        item.map(SubnetGroup.filterSensitiveLog)
-      )
+      SubnetGroups: obj.SubnetGroups.map(SubnetGroup.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeSubnetGroupsResponse =>
@@ -1137,9 +1125,7 @@ export interface ListTagsResponse {
 export namespace ListTagsResponse {
   export const filterSensitiveLog = (obj: ListTagsResponse) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsResponse =>
     __isa(o, "ListTagsResponse");
@@ -1309,8 +1295,8 @@ export namespace Parameter {
   export const filterSensitiveLog = (obj: Parameter) => ({
     ...obj,
     ...(obj.NodeTypeSpecificValues && {
-      NodeTypeSpecificValues: obj.NodeTypeSpecificValues.map(item =>
-        item.map(NodeTypeSpecificValue.filterSensitiveLog)
+      NodeTypeSpecificValues: obj.NodeTypeSpecificValues.map(
+        NodeTypeSpecificValue.filterSensitiveLog
       )
     })
   });
@@ -1585,9 +1571,7 @@ export interface SubnetGroup {
 export namespace SubnetGroup {
   export const filterSensitiveLog = (obj: SubnetGroup) => ({
     ...obj,
-    ...(obj.Subnets && {
-      Subnets: obj.Subnets.map(item => item.map(Subnet.filterSensitiveLog))
-    })
+    ...(obj.Subnets && { Subnets: obj.Subnets.map(Subnet.filterSensitiveLog) })
   });
   export const isa = (o: any): o is SubnetGroup => __isa(o, "SubnetGroup");
 }
@@ -1638,9 +1622,7 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
@@ -1657,9 +1639,7 @@ export interface TagResourceResponse {
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagResourceResponse =>
     __isa(o, "TagResourceResponse");
@@ -1697,9 +1677,7 @@ export interface UntagResourceResponse {
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is UntagResourceResponse =>
     __isa(o, "UntagResourceResponse");
@@ -1789,8 +1767,8 @@ export namespace UpdateParameterGroupRequest {
   export const filterSensitiveLog = (obj: UpdateParameterGroupRequest) => ({
     ...obj,
     ...(obj.ParameterNameValues && {
-      ParameterNameValues: obj.ParameterNameValues.map(item =>
-        item.map(ParameterNameValue.filterSensitiveLog)
+      ParameterNameValues: obj.ParameterNameValues.map(
+        ParameterNameValue.filterSensitiveLog
       )
     })
   });

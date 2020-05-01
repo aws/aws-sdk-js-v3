@@ -1428,9 +1428,7 @@ export namespace FunctionConfiguration {
     ...(obj.Environment && {
       Environment: EnvironmentResponse.filterSensitiveLog(obj.Environment)
     }),
-    ...(obj.Layers && {
-      Layers: obj.Layers.map(item => item.map(Layer.filterSensitiveLog))
-    }),
+    ...(obj.Layers && { Layers: obj.Layers.map(Layer.filterSensitiveLog) }),
     ...(obj.TracingConfig && {
       TracingConfig: TracingConfigResponse.filterSensitiveLog(obj.TracingConfig)
     }),
@@ -2744,9 +2742,7 @@ export namespace ListAliasesResponse {
   export const filterSensitiveLog = (obj: ListAliasesResponse) => ({
     ...obj,
     ...(obj.Aliases && {
-      Aliases: obj.Aliases.map(item =>
-        item.map(AliasConfiguration.filterSensitiveLog)
-      )
+      Aliases: obj.Aliases.map(AliasConfiguration.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListAliasesResponse =>
@@ -2838,8 +2834,8 @@ export namespace ListEventSourceMappingsResponse {
   export const filterSensitiveLog = (obj: ListEventSourceMappingsResponse) => ({
     ...obj,
     ...(obj.EventSourceMappings && {
-      EventSourceMappings: obj.EventSourceMappings.map(item =>
-        item.map(EventSourceMappingConfiguration.filterSensitiveLog)
+      EventSourceMappings: obj.EventSourceMappings.map(
+        EventSourceMappingConfiguration.filterSensitiveLog
       )
     })
   });
@@ -2913,8 +2909,8 @@ export namespace ListFunctionEventInvokeConfigsResponse {
   ) => ({
     ...obj,
     ...(obj.FunctionEventInvokeConfigs && {
-      FunctionEventInvokeConfigs: obj.FunctionEventInvokeConfigs.map(item =>
-        item.map(FunctionEventInvokeConfig.filterSensitiveLog)
+      FunctionEventInvokeConfigs: obj.FunctionEventInvokeConfigs.map(
+        FunctionEventInvokeConfig.filterSensitiveLog
       )
     })
   });
@@ -2975,9 +2971,7 @@ export namespace ListFunctionsResponse {
   export const filterSensitiveLog = (obj: ListFunctionsResponse) => ({
     ...obj,
     ...(obj.Functions && {
-      Functions: obj.Functions.map(item =>
-        item.map(FunctionConfiguration.filterSensitiveLog)
-      )
+      Functions: obj.Functions.map(FunctionConfiguration.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListFunctionsResponse =>
@@ -3032,8 +3026,8 @@ export namespace ListLayerVersionsResponse {
   export const filterSensitiveLog = (obj: ListLayerVersionsResponse) => ({
     ...obj,
     ...(obj.LayerVersions && {
-      LayerVersions: obj.LayerVersions.map(item =>
-        item.map(LayerVersionsListItem.filterSensitiveLog)
+      LayerVersions: obj.LayerVersions.map(
+        LayerVersionsListItem.filterSensitiveLog
       )
     })
   });
@@ -3084,9 +3078,7 @@ export namespace ListLayersResponse {
   export const filterSensitiveLog = (obj: ListLayersResponse) => ({
     ...obj,
     ...(obj.Layers && {
-      Layers: obj.Layers.map(item =>
-        item.map(LayersListItem.filterSensitiveLog)
-      )
+      Layers: obj.Layers.map(LayersListItem.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListLayersResponse =>
@@ -3160,8 +3152,7 @@ export namespace ListProvisionedConcurrencyConfigsResponse {
     ...obj,
     ...(obj.ProvisionedConcurrencyConfigs && {
       ProvisionedConcurrencyConfigs: obj.ProvisionedConcurrencyConfigs.map(
-        item =>
-          item.map(ProvisionedConcurrencyConfigListItem.filterSensitiveLog)
+        ProvisionedConcurrencyConfigListItem.filterSensitiveLog
       )
     })
   });
@@ -3263,9 +3254,7 @@ export namespace ListVersionsByFunctionResponse {
   export const filterSensitiveLog = (obj: ListVersionsByFunctionResponse) => ({
     ...obj,
     ...(obj.Versions && {
-      Versions: obj.Versions.map(item =>
-        item.map(FunctionConfiguration.filterSensitiveLog)
-      )
+      Versions: obj.Versions.map(FunctionConfiguration.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListVersionsByFunctionResponse =>

@@ -306,9 +306,7 @@ export namespace DescribeEnvironmentMembershipsResult {
   ) => ({
     ...obj,
     ...(obj.memberships && {
-      memberships: obj.memberships.map(item =>
-        item.map(EnvironmentMember.filterSensitiveLog)
-      )
+      memberships: obj.memberships.map(EnvironmentMember.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeEnvironmentMembershipsResult =>
@@ -412,9 +410,7 @@ export namespace DescribeEnvironmentsResult {
   export const filterSensitiveLog = (obj: DescribeEnvironmentsResult) => ({
     ...obj,
     ...(obj.environments && {
-      environments: obj.environments.map(item =>
-        item.map(Environment.filterSensitiveLog)
-      )
+      environments: obj.environments.map(Environment.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeEnvironmentsResult =>

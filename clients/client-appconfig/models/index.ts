@@ -47,9 +47,7 @@ export interface Applications {
 export namespace Applications {
   export const filterSensitiveLog = (obj: Applications) => ({
     ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map(item => item.map(Application.filterSensitiveLog))
-    })
+    ...(obj.Items && { Items: obj.Items.map(Application.filterSensitiveLog) })
   });
   export const isa = (o: any): o is Applications => __isa(o, "Applications");
 }
@@ -142,9 +140,7 @@ export namespace ConfigurationProfile {
   export const filterSensitiveLog = (obj: ConfigurationProfile) => ({
     ...obj,
     ...(obj.Validators && {
-      Validators: obj.Validators.map(item =>
-        item.map(Validator.filterSensitiveLog)
-      )
+      Validators: obj.Validators.map(Validator.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ConfigurationProfile =>
@@ -208,9 +204,7 @@ export namespace ConfigurationProfiles {
   export const filterSensitiveLog = (obj: ConfigurationProfiles) => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(item =>
-        item.map(ConfigurationProfileSummary.filterSensitiveLog)
-      )
+      Items: obj.Items.map(ConfigurationProfileSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ConfigurationProfiles =>
@@ -310,9 +304,7 @@ export namespace CreateConfigurationProfileRequest {
   ) => ({
     ...obj,
     ...(obj.Validators && {
-      Validators: obj.Validators.map(item =>
-        item.map(Validator.filterSensitiveLog)
-      )
+      Validators: obj.Validators.map(Validator.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateConfigurationProfileRequest =>
@@ -408,7 +400,7 @@ export namespace CreateEnvironmentRequest {
   export const filterSensitiveLog = (obj: CreateEnvironmentRequest) => ({
     ...obj,
     ...(obj.Monitors && {
-      Monitors: obj.Monitors.map(item => item.map(Monitor.filterSensitiveLog))
+      Monitors: obj.Monitors.map(Monitor.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateEnvironmentRequest =>
@@ -615,9 +607,7 @@ export namespace DeploymentStrategies {
   export const filterSensitiveLog = (obj: DeploymentStrategies) => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(item =>
-        item.map(DeploymentStrategy.filterSensitiveLog)
-      )
+      Items: obj.Items.map(DeploymentStrategy.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DeploymentStrategies =>
@@ -766,9 +756,7 @@ export namespace Deployments {
   export const filterSensitiveLog = (obj: Deployments) => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(item =>
-        item.map(DeploymentSummary.filterSensitiveLog)
-      )
+      Items: obj.Items.map(DeploymentSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Deployments => __isa(o, "Deployments");
@@ -814,7 +802,7 @@ export namespace Environment {
   export const filterSensitiveLog = (obj: Environment) => ({
     ...obj,
     ...(obj.Monitors && {
-      Monitors: obj.Monitors.map(item => item.map(Monitor.filterSensitiveLog))
+      Monitors: obj.Monitors.map(Monitor.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Environment => __isa(o, "Environment");
@@ -844,9 +832,7 @@ export interface Environments {
 export namespace Environments {
   export const filterSensitiveLog = (obj: Environments) => ({
     ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map(item => item.map(Environment.filterSensitiveLog))
-    })
+    ...(obj.Items && { Items: obj.Items.map(Environment.filterSensitiveLog) })
   });
   export const isa = (o: any): o is Environments => __isa(o, "Environments");
 }
@@ -1409,9 +1395,7 @@ export namespace UpdateConfigurationProfileRequest {
   ) => ({
     ...obj,
     ...(obj.Validators && {
-      Validators: obj.Validators.map(item =>
-        item.map(Validator.filterSensitiveLog)
-      )
+      Validators: obj.Validators.map(Validator.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateConfigurationProfileRequest =>
@@ -1493,7 +1477,7 @@ export namespace UpdateEnvironmentRequest {
   export const filterSensitiveLog = (obj: UpdateEnvironmentRequest) => ({
     ...obj,
     ...(obj.Monitors && {
-      Monitors: obj.Monitors.map(item => item.map(Monitor.filterSensitiveLog))
+      Monitors: obj.Monitors.map(Monitor.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateEnvironmentRequest =>

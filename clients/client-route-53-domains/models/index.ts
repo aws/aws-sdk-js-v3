@@ -280,9 +280,7 @@ export namespace ContactDetail {
   export const filterSensitiveLog = (obj: ContactDetail) => ({
     ...obj,
     ...(obj.ExtraParams && {
-      ExtraParams: obj.ExtraParams.map(item =>
-        item.map(ExtraParam.filterSensitiveLog)
-      )
+      ExtraParams: obj.ExtraParams.map(ExtraParam.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ContactDetail => __isa(o, "ContactDetail");
@@ -1228,9 +1226,7 @@ export namespace GetDomainDetailResponse {
     ...obj,
     ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
     ...(obj.Nameservers && {
-      Nameservers: obj.Nameservers.map(item =>
-        item.map(Nameserver.filterSensitiveLog)
-      )
+      Nameservers: obj.Nameservers.map(Nameserver.filterSensitiveLog)
     }),
     ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
     ...(obj.TechContact && { TechContact: SENSITIVE_STRING })
@@ -1284,8 +1280,8 @@ export namespace GetDomainSuggestionsResponse {
   export const filterSensitiveLog = (obj: GetDomainSuggestionsResponse) => ({
     ...obj,
     ...(obj.SuggestionsList && {
-      SuggestionsList: obj.SuggestionsList.map(item =>
-        item.map(DomainSuggestion.filterSensitiveLog)
+      SuggestionsList: obj.SuggestionsList.map(
+        DomainSuggestion.filterSensitiveLog
       )
     })
   });
@@ -1429,9 +1425,7 @@ export namespace ListDomainsResponse {
   export const filterSensitiveLog = (obj: ListDomainsResponse) => ({
     ...obj,
     ...(obj.Domains && {
-      Domains: obj.Domains.map(item =>
-        item.map(DomainSummary.filterSensitiveLog)
-      )
+      Domains: obj.Domains.map(DomainSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListDomainsResponse =>
@@ -1493,9 +1487,7 @@ export namespace ListOperationsResponse {
   export const filterSensitiveLog = (obj: ListOperationsResponse) => ({
     ...obj,
     ...(obj.Operations && {
-      Operations: obj.Operations.map(item =>
-        item.map(OperationSummary.filterSensitiveLog)
-      )
+      Operations: obj.Operations.map(OperationSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListOperationsResponse =>
@@ -1535,9 +1527,7 @@ export interface ListTagsForDomainResponse {
 export namespace ListTagsForDomainResponse {
   export const filterSensitiveLog = (obj: ListTagsForDomainResponse) => ({
     ...obj,
-    ...(obj.TagList && {
-      TagList: obj.TagList.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsForDomainResponse =>
     __isa(o, "ListTagsForDomainResponse");
@@ -2045,9 +2035,7 @@ export namespace TransferDomainRequest {
     ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
     ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING }),
     ...(obj.Nameservers && {
-      Nameservers: obj.Nameservers.map(item =>
-        item.map(Nameserver.filterSensitiveLog)
-      )
+      Nameservers: obj.Nameservers.map(Nameserver.filterSensitiveLog)
     }),
     ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
     ...(obj.TechContact && { TechContact: SENSITIVE_STRING })
@@ -2253,9 +2241,7 @@ export namespace UpdateDomainNameserversRequest {
   export const filterSensitiveLog = (obj: UpdateDomainNameserversRequest) => ({
     ...obj,
     ...(obj.Nameservers && {
-      Nameservers: obj.Nameservers.map(item =>
-        item.map(Nameserver.filterSensitiveLog)
-      )
+      Nameservers: obj.Nameservers.map(Nameserver.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateDomainNameserversRequest =>
@@ -2303,9 +2289,7 @@ export namespace UpdateTagsForDomainRequest {
   export const filterSensitiveLog = (obj: UpdateTagsForDomainRequest) => ({
     ...obj,
     ...(obj.TagsToUpdate && {
-      TagsToUpdate: obj.TagsToUpdate.map(item =>
-        item.map(Tag.filterSensitiveLog)
-      )
+      TagsToUpdate: obj.TagsToUpdate.map(Tag.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateTagsForDomainRequest =>
@@ -2388,9 +2372,7 @@ export namespace ViewBillingResponse {
   export const filterSensitiveLog = (obj: ViewBillingResponse) => ({
     ...obj,
     ...(obj.BillingRecords && {
-      BillingRecords: obj.BillingRecords.map(item =>
-        item.map(BillingRecord.filterSensitiveLog)
-      )
+      BillingRecords: obj.BillingRecords.map(BillingRecord.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ViewBillingResponse =>

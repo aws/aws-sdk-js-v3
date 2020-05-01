@@ -472,9 +472,7 @@ export interface AddTagsToResourceMessage {
 export namespace AddTagsToResourceMessage {
   export const filterSensitiveLog = (obj: AddTagsToResourceMessage) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AddTagsToResourceMessage =>
     __isa(o, "AddTagsToResourceMessage");
@@ -929,9 +927,7 @@ export namespace CreateEndpointMessage {
     ...(obj.S3Settings && {
       S3Settings: S3Settings.filterSensitiveLog(obj.S3Settings)
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateEndpointMessage =>
     __isa(o, "CreateEndpointMessage");
@@ -1016,9 +1012,7 @@ export interface CreateEventSubscriptionMessage {
 export namespace CreateEventSubscriptionMessage {
   export const filterSensitiveLog = (obj: CreateEventSubscriptionMessage) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateEventSubscriptionMessage =>
     __isa(o, "CreateEventSubscriptionMessage");
@@ -1173,9 +1167,7 @@ export namespace CreateReplicationInstanceMessage {
     obj: CreateReplicationInstanceMessage
   ) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateReplicationInstanceMessage =>
     __isa(o, "CreateReplicationInstanceMessage");
@@ -1243,9 +1235,7 @@ export namespace CreateReplicationSubnetGroupMessage {
     obj: CreateReplicationSubnetGroupMessage
   ) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateReplicationSubnetGroupMessage =>
     __isa(o, "CreateReplicationSubnetGroupMessage");
@@ -1380,9 +1370,7 @@ export interface CreateReplicationTaskMessage {
 export namespace CreateReplicationTaskMessage {
   export const filterSensitiveLog = (obj: CreateReplicationTaskMessage) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateReplicationTaskMessage =>
     __isa(o, "CreateReplicationTaskMessage");
@@ -1754,9 +1742,7 @@ export namespace DescribeAccountAttributesResponse {
   ) => ({
     ...obj,
     ...(obj.AccountQuotas && {
-      AccountQuotas: obj.AccountQuotas.map(item =>
-        item.map(AccountQuota.filterSensitiveLog)
-      )
+      AccountQuotas: obj.AccountQuotas.map(AccountQuota.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeAccountAttributesResponse =>
@@ -1789,9 +1775,7 @@ export interface DescribeCertificatesMessage {
 export namespace DescribeCertificatesMessage {
   export const filterSensitiveLog = (obj: DescribeCertificatesMessage) => ({
     ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeCertificatesMessage =>
     __isa(o, "DescribeCertificatesMessage");
@@ -1815,9 +1799,7 @@ export namespace DescribeCertificatesResponse {
   export const filterSensitiveLog = (obj: DescribeCertificatesResponse) => ({
     ...obj,
     ...(obj.Certificates && {
-      Certificates: obj.Certificates.map(item =>
-        item.map(Certificate.filterSensitiveLog)
-      )
+      Certificates: obj.Certificates.map(Certificate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeCertificatesResponse =>
@@ -1855,9 +1837,7 @@ export interface DescribeConnectionsMessage {
 export namespace DescribeConnectionsMessage {
   export const filterSensitiveLog = (obj: DescribeConnectionsMessage) => ({
     ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeConnectionsMessage =>
     __isa(o, "DescribeConnectionsMessage");
@@ -1885,9 +1865,7 @@ export namespace DescribeConnectionsResponse {
   export const filterSensitiveLog = (obj: DescribeConnectionsResponse) => ({
     ...obj,
     ...(obj.Connections && {
-      Connections: obj.Connections.map(item =>
-        item.map(Connection.filterSensitiveLog)
-      )
+      Connections: obj.Connections.map(Connection.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeConnectionsResponse =>
@@ -1925,9 +1903,7 @@ export interface DescribeEndpointTypesMessage {
 export namespace DescribeEndpointTypesMessage {
   export const filterSensitiveLog = (obj: DescribeEndpointTypesMessage) => ({
     ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeEndpointTypesMessage =>
     __isa(o, "DescribeEndpointTypesMessage");
@@ -1955,8 +1931,8 @@ export namespace DescribeEndpointTypesResponse {
   export const filterSensitiveLog = (obj: DescribeEndpointTypesResponse) => ({
     ...obj,
     ...(obj.SupportedEndpointTypes && {
-      SupportedEndpointTypes: obj.SupportedEndpointTypes.map(item =>
-        item.map(SupportedEndpointType.filterSensitiveLog)
+      SupportedEndpointTypes: obj.SupportedEndpointTypes.map(
+        SupportedEndpointType.filterSensitiveLog
       )
     })
   });
@@ -1995,9 +1971,7 @@ export interface DescribeEndpointsMessage {
 export namespace DescribeEndpointsMessage {
   export const filterSensitiveLog = (obj: DescribeEndpointsMessage) => ({
     ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeEndpointsMessage =>
     __isa(o, "DescribeEndpointsMessage");
@@ -2025,9 +1999,7 @@ export namespace DescribeEndpointsResponse {
   export const filterSensitiveLog = (obj: DescribeEndpointsResponse) => ({
     ...obj,
     ...(obj.Endpoints && {
-      Endpoints: obj.Endpoints.map(item =>
-        item.map(Endpoint.filterSensitiveLog)
-      )
+      Endpoints: obj.Endpoints.map(Endpoint.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeEndpointsResponse =>
@@ -2054,9 +2026,7 @@ export interface DescribeEventCategoriesMessage {
 export namespace DescribeEventCategoriesMessage {
   export const filterSensitiveLog = (obj: DescribeEventCategoriesMessage) => ({
     ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeEventCategoriesMessage =>
     __isa(o, "DescribeEventCategoriesMessage");
@@ -2077,8 +2047,8 @@ export namespace DescribeEventCategoriesResponse {
   export const filterSensitiveLog = (obj: DescribeEventCategoriesResponse) => ({
     ...obj,
     ...(obj.EventCategoryGroupList && {
-      EventCategoryGroupList: obj.EventCategoryGroupList.map(item =>
-        item.map(EventCategoryGroup.filterSensitiveLog)
+      EventCategoryGroupList: obj.EventCategoryGroupList.map(
+        EventCategoryGroup.filterSensitiveLog
       )
     })
   });
@@ -2123,9 +2093,7 @@ export namespace DescribeEventSubscriptionsMessage {
     obj: DescribeEventSubscriptionsMessage
   ) => ({
     ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeEventSubscriptionsMessage =>
     __isa(o, "DescribeEventSubscriptionsMessage");
@@ -2155,8 +2123,8 @@ export namespace DescribeEventSubscriptionsResponse {
   ) => ({
     ...obj,
     ...(obj.EventSubscriptionsList && {
-      EventSubscriptionsList: obj.EventSubscriptionsList.map(item =>
-        item.map(EventSubscription.filterSensitiveLog)
+      EventSubscriptionsList: obj.EventSubscriptionsList.map(
+        EventSubscription.filterSensitiveLog
       )
     })
   });
@@ -2225,9 +2193,7 @@ export interface DescribeEventsMessage {
 export namespace DescribeEventsMessage {
   export const filterSensitiveLog = (obj: DescribeEventsMessage) => ({
     ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeEventsMessage =>
     __isa(o, "DescribeEventsMessage");
@@ -2254,9 +2220,7 @@ export interface DescribeEventsResponse {
 export namespace DescribeEventsResponse {
   export const filterSensitiveLog = (obj: DescribeEventsResponse) => ({
     ...obj,
-    ...(obj.Events && {
-      Events: obj.Events.map(item => item.map(Event.filterSensitiveLog))
-    })
+    ...(obj.Events && { Events: obj.Events.map(Event.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeEventsResponse =>
     __isa(o, "DescribeEventsResponse");
@@ -2321,7 +2285,7 @@ export namespace DescribeOrderableReplicationInstancesResponse {
     ...obj,
     ...(obj.OrderableReplicationInstances && {
       OrderableReplicationInstances: obj.OrderableReplicationInstances.map(
-        item => item.map(OrderableReplicationInstance.filterSensitiveLog)
+        OrderableReplicationInstance.filterSensitiveLog
       )
     })
   });
@@ -2368,9 +2332,7 @@ export namespace DescribePendingMaintenanceActionsMessage {
     obj: DescribePendingMaintenanceActionsMessage
   ) => ({
     ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribePendingMaintenanceActionsMessage =>
     __isa(o, "DescribePendingMaintenanceActionsMessage");
@@ -2400,8 +2362,8 @@ export namespace DescribePendingMaintenanceActionsResponse {
   ) => ({
     ...obj,
     ...(obj.PendingMaintenanceActions && {
-      PendingMaintenanceActions: obj.PendingMaintenanceActions.map(item =>
-        item.map(ResourcePendingMaintenanceActions.filterSensitiveLog)
+      PendingMaintenanceActions: obj.PendingMaintenanceActions.map(
+        ResourcePendingMaintenanceActions.filterSensitiveLog
       )
     })
   });
@@ -2519,8 +2481,8 @@ export namespace DescribeReplicationInstanceTaskLogsResponse {
   ) => ({
     ...obj,
     ...(obj.ReplicationInstanceTaskLogs && {
-      ReplicationInstanceTaskLogs: obj.ReplicationInstanceTaskLogs.map(item =>
-        item.map(ReplicationInstanceTaskLog.filterSensitiveLog)
+      ReplicationInstanceTaskLogs: obj.ReplicationInstanceTaskLogs.map(
+        ReplicationInstanceTaskLog.filterSensitiveLog
       )
     })
   });
@@ -2564,9 +2526,7 @@ export namespace DescribeReplicationInstancesMessage {
     obj: DescribeReplicationInstancesMessage
   ) => ({
     ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeReplicationInstancesMessage =>
     __isa(o, "DescribeReplicationInstancesMessage");
@@ -2596,8 +2556,8 @@ export namespace DescribeReplicationInstancesResponse {
   ) => ({
     ...obj,
     ...(obj.ReplicationInstances && {
-      ReplicationInstances: obj.ReplicationInstances.map(item =>
-        item.map(ReplicationInstance.filterSensitiveLog)
+      ReplicationInstances: obj.ReplicationInstances.map(
+        ReplicationInstance.filterSensitiveLog
       )
     })
   });
@@ -2637,9 +2597,7 @@ export namespace DescribeReplicationSubnetGroupsMessage {
     obj: DescribeReplicationSubnetGroupsMessage
   ) => ({
     ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeReplicationSubnetGroupsMessage =>
     __isa(o, "DescribeReplicationSubnetGroupsMessage");
@@ -2669,8 +2627,8 @@ export namespace DescribeReplicationSubnetGroupsResponse {
   ) => ({
     ...obj,
     ...(obj.ReplicationSubnetGroups && {
-      ReplicationSubnetGroups: obj.ReplicationSubnetGroups.map(item =>
-        item.map(ReplicationSubnetGroup.filterSensitiveLog)
+      ReplicationSubnetGroups: obj.ReplicationSubnetGroups.map(
+        ReplicationSubnetGroup.filterSensitiveLog
       )
     })
   });
@@ -2749,7 +2707,7 @@ export namespace DescribeReplicationTaskAssessmentResultsResponse {
     ...obj,
     ...(obj.ReplicationTaskAssessmentResults && {
       ReplicationTaskAssessmentResults: obj.ReplicationTaskAssessmentResults.map(
-        item => item.map(ReplicationTaskAssessmentResult.filterSensitiveLog)
+        ReplicationTaskAssessmentResult.filterSensitiveLog
       )
     })
   });
@@ -2798,9 +2756,7 @@ export interface DescribeReplicationTasksMessage {
 export namespace DescribeReplicationTasksMessage {
   export const filterSensitiveLog = (obj: DescribeReplicationTasksMessage) => ({
     ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeReplicationTasksMessage =>
     __isa(o, "DescribeReplicationTasksMessage");
@@ -2830,8 +2786,8 @@ export namespace DescribeReplicationTasksResponse {
   ) => ({
     ...obj,
     ...(obj.ReplicationTasks && {
-      ReplicationTasks: obj.ReplicationTasks.map(item =>
-        item.map(ReplicationTask.filterSensitiveLog)
+      ReplicationTasks: obj.ReplicationTasks.map(
+        ReplicationTask.filterSensitiveLog
       )
     })
   });
@@ -2938,9 +2894,7 @@ export interface DescribeTableStatisticsMessage {
 export namespace DescribeTableStatisticsMessage {
   export const filterSensitiveLog = (obj: DescribeTableStatisticsMessage) => ({
     ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeTableStatisticsMessage =>
     __isa(o, "DescribeTableStatisticsMessage");
@@ -2973,8 +2927,8 @@ export namespace DescribeTableStatisticsResponse {
   export const filterSensitiveLog = (obj: DescribeTableStatisticsResponse) => ({
     ...obj,
     ...(obj.TableStatistics && {
-      TableStatistics: obj.TableStatistics.map(item =>
-        item.map(TableStatistics.filterSensitiveLog)
+      TableStatistics: obj.TableStatistics.map(
+        TableStatistics.filterSensitiveLog
       )
     })
   });
@@ -3465,9 +3419,7 @@ export interface ImportCertificateMessage {
 export namespace ImportCertificateMessage {
   export const filterSensitiveLog = (obj: ImportCertificateMessage) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ImportCertificateMessage =>
     __isa(o, "ImportCertificateMessage");
@@ -3557,9 +3509,7 @@ export interface ListTagsForResourceResponse {
 export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
     ...obj,
-    ...(obj.TagList && {
-      TagList: obj.TagList.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
@@ -4737,9 +4687,7 @@ export namespace ReloadTablesMessage {
   export const filterSensitiveLog = (obj: ReloadTablesMessage) => ({
     ...obj,
     ...(obj.TablesToReload && {
-      TablesToReload: obj.TablesToReload.map(item =>
-        item.map(TableToReload.filterSensitiveLog)
-      )
+      TablesToReload: obj.TablesToReload.map(TableToReload.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ReloadTablesMessage =>
@@ -4973,8 +4921,8 @@ export namespace ReplicationInstance {
       )
     }),
     ...(obj.VpcSecurityGroups && {
-      VpcSecurityGroups: obj.VpcSecurityGroups.map(item =>
-        item.map(VpcSecurityGroupMembership.filterSensitiveLog)
+      VpcSecurityGroups: obj.VpcSecurityGroups.map(
+        VpcSecurityGroupMembership.filterSensitiveLog
       )
     })
   });
@@ -5087,9 +5035,7 @@ export interface ReplicationSubnetGroup {
 export namespace ReplicationSubnetGroup {
   export const filterSensitiveLog = (obj: ReplicationSubnetGroup) => ({
     ...obj,
-    ...(obj.Subnets && {
-      Subnets: obj.Subnets.map(item => item.map(Subnet.filterSensitiveLog))
-    })
+    ...(obj.Subnets && { Subnets: obj.Subnets.map(Subnet.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ReplicationSubnetGroup =>
     __isa(o, "ReplicationSubnetGroup");
@@ -5369,7 +5315,7 @@ export namespace ResourcePendingMaintenanceActions {
     ...obj,
     ...(obj.PendingMaintenanceActionDetails && {
       PendingMaintenanceActionDetails: obj.PendingMaintenanceActionDetails.map(
-        item => item.map(PendingMaintenanceAction.filterSensitiveLog)
+        PendingMaintenanceAction.filterSensitiveLog
       )
     })
   });

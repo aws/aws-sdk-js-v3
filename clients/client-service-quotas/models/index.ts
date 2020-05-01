@@ -550,7 +550,7 @@ export namespace ListAWSDefaultServiceQuotasResponse {
   ) => ({
     ...obj,
     ...(obj.Quotas && {
-      Quotas: obj.Quotas.map(item => item.map(ServiceQuota.filterSensitiveLog))
+      Quotas: obj.Quotas.map(ServiceQuota.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListAWSDefaultServiceQuotasResponse =>
@@ -630,8 +630,8 @@ export namespace ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
   ) => ({
     ...obj,
     ...(obj.RequestedQuotas && {
-      RequestedQuotas: obj.RequestedQuotas.map(item =>
-        item.map(RequestedServiceQuotaChange.filterSensitiveLog)
+      RequestedQuotas: obj.RequestedQuotas.map(
+        RequestedServiceQuotaChange.filterSensitiveLog
       )
     })
   });
@@ -709,8 +709,8 @@ export namespace ListRequestedServiceQuotaChangeHistoryResponse {
   ) => ({
     ...obj,
     ...(obj.RequestedQuotas && {
-      RequestedQuotas: obj.RequestedQuotas.map(item =>
-        item.map(RequestedServiceQuotaChange.filterSensitiveLog)
+      RequestedQuotas: obj.RequestedQuotas.map(
+        RequestedServiceQuotaChange.filterSensitiveLog
       )
     })
   });
@@ -790,8 +790,7 @@ export namespace ListServiceQuotaIncreaseRequestsInTemplateResponse {
     ...obj,
     ...(obj.ServiceQuotaIncreaseRequestInTemplateList && {
       ServiceQuotaIncreaseRequestInTemplateList: obj.ServiceQuotaIncreaseRequestInTemplateList.map(
-        item =>
-          item.map(ServiceQuotaIncreaseRequestInTemplate.filterSensitiveLog)
+        ServiceQuotaIncreaseRequestInTemplate.filterSensitiveLog
       )
     })
   });
@@ -860,7 +859,7 @@ export namespace ListServiceQuotasResponse {
   export const filterSensitiveLog = (obj: ListServiceQuotasResponse) => ({
     ...obj,
     ...(obj.Quotas && {
-      Quotas: obj.Quotas.map(item => item.map(ServiceQuota.filterSensitiveLog))
+      Quotas: obj.Quotas.map(ServiceQuota.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListServiceQuotasResponse =>
@@ -919,9 +918,7 @@ export namespace ListServicesResponse {
   export const filterSensitiveLog = (obj: ListServicesResponse) => ({
     ...obj,
     ...(obj.Services && {
-      Services: obj.Services.map(item =>
-        item.map(ServiceInfo.filterSensitiveLog)
-      )
+      Services: obj.Services.map(ServiceInfo.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListServicesResponse =>

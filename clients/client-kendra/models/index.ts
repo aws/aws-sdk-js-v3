@@ -191,9 +191,7 @@ export namespace AttributeFilter {
   export const filterSensitiveLog = (obj: AttributeFilter) => ({
     ...obj,
     ...(obj.AndAllFilters && {
-      AndAllFilters: obj.AndAllFilters.map(item =>
-        item.map(AttributeFilter.filterSensitiveLog)
-      )
+      AndAllFilters: obj.AndAllFilters.map(AttributeFilter.filterSensitiveLog)
     }),
     ...(obj.ContainsAll && {
       ContainsAll: DocumentAttribute.filterSensitiveLog(obj.ContainsAll)
@@ -224,9 +222,7 @@ export namespace AttributeFilter {
       NotFilter: AttributeFilter.filterSensitiveLog(obj.NotFilter)
     }),
     ...(obj.OrAllFilters && {
-      OrAllFilters: obj.OrAllFilters.map(item =>
-        item.map(AttributeFilter.filterSensitiveLog)
-      )
+      OrAllFilters: obj.OrAllFilters.map(AttributeFilter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is AttributeFilter =>
@@ -267,8 +263,8 @@ export namespace BatchDeleteDocumentResponse {
   export const filterSensitiveLog = (obj: BatchDeleteDocumentResponse) => ({
     ...obj,
     ...(obj.FailedDocuments && {
-      FailedDocuments: obj.FailedDocuments.map(item =>
-        item.map(BatchDeleteDocumentResponseFailedDocument.filterSensitiveLog)
+      FailedDocuments: obj.FailedDocuments.map(
+        BatchDeleteDocumentResponseFailedDocument.filterSensitiveLog
       )
     })
   });
@@ -334,9 +330,7 @@ export namespace BatchPutDocumentRequest {
   export const filterSensitiveLog = (obj: BatchPutDocumentRequest) => ({
     ...obj,
     ...(obj.Documents && {
-      Documents: obj.Documents.map(item =>
-        item.map(Document.filterSensitiveLog)
-      )
+      Documents: obj.Documents.map(Document.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchPutDocumentRequest =>
@@ -359,8 +353,8 @@ export namespace BatchPutDocumentResponse {
   export const filterSensitiveLog = (obj: BatchPutDocumentResponse) => ({
     ...obj,
     ...(obj.FailedDocuments && {
-      FailedDocuments: obj.FailedDocuments.map(item =>
-        item.map(BatchPutDocumentResponseFailedDocument.filterSensitiveLog)
+      FailedDocuments: obj.FailedDocuments.map(
+        BatchPutDocumentResponseFailedDocument.filterSensitiveLog
       )
     })
   });
@@ -461,8 +455,8 @@ export namespace ColumnConfiguration {
   export const filterSensitiveLog = (obj: ColumnConfiguration) => ({
     ...obj,
     ...(obj.FieldMappings && {
-      FieldMappings: obj.FieldMappings.map(item =>
-        item.map(DataSourceToIndexFieldMapping.filterSensitiveLog)
+      FieldMappings: obj.FieldMappings.map(
+        DataSourceToIndexFieldMapping.filterSensitiveLog
       )
     })
   });
@@ -1332,7 +1326,7 @@ export namespace DescribeIndexResponse {
     ...obj,
     ...(obj.DocumentMetadataConfigurations && {
       DocumentMetadataConfigurations: obj.DocumentMetadataConfigurations.map(
-        item => item.map(DocumentMetadataConfiguration.filterSensitiveLog)
+        DocumentMetadataConfiguration.filterSensitiveLog
       )
     }),
     ...(obj.IndexStatistics && {
@@ -1395,14 +1389,10 @@ export namespace Document {
   export const filterSensitiveLog = (obj: Document) => ({
     ...obj,
     ...(obj.AccessControlList && {
-      AccessControlList: obj.AccessControlList.map(item =>
-        item.map(Principal.filterSensitiveLog)
-      )
+      AccessControlList: obj.AccessControlList.map(Principal.filterSensitiveLog)
     }),
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(DocumentAttribute.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(DocumentAttribute.filterSensitiveLog)
     }),
     ...(obj.S3Path && { S3Path: S3Path.filterSensitiveLog(obj.S3Path) })
   });
@@ -1617,7 +1607,7 @@ export namespace FacetResult {
     ...obj,
     ...(obj.DocumentAttributeValueCountPairs && {
       DocumentAttributeValueCountPairs: obj.DocumentAttributeValueCountPairs.map(
-        item => item.map(DocumentAttributeValueCountPair.filterSensitiveLog)
+        DocumentAttributeValueCountPair.filterSensitiveLog
       )
     })
   });
@@ -1893,9 +1883,7 @@ export namespace ListDataSourceSyncJobsResponse {
   export const filterSensitiveLog = (obj: ListDataSourceSyncJobsResponse) => ({
     ...obj,
     ...(obj.History && {
-      History: obj.History.map(item =>
-        item.map(DataSourceSyncJob.filterSensitiveLog)
-      )
+      History: obj.History.map(DataSourceSyncJob.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListDataSourceSyncJobsResponse =>
@@ -1948,9 +1936,7 @@ export namespace ListDataSourcesResponse {
   export const filterSensitiveLog = (obj: ListDataSourcesResponse) => ({
     ...obj,
     ...(obj.SummaryItems && {
-      SummaryItems: obj.SummaryItems.map(item =>
-        item.map(DataSourceSummary.filterSensitiveLog)
-      )
+      SummaryItems: obj.SummaryItems.map(DataSourceSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListDataSourcesResponse =>
@@ -2006,9 +1992,7 @@ export namespace ListFaqsResponse {
   export const filterSensitiveLog = (obj: ListFaqsResponse) => ({
     ...obj,
     ...(obj.FaqSummaryItems && {
-      FaqSummaryItems: obj.FaqSummaryItems.map(item =>
-        item.map(FaqSummary.filterSensitiveLog)
-      )
+      FaqSummaryItems: obj.FaqSummaryItems.map(FaqSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListFaqsResponse =>
@@ -2057,7 +2041,7 @@ export namespace ListIndicesResponse {
     ...obj,
     ...(obj.IndexConfigurationSummaryItems && {
       IndexConfigurationSummaryItems: obj.IndexConfigurationSummaryItems.map(
-        item => item.map(IndexConfigurationSummary.filterSensitiveLog)
+        IndexConfigurationSummary.filterSensitiveLog
       )
     })
   });
@@ -2163,9 +2147,7 @@ export namespace QueryRequest {
     ...(obj.AttributeFilter && {
       AttributeFilter: AttributeFilter.filterSensitiveLog(obj.AttributeFilter)
     }),
-    ...(obj.Facets && {
-      Facets: obj.Facets.map(item => item.map(Facet.filterSensitiveLog))
-    })
+    ...(obj.Facets && { Facets: obj.Facets.map(Facet.filterSensitiveLog) })
   });
   export const isa = (o: any): o is QueryRequest => __isa(o, "QueryRequest");
 }
@@ -2200,14 +2182,10 @@ export namespace QueryResult {
   export const filterSensitiveLog = (obj: QueryResult) => ({
     ...obj,
     ...(obj.FacetResults && {
-      FacetResults: obj.FacetResults.map(item =>
-        item.map(FacetResult.filterSensitiveLog)
-      )
+      FacetResults: obj.FacetResults.map(FacetResult.filterSensitiveLog)
     }),
     ...(obj.ResultItems && {
-      ResultItems: obj.ResultItems.map(item =>
-        item.map(QueryResultItem.filterSensitiveLog)
-      )
+      ResultItems: obj.ResultItems.map(QueryResultItem.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is QueryResult => __isa(o, "QueryResult");
@@ -2269,13 +2247,13 @@ export namespace QueryResultItem {
   export const filterSensitiveLog = (obj: QueryResultItem) => ({
     ...obj,
     ...(obj.AdditionalAttributes && {
-      AdditionalAttributes: obj.AdditionalAttributes.map(item =>
-        item.map(AdditionalResultAttribute.filterSensitiveLog)
+      AdditionalAttributes: obj.AdditionalAttributes.map(
+        AdditionalResultAttribute.filterSensitiveLog
       )
     }),
     ...(obj.DocumentAttributes && {
-      DocumentAttributes: obj.DocumentAttributes.map(item =>
-        item.map(DocumentAttribute.filterSensitiveLog)
+      DocumentAttributes: obj.DocumentAttributes.map(
+        DocumentAttribute.filterSensitiveLog
       )
     }),
     ...(obj.DocumentExcerpt && {
@@ -2686,8 +2664,8 @@ export namespace SharePointConfiguration {
   export const filterSensitiveLog = (obj: SharePointConfiguration) => ({
     ...obj,
     ...(obj.FieldMappings && {
-      FieldMappings: obj.FieldMappings.map(item =>
-        item.map(DataSourceToIndexFieldMapping.filterSensitiveLog)
+      FieldMappings: obj.FieldMappings.map(
+        DataSourceToIndexFieldMapping.filterSensitiveLog
       )
     }),
     ...(obj.VpcConfiguration && {
@@ -2792,13 +2770,13 @@ export namespace SubmitFeedbackRequest {
   export const filterSensitiveLog = (obj: SubmitFeedbackRequest) => ({
     ...obj,
     ...(obj.ClickFeedbackItems && {
-      ClickFeedbackItems: obj.ClickFeedbackItems.map(item =>
-        item.map(ClickFeedback.filterSensitiveLog)
+      ClickFeedbackItems: obj.ClickFeedbackItems.map(
+        ClickFeedback.filterSensitiveLog
       )
     }),
     ...(obj.RelevanceFeedbackItems && {
-      RelevanceFeedbackItems: obj.RelevanceFeedbackItems.map(item =>
-        item.map(RelevanceFeedback.filterSensitiveLog)
+      RelevanceFeedbackItems: obj.RelevanceFeedbackItems.map(
+        RelevanceFeedback.filterSensitiveLog
       )
     })
   });
@@ -2845,9 +2823,7 @@ export namespace TextWithHighlights {
   export const filterSensitiveLog = (obj: TextWithHighlights) => ({
     ...obj,
     ...(obj.Highlights && {
-      Highlights: obj.Highlights.map(item =>
-        item.map(Highlight.filterSensitiveLog)
-      )
+      Highlights: obj.Highlights.map(Highlight.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is TextWithHighlights =>
@@ -2982,7 +2958,7 @@ export namespace UpdateIndexRequest {
     ...obj,
     ...(obj.DocumentMetadataConfigurationUpdates && {
       DocumentMetadataConfigurationUpdates: obj.DocumentMetadataConfigurationUpdates.map(
-        item => item.map(DocumentMetadataConfiguration.filterSensitiveLog)
+        DocumentMetadataConfiguration.filterSensitiveLog
       )
     })
   });

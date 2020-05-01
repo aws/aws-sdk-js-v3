@@ -898,9 +898,7 @@ export namespace ListFragmentsOutput {
   export const filterSensitiveLog = (obj: ListFragmentsOutput) => ({
     ...obj,
     ...(obj.Fragments && {
-      Fragments: obj.Fragments.map(item =>
-        item.map(Fragment.filterSensitiveLog)
-      )
+      Fragments: obj.Fragments.map(Fragment.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListFragmentsOutput =>

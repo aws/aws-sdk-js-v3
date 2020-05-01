@@ -30,9 +30,7 @@ export interface AppliedTerminology {
 export namespace AppliedTerminology {
   export const filterSensitiveLog = (obj: AppliedTerminology) => ({
     ...obj,
-    ...(obj.Terms && {
-      Terms: obj.Terms.map(item => item.map(Term.filterSensitiveLog))
-    })
+    ...(obj.Terms && { Terms: obj.Terms.map(Term.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AppliedTerminology =>
     __isa(o, "AppliedTerminology");
@@ -476,8 +474,8 @@ export namespace ListTerminologiesResponse {
   export const filterSensitiveLog = (obj: ListTerminologiesResponse) => ({
     ...obj,
     ...(obj.TerminologyPropertiesList && {
-      TerminologyPropertiesList: obj.TerminologyPropertiesList.map(item =>
-        item.map(TerminologyProperties.filterSensitiveLog)
+      TerminologyPropertiesList: obj.TerminologyPropertiesList.map(
+        TerminologyProperties.filterSensitiveLog
       )
     })
   });
@@ -534,7 +532,7 @@ export namespace ListTextTranslationJobsResponse {
     ...obj,
     ...(obj.TextTranslationJobPropertiesList && {
       TextTranslationJobPropertiesList: obj.TextTranslationJobPropertiesList.map(
-        item => item.map(TextTranslationJobProperties.filterSensitiveLog)
+        TextTranslationJobProperties.filterSensitiveLog
       )
     })
   });
@@ -1160,8 +1158,8 @@ export namespace TranslateTextResponse {
   export const filterSensitiveLog = (obj: TranslateTextResponse) => ({
     ...obj,
     ...(obj.AppliedTerminologies && {
-      AppliedTerminologies: obj.AppliedTerminologies.map(item =>
-        item.map(AppliedTerminology.filterSensitiveLog)
+      AppliedTerminologies: obj.AppliedTerminologies.map(
+        AppliedTerminology.filterSensitiveLog
       )
     })
   });

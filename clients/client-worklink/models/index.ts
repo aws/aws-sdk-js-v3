@@ -981,9 +981,7 @@ export namespace ListDevicesResponse {
   export const filterSensitiveLog = (obj: ListDevicesResponse) => ({
     ...obj,
     ...(obj.Devices && {
-      Devices: obj.Devices.map(item =>
-        item.map(DeviceSummary.filterSensitiveLog)
-      )
+      Devices: obj.Devices.map(DeviceSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListDevicesResponse =>
@@ -1035,9 +1033,7 @@ export namespace ListDomainsResponse {
   export const filterSensitiveLog = (obj: ListDomainsResponse) => ({
     ...obj,
     ...(obj.Domains && {
-      Domains: obj.Domains.map(item =>
-        item.map(DomainSummary.filterSensitiveLog)
-      )
+      Domains: obj.Domains.map(DomainSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListDomainsResponse =>
@@ -1084,8 +1080,8 @@ export namespace ListFleetsResponse {
   export const filterSensitiveLog = (obj: ListFleetsResponse) => ({
     ...obj,
     ...(obj.FleetSummaryList && {
-      FleetSummaryList: obj.FleetSummaryList.map(item =>
-        item.map(FleetSummary.filterSensitiveLog)
+      FleetSummaryList: obj.FleetSummaryList.map(
+        FleetSummary.filterSensitiveLog
       )
     })
   });
@@ -1141,7 +1137,7 @@ export namespace ListWebsiteAuthorizationProvidersResponse {
     ...obj,
     ...(obj.WebsiteAuthorizationProviders && {
       WebsiteAuthorizationProviders: obj.WebsiteAuthorizationProviders.map(
-        item => item.map(WebsiteAuthorizationProviderSummary.filterSensitiveLog)
+        WebsiteAuthorizationProviderSummary.filterSensitiveLog
       )
     })
   });
@@ -1200,7 +1196,7 @@ export namespace ListWebsiteCertificateAuthoritiesResponse {
     ...obj,
     ...(obj.WebsiteCertificateAuthorities && {
       WebsiteCertificateAuthorities: obj.WebsiteCertificateAuthorities.map(
-        item => item.map(WebsiteCaSummary.filterSensitiveLog)
+        WebsiteCaSummary.filterSensitiveLog
       )
     })
   });

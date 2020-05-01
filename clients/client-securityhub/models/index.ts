@@ -275,8 +275,8 @@ export namespace AwsCloudFrontDistributionOrigins {
   ) => ({
     ...obj,
     ...(obj.Items && {
-      Items: obj.Items.map(item =>
-        item.map(AwsCloudFrontDistributionOriginItem.filterSensitiveLog)
+      Items: obj.Items.map(
+        AwsCloudFrontDistributionOriginItem.filterSensitiveLog
       )
     })
   });
@@ -403,8 +403,8 @@ export namespace AwsElbv2LoadBalancerDetails {
   export const filterSensitiveLog = (obj: AwsElbv2LoadBalancerDetails) => ({
     ...obj,
     ...(obj.AvailabilityZones && {
-      AvailabilityZones: obj.AvailabilityZones.map(item =>
-        item.map(AvailabilityZone.filterSensitiveLog)
+      AvailabilityZones: obj.AvailabilityZones.map(
+        AvailabilityZone.filterSensitiveLog
       )
     }),
     ...(obj.State && { State: LoadBalancerState.filterSensitiveLog(obj.State) })
@@ -719,9 +719,7 @@ export namespace AwsLambdaFunctionDetails {
       )
     }),
     ...(obj.Layers && {
-      Layers: obj.Layers.map(item =>
-        item.map(AwsLambdaFunctionLayer.filterSensitiveLog)
-      )
+      Layers: obj.Layers.map(AwsLambdaFunctionLayer.filterSensitiveLog)
     }),
     ...(obj.TracingConfig && {
       TracingConfig: AwsLambdaFunctionTracingConfig.filterSensitiveLog(
@@ -1083,7 +1081,7 @@ export namespace AwsSecurityFinding {
       Compliance: Compliance.filterSensitiveLog(obj.Compliance)
     }),
     ...(obj.Malware && {
-      Malware: obj.Malware.map(item => item.map(Malware.filterSensitiveLog))
+      Malware: obj.Malware.map(Malware.filterSensitiveLog)
     }),
     ...(obj.Network && { Network: Network.filterSensitiveLog(obj.Network) }),
     ...(obj.Note && { Note: Note.filterSensitiveLog(obj.Note) }),
@@ -1091,24 +1089,22 @@ export namespace AwsSecurityFinding {
       Process: ProcessDetails.filterSensitiveLog(obj.Process)
     }),
     ...(obj.RelatedFindings && {
-      RelatedFindings: obj.RelatedFindings.map(item =>
-        item.map(RelatedFinding.filterSensitiveLog)
+      RelatedFindings: obj.RelatedFindings.map(
+        RelatedFinding.filterSensitiveLog
       )
     }),
     ...(obj.Remediation && {
       Remediation: Remediation.filterSensitiveLog(obj.Remediation)
     }),
     ...(obj.Resources && {
-      Resources: obj.Resources.map(item =>
-        item.map(Resource.filterSensitiveLog)
-      )
+      Resources: obj.Resources.map(Resource.filterSensitiveLog)
     }),
     ...(obj.Severity && {
       Severity: Severity.filterSensitiveLog(obj.Severity)
     }),
     ...(obj.ThreatIntelIndicators && {
-      ThreatIntelIndicators: obj.ThreatIntelIndicators.map(item =>
-        item.map(ThreatIntelIndicator.filterSensitiveLog)
+      ThreatIntelIndicators: obj.ThreatIntelIndicators.map(
+        ThreatIntelIndicator.filterSensitiveLog
       )
     })
   });
@@ -1566,413 +1562,333 @@ export namespace AwsSecurityFindingFilters {
   export const filterSensitiveLog = (obj: AwsSecurityFindingFilters) => ({
     ...obj,
     ...(obj.AwsAccountId && {
-      AwsAccountId: obj.AwsAccountId.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      AwsAccountId: obj.AwsAccountId.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.CompanyName && {
-      CompanyName: obj.CompanyName.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      CompanyName: obj.CompanyName.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.ComplianceStatus && {
-      ComplianceStatus: obj.ComplianceStatus.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      ComplianceStatus: obj.ComplianceStatus.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.Confidence && {
-      Confidence: obj.Confidence.map(item =>
-        item.map(NumberFilter.filterSensitiveLog)
-      )
+      Confidence: obj.Confidence.map(NumberFilter.filterSensitiveLog)
     }),
     ...(obj.CreatedAt && {
-      CreatedAt: obj.CreatedAt.map(item =>
-        item.map(DateFilter.filterSensitiveLog)
-      )
+      CreatedAt: obj.CreatedAt.map(DateFilter.filterSensitiveLog)
     }),
     ...(obj.Criticality && {
-      Criticality: obj.Criticality.map(item =>
-        item.map(NumberFilter.filterSensitiveLog)
-      )
+      Criticality: obj.Criticality.map(NumberFilter.filterSensitiveLog)
     }),
     ...(obj.Description && {
-      Description: obj.Description.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      Description: obj.Description.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.FirstObservedAt && {
-      FirstObservedAt: obj.FirstObservedAt.map(item =>
-        item.map(DateFilter.filterSensitiveLog)
-      )
+      FirstObservedAt: obj.FirstObservedAt.map(DateFilter.filterSensitiveLog)
     }),
     ...(obj.GeneratorId && {
-      GeneratorId: obj.GeneratorId.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      GeneratorId: obj.GeneratorId.map(StringFilter.filterSensitiveLog)
     }),
-    ...(obj.Id && {
-      Id: obj.Id.map(item => item.map(StringFilter.filterSensitiveLog))
-    }),
+    ...(obj.Id && { Id: obj.Id.map(StringFilter.filterSensitiveLog) }),
     ...(obj.Keyword && {
-      Keyword: obj.Keyword.map(item =>
-        item.map(KeywordFilter.filterSensitiveLog)
-      )
+      Keyword: obj.Keyword.map(KeywordFilter.filterSensitiveLog)
     }),
     ...(obj.LastObservedAt && {
-      LastObservedAt: obj.LastObservedAt.map(item =>
-        item.map(DateFilter.filterSensitiveLog)
-      )
+      LastObservedAt: obj.LastObservedAt.map(DateFilter.filterSensitiveLog)
     }),
     ...(obj.MalwareName && {
-      MalwareName: obj.MalwareName.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      MalwareName: obj.MalwareName.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.MalwarePath && {
-      MalwarePath: obj.MalwarePath.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      MalwarePath: obj.MalwarePath.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.MalwareState && {
-      MalwareState: obj.MalwareState.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      MalwareState: obj.MalwareState.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.MalwareType && {
-      MalwareType: obj.MalwareType.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      MalwareType: obj.MalwareType.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.NetworkDestinationDomain && {
-      NetworkDestinationDomain: obj.NetworkDestinationDomain.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      NetworkDestinationDomain: obj.NetworkDestinationDomain.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.NetworkDestinationIpV4 && {
-      NetworkDestinationIpV4: obj.NetworkDestinationIpV4.map(item =>
-        item.map(IpFilter.filterSensitiveLog)
+      NetworkDestinationIpV4: obj.NetworkDestinationIpV4.map(
+        IpFilter.filterSensitiveLog
       )
     }),
     ...(obj.NetworkDestinationIpV6 && {
-      NetworkDestinationIpV6: obj.NetworkDestinationIpV6.map(item =>
-        item.map(IpFilter.filterSensitiveLog)
+      NetworkDestinationIpV6: obj.NetworkDestinationIpV6.map(
+        IpFilter.filterSensitiveLog
       )
     }),
     ...(obj.NetworkDestinationPort && {
-      NetworkDestinationPort: obj.NetworkDestinationPort.map(item =>
-        item.map(NumberFilter.filterSensitiveLog)
+      NetworkDestinationPort: obj.NetworkDestinationPort.map(
+        NumberFilter.filterSensitiveLog
       )
     }),
     ...(obj.NetworkDirection && {
-      NetworkDirection: obj.NetworkDirection.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      NetworkDirection: obj.NetworkDirection.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.NetworkProtocol && {
-      NetworkProtocol: obj.NetworkProtocol.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      NetworkProtocol: obj.NetworkProtocol.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.NetworkSourceDomain && {
-      NetworkSourceDomain: obj.NetworkSourceDomain.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      NetworkSourceDomain: obj.NetworkSourceDomain.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.NetworkSourceIpV4 && {
-      NetworkSourceIpV4: obj.NetworkSourceIpV4.map(item =>
-        item.map(IpFilter.filterSensitiveLog)
-      )
+      NetworkSourceIpV4: obj.NetworkSourceIpV4.map(IpFilter.filterSensitiveLog)
     }),
     ...(obj.NetworkSourceIpV6 && {
-      NetworkSourceIpV6: obj.NetworkSourceIpV6.map(item =>
-        item.map(IpFilter.filterSensitiveLog)
-      )
+      NetworkSourceIpV6: obj.NetworkSourceIpV6.map(IpFilter.filterSensitiveLog)
     }),
     ...(obj.NetworkSourceMac && {
-      NetworkSourceMac: obj.NetworkSourceMac.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      NetworkSourceMac: obj.NetworkSourceMac.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.NetworkSourcePort && {
-      NetworkSourcePort: obj.NetworkSourcePort.map(item =>
-        item.map(NumberFilter.filterSensitiveLog)
+      NetworkSourcePort: obj.NetworkSourcePort.map(
+        NumberFilter.filterSensitiveLog
       )
     }),
     ...(obj.NoteText && {
-      NoteText: obj.NoteText.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      NoteText: obj.NoteText.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.NoteUpdatedAt && {
-      NoteUpdatedAt: obj.NoteUpdatedAt.map(item =>
-        item.map(DateFilter.filterSensitiveLog)
-      )
+      NoteUpdatedAt: obj.NoteUpdatedAt.map(DateFilter.filterSensitiveLog)
     }),
     ...(obj.NoteUpdatedBy && {
-      NoteUpdatedBy: obj.NoteUpdatedBy.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      NoteUpdatedBy: obj.NoteUpdatedBy.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.ProcessLaunchedAt && {
-      ProcessLaunchedAt: obj.ProcessLaunchedAt.map(item =>
-        item.map(DateFilter.filterSensitiveLog)
+      ProcessLaunchedAt: obj.ProcessLaunchedAt.map(
+        DateFilter.filterSensitiveLog
       )
     }),
     ...(obj.ProcessName && {
-      ProcessName: obj.ProcessName.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      ProcessName: obj.ProcessName.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.ProcessParentPid && {
-      ProcessParentPid: obj.ProcessParentPid.map(item =>
-        item.map(NumberFilter.filterSensitiveLog)
+      ProcessParentPid: obj.ProcessParentPid.map(
+        NumberFilter.filterSensitiveLog
       )
     }),
     ...(obj.ProcessPath && {
-      ProcessPath: obj.ProcessPath.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      ProcessPath: obj.ProcessPath.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.ProcessPid && {
-      ProcessPid: obj.ProcessPid.map(item =>
-        item.map(NumberFilter.filterSensitiveLog)
-      )
+      ProcessPid: obj.ProcessPid.map(NumberFilter.filterSensitiveLog)
     }),
     ...(obj.ProcessTerminatedAt && {
-      ProcessTerminatedAt: obj.ProcessTerminatedAt.map(item =>
-        item.map(DateFilter.filterSensitiveLog)
+      ProcessTerminatedAt: obj.ProcessTerminatedAt.map(
+        DateFilter.filterSensitiveLog
       )
     }),
     ...(obj.ProductArn && {
-      ProductArn: obj.ProductArn.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      ProductArn: obj.ProductArn.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.ProductFields && {
-      ProductFields: obj.ProductFields.map(item =>
-        item.map(MapFilter.filterSensitiveLog)
-      )
+      ProductFields: obj.ProductFields.map(MapFilter.filterSensitiveLog)
     }),
     ...(obj.ProductName && {
-      ProductName: obj.ProductName.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      ProductName: obj.ProductName.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.RecommendationText && {
-      RecommendationText: obj.RecommendationText.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      RecommendationText: obj.RecommendationText.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.RecordState && {
-      RecordState: obj.RecordState.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      RecordState: obj.RecordState.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.RelatedFindingsId && {
-      RelatedFindingsId: obj.RelatedFindingsId.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      RelatedFindingsId: obj.RelatedFindingsId.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.RelatedFindingsProductArn && {
-      RelatedFindingsProductArn: obj.RelatedFindingsProductArn.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      RelatedFindingsProductArn: obj.RelatedFindingsProductArn.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceAwsEc2InstanceIamInstanceProfileArn && {
       ResourceAwsEc2InstanceIamInstanceProfileArn: obj.ResourceAwsEc2InstanceIamInstanceProfileArn.map(
-        item => item.map(StringFilter.filterSensitiveLog)
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceAwsEc2InstanceImageId && {
       ResourceAwsEc2InstanceImageId: obj.ResourceAwsEc2InstanceImageId.map(
-        item => item.map(StringFilter.filterSensitiveLog)
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceAwsEc2InstanceIpV4Addresses && {
       ResourceAwsEc2InstanceIpV4Addresses: obj.ResourceAwsEc2InstanceIpV4Addresses.map(
-        item => item.map(IpFilter.filterSensitiveLog)
+        IpFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceAwsEc2InstanceIpV6Addresses && {
       ResourceAwsEc2InstanceIpV6Addresses: obj.ResourceAwsEc2InstanceIpV6Addresses.map(
-        item => item.map(IpFilter.filterSensitiveLog)
+        IpFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceAwsEc2InstanceKeyName && {
       ResourceAwsEc2InstanceKeyName: obj.ResourceAwsEc2InstanceKeyName.map(
-        item => item.map(StringFilter.filterSensitiveLog)
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceAwsEc2InstanceLaunchedAt && {
       ResourceAwsEc2InstanceLaunchedAt: obj.ResourceAwsEc2InstanceLaunchedAt.map(
-        item => item.map(DateFilter.filterSensitiveLog)
+        DateFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceAwsEc2InstanceSubnetId && {
       ResourceAwsEc2InstanceSubnetId: obj.ResourceAwsEc2InstanceSubnetId.map(
-        item => item.map(StringFilter.filterSensitiveLog)
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceAwsEc2InstanceType && {
-      ResourceAwsEc2InstanceType: obj.ResourceAwsEc2InstanceType.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      ResourceAwsEc2InstanceType: obj.ResourceAwsEc2InstanceType.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceAwsEc2InstanceVpcId && {
-      ResourceAwsEc2InstanceVpcId: obj.ResourceAwsEc2InstanceVpcId.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      ResourceAwsEc2InstanceVpcId: obj.ResourceAwsEc2InstanceVpcId.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceAwsIamAccessKeyCreatedAt && {
       ResourceAwsIamAccessKeyCreatedAt: obj.ResourceAwsIamAccessKeyCreatedAt.map(
-        item => item.map(DateFilter.filterSensitiveLog)
+        DateFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceAwsIamAccessKeyStatus && {
       ResourceAwsIamAccessKeyStatus: obj.ResourceAwsIamAccessKeyStatus.map(
-        item => item.map(StringFilter.filterSensitiveLog)
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceAwsIamAccessKeyUserName && {
       ResourceAwsIamAccessKeyUserName: obj.ResourceAwsIamAccessKeyUserName.map(
-        item => item.map(StringFilter.filterSensitiveLog)
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceAwsS3BucketOwnerId && {
-      ResourceAwsS3BucketOwnerId: obj.ResourceAwsS3BucketOwnerId.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      ResourceAwsS3BucketOwnerId: obj.ResourceAwsS3BucketOwnerId.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceAwsS3BucketOwnerName && {
-      ResourceAwsS3BucketOwnerName: obj.ResourceAwsS3BucketOwnerName.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      ResourceAwsS3BucketOwnerName: obj.ResourceAwsS3BucketOwnerName.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceContainerImageId && {
-      ResourceContainerImageId: obj.ResourceContainerImageId.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      ResourceContainerImageId: obj.ResourceContainerImageId.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceContainerImageName && {
-      ResourceContainerImageName: obj.ResourceContainerImageName.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      ResourceContainerImageName: obj.ResourceContainerImageName.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceContainerLaunchedAt && {
-      ResourceContainerLaunchedAt: obj.ResourceContainerLaunchedAt.map(item =>
-        item.map(DateFilter.filterSensitiveLog)
+      ResourceContainerLaunchedAt: obj.ResourceContainerLaunchedAt.map(
+        DateFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceContainerName && {
-      ResourceContainerName: obj.ResourceContainerName.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      ResourceContainerName: obj.ResourceContainerName.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceDetailsOther && {
-      ResourceDetailsOther: obj.ResourceDetailsOther.map(item =>
-        item.map(MapFilter.filterSensitiveLog)
+      ResourceDetailsOther: obj.ResourceDetailsOther.map(
+        MapFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceId && {
-      ResourceId: obj.ResourceId.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      ResourceId: obj.ResourceId.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.ResourcePartition && {
-      ResourcePartition: obj.ResourcePartition.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      ResourcePartition: obj.ResourcePartition.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ResourceRegion && {
-      ResourceRegion: obj.ResourceRegion.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      ResourceRegion: obj.ResourceRegion.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.ResourceTags && {
-      ResourceTags: obj.ResourceTags.map(item =>
-        item.map(MapFilter.filterSensitiveLog)
-      )
+      ResourceTags: obj.ResourceTags.map(MapFilter.filterSensitiveLog)
     }),
     ...(obj.ResourceType && {
-      ResourceType: obj.ResourceType.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      ResourceType: obj.ResourceType.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.SeverityLabel && {
-      SeverityLabel: obj.SeverityLabel.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      SeverityLabel: obj.SeverityLabel.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.SeverityNormalized && {
-      SeverityNormalized: obj.SeverityNormalized.map(item =>
-        item.map(NumberFilter.filterSensitiveLog)
+      SeverityNormalized: obj.SeverityNormalized.map(
+        NumberFilter.filterSensitiveLog
       )
     }),
     ...(obj.SeverityProduct && {
-      SeverityProduct: obj.SeverityProduct.map(item =>
-        item.map(NumberFilter.filterSensitiveLog)
-      )
+      SeverityProduct: obj.SeverityProduct.map(NumberFilter.filterSensitiveLog)
     }),
     ...(obj.SourceUrl && {
-      SourceUrl: obj.SourceUrl.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      SourceUrl: obj.SourceUrl.map(StringFilter.filterSensitiveLog)
     }),
     ...(obj.ThreatIntelIndicatorCategory && {
-      ThreatIntelIndicatorCategory: obj.ThreatIntelIndicatorCategory.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      ThreatIntelIndicatorCategory: obj.ThreatIntelIndicatorCategory.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ThreatIntelIndicatorLastObservedAt && {
       ThreatIntelIndicatorLastObservedAt: obj.ThreatIntelIndicatorLastObservedAt.map(
-        item => item.map(DateFilter.filterSensitiveLog)
+        DateFilter.filterSensitiveLog
       )
     }),
     ...(obj.ThreatIntelIndicatorSource && {
-      ThreatIntelIndicatorSource: obj.ThreatIntelIndicatorSource.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      ThreatIntelIndicatorSource: obj.ThreatIntelIndicatorSource.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ThreatIntelIndicatorSourceUrl && {
       ThreatIntelIndicatorSourceUrl: obj.ThreatIntelIndicatorSourceUrl.map(
-        item => item.map(StringFilter.filterSensitiveLog)
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ThreatIntelIndicatorType && {
-      ThreatIntelIndicatorType: obj.ThreatIntelIndicatorType.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      ThreatIntelIndicatorType: obj.ThreatIntelIndicatorType.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.ThreatIntelIndicatorValue && {
-      ThreatIntelIndicatorValue: obj.ThreatIntelIndicatorValue.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      ThreatIntelIndicatorValue: obj.ThreatIntelIndicatorValue.map(
+        StringFilter.filterSensitiveLog
       )
     }),
-    ...(obj.Title && {
-      Title: obj.Title.map(item => item.map(StringFilter.filterSensitiveLog))
-    }),
-    ...(obj.Type && {
-      Type: obj.Type.map(item => item.map(StringFilter.filterSensitiveLog))
-    }),
+    ...(obj.Title && { Title: obj.Title.map(StringFilter.filterSensitiveLog) }),
+    ...(obj.Type && { Type: obj.Type.map(StringFilter.filterSensitiveLog) }),
     ...(obj.UpdatedAt && {
-      UpdatedAt: obj.UpdatedAt.map(item =>
-        item.map(DateFilter.filterSensitiveLog)
-      )
+      UpdatedAt: obj.UpdatedAt.map(DateFilter.filterSensitiveLog)
     }),
     ...(obj.UserDefinedFields && {
-      UserDefinedFields: obj.UserDefinedFields.map(item =>
-        item.map(MapFilter.filterSensitiveLog)
-      )
+      UserDefinedFields: obj.UserDefinedFields.map(MapFilter.filterSensitiveLog)
     }),
     ...(obj.VerificationState && {
-      VerificationState: obj.VerificationState.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
+      VerificationState: obj.VerificationState.map(
+        StringFilter.filterSensitiveLog
       )
     }),
     ...(obj.WorkflowState && {
-      WorkflowState: obj.WorkflowState.map(item =>
-        item.map(StringFilter.filterSensitiveLog)
-      )
+      WorkflowState: obj.WorkflowState.map(StringFilter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is AwsSecurityFindingFilters =>
@@ -2009,8 +1925,8 @@ export namespace AwsSnsTopicDetails {
   export const filterSensitiveLog = (obj: AwsSnsTopicDetails) => ({
     ...obj,
     ...(obj.Subscription && {
-      Subscription: obj.Subscription.map(item =>
-        item.map(AwsSnsTopicSubscription.filterSensitiveLog)
+      Subscription: obj.Subscription.map(
+        AwsSnsTopicSubscription.filterSensitiveLog
       )
     })
   });
@@ -2104,8 +2020,8 @@ export namespace BatchDisableStandardsResponse {
   export const filterSensitiveLog = (obj: BatchDisableStandardsResponse) => ({
     ...obj,
     ...(obj.StandardsSubscriptions && {
-      StandardsSubscriptions: obj.StandardsSubscriptions.map(item =>
-        item.map(StandardsSubscription.filterSensitiveLog)
+      StandardsSubscriptions: obj.StandardsSubscriptions.map(
+        StandardsSubscription.filterSensitiveLog
       )
     })
   });
@@ -2131,7 +2047,7 @@ export namespace BatchEnableStandardsRequest {
     ...obj,
     ...(obj.StandardsSubscriptionRequests && {
       StandardsSubscriptionRequests: obj.StandardsSubscriptionRequests.map(
-        item => item.map(StandardsSubscriptionRequest.filterSensitiveLog)
+        StandardsSubscriptionRequest.filterSensitiveLog
       )
     })
   });
@@ -2151,8 +2067,8 @@ export namespace BatchEnableStandardsResponse {
   export const filterSensitiveLog = (obj: BatchEnableStandardsResponse) => ({
     ...obj,
     ...(obj.StandardsSubscriptions && {
-      StandardsSubscriptions: obj.StandardsSubscriptions.map(item =>
-        item.map(StandardsSubscription.filterSensitiveLog)
+      StandardsSubscriptions: obj.StandardsSubscriptions.map(
+        StandardsSubscription.filterSensitiveLog
       )
     })
   });
@@ -2173,9 +2089,7 @@ export namespace BatchImportFindingsRequest {
   export const filterSensitiveLog = (obj: BatchImportFindingsRequest) => ({
     ...obj,
     ...(obj.Findings && {
-      Findings: obj.Findings.map(item =>
-        item.map(AwsSecurityFinding.filterSensitiveLog)
-      )
+      Findings: obj.Findings.map(AwsSecurityFinding.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchImportFindingsRequest =>
@@ -2204,8 +2118,8 @@ export namespace BatchImportFindingsResponse {
   export const filterSensitiveLog = (obj: BatchImportFindingsResponse) => ({
     ...obj,
     ...(obj.FailedFindings && {
-      FailedFindings: obj.FailedFindings.map(item =>
-        item.map(ImportFindingsError.filterSensitiveLog)
+      FailedFindings: obj.FailedFindings.map(
+        ImportFindingsError.filterSensitiveLog
       )
     })
   });
@@ -2404,9 +2318,7 @@ export namespace CreateMembersRequest {
   export const filterSensitiveLog = (obj: CreateMembersRequest) => ({
     ...obj,
     ...(obj.AccountDetails && {
-      AccountDetails: obj.AccountDetails.map(item =>
-        item.map(AccountDetails.filterSensitiveLog)
-      )
+      AccountDetails: obj.AccountDetails.map(AccountDetails.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateMembersRequest =>
@@ -2426,8 +2338,8 @@ export namespace CreateMembersResponse {
   export const filterSensitiveLog = (obj: CreateMembersResponse) => ({
     ...obj,
     ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        item.map(Result.filterSensitiveLog)
+      UnprocessedAccounts: obj.UnprocessedAccounts.map(
+        Result.filterSensitiveLog
       )
     })
   });
@@ -2523,8 +2435,8 @@ export namespace DeclineInvitationsResponse {
   export const filterSensitiveLog = (obj: DeclineInvitationsResponse) => ({
     ...obj,
     ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        item.map(Result.filterSensitiveLog)
+      UnprocessedAccounts: obj.UnprocessedAccounts.map(
+        Result.filterSensitiveLog
       )
     })
   });
@@ -2625,8 +2537,8 @@ export namespace DeleteInvitationsResponse {
   export const filterSensitiveLog = (obj: DeleteInvitationsResponse) => ({
     ...obj,
     ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        item.map(Result.filterSensitiveLog)
+      UnprocessedAccounts: obj.UnprocessedAccounts.map(
+        Result.filterSensitiveLog
       )
     })
   });
@@ -2663,8 +2575,8 @@ export namespace DeleteMembersResponse {
   export const filterSensitiveLog = (obj: DeleteMembersResponse) => ({
     ...obj,
     ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        item.map(Result.filterSensitiveLog)
+      UnprocessedAccounts: obj.UnprocessedAccounts.map(
+        Result.filterSensitiveLog
       )
     })
   });
@@ -2717,9 +2629,7 @@ export namespace DescribeActionTargetsResponse {
   export const filterSensitiveLog = (obj: DescribeActionTargetsResponse) => ({
     ...obj,
     ...(obj.ActionTargets && {
-      ActionTargets: obj.ActionTargets.map(item =>
-        item.map(ActionTarget.filterSensitiveLog)
-      )
+      ActionTargets: obj.ActionTargets.map(ActionTarget.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeActionTargetsResponse =>
@@ -2801,7 +2711,7 @@ export namespace DescribeProductsResponse {
   export const filterSensitiveLog = (obj: DescribeProductsResponse) => ({
     ...obj,
     ...(obj.Products && {
-      Products: obj.Products.map(item => item.map(Product.filterSensitiveLog))
+      Products: obj.Products.map(Product.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeProductsResponse =>
@@ -2859,9 +2769,7 @@ export namespace DescribeStandardsControlsResponse {
   ) => ({
     ...obj,
     ...(obj.Controls && {
-      Controls: obj.Controls.map(item =>
-        item.map(StandardsControl.filterSensitiveLog)
-      )
+      Controls: obj.Controls.map(StandardsControl.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeStandardsControlsResponse =>
@@ -3090,8 +2998,8 @@ export namespace GetEnabledStandardsResponse {
   export const filterSensitiveLog = (obj: GetEnabledStandardsResponse) => ({
     ...obj,
     ...(obj.StandardsSubscriptions && {
-      StandardsSubscriptions: obj.StandardsSubscriptions.map(item =>
-        item.map(StandardsSubscription.filterSensitiveLog)
+      StandardsSubscriptions: obj.StandardsSubscriptions.map(
+        StandardsSubscription.filterSensitiveLog
       )
     })
   });
@@ -3132,9 +3040,7 @@ export namespace GetFindingsRequest {
       Filters: AwsSecurityFindingFilters.filterSensitiveLog(obj.Filters)
     }),
     ...(obj.SortCriteria && {
-      SortCriteria: obj.SortCriteria.map(item =>
-        item.map(SortCriterion.filterSensitiveLog)
-      )
+      SortCriteria: obj.SortCriteria.map(SortCriterion.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetFindingsRequest =>
@@ -3158,9 +3064,7 @@ export namespace GetFindingsResponse {
   export const filterSensitiveLog = (obj: GetFindingsResponse) => ({
     ...obj,
     ...(obj.Findings && {
-      Findings: obj.Findings.map(item =>
-        item.map(AwsSecurityFinding.filterSensitiveLog)
-      )
+      Findings: obj.Findings.map(AwsSecurityFinding.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetFindingsResponse =>
@@ -3248,7 +3152,7 @@ export namespace GetInsightsResponse {
   export const filterSensitiveLog = (obj: GetInsightsResponse) => ({
     ...obj,
     ...(obj.Insights && {
-      Insights: obj.Insights.map(item => item.map(Insight.filterSensitiveLog))
+      Insights: obj.Insights.map(Insight.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetInsightsResponse =>
@@ -3348,12 +3252,10 @@ export interface GetMembersResponse {
 export namespace GetMembersResponse {
   export const filterSensitiveLog = (obj: GetMembersResponse) => ({
     ...obj,
-    ...(obj.Members && {
-      Members: obj.Members.map(item => item.map(Member.filterSensitiveLog))
-    }),
+    ...(obj.Members && { Members: obj.Members.map(Member.filterSensitiveLog) }),
     ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        item.map(Result.filterSensitiveLog)
+      UnprocessedAccounts: obj.UnprocessedAccounts.map(
+        Result.filterSensitiveLog
       )
     })
   });
@@ -3483,9 +3385,7 @@ export namespace InsightResults {
   export const filterSensitiveLog = (obj: InsightResults) => ({
     ...obj,
     ...(obj.ResultValues && {
-      ResultValues: obj.ResultValues.map(item =>
-        item.map(InsightResultValue.filterSensitiveLog)
-      )
+      ResultValues: obj.ResultValues.map(InsightResultValue.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is InsightResults =>
@@ -3614,8 +3514,8 @@ export namespace InviteMembersResponse {
   export const filterSensitiveLog = (obj: InviteMembersResponse) => ({
     ...obj,
     ...(obj.UnprocessedAccounts && {
-      UnprocessedAccounts: obj.UnprocessedAccounts.map(item =>
-        item.map(Result.filterSensitiveLog)
+      UnprocessedAccounts: obj.UnprocessedAccounts.map(
+        Result.filterSensitiveLog
       )
     })
   });
@@ -3770,9 +3670,7 @@ export namespace ListInvitationsResponse {
   export const filterSensitiveLog = (obj: ListInvitationsResponse) => ({
     ...obj,
     ...(obj.Invitations && {
-      Invitations: obj.Invitations.map(item =>
-        item.map(Invitation.filterSensitiveLog)
-      )
+      Invitations: obj.Invitations.map(Invitation.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListInvitationsResponse =>
@@ -3829,9 +3727,7 @@ export interface ListMembersResponse {
 export namespace ListMembersResponse {
   export const filterSensitiveLog = (obj: ListMembersResponse) => ({
     ...obj,
-    ...(obj.Members && {
-      Members: obj.Members.map(item => item.map(Member.filterSensitiveLog))
-    })
+    ...(obj.Members && { Members: obj.Members.map(Member.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListMembersResponse =>
     __isa(o, "ListMembersResponse");

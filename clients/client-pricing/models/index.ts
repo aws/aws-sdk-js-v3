@@ -85,7 +85,7 @@ export namespace DescribeServicesResponse {
   export const filterSensitiveLog = (obj: DescribeServicesResponse) => ({
     ...obj,
     ...(obj.Services && {
-      Services: obj.Services.map(item => item.map(Service.filterSensitiveLog))
+      Services: obj.Services.map(Service.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeServicesResponse =>
@@ -206,8 +206,8 @@ export namespace GetAttributeValuesResponse {
   export const filterSensitiveLog = (obj: GetAttributeValuesResponse) => ({
     ...obj,
     ...(obj.AttributeValues && {
-      AttributeValues: obj.AttributeValues.map(item =>
-        item.map(AttributeValue.filterSensitiveLog)
+      AttributeValues: obj.AttributeValues.map(
+        AttributeValue.filterSensitiveLog
       )
     })
   });
@@ -249,9 +249,7 @@ export interface GetProductsRequest {
 export namespace GetProductsRequest {
   export const filterSensitiveLog = (obj: GetProductsRequest) => ({
     ...obj,
-    ...(obj.Filters && {
-      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
-    })
+    ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
   export const isa = (o: any): o is GetProductsRequest =>
     __isa(o, "GetProductsRequest");

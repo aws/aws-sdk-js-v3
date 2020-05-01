@@ -120,9 +120,7 @@ export namespace AddListenerCertificatesInput {
   export const filterSensitiveLog = (obj: AddListenerCertificatesInput) => ({
     ...obj,
     ...(obj.Certificates && {
-      Certificates: obj.Certificates.map(item =>
-        item.map(Certificate.filterSensitiveLog)
-      )
+      Certificates: obj.Certificates.map(Certificate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is AddListenerCertificatesInput =>
@@ -141,9 +139,7 @@ export namespace AddListenerCertificatesOutput {
   export const filterSensitiveLog = (obj: AddListenerCertificatesOutput) => ({
     ...obj,
     ...(obj.Certificates && {
-      Certificates: obj.Certificates.map(item =>
-        item.map(Certificate.filterSensitiveLog)
-      )
+      Certificates: obj.Certificates.map(Certificate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is AddListenerCertificatesOutput =>
@@ -166,9 +162,7 @@ export interface AddTagsInput {
 export namespace AddTagsInput {
   export const filterSensitiveLog = (obj: AddTagsInput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AddTagsInput => __isa(o, "AddTagsInput");
 }
@@ -403,8 +397,8 @@ export namespace AvailabilityZone {
   export const filterSensitiveLog = (obj: AvailabilityZone) => ({
     ...obj,
     ...(obj.LoadBalancerAddresses && {
-      LoadBalancerAddresses: obj.LoadBalancerAddresses.map(item =>
-        item.map(LoadBalancerAddress.filterSensitiveLog)
+      LoadBalancerAddresses: obj.LoadBalancerAddresses.map(
+        LoadBalancerAddress.filterSensitiveLog
       )
     })
   });
@@ -553,14 +547,10 @@ export namespace CreateListenerInput {
   export const filterSensitiveLog = (obj: CreateListenerInput) => ({
     ...obj,
     ...(obj.Certificates && {
-      Certificates: obj.Certificates.map(item =>
-        item.map(Certificate.filterSensitiveLog)
-      )
+      Certificates: obj.Certificates.map(Certificate.filterSensitiveLog)
     }),
     ...(obj.DefaultActions && {
-      DefaultActions: obj.DefaultActions.map(item =>
-        item.map(Action.filterSensitiveLog)
-      )
+      DefaultActions: obj.DefaultActions.map(Action.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateListenerInput =>
@@ -579,9 +569,7 @@ export namespace CreateListenerOutput {
   export const filterSensitiveLog = (obj: CreateListenerOutput) => ({
     ...obj,
     ...(obj.Listeners && {
-      Listeners: obj.Listeners.map(item =>
-        item.map(Listener.filterSensitiveLog)
-      )
+      Listeners: obj.Listeners.map(Listener.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateListenerOutput =>
@@ -661,13 +649,9 @@ export namespace CreateLoadBalancerInput {
   export const filterSensitiveLog = (obj: CreateLoadBalancerInput) => ({
     ...obj,
     ...(obj.SubnetMappings && {
-      SubnetMappings: obj.SubnetMappings.map(item =>
-        item.map(SubnetMapping.filterSensitiveLog)
-      )
+      SubnetMappings: obj.SubnetMappings.map(SubnetMapping.filterSensitiveLog)
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateLoadBalancerInput =>
     __isa(o, "CreateLoadBalancerInput");
@@ -685,9 +669,7 @@ export namespace CreateLoadBalancerOutput {
   export const filterSensitiveLog = (obj: CreateLoadBalancerOutput) => ({
     ...obj,
     ...(obj.LoadBalancers && {
-      LoadBalancers: obj.LoadBalancers.map(item =>
-        item.map(LoadBalancer.filterSensitiveLog)
-      )
+      LoadBalancers: obj.LoadBalancers.map(LoadBalancer.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateLoadBalancerOutput =>
@@ -736,13 +718,9 @@ export interface CreateRuleInput {
 export namespace CreateRuleInput {
   export const filterSensitiveLog = (obj: CreateRuleInput) => ({
     ...obj,
-    ...(obj.Actions && {
-      Actions: obj.Actions.map(item => item.map(Action.filterSensitiveLog))
-    }),
+    ...(obj.Actions && { Actions: obj.Actions.map(Action.filterSensitiveLog) }),
     ...(obj.Conditions && {
-      Conditions: obj.Conditions.map(item =>
-        item.map(RuleCondition.filterSensitiveLog)
-      )
+      Conditions: obj.Conditions.map(RuleCondition.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateRuleInput =>
@@ -760,9 +738,7 @@ export interface CreateRuleOutput {
 export namespace CreateRuleOutput {
   export const filterSensitiveLog = (obj: CreateRuleOutput) => ({
     ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => item.map(Rule.filterSensitiveLog))
-    })
+    ...(obj.Rules && { Rules: obj.Rules.map(Rule.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateRuleOutput =>
     __isa(o, "CreateRuleOutput");
@@ -912,9 +888,7 @@ export namespace CreateTargetGroupOutput {
   export const filterSensitiveLog = (obj: CreateTargetGroupOutput) => ({
     ...obj,
     ...(obj.TargetGroups && {
-      TargetGroups: obj.TargetGroups.map(item =>
-        item.map(TargetGroup.filterSensitiveLog)
-      )
+      TargetGroups: obj.TargetGroups.map(TargetGroup.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateTargetGroupOutput =>
@@ -1051,9 +1025,7 @@ export namespace DeregisterTargetsInput {
   export const filterSensitiveLog = (obj: DeregisterTargetsInput) => ({
     ...obj,
     ...(obj.Targets && {
-      Targets: obj.Targets.map(item =>
-        item.map(TargetDescription.filterSensitiveLog)
-      )
+      Targets: obj.Targets.map(TargetDescription.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DeregisterTargetsInput =>
@@ -1111,9 +1083,7 @@ export interface DescribeAccountLimitsOutput {
 export namespace DescribeAccountLimitsOutput {
   export const filterSensitiveLog = (obj: DescribeAccountLimitsOutput) => ({
     ...obj,
-    ...(obj.Limits && {
-      Limits: obj.Limits.map(item => item.map(Limit.filterSensitiveLog))
-    })
+    ...(obj.Limits && { Limits: obj.Limits.map(Limit.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeAccountLimitsOutput =>
     __isa(o, "DescribeAccountLimitsOutput");
@@ -1168,9 +1138,7 @@ export namespace DescribeListenerCertificatesOutput {
   ) => ({
     ...obj,
     ...(obj.Certificates && {
-      Certificates: obj.Certificates.map(item =>
-        item.map(Certificate.filterSensitiveLog)
-      )
+      Certificates: obj.Certificates.map(Certificate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeListenerCertificatesOutput =>
@@ -1227,9 +1195,7 @@ export namespace DescribeListenersOutput {
   export const filterSensitiveLog = (obj: DescribeListenersOutput) => ({
     ...obj,
     ...(obj.Listeners && {
-      Listeners: obj.Listeners.map(item =>
-        item.map(Listener.filterSensitiveLog)
-      )
+      Listeners: obj.Listeners.map(Listener.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeListenersOutput =>
@@ -1268,9 +1234,7 @@ export namespace DescribeLoadBalancerAttributesOutput {
   ) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(LoadBalancerAttribute.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(LoadBalancerAttribute.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeLoadBalancerAttributesOutput =>
@@ -1328,9 +1292,7 @@ export namespace DescribeLoadBalancersOutput {
   export const filterSensitiveLog = (obj: DescribeLoadBalancersOutput) => ({
     ...obj,
     ...(obj.LoadBalancers && {
-      LoadBalancers: obj.LoadBalancers.map(item =>
-        item.map(LoadBalancer.filterSensitiveLog)
-      )
+      LoadBalancers: obj.LoadBalancers.map(LoadBalancer.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeLoadBalancersOutput =>
@@ -1386,9 +1348,7 @@ export interface DescribeRulesOutput {
 export namespace DescribeRulesOutput {
   export const filterSensitiveLog = (obj: DescribeRulesOutput) => ({
     ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => item.map(Rule.filterSensitiveLog))
-    })
+    ...(obj.Rules && { Rules: obj.Rules.map(Rule.filterSensitiveLog) })
   });
   export const isa = (o: any): o is DescribeRulesOutput =>
     __isa(o, "DescribeRulesOutput");
@@ -1439,9 +1399,7 @@ export namespace DescribeSSLPoliciesOutput {
   export const filterSensitiveLog = (obj: DescribeSSLPoliciesOutput) => ({
     ...obj,
     ...(obj.SslPolicies && {
-      SslPolicies: obj.SslPolicies.map(item =>
-        item.map(SslPolicy.filterSensitiveLog)
-      )
+      SslPolicies: obj.SslPolicies.map(SslPolicy.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeSSLPoliciesOutput =>
@@ -1476,8 +1434,8 @@ export namespace DescribeTagsOutput {
   export const filterSensitiveLog = (obj: DescribeTagsOutput) => ({
     ...obj,
     ...(obj.TagDescriptions && {
-      TagDescriptions: obj.TagDescriptions.map(item =>
-        item.map(TagDescription.filterSensitiveLog)
+      TagDescriptions: obj.TagDescriptions.map(
+        TagDescription.filterSensitiveLog
       )
     })
   });
@@ -1517,9 +1475,7 @@ export namespace DescribeTargetGroupAttributesOutput {
   ) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(TargetGroupAttribute.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(TargetGroupAttribute.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeTargetGroupAttributesOutput =>
@@ -1581,9 +1537,7 @@ export namespace DescribeTargetGroupsOutput {
   export const filterSensitiveLog = (obj: DescribeTargetGroupsOutput) => ({
     ...obj,
     ...(obj.TargetGroups && {
-      TargetGroups: obj.TargetGroups.map(item =>
-        item.map(TargetGroup.filterSensitiveLog)
-      )
+      TargetGroups: obj.TargetGroups.map(TargetGroup.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeTargetGroupsOutput =>
@@ -1607,9 +1561,7 @@ export namespace DescribeTargetHealthInput {
   export const filterSensitiveLog = (obj: DescribeTargetHealthInput) => ({
     ...obj,
     ...(obj.Targets && {
-      Targets: obj.Targets.map(item =>
-        item.map(TargetDescription.filterSensitiveLog)
-      )
+      Targets: obj.Targets.map(TargetDescription.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeTargetHealthInput =>
@@ -1628,8 +1580,8 @@ export namespace DescribeTargetHealthOutput {
   export const filterSensitiveLog = (obj: DescribeTargetHealthOutput) => ({
     ...obj,
     ...(obj.TargetHealthDescriptions && {
-      TargetHealthDescriptions: obj.TargetHealthDescriptions.map(item =>
-        item.map(TargetHealthDescription.filterSensitiveLog)
+      TargetHealthDescriptions: obj.TargetHealthDescriptions.map(
+        TargetHealthDescription.filterSensitiveLog
       )
     })
   });
@@ -1772,9 +1724,7 @@ export namespace ForwardActionConfig {
       )
     }),
     ...(obj.TargetGroups && {
-      TargetGroups: obj.TargetGroups.map(item =>
-        item.map(TargetGroupTuple.filterSensitiveLog)
-      )
+      TargetGroups: obj.TargetGroups.map(TargetGroupTuple.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ForwardActionConfig =>
@@ -2137,14 +2087,10 @@ export namespace Listener {
   export const filterSensitiveLog = (obj: Listener) => ({
     ...obj,
     ...(obj.Certificates && {
-      Certificates: obj.Certificates.map(item =>
-        item.map(Certificate.filterSensitiveLog)
-      )
+      Certificates: obj.Certificates.map(Certificate.filterSensitiveLog)
     }),
     ...(obj.DefaultActions && {
-      DefaultActions: obj.DefaultActions.map(item =>
-        item.map(Action.filterSensitiveLog)
-      )
+      DefaultActions: obj.DefaultActions.map(Action.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Listener => __isa(o, "Listener");
@@ -2248,8 +2194,8 @@ export namespace LoadBalancer {
   export const filterSensitiveLog = (obj: LoadBalancer) => ({
     ...obj,
     ...(obj.AvailabilityZones && {
-      AvailabilityZones: obj.AvailabilityZones.map(item =>
-        item.map(AvailabilityZone.filterSensitiveLog)
+      AvailabilityZones: obj.AvailabilityZones.map(
+        AvailabilityZone.filterSensitiveLog
       )
     }),
     ...(obj.State && { State: LoadBalancerState.filterSensitiveLog(obj.State) })
@@ -2500,14 +2446,10 @@ export namespace ModifyListenerInput {
   export const filterSensitiveLog = (obj: ModifyListenerInput) => ({
     ...obj,
     ...(obj.Certificates && {
-      Certificates: obj.Certificates.map(item =>
-        item.map(Certificate.filterSensitiveLog)
-      )
+      Certificates: obj.Certificates.map(Certificate.filterSensitiveLog)
     }),
     ...(obj.DefaultActions && {
-      DefaultActions: obj.DefaultActions.map(item =>
-        item.map(Action.filterSensitiveLog)
-      )
+      DefaultActions: obj.DefaultActions.map(Action.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ModifyListenerInput =>
@@ -2526,9 +2468,7 @@ export namespace ModifyListenerOutput {
   export const filterSensitiveLog = (obj: ModifyListenerOutput) => ({
     ...obj,
     ...(obj.Listeners && {
-      Listeners: obj.Listeners.map(item =>
-        item.map(Listener.filterSensitiveLog)
-      )
+      Listeners: obj.Listeners.map(Listener.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ModifyListenerOutput =>
@@ -2554,9 +2494,7 @@ export namespace ModifyLoadBalancerAttributesInput {
   ) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(LoadBalancerAttribute.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(LoadBalancerAttribute.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ModifyLoadBalancerAttributesInput =>
@@ -2577,9 +2515,7 @@ export namespace ModifyLoadBalancerAttributesOutput {
   ) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(LoadBalancerAttribute.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(LoadBalancerAttribute.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ModifyLoadBalancerAttributesOutput =>
@@ -2623,13 +2559,9 @@ export interface ModifyRuleInput {
 export namespace ModifyRuleInput {
   export const filterSensitiveLog = (obj: ModifyRuleInput) => ({
     ...obj,
-    ...(obj.Actions && {
-      Actions: obj.Actions.map(item => item.map(Action.filterSensitiveLog))
-    }),
+    ...(obj.Actions && { Actions: obj.Actions.map(Action.filterSensitiveLog) }),
     ...(obj.Conditions && {
-      Conditions: obj.Conditions.map(item =>
-        item.map(RuleCondition.filterSensitiveLog)
-      )
+      Conditions: obj.Conditions.map(RuleCondition.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ModifyRuleInput =>
@@ -2647,9 +2579,7 @@ export interface ModifyRuleOutput {
 export namespace ModifyRuleOutput {
   export const filterSensitiveLog = (obj: ModifyRuleOutput) => ({
     ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => item.map(Rule.filterSensitiveLog))
-    })
+    ...(obj.Rules && { Rules: obj.Rules.map(Rule.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ModifyRuleOutput =>
     __isa(o, "ModifyRuleOutput");
@@ -2674,9 +2604,7 @@ export namespace ModifyTargetGroupAttributesInput {
   ) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(TargetGroupAttribute.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(TargetGroupAttribute.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ModifyTargetGroupAttributesInput =>
@@ -2697,9 +2625,7 @@ export namespace ModifyTargetGroupAttributesOutput {
   ) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: obj.Attributes.map(item =>
-        item.map(TargetGroupAttribute.filterSensitiveLog)
-      )
+      Attributes: obj.Attributes.map(TargetGroupAttribute.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ModifyTargetGroupAttributesOutput =>
@@ -2794,9 +2720,7 @@ export namespace ModifyTargetGroupOutput {
   export const filterSensitiveLog = (obj: ModifyTargetGroupOutput) => ({
     ...obj,
     ...(obj.TargetGroups && {
-      TargetGroups: obj.TargetGroups.map(item =>
-        item.map(TargetGroup.filterSensitiveLog)
-      )
+      TargetGroups: obj.TargetGroups.map(TargetGroup.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ModifyTargetGroupOutput =>
@@ -2893,9 +2817,7 @@ export namespace QueryStringConditionConfig {
   export const filterSensitiveLog = (obj: QueryStringConditionConfig) => ({
     ...obj,
     ...(obj.Values && {
-      Values: obj.Values.map(item =>
-        item.map(QueryStringKeyValuePair.filterSensitiveLog)
-      )
+      Values: obj.Values.map(QueryStringKeyValuePair.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is QueryStringConditionConfig =>
@@ -3022,9 +2944,7 @@ export namespace RegisterTargetsInput {
   export const filterSensitiveLog = (obj: RegisterTargetsInput) => ({
     ...obj,
     ...(obj.Targets && {
-      Targets: obj.Targets.map(item =>
-        item.map(TargetDescription.filterSensitiveLog)
-      )
+      Targets: obj.Targets.map(TargetDescription.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is RegisterTargetsInput =>
@@ -3061,9 +2981,7 @@ export namespace RemoveListenerCertificatesInput {
   export const filterSensitiveLog = (obj: RemoveListenerCertificatesInput) => ({
     ...obj,
     ...(obj.Certificates && {
-      Certificates: obj.Certificates.map(item =>
-        item.map(Certificate.filterSensitiveLog)
-      )
+      Certificates: obj.Certificates.map(Certificate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is RemoveListenerCertificatesInput =>
@@ -3174,13 +3092,9 @@ export interface Rule {
 export namespace Rule {
   export const filterSensitiveLog = (obj: Rule) => ({
     ...obj,
-    ...(obj.Actions && {
-      Actions: obj.Actions.map(item => item.map(Action.filterSensitiveLog))
-    }),
+    ...(obj.Actions && { Actions: obj.Actions.map(Action.filterSensitiveLog) }),
     ...(obj.Conditions && {
-      Conditions: obj.Conditions.map(item =>
-        item.map(RuleCondition.filterSensitiveLog)
-      )
+      Conditions: obj.Conditions.map(RuleCondition.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Rule => __isa(o, "Rule");
@@ -3460,8 +3374,8 @@ export namespace SetRulePrioritiesInput {
   export const filterSensitiveLog = (obj: SetRulePrioritiesInput) => ({
     ...obj,
     ...(obj.RulePriorities && {
-      RulePriorities: obj.RulePriorities.map(item =>
-        item.map(RulePriorityPair.filterSensitiveLog)
+      RulePriorities: obj.RulePriorities.map(
+        RulePriorityPair.filterSensitiveLog
       )
     })
   });
@@ -3480,9 +3394,7 @@ export interface SetRulePrioritiesOutput {
 export namespace SetRulePrioritiesOutput {
   export const filterSensitiveLog = (obj: SetRulePrioritiesOutput) => ({
     ...obj,
-    ...(obj.Rules && {
-      Rules: obj.Rules.map(item => item.map(Rule.filterSensitiveLog))
-    })
+    ...(obj.Rules && { Rules: obj.Rules.map(Rule.filterSensitiveLog) })
   });
   export const isa = (o: any): o is SetRulePrioritiesOutput =>
     __isa(o, "SetRulePrioritiesOutput");
@@ -3556,9 +3468,7 @@ export namespace SetSubnetsInput {
   export const filterSensitiveLog = (obj: SetSubnetsInput) => ({
     ...obj,
     ...(obj.SubnetMappings && {
-      SubnetMappings: obj.SubnetMappings.map(item =>
-        item.map(SubnetMapping.filterSensitiveLog)
-      )
+      SubnetMappings: obj.SubnetMappings.map(SubnetMapping.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is SetSubnetsInput =>
@@ -3577,8 +3487,8 @@ export namespace SetSubnetsOutput {
   export const filterSensitiveLog = (obj: SetSubnetsOutput) => ({
     ...obj,
     ...(obj.AvailabilityZones && {
-      AvailabilityZones: obj.AvailabilityZones.map(item =>
-        item.map(AvailabilityZone.filterSensitiveLog)
+      AvailabilityZones: obj.AvailabilityZones.map(
+        AvailabilityZone.filterSensitiveLog
       )
     })
   });
@@ -3636,9 +3546,7 @@ export interface SslPolicy {
 export namespace SslPolicy {
   export const filterSensitiveLog = (obj: SslPolicy) => ({
     ...obj,
-    ...(obj.Ciphers && {
-      Ciphers: obj.Ciphers.map(item => item.map(Cipher.filterSensitiveLog))
-    })
+    ...(obj.Ciphers && { Ciphers: obj.Ciphers.map(Cipher.filterSensitiveLog) })
   });
   export const isa = (o: any): o is SslPolicy => __isa(o, "SslPolicy");
 }
@@ -3732,9 +3640,7 @@ export interface TagDescription {
 export namespace TagDescription {
   export const filterSensitiveLog = (obj: TagDescription) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagDescription =>
     __isa(o, "TagDescription");

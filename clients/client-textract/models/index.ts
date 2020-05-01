@@ -92,9 +92,7 @@ export interface AnalyzeDocumentResponse {
 export namespace AnalyzeDocumentResponse {
   export const filterSensitiveLog = (obj: AnalyzeDocumentResponse) => ({
     ...obj,
-    ...(obj.Blocks && {
-      Blocks: obj.Blocks.map(item => item.map(Block.filterSensitiveLog))
-    }),
+    ...(obj.Blocks && { Blocks: obj.Blocks.map(Block.filterSensitiveLog) }),
     ...(obj.DocumentMetadata && {
       DocumentMetadata: DocumentMetadata.filterSensitiveLog(
         obj.DocumentMetadata
@@ -321,9 +319,7 @@ export namespace Block {
       Geometry: Geometry.filterSensitiveLog(obj.Geometry)
     }),
     ...(obj.Relationships && {
-      Relationships: obj.Relationships.map(item =>
-        item.map(Relationship.filterSensitiveLog)
-      )
+      Relationships: obj.Relationships.map(Relationship.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Block => __isa(o, "Block");
@@ -436,9 +432,7 @@ export interface DetectDocumentTextResponse {
 export namespace DetectDocumentTextResponse {
   export const filterSensitiveLog = (obj: DetectDocumentTextResponse) => ({
     ...obj,
-    ...(obj.Blocks && {
-      Blocks: obj.Blocks.map(item => item.map(Block.filterSensitiveLog))
-    }),
+    ...(obj.Blocks && { Blocks: obj.Blocks.map(Block.filterSensitiveLog) }),
     ...(obj.DocumentMetadata && {
       DocumentMetadata: DocumentMetadata.filterSensitiveLog(
         obj.DocumentMetadata
@@ -591,9 +585,7 @@ export namespace Geometry {
     ...(obj.BoundingBox && {
       BoundingBox: BoundingBox.filterSensitiveLog(obj.BoundingBox)
     }),
-    ...(obj.Polygon && {
-      Polygon: obj.Polygon.map(item => item.map(Point.filterSensitiveLog))
-    })
+    ...(obj.Polygon && { Polygon: obj.Polygon.map(Point.filterSensitiveLog) })
   });
   export const isa = (o: any): o is Geometry => __isa(o, "Geometry");
 }
@@ -671,16 +663,14 @@ export interface GetDocumentAnalysisResponse {
 export namespace GetDocumentAnalysisResponse {
   export const filterSensitiveLog = (obj: GetDocumentAnalysisResponse) => ({
     ...obj,
-    ...(obj.Blocks && {
-      Blocks: obj.Blocks.map(item => item.map(Block.filterSensitiveLog))
-    }),
+    ...(obj.Blocks && { Blocks: obj.Blocks.map(Block.filterSensitiveLog) }),
     ...(obj.DocumentMetadata && {
       DocumentMetadata: DocumentMetadata.filterSensitiveLog(
         obj.DocumentMetadata
       )
     }),
     ...(obj.Warnings && {
-      Warnings: obj.Warnings.map(item => item.map(Warning.filterSensitiveLog))
+      Warnings: obj.Warnings.map(Warning.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetDocumentAnalysisResponse =>
@@ -763,16 +753,14 @@ export namespace GetDocumentTextDetectionResponse {
     obj: GetDocumentTextDetectionResponse
   ) => ({
     ...obj,
-    ...(obj.Blocks && {
-      Blocks: obj.Blocks.map(item => item.map(Block.filterSensitiveLog))
-    }),
+    ...(obj.Blocks && { Blocks: obj.Blocks.map(Block.filterSensitiveLog) }),
     ...(obj.DocumentMetadata && {
       DocumentMetadata: DocumentMetadata.filterSensitiveLog(
         obj.DocumentMetadata
       )
     }),
     ...(obj.Warnings && {
-      Warnings: obj.Warnings.map(item => item.map(Warning.filterSensitiveLog))
+      Warnings: obj.Warnings.map(Warning.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GetDocumentTextDetectionResponse =>

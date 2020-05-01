@@ -29,9 +29,7 @@ export namespace DescribeEndpointsResponse {
   export const filterSensitiveLog = (obj: DescribeEndpointsResponse) => ({
     ...obj,
     ...(obj.Endpoints && {
-      Endpoints: obj.Endpoints.map(item =>
-        item.map(Endpoint.filterSensitiveLog)
-      )
+      Endpoints: obj.Endpoints.map(Endpoint.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeEndpointsResponse =>
@@ -255,9 +253,7 @@ export interface AttributeValue {
 export namespace AttributeValue {
   export const filterSensitiveLog = (obj: AttributeValue) => ({
     ...obj,
-    ...(obj.L && {
-      L: obj.L.map(item => item.map(AttributeValue.filterSensitiveLog))
-    })
+    ...(obj.L && { L: obj.L.map(AttributeValue.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AttributeValue =>
     __isa(o, "AttributeValue");
@@ -482,8 +478,8 @@ export namespace AutoScalingSettingsDescription {
   export const filterSensitiveLog = (obj: AutoScalingSettingsDescription) => ({
     ...obj,
     ...(obj.ScalingPolicies && {
-      ScalingPolicies: obj.ScalingPolicies.map(item =>
-        item.map(AutoScalingPolicyDescription.filterSensitiveLog)
+      ScalingPolicies: obj.ScalingPolicies.map(
+        AutoScalingPolicyDescription.filterSensitiveLog
       )
     })
   });
@@ -1059,8 +1055,8 @@ export namespace BatchGetItemOutput {
   export const filterSensitiveLog = (obj: BatchGetItemOutput) => ({
     ...obj,
     ...(obj.ConsumedCapacity && {
-      ConsumedCapacity: obj.ConsumedCapacity.map(item =>
-        item.map(ConsumedCapacity.filterSensitiveLog)
+      ConsumedCapacity: obj.ConsumedCapacity.map(
+        ConsumedCapacity.filterSensitiveLog
       )
     })
   });
@@ -1241,8 +1237,8 @@ export namespace BatchWriteItemOutput {
   export const filterSensitiveLog = (obj: BatchWriteItemOutput) => ({
     ...obj,
     ...(obj.ConsumedCapacity && {
-      ConsumedCapacity: obj.ConsumedCapacity.map(item =>
-        item.map(ConsumedCapacity.filterSensitiveLog)
+      ConsumedCapacity: obj.ConsumedCapacity.map(
+        ConsumedCapacity.filterSensitiveLog
       )
     })
   });
@@ -1553,8 +1549,8 @@ export namespace Condition {
   export const filterSensitiveLog = (obj: Condition) => ({
     ...obj,
     ...(obj.AttributeValueList && {
-      AttributeValueList: obj.AttributeValueList.map(item =>
-        item.map(AttributeValue.filterSensitiveLog)
+      AttributeValueList: obj.AttributeValueList.map(
+        AttributeValue.filterSensitiveLog
       )
     })
   });
@@ -1857,9 +1853,7 @@ export namespace CreateGlobalSecondaryIndexAction {
   ) => ({
     ...obj,
     ...(obj.KeySchema && {
-      KeySchema: obj.KeySchema.map(item =>
-        item.map(KeySchemaElement.filterSensitiveLog)
-      )
+      KeySchema: obj.KeySchema.map(KeySchemaElement.filterSensitiveLog)
     }),
     ...(obj.Projection && {
       Projection: Projection.filterSensitiveLog(obj.Projection)
@@ -1891,9 +1885,7 @@ export namespace CreateGlobalTableInput {
   export const filterSensitiveLog = (obj: CreateGlobalTableInput) => ({
     ...obj,
     ...(obj.ReplicationGroup && {
-      ReplicationGroup: obj.ReplicationGroup.map(item =>
-        item.map(Replica.filterSensitiveLog)
-      )
+      ReplicationGroup: obj.ReplicationGroup.map(Replica.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CreateGlobalTableInput =>
@@ -1976,8 +1968,8 @@ export namespace CreateReplicationGroupMemberAction {
   ) => ({
     ...obj,
     ...(obj.GlobalSecondaryIndexes && {
-      GlobalSecondaryIndexes: obj.GlobalSecondaryIndexes.map(item =>
-        item.map(ReplicaGlobalSecondaryIndex.filterSensitiveLog)
+      GlobalSecondaryIndexes: obj.GlobalSecondaryIndexes.map(
+        ReplicaGlobalSecondaryIndex.filterSensitiveLog
       )
     }),
     ...(obj.ProvisionedThroughputOverride && {
@@ -2253,23 +2245,21 @@ export namespace CreateTableInput {
   export const filterSensitiveLog = (obj: CreateTableInput) => ({
     ...obj,
     ...(obj.AttributeDefinitions && {
-      AttributeDefinitions: obj.AttributeDefinitions.map(item =>
-        item.map(AttributeDefinition.filterSensitiveLog)
+      AttributeDefinitions: obj.AttributeDefinitions.map(
+        AttributeDefinition.filterSensitiveLog
       )
     }),
     ...(obj.GlobalSecondaryIndexes && {
-      GlobalSecondaryIndexes: obj.GlobalSecondaryIndexes.map(item =>
-        item.map(GlobalSecondaryIndex.filterSensitiveLog)
+      GlobalSecondaryIndexes: obj.GlobalSecondaryIndexes.map(
+        GlobalSecondaryIndex.filterSensitiveLog
       )
     }),
     ...(obj.KeySchema && {
-      KeySchema: obj.KeySchema.map(item =>
-        item.map(KeySchemaElement.filterSensitiveLog)
-      )
+      KeySchema: obj.KeySchema.map(KeySchemaElement.filterSensitiveLog)
     }),
     ...(obj.LocalSecondaryIndexes && {
-      LocalSecondaryIndexes: obj.LocalSecondaryIndexes.map(item =>
-        item.map(LocalSecondaryIndex.filterSensitiveLog)
+      LocalSecondaryIndexes: obj.LocalSecondaryIndexes.map(
+        LocalSecondaryIndex.filterSensitiveLog
       )
     }),
     ...(obj.ProvisionedThroughput && {
@@ -2287,9 +2277,7 @@ export namespace CreateTableInput {
         obj.StreamSpecification
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateTableInput =>
     __isa(o, "CreateTableInput");
@@ -3010,8 +2998,8 @@ export namespace DescribeGlobalTableSettingsOutput {
   ) => ({
     ...obj,
     ...(obj.ReplicaSettings && {
-      ReplicaSettings: obj.ReplicaSettings.map(item =>
-        item.map(ReplicaSettingsDescription.filterSensitiveLog)
+      ReplicaSettings: obj.ReplicaSettings.map(
+        ReplicaSettingsDescription.filterSensitiveLog
       )
     })
   });
@@ -3428,8 +3416,8 @@ export namespace ExpectedAttributeValue {
   export const filterSensitiveLog = (obj: ExpectedAttributeValue) => ({
     ...obj,
     ...(obj.AttributeValueList && {
-      AttributeValueList: obj.AttributeValueList.map(item =>
-        item.map(AttributeValue.filterSensitiveLog)
+      AttributeValueList: obj.AttributeValueList.map(
+        AttributeValue.filterSensitiveLog
       )
     }),
     ...(obj.Value && { Value: AttributeValue.filterSensitiveLog(obj.Value) })
@@ -3697,9 +3685,7 @@ export namespace GlobalSecondaryIndex {
   export const filterSensitiveLog = (obj: GlobalSecondaryIndex) => ({
     ...obj,
     ...(obj.KeySchema && {
-      KeySchema: obj.KeySchema.map(item =>
-        item.map(KeySchemaElement.filterSensitiveLog)
-      )
+      KeySchema: obj.KeySchema.map(KeySchemaElement.filterSensitiveLog)
     }),
     ...(obj.Projection && {
       Projection: Projection.filterSensitiveLog(obj.Projection)
@@ -3851,9 +3837,7 @@ export namespace GlobalSecondaryIndexDescription {
   export const filterSensitiveLog = (obj: GlobalSecondaryIndexDescription) => ({
     ...obj,
     ...(obj.KeySchema && {
-      KeySchema: obj.KeySchema.map(item =>
-        item.map(KeySchemaElement.filterSensitiveLog)
-      )
+      KeySchema: obj.KeySchema.map(KeySchemaElement.filterSensitiveLog)
     }),
     ...(obj.Projection && {
       Projection: Projection.filterSensitiveLog(obj.Projection)
@@ -3920,9 +3904,7 @@ export namespace GlobalSecondaryIndexInfo {
   export const filterSensitiveLog = (obj: GlobalSecondaryIndexInfo) => ({
     ...obj,
     ...(obj.KeySchema && {
-      KeySchema: obj.KeySchema.map(item =>
-        item.map(KeySchemaElement.filterSensitiveLog)
-      )
+      KeySchema: obj.KeySchema.map(KeySchemaElement.filterSensitiveLog)
     }),
     ...(obj.Projection && {
       Projection: Projection.filterSensitiveLog(obj.Projection)
@@ -4033,9 +4015,7 @@ export namespace GlobalTable {
   export const filterSensitiveLog = (obj: GlobalTable) => ({
     ...obj,
     ...(obj.ReplicationGroup && {
-      ReplicationGroup: obj.ReplicationGroup.map(item =>
-        item.map(Replica.filterSensitiveLog)
-      )
+      ReplicationGroup: obj.ReplicationGroup.map(Replica.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GlobalTable => __isa(o, "GlobalTable");
@@ -4115,8 +4095,8 @@ export namespace GlobalTableDescription {
   export const filterSensitiveLog = (obj: GlobalTableDescription) => ({
     ...obj,
     ...(obj.ReplicationGroup && {
-      ReplicationGroup: obj.ReplicationGroup.map(item =>
-        item.map(ReplicaDescription.filterSensitiveLog)
+      ReplicationGroup: obj.ReplicationGroup.map(
+        ReplicaDescription.filterSensitiveLog
       )
     })
   });
@@ -4470,7 +4450,7 @@ export interface KeysAndAttributes {
 export namespace KeysAndAttributes {
   export const filterSensitiveLog = (obj: KeysAndAttributes) => ({
     ...obj,
-    ...(obj.Keys && { Keys: obj.Keys.map(item => item.map()) })
+    ...(obj.Keys && { Keys: obj.Keys.map() })
   });
   export const isa = (o: any): o is KeysAndAttributes =>
     __isa(o, "KeysAndAttributes");
@@ -4595,9 +4575,7 @@ export namespace ListBackupsOutput {
   export const filterSensitiveLog = (obj: ListBackupsOutput) => ({
     ...obj,
     ...(obj.BackupSummaries && {
-      BackupSummaries: obj.BackupSummaries.map(item =>
-        item.map(BackupSummary.filterSensitiveLog)
-      )
+      BackupSummaries: obj.BackupSummaries.map(BackupSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListBackupsOutput =>
@@ -4647,8 +4625,8 @@ export namespace ListContributorInsightsOutput {
   export const filterSensitiveLog = (obj: ListContributorInsightsOutput) => ({
     ...obj,
     ...(obj.ContributorInsightsSummaries && {
-      ContributorInsightsSummaries: obj.ContributorInsightsSummaries.map(item =>
-        item.map(ContributorInsightsSummary.filterSensitiveLog)
+      ContributorInsightsSummaries: obj.ContributorInsightsSummaries.map(
+        ContributorInsightsSummary.filterSensitiveLog
       )
     })
   });
@@ -4699,9 +4677,7 @@ export namespace ListGlobalTablesOutput {
   export const filterSensitiveLog = (obj: ListGlobalTablesOutput) => ({
     ...obj,
     ...(obj.GlobalTables && {
-      GlobalTables: obj.GlobalTables.map(item =>
-        item.map(GlobalTable.filterSensitiveLog)
-      )
+      GlobalTables: obj.GlobalTables.map(GlobalTable.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListGlobalTablesOutput =>
@@ -4804,9 +4780,7 @@ export interface ListTagsOfResourceOutput {
 export namespace ListTagsOfResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsOfResourceOutput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListTagsOfResourceOutput =>
     __isa(o, "ListTagsOfResourceOutput");
@@ -4857,9 +4831,7 @@ export namespace LocalSecondaryIndex {
   export const filterSensitiveLog = (obj: LocalSecondaryIndex) => ({
     ...obj,
     ...(obj.KeySchema && {
-      KeySchema: obj.KeySchema.map(item =>
-        item.map(KeySchemaElement.filterSensitiveLog)
-      )
+      KeySchema: obj.KeySchema.map(KeySchemaElement.filterSensitiveLog)
     }),
     ...(obj.Projection && {
       Projection: Projection.filterSensitiveLog(obj.Projection)
@@ -4929,9 +4901,7 @@ export namespace LocalSecondaryIndexDescription {
   export const filterSensitiveLog = (obj: LocalSecondaryIndexDescription) => ({
     ...obj,
     ...(obj.KeySchema && {
-      KeySchema: obj.KeySchema.map(item =>
-        item.map(KeySchemaElement.filterSensitiveLog)
-      )
+      KeySchema: obj.KeySchema.map(KeySchemaElement.filterSensitiveLog)
     }),
     ...(obj.Projection && {
       Projection: Projection.filterSensitiveLog(obj.Projection)
@@ -4985,9 +4955,7 @@ export namespace LocalSecondaryIndexInfo {
   export const filterSensitiveLog = (obj: LocalSecondaryIndexInfo) => ({
     ...obj,
     ...(obj.KeySchema && {
-      KeySchema: obj.KeySchema.map(item =>
-        item.map(KeySchemaElement.filterSensitiveLog)
-      )
+      KeySchema: obj.KeySchema.map(KeySchemaElement.filterSensitiveLog)
     }),
     ...(obj.Projection && {
       Projection: Projection.filterSensitiveLog(obj.Projection)
@@ -6004,7 +5972,7 @@ export namespace QueryOutput {
         obj.ConsumedCapacity
       )
     }),
-    ...(obj.Items && { Items: obj.Items.map(item => item.map()) })
+    ...(obj.Items && { Items: obj.Items.map() })
   });
   export const isa = (o: any): o is QueryOutput => __isa(o, "QueryOutput");
 }
@@ -6101,10 +6069,8 @@ export namespace ReplicaAutoScalingDescription {
   export const filterSensitiveLog = (obj: ReplicaAutoScalingDescription) => ({
     ...obj,
     ...(obj.GlobalSecondaryIndexes && {
-      GlobalSecondaryIndexes: obj.GlobalSecondaryIndexes.map(item =>
-        item.map(
-          ReplicaGlobalSecondaryIndexAutoScalingDescription.filterSensitiveLog
-        )
+      GlobalSecondaryIndexes: obj.GlobalSecondaryIndexes.map(
+        ReplicaGlobalSecondaryIndexAutoScalingDescription.filterSensitiveLog
       )
     }),
     ...(obj.ReplicaProvisionedReadCapacityAutoScalingSettings && {
@@ -6150,10 +6116,7 @@ export namespace ReplicaAutoScalingUpdate {
     ...obj,
     ...(obj.ReplicaGlobalSecondaryIndexUpdates && {
       ReplicaGlobalSecondaryIndexUpdates: obj.ReplicaGlobalSecondaryIndexUpdates.map(
-        item =>
-          item.map(
-            ReplicaGlobalSecondaryIndexAutoScalingUpdate.filterSensitiveLog
-          )
+        ReplicaGlobalSecondaryIndexAutoScalingUpdate.filterSensitiveLog
       )
     }),
     ...(obj.ReplicaProvisionedReadCapacityAutoScalingUpdate && {
@@ -6232,8 +6195,8 @@ export namespace ReplicaDescription {
   export const filterSensitiveLog = (obj: ReplicaDescription) => ({
     ...obj,
     ...(obj.GlobalSecondaryIndexes && {
-      GlobalSecondaryIndexes: obj.GlobalSecondaryIndexes.map(item =>
-        item.map(ReplicaGlobalSecondaryIndexDescription.filterSensitiveLog)
+      GlobalSecondaryIndexes: obj.GlobalSecondaryIndexes.map(
+        ReplicaGlobalSecondaryIndexDescription.filterSensitiveLog
       )
     }),
     ...(obj.ProvisionedThroughputOverride && {
@@ -6623,10 +6586,7 @@ export namespace ReplicaSettingsDescription {
     }),
     ...(obj.ReplicaGlobalSecondaryIndexSettings && {
       ReplicaGlobalSecondaryIndexSettings: obj.ReplicaGlobalSecondaryIndexSettings.map(
-        item =>
-          item.map(
-            ReplicaGlobalSecondaryIndexSettingsDescription.filterSensitiveLog
-          )
+        ReplicaGlobalSecondaryIndexSettingsDescription.filterSensitiveLog
       )
     }),
     ...(obj.ReplicaProvisionedReadCapacityAutoScalingSettings && {
@@ -6678,8 +6638,7 @@ export namespace ReplicaSettingsUpdate {
     ...obj,
     ...(obj.ReplicaGlobalSecondaryIndexSettingsUpdate && {
       ReplicaGlobalSecondaryIndexSettingsUpdate: obj.ReplicaGlobalSecondaryIndexSettingsUpdate.map(
-        item =>
-          item.map(ReplicaGlobalSecondaryIndexSettingsUpdate.filterSensitiveLog)
+        ReplicaGlobalSecondaryIndexSettingsUpdate.filterSensitiveLog
       )
     }),
     ...(obj.ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate && {
@@ -6934,13 +6893,13 @@ export namespace RestoreTableFromBackupInput {
   export const filterSensitiveLog = (obj: RestoreTableFromBackupInput) => ({
     ...obj,
     ...(obj.GlobalSecondaryIndexOverride && {
-      GlobalSecondaryIndexOverride: obj.GlobalSecondaryIndexOverride.map(item =>
-        item.map(GlobalSecondaryIndex.filterSensitiveLog)
+      GlobalSecondaryIndexOverride: obj.GlobalSecondaryIndexOverride.map(
+        GlobalSecondaryIndex.filterSensitiveLog
       )
     }),
     ...(obj.LocalSecondaryIndexOverride && {
-      LocalSecondaryIndexOverride: obj.LocalSecondaryIndexOverride.map(item =>
-        item.map(LocalSecondaryIndex.filterSensitiveLog)
+      LocalSecondaryIndexOverride: obj.LocalSecondaryIndexOverride.map(
+        LocalSecondaryIndex.filterSensitiveLog
       )
     }),
     ...(obj.ProvisionedThroughputOverride && {
@@ -7026,13 +6985,13 @@ export namespace RestoreTableToPointInTimeInput {
   export const filterSensitiveLog = (obj: RestoreTableToPointInTimeInput) => ({
     ...obj,
     ...(obj.GlobalSecondaryIndexOverride && {
-      GlobalSecondaryIndexOverride: obj.GlobalSecondaryIndexOverride.map(item =>
-        item.map(GlobalSecondaryIndex.filterSensitiveLog)
+      GlobalSecondaryIndexOverride: obj.GlobalSecondaryIndexOverride.map(
+        GlobalSecondaryIndex.filterSensitiveLog
       )
     }),
     ...(obj.LocalSecondaryIndexOverride && {
-      LocalSecondaryIndexOverride: obj.LocalSecondaryIndexOverride.map(item =>
-        item.map(LocalSecondaryIndex.filterSensitiveLog)
+      LocalSecondaryIndexOverride: obj.LocalSecondaryIndexOverride.map(
+        LocalSecondaryIndex.filterSensitiveLog
       )
     }),
     ...(obj.ProvisionedThroughputOverride && {
@@ -7526,7 +7485,7 @@ export namespace ScanOutput {
         obj.ConsumedCapacity
       )
     }),
-    ...(obj.Items && { Items: obj.Items.map(item => item.map()) })
+    ...(obj.Items && { Items: obj.Items.map() })
   });
   export const isa = (o: any): o is ScanOutput => __isa(o, "ScanOutput");
 }
@@ -7603,9 +7562,7 @@ export namespace SourceTableDetails {
   export const filterSensitiveLog = (obj: SourceTableDetails) => ({
     ...obj,
     ...(obj.KeySchema && {
-      KeySchema: obj.KeySchema.map(item =>
-        item.map(KeySchemaElement.filterSensitiveLog)
-      )
+      KeySchema: obj.KeySchema.map(KeySchemaElement.filterSensitiveLog)
     }),
     ...(obj.ProvisionedThroughput && {
       ProvisionedThroughput: ProvisionedThroughput.filterSensitiveLog(
@@ -7654,13 +7611,13 @@ export namespace SourceTableFeatureDetails {
   export const filterSensitiveLog = (obj: SourceTableFeatureDetails) => ({
     ...obj,
     ...(obj.GlobalSecondaryIndexes && {
-      GlobalSecondaryIndexes: obj.GlobalSecondaryIndexes.map(item =>
-        item.map(GlobalSecondaryIndexInfo.filterSensitiveLog)
+      GlobalSecondaryIndexes: obj.GlobalSecondaryIndexes.map(
+        GlobalSecondaryIndexInfo.filterSensitiveLog
       )
     }),
     ...(obj.LocalSecondaryIndexes && {
-      LocalSecondaryIndexes: obj.LocalSecondaryIndexes.map(item =>
-        item.map(LocalSecondaryIndexInfo.filterSensitiveLog)
+      LocalSecondaryIndexes: obj.LocalSecondaryIndexes.map(
+        LocalSecondaryIndexInfo.filterSensitiveLog
       )
     }),
     ...(obj.SSEDescription && {
@@ -7797,8 +7754,8 @@ export namespace TableAutoScalingDescription {
   export const filterSensitiveLog = (obj: TableAutoScalingDescription) => ({
     ...obj,
     ...(obj.Replicas && {
-      Replicas: obj.Replicas.map(item =>
-        item.map(ReplicaAutoScalingDescription.filterSensitiveLog)
+      Replicas: obj.Replicas.map(
+        ReplicaAutoScalingDescription.filterSensitiveLog
       )
     })
   });
@@ -8190,8 +8147,8 @@ export namespace TableDescription {
       ArchivalSummary: ArchivalSummary.filterSensitiveLog(obj.ArchivalSummary)
     }),
     ...(obj.AttributeDefinitions && {
-      AttributeDefinitions: obj.AttributeDefinitions.map(item =>
-        item.map(AttributeDefinition.filterSensitiveLog)
+      AttributeDefinitions: obj.AttributeDefinitions.map(
+        AttributeDefinition.filterSensitiveLog
       )
     }),
     ...(obj.BillingModeSummary && {
@@ -8200,18 +8157,16 @@ export namespace TableDescription {
       )
     }),
     ...(obj.GlobalSecondaryIndexes && {
-      GlobalSecondaryIndexes: obj.GlobalSecondaryIndexes.map(item =>
-        item.map(GlobalSecondaryIndexDescription.filterSensitiveLog)
+      GlobalSecondaryIndexes: obj.GlobalSecondaryIndexes.map(
+        GlobalSecondaryIndexDescription.filterSensitiveLog
       )
     }),
     ...(obj.KeySchema && {
-      KeySchema: obj.KeySchema.map(item =>
-        item.map(KeySchemaElement.filterSensitiveLog)
-      )
+      KeySchema: obj.KeySchema.map(KeySchemaElement.filterSensitiveLog)
     }),
     ...(obj.LocalSecondaryIndexes && {
-      LocalSecondaryIndexes: obj.LocalSecondaryIndexes.map(item =>
-        item.map(LocalSecondaryIndexDescription.filterSensitiveLog)
+      LocalSecondaryIndexes: obj.LocalSecondaryIndexes.map(
+        LocalSecondaryIndexDescription.filterSensitiveLog
       )
     }),
     ...(obj.ProvisionedThroughput && {
@@ -8220,9 +8175,7 @@ export namespace TableDescription {
       )
     }),
     ...(obj.Replicas && {
-      Replicas: obj.Replicas.map(item =>
-        item.map(ReplicaDescription.filterSensitiveLog)
-      )
+      Replicas: obj.Replicas.map(ReplicaDescription.filterSensitiveLog)
     }),
     ...(obj.RestoreSummary && {
       RestoreSummary: RestoreSummary.filterSensitiveLog(obj.RestoreSummary)
@@ -8336,9 +8289,7 @@ export interface TagResourceInput {
 export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagResourceInput =>
     __isa(o, "TagResourceInput");
@@ -8442,9 +8393,7 @@ export namespace TransactGetItemsInput {
   export const filterSensitiveLog = (obj: TransactGetItemsInput) => ({
     ...obj,
     ...(obj.TransactItems && {
-      TransactItems: obj.TransactItems.map(item =>
-        item.map(TransactGetItem.filterSensitiveLog)
-      )
+      TransactItems: obj.TransactItems.map(TransactGetItem.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is TransactGetItemsInput =>
@@ -8479,14 +8428,12 @@ export namespace TransactGetItemsOutput {
   export const filterSensitiveLog = (obj: TransactGetItemsOutput) => ({
     ...obj,
     ...(obj.ConsumedCapacity && {
-      ConsumedCapacity: obj.ConsumedCapacity.map(item =>
-        item.map(ConsumedCapacity.filterSensitiveLog)
+      ConsumedCapacity: obj.ConsumedCapacity.map(
+        ConsumedCapacity.filterSensitiveLog
       )
     }),
     ...(obj.Responses && {
-      Responses: obj.Responses.map(item =>
-        item.map(ItemResponse.filterSensitiveLog)
-      )
+      Responses: obj.Responses.map(ItemResponse.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is TransactGetItemsOutput =>
@@ -8598,9 +8545,7 @@ export namespace TransactWriteItemsInput {
   export const filterSensitiveLog = (obj: TransactWriteItemsInput) => ({
     ...obj,
     ...(obj.TransactItems && {
-      TransactItems: obj.TransactItems.map(item =>
-        item.map(TransactWriteItem.filterSensitiveLog)
-      )
+      TransactItems: obj.TransactItems.map(TransactWriteItem.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is TransactWriteItemsInput =>
@@ -8630,8 +8575,8 @@ export namespace TransactWriteItemsOutput {
   export const filterSensitiveLog = (obj: TransactWriteItemsOutput) => ({
     ...obj,
     ...(obj.ConsumedCapacity && {
-      ConsumedCapacity: obj.ConsumedCapacity.map(item =>
-        item.map(ConsumedCapacity.filterSensitiveLog)
+      ConsumedCapacity: obj.ConsumedCapacity.map(
+        ConsumedCapacity.filterSensitiveLog
       )
     })
   });
@@ -8861,8 +8806,8 @@ export namespace TransactionCanceledException {
   export const filterSensitiveLog = (obj: TransactionCanceledException) => ({
     ...obj,
     ...(obj.CancellationReasons && {
-      CancellationReasons: obj.CancellationReasons.map(item =>
-        item.map(CancellationReason.filterSensitiveLog)
+      CancellationReasons: obj.CancellationReasons.map(
+        CancellationReason.filterSensitiveLog
       )
     })
   });
@@ -9137,9 +9082,7 @@ export namespace UpdateGlobalTableInput {
   export const filterSensitiveLog = (obj: UpdateGlobalTableInput) => ({
     ...obj,
     ...(obj.ReplicaUpdates && {
-      ReplicaUpdates: obj.ReplicaUpdates.map(item =>
-        item.map(ReplicaUpdate.filterSensitiveLog)
-      )
+      ReplicaUpdates: obj.ReplicaUpdates.map(ReplicaUpdate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateGlobalTableInput =>
@@ -9218,10 +9161,7 @@ export namespace UpdateGlobalTableSettingsInput {
     ...obj,
     ...(obj.GlobalTableGlobalSecondaryIndexSettingsUpdate && {
       GlobalTableGlobalSecondaryIndexSettingsUpdate: obj.GlobalTableGlobalSecondaryIndexSettingsUpdate.map(
-        item =>
-          item.map(
-            GlobalTableGlobalSecondaryIndexSettingsUpdate.filterSensitiveLog
-          )
+        GlobalTableGlobalSecondaryIndexSettingsUpdate.filterSensitiveLog
       )
     }),
     ...(obj.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate && {
@@ -9230,8 +9170,8 @@ export namespace UpdateGlobalTableSettingsInput {
       )
     }),
     ...(obj.ReplicaSettingsUpdate && {
-      ReplicaSettingsUpdate: obj.ReplicaSettingsUpdate.map(item =>
-        item.map(ReplicaSettingsUpdate.filterSensitiveLog)
+      ReplicaSettingsUpdate: obj.ReplicaSettingsUpdate.map(
+        ReplicaSettingsUpdate.filterSensitiveLog
       )
     })
   });
@@ -9256,8 +9196,8 @@ export namespace UpdateGlobalTableSettingsOutput {
   export const filterSensitiveLog = (obj: UpdateGlobalTableSettingsOutput) => ({
     ...obj,
     ...(obj.ReplicaSettings && {
-      ReplicaSettings: obj.ReplicaSettings.map(item =>
-        item.map(ReplicaSettingsDescription.filterSensitiveLog)
+      ReplicaSettings: obj.ReplicaSettings.map(
+        ReplicaSettingsDescription.filterSensitiveLog
       )
     })
   });
@@ -9663,8 +9603,8 @@ export namespace UpdateReplicationGroupMemberAction {
   ) => ({
     ...obj,
     ...(obj.GlobalSecondaryIndexes && {
-      GlobalSecondaryIndexes: obj.GlobalSecondaryIndexes.map(item =>
-        item.map(ReplicaGlobalSecondaryIndex.filterSensitiveLog)
+      GlobalSecondaryIndexes: obj.GlobalSecondaryIndexes.map(
+        ReplicaGlobalSecondaryIndex.filterSensitiveLog
       )
     }),
     ...(obj.ProvisionedThroughputOverride && {
@@ -9766,13 +9706,13 @@ export namespace UpdateTableInput {
   export const filterSensitiveLog = (obj: UpdateTableInput) => ({
     ...obj,
     ...(obj.AttributeDefinitions && {
-      AttributeDefinitions: obj.AttributeDefinitions.map(item =>
-        item.map(AttributeDefinition.filterSensitiveLog)
+      AttributeDefinitions: obj.AttributeDefinitions.map(
+        AttributeDefinition.filterSensitiveLog
       )
     }),
     ...(obj.GlobalSecondaryIndexUpdates && {
-      GlobalSecondaryIndexUpdates: obj.GlobalSecondaryIndexUpdates.map(item =>
-        item.map(GlobalSecondaryIndexUpdate.filterSensitiveLog)
+      GlobalSecondaryIndexUpdates: obj.GlobalSecondaryIndexUpdates.map(
+        GlobalSecondaryIndexUpdate.filterSensitiveLog
       )
     }),
     ...(obj.ProvisionedThroughput && {
@@ -9781,8 +9721,8 @@ export namespace UpdateTableInput {
       )
     }),
     ...(obj.ReplicaUpdates && {
-      ReplicaUpdates: obj.ReplicaUpdates.map(item =>
-        item.map(ReplicationGroupUpdate.filterSensitiveLog)
+      ReplicaUpdates: obj.ReplicaUpdates.map(
+        ReplicationGroupUpdate.filterSensitiveLog
       )
     }),
     ...(obj.SSESpecification && {
@@ -9856,8 +9796,8 @@ export namespace UpdateTableReplicaAutoScalingInput {
   ) => ({
     ...obj,
     ...(obj.GlobalSecondaryIndexUpdates && {
-      GlobalSecondaryIndexUpdates: obj.GlobalSecondaryIndexUpdates.map(item =>
-        item.map(GlobalSecondaryIndexAutoScalingUpdate.filterSensitiveLog)
+      GlobalSecondaryIndexUpdates: obj.GlobalSecondaryIndexUpdates.map(
+        GlobalSecondaryIndexAutoScalingUpdate.filterSensitiveLog
       )
     }),
     ...(obj.ProvisionedWriteCapacityAutoScalingUpdate && {
@@ -9866,8 +9806,8 @@ export namespace UpdateTableReplicaAutoScalingInput {
       )
     }),
     ...(obj.ReplicaUpdates && {
-      ReplicaUpdates: obj.ReplicaUpdates.map(item =>
-        item.map(ReplicaAutoScalingUpdate.filterSensitiveLog)
+      ReplicaUpdates: obj.ReplicaUpdates.map(
+        ReplicaAutoScalingUpdate.filterSensitiveLog
       )
     })
   });

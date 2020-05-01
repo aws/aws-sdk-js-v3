@@ -1079,9 +1079,7 @@ export interface AddTagsToResourceMessage {
 export namespace AddTagsToResourceMessage {
   export const filterSensitiveLog = (obj: AddTagsToResourceMessage) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AddTagsToResourceMessage =>
     __isa(o, "AddTagsToResourceMessage");
@@ -1672,9 +1670,7 @@ export namespace CacheCluster {
   export const filterSensitiveLog = (obj: CacheCluster) => ({
     ...obj,
     ...(obj.CacheNodes && {
-      CacheNodes: obj.CacheNodes.map(item =>
-        item.map(CacheNode.filterSensitiveLog)
-      )
+      CacheNodes: obj.CacheNodes.map(CacheNode.filterSensitiveLog)
     }),
     ...(obj.CacheParameterGroup && {
       CacheParameterGroup: CacheParameterGroupStatus.filterSensitiveLog(
@@ -1682,8 +1678,8 @@ export namespace CacheCluster {
       )
     }),
     ...(obj.CacheSecurityGroups && {
-      CacheSecurityGroups: obj.CacheSecurityGroups.map(item =>
-        item.map(CacheSecurityGroupMembership.filterSensitiveLog)
+      CacheSecurityGroups: obj.CacheSecurityGroups.map(
+        CacheSecurityGroupMembership.filterSensitiveLog
       )
     }),
     ...(obj.ConfigurationEndpoint && {
@@ -1702,8 +1698,8 @@ export namespace CacheCluster {
       )
     }),
     ...(obj.SecurityGroups && {
-      SecurityGroups: obj.SecurityGroups.map(item =>
-        item.map(SecurityGroupMembership.filterSensitiveLog)
+      SecurityGroups: obj.SecurityGroups.map(
+        SecurityGroupMembership.filterSensitiveLog
       )
     })
   });
@@ -1730,9 +1726,7 @@ export namespace CacheClusterMessage {
   export const filterSensitiveLog = (obj: CacheClusterMessage) => ({
     ...obj,
     ...(obj.CacheClusters && {
-      CacheClusters: obj.CacheClusters.map(item =>
-        item.map(CacheCluster.filterSensitiveLog)
-      )
+      CacheClusters: obj.CacheClusters.map(CacheCluster.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CacheClusterMessage =>
@@ -1808,8 +1802,8 @@ export namespace CacheEngineVersionMessage {
   export const filterSensitiveLog = (obj: CacheEngineVersionMessage) => ({
     ...obj,
     ...(obj.CacheEngineVersions && {
-      CacheEngineVersions: obj.CacheEngineVersions.map(item =>
-        item.map(CacheEngineVersion.filterSensitiveLog)
+      CacheEngineVersions: obj.CacheEngineVersions.map(
+        CacheEngineVersion.filterSensitiveLog
       )
     })
   });
@@ -2093,8 +2087,8 @@ export namespace CacheNodeTypeSpecificParameter {
   export const filterSensitiveLog = (obj: CacheNodeTypeSpecificParameter) => ({
     ...obj,
     ...(obj.CacheNodeTypeSpecificValues && {
-      CacheNodeTypeSpecificValues: obj.CacheNodeTypeSpecificValues.map(item =>
-        item.map(CacheNodeTypeSpecificValue.filterSensitiveLog)
+      CacheNodeTypeSpecificValues: obj.CacheNodeTypeSpecificValues.map(
+        CacheNodeTypeSpecificValue.filterSensitiveLog
       )
     })
   });
@@ -2245,13 +2239,11 @@ export namespace CacheParameterGroupDetails {
     ...obj,
     ...(obj.CacheNodeTypeSpecificParameters && {
       CacheNodeTypeSpecificParameters: obj.CacheNodeTypeSpecificParameters.map(
-        item => item.map(CacheNodeTypeSpecificParameter.filterSensitiveLog)
+        CacheNodeTypeSpecificParameter.filterSensitiveLog
       )
     }),
     ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item =>
-        item.map(Parameter.filterSensitiveLog)
-      )
+      Parameters: obj.Parameters.map(Parameter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is CacheParameterGroupDetails =>
@@ -2340,8 +2332,8 @@ export namespace CacheParameterGroupsMessage {
   export const filterSensitiveLog = (obj: CacheParameterGroupsMessage) => ({
     ...obj,
     ...(obj.CacheParameterGroups && {
-      CacheParameterGroups: obj.CacheParameterGroups.map(item =>
-        item.map(CacheParameterGroup.filterSensitiveLog)
+      CacheParameterGroups: obj.CacheParameterGroups.map(
+        CacheParameterGroup.filterSensitiveLog
       )
     })
   });
@@ -2396,8 +2388,8 @@ export namespace CacheSecurityGroup {
   export const filterSensitiveLog = (obj: CacheSecurityGroup) => ({
     ...obj,
     ...(obj.EC2SecurityGroups && {
-      EC2SecurityGroups: obj.EC2SecurityGroups.map(item =>
-        item.map(EC2SecurityGroup.filterSensitiveLog)
+      EC2SecurityGroups: obj.EC2SecurityGroups.map(
+        EC2SecurityGroup.filterSensitiveLog
       )
     })
   });
@@ -2449,8 +2441,8 @@ export namespace CacheSecurityGroupMessage {
   export const filterSensitiveLog = (obj: CacheSecurityGroupMessage) => ({
     ...obj,
     ...(obj.CacheSecurityGroups && {
-      CacheSecurityGroups: obj.CacheSecurityGroups.map(item =>
-        item.map(CacheSecurityGroup.filterSensitiveLog)
+      CacheSecurityGroups: obj.CacheSecurityGroups.map(
+        CacheSecurityGroup.filterSensitiveLog
       )
     })
   });
@@ -2499,9 +2491,7 @@ export interface CacheSubnetGroup {
 export namespace CacheSubnetGroup {
   export const filterSensitiveLog = (obj: CacheSubnetGroup) => ({
     ...obj,
-    ...(obj.Subnets && {
-      Subnets: obj.Subnets.map(item => item.map(Subnet.filterSensitiveLog))
-    })
+    ...(obj.Subnets && { Subnets: obj.Subnets.map(Subnet.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CacheSubnetGroup =>
     __isa(o, "CacheSubnetGroup");
@@ -2527,8 +2517,8 @@ export namespace CacheSubnetGroupMessage {
   export const filterSensitiveLog = (obj: CacheSubnetGroupMessage) => ({
     ...obj,
     ...(obj.CacheSubnetGroups && {
-      CacheSubnetGroups: obj.CacheSubnetGroups.map(item =>
-        item.map(CacheSubnetGroup.filterSensitiveLog)
+      CacheSubnetGroups: obj.CacheSubnetGroups.map(
+        CacheSubnetGroup.filterSensitiveLog
       )
     })
   });
@@ -3127,9 +3117,7 @@ export interface CreateCacheClusterMessage {
 export namespace CreateCacheClusterMessage {
   export const filterSensitiveLog = (obj: CreateCacheClusterMessage) => ({
     ...obj,
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateCacheClusterMessage =>
     __isa(o, "CreateCacheClusterMessage");
@@ -3873,13 +3861,11 @@ export namespace CreateReplicationGroupMessage {
   export const filterSensitiveLog = (obj: CreateReplicationGroupMessage) => ({
     ...obj,
     ...(obj.NodeGroupConfiguration && {
-      NodeGroupConfiguration: obj.NodeGroupConfiguration.map(item =>
-        item.map(NodeGroupConfiguration.filterSensitiveLog)
+      NodeGroupConfiguration: obj.NodeGroupConfiguration.map(
+        NodeGroupConfiguration.filterSensitiveLog
       )
     }),
-    ...(obj.Tags && {
-      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateReplicationGroupMessage =>
     __isa(o, "CreateReplicationGroupMessage");
@@ -4037,8 +4023,8 @@ export namespace DecreaseReplicaCountMessage {
   export const filterSensitiveLog = (obj: DecreaseReplicaCountMessage) => ({
     ...obj,
     ...(obj.ReplicaConfiguration && {
-      ReplicaConfiguration: obj.ReplicaConfiguration.map(item =>
-        item.map(ConfigureShard.filterSensitiveLog)
+      ReplicaConfiguration: obj.ReplicaConfiguration.map(
+        ConfigureShard.filterSensitiveLog
       )
     })
   });
@@ -5251,9 +5237,7 @@ export namespace DescribeSnapshotsListMessage {
   export const filterSensitiveLog = (obj: DescribeSnapshotsListMessage) => ({
     ...obj,
     ...(obj.Snapshots && {
-      Snapshots: obj.Snapshots.map(item =>
-        item.map(Snapshot.filterSensitiveLog)
-      )
+      Snapshots: obj.Snapshots.map(Snapshot.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeSnapshotsListMessage =>
@@ -5482,13 +5466,11 @@ export namespace EngineDefaults {
     ...obj,
     ...(obj.CacheNodeTypeSpecificParameters && {
       CacheNodeTypeSpecificParameters: obj.CacheNodeTypeSpecificParameters.map(
-        item => item.map(CacheNodeTypeSpecificParameter.filterSensitiveLog)
+        CacheNodeTypeSpecificParameter.filterSensitiveLog
       )
     }),
     ...(obj.Parameters && {
-      Parameters: obj.Parameters.map(item =>
-        item.map(Parameter.filterSensitiveLog)
-      )
+      Parameters: obj.Parameters.map(Parameter.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is EngineDefaults =>
@@ -5550,9 +5532,7 @@ export interface EventsMessage {
 export namespace EventsMessage {
   export const filterSensitiveLog = (obj: EventsMessage) => ({
     ...obj,
-    ...(obj.Events && {
-      Events: obj.Events.map(item => item.map(Event.filterSensitiveLog))
-    })
+    ...(obj.Events && { Events: obj.Events.map(Event.filterSensitiveLog) })
   });
   export const isa = (o: any): o is EventsMessage => __isa(o, "EventsMessage");
 }
@@ -5591,8 +5571,8 @@ export namespace IncreaseReplicaCountMessage {
   export const filterSensitiveLog = (obj: IncreaseReplicaCountMessage) => ({
     ...obj,
     ...(obj.ReplicaConfiguration && {
-      ReplicaConfiguration: obj.ReplicaConfiguration.map(item =>
-        item.map(ConfigureShard.filterSensitiveLog)
+      ReplicaConfiguration: obj.ReplicaConfiguration.map(
+        ConfigureShard.filterSensitiveLog
       )
     })
   });
@@ -6081,8 +6061,8 @@ export namespace ModifyCacheParameterGroupMessage {
   ) => ({
     ...obj,
     ...(obj.ParameterNameValues && {
-      ParameterNameValues: obj.ParameterNameValues.map(item =>
-        item.map(ParameterNameValue.filterSensitiveLog)
+      ParameterNameValues: obj.ParameterNameValues.map(
+        ParameterNameValue.filterSensitiveLog
       )
     })
   });
@@ -6476,8 +6456,8 @@ export namespace ModifyReplicationGroupShardConfigurationMessage {
   ) => ({
     ...obj,
     ...(obj.ReshardingConfiguration && {
-      ReshardingConfiguration: obj.ReshardingConfiguration.map(item =>
-        item.map(ReshardingConfiguration.filterSensitiveLog)
+      ReshardingConfiguration: obj.ReshardingConfiguration.map(
+        ReshardingConfiguration.filterSensitiveLog
       )
     })
   });
@@ -6557,8 +6537,8 @@ export namespace NodeGroup {
   export const filterSensitiveLog = (obj: NodeGroup) => ({
     ...obj,
     ...(obj.NodeGroupMembers && {
-      NodeGroupMembers: obj.NodeGroupMembers.map(item =>
-        item.map(NodeGroupMember.filterSensitiveLog)
+      NodeGroupMembers: obj.NodeGroupMembers.map(
+        NodeGroupMember.filterSensitiveLog
       )
     }),
     ...(obj.PrimaryEndpoint && {
@@ -6742,8 +6722,8 @@ export namespace NodeGroupUpdateStatus {
   export const filterSensitiveLog = (obj: NodeGroupUpdateStatus) => ({
     ...obj,
     ...(obj.NodeGroupMemberUpdateStatus && {
-      NodeGroupMemberUpdateStatus: obj.NodeGroupMemberUpdateStatus.map(item =>
-        item.map(NodeGroupMemberUpdateStatus.filterSensitiveLog)
+      NodeGroupMemberUpdateStatus: obj.NodeGroupMemberUpdateStatus.map(
+        NodeGroupMemberUpdateStatus.filterSensitiveLog
       )
     })
   });
@@ -7335,9 +7315,7 @@ export namespace ReplicationGroup {
       )
     }),
     ...(obj.NodeGroups && {
-      NodeGroups: obj.NodeGroups.map(item =>
-        item.map(NodeGroup.filterSensitiveLog)
-      )
+      NodeGroups: obj.NodeGroups.map(NodeGroup.filterSensitiveLog)
     }),
     ...(obj.PendingModifiedValues && {
       PendingModifiedValues: ReplicationGroupPendingModifiedValues.filterSensitiveLog(
@@ -7369,8 +7347,8 @@ export namespace ReplicationGroupMessage {
   export const filterSensitiveLog = (obj: ReplicationGroupMessage) => ({
     ...obj,
     ...(obj.ReplicationGroups && {
-      ReplicationGroups: obj.ReplicationGroups.map(item =>
-        item.map(ReplicationGroup.filterSensitiveLog)
+      ReplicationGroups: obj.ReplicationGroups.map(
+        ReplicationGroup.filterSensitiveLog
       )
     })
   });
@@ -7670,8 +7648,8 @@ export namespace ReservedCacheNode {
   export const filterSensitiveLog = (obj: ReservedCacheNode) => ({
     ...obj,
     ...(obj.RecurringCharges && {
-      RecurringCharges: obj.RecurringCharges.map(item =>
-        item.map(RecurringCharge.filterSensitiveLog)
+      RecurringCharges: obj.RecurringCharges.map(
+        RecurringCharge.filterSensitiveLog
       )
     })
   });
@@ -7699,8 +7677,8 @@ export namespace ReservedCacheNodeMessage {
   export const filterSensitiveLog = (obj: ReservedCacheNodeMessage) => ({
     ...obj,
     ...(obj.ReservedCacheNodes && {
-      ReservedCacheNodes: obj.ReservedCacheNodes.map(item =>
-        item.map(ReservedCacheNode.filterSensitiveLog)
+      ReservedCacheNodes: obj.ReservedCacheNodes.map(
+        ReservedCacheNode.filterSensitiveLog
       )
     })
   });
@@ -7919,8 +7897,8 @@ export namespace ReservedCacheNodesOffering {
   export const filterSensitiveLog = (obj: ReservedCacheNodesOffering) => ({
     ...obj,
     ...(obj.RecurringCharges && {
-      RecurringCharges: obj.RecurringCharges.map(item =>
-        item.map(RecurringCharge.filterSensitiveLog)
+      RecurringCharges: obj.RecurringCharges.map(
+        RecurringCharge.filterSensitiveLog
       )
     })
   });
@@ -7950,8 +7928,8 @@ export namespace ReservedCacheNodesOfferingMessage {
   ) => ({
     ...obj,
     ...(obj.ReservedCacheNodesOfferings && {
-      ReservedCacheNodesOfferings: obj.ReservedCacheNodesOfferings.map(item =>
-        item.map(ReservedCacheNodesOffering.filterSensitiveLog)
+      ReservedCacheNodesOfferings: obj.ReservedCacheNodesOfferings.map(
+        ReservedCacheNodesOffering.filterSensitiveLog
       )
     })
   });
@@ -7993,8 +7971,8 @@ export namespace ResetCacheParameterGroupMessage {
   export const filterSensitiveLog = (obj: ResetCacheParameterGroupMessage) => ({
     ...obj,
     ...(obj.ParameterNameValues && {
-      ParameterNameValues: obj.ParameterNameValues.map(item =>
-        item.map(ParameterNameValue.filterSensitiveLog)
+      ParameterNameValues: obj.ParameterNameValues.map(
+        ParameterNameValue.filterSensitiveLog
       )
     })
   });
@@ -8259,9 +8237,7 @@ export namespace ServiceUpdatesMessage {
   export const filterSensitiveLog = (obj: ServiceUpdatesMessage) => ({
     ...obj,
     ...(obj.ServiceUpdates && {
-      ServiceUpdates: obj.ServiceUpdates.map(item =>
-        item.map(ServiceUpdate.filterSensitiveLog)
-      )
+      ServiceUpdates: obj.ServiceUpdates.map(ServiceUpdate.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ServiceUpdatesMessage =>
@@ -8660,9 +8636,7 @@ export namespace Snapshot {
   export const filterSensitiveLog = (obj: Snapshot) => ({
     ...obj,
     ...(obj.NodeSnapshots && {
-      NodeSnapshots: obj.NodeSnapshots.map(item =>
-        item.map(NodeSnapshot.filterSensitiveLog)
-      )
+      NodeSnapshots: obj.NodeSnapshots.map(NodeSnapshot.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is Snapshot => __isa(o, "Snapshot");
@@ -8692,8 +8666,8 @@ export namespace StartMigrationMessage {
   export const filterSensitiveLog = (obj: StartMigrationMessage) => ({
     ...obj,
     ...(obj.CustomerNodeEndpointList && {
-      CustomerNodeEndpointList: obj.CustomerNodeEndpointList.map(item =>
-        item.map(CustomerNodeEndpoint.filterSensitiveLog)
+      CustomerNodeEndpointList: obj.CustomerNodeEndpointList.map(
+        CustomerNodeEndpoint.filterSensitiveLog
       )
     })
   });
@@ -8790,9 +8764,7 @@ export interface TagListMessage {
 export namespace TagListMessage {
   export const filterSensitiveLog = (obj: TagListMessage) => ({
     ...obj,
-    ...(obj.TagList && {
-      TagList: obj.TagList.map(item => item.map(Tag.filterSensitiveLog))
-    })
+    ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is TagListMessage =>
     __isa(o, "TagListMessage");
@@ -9002,13 +8974,13 @@ export namespace UpdateAction {
   export const filterSensitiveLog = (obj: UpdateAction) => ({
     ...obj,
     ...(obj.CacheNodeUpdateStatus && {
-      CacheNodeUpdateStatus: obj.CacheNodeUpdateStatus.map(item =>
-        item.map(CacheNodeUpdateStatus.filterSensitiveLog)
+      CacheNodeUpdateStatus: obj.CacheNodeUpdateStatus.map(
+        CacheNodeUpdateStatus.filterSensitiveLog
       )
     }),
     ...(obj.NodeGroupUpdateStatus && {
-      NodeGroupUpdateStatus: obj.NodeGroupUpdateStatus.map(item =>
-        item.map(NodeGroupUpdateStatus.filterSensitiveLog)
+      NodeGroupUpdateStatus: obj.NodeGroupUpdateStatus.map(
+        NodeGroupUpdateStatus.filterSensitiveLog
       )
     })
   });
@@ -9032,13 +9004,13 @@ export namespace UpdateActionResultsMessage {
   export const filterSensitiveLog = (obj: UpdateActionResultsMessage) => ({
     ...obj,
     ...(obj.ProcessedUpdateActions && {
-      ProcessedUpdateActions: obj.ProcessedUpdateActions.map(item =>
-        item.map(ProcessedUpdateAction.filterSensitiveLog)
+      ProcessedUpdateActions: obj.ProcessedUpdateActions.map(
+        ProcessedUpdateAction.filterSensitiveLog
       )
     }),
     ...(obj.UnprocessedUpdateActions && {
-      UnprocessedUpdateActions: obj.UnprocessedUpdateActions.map(item =>
-        item.map(UnprocessedUpdateAction.filterSensitiveLog)
+      UnprocessedUpdateActions: obj.UnprocessedUpdateActions.map(
+        UnprocessedUpdateAction.filterSensitiveLog
       )
     })
   });
@@ -9075,9 +9047,7 @@ export namespace UpdateActionsMessage {
   export const filterSensitiveLog = (obj: UpdateActionsMessage) => ({
     ...obj,
     ...(obj.UpdateActions && {
-      UpdateActions: obj.UpdateActions.map(item =>
-        item.map(UpdateAction.filterSensitiveLog)
-      )
+      UpdateActions: obj.UpdateActions.map(UpdateAction.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is UpdateActionsMessage =>

@@ -22,9 +22,7 @@ export namespace BatchGrantPermissionsRequest {
   export const filterSensitiveLog = (obj: BatchGrantPermissionsRequest) => ({
     ...obj,
     ...(obj.Entries && {
-      Entries: obj.Entries.map(item =>
-        item.map(BatchPermissionsRequestEntry.filterSensitiveLog)
-      )
+      Entries: obj.Entries.map(BatchPermissionsRequestEntry.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchGrantPermissionsRequest =>
@@ -43,8 +41,8 @@ export namespace BatchGrantPermissionsResponse {
   export const filterSensitiveLog = (obj: BatchGrantPermissionsResponse) => ({
     ...obj,
     ...(obj.Failures && {
-      Failures: obj.Failures.map(item =>
-        item.map(BatchPermissionsFailureEntry.filterSensitiveLog)
+      Failures: obj.Failures.map(
+        BatchPermissionsFailureEntry.filterSensitiveLog
       )
     })
   });
@@ -142,9 +140,7 @@ export namespace BatchRevokePermissionsRequest {
   export const filterSensitiveLog = (obj: BatchRevokePermissionsRequest) => ({
     ...obj,
     ...(obj.Entries && {
-      Entries: obj.Entries.map(item =>
-        item.map(BatchPermissionsRequestEntry.filterSensitiveLog)
-      )
+      Entries: obj.Entries.map(BatchPermissionsRequestEntry.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is BatchRevokePermissionsRequest =>
@@ -163,8 +159,8 @@ export namespace BatchRevokePermissionsResponse {
   export const filterSensitiveLog = (obj: BatchRevokePermissionsResponse) => ({
     ...obj,
     ...(obj.Failures && {
-      Failures: obj.Failures.map(item =>
-        item.map(BatchPermissionsFailureEntry.filterSensitiveLog)
+      Failures: obj.Failures.map(
+        BatchPermissionsFailureEntry.filterSensitiveLog
       )
     })
   });
@@ -258,17 +254,17 @@ export namespace DataLakeSettings {
     ...obj,
     ...(obj.CreateDatabaseDefaultPermissions && {
       CreateDatabaseDefaultPermissions: obj.CreateDatabaseDefaultPermissions.map(
-        item => item.map(PrincipalPermissions.filterSensitiveLog)
+        PrincipalPermissions.filterSensitiveLog
       )
     }),
     ...(obj.CreateTableDefaultPermissions && {
       CreateTableDefaultPermissions: obj.CreateTableDefaultPermissions.map(
-        item => item.map(PrincipalPermissions.filterSensitiveLog)
+        PrincipalPermissions.filterSensitiveLog
       )
     }),
     ...(obj.DataLakeAdmins && {
-      DataLakeAdmins: obj.DataLakeAdmins.map(item =>
-        item.map(DataLakePrincipal.filterSensitiveLog)
+      DataLakeAdmins: obj.DataLakeAdmins.map(
+        DataLakePrincipal.filterSensitiveLog
       )
     })
   });
@@ -466,8 +462,8 @@ export namespace GetEffectivePermissionsForPathResponse {
   ) => ({
     ...obj,
     ...(obj.Permissions && {
-      Permissions: obj.Permissions.map(item =>
-        item.map(PrincipalResourcePermissions.filterSensitiveLog)
+      Permissions: obj.Permissions.map(
+        PrincipalResourcePermissions.filterSensitiveLog
       )
     })
   });
@@ -591,8 +587,8 @@ export namespace ListPermissionsResponse {
   export const filterSensitiveLog = (obj: ListPermissionsResponse) => ({
     ...obj,
     ...(obj.PrincipalResourcePermissions && {
-      PrincipalResourcePermissions: obj.PrincipalResourcePermissions.map(item =>
-        item.map(PrincipalResourcePermissions.filterSensitiveLog)
+      PrincipalResourcePermissions: obj.PrincipalResourcePermissions.map(
+        PrincipalResourcePermissions.filterSensitiveLog
       )
     })
   });
@@ -622,8 +618,8 @@ export namespace ListResourcesRequest {
   export const filterSensitiveLog = (obj: ListResourcesRequest) => ({
     ...obj,
     ...(obj.FilterConditionList && {
-      FilterConditionList: obj.FilterConditionList.map(item =>
-        item.map(FilterCondition.filterSensitiveLog)
+      FilterConditionList: obj.FilterConditionList.map(
+        FilterCondition.filterSensitiveLog
       )
     })
   });
@@ -648,8 +644,8 @@ export namespace ListResourcesResponse {
   export const filterSensitiveLog = (obj: ListResourcesResponse) => ({
     ...obj,
     ...(obj.ResourceInfoList && {
-      ResourceInfoList: obj.ResourceInfoList.map(item =>
-        item.map(ResourceInfo.filterSensitiveLog)
+      ResourceInfoList: obj.ResourceInfoList.map(
+        ResourceInfo.filterSensitiveLog
       )
     })
   });

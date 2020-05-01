@@ -190,9 +190,7 @@ export namespace ChangeSummary {
     ...obj,
     ...(obj.Entity && { Entity: Entity.filterSensitiveLog(obj.Entity) }),
     ...(obj.ErrorDetailList && {
-      ErrorDetailList: obj.ErrorDetailList.map(item =>
-        item.map(ErrorDetail.filterSensitiveLog)
-      )
+      ErrorDetailList: obj.ErrorDetailList.map(ErrorDetail.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ChangeSummary => __isa(o, "ChangeSummary");
@@ -275,9 +273,7 @@ export namespace DescribeChangeSetResponse {
   export const filterSensitiveLog = (obj: DescribeChangeSetResponse) => ({
     ...obj,
     ...(obj.ChangeSet && {
-      ChangeSet: obj.ChangeSet.map(item =>
-        item.map(ChangeSummary.filterSensitiveLog)
-      )
+      ChangeSet: obj.ChangeSet.map(ChangeSummary.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is DescribeChangeSetResponse =>
@@ -568,9 +564,7 @@ export namespace ListChangeSetsRequest {
   export const filterSensitiveLog = (obj: ListChangeSetsRequest) => ({
     ...obj,
     ...(obj.FilterList && {
-      FilterList: obj.FilterList.map(item =>
-        item.map(Filter.filterSensitiveLog)
-      )
+      FilterList: obj.FilterList.map(Filter.filterSensitiveLog)
     }),
     ...(obj.Sort && { Sort: Sort.filterSensitiveLog(obj.Sort) })
   });
@@ -595,8 +589,8 @@ export namespace ListChangeSetsResponse {
   export const filterSensitiveLog = (obj: ListChangeSetsResponse) => ({
     ...obj,
     ...(obj.ChangeSetSummaryList && {
-      ChangeSetSummaryList: obj.ChangeSetSummaryList.map(item =>
-        item.map(ChangeSetSummaryListItem.filterSensitiveLog)
+      ChangeSetSummaryList: obj.ChangeSetSummaryList.map(
+        ChangeSetSummaryListItem.filterSensitiveLog
       )
     })
   });
@@ -645,9 +639,7 @@ export namespace ListEntitiesRequest {
   export const filterSensitiveLog = (obj: ListEntitiesRequest) => ({
     ...obj,
     ...(obj.FilterList && {
-      FilterList: obj.FilterList.map(item =>
-        item.map(Filter.filterSensitiveLog)
-      )
+      FilterList: obj.FilterList.map(Filter.filterSensitiveLog)
     }),
     ...(obj.Sort && { Sort: Sort.filterSensitiveLog(obj.Sort) })
   });
@@ -672,8 +664,8 @@ export namespace ListEntitiesResponse {
   export const filterSensitiveLog = (obj: ListEntitiesResponse) => ({
     ...obj,
     ...(obj.EntitySummaryList && {
-      EntitySummaryList: obj.EntitySummaryList.map(item =>
-        item.map(EntitySummary.filterSensitiveLog)
+      EntitySummaryList: obj.EntitySummaryList.map(
+        EntitySummary.filterSensitiveLog
       )
     })
   });
@@ -821,7 +813,7 @@ export namespace StartChangeSetRequest {
   export const filterSensitiveLog = (obj: StartChangeSetRequest) => ({
     ...obj,
     ...(obj.ChangeSet && {
-      ChangeSet: obj.ChangeSet.map(item => item.map(Change.filterSensitiveLog))
+      ChangeSet: obj.ChangeSet.map(Change.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is StartChangeSetRequest =>

@@ -47,9 +47,7 @@ export namespace AddFlowOutputsRequest {
   export const filterSensitiveLog = (obj: AddFlowOutputsRequest) => ({
     ...obj,
     ...(obj.Outputs && {
-      Outputs: obj.Outputs.map(item =>
-        item.map(AddOutputRequest.filterSensitiveLog)
-      )
+      Outputs: obj.Outputs.map(AddOutputRequest.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is AddFlowOutputsRequest =>
@@ -72,9 +70,7 @@ export interface AddFlowOutputsResponse {
 export namespace AddFlowOutputsResponse {
   export const filterSensitiveLog = (obj: AddFlowOutputsResponse) => ({
     ...obj,
-    ...(obj.Outputs && {
-      Outputs: obj.Outputs.map(item => item.map(Output.filterSensitiveLog))
-    })
+    ...(obj.Outputs && { Outputs: obj.Outputs.map(Output.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AddFlowOutputsResponse =>
     __isa(o, "AddFlowOutputsResponse");
@@ -237,14 +233,12 @@ export namespace CreateFlowRequest {
   export const filterSensitiveLog = (obj: CreateFlowRequest) => ({
     ...obj,
     ...(obj.Entitlements && {
-      Entitlements: obj.Entitlements.map(item =>
-        item.map(GrantEntitlementRequest.filterSensitiveLog)
+      Entitlements: obj.Entitlements.map(
+        GrantEntitlementRequest.filterSensitiveLog
       )
     }),
     ...(obj.Outputs && {
-      Outputs: obj.Outputs.map(item =>
-        item.map(AddOutputRequest.filterSensitiveLog)
-      )
+      Outputs: obj.Outputs.map(AddOutputRequest.filterSensitiveLog)
     }),
     ...(obj.Source && {
       Source: SetSourceRequest.filterSensitiveLog(obj.Source)
@@ -506,13 +500,9 @@ export namespace Flow {
   export const filterSensitiveLog = (obj: Flow) => ({
     ...obj,
     ...(obj.Entitlements && {
-      Entitlements: obj.Entitlements.map(item =>
-        item.map(Entitlement.filterSensitiveLog)
-      )
+      Entitlements: obj.Entitlements.map(Entitlement.filterSensitiveLog)
     }),
-    ...(obj.Outputs && {
-      Outputs: obj.Outputs.map(item => item.map(Output.filterSensitiveLog))
-    }),
+    ...(obj.Outputs && { Outputs: obj.Outputs.map(Output.filterSensitiveLog) }),
     ...(obj.Source && { Source: Source.filterSensitiveLog(obj.Source) })
   });
   export const isa = (o: any): o is Flow => __isa(o, "Flow");
@@ -624,8 +614,8 @@ export namespace GrantFlowEntitlementsRequest {
   export const filterSensitiveLog = (obj: GrantFlowEntitlementsRequest) => ({
     ...obj,
     ...(obj.Entitlements && {
-      Entitlements: obj.Entitlements.map(item =>
-        item.map(GrantEntitlementRequest.filterSensitiveLog)
+      Entitlements: obj.Entitlements.map(
+        GrantEntitlementRequest.filterSensitiveLog
       )
     })
   });
@@ -650,9 +640,7 @@ export namespace GrantFlowEntitlementsResponse {
   export const filterSensitiveLog = (obj: GrantFlowEntitlementsResponse) => ({
     ...obj,
     ...(obj.Entitlements && {
-      Entitlements: obj.Entitlements.map(item =>
-        item.map(Entitlement.filterSensitiveLog)
-      )
+      Entitlements: obj.Entitlements.map(Entitlement.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is GrantFlowEntitlementsResponse =>
@@ -724,9 +712,7 @@ export namespace ListEntitlementsResponse {
   export const filterSensitiveLog = (obj: ListEntitlementsResponse) => ({
     ...obj,
     ...(obj.Entitlements && {
-      Entitlements: obj.Entitlements.map(item =>
-        item.map(ListedEntitlement.filterSensitiveLog)
-      )
+      Entitlements: obj.Entitlements.map(ListedEntitlement.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListEntitlementsResponse =>
@@ -770,9 +756,7 @@ export interface ListFlowsResponse {
 export namespace ListFlowsResponse {
   export const filterSensitiveLog = (obj: ListFlowsResponse) => ({
     ...obj,
-    ...(obj.Flows && {
-      Flows: obj.Flows.map(item => item.map(ListedFlow.filterSensitiveLog))
-    })
+    ...(obj.Flows && { Flows: obj.Flows.map(ListedFlow.filterSensitiveLog) })
   });
   export const isa = (o: any): o is ListFlowsResponse =>
     __isa(o, "ListFlowsResponse");

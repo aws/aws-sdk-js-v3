@@ -459,8 +459,8 @@ export namespace CreateDataflowEndpointGroupRequest {
   ) => ({
     ...obj,
     ...(obj.endpointDetails && {
-      endpointDetails: obj.endpointDetails.map(item =>
-        item.map(EndpointDetails.filterSensitiveLog)
+      endpointDetails: obj.endpointDetails.map(
+        EndpointDetails.filterSensitiveLog
       )
     })
   });
@@ -514,7 +514,7 @@ export namespace CreateMissionProfileRequest {
   export const filterSensitiveLog = (obj: CreateMissionProfileRequest) => ({
     ...obj,
     ...(obj.dataflowEdges && {
-      dataflowEdges: obj.dataflowEdges.map(item => item.map(item => item.map()))
+      dataflowEdges: obj.dataflowEdges.map(item => item.map())
     })
   });
   export const isa = (o: any): o is CreateMissionProfileRequest =>
@@ -970,8 +970,8 @@ export namespace GetDataflowEndpointGroupResponse {
   ) => ({
     ...obj,
     ...(obj.endpointsDetails && {
-      endpointsDetails: obj.endpointsDetails.map(item =>
-        item.map(EndpointDetails.filterSensitiveLog)
+      endpointsDetails: obj.endpointsDetails.map(
+        EndpointDetails.filterSensitiveLog
       )
     })
   });
@@ -1059,7 +1059,7 @@ export namespace GetMissionProfileResponse {
   export const filterSensitiveLog = (obj: GetMissionProfileResponse) => ({
     ...obj,
     ...(obj.dataflowEdges && {
-      dataflowEdges: obj.dataflowEdges.map(item => item.map(item => item.map()))
+      dataflowEdges: obj.dataflowEdges.map(item => item.map())
     })
   });
   export const isa = (o: any): o is GetMissionProfileResponse =>
@@ -1110,9 +1110,7 @@ export namespace ListConfigsResponse {
   export const filterSensitiveLog = (obj: ListConfigsResponse) => ({
     ...obj,
     ...(obj.configList && {
-      configList: obj.configList.map(item =>
-        item.map(ConfigListItem.filterSensitiveLog)
-      )
+      configList: obj.configList.map(ConfigListItem.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListConfigsResponse =>
@@ -1193,9 +1191,7 @@ export namespace ListContactsResponse {
   export const filterSensitiveLog = (obj: ListContactsResponse) => ({
     ...obj,
     ...(obj.contactList && {
-      contactList: obj.contactList.map(item =>
-        item.map(ContactData.filterSensitiveLog)
-      )
+      contactList: obj.contactList.map(ContactData.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListContactsResponse =>
@@ -1250,8 +1246,8 @@ export namespace ListDataflowEndpointGroupsResponse {
   ) => ({
     ...obj,
     ...(obj.dataflowEndpointGroupList && {
-      dataflowEndpointGroupList: obj.dataflowEndpointGroupList.map(item =>
-        item.map(DataflowEndpointListItem.filterSensitiveLog)
+      dataflowEndpointGroupList: obj.dataflowEndpointGroupList.map(
+        DataflowEndpointListItem.filterSensitiveLog
       )
     })
   });
@@ -1303,8 +1299,8 @@ export namespace ListMissionProfilesResponse {
   export const filterSensitiveLog = (obj: ListMissionProfilesResponse) => ({
     ...obj,
     ...(obj.missionProfileList && {
-      missionProfileList: obj.missionProfileList.map(item =>
-        item.map(MissionProfileListItem.filterSensitiveLog)
+      missionProfileList: obj.missionProfileList.map(
+        MissionProfileListItem.filterSensitiveLog
       )
     })
   });
@@ -1509,7 +1505,7 @@ export namespace UpdateMissionProfileRequest {
   export const filterSensitiveLog = (obj: UpdateMissionProfileRequest) => ({
     ...obj,
     ...(obj.dataflowEdges && {
-      dataflowEdges: obj.dataflowEdges.map(item => item.map(item => item.map()))
+      dataflowEdges: obj.dataflowEdges.map(item => item.map())
     })
   });
   export const isa = (o: any): o is UpdateMissionProfileRequest =>
@@ -1931,8 +1927,8 @@ export namespace ListGroundStationsResponse {
   export const filterSensitiveLog = (obj: ListGroundStationsResponse) => ({
     ...obj,
     ...(obj.groundStationList && {
-      groundStationList: obj.groundStationList.map(item =>
-        item.map(GroundStationData.filterSensitiveLog)
+      groundStationList: obj.groundStationList.map(
+        GroundStationData.filterSensitiveLog
       )
     })
   });
@@ -1984,9 +1980,7 @@ export namespace ListSatellitesResponse {
   export const filterSensitiveLog = (obj: ListSatellitesResponse) => ({
     ...obj,
     ...(obj.satellites && {
-      satellites: obj.satellites.map(item =>
-        item.map(SatelliteListItem.filterSensitiveLog)
-      )
+      satellites: obj.satellites.map(SatelliteListItem.filterSensitiveLog)
     })
   });
   export const isa = (o: any): o is ListSatellitesResponse =>
