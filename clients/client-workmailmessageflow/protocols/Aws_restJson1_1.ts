@@ -135,7 +135,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 
 // Collect low-level response body stream to Uint8Array.
 const collectBody = (
-  streamBody: any,
+  streamBody: any = new Uint8Array(),
   context: __SerdeContext
 ): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
