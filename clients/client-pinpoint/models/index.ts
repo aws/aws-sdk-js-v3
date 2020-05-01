@@ -10260,7 +10260,14 @@ export namespace SendUsersMessageResponse {
           acc: any,
           [key, value]: [string, { [key: string]: EndpointMessageResult }]
         ) => {
-          acc[key] = value;
+          (acc[key] = Object.entries(value).reduce(
+            (acc: any, [key, value]: [string, EndpointMessageResult]) => {
+              acc[key] = EndpointMessageResult.filterSensitiveLog(value);
+              return acc;
+            },
+            {}
+          )),
+            {};
           return acc;
         },
         {}
