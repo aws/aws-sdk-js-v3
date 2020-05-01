@@ -4666,7 +4666,17 @@ export interface KeysAndAttributes {
 export namespace KeysAndAttributes {
   export const filterSensitiveLog = (obj: KeysAndAttributes) => ({
     ...obj,
-    ...(obj.Keys && { Keys: obj.Keys.map(item => item) })
+    ...(obj.Keys && {
+      Keys: obj.Keys.map(item =>
+        Object.entries(item).reduce(
+          (acc: any, [key, value]: [string, AttributeValue]) => {
+            acc[key] = AttributeValue.filterSensitiveLog(value);
+            return acc;
+          },
+          {}
+        )
+      )
+    })
   });
   export const isa = (o: any): o is KeysAndAttributes =>
     __isa(o, "KeysAndAttributes");
@@ -6284,7 +6294,17 @@ export namespace QueryOutput {
         obj.ConsumedCapacity
       )
     }),
-    ...(obj.Items && { Items: obj.Items.map(item => item) }),
+    ...(obj.Items && {
+      Items: obj.Items.map(item =>
+        Object.entries(item).reduce(
+          (acc: any, [key, value]: [string, AttributeValue]) => {
+            acc[key] = AttributeValue.filterSensitiveLog(value);
+            return acc;
+          },
+          {}
+        )
+      )
+    }),
     ...(obj.LastEvaluatedKey && {
       LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
         (acc: any, [key, value]: [string, AttributeValue]) => {
@@ -7832,7 +7852,17 @@ export namespace ScanOutput {
         obj.ConsumedCapacity
       )
     }),
-    ...(obj.Items && { Items: obj.Items.map(item => item) }),
+    ...(obj.Items && {
+      Items: obj.Items.map(item =>
+        Object.entries(item).reduce(
+          (acc: any, [key, value]: [string, AttributeValue]) => {
+            acc[key] = AttributeValue.filterSensitiveLog(value);
+            return acc;
+          },
+          {}
+        )
+      )
+    }),
     ...(obj.LastEvaluatedKey && {
       LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
         (acc: any, [key, value]: [string, AttributeValue]) => {
