@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -18,6 +19,9 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
+  export const filterSensitiveLog = (obj: BadRequestException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is BadRequestException =>
     __isa(o, "BadRequestException");
 }
@@ -34,6 +38,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConflictException =>
     __isa(o, "ConflictException");
 }
@@ -79,6 +86,10 @@ export interface CreateEnvironmentEC2Request {
 }
 
 export namespace CreateEnvironmentEC2Request {
+  export const filterSensitiveLog = (obj: CreateEnvironmentEC2Request) => ({
+    ...obj,
+    ...(obj.description && { description: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is CreateEnvironmentEC2Request =>
     __isa(o, "CreateEnvironmentEC2Request");
 }
@@ -92,6 +103,9 @@ export interface CreateEnvironmentEC2Result {
 }
 
 export namespace CreateEnvironmentEC2Result {
+  export const filterSensitiveLog = (obj: CreateEnvironmentEC2Result) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateEnvironmentEC2Result =>
     __isa(o, "CreateEnvironmentEC2Result");
 }
@@ -125,6 +139,11 @@ export interface CreateEnvironmentMembershipRequest {
 }
 
 export namespace CreateEnvironmentMembershipRequest {
+  export const filterSensitiveLog = (
+    obj: CreateEnvironmentMembershipRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateEnvironmentMembershipRequest =>
     __isa(o, "CreateEnvironmentMembershipRequest");
 }
@@ -138,6 +157,14 @@ export interface CreateEnvironmentMembershipResult {
 }
 
 export namespace CreateEnvironmentMembershipResult {
+  export const filterSensitiveLog = (
+    obj: CreateEnvironmentMembershipResult
+  ) => ({
+    ...obj,
+    ...(obj.membership && {
+      membership: EnvironmentMember.filterSensitiveLog(obj.membership)
+    })
+  });
   export const isa = (o: any): o is CreateEnvironmentMembershipResult =>
     __isa(o, "CreateEnvironmentMembershipResult");
 }
@@ -156,6 +183,11 @@ export interface DeleteEnvironmentMembershipRequest {
 }
 
 export namespace DeleteEnvironmentMembershipRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteEnvironmentMembershipRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteEnvironmentMembershipRequest =>
     __isa(o, "DeleteEnvironmentMembershipRequest");
 }
@@ -165,6 +197,11 @@ export interface DeleteEnvironmentMembershipResult {
 }
 
 export namespace DeleteEnvironmentMembershipResult {
+  export const filterSensitiveLog = (
+    obj: DeleteEnvironmentMembershipResult
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteEnvironmentMembershipResult =>
     __isa(o, "DeleteEnvironmentMembershipResult");
 }
@@ -178,6 +215,9 @@ export interface DeleteEnvironmentRequest {
 }
 
 export namespace DeleteEnvironmentRequest {
+  export const filterSensitiveLog = (obj: DeleteEnvironmentRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteEnvironmentRequest =>
     __isa(o, "DeleteEnvironmentRequest");
 }
@@ -187,6 +227,9 @@ export interface DeleteEnvironmentResult {
 }
 
 export namespace DeleteEnvironmentResult {
+  export const filterSensitiveLog = (obj: DeleteEnvironmentResult) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteEnvironmentResult =>
     __isa(o, "DeleteEnvironmentResult");
 }
@@ -235,6 +278,11 @@ export interface DescribeEnvironmentMembershipsRequest {
 }
 
 export namespace DescribeEnvironmentMembershipsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeEnvironmentMembershipsRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeEnvironmentMembershipsRequest =>
     __isa(o, "DescribeEnvironmentMembershipsRequest");
 }
@@ -253,6 +301,16 @@ export interface DescribeEnvironmentMembershipsResult {
 }
 
 export namespace DescribeEnvironmentMembershipsResult {
+  export const filterSensitiveLog = (
+    obj: DescribeEnvironmentMembershipsResult
+  ) => ({
+    ...obj,
+    ...(obj.memberships && {
+      memberships: obj.memberships.map(item =>
+        item.map(EnvironmentMember.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeEnvironmentMembershipsResult =>
     __isa(o, "DescribeEnvironmentMembershipsResult");
 }
@@ -266,6 +324,11 @@ export interface DescribeEnvironmentStatusRequest {
 }
 
 export namespace DescribeEnvironmentStatusRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeEnvironmentStatusRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeEnvironmentStatusRequest =>
     __isa(o, "DescribeEnvironmentStatusRequest");
 }
@@ -314,6 +377,9 @@ export interface DescribeEnvironmentStatusResult {
 }
 
 export namespace DescribeEnvironmentStatusResult {
+  export const filterSensitiveLog = (obj: DescribeEnvironmentStatusResult) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeEnvironmentStatusResult =>
     __isa(o, "DescribeEnvironmentStatusResult");
 }
@@ -327,6 +393,9 @@ export interface DescribeEnvironmentsRequest {
 }
 
 export namespace DescribeEnvironmentsRequest {
+  export const filterSensitiveLog = (obj: DescribeEnvironmentsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeEnvironmentsRequest =>
     __isa(o, "DescribeEnvironmentsRequest");
 }
@@ -340,6 +409,14 @@ export interface DescribeEnvironmentsResult {
 }
 
 export namespace DescribeEnvironmentsResult {
+  export const filterSensitiveLog = (obj: DescribeEnvironmentsResult) => ({
+    ...obj,
+    ...(obj.environments && {
+      environments: obj.environments.map(item =>
+        item.map(Environment.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeEnvironmentsResult =>
     __isa(o, "DescribeEnvironmentsResult");
 }
@@ -396,6 +473,13 @@ export interface Environment {
 }
 
 export namespace Environment {
+  export const filterSensitiveLog = (obj: Environment) => ({
+    ...obj,
+    ...(obj.description && { description: SENSITIVE_STRING }),
+    ...(obj.lifecycle && {
+      lifecycle: EnvironmentLifecycle.filterSensitiveLog(obj.lifecycle)
+    })
+  });
   export const isa = (o: any): o is Environment => __isa(o, "Environment");
 }
 
@@ -443,6 +527,9 @@ export interface EnvironmentLifecycle {
 }
 
 export namespace EnvironmentLifecycle {
+  export const filterSensitiveLog = (obj: EnvironmentLifecycle) => ({
+    ...obj
+  });
   export const isa = (o: any): o is EnvironmentLifecycle =>
     __isa(o, "EnvironmentLifecycle");
 }
@@ -501,6 +588,9 @@ export interface EnvironmentMember {
 }
 
 export namespace EnvironmentMember {
+  export const filterSensitiveLog = (obj: EnvironmentMember) => ({
+    ...obj
+  });
   export const isa = (o: any): o is EnvironmentMember =>
     __isa(o, "EnvironmentMember");
 }
@@ -532,6 +622,9 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
+  export const filterSensitiveLog = (obj: ForbiddenException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ForbiddenException =>
     __isa(o, "ForbiddenException");
 }
@@ -550,6 +643,9 @@ export interface InternalServerErrorException
 }
 
 export namespace InternalServerErrorException {
+  export const filterSensitiveLog = (obj: InternalServerErrorException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServerErrorException =>
     __isa(o, "InternalServerErrorException");
 }
@@ -568,6 +664,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -586,6 +685,9 @@ export interface ListEnvironmentsRequest {
 }
 
 export namespace ListEnvironmentsRequest {
+  export const filterSensitiveLog = (obj: ListEnvironmentsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListEnvironmentsRequest =>
     __isa(o, "ListEnvironmentsRequest");
 }
@@ -604,6 +706,9 @@ export interface ListEnvironmentsResult {
 }
 
 export namespace ListEnvironmentsResult {
+  export const filterSensitiveLog = (obj: ListEnvironmentsResult) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListEnvironmentsResult =>
     __isa(o, "ListEnvironmentsResult");
 }
@@ -625,6 +730,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotFoundException =>
     __isa(o, "NotFoundException");
 }
@@ -649,6 +757,9 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
+  export const filterSensitiveLog = (obj: TooManyRequestsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyRequestsException =>
     __isa(o, "TooManyRequestsException");
 }
@@ -682,6 +793,11 @@ export interface UpdateEnvironmentMembershipRequest {
 }
 
 export namespace UpdateEnvironmentMembershipRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateEnvironmentMembershipRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateEnvironmentMembershipRequest =>
     __isa(o, "UpdateEnvironmentMembershipRequest");
 }
@@ -695,6 +811,14 @@ export interface UpdateEnvironmentMembershipResult {
 }
 
 export namespace UpdateEnvironmentMembershipResult {
+  export const filterSensitiveLog = (
+    obj: UpdateEnvironmentMembershipResult
+  ) => ({
+    ...obj,
+    ...(obj.membership && {
+      membership: EnvironmentMember.filterSensitiveLog(obj.membership)
+    })
+  });
   export const isa = (o: any): o is UpdateEnvironmentMembershipResult =>
     __isa(o, "UpdateEnvironmentMembershipResult");
 }
@@ -718,6 +842,10 @@ export interface UpdateEnvironmentRequest {
 }
 
 export namespace UpdateEnvironmentRequest {
+  export const filterSensitiveLog = (obj: UpdateEnvironmentRequest) => ({
+    ...obj,
+    ...(obj.description && { description: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is UpdateEnvironmentRequest =>
     __isa(o, "UpdateEnvironmentRequest");
 }
@@ -727,6 +855,9 @@ export interface UpdateEnvironmentResult {
 }
 
 export namespace UpdateEnvironmentResult {
+  export const filterSensitiveLog = (obj: UpdateEnvironmentResult) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateEnvironmentResult =>
     __isa(o, "UpdateEnvironmentResult");
 }

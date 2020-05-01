@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -59,6 +60,12 @@ export interface Attribute {
 }
 
 export namespace Attribute {
+  export const filterSensitiveLog = (obj: Attribute) => ({
+    ...obj,
+    ...(obj.Traits && {
+      Traits: obj.Traits.map(item => item.map(Trait.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is Attribute => __isa(o, "Attribute");
 }
 
@@ -101,6 +108,9 @@ export interface ComprehendMedicalAsyncJobFilter {
 }
 
 export namespace ComprehendMedicalAsyncJobFilter {
+  export const filterSensitiveLog = (obj: ComprehendMedicalAsyncJobFilter) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ComprehendMedicalAsyncJobFilter =>
     __isa(o, "ComprehendMedicalAsyncJobFilter");
 }
@@ -187,6 +197,19 @@ export interface ComprehendMedicalAsyncJobProperties {
 }
 
 export namespace ComprehendMedicalAsyncJobProperties {
+  export const filterSensitiveLog = (
+    obj: ComprehendMedicalAsyncJobProperties
+  ) => ({
+    ...obj,
+    ...(obj.InputDataConfig && {
+      InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
+    }),
+    ...(obj.OutputDataConfig && {
+      OutputDataConfig: OutputDataConfig.filterSensitiveLog(
+        obj.OutputDataConfig
+      )
+    })
+  });
   export const isa = (o: any): o is ComprehendMedicalAsyncJobProperties =>
     __isa(o, "ComprehendMedicalAsyncJobProperties");
 }
@@ -202,6 +225,11 @@ export interface DescribeEntitiesDetectionV2JobRequest {
 }
 
 export namespace DescribeEntitiesDetectionV2JobRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeEntitiesDetectionV2JobRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeEntitiesDetectionV2JobRequest =>
     __isa(o, "DescribeEntitiesDetectionV2JobRequest");
 }
@@ -215,6 +243,16 @@ export interface DescribeEntitiesDetectionV2JobResponse {
 }
 
 export namespace DescribeEntitiesDetectionV2JobResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeEntitiesDetectionV2JobResponse
+  ) => ({
+    ...obj,
+    ...(obj.ComprehendMedicalAsyncJobProperties && {
+      ComprehendMedicalAsyncJobProperties: ComprehendMedicalAsyncJobProperties.filterSensitiveLog(
+        obj.ComprehendMedicalAsyncJobProperties
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeEntitiesDetectionV2JobResponse =>
     __isa(o, "DescribeEntitiesDetectionV2JobResponse");
 }
@@ -229,6 +267,9 @@ export interface DescribePHIDetectionJobRequest {
 }
 
 export namespace DescribePHIDetectionJobRequest {
+  export const filterSensitiveLog = (obj: DescribePHIDetectionJobRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribePHIDetectionJobRequest =>
     __isa(o, "DescribePHIDetectionJobRequest");
 }
@@ -242,6 +283,14 @@ export interface DescribePHIDetectionJobResponse {
 }
 
 export namespace DescribePHIDetectionJobResponse {
+  export const filterSensitiveLog = (obj: DescribePHIDetectionJobResponse) => ({
+    ...obj,
+    ...(obj.ComprehendMedicalAsyncJobProperties && {
+      ComprehendMedicalAsyncJobProperties: ComprehendMedicalAsyncJobProperties.filterSensitiveLog(
+        obj.ComprehendMedicalAsyncJobProperties
+      )
+    })
+  });
   export const isa = (o: any): o is DescribePHIDetectionJobResponse =>
     __isa(o, "DescribePHIDetectionJobResponse");
 }
@@ -256,6 +305,9 @@ export interface DetectEntitiesRequest {
 }
 
 export namespace DetectEntitiesRequest {
+  export const filterSensitiveLog = (obj: DetectEntitiesRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DetectEntitiesRequest =>
     __isa(o, "DetectEntitiesRequest");
 }
@@ -289,6 +341,17 @@ export interface DetectEntitiesResponse {
 }
 
 export namespace DetectEntitiesResponse {
+  export const filterSensitiveLog = (obj: DetectEntitiesResponse) => ({
+    ...obj,
+    ...(obj.Entities && {
+      Entities: obj.Entities.map(item => item.map(Entity.filterSensitiveLog))
+    }),
+    ...(obj.UnmappedAttributes && {
+      UnmappedAttributes: obj.UnmappedAttributes.map(item =>
+        item.map(UnmappedAttribute.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DetectEntitiesResponse =>
     __isa(o, "DetectEntitiesResponse");
 }
@@ -303,6 +366,9 @@ export interface DetectEntitiesV2Request {
 }
 
 export namespace DetectEntitiesV2Request {
+  export const filterSensitiveLog = (obj: DetectEntitiesV2Request) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DetectEntitiesV2Request =>
     __isa(o, "DetectEntitiesV2Request");
 }
@@ -336,6 +402,17 @@ export interface DetectEntitiesV2Response {
 }
 
 export namespace DetectEntitiesV2Response {
+  export const filterSensitiveLog = (obj: DetectEntitiesV2Response) => ({
+    ...obj,
+    ...(obj.Entities && {
+      Entities: obj.Entities.map(item => item.map(Entity.filterSensitiveLog))
+    }),
+    ...(obj.UnmappedAttributes && {
+      UnmappedAttributes: obj.UnmappedAttributes.map(item =>
+        item.map(UnmappedAttribute.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DetectEntitiesV2Response =>
     __isa(o, "DetectEntitiesV2Response");
 }
@@ -350,6 +427,9 @@ export interface DetectPHIRequest {
 }
 
 export namespace DetectPHIRequest {
+  export const filterSensitiveLog = (obj: DetectPHIRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DetectPHIRequest =>
     __isa(o, "DetectPHIRequest");
 }
@@ -378,6 +458,12 @@ export interface DetectPHIResponse {
 }
 
 export namespace DetectPHIResponse {
+  export const filterSensitiveLog = (obj: DetectPHIResponse) => ({
+    ...obj,
+    ...(obj.Entities && {
+      Entities: obj.Entities.map(item => item.map(Entity.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is DetectPHIResponse =>
     __isa(o, "DetectPHIResponse");
 }
@@ -437,6 +523,17 @@ export interface Entity {
 }
 
 export namespace Entity {
+  export const filterSensitiveLog = (obj: Entity) => ({
+    ...obj,
+    ...(obj.Attributes && {
+      Attributes: obj.Attributes.map(item =>
+        item.map(Attribute.filterSensitiveLog)
+      )
+    }),
+    ...(obj.Traits && {
+      Traits: obj.Traits.map(item => item.map(Trait.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is Entity => __isa(o, "Entity");
 }
 
@@ -536,6 +633,12 @@ export interface ICD10CMAttribute {
 }
 
 export namespace ICD10CMAttribute {
+  export const filterSensitiveLog = (obj: ICD10CMAttribute) => ({
+    ...obj,
+    ...(obj.Traits && {
+      Traits: obj.Traits.map(item => item.map(ICD10CMTrait.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is ICD10CMAttribute =>
     __isa(o, "ICD10CMAttribute");
 }
@@ -572,6 +675,9 @@ export interface ICD10CMConcept {
 }
 
 export namespace ICD10CMConcept {
+  export const filterSensitiveLog = (obj: ICD10CMConcept) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ICD10CMConcept =>
     __isa(o, "ICD10CMConcept");
 }
@@ -647,6 +753,22 @@ export interface ICD10CMEntity {
 }
 
 export namespace ICD10CMEntity {
+  export const filterSensitiveLog = (obj: ICD10CMEntity) => ({
+    ...obj,
+    ...(obj.Attributes && {
+      Attributes: obj.Attributes.map(item =>
+        item.map(ICD10CMAttribute.filterSensitiveLog)
+      )
+    }),
+    ...(obj.ICD10CMConcepts && {
+      ICD10CMConcepts: obj.ICD10CMConcepts.map(item =>
+        item.map(ICD10CMConcept.filterSensitiveLog)
+      )
+    }),
+    ...(obj.Traits && {
+      Traits: obj.Traits.map(item => item.map(ICD10CMTrait.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is ICD10CMEntity => __isa(o, "ICD10CMEntity");
 }
 
@@ -678,6 +800,9 @@ export interface ICD10CMTrait {
 }
 
 export namespace ICD10CMTrait {
+  export const filterSensitiveLog = (obj: ICD10CMTrait) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ICD10CMTrait => __isa(o, "ICD10CMTrait");
 }
 
@@ -698,6 +823,9 @@ export interface InferICD10CMRequest {
 }
 
 export namespace InferICD10CMRequest {
+  export const filterSensitiveLog = (obj: InferICD10CMRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InferICD10CMRequest =>
     __isa(o, "InferICD10CMRequest");
 }
@@ -725,6 +853,14 @@ export interface InferICD10CMResponse {
 }
 
 export namespace InferICD10CMResponse {
+  export const filterSensitiveLog = (obj: InferICD10CMResponse) => ({
+    ...obj,
+    ...(obj.Entities && {
+      Entities: obj.Entities.map(item =>
+        item.map(ICD10CMEntity.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is InferICD10CMResponse =>
     __isa(o, "InferICD10CMResponse");
 }
@@ -739,6 +875,9 @@ export interface InferRxNormRequest {
 }
 
 export namespace InferRxNormRequest {
+  export const filterSensitiveLog = (obj: InferRxNormRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InferRxNormRequest =>
     __isa(o, "InferRxNormRequest");
 }
@@ -766,6 +905,14 @@ export interface InferRxNormResponse {
 }
 
 export namespace InferRxNormResponse {
+  export const filterSensitiveLog = (obj: InferRxNormResponse) => ({
+    ...obj,
+    ...(obj.Entities && {
+      Entities: obj.Entities.map(item =>
+        item.map(RxNormEntity.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is InferRxNormResponse =>
     __isa(o, "InferRxNormResponse");
 }
@@ -790,6 +937,9 @@ export interface InputDataConfig {
 }
 
 export namespace InputDataConfig {
+  export const filterSensitiveLog = (obj: InputDataConfig) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InputDataConfig =>
     __isa(o, "InputDataConfig");
 }
@@ -806,6 +956,9 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
+  export const filterSensitiveLog = (obj: InternalServerException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServerException =>
     __isa(o, "InternalServerException");
 }
@@ -823,6 +976,9 @@ export interface InvalidEncodingException
 }
 
 export namespace InvalidEncodingException {
+  export const filterSensitiveLog = (obj: InvalidEncodingException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidEncodingException =>
     __isa(o, "InvalidEncodingException");
 }
@@ -840,6 +996,9 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
+  export const filterSensitiveLog = (obj: InvalidRequestException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidRequestException =>
     __isa(o, "InvalidRequestException");
 }
@@ -878,6 +1037,14 @@ export interface ListEntitiesDetectionV2JobsRequest {
 }
 
 export namespace ListEntitiesDetectionV2JobsRequest {
+  export const filterSensitiveLog = (
+    obj: ListEntitiesDetectionV2JobsRequest
+  ) => ({
+    ...obj,
+    ...(obj.Filter && {
+      Filter: ComprehendMedicalAsyncJobFilter.filterSensitiveLog(obj.Filter)
+    })
+  });
   export const isa = (o: any): o is ListEntitiesDetectionV2JobsRequest =>
     __isa(o, "ListEntitiesDetectionV2JobsRequest");
 }
@@ -896,6 +1063,16 @@ export interface ListEntitiesDetectionV2JobsResponse {
 }
 
 export namespace ListEntitiesDetectionV2JobsResponse {
+  export const filterSensitiveLog = (
+    obj: ListEntitiesDetectionV2JobsResponse
+  ) => ({
+    ...obj,
+    ...(obj.ComprehendMedicalAsyncJobPropertiesList && {
+      ComprehendMedicalAsyncJobPropertiesList: obj.ComprehendMedicalAsyncJobPropertiesList.map(
+        item => item.map(ComprehendMedicalAsyncJobProperties.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListEntitiesDetectionV2JobsResponse =>
     __isa(o, "ListEntitiesDetectionV2JobsResponse");
 }
@@ -920,6 +1097,12 @@ export interface ListPHIDetectionJobsRequest {
 }
 
 export namespace ListPHIDetectionJobsRequest {
+  export const filterSensitiveLog = (obj: ListPHIDetectionJobsRequest) => ({
+    ...obj,
+    ...(obj.Filter && {
+      Filter: ComprehendMedicalAsyncJobFilter.filterSensitiveLog(obj.Filter)
+    })
+  });
   export const isa = (o: any): o is ListPHIDetectionJobsRequest =>
     __isa(o, "ListPHIDetectionJobsRequest");
 }
@@ -938,6 +1121,14 @@ export interface ListPHIDetectionJobsResponse {
 }
 
 export namespace ListPHIDetectionJobsResponse {
+  export const filterSensitiveLog = (obj: ListPHIDetectionJobsResponse) => ({
+    ...obj,
+    ...(obj.ComprehendMedicalAsyncJobPropertiesList && {
+      ComprehendMedicalAsyncJobPropertiesList: obj.ComprehendMedicalAsyncJobPropertiesList.map(
+        item => item.map(ComprehendMedicalAsyncJobProperties.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListPHIDetectionJobsResponse =>
     __isa(o, "ListPHIDetectionJobsResponse");
 }
@@ -963,6 +1154,9 @@ export interface OutputDataConfig {
 }
 
 export namespace OutputDataConfig {
+  export const filterSensitiveLog = (obj: OutputDataConfig) => ({
+    ...obj
+  });
   export const isa = (o: any): o is OutputDataConfig =>
     __isa(o, "OutputDataConfig");
 }
@@ -980,6 +1174,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -1040,6 +1237,12 @@ export interface RxNormAttribute {
 }
 
 export namespace RxNormAttribute {
+  export const filterSensitiveLog = (obj: RxNormAttribute) => ({
+    ...obj,
+    ...(obj.Traits && {
+      Traits: obj.Traits.map(item => item.map(RxNormTrait.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is RxNormAttribute =>
     __isa(o, "RxNormAttribute");
 }
@@ -1078,6 +1281,9 @@ export interface RxNormConcept {
 }
 
 export namespace RxNormConcept {
+  export const filterSensitiveLog = (obj: RxNormConcept) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RxNormConcept => __isa(o, "RxNormConcept");
 }
 
@@ -1150,6 +1356,22 @@ export interface RxNormEntity {
 }
 
 export namespace RxNormEntity {
+  export const filterSensitiveLog = (obj: RxNormEntity) => ({
+    ...obj,
+    ...(obj.Attributes && {
+      Attributes: obj.Attributes.map(item =>
+        item.map(RxNormAttribute.filterSensitiveLog)
+      )
+    }),
+    ...(obj.RxNormConcepts && {
+      RxNormConcepts: obj.RxNormConcepts.map(item =>
+        item.map(RxNormConcept.filterSensitiveLog)
+      )
+    }),
+    ...(obj.Traits && {
+      Traits: obj.Traits.map(item => item.map(RxNormTrait.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is RxNormEntity => __isa(o, "RxNormEntity");
 }
 
@@ -1181,6 +1403,9 @@ export interface RxNormTrait {
 }
 
 export namespace RxNormTrait {
+  export const filterSensitiveLog = (obj: RxNormTrait) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RxNormTrait => __isa(o, "RxNormTrait");
 }
 
@@ -1201,6 +1426,9 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
+  export const filterSensitiveLog = (obj: ServiceUnavailableException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ServiceUnavailableException =>
     __isa(o, "ServiceUnavailableException");
 }
@@ -1247,6 +1475,19 @@ export interface StartEntitiesDetectionV2JobRequest {
 }
 
 export namespace StartEntitiesDetectionV2JobRequest {
+  export const filterSensitiveLog = (
+    obj: StartEntitiesDetectionV2JobRequest
+  ) => ({
+    ...obj,
+    ...(obj.InputDataConfig && {
+      InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
+    }),
+    ...(obj.OutputDataConfig && {
+      OutputDataConfig: OutputDataConfig.filterSensitiveLog(
+        obj.OutputDataConfig
+      )
+    })
+  });
   export const isa = (o: any): o is StartEntitiesDetectionV2JobRequest =>
     __isa(o, "StartEntitiesDetectionV2JobRequest");
 }
@@ -1261,6 +1502,11 @@ export interface StartEntitiesDetectionV2JobResponse {
 }
 
 export namespace StartEntitiesDetectionV2JobResponse {
+  export const filterSensitiveLog = (
+    obj: StartEntitiesDetectionV2JobResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartEntitiesDetectionV2JobResponse =>
     __isa(o, "StartEntitiesDetectionV2JobResponse");
 }
@@ -1307,6 +1553,17 @@ export interface StartPHIDetectionJobRequest {
 }
 
 export namespace StartPHIDetectionJobRequest {
+  export const filterSensitiveLog = (obj: StartPHIDetectionJobRequest) => ({
+    ...obj,
+    ...(obj.InputDataConfig && {
+      InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
+    }),
+    ...(obj.OutputDataConfig && {
+      OutputDataConfig: OutputDataConfig.filterSensitiveLog(
+        obj.OutputDataConfig
+      )
+    })
+  });
   export const isa = (o: any): o is StartPHIDetectionJobRequest =>
     __isa(o, "StartPHIDetectionJobRequest");
 }
@@ -1321,6 +1578,9 @@ export interface StartPHIDetectionJobResponse {
 }
 
 export namespace StartPHIDetectionJobResponse {
+  export const filterSensitiveLog = (obj: StartPHIDetectionJobResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartPHIDetectionJobResponse =>
     __isa(o, "StartPHIDetectionJobResponse");
 }
@@ -1334,6 +1594,11 @@ export interface StopEntitiesDetectionV2JobRequest {
 }
 
 export namespace StopEntitiesDetectionV2JobRequest {
+  export const filterSensitiveLog = (
+    obj: StopEntitiesDetectionV2JobRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StopEntitiesDetectionV2JobRequest =>
     __isa(o, "StopEntitiesDetectionV2JobRequest");
 }
@@ -1347,6 +1612,11 @@ export interface StopEntitiesDetectionV2JobResponse {
 }
 
 export namespace StopEntitiesDetectionV2JobResponse {
+  export const filterSensitiveLog = (
+    obj: StopEntitiesDetectionV2JobResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StopEntitiesDetectionV2JobResponse =>
     __isa(o, "StopEntitiesDetectionV2JobResponse");
 }
@@ -1360,6 +1630,9 @@ export interface StopPHIDetectionJobRequest {
 }
 
 export namespace StopPHIDetectionJobRequest {
+  export const filterSensitiveLog = (obj: StopPHIDetectionJobRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StopPHIDetectionJobRequest =>
     __isa(o, "StopPHIDetectionJobRequest");
 }
@@ -1373,6 +1646,9 @@ export interface StopPHIDetectionJobResponse {
 }
 
 export namespace StopPHIDetectionJobResponse {
+  export const filterSensitiveLog = (obj: StopPHIDetectionJobResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StopPHIDetectionJobResponse =>
     __isa(o, "StopPHIDetectionJobResponse");
 }
@@ -1390,6 +1666,9 @@ export interface TextSizeLimitExceededException
 }
 
 export namespace TextSizeLimitExceededException {
+  export const filterSensitiveLog = (obj: TextSizeLimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TextSizeLimitExceededException =>
     __isa(o, "TextSizeLimitExceededException");
 }
@@ -1408,6 +1687,9 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
+  export const filterSensitiveLog = (obj: TooManyRequestsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyRequestsException =>
     __isa(o, "TooManyRequestsException");
 }
@@ -1429,6 +1711,9 @@ export interface Trait {
 }
 
 export namespace Trait {
+  export const filterSensitiveLog = (obj: Trait) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Trait => __isa(o, "Trait");
 }
 
@@ -1451,6 +1736,12 @@ export interface UnmappedAttribute {
 }
 
 export namespace UnmappedAttribute {
+  export const filterSensitiveLog = (obj: UnmappedAttribute) => ({
+    ...obj,
+    ...(obj.Attribute && {
+      Attribute: Attribute.filterSensitiveLog(obj.Attribute)
+    })
+  });
   export const isa = (o: any): o is UnmappedAttribute =>
     __isa(o, "UnmappedAttribute");
 }
@@ -1468,6 +1759,9 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
+  export const filterSensitiveLog = (obj: ValidationException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ValidationException =>
     __isa(o, "ValidationException");
 }

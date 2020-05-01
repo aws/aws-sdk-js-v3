@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -9,6 +10,9 @@ export interface Attributes {
 }
 
 export namespace Attributes {
+  export const filterSensitiveLog = (obj: Attributes) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Attributes => __isa(o, "Attributes");
 }
 
@@ -21,6 +25,9 @@ export interface ClaimDevicesByClaimCodeRequest {
 }
 
 export namespace ClaimDevicesByClaimCodeRequest {
+  export const filterSensitiveLog = (obj: ClaimDevicesByClaimCodeRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ClaimDevicesByClaimCodeRequest =>
     __isa(o, "ClaimDevicesByClaimCodeRequest");
 }
@@ -40,6 +47,9 @@ export interface ClaimDevicesByClaimCodeResponse {
 }
 
 export namespace ClaimDevicesByClaimCodeResponse {
+  export const filterSensitiveLog = (obj: ClaimDevicesByClaimCodeResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ClaimDevicesByClaimCodeResponse =>
     __isa(o, "ClaimDevicesByClaimCodeResponse");
 }
@@ -53,6 +63,9 @@ export interface DescribeDeviceRequest {
 }
 
 export namespace DescribeDeviceRequest {
+  export const filterSensitiveLog = (obj: DescribeDeviceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeDeviceRequest =>
     __isa(o, "DescribeDeviceRequest");
 }
@@ -66,6 +79,14 @@ export interface DescribeDeviceResponse {
 }
 
 export namespace DescribeDeviceResponse {
+  export const filterSensitiveLog = (obj: DescribeDeviceResponse) => ({
+    ...obj,
+    ...(obj.DeviceDescription && {
+      DeviceDescription: DeviceDescription.filterSensitiveLog(
+        obj.DeviceDescription
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeDeviceResponse =>
     __isa(o, "DescribeDeviceResponse");
 }
@@ -89,6 +110,12 @@ export interface Device {
 }
 
 export namespace Device {
+  export const filterSensitiveLog = (obj: Device) => ({
+    ...obj,
+    ...(obj.Attributes && {
+      Attributes: Attributes.filterSensitiveLog(obj.Attributes)
+    })
+  });
   export const isa = (o: any): o is Device => __isa(o, "Device");
 }
 
@@ -133,6 +160,9 @@ export interface DeviceDescription {
 }
 
 export namespace DeviceDescription {
+  export const filterSensitiveLog = (obj: DeviceDescription) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeviceDescription =>
     __isa(o, "DeviceDescription");
 }
@@ -151,6 +181,10 @@ export interface DeviceEvent {
 }
 
 export namespace DeviceEvent {
+  export const filterSensitiveLog = (obj: DeviceEvent) => ({
+    ...obj,
+    ...(obj.Device && { Device: Device.filterSensitiveLog(obj.Device) })
+  });
   export const isa = (o: any): o is DeviceEvent => __isa(o, "DeviceEvent");
 }
 
@@ -168,6 +202,9 @@ export interface DeviceMethod {
 }
 
 export namespace DeviceMethod {
+  export const filterSensitiveLog = (obj: DeviceMethod) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeviceMethod => __isa(o, "DeviceMethod");
 }
 
@@ -189,6 +226,9 @@ export interface FinalizeDeviceClaimRequest {
 }
 
 export namespace FinalizeDeviceClaimRequest {
+  export const filterSensitiveLog = (obj: FinalizeDeviceClaimRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is FinalizeDeviceClaimRequest =>
     __isa(o, "FinalizeDeviceClaimRequest");
 }
@@ -202,6 +242,9 @@ export interface FinalizeDeviceClaimResponse {
 }
 
 export namespace FinalizeDeviceClaimResponse {
+  export const filterSensitiveLog = (obj: FinalizeDeviceClaimResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is FinalizeDeviceClaimResponse =>
     __isa(o, "FinalizeDeviceClaimResponse");
 }
@@ -221,6 +264,9 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
+  export const filterSensitiveLog = (obj: ForbiddenException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ForbiddenException =>
     __isa(o, "ForbiddenException");
 }
@@ -234,6 +280,9 @@ export interface GetDeviceMethodsRequest {
 }
 
 export namespace GetDeviceMethodsRequest {
+  export const filterSensitiveLog = (obj: GetDeviceMethodsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDeviceMethodsRequest =>
     __isa(o, "GetDeviceMethodsRequest");
 }
@@ -247,6 +296,14 @@ export interface GetDeviceMethodsResponse {
 }
 
 export namespace GetDeviceMethodsResponse {
+  export const filterSensitiveLog = (obj: GetDeviceMethodsResponse) => ({
+    ...obj,
+    ...(obj.DeviceMethods && {
+      DeviceMethods: obj.DeviceMethods.map(item =>
+        item.map(DeviceMethod.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is GetDeviceMethodsResponse =>
     __isa(o, "GetDeviceMethodsResponse");
 }
@@ -260,6 +317,9 @@ export interface InitiateDeviceClaimRequest {
 }
 
 export namespace InitiateDeviceClaimRequest {
+  export const filterSensitiveLog = (obj: InitiateDeviceClaimRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InitiateDeviceClaimRequest =>
     __isa(o, "InitiateDeviceClaimRequest");
 }
@@ -273,6 +333,9 @@ export interface InitiateDeviceClaimResponse {
 }
 
 export namespace InitiateDeviceClaimResponse {
+  export const filterSensitiveLog = (obj: InitiateDeviceClaimResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InitiateDeviceClaimResponse =>
     __isa(o, "InitiateDeviceClaimResponse");
 }
@@ -294,6 +357,9 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
+  export const filterSensitiveLog = (obj: InternalFailureException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalFailureException =>
     __isa(o, "InternalFailureException");
 }
@@ -315,6 +381,9 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
+  export const filterSensitiveLog = (obj: InvalidRequestException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidRequestException =>
     __isa(o, "InvalidRequestException");
 }
@@ -338,6 +407,12 @@ export interface InvokeDeviceMethodRequest {
 }
 
 export namespace InvokeDeviceMethodRequest {
+  export const filterSensitiveLog = (obj: InvokeDeviceMethodRequest) => ({
+    ...obj,
+    ...(obj.DeviceMethod && {
+      DeviceMethod: DeviceMethod.filterSensitiveLog(obj.DeviceMethod)
+    })
+  });
   export const isa = (o: any): o is InvokeDeviceMethodRequest =>
     __isa(o, "InvokeDeviceMethodRequest");
 }
@@ -351,6 +426,9 @@ export interface InvokeDeviceMethodResponse {
 }
 
 export namespace InvokeDeviceMethodResponse {
+  export const filterSensitiveLog = (obj: InvokeDeviceMethodResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvokeDeviceMethodResponse =>
     __isa(o, "InvokeDeviceMethodResponse");
 }
@@ -389,6 +467,9 @@ export interface ListDeviceEventsRequest {
 }
 
 export namespace ListDeviceEventsRequest {
+  export const filterSensitiveLog = (obj: ListDeviceEventsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListDeviceEventsRequest =>
     __isa(o, "ListDeviceEventsRequest");
 }
@@ -408,6 +489,12 @@ export interface ListDeviceEventsResponse {
 }
 
 export namespace ListDeviceEventsResponse {
+  export const filterSensitiveLog = (obj: ListDeviceEventsResponse) => ({
+    ...obj,
+    ...(obj.Events && {
+      Events: obj.Events.map(item => item.map(DeviceEvent.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is ListDeviceEventsResponse =>
     __isa(o, "ListDeviceEventsResponse");
 }
@@ -432,6 +519,9 @@ export interface ListDevicesRequest {
 }
 
 export namespace ListDevicesRequest {
+  export const filterSensitiveLog = (obj: ListDevicesRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListDevicesRequest =>
     __isa(o, "ListDevicesRequest");
 }
@@ -450,6 +540,14 @@ export interface ListDevicesResponse {
 }
 
 export namespace ListDevicesResponse {
+  export const filterSensitiveLog = (obj: ListDevicesResponse) => ({
+    ...obj,
+    ...(obj.Devices && {
+      Devices: obj.Devices.map(item =>
+        item.map(DeviceDescription.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListDevicesResponse =>
     __isa(o, "ListDevicesResponse");
 }
@@ -463,6 +561,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
     __isa(o, "ListTagsForResourceRequest");
 }
@@ -480,6 +581,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
 }
@@ -501,6 +605,9 @@ export interface PreconditionFailedException
 }
 
 export namespace PreconditionFailedException {
+  export const filterSensitiveLog = (obj: PreconditionFailedException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PreconditionFailedException =>
     __isa(o, "PreconditionFailedException");
 }
@@ -523,6 +630,9 @@ export interface RangeNotSatisfiableException
 }
 
 export namespace RangeNotSatisfiableException {
+  export const filterSensitiveLog = (obj: RangeNotSatisfiableException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RangeNotSatisfiableException =>
     __isa(o, "RangeNotSatisfiableException");
 }
@@ -544,6 +654,9 @@ export interface ResourceConflictException
 }
 
 export namespace ResourceConflictException {
+  export const filterSensitiveLog = (obj: ResourceConflictException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceConflictException =>
     __isa(o, "ResourceConflictException");
 }
@@ -565,6 +678,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -587,6 +703,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
 }
@@ -600,6 +719,9 @@ export interface UnclaimDeviceRequest {
 }
 
 export namespace UnclaimDeviceRequest {
+  export const filterSensitiveLog = (obj: UnclaimDeviceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnclaimDeviceRequest =>
     __isa(o, "UnclaimDeviceRequest");
 }
@@ -613,6 +735,9 @@ export interface UnclaimDeviceResponse {
 }
 
 export namespace UnclaimDeviceResponse {
+  export const filterSensitiveLog = (obj: UnclaimDeviceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnclaimDeviceResponse =>
     __isa(o, "UnclaimDeviceResponse");
 }
@@ -631,6 +756,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceRequest =>
     __isa(o, "UntagResourceRequest");
 }
@@ -650,6 +778,9 @@ export interface UpdateDeviceStateRequest {
 }
 
 export namespace UpdateDeviceStateRequest {
+  export const filterSensitiveLog = (obj: UpdateDeviceStateRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateDeviceStateRequest =>
     __isa(o, "UpdateDeviceStateRequest");
 }
@@ -659,6 +790,9 @@ export interface UpdateDeviceStateResponse {
 }
 
 export namespace UpdateDeviceStateResponse {
+  export const filterSensitiveLog = (obj: UpdateDeviceStateResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateDeviceStateResponse =>
     __isa(o, "UpdateDeviceStateResponse");
 }

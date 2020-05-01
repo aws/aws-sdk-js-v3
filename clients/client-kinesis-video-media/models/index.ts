@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -27,6 +28,12 @@ export interface GetMediaInput {
 }
 
 export namespace GetMediaInput {
+  export const filterSensitiveLog = (obj: GetMediaInput) => ({
+    ...obj,
+    ...(obj.StartSelector && {
+      StartSelector: StartSelector.filterSensitiveLog(obj.StartSelector)
+    })
+  });
   export const isa = (o: any): o is GetMediaInput => __isa(o, "GetMediaInput");
 }
 
@@ -111,6 +118,9 @@ export interface GetMediaOutput {
 }
 
 export namespace GetMediaOutput {
+  export const filterSensitiveLog = (obj: GetMediaOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetMediaOutput =>
     __isa(o, "GetMediaOutput");
 }
@@ -191,6 +201,9 @@ export interface StartSelector {
 }
 
 export namespace StartSelector {
+  export const filterSensitiveLog = (obj: StartSelector) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartSelector => __isa(o, "StartSelector");
 }
 
@@ -216,6 +229,9 @@ export interface ClientLimitExceededException
 }
 
 export namespace ClientLimitExceededException {
+  export const filterSensitiveLog = (obj: ClientLimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ClientLimitExceededException =>
     __isa(o, "ClientLimitExceededException");
 }
@@ -233,6 +249,11 @@ export interface ConnectionLimitExceededException
 }
 
 export namespace ConnectionLimitExceededException {
+  export const filterSensitiveLog = (
+    obj: ConnectionLimitExceededException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConnectionLimitExceededException =>
     __isa(o, "ConnectionLimitExceededException");
 }
@@ -249,6 +270,9 @@ export interface InvalidArgumentException
 }
 
 export namespace InvalidArgumentException {
+  export const filterSensitiveLog = (obj: InvalidArgumentException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidArgumentException =>
     __isa(o, "InvalidArgumentException");
 }
@@ -268,6 +292,9 @@ export interface InvalidEndpointException
 }
 
 export namespace InvalidEndpointException {
+  export const filterSensitiveLog = (obj: InvalidEndpointException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidEndpointException =>
     __isa(o, "InvalidEndpointException");
 }
@@ -285,6 +312,9 @@ export interface NotAuthorizedException
 }
 
 export namespace NotAuthorizedException {
+  export const filterSensitiveLog = (obj: NotAuthorizedException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotAuthorizedException =>
     __isa(o, "NotAuthorizedException");
 }
@@ -301,6 +331,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }

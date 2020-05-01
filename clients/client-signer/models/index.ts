@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -16,6 +17,9 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
+  export const filterSensitiveLog = (obj: AccessDeniedException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccessDeniedException =>
     __isa(o, "AccessDeniedException");
 }
@@ -35,6 +39,9 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
+  export const filterSensitiveLog = (obj: BadRequestException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is BadRequestException =>
     __isa(o, "BadRequestException");
 }
@@ -48,6 +55,9 @@ export interface CancelSigningProfileRequest {
 }
 
 export namespace CancelSigningProfileRequest {
+  export const filterSensitiveLog = (obj: CancelSigningProfileRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CancelSigningProfileRequest =>
     __isa(o, "CancelSigningProfileRequest");
 }
@@ -63,6 +73,9 @@ export interface DescribeSigningJobRequest {
 }
 
 export namespace DescribeSigningJobRequest {
+  export const filterSensitiveLog = (obj: DescribeSigningJobRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeSigningJobRequest =>
     __isa(o, "DescribeSigningJobRequest");
 }
@@ -138,6 +151,19 @@ export interface DescribeSigningJobResponse {
 }
 
 export namespace DescribeSigningJobResponse {
+  export const filterSensitiveLog = (obj: DescribeSigningJobResponse) => ({
+    ...obj,
+    ...(obj.overrides && {
+      overrides: SigningPlatformOverrides.filterSensitiveLog(obj.overrides)
+    }),
+    ...(obj.signedObject && {
+      signedObject: SignedObject.filterSensitiveLog(obj.signedObject)
+    }),
+    ...(obj.signingMaterial && {
+      signingMaterial: SigningMaterial.filterSensitiveLog(obj.signingMaterial)
+    }),
+    ...(obj.source && { source: Source.filterSensitiveLog(obj.source) })
+  });
   export const isa = (o: any): o is DescribeSigningJobResponse =>
     __isa(o, "DescribeSigningJobResponse");
 }
@@ -155,6 +181,10 @@ export interface Destination {
 }
 
 export namespace Destination {
+  export const filterSensitiveLog = (obj: Destination) => ({
+    ...obj,
+    ...(obj.s3 && { s3: S3Destination.filterSensitiveLog(obj.s3) })
+  });
   export const isa = (o: any): o is Destination => __isa(o, "Destination");
 }
 
@@ -177,6 +207,9 @@ export interface EncryptionAlgorithmOptions {
 }
 
 export namespace EncryptionAlgorithmOptions {
+  export const filterSensitiveLog = (obj: EncryptionAlgorithmOptions) => ({
+    ...obj
+  });
   export const isa = (o: any): o is EncryptionAlgorithmOptions =>
     __isa(o, "EncryptionAlgorithmOptions");
 }
@@ -190,6 +223,9 @@ export interface GetSigningPlatformRequest {
 }
 
 export namespace GetSigningPlatformRequest {
+  export const filterSensitiveLog = (obj: GetSigningPlatformRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetSigningPlatformRequest =>
     __isa(o, "GetSigningPlatformRequest");
 }
@@ -239,6 +275,19 @@ export interface GetSigningPlatformResponse {
 }
 
 export namespace GetSigningPlatformResponse {
+  export const filterSensitiveLog = (obj: GetSigningPlatformResponse) => ({
+    ...obj,
+    ...(obj.signingConfiguration && {
+      signingConfiguration: SigningConfiguration.filterSensitiveLog(
+        obj.signingConfiguration
+      )
+    }),
+    ...(obj.signingImageFormat && {
+      signingImageFormat: SigningImageFormat.filterSensitiveLog(
+        obj.signingImageFormat
+      )
+    })
+  });
   export const isa = (o: any): o is GetSigningPlatformResponse =>
     __isa(o, "GetSigningPlatformResponse");
 }
@@ -252,6 +301,9 @@ export interface GetSigningProfileRequest {
 }
 
 export namespace GetSigningProfileRequest {
+  export const filterSensitiveLog = (obj: GetSigningProfileRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetSigningProfileRequest =>
     __isa(o, "GetSigningProfileRequest");
 }
@@ -306,6 +358,15 @@ export interface GetSigningProfileResponse {
 }
 
 export namespace GetSigningProfileResponse {
+  export const filterSensitiveLog = (obj: GetSigningProfileResponse) => ({
+    ...obj,
+    ...(obj.overrides && {
+      overrides: SigningPlatformOverrides.filterSensitiveLog(obj.overrides)
+    }),
+    ...(obj.signingMaterial && {
+      signingMaterial: SigningMaterial.filterSensitiveLog(obj.signingMaterial)
+    })
+  });
   export const isa = (o: any): o is GetSigningProfileResponse =>
     __isa(o, "GetSigningProfileResponse");
 }
@@ -329,6 +390,9 @@ export interface HashAlgorithmOptions {
 }
 
 export namespace HashAlgorithmOptions {
+  export const filterSensitiveLog = (obj: HashAlgorithmOptions) => ({
+    ...obj
+  });
   export const isa = (o: any): o is HashAlgorithmOptions =>
     __isa(o, "HashAlgorithmOptions");
 }
@@ -347,6 +411,9 @@ export interface InternalServiceErrorException
 }
 
 export namespace InternalServiceErrorException {
+  export const filterSensitiveLog = (obj: InternalServiceErrorException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServiceErrorException =>
     __isa(o, "InternalServiceErrorException");
 }
@@ -387,6 +454,9 @@ export interface ListSigningJobsRequest {
 }
 
 export namespace ListSigningJobsRequest {
+  export const filterSensitiveLog = (obj: ListSigningJobsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListSigningJobsRequest =>
     __isa(o, "ListSigningJobsRequest");
 }
@@ -405,6 +475,12 @@ export interface ListSigningJobsResponse {
 }
 
 export namespace ListSigningJobsResponse {
+  export const filterSensitiveLog = (obj: ListSigningJobsResponse) => ({
+    ...obj,
+    ...(obj.jobs && {
+      jobs: obj.jobs.map(item => item.map(SigningJob.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is ListSigningJobsResponse =>
     __isa(o, "ListSigningJobsResponse");
 }
@@ -440,6 +516,9 @@ export interface ListSigningPlatformsRequest {
 }
 
 export namespace ListSigningPlatformsRequest {
+  export const filterSensitiveLog = (obj: ListSigningPlatformsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListSigningPlatformsRequest =>
     __isa(o, "ListSigningPlatformsRequest");
 }
@@ -458,6 +537,14 @@ export interface ListSigningPlatformsResponse {
 }
 
 export namespace ListSigningPlatformsResponse {
+  export const filterSensitiveLog = (obj: ListSigningPlatformsResponse) => ({
+    ...obj,
+    ...(obj.platforms && {
+      platforms: obj.platforms.map(item =>
+        item.map(SigningPlatform.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListSigningPlatformsResponse =>
     __isa(o, "ListSigningPlatformsResponse");
 }
@@ -484,6 +571,9 @@ export interface ListSigningProfilesRequest {
 }
 
 export namespace ListSigningProfilesRequest {
+  export const filterSensitiveLog = (obj: ListSigningProfilesRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListSigningProfilesRequest =>
     __isa(o, "ListSigningProfilesRequest");
 }
@@ -504,6 +594,14 @@ export interface ListSigningProfilesResponse {
 }
 
 export namespace ListSigningProfilesResponse {
+  export const filterSensitiveLog = (obj: ListSigningProfilesResponse) => ({
+    ...obj,
+    ...(obj.profiles && {
+      profiles: obj.profiles.map(item =>
+        item.map(SigningProfile.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListSigningProfilesResponse =>
     __isa(o, "ListSigningProfilesResponse");
 }
@@ -519,6 +617,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
     __isa(o, "ListTagsForResourceRequest");
 }
@@ -534,6 +635,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
 }
@@ -550,6 +654,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotFoundException =>
     __isa(o, "NotFoundException");
 }
@@ -594,6 +701,15 @@ export interface PutSigningProfileRequest {
 }
 
 export namespace PutSigningProfileRequest {
+  export const filterSensitiveLog = (obj: PutSigningProfileRequest) => ({
+    ...obj,
+    ...(obj.overrides && {
+      overrides: SigningPlatformOverrides.filterSensitiveLog(obj.overrides)
+    }),
+    ...(obj.signingMaterial && {
+      signingMaterial: SigningMaterial.filterSensitiveLog(obj.signingMaterial)
+    })
+  });
   export const isa = (o: any): o is PutSigningProfileRequest =>
     __isa(o, "PutSigningProfileRequest");
 }
@@ -607,6 +723,9 @@ export interface PutSigningProfileResponse {
 }
 
 export namespace PutSigningProfileResponse {
+  export const filterSensitiveLog = (obj: PutSigningProfileResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutSigningProfileResponse =>
     __isa(o, "PutSigningProfileResponse");
 }
@@ -623,6 +742,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -645,6 +767,9 @@ export interface S3Destination {
 }
 
 export namespace S3Destination {
+  export const filterSensitiveLog = (obj: S3Destination) => ({
+    ...obj
+  });
   export const isa = (o: any): o is S3Destination => __isa(o, "S3Destination");
 }
 
@@ -665,6 +790,9 @@ export interface S3SignedObject {
 }
 
 export namespace S3SignedObject {
+  export const filterSensitiveLog = (obj: S3SignedObject) => ({
+    ...obj
+  });
   export const isa = (o: any): o is S3SignedObject =>
     __isa(o, "S3SignedObject");
 }
@@ -691,6 +819,9 @@ export interface S3Source {
 }
 
 export namespace S3Source {
+  export const filterSensitiveLog = (obj: S3Source) => ({
+    ...obj
+  });
   export const isa = (o: any): o is S3Source => __isa(o, "S3Source");
 }
 
@@ -707,6 +838,10 @@ export interface SignedObject {
 }
 
 export namespace SignedObject {
+  export const filterSensitiveLog = (obj: SignedObject) => ({
+    ...obj,
+    ...(obj.s3 && { s3: S3SignedObject.filterSensitiveLog(obj.s3) })
+  });
   export const isa = (o: any): o is SignedObject => __isa(o, "SignedObject");
 }
 
@@ -727,6 +862,19 @@ export interface SigningConfiguration {
 }
 
 export namespace SigningConfiguration {
+  export const filterSensitiveLog = (obj: SigningConfiguration) => ({
+    ...obj,
+    ...(obj.encryptionAlgorithmOptions && {
+      encryptionAlgorithmOptions: EncryptionAlgorithmOptions.filterSensitiveLog(
+        obj.encryptionAlgorithmOptions
+      )
+    }),
+    ...(obj.hashAlgorithmOptions && {
+      hashAlgorithmOptions: HashAlgorithmOptions.filterSensitiveLog(
+        obj.hashAlgorithmOptions
+      )
+    })
+  });
   export const isa = (o: any): o is SigningConfiguration =>
     __isa(o, "SigningConfiguration");
 }
@@ -751,6 +899,9 @@ export interface SigningConfigurationOverrides {
 }
 
 export namespace SigningConfigurationOverrides {
+  export const filterSensitiveLog = (obj: SigningConfigurationOverrides) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SigningConfigurationOverrides =>
     __isa(o, "SigningConfigurationOverrides");
 }
@@ -772,6 +923,9 @@ export interface SigningImageFormat {
 }
 
 export namespace SigningImageFormat {
+  export const filterSensitiveLog = (obj: SigningImageFormat) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SigningImageFormat =>
     __isa(o, "SigningImageFormat");
 }
@@ -816,6 +970,16 @@ export interface SigningJob {
 }
 
 export namespace SigningJob {
+  export const filterSensitiveLog = (obj: SigningJob) => ({
+    ...obj,
+    ...(obj.signedObject && {
+      signedObject: SignedObject.filterSensitiveLog(obj.signedObject)
+    }),
+    ...(obj.signingMaterial && {
+      signingMaterial: SigningMaterial.filterSensitiveLog(obj.signingMaterial)
+    }),
+    ...(obj.source && { source: Source.filterSensitiveLog(obj.source) })
+  });
   export const isa = (o: any): o is SigningJob => __isa(o, "SigningJob");
 }
 
@@ -832,6 +996,9 @@ export interface SigningMaterial {
 }
 
 export namespace SigningMaterial {
+  export const filterSensitiveLog = (obj: SigningMaterial) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SigningMaterial =>
     __isa(o, "SigningMaterial");
 }
@@ -885,6 +1052,19 @@ export interface SigningPlatform {
 }
 
 export namespace SigningPlatform {
+  export const filterSensitiveLog = (obj: SigningPlatform) => ({
+    ...obj,
+    ...(obj.signingConfiguration && {
+      signingConfiguration: SigningConfiguration.filterSensitiveLog(
+        obj.signingConfiguration
+      )
+    }),
+    ...(obj.signingImageFormat && {
+      signingImageFormat: SigningImageFormat.filterSensitiveLog(
+        obj.signingImageFormat
+      )
+    })
+  });
   export const isa = (o: any): o is SigningPlatform =>
     __isa(o, "SigningPlatform");
 }
@@ -903,6 +1083,14 @@ export interface SigningPlatformOverrides {
 }
 
 export namespace SigningPlatformOverrides {
+  export const filterSensitiveLog = (obj: SigningPlatformOverrides) => ({
+    ...obj,
+    ...(obj.signingConfiguration && {
+      signingConfiguration: SigningConfigurationOverrides.filterSensitiveLog(
+        obj.signingConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is SigningPlatformOverrides =>
     __isa(o, "SigningPlatformOverrides");
 }
@@ -956,6 +1144,12 @@ export interface SigningProfile {
 }
 
 export namespace SigningProfile {
+  export const filterSensitiveLog = (obj: SigningProfile) => ({
+    ...obj,
+    ...(obj.signingMaterial && {
+      signingMaterial: SigningMaterial.filterSensitiveLog(obj.signingMaterial)
+    })
+  });
   export const isa = (o: any): o is SigningProfile =>
     __isa(o, "SigningProfile");
 }
@@ -977,6 +1171,10 @@ export interface Source {
 }
 
 export namespace Source {
+  export const filterSensitiveLog = (obj: Source) => ({
+    ...obj,
+    ...(obj.s3 && { s3: S3Source.filterSensitiveLog(obj.s3) })
+  });
   export const isa = (o: any): o is Source => __isa(o, "Source");
 }
 
@@ -1007,6 +1205,13 @@ export interface StartSigningJobRequest {
 }
 
 export namespace StartSigningJobRequest {
+  export const filterSensitiveLog = (obj: StartSigningJobRequest) => ({
+    ...obj,
+    ...(obj.destination && {
+      destination: Destination.filterSensitiveLog(obj.destination)
+    }),
+    ...(obj.source && { source: Source.filterSensitiveLog(obj.source) })
+  });
   export const isa = (o: any): o is StartSigningJobRequest =>
     __isa(o, "StartSigningJobRequest");
 }
@@ -1020,6 +1225,9 @@ export interface StartSigningJobResponse {
 }
 
 export namespace StartSigningJobResponse {
+  export const filterSensitiveLog = (obj: StartSigningJobResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartSigningJobResponse =>
     __isa(o, "StartSigningJobResponse");
 }
@@ -1042,6 +1250,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
 }
@@ -1051,6 +1262,9 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceResponse =>
     __isa(o, "TagResourceResponse");
 }
@@ -1067,6 +1281,9 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ThrottlingException =>
     __isa(o, "ThrottlingException");
 }
@@ -1089,6 +1306,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceRequest =>
     __isa(o, "UntagResourceRequest");
 }
@@ -1098,6 +1318,9 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceResponse =>
     __isa(o, "UntagResourceResponse");
 }
@@ -1114,6 +1337,9 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
+  export const filterSensitiveLog = (obj: ValidationException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ValidationException =>
     __isa(o, "ValidationException");
 }

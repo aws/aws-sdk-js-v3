@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -30,6 +31,11 @@ export interface AssociateDeviceWithPlacementRequest {
 }
 
 export namespace AssociateDeviceWithPlacementRequest {
+  export const filterSensitiveLog = (
+    obj: AssociateDeviceWithPlacementRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AssociateDeviceWithPlacementRequest =>
     __isa(o, "AssociateDeviceWithPlacementRequest");
 }
@@ -39,6 +45,11 @@ export interface AssociateDeviceWithPlacementResponse {
 }
 
 export namespace AssociateDeviceWithPlacementResponse {
+  export const filterSensitiveLog = (
+    obj: AssociateDeviceWithPlacementResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AssociateDeviceWithPlacementResponse =>
     __isa(o, "AssociateDeviceWithPlacementResponse");
 }
@@ -63,6 +74,9 @@ export interface CreatePlacementRequest {
 }
 
 export namespace CreatePlacementRequest {
+  export const filterSensitiveLog = (obj: CreatePlacementRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreatePlacementRequest =>
     __isa(o, "CreatePlacementRequest");
 }
@@ -72,6 +86,9 @@ export interface CreatePlacementResponse {
 }
 
 export namespace CreatePlacementResponse {
+  export const filterSensitiveLog = (obj: CreatePlacementResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreatePlacementResponse =>
     __isa(o, "CreatePlacementResponse");
 }
@@ -105,6 +122,14 @@ export interface CreateProjectRequest {
 }
 
 export namespace CreateProjectRequest {
+  export const filterSensitiveLog = (obj: CreateProjectRequest) => ({
+    ...obj,
+    ...(obj.placementTemplate && {
+      placementTemplate: PlacementTemplate.filterSensitiveLog(
+        obj.placementTemplate
+      )
+    })
+  });
   export const isa = (o: any): o is CreateProjectRequest =>
     __isa(o, "CreateProjectRequest");
 }
@@ -114,6 +139,9 @@ export interface CreateProjectResponse {
 }
 
 export namespace CreateProjectResponse {
+  export const filterSensitiveLog = (obj: CreateProjectResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateProjectResponse =>
     __isa(o, "CreateProjectResponse");
 }
@@ -132,6 +160,9 @@ export interface DeletePlacementRequest {
 }
 
 export namespace DeletePlacementRequest {
+  export const filterSensitiveLog = (obj: DeletePlacementRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeletePlacementRequest =>
     __isa(o, "DeletePlacementRequest");
 }
@@ -141,6 +172,9 @@ export interface DeletePlacementResponse {
 }
 
 export namespace DeletePlacementResponse {
+  export const filterSensitiveLog = (obj: DeletePlacementResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeletePlacementResponse =>
     __isa(o, "DeletePlacementResponse");
 }
@@ -154,6 +188,9 @@ export interface DeleteProjectRequest {
 }
 
 export namespace DeleteProjectRequest {
+  export const filterSensitiveLog = (obj: DeleteProjectRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteProjectRequest =>
     __isa(o, "DeleteProjectRequest");
 }
@@ -163,6 +200,9 @@ export interface DeleteProjectResponse {
 }
 
 export namespace DeleteProjectResponse {
+  export const filterSensitiveLog = (obj: DeleteProjectResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteProjectResponse =>
     __isa(o, "DeleteProjectResponse");
 }
@@ -181,6 +221,9 @@ export interface DescribePlacementRequest {
 }
 
 export namespace DescribePlacementRequest {
+  export const filterSensitiveLog = (obj: DescribePlacementRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribePlacementRequest =>
     __isa(o, "DescribePlacementRequest");
 }
@@ -194,6 +237,12 @@ export interface DescribePlacementResponse {
 }
 
 export namespace DescribePlacementResponse {
+  export const filterSensitiveLog = (obj: DescribePlacementResponse) => ({
+    ...obj,
+    ...(obj.placement && {
+      placement: PlacementDescription.filterSensitiveLog(obj.placement)
+    })
+  });
   export const isa = (o: any): o is DescribePlacementResponse =>
     __isa(o, "DescribePlacementResponse");
 }
@@ -207,6 +256,9 @@ export interface DescribeProjectRequest {
 }
 
 export namespace DescribeProjectRequest {
+  export const filterSensitiveLog = (obj: DescribeProjectRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeProjectRequest =>
     __isa(o, "DescribeProjectRequest");
 }
@@ -220,6 +272,12 @@ export interface DescribeProjectResponse {
 }
 
 export namespace DescribeProjectResponse {
+  export const filterSensitiveLog = (obj: DescribeProjectResponse) => ({
+    ...obj,
+    ...(obj.project && {
+      project: ProjectDescription.filterSensitiveLog(obj.project)
+    })
+  });
   export const isa = (o: any): o is DescribeProjectResponse =>
     __isa(o, "DescribeProjectResponse");
 }
@@ -242,6 +300,9 @@ export interface DeviceTemplate {
 }
 
 export namespace DeviceTemplate {
+  export const filterSensitiveLog = (obj: DeviceTemplate) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeviceTemplate =>
     __isa(o, "DeviceTemplate");
 }
@@ -265,6 +326,11 @@ export interface DisassociateDeviceFromPlacementRequest {
 }
 
 export namespace DisassociateDeviceFromPlacementRequest {
+  export const filterSensitiveLog = (
+    obj: DisassociateDeviceFromPlacementRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisassociateDeviceFromPlacementRequest =>
     __isa(o, "DisassociateDeviceFromPlacementRequest");
 }
@@ -274,6 +340,11 @@ export interface DisassociateDeviceFromPlacementResponse {
 }
 
 export namespace DisassociateDeviceFromPlacementResponse {
+  export const filterSensitiveLog = (
+    obj: DisassociateDeviceFromPlacementResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisassociateDeviceFromPlacementResponse =>
     __isa(o, "DisassociateDeviceFromPlacementResponse");
 }
@@ -292,6 +363,9 @@ export interface GetDevicesInPlacementRequest {
 }
 
 export namespace GetDevicesInPlacementRequest {
+  export const filterSensitiveLog = (obj: GetDevicesInPlacementRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDevicesInPlacementRequest =>
     __isa(o, "GetDevicesInPlacementRequest");
 }
@@ -305,6 +379,9 @@ export interface GetDevicesInPlacementResponse {
 }
 
 export namespace GetDevicesInPlacementResponse {
+  export const filterSensitiveLog = (obj: GetDevicesInPlacementResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDevicesInPlacementResponse =>
     __isa(o, "GetDevicesInPlacementResponse");
 }
@@ -322,6 +399,9 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
+  export const filterSensitiveLog = (obj: InternalFailureException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalFailureException =>
     __isa(o, "InternalFailureException");
 }
@@ -339,6 +419,9 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
+  export const filterSensitiveLog = (obj: InvalidRequestException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidRequestException =>
     __isa(o, "InvalidRequestException");
 }
@@ -363,6 +446,9 @@ export interface ListPlacementsRequest {
 }
 
 export namespace ListPlacementsRequest {
+  export const filterSensitiveLog = (obj: ListPlacementsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListPlacementsRequest =>
     __isa(o, "ListPlacementsRequest");
 }
@@ -382,6 +468,14 @@ export interface ListPlacementsResponse {
 }
 
 export namespace ListPlacementsResponse {
+  export const filterSensitiveLog = (obj: ListPlacementsResponse) => ({
+    ...obj,
+    ...(obj.placements && {
+      placements: obj.placements.map(item =>
+        item.map(PlacementSummary.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListPlacementsResponse =>
     __isa(o, "ListPlacementsResponse");
 }
@@ -401,6 +495,9 @@ export interface ListProjectsRequest {
 }
 
 export namespace ListProjectsRequest {
+  export const filterSensitiveLog = (obj: ListProjectsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListProjectsRequest =>
     __isa(o, "ListProjectsRequest");
 }
@@ -420,6 +517,14 @@ export interface ListProjectsResponse {
 }
 
 export namespace ListProjectsResponse {
+  export const filterSensitiveLog = (obj: ListProjectsResponse) => ({
+    ...obj,
+    ...(obj.projects && {
+      projects: obj.projects.map(item =>
+        item.map(ProjectSummary.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListProjectsResponse =>
     __isa(o, "ListProjectsResponse");
 }
@@ -433,6 +538,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
     __isa(o, "ListTagsForResourceRequest");
 }
@@ -446,6 +554,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
 }
@@ -484,6 +595,9 @@ export interface PlacementDescription {
 }
 
 export namespace PlacementDescription {
+  export const filterSensitiveLog = (obj: PlacementDescription) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PlacementDescription =>
     __isa(o, "PlacementDescription");
 }
@@ -517,6 +631,9 @@ export interface PlacementSummary {
 }
 
 export namespace PlacementSummary {
+  export const filterSensitiveLog = (obj: PlacementSummary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PlacementSummary =>
     __isa(o, "PlacementSummary");
 }
@@ -540,6 +657,9 @@ export interface PlacementTemplate {
 }
 
 export namespace PlacementTemplate {
+  export const filterSensitiveLog = (obj: PlacementTemplate) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PlacementTemplate =>
     __isa(o, "PlacementTemplate");
 }
@@ -588,6 +708,14 @@ export interface ProjectDescription {
 }
 
 export namespace ProjectDescription {
+  export const filterSensitiveLog = (obj: ProjectDescription) => ({
+    ...obj,
+    ...(obj.placementTemplate && {
+      placementTemplate: PlacementTemplate.filterSensitiveLog(
+        obj.placementTemplate
+      )
+    })
+  });
   export const isa = (o: any): o is ProjectDescription =>
     __isa(o, "ProjectDescription");
 }
@@ -626,6 +754,9 @@ export interface ProjectSummary {
 }
 
 export namespace ProjectSummary {
+  export const filterSensitiveLog = (obj: ProjectSummary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ProjectSummary =>
     __isa(o, "ProjectSummary");
 }
@@ -643,6 +774,9 @@ export interface ResourceConflictException
 }
 
 export namespace ResourceConflictException {
+  export const filterSensitiveLog = (obj: ResourceConflictException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceConflictException =>
     __isa(o, "ResourceConflictException");
 }
@@ -660,6 +794,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -679,6 +816,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
 }
@@ -688,6 +828,9 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceResponse =>
     __isa(o, "TagResourceResponse");
 }
@@ -705,6 +848,9 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
+  export const filterSensitiveLog = (obj: TooManyRequestsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyRequestsException =>
     __isa(o, "TooManyRequestsException");
 }
@@ -723,6 +869,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceRequest =>
     __isa(o, "UntagResourceRequest");
 }
@@ -732,6 +881,9 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceResponse =>
     __isa(o, "UntagResourceResponse");
 }
@@ -756,6 +908,9 @@ export interface UpdatePlacementRequest {
 }
 
 export namespace UpdatePlacementRequest {
+  export const filterSensitiveLog = (obj: UpdatePlacementRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdatePlacementRequest =>
     __isa(o, "UpdatePlacementRequest");
 }
@@ -765,6 +920,9 @@ export interface UpdatePlacementResponse {
 }
 
 export namespace UpdatePlacementResponse {
+  export const filterSensitiveLog = (obj: UpdatePlacementResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdatePlacementResponse =>
     __isa(o, "UpdatePlacementResponse");
 }
@@ -791,6 +949,14 @@ export interface UpdateProjectRequest {
 }
 
 export namespace UpdateProjectRequest {
+  export const filterSensitiveLog = (obj: UpdateProjectRequest) => ({
+    ...obj,
+    ...(obj.placementTemplate && {
+      placementTemplate: PlacementTemplate.filterSensitiveLog(
+        obj.placementTemplate
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateProjectRequest =>
     __isa(o, "UpdateProjectRequest");
 }
@@ -800,6 +966,9 @@ export interface UpdateProjectResponse {
 }
 
 export namespace UpdateProjectResponse {
+  export const filterSensitiveLog = (obj: UpdateProjectResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateProjectResponse =>
     __isa(o, "UpdateProjectResponse");
 }

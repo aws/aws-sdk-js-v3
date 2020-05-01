@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -52,6 +53,9 @@ export interface AssetShallow {
 }
 
 export namespace AssetShallow {
+  export const filterSensitiveLog = (obj: AssetShallow) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AssetShallow => __isa(o, "AssetShallow");
 }
 
@@ -67,6 +71,14 @@ export interface CmafEncryption {
 }
 
 export namespace CmafEncryption {
+  export const filterSensitiveLog = (obj: CmafEncryption) => ({
+    ...obj,
+    ...(obj.SpekeKeyProvider && {
+      SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
+        obj.SpekeKeyProvider
+      )
+    })
+  });
   export const isa = (o: any): o is CmafEncryption =>
     __isa(o, "CmafEncryption");
 }
@@ -94,6 +106,17 @@ export interface CmafPackage {
 }
 
 export namespace CmafPackage {
+  export const filterSensitiveLog = (obj: CmafPackage) => ({
+    ...obj,
+    ...(obj.Encryption && {
+      Encryption: CmafEncryption.filterSensitiveLog(obj.Encryption)
+    }),
+    ...(obj.HlsManifests && {
+      HlsManifests: obj.HlsManifests.map(item =>
+        item.map(HlsManifest.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is CmafPackage => __isa(o, "CmafPackage");
 }
 
@@ -129,6 +152,9 @@ export interface CreateAssetRequest {
 }
 
 export namespace CreateAssetRequest {
+  export const filterSensitiveLog = (obj: CreateAssetRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateAssetRequest =>
     __isa(o, "CreateAssetRequest");
 }
@@ -177,6 +203,14 @@ export interface CreateAssetResponse {
 }
 
 export namespace CreateAssetResponse {
+  export const filterSensitiveLog = (obj: CreateAssetResponse) => ({
+    ...obj,
+    ...(obj.EgressEndpoints && {
+      EgressEndpoints: obj.EgressEndpoints.map(item =>
+        item.map(EgressEndpoint.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is CreateAssetResponse =>
     __isa(o, "CreateAssetResponse");
 }
@@ -218,6 +252,23 @@ export interface CreatePackagingConfigurationRequest {
 }
 
 export namespace CreatePackagingConfigurationRequest {
+  export const filterSensitiveLog = (
+    obj: CreatePackagingConfigurationRequest
+  ) => ({
+    ...obj,
+    ...(obj.CmafPackage && {
+      CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
+    }),
+    ...(obj.DashPackage && {
+      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
+    }),
+    ...(obj.HlsPackage && {
+      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
+    }),
+    ...(obj.MssPackage && {
+      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
+    })
+  });
   export const isa = (o: any): o is CreatePackagingConfigurationRequest =>
     __isa(o, "CreatePackagingConfigurationRequest");
 }
@@ -261,6 +312,23 @@ export interface CreatePackagingConfigurationResponse {
 }
 
 export namespace CreatePackagingConfigurationResponse {
+  export const filterSensitiveLog = (
+    obj: CreatePackagingConfigurationResponse
+  ) => ({
+    ...obj,
+    ...(obj.CmafPackage && {
+      CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
+    }),
+    ...(obj.DashPackage && {
+      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
+    }),
+    ...(obj.HlsPackage && {
+      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
+    }),
+    ...(obj.MssPackage && {
+      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
+    })
+  });
   export const isa = (o: any): o is CreatePackagingConfigurationResponse =>
     __isa(o, "CreatePackagingConfigurationResponse");
 }
@@ -277,6 +345,9 @@ export interface CreatePackagingGroupRequest {
 }
 
 export namespace CreatePackagingGroupRequest {
+  export const filterSensitiveLog = (obj: CreatePackagingGroupRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreatePackagingGroupRequest =>
     __isa(o, "CreatePackagingGroupRequest");
 }
@@ -300,6 +371,9 @@ export interface CreatePackagingGroupResponse {
 }
 
 export namespace CreatePackagingGroupResponse {
+  export const filterSensitiveLog = (obj: CreatePackagingGroupResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreatePackagingGroupResponse =>
     __isa(o, "CreatePackagingGroupResponse");
 }
@@ -316,6 +390,14 @@ export interface DashEncryption {
 }
 
 export namespace DashEncryption {
+  export const filterSensitiveLog = (obj: DashEncryption) => ({
+    ...obj,
+    ...(obj.SpekeKeyProvider && {
+      SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
+        obj.SpekeKeyProvider
+      )
+    })
+  });
   export const isa = (o: any): o is DashEncryption =>
     __isa(o, "DashEncryption");
 }
@@ -347,6 +429,12 @@ export interface DashManifest {
 }
 
 export namespace DashManifest {
+  export const filterSensitiveLog = (obj: DashManifest) => ({
+    ...obj,
+    ...(obj.StreamSelection && {
+      StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
+    })
+  });
   export const isa = (o: any): o is DashManifest => __isa(o, "DashManifest");
 }
 
@@ -373,6 +461,17 @@ export interface DashPackage {
 }
 
 export namespace DashPackage {
+  export const filterSensitiveLog = (obj: DashPackage) => ({
+    ...obj,
+    ...(obj.DashManifests && {
+      DashManifests: obj.DashManifests.map(item =>
+        item.map(DashManifest.filterSensitiveLog)
+      )
+    }),
+    ...(obj.Encryption && {
+      Encryption: DashEncryption.filterSensitiveLog(obj.Encryption)
+    })
+  });
   export const isa = (o: any): o is DashPackage => __isa(o, "DashPackage");
 }
 
@@ -385,6 +484,9 @@ export interface DeleteAssetRequest {
 }
 
 export namespace DeleteAssetRequest {
+  export const filterSensitiveLog = (obj: DeleteAssetRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteAssetRequest =>
     __isa(o, "DeleteAssetRequest");
 }
@@ -394,6 +496,9 @@ export interface DeleteAssetResponse {
 }
 
 export namespace DeleteAssetResponse {
+  export const filterSensitiveLog = (obj: DeleteAssetResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteAssetResponse =>
     __isa(o, "DeleteAssetResponse");
 }
@@ -407,6 +512,11 @@ export interface DeletePackagingConfigurationRequest {
 }
 
 export namespace DeletePackagingConfigurationRequest {
+  export const filterSensitiveLog = (
+    obj: DeletePackagingConfigurationRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeletePackagingConfigurationRequest =>
     __isa(o, "DeletePackagingConfigurationRequest");
 }
@@ -416,6 +526,11 @@ export interface DeletePackagingConfigurationResponse {
 }
 
 export namespace DeletePackagingConfigurationResponse {
+  export const filterSensitiveLog = (
+    obj: DeletePackagingConfigurationResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeletePackagingConfigurationResponse =>
     __isa(o, "DeletePackagingConfigurationResponse");
 }
@@ -429,6 +544,9 @@ export interface DeletePackagingGroupRequest {
 }
 
 export namespace DeletePackagingGroupRequest {
+  export const filterSensitiveLog = (obj: DeletePackagingGroupRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeletePackagingGroupRequest =>
     __isa(o, "DeletePackagingGroupRequest");
 }
@@ -438,6 +556,9 @@ export interface DeletePackagingGroupResponse {
 }
 
 export namespace DeletePackagingGroupResponse {
+  export const filterSensitiveLog = (obj: DeletePackagingGroupResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeletePackagingGroupResponse =>
     __isa(o, "DeletePackagingGroupResponse");
 }
@@ -451,6 +572,9 @@ export interface DescribeAssetRequest {
 }
 
 export namespace DescribeAssetRequest {
+  export const filterSensitiveLog = (obj: DescribeAssetRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeAssetRequest =>
     __isa(o, "DescribeAssetRequest");
 }
@@ -499,6 +623,14 @@ export interface DescribeAssetResponse {
 }
 
 export namespace DescribeAssetResponse {
+  export const filterSensitiveLog = (obj: DescribeAssetResponse) => ({
+    ...obj,
+    ...(obj.EgressEndpoints && {
+      EgressEndpoints: obj.EgressEndpoints.map(item =>
+        item.map(EgressEndpoint.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeAssetResponse =>
     __isa(o, "DescribeAssetResponse");
 }
@@ -512,6 +644,11 @@ export interface DescribePackagingConfigurationRequest {
 }
 
 export namespace DescribePackagingConfigurationRequest {
+  export const filterSensitiveLog = (
+    obj: DescribePackagingConfigurationRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribePackagingConfigurationRequest =>
     __isa(o, "DescribePackagingConfigurationRequest");
 }
@@ -555,6 +692,23 @@ export interface DescribePackagingConfigurationResponse {
 }
 
 export namespace DescribePackagingConfigurationResponse {
+  export const filterSensitiveLog = (
+    obj: DescribePackagingConfigurationResponse
+  ) => ({
+    ...obj,
+    ...(obj.CmafPackage && {
+      CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
+    }),
+    ...(obj.DashPackage && {
+      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
+    }),
+    ...(obj.HlsPackage && {
+      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
+    }),
+    ...(obj.MssPackage && {
+      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
+    })
+  });
   export const isa = (o: any): o is DescribePackagingConfigurationResponse =>
     __isa(o, "DescribePackagingConfigurationResponse");
 }
@@ -568,6 +722,9 @@ export interface DescribePackagingGroupRequest {
 }
 
 export namespace DescribePackagingGroupRequest {
+  export const filterSensitiveLog = (obj: DescribePackagingGroupRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribePackagingGroupRequest =>
     __isa(o, "DescribePackagingGroupRequest");
 }
@@ -591,6 +748,9 @@ export interface DescribePackagingGroupResponse {
 }
 
 export namespace DescribePackagingGroupResponse {
+  export const filterSensitiveLog = (obj: DescribePackagingGroupResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribePackagingGroupResponse =>
     __isa(o, "DescribePackagingGroupResponse");
 }
@@ -612,6 +772,9 @@ export interface EgressEndpoint {
 }
 
 export namespace EgressEndpoint {
+  export const filterSensitiveLog = (obj: EgressEndpoint) => ({
+    ...obj
+  });
   export const isa = (o: any): o is EgressEndpoint =>
     __isa(o, "EgressEndpoint");
 }
@@ -631,6 +794,9 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
+  export const filterSensitiveLog = (obj: ForbiddenException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ForbiddenException =>
     __isa(o, "ForbiddenException");
 }
@@ -658,6 +824,14 @@ export interface HlsEncryption {
 }
 
 export namespace HlsEncryption {
+  export const filterSensitiveLog = (obj: HlsEncryption) => ({
+    ...obj,
+    ...(obj.SpekeKeyProvider && {
+      SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
+        obj.SpekeKeyProvider
+      )
+    })
+  });
   export const isa = (o: any): o is HlsEncryption => __isa(o, "HlsEncryption");
 }
 
@@ -711,6 +885,12 @@ export interface HlsManifest {
 }
 
 export namespace HlsManifest {
+  export const filterSensitiveLog = (obj: HlsManifest) => ({
+    ...obj,
+    ...(obj.StreamSelection && {
+      StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
+    })
+  });
   export const isa = (o: any): o is HlsManifest => __isa(o, "HlsManifest");
 }
 
@@ -742,6 +922,17 @@ export interface HlsPackage {
 }
 
 export namespace HlsPackage {
+  export const filterSensitiveLog = (obj: HlsPackage) => ({
+    ...obj,
+    ...(obj.Encryption && {
+      Encryption: HlsEncryption.filterSensitiveLog(obj.Encryption)
+    }),
+    ...(obj.HlsManifests && {
+      HlsManifests: obj.HlsManifests.map(item =>
+        item.map(HlsManifest.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is HlsPackage => __isa(o, "HlsPackage");
 }
 
@@ -757,6 +948,9 @@ export interface InternalServerErrorException
 }
 
 export namespace InternalServerErrorException {
+  export const filterSensitiveLog = (obj: InternalServerErrorException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServerErrorException =>
     __isa(o, "InternalServerErrorException");
 }
@@ -780,6 +974,9 @@ export interface ListAssetsRequest {
 }
 
 export namespace ListAssetsRequest {
+  export const filterSensitiveLog = (obj: ListAssetsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListAssetsRequest =>
     __isa(o, "ListAssetsRequest");
 }
@@ -798,6 +995,12 @@ export interface ListAssetsResponse {
 }
 
 export namespace ListAssetsResponse {
+  export const filterSensitiveLog = (obj: ListAssetsResponse) => ({
+    ...obj,
+    ...(obj.Assets && {
+      Assets: obj.Assets.map(item => item.map(AssetShallow.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is ListAssetsResponse =>
     __isa(o, "ListAssetsResponse");
 }
@@ -821,6 +1024,11 @@ export interface ListPackagingConfigurationsRequest {
 }
 
 export namespace ListPackagingConfigurationsRequest {
+  export const filterSensitiveLog = (
+    obj: ListPackagingConfigurationsRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListPackagingConfigurationsRequest =>
     __isa(o, "ListPackagingConfigurationsRequest");
 }
@@ -839,6 +1047,16 @@ export interface ListPackagingConfigurationsResponse {
 }
 
 export namespace ListPackagingConfigurationsResponse {
+  export const filterSensitiveLog = (
+    obj: ListPackagingConfigurationsResponse
+  ) => ({
+    ...obj,
+    ...(obj.PackagingConfigurations && {
+      PackagingConfigurations: obj.PackagingConfigurations.map(item =>
+        item.map(PackagingConfiguration.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListPackagingConfigurationsResponse =>
     __isa(o, "ListPackagingConfigurationsResponse");
 }
@@ -857,6 +1075,9 @@ export interface ListPackagingGroupsRequest {
 }
 
 export namespace ListPackagingGroupsRequest {
+  export const filterSensitiveLog = (obj: ListPackagingGroupsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListPackagingGroupsRequest =>
     __isa(o, "ListPackagingGroupsRequest");
 }
@@ -875,6 +1096,14 @@ export interface ListPackagingGroupsResponse {
 }
 
 export namespace ListPackagingGroupsResponse {
+  export const filterSensitiveLog = (obj: ListPackagingGroupsResponse) => ({
+    ...obj,
+    ...(obj.PackagingGroups && {
+      PackagingGroups: obj.PackagingGroups.map(item =>
+        item.map(PackagingGroup.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListPackagingGroupsResponse =>
     __isa(o, "ListPackagingGroupsResponse");
 }
@@ -891,6 +1120,14 @@ export interface MssEncryption {
 }
 
 export namespace MssEncryption {
+  export const filterSensitiveLog = (obj: MssEncryption) => ({
+    ...obj,
+    ...(obj.SpekeKeyProvider && {
+      SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
+        obj.SpekeKeyProvider
+      )
+    })
+  });
   export const isa = (o: any): o is MssEncryption => __isa(o, "MssEncryption");
 }
 
@@ -911,6 +1148,12 @@ export interface MssManifest {
 }
 
 export namespace MssManifest {
+  export const filterSensitiveLog = (obj: MssManifest) => ({
+    ...obj,
+    ...(obj.StreamSelection && {
+      StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
+    })
+  });
   export const isa = (o: any): o is MssManifest => __isa(o, "MssManifest");
 }
 
@@ -936,6 +1179,17 @@ export interface MssPackage {
 }
 
 export namespace MssPackage {
+  export const filterSensitiveLog = (obj: MssPackage) => ({
+    ...obj,
+    ...(obj.Encryption && {
+      Encryption: MssEncryption.filterSensitiveLog(obj.Encryption)
+    }),
+    ...(obj.MssManifests && {
+      MssManifests: obj.MssManifests.map(item =>
+        item.map(MssManifest.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is MssPackage => __isa(o, "MssPackage");
 }
 
@@ -949,6 +1203,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotFoundException =>
     __isa(o, "NotFoundException");
 }
@@ -995,6 +1252,21 @@ export interface PackagingConfiguration {
 }
 
 export namespace PackagingConfiguration {
+  export const filterSensitiveLog = (obj: PackagingConfiguration) => ({
+    ...obj,
+    ...(obj.CmafPackage && {
+      CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
+    }),
+    ...(obj.DashPackage && {
+      DashPackage: DashPackage.filterSensitiveLog(obj.DashPackage)
+    }),
+    ...(obj.HlsPackage && {
+      HlsPackage: HlsPackage.filterSensitiveLog(obj.HlsPackage)
+    }),
+    ...(obj.MssPackage && {
+      MssPackage: MssPackage.filterSensitiveLog(obj.MssPackage)
+    })
+  });
   export const isa = (o: any): o is PackagingConfiguration =>
     __isa(o, "PackagingConfiguration");
 }
@@ -1021,6 +1293,9 @@ export interface PackagingGroup {
 }
 
 export namespace PackagingGroup {
+  export const filterSensitiveLog = (obj: PackagingGroup) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PackagingGroup =>
     __isa(o, "PackagingGroup");
 }
@@ -1042,6 +1317,9 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
+  export const filterSensitiveLog = (obj: ServiceUnavailableException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ServiceUnavailableException =>
     __isa(o, "ServiceUnavailableException");
 }
@@ -1069,6 +1347,9 @@ export interface SpekeKeyProvider {
 }
 
 export namespace SpekeKeyProvider {
+  export const filterSensitiveLog = (obj: SpekeKeyProvider) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SpekeKeyProvider =>
     __isa(o, "SpekeKeyProvider");
 }
@@ -1101,6 +1382,9 @@ export interface StreamSelection {
 }
 
 export namespace StreamSelection {
+  export const filterSensitiveLog = (obj: StreamSelection) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StreamSelection =>
     __isa(o, "StreamSelection");
 }
@@ -1117,6 +1401,9 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
+  export const filterSensitiveLog = (obj: TooManyRequestsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyRequestsException =>
     __isa(o, "TooManyRequestsException");
 }
@@ -1133,6 +1420,9 @@ export interface UnprocessableEntityException
 }
 
 export namespace UnprocessableEntityException {
+  export const filterSensitiveLog = (obj: UnprocessableEntityException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnprocessableEntityException =>
     __isa(o, "UnprocessableEntityException");
 }

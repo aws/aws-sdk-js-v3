@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -18,6 +19,9 @@ export interface DeleteHumanLoopRequest {
 }
 
 export namespace DeleteHumanLoopRequest {
+  export const filterSensitiveLog = (obj: DeleteHumanLoopRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteHumanLoopRequest =>
     __isa(o, "DeleteHumanLoopRequest");
 }
@@ -27,6 +31,9 @@ export interface DeleteHumanLoopResponse {
 }
 
 export namespace DeleteHumanLoopResponse {
+  export const filterSensitiveLog = (obj: DeleteHumanLoopResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteHumanLoopResponse =>
     __isa(o, "DeleteHumanLoopResponse");
 }
@@ -40,6 +47,9 @@ export interface DescribeHumanLoopRequest {
 }
 
 export namespace DescribeHumanLoopRequest {
+  export const filterSensitiveLog = (obj: DescribeHumanLoopRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeHumanLoopRequest =>
     __isa(o, "DescribeHumanLoopRequest");
 }
@@ -93,6 +103,19 @@ export interface DescribeHumanLoopResponse {
 }
 
 export namespace DescribeHumanLoopResponse {
+  export const filterSensitiveLog = (obj: DescribeHumanLoopResponse) => ({
+    ...obj,
+    ...(obj.HumanLoopInput && {
+      HumanLoopInput: HumanLoopInputContent.filterSensitiveLog(
+        obj.HumanLoopInput
+      )
+    }),
+    ...(obj.HumanLoopOutput && {
+      HumanLoopOutput: HumanLoopOutputContent.filterSensitiveLog(
+        obj.HumanLoopOutput
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeHumanLoopResponse =>
     __isa(o, "DescribeHumanLoopResponse");
 }
@@ -109,6 +132,9 @@ export interface HumanLoopActivationReason {
 }
 
 export namespace HumanLoopActivationReason {
+  export const filterSensitiveLog = (obj: HumanLoopActivationReason) => ({
+    ...obj
+  });
   export const isa = (o: any): o is HumanLoopActivationReason =>
     __isa(o, "HumanLoopActivationReason");
 }
@@ -130,6 +156,14 @@ export interface HumanLoopActivationResults {
 }
 
 export namespace HumanLoopActivationResults {
+  export const filterSensitiveLog = (obj: HumanLoopActivationResults) => ({
+    ...obj,
+    ...(obj.HumanLoopActivationReason && {
+      HumanLoopActivationReason: HumanLoopActivationReason.filterSensitiveLog(
+        obj.HumanLoopActivationReason
+      )
+    })
+  });
   export const isa = (o: any): o is HumanLoopActivationResults =>
     __isa(o, "HumanLoopActivationResults");
 }
@@ -146,6 +180,9 @@ export interface HumanLoopInputContent {
 }
 
 export namespace HumanLoopInputContent {
+  export const filterSensitiveLog = (obj: HumanLoopInputContent) => ({
+    ...obj
+  });
   export const isa = (o: any): o is HumanLoopInputContent =>
     __isa(o, "HumanLoopInputContent");
 }
@@ -163,6 +200,9 @@ export interface HumanLoopOutputContent {
 }
 
 export namespace HumanLoopOutputContent {
+  export const filterSensitiveLog = (obj: HumanLoopOutputContent) => ({
+    ...obj
+  });
   export const isa = (o: any): o is HumanLoopOutputContent =>
     __isa(o, "HumanLoopOutputContent");
 }
@@ -207,6 +247,9 @@ export interface HumanLoopSummary {
 }
 
 export namespace HumanLoopSummary {
+  export const filterSensitiveLog = (obj: HumanLoopSummary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is HumanLoopSummary =>
     __isa(o, "HumanLoopSummary");
 }
@@ -224,6 +267,9 @@ export interface HumanReviewDataAttributes {
 }
 
 export namespace HumanReviewDataAttributes {
+  export const filterSensitiveLog = (obj: HumanReviewDataAttributes) => ({
+    ...obj
+  });
   export const isa = (o: any): o is HumanReviewDataAttributes =>
     __isa(o, "HumanReviewDataAttributes");
 }
@@ -240,6 +286,9 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
+  export const filterSensitiveLog = (obj: InternalServerException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServerException =>
     __isa(o, "InternalServerException");
 }
@@ -273,6 +322,9 @@ export interface ListHumanLoopsRequest {
 }
 
 export namespace ListHumanLoopsRequest {
+  export const filterSensitiveLog = (obj: ListHumanLoopsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListHumanLoopsRequest =>
     __isa(o, "ListHumanLoopsRequest");
 }
@@ -291,6 +343,14 @@ export interface ListHumanLoopsResponse {
 }
 
 export namespace ListHumanLoopsResponse {
+  export const filterSensitiveLog = (obj: ListHumanLoopsResponse) => ({
+    ...obj,
+    ...(obj.HumanLoopSummaries && {
+      HumanLoopSummaries: obj.HumanLoopSummaries.map(item =>
+        item.map(HumanLoopSummary.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListHumanLoopsResponse =>
     __isa(o, "ListHumanLoopsResponse");
 }
@@ -307,6 +367,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -323,6 +386,9 @@ export interface ServiceQuotaExceededException
 }
 
 export namespace ServiceQuotaExceededException {
+  export const filterSensitiveLog = (obj: ServiceQuotaExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ServiceQuotaExceededException =>
     __isa(o, "ServiceQuotaExceededException");
 }
@@ -356,6 +422,19 @@ export interface StartHumanLoopRequest {
 }
 
 export namespace StartHumanLoopRequest {
+  export const filterSensitiveLog = (obj: StartHumanLoopRequest) => ({
+    ...obj,
+    ...(obj.DataAttributes && {
+      DataAttributes: HumanReviewDataAttributes.filterSensitiveLog(
+        obj.DataAttributes
+      )
+    }),
+    ...(obj.HumanLoopInput && {
+      HumanLoopInput: HumanLoopInputContent.filterSensitiveLog(
+        obj.HumanLoopInput
+      )
+    })
+  });
   export const isa = (o: any): o is StartHumanLoopRequest =>
     __isa(o, "StartHumanLoopRequest");
 }
@@ -374,6 +453,14 @@ export interface StartHumanLoopResponse {
 }
 
 export namespace StartHumanLoopResponse {
+  export const filterSensitiveLog = (obj: StartHumanLoopResponse) => ({
+    ...obj,
+    ...(obj.HumanLoopActivationResults && {
+      HumanLoopActivationResults: HumanLoopActivationResults.filterSensitiveLog(
+        obj.HumanLoopActivationResults
+      )
+    })
+  });
   export const isa = (o: any): o is StartHumanLoopResponse =>
     __isa(o, "StartHumanLoopResponse");
 }
@@ -387,6 +474,9 @@ export interface StopHumanLoopRequest {
 }
 
 export namespace StopHumanLoopRequest {
+  export const filterSensitiveLog = (obj: StopHumanLoopRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StopHumanLoopRequest =>
     __isa(o, "StopHumanLoopRequest");
 }
@@ -396,6 +486,9 @@ export interface StopHumanLoopResponse {
 }
 
 export namespace StopHumanLoopResponse {
+  export const filterSensitiveLog = (obj: StopHumanLoopResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StopHumanLoopResponse =>
     __isa(o, "StopHumanLoopResponse");
 }
@@ -412,6 +505,9 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ThrottlingException =>
     __isa(o, "ThrottlingException");
 }
@@ -428,6 +524,9 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
+  export const filterSensitiveLog = (obj: ValidationException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ValidationException =>
     __isa(o, "ValidationException");
 }

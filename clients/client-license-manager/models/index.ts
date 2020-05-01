@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -16,6 +17,9 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
+  export const filterSensitiveLog = (obj: AccessDeniedException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccessDeniedException =>
     __isa(o, "AccessDeniedException");
 }
@@ -33,6 +37,9 @@ export interface AuthorizationException
 }
 
 export namespace AuthorizationException {
+  export const filterSensitiveLog = (obj: AuthorizationException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AuthorizationException =>
     __isa(o, "AuthorizationException");
 }
@@ -49,6 +56,9 @@ export interface AutomatedDiscoveryInformation {
 }
 
 export namespace AutomatedDiscoveryInformation {
+  export const filterSensitiveLog = (obj: AutomatedDiscoveryInformation) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AutomatedDiscoveryInformation =>
     __isa(o, "AutomatedDiscoveryInformation");
 }
@@ -70,6 +80,9 @@ export interface ConsumedLicenseSummary {
 }
 
 export namespace ConsumedLicenseSummary {
+  export const filterSensitiveLog = (obj: ConsumedLicenseSummary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConsumedLicenseSummary =>
     __isa(o, "ConsumedLicenseSummary");
 }
@@ -144,6 +157,19 @@ export interface CreateLicenseConfigurationRequest {
 }
 
 export namespace CreateLicenseConfigurationRequest {
+  export const filterSensitiveLog = (
+    obj: CreateLicenseConfigurationRequest
+  ) => ({
+    ...obj,
+    ...(obj.ProductInformationList && {
+      ProductInformationList: obj.ProductInformationList.map(item =>
+        item.map(ProductInformation.filterSensitiveLog)
+      )
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is CreateLicenseConfigurationRequest =>
     __isa(o, "CreateLicenseConfigurationRequest");
 }
@@ -157,6 +183,11 @@ export interface CreateLicenseConfigurationResponse {
 }
 
 export namespace CreateLicenseConfigurationResponse {
+  export const filterSensitiveLog = (
+    obj: CreateLicenseConfigurationResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateLicenseConfigurationResponse =>
     __isa(o, "CreateLicenseConfigurationResponse");
 }
@@ -170,6 +201,11 @@ export interface DeleteLicenseConfigurationRequest {
 }
 
 export namespace DeleteLicenseConfigurationRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteLicenseConfigurationRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteLicenseConfigurationRequest =>
     __isa(o, "DeleteLicenseConfigurationRequest");
 }
@@ -179,6 +215,11 @@ export interface DeleteLicenseConfigurationResponse {
 }
 
 export namespace DeleteLicenseConfigurationResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteLicenseConfigurationResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteLicenseConfigurationResponse =>
     __isa(o, "DeleteLicenseConfigurationResponse");
 }
@@ -195,6 +236,9 @@ export interface FailedDependencyException
 }
 
 export namespace FailedDependencyException {
+  export const filterSensitiveLog = (obj: FailedDependencyException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is FailedDependencyException =>
     __isa(o, "FailedDependencyException");
 }
@@ -218,6 +262,9 @@ export interface Filter {
 }
 
 export namespace Filter {
+  export const filterSensitiveLog = (obj: Filter) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
@@ -233,6 +280,9 @@ export interface FilterLimitExceededException
 }
 
 export namespace FilterLimitExceededException {
+  export const filterSensitiveLog = (obj: FilterLimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is FilterLimitExceededException =>
     __isa(o, "FilterLimitExceededException");
 }
@@ -246,6 +296,9 @@ export interface GetLicenseConfigurationRequest {
 }
 
 export namespace GetLicenseConfigurationRequest {
+  export const filterSensitiveLog = (obj: GetLicenseConfigurationRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetLicenseConfigurationRequest =>
     __isa(o, "GetLicenseConfigurationRequest");
 }
@@ -334,6 +387,32 @@ export interface GetLicenseConfigurationResponse {
 }
 
 export namespace GetLicenseConfigurationResponse {
+  export const filterSensitiveLog = (obj: GetLicenseConfigurationResponse) => ({
+    ...obj,
+    ...(obj.AutomatedDiscoveryInformation && {
+      AutomatedDiscoveryInformation: AutomatedDiscoveryInformation.filterSensitiveLog(
+        obj.AutomatedDiscoveryInformation
+      )
+    }),
+    ...(obj.ConsumedLicenseSummaryList && {
+      ConsumedLicenseSummaryList: obj.ConsumedLicenseSummaryList.map(item =>
+        item.map(ConsumedLicenseSummary.filterSensitiveLog)
+      )
+    }),
+    ...(obj.ManagedResourceSummaryList && {
+      ManagedResourceSummaryList: obj.ManagedResourceSummaryList.map(item =>
+        item.map(ManagedResourceSummary.filterSensitiveLog)
+      )
+    }),
+    ...(obj.ProductInformationList && {
+      ProductInformationList: obj.ProductInformationList.map(item =>
+        item.map(ProductInformation.filterSensitiveLog)
+      )
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is GetLicenseConfigurationResponse =>
     __isa(o, "GetLicenseConfigurationResponse");
 }
@@ -343,6 +422,9 @@ export interface GetServiceSettingsRequest {
 }
 
 export namespace GetServiceSettingsRequest {
+  export const filterSensitiveLog = (obj: GetServiceSettingsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetServiceSettingsRequest =>
     __isa(o, "GetServiceSettingsRequest");
 }
@@ -379,6 +461,14 @@ export interface GetServiceSettingsResponse {
 }
 
 export namespace GetServiceSettingsResponse {
+  export const filterSensitiveLog = (obj: GetServiceSettingsResponse) => ({
+    ...obj,
+    ...(obj.OrganizationConfiguration && {
+      OrganizationConfiguration: OrganizationConfiguration.filterSensitiveLog(
+        obj.OrganizationConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is GetServiceSettingsResponse =>
     __isa(o, "GetServiceSettingsResponse");
 }
@@ -395,6 +485,9 @@ export interface InvalidParameterValueException
 }
 
 export namespace InvalidParameterValueException {
+  export const filterSensitiveLog = (obj: InvalidParameterValueException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidParameterValueException =>
     __isa(o, "InvalidParameterValueException");
 }
@@ -413,6 +506,9 @@ export interface InvalidResourceStateException
 }
 
 export namespace InvalidResourceStateException {
+  export const filterSensitiveLog = (obj: InvalidResourceStateException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidResourceStateException =>
     __isa(o, "InvalidResourceStateException");
 }
@@ -439,6 +535,9 @@ export interface InventoryFilter {
 }
 
 export namespace InventoryFilter {
+  export const filterSensitiveLog = (obj: InventoryFilter) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InventoryFilter =>
     __isa(o, "InventoryFilter");
 }
@@ -536,6 +635,29 @@ export interface LicenseConfiguration {
 }
 
 export namespace LicenseConfiguration {
+  export const filterSensitiveLog = (obj: LicenseConfiguration) => ({
+    ...obj,
+    ...(obj.AutomatedDiscoveryInformation && {
+      AutomatedDiscoveryInformation: AutomatedDiscoveryInformation.filterSensitiveLog(
+        obj.AutomatedDiscoveryInformation
+      )
+    }),
+    ...(obj.ConsumedLicenseSummaryList && {
+      ConsumedLicenseSummaryList: obj.ConsumedLicenseSummaryList.map(item =>
+        item.map(ConsumedLicenseSummary.filterSensitiveLog)
+      )
+    }),
+    ...(obj.ManagedResourceSummaryList && {
+      ManagedResourceSummaryList: obj.ManagedResourceSummaryList.map(item =>
+        item.map(ManagedResourceSummary.filterSensitiveLog)
+      )
+    }),
+    ...(obj.ProductInformationList && {
+      ProductInformationList: obj.ProductInformationList.map(item =>
+        item.map(ProductInformation.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is LicenseConfiguration =>
     __isa(o, "LicenseConfiguration");
 }
@@ -567,6 +689,9 @@ export interface LicenseConfigurationAssociation {
 }
 
 export namespace LicenseConfigurationAssociation {
+  export const filterSensitiveLog = (obj: LicenseConfigurationAssociation) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LicenseConfigurationAssociation =>
     __isa(o, "LicenseConfigurationAssociation");
 }
@@ -613,6 +738,9 @@ export interface LicenseConfigurationUsage {
 }
 
 export namespace LicenseConfigurationUsage {
+  export const filterSensitiveLog = (obj: LicenseConfigurationUsage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LicenseConfigurationUsage =>
     __isa(o, "LicenseConfigurationUsage");
 }
@@ -671,6 +799,14 @@ export interface LicenseOperationFailure {
 }
 
 export namespace LicenseOperationFailure {
+  export const filterSensitiveLog = (obj: LicenseOperationFailure) => ({
+    ...obj,
+    ...(obj.MetadataList && {
+      MetadataList: obj.MetadataList.map(item =>
+        item.map(Metadata.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is LicenseOperationFailure =>
     __isa(o, "LicenseOperationFailure");
 }
@@ -687,6 +823,9 @@ export interface LicenseSpecification {
 }
 
 export namespace LicenseSpecification {
+  export const filterSensitiveLog = (obj: LicenseSpecification) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LicenseSpecification =>
     __isa(o, "LicenseSpecification");
 }
@@ -703,6 +842,9 @@ export interface LicenseUsageException
 }
 
 export namespace LicenseUsageException {
+  export const filterSensitiveLog = (obj: LicenseUsageException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LicenseUsageException =>
     __isa(o, "LicenseUsageException");
 }
@@ -726,6 +868,11 @@ export interface ListAssociationsForLicenseConfigurationRequest {
 }
 
 export namespace ListAssociationsForLicenseConfigurationRequest {
+  export const filterSensitiveLog = (
+    obj: ListAssociationsForLicenseConfigurationRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is ListAssociationsForLicenseConfigurationRequest =>
@@ -746,6 +893,16 @@ export interface ListAssociationsForLicenseConfigurationResponse {
 }
 
 export namespace ListAssociationsForLicenseConfigurationResponse {
+  export const filterSensitiveLog = (
+    obj: ListAssociationsForLicenseConfigurationResponse
+  ) => ({
+    ...obj,
+    ...(obj.LicenseConfigurationAssociations && {
+      LicenseConfigurationAssociations: obj.LicenseConfigurationAssociations.map(
+        item => item.map(LicenseConfigurationAssociation.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is ListAssociationsForLicenseConfigurationResponse =>
@@ -771,6 +928,11 @@ export interface ListFailuresForLicenseConfigurationOperationsRequest {
 }
 
 export namespace ListFailuresForLicenseConfigurationOperationsRequest {
+  export const filterSensitiveLog = (
+    obj: ListFailuresForLicenseConfigurationOperationsRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is ListFailuresForLicenseConfigurationOperationsRequest =>
@@ -791,6 +953,16 @@ export interface ListFailuresForLicenseConfigurationOperationsResponse {
 }
 
 export namespace ListFailuresForLicenseConfigurationOperationsResponse {
+  export const filterSensitiveLog = (
+    obj: ListFailuresForLicenseConfigurationOperationsResponse
+  ) => ({
+    ...obj,
+    ...(obj.LicenseOperationFailureList && {
+      LicenseOperationFailureList: obj.LicenseOperationFailureList.map(item =>
+        item.map(LicenseOperationFailure.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is ListFailuresForLicenseConfigurationOperationsResponse =>
@@ -839,6 +1011,14 @@ export interface ListLicenseConfigurationsRequest {
 }
 
 export namespace ListLicenseConfigurationsRequest {
+  export const filterSensitiveLog = (
+    obj: ListLicenseConfigurationsRequest
+  ) => ({
+    ...obj,
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is ListLicenseConfigurationsRequest =>
     __isa(o, "ListLicenseConfigurationsRequest");
 }
@@ -857,6 +1037,16 @@ export interface ListLicenseConfigurationsResponse {
 }
 
 export namespace ListLicenseConfigurationsResponse {
+  export const filterSensitiveLog = (
+    obj: ListLicenseConfigurationsResponse
+  ) => ({
+    ...obj,
+    ...(obj.LicenseConfigurations && {
+      LicenseConfigurations: obj.LicenseConfigurations.map(item =>
+        item.map(LicenseConfiguration.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListLicenseConfigurationsResponse =>
     __isa(o, "ListLicenseConfigurationsResponse");
 }
@@ -880,6 +1070,11 @@ export interface ListLicenseSpecificationsForResourceRequest {
 }
 
 export namespace ListLicenseSpecificationsForResourceRequest {
+  export const filterSensitiveLog = (
+    obj: ListLicenseSpecificationsForResourceRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is ListLicenseSpecificationsForResourceRequest =>
@@ -900,6 +1095,16 @@ export interface ListLicenseSpecificationsForResourceResponse {
 }
 
 export namespace ListLicenseSpecificationsForResourceResponse {
+  export const filterSensitiveLog = (
+    obj: ListLicenseSpecificationsForResourceResponse
+  ) => ({
+    ...obj,
+    ...(obj.LicenseSpecifications && {
+      LicenseSpecifications: obj.LicenseSpecifications.map(item =>
+        item.map(LicenseSpecification.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is ListLicenseSpecificationsForResourceResponse =>
@@ -957,6 +1162,14 @@ export interface ListResourceInventoryRequest {
 }
 
 export namespace ListResourceInventoryRequest {
+  export const filterSensitiveLog = (obj: ListResourceInventoryRequest) => ({
+    ...obj,
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item =>
+        item.map(InventoryFilter.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListResourceInventoryRequest =>
     __isa(o, "ListResourceInventoryRequest");
 }
@@ -975,6 +1188,14 @@ export interface ListResourceInventoryResponse {
 }
 
 export namespace ListResourceInventoryResponse {
+  export const filterSensitiveLog = (obj: ListResourceInventoryResponse) => ({
+    ...obj,
+    ...(obj.ResourceInventoryList && {
+      ResourceInventoryList: obj.ResourceInventoryList.map(item =>
+        item.map(ResourceInventory.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListResourceInventoryResponse =>
     __isa(o, "ListResourceInventoryResponse");
 }
@@ -988,6 +1209,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
     __isa(o, "ListTagsForResourceRequest");
 }
@@ -1001,6 +1225,12 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
 }
@@ -1047,6 +1277,14 @@ export interface ListUsageForLicenseConfigurationRequest {
 }
 
 export namespace ListUsageForLicenseConfigurationRequest {
+  export const filterSensitiveLog = (
+    obj: ListUsageForLicenseConfigurationRequest
+  ) => ({
+    ...obj,
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is ListUsageForLicenseConfigurationRequest =>
     __isa(o, "ListUsageForLicenseConfigurationRequest");
 }
@@ -1065,6 +1303,16 @@ export interface ListUsageForLicenseConfigurationResponse {
 }
 
 export namespace ListUsageForLicenseConfigurationResponse {
+  export const filterSensitiveLog = (
+    obj: ListUsageForLicenseConfigurationResponse
+  ) => ({
+    ...obj,
+    ...(obj.LicenseConfigurationUsageList && {
+      LicenseConfigurationUsageList: obj.LicenseConfigurationUsageList.map(
+        item => item.map(LicenseConfigurationUsage.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListUsageForLicenseConfigurationResponse =>
     __isa(o, "ListUsageForLicenseConfigurationResponse");
 }
@@ -1086,6 +1334,9 @@ export interface ManagedResourceSummary {
 }
 
 export namespace ManagedResourceSummary {
+  export const filterSensitiveLog = (obj: ManagedResourceSummary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ManagedResourceSummary =>
     __isa(o, "ManagedResourceSummary");
 }
@@ -1107,6 +1358,9 @@ export interface Metadata {
 }
 
 export namespace Metadata {
+  export const filterSensitiveLog = (obj: Metadata) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Metadata => __isa(o, "Metadata");
 }
 
@@ -1122,6 +1376,9 @@ export interface OrganizationConfiguration {
 }
 
 export namespace OrganizationConfiguration {
+  export const filterSensitiveLog = (obj: OrganizationConfiguration) => ({
+    ...obj
+  });
   export const isa = (o: any): o is OrganizationConfiguration =>
     __isa(o, "OrganizationConfiguration");
 }
@@ -1180,6 +1437,14 @@ export interface ProductInformation {
 }
 
 export namespace ProductInformation {
+  export const filterSensitiveLog = (obj: ProductInformation) => ({
+    ...obj,
+    ...(obj.ProductInformationFilterList && {
+      ProductInformationFilterList: obj.ProductInformationFilterList.map(item =>
+        item.map(ProductInformationFilter.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ProductInformation =>
     __isa(o, "ProductInformation");
 }
@@ -1206,6 +1471,9 @@ export interface ProductInformationFilter {
 }
 
 export namespace ProductInformationFilter {
+  export const filterSensitiveLog = (obj: ProductInformationFilter) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ProductInformationFilter =>
     __isa(o, "ProductInformationFilter");
 }
@@ -1222,6 +1490,9 @@ export interface RateLimitExceededException
 }
 
 export namespace RateLimitExceededException {
+  export const filterSensitiveLog = (obj: RateLimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RateLimitExceededException =>
     __isa(o, "RateLimitExceededException");
 }
@@ -1263,6 +1534,9 @@ export interface ResourceInventory {
 }
 
 export namespace ResourceInventory {
+  export const filterSensitiveLog = (obj: ResourceInventory) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceInventory =>
     __isa(o, "ResourceInventory");
 }
@@ -1279,6 +1553,9 @@ export interface ResourceLimitExceededException
 }
 
 export namespace ResourceLimitExceededException {
+  export const filterSensitiveLog = (obj: ResourceLimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceLimitExceededException =>
     __isa(o, "ResourceLimitExceededException");
 }
@@ -1303,6 +1580,9 @@ export interface ServerInternalException
 }
 
 export namespace ServerInternalException {
+  export const filterSensitiveLog = (obj: ServerInternalException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ServerInternalException =>
     __isa(o, "ServerInternalException");
 }
@@ -1324,6 +1604,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
@@ -1341,6 +1624,12 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
 }
@@ -1350,6 +1639,9 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceResponse =>
     __isa(o, "TagResourceResponse");
 }
@@ -1368,6 +1660,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceRequest =>
     __isa(o, "UntagResourceRequest");
 }
@@ -1377,6 +1672,9 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceResponse =>
     __isa(o, "UntagResourceResponse");
 }
@@ -1425,6 +1723,16 @@ export interface UpdateLicenseConfigurationRequest {
 }
 
 export namespace UpdateLicenseConfigurationRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateLicenseConfigurationRequest
+  ) => ({
+    ...obj,
+    ...(obj.ProductInformationList && {
+      ProductInformationList: obj.ProductInformationList.map(item =>
+        item.map(ProductInformation.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateLicenseConfigurationRequest =>
     __isa(o, "UpdateLicenseConfigurationRequest");
 }
@@ -1434,6 +1742,11 @@ export interface UpdateLicenseConfigurationResponse {
 }
 
 export namespace UpdateLicenseConfigurationResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateLicenseConfigurationResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateLicenseConfigurationResponse =>
     __isa(o, "UpdateLicenseConfigurationResponse");
 }
@@ -1457,6 +1770,21 @@ export interface UpdateLicenseSpecificationsForResourceRequest {
 }
 
 export namespace UpdateLicenseSpecificationsForResourceRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateLicenseSpecificationsForResourceRequest
+  ) => ({
+    ...obj,
+    ...(obj.AddLicenseSpecifications && {
+      AddLicenseSpecifications: obj.AddLicenseSpecifications.map(item =>
+        item.map(LicenseSpecification.filterSensitiveLog)
+      )
+    }),
+    ...(obj.RemoveLicenseSpecifications && {
+      RemoveLicenseSpecifications: obj.RemoveLicenseSpecifications.map(item =>
+        item.map(LicenseSpecification.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is UpdateLicenseSpecificationsForResourceRequest =>
@@ -1468,6 +1796,11 @@ export interface UpdateLicenseSpecificationsForResourceResponse {
 }
 
 export namespace UpdateLicenseSpecificationsForResourceResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateLicenseSpecificationsForResourceResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is UpdateLicenseSpecificationsForResourceResponse =>
@@ -1498,6 +1831,14 @@ export interface UpdateServiceSettingsRequest {
 }
 
 export namespace UpdateServiceSettingsRequest {
+  export const filterSensitiveLog = (obj: UpdateServiceSettingsRequest) => ({
+    ...obj,
+    ...(obj.OrganizationConfiguration && {
+      OrganizationConfiguration: OrganizationConfiguration.filterSensitiveLog(
+        obj.OrganizationConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateServiceSettingsRequest =>
     __isa(o, "UpdateServiceSettingsRequest");
 }
@@ -1507,6 +1848,9 @@ export interface UpdateServiceSettingsResponse {
 }
 
 export namespace UpdateServiceSettingsResponse {
+  export const filterSensitiveLog = (obj: UpdateServiceSettingsResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateServiceSettingsResponse =>
     __isa(o, "UpdateServiceSettingsResponse");
 }

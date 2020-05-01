@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -16,6 +17,9 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
+  export const filterSensitiveLog = (obj: AccessDeniedException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccessDeniedException =>
     __isa(o, "AccessDeniedException");
 }
@@ -34,6 +38,11 @@ export interface CreateParticipantConnectionRequest {
 }
 
 export namespace CreateParticipantConnectionRequest {
+  export const filterSensitiveLog = (
+    obj: CreateParticipantConnectionRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateParticipantConnectionRequest =>
     __isa(o, "CreateParticipantConnectionRequest");
 }
@@ -53,6 +62,19 @@ export interface CreateParticipantConnectionResponse {
 }
 
 export namespace CreateParticipantConnectionResponse {
+  export const filterSensitiveLog = (
+    obj: CreateParticipantConnectionResponse
+  ) => ({
+    ...obj,
+    ...(obj.ConnectionCredentials && {
+      ConnectionCredentials: ConnectionCredentials.filterSensitiveLog(
+        obj.ConnectionCredentials
+      )
+    }),
+    ...(obj.Websocket && {
+      Websocket: Websocket.filterSensitiveLog(obj.Websocket)
+    })
+  });
   export const isa = (o: any): o is CreateParticipantConnectionResponse =>
     __isa(o, "CreateParticipantConnectionResponse");
 }
@@ -72,6 +94,9 @@ export interface DisconnectParticipantRequest {
 }
 
 export namespace DisconnectParticipantRequest {
+  export const filterSensitiveLog = (obj: DisconnectParticipantRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisconnectParticipantRequest =>
     __isa(o, "DisconnectParticipantRequest");
 }
@@ -81,6 +106,9 @@ export interface DisconnectParticipantResponse {
 }
 
 export namespace DisconnectParticipantResponse {
+  export const filterSensitiveLog = (obj: DisconnectParticipantResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisconnectParticipantResponse =>
     __isa(o, "DisconnectParticipantResponse");
 }
@@ -126,6 +154,12 @@ export interface GetTranscriptRequest {
 }
 
 export namespace GetTranscriptRequest {
+  export const filterSensitiveLog = (obj: GetTranscriptRequest) => ({
+    ...obj,
+    ...(obj.StartPosition && {
+      StartPosition: StartPosition.filterSensitiveLog(obj.StartPosition)
+    })
+  });
   export const isa = (o: any): o is GetTranscriptRequest =>
     __isa(o, "GetTranscriptRequest");
 }
@@ -150,6 +184,12 @@ export interface GetTranscriptResponse {
 }
 
 export namespace GetTranscriptResponse {
+  export const filterSensitiveLog = (obj: GetTranscriptResponse) => ({
+    ...obj,
+    ...(obj.Transcript && {
+      Transcript: obj.Transcript.map(item => item.map(Item.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is GetTranscriptResponse =>
     __isa(o, "GetTranscriptResponse");
 }
@@ -166,6 +206,9 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
+  export const filterSensitiveLog = (obj: InternalServerException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServerException =>
     __isa(o, "InternalServerException");
 }
@@ -205,6 +248,9 @@ export interface SendEventRequest {
 }
 
 export namespace SendEventRequest {
+  export const filterSensitiveLog = (obj: SendEventRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SendEventRequest =>
     __isa(o, "SendEventRequest");
 }
@@ -225,6 +271,9 @@ export interface SendEventResponse {
 }
 
 export namespace SendEventResponse {
+  export const filterSensitiveLog = (obj: SendEventResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SendEventResponse =>
     __isa(o, "SendEventResponse");
 }
@@ -254,6 +303,9 @@ export interface SendMessageRequest {
 }
 
 export namespace SendMessageRequest {
+  export const filterSensitiveLog = (obj: SendMessageRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SendMessageRequest =>
     __isa(o, "SendMessageRequest");
 }
@@ -274,6 +326,9 @@ export interface SendMessageResponse {
 }
 
 export namespace SendMessageResponse {
+  export const filterSensitiveLog = (obj: SendMessageResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SendMessageResponse =>
     __isa(o, "SendMessageResponse");
 }
@@ -290,6 +345,9 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ThrottlingException =>
     __isa(o, "ThrottlingException");
 }
@@ -306,6 +364,9 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
+  export const filterSensitiveLog = (obj: ValidationException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ValidationException =>
     __isa(o, "ValidationException");
 }
@@ -365,6 +426,9 @@ export interface Item {
 }
 
 export namespace Item {
+  export const filterSensitiveLog = (obj: Item) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Item => __isa(o, "Item");
 }
 
@@ -403,6 +467,9 @@ export interface StartPosition {
 }
 
 export namespace StartPosition {
+  export const filterSensitiveLog = (obj: StartPosition) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartPosition => __isa(o, "StartPosition");
 }
 
@@ -425,6 +492,9 @@ export interface ConnectionCredentials {
 }
 
 export namespace ConnectionCredentials {
+  export const filterSensitiveLog = (obj: ConnectionCredentials) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConnectionCredentials =>
     __isa(o, "ConnectionCredentials");
 }
@@ -459,5 +529,8 @@ export interface Websocket {
 }
 
 export namespace Websocket {
+  export const filterSensitiveLog = (obj: Websocket) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Websocket => __isa(o, "Websocket");
 }

@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -16,6 +17,9 @@ export interface AlreadyExistsException
 }
 
 export namespace AlreadyExistsException {
+  export const filterSensitiveLog = (obj: AlreadyExistsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AlreadyExistsException =>
     __isa(o, "AlreadyExistsException");
 }
@@ -32,6 +36,9 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
+  export const filterSensitiveLog = (obj: BadRequestException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is BadRequestException =>
     __isa(o, "BadRequestException");
 }
@@ -48,6 +55,9 @@ export interface CallInstructionsMessageType {
 }
 
 export namespace CallInstructionsMessageType {
+  export const filterSensitiveLog = (obj: CallInstructionsMessageType) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CallInstructionsMessageType =>
     __isa(o, "CallInstructionsMessageType");
 }
@@ -69,6 +79,9 @@ export interface CloudWatchLogsDestination {
 }
 
 export namespace CloudWatchLogsDestination {
+  export const filterSensitiveLog = (obj: CloudWatchLogsDestination) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CloudWatchLogsDestination =>
     __isa(o, "CloudWatchLogsDestination");
 }
@@ -95,6 +108,16 @@ export interface CreateConfigurationSetEventDestinationRequest {
 }
 
 export namespace CreateConfigurationSetEventDestinationRequest {
+  export const filterSensitiveLog = (
+    obj: CreateConfigurationSetEventDestinationRequest
+  ) => ({
+    ...obj,
+    ...(obj.EventDestination && {
+      EventDestination: EventDestinationDefinition.filterSensitiveLog(
+        obj.EventDestination
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is CreateConfigurationSetEventDestinationRequest =>
@@ -109,6 +132,11 @@ export interface CreateConfigurationSetEventDestinationResponse {
 }
 
 export namespace CreateConfigurationSetEventDestinationResponse {
+  export const filterSensitiveLog = (
+    obj: CreateConfigurationSetEventDestinationResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is CreateConfigurationSetEventDestinationResponse =>
@@ -127,6 +155,9 @@ export interface CreateConfigurationSetRequest {
 }
 
 export namespace CreateConfigurationSetRequest {
+  export const filterSensitiveLog = (obj: CreateConfigurationSetRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateConfigurationSetRequest =>
     __isa(o, "CreateConfigurationSetRequest");
 }
@@ -139,6 +170,9 @@ export interface CreateConfigurationSetResponse {
 }
 
 export namespace CreateConfigurationSetResponse {
+  export const filterSensitiveLog = (obj: CreateConfigurationSetResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateConfigurationSetResponse =>
     __isa(o, "CreateConfigurationSetResponse");
 }
@@ -157,6 +191,11 @@ export interface DeleteConfigurationSetEventDestinationRequest {
 }
 
 export namespace DeleteConfigurationSetEventDestinationRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteConfigurationSetEventDestinationRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is DeleteConfigurationSetEventDestinationRequest =>
@@ -171,6 +210,11 @@ export interface DeleteConfigurationSetEventDestinationResponse {
 }
 
 export namespace DeleteConfigurationSetEventDestinationResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteConfigurationSetEventDestinationResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is DeleteConfigurationSetEventDestinationResponse =>
@@ -186,6 +230,9 @@ export interface DeleteConfigurationSetRequest {
 }
 
 export namespace DeleteConfigurationSetRequest {
+  export const filterSensitiveLog = (obj: DeleteConfigurationSetRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteConfigurationSetRequest =>
     __isa(o, "DeleteConfigurationSetRequest");
 }
@@ -198,6 +245,9 @@ export interface DeleteConfigurationSetResponse {
 }
 
 export namespace DeleteConfigurationSetResponse {
+  export const filterSensitiveLog = (obj: DeleteConfigurationSetResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteConfigurationSetResponse =>
     __isa(o, "DeleteConfigurationSetResponse");
 }
@@ -239,6 +289,22 @@ export interface EventDestination {
 }
 
 export namespace EventDestination {
+  export const filterSensitiveLog = (obj: EventDestination) => ({
+    ...obj,
+    ...(obj.CloudWatchLogsDestination && {
+      CloudWatchLogsDestination: CloudWatchLogsDestination.filterSensitiveLog(
+        obj.CloudWatchLogsDestination
+      )
+    }),
+    ...(obj.KinesisFirehoseDestination && {
+      KinesisFirehoseDestination: KinesisFirehoseDestination.filterSensitiveLog(
+        obj.KinesisFirehoseDestination
+      )
+    }),
+    ...(obj.SnsDestination && {
+      SnsDestination: SnsDestination.filterSensitiveLog(obj.SnsDestination)
+    })
+  });
   export const isa = (o: any): o is EventDestination =>
     __isa(o, "EventDestination");
 }
@@ -275,6 +341,22 @@ export interface EventDestinationDefinition {
 }
 
 export namespace EventDestinationDefinition {
+  export const filterSensitiveLog = (obj: EventDestinationDefinition) => ({
+    ...obj,
+    ...(obj.CloudWatchLogsDestination && {
+      CloudWatchLogsDestination: CloudWatchLogsDestination.filterSensitiveLog(
+        obj.CloudWatchLogsDestination
+      )
+    }),
+    ...(obj.KinesisFirehoseDestination && {
+      KinesisFirehoseDestination: KinesisFirehoseDestination.filterSensitiveLog(
+        obj.KinesisFirehoseDestination
+      )
+    }),
+    ...(obj.SnsDestination && {
+      SnsDestination: SnsDestination.filterSensitiveLog(obj.SnsDestination)
+    })
+  });
   export const isa = (o: any): o is EventDestinationDefinition =>
     __isa(o, "EventDestinationDefinition");
 }
@@ -298,6 +380,11 @@ export interface GetConfigurationSetEventDestinationsRequest {
 }
 
 export namespace GetConfigurationSetEventDestinationsRequest {
+  export const filterSensitiveLog = (
+    obj: GetConfigurationSetEventDestinationsRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is GetConfigurationSetEventDestinationsRequest =>
@@ -316,6 +403,16 @@ export interface GetConfigurationSetEventDestinationsResponse {
 }
 
 export namespace GetConfigurationSetEventDestinationsResponse {
+  export const filterSensitiveLog = (
+    obj: GetConfigurationSetEventDestinationsResponse
+  ) => ({
+    ...obj,
+    ...(obj.EventDestinations && {
+      EventDestinations: obj.EventDestinations.map(item =>
+        item.map(EventDestination.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is GetConfigurationSetEventDestinationsResponse =>
@@ -334,6 +431,9 @@ export interface InternalServiceErrorException
 }
 
 export namespace InternalServiceErrorException {
+  export const filterSensitiveLog = (obj: InternalServiceErrorException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServiceErrorException =>
     __isa(o, "InternalServiceErrorException");
 }
@@ -355,6 +455,9 @@ export interface KinesisFirehoseDestination {
 }
 
 export namespace KinesisFirehoseDestination {
+  export const filterSensitiveLog = (obj: KinesisFirehoseDestination) => ({
+    ...obj
+  });
   export const isa = (o: any): o is KinesisFirehoseDestination =>
     __isa(o, "KinesisFirehoseDestination");
 }
@@ -371,6 +474,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -389,6 +495,9 @@ export interface ListConfigurationSetsRequest {
 }
 
 export namespace ListConfigurationSetsRequest {
+  export const filterSensitiveLog = (obj: ListConfigurationSetsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListConfigurationSetsRequest =>
     __isa(o, "ListConfigurationSetsRequest");
 }
@@ -410,6 +519,9 @@ export interface ListConfigurationSetsResponse {
 }
 
 export namespace ListConfigurationSetsResponse {
+  export const filterSensitiveLog = (obj: ListConfigurationSetsResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListConfigurationSetsResponse =>
     __isa(o, "ListConfigurationSetsResponse");
 }
@@ -424,6 +536,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotFoundException =>
     __isa(o, "NotFoundException");
 }
@@ -450,6 +565,9 @@ export interface PlainTextMessageType {
 }
 
 export namespace PlainTextMessageType {
+  export const filterSensitiveLog = (obj: PlainTextMessageType) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PlainTextMessageType =>
     __isa(o, "PlainTextMessageType");
 }
@@ -476,6 +594,9 @@ export interface SSMLMessageType {
 }
 
 export namespace SSMLMessageType {
+  export const filterSensitiveLog = (obj: SSMLMessageType) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SSMLMessageType =>
     __isa(o, "SSMLMessageType");
 }
@@ -512,6 +633,12 @@ export interface SendVoiceMessageRequest {
 }
 
 export namespace SendVoiceMessageRequest {
+  export const filterSensitiveLog = (obj: SendVoiceMessageRequest) => ({
+    ...obj,
+    ...(obj.Content && {
+      Content: VoiceMessageContent.filterSensitiveLog(obj.Content)
+    })
+  });
   export const isa = (o: any): o is SendVoiceMessageRequest =>
     __isa(o, "SendVoiceMessageRequest");
 }
@@ -528,6 +655,9 @@ export interface SendVoiceMessageResponse {
 }
 
 export namespace SendVoiceMessageResponse {
+  export const filterSensitiveLog = (obj: SendVoiceMessageResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SendVoiceMessageResponse =>
     __isa(o, "SendVoiceMessageResponse");
 }
@@ -544,6 +674,9 @@ export interface SnsDestination {
 }
 
 export namespace SnsDestination {
+  export const filterSensitiveLog = (obj: SnsDestination) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SnsDestination =>
     __isa(o, "SnsDestination");
 }
@@ -560,6 +693,9 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
+  export const filterSensitiveLog = (obj: TooManyRequestsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyRequestsException =>
     __isa(o, "TooManyRequestsException");
 }
@@ -586,6 +722,16 @@ export interface UpdateConfigurationSetEventDestinationRequest {
 }
 
 export namespace UpdateConfigurationSetEventDestinationRequest {
+  export const filterSensitiveLog = (
+    obj: UpdateConfigurationSetEventDestinationRequest
+  ) => ({
+    ...obj,
+    ...(obj.EventDestination && {
+      EventDestination: EventDestinationDefinition.filterSensitiveLog(
+        obj.EventDestination
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is UpdateConfigurationSetEventDestinationRequest =>
@@ -600,6 +746,11 @@ export interface UpdateConfigurationSetEventDestinationResponse {
 }
 
 export namespace UpdateConfigurationSetEventDestinationResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateConfigurationSetEventDestinationResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is UpdateConfigurationSetEventDestinationResponse =>
@@ -628,6 +779,22 @@ export interface VoiceMessageContent {
 }
 
 export namespace VoiceMessageContent {
+  export const filterSensitiveLog = (obj: VoiceMessageContent) => ({
+    ...obj,
+    ...(obj.CallInstructionsMessage && {
+      CallInstructionsMessage: CallInstructionsMessageType.filterSensitiveLog(
+        obj.CallInstructionsMessage
+      )
+    }),
+    ...(obj.PlainTextMessage && {
+      PlainTextMessage: PlainTextMessageType.filterSensitiveLog(
+        obj.PlainTextMessage
+      )
+    }),
+    ...(obj.SSMLMessage && {
+      SSMLMessage: SSMLMessageType.filterSensitiveLog(obj.SSMLMessage)
+    })
+  });
   export const isa = (o: any): o is VoiceMessageContent =>
     __isa(o, "VoiceMessageContent");
 }

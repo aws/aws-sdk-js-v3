@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -60,6 +61,12 @@ export interface DASHFragmentSelector {
 }
 
 export namespace DASHFragmentSelector {
+  export const filterSensitiveLog = (obj: DASHFragmentSelector) => ({
+    ...obj,
+    ...(obj.TimestampRange && {
+      TimestampRange: DASHTimestampRange.filterSensitiveLog(obj.TimestampRange)
+    })
+  });
   export const isa = (o: any): o is DASHFragmentSelector =>
     __isa(o, "DASHFragmentSelector");
 }
@@ -122,6 +129,9 @@ export interface DASHTimestampRange {
 }
 
 export namespace DASHTimestampRange {
+  export const filterSensitiveLog = (obj: DASHTimestampRange) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DASHTimestampRange =>
     __isa(o, "DASHTimestampRange");
 }
@@ -160,6 +170,9 @@ export interface Fragment {
 }
 
 export namespace Fragment {
+  export const filterSensitiveLog = (obj: Fragment) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Fragment => __isa(o, "Fragment");
 }
 
@@ -199,6 +212,12 @@ export interface FragmentSelector {
 }
 
 export namespace FragmentSelector {
+  export const filterSensitiveLog = (obj: FragmentSelector) => ({
+    ...obj,
+    ...(obj.TimestampRange && {
+      TimestampRange: TimestampRange.filterSensitiveLog(obj.TimestampRange)
+    })
+  });
   export const isa = (o: any): o is FragmentSelector =>
     __isa(o, "FragmentSelector");
 }
@@ -363,6 +382,14 @@ export interface GetDASHStreamingSessionURLInput {
 }
 
 export namespace GetDASHStreamingSessionURLInput {
+  export const filterSensitiveLog = (obj: GetDASHStreamingSessionURLInput) => ({
+    ...obj,
+    ...(obj.DASHFragmentSelector && {
+      DASHFragmentSelector: DASHFragmentSelector.filterSensitiveLog(
+        obj.DASHFragmentSelector
+      )
+    })
+  });
   export const isa = (o: any): o is GetDASHStreamingSessionURLInput =>
     __isa(o, "GetDASHStreamingSessionURLInput");
 }
@@ -377,6 +404,11 @@ export interface GetDASHStreamingSessionURLOutput {
 }
 
 export namespace GetDASHStreamingSessionURLOutput {
+  export const filterSensitiveLog = (
+    obj: GetDASHStreamingSessionURLOutput
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDASHStreamingSessionURLOutput =>
     __isa(o, "GetDASHStreamingSessionURLOutput");
 }
@@ -577,6 +609,14 @@ export interface GetHLSStreamingSessionURLInput {
 }
 
 export namespace GetHLSStreamingSessionURLInput {
+  export const filterSensitiveLog = (obj: GetHLSStreamingSessionURLInput) => ({
+    ...obj,
+    ...(obj.HLSFragmentSelector && {
+      HLSFragmentSelector: HLSFragmentSelector.filterSensitiveLog(
+        obj.HLSFragmentSelector
+      )
+    })
+  });
   export const isa = (o: any): o is GetHLSStreamingSessionURLInput =>
     __isa(o, "GetHLSStreamingSessionURLInput");
 }
@@ -591,6 +631,9 @@ export interface GetHLSStreamingSessionURLOutput {
 }
 
 export namespace GetHLSStreamingSessionURLOutput {
+  export const filterSensitiveLog = (obj: GetHLSStreamingSessionURLOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetHLSStreamingSessionURLOutput =>
     __isa(o, "GetHLSStreamingSessionURLOutput");
 }
@@ -610,6 +653,9 @@ export interface GetMediaForFragmentListInput {
 }
 
 export namespace GetMediaForFragmentListInput {
+  export const filterSensitiveLog = (obj: GetMediaForFragmentListInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetMediaForFragmentListInput =>
     __isa(o, "GetMediaForFragmentListInput");
 }
@@ -660,6 +706,9 @@ export interface GetMediaForFragmentListOutput {
 }
 
 export namespace GetMediaForFragmentListOutput {
+  export const filterSensitiveLog = (obj: GetMediaForFragmentListOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetMediaForFragmentListOutput =>
     __isa(o, "GetMediaForFragmentListOutput");
 }
@@ -715,6 +764,12 @@ export interface HLSFragmentSelector {
 }
 
 export namespace HLSFragmentSelector {
+  export const filterSensitiveLog = (obj: HLSFragmentSelector) => ({
+    ...obj,
+    ...(obj.TimestampRange && {
+      TimestampRange: HLSTimestampRange.filterSensitiveLog(obj.TimestampRange)
+    })
+  });
   export const isa = (o: any): o is HLSFragmentSelector =>
     __isa(o, "HLSFragmentSelector");
 }
@@ -776,6 +831,9 @@ export interface HLSTimestampRange {
 }
 
 export namespace HLSTimestampRange {
+  export const filterSensitiveLog = (obj: HLSTimestampRange) => ({
+    ...obj
+  });
   export const isa = (o: any): o is HLSTimestampRange =>
     __isa(o, "HLSTimestampRange");
 }
@@ -808,6 +866,14 @@ export interface ListFragmentsInput {
 }
 
 export namespace ListFragmentsInput {
+  export const filterSensitiveLog = (obj: ListFragmentsInput) => ({
+    ...obj,
+    ...(obj.FragmentSelector && {
+      FragmentSelector: FragmentSelector.filterSensitiveLog(
+        obj.FragmentSelector
+      )
+    })
+  });
   export const isa = (o: any): o is ListFragmentsInput =>
     __isa(o, "ListFragmentsInput");
 }
@@ -829,6 +895,14 @@ export interface ListFragmentsOutput {
 }
 
 export namespace ListFragmentsOutput {
+  export const filterSensitiveLog = (obj: ListFragmentsOutput) => ({
+    ...obj,
+    ...(obj.Fragments && {
+      Fragments: obj.Fragments.map(item =>
+        item.map(Fragment.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListFragmentsOutput =>
     __isa(o, "ListFragmentsOutput");
 }
@@ -851,6 +925,9 @@ export interface TimestampRange {
 }
 
 export namespace TimestampRange {
+  export const filterSensitiveLog = (obj: TimestampRange) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TimestampRange =>
     __isa(o, "TimestampRange");
 }
@@ -868,6 +945,9 @@ export interface ClientLimitExceededException
 }
 
 export namespace ClientLimitExceededException {
+  export const filterSensitiveLog = (obj: ClientLimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ClientLimitExceededException =>
     __isa(o, "ClientLimitExceededException");
 }
@@ -885,6 +965,9 @@ export interface InvalidArgumentException
 }
 
 export namespace InvalidArgumentException {
+  export const filterSensitiveLog = (obj: InvalidArgumentException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidArgumentException =>
     __isa(o, "InvalidArgumentException");
 }
@@ -902,6 +985,11 @@ export interface InvalidCodecPrivateDataException
 }
 
 export namespace InvalidCodecPrivateDataException {
+  export const filterSensitiveLog = (
+    obj: InvalidCodecPrivateDataException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidCodecPrivateDataException =>
     __isa(o, "InvalidCodecPrivateDataException");
 }
@@ -918,6 +1006,11 @@ export interface MissingCodecPrivateDataException
 }
 
 export namespace MissingCodecPrivateDataException {
+  export const filterSensitiveLog = (
+    obj: MissingCodecPrivateDataException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is MissingCodecPrivateDataException =>
     __isa(o, "MissingCodecPrivateDataException");
 }
@@ -935,6 +1028,9 @@ export interface NoDataRetentionException
 }
 
 export namespace NoDataRetentionException {
+  export const filterSensitiveLog = (obj: NoDataRetentionException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is NoDataRetentionException =>
     __isa(o, "NoDataRetentionException");
 }
@@ -952,6 +1048,9 @@ export interface NotAuthorizedException
 }
 
 export namespace NotAuthorizedException {
+  export const filterSensitiveLog = (obj: NotAuthorizedException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotAuthorizedException =>
     __isa(o, "NotAuthorizedException");
 }
@@ -977,6 +1076,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -996,6 +1098,11 @@ export interface UnsupportedStreamMediaTypeException
 }
 
 export namespace UnsupportedStreamMediaTypeException {
+  export const filterSensitiveLog = (
+    obj: UnsupportedStreamMediaTypeException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnsupportedStreamMediaTypeException =>
     __isa(o, "UnsupportedStreamMediaTypeException");
 }

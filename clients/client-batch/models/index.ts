@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -21,6 +22,9 @@ export interface ArrayProperties {
 }
 
 export namespace ArrayProperties {
+  export const filterSensitiveLog = (obj: ArrayProperties) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ArrayProperties =>
     __isa(o, "ArrayProperties");
 }
@@ -49,6 +53,9 @@ export interface ArrayPropertiesDetail {
 }
 
 export namespace ArrayPropertiesDetail {
+  export const filterSensitiveLog = (obj: ArrayPropertiesDetail) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ArrayPropertiesDetail =>
     __isa(o, "ArrayPropertiesDetail");
 }
@@ -71,6 +78,9 @@ export interface ArrayPropertiesSummary {
 }
 
 export namespace ArrayPropertiesSummary {
+  export const filterSensitiveLog = (obj: ArrayPropertiesSummary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ArrayPropertiesSummary =>
     __isa(o, "ArrayPropertiesSummary");
 }
@@ -116,6 +126,14 @@ export interface AttemptContainerDetail {
 }
 
 export namespace AttemptContainerDetail {
+  export const filterSensitiveLog = (obj: AttemptContainerDetail) => ({
+    ...obj,
+    ...(obj.networkInterfaces && {
+      networkInterfaces: obj.networkInterfaces.map(item =>
+        item.map(NetworkInterface.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is AttemptContainerDetail =>
     __isa(o, "AttemptContainerDetail");
 }
@@ -150,6 +168,12 @@ export interface AttemptDetail {
 }
 
 export namespace AttemptDetail {
+  export const filterSensitiveLog = (obj: AttemptDetail) => ({
+    ...obj,
+    ...(obj.container && {
+      container: AttemptContainerDetail.filterSensitiveLog(obj.container)
+    })
+  });
   export const isa = (o: any): o is AttemptDetail => __isa(o, "AttemptDetail");
 }
 
@@ -199,6 +223,9 @@ export interface CancelJobRequest {
 }
 
 export namespace CancelJobRequest {
+  export const filterSensitiveLog = (obj: CancelJobRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CancelJobRequest =>
     __isa(o, "CancelJobRequest");
 }
@@ -208,6 +235,9 @@ export interface CancelJobResponse {
 }
 
 export namespace CancelJobResponse {
+  export const filterSensitiveLog = (obj: CancelJobResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CancelJobResponse =>
     __isa(o, "CancelJobResponse");
 }
@@ -223,6 +253,9 @@ export interface ClientException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ClientException {
+  export const filterSensitiveLog = (obj: ClientException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ClientException =>
     __isa(o, "ClientException");
 }
@@ -288,6 +321,12 @@ export interface ComputeEnvironmentDetail {
 }
 
 export namespace ComputeEnvironmentDetail {
+  export const filterSensitiveLog = (obj: ComputeEnvironmentDetail) => ({
+    ...obj,
+    ...(obj.computeResources && {
+      computeResources: ComputeResource.filterSensitiveLog(obj.computeResources)
+    })
+  });
   export const isa = (o: any): o is ComputeEnvironmentDetail =>
     __isa(o, "ComputeEnvironmentDetail");
 }
@@ -311,6 +350,9 @@ export interface ComputeEnvironmentOrder {
 }
 
 export namespace ComputeEnvironmentOrder {
+  export const filterSensitiveLog = (obj: ComputeEnvironmentOrder) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ComputeEnvironmentOrder =>
     __isa(o, "ComputeEnvironmentOrder");
 }
@@ -446,6 +488,14 @@ export interface ComputeResource {
 }
 
 export namespace ComputeResource {
+  export const filterSensitiveLog = (obj: ComputeResource) => ({
+    ...obj,
+    ...(obj.launchTemplate && {
+      launchTemplate: LaunchTemplateSpecification.filterSensitiveLog(
+        obj.launchTemplate
+      )
+    })
+  });
   export const isa = (o: any): o is ComputeResource =>
     __isa(o, "ComputeResource");
 }
@@ -472,6 +522,9 @@ export interface ComputeResourceUpdate {
 }
 
 export namespace ComputeResourceUpdate {
+  export const filterSensitiveLog = (obj: ComputeResourceUpdate) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ComputeResourceUpdate =>
     __isa(o, "ComputeResourceUpdate");
 }
@@ -597,6 +650,38 @@ export interface ContainerDetail {
 }
 
 export namespace ContainerDetail {
+  export const filterSensitiveLog = (obj: ContainerDetail) => ({
+    ...obj,
+    ...(obj.environment && {
+      environment: obj.environment.map(item =>
+        item.map(KeyValuePair.filterSensitiveLog)
+      )
+    }),
+    ...(obj.linuxParameters && {
+      linuxParameters: LinuxParameters.filterSensitiveLog(obj.linuxParameters)
+    }),
+    ...(obj.mountPoints && {
+      mountPoints: obj.mountPoints.map(item =>
+        item.map(MountPoint.filterSensitiveLog)
+      )
+    }),
+    ...(obj.networkInterfaces && {
+      networkInterfaces: obj.networkInterfaces.map(item =>
+        item.map(NetworkInterface.filterSensitiveLog)
+      )
+    }),
+    ...(obj.resourceRequirements && {
+      resourceRequirements: obj.resourceRequirements.map(item =>
+        item.map(ResourceRequirement.filterSensitiveLog)
+      )
+    }),
+    ...(obj.ulimits && {
+      ulimits: obj.ulimits.map(item => item.map(Ulimit.filterSensitiveLog))
+    }),
+    ...(obj.volumes && {
+      volumes: obj.volumes.map(item => item.map(Volume.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is ContainerDetail =>
     __isa(o, "ContainerDetail");
 }
@@ -648,6 +733,19 @@ export interface ContainerOverrides {
 }
 
 export namespace ContainerOverrides {
+  export const filterSensitiveLog = (obj: ContainerOverrides) => ({
+    ...obj,
+    ...(obj.environment && {
+      environment: obj.environment.map(item =>
+        item.map(KeyValuePair.filterSensitiveLog)
+      )
+    }),
+    ...(obj.resourceRequirements && {
+      resourceRequirements: obj.resourceRequirements.map(item =>
+        item.map(ResourceRequirement.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ContainerOverrides =>
     __isa(o, "ContainerOverrides");
 }
@@ -789,6 +887,33 @@ export interface ContainerProperties {
 }
 
 export namespace ContainerProperties {
+  export const filterSensitiveLog = (obj: ContainerProperties) => ({
+    ...obj,
+    ...(obj.environment && {
+      environment: obj.environment.map(item =>
+        item.map(KeyValuePair.filterSensitiveLog)
+      )
+    }),
+    ...(obj.linuxParameters && {
+      linuxParameters: LinuxParameters.filterSensitiveLog(obj.linuxParameters)
+    }),
+    ...(obj.mountPoints && {
+      mountPoints: obj.mountPoints.map(item =>
+        item.map(MountPoint.filterSensitiveLog)
+      )
+    }),
+    ...(obj.resourceRequirements && {
+      resourceRequirements: obj.resourceRequirements.map(item =>
+        item.map(ResourceRequirement.filterSensitiveLog)
+      )
+    }),
+    ...(obj.ulimits && {
+      ulimits: obj.ulimits.map(item => item.map(Ulimit.filterSensitiveLog))
+    }),
+    ...(obj.volumes && {
+      volumes: obj.volumes.map(item => item.map(Volume.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is ContainerProperties =>
     __isa(o, "ContainerProperties");
 }
@@ -811,6 +936,9 @@ export interface ContainerSummary {
 }
 
 export namespace ContainerSummary {
+  export const filterSensitiveLog = (obj: ContainerSummary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ContainerSummary =>
     __isa(o, "ContainerSummary");
 }
@@ -857,6 +985,12 @@ export interface CreateComputeEnvironmentRequest {
 }
 
 export namespace CreateComputeEnvironmentRequest {
+  export const filterSensitiveLog = (obj: CreateComputeEnvironmentRequest) => ({
+    ...obj,
+    ...(obj.computeResources && {
+      computeResources: ComputeResource.filterSensitiveLog(obj.computeResources)
+    })
+  });
   export const isa = (o: any): o is CreateComputeEnvironmentRequest =>
     __isa(o, "CreateComputeEnvironmentRequest");
 }
@@ -875,6 +1009,11 @@ export interface CreateComputeEnvironmentResponse {
 }
 
 export namespace CreateComputeEnvironmentResponse {
+  export const filterSensitiveLog = (
+    obj: CreateComputeEnvironmentResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateComputeEnvironmentResponse =>
     __isa(o, "CreateComputeEnvironmentResponse");
 }
@@ -909,6 +1048,14 @@ export interface CreateJobQueueRequest {
 }
 
 export namespace CreateJobQueueRequest {
+  export const filterSensitiveLog = (obj: CreateJobQueueRequest) => ({
+    ...obj,
+    ...(obj.computeEnvironmentOrder && {
+      computeEnvironmentOrder: obj.computeEnvironmentOrder.map(item =>
+        item.map(ComputeEnvironmentOrder.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is CreateJobQueueRequest =>
     __isa(o, "CreateJobQueueRequest");
 }
@@ -927,6 +1074,9 @@ export interface CreateJobQueueResponse {
 }
 
 export namespace CreateJobQueueResponse {
+  export const filterSensitiveLog = (obj: CreateJobQueueResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateJobQueueResponse =>
     __isa(o, "CreateJobQueueResponse");
 }
@@ -940,6 +1090,9 @@ export interface DeleteComputeEnvironmentRequest {
 }
 
 export namespace DeleteComputeEnvironmentRequest {
+  export const filterSensitiveLog = (obj: DeleteComputeEnvironmentRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteComputeEnvironmentRequest =>
     __isa(o, "DeleteComputeEnvironmentRequest");
 }
@@ -949,6 +1102,11 @@ export interface DeleteComputeEnvironmentResponse {
 }
 
 export namespace DeleteComputeEnvironmentResponse {
+  export const filterSensitiveLog = (
+    obj: DeleteComputeEnvironmentResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteComputeEnvironmentResponse =>
     __isa(o, "DeleteComputeEnvironmentResponse");
 }
@@ -962,6 +1120,9 @@ export interface DeleteJobQueueRequest {
 }
 
 export namespace DeleteJobQueueRequest {
+  export const filterSensitiveLog = (obj: DeleteJobQueueRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteJobQueueRequest =>
     __isa(o, "DeleteJobQueueRequest");
 }
@@ -971,6 +1132,9 @@ export interface DeleteJobQueueResponse {
 }
 
 export namespace DeleteJobQueueResponse {
+  export const filterSensitiveLog = (obj: DeleteJobQueueResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteJobQueueResponse =>
     __isa(o, "DeleteJobQueueResponse");
 }
@@ -984,6 +1148,9 @@ export interface DeregisterJobDefinitionRequest {
 }
 
 export namespace DeregisterJobDefinitionRequest {
+  export const filterSensitiveLog = (obj: DeregisterJobDefinitionRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeregisterJobDefinitionRequest =>
     __isa(o, "DeregisterJobDefinitionRequest");
 }
@@ -993,6 +1160,9 @@ export interface DeregisterJobDefinitionResponse {
 }
 
 export namespace DeregisterJobDefinitionResponse {
+  export const filterSensitiveLog = (obj: DeregisterJobDefinitionResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeregisterJobDefinitionResponse =>
     __isa(o, "DeregisterJobDefinitionResponse");
 }
@@ -1028,6 +1198,11 @@ export interface DescribeComputeEnvironmentsRequest {
 }
 
 export namespace DescribeComputeEnvironmentsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeComputeEnvironmentsRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeComputeEnvironmentsRequest =>
     __isa(o, "DescribeComputeEnvironmentsRequest");
 }
@@ -1049,6 +1224,16 @@ export interface DescribeComputeEnvironmentsResponse {
 }
 
 export namespace DescribeComputeEnvironmentsResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeComputeEnvironmentsResponse
+  ) => ({
+    ...obj,
+    ...(obj.computeEnvironments && {
+      computeEnvironments: obj.computeEnvironments.map(item =>
+        item.map(ComputeEnvironmentDetail.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeComputeEnvironmentsResponse =>
     __isa(o, "DescribeComputeEnvironmentsResponse");
 }
@@ -1094,6 +1279,9 @@ export interface DescribeJobDefinitionsRequest {
 }
 
 export namespace DescribeJobDefinitionsRequest {
+  export const filterSensitiveLog = (obj: DescribeJobDefinitionsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeJobDefinitionsRequest =>
     __isa(o, "DescribeJobDefinitionsRequest");
 }
@@ -1114,6 +1302,14 @@ export interface DescribeJobDefinitionsResponse {
 }
 
 export namespace DescribeJobDefinitionsResponse {
+  export const filterSensitiveLog = (obj: DescribeJobDefinitionsResponse) => ({
+    ...obj,
+    ...(obj.jobDefinitions && {
+      jobDefinitions: obj.jobDefinitions.map(item =>
+        item.map(JobDefinition.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeJobDefinitionsResponse =>
     __isa(o, "DescribeJobDefinitionsResponse");
 }
@@ -1148,6 +1344,9 @@ export interface DescribeJobQueuesRequest {
 }
 
 export namespace DescribeJobQueuesRequest {
+  export const filterSensitiveLog = (obj: DescribeJobQueuesRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeJobQueuesRequest =>
     __isa(o, "DescribeJobQueuesRequest");
 }
@@ -1168,6 +1367,14 @@ export interface DescribeJobQueuesResponse {
 }
 
 export namespace DescribeJobQueuesResponse {
+  export const filterSensitiveLog = (obj: DescribeJobQueuesResponse) => ({
+    ...obj,
+    ...(obj.jobQueues && {
+      jobQueues: obj.jobQueues.map(item =>
+        item.map(JobQueueDetail.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeJobQueuesResponse =>
     __isa(o, "DescribeJobQueuesResponse");
 }
@@ -1181,6 +1388,9 @@ export interface DescribeJobsRequest {
 }
 
 export namespace DescribeJobsRequest {
+  export const filterSensitiveLog = (obj: DescribeJobsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeJobsRequest =>
     __isa(o, "DescribeJobsRequest");
 }
@@ -1194,6 +1404,12 @@ export interface DescribeJobsResponse {
 }
 
 export namespace DescribeJobsResponse {
+  export const filterSensitiveLog = (obj: DescribeJobsResponse) => ({
+    ...obj,
+    ...(obj.jobs && {
+      jobs: obj.jobs.map(item => item.map(JobDetail.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is DescribeJobsResponse =>
     __isa(o, "DescribeJobsResponse");
 }
@@ -1222,6 +1438,9 @@ export interface Device {
 }
 
 export namespace Device {
+  export const filterSensitiveLog = (obj: Device) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Device => __isa(o, "Device");
 }
 
@@ -1249,6 +1468,9 @@ export interface Host {
 }
 
 export namespace Host {
+  export const filterSensitiveLog = (obj: Host) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Host => __isa(o, "Host");
 }
 
@@ -1327,6 +1549,21 @@ export interface JobDefinition {
 }
 
 export namespace JobDefinition {
+  export const filterSensitiveLog = (obj: JobDefinition) => ({
+    ...obj,
+    ...(obj.containerProperties && {
+      containerProperties: ContainerProperties.filterSensitiveLog(
+        obj.containerProperties
+      )
+    }),
+    ...(obj.nodeProperties && {
+      nodeProperties: NodeProperties.filterSensitiveLog(obj.nodeProperties)
+    }),
+    ...(obj.retryStrategy && {
+      retryStrategy: RetryStrategy.filterSensitiveLog(obj.retryStrategy)
+    }),
+    ...(obj.timeout && { timeout: JobTimeout.filterSensitiveLog(obj.timeout) })
+  });
   export const isa = (o: any): o is JobDefinition => __isa(o, "JobDefinition");
 }
 
@@ -1352,6 +1589,9 @@ export interface JobDependency {
 }
 
 export namespace JobDependency {
+  export const filterSensitiveLog = (obj: JobDependency) => ({
+    ...obj
+  });
   export const isa = (o: any): o is JobDependency => __isa(o, "JobDependency");
 }
 
@@ -1462,6 +1702,37 @@ export interface JobDetail {
 }
 
 export namespace JobDetail {
+  export const filterSensitiveLog = (obj: JobDetail) => ({
+    ...obj,
+    ...(obj.arrayProperties && {
+      arrayProperties: ArrayPropertiesDetail.filterSensitiveLog(
+        obj.arrayProperties
+      )
+    }),
+    ...(obj.attempts && {
+      attempts: obj.attempts.map(item =>
+        item.map(AttemptDetail.filterSensitiveLog)
+      )
+    }),
+    ...(obj.container && {
+      container: ContainerDetail.filterSensitiveLog(obj.container)
+    }),
+    ...(obj.dependsOn && {
+      dependsOn: obj.dependsOn.map(item =>
+        item.map(JobDependency.filterSensitiveLog)
+      )
+    }),
+    ...(obj.nodeDetails && {
+      nodeDetails: NodeDetails.filterSensitiveLog(obj.nodeDetails)
+    }),
+    ...(obj.nodeProperties && {
+      nodeProperties: NodeProperties.filterSensitiveLog(obj.nodeProperties)
+    }),
+    ...(obj.retryStrategy && {
+      retryStrategy: RetryStrategy.filterSensitiveLog(obj.retryStrategy)
+    }),
+    ...(obj.timeout && { timeout: JobTimeout.filterSensitiveLog(obj.timeout) })
+  });
   export const isa = (o: any): o is JobDetail => __isa(o, "JobDetail");
 }
 
@@ -1508,6 +1779,14 @@ export interface JobQueueDetail {
 }
 
 export namespace JobQueueDetail {
+  export const filterSensitiveLog = (obj: JobQueueDetail) => ({
+    ...obj,
+    ...(obj.computeEnvironmentOrder && {
+      computeEnvironmentOrder: obj.computeEnvironmentOrder.map(item =>
+        item.map(ComputeEnvironmentOrder.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is JobQueueDetail =>
     __isa(o, "JobQueueDetail");
 }
@@ -1583,6 +1862,22 @@ export interface JobSummary {
 }
 
 export namespace JobSummary {
+  export const filterSensitiveLog = (obj: JobSummary) => ({
+    ...obj,
+    ...(obj.arrayProperties && {
+      arrayProperties: ArrayPropertiesSummary.filterSensitiveLog(
+        obj.arrayProperties
+      )
+    }),
+    ...(obj.container && {
+      container: ContainerSummary.filterSensitiveLog(obj.container)
+    }),
+    ...(obj.nodeProperties && {
+      nodeProperties: NodePropertiesSummary.filterSensitiveLog(
+        obj.nodeProperties
+      )
+    })
+  });
   export const isa = (o: any): o is JobSummary => __isa(o, "JobSummary");
 }
 
@@ -1599,6 +1894,9 @@ export interface JobTimeout {
 }
 
 export namespace JobTimeout {
+  export const filterSensitiveLog = (obj: JobTimeout) => ({
+    ...obj
+  });
   export const isa = (o: any): o is JobTimeout => __isa(o, "JobTimeout");
 }
 
@@ -1620,6 +1918,9 @@ export interface KeyValuePair {
 }
 
 export namespace KeyValuePair {
+  export const filterSensitiveLog = (obj: KeyValuePair) => ({
+    ...obj
+  });
   export const isa = (o: any): o is KeyValuePair => __isa(o, "KeyValuePair");
 }
 
@@ -1647,6 +1948,9 @@ export interface LaunchTemplateSpecification {
 }
 
 export namespace LaunchTemplateSpecification {
+  export const filterSensitiveLog = (obj: LaunchTemplateSpecification) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LaunchTemplateSpecification =>
     __isa(o, "LaunchTemplateSpecification");
 }
@@ -1664,6 +1968,12 @@ export interface LinuxParameters {
 }
 
 export namespace LinuxParameters {
+  export const filterSensitiveLog = (obj: LinuxParameters) => ({
+    ...obj,
+    ...(obj.devices && {
+      devices: obj.devices.map(item => item.map(Device.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is LinuxParameters =>
     __isa(o, "LinuxParameters");
 }
@@ -1716,6 +2026,9 @@ export interface ListJobsRequest {
 }
 
 export namespace ListJobsRequest {
+  export const filterSensitiveLog = (obj: ListJobsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListJobsRequest =>
     __isa(o, "ListJobsRequest");
 }
@@ -1736,6 +2049,14 @@ export interface ListJobsResponse {
 }
 
 export namespace ListJobsResponse {
+  export const filterSensitiveLog = (obj: ListJobsResponse) => ({
+    ...obj,
+    ...(obj.jobSummaryList && {
+      jobSummaryList: obj.jobSummaryList.map(item =>
+        item.map(JobSummary.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListJobsResponse =>
     __isa(o, "ListJobsResponse");
 }
@@ -1765,6 +2086,9 @@ export interface MountPoint {
 }
 
 export namespace MountPoint {
+  export const filterSensitiveLog = (obj: MountPoint) => ({
+    ...obj
+  });
   export const isa = (o: any): o is MountPoint => __isa(o, "MountPoint");
 }
 
@@ -1790,6 +2114,9 @@ export interface NetworkInterface {
 }
 
 export namespace NetworkInterface {
+  export const filterSensitiveLog = (obj: NetworkInterface) => ({
+    ...obj
+  });
   export const isa = (o: any): o is NetworkInterface =>
     __isa(o, "NetworkInterface");
 }
@@ -1812,6 +2139,9 @@ export interface NodeDetails {
 }
 
 export namespace NodeDetails {
+  export const filterSensitiveLog = (obj: NodeDetails) => ({
+    ...obj
+  });
   export const isa = (o: any): o is NodeDetails => __isa(o, "NodeDetails");
 }
 
@@ -1848,6 +2178,14 @@ export interface NodeOverrides {
 }
 
 export namespace NodeOverrides {
+  export const filterSensitiveLog = (obj: NodeOverrides) => ({
+    ...obj,
+    ...(obj.nodePropertyOverrides && {
+      nodePropertyOverrides: obj.nodePropertyOverrides.map(item =>
+        item.map(NodePropertyOverride.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is NodeOverrides => __isa(o, "NodeOverrides");
 }
 
@@ -1874,6 +2212,14 @@ export interface NodeProperties {
 }
 
 export namespace NodeProperties {
+  export const filterSensitiveLog = (obj: NodeProperties) => ({
+    ...obj,
+    ...(obj.nodeRangeProperties && {
+      nodeRangeProperties: obj.nodeRangeProperties.map(item =>
+        item.map(NodeRangeProperty.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is NodeProperties =>
     __isa(o, "NodeProperties");
 }
@@ -1901,6 +2247,9 @@ export interface NodePropertiesSummary {
 }
 
 export namespace NodePropertiesSummary {
+  export const filterSensitiveLog = (obj: NodePropertiesSummary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is NodePropertiesSummary =>
     __isa(o, "NodePropertiesSummary");
 }
@@ -1926,6 +2275,14 @@ export interface NodePropertyOverride {
 }
 
 export namespace NodePropertyOverride {
+  export const filterSensitiveLog = (obj: NodePropertyOverride) => ({
+    ...obj,
+    ...(obj.containerOverrides && {
+      containerOverrides: ContainerOverrides.filterSensitiveLog(
+        obj.containerOverrides
+      )
+    })
+  });
   export const isa = (o: any): o is NodePropertyOverride =>
     __isa(o, "NodePropertyOverride");
 }
@@ -1951,6 +2308,12 @@ export interface NodeRangeProperty {
 }
 
 export namespace NodeRangeProperty {
+  export const filterSensitiveLog = (obj: NodeRangeProperty) => ({
+    ...obj,
+    ...(obj.container && {
+      container: ContainerProperties.filterSensitiveLog(obj.container)
+    })
+  });
   export const isa = (o: any): o is NodeRangeProperty =>
     __isa(o, "NodeRangeProperty");
 }
@@ -2009,6 +2372,21 @@ export interface RegisterJobDefinitionRequest {
 }
 
 export namespace RegisterJobDefinitionRequest {
+  export const filterSensitiveLog = (obj: RegisterJobDefinitionRequest) => ({
+    ...obj,
+    ...(obj.containerProperties && {
+      containerProperties: ContainerProperties.filterSensitiveLog(
+        obj.containerProperties
+      )
+    }),
+    ...(obj.nodeProperties && {
+      nodeProperties: NodeProperties.filterSensitiveLog(obj.nodeProperties)
+    }),
+    ...(obj.retryStrategy && {
+      retryStrategy: RetryStrategy.filterSensitiveLog(obj.retryStrategy)
+    }),
+    ...(obj.timeout && { timeout: JobTimeout.filterSensitiveLog(obj.timeout) })
+  });
   export const isa = (o: any): o is RegisterJobDefinitionRequest =>
     __isa(o, "RegisterJobDefinitionRequest");
 }
@@ -2032,6 +2410,9 @@ export interface RegisterJobDefinitionResponse {
 }
 
 export namespace RegisterJobDefinitionResponse {
+  export const filterSensitiveLog = (obj: RegisterJobDefinitionResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RegisterJobDefinitionResponse =>
     __isa(o, "RegisterJobDefinitionResponse");
 }
@@ -2056,6 +2437,9 @@ export interface ResourceRequirement {
 }
 
 export namespace ResourceRequirement {
+  export const filterSensitiveLog = (obj: ResourceRequirement) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceRequirement =>
     __isa(o, "ResourceRequirement");
 }
@@ -2078,6 +2462,9 @@ export interface RetryStrategy {
 }
 
 export namespace RetryStrategy {
+  export const filterSensitiveLog = (obj: RetryStrategy) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RetryStrategy => __isa(o, "RetryStrategy");
 }
 
@@ -2091,6 +2478,9 @@ export interface ServerException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ServerException {
+  export const filterSensitiveLog = (obj: ServerException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ServerException =>
     __isa(o, "ServerException");
 }
@@ -2172,6 +2562,29 @@ export interface SubmitJobRequest {
 }
 
 export namespace SubmitJobRequest {
+  export const filterSensitiveLog = (obj: SubmitJobRequest) => ({
+    ...obj,
+    ...(obj.arrayProperties && {
+      arrayProperties: ArrayProperties.filterSensitiveLog(obj.arrayProperties)
+    }),
+    ...(obj.containerOverrides && {
+      containerOverrides: ContainerOverrides.filterSensitiveLog(
+        obj.containerOverrides
+      )
+    }),
+    ...(obj.dependsOn && {
+      dependsOn: obj.dependsOn.map(item =>
+        item.map(JobDependency.filterSensitiveLog)
+      )
+    }),
+    ...(obj.nodeOverrides && {
+      nodeOverrides: NodeOverrides.filterSensitiveLog(obj.nodeOverrides)
+    }),
+    ...(obj.retryStrategy && {
+      retryStrategy: RetryStrategy.filterSensitiveLog(obj.retryStrategy)
+    }),
+    ...(obj.timeout && { timeout: JobTimeout.filterSensitiveLog(obj.timeout) })
+  });
   export const isa = (o: any): o is SubmitJobRequest =>
     __isa(o, "SubmitJobRequest");
 }
@@ -2190,6 +2603,9 @@ export interface SubmitJobResponse {
 }
 
 export namespace SubmitJobResponse {
+  export const filterSensitiveLog = (obj: SubmitJobResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SubmitJobResponse =>
     __isa(o, "SubmitJobResponse");
 }
@@ -2210,6 +2626,9 @@ export interface TerminateJobRequest {
 }
 
 export namespace TerminateJobRequest {
+  export const filterSensitiveLog = (obj: TerminateJobRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TerminateJobRequest =>
     __isa(o, "TerminateJobRequest");
 }
@@ -2219,6 +2638,9 @@ export interface TerminateJobResponse {
 }
 
 export namespace TerminateJobResponse {
+  export const filterSensitiveLog = (obj: TerminateJobResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TerminateJobResponse =>
     __isa(o, "TerminateJobResponse");
 }
@@ -2245,6 +2667,9 @@ export interface Ulimit {
 }
 
 export namespace Ulimit {
+  export const filterSensitiveLog = (obj: Ulimit) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Ulimit => __isa(o, "Ulimit");
 }
 
@@ -2283,6 +2708,14 @@ export interface UpdateComputeEnvironmentRequest {
 }
 
 export namespace UpdateComputeEnvironmentRequest {
+  export const filterSensitiveLog = (obj: UpdateComputeEnvironmentRequest) => ({
+    ...obj,
+    ...(obj.computeResources && {
+      computeResources: ComputeResourceUpdate.filterSensitiveLog(
+        obj.computeResources
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateComputeEnvironmentRequest =>
     __isa(o, "UpdateComputeEnvironmentRequest");
 }
@@ -2301,6 +2734,11 @@ export interface UpdateComputeEnvironmentResponse {
 }
 
 export namespace UpdateComputeEnvironmentResponse {
+  export const filterSensitiveLog = (
+    obj: UpdateComputeEnvironmentResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateComputeEnvironmentResponse =>
     __isa(o, "UpdateComputeEnvironmentResponse");
 }
@@ -2334,6 +2772,14 @@ export interface UpdateJobQueueRequest {
 }
 
 export namespace UpdateJobQueueRequest {
+  export const filterSensitiveLog = (obj: UpdateJobQueueRequest) => ({
+    ...obj,
+    ...(obj.computeEnvironmentOrder && {
+      computeEnvironmentOrder: obj.computeEnvironmentOrder.map(item =>
+        item.map(ComputeEnvironmentOrder.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateJobQueueRequest =>
     __isa(o, "UpdateJobQueueRequest");
 }
@@ -2352,6 +2798,9 @@ export interface UpdateJobQueueResponse {
 }
 
 export namespace UpdateJobQueueResponse {
+  export const filterSensitiveLog = (obj: UpdateJobQueueResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateJobQueueResponse =>
     __isa(o, "UpdateJobQueueResponse");
 }
@@ -2377,5 +2826,9 @@ export interface Volume {
 }
 
 export namespace Volume {
+  export const filterSensitiveLog = (obj: Volume) => ({
+    ...obj,
+    ...(obj.host && { host: Host.filterSensitiveLog(obj.host) })
+  });
   export const isa = (o: any): o is Volume => __isa(o, "Volume");
 }

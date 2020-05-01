@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -22,6 +23,9 @@ export interface Block {
 }
 
 export namespace Block {
+  export const filterSensitiveLog = (obj: Block) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Block => __isa(o, "Block");
 }
 
@@ -51,6 +55,9 @@ export interface ChangedBlock {
 }
 
 export namespace ChangedBlock {
+  export const filterSensitiveLog = (obj: ChangedBlock) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ChangedBlock => __isa(o, "ChangedBlock");
 }
 
@@ -85,6 +92,9 @@ export interface GetSnapshotBlockRequest {
 }
 
 export namespace GetSnapshotBlockRequest {
+  export const filterSensitiveLog = (obj: GetSnapshotBlockRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetSnapshotBlockRequest =>
     __isa(o, "GetSnapshotBlockRequest");
 }
@@ -113,6 +123,10 @@ export interface GetSnapshotBlockResponse {
 }
 
 export namespace GetSnapshotBlockResponse {
+  export const filterSensitiveLog = (obj: GetSnapshotBlockResponse) => ({
+    ...obj,
+    ...(obj.BlockData && { BlockData: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GetSnapshotBlockResponse =>
     __isa(o, "GetSnapshotBlockResponse");
 }
@@ -150,6 +164,9 @@ export interface ListChangedBlocksRequest {
 }
 
 export namespace ListChangedBlocksRequest {
+  export const filterSensitiveLog = (obj: ListChangedBlocksRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListChangedBlocksRequest =>
     __isa(o, "ListChangedBlocksRequest");
 }
@@ -184,6 +201,14 @@ export interface ListChangedBlocksResponse {
 }
 
 export namespace ListChangedBlocksResponse {
+  export const filterSensitiveLog = (obj: ListChangedBlocksResponse) => ({
+    ...obj,
+    ...(obj.ChangedBlocks && {
+      ChangedBlocks: obj.ChangedBlocks.map(item =>
+        item.map(ChangedBlock.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListChangedBlocksResponse =>
     __isa(o, "ListChangedBlocksResponse");
 }
@@ -213,6 +238,9 @@ export interface ListSnapshotBlocksRequest {
 }
 
 export namespace ListSnapshotBlocksRequest {
+  export const filterSensitiveLog = (obj: ListSnapshotBlocksRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListSnapshotBlocksRequest =>
     __isa(o, "ListSnapshotBlocksRequest");
 }
@@ -247,6 +275,10 @@ export interface ListSnapshotBlocksResponse {
 }
 
 export namespace ListSnapshotBlocksResponse {
+  export const filterSensitiveLog = (obj: ListSnapshotBlocksResponse) => ({
+    ...obj,
+    ...(obj.Blocks && { Blocks: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is ListSnapshotBlocksResponse =>
     __isa(o, "ListSnapshotBlocksResponse");
 }
@@ -263,6 +295,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -283,6 +318,9 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
+  export const filterSensitiveLog = (obj: ValidationException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ValidationException =>
     __isa(o, "ValidationException");
 }

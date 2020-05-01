@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -174,6 +175,9 @@ export interface GenerateDataSetRequest {
 }
 
 export namespace GenerateDataSetRequest {
+  export const filterSensitiveLog = (obj: GenerateDataSetRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GenerateDataSetRequest =>
     __isa(o, "GenerateDataSetRequest");
 }
@@ -191,6 +195,9 @@ export interface GenerateDataSetResult {
 }
 
 export namespace GenerateDataSetResult {
+  export const filterSensitiveLog = (obj: GenerateDataSetResult) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GenerateDataSetResult =>
     __isa(o, "GenerateDataSetResult");
 }
@@ -210,6 +217,11 @@ export interface MarketplaceCommerceAnalyticsException
 }
 
 export namespace MarketplaceCommerceAnalyticsException {
+  export const filterSensitiveLog = (
+    obj: MarketplaceCommerceAnalyticsException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is MarketplaceCommerceAnalyticsException =>
     __isa(o, "MarketplaceCommerceAnalyticsException");
 }
@@ -274,6 +286,9 @@ export interface StartSupportDataExportRequest {
 }
 
 export namespace StartSupportDataExportRequest {
+  export const filterSensitiveLog = (obj: StartSupportDataExportRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartSupportDataExportRequest =>
     __isa(o, "StartSupportDataExportRequest");
 }
@@ -291,6 +306,9 @@ export interface StartSupportDataExportResult {
 }
 
 export namespace StartSupportDataExportResult {
+  export const filterSensitiveLog = (obj: StartSupportDataExportResult) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartSupportDataExportResult =>
     __isa(o, "StartSupportDataExportResult");
 }

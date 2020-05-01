@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -19,6 +20,9 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
+  export const filterSensitiveLog = (obj: AccessDeniedException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccessDeniedException =>
     __isa(o, "AccessDeniedException");
 }
@@ -118,6 +122,21 @@ export interface Budget {
 }
 
 export namespace Budget {
+  export const filterSensitiveLog = (obj: Budget) => ({
+    ...obj,
+    ...(obj.BudgetLimit && {
+      BudgetLimit: Spend.filterSensitiveLog(obj.BudgetLimit)
+    }),
+    ...(obj.CalculatedSpend && {
+      CalculatedSpend: CalculatedSpend.filterSensitiveLog(obj.CalculatedSpend)
+    }),
+    ...(obj.CostTypes && {
+      CostTypes: CostTypes.filterSensitiveLog(obj.CostTypes)
+    }),
+    ...(obj.TimePeriod && {
+      TimePeriod: TimePeriod.filterSensitiveLog(obj.TimePeriod)
+    })
+  });
   export const isa = (o: any): o is Budget => __isa(o, "Budget");
 }
 
@@ -160,6 +179,17 @@ export interface BudgetPerformanceHistory {
 }
 
 export namespace BudgetPerformanceHistory {
+  export const filterSensitiveLog = (obj: BudgetPerformanceHistory) => ({
+    ...obj,
+    ...(obj.BudgetedAndActualAmountsList && {
+      BudgetedAndActualAmountsList: obj.BudgetedAndActualAmountsList.map(item =>
+        item.map(BudgetedAndActualAmounts.filterSensitiveLog)
+      )
+    }),
+    ...(obj.CostTypes && {
+      CostTypes: CostTypes.filterSensitiveLog(obj.CostTypes)
+    })
+  });
   export const isa = (o: any): o is BudgetPerformanceHistory =>
     __isa(o, "BudgetPerformanceHistory");
 }
@@ -195,6 +225,18 @@ export interface BudgetedAndActualAmounts {
 }
 
 export namespace BudgetedAndActualAmounts {
+  export const filterSensitiveLog = (obj: BudgetedAndActualAmounts) => ({
+    ...obj,
+    ...(obj.ActualAmount && {
+      ActualAmount: Spend.filterSensitiveLog(obj.ActualAmount)
+    }),
+    ...(obj.BudgetedAmount && {
+      BudgetedAmount: Spend.filterSensitiveLog(obj.BudgetedAmount)
+    }),
+    ...(obj.TimePeriod && {
+      TimePeriod: TimePeriod.filterSensitiveLog(obj.TimePeriod)
+    })
+  });
   export const isa = (o: any): o is BudgetedAndActualAmounts =>
     __isa(o, "BudgetedAndActualAmounts");
 }
@@ -217,6 +259,15 @@ export interface CalculatedSpend {
 }
 
 export namespace CalculatedSpend {
+  export const filterSensitiveLog = (obj: CalculatedSpend) => ({
+    ...obj,
+    ...(obj.ActualSpend && {
+      ActualSpend: Spend.filterSensitiveLog(obj.ActualSpend)
+    }),
+    ...(obj.ForecastedSpend && {
+      ForecastedSpend: Spend.filterSensitiveLog(obj.ForecastedSpend)
+    })
+  });
   export const isa = (o: any): o is CalculatedSpend =>
     __isa(o, "CalculatedSpend");
 }
@@ -302,6 +353,9 @@ export interface CostTypes {
 }
 
 export namespace CostTypes {
+  export const filterSensitiveLog = (obj: CostTypes) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CostTypes => __isa(o, "CostTypes");
 }
 
@@ -327,6 +381,15 @@ export interface CreateBudgetRequest {
 }
 
 export namespace CreateBudgetRequest {
+  export const filterSensitiveLog = (obj: CreateBudgetRequest) => ({
+    ...obj,
+    ...(obj.Budget && { Budget: Budget.filterSensitiveLog(obj.Budget) }),
+    ...(obj.NotificationsWithSubscribers && {
+      NotificationsWithSubscribers: obj.NotificationsWithSubscribers.map(item =>
+        item.map(NotificationWithSubscribers.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is CreateBudgetRequest =>
     __isa(o, "CreateBudgetRequest");
 }
@@ -339,6 +402,9 @@ export interface CreateBudgetResponse {
 }
 
 export namespace CreateBudgetResponse {
+  export const filterSensitiveLog = (obj: CreateBudgetResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateBudgetResponse =>
     __isa(o, "CreateBudgetResponse");
 }
@@ -370,6 +436,17 @@ export interface CreateNotificationRequest {
 }
 
 export namespace CreateNotificationRequest {
+  export const filterSensitiveLog = (obj: CreateNotificationRequest) => ({
+    ...obj,
+    ...(obj.Notification && {
+      Notification: Notification.filterSensitiveLog(obj.Notification)
+    }),
+    ...(obj.Subscribers && {
+      Subscribers: obj.Subscribers.map(item =>
+        item.map(Subscriber.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is CreateNotificationRequest =>
     __isa(o, "CreateNotificationRequest");
 }
@@ -382,6 +459,9 @@ export interface CreateNotificationResponse {
 }
 
 export namespace CreateNotificationResponse {
+  export const filterSensitiveLog = (obj: CreateNotificationResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateNotificationResponse =>
     __isa(o, "CreateNotificationResponse");
 }
@@ -413,6 +493,15 @@ export interface CreateSubscriberRequest {
 }
 
 export namespace CreateSubscriberRequest {
+  export const filterSensitiveLog = (obj: CreateSubscriberRequest) => ({
+    ...obj,
+    ...(obj.Notification && {
+      Notification: Notification.filterSensitiveLog(obj.Notification)
+    }),
+    ...(obj.Subscriber && {
+      Subscriber: Subscriber.filterSensitiveLog(obj.Subscriber)
+    })
+  });
   export const isa = (o: any): o is CreateSubscriberRequest =>
     __isa(o, "CreateSubscriberRequest");
 }
@@ -425,6 +514,9 @@ export interface CreateSubscriberResponse {
 }
 
 export namespace CreateSubscriberResponse {
+  export const filterSensitiveLog = (obj: CreateSubscriberResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateSubscriberResponse =>
     __isa(o, "CreateSubscriberResponse");
 }
@@ -444,6 +536,9 @@ export interface CreationLimitExceededException
 }
 
 export namespace CreationLimitExceededException {
+  export const filterSensitiveLog = (obj: CreationLimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreationLimitExceededException =>
     __isa(o, "CreationLimitExceededException");
 }
@@ -465,6 +560,9 @@ export interface DeleteBudgetRequest {
 }
 
 export namespace DeleteBudgetRequest {
+  export const filterSensitiveLog = (obj: DeleteBudgetRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteBudgetRequest =>
     __isa(o, "DeleteBudgetRequest");
 }
@@ -477,6 +575,9 @@ export interface DeleteBudgetResponse {
 }
 
 export namespace DeleteBudgetResponse {
+  export const filterSensitiveLog = (obj: DeleteBudgetResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteBudgetResponse =>
     __isa(o, "DeleteBudgetResponse");
 }
@@ -503,6 +604,12 @@ export interface DeleteNotificationRequest {
 }
 
 export namespace DeleteNotificationRequest {
+  export const filterSensitiveLog = (obj: DeleteNotificationRequest) => ({
+    ...obj,
+    ...(obj.Notification && {
+      Notification: Notification.filterSensitiveLog(obj.Notification)
+    })
+  });
   export const isa = (o: any): o is DeleteNotificationRequest =>
     __isa(o, "DeleteNotificationRequest");
 }
@@ -515,6 +622,9 @@ export interface DeleteNotificationResponse {
 }
 
 export namespace DeleteNotificationResponse {
+  export const filterSensitiveLog = (obj: DeleteNotificationResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteNotificationResponse =>
     __isa(o, "DeleteNotificationResponse");
 }
@@ -546,6 +656,15 @@ export interface DeleteSubscriberRequest {
 }
 
 export namespace DeleteSubscriberRequest {
+  export const filterSensitiveLog = (obj: DeleteSubscriberRequest) => ({
+    ...obj,
+    ...(obj.Notification && {
+      Notification: Notification.filterSensitiveLog(obj.Notification)
+    }),
+    ...(obj.Subscriber && {
+      Subscriber: Subscriber.filterSensitiveLog(obj.Subscriber)
+    })
+  });
   export const isa = (o: any): o is DeleteSubscriberRequest =>
     __isa(o, "DeleteSubscriberRequest");
 }
@@ -558,6 +677,9 @@ export interface DeleteSubscriberResponse {
 }
 
 export namespace DeleteSubscriberResponse {
+  export const filterSensitiveLog = (obj: DeleteSubscriberResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteSubscriberResponse =>
     __isa(o, "DeleteSubscriberResponse");
 }
@@ -591,6 +713,14 @@ export interface DescribeBudgetPerformanceHistoryRequest {
 }
 
 export namespace DescribeBudgetPerformanceHistoryRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeBudgetPerformanceHistoryRequest
+  ) => ({
+    ...obj,
+    ...(obj.TimePeriod && {
+      TimePeriod: TimePeriod.filterSensitiveLog(obj.TimePeriod)
+    })
+  });
   export const isa = (o: any): o is DescribeBudgetPerformanceHistoryRequest =>
     __isa(o, "DescribeBudgetPerformanceHistoryRequest");
 }
@@ -610,6 +740,16 @@ export interface DescribeBudgetPerformanceHistoryResponse {
 }
 
 export namespace DescribeBudgetPerformanceHistoryResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeBudgetPerformanceHistoryResponse
+  ) => ({
+    ...obj,
+    ...(obj.BudgetPerformanceHistory && {
+      BudgetPerformanceHistory: BudgetPerformanceHistory.filterSensitiveLog(
+        obj.BudgetPerformanceHistory
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeBudgetPerformanceHistoryResponse =>
     __isa(o, "DescribeBudgetPerformanceHistoryResponse");
 }
@@ -631,6 +771,9 @@ export interface DescribeBudgetRequest {
 }
 
 export namespace DescribeBudgetRequest {
+  export const filterSensitiveLog = (obj: DescribeBudgetRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeBudgetRequest =>
     __isa(o, "DescribeBudgetRequest");
 }
@@ -647,6 +790,10 @@ export interface DescribeBudgetResponse {
 }
 
 export namespace DescribeBudgetResponse {
+  export const filterSensitiveLog = (obj: DescribeBudgetResponse) => ({
+    ...obj,
+    ...(obj.Budget && { Budget: Budget.filterSensitiveLog(obj.Budget) })
+  });
   export const isa = (o: any): o is DescribeBudgetResponse =>
     __isa(o, "DescribeBudgetResponse");
 }
@@ -673,6 +820,9 @@ export interface DescribeBudgetsRequest {
 }
 
 export namespace DescribeBudgetsRequest {
+  export const filterSensitiveLog = (obj: DescribeBudgetsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeBudgetsRequest =>
     __isa(o, "DescribeBudgetsRequest");
 }
@@ -694,6 +844,12 @@ export interface DescribeBudgetsResponse {
 }
 
 export namespace DescribeBudgetsResponse {
+  export const filterSensitiveLog = (obj: DescribeBudgetsResponse) => ({
+    ...obj,
+    ...(obj.Budgets && {
+      Budgets: obj.Budgets.map(item => item.map(Budget.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is DescribeBudgetsResponse =>
     __isa(o, "DescribeBudgetsResponse");
 }
@@ -725,6 +881,11 @@ export interface DescribeNotificationsForBudgetRequest {
 }
 
 export namespace DescribeNotificationsForBudgetRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeNotificationsForBudgetRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeNotificationsForBudgetRequest =>
     __isa(o, "DescribeNotificationsForBudgetRequest");
 }
@@ -746,6 +907,16 @@ export interface DescribeNotificationsForBudgetResponse {
 }
 
 export namespace DescribeNotificationsForBudgetResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeNotificationsForBudgetResponse
+  ) => ({
+    ...obj,
+    ...(obj.Notifications && {
+      Notifications: obj.Notifications.map(item =>
+        item.map(Notification.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeNotificationsForBudgetResponse =>
     __isa(o, "DescribeNotificationsForBudgetResponse");
 }
@@ -782,6 +953,14 @@ export interface DescribeSubscribersForNotificationRequest {
 }
 
 export namespace DescribeSubscribersForNotificationRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeSubscribersForNotificationRequest
+  ) => ({
+    ...obj,
+    ...(obj.Notification && {
+      Notification: Notification.filterSensitiveLog(obj.Notification)
+    })
+  });
   export const isa = (o: any): o is DescribeSubscribersForNotificationRequest =>
     __isa(o, "DescribeSubscribersForNotificationRequest");
 }
@@ -803,6 +982,16 @@ export interface DescribeSubscribersForNotificationResponse {
 }
 
 export namespace DescribeSubscribersForNotificationResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeSubscribersForNotificationResponse
+  ) => ({
+    ...obj,
+    ...(obj.Subscribers && {
+      Subscribers: obj.Subscribers.map(item =>
+        item.map(Subscriber.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is DescribeSubscribersForNotificationResponse =>
@@ -824,6 +1013,9 @@ export interface DuplicateRecordException
 }
 
 export namespace DuplicateRecordException {
+  export const filterSensitiveLog = (obj: DuplicateRecordException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DuplicateRecordException =>
     __isa(o, "DuplicateRecordException");
 }
@@ -843,6 +1035,9 @@ export interface ExpiredNextTokenException
 }
 
 export namespace ExpiredNextTokenException {
+  export const filterSensitiveLog = (obj: ExpiredNextTokenException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ExpiredNextTokenException =>
     __isa(o, "ExpiredNextTokenException");
 }
@@ -862,6 +1057,9 @@ export interface InternalErrorException
 }
 
 export namespace InternalErrorException {
+  export const filterSensitiveLog = (obj: InternalErrorException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalErrorException =>
     __isa(o, "InternalErrorException");
 }
@@ -881,6 +1079,9 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
+  export const filterSensitiveLog = (obj: InvalidNextTokenException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidNextTokenException =>
     __isa(o, "InvalidNextTokenException");
 }
@@ -900,6 +1101,9 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
+  export const filterSensitiveLog = (obj: InvalidParameterException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidParameterException =>
     __isa(o, "InvalidParameterException");
 }
@@ -917,6 +1121,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotFoundException =>
     __isa(o, "NotFoundException");
 }
@@ -973,6 +1180,9 @@ export interface Notification {
 }
 
 export namespace Notification {
+  export const filterSensitiveLog = (obj: Notification) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Notification => __isa(o, "Notification");
 }
 
@@ -1003,6 +1213,17 @@ export interface NotificationWithSubscribers {
 }
 
 export namespace NotificationWithSubscribers {
+  export const filterSensitiveLog = (obj: NotificationWithSubscribers) => ({
+    ...obj,
+    ...(obj.Notification && {
+      Notification: Notification.filterSensitiveLog(obj.Notification)
+    }),
+    ...(obj.Subscribers && {
+      Subscribers: obj.Subscribers.map(item =>
+        item.map(Subscriber.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is NotificationWithSubscribers =>
     __isa(o, "NotificationWithSubscribers");
 }
@@ -1035,6 +1256,9 @@ export interface Spend {
 }
 
 export namespace Spend {
+  export const filterSensitiveLog = (obj: Spend) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Spend => __isa(o, "Spend");
 }
 
@@ -1067,6 +1291,10 @@ export interface Subscriber {
 }
 
 export namespace Subscriber {
+  export const filterSensitiveLog = (obj: Subscriber) => ({
+    ...obj,
+    ...(obj.Address && { Address: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is Subscriber => __isa(o, "Subscriber");
 }
 
@@ -1099,6 +1327,9 @@ export interface TimePeriod {
 }
 
 export namespace TimePeriod {
+  export const filterSensitiveLog = (obj: TimePeriod) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TimePeriod => __isa(o, "TimePeriod");
 }
 
@@ -1126,6 +1357,12 @@ export interface UpdateBudgetRequest {
 }
 
 export namespace UpdateBudgetRequest {
+  export const filterSensitiveLog = (obj: UpdateBudgetRequest) => ({
+    ...obj,
+    ...(obj.NewBudget && {
+      NewBudget: Budget.filterSensitiveLog(obj.NewBudget)
+    })
+  });
   export const isa = (o: any): o is UpdateBudgetRequest =>
     __isa(o, "UpdateBudgetRequest");
 }
@@ -1138,6 +1375,9 @@ export interface UpdateBudgetResponse {
 }
 
 export namespace UpdateBudgetResponse {
+  export const filterSensitiveLog = (obj: UpdateBudgetResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateBudgetResponse =>
     __isa(o, "UpdateBudgetResponse");
 }
@@ -1169,6 +1409,15 @@ export interface UpdateNotificationRequest {
 }
 
 export namespace UpdateNotificationRequest {
+  export const filterSensitiveLog = (obj: UpdateNotificationRequest) => ({
+    ...obj,
+    ...(obj.NewNotification && {
+      NewNotification: Notification.filterSensitiveLog(obj.NewNotification)
+    }),
+    ...(obj.OldNotification && {
+      OldNotification: Notification.filterSensitiveLog(obj.OldNotification)
+    })
+  });
   export const isa = (o: any): o is UpdateNotificationRequest =>
     __isa(o, "UpdateNotificationRequest");
 }
@@ -1181,6 +1430,9 @@ export interface UpdateNotificationResponse {
 }
 
 export namespace UpdateNotificationResponse {
+  export const filterSensitiveLog = (obj: UpdateNotificationResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateNotificationResponse =>
     __isa(o, "UpdateNotificationResponse");
 }
@@ -1217,6 +1469,18 @@ export interface UpdateSubscriberRequest {
 }
 
 export namespace UpdateSubscriberRequest {
+  export const filterSensitiveLog = (obj: UpdateSubscriberRequest) => ({
+    ...obj,
+    ...(obj.NewSubscriber && {
+      NewSubscriber: Subscriber.filterSensitiveLog(obj.NewSubscriber)
+    }),
+    ...(obj.Notification && {
+      Notification: Notification.filterSensitiveLog(obj.Notification)
+    }),
+    ...(obj.OldSubscriber && {
+      OldSubscriber: Subscriber.filterSensitiveLog(obj.OldSubscriber)
+    })
+  });
   export const isa = (o: any): o is UpdateSubscriberRequest =>
     __isa(o, "UpdateSubscriberRequest");
 }
@@ -1229,6 +1493,9 @@ export interface UpdateSubscriberResponse {
 }
 
 export namespace UpdateSubscriberResponse {
+  export const filterSensitiveLog = (obj: UpdateSubscriberResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateSubscriberResponse =>
     __isa(o, "UpdateSubscriberResponse");
 }

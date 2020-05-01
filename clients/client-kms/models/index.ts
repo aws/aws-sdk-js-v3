@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -32,6 +33,9 @@ export interface AliasListEntry {
 }
 
 export namespace AliasListEntry {
+  export const filterSensitiveLog = (obj: AliasListEntry) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AliasListEntry =>
     __isa(o, "AliasListEntry");
 }
@@ -49,6 +53,9 @@ export interface AlreadyExistsException
 }
 
 export namespace AlreadyExistsException {
+  export const filterSensitiveLog = (obj: AlreadyExistsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AlreadyExistsException =>
     __isa(o, "AlreadyExistsException");
 }
@@ -76,6 +83,9 @@ export interface CancelKeyDeletionRequest {
 }
 
 export namespace CancelKeyDeletionRequest {
+  export const filterSensitiveLog = (obj: CancelKeyDeletionRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CancelKeyDeletionRequest =>
     __isa(o, "CancelKeyDeletionRequest");
 }
@@ -89,6 +99,9 @@ export interface CancelKeyDeletionResponse {
 }
 
 export namespace CancelKeyDeletionResponse {
+  export const filterSensitiveLog = (obj: CancelKeyDeletionResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CancelKeyDeletionResponse =>
     __isa(o, "CancelKeyDeletionResponse");
 }
@@ -109,6 +122,9 @@ export interface CloudHsmClusterInUseException
 }
 
 export namespace CloudHsmClusterInUseException {
+  export const filterSensitiveLog = (obj: CloudHsmClusterInUseException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CloudHsmClusterInUseException =>
     __isa(o, "CloudHsmClusterInUseException");
 }
@@ -157,6 +173,11 @@ export interface CloudHsmClusterInvalidConfigurationException
 }
 
 export namespace CloudHsmClusterInvalidConfigurationException {
+  export const filterSensitiveLog = (
+    obj: CloudHsmClusterInvalidConfigurationException
+  ) => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is CloudHsmClusterInvalidConfigurationException =>
@@ -177,6 +198,11 @@ export interface CloudHsmClusterNotActiveException
 }
 
 export namespace CloudHsmClusterNotActiveException {
+  export const filterSensitiveLog = (
+    obj: CloudHsmClusterNotActiveException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CloudHsmClusterNotActiveException =>
     __isa(o, "CloudHsmClusterNotActiveException");
 }
@@ -194,6 +220,11 @@ export interface CloudHsmClusterNotFoundException
 }
 
 export namespace CloudHsmClusterNotFoundException {
+  export const filterSensitiveLog = (
+    obj: CloudHsmClusterNotFoundException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CloudHsmClusterNotFoundException =>
     __isa(o, "CloudHsmClusterNotFoundException");
 }
@@ -217,6 +248,11 @@ export interface CloudHsmClusterNotRelatedException
 }
 
 export namespace CloudHsmClusterNotRelatedException {
+  export const filterSensitiveLog = (
+    obj: CloudHsmClusterNotRelatedException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CloudHsmClusterNotRelatedException =>
     __isa(o, "CloudHsmClusterNotRelatedException");
 }
@@ -231,6 +267,9 @@ export interface ConnectCustomKeyStoreRequest {
 }
 
 export namespace ConnectCustomKeyStoreRequest {
+  export const filterSensitiveLog = (obj: ConnectCustomKeyStoreRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConnectCustomKeyStoreRequest =>
     __isa(o, "ConnectCustomKeyStoreRequest");
 }
@@ -240,6 +279,9 @@ export interface ConnectCustomKeyStoreResponse {
 }
 
 export namespace ConnectCustomKeyStoreResponse {
+  export const filterSensitiveLog = (obj: ConnectCustomKeyStoreResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConnectCustomKeyStoreResponse =>
     __isa(o, "ConnectCustomKeyStoreResponse");
 }
@@ -283,6 +325,9 @@ export interface CreateAliasRequest {
 }
 
 export namespace CreateAliasRequest {
+  export const filterSensitiveLog = (obj: CreateAliasRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateAliasRequest =>
     __isa(o, "CreateAliasRequest");
 }
@@ -321,6 +366,10 @@ export interface CreateCustomKeyStoreRequest {
 }
 
 export namespace CreateCustomKeyStoreRequest {
+  export const filterSensitiveLog = (obj: CreateCustomKeyStoreRequest) => ({
+    ...obj,
+    ...(obj.KeyStorePassword && { KeyStorePassword: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is CreateCustomKeyStoreRequest =>
     __isa(o, "CreateCustomKeyStoreRequest");
 }
@@ -334,6 +383,9 @@ export interface CreateCustomKeyStoreResponse {
 }
 
 export namespace CreateCustomKeyStoreResponse {
+  export const filterSensitiveLog = (obj: CreateCustomKeyStoreResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateCustomKeyStoreResponse =>
     __isa(o, "CreateCustomKeyStoreResponse");
 }
@@ -420,6 +472,12 @@ export interface CreateGrantRequest {
 }
 
 export namespace CreateGrantRequest {
+  export const filterSensitiveLog = (obj: CreateGrantRequest) => ({
+    ...obj,
+    ...(obj.Constraints && {
+      Constraints: GrantConstraints.filterSensitiveLog(obj.Constraints)
+    })
+  });
   export const isa = (o: any): o is CreateGrantRequest =>
     __isa(o, "CreateGrantRequest");
 }
@@ -442,6 +500,9 @@ export interface CreateGrantResponse {
 }
 
 export namespace CreateGrantResponse {
+  export const filterSensitiveLog = (obj: CreateGrantResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateGrantResponse =>
     __isa(o, "CreateGrantResponse");
 }
@@ -644,6 +705,12 @@ export interface CreateKeyRequest {
 }
 
 export namespace CreateKeyRequest {
+  export const filterSensitiveLog = (obj: CreateKeyRequest) => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is CreateKeyRequest =>
     __isa(o, "CreateKeyRequest");
 }
@@ -657,6 +724,12 @@ export interface CreateKeyResponse {
 }
 
 export namespace CreateKeyResponse {
+  export const filterSensitiveLog = (obj: CreateKeyResponse) => ({
+    ...obj,
+    ...(obj.KeyMetadata && {
+      KeyMetadata: KeyMetadata.filterSensitiveLog(obj.KeyMetadata)
+    })
+  });
   export const isa = (o: any): o is CreateKeyResponse =>
     __isa(o, "CreateKeyResponse");
 }
@@ -675,6 +748,9 @@ export interface CustomKeyStoreHasCMKsException
 }
 
 export namespace CustomKeyStoreHasCMKsException {
+  export const filterSensitiveLog = (obj: CustomKeyStoreHasCMKsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CustomKeyStoreHasCMKsException =>
     __isa(o, "CustomKeyStoreHasCMKsException");
 }
@@ -711,6 +787,11 @@ export interface CustomKeyStoreInvalidStateException
 }
 
 export namespace CustomKeyStoreInvalidStateException {
+  export const filterSensitiveLog = (
+    obj: CustomKeyStoreInvalidStateException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CustomKeyStoreInvalidStateException =>
     __isa(o, "CustomKeyStoreInvalidStateException");
 }
@@ -729,6 +810,11 @@ export interface CustomKeyStoreNameInUseException
 }
 
 export namespace CustomKeyStoreNameInUseException {
+  export const filterSensitiveLog = (
+    obj: CustomKeyStoreNameInUseException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CustomKeyStoreNameInUseException =>
     __isa(o, "CustomKeyStoreNameInUseException");
 }
@@ -746,6 +832,9 @@ export interface CustomKeyStoreNotFoundException
 }
 
 export namespace CustomKeyStoreNotFoundException {
+  export const filterSensitiveLog = (obj: CustomKeyStoreNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CustomKeyStoreNotFoundException =>
     __isa(o, "CustomKeyStoreNotFoundException");
 }
@@ -857,6 +946,9 @@ export interface CustomKeyStoresListEntry {
 }
 
 export namespace CustomKeyStoresListEntry {
+  export const filterSensitiveLog = (obj: CustomKeyStoresListEntry) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CustomKeyStoresListEntry =>
     __isa(o, "CustomKeyStoresListEntry");
 }
@@ -956,6 +1048,9 @@ export interface DecryptRequest {
 }
 
 export namespace DecryptRequest {
+  export const filterSensitiveLog = (obj: DecryptRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DecryptRequest =>
     __isa(o, "DecryptRequest");
 }
@@ -979,6 +1074,10 @@ export interface DecryptResponse {
 }
 
 export namespace DecryptResponse {
+  export const filterSensitiveLog = (obj: DecryptResponse) => ({
+    ...obj,
+    ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is DecryptResponse =>
     __isa(o, "DecryptResponse");
 }
@@ -993,6 +1092,9 @@ export interface DeleteAliasRequest {
 }
 
 export namespace DeleteAliasRequest {
+  export const filterSensitiveLog = (obj: DeleteAliasRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteAliasRequest =>
     __isa(o, "DeleteAliasRequest");
 }
@@ -1006,6 +1108,9 @@ export interface DeleteCustomKeyStoreRequest {
 }
 
 export namespace DeleteCustomKeyStoreRequest {
+  export const filterSensitiveLog = (obj: DeleteCustomKeyStoreRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteCustomKeyStoreRequest =>
     __isa(o, "DeleteCustomKeyStoreRequest");
 }
@@ -1015,6 +1120,9 @@ export interface DeleteCustomKeyStoreResponse {
 }
 
 export namespace DeleteCustomKeyStoreResponse {
+  export const filterSensitiveLog = (obj: DeleteCustomKeyStoreResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteCustomKeyStoreResponse =>
     __isa(o, "DeleteCustomKeyStoreResponse");
 }
@@ -1042,6 +1150,11 @@ export interface DeleteImportedKeyMaterialRequest {
 }
 
 export namespace DeleteImportedKeyMaterialRequest {
+  export const filterSensitiveLog = (
+    obj: DeleteImportedKeyMaterialRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteImportedKeyMaterialRequest =>
     __isa(o, "DeleteImportedKeyMaterialRequest");
 }
@@ -1059,6 +1172,9 @@ export interface DependencyTimeoutException
 }
 
 export namespace DependencyTimeoutException {
+  export const filterSensitiveLog = (obj: DependencyTimeoutException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DependencyTimeoutException =>
     __isa(o, "DependencyTimeoutException");
 }
@@ -1100,6 +1216,9 @@ export interface DescribeCustomKeyStoresRequest {
 }
 
 export namespace DescribeCustomKeyStoresRequest {
+  export const filterSensitiveLog = (obj: DescribeCustomKeyStoresRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeCustomKeyStoresRequest =>
     __isa(o, "DescribeCustomKeyStoresRequest");
 }
@@ -1127,6 +1246,14 @@ export interface DescribeCustomKeyStoresResponse {
 }
 
 export namespace DescribeCustomKeyStoresResponse {
+  export const filterSensitiveLog = (obj: DescribeCustomKeyStoresResponse) => ({
+    ...obj,
+    ...(obj.CustomKeyStores && {
+      CustomKeyStores: obj.CustomKeyStores.map(item =>
+        item.map(CustomKeyStoresListEntry.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeCustomKeyStoresResponse =>
     __isa(o, "DescribeCustomKeyStoresResponse");
 }
@@ -1172,6 +1299,9 @@ export interface DescribeKeyRequest {
 }
 
 export namespace DescribeKeyRequest {
+  export const filterSensitiveLog = (obj: DescribeKeyRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeKeyRequest =>
     __isa(o, "DescribeKeyRequest");
 }
@@ -1185,6 +1315,12 @@ export interface DescribeKeyResponse {
 }
 
 export namespace DescribeKeyResponse {
+  export const filterSensitiveLog = (obj: DescribeKeyResponse) => ({
+    ...obj,
+    ...(obj.KeyMetadata && {
+      KeyMetadata: KeyMetadata.filterSensitiveLog(obj.KeyMetadata)
+    })
+  });
   export const isa = (o: any): o is DescribeKeyResponse =>
     __isa(o, "DescribeKeyResponse");
 }
@@ -1211,6 +1347,9 @@ export interface DisableKeyRequest {
 }
 
 export namespace DisableKeyRequest {
+  export const filterSensitiveLog = (obj: DisableKeyRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisableKeyRequest =>
     __isa(o, "DisableKeyRequest");
 }
@@ -1239,6 +1378,9 @@ export interface DisableKeyRotationRequest {
 }
 
 export namespace DisableKeyRotationRequest {
+  export const filterSensitiveLog = (obj: DisableKeyRotationRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisableKeyRotationRequest =>
     __isa(o, "DisableKeyRotationRequest");
 }
@@ -1253,6 +1395,9 @@ export interface DisabledException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DisabledException {
+  export const filterSensitiveLog = (obj: DisabledException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisabledException =>
     __isa(o, "DisabledException");
 }
@@ -1266,6 +1411,9 @@ export interface DisconnectCustomKeyStoreRequest {
 }
 
 export namespace DisconnectCustomKeyStoreRequest {
+  export const filterSensitiveLog = (obj: DisconnectCustomKeyStoreRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisconnectCustomKeyStoreRequest =>
     __isa(o, "DisconnectCustomKeyStoreRequest");
 }
@@ -1275,6 +1423,11 @@ export interface DisconnectCustomKeyStoreResponse {
 }
 
 export namespace DisconnectCustomKeyStoreResponse {
+  export const filterSensitiveLog = (
+    obj: DisconnectCustomKeyStoreResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisconnectCustomKeyStoreResponse =>
     __isa(o, "DisconnectCustomKeyStoreResponse");
 }
@@ -1301,6 +1454,9 @@ export interface EnableKeyRequest {
 }
 
 export namespace EnableKeyRequest {
+  export const filterSensitiveLog = (obj: EnableKeyRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is EnableKeyRequest =>
     __isa(o, "EnableKeyRequest");
 }
@@ -1328,6 +1484,9 @@ export interface EnableKeyRotationRequest {
 }
 
 export namespace EnableKeyRotationRequest {
+  export const filterSensitiveLog = (obj: EnableKeyRotationRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is EnableKeyRotationRequest =>
     __isa(o, "EnableKeyRotationRequest");
 }
@@ -1393,6 +1552,10 @@ export interface EncryptRequest {
 }
 
 export namespace EncryptRequest {
+  export const filterSensitiveLog = (obj: EncryptRequest) => ({
+    ...obj,
+    ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is EncryptRequest =>
     __isa(o, "EncryptRequest");
 }
@@ -1416,6 +1579,9 @@ export interface EncryptResponse {
 }
 
 export namespace EncryptResponse {
+  export const filterSensitiveLog = (obj: EncryptResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is EncryptResponse =>
     __isa(o, "EncryptResponse");
 }
@@ -1444,6 +1610,9 @@ export interface ExpiredImportTokenException
 }
 
 export namespace ExpiredImportTokenException {
+  export const filterSensitiveLog = (obj: ExpiredImportTokenException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ExpiredImportTokenException =>
     __isa(o, "ExpiredImportTokenException");
 }
@@ -1502,6 +1671,9 @@ export interface GenerateDataKeyPairRequest {
 }
 
 export namespace GenerateDataKeyPairRequest {
+  export const filterSensitiveLog = (obj: GenerateDataKeyPairRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GenerateDataKeyPairRequest =>
     __isa(o, "GenerateDataKeyPairRequest");
 }
@@ -1535,6 +1707,10 @@ export interface GenerateDataKeyPairResponse {
 }
 
 export namespace GenerateDataKeyPairResponse {
+  export const filterSensitiveLog = (obj: GenerateDataKeyPairResponse) => ({
+    ...obj,
+    ...(obj.PrivateKeyPlaintext && { PrivateKeyPlaintext: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GenerateDataKeyPairResponse =>
     __isa(o, "GenerateDataKeyPairResponse");
 }
@@ -1595,6 +1771,11 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
 }
 
 export namespace GenerateDataKeyPairWithoutPlaintextRequest {
+  export const filterSensitiveLog = (
+    obj: GenerateDataKeyPairWithoutPlaintextRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is GenerateDataKeyPairWithoutPlaintextRequest =>
@@ -1648,6 +1829,11 @@ export interface GenerateDataKeyPairWithoutPlaintextResponse {
 }
 
 export namespace GenerateDataKeyPairWithoutPlaintextResponse {
+  export const filterSensitiveLog = (
+    obj: GenerateDataKeyPairWithoutPlaintextResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is GenerateDataKeyPairWithoutPlaintextResponse =>
@@ -1718,6 +1904,9 @@ export interface GenerateDataKeyRequest {
 }
 
 export namespace GenerateDataKeyRequest {
+  export const filterSensitiveLog = (obj: GenerateDataKeyRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GenerateDataKeyRequest =>
     __isa(o, "GenerateDataKeyRequest");
 }
@@ -1742,6 +1931,10 @@ export interface GenerateDataKeyResponse {
 }
 
 export namespace GenerateDataKeyResponse {
+  export const filterSensitiveLog = (obj: GenerateDataKeyResponse) => ({
+    ...obj,
+    ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GenerateDataKeyResponse =>
     __isa(o, "GenerateDataKeyResponse");
 }
@@ -1806,6 +1999,11 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
 }
 
 export namespace GenerateDataKeyWithoutPlaintextRequest {
+  export const filterSensitiveLog = (
+    obj: GenerateDataKeyWithoutPlaintextRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GenerateDataKeyWithoutPlaintextRequest =>
     __isa(o, "GenerateDataKeyWithoutPlaintextRequest");
 }
@@ -1824,6 +2022,11 @@ export interface GenerateDataKeyWithoutPlaintextResponse {
 }
 
 export namespace GenerateDataKeyWithoutPlaintextResponse {
+  export const filterSensitiveLog = (
+    obj: GenerateDataKeyWithoutPlaintextResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GenerateDataKeyWithoutPlaintextResponse =>
     __isa(o, "GenerateDataKeyWithoutPlaintextResponse");
 }
@@ -1843,6 +2046,9 @@ export interface GenerateRandomRequest {
 }
 
 export namespace GenerateRandomRequest {
+  export const filterSensitiveLog = (obj: GenerateRandomRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GenerateRandomRequest =>
     __isa(o, "GenerateRandomRequest");
 }
@@ -1856,6 +2062,10 @@ export interface GenerateRandomResponse {
 }
 
 export namespace GenerateRandomResponse {
+  export const filterSensitiveLog = (obj: GenerateRandomResponse) => ({
+    ...obj,
+    ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GenerateRandomResponse =>
     __isa(o, "GenerateRandomResponse");
 }
@@ -1888,6 +2098,9 @@ export interface GetKeyPolicyRequest {
 }
 
 export namespace GetKeyPolicyRequest {
+  export const filterSensitiveLog = (obj: GetKeyPolicyRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetKeyPolicyRequest =>
     __isa(o, "GetKeyPolicyRequest");
 }
@@ -1901,6 +2114,9 @@ export interface GetKeyPolicyResponse {
 }
 
 export namespace GetKeyPolicyResponse {
+  export const filterSensitiveLog = (obj: GetKeyPolicyResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetKeyPolicyResponse =>
     __isa(o, "GetKeyPolicyResponse");
 }
@@ -1928,6 +2144,9 @@ export interface GetKeyRotationStatusRequest {
 }
 
 export namespace GetKeyRotationStatusRequest {
+  export const filterSensitiveLog = (obj: GetKeyRotationStatusRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetKeyRotationStatusRequest =>
     __isa(o, "GetKeyRotationStatusRequest");
 }
@@ -1941,6 +2160,9 @@ export interface GetKeyRotationStatusResponse {
 }
 
 export namespace GetKeyRotationStatusResponse {
+  export const filterSensitiveLog = (obj: GetKeyRotationStatusResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetKeyRotationStatusResponse =>
     __isa(o, "GetKeyRotationStatusResponse");
 }
@@ -1980,6 +2202,9 @@ export interface GetParametersForImportRequest {
 }
 
 export namespace GetParametersForImportRequest {
+  export const filterSensitiveLog = (obj: GetParametersForImportRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetParametersForImportRequest =>
     __isa(o, "GetParametersForImportRequest");
 }
@@ -2013,6 +2238,10 @@ export interface GetParametersForImportResponse {
 }
 
 export namespace GetParametersForImportResponse {
+  export const filterSensitiveLog = (obj: GetParametersForImportResponse) => ({
+    ...obj,
+    ...(obj.PublicKey && { PublicKey: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GetParametersForImportResponse =>
     __isa(o, "GetParametersForImportResponse");
 }
@@ -2055,6 +2284,9 @@ export interface GetPublicKeyRequest {
 }
 
 export namespace GetPublicKeyRequest {
+  export const filterSensitiveLog = (obj: GetPublicKeyRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetPublicKeyRequest =>
     __isa(o, "GetPublicKeyRequest");
 }
@@ -2106,6 +2338,9 @@ export interface GetPublicKeyResponse {
 }
 
 export namespace GetPublicKeyResponse {
+  export const filterSensitiveLog = (obj: GetPublicKeyResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetPublicKeyResponse =>
     __isa(o, "GetPublicKeyResponse");
 }
@@ -2176,6 +2411,9 @@ export interface GrantConstraints {
 }
 
 export namespace GrantConstraints {
+  export const filterSensitiveLog = (obj: GrantConstraints) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GrantConstraints =>
     __isa(o, "GrantConstraints");
 }
@@ -2233,6 +2471,12 @@ export interface GrantListEntry {
 }
 
 export namespace GrantListEntry {
+  export const filterSensitiveLog = (obj: GrantListEntry) => ({
+    ...obj,
+    ...(obj.Constraints && {
+      Constraints: GrantConstraints.filterSensitiveLog(obj.Constraints)
+    })
+  });
   export const isa = (o: any): o is GrantListEntry =>
     __isa(o, "GrantListEntry");
 }
@@ -2308,6 +2552,9 @@ export interface ImportKeyMaterialRequest {
 }
 
 export namespace ImportKeyMaterialRequest {
+  export const filterSensitiveLog = (obj: ImportKeyMaterialRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ImportKeyMaterialRequest =>
     __isa(o, "ImportKeyMaterialRequest");
 }
@@ -2317,6 +2564,9 @@ export interface ImportKeyMaterialResponse {
 }
 
 export namespace ImportKeyMaterialResponse {
+  export const filterSensitiveLog = (obj: ImportKeyMaterialResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ImportKeyMaterialResponse =>
     __isa(o, "ImportKeyMaterialResponse");
 }
@@ -2336,6 +2586,9 @@ export interface IncorrectKeyException
 }
 
 export namespace IncorrectKeyException {
+  export const filterSensitiveLog = (obj: IncorrectKeyException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is IncorrectKeyException =>
     __isa(o, "IncorrectKeyException");
 }
@@ -2354,6 +2607,9 @@ export interface IncorrectKeyMaterialException
 }
 
 export namespace IncorrectKeyMaterialException {
+  export const filterSensitiveLog = (obj: IncorrectKeyMaterialException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is IncorrectKeyMaterialException =>
     __isa(o, "IncorrectKeyMaterialException");
 }
@@ -2373,6 +2629,9 @@ export interface IncorrectTrustAnchorException
 }
 
 export namespace IncorrectTrustAnchorException {
+  export const filterSensitiveLog = (obj: IncorrectTrustAnchorException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is IncorrectTrustAnchorException =>
     __isa(o, "IncorrectTrustAnchorException");
 }
@@ -2389,6 +2648,9 @@ export interface InvalidAliasNameException
 }
 
 export namespace InvalidAliasNameException {
+  export const filterSensitiveLog = (obj: InvalidAliasNameException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidAliasNameException =>
     __isa(o, "InvalidAliasNameException");
 }
@@ -2406,6 +2668,9 @@ export interface InvalidArnException
 }
 
 export namespace InvalidArnException {
+  export const filterSensitiveLog = (obj: InvalidArnException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidArnException =>
     __isa(o, "InvalidArnException");
 }
@@ -2427,6 +2692,9 @@ export interface InvalidCiphertextException
 }
 
 export namespace InvalidCiphertextException {
+  export const filterSensitiveLog = (obj: InvalidCiphertextException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidCiphertextException =>
     __isa(o, "InvalidCiphertextException");
 }
@@ -2443,6 +2711,9 @@ export interface InvalidGrantIdException
 }
 
 export namespace InvalidGrantIdException {
+  export const filterSensitiveLog = (obj: InvalidGrantIdException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidGrantIdException =>
     __isa(o, "InvalidGrantIdException");
 }
@@ -2459,6 +2730,9 @@ export interface InvalidGrantTokenException
 }
 
 export namespace InvalidGrantTokenException {
+  export const filterSensitiveLog = (obj: InvalidGrantTokenException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidGrantTokenException =>
     __isa(o, "InvalidGrantTokenException");
 }
@@ -2476,6 +2750,9 @@ export interface InvalidImportTokenException
 }
 
 export namespace InvalidImportTokenException {
+  export const filterSensitiveLog = (obj: InvalidImportTokenException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidImportTokenException =>
     __isa(o, "InvalidImportTokenException");
 }
@@ -2508,6 +2785,9 @@ export interface InvalidKeyUsageException
 }
 
 export namespace InvalidKeyUsageException {
+  export const filterSensitiveLog = (obj: InvalidKeyUsageException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidKeyUsageException =>
     __isa(o, "InvalidKeyUsageException");
 }
@@ -2525,6 +2805,9 @@ export interface InvalidMarkerException
 }
 
 export namespace InvalidMarkerException {
+  export const filterSensitiveLog = (obj: InvalidMarkerException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidMarkerException =>
     __isa(o, "InvalidMarkerException");
 }
@@ -2542,6 +2825,9 @@ export interface KMSInternalException
 }
 
 export namespace KMSInternalException {
+  export const filterSensitiveLog = (obj: KMSInternalException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is KMSInternalException =>
     __isa(o, "KMSInternalException");
 }
@@ -2560,6 +2846,9 @@ export interface KMSInvalidSignatureException
 }
 
 export namespace KMSInvalidSignatureException {
+  export const filterSensitiveLog = (obj: KMSInvalidSignatureException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is KMSInvalidSignatureException =>
     __isa(o, "KMSInvalidSignatureException");
 }
@@ -2581,6 +2870,9 @@ export interface KMSInvalidStateException
 }
 
 export namespace KMSInvalidStateException {
+  export const filterSensitiveLog = (obj: KMSInvalidStateException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is KMSInvalidStateException =>
     __isa(o, "KMSInvalidStateException");
 }
@@ -2602,6 +2894,9 @@ export interface KeyListEntry {
 }
 
 export namespace KeyListEntry {
+  export const filterSensitiveLog = (obj: KeyListEntry) => ({
+    ...obj
+  });
   export const isa = (o: any): o is KeyListEntry => __isa(o, "KeyListEntry");
 }
 
@@ -2734,6 +3029,9 @@ export interface KeyMetadata {
 }
 
 export namespace KeyMetadata {
+  export const filterSensitiveLog = (obj: KeyMetadata) => ({
+    ...obj
+  });
   export const isa = (o: any): o is KeyMetadata => __isa(o, "KeyMetadata");
 }
 
@@ -2758,6 +3056,9 @@ export interface KeyUnavailableException
 }
 
 export namespace KeyUnavailableException {
+  export const filterSensitiveLog = (obj: KeyUnavailableException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is KeyUnavailableException =>
     __isa(o, "KeyUnavailableException");
 }
@@ -2780,6 +3081,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -2813,6 +3117,9 @@ export interface ListAliasesRequest {
 }
 
 export namespace ListAliasesRequest {
+  export const filterSensitiveLog = (obj: ListAliasesRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListAliasesRequest =>
     __isa(o, "ListAliasesRequest");
 }
@@ -2840,6 +3147,14 @@ export interface ListAliasesResponse {
 }
 
 export namespace ListAliasesResponse {
+  export const filterSensitiveLog = (obj: ListAliasesResponse) => ({
+    ...obj,
+    ...(obj.Aliases && {
+      Aliases: obj.Aliases.map(item =>
+        item.map(AliasListEntry.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListAliasesResponse =>
     __isa(o, "ListAliasesResponse");
 }
@@ -2883,6 +3198,9 @@ export interface ListGrantsRequest {
 }
 
 export namespace ListGrantsRequest {
+  export const filterSensitiveLog = (obj: ListGrantsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListGrantsRequest =>
     __isa(o, "ListGrantsRequest");
 }
@@ -2910,6 +3228,14 @@ export interface ListGrantsResponse {
 }
 
 export namespace ListGrantsResponse {
+  export const filterSensitiveLog = (obj: ListGrantsResponse) => ({
+    ...obj,
+    ...(obj.Grants && {
+      Grants: obj.Grants.map(item =>
+        item.map(GrantListEntry.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListGrantsResponse =>
     __isa(o, "ListGrantsResponse");
 }
@@ -2953,6 +3279,9 @@ export interface ListKeyPoliciesRequest {
 }
 
 export namespace ListKeyPoliciesRequest {
+  export const filterSensitiveLog = (obj: ListKeyPoliciesRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListKeyPoliciesRequest =>
     __isa(o, "ListKeyPoliciesRequest");
 }
@@ -2980,6 +3309,9 @@ export interface ListKeyPoliciesResponse {
 }
 
 export namespace ListKeyPoliciesResponse {
+  export const filterSensitiveLog = (obj: ListKeyPoliciesResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListKeyPoliciesResponse =>
     __isa(o, "ListKeyPoliciesResponse");
 }
@@ -3004,6 +3336,9 @@ export interface ListKeysRequest {
 }
 
 export namespace ListKeysRequest {
+  export const filterSensitiveLog = (obj: ListKeysRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListKeysRequest =>
     __isa(o, "ListKeysRequest");
 }
@@ -3031,6 +3366,12 @@ export interface ListKeysResponse {
 }
 
 export namespace ListKeysResponse {
+  export const filterSensitiveLog = (obj: ListKeysResponse) => ({
+    ...obj,
+    ...(obj.Keys && {
+      Keys: obj.Keys.map(item => item.map(KeyListEntry.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is ListKeysResponse =>
     __isa(o, "ListKeysResponse");
 }
@@ -3075,6 +3416,9 @@ export interface ListResourceTagsRequest {
 }
 
 export namespace ListResourceTagsRequest {
+  export const filterSensitiveLog = (obj: ListResourceTagsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListResourceTagsRequest =>
     __isa(o, "ListResourceTagsRequest");
 }
@@ -3103,6 +3447,12 @@ export interface ListResourceTagsResponse {
 }
 
 export namespace ListResourceTagsResponse {
+  export const filterSensitiveLog = (obj: ListResourceTagsResponse) => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is ListResourceTagsResponse =>
     __isa(o, "ListResourceTagsResponse");
 }
@@ -3137,6 +3487,9 @@ export interface ListRetirableGrantsRequest {
 }
 
 export namespace ListRetirableGrantsRequest {
+  export const filterSensitiveLog = (obj: ListRetirableGrantsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListRetirableGrantsRequest =>
     __isa(o, "ListRetirableGrantsRequest");
 }
@@ -3154,6 +3507,11 @@ export interface MalformedPolicyDocumentException
 }
 
 export namespace MalformedPolicyDocumentException {
+  export const filterSensitiveLog = (
+    obj: MalformedPolicyDocumentException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is MalformedPolicyDocumentException =>
     __isa(o, "MalformedPolicyDocumentException");
 }
@@ -3174,6 +3532,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotFoundException =>
     __isa(o, "NotFoundException");
 }
@@ -3247,6 +3608,9 @@ export interface PutKeyPolicyRequest {
 }
 
 export namespace PutKeyPolicyRequest {
+  export const filterSensitiveLog = (obj: PutKeyPolicyRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutKeyPolicyRequest =>
     __isa(o, "PutKeyPolicyRequest");
 }
@@ -3372,6 +3736,9 @@ export interface ReEncryptRequest {
 }
 
 export namespace ReEncryptRequest {
+  export const filterSensitiveLog = (obj: ReEncryptRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ReEncryptRequest =>
     __isa(o, "ReEncryptRequest");
 }
@@ -3406,6 +3773,9 @@ export interface ReEncryptResponse {
 }
 
 export namespace ReEncryptResponse {
+  export const filterSensitiveLog = (obj: ReEncryptResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ReEncryptResponse =>
     __isa(o, "ReEncryptResponse");
 }
@@ -3438,6 +3808,9 @@ export interface RetireGrantRequest {
 }
 
 export namespace RetireGrantRequest {
+  export const filterSensitiveLog = (obj: RetireGrantRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RetireGrantRequest =>
     __isa(o, "RetireGrantRequest");
 }
@@ -3471,6 +3844,9 @@ export interface RevokeGrantRequest {
 }
 
 export namespace RevokeGrantRequest {
+  export const filterSensitiveLog = (obj: RevokeGrantRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RevokeGrantRequest =>
     __isa(o, "RevokeGrantRequest");
 }
@@ -3506,6 +3882,9 @@ export interface ScheduleKeyDeletionRequest {
 }
 
 export namespace ScheduleKeyDeletionRequest {
+  export const filterSensitiveLog = (obj: ScheduleKeyDeletionRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ScheduleKeyDeletionRequest =>
     __isa(o, "ScheduleKeyDeletionRequest");
 }
@@ -3525,6 +3904,9 @@ export interface ScheduleKeyDeletionResponse {
 }
 
 export namespace ScheduleKeyDeletionResponse {
+  export const filterSensitiveLog = (obj: ScheduleKeyDeletionResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ScheduleKeyDeletionResponse =>
     __isa(o, "ScheduleKeyDeletionResponse");
 }
@@ -3591,6 +3973,10 @@ export interface SignRequest {
 }
 
 export namespace SignRequest {
+  export const filterSensitiveLog = (obj: SignRequest) => ({
+    ...obj,
+    ...(obj.Message && { Message: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is SignRequest => __isa(o, "SignRequest");
 }
 
@@ -3614,6 +4000,9 @@ export interface SignResponse {
 }
 
 export namespace SignResponse {
+  export const filterSensitiveLog = (obj: SignResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SignResponse => __isa(o, "SignResponse");
 }
 
@@ -3649,6 +4038,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
@@ -3662,6 +4054,9 @@ export interface TagException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TagException {
+  export const filterSensitiveLog = (obj: TagException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagException => __isa(o, "TagException");
 }
 
@@ -3692,6 +4087,12 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
 }
@@ -3709,6 +4110,9 @@ export interface UnsupportedOperationException
 }
 
 export namespace UnsupportedOperationException {
+  export const filterSensitiveLog = (obj: UnsupportedOperationException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnsupportedOperationException =>
     __isa(o, "UnsupportedOperationException");
 }
@@ -3741,6 +4145,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceRequest =>
     __isa(o, "UntagResourceRequest");
 }
@@ -3780,6 +4187,9 @@ export interface UpdateAliasRequest {
 }
 
 export namespace UpdateAliasRequest {
+  export const filterSensitiveLog = (obj: UpdateAliasRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateAliasRequest =>
     __isa(o, "UpdateAliasRequest");
 }
@@ -3819,6 +4229,10 @@ export interface UpdateCustomKeyStoreRequest {
 }
 
 export namespace UpdateCustomKeyStoreRequest {
+  export const filterSensitiveLog = (obj: UpdateCustomKeyStoreRequest) => ({
+    ...obj,
+    ...(obj.KeyStorePassword && { KeyStorePassword: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is UpdateCustomKeyStoreRequest =>
     __isa(o, "UpdateCustomKeyStoreRequest");
 }
@@ -3828,6 +4242,9 @@ export interface UpdateCustomKeyStoreResponse {
 }
 
 export namespace UpdateCustomKeyStoreResponse {
+  export const filterSensitiveLog = (obj: UpdateCustomKeyStoreResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateCustomKeyStoreResponse =>
     __isa(o, "UpdateCustomKeyStoreResponse");
 }
@@ -3859,6 +4276,9 @@ export interface UpdateKeyDescriptionRequest {
 }
 
 export namespace UpdateKeyDescriptionRequest {
+  export const filterSensitiveLog = (obj: UpdateKeyDescriptionRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateKeyDescriptionRequest =>
     __isa(o, "UpdateKeyDescriptionRequest");
 }
@@ -3936,6 +4356,10 @@ export interface VerifyRequest {
 }
 
 export namespace VerifyRequest {
+  export const filterSensitiveLog = (obj: VerifyRequest) => ({
+    ...obj,
+    ...(obj.Message && { Message: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is VerifyRequest => __isa(o, "VerifyRequest");
 }
 
@@ -3962,6 +4386,9 @@ export interface VerifyResponse {
 }
 
 export namespace VerifyResponse {
+  export const filterSensitiveLog = (obj: VerifyResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is VerifyResponse =>
     __isa(o, "VerifyResponse");
 }

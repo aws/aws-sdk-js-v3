@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -19,6 +20,9 @@ export interface CertificateValidationException
 }
 
 export namespace CertificateValidationException {
+  export const filterSensitiveLog = (obj: CertificateValidationException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CertificateValidationException =>
     __isa(o, "CertificateValidationException");
 }
@@ -38,6 +42,9 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
+  export const filterSensitiveLog = (obj: InvalidRequestException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidRequestException =>
     __isa(o, "InvalidRequestException");
 }
@@ -56,6 +63,9 @@ export interface InvalidStateTransitionException
 }
 
 export namespace InvalidStateTransitionException {
+  export const filterSensitiveLog = (obj: InvalidStateTransitionException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidStateTransitionException =>
     __isa(o, "InvalidStateTransitionException");
 }
@@ -75,6 +85,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -94,6 +107,9 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
+  export const filterSensitiveLog = (obj: ServiceUnavailableException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ServiceUnavailableException =>
     __isa(o, "ServiceUnavailableException");
 }
@@ -110,6 +126,9 @@ export interface TerminalStateException
 }
 
 export namespace TerminalStateException {
+  export const filterSensitiveLog = (obj: TerminalStateException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TerminalStateException =>
     __isa(o, "TerminalStateException");
 }
@@ -145,6 +164,9 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ThrottlingException =>
     __isa(o, "ThrottlingException");
 }
@@ -174,6 +196,9 @@ export interface DescribeJobExecutionRequest {
 }
 
 export namespace DescribeJobExecutionRequest {
+  export const filterSensitiveLog = (obj: DescribeJobExecutionRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeJobExecutionRequest =>
     __isa(o, "DescribeJobExecutionRequest");
 }
@@ -187,6 +212,12 @@ export interface DescribeJobExecutionResponse {
 }
 
 export namespace DescribeJobExecutionResponse {
+  export const filterSensitiveLog = (obj: DescribeJobExecutionResponse) => ({
+    ...obj,
+    ...(obj.execution && {
+      execution: JobExecution.filterSensitiveLog(obj.execution)
+    })
+  });
   export const isa = (o: any): o is DescribeJobExecutionResponse =>
     __isa(o, "DescribeJobExecutionResponse");
 }
@@ -200,6 +231,9 @@ export interface GetPendingJobExecutionsRequest {
 }
 
 export namespace GetPendingJobExecutionsRequest {
+  export const filterSensitiveLog = (obj: GetPendingJobExecutionsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetPendingJobExecutionsRequest =>
     __isa(o, "GetPendingJobExecutionsRequest");
 }
@@ -218,6 +252,19 @@ export interface GetPendingJobExecutionsResponse {
 }
 
 export namespace GetPendingJobExecutionsResponse {
+  export const filterSensitiveLog = (obj: GetPendingJobExecutionsResponse) => ({
+    ...obj,
+    ...(obj.inProgressJobs && {
+      inProgressJobs: obj.inProgressJobs.map(item =>
+        item.map(JobExecutionSummary.filterSensitiveLog)
+      )
+    }),
+    ...(obj.queuedJobs && {
+      queuedJobs: obj.queuedJobs.map(item =>
+        item.map(JobExecutionSummary.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is GetPendingJobExecutionsResponse =>
     __isa(o, "GetPendingJobExecutionsResponse");
 }
@@ -288,6 +335,9 @@ export interface JobExecution {
 }
 
 export namespace JobExecution {
+  export const filterSensitiveLog = (obj: JobExecution) => ({
+    ...obj
+  });
   export const isa = (o: any): o is JobExecution => __isa(o, "JobExecution");
 }
 
@@ -315,6 +365,9 @@ export interface JobExecutionState {
 }
 
 export namespace JobExecutionState {
+  export const filterSensitiveLog = (obj: JobExecutionState) => ({
+    ...obj
+  });
   export const isa = (o: any): o is JobExecutionState =>
     __isa(o, "JobExecutionState");
 }
@@ -357,6 +410,9 @@ export interface JobExecutionSummary {
 }
 
 export namespace JobExecutionSummary {
+  export const filterSensitiveLog = (obj: JobExecutionSummary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is JobExecutionSummary =>
     __isa(o, "JobExecutionSummary");
 }
@@ -387,6 +443,11 @@ export interface StartNextPendingJobExecutionRequest {
 }
 
 export namespace StartNextPendingJobExecutionRequest {
+  export const filterSensitiveLog = (
+    obj: StartNextPendingJobExecutionRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartNextPendingJobExecutionRequest =>
     __isa(o, "StartNextPendingJobExecutionRequest");
 }
@@ -400,6 +461,14 @@ export interface StartNextPendingJobExecutionResponse {
 }
 
 export namespace StartNextPendingJobExecutionResponse {
+  export const filterSensitiveLog = (
+    obj: StartNextPendingJobExecutionResponse
+  ) => ({
+    ...obj,
+    ...(obj.execution && {
+      execution: JobExecution.filterSensitiveLog(obj.execution)
+    })
+  });
   export const isa = (o: any): o is StartNextPendingJobExecutionResponse =>
     __isa(o, "StartNextPendingJobExecutionResponse");
 }
@@ -466,6 +535,9 @@ export interface UpdateJobExecutionRequest {
 }
 
 export namespace UpdateJobExecutionRequest {
+  export const filterSensitiveLog = (obj: UpdateJobExecutionRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateJobExecutionRequest =>
     __isa(o, "UpdateJobExecutionRequest");
 }
@@ -484,6 +556,12 @@ export interface UpdateJobExecutionResponse {
 }
 
 export namespace UpdateJobExecutionResponse {
+  export const filterSensitiveLog = (obj: UpdateJobExecutionResponse) => ({
+    ...obj,
+    ...(obj.executionState && {
+      executionState: JobExecutionState.filterSensitiveLog(obj.executionState)
+    })
+  });
   export const isa = (o: any): o is UpdateJobExecutionResponse =>
     __isa(o, "UpdateJobExecutionResponse");
 }

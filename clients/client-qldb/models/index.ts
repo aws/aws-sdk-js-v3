@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -35,6 +36,9 @@ export interface CreateLedgerRequest {
 }
 
 export namespace CreateLedgerRequest {
+  export const filterSensitiveLog = (obj: CreateLedgerRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateLedgerRequest =>
     __isa(o, "CreateLedgerRequest");
 }
@@ -74,6 +78,9 @@ export interface CreateLedgerResponse {
 }
 
 export namespace CreateLedgerResponse {
+  export const filterSensitiveLog = (obj: CreateLedgerResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateLedgerResponse =>
     __isa(o, "CreateLedgerResponse");
 }
@@ -87,6 +94,9 @@ export interface DeleteLedgerRequest {
 }
 
 export namespace DeleteLedgerRequest {
+  export const filterSensitiveLog = (obj: DeleteLedgerRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteLedgerRequest =>
     __isa(o, "DeleteLedgerRequest");
 }
@@ -105,6 +115,9 @@ export interface DescribeJournalS3ExportRequest {
 }
 
 export namespace DescribeJournalS3ExportRequest {
+  export const filterSensitiveLog = (obj: DescribeJournalS3ExportRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeJournalS3ExportRequest =>
     __isa(o, "DescribeJournalS3ExportRequest");
 }
@@ -119,6 +132,14 @@ export interface DescribeJournalS3ExportResponse {
 }
 
 export namespace DescribeJournalS3ExportResponse {
+  export const filterSensitiveLog = (obj: DescribeJournalS3ExportResponse) => ({
+    ...obj,
+    ...(obj.ExportDescription && {
+      ExportDescription: JournalS3ExportDescription.filterSensitiveLog(
+        obj.ExportDescription
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeJournalS3ExportResponse =>
     __isa(o, "DescribeJournalS3ExportResponse");
 }
@@ -132,6 +153,9 @@ export interface DescribeLedgerRequest {
 }
 
 export namespace DescribeLedgerRequest {
+  export const filterSensitiveLog = (obj: DescribeLedgerRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeLedgerRequest =>
     __isa(o, "DescribeLedgerRequest");
 }
@@ -171,6 +195,9 @@ export interface DescribeLedgerResponse {
 }
 
 export namespace DescribeLedgerResponse {
+  export const filterSensitiveLog = (obj: DescribeLedgerResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeLedgerResponse =>
     __isa(o, "DescribeLedgerResponse");
 }
@@ -231,6 +258,14 @@ export interface ExportJournalToS3Request {
 }
 
 export namespace ExportJournalToS3Request {
+  export const filterSensitiveLog = (obj: ExportJournalToS3Request) => ({
+    ...obj,
+    ...(obj.S3ExportConfiguration && {
+      S3ExportConfiguration: S3ExportConfiguration.filterSensitiveLog(
+        obj.S3ExportConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is ExportJournalToS3Request =>
     __isa(o, "ExportJournalToS3Request");
 }
@@ -246,6 +281,9 @@ export interface ExportJournalToS3Response {
 }
 
 export namespace ExportJournalToS3Response {
+  export const filterSensitiveLog = (obj: ExportJournalToS3Response) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ExportJournalToS3Response =>
     __isa(o, "ExportJournalToS3Response");
 }
@@ -282,6 +320,11 @@ export interface GetBlockRequest {
 }
 
 export namespace GetBlockRequest {
+  export const filterSensitiveLog = (obj: GetBlockRequest) => ({
+    ...obj,
+    ...(obj.BlockAddress && { BlockAddress: SENSITIVE_STRING }),
+    ...(obj.DigestTipAddress && { DigestTipAddress: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GetBlockRequest =>
     __isa(o, "GetBlockRequest");
 }
@@ -302,6 +345,11 @@ export interface GetBlockResponse {
 }
 
 export namespace GetBlockResponse {
+  export const filterSensitiveLog = (obj: GetBlockResponse) => ({
+    ...obj,
+    ...(obj.Block && { Block: SENSITIVE_STRING }),
+    ...(obj.Proof && { Proof: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GetBlockResponse =>
     __isa(o, "GetBlockResponse");
 }
@@ -315,6 +363,9 @@ export interface GetDigestRequest {
 }
 
 export namespace GetDigestRequest {
+  export const filterSensitiveLog = (obj: GetDigestRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDigestRequest =>
     __isa(o, "GetDigestRequest");
 }
@@ -336,6 +387,10 @@ export interface GetDigestResponse {
 }
 
 export namespace GetDigestResponse {
+  export const filterSensitiveLog = (obj: GetDigestResponse) => ({
+    ...obj,
+    ...(obj.DigestTipAddress && { DigestTipAddress: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GetDigestResponse =>
     __isa(o, "GetDigestResponse");
 }
@@ -371,6 +426,11 @@ export interface GetRevisionRequest {
 }
 
 export namespace GetRevisionRequest {
+  export const filterSensitiveLog = (obj: GetRevisionRequest) => ({
+    ...obj,
+    ...(obj.BlockAddress && { BlockAddress: SENSITIVE_STRING }),
+    ...(obj.DigestTipAddress && { DigestTipAddress: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GetRevisionRequest =>
     __isa(o, "GetRevisionRequest");
 }
@@ -391,6 +451,11 @@ export interface GetRevisionResponse {
 }
 
 export namespace GetRevisionResponse {
+  export const filterSensitiveLog = (obj: GetRevisionResponse) => ({
+    ...obj,
+    ...(obj.Proof && { Proof: SENSITIVE_STRING }),
+    ...(obj.Revision && { Revision: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is GetRevisionResponse =>
     __isa(o, "GetRevisionResponse");
 }
@@ -411,6 +476,9 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
+  export const filterSensitiveLog = (obj: InvalidParameterException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidParameterException =>
     __isa(o, "InvalidParameterException");
 }
@@ -477,6 +545,14 @@ export interface JournalS3ExportDescription {
 }
 
 export namespace JournalS3ExportDescription {
+  export const filterSensitiveLog = (obj: JournalS3ExportDescription) => ({
+    ...obj,
+    ...(obj.S3ExportConfiguration && {
+      S3ExportConfiguration: S3ExportConfiguration.filterSensitiveLog(
+        obj.S3ExportConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is JournalS3ExportDescription =>
     __isa(o, "JournalS3ExportDescription");
 }
@@ -511,6 +587,9 @@ export interface LedgerSummary {
 }
 
 export namespace LedgerSummary {
+  export const filterSensitiveLog = (obj: LedgerSummary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LedgerSummary => __isa(o, "LedgerSummary");
 }
 
@@ -530,6 +609,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -558,6 +640,11 @@ export interface ListJournalS3ExportsForLedgerRequest {
 }
 
 export namespace ListJournalS3ExportsForLedgerRequest {
+  export const filterSensitiveLog = (
+    obj: ListJournalS3ExportsForLedgerRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListJournalS3ExportsForLedgerRequest =>
     __isa(o, "ListJournalS3ExportsForLedgerRequest");
 }
@@ -588,6 +675,16 @@ export interface ListJournalS3ExportsForLedgerResponse {
 }
 
 export namespace ListJournalS3ExportsForLedgerResponse {
+  export const filterSensitiveLog = (
+    obj: ListJournalS3ExportsForLedgerResponse
+  ) => ({
+    ...obj,
+    ...(obj.JournalS3Exports && {
+      JournalS3Exports: obj.JournalS3Exports.map(item =>
+        item.map(JournalS3ExportDescription.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListJournalS3ExportsForLedgerResponse =>
     __isa(o, "ListJournalS3ExportsForLedgerResponse");
 }
@@ -610,6 +707,9 @@ export interface ListJournalS3ExportsRequest {
 }
 
 export namespace ListJournalS3ExportsRequest {
+  export const filterSensitiveLog = (obj: ListJournalS3ExportsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListJournalS3ExportsRequest =>
     __isa(o, "ListJournalS3ExportsRequest");
 }
@@ -640,6 +740,14 @@ export interface ListJournalS3ExportsResponse {
 }
 
 export namespace ListJournalS3ExportsResponse {
+  export const filterSensitiveLog = (obj: ListJournalS3ExportsResponse) => ({
+    ...obj,
+    ...(obj.JournalS3Exports && {
+      JournalS3Exports: obj.JournalS3Exports.map(item =>
+        item.map(JournalS3ExportDescription.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListJournalS3ExportsResponse =>
     __isa(o, "ListJournalS3ExportsResponse");
 }
@@ -661,6 +769,9 @@ export interface ListLedgersRequest {
 }
 
 export namespace ListLedgersRequest {
+  export const filterSensitiveLog = (obj: ListLedgersRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListLedgersRequest =>
     __isa(o, "ListLedgersRequest");
 }
@@ -691,6 +802,14 @@ export interface ListLedgersResponse {
 }
 
 export namespace ListLedgersResponse {
+  export const filterSensitiveLog = (obj: ListLedgersResponse) => ({
+    ...obj,
+    ...(obj.Ledgers && {
+      Ledgers: obj.Ledgers.map(item =>
+        item.map(LedgerSummary.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListLedgersResponse =>
     __isa(o, "ListLedgersResponse");
 }
@@ -707,6 +826,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
     __isa(o, "ListTagsForResourceRequest");
 }
@@ -720,6 +842,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
 }
@@ -749,6 +874,9 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
+  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceAlreadyExistsException =>
     __isa(o, "ResourceAlreadyExistsException");
 }
@@ -774,6 +902,9 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
+  export const filterSensitiveLog = (obj: ResourceInUseException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceInUseException =>
     __isa(o, "ResourceInUseException");
 }
@@ -799,6 +930,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -824,6 +958,11 @@ export interface ResourcePreconditionNotMetException
 }
 
 export namespace ResourcePreconditionNotMetException {
+  export const filterSensitiveLog = (
+    obj: ResourcePreconditionNotMetException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourcePreconditionNotMetException =>
     __isa(o, "ResourcePreconditionNotMetException");
 }
@@ -855,6 +994,9 @@ export interface S3EncryptionConfiguration {
 }
 
 export namespace S3EncryptionConfiguration {
+  export const filterSensitiveLog = (obj: S3EncryptionConfiguration) => ({
+    ...obj
+  });
   export const isa = (o: any): o is S3EncryptionConfiguration =>
     __isa(o, "S3EncryptionConfiguration");
 }
@@ -908,6 +1050,14 @@ export interface S3ExportConfiguration {
 }
 
 export namespace S3ExportConfiguration {
+  export const filterSensitiveLog = (obj: S3ExportConfiguration) => ({
+    ...obj,
+    ...(obj.EncryptionConfiguration && {
+      EncryptionConfiguration: S3EncryptionConfiguration.filterSensitiveLog(
+        obj.EncryptionConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is S3ExportConfiguration =>
     __isa(o, "S3ExportConfiguration");
 }
@@ -937,6 +1087,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
 }
@@ -946,6 +1099,9 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceResponse =>
     __isa(o, "TagResourceResponse");
 }
@@ -968,6 +1124,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceRequest =>
     __isa(o, "UntagResourceRequest");
 }
@@ -977,6 +1136,9 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceResponse =>
     __isa(o, "UntagResourceResponse");
 }
@@ -1000,6 +1162,9 @@ export interface UpdateLedgerRequest {
 }
 
 export namespace UpdateLedgerRequest {
+  export const filterSensitiveLog = (obj: UpdateLedgerRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateLedgerRequest =>
     __isa(o, "UpdateLedgerRequest");
 }
@@ -1039,6 +1204,9 @@ export interface UpdateLedgerResponse {
 }
 
 export namespace UpdateLedgerResponse {
+  export const filterSensitiveLog = (obj: UpdateLedgerResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateLedgerResponse =>
     __isa(o, "UpdateLedgerResponse");
 }
@@ -1055,5 +1223,9 @@ export interface ValueHolder {
 }
 
 export namespace ValueHolder {
+  export const filterSensitiveLog = (obj: ValueHolder) => ({
+    ...obj,
+    ...(obj.IonText && { IonText: SENSITIVE_STRING })
+  });
   export const isa = (o: any): o is ValueHolder => __isa(o, "ValueHolder");
 }

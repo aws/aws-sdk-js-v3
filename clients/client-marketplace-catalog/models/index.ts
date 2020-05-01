@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -16,6 +17,9 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
+  export const filterSensitiveLog = (obj: AccessDeniedException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccessDeniedException =>
     __isa(o, "AccessDeniedException");
 }
@@ -36,6 +40,9 @@ export interface CancelChangeSetRequest {
 }
 
 export namespace CancelChangeSetRequest {
+  export const filterSensitiveLog = (obj: CancelChangeSetRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CancelChangeSetRequest =>
     __isa(o, "CancelChangeSetRequest");
 }
@@ -54,6 +61,9 @@ export interface CancelChangeSetResponse {
 }
 
 export namespace CancelChangeSetResponse {
+  export const filterSensitiveLog = (obj: CancelChangeSetResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CancelChangeSetResponse =>
     __isa(o, "CancelChangeSetResponse");
 }
@@ -84,6 +94,10 @@ export interface Change {
 }
 
 export namespace Change {
+  export const filterSensitiveLog = (obj: Change) => ({
+    ...obj,
+    ...(obj.Entity && { Entity: Entity.filterSensitiveLog(obj.Entity) })
+  });
   export const isa = (o: any): o is Change => __isa(o, "Change");
 }
 
@@ -134,6 +148,9 @@ export interface ChangeSetSummaryListItem {
 }
 
 export namespace ChangeSetSummaryListItem {
+  export const filterSensitiveLog = (obj: ChangeSetSummaryListItem) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ChangeSetSummaryListItem =>
     __isa(o, "ChangeSetSummaryListItem");
 }
@@ -169,6 +186,15 @@ export interface ChangeSummary {
 }
 
 export namespace ChangeSummary {
+  export const filterSensitiveLog = (obj: ChangeSummary) => ({
+    ...obj,
+    ...(obj.Entity && { Entity: Entity.filterSensitiveLog(obj.Entity) }),
+    ...(obj.ErrorDetailList && {
+      ErrorDetailList: obj.ErrorDetailList.map(item =>
+        item.map(ErrorDetail.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ChangeSummary => __isa(o, "ChangeSummary");
 }
 
@@ -189,6 +215,9 @@ export interface DescribeChangeSetRequest {
 }
 
 export namespace DescribeChangeSetRequest {
+  export const filterSensitiveLog = (obj: DescribeChangeSetRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeChangeSetRequest =>
     __isa(o, "DescribeChangeSetRequest");
 }
@@ -243,6 +272,14 @@ export interface DescribeChangeSetResponse {
 }
 
 export namespace DescribeChangeSetResponse {
+  export const filterSensitiveLog = (obj: DescribeChangeSetResponse) => ({
+    ...obj,
+    ...(obj.ChangeSet && {
+      ChangeSet: obj.ChangeSet.map(item =>
+        item.map(ChangeSummary.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeChangeSetResponse =>
     __isa(o, "DescribeChangeSetResponse");
 }
@@ -263,6 +300,9 @@ export interface DescribeEntityRequest {
 }
 
 export namespace DescribeEntityRequest {
+  export const filterSensitiveLog = (obj: DescribeEntityRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeEntityRequest =>
     __isa(o, "DescribeEntityRequest");
 }
@@ -299,6 +339,9 @@ export interface DescribeEntityResponse {
 }
 
 export namespace DescribeEntityResponse {
+  export const filterSensitiveLog = (obj: DescribeEntityResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeEntityResponse =>
     __isa(o, "DescribeEntityResponse");
 }
@@ -321,6 +364,9 @@ export interface Entity {
 }
 
 export namespace Entity {
+  export const filterSensitiveLog = (obj: Entity) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Entity => __isa(o, "Entity");
 }
 
@@ -368,6 +414,9 @@ export interface EntitySummary {
 }
 
 export namespace EntitySummary {
+  export const filterSensitiveLog = (obj: EntitySummary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is EntitySummary => __isa(o, "EntitySummary");
 }
 
@@ -388,6 +437,9 @@ export interface ErrorDetail {
 }
 
 export namespace ErrorDetail {
+  export const filterSensitiveLog = (obj: ErrorDetail) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ErrorDetail => __isa(o, "ErrorDetail");
 }
 
@@ -454,6 +506,9 @@ export interface Filter {
 }
 
 export namespace Filter {
+  export const filterSensitiveLog = (obj: Filter) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
@@ -469,6 +524,9 @@ export interface InternalServiceException
 }
 
 export namespace InternalServiceException {
+  export const filterSensitiveLog = (obj: InternalServiceException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServiceException =>
     __isa(o, "InternalServiceException");
 }
@@ -507,6 +565,15 @@ export interface ListChangeSetsRequest {
 }
 
 export namespace ListChangeSetsRequest {
+  export const filterSensitiveLog = (obj: ListChangeSetsRequest) => ({
+    ...obj,
+    ...(obj.FilterList && {
+      FilterList: obj.FilterList.map(item =>
+        item.map(Filter.filterSensitiveLog)
+      )
+    }),
+    ...(obj.Sort && { Sort: Sort.filterSensitiveLog(obj.Sort) })
+  });
   export const isa = (o: any): o is ListChangeSetsRequest =>
     __isa(o, "ListChangeSetsRequest");
 }
@@ -525,6 +592,14 @@ export interface ListChangeSetsResponse {
 }
 
 export namespace ListChangeSetsResponse {
+  export const filterSensitiveLog = (obj: ListChangeSetsResponse) => ({
+    ...obj,
+    ...(obj.ChangeSetSummaryList && {
+      ChangeSetSummaryList: obj.ChangeSetSummaryList.map(item =>
+        item.map(ChangeSetSummaryListItem.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListChangeSetsResponse =>
     __isa(o, "ListChangeSetsResponse");
 }
@@ -567,6 +642,15 @@ export interface ListEntitiesRequest {
 }
 
 export namespace ListEntitiesRequest {
+  export const filterSensitiveLog = (obj: ListEntitiesRequest) => ({
+    ...obj,
+    ...(obj.FilterList && {
+      FilterList: obj.FilterList.map(item =>
+        item.map(Filter.filterSensitiveLog)
+      )
+    }),
+    ...(obj.Sort && { Sort: Sort.filterSensitiveLog(obj.Sort) })
+  });
   export const isa = (o: any): o is ListEntitiesRequest =>
     __isa(o, "ListEntitiesRequest");
 }
@@ -585,6 +669,14 @@ export interface ListEntitiesResponse {
 }
 
 export namespace ListEntitiesResponse {
+  export const filterSensitiveLog = (obj: ListEntitiesResponse) => ({
+    ...obj,
+    ...(obj.EntitySummaryList && {
+      EntitySummaryList: obj.EntitySummaryList.map(item =>
+        item.map(EntitySummary.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListEntitiesResponse =>
     __isa(o, "ListEntitiesResponse");
 }
@@ -601,6 +693,9 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
+  export const filterSensitiveLog = (obj: ResourceInUseException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceInUseException =>
     __isa(o, "ResourceInUseException");
 }
@@ -617,6 +712,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -633,6 +731,9 @@ export interface ResourceNotSupportedException
 }
 
 export namespace ResourceNotSupportedException {
+  export const filterSensitiveLog = (obj: ResourceNotSupportedException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotSupportedException =>
     __isa(o, "ResourceNotSupportedException");
 }
@@ -649,6 +750,9 @@ export interface ServiceQuotaExceededException
 }
 
 export namespace ServiceQuotaExceededException {
+  export const filterSensitiveLog = (obj: ServiceQuotaExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ServiceQuotaExceededException =>
     __isa(o, "ServiceQuotaExceededException");
 }
@@ -677,6 +781,9 @@ export interface Sort {
 }
 
 export namespace Sort {
+  export const filterSensitiveLog = (obj: Sort) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Sort => __isa(o, "Sort");
 }
 
@@ -711,6 +818,12 @@ export interface StartChangeSetRequest {
 }
 
 export namespace StartChangeSetRequest {
+  export const filterSensitiveLog = (obj: StartChangeSetRequest) => ({
+    ...obj,
+    ...(obj.ChangeSet && {
+      ChangeSet: obj.ChangeSet.map(item => item.map(Change.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is StartChangeSetRequest =>
     __isa(o, "StartChangeSetRequest");
 }
@@ -729,6 +842,9 @@ export interface StartChangeSetResponse {
 }
 
 export namespace StartChangeSetResponse {
+  export const filterSensitiveLog = (obj: StartChangeSetResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartChangeSetResponse =>
     __isa(o, "StartChangeSetResponse");
 }
@@ -745,6 +861,9 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ThrottlingException =>
     __isa(o, "ThrottlingException");
 }
@@ -761,6 +880,9 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
+  export const filterSensitiveLog = (obj: ValidationException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ValidationException =>
     __isa(o, "ValidationException");
 }

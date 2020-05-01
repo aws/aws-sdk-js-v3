@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -14,6 +15,9 @@ export interface GetRawMessageContentRequest {
 }
 
 export namespace GetRawMessageContentRequest {
+  export const filterSensitiveLog = (obj: GetRawMessageContentRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetRawMessageContentRequest =>
     __isa(o, "GetRawMessageContentRequest");
 }
@@ -27,6 +31,9 @@ export interface GetRawMessageContentResponse {
 }
 
 export namespace GetRawMessageContentResponse {
+  export const filterSensitiveLog = (obj: GetRawMessageContentResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetRawMessageContentResponse =>
     __isa(o, "GetRawMessageContentResponse");
 }
@@ -43,6 +50,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }

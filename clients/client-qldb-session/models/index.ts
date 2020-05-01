@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -12,6 +13,9 @@ export interface AbortTransactionRequest {
 }
 
 export namespace AbortTransactionRequest {
+  export const filterSensitiveLog = (obj: AbortTransactionRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AbortTransactionRequest =>
     __isa(o, "AbortTransactionRequest");
 }
@@ -24,6 +28,9 @@ export interface AbortTransactionResult {
 }
 
 export namespace AbortTransactionResult {
+  export const filterSensitiveLog = (obj: AbortTransactionResult) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AbortTransactionResult =>
     __isa(o, "AbortTransactionResult");
 }
@@ -41,6 +48,9 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
+  export const filterSensitiveLog = (obj: BadRequestException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is BadRequestException =>
     __isa(o, "BadRequestException");
 }
@@ -65,6 +75,9 @@ export interface CommitTransactionRequest {
 }
 
 export namespace CommitTransactionRequest {
+  export const filterSensitiveLog = (obj: CommitTransactionRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CommitTransactionRequest =>
     __isa(o, "CommitTransactionRequest");
 }
@@ -86,6 +99,9 @@ export interface CommitTransactionResult {
 }
 
 export namespace CommitTransactionResult {
+  export const filterSensitiveLog = (obj: CommitTransactionResult) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CommitTransactionResult =>
     __isa(o, "CommitTransactionResult");
 }
@@ -98,6 +114,9 @@ export interface EndSessionRequest {
 }
 
 export namespace EndSessionRequest {
+  export const filterSensitiveLog = (obj: EndSessionRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is EndSessionRequest =>
     __isa(o, "EndSessionRequest");
 }
@@ -110,6 +129,9 @@ export interface EndSessionResult {
 }
 
 export namespace EndSessionResult {
+  export const filterSensitiveLog = (obj: EndSessionResult) => ({
+    ...obj
+  });
   export const isa = (o: any): o is EndSessionResult =>
     __isa(o, "EndSessionResult");
 }
@@ -136,6 +158,14 @@ export interface ExecuteStatementRequest {
 }
 
 export namespace ExecuteStatementRequest {
+  export const filterSensitiveLog = (obj: ExecuteStatementRequest) => ({
+    ...obj,
+    ...(obj.Parameters && {
+      Parameters: obj.Parameters.map(item =>
+        item.map(ValueHolder.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ExecuteStatementRequest =>
     __isa(o, "ExecuteStatementRequest");
 }
@@ -152,6 +182,10 @@ export interface ExecuteStatementResult {
 }
 
 export namespace ExecuteStatementResult {
+  export const filterSensitiveLog = (obj: ExecuteStatementResult) => ({
+    ...obj,
+    ...(obj.FirstPage && { FirstPage: Page.filterSensitiveLog(obj.FirstPage) })
+  });
   export const isa = (o: any): o is ExecuteStatementResult =>
     __isa(o, "ExecuteStatementResult");
 }
@@ -173,6 +207,9 @@ export interface FetchPageRequest {
 }
 
 export namespace FetchPageRequest {
+  export const filterSensitiveLog = (obj: FetchPageRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is FetchPageRequest =>
     __isa(o, "FetchPageRequest");
 }
@@ -189,6 +226,10 @@ export interface FetchPageResult {
 }
 
 export namespace FetchPageResult {
+  export const filterSensitiveLog = (obj: FetchPageResult) => ({
+    ...obj,
+    ...(obj.Page && { Page: Page.filterSensitiveLog(obj.Page) })
+  });
   export const isa = (o: any): o is FetchPageResult =>
     __isa(o, "FetchPageResult");
 }
@@ -206,6 +247,9 @@ export interface InvalidSessionException
 }
 
 export namespace InvalidSessionException {
+  export const filterSensitiveLog = (obj: InvalidSessionException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidSessionException =>
     __isa(o, "InvalidSessionException");
 }
@@ -222,6 +266,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -238,6 +285,9 @@ export interface OccConflictException
 }
 
 export namespace OccConflictException {
+  export const filterSensitiveLog = (obj: OccConflictException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is OccConflictException =>
     __isa(o, "OccConflictException");
 }
@@ -259,6 +309,12 @@ export interface Page {
 }
 
 export namespace Page {
+  export const filterSensitiveLog = (obj: Page) => ({
+    ...obj,
+    ...(obj.Values && {
+      Values: obj.Values.map(item => item.map(ValueHolder.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is Page => __isa(o, "Page");
 }
 
@@ -274,6 +330,9 @@ export interface RateExceededException
 }
 
 export namespace RateExceededException {
+  export const filterSensitiveLog = (obj: RateExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RateExceededException =>
     __isa(o, "RateExceededException");
 }
@@ -325,6 +384,38 @@ export interface SendCommandRequest {
 }
 
 export namespace SendCommandRequest {
+  export const filterSensitiveLog = (obj: SendCommandRequest) => ({
+    ...obj,
+    ...(obj.AbortTransaction && {
+      AbortTransaction: AbortTransactionRequest.filterSensitiveLog(
+        obj.AbortTransaction
+      )
+    }),
+    ...(obj.CommitTransaction && {
+      CommitTransaction: CommitTransactionRequest.filterSensitiveLog(
+        obj.CommitTransaction
+      )
+    }),
+    ...(obj.EndSession && {
+      EndSession: EndSessionRequest.filterSensitiveLog(obj.EndSession)
+    }),
+    ...(obj.ExecuteStatement && {
+      ExecuteStatement: ExecuteStatementRequest.filterSensitiveLog(
+        obj.ExecuteStatement
+      )
+    }),
+    ...(obj.FetchPage && {
+      FetchPage: FetchPageRequest.filterSensitiveLog(obj.FetchPage)
+    }),
+    ...(obj.StartSession && {
+      StartSession: StartSessionRequest.filterSensitiveLog(obj.StartSession)
+    }),
+    ...(obj.StartTransaction && {
+      StartTransaction: StartTransactionRequest.filterSensitiveLog(
+        obj.StartTransaction
+      )
+    })
+  });
   export const isa = (o: any): o is SendCommandRequest =>
     __isa(o, "SendCommandRequest");
 }
@@ -369,6 +460,38 @@ export interface SendCommandResult {
 }
 
 export namespace SendCommandResult {
+  export const filterSensitiveLog = (obj: SendCommandResult) => ({
+    ...obj,
+    ...(obj.AbortTransaction && {
+      AbortTransaction: AbortTransactionResult.filterSensitiveLog(
+        obj.AbortTransaction
+      )
+    }),
+    ...(obj.CommitTransaction && {
+      CommitTransaction: CommitTransactionResult.filterSensitiveLog(
+        obj.CommitTransaction
+      )
+    }),
+    ...(obj.EndSession && {
+      EndSession: EndSessionResult.filterSensitiveLog(obj.EndSession)
+    }),
+    ...(obj.ExecuteStatement && {
+      ExecuteStatement: ExecuteStatementResult.filterSensitiveLog(
+        obj.ExecuteStatement
+      )
+    }),
+    ...(obj.FetchPage && {
+      FetchPage: FetchPageResult.filterSensitiveLog(obj.FetchPage)
+    }),
+    ...(obj.StartSession && {
+      StartSession: StartSessionResult.filterSensitiveLog(obj.StartSession)
+    }),
+    ...(obj.StartTransaction && {
+      StartTransaction: StartTransactionResult.filterSensitiveLog(
+        obj.StartTransaction
+      )
+    })
+  });
   export const isa = (o: any): o is SendCommandResult =>
     __isa(o, "SendCommandResult");
 }
@@ -385,6 +508,9 @@ export interface StartSessionRequest {
 }
 
 export namespace StartSessionRequest {
+  export const filterSensitiveLog = (obj: StartSessionRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartSessionRequest =>
     __isa(o, "StartSessionRequest");
 }
@@ -402,6 +528,9 @@ export interface StartSessionResult {
 }
 
 export namespace StartSessionResult {
+  export const filterSensitiveLog = (obj: StartSessionResult) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartSessionResult =>
     __isa(o, "StartSessionResult");
 }
@@ -414,6 +543,9 @@ export interface StartTransactionRequest {
 }
 
 export namespace StartTransactionRequest {
+  export const filterSensitiveLog = (obj: StartTransactionRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartTransactionRequest =>
     __isa(o, "StartTransactionRequest");
 }
@@ -430,6 +562,9 @@ export interface StartTransactionResult {
 }
 
 export namespace StartTransactionResult {
+  export const filterSensitiveLog = (obj: StartTransactionResult) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartTransactionResult =>
     __isa(o, "StartTransactionResult");
 }
@@ -451,5 +586,8 @@ export interface ValueHolder {
 }
 
 export namespace ValueHolder {
+  export const filterSensitiveLog = (obj: ValueHolder) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ValueHolder => __isa(o, "ValueHolder");
 }

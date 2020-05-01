@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
   isa as __isa
@@ -18,6 +19,9 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
+  export const filterSensitiveLog = (obj: AccessDeniedException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccessDeniedException =>
     __isa(o, "AccessDeniedException");
 }
@@ -49,6 +53,15 @@ export interface AnalyzeDocumentRequest {
 }
 
 export namespace AnalyzeDocumentRequest {
+  export const filterSensitiveLog = (obj: AnalyzeDocumentRequest) => ({
+    ...obj,
+    ...(obj.Document && {
+      Document: Document.filterSensitiveLog(obj.Document)
+    }),
+    ...(obj.HumanLoopConfig && {
+      HumanLoopConfig: HumanLoopConfig.filterSensitiveLog(obj.HumanLoopConfig)
+    })
+  });
   export const isa = (o: any): o is AnalyzeDocumentRequest =>
     __isa(o, "AnalyzeDocumentRequest");
 }
@@ -77,6 +90,22 @@ export interface AnalyzeDocumentResponse {
 }
 
 export namespace AnalyzeDocumentResponse {
+  export const filterSensitiveLog = (obj: AnalyzeDocumentResponse) => ({
+    ...obj,
+    ...(obj.Blocks && {
+      Blocks: obj.Blocks.map(item => item.map(Block.filterSensitiveLog))
+    }),
+    ...(obj.DocumentMetadata && {
+      DocumentMetadata: DocumentMetadata.filterSensitiveLog(
+        obj.DocumentMetadata
+      )
+    }),
+    ...(obj.HumanLoopActivationOutput && {
+      HumanLoopActivationOutput: HumanLoopActivationOutput.filterSensitiveLog(
+        obj.HumanLoopActivationOutput
+      )
+    })
+  });
   export const isa = (o: any): o is AnalyzeDocumentResponse =>
     __isa(o, "AnalyzeDocumentResponse");
 }
@@ -94,6 +123,9 @@ export interface BadDocumentException
 }
 
 export namespace BadDocumentException {
+  export const filterSensitiveLog = (obj: BadDocumentException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is BadDocumentException =>
     __isa(o, "BadDocumentException");
 }
@@ -283,6 +315,17 @@ export interface Block {
 }
 
 export namespace Block {
+  export const filterSensitiveLog = (obj: Block) => ({
+    ...obj,
+    ...(obj.Geometry && {
+      Geometry: Geometry.filterSensitiveLog(obj.Geometry)
+    }),
+    ...(obj.Relationships && {
+      Relationships: obj.Relationships.map(item =>
+        item.map(Relationship.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is Block => __isa(o, "Block");
 }
 
@@ -338,6 +381,9 @@ export interface BoundingBox {
 }
 
 export namespace BoundingBox {
+  export const filterSensitiveLog = (obj: BoundingBox) => ({
+    ...obj
+  });
   export const isa = (o: any): o is BoundingBox => __isa(o, "BoundingBox");
 }
 
@@ -359,6 +405,10 @@ export interface DetectDocumentTextRequest {
 }
 
 export namespace DetectDocumentTextRequest {
+  export const filterSensitiveLog = (obj: DetectDocumentTextRequest) => ({
+    ...obj,
+    ...(obj.Document && { Document: Document.filterSensitiveLog(obj.Document) })
+  });
   export const isa = (o: any): o is DetectDocumentTextRequest =>
     __isa(o, "DetectDocumentTextRequest");
 }
@@ -384,6 +434,17 @@ export interface DetectDocumentTextResponse {
 }
 
 export namespace DetectDocumentTextResponse {
+  export const filterSensitiveLog = (obj: DetectDocumentTextResponse) => ({
+    ...obj,
+    ...(obj.Blocks && {
+      Blocks: obj.Blocks.map(item => item.map(Block.filterSensitiveLog))
+    }),
+    ...(obj.DocumentMetadata && {
+      DocumentMetadata: DocumentMetadata.filterSensitiveLog(
+        obj.DocumentMetadata
+      )
+    })
+  });
   export const isa = (o: any): o is DetectDocumentTextResponse =>
     __isa(o, "DetectDocumentTextResponse");
 }
@@ -425,6 +486,10 @@ export interface Document {
 }
 
 export namespace Document {
+  export const filterSensitiveLog = (obj: Document) => ({
+    ...obj,
+    ...(obj.S3Object && { S3Object: S3Object.filterSensitiveLog(obj.S3Object) })
+  });
   export const isa = (o: any): o is Document => __isa(o, "Document");
 }
 
@@ -443,6 +508,10 @@ export interface DocumentLocation {
 }
 
 export namespace DocumentLocation {
+  export const filterSensitiveLog = (obj: DocumentLocation) => ({
+    ...obj,
+    ...(obj.S3Object && { S3Object: S3Object.filterSensitiveLog(obj.S3Object) })
+  });
   export const isa = (o: any): o is DocumentLocation =>
     __isa(o, "DocumentLocation");
 }
@@ -459,6 +528,9 @@ export interface DocumentMetadata {
 }
 
 export namespace DocumentMetadata {
+  export const filterSensitiveLog = (obj: DocumentMetadata) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DocumentMetadata =>
     __isa(o, "DocumentMetadata");
 }
@@ -478,6 +550,9 @@ export interface DocumentTooLargeException
 }
 
 export namespace DocumentTooLargeException {
+  export const filterSensitiveLog = (obj: DocumentTooLargeException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DocumentTooLargeException =>
     __isa(o, "DocumentTooLargeException");
 }
@@ -511,6 +586,15 @@ export interface Geometry {
 }
 
 export namespace Geometry {
+  export const filterSensitiveLog = (obj: Geometry) => ({
+    ...obj,
+    ...(obj.BoundingBox && {
+      BoundingBox: BoundingBox.filterSensitiveLog(obj.BoundingBox)
+    }),
+    ...(obj.Polygon && {
+      Polygon: obj.Polygon.map(item => item.map(Point.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is Geometry => __isa(o, "Geometry");
 }
 
@@ -537,6 +621,9 @@ export interface GetDocumentAnalysisRequest {
 }
 
 export namespace GetDocumentAnalysisRequest {
+  export const filterSensitiveLog = (obj: GetDocumentAnalysisRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDocumentAnalysisRequest =>
     __isa(o, "GetDocumentAnalysisRequest");
 }
@@ -582,6 +669,20 @@ export interface GetDocumentAnalysisResponse {
 }
 
 export namespace GetDocumentAnalysisResponse {
+  export const filterSensitiveLog = (obj: GetDocumentAnalysisResponse) => ({
+    ...obj,
+    ...(obj.Blocks && {
+      Blocks: obj.Blocks.map(item => item.map(Block.filterSensitiveLog))
+    }),
+    ...(obj.DocumentMetadata && {
+      DocumentMetadata: DocumentMetadata.filterSensitiveLog(
+        obj.DocumentMetadata
+      )
+    }),
+    ...(obj.Warnings && {
+      Warnings: obj.Warnings.map(item => item.map(Warning.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is GetDocumentAnalysisResponse =>
     __isa(o, "GetDocumentAnalysisResponse");
 }
@@ -609,6 +710,9 @@ export interface GetDocumentTextDetectionRequest {
 }
 
 export namespace GetDocumentTextDetectionRequest {
+  export const filterSensitiveLog = (obj: GetDocumentTextDetectionRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDocumentTextDetectionRequest =>
     __isa(o, "GetDocumentTextDetectionRequest");
 }
@@ -655,6 +759,22 @@ export interface GetDocumentTextDetectionResponse {
 }
 
 export namespace GetDocumentTextDetectionResponse {
+  export const filterSensitiveLog = (
+    obj: GetDocumentTextDetectionResponse
+  ) => ({
+    ...obj,
+    ...(obj.Blocks && {
+      Blocks: obj.Blocks.map(item => item.map(Block.filterSensitiveLog))
+    }),
+    ...(obj.DocumentMetadata && {
+      DocumentMetadata: DocumentMetadata.filterSensitiveLog(
+        obj.DocumentMetadata
+      )
+    }),
+    ...(obj.Warnings && {
+      Warnings: obj.Warnings.map(item => item.map(Warning.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is GetDocumentTextDetectionResponse =>
     __isa(o, "GetDocumentTextDetectionResponse");
 }
@@ -682,6 +802,9 @@ export interface HumanLoopActivationOutput {
 }
 
 export namespace HumanLoopActivationOutput {
+  export const filterSensitiveLog = (obj: HumanLoopActivationOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is HumanLoopActivationOutput =>
     __isa(o, "HumanLoopActivationOutput");
 }
@@ -709,6 +832,14 @@ export interface HumanLoopConfig {
 }
 
 export namespace HumanLoopConfig {
+  export const filterSensitiveLog = (obj: HumanLoopConfig) => ({
+    ...obj,
+    ...(obj.DataAttributes && {
+      DataAttributes: HumanLoopDataAttributes.filterSensitiveLog(
+        obj.DataAttributes
+      )
+    })
+  });
   export const isa = (o: any): o is HumanLoopConfig =>
     __isa(o, "HumanLoopConfig");
 }
@@ -726,6 +857,9 @@ export interface HumanLoopDataAttributes {
 }
 
 export namespace HumanLoopDataAttributes {
+  export const filterSensitiveLog = (obj: HumanLoopDataAttributes) => ({
+    ...obj
+  });
   export const isa = (o: any): o is HumanLoopDataAttributes =>
     __isa(o, "HumanLoopDataAttributes");
 }
@@ -746,6 +880,9 @@ export interface HumanLoopQuotaExceededException
 }
 
 export namespace HumanLoopQuotaExceededException {
+  export const filterSensitiveLog = (obj: HumanLoopQuotaExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is HumanLoopQuotaExceededException =>
     __isa(o, "HumanLoopQuotaExceededException");
 }
@@ -765,6 +902,11 @@ export interface IdempotentParameterMismatchException
 }
 
 export namespace IdempotentParameterMismatchException {
+  export const filterSensitiveLog = (
+    obj: IdempotentParameterMismatchException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is IdempotentParameterMismatchException =>
     __isa(o, "IdempotentParameterMismatchException");
 }
@@ -782,6 +924,9 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
+  export const filterSensitiveLog = (obj: InternalServerError) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServerError =>
     __isa(o, "InternalServerError");
 }
@@ -800,6 +945,9 @@ export interface InvalidJobIdException
 }
 
 export namespace InvalidJobIdException {
+  export const filterSensitiveLog = (obj: InvalidJobIdException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidJobIdException =>
     __isa(o, "InvalidJobIdException");
 }
@@ -821,6 +969,9 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
+  export const filterSensitiveLog = (obj: InvalidParameterException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidParameterException =>
     __isa(o, "InvalidParameterException");
 }
@@ -838,6 +989,9 @@ export interface InvalidS3ObjectException
 }
 
 export namespace InvalidS3ObjectException {
+  export const filterSensitiveLog = (obj: InvalidS3ObjectException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidS3ObjectException =>
     __isa(o, "InvalidS3ObjectException");
 }
@@ -866,6 +1020,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -888,6 +1045,9 @@ export interface NotificationChannel {
 }
 
 export namespace NotificationChannel {
+  export const filterSensitiveLog = (obj: NotificationChannel) => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotificationChannel =>
     __isa(o, "NotificationChannel");
 }
@@ -917,6 +1077,9 @@ export interface Point {
 }
 
 export namespace Point {
+  export const filterSensitiveLog = (obj: Point) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Point => __isa(o, "Point");
 }
 
@@ -934,6 +1097,11 @@ export interface ProvisionedThroughputExceededException
 }
 
 export namespace ProvisionedThroughputExceededException {
+  export const filterSensitiveLog = (
+    obj: ProvisionedThroughputExceededException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ProvisionedThroughputExceededException =>
     __isa(o, "ProvisionedThroughputExceededException");
 }
@@ -964,6 +1132,9 @@ export interface Relationship {
 }
 
 export namespace Relationship {
+  export const filterSensitiveLog = (obj: Relationship) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Relationship => __isa(o, "Relationship");
 }
 
@@ -1002,6 +1173,9 @@ export interface S3Object {
 }
 
 export namespace S3Object {
+  export const filterSensitiveLog = (obj: S3Object) => ({
+    ...obj
+  });
   export const isa = (o: any): o is S3Object => __isa(o, "S3Object");
 }
 
@@ -1052,6 +1226,19 @@ export interface StartDocumentAnalysisRequest {
 }
 
 export namespace StartDocumentAnalysisRequest {
+  export const filterSensitiveLog = (obj: StartDocumentAnalysisRequest) => ({
+    ...obj,
+    ...(obj.DocumentLocation && {
+      DocumentLocation: DocumentLocation.filterSensitiveLog(
+        obj.DocumentLocation
+      )
+    }),
+    ...(obj.NotificationChannel && {
+      NotificationChannel: NotificationChannel.filterSensitiveLog(
+        obj.NotificationChannel
+      )
+    })
+  });
   export const isa = (o: any): o is StartDocumentAnalysisRequest =>
     __isa(o, "StartDocumentAnalysisRequest");
 }
@@ -1067,6 +1254,9 @@ export interface StartDocumentAnalysisResponse {
 }
 
 export namespace StartDocumentAnalysisResponse {
+  export const filterSensitiveLog = (obj: StartDocumentAnalysisResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartDocumentAnalysisResponse =>
     __isa(o, "StartDocumentAnalysisResponse");
 }
@@ -1103,6 +1293,21 @@ export interface StartDocumentTextDetectionRequest {
 }
 
 export namespace StartDocumentTextDetectionRequest {
+  export const filterSensitiveLog = (
+    obj: StartDocumentTextDetectionRequest
+  ) => ({
+    ...obj,
+    ...(obj.DocumentLocation && {
+      DocumentLocation: DocumentLocation.filterSensitiveLog(
+        obj.DocumentLocation
+      )
+    }),
+    ...(obj.NotificationChannel && {
+      NotificationChannel: NotificationChannel.filterSensitiveLog(
+        obj.NotificationChannel
+      )
+    })
+  });
   export const isa = (o: any): o is StartDocumentTextDetectionRequest =>
     __isa(o, "StartDocumentTextDetectionRequest");
 }
@@ -1118,6 +1323,11 @@ export interface StartDocumentTextDetectionResponse {
 }
 
 export namespace StartDocumentTextDetectionResponse {
+  export const filterSensitiveLog = (
+    obj: StartDocumentTextDetectionResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartDocumentTextDetectionResponse =>
     __isa(o, "StartDocumentTextDetectionResponse");
 }
@@ -1135,6 +1345,9 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ThrottlingException =>
     __isa(o, "ThrottlingException");
 }
@@ -1153,6 +1366,9 @@ export interface UnsupportedDocumentException
 }
 
 export namespace UnsupportedDocumentException {
+  export const filterSensitiveLog = (obj: UnsupportedDocumentException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UnsupportedDocumentException =>
     __isa(o, "UnsupportedDocumentException");
 }
@@ -1174,5 +1390,8 @@ export interface Warning {
 }
 
 export namespace Warning {
+  export const filterSensitiveLog = (obj: Warning) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Warning => __isa(o, "Warning");
 }

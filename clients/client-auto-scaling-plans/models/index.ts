@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -21,6 +22,14 @@ export interface ApplicationSource {
 }
 
 export namespace ApplicationSource {
+  export const filterSensitiveLog = (obj: ApplicationSource) => ({
+    ...obj,
+    ...(obj.TagFilters && {
+      TagFilters: obj.TagFilters.map(item =>
+        item.map(TagFilter.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ApplicationSource =>
     __isa(o, "ApplicationSource");
 }
@@ -38,6 +47,9 @@ export interface ConcurrentUpdateException
 }
 
 export namespace ConcurrentUpdateException {
+  export const filterSensitiveLog = (obj: ConcurrentUpdateException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConcurrentUpdateException =>
     __isa(o, "ConcurrentUpdateException");
 }
@@ -63,6 +75,19 @@ export interface CreateScalingPlanRequest {
 }
 
 export namespace CreateScalingPlanRequest {
+  export const filterSensitiveLog = (obj: CreateScalingPlanRequest) => ({
+    ...obj,
+    ...(obj.ApplicationSource && {
+      ApplicationSource: ApplicationSource.filterSensitiveLog(
+        obj.ApplicationSource
+      )
+    }),
+    ...(obj.ScalingInstructions && {
+      ScalingInstructions: obj.ScalingInstructions.map(item =>
+        item.map(ScalingInstruction.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is CreateScalingPlanRequest =>
     __isa(o, "CreateScalingPlanRequest");
 }
@@ -77,6 +102,9 @@ export interface CreateScalingPlanResponse {
 }
 
 export namespace CreateScalingPlanResponse {
+  export const filterSensitiveLog = (obj: CreateScalingPlanResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateScalingPlanResponse =>
     __isa(o, "CreateScalingPlanResponse");
 }
@@ -132,6 +160,16 @@ export interface CustomizedLoadMetricSpecification {
 }
 
 export namespace CustomizedLoadMetricSpecification {
+  export const filterSensitiveLog = (
+    obj: CustomizedLoadMetricSpecification
+  ) => ({
+    ...obj,
+    ...(obj.Dimensions && {
+      Dimensions: obj.Dimensions.map(item =>
+        item.map(MetricDimension.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is CustomizedLoadMetricSpecification =>
     __isa(o, "CustomizedLoadMetricSpecification");
 }
@@ -187,6 +225,16 @@ export interface CustomizedScalingMetricSpecification {
 }
 
 export namespace CustomizedScalingMetricSpecification {
+  export const filterSensitiveLog = (
+    obj: CustomizedScalingMetricSpecification
+  ) => ({
+    ...obj,
+    ...(obj.Dimensions && {
+      Dimensions: obj.Dimensions.map(item =>
+        item.map(MetricDimension.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is CustomizedScalingMetricSpecification =>
     __isa(o, "CustomizedScalingMetricSpecification");
 }
@@ -208,6 +256,9 @@ export interface Datapoint {
 }
 
 export namespace Datapoint {
+  export const filterSensitiveLog = (obj: Datapoint) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Datapoint => __isa(o, "Datapoint");
 }
 
@@ -225,6 +276,9 @@ export interface DeleteScalingPlanRequest {
 }
 
 export namespace DeleteScalingPlanRequest {
+  export const filterSensitiveLog = (obj: DeleteScalingPlanRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteScalingPlanRequest =>
     __isa(o, "DeleteScalingPlanRequest");
 }
@@ -234,6 +288,9 @@ export interface DeleteScalingPlanResponse {
 }
 
 export namespace DeleteScalingPlanResponse {
+  export const filterSensitiveLog = (obj: DeleteScalingPlanResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteScalingPlanResponse =>
     __isa(o, "DeleteScalingPlanResponse");
 }
@@ -263,6 +320,11 @@ export interface DescribeScalingPlanResourcesRequest {
 }
 
 export namespace DescribeScalingPlanResourcesRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeScalingPlanResourcesRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeScalingPlanResourcesRequest =>
     __isa(o, "DescribeScalingPlanResourcesRequest");
 }
@@ -282,6 +344,16 @@ export interface DescribeScalingPlanResourcesResponse {
 }
 
 export namespace DescribeScalingPlanResourcesResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeScalingPlanResourcesResponse
+  ) => ({
+    ...obj,
+    ...(obj.ScalingPlanResources && {
+      ScalingPlanResources: obj.ScalingPlanResources.map(item =>
+        item.map(ScalingPlanResource.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeScalingPlanResourcesResponse =>
     __isa(o, "DescribeScalingPlanResourcesResponse");
 }
@@ -319,6 +391,14 @@ export interface DescribeScalingPlansRequest {
 }
 
 export namespace DescribeScalingPlansRequest {
+  export const filterSensitiveLog = (obj: DescribeScalingPlansRequest) => ({
+    ...obj,
+    ...(obj.ApplicationSources && {
+      ApplicationSources: obj.ApplicationSources.map(item =>
+        item.map(ApplicationSource.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeScalingPlansRequest =>
     __isa(o, "DescribeScalingPlansRequest");
 }
@@ -338,6 +418,14 @@ export interface DescribeScalingPlansResponse {
 }
 
 export namespace DescribeScalingPlansResponse {
+  export const filterSensitiveLog = (obj: DescribeScalingPlansResponse) => ({
+    ...obj,
+    ...(obj.ScalingPlans && {
+      ScalingPlans: obj.ScalingPlans.map(item =>
+        item.map(ScalingPlan.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeScalingPlansResponse =>
     __isa(o, "DescribeScalingPlansResponse");
 }
@@ -447,6 +535,11 @@ export interface GetScalingPlanResourceForecastDataRequest {
 }
 
 export namespace GetScalingPlanResourceForecastDataRequest {
+  export const filterSensitiveLog = (
+    obj: GetScalingPlanResourceForecastDataRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetScalingPlanResourceForecastDataRequest =>
     __isa(o, "GetScalingPlanResourceForecastDataRequest");
 }
@@ -460,6 +553,16 @@ export interface GetScalingPlanResourceForecastDataResponse {
 }
 
 export namespace GetScalingPlanResourceForecastDataResponse {
+  export const filterSensitiveLog = (
+    obj: GetScalingPlanResourceForecastDataResponse
+  ) => ({
+    ...obj,
+    ...(obj.Datapoints && {
+      Datapoints: obj.Datapoints.map(item =>
+        item.map(Datapoint.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is GetScalingPlanResourceForecastDataResponse =>
@@ -478,6 +581,9 @@ export interface InternalServiceException
 }
 
 export namespace InternalServiceException {
+  export const filterSensitiveLog = (obj: InternalServiceException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServiceException =>
     __isa(o, "InternalServiceException");
 }
@@ -494,6 +600,9 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
+  export const filterSensitiveLog = (obj: InvalidNextTokenException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidNextTokenException =>
     __isa(o, "InvalidNextTokenException");
 }
@@ -511,6 +620,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -539,6 +651,9 @@ export interface MetricDimension {
 }
 
 export namespace MetricDimension {
+  export const filterSensitiveLog = (obj: MetricDimension) => ({
+    ...obj
+  });
   export const isa = (o: any): o is MetricDimension =>
     __isa(o, "MetricDimension");
 }
@@ -563,6 +678,9 @@ export interface ObjectNotFoundException
 }
 
 export namespace ObjectNotFoundException {
+  export const filterSensitiveLog = (obj: ObjectNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ObjectNotFoundException =>
     __isa(o, "ObjectNotFoundException");
 }
@@ -603,6 +721,11 @@ export interface PredefinedLoadMetricSpecification {
 }
 
 export namespace PredefinedLoadMetricSpecification {
+  export const filterSensitiveLog = (
+    obj: PredefinedLoadMetricSpecification
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PredefinedLoadMetricSpecification =>
     __isa(o, "PredefinedLoadMetricSpecification");
 }
@@ -642,6 +765,11 @@ export interface PredefinedScalingMetricSpecification {
 }
 
 export namespace PredefinedScalingMetricSpecification {
+  export const filterSensitiveLog = (
+    obj: PredefinedScalingMetricSpecification
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PredefinedScalingMetricSpecification =>
     __isa(o, "PredefinedScalingMetricSpecification");
 }
@@ -888,6 +1016,24 @@ export interface ScalingInstruction {
 }
 
 export namespace ScalingInstruction {
+  export const filterSensitiveLog = (obj: ScalingInstruction) => ({
+    ...obj,
+    ...(obj.CustomizedLoadMetricSpecification && {
+      CustomizedLoadMetricSpecification: CustomizedLoadMetricSpecification.filterSensitiveLog(
+        obj.CustomizedLoadMetricSpecification
+      )
+    }),
+    ...(obj.PredefinedLoadMetricSpecification && {
+      PredefinedLoadMetricSpecification: PredefinedLoadMetricSpecification.filterSensitiveLog(
+        obj.PredefinedLoadMetricSpecification
+      )
+    }),
+    ...(obj.TargetTrackingConfigurations && {
+      TargetTrackingConfigurations: obj.TargetTrackingConfigurations.map(item =>
+        item.map(TargetTrackingConfiguration.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ScalingInstruction =>
     __isa(o, "ScalingInstruction");
 }
@@ -990,6 +1136,19 @@ export interface ScalingPlan {
 }
 
 export namespace ScalingPlan {
+  export const filterSensitiveLog = (obj: ScalingPlan) => ({
+    ...obj,
+    ...(obj.ApplicationSource && {
+      ApplicationSource: ApplicationSource.filterSensitiveLog(
+        obj.ApplicationSource
+      )
+    }),
+    ...(obj.ScalingInstructions && {
+      ScalingInstructions: obj.ScalingInstructions.map(item =>
+        item.map(ScalingInstruction.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ScalingPlan => __isa(o, "ScalingPlan");
 }
 
@@ -1119,6 +1278,14 @@ export interface ScalingPlanResource {
 }
 
 export namespace ScalingPlanResource {
+  export const filterSensitiveLog = (obj: ScalingPlanResource) => ({
+    ...obj,
+    ...(obj.ScalingPolicies && {
+      ScalingPolicies: obj.ScalingPolicies.map(item =>
+        item.map(ScalingPolicy.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ScalingPlanResource =>
     __isa(o, "ScalingPlanResource");
 }
@@ -1157,6 +1324,14 @@ export interface ScalingPolicy {
 }
 
 export namespace ScalingPolicy {
+  export const filterSensitiveLog = (obj: ScalingPolicy) => ({
+    ...obj,
+    ...(obj.TargetTrackingConfiguration && {
+      TargetTrackingConfiguration: TargetTrackingConfiguration.filterSensitiveLog(
+        obj.TargetTrackingConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is ScalingPolicy => __isa(o, "ScalingPolicy");
 }
 
@@ -1196,6 +1371,9 @@ export interface TagFilter {
 }
 
 export namespace TagFilter {
+  export const filterSensitiveLog = (obj: TagFilter) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
 }
 
@@ -1261,6 +1439,19 @@ export interface TargetTrackingConfiguration {
 }
 
 export namespace TargetTrackingConfiguration {
+  export const filterSensitiveLog = (obj: TargetTrackingConfiguration) => ({
+    ...obj,
+    ...(obj.CustomizedScalingMetricSpecification && {
+      CustomizedScalingMetricSpecification: CustomizedScalingMetricSpecification.filterSensitiveLog(
+        obj.CustomizedScalingMetricSpecification
+      )
+    }),
+    ...(obj.PredefinedScalingMetricSpecification && {
+      PredefinedScalingMetricSpecification: PredefinedScalingMetricSpecification.filterSensitiveLog(
+        obj.PredefinedScalingMetricSpecification
+      )
+    })
+  });
   export const isa = (o: any): o is TargetTrackingConfiguration =>
     __isa(o, "TargetTrackingConfiguration");
 }
@@ -1289,6 +1480,19 @@ export interface UpdateScalingPlanRequest {
 }
 
 export namespace UpdateScalingPlanRequest {
+  export const filterSensitiveLog = (obj: UpdateScalingPlanRequest) => ({
+    ...obj,
+    ...(obj.ApplicationSource && {
+      ApplicationSource: ApplicationSource.filterSensitiveLog(
+        obj.ApplicationSource
+      )
+    }),
+    ...(obj.ScalingInstructions && {
+      ScalingInstructions: obj.ScalingInstructions.map(item =>
+        item.map(ScalingInstruction.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateScalingPlanRequest =>
     __isa(o, "UpdateScalingPlanRequest");
 }
@@ -1298,6 +1502,9 @@ export interface UpdateScalingPlanResponse {
 }
 
 export namespace UpdateScalingPlanResponse {
+  export const filterSensitiveLog = (obj: UpdateScalingPlanResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateScalingPlanResponse =>
     __isa(o, "UpdateScalingPlanResponse");
 }
@@ -1314,6 +1521,9 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
+  export const filterSensitiveLog = (obj: ValidationException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ValidationException =>
     __isa(o, "ValidationException");
 }

@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -16,6 +17,9 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
+  export const filterSensitiveLog = (obj: AccessDeniedException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccessDeniedException =>
     __isa(o, "AccessDeniedException");
 }
@@ -49,6 +53,9 @@ export interface CreateOutpostInput {
 }
 
 export namespace CreateOutpostInput {
+  export const filterSensitiveLog = (obj: CreateOutpostInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateOutpostInput =>
     __isa(o, "CreateOutpostInput");
 }
@@ -62,6 +69,10 @@ export interface CreateOutpostOutput {
 }
 
 export namespace CreateOutpostOutput {
+  export const filterSensitiveLog = (obj: CreateOutpostOutput) => ({
+    ...obj,
+    ...(obj.Outpost && { Outpost: Outpost.filterSensitiveLog(obj.Outpost) })
+  });
   export const isa = (o: any): o is CreateOutpostOutput =>
     __isa(o, "CreateOutpostOutput");
 }
@@ -75,6 +86,9 @@ export interface GetOutpostInput {
 }
 
 export namespace GetOutpostInput {
+  export const filterSensitiveLog = (obj: GetOutpostInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetOutpostInput =>
     __isa(o, "GetOutpostInput");
 }
@@ -98,6 +112,9 @@ export interface GetOutpostInstanceTypesInput {
 }
 
 export namespace GetOutpostInstanceTypesInput {
+  export const filterSensitiveLog = (obj: GetOutpostInstanceTypesInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetOutpostInstanceTypesInput =>
     __isa(o, "GetOutpostInstanceTypesInput");
 }
@@ -126,6 +143,14 @@ export interface GetOutpostInstanceTypesOutput {
 }
 
 export namespace GetOutpostInstanceTypesOutput {
+  export const filterSensitiveLog = (obj: GetOutpostInstanceTypesOutput) => ({
+    ...obj,
+    ...(obj.InstanceTypes && {
+      InstanceTypes: obj.InstanceTypes.map(item =>
+        item.map(InstanceTypeItem.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is GetOutpostInstanceTypesOutput =>
     __isa(o, "GetOutpostInstanceTypesOutput");
 }
@@ -139,6 +164,10 @@ export interface GetOutpostOutput {
 }
 
 export namespace GetOutpostOutput {
+  export const filterSensitiveLog = (obj: GetOutpostOutput) => ({
+    ...obj,
+    ...(obj.Outpost && { Outpost: Outpost.filterSensitiveLog(obj.Outpost) })
+  });
   export const isa = (o: any): o is GetOutpostOutput =>
     __isa(o, "GetOutpostOutput");
 }
@@ -155,6 +184,9 @@ export interface InstanceTypeItem {
 }
 
 export namespace InstanceTypeItem {
+  export const filterSensitiveLog = (obj: InstanceTypeItem) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InstanceTypeItem =>
     __isa(o, "InstanceTypeItem");
 }
@@ -171,6 +203,9 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
+  export const filterSensitiveLog = (obj: InternalServerException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServerException =>
     __isa(o, "InternalServerException");
 }
@@ -189,6 +224,9 @@ export interface ListOutpostsInput {
 }
 
 export namespace ListOutpostsInput {
+  export const filterSensitiveLog = (obj: ListOutpostsInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListOutpostsInput =>
     __isa(o, "ListOutpostsInput");
 }
@@ -207,6 +245,12 @@ export interface ListOutpostsOutput {
 }
 
 export namespace ListOutpostsOutput {
+  export const filterSensitiveLog = (obj: ListOutpostsOutput) => ({
+    ...obj,
+    ...(obj.Outposts && {
+      Outposts: obj.Outposts.map(item => item.map(Outpost.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is ListOutpostsOutput =>
     __isa(o, "ListOutpostsOutput");
 }
@@ -225,6 +269,9 @@ export interface ListSitesInput {
 }
 
 export namespace ListSitesInput {
+  export const filterSensitiveLog = (obj: ListSitesInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListSitesInput =>
     __isa(o, "ListSitesInput");
 }
@@ -243,6 +290,12 @@ export interface ListSitesOutput {
 }
 
 export namespace ListSitesOutput {
+  export const filterSensitiveLog = (obj: ListSitesOutput) => ({
+    ...obj,
+    ...(obj.Sites && {
+      Sites: obj.Sites.map(item => item.map(Site.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is ListSitesOutput =>
     __isa(o, "ListSitesOutput");
 }
@@ -257,6 +310,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotFoundException =>
     __isa(o, "NotFoundException");
 }
@@ -313,6 +369,9 @@ export interface Outpost {
 }
 
 export namespace Outpost {
+  export const filterSensitiveLog = (obj: Outpost) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Outpost => __isa(o, "Outpost");
 }
 
@@ -328,6 +387,9 @@ export interface ServiceQuotaExceededException
 }
 
 export namespace ServiceQuotaExceededException {
+  export const filterSensitiveLog = (obj: ServiceQuotaExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ServiceQuotaExceededException =>
     __isa(o, "ServiceQuotaExceededException");
 }
@@ -359,6 +421,9 @@ export interface Site {
 }
 
 export namespace Site {
+  export const filterSensitiveLog = (obj: Site) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Site => __isa(o, "Site");
 }
 
@@ -374,6 +439,9 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
+  export const filterSensitiveLog = (obj: ValidationException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ValidationException =>
     __isa(o, "ValidationException");
 }

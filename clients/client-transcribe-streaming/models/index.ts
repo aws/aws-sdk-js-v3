@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -21,6 +22,12 @@ export interface Alternative {
 }
 
 export namespace Alternative {
+  export const filterSensitiveLog = (obj: Alternative) => ({
+    ...obj,
+    ...(obj.Items && {
+      Items: obj.Items.map(item => item.map(Item.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is Alternative => __isa(o, "Alternative");
 }
 
@@ -36,6 +43,9 @@ export interface AudioEvent {
 }
 
 export namespace AudioEvent {
+  export const filterSensitiveLog = (obj: AudioEvent) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AudioEvent => __isa(o, "AudioEvent");
 }
 
@@ -88,6 +98,9 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
+  export const filterSensitiveLog = (obj: BadRequestException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is BadRequestException =>
     __isa(o, "BadRequestException");
 }
@@ -103,6 +116,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConflictException =>
     __isa(o, "ConflictException");
 }
@@ -120,6 +136,9 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
+  export const filterSensitiveLog = (obj: InternalFailureException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalFailureException =>
     __isa(o, "InternalFailureException");
 }
@@ -155,6 +174,9 @@ export interface Item {
 }
 
 export namespace Item {
+  export const filterSensitiveLog = (obj: Item) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Item => __isa(o, "Item");
 }
 
@@ -187,6 +209,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -230,6 +255,14 @@ export interface Result {
 }
 
 export namespace Result {
+  export const filterSensitiveLog = (obj: Result) => ({
+    ...obj,
+    ...(obj.Alternatives && {
+      Alternatives: obj.Alternatives.map(item =>
+        item.map(Alternative.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is Result => __isa(o, "Result");
 }
 
@@ -271,6 +304,9 @@ export interface StartStreamTranscriptionRequest {
 }
 
 export namespace StartStreamTranscriptionRequest {
+  export const filterSensitiveLog = (obj: StartStreamTranscriptionRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartStreamTranscriptionRequest =>
     __isa(o, "StartStreamTranscriptionRequest");
 }
@@ -315,6 +351,11 @@ export interface StartStreamTranscriptionResponse {
 }
 
 export namespace StartStreamTranscriptionResponse {
+  export const filterSensitiveLog = (
+    obj: StartStreamTranscriptionResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartStreamTranscriptionResponse =>
     __isa(o, "StartStreamTranscriptionResponse");
 }
@@ -333,6 +374,12 @@ export interface Transcript {
 }
 
 export namespace Transcript {
+  export const filterSensitiveLog = (obj: Transcript) => ({
+    ...obj,
+    ...(obj.Results && {
+      Results: obj.Results.map(item => item.map(Result.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is Transcript => __isa(o, "Transcript");
 }
 
@@ -350,6 +397,12 @@ export interface TranscriptEvent {
 }
 
 export namespace TranscriptEvent {
+  export const filterSensitiveLog = (obj: TranscriptEvent) => ({
+    ...obj,
+    ...(obj.Transcript && {
+      Transcript: Transcript.filterSensitiveLog(obj.Transcript)
+    })
+  });
   export const isa = (o: any): o is TranscriptEvent =>
     __isa(o, "TranscriptEvent");
 }

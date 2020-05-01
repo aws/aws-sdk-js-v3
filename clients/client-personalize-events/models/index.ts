@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
   isa as __isa
@@ -55,6 +56,9 @@ export interface Event {
 }
 
 export namespace Event {
+  export const filterSensitiveLog = (obj: Event) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Event => __isa(o, "Event");
 }
 
@@ -84,6 +88,12 @@ export interface PutEventsRequest {
 }
 
 export namespace PutEventsRequest {
+  export const filterSensitiveLog = (obj: PutEventsRequest) => ({
+    ...obj,
+    ...(obj.eventList && {
+      eventList: obj.eventList.map(item => item.map(Event.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is PutEventsRequest =>
     __isa(o, "PutEventsRequest");
 }
@@ -100,6 +110,9 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
+  export const filterSensitiveLog = (obj: InvalidInputException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidInputException =>
     __isa(o, "InvalidInputException");
 }

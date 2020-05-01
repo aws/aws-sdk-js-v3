@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -25,6 +26,9 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
+  export const filterSensitiveLog = (obj: AccessDeniedException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccessDeniedException =>
     __isa(o, "AccessDeniedException");
 }
@@ -42,6 +46,11 @@ export interface AccountChannelLimitExceededException
 }
 
 export namespace AccountChannelLimitExceededException {
+  export const filterSensitiveLog = (
+    obj: AccountChannelLimitExceededException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccountChannelLimitExceededException =>
     __isa(o, "AccountChannelLimitExceededException");
 }
@@ -58,6 +67,11 @@ export interface AccountStreamLimitExceededException
 }
 
 export namespace AccountStreamLimitExceededException {
+  export const filterSensitiveLog = (
+    obj: AccountStreamLimitExceededException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccountStreamLimitExceededException =>
     __isa(o, "AccountStreamLimitExceededException");
 }
@@ -105,6 +119,14 @@ export interface ChannelInfo {
 }
 
 export namespace ChannelInfo {
+  export const filterSensitiveLog = (obj: ChannelInfo) => ({
+    ...obj,
+    ...(obj.SingleMasterConfiguration && {
+      SingleMasterConfiguration: SingleMasterConfiguration.filterSensitiveLog(
+        obj.SingleMasterConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is ChannelInfo => __isa(o, "ChannelInfo");
 }
 
@@ -129,6 +151,9 @@ export interface ChannelNameCondition {
 }
 
 export namespace ChannelNameCondition {
+  export const filterSensitiveLog = (obj: ChannelNameCondition) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ChannelNameCondition =>
     __isa(o, "ChannelNameCondition");
 }
@@ -160,6 +185,9 @@ export interface ClientLimitExceededException
 }
 
 export namespace ClientLimitExceededException {
+  export const filterSensitiveLog = (obj: ClientLimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ClientLimitExceededException =>
     __isa(o, "ClientLimitExceededException");
 }
@@ -195,6 +223,17 @@ export interface CreateSignalingChannelInput {
 }
 
 export namespace CreateSignalingChannelInput {
+  export const filterSensitiveLog = (obj: CreateSignalingChannelInput) => ({
+    ...obj,
+    ...(obj.SingleMasterConfiguration && {
+      SingleMasterConfiguration: SingleMasterConfiguration.filterSensitiveLog(
+        obj.SingleMasterConfiguration
+      )
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is CreateSignalingChannelInput =>
     __isa(o, "CreateSignalingChannelInput");
 }
@@ -208,6 +247,9 @@ export interface CreateSignalingChannelOutput {
 }
 
 export namespace CreateSignalingChannelOutput {
+  export const filterSensitiveLog = (obj: CreateSignalingChannelOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateSignalingChannelOutput =>
     __isa(o, "CreateSignalingChannelOutput");
 }
@@ -270,6 +312,9 @@ export interface CreateStreamInput {
 }
 
 export namespace CreateStreamInput {
+  export const filterSensitiveLog = (obj: CreateStreamInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateStreamInput =>
     __isa(o, "CreateStreamInput");
 }
@@ -283,6 +328,9 @@ export interface CreateStreamOutput {
 }
 
 export namespace CreateStreamOutput {
+  export const filterSensitiveLog = (obj: CreateStreamOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateStreamOutput =>
     __isa(o, "CreateStreamOutput");
 }
@@ -303,6 +351,9 @@ export interface DeleteSignalingChannelInput {
 }
 
 export namespace DeleteSignalingChannelInput {
+  export const filterSensitiveLog = (obj: DeleteSignalingChannelInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteSignalingChannelInput =>
     __isa(o, "DeleteSignalingChannelInput");
 }
@@ -312,6 +363,9 @@ export interface DeleteSignalingChannelOutput {
 }
 
 export namespace DeleteSignalingChannelOutput {
+  export const filterSensitiveLog = (obj: DeleteSignalingChannelOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteSignalingChannelOutput =>
     __isa(o, "DeleteSignalingChannelOutput");
 }
@@ -334,6 +388,9 @@ export interface DeleteStreamInput {
 }
 
 export namespace DeleteStreamInput {
+  export const filterSensitiveLog = (obj: DeleteStreamInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteStreamInput =>
     __isa(o, "DeleteStreamInput");
 }
@@ -343,6 +400,9 @@ export interface DeleteStreamOutput {
 }
 
 export namespace DeleteStreamOutput {
+  export const filterSensitiveLog = (obj: DeleteStreamOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteStreamOutput =>
     __isa(o, "DeleteStreamOutput");
 }
@@ -361,6 +421,9 @@ export interface DescribeSignalingChannelInput {
 }
 
 export namespace DescribeSignalingChannelInput {
+  export const filterSensitiveLog = (obj: DescribeSignalingChannelInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeSignalingChannelInput =>
     __isa(o, "DescribeSignalingChannelInput");
 }
@@ -375,6 +438,12 @@ export interface DescribeSignalingChannelOutput {
 }
 
 export namespace DescribeSignalingChannelOutput {
+  export const filterSensitiveLog = (obj: DescribeSignalingChannelOutput) => ({
+    ...obj,
+    ...(obj.ChannelInfo && {
+      ChannelInfo: ChannelInfo.filterSensitiveLog(obj.ChannelInfo)
+    })
+  });
   export const isa = (o: any): o is DescribeSignalingChannelOutput =>
     __isa(o, "DescribeSignalingChannelOutput");
 }
@@ -393,6 +462,9 @@ export interface DescribeStreamInput {
 }
 
 export namespace DescribeStreamInput {
+  export const filterSensitiveLog = (obj: DescribeStreamInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeStreamInput =>
     __isa(o, "DescribeStreamInput");
 }
@@ -406,6 +478,12 @@ export interface DescribeStreamOutput {
 }
 
 export namespace DescribeStreamOutput {
+  export const filterSensitiveLog = (obj: DescribeStreamOutput) => ({
+    ...obj,
+    ...(obj.StreamInfo && {
+      StreamInfo: StreamInfo.filterSensitiveLog(obj.StreamInfo)
+    })
+  });
   export const isa = (o: any): o is DescribeStreamOutput =>
     __isa(o, "DescribeStreamOutput");
 }
@@ -423,6 +501,11 @@ export interface DeviceStreamLimitExceededException
 }
 
 export namespace DeviceStreamLimitExceededException {
+  export const filterSensitiveLog = (
+    obj: DeviceStreamLimitExceededException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeviceStreamLimitExceededException =>
     __isa(o, "DeviceStreamLimitExceededException");
 }
@@ -449,6 +532,9 @@ export interface GetDataEndpointInput {
 }
 
 export namespace GetDataEndpointInput {
+  export const filterSensitiveLog = (obj: GetDataEndpointInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDataEndpointInput =>
     __isa(o, "GetDataEndpointInput");
 }
@@ -463,6 +549,9 @@ export interface GetDataEndpointOutput {
 }
 
 export namespace GetDataEndpointOutput {
+  export const filterSensitiveLog = (obj: GetDataEndpointOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDataEndpointOutput =>
     __isa(o, "GetDataEndpointOutput");
 }
@@ -482,6 +571,16 @@ export interface GetSignalingChannelEndpointInput {
 }
 
 export namespace GetSignalingChannelEndpointInput {
+  export const filterSensitiveLog = (
+    obj: GetSignalingChannelEndpointInput
+  ) => ({
+    ...obj,
+    ...(obj.SingleMasterChannelEndpointConfiguration && {
+      SingleMasterChannelEndpointConfiguration: SingleMasterChannelEndpointConfiguration.filterSensitiveLog(
+        obj.SingleMasterChannelEndpointConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is GetSignalingChannelEndpointInput =>
     __isa(o, "GetSignalingChannelEndpointInput");
 }
@@ -495,6 +594,16 @@ export interface GetSignalingChannelEndpointOutput {
 }
 
 export namespace GetSignalingChannelEndpointOutput {
+  export const filterSensitiveLog = (
+    obj: GetSignalingChannelEndpointOutput
+  ) => ({
+    ...obj,
+    ...(obj.ResourceEndpointList && {
+      ResourceEndpointList: obj.ResourceEndpointList.map(item =>
+        item.map(ResourceEndpointListItem.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is GetSignalingChannelEndpointOutput =>
     __isa(o, "GetSignalingChannelEndpointOutput");
 }
@@ -511,6 +620,9 @@ export interface InvalidArgumentException
 }
 
 export namespace InvalidArgumentException {
+  export const filterSensitiveLog = (obj: InvalidArgumentException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidArgumentException =>
     __isa(o, "InvalidArgumentException");
 }
@@ -527,6 +639,9 @@ export interface InvalidDeviceException
 }
 
 export namespace InvalidDeviceException {
+  export const filterSensitiveLog = (obj: InvalidDeviceException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidDeviceException =>
     __isa(o, "InvalidDeviceException");
 }
@@ -543,6 +658,9 @@ export interface InvalidResourceFormatException
 }
 
 export namespace InvalidResourceFormatException {
+  export const filterSensitiveLog = (obj: InvalidResourceFormatException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidResourceFormatException =>
     __isa(o, "InvalidResourceFormatException");
 }
@@ -568,6 +686,14 @@ export interface ListSignalingChannelsInput {
 }
 
 export namespace ListSignalingChannelsInput {
+  export const filterSensitiveLog = (obj: ListSignalingChannelsInput) => ({
+    ...obj,
+    ...(obj.ChannelNameCondition && {
+      ChannelNameCondition: ChannelNameCondition.filterSensitiveLog(
+        obj.ChannelNameCondition
+      )
+    })
+  });
   export const isa = (o: any): o is ListSignalingChannelsInput =>
     __isa(o, "ListSignalingChannelsInput");
 }
@@ -587,6 +713,14 @@ export interface ListSignalingChannelsOutput {
 }
 
 export namespace ListSignalingChannelsOutput {
+  export const filterSensitiveLog = (obj: ListSignalingChannelsOutput) => ({
+    ...obj,
+    ...(obj.ChannelInfoList && {
+      ChannelInfoList: obj.ChannelInfoList.map(item =>
+        item.map(ChannelInfo.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListSignalingChannelsOutput =>
     __isa(o, "ListSignalingChannelsOutput");
 }
@@ -614,6 +748,14 @@ export interface ListStreamsInput {
 }
 
 export namespace ListStreamsInput {
+  export const filterSensitiveLog = (obj: ListStreamsInput) => ({
+    ...obj,
+    ...(obj.StreamNameCondition && {
+      StreamNameCondition: StreamNameCondition.filterSensitiveLog(
+        obj.StreamNameCondition
+      )
+    })
+  });
   export const isa = (o: any): o is ListStreamsInput =>
     __isa(o, "ListStreamsInput");
 }
@@ -633,6 +775,14 @@ export interface ListStreamsOutput {
 }
 
 export namespace ListStreamsOutput {
+  export const filterSensitiveLog = (obj: ListStreamsOutput) => ({
+    ...obj,
+    ...(obj.StreamInfoList && {
+      StreamInfoList: obj.StreamInfoList.map(item =>
+        item.map(StreamInfo.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListStreamsOutput =>
     __isa(o, "ListStreamsOutput");
 }
@@ -653,6 +803,9 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
+  export const filterSensitiveLog = (obj: ListTagsForResourceInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceInput =>
     __isa(o, "ListTagsForResourceInput");
 }
@@ -673,6 +826,9 @@ export interface ListTagsForResourceOutput {
 }
 
 export namespace ListTagsForResourceOutput {
+  export const filterSensitiveLog = (obj: ListTagsForResourceOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceOutput =>
     __isa(o, "ListTagsForResourceOutput");
 }
@@ -699,6 +855,9 @@ export interface ListTagsForStreamInput {
 }
 
 export namespace ListTagsForStreamInput {
+  export const filterSensitiveLog = (obj: ListTagsForStreamInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForStreamInput =>
     __isa(o, "ListTagsForStreamInput");
 }
@@ -719,6 +878,9 @@ export interface ListTagsForStreamOutput {
 }
 
 export namespace ListTagsForStreamOutput {
+  export const filterSensitiveLog = (obj: ListTagsForStreamOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForStreamOutput =>
     __isa(o, "ListTagsForStreamOutput");
 }
@@ -735,6 +897,9 @@ export interface NotAuthorizedException
 }
 
 export namespace NotAuthorizedException {
+  export const filterSensitiveLog = (obj: NotAuthorizedException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotAuthorizedException =>
     __isa(o, "NotAuthorizedException");
 }
@@ -759,6 +924,9 @@ export interface ResourceEndpointListItem {
 }
 
 export namespace ResourceEndpointListItem {
+  export const filterSensitiveLog = (obj: ResourceEndpointListItem) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceEndpointListItem =>
     __isa(o, "ResourceEndpointListItem");
 }
@@ -775,6 +943,9 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
+  export const filterSensitiveLog = (obj: ResourceInUseException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceInUseException =>
     __isa(o, "ResourceInUseException");
 }
@@ -791,6 +962,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -821,6 +995,11 @@ export interface SingleMasterChannelEndpointConfiguration {
 }
 
 export namespace SingleMasterChannelEndpointConfiguration {
+  export const filterSensitiveLog = (
+    obj: SingleMasterChannelEndpointConfiguration
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SingleMasterChannelEndpointConfiguration =>
     __isa(o, "SingleMasterChannelEndpointConfiguration");
 }
@@ -839,6 +1018,9 @@ export interface SingleMasterConfiguration {
 }
 
 export namespace SingleMasterConfiguration {
+  export const filterSensitiveLog = (obj: SingleMasterConfiguration) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SingleMasterConfiguration =>
     __isa(o, "SingleMasterConfiguration");
 }
@@ -903,6 +1085,9 @@ export interface StreamInfo {
 }
 
 export namespace StreamInfo {
+  export const filterSensitiveLog = (obj: StreamInfo) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StreamInfo => __isa(o, "StreamInfo");
 }
 
@@ -927,6 +1112,9 @@ export interface StreamNameCondition {
 }
 
 export namespace StreamNameCondition {
+  export const filterSensitiveLog = (obj: StreamNameCondition) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StreamNameCondition =>
     __isa(o, "StreamNameCondition");
 }
@@ -948,6 +1136,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
@@ -966,6 +1157,12 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
+  export const filterSensitiveLog = (obj: TagResourceInput) => ({
+    ...obj,
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is TagResourceInput =>
     __isa(o, "TagResourceInput");
 }
@@ -975,6 +1172,9 @@ export interface TagResourceOutput {
 }
 
 export namespace TagResourceOutput {
+  export const filterSensitiveLog = (obj: TagResourceOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceOutput =>
     __isa(o, "TagResourceOutput");
 }
@@ -1000,6 +1200,9 @@ export interface TagStreamInput {
 }
 
 export namespace TagStreamInput {
+  export const filterSensitiveLog = (obj: TagStreamInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagStreamInput =>
     __isa(o, "TagStreamInput");
 }
@@ -1009,6 +1212,9 @@ export interface TagStreamOutput {
 }
 
 export namespace TagStreamOutput {
+  export const filterSensitiveLog = (obj: TagStreamOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagStreamOutput =>
     __isa(o, "TagStreamOutput");
 }
@@ -1026,6 +1232,11 @@ export interface TagsPerResourceExceededLimitException
 }
 
 export namespace TagsPerResourceExceededLimitException {
+  export const filterSensitiveLog = (
+    obj: TagsPerResourceExceededLimitException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagsPerResourceExceededLimitException =>
     __isa(o, "TagsPerResourceExceededLimitException");
 }
@@ -1044,6 +1255,9 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
+  export const filterSensitiveLog = (obj: UntagResourceInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceInput =>
     __isa(o, "UntagResourceInput");
 }
@@ -1053,6 +1267,9 @@ export interface UntagResourceOutput {
 }
 
 export namespace UntagResourceOutput {
+  export const filterSensitiveLog = (obj: UntagResourceOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceOutput =>
     __isa(o, "UntagResourceOutput");
 }
@@ -1077,6 +1294,9 @@ export interface UntagStreamInput {
 }
 
 export namespace UntagStreamInput {
+  export const filterSensitiveLog = (obj: UntagStreamInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagStreamInput =>
     __isa(o, "UntagStreamInput");
 }
@@ -1086,6 +1306,9 @@ export interface UntagStreamOutput {
 }
 
 export namespace UntagStreamOutput {
+  export const filterSensitiveLog = (obj: UntagStreamOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagStreamOutput =>
     __isa(o, "UntagStreamOutput");
 }
@@ -1123,6 +1346,9 @@ export interface UpdateDataRetentionInput {
 }
 
 export namespace UpdateDataRetentionInput {
+  export const filterSensitiveLog = (obj: UpdateDataRetentionInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateDataRetentionInput =>
     __isa(o, "UpdateDataRetentionInput");
 }
@@ -1137,6 +1363,9 @@ export interface UpdateDataRetentionOutput {
 }
 
 export namespace UpdateDataRetentionOutput {
+  export const filterSensitiveLog = (obj: UpdateDataRetentionOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateDataRetentionOutput =>
     __isa(o, "UpdateDataRetentionOutput");
 }
@@ -1161,6 +1390,14 @@ export interface UpdateSignalingChannelInput {
 }
 
 export namespace UpdateSignalingChannelInput {
+  export const filterSensitiveLog = (obj: UpdateSignalingChannelInput) => ({
+    ...obj,
+    ...(obj.SingleMasterConfiguration && {
+      SingleMasterConfiguration: SingleMasterConfiguration.filterSensitiveLog(
+        obj.SingleMasterConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateSignalingChannelInput =>
     __isa(o, "UpdateSignalingChannelInput");
 }
@@ -1170,6 +1407,9 @@ export interface UpdateSignalingChannelOutput {
 }
 
 export namespace UpdateSignalingChannelOutput {
+  export const filterSensitiveLog = (obj: UpdateSignalingChannelOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateSignalingChannelOutput =>
     __isa(o, "UpdateSignalingChannelOutput");
 }
@@ -1216,6 +1456,9 @@ export interface UpdateStreamInput {
 }
 
 export namespace UpdateStreamInput {
+  export const filterSensitiveLog = (obj: UpdateStreamInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateStreamInput =>
     __isa(o, "UpdateStreamInput");
 }
@@ -1225,6 +1468,9 @@ export interface UpdateStreamOutput {
 }
 
 export namespace UpdateStreamOutput {
+  export const filterSensitiveLog = (obj: UpdateStreamOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateStreamOutput =>
     __isa(o, "UpdateStreamOutput");
 }
@@ -1243,6 +1489,9 @@ export interface VersionMismatchException
 }
 
 export namespace VersionMismatchException {
+  export const filterSensitiveLog = (obj: VersionMismatchException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is VersionMismatchException =>
     __isa(o, "VersionMismatchException");
 }

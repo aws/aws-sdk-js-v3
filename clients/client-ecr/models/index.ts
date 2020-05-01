@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -21,6 +22,9 @@ export interface Attribute {
 }
 
 export namespace Attribute {
+  export const filterSensitiveLog = (obj: Attribute) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Attribute => __isa(o, "Attribute");
 }
 
@@ -53,6 +57,9 @@ export interface AuthorizationData {
 }
 
 export namespace AuthorizationData {
+  export const filterSensitiveLog = (obj: AuthorizationData) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AuthorizationData =>
     __isa(o, "AuthorizationData");
 }
@@ -77,6 +84,11 @@ export interface BatchCheckLayerAvailabilityRequest {
 }
 
 export namespace BatchCheckLayerAvailabilityRequest {
+  export const filterSensitiveLog = (
+    obj: BatchCheckLayerAvailabilityRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is BatchCheckLayerAvailabilityRequest =>
     __isa(o, "BatchCheckLayerAvailabilityRequest");
 }
@@ -96,6 +108,19 @@ export interface BatchCheckLayerAvailabilityResponse {
 }
 
 export namespace BatchCheckLayerAvailabilityResponse {
+  export const filterSensitiveLog = (
+    obj: BatchCheckLayerAvailabilityResponse
+  ) => ({
+    ...obj,
+    ...(obj.failures && {
+      failures: obj.failures.map(item =>
+        item.map(LayerFailure.filterSensitiveLog)
+      )
+    }),
+    ...(obj.layers && {
+      layers: obj.layers.map(item => item.map(Layer.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is BatchCheckLayerAvailabilityResponse =>
     __isa(o, "BatchCheckLayerAvailabilityResponse");
 }
@@ -126,6 +151,14 @@ export interface BatchDeleteImageRequest {
 }
 
 export namespace BatchDeleteImageRequest {
+  export const filterSensitiveLog = (obj: BatchDeleteImageRequest) => ({
+    ...obj,
+    ...(obj.imageIds && {
+      imageIds: obj.imageIds.map(item =>
+        item.map(ImageIdentifier.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is BatchDeleteImageRequest =>
     __isa(o, "BatchDeleteImageRequest");
 }
@@ -144,6 +177,19 @@ export interface BatchDeleteImageResponse {
 }
 
 export namespace BatchDeleteImageResponse {
+  export const filterSensitiveLog = (obj: BatchDeleteImageResponse) => ({
+    ...obj,
+    ...(obj.failures && {
+      failures: obj.failures.map(item =>
+        item.map(ImageFailure.filterSensitiveLog)
+      )
+    }),
+    ...(obj.imageIds && {
+      imageIds: obj.imageIds.map(item =>
+        item.map(ImageIdentifier.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is BatchDeleteImageResponse =>
     __isa(o, "BatchDeleteImageResponse");
 }
@@ -179,6 +225,14 @@ export interface BatchGetImageRequest {
 }
 
 export namespace BatchGetImageRequest {
+  export const filterSensitiveLog = (obj: BatchGetImageRequest) => ({
+    ...obj,
+    ...(obj.imageIds && {
+      imageIds: obj.imageIds.map(item =>
+        item.map(ImageIdentifier.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is BatchGetImageRequest =>
     __isa(o, "BatchGetImageRequest");
 }
@@ -197,6 +251,17 @@ export interface BatchGetImageResponse {
 }
 
 export namespace BatchGetImageResponse {
+  export const filterSensitiveLog = (obj: BatchGetImageResponse) => ({
+    ...obj,
+    ...(obj.failures && {
+      failures: obj.failures.map(item =>
+        item.map(ImageFailure.filterSensitiveLog)
+      )
+    }),
+    ...(obj.images && {
+      images: obj.images.map(item => item.map(Image.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is BatchGetImageResponse =>
     __isa(o, "BatchGetImageResponse");
 }
@@ -227,6 +292,9 @@ export interface CompleteLayerUploadRequest {
 }
 
 export namespace CompleteLayerUploadRequest {
+  export const filterSensitiveLog = (obj: CompleteLayerUploadRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CompleteLayerUploadRequest =>
     __isa(o, "CompleteLayerUploadRequest");
 }
@@ -255,6 +323,9 @@ export interface CompleteLayerUploadResponse {
 }
 
 export namespace CompleteLayerUploadResponse {
+  export const filterSensitiveLog = (obj: CompleteLayerUploadResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CompleteLayerUploadResponse =>
     __isa(o, "CompleteLayerUploadResponse");
 }
@@ -293,6 +364,17 @@ export interface CreateRepositoryRequest {
 }
 
 export namespace CreateRepositoryRequest {
+  export const filterSensitiveLog = (obj: CreateRepositoryRequest) => ({
+    ...obj,
+    ...(obj.imageScanningConfiguration && {
+      imageScanningConfiguration: ImageScanningConfiguration.filterSensitiveLog(
+        obj.imageScanningConfiguration
+      )
+    }),
+    ...(obj.tags && {
+      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is CreateRepositoryRequest =>
     __isa(o, "CreateRepositoryRequest");
 }
@@ -306,6 +388,12 @@ export interface CreateRepositoryResponse {
 }
 
 export namespace CreateRepositoryResponse {
+  export const filterSensitiveLog = (obj: CreateRepositoryResponse) => ({
+    ...obj,
+    ...(obj.repository && {
+      repository: Repository.filterSensitiveLog(obj.repository)
+    })
+  });
   export const isa = (o: any): o is CreateRepositoryResponse =>
     __isa(o, "CreateRepositoryResponse");
 }
@@ -325,6 +413,9 @@ export interface DeleteLifecyclePolicyRequest {
 }
 
 export namespace DeleteLifecyclePolicyRequest {
+  export const filterSensitiveLog = (obj: DeleteLifecyclePolicyRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteLifecyclePolicyRequest =>
     __isa(o, "DeleteLifecyclePolicyRequest");
 }
@@ -353,6 +444,9 @@ export interface DeleteLifecyclePolicyResponse {
 }
 
 export namespace DeleteLifecyclePolicyResponse {
+  export const filterSensitiveLog = (obj: DeleteLifecyclePolicyResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteLifecyclePolicyResponse =>
     __isa(o, "DeleteLifecyclePolicyResponse");
 }
@@ -373,6 +467,9 @@ export interface DeleteRepositoryPolicyRequest {
 }
 
 export namespace DeleteRepositoryPolicyRequest {
+  export const filterSensitiveLog = (obj: DeleteRepositoryPolicyRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteRepositoryPolicyRequest =>
     __isa(o, "DeleteRepositoryPolicyRequest");
 }
@@ -396,6 +493,9 @@ export interface DeleteRepositoryPolicyResponse {
 }
 
 export namespace DeleteRepositoryPolicyResponse {
+  export const filterSensitiveLog = (obj: DeleteRepositoryPolicyResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteRepositoryPolicyResponse =>
     __isa(o, "DeleteRepositoryPolicyResponse");
 }
@@ -420,6 +520,9 @@ export interface DeleteRepositoryRequest {
 }
 
 export namespace DeleteRepositoryRequest {
+  export const filterSensitiveLog = (obj: DeleteRepositoryRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteRepositoryRequest =>
     __isa(o, "DeleteRepositoryRequest");
 }
@@ -433,6 +536,12 @@ export interface DeleteRepositoryResponse {
 }
 
 export namespace DeleteRepositoryResponse {
+  export const filterSensitiveLog = (obj: DeleteRepositoryResponse) => ({
+    ...obj,
+    ...(obj.repository && {
+      repository: Repository.filterSensitiveLog(obj.repository)
+    })
+  });
   export const isa = (o: any): o is DeleteRepositoryResponse =>
     __isa(o, "DeleteRepositoryResponse");
 }
@@ -480,6 +589,14 @@ export interface DescribeImageScanFindingsRequest {
 }
 
 export namespace DescribeImageScanFindingsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeImageScanFindingsRequest
+  ) => ({
+    ...obj,
+    ...(obj.imageId && {
+      imageId: ImageIdentifier.filterSensitiveLog(obj.imageId)
+    })
+  });
   export const isa = (o: any): o is DescribeImageScanFindingsRequest =>
     __isa(o, "DescribeImageScanFindingsRequest");
 }
@@ -522,6 +639,22 @@ export interface DescribeImageScanFindingsResponse {
 }
 
 export namespace DescribeImageScanFindingsResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeImageScanFindingsResponse
+  ) => ({
+    ...obj,
+    ...(obj.imageId && {
+      imageId: ImageIdentifier.filterSensitiveLog(obj.imageId)
+    }),
+    ...(obj.imageScanFindings && {
+      imageScanFindings: ImageScanFindings.filterSensitiveLog(
+        obj.imageScanFindings
+      )
+    }),
+    ...(obj.imageScanStatus && {
+      imageScanStatus: ImageScanStatus.filterSensitiveLog(obj.imageScanStatus)
+    })
+  });
   export const isa = (o: any): o is DescribeImageScanFindingsResponse =>
     __isa(o, "DescribeImageScanFindingsResponse");
 }
@@ -541,6 +674,9 @@ export interface DescribeImagesFilter {
 }
 
 export namespace DescribeImagesFilter {
+  export const filterSensitiveLog = (obj: DescribeImagesFilter) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeImagesFilter =>
     __isa(o, "DescribeImagesFilter");
 }
@@ -594,6 +730,17 @@ export interface DescribeImagesRequest {
 }
 
 export namespace DescribeImagesRequest {
+  export const filterSensitiveLog = (obj: DescribeImagesRequest) => ({
+    ...obj,
+    ...(obj.filter && {
+      filter: DescribeImagesFilter.filterSensitiveLog(obj.filter)
+    }),
+    ...(obj.imageIds && {
+      imageIds: obj.imageIds.map(item =>
+        item.map(ImageIdentifier.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeImagesRequest =>
     __isa(o, "DescribeImagesRequest");
 }
@@ -617,6 +764,14 @@ export interface DescribeImagesResponse {
 }
 
 export namespace DescribeImagesResponse {
+  export const filterSensitiveLog = (obj: DescribeImagesResponse) => ({
+    ...obj,
+    ...(obj.imageDetails && {
+      imageDetails: obj.imageDetails.map(item =>
+        item.map(ImageDetail.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeImagesResponse =>
     __isa(o, "DescribeImagesResponse");
 }
@@ -665,6 +820,9 @@ export interface DescribeRepositoriesRequest {
 }
 
 export namespace DescribeRepositoriesRequest {
+  export const filterSensitiveLog = (obj: DescribeRepositoriesRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeRepositoriesRequest =>
     __isa(o, "DescribeRepositoriesRequest");
 }
@@ -687,6 +845,14 @@ export interface DescribeRepositoriesResponse {
 }
 
 export namespace DescribeRepositoriesResponse {
+  export const filterSensitiveLog = (obj: DescribeRepositoriesResponse) => ({
+    ...obj,
+    ...(obj.repositories && {
+      repositories: obj.repositories.map(item =>
+        item.map(Repository.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeRepositoriesResponse =>
     __isa(o, "DescribeRepositoriesResponse");
 }
@@ -706,6 +872,9 @@ export interface EmptyUploadException
 }
 
 export namespace EmptyUploadException {
+  export const filterSensitiveLog = (obj: EmptyUploadException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is EmptyUploadException =>
     __isa(o, "EmptyUploadException");
 }
@@ -729,6 +898,9 @@ export interface GetAuthorizationTokenRequest {
 }
 
 export namespace GetAuthorizationTokenRequest {
+  export const filterSensitiveLog = (obj: GetAuthorizationTokenRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetAuthorizationTokenRequest =>
     __isa(o, "GetAuthorizationTokenRequest");
 }
@@ -743,6 +915,14 @@ export interface GetAuthorizationTokenResponse {
 }
 
 export namespace GetAuthorizationTokenResponse {
+  export const filterSensitiveLog = (obj: GetAuthorizationTokenResponse) => ({
+    ...obj,
+    ...(obj.authorizationData && {
+      authorizationData: obj.authorizationData.map(item =>
+        item.map(AuthorizationData.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is GetAuthorizationTokenResponse =>
     __isa(o, "GetAuthorizationTokenResponse");
 }
@@ -767,6 +947,9 @@ export interface GetDownloadUrlForLayerRequest {
 }
 
 export namespace GetDownloadUrlForLayerRequest {
+  export const filterSensitiveLog = (obj: GetDownloadUrlForLayerRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDownloadUrlForLayerRequest =>
     __isa(o, "GetDownloadUrlForLayerRequest");
 }
@@ -785,6 +968,9 @@ export interface GetDownloadUrlForLayerResponse {
 }
 
 export namespace GetDownloadUrlForLayerResponse {
+  export const filterSensitiveLog = (obj: GetDownloadUrlForLayerResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetDownloadUrlForLayerResponse =>
     __isa(o, "GetDownloadUrlForLayerResponse");
 }
@@ -840,6 +1026,19 @@ export interface GetLifecyclePolicyPreviewRequest {
 }
 
 export namespace GetLifecyclePolicyPreviewRequest {
+  export const filterSensitiveLog = (
+    obj: GetLifecyclePolicyPreviewRequest
+  ) => ({
+    ...obj,
+    ...(obj.filter && {
+      filter: LifecyclePolicyPreviewFilter.filterSensitiveLog(obj.filter)
+    }),
+    ...(obj.imageIds && {
+      imageIds: obj.imageIds.map(item =>
+        item.map(ImageIdentifier.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is GetLifecyclePolicyPreviewRequest =>
     __isa(o, "GetLifecyclePolicyPreviewRequest");
 }
@@ -887,6 +1086,19 @@ export interface GetLifecyclePolicyPreviewResponse {
 }
 
 export namespace GetLifecyclePolicyPreviewResponse {
+  export const filterSensitiveLog = (
+    obj: GetLifecyclePolicyPreviewResponse
+  ) => ({
+    ...obj,
+    ...(obj.previewResults && {
+      previewResults: obj.previewResults.map(item =>
+        item.map(LifecyclePolicyPreviewResult.filterSensitiveLog)
+      )
+    }),
+    ...(obj.summary && {
+      summary: LifecyclePolicyPreviewSummary.filterSensitiveLog(obj.summary)
+    })
+  });
   export const isa = (o: any): o is GetLifecyclePolicyPreviewResponse =>
     __isa(o, "GetLifecyclePolicyPreviewResponse");
 }
@@ -906,6 +1118,9 @@ export interface GetLifecyclePolicyRequest {
 }
 
 export namespace GetLifecyclePolicyRequest {
+  export const filterSensitiveLog = (obj: GetLifecyclePolicyRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetLifecyclePolicyRequest =>
     __isa(o, "GetLifecyclePolicyRequest");
 }
@@ -934,6 +1149,9 @@ export interface GetLifecyclePolicyResponse {
 }
 
 export namespace GetLifecyclePolicyResponse {
+  export const filterSensitiveLog = (obj: GetLifecyclePolicyResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetLifecyclePolicyResponse =>
     __isa(o, "GetLifecyclePolicyResponse");
 }
@@ -953,6 +1171,9 @@ export interface GetRepositoryPolicyRequest {
 }
 
 export namespace GetRepositoryPolicyRequest {
+  export const filterSensitiveLog = (obj: GetRepositoryPolicyRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetRepositoryPolicyRequest =>
     __isa(o, "GetRepositoryPolicyRequest");
 }
@@ -976,6 +1197,9 @@ export interface GetRepositoryPolicyResponse {
 }
 
 export namespace GetRepositoryPolicyResponse {
+  export const filterSensitiveLog = (obj: GetRepositoryPolicyResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetRepositoryPolicyResponse =>
     __isa(o, "GetRepositoryPolicyResponse");
 }
@@ -1007,6 +1231,12 @@ export interface Image {
 }
 
 export namespace Image {
+  export const filterSensitiveLog = (obj: Image) => ({
+    ...obj,
+    ...(obj.imageId && {
+      imageId: ImageIdentifier.filterSensitiveLog(obj.imageId)
+    })
+  });
   export const isa = (o: any): o is Image => __isa(o, "Image");
 }
 
@@ -1030,6 +1260,9 @@ export interface ImageAlreadyExistsException
 }
 
 export namespace ImageAlreadyExistsException {
+  export const filterSensitiveLog = (obj: ImageAlreadyExistsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ImageAlreadyExistsException =>
     __isa(o, "ImageAlreadyExistsException");
 }
@@ -1089,6 +1322,17 @@ export interface ImageDetail {
 }
 
 export namespace ImageDetail {
+  export const filterSensitiveLog = (obj: ImageDetail) => ({
+    ...obj,
+    ...(obj.imageScanFindingsSummary && {
+      imageScanFindingsSummary: ImageScanFindingsSummary.filterSensitiveLog(
+        obj.imageScanFindingsSummary
+      )
+    }),
+    ...(obj.imageScanStatus && {
+      imageScanStatus: ImageScanStatus.filterSensitiveLog(obj.imageScanStatus)
+    })
+  });
   export const isa = (o: any): o is ImageDetail => __isa(o, "ImageDetail");
 }
 
@@ -1114,6 +1358,12 @@ export interface ImageFailure {
 }
 
 export namespace ImageFailure {
+  export const filterSensitiveLog = (obj: ImageFailure) => ({
+    ...obj,
+    ...(obj.imageId && {
+      imageId: ImageIdentifier.filterSensitiveLog(obj.imageId)
+    })
+  });
   export const isa = (o: any): o is ImageFailure => __isa(o, "ImageFailure");
 }
 
@@ -1142,6 +1392,9 @@ export interface ImageIdentifier {
 }
 
 export namespace ImageIdentifier {
+  export const filterSensitiveLog = (obj: ImageIdentifier) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ImageIdentifier =>
     __isa(o, "ImageIdentifier");
 }
@@ -1158,6 +1411,9 @@ export interface ImageNotFoundException
 }
 
 export namespace ImageNotFoundException {
+  export const filterSensitiveLog = (obj: ImageNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ImageNotFoundException =>
     __isa(o, "ImageNotFoundException");
 }
@@ -1194,6 +1450,14 @@ export interface ImageScanFinding {
 }
 
 export namespace ImageScanFinding {
+  export const filterSensitiveLog = (obj: ImageScanFinding) => ({
+    ...obj,
+    ...(obj.attributes && {
+      attributes: obj.attributes.map(item =>
+        item.map(Attribute.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ImageScanFinding =>
     __isa(o, "ImageScanFinding");
 }
@@ -1225,6 +1489,14 @@ export interface ImageScanFindings {
 }
 
 export namespace ImageScanFindings {
+  export const filterSensitiveLog = (obj: ImageScanFindings) => ({
+    ...obj,
+    ...(obj.findings && {
+      findings: obj.findings.map(item =>
+        item.map(ImageScanFinding.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ImageScanFindings =>
     __isa(o, "ImageScanFindings");
 }
@@ -1251,6 +1523,9 @@ export interface ImageScanFindingsSummary {
 }
 
 export namespace ImageScanFindingsSummary {
+  export const filterSensitiveLog = (obj: ImageScanFindingsSummary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ImageScanFindingsSummary =>
     __isa(o, "ImageScanFindingsSummary");
 }
@@ -1272,6 +1547,9 @@ export interface ImageScanStatus {
 }
 
 export namespace ImageScanStatus {
+  export const filterSensitiveLog = (obj: ImageScanStatus) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ImageScanStatus =>
     __isa(o, "ImageScanStatus");
 }
@@ -1291,6 +1569,9 @@ export interface ImageScanningConfiguration {
 }
 
 export namespace ImageScanningConfiguration {
+  export const filterSensitiveLog = (obj: ImageScanningConfiguration) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ImageScanningConfiguration =>
     __isa(o, "ImageScanningConfiguration");
 }
@@ -1308,6 +1589,9 @@ export interface ImageTagAlreadyExistsException
 }
 
 export namespace ImageTagAlreadyExistsException {
+  export const filterSensitiveLog = (obj: ImageTagAlreadyExistsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ImageTagAlreadyExistsException =>
     __isa(o, "ImageTagAlreadyExistsException");
 }
@@ -1332,6 +1616,9 @@ export interface InitiateLayerUploadRequest {
 }
 
 export namespace InitiateLayerUploadRequest {
+  export const filterSensitiveLog = (obj: InitiateLayerUploadRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InitiateLayerUploadRequest =>
     __isa(o, "InitiateLayerUploadRequest");
 }
@@ -1351,6 +1638,9 @@ export interface InitiateLayerUploadResponse {
 }
 
 export namespace InitiateLayerUploadResponse {
+  export const filterSensitiveLog = (obj: InitiateLayerUploadResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InitiateLayerUploadResponse =>
     __isa(o, "InitiateLayerUploadResponse");
 }
@@ -1371,6 +1661,9 @@ export interface InvalidLayerException
 }
 
 export namespace InvalidLayerException {
+  export const filterSensitiveLog = (obj: InvalidLayerException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidLayerException =>
     __isa(o, "InvalidLayerException");
 }
@@ -1412,6 +1705,9 @@ export interface InvalidLayerPartException
 }
 
 export namespace InvalidLayerPartException {
+  export const filterSensitiveLog = (obj: InvalidLayerPartException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidLayerPartException =>
     __isa(o, "InvalidLayerPartException");
 }
@@ -1432,6 +1728,9 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
+  export const filterSensitiveLog = (obj: InvalidParameterException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidParameterException =>
     __isa(o, "InvalidParameterException");
 }
@@ -1449,6 +1748,9 @@ export interface InvalidTagParameterException
 }
 
 export namespace InvalidTagParameterException {
+  export const filterSensitiveLog = (obj: InvalidTagParameterException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidTagParameterException =>
     __isa(o, "InvalidTagParameterException");
 }
@@ -1482,6 +1784,9 @@ export interface Layer {
 }
 
 export namespace Layer {
+  export const filterSensitiveLog = (obj: Layer) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Layer => __isa(o, "Layer");
 }
 
@@ -1500,6 +1805,9 @@ export interface LayerAlreadyExistsException
 }
 
 export namespace LayerAlreadyExistsException {
+  export const filterSensitiveLog = (obj: LayerAlreadyExistsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LayerAlreadyExistsException =>
     __isa(o, "LayerAlreadyExistsException");
 }
@@ -1531,6 +1839,9 @@ export interface LayerFailure {
 }
 
 export namespace LayerFailure {
+  export const filterSensitiveLog = (obj: LayerFailure) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LayerFailure => __isa(o, "LayerFailure");
 }
 
@@ -1555,6 +1866,9 @@ export interface LayerInaccessibleException
 }
 
 export namespace LayerInaccessibleException {
+  export const filterSensitiveLog = (obj: LayerInaccessibleException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LayerInaccessibleException =>
     __isa(o, "LayerInaccessibleException");
 }
@@ -1574,6 +1888,9 @@ export interface LayerPartTooSmallException
 }
 
 export namespace LayerPartTooSmallException {
+  export const filterSensitiveLog = (obj: LayerPartTooSmallException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LayerPartTooSmallException =>
     __isa(o, "LayerPartTooSmallException");
 }
@@ -1594,6 +1911,9 @@ export interface LayersNotFoundException
 }
 
 export namespace LayersNotFoundException {
+  export const filterSensitiveLog = (obj: LayersNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LayersNotFoundException =>
     __isa(o, "LayersNotFoundException");
 }
@@ -1611,6 +1931,11 @@ export interface LifecyclePolicyNotFoundException
 }
 
 export namespace LifecyclePolicyNotFoundException {
+  export const filterSensitiveLog = (
+    obj: LifecyclePolicyNotFoundException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LifecyclePolicyNotFoundException =>
     __isa(o, "LifecyclePolicyNotFoundException");
 }
@@ -1627,6 +1952,9 @@ export interface LifecyclePolicyPreviewFilter {
 }
 
 export namespace LifecyclePolicyPreviewFilter {
+  export const filterSensitiveLog = (obj: LifecyclePolicyPreviewFilter) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LifecyclePolicyPreviewFilter =>
     __isa(o, "LifecyclePolicyPreviewFilter");
 }
@@ -1644,6 +1972,11 @@ export interface LifecyclePolicyPreviewInProgressException
 }
 
 export namespace LifecyclePolicyPreviewInProgressException {
+  export const filterSensitiveLog = (
+    obj: LifecyclePolicyPreviewInProgressException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LifecyclePolicyPreviewInProgressException =>
     __isa(o, "LifecyclePolicyPreviewInProgressException");
 }
@@ -1660,6 +1993,11 @@ export interface LifecyclePolicyPreviewNotFoundException
 }
 
 export namespace LifecyclePolicyPreviewNotFoundException {
+  export const filterSensitiveLog = (
+    obj: LifecyclePolicyPreviewNotFoundException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LifecyclePolicyPreviewNotFoundException =>
     __isa(o, "LifecyclePolicyPreviewNotFoundException");
 }
@@ -1697,6 +2035,12 @@ export interface LifecyclePolicyPreviewResult {
 }
 
 export namespace LifecyclePolicyPreviewResult {
+  export const filterSensitiveLog = (obj: LifecyclePolicyPreviewResult) => ({
+    ...obj,
+    ...(obj.action && {
+      action: LifecyclePolicyRuleAction.filterSensitiveLog(obj.action)
+    })
+  });
   export const isa = (o: any): o is LifecyclePolicyPreviewResult =>
     __isa(o, "LifecyclePolicyPreviewResult");
 }
@@ -1720,6 +2064,9 @@ export interface LifecyclePolicyPreviewSummary {
 }
 
 export namespace LifecyclePolicyPreviewSummary {
+  export const filterSensitiveLog = (obj: LifecyclePolicyPreviewSummary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LifecyclePolicyPreviewSummary =>
     __isa(o, "LifecyclePolicyPreviewSummary");
 }
@@ -1736,6 +2083,9 @@ export interface LifecyclePolicyRuleAction {
 }
 
 export namespace LifecyclePolicyRuleAction {
+  export const filterSensitiveLog = (obj: LifecyclePolicyRuleAction) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LifecyclePolicyRuleAction =>
     __isa(o, "LifecyclePolicyRuleAction");
 }
@@ -1757,6 +2107,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -1775,6 +2128,9 @@ export interface ListImagesFilter {
 }
 
 export namespace ListImagesFilter {
+  export const filterSensitiveLog = (obj: ListImagesFilter) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListImagesFilter =>
     __isa(o, "ListImagesFilter");
 }
@@ -1825,6 +2181,12 @@ export interface ListImagesRequest {
 }
 
 export namespace ListImagesRequest {
+  export const filterSensitiveLog = (obj: ListImagesRequest) => ({
+    ...obj,
+    ...(obj.filter && {
+      filter: ListImagesFilter.filterSensitiveLog(obj.filter)
+    })
+  });
   export const isa = (o: any): o is ListImagesRequest =>
     __isa(o, "ListImagesRequest");
 }
@@ -1847,6 +2209,14 @@ export interface ListImagesResponse {
 }
 
 export namespace ListImagesResponse {
+  export const filterSensitiveLog = (obj: ListImagesResponse) => ({
+    ...obj,
+    ...(obj.imageIds && {
+      imageIds: obj.imageIds.map(item =>
+        item.map(ImageIdentifier.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListImagesResponse =>
     __isa(o, "ListImagesResponse");
 }
@@ -1861,6 +2231,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
     __isa(o, "ListTagsForResourceRequest");
 }
@@ -1874,6 +2247,12 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+    ...obj,
+    ...(obj.tags && {
+      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
 }
@@ -1904,6 +2283,9 @@ export interface PutImageRequest {
 }
 
 export namespace PutImageRequest {
+  export const filterSensitiveLog = (obj: PutImageRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutImageRequest =>
     __isa(o, "PutImageRequest");
 }
@@ -1917,6 +2299,10 @@ export interface PutImageResponse {
 }
 
 export namespace PutImageResponse {
+  export const filterSensitiveLog = (obj: PutImageResponse) => ({
+    ...obj,
+    ...(obj.image && { image: Image.filterSensitiveLog(obj.image) })
+  });
   export const isa = (o: any): o is PutImageResponse =>
     __isa(o, "PutImageResponse");
 }
@@ -1945,6 +2331,16 @@ export interface PutImageScanningConfigurationRequest {
 }
 
 export namespace PutImageScanningConfigurationRequest {
+  export const filterSensitiveLog = (
+    obj: PutImageScanningConfigurationRequest
+  ) => ({
+    ...obj,
+    ...(obj.imageScanningConfiguration && {
+      imageScanningConfiguration: ImageScanningConfiguration.filterSensitiveLog(
+        obj.imageScanningConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is PutImageScanningConfigurationRequest =>
     __isa(o, "PutImageScanningConfigurationRequest");
 }
@@ -1968,6 +2364,16 @@ export interface PutImageScanningConfigurationResponse {
 }
 
 export namespace PutImageScanningConfigurationResponse {
+  export const filterSensitiveLog = (
+    obj: PutImageScanningConfigurationResponse
+  ) => ({
+    ...obj,
+    ...(obj.imageScanningConfiguration && {
+      imageScanningConfiguration: ImageScanningConfiguration.filterSensitiveLog(
+        obj.imageScanningConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is PutImageScanningConfigurationResponse =>
     __isa(o, "PutImageScanningConfigurationResponse");
 }
@@ -1996,6 +2402,9 @@ export interface PutImageTagMutabilityRequest {
 }
 
 export namespace PutImageTagMutabilityRequest {
+  export const filterSensitiveLog = (obj: PutImageTagMutabilityRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutImageTagMutabilityRequest =>
     __isa(o, "PutImageTagMutabilityRequest");
 }
@@ -2019,6 +2428,9 @@ export interface PutImageTagMutabilityResponse {
 }
 
 export namespace PutImageTagMutabilityResponse {
+  export const filterSensitiveLog = (obj: PutImageTagMutabilityResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutImageTagMutabilityResponse =>
     __isa(o, "PutImageTagMutabilityResponse");
 }
@@ -2043,6 +2455,9 @@ export interface PutLifecyclePolicyRequest {
 }
 
 export namespace PutLifecyclePolicyRequest {
+  export const filterSensitiveLog = (obj: PutLifecyclePolicyRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutLifecyclePolicyRequest =>
     __isa(o, "PutLifecyclePolicyRequest");
 }
@@ -2066,6 +2481,9 @@ export interface PutLifecyclePolicyResponse {
 }
 
 export namespace PutLifecyclePolicyResponse {
+  export const filterSensitiveLog = (obj: PutLifecyclePolicyResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutLifecyclePolicyResponse =>
     __isa(o, "PutLifecyclePolicyResponse");
 }
@@ -2115,6 +2533,14 @@ export interface Repository {
 }
 
 export namespace Repository {
+  export const filterSensitiveLog = (obj: Repository) => ({
+    ...obj,
+    ...(obj.imageScanningConfiguration && {
+      imageScanningConfiguration: ImageScanningConfiguration.filterSensitiveLog(
+        obj.imageScanningConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is Repository => __isa(o, "Repository");
 }
 
@@ -2133,6 +2559,11 @@ export interface RepositoryAlreadyExistsException
 }
 
 export namespace RepositoryAlreadyExistsException {
+  export const filterSensitiveLog = (
+    obj: RepositoryAlreadyExistsException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RepositoryAlreadyExistsException =>
     __isa(o, "RepositoryAlreadyExistsException");
 }
@@ -2153,6 +2584,9 @@ export interface RepositoryNotEmptyException
 }
 
 export namespace RepositoryNotEmptyException {
+  export const filterSensitiveLog = (obj: RepositoryNotEmptyException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RepositoryNotEmptyException =>
     __isa(o, "RepositoryNotEmptyException");
 }
@@ -2173,6 +2607,9 @@ export interface RepositoryNotFoundException
 }
 
 export namespace RepositoryNotFoundException {
+  export const filterSensitiveLog = (obj: RepositoryNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RepositoryNotFoundException =>
     __isa(o, "RepositoryNotFoundException");
 }
@@ -2193,6 +2630,11 @@ export interface RepositoryPolicyNotFoundException
 }
 
 export namespace RepositoryPolicyNotFoundException {
+  export const filterSensitiveLog = (
+    obj: RepositoryPolicyNotFoundException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RepositoryPolicyNotFoundException =>
     __isa(o, "RepositoryPolicyNotFoundException");
 }
@@ -2210,6 +2652,9 @@ export interface ScanNotFoundException
 }
 
 export namespace ScanNotFoundException {
+  export const filterSensitiveLog = (obj: ScanNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ScanNotFoundException =>
     __isa(o, "ScanNotFoundException");
 }
@@ -2233,6 +2678,9 @@ export interface ServerException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ServerException {
+  export const filterSensitiveLog = (obj: ServerException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ServerException =>
     __isa(o, "ServerException");
 }
@@ -2267,6 +2715,9 @@ export interface SetRepositoryPolicyRequest {
 }
 
 export namespace SetRepositoryPolicyRequest {
+  export const filterSensitiveLog = (obj: SetRepositoryPolicyRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SetRepositoryPolicyRequest =>
     __isa(o, "SetRepositoryPolicyRequest");
 }
@@ -2290,6 +2741,9 @@ export interface SetRepositoryPolicyResponse {
 }
 
 export namespace SetRepositoryPolicyResponse {
+  export const filterSensitiveLog = (obj: SetRepositoryPolicyResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SetRepositoryPolicyResponse =>
     __isa(o, "SetRepositoryPolicyResponse");
 }
@@ -2314,6 +2768,12 @@ export interface StartImageScanRequest {
 }
 
 export namespace StartImageScanRequest {
+  export const filterSensitiveLog = (obj: StartImageScanRequest) => ({
+    ...obj,
+    ...(obj.imageId && {
+      imageId: ImageIdentifier.filterSensitiveLog(obj.imageId)
+    })
+  });
   export const isa = (o: any): o is StartImageScanRequest =>
     __isa(o, "StartImageScanRequest");
 }
@@ -2342,6 +2802,15 @@ export interface StartImageScanResponse {
 }
 
 export namespace StartImageScanResponse {
+  export const filterSensitiveLog = (obj: StartImageScanResponse) => ({
+    ...obj,
+    ...(obj.imageId && {
+      imageId: ImageIdentifier.filterSensitiveLog(obj.imageId)
+    }),
+    ...(obj.imageScanStatus && {
+      imageScanStatus: ImageScanStatus.filterSensitiveLog(obj.imageScanStatus)
+    })
+  });
   export const isa = (o: any): o is StartImageScanResponse =>
     __isa(o, "StartImageScanResponse");
 }
@@ -2367,6 +2836,11 @@ export interface StartLifecyclePolicyPreviewRequest {
 }
 
 export namespace StartLifecyclePolicyPreviewRequest {
+  export const filterSensitiveLog = (
+    obj: StartLifecyclePolicyPreviewRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartLifecyclePolicyPreviewRequest =>
     __isa(o, "StartLifecyclePolicyPreviewRequest");
 }
@@ -2395,6 +2869,11 @@ export interface StartLifecyclePolicyPreviewResponse {
 }
 
 export namespace StartLifecyclePolicyPreviewResponse {
+  export const filterSensitiveLog = (
+    obj: StartLifecyclePolicyPreviewResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartLifecyclePolicyPreviewResponse =>
     __isa(o, "StartLifecyclePolicyPreviewResponse");
 }
@@ -2421,6 +2900,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
@@ -2441,6 +2923,12 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+    ...obj,
+    ...(obj.tags && {
+      tags: obj.tags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
 }
@@ -2450,6 +2938,9 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceResponse =>
     __isa(o, "TagResourceResponse");
 }
@@ -2473,6 +2964,9 @@ export interface TooManyTagsException
 }
 
 export namespace TooManyTagsException {
+  export const filterSensitiveLog = (obj: TooManyTagsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyTagsException =>
     __isa(o, "TooManyTagsException");
 }
@@ -2492,6 +2986,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceRequest =>
     __isa(o, "UntagResourceRequest");
 }
@@ -2501,6 +2998,9 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceResponse =>
     __isa(o, "UntagResourceResponse");
 }
@@ -2541,6 +3041,9 @@ export interface UploadLayerPartRequest {
 }
 
 export namespace UploadLayerPartRequest {
+  export const filterSensitiveLog = (obj: UploadLayerPartRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UploadLayerPartRequest =>
     __isa(o, "UploadLayerPartRequest");
 }
@@ -2569,6 +3072,9 @@ export interface UploadLayerPartResponse {
 }
 
 export namespace UploadLayerPartResponse {
+  export const filterSensitiveLog = (obj: UploadLayerPartResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UploadLayerPartResponse =>
     __isa(o, "UploadLayerPartResponse");
 }
@@ -2589,6 +3095,9 @@ export interface UploadNotFoundException
 }
 
 export namespace UploadNotFoundException {
+  export const filterSensitiveLog = (obj: UploadNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UploadNotFoundException =>
     __isa(o, "UploadNotFoundException");
 }

@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -33,6 +34,12 @@ export interface CreateLifecyclePolicyRequest {
 }
 
 export namespace CreateLifecyclePolicyRequest {
+  export const filterSensitiveLog = (obj: CreateLifecyclePolicyRequest) => ({
+    ...obj,
+    ...(obj.PolicyDetails && {
+      PolicyDetails: PolicyDetails.filterSensitiveLog(obj.PolicyDetails)
+    })
+  });
   export const isa = (o: any): o is CreateLifecyclePolicyRequest =>
     __isa(o, "CreateLifecyclePolicyRequest");
 }
@@ -46,6 +53,9 @@ export interface CreateLifecyclePolicyResponse {
 }
 
 export namespace CreateLifecyclePolicyResponse {
+  export const filterSensitiveLog = (obj: CreateLifecyclePolicyResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateLifecyclePolicyResponse =>
     __isa(o, "CreateLifecyclePolicyResponse");
 }
@@ -72,6 +82,9 @@ export interface CreateRule {
 }
 
 export namespace CreateRule {
+  export const filterSensitiveLog = (obj: CreateRule) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateRule => __isa(o, "CreateRule");
 }
 
@@ -92,6 +105,9 @@ export interface CrossRegionCopyRetainRule {
 }
 
 export namespace CrossRegionCopyRetainRule {
+  export const filterSensitiveLog = (obj: CrossRegionCopyRetainRule) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CrossRegionCopyRetainRule =>
     __isa(o, "CrossRegionCopyRetainRule");
 }
@@ -128,6 +144,12 @@ export interface CrossRegionCopyRule {
 }
 
 export namespace CrossRegionCopyRule {
+  export const filterSensitiveLog = (obj: CrossRegionCopyRule) => ({
+    ...obj,
+    ...(obj.RetainRule && {
+      RetainRule: CrossRegionCopyRetainRule.filterSensitiveLog(obj.RetainRule)
+    })
+  });
   export const isa = (o: any): o is CrossRegionCopyRule =>
     __isa(o, "CrossRegionCopyRule");
 }
@@ -141,6 +163,9 @@ export interface DeleteLifecyclePolicyRequest {
 }
 
 export namespace DeleteLifecyclePolicyRequest {
+  export const filterSensitiveLog = (obj: DeleteLifecyclePolicyRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteLifecyclePolicyRequest =>
     __isa(o, "DeleteLifecyclePolicyRequest");
 }
@@ -150,6 +175,9 @@ export interface DeleteLifecyclePolicyResponse {
 }
 
 export namespace DeleteLifecyclePolicyResponse {
+  export const filterSensitiveLog = (obj: DeleteLifecyclePolicyResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteLifecyclePolicyResponse =>
     __isa(o, "DeleteLifecyclePolicyResponse");
 }
@@ -181,6 +209,9 @@ export interface FastRestoreRule {
 }
 
 export namespace FastRestoreRule {
+  export const filterSensitiveLog = (obj: FastRestoreRule) => ({
+    ...obj
+  });
   export const isa = (o: any): o is FastRestoreRule =>
     __isa(o, "FastRestoreRule");
 }
@@ -214,6 +245,9 @@ export interface GetLifecyclePoliciesRequest {
 }
 
 export namespace GetLifecyclePoliciesRequest {
+  export const filterSensitiveLog = (obj: GetLifecyclePoliciesRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetLifecyclePoliciesRequest =>
     __isa(o, "GetLifecyclePoliciesRequest");
 }
@@ -227,6 +261,14 @@ export interface GetLifecyclePoliciesResponse {
 }
 
 export namespace GetLifecyclePoliciesResponse {
+  export const filterSensitiveLog = (obj: GetLifecyclePoliciesResponse) => ({
+    ...obj,
+    ...(obj.Policies && {
+      Policies: obj.Policies.map(item =>
+        item.map(LifecyclePolicySummary.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is GetLifecyclePoliciesResponse =>
     __isa(o, "GetLifecyclePoliciesResponse");
 }
@@ -240,6 +282,9 @@ export interface GetLifecyclePolicyRequest {
 }
 
 export namespace GetLifecyclePolicyRequest {
+  export const filterSensitiveLog = (obj: GetLifecyclePolicyRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetLifecyclePolicyRequest =>
     __isa(o, "GetLifecyclePolicyRequest");
 }
@@ -253,6 +298,12 @@ export interface GetLifecyclePolicyResponse {
 }
 
 export namespace GetLifecyclePolicyResponse {
+  export const filterSensitiveLog = (obj: GetLifecyclePolicyResponse) => ({
+    ...obj,
+    ...(obj.Policy && {
+      Policy: LifecyclePolicy.filterSensitiveLog(obj.Policy)
+    })
+  });
   export const isa = (o: any): o is GetLifecyclePolicyResponse =>
     __isa(o, "GetLifecyclePolicyResponse");
 }
@@ -276,6 +327,9 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
+  export const filterSensitiveLog = (obj: InternalServerException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServerException =>
     __isa(o, "InternalServerException");
 }
@@ -306,6 +360,9 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
+  export const filterSensitiveLog = (obj: InvalidRequestException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidRequestException =>
     __isa(o, "InvalidRequestException");
 }
@@ -367,6 +424,12 @@ export interface LifecyclePolicy {
 }
 
 export namespace LifecyclePolicy {
+  export const filterSensitiveLog = (obj: LifecyclePolicy) => ({
+    ...obj,
+    ...(obj.PolicyDetails && {
+      PolicyDetails: PolicyDetails.filterSensitiveLog(obj.PolicyDetails)
+    })
+  });
   export const isa = (o: any): o is LifecyclePolicy =>
     __isa(o, "LifecyclePolicy");
 }
@@ -398,6 +461,9 @@ export interface LifecyclePolicySummary {
 }
 
 export namespace LifecyclePolicySummary {
+  export const filterSensitiveLog = (obj: LifecyclePolicySummary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LifecyclePolicySummary =>
     __isa(o, "LifecyclePolicySummary");
 }
@@ -419,6 +485,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -432,6 +501,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
     __isa(o, "ListTagsForResourceRequest");
 }
@@ -445,6 +517,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
 }
@@ -461,6 +536,9 @@ export interface _Parameters {
 }
 
 export namespace _Parameters {
+  export const filterSensitiveLog = (obj: _Parameters) => ({
+    ...obj
+  });
   export const isa = (o: any): o is _Parameters => __isa(o, "Parameters");
 }
 
@@ -496,6 +574,20 @@ export interface PolicyDetails {
 }
 
 export namespace PolicyDetails {
+  export const filterSensitiveLog = (obj: PolicyDetails) => ({
+    ...obj,
+    ...(obj.Parameters && {
+      Parameters: _Parameters.filterSensitiveLog(obj.Parameters)
+    }),
+    ...(obj.Schedules && {
+      Schedules: obj.Schedules.map(item =>
+        item.map(Schedule.filterSensitiveLog)
+      )
+    }),
+    ...(obj.TargetTags && {
+      TargetTags: obj.TargetTags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is PolicyDetails => __isa(o, "PolicyDetails");
 }
 
@@ -525,6 +617,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -556,6 +651,9 @@ export interface RetainRule {
 }
 
 export namespace RetainRule {
+  export const filterSensitiveLog = (obj: RetainRule) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RetainRule => __isa(o, "RetainRule");
 }
 
@@ -613,6 +711,31 @@ export interface Schedule {
 }
 
 export namespace Schedule {
+  export const filterSensitiveLog = (obj: Schedule) => ({
+    ...obj,
+    ...(obj.CreateRule && {
+      CreateRule: CreateRule.filterSensitiveLog(obj.CreateRule)
+    }),
+    ...(obj.CrossRegionCopyRules && {
+      CrossRegionCopyRules: obj.CrossRegionCopyRules.map(item =>
+        item.map(CrossRegionCopyRule.filterSensitiveLog)
+      )
+    }),
+    ...(obj.FastRestoreRule && {
+      FastRestoreRule: FastRestoreRule.filterSensitiveLog(obj.FastRestoreRule)
+    }),
+    ...(obj.RetainRule && {
+      RetainRule: RetainRule.filterSensitiveLog(obj.RetainRule)
+    }),
+    ...(obj.TagsToAdd && {
+      TagsToAdd: obj.TagsToAdd.map(item => item.map(Tag.filterSensitiveLog))
+    }),
+    ...(obj.VariableTags && {
+      VariableTags: obj.VariableTags.map(item =>
+        item.map(Tag.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is Schedule => __isa(o, "Schedule");
 }
 
@@ -638,6 +761,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
@@ -655,6 +781,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceRequest =>
     __isa(o, "TagResourceRequest");
 }
@@ -664,6 +793,9 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourceResponse =>
     __isa(o, "TagResourceResponse");
 }
@@ -682,6 +814,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceRequest =>
     __isa(o, "UntagResourceRequest");
 }
@@ -691,6 +826,9 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourceResponse =>
     __isa(o, "UntagResourceResponse");
 }
@@ -724,6 +862,12 @@ export interface UpdateLifecyclePolicyRequest {
 }
 
 export namespace UpdateLifecyclePolicyRequest {
+  export const filterSensitiveLog = (obj: UpdateLifecyclePolicyRequest) => ({
+    ...obj,
+    ...(obj.PolicyDetails && {
+      PolicyDetails: PolicyDetails.filterSensitiveLog(obj.PolicyDetails)
+    })
+  });
   export const isa = (o: any): o is UpdateLifecyclePolicyRequest =>
     __isa(o, "UpdateLifecyclePolicyRequest");
 }
@@ -733,6 +877,9 @@ export interface UpdateLifecyclePolicyResponse {
 }
 
 export namespace UpdateLifecyclePolicyResponse {
+  export const filterSensitiveLog = (obj: UpdateLifecyclePolicyResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateLifecyclePolicyResponse =>
     __isa(o, "UpdateLifecyclePolicyResponse");
 }

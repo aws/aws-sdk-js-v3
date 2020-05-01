@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
   isa as __isa
@@ -19,6 +20,9 @@ export interface AttributeValue {
 }
 
 export namespace AttributeValue {
+  export const filterSensitiveLog = (obj: AttributeValue) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AttributeValue =>
     __isa(o, "AttributeValue");
 }
@@ -52,6 +56,9 @@ export interface DescribeServicesRequest {
 }
 
 export namespace DescribeServicesRequest {
+  export const filterSensitiveLog = (obj: DescribeServicesRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeServicesRequest =>
     __isa(o, "DescribeServicesRequest");
 }
@@ -75,6 +82,12 @@ export interface DescribeServicesResponse {
 }
 
 export namespace DescribeServicesResponse {
+  export const filterSensitiveLog = (obj: DescribeServicesResponse) => ({
+    ...obj,
+    ...(obj.Services && {
+      Services: obj.Services.map(item => item.map(Service.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is DescribeServicesResponse =>
     __isa(o, "DescribeServicesResponse");
 }
@@ -91,6 +104,9 @@ export interface ExpiredNextTokenException
 }
 
 export namespace ExpiredNextTokenException {
+  export const filterSensitiveLog = (obj: ExpiredNextTokenException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ExpiredNextTokenException =>
     __isa(o, "ExpiredNextTokenException");
 }
@@ -129,6 +145,9 @@ export interface Filter {
 }
 
 export namespace Filter {
+  export const filterSensitiveLog = (obj: Filter) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
@@ -161,6 +180,9 @@ export interface GetAttributeValuesRequest {
 }
 
 export namespace GetAttributeValuesRequest {
+  export const filterSensitiveLog = (obj: GetAttributeValuesRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetAttributeValuesRequest =>
     __isa(o, "GetAttributeValuesRequest");
 }
@@ -181,6 +203,14 @@ export interface GetAttributeValuesResponse {
 }
 
 export namespace GetAttributeValuesResponse {
+  export const filterSensitiveLog = (obj: GetAttributeValuesResponse) => ({
+    ...obj,
+    ...(obj.AttributeValues && {
+      AttributeValues: obj.AttributeValues.map(item =>
+        item.map(AttributeValue.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is GetAttributeValuesResponse =>
     __isa(o, "GetAttributeValuesResponse");
 }
@@ -217,6 +247,12 @@ export interface GetProductsRequest {
 }
 
 export namespace GetProductsRequest {
+  export const filterSensitiveLog = (obj: GetProductsRequest) => ({
+    ...obj,
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item => item.map(Filter.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is GetProductsRequest =>
     __isa(o, "GetProductsRequest");
 }
@@ -241,6 +277,9 @@ export interface GetProductsResponse {
 }
 
 export namespace GetProductsResponse {
+  export const filterSensitiveLog = (obj: GetProductsResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetProductsResponse =>
     __isa(o, "GetProductsResponse");
 }
@@ -257,6 +296,9 @@ export interface InternalErrorException
 }
 
 export namespace InternalErrorException {
+  export const filterSensitiveLog = (obj: InternalErrorException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalErrorException =>
     __isa(o, "InternalErrorException");
 }
@@ -273,6 +315,9 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
+  export const filterSensitiveLog = (obj: InvalidNextTokenException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidNextTokenException =>
     __isa(o, "InvalidNextTokenException");
 }
@@ -289,6 +334,9 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
+  export const filterSensitiveLog = (obj: InvalidParameterException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidParameterException =>
     __isa(o, "InvalidParameterException");
 }
@@ -303,6 +351,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotFoundException =>
     __isa(o, "NotFoundException");
 }
@@ -324,5 +375,8 @@ export interface Service {
 }
 
 export namespace Service {
+  export const filterSensitiveLog = (obj: Service) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Service => __isa(o, "Service");
 }

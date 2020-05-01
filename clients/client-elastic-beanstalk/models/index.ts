@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -23,6 +24,9 @@ export interface AbortEnvironmentUpdateMessage {
 }
 
 export namespace AbortEnvironmentUpdateMessage {
+  export const filterSensitiveLog = (obj: AbortEnvironmentUpdateMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AbortEnvironmentUpdateMessage =>
     __isa(o, "AbortEnvironmentUpdateMessage");
 }
@@ -80,6 +84,14 @@ export interface ApplicationDescription {
 }
 
 export namespace ApplicationDescription {
+  export const filterSensitiveLog = (obj: ApplicationDescription) => ({
+    ...obj,
+    ...(obj.ResourceLifecycleConfig && {
+      ResourceLifecycleConfig: ApplicationResourceLifecycleConfig.filterSensitiveLog(
+        obj.ResourceLifecycleConfig
+      )
+    })
+  });
   export const isa = (o: any): o is ApplicationDescription =>
     __isa(o, "ApplicationDescription");
 }
@@ -96,6 +108,12 @@ export interface ApplicationDescriptionMessage {
 }
 
 export namespace ApplicationDescriptionMessage {
+  export const filterSensitiveLog = (obj: ApplicationDescriptionMessage) => ({
+    ...obj,
+    ...(obj.Application && {
+      Application: ApplicationDescription.filterSensitiveLog(obj.Application)
+    })
+  });
   export const isa = (o: any): o is ApplicationDescriptionMessage =>
     __isa(o, "ApplicationDescriptionMessage");
 }
@@ -112,6 +130,14 @@ export interface ApplicationDescriptionsMessage {
 }
 
 export namespace ApplicationDescriptionsMessage {
+  export const filterSensitiveLog = (obj: ApplicationDescriptionsMessage) => ({
+    ...obj,
+    ...(obj.Applications && {
+      Applications: obj.Applications.map(item =>
+        item.map(ApplicationDescription.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ApplicationDescriptionsMessage =>
     __isa(o, "ApplicationDescriptionsMessage");
 }
@@ -148,6 +174,13 @@ export interface ApplicationMetrics {
 }
 
 export namespace ApplicationMetrics {
+  export const filterSensitiveLog = (obj: ApplicationMetrics) => ({
+    ...obj,
+    ...(obj.Latency && { Latency: Latency.filterSensitiveLog(obj.Latency) }),
+    ...(obj.StatusCodes && {
+      StatusCodes: StatusCodes.filterSensitiveLog(obj.StatusCodes)
+    })
+  });
   export const isa = (o: any): o is ApplicationMetrics =>
     __isa(o, "ApplicationMetrics");
 }
@@ -180,6 +213,16 @@ export interface ApplicationResourceLifecycleConfig {
 }
 
 export namespace ApplicationResourceLifecycleConfig {
+  export const filterSensitiveLog = (
+    obj: ApplicationResourceLifecycleConfig
+  ) => ({
+    ...obj,
+    ...(obj.VersionLifecycleConfig && {
+      VersionLifecycleConfig: ApplicationVersionLifecycleConfig.filterSensitiveLog(
+        obj.VersionLifecycleConfig
+      )
+    })
+  });
   export const isa = (o: any): o is ApplicationResourceLifecycleConfig =>
     __isa(o, "ApplicationResourceLifecycleConfig");
 }
@@ -198,6 +241,16 @@ export interface ApplicationResourceLifecycleDescriptionMessage {
 }
 
 export namespace ApplicationResourceLifecycleDescriptionMessage {
+  export const filterSensitiveLog = (
+    obj: ApplicationResourceLifecycleDescriptionMessage
+  ) => ({
+    ...obj,
+    ...(obj.ResourceLifecycleConfig && {
+      ResourceLifecycleConfig: ApplicationResourceLifecycleConfig.filterSensitiveLog(
+        obj.ResourceLifecycleConfig
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is ApplicationResourceLifecycleDescriptionMessage =>
@@ -291,6 +344,17 @@ export interface ApplicationVersionDescription {
 }
 
 export namespace ApplicationVersionDescription {
+  export const filterSensitiveLog = (obj: ApplicationVersionDescription) => ({
+    ...obj,
+    ...(obj.SourceBuildInformation && {
+      SourceBuildInformation: SourceBuildInformation.filterSensitiveLog(
+        obj.SourceBuildInformation
+      )
+    }),
+    ...(obj.SourceBundle && {
+      SourceBundle: S3Location.filterSensitiveLog(obj.SourceBundle)
+    })
+  });
   export const isa = (o: any): o is ApplicationVersionDescription =>
     __isa(o, "ApplicationVersionDescription");
 }
@@ -308,6 +372,16 @@ export interface ApplicationVersionDescriptionMessage {
 }
 
 export namespace ApplicationVersionDescriptionMessage {
+  export const filterSensitiveLog = (
+    obj: ApplicationVersionDescriptionMessage
+  ) => ({
+    ...obj,
+    ...(obj.ApplicationVersion && {
+      ApplicationVersion: ApplicationVersionDescription.filterSensitiveLog(
+        obj.ApplicationVersion
+      )
+    })
+  });
   export const isa = (o: any): o is ApplicationVersionDescriptionMessage =>
     __isa(o, "ApplicationVersionDescriptionMessage");
 }
@@ -331,6 +405,16 @@ export interface ApplicationVersionDescriptionsMessage {
 }
 
 export namespace ApplicationVersionDescriptionsMessage {
+  export const filterSensitiveLog = (
+    obj: ApplicationVersionDescriptionsMessage
+  ) => ({
+    ...obj,
+    ...(obj.ApplicationVersions && {
+      ApplicationVersions: obj.ApplicationVersions.map(item =>
+        item.map(ApplicationVersionDescription.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ApplicationVersionDescriptionsMessage =>
     __isa(o, "ApplicationVersionDescriptionsMessage");
 }
@@ -359,6 +443,17 @@ export interface ApplicationVersionLifecycleConfig {
 }
 
 export namespace ApplicationVersionLifecycleConfig {
+  export const filterSensitiveLog = (
+    obj: ApplicationVersionLifecycleConfig
+  ) => ({
+    ...obj,
+    ...(obj.MaxAgeRule && {
+      MaxAgeRule: MaxAgeRule.filterSensitiveLog(obj.MaxAgeRule)
+    }),
+    ...(obj.MaxCountRule && {
+      MaxCountRule: MaxCountRule.filterSensitiveLog(obj.MaxCountRule)
+    })
+  });
   export const isa = (o: any): o is ApplicationVersionLifecycleConfig =>
     __isa(o, "ApplicationVersionLifecycleConfig");
 }
@@ -392,6 +487,11 @@ export interface ApplyEnvironmentManagedActionRequest {
 }
 
 export namespace ApplyEnvironmentManagedActionRequest {
+  export const filterSensitiveLog = (
+    obj: ApplyEnvironmentManagedActionRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ApplyEnvironmentManagedActionRequest =>
     __isa(o, "ApplyEnvironmentManagedActionRequest");
 }
@@ -423,6 +523,11 @@ export interface ApplyEnvironmentManagedActionResult {
 }
 
 export namespace ApplyEnvironmentManagedActionResult {
+  export const filterSensitiveLog = (
+    obj: ApplyEnvironmentManagedActionResult
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ApplyEnvironmentManagedActionResult =>
     __isa(o, "ApplyEnvironmentManagedActionResult");
 }
@@ -439,6 +544,9 @@ export interface AutoScalingGroup {
 }
 
 export namespace AutoScalingGroup {
+  export const filterSensitiveLog = (obj: AutoScalingGroup) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AutoScalingGroup =>
     __isa(o, "AutoScalingGroup");
 }
@@ -497,6 +605,9 @@ export interface BuildConfiguration {
 }
 
 export namespace BuildConfiguration {
+  export const filterSensitiveLog = (obj: BuildConfiguration) => ({
+    ...obj
+  });
   export const isa = (o: any): o is BuildConfiguration =>
     __isa(o, "BuildConfiguration");
 }
@@ -513,6 +624,9 @@ export interface Builder {
 }
 
 export namespace Builder {
+  export const filterSensitiveLog = (obj: Builder) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Builder => __isa(o, "Builder");
 }
 
@@ -577,6 +691,9 @@ export interface CPUUtilization {
 }
 
 export namespace CPUUtilization {
+  export const filterSensitiveLog = (obj: CPUUtilization) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CPUUtilization =>
     __isa(o, "CPUUtilization");
 }
@@ -593,6 +710,9 @@ export interface CheckDNSAvailabilityMessage {
 }
 
 export namespace CheckDNSAvailabilityMessage {
+  export const filterSensitiveLog = (obj: CheckDNSAvailabilityMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CheckDNSAvailabilityMessage =>
     __isa(o, "CheckDNSAvailabilityMessage");
 }
@@ -625,6 +745,11 @@ export interface CheckDNSAvailabilityResultMessage {
 }
 
 export namespace CheckDNSAvailabilityResultMessage {
+  export const filterSensitiveLog = (
+    obj: CheckDNSAvailabilityResultMessage
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CheckDNSAvailabilityResultMessage =>
     __isa(o, "CheckDNSAvailabilityResultMessage");
 }
@@ -644,6 +769,11 @@ export interface CodeBuildNotInServiceRegionException
 }
 
 export namespace CodeBuildNotInServiceRegionException {
+  export const filterSensitiveLog = (
+    obj: CodeBuildNotInServiceRegionException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CodeBuildNotInServiceRegionException =>
     __isa(o, "CodeBuildNotInServiceRegionException");
 }
@@ -676,6 +806,9 @@ export interface ComposeEnvironmentsMessage {
 }
 
 export namespace ComposeEnvironmentsMessage {
+  export const filterSensitiveLog = (obj: ComposeEnvironmentsMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ComposeEnvironmentsMessage =>
     __isa(o, "ComposeEnvironmentsMessage");
 }
@@ -814,6 +947,12 @@ export interface ConfigurationOptionDescription {
 }
 
 export namespace ConfigurationOptionDescription {
+  export const filterSensitiveLog = (obj: ConfigurationOptionDescription) => ({
+    ...obj,
+    ...(obj.Regex && {
+      Regex: OptionRestrictionRegex.filterSensitiveLog(obj.Regex)
+    })
+  });
   export const isa = (o: any): o is ConfigurationOptionDescription =>
     __isa(o, "ConfigurationOptionDescription");
 }
@@ -847,6 +986,9 @@ export interface ConfigurationOptionSetting {
 }
 
 export namespace ConfigurationOptionSetting {
+  export const filterSensitiveLog = (obj: ConfigurationOptionSetting) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConfigurationOptionSetting =>
     __isa(o, "ConfigurationOptionSetting");
 }
@@ -875,6 +1017,14 @@ export interface ConfigurationOptionsDescription {
 }
 
 export namespace ConfigurationOptionsDescription {
+  export const filterSensitiveLog = (obj: ConfigurationOptionsDescription) => ({
+    ...obj,
+    ...(obj.Options && {
+      Options: obj.Options.map(item =>
+        item.map(ConfigurationOptionDescription.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ConfigurationOptionsDescription =>
     __isa(o, "ConfigurationOptionsDescription");
 }
@@ -963,6 +1113,16 @@ export interface ConfigurationSettingsDescription {
 }
 
 export namespace ConfigurationSettingsDescription {
+  export const filterSensitiveLog = (
+    obj: ConfigurationSettingsDescription
+  ) => ({
+    ...obj,
+    ...(obj.OptionSettings && {
+      OptionSettings: obj.OptionSettings.map(item =>
+        item.map(ConfigurationOptionSetting.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ConfigurationSettingsDescription =>
     __isa(o, "ConfigurationSettingsDescription");
 }
@@ -980,6 +1140,16 @@ export interface ConfigurationSettingsDescriptions {
 }
 
 export namespace ConfigurationSettingsDescriptions {
+  export const filterSensitiveLog = (
+    obj: ConfigurationSettingsDescriptions
+  ) => ({
+    ...obj,
+    ...(obj.ConfigurationSettings && {
+      ConfigurationSettings: obj.ConfigurationSettings.map(item =>
+        item.map(ConfigurationSettingsDescription.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ConfigurationSettingsDescriptions =>
     __isa(o, "ConfigurationSettingsDescriptions");
 }
@@ -996,6 +1166,16 @@ export interface ConfigurationSettingsValidationMessages {
 }
 
 export namespace ConfigurationSettingsValidationMessages {
+  export const filterSensitiveLog = (
+    obj: ConfigurationSettingsValidationMessages
+  ) => ({
+    ...obj,
+    ...(obj.Messages && {
+      Messages: obj.Messages.map(item =>
+        item.map(ValidationMessage.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ConfigurationSettingsValidationMessages =>
     __isa(o, "ConfigurationSettingsValidationMessages");
 }
@@ -1032,6 +1212,17 @@ export interface CreateApplicationMessage {
 }
 
 export namespace CreateApplicationMessage {
+  export const filterSensitiveLog = (obj: CreateApplicationMessage) => ({
+    ...obj,
+    ...(obj.ResourceLifecycleConfig && {
+      ResourceLifecycleConfig: ApplicationResourceLifecycleConfig.filterSensitiveLog(
+        obj.ResourceLifecycleConfig
+      )
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is CreateApplicationMessage =>
     __isa(o, "CreateApplicationMessage");
 }
@@ -1117,6 +1308,25 @@ export interface CreateApplicationVersionMessage {
 }
 
 export namespace CreateApplicationVersionMessage {
+  export const filterSensitiveLog = (obj: CreateApplicationVersionMessage) => ({
+    ...obj,
+    ...(obj.BuildConfiguration && {
+      BuildConfiguration: BuildConfiguration.filterSensitiveLog(
+        obj.BuildConfiguration
+      )
+    }),
+    ...(obj.SourceBuildInformation && {
+      SourceBuildInformation: SourceBuildInformation.filterSensitiveLog(
+        obj.SourceBuildInformation
+      )
+    }),
+    ...(obj.SourceBundle && {
+      SourceBundle: S3Location.filterSensitiveLog(obj.SourceBundle)
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is CreateApplicationVersionMessage =>
     __isa(o, "CreateApplicationVersionMessage");
 }
@@ -1202,6 +1412,24 @@ export interface CreateConfigurationTemplateMessage {
 }
 
 export namespace CreateConfigurationTemplateMessage {
+  export const filterSensitiveLog = (
+    obj: CreateConfigurationTemplateMessage
+  ) => ({
+    ...obj,
+    ...(obj.OptionSettings && {
+      OptionSettings: obj.OptionSettings.map(item =>
+        item.map(ConfigurationOptionSetting.filterSensitiveLog)
+      )
+    }),
+    ...(obj.SourceConfiguration && {
+      SourceConfiguration: SourceConfiguration.filterSensitiveLog(
+        obj.SourceConfiguration
+      )
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is CreateConfigurationTemplateMessage =>
     __isa(o, "CreateConfigurationTemplateMessage");
 }
@@ -1304,6 +1532,23 @@ export interface CreateEnvironmentMessage {
 }
 
 export namespace CreateEnvironmentMessage {
+  export const filterSensitiveLog = (obj: CreateEnvironmentMessage) => ({
+    ...obj,
+    ...(obj.OptionSettings && {
+      OptionSettings: obj.OptionSettings.map(item =>
+        item.map(ConfigurationOptionSetting.filterSensitiveLog)
+      )
+    }),
+    ...(obj.OptionsToRemove && {
+      OptionsToRemove: obj.OptionsToRemove.map(item =>
+        item.map(OptionSpecification.filterSensitiveLog)
+      )
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
+    }),
+    ...(obj.Tier && { Tier: EnvironmentTier.filterSensitiveLog(obj.Tier) })
+  });
   export const isa = (o: any): o is CreateEnvironmentMessage =>
     __isa(o, "CreateEnvironmentMessage");
 }
@@ -1347,6 +1592,22 @@ export interface CreatePlatformVersionRequest {
 }
 
 export namespace CreatePlatformVersionRequest {
+  export const filterSensitiveLog = (obj: CreatePlatformVersionRequest) => ({
+    ...obj,
+    ...(obj.OptionSettings && {
+      OptionSettings: obj.OptionSettings.map(item =>
+        item.map(ConfigurationOptionSetting.filterSensitiveLog)
+      )
+    }),
+    ...(obj.PlatformDefinitionBundle && {
+      PlatformDefinitionBundle: S3Location.filterSensitiveLog(
+        obj.PlatformDefinitionBundle
+      )
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is CreatePlatformVersionRequest =>
     __isa(o, "CreatePlatformVersionRequest");
 }
@@ -1365,6 +1626,13 @@ export interface CreatePlatformVersionResult {
 }
 
 export namespace CreatePlatformVersionResult {
+  export const filterSensitiveLog = (obj: CreatePlatformVersionResult) => ({
+    ...obj,
+    ...(obj.Builder && { Builder: Builder.filterSensitiveLog(obj.Builder) }),
+    ...(obj.PlatformSummary && {
+      PlatformSummary: PlatformSummary.filterSensitiveLog(obj.PlatformSummary)
+    })
+  });
   export const isa = (o: any): o is CreatePlatformVersionResult =>
     __isa(o, "CreatePlatformVersionResult");
 }
@@ -1381,6 +1649,11 @@ export interface CreateStorageLocationResultMessage {
 }
 
 export namespace CreateStorageLocationResultMessage {
+  export const filterSensitiveLog = (
+    obj: CreateStorageLocationResultMessage
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateStorageLocationResultMessage =>
     __isa(o, "CreateStorageLocationResultMessage");
 }
@@ -1402,6 +1675,9 @@ export interface CustomAmi {
 }
 
 export namespace CustomAmi {
+  export const filterSensitiveLog = (obj: CustomAmi) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CustomAmi => __isa(o, "CustomAmi");
 }
 
@@ -1423,6 +1699,9 @@ export interface DeleteApplicationMessage {
 }
 
 export namespace DeleteApplicationMessage {
+  export const filterSensitiveLog = (obj: DeleteApplicationMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteApplicationMessage =>
     __isa(o, "DeleteApplicationMessage");
 }
@@ -1451,6 +1730,9 @@ export interface DeleteApplicationVersionMessage {
 }
 
 export namespace DeleteApplicationVersionMessage {
+  export const filterSensitiveLog = (obj: DeleteApplicationVersionMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteApplicationVersionMessage =>
     __isa(o, "DeleteApplicationVersionMessage");
 }
@@ -1472,6 +1754,11 @@ export interface DeleteConfigurationTemplateMessage {
 }
 
 export namespace DeleteConfigurationTemplateMessage {
+  export const filterSensitiveLog = (
+    obj: DeleteConfigurationTemplateMessage
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteConfigurationTemplateMessage =>
     __isa(o, "DeleteConfigurationTemplateMessage");
 }
@@ -1493,6 +1780,11 @@ export interface DeleteEnvironmentConfigurationMessage {
 }
 
 export namespace DeleteEnvironmentConfigurationMessage {
+  export const filterSensitiveLog = (
+    obj: DeleteEnvironmentConfigurationMessage
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteEnvironmentConfigurationMessage =>
     __isa(o, "DeleteEnvironmentConfigurationMessage");
 }
@@ -1506,6 +1798,9 @@ export interface DeletePlatformVersionRequest {
 }
 
 export namespace DeletePlatformVersionRequest {
+  export const filterSensitiveLog = (obj: DeletePlatformVersionRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeletePlatformVersionRequest =>
     __isa(o, "DeletePlatformVersionRequest");
 }
@@ -1519,6 +1814,12 @@ export interface DeletePlatformVersionResult {
 }
 
 export namespace DeletePlatformVersionResult {
+  export const filterSensitiveLog = (obj: DeletePlatformVersionResult) => ({
+    ...obj,
+    ...(obj.PlatformSummary && {
+      PlatformSummary: PlatformSummary.filterSensitiveLog(obj.PlatformSummary)
+    })
+  });
   export const isa = (o: any): o is DeletePlatformVersionResult =>
     __isa(o, "DeletePlatformVersionResult");
 }
@@ -1566,6 +1867,9 @@ export interface Deployment {
 }
 
 export namespace Deployment {
+  export const filterSensitiveLog = (obj: Deployment) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Deployment => __isa(o, "Deployment");
 }
 
@@ -1578,6 +1882,12 @@ export interface DescribeAccountAttributesResult {
 }
 
 export namespace DescribeAccountAttributesResult {
+  export const filterSensitiveLog = (obj: DescribeAccountAttributesResult) => ({
+    ...obj,
+    ...(obj.ResourceQuotas && {
+      ResourceQuotas: ResourceQuotas.filterSensitiveLog(obj.ResourceQuotas)
+    })
+  });
   export const isa = (o: any): o is DescribeAccountAttributesResult =>
     __isa(o, "DescribeAccountAttributesResult");
 }
@@ -1615,6 +1925,11 @@ export interface DescribeApplicationVersionsMessage {
 }
 
 export namespace DescribeApplicationVersionsMessage {
+  export const filterSensitiveLog = (
+    obj: DescribeApplicationVersionsMessage
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeApplicationVersionsMessage =>
     __isa(o, "DescribeApplicationVersionsMessage");
 }
@@ -1632,6 +1947,9 @@ export interface DescribeApplicationsMessage {
 }
 
 export namespace DescribeApplicationsMessage {
+  export const filterSensitiveLog = (obj: DescribeApplicationsMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeApplicationsMessage =>
     __isa(o, "DescribeApplicationsMessage");
 }
@@ -1677,6 +1995,16 @@ export interface DescribeConfigurationOptionsMessage {
 }
 
 export namespace DescribeConfigurationOptionsMessage {
+  export const filterSensitiveLog = (
+    obj: DescribeConfigurationOptionsMessage
+  ) => ({
+    ...obj,
+    ...(obj.Options && {
+      Options: obj.Options.map(item =>
+        item.map(OptionSpecification.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeConfigurationOptionsMessage =>
     __isa(o, "DescribeConfigurationOptionsMessage");
 }
@@ -1712,6 +2040,11 @@ export interface DescribeConfigurationSettingsMessage {
 }
 
 export namespace DescribeConfigurationSettingsMessage {
+  export const filterSensitiveLog = (
+    obj: DescribeConfigurationSettingsMessage
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeConfigurationSettingsMessage =>
     __isa(o, "DescribeConfigurationSettingsMessage");
 }
@@ -1742,6 +2075,11 @@ export interface DescribeEnvironmentHealthRequest {
 }
 
 export namespace DescribeEnvironmentHealthRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeEnvironmentHealthRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeEnvironmentHealthRequest =>
     __isa(o, "DescribeEnvironmentHealthRequest");
 }
@@ -1797,6 +2135,19 @@ export interface DescribeEnvironmentHealthResult {
 }
 
 export namespace DescribeEnvironmentHealthResult {
+  export const filterSensitiveLog = (obj: DescribeEnvironmentHealthResult) => ({
+    ...obj,
+    ...(obj.ApplicationMetrics && {
+      ApplicationMetrics: ApplicationMetrics.filterSensitiveLog(
+        obj.ApplicationMetrics
+      )
+    }),
+    ...(obj.InstancesHealth && {
+      InstancesHealth: InstanceHealthSummary.filterSensitiveLog(
+        obj.InstancesHealth
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeEnvironmentHealthResult =>
     __isa(o, "DescribeEnvironmentHealthResult");
 }
@@ -1828,6 +2179,11 @@ export interface DescribeEnvironmentManagedActionHistoryRequest {
 }
 
 export namespace DescribeEnvironmentManagedActionHistoryRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeEnvironmentManagedActionHistoryRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is DescribeEnvironmentManagedActionHistoryRequest =>
@@ -1852,6 +2208,16 @@ export interface DescribeEnvironmentManagedActionHistoryResult {
 }
 
 export namespace DescribeEnvironmentManagedActionHistoryResult {
+  export const filterSensitiveLog = (
+    obj: DescribeEnvironmentManagedActionHistoryResult
+  ) => ({
+    ...obj,
+    ...(obj.ManagedActionHistoryItems && {
+      ManagedActionHistoryItems: obj.ManagedActionHistoryItems.map(item =>
+        item.map(ManagedActionHistoryItem.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (
     o: any
   ): o is DescribeEnvironmentManagedActionHistoryResult =>
@@ -1880,6 +2246,11 @@ export interface DescribeEnvironmentManagedActionsRequest {
 }
 
 export namespace DescribeEnvironmentManagedActionsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeEnvironmentManagedActionsRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeEnvironmentManagedActionsRequest =>
     __isa(o, "DescribeEnvironmentManagedActionsRequest");
 }
@@ -1896,6 +2267,16 @@ export interface DescribeEnvironmentManagedActionsResult {
 }
 
 export namespace DescribeEnvironmentManagedActionsResult {
+  export const filterSensitiveLog = (
+    obj: DescribeEnvironmentManagedActionsResult
+  ) => ({
+    ...obj,
+    ...(obj.ManagedActions && {
+      ManagedActions: obj.ManagedActions.map(item =>
+        item.map(ManagedAction.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeEnvironmentManagedActionsResult =>
     __isa(o, "DescribeEnvironmentManagedActionsResult");
 }
@@ -1923,6 +2304,11 @@ export interface DescribeEnvironmentResourcesMessage {
 }
 
 export namespace DescribeEnvironmentResourcesMessage {
+  export const filterSensitiveLog = (
+    obj: DescribeEnvironmentResourcesMessage
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeEnvironmentResourcesMessage =>
     __isa(o, "DescribeEnvironmentResourcesMessage");
 }
@@ -1989,6 +2375,9 @@ export interface DescribeEnvironmentsMessage {
 }
 
 export namespace DescribeEnvironmentsMessage {
+  export const filterSensitiveLog = (obj: DescribeEnvironmentsMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeEnvironmentsMessage =>
     __isa(o, "DescribeEnvironmentsMessage");
 }
@@ -2070,6 +2459,9 @@ export interface DescribeEventsMessage {
 }
 
 export namespace DescribeEventsMessage {
+  export const filterSensitiveLog = (obj: DescribeEventsMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeEventsMessage =>
     __isa(o, "DescribeEventsMessage");
 }
@@ -2103,6 +2495,9 @@ export interface DescribeInstancesHealthRequest {
 }
 
 export namespace DescribeInstancesHealthRequest {
+  export const filterSensitiveLog = (obj: DescribeInstancesHealthRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeInstancesHealthRequest =>
     __isa(o, "DescribeInstancesHealthRequest");
 }
@@ -2132,6 +2527,14 @@ export interface DescribeInstancesHealthResult {
 }
 
 export namespace DescribeInstancesHealthResult {
+  export const filterSensitiveLog = (obj: DescribeInstancesHealthResult) => ({
+    ...obj,
+    ...(obj.InstanceHealthList && {
+      InstanceHealthList: obj.InstanceHealthList.map(item =>
+        item.map(SingleInstanceHealth.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeInstancesHealthResult =>
     __isa(o, "DescribeInstancesHealthResult");
 }
@@ -2145,6 +2548,9 @@ export interface DescribePlatformVersionRequest {
 }
 
 export namespace DescribePlatformVersionRequest {
+  export const filterSensitiveLog = (obj: DescribePlatformVersionRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribePlatformVersionRequest =>
     __isa(o, "DescribePlatformVersionRequest");
 }
@@ -2158,6 +2564,14 @@ export interface DescribePlatformVersionResult {
 }
 
 export namespace DescribePlatformVersionResult {
+  export const filterSensitiveLog = (obj: DescribePlatformVersionResult) => ({
+    ...obj,
+    ...(obj.PlatformDescription && {
+      PlatformDescription: PlatformDescription.filterSensitiveLog(
+        obj.PlatformDescription
+      )
+    })
+  });
   export const isa = (o: any): o is DescribePlatformVersionResult =>
     __isa(o, "DescribePlatformVersionResult");
 }
@@ -2177,6 +2591,11 @@ export interface ElasticBeanstalkServiceException
 }
 
 export namespace ElasticBeanstalkServiceException {
+  export const filterSensitiveLog = (
+    obj: ElasticBeanstalkServiceException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ElasticBeanstalkServiceException =>
     __isa(o, "ElasticBeanstalkServiceException");
 }
@@ -2347,6 +2766,20 @@ export interface EnvironmentDescription {
 }
 
 export namespace EnvironmentDescription {
+  export const filterSensitiveLog = (obj: EnvironmentDescription) => ({
+    ...obj,
+    ...(obj.EnvironmentLinks && {
+      EnvironmentLinks: obj.EnvironmentLinks.map(item =>
+        item.map(EnvironmentLink.filterSensitiveLog)
+      )
+    }),
+    ...(obj.Resources && {
+      Resources: EnvironmentResourcesDescription.filterSensitiveLog(
+        obj.Resources
+      )
+    }),
+    ...(obj.Tier && { Tier: EnvironmentTier.filterSensitiveLog(obj.Tier) })
+  });
   export const isa = (o: any): o is EnvironmentDescription =>
     __isa(o, "EnvironmentDescription");
 }
@@ -2369,6 +2802,14 @@ export interface EnvironmentDescriptionsMessage {
 }
 
 export namespace EnvironmentDescriptionsMessage {
+  export const filterSensitiveLog = (obj: EnvironmentDescriptionsMessage) => ({
+    ...obj,
+    ...(obj.Environments && {
+      Environments: obj.Environments.map(item =>
+        item.map(EnvironmentDescription.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is EnvironmentDescriptionsMessage =>
     __isa(o, "EnvironmentDescriptionsMessage");
 }
@@ -2427,6 +2868,9 @@ export interface EnvironmentInfoDescription {
 }
 
 export namespace EnvironmentInfoDescription {
+  export const filterSensitiveLog = (obj: EnvironmentInfoDescription) => ({
+    ...obj
+  });
   export const isa = (o: any): o is EnvironmentInfoDescription =>
     __isa(o, "EnvironmentInfoDescription");
 }
@@ -2453,6 +2897,9 @@ export interface EnvironmentLink {
 }
 
 export namespace EnvironmentLink {
+  export const filterSensitiveLog = (obj: EnvironmentLink) => ({
+    ...obj
+  });
   export const isa = (o: any): o is EnvironmentLink =>
     __isa(o, "EnvironmentLink");
 }
@@ -2504,6 +2951,40 @@ export interface EnvironmentResourceDescription {
 }
 
 export namespace EnvironmentResourceDescription {
+  export const filterSensitiveLog = (obj: EnvironmentResourceDescription) => ({
+    ...obj,
+    ...(obj.AutoScalingGroups && {
+      AutoScalingGroups: obj.AutoScalingGroups.map(item =>
+        item.map(AutoScalingGroup.filterSensitiveLog)
+      )
+    }),
+    ...(obj.Instances && {
+      Instances: obj.Instances.map(item =>
+        item.map(Instance.filterSensitiveLog)
+      )
+    }),
+    ...(obj.LaunchConfigurations && {
+      LaunchConfigurations: obj.LaunchConfigurations.map(item =>
+        item.map(LaunchConfiguration.filterSensitiveLog)
+      )
+    }),
+    ...(obj.LaunchTemplates && {
+      LaunchTemplates: obj.LaunchTemplates.map(item =>
+        item.map(LaunchTemplate.filterSensitiveLog)
+      )
+    }),
+    ...(obj.LoadBalancers && {
+      LoadBalancers: obj.LoadBalancers.map(item =>
+        item.map(LoadBalancer.filterSensitiveLog)
+      )
+    }),
+    ...(obj.Queues && {
+      Queues: obj.Queues.map(item => item.map(Queue.filterSensitiveLog))
+    }),
+    ...(obj.Triggers && {
+      Triggers: obj.Triggers.map(item => item.map(Trigger.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is EnvironmentResourceDescription =>
     __isa(o, "EnvironmentResourceDescription");
 }
@@ -2520,6 +3001,16 @@ export interface EnvironmentResourceDescriptionsMessage {
 }
 
 export namespace EnvironmentResourceDescriptionsMessage {
+  export const filterSensitiveLog = (
+    obj: EnvironmentResourceDescriptionsMessage
+  ) => ({
+    ...obj,
+    ...(obj.EnvironmentResources && {
+      EnvironmentResources: EnvironmentResourceDescription.filterSensitiveLog(
+        obj.EnvironmentResources
+      )
+    })
+  });
   export const isa = (o: any): o is EnvironmentResourceDescriptionsMessage =>
     __isa(o, "EnvironmentResourceDescriptionsMessage");
 }
@@ -2537,6 +3028,12 @@ export interface EnvironmentResourcesDescription {
 }
 
 export namespace EnvironmentResourcesDescription {
+  export const filterSensitiveLog = (obj: EnvironmentResourcesDescription) => ({
+    ...obj,
+    ...(obj.LoadBalancer && {
+      LoadBalancer: LoadBalancerDescription.filterSensitiveLog(obj.LoadBalancer)
+    })
+  });
   export const isa = (o: any): o is EnvironmentResourcesDescription =>
     __isa(o, "EnvironmentResourcesDescription");
 }
@@ -2597,6 +3094,9 @@ export interface EnvironmentTier {
 }
 
 export namespace EnvironmentTier {
+  export const filterSensitiveLog = (obj: EnvironmentTier) => ({
+    ...obj
+  });
   export const isa = (o: any): o is EnvironmentTier =>
     __isa(o, "EnvironmentTier");
 }
@@ -2653,6 +3153,9 @@ export interface EventDescription {
 }
 
 export namespace EventDescription {
+  export const filterSensitiveLog = (obj: EventDescription) => ({
+    ...obj
+  });
   export const isa = (o: any): o is EventDescription =>
     __isa(o, "EventDescription");
 }
@@ -2675,6 +3178,14 @@ export interface EventDescriptionsMessage {
 }
 
 export namespace EventDescriptionsMessage {
+  export const filterSensitiveLog = (obj: EventDescriptionsMessage) => ({
+    ...obj,
+    ...(obj.Events && {
+      Events: obj.Events.map(item =>
+        item.map(EventDescription.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is EventDescriptionsMessage =>
     __isa(o, "EventDescriptionsMessage");
 }
@@ -2708,6 +3219,9 @@ export interface Instance {
 }
 
 export namespace Instance {
+  export const filterSensitiveLog = (obj: Instance) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Instance => __isa(o, "Instance");
 }
 
@@ -2774,6 +3288,9 @@ export interface InstanceHealthSummary {
 }
 
 export namespace InstanceHealthSummary {
+  export const filterSensitiveLog = (obj: InstanceHealthSummary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InstanceHealthSummary =>
     __isa(o, "InstanceHealthSummary");
 }
@@ -2808,6 +3325,9 @@ export interface InsufficientPrivilegesException
 }
 
 export namespace InsufficientPrivilegesException {
+  export const filterSensitiveLog = (obj: InsufficientPrivilegesException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InsufficientPrivilegesException =>
     __isa(o, "InsufficientPrivilegesException");
 }
@@ -2828,6 +3348,9 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
+  export const filterSensitiveLog = (obj: InvalidRequestException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidRequestException =>
     __isa(o, "InvalidRequestException");
 }
@@ -2888,6 +3411,9 @@ export interface Latency {
 }
 
 export namespace Latency {
+  export const filterSensitiveLog = (obj: Latency) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Latency => __isa(o, "Latency");
 }
 
@@ -2903,6 +3429,9 @@ export interface LaunchConfiguration {
 }
 
 export namespace LaunchConfiguration {
+  export const filterSensitiveLog = (obj: LaunchConfiguration) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LaunchConfiguration =>
     __isa(o, "LaunchConfiguration");
 }
@@ -2919,6 +3448,9 @@ export interface LaunchTemplate {
 }
 
 export namespace LaunchTemplate {
+  export const filterSensitiveLog = (obj: LaunchTemplate) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LaunchTemplate =>
     __isa(o, "LaunchTemplate");
 }
@@ -2940,6 +3472,16 @@ export interface ListAvailableSolutionStacksResultMessage {
 }
 
 export namespace ListAvailableSolutionStacksResultMessage {
+  export const filterSensitiveLog = (
+    obj: ListAvailableSolutionStacksResultMessage
+  ) => ({
+    ...obj,
+    ...(obj.SolutionStackDetails && {
+      SolutionStackDetails: obj.SolutionStackDetails.map(item =>
+        item.map(SolutionStackDescription.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListAvailableSolutionStacksResultMessage =>
     __isa(o, "ListAvailableSolutionStacksResultMessage");
 }
@@ -2966,6 +3508,14 @@ export interface ListPlatformVersionsRequest {
 }
 
 export namespace ListPlatformVersionsRequest {
+  export const filterSensitiveLog = (obj: ListPlatformVersionsRequest) => ({
+    ...obj,
+    ...(obj.Filters && {
+      Filters: obj.Filters.map(item =>
+        item.map(PlatformFilter.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListPlatformVersionsRequest =>
     __isa(o, "ListPlatformVersionsRequest");
 }
@@ -2987,6 +3537,14 @@ export interface ListPlatformVersionsResult {
 }
 
 export namespace ListPlatformVersionsResult {
+  export const filterSensitiveLog = (obj: ListPlatformVersionsResult) => ({
+    ...obj,
+    ...(obj.PlatformSummaryList && {
+      PlatformSummaryList: obj.PlatformSummaryList.map(item =>
+        item.map(PlatformSummary.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListPlatformVersionsResult =>
     __isa(o, "ListPlatformVersionsResult");
 }
@@ -3001,6 +3559,9 @@ export interface ListTagsForResourceMessage {
 }
 
 export namespace ListTagsForResourceMessage {
+  export const filterSensitiveLog = (obj: ListTagsForResourceMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceMessage =>
     __isa(o, "ListTagsForResourceMessage");
 }
@@ -3022,6 +3583,9 @@ export interface Listener {
 }
 
 export namespace Listener {
+  export const filterSensitiveLog = (obj: Listener) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Listener => __isa(o, "Listener");
 }
 
@@ -3037,6 +3601,9 @@ export interface LoadBalancer {
 }
 
 export namespace LoadBalancer {
+  export const filterSensitiveLog = (obj: LoadBalancer) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LoadBalancer => __isa(o, "LoadBalancer");
 }
 
@@ -3062,6 +3629,14 @@ export interface LoadBalancerDescription {
 }
 
 export namespace LoadBalancerDescription {
+  export const filterSensitiveLog = (obj: LoadBalancerDescription) => ({
+    ...obj,
+    ...(obj.Listeners && {
+      Listeners: obj.Listeners.map(item =>
+        item.map(Listener.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is LoadBalancerDescription =>
     __isa(o, "LoadBalancerDescription");
 }
@@ -3100,6 +3675,9 @@ export interface ManagedAction {
 }
 
 export namespace ManagedAction {
+  export const filterSensitiveLog = (obj: ManagedAction) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ManagedAction => __isa(o, "ManagedAction");
 }
 
@@ -3150,6 +3728,9 @@ export interface ManagedActionHistoryItem {
 }
 
 export namespace ManagedActionHistoryItem {
+  export const filterSensitiveLog = (obj: ManagedActionHistoryItem) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ManagedActionHistoryItem =>
     __isa(o, "ManagedActionHistoryItem");
 }
@@ -3169,6 +3750,11 @@ export interface ManagedActionInvalidStateException
 }
 
 export namespace ManagedActionInvalidStateException {
+  export const filterSensitiveLog = (
+    obj: ManagedActionInvalidStateException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ManagedActionInvalidStateException =>
     __isa(o, "ManagedActionInvalidStateException");
 }
@@ -3198,6 +3784,9 @@ export interface MaxAgeRule {
 }
 
 export namespace MaxAgeRule {
+  export const filterSensitiveLog = (obj: MaxAgeRule) => ({
+    ...obj
+  });
   export const isa = (o: any): o is MaxAgeRule => __isa(o, "MaxAgeRule");
 }
 
@@ -3226,6 +3815,9 @@ export interface MaxCountRule {
 }
 
 export namespace MaxCountRule {
+  export const filterSensitiveLog = (obj: MaxCountRule) => ({
+    ...obj
+  });
   export const isa = (o: any): o is MaxCountRule => __isa(o, "MaxCountRule");
 }
 
@@ -3245,6 +3837,9 @@ export interface OperationInProgressException
 }
 
 export namespace OperationInProgressException {
+  export const filterSensitiveLog = (obj: OperationInProgressException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is OperationInProgressException =>
     __isa(o, "OperationInProgressException");
 }
@@ -3268,6 +3863,9 @@ export interface OptionRestrictionRegex {
 }
 
 export namespace OptionRestrictionRegex {
+  export const filterSensitiveLog = (obj: OptionRestrictionRegex) => ({
+    ...obj
+  });
   export const isa = (o: any): o is OptionRestrictionRegex =>
     __isa(o, "OptionRestrictionRegex");
 }
@@ -3294,6 +3892,9 @@ export interface OptionSpecification {
 }
 
 export namespace OptionSpecification {
+  export const filterSensitiveLog = (obj: OptionSpecification) => ({
+    ...obj
+  });
   export const isa = (o: any): o is OptionSpecification =>
     __isa(o, "OptionSpecification");
 }
@@ -3395,6 +3996,24 @@ export interface PlatformDescription {
 }
 
 export namespace PlatformDescription {
+  export const filterSensitiveLog = (obj: PlatformDescription) => ({
+    ...obj,
+    ...(obj.CustomAmiList && {
+      CustomAmiList: obj.CustomAmiList.map(item =>
+        item.map(CustomAmi.filterSensitiveLog)
+      )
+    }),
+    ...(obj.Frameworks && {
+      Frameworks: obj.Frameworks.map(item =>
+        item.map(PlatformFramework.filterSensitiveLog)
+      )
+    }),
+    ...(obj.ProgrammingLanguages && {
+      ProgrammingLanguages: obj.ProgrammingLanguages.map(item =>
+        item.map(PlatformProgrammingLanguage.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is PlatformDescription =>
     __isa(o, "PlatformDescription");
 }
@@ -3453,6 +4072,9 @@ export interface PlatformFilter {
 }
 
 export namespace PlatformFilter {
+  export const filterSensitiveLog = (obj: PlatformFilter) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PlatformFilter =>
     __isa(o, "PlatformFilter");
 }
@@ -3474,6 +4096,9 @@ export interface PlatformFramework {
 }
 
 export namespace PlatformFramework {
+  export const filterSensitiveLog = (obj: PlatformFramework) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PlatformFramework =>
     __isa(o, "PlatformFramework");
 }
@@ -3495,6 +4120,9 @@ export interface PlatformProgrammingLanguage {
 }
 
 export namespace PlatformProgrammingLanguage {
+  export const filterSensitiveLog = (obj: PlatformProgrammingLanguage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PlatformProgrammingLanguage =>
     __isa(o, "PlatformProgrammingLanguage");
 }
@@ -3554,6 +4182,9 @@ export interface PlatformSummary {
 }
 
 export namespace PlatformSummary {
+  export const filterSensitiveLog = (obj: PlatformSummary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PlatformSummary =>
     __isa(o, "PlatformSummary");
 }
@@ -3573,6 +4204,11 @@ export interface PlatformVersionStillReferencedException
 }
 
 export namespace PlatformVersionStillReferencedException {
+  export const filterSensitiveLog = (
+    obj: PlatformVersionStillReferencedException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PlatformVersionStillReferencedException =>
     __isa(o, "PlatformVersionStillReferencedException");
 }
@@ -3594,6 +4230,9 @@ export interface Queue {
 }
 
 export namespace Queue {
+  export const filterSensitiveLog = (obj: Queue) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Queue => __isa(o, "Queue");
 }
 
@@ -3620,6 +4259,9 @@ export interface RebuildEnvironmentMessage {
 }
 
 export namespace RebuildEnvironmentMessage {
+  export const filterSensitiveLog = (obj: RebuildEnvironmentMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RebuildEnvironmentMessage =>
     __isa(o, "RebuildEnvironmentMessage");
 }
@@ -3657,6 +4299,9 @@ export interface RequestEnvironmentInfoMessage {
 }
 
 export namespace RequestEnvironmentInfoMessage {
+  export const filterSensitiveLog = (obj: RequestEnvironmentInfoMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RequestEnvironmentInfoMessage =>
     __isa(o, "RequestEnvironmentInfoMessage");
 }
@@ -3676,6 +4321,9 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceNotFoundException =>
     __isa(o, "ResourceNotFoundException");
 }
@@ -3694,6 +4342,9 @@ export interface ResourceQuota {
 }
 
 export namespace ResourceQuota {
+  export const filterSensitiveLog = (obj: ResourceQuota) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceQuota => __isa(o, "ResourceQuota");
 }
 
@@ -3730,6 +4381,30 @@ export interface ResourceQuotas {
 }
 
 export namespace ResourceQuotas {
+  export const filterSensitiveLog = (obj: ResourceQuotas) => ({
+    ...obj,
+    ...(obj.ApplicationQuota && {
+      ApplicationQuota: ResourceQuota.filterSensitiveLog(obj.ApplicationQuota)
+    }),
+    ...(obj.ApplicationVersionQuota && {
+      ApplicationVersionQuota: ResourceQuota.filterSensitiveLog(
+        obj.ApplicationVersionQuota
+      )
+    }),
+    ...(obj.ConfigurationTemplateQuota && {
+      ConfigurationTemplateQuota: ResourceQuota.filterSensitiveLog(
+        obj.ConfigurationTemplateQuota
+      )
+    }),
+    ...(obj.CustomPlatformQuota && {
+      CustomPlatformQuota: ResourceQuota.filterSensitiveLog(
+        obj.CustomPlatformQuota
+      )
+    }),
+    ...(obj.EnvironmentQuota && {
+      EnvironmentQuota: ResourceQuota.filterSensitiveLog(obj.EnvironmentQuota)
+    })
+  });
   export const isa = (o: any): o is ResourceQuotas =>
     __isa(o, "ResourceQuotas");
 }
@@ -3748,6 +4423,14 @@ export interface ResourceTagsDescriptionMessage {
 }
 
 export namespace ResourceTagsDescriptionMessage {
+  export const filterSensitiveLog = (obj: ResourceTagsDescriptionMessage) => ({
+    ...obj,
+    ...(obj.ResourceTags && {
+      ResourceTags: obj.ResourceTags.map(item =>
+        item.map(Tag.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ResourceTagsDescriptionMessage =>
     __isa(o, "ResourceTagsDescriptionMessage");
 }
@@ -3767,6 +4450,11 @@ export interface ResourceTypeNotSupportedException
 }
 
 export namespace ResourceTypeNotSupportedException {
+  export const filterSensitiveLog = (
+    obj: ResourceTypeNotSupportedException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ResourceTypeNotSupportedException =>
     __isa(o, "ResourceTypeNotSupportedException");
 }
@@ -3794,6 +4482,9 @@ export interface RestartAppServerMessage {
 }
 
 export namespace RestartAppServerMessage {
+  export const filterSensitiveLog = (obj: RestartAppServerMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RestartAppServerMessage =>
     __isa(o, "RestartAppServerMessage");
 }
@@ -3829,6 +4520,9 @@ export interface RetrieveEnvironmentInfoMessage {
 }
 
 export namespace RetrieveEnvironmentInfoMessage {
+  export const filterSensitiveLog = (obj: RetrieveEnvironmentInfoMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RetrieveEnvironmentInfoMessage =>
     __isa(o, "RetrieveEnvironmentInfoMessage");
 }
@@ -3845,6 +4539,16 @@ export interface RetrieveEnvironmentInfoResultMessage {
 }
 
 export namespace RetrieveEnvironmentInfoResultMessage {
+  export const filterSensitiveLog = (
+    obj: RetrieveEnvironmentInfoResultMessage
+  ) => ({
+    ...obj,
+    ...(obj.EnvironmentInfo && {
+      EnvironmentInfo: obj.EnvironmentInfo.map(item =>
+        item.map(EnvironmentInfoDescription.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is RetrieveEnvironmentInfoResultMessage =>
     __isa(o, "RetrieveEnvironmentInfoResultMessage");
 }
@@ -3866,6 +4570,9 @@ export interface S3Location {
 }
 
 export namespace S3Location {
+  export const filterSensitiveLog = (obj: S3Location) => ({
+    ...obj
+  });
   export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
 }
 
@@ -3896,6 +4603,11 @@ export interface S3LocationNotInServiceRegionException
 }
 
 export namespace S3LocationNotInServiceRegionException {
+  export const filterSensitiveLog = (
+    obj: S3LocationNotInServiceRegionException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is S3LocationNotInServiceRegionException =>
     __isa(o, "S3LocationNotInServiceRegionException");
 }
@@ -3915,6 +4627,9 @@ export interface S3SubscriptionRequiredException
 }
 
 export namespace S3SubscriptionRequiredException {
+  export const filterSensitiveLog = (obj: S3SubscriptionRequiredException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is S3SubscriptionRequiredException =>
     __isa(o, "S3SubscriptionRequiredException");
 }
@@ -3981,6 +4696,18 @@ export interface SingleInstanceHealth {
 }
 
 export namespace SingleInstanceHealth {
+  export const filterSensitiveLog = (obj: SingleInstanceHealth) => ({
+    ...obj,
+    ...(obj.ApplicationMetrics && {
+      ApplicationMetrics: ApplicationMetrics.filterSensitiveLog(
+        obj.ApplicationMetrics
+      )
+    }),
+    ...(obj.Deployment && {
+      Deployment: Deployment.filterSensitiveLog(obj.Deployment)
+    }),
+    ...(obj.System && { System: SystemStatus.filterSensitiveLog(obj.System) })
+  });
   export const isa = (o: any): o is SingleInstanceHealth =>
     __isa(o, "SingleInstanceHealth");
 }
@@ -4002,6 +4729,9 @@ export interface SolutionStackDescription {
 }
 
 export namespace SolutionStackDescription {
+  export const filterSensitiveLog = (obj: SolutionStackDescription) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SolutionStackDescription =>
     __isa(o, "SolutionStackDescription");
 }
@@ -4067,6 +4797,9 @@ export interface SourceBuildInformation {
 }
 
 export namespace SourceBuildInformation {
+  export const filterSensitiveLog = (obj: SourceBuildInformation) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SourceBuildInformation =>
     __isa(o, "SourceBuildInformation");
 }
@@ -4087,6 +4820,9 @@ export interface SourceBundleDeletionException
 }
 
 export namespace SourceBundleDeletionException {
+  export const filterSensitiveLog = (obj: SourceBundleDeletionException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SourceBundleDeletionException =>
     __isa(o, "SourceBundleDeletionException");
 }
@@ -4108,6 +4844,9 @@ export interface SourceConfiguration {
 }
 
 export namespace SourceConfiguration {
+  export const filterSensitiveLog = (obj: SourceConfiguration) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SourceConfiguration =>
     __isa(o, "SourceConfiguration");
 }
@@ -4149,6 +4888,9 @@ export interface StatusCodes {
 }
 
 export namespace StatusCodes {
+  export const filterSensitiveLog = (obj: StatusCodes) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StatusCodes => __isa(o, "StatusCodes");
 }
 
@@ -4194,6 +4936,9 @@ export interface SwapEnvironmentCNAMEsMessage {
 }
 
 export namespace SwapEnvironmentCNAMEsMessage {
+  export const filterSensitiveLog = (obj: SwapEnvironmentCNAMEsMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SwapEnvironmentCNAMEsMessage =>
     __isa(o, "SwapEnvironmentCNAMEsMessage");
 }
@@ -4217,6 +4962,12 @@ export interface SystemStatus {
 }
 
 export namespace SystemStatus {
+  export const filterSensitiveLog = (obj: SystemStatus) => ({
+    ...obj,
+    ...(obj.CPUUtilization && {
+      CPUUtilization: CPUUtilization.filterSensitiveLog(obj.CPUUtilization)
+    })
+  });
   export const isa = (o: any): o is SystemStatus => __isa(o, "SystemStatus");
 }
 
@@ -4237,6 +4988,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
@@ -4293,6 +5047,9 @@ export interface TerminateEnvironmentMessage {
 }
 
 export namespace TerminateEnvironmentMessage {
+  export const filterSensitiveLog = (obj: TerminateEnvironmentMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TerminateEnvironmentMessage =>
     __isa(o, "TerminateEnvironmentMessage");
 }
@@ -4312,6 +5069,11 @@ export interface TooManyApplicationVersionsException
 }
 
 export namespace TooManyApplicationVersionsException {
+  export const filterSensitiveLog = (
+    obj: TooManyApplicationVersionsException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyApplicationVersionsException =>
     __isa(o, "TooManyApplicationVersionsException");
 }
@@ -4331,6 +5093,9 @@ export interface TooManyApplicationsException
 }
 
 export namespace TooManyApplicationsException {
+  export const filterSensitiveLog = (obj: TooManyApplicationsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyApplicationsException =>
     __isa(o, "TooManyApplicationsException");
 }
@@ -4350,6 +5115,9 @@ export interface TooManyBucketsException
 }
 
 export namespace TooManyBucketsException {
+  export const filterSensitiveLog = (obj: TooManyBucketsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyBucketsException =>
     __isa(o, "TooManyBucketsException");
 }
@@ -4369,6 +5137,11 @@ export interface TooManyConfigurationTemplatesException
 }
 
 export namespace TooManyConfigurationTemplatesException {
+  export const filterSensitiveLog = (
+    obj: TooManyConfigurationTemplatesException
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyConfigurationTemplatesException =>
     __isa(o, "TooManyConfigurationTemplatesException");
 }
@@ -4388,6 +5161,9 @@ export interface TooManyEnvironmentsException
 }
 
 export namespace TooManyEnvironmentsException {
+  export const filterSensitiveLog = (obj: TooManyEnvironmentsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyEnvironmentsException =>
     __isa(o, "TooManyEnvironmentsException");
 }
@@ -4407,6 +5183,9 @@ export interface TooManyPlatformsException
 }
 
 export namespace TooManyPlatformsException {
+  export const filterSensitiveLog = (obj: TooManyPlatformsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyPlatformsException =>
     __isa(o, "TooManyPlatformsException");
 }
@@ -4429,6 +5208,9 @@ export interface TooManyTagsException
 }
 
 export namespace TooManyTagsException {
+  export const filterSensitiveLog = (obj: TooManyTagsException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TooManyTagsException =>
     __isa(o, "TooManyTagsException");
 }
@@ -4445,6 +5227,9 @@ export interface Trigger {
 }
 
 export namespace Trigger {
+  export const filterSensitiveLog = (obj: Trigger) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Trigger => __isa(o, "Trigger");
 }
 
@@ -4469,6 +5254,9 @@ export interface UpdateApplicationMessage {
 }
 
 export namespace UpdateApplicationMessage {
+  export const filterSensitiveLog = (obj: UpdateApplicationMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateApplicationMessage =>
     __isa(o, "UpdateApplicationMessage");
 }
@@ -4487,6 +5275,16 @@ export interface UpdateApplicationResourceLifecycleMessage {
 }
 
 export namespace UpdateApplicationResourceLifecycleMessage {
+  export const filterSensitiveLog = (
+    obj: UpdateApplicationResourceLifecycleMessage
+  ) => ({
+    ...obj,
+    ...(obj.ResourceLifecycleConfig && {
+      ResourceLifecycleConfig: ApplicationResourceLifecycleConfig.filterSensitiveLog(
+        obj.ResourceLifecycleConfig
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateApplicationResourceLifecycleMessage =>
     __isa(o, "UpdateApplicationResourceLifecycleMessage");
 }
@@ -4517,6 +5315,9 @@ export interface UpdateApplicationVersionMessage {
 }
 
 export namespace UpdateApplicationVersionMessage {
+  export const filterSensitiveLog = (obj: UpdateApplicationVersionMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UpdateApplicationVersionMessage =>
     __isa(o, "UpdateApplicationVersionMessage");
 }
@@ -4562,6 +5363,21 @@ export interface UpdateConfigurationTemplateMessage {
 }
 
 export namespace UpdateConfigurationTemplateMessage {
+  export const filterSensitiveLog = (
+    obj: UpdateConfigurationTemplateMessage
+  ) => ({
+    ...obj,
+    ...(obj.OptionSettings && {
+      OptionSettings: obj.OptionSettings.map(item =>
+        item.map(ConfigurationOptionSetting.filterSensitiveLog)
+      )
+    }),
+    ...(obj.OptionsToRemove && {
+      OptionsToRemove: obj.OptionsToRemove.map(item =>
+        item.map(OptionSpecification.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is UpdateConfigurationTemplateMessage =>
     __isa(o, "UpdateConfigurationTemplateMessage");
 }
@@ -4656,6 +5472,20 @@ export interface UpdateEnvironmentMessage {
 }
 
 export namespace UpdateEnvironmentMessage {
+  export const filterSensitiveLog = (obj: UpdateEnvironmentMessage) => ({
+    ...obj,
+    ...(obj.OptionSettings && {
+      OptionSettings: obj.OptionSettings.map(item =>
+        item.map(ConfigurationOptionSetting.filterSensitiveLog)
+      )
+    }),
+    ...(obj.OptionsToRemove && {
+      OptionsToRemove: obj.OptionsToRemove.map(item =>
+        item.map(OptionSpecification.filterSensitiveLog)
+      )
+    }),
+    ...(obj.Tier && { Tier: EnvironmentTier.filterSensitiveLog(obj.Tier) })
+  });
   export const isa = (o: any): o is UpdateEnvironmentMessage =>
     __isa(o, "UpdateEnvironmentMessage");
 }
@@ -4682,6 +5512,12 @@ export interface UpdateTagsForResourceMessage {
 }
 
 export namespace UpdateTagsForResourceMessage {
+  export const filterSensitiveLog = (obj: UpdateTagsForResourceMessage) => ({
+    ...obj,
+    ...(obj.TagsToAdd && {
+      TagsToAdd: obj.TagsToAdd.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is UpdateTagsForResourceMessage =>
     __isa(o, "UpdateTagsForResourceMessage");
 }
@@ -4716,6 +5552,16 @@ export interface ValidateConfigurationSettingsMessage {
 }
 
 export namespace ValidateConfigurationSettingsMessage {
+  export const filterSensitiveLog = (
+    obj: ValidateConfigurationSettingsMessage
+  ) => ({
+    ...obj,
+    ...(obj.OptionSettings && {
+      OptionSettings: obj.OptionSettings.map(item =>
+        item.map(ConfigurationOptionSetting.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ValidateConfigurationSettingsMessage =>
     __isa(o, "ValidateConfigurationSettingsMessage");
 }
@@ -4759,6 +5605,9 @@ export interface ValidationMessage {
 }
 
 export namespace ValidationMessage {
+  export const filterSensitiveLog = (obj: ValidationMessage) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ValidationMessage =>
     __isa(o, "ValidationMessage");
 }

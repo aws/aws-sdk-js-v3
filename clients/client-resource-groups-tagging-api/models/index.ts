@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -28,6 +29,9 @@ export interface ComplianceDetails {
 }
 
 export namespace ComplianceDetails {
+  export const filterSensitiveLog = (obj: ComplianceDetails) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ComplianceDetails =>
     __isa(o, "ComplianceDetails");
 }
@@ -45,6 +49,9 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
+  export const filterSensitiveLog = (obj: ConcurrentModificationException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConcurrentModificationException =>
     __isa(o, "ConcurrentModificationException");
 }
@@ -80,6 +87,9 @@ export interface ConstraintViolationException
 }
 
 export namespace ConstraintViolationException {
+  export const filterSensitiveLog = (obj: ConstraintViolationException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConstraintViolationException =>
     __isa(o, "ConstraintViolationException");
 }
@@ -89,6 +99,9 @@ export interface DescribeReportCreationInput {
 }
 
 export namespace DescribeReportCreationInput {
+  export const filterSensitiveLog = (obj: DescribeReportCreationInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeReportCreationInput =>
     __isa(o, "DescribeReportCreationInput");
 }
@@ -139,6 +152,9 @@ export interface DescribeReportCreationOutput {
 }
 
 export namespace DescribeReportCreationOutput {
+  export const filterSensitiveLog = (obj: DescribeReportCreationOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeReportCreationOutput =>
     __isa(o, "DescribeReportCreationOutput");
 }
@@ -173,6 +189,9 @@ export interface FailureInfo {
 }
 
 export namespace FailureInfo {
+  export const filterSensitiveLog = (obj: FailureInfo) => ({
+    ...obj
+  });
   export const isa = (o: any): o is FailureInfo => __isa(o, "FailureInfo");
 }
 
@@ -244,6 +263,9 @@ export interface GetComplianceSummaryInput {
 }
 
 export namespace GetComplianceSummaryInput {
+  export const filterSensitiveLog = (obj: GetComplianceSummaryInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetComplianceSummaryInput =>
     __isa(o, "GetComplianceSummaryInput");
 }
@@ -264,6 +286,14 @@ export interface GetComplianceSummaryOutput {
 }
 
 export namespace GetComplianceSummaryOutput {
+  export const filterSensitiveLog = (obj: GetComplianceSummaryOutput) => ({
+    ...obj,
+    ...(obj.SummaryList && {
+      SummaryList: obj.SummaryList.map(item =>
+        item.map(Summary.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is GetComplianceSummaryOutput =>
     __isa(o, "GetComplianceSummaryOutput");
 }
@@ -402,6 +432,14 @@ export interface GetResourcesInput {
 }
 
 export namespace GetResourcesInput {
+  export const filterSensitiveLog = (obj: GetResourcesInput) => ({
+    ...obj,
+    ...(obj.TagFilters && {
+      TagFilters: obj.TagFilters.map(item =>
+        item.map(TagFilter.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is GetResourcesInput =>
     __isa(o, "GetResourcesInput");
 }
@@ -422,6 +460,14 @@ export interface GetResourcesOutput {
 }
 
 export namespace GetResourcesOutput {
+  export const filterSensitiveLog = (obj: GetResourcesOutput) => ({
+    ...obj,
+    ...(obj.ResourceTagMappingList && {
+      ResourceTagMappingList: obj.ResourceTagMappingList.map(item =>
+        item.map(ResourceTagMapping.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is GetResourcesOutput =>
     __isa(o, "GetResourcesOutput");
 }
@@ -438,6 +484,9 @@ export interface GetTagKeysInput {
 }
 
 export namespace GetTagKeysInput {
+  export const filterSensitiveLog = (obj: GetTagKeysInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetTagKeysInput =>
     __isa(o, "GetTagKeysInput");
 }
@@ -458,6 +507,9 @@ export interface GetTagKeysOutput {
 }
 
 export namespace GetTagKeysOutput {
+  export const filterSensitiveLog = (obj: GetTagKeysOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetTagKeysOutput =>
     __isa(o, "GetTagKeysOutput");
 }
@@ -480,6 +532,9 @@ export interface GetTagValuesInput {
 }
 
 export namespace GetTagValuesInput {
+  export const filterSensitiveLog = (obj: GetTagValuesInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetTagValuesInput =>
     __isa(o, "GetTagValuesInput");
 }
@@ -500,6 +555,9 @@ export interface GetTagValuesOutput {
 }
 
 export namespace GetTagValuesOutput {
+  export const filterSensitiveLog = (obj: GetTagValuesOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetTagValuesOutput =>
     __isa(o, "GetTagValuesOutput");
 }
@@ -523,6 +581,9 @@ export interface InternalServiceException
 }
 
 export namespace InternalServiceException {
+  export const filterSensitiveLog = (obj: InternalServiceException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServiceException =>
     __isa(o, "InternalServiceException");
 }
@@ -559,6 +620,9 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
+  export const filterSensitiveLog = (obj: InvalidParameterException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidParameterException =>
     __isa(o, "InvalidParameterException");
 }
@@ -576,6 +640,9 @@ export interface PaginationTokenExpiredException
 }
 
 export namespace PaginationTokenExpiredException {
+  export const filterSensitiveLog = (obj: PaginationTokenExpiredException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PaginationTokenExpiredException =>
     __isa(o, "PaginationTokenExpiredException");
 }
@@ -604,6 +671,17 @@ export interface ResourceTagMapping {
 }
 
 export namespace ResourceTagMapping {
+  export const filterSensitiveLog = (obj: ResourceTagMapping) => ({
+    ...obj,
+    ...(obj.ComplianceDetails && {
+      ComplianceDetails: ComplianceDetails.filterSensitiveLog(
+        obj.ComplianceDetails
+      )
+    }),
+    ...(obj.Tags && {
+      Tags: obj.Tags.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is ResourceTagMapping =>
     __isa(o, "ResourceTagMapping");
 }
@@ -622,6 +700,9 @@ export interface StartReportCreationInput {
 }
 
 export namespace StartReportCreationInput {
+  export const filterSensitiveLog = (obj: StartReportCreationInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartReportCreationInput =>
     __isa(o, "StartReportCreationInput");
 }
@@ -631,6 +712,9 @@ export interface StartReportCreationOutput {
 }
 
 export namespace StartReportCreationOutput {
+  export const filterSensitiveLog = (obj: StartReportCreationOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StartReportCreationOutput =>
     __isa(o, "StartReportCreationOutput");
 }
@@ -673,6 +757,9 @@ export interface Summary {
 }
 
 export namespace Summary {
+  export const filterSensitiveLog = (obj: Summary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Summary => __isa(o, "Summary");
 }
 
@@ -696,6 +783,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
@@ -717,6 +807,9 @@ export interface TagFilter {
 }
 
 export namespace TagFilter {
+  export const filterSensitiveLog = (obj: TagFilter) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
 }
 
@@ -739,6 +832,9 @@ export interface TagResourcesInput {
 }
 
 export namespace TagResourcesInput {
+  export const filterSensitiveLog = (obj: TagResourcesInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourcesInput =>
     __isa(o, "TagResourcesInput");
 }
@@ -753,6 +849,9 @@ export interface TagResourcesOutput {
 }
 
 export namespace TagResourcesOutput {
+  export const filterSensitiveLog = (obj: TagResourcesOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is TagResourcesOutput =>
     __isa(o, "TagResourcesOutput");
 }
@@ -773,6 +872,9 @@ export interface ThrottledException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ThrottledException {
+  export const filterSensitiveLog = (obj: ThrottledException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ThrottledException =>
     __isa(o, "ThrottledException");
 }
@@ -795,6 +897,9 @@ export interface UntagResourcesInput {
 }
 
 export namespace UntagResourcesInput {
+  export const filterSensitiveLog = (obj: UntagResourcesInput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourcesInput =>
     __isa(o, "UntagResourcesInput");
 }
@@ -809,6 +914,9 @@ export interface UntagResourcesOutput {
 }
 
 export namespace UntagResourcesOutput {
+  export const filterSensitiveLog = (obj: UntagResourcesOutput) => ({
+    ...obj
+  });
   export const isa = (o: any): o is UntagResourcesOutput =>
     __isa(o, "UntagResourcesOutput");
 }

@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -27,6 +28,9 @@ export interface Alarm {
 }
 
 export namespace Alarm {
+  export const filterSensitiveLog = (obj: Alarm) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Alarm => __isa(o, "Alarm");
 }
 
@@ -43,6 +47,9 @@ export interface ConcurrentUpdateException
 }
 
 export namespace ConcurrentUpdateException {
+  export const filterSensitiveLog = (obj: ConcurrentUpdateException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConcurrentUpdateException =>
     __isa(o, "ConcurrentUpdateException");
 }
@@ -98,6 +105,14 @@ export interface CustomizedMetricSpecification {
 }
 
 export namespace CustomizedMetricSpecification {
+  export const filterSensitiveLog = (obj: CustomizedMetricSpecification) => ({
+    ...obj,
+    ...(obj.Dimensions && {
+      Dimensions: obj.Dimensions.map(item =>
+        item.map(MetricDimension.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is CustomizedMetricSpecification =>
     __isa(o, "CustomizedMetricSpecification");
 }
@@ -229,6 +244,9 @@ export interface DeleteScalingPolicyRequest {
 }
 
 export namespace DeleteScalingPolicyRequest {
+  export const filterSensitiveLog = (obj: DeleteScalingPolicyRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteScalingPolicyRequest =>
     __isa(o, "DeleteScalingPolicyRequest");
 }
@@ -238,6 +256,9 @@ export interface DeleteScalingPolicyResponse {
 }
 
 export namespace DeleteScalingPolicyResponse {
+  export const filterSensitiveLog = (obj: DeleteScalingPolicyResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteScalingPolicyResponse =>
     __isa(o, "DeleteScalingPolicyResponse");
 }
@@ -369,6 +390,9 @@ export interface DeleteScheduledActionRequest {
 }
 
 export namespace DeleteScheduledActionRequest {
+  export const filterSensitiveLog = (obj: DeleteScheduledActionRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteScheduledActionRequest =>
     __isa(o, "DeleteScheduledActionRequest");
 }
@@ -378,6 +402,9 @@ export interface DeleteScheduledActionResponse {
 }
 
 export namespace DeleteScheduledActionResponse {
+  export const filterSensitiveLog = (obj: DeleteScheduledActionResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteScheduledActionResponse =>
     __isa(o, "DeleteScheduledActionResponse");
 }
@@ -505,6 +532,9 @@ export interface DeregisterScalableTargetRequest {
 }
 
 export namespace DeregisterScalableTargetRequest {
+  export const filterSensitiveLog = (obj: DeregisterScalableTargetRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeregisterScalableTargetRequest =>
     __isa(o, "DeregisterScalableTargetRequest");
 }
@@ -514,6 +544,11 @@ export interface DeregisterScalableTargetResponse {
 }
 
 export namespace DeregisterScalableTargetResponse {
+  export const filterSensitiveLog = (
+    obj: DeregisterScalableTargetResponse
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeregisterScalableTargetResponse =>
     __isa(o, "DeregisterScalableTargetResponse");
 }
@@ -657,6 +692,9 @@ export interface DescribeScalableTargetsRequest {
 }
 
 export namespace DescribeScalableTargetsRequest {
+  export const filterSensitiveLog = (obj: DescribeScalableTargetsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeScalableTargetsRequest =>
     __isa(o, "DescribeScalableTargetsRequest");
 }
@@ -676,6 +714,14 @@ export interface DescribeScalableTargetsResponse {
 }
 
 export namespace DescribeScalableTargetsResponse {
+  export const filterSensitiveLog = (obj: DescribeScalableTargetsResponse) => ({
+    ...obj,
+    ...(obj.ScalableTargets && {
+      ScalableTargets: obj.ScalableTargets.map(item =>
+        item.map(ScalableTarget.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeScalableTargetsResponse =>
     __isa(o, "DescribeScalableTargetsResponse");
 }
@@ -819,6 +865,11 @@ export interface DescribeScalingActivitiesRequest {
 }
 
 export namespace DescribeScalingActivitiesRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeScalingActivitiesRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeScalingActivitiesRequest =>
     __isa(o, "DescribeScalingActivitiesRequest");
 }
@@ -838,6 +889,16 @@ export interface DescribeScalingActivitiesResponse {
 }
 
 export namespace DescribeScalingActivitiesResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeScalingActivitiesResponse
+  ) => ({
+    ...obj,
+    ...(obj.ScalingActivities && {
+      ScalingActivities: obj.ScalingActivities.map(item =>
+        item.map(ScalingActivity.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeScalingActivitiesResponse =>
     __isa(o, "DescribeScalingActivitiesResponse");
 }
@@ -986,6 +1047,9 @@ export interface DescribeScalingPoliciesRequest {
 }
 
 export namespace DescribeScalingPoliciesRequest {
+  export const filterSensitiveLog = (obj: DescribeScalingPoliciesRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeScalingPoliciesRequest =>
     __isa(o, "DescribeScalingPoliciesRequest");
 }
@@ -1005,6 +1069,14 @@ export interface DescribeScalingPoliciesResponse {
 }
 
 export namespace DescribeScalingPoliciesResponse {
+  export const filterSensitiveLog = (obj: DescribeScalingPoliciesResponse) => ({
+    ...obj,
+    ...(obj.ScalingPolicies && {
+      ScalingPolicies: obj.ScalingPolicies.map(item =>
+        item.map(ScalingPolicy.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeScalingPoliciesResponse =>
     __isa(o, "DescribeScalingPoliciesResponse");
 }
@@ -1153,6 +1225,9 @@ export interface DescribeScheduledActionsRequest {
 }
 
 export namespace DescribeScheduledActionsRequest {
+  export const filterSensitiveLog = (obj: DescribeScheduledActionsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeScheduledActionsRequest =>
     __isa(o, "DescribeScheduledActionsRequest");
 }
@@ -1172,6 +1247,16 @@ export interface DescribeScheduledActionsResponse {
 }
 
 export namespace DescribeScheduledActionsResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeScheduledActionsResponse
+  ) => ({
+    ...obj,
+    ...(obj.ScheduledActions && {
+      ScheduledActions: obj.ScheduledActions.map(item =>
+        item.map(ScheduledAction.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeScheduledActionsResponse =>
     __isa(o, "DescribeScheduledActionsResponse");
 }
@@ -1191,6 +1276,9 @@ export interface FailedResourceAccessException
 }
 
 export namespace FailedResourceAccessException {
+  export const filterSensitiveLog = (obj: FailedResourceAccessException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is FailedResourceAccessException =>
     __isa(o, "FailedResourceAccessException");
 }
@@ -1207,6 +1295,9 @@ export interface InternalServiceException
 }
 
 export namespace InternalServiceException {
+  export const filterSensitiveLog = (obj: InternalServiceException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServiceException =>
     __isa(o, "InternalServiceException");
 }
@@ -1223,6 +1314,9 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
+  export const filterSensitiveLog = (obj: InvalidNextTokenException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidNextTokenException =>
     __isa(o, "InvalidNextTokenException");
 }
@@ -1239,6 +1333,9 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is LimitExceededException =>
     __isa(o, "LimitExceededException");
 }
@@ -1266,6 +1363,9 @@ export interface MetricDimension {
 }
 
 export namespace MetricDimension {
+  export const filterSensitiveLog = (obj: MetricDimension) => ({
+    ...obj
+  });
   export const isa = (o: any): o is MetricDimension =>
     __isa(o, "MetricDimension");
 }
@@ -1311,6 +1411,9 @@ export interface ObjectNotFoundException
 }
 
 export namespace ObjectNotFoundException {
+  export const filterSensitiveLog = (obj: ObjectNotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ObjectNotFoundException =>
     __isa(o, "ObjectNotFoundException");
 }
@@ -1355,6 +1458,9 @@ export interface PredefinedMetricSpecification {
 }
 
 export namespace PredefinedMetricSpecification {
+  export const filterSensitiveLog = (obj: PredefinedMetricSpecification) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PredefinedMetricSpecification =>
     __isa(o, "PredefinedMetricSpecification");
 }
@@ -1512,6 +1618,19 @@ export interface PutScalingPolicyRequest {
 }
 
 export namespace PutScalingPolicyRequest {
+  export const filterSensitiveLog = (obj: PutScalingPolicyRequest) => ({
+    ...obj,
+    ...(obj.StepScalingPolicyConfiguration && {
+      StepScalingPolicyConfiguration: StepScalingPolicyConfiguration.filterSensitiveLog(
+        obj.StepScalingPolicyConfiguration
+      )
+    }),
+    ...(obj.TargetTrackingScalingPolicyConfiguration && {
+      TargetTrackingScalingPolicyConfiguration: TargetTrackingScalingPolicyConfiguration.filterSensitiveLog(
+        obj.TargetTrackingScalingPolicyConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is PutScalingPolicyRequest =>
     __isa(o, "PutScalingPolicyRequest");
 }
@@ -1530,6 +1649,12 @@ export interface PutScalingPolicyResponse {
 }
 
 export namespace PutScalingPolicyResponse {
+  export const filterSensitiveLog = (obj: PutScalingPolicyResponse) => ({
+    ...obj,
+    ...(obj.Alarms && {
+      Alarms: obj.Alarms.map(item => item.map(Alarm.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is PutScalingPolicyResponse =>
     __isa(o, "PutScalingPolicyResponse");
 }
@@ -1700,6 +1825,14 @@ export interface PutScheduledActionRequest {
 }
 
 export namespace PutScheduledActionRequest {
+  export const filterSensitiveLog = (obj: PutScheduledActionRequest) => ({
+    ...obj,
+    ...(obj.ScalableTargetAction && {
+      ScalableTargetAction: ScalableTargetAction.filterSensitiveLog(
+        obj.ScalableTargetAction
+      )
+    })
+  });
   export const isa = (o: any): o is PutScheduledActionRequest =>
     __isa(o, "PutScheduledActionRequest");
 }
@@ -1709,6 +1842,9 @@ export interface PutScheduledActionResponse {
 }
 
 export namespace PutScheduledActionResponse {
+  export const filterSensitiveLog = (obj: PutScheduledActionResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is PutScheduledActionResponse =>
     __isa(o, "PutScheduledActionResponse");
 }
@@ -1885,6 +2021,12 @@ export interface RegisterScalableTargetRequest {
 }
 
 export namespace RegisterScalableTargetRequest {
+  export const filterSensitiveLog = (obj: RegisterScalableTargetRequest) => ({
+    ...obj,
+    ...(obj.SuspendedState && {
+      SuspendedState: SuspendedState.filterSensitiveLog(obj.SuspendedState)
+    })
+  });
   export const isa = (o: any): o is RegisterScalableTargetRequest =>
     __isa(o, "RegisterScalableTargetRequest");
 }
@@ -1894,6 +2036,9 @@ export interface RegisterScalableTargetResponse {
 }
 
 export namespace RegisterScalableTargetResponse {
+  export const filterSensitiveLog = (obj: RegisterScalableTargetResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RegisterScalableTargetResponse =>
     __isa(o, "RegisterScalableTargetResponse");
 }
@@ -2067,6 +2212,12 @@ export interface ScalableTarget {
 }
 
 export namespace ScalableTarget {
+  export const filterSensitiveLog = (obj: ScalableTarget) => ({
+    ...obj,
+    ...(obj.SuspendedState && {
+      SuspendedState: SuspendedState.filterSensitiveLog(obj.SuspendedState)
+    })
+  });
   export const isa = (o: any): o is ScalableTarget =>
     __isa(o, "ScalableTarget");
 }
@@ -2088,6 +2239,9 @@ export interface ScalableTargetAction {
 }
 
 export namespace ScalableTargetAction {
+  export const filterSensitiveLog = (obj: ScalableTargetAction) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ScalableTargetAction =>
     __isa(o, "ScalableTargetAction");
 }
@@ -2257,6 +2411,9 @@ export interface ScalingActivity {
 }
 
 export namespace ScalingActivity {
+  export const filterSensitiveLog = (obj: ScalingActivity) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ScalingActivity =>
     __isa(o, "ScalingActivity");
 }
@@ -2430,6 +2587,22 @@ export interface ScalingPolicy {
 }
 
 export namespace ScalingPolicy {
+  export const filterSensitiveLog = (obj: ScalingPolicy) => ({
+    ...obj,
+    ...(obj.Alarms && {
+      Alarms: obj.Alarms.map(item => item.map(Alarm.filterSensitiveLog))
+    }),
+    ...(obj.StepScalingPolicyConfiguration && {
+      StepScalingPolicyConfiguration: StepScalingPolicyConfiguration.filterSensitiveLog(
+        obj.StepScalingPolicyConfiguration
+      )
+    }),
+    ...(obj.TargetTrackingScalingPolicyConfiguration && {
+      TargetTrackingScalingPolicyConfiguration: TargetTrackingScalingPolicyConfiguration.filterSensitiveLog(
+        obj.TargetTrackingScalingPolicyConfiguration
+      )
+    })
+  });
   export const isa = (o: any): o is ScalingPolicy => __isa(o, "ScalingPolicy");
 }
 
@@ -2612,6 +2785,14 @@ export interface ScheduledAction {
 }
 
 export namespace ScheduledAction {
+  export const filterSensitiveLog = (obj: ScheduledAction) => ({
+    ...obj,
+    ...(obj.ScalableTargetAction && {
+      ScalableTargetAction: ScalableTargetAction.filterSensitiveLog(
+        obj.ScalableTargetAction
+      )
+    })
+  });
   export const isa = (o: any): o is ScheduledAction =>
     __isa(o, "ScheduledAction");
 }
@@ -2695,6 +2876,9 @@ export interface StepAdjustment {
 }
 
 export namespace StepAdjustment {
+  export const filterSensitiveLog = (obj: StepAdjustment) => ({
+    ...obj
+  });
   export const isa = (o: any): o is StepAdjustment =>
     __isa(o, "StepAdjustment");
 }
@@ -2757,6 +2941,14 @@ export interface StepScalingPolicyConfiguration {
 }
 
 export namespace StepScalingPolicyConfiguration {
+  export const filterSensitiveLog = (obj: StepScalingPolicyConfiguration) => ({
+    ...obj,
+    ...(obj.StepAdjustments && {
+      StepAdjustments: obj.StepAdjustments.map(item =>
+        item.map(StepAdjustment.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is StepScalingPolicyConfiguration =>
     __isa(o, "StepScalingPolicyConfiguration");
 }
@@ -2790,6 +2982,9 @@ export interface SuspendedState {
 }
 
 export namespace SuspendedState {
+  export const filterSensitiveLog = (obj: SuspendedState) => ({
+    ...obj
+  });
   export const isa = (o: any): o is SuspendedState =>
     __isa(o, "SuspendedState");
 }
@@ -2848,6 +3043,21 @@ export interface TargetTrackingScalingPolicyConfiguration {
 }
 
 export namespace TargetTrackingScalingPolicyConfiguration {
+  export const filterSensitiveLog = (
+    obj: TargetTrackingScalingPolicyConfiguration
+  ) => ({
+    ...obj,
+    ...(obj.CustomizedMetricSpecification && {
+      CustomizedMetricSpecification: CustomizedMetricSpecification.filterSensitiveLog(
+        obj.CustomizedMetricSpecification
+      )
+    }),
+    ...(obj.PredefinedMetricSpecification && {
+      PredefinedMetricSpecification: PredefinedMetricSpecification.filterSensitiveLog(
+        obj.PredefinedMetricSpecification
+      )
+    })
+  });
   export const isa = (o: any): o is TargetTrackingScalingPolicyConfiguration =>
     __isa(o, "TargetTrackingScalingPolicyConfiguration");
 }
@@ -2865,6 +3075,9 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
+  export const filterSensitiveLog = (obj: ValidationException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ValidationException =>
     __isa(o, "ValidationException");
 }

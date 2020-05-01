@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -18,6 +19,12 @@ export interface AddTagsToResourceRequest {
 }
 
 export namespace AddTagsToResourceRequest {
+  export const filterSensitiveLog = (obj: AddTagsToResourceRequest) => ({
+    ...obj,
+    ...(obj.TagList && {
+      TagList: obj.TagList.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is AddTagsToResourceRequest =>
     __isa(o, "AddTagsToResourceRequest");
 }
@@ -31,6 +38,9 @@ export interface AddTagsToResourceResponse {
 }
 
 export namespace AddTagsToResourceResponse {
+  export const filterSensitiveLog = (obj: AddTagsToResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AddTagsToResourceResponse =>
     __isa(o, "AddTagsToResourceResponse");
 }
@@ -60,6 +70,9 @@ export interface CloudHsmInternalException
 }
 
 export namespace CloudHsmInternalException {
+  export const filterSensitiveLog = (obj: CloudHsmInternalException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CloudHsmInternalException =>
     __isa(o, "CloudHsmInternalException");
 }
@@ -90,6 +103,9 @@ export interface CloudHsmServiceException
 }
 
 export namespace CloudHsmServiceException {
+  export const filterSensitiveLog = (obj: CloudHsmServiceException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CloudHsmServiceException =>
     __isa(o, "CloudHsmServiceException");
 }
@@ -106,6 +122,9 @@ export interface CreateHapgRequest {
 }
 
 export namespace CreateHapgRequest {
+  export const filterSensitiveLog = (obj: CreateHapgRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateHapgRequest =>
     __isa(o, "CreateHapgRequest");
 }
@@ -122,6 +141,9 @@ export interface CreateHapgResponse {
 }
 
 export namespace CreateHapgResponse {
+  export const filterSensitiveLog = (obj: CreateHapgResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateHapgResponse =>
     __isa(o, "CreateHapgResponse");
 }
@@ -190,6 +212,9 @@ export interface CreateHsmRequest {
 }
 
 export namespace CreateHsmRequest {
+  export const filterSensitiveLog = (obj: CreateHsmRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateHsmRequest =>
     __isa(o, "CreateHsmRequest");
 }
@@ -206,6 +231,9 @@ export interface CreateHsmResponse {
 }
 
 export namespace CreateHsmResponse {
+  export const filterSensitiveLog = (obj: CreateHsmResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateHsmResponse =>
     __isa(o, "CreateHsmResponse");
 }
@@ -228,6 +256,9 @@ export interface CreateLunaClientRequest {
 }
 
 export namespace CreateLunaClientRequest {
+  export const filterSensitiveLog = (obj: CreateLunaClientRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateLunaClientRequest =>
     __isa(o, "CreateLunaClientRequest");
 }
@@ -244,6 +275,9 @@ export interface CreateLunaClientResponse {
 }
 
 export namespace CreateLunaClientResponse {
+  export const filterSensitiveLog = (obj: CreateLunaClientResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CreateLunaClientResponse =>
     __isa(o, "CreateLunaClientResponse");
 }
@@ -260,6 +294,9 @@ export interface DeleteHapgRequest {
 }
 
 export namespace DeleteHapgRequest {
+  export const filterSensitiveLog = (obj: DeleteHapgRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteHapgRequest =>
     __isa(o, "DeleteHapgRequest");
 }
@@ -276,6 +313,9 @@ export interface DeleteHapgResponse {
 }
 
 export namespace DeleteHapgResponse {
+  export const filterSensitiveLog = (obj: DeleteHapgResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteHapgResponse =>
     __isa(o, "DeleteHapgResponse");
 }
@@ -292,6 +332,9 @@ export interface DeleteHsmRequest {
 }
 
 export namespace DeleteHsmRequest {
+  export const filterSensitiveLog = (obj: DeleteHsmRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteHsmRequest =>
     __isa(o, "DeleteHsmRequest");
 }
@@ -308,6 +351,9 @@ export interface DeleteHsmResponse {
 }
 
 export namespace DeleteHsmResponse {
+  export const filterSensitiveLog = (obj: DeleteHsmResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteHsmResponse =>
     __isa(o, "DeleteHsmResponse");
 }
@@ -321,6 +367,9 @@ export interface DeleteLunaClientRequest {
 }
 
 export namespace DeleteLunaClientRequest {
+  export const filterSensitiveLog = (obj: DeleteLunaClientRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteLunaClientRequest =>
     __isa(o, "DeleteLunaClientRequest");
 }
@@ -334,6 +383,9 @@ export interface DeleteLunaClientResponse {
 }
 
 export namespace DeleteLunaClientResponse {
+  export const filterSensitiveLog = (obj: DeleteLunaClientResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DeleteLunaClientResponse =>
     __isa(o, "DeleteLunaClientResponse");
 }
@@ -350,6 +402,9 @@ export interface DescribeHapgRequest {
 }
 
 export namespace DescribeHapgRequest {
+  export const filterSensitiveLog = (obj: DescribeHapgRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeHapgRequest =>
     __isa(o, "DescribeHapgRequest");
 }
@@ -407,6 +462,9 @@ export interface DescribeHapgResponse {
 }
 
 export namespace DescribeHapgResponse {
+  export const filterSensitiveLog = (obj: DescribeHapgResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeHapgResponse =>
     __isa(o, "DescribeHapgResponse");
 }
@@ -430,6 +488,9 @@ export interface DescribeHsmRequest {
 }
 
 export namespace DescribeHsmRequest {
+  export const filterSensitiveLog = (obj: DescribeHsmRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeHsmRequest =>
     __isa(o, "DescribeHsmRequest");
 }
@@ -558,6 +619,9 @@ export interface DescribeHsmResponse {
 }
 
 export namespace DescribeHsmResponse {
+  export const filterSensitiveLog = (obj: DescribeHsmResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeHsmResponse =>
     __isa(o, "DescribeHsmResponse");
 }
@@ -576,6 +640,9 @@ export interface DescribeLunaClientRequest {
 }
 
 export namespace DescribeLunaClientRequest {
+  export const filterSensitiveLog = (obj: DescribeLunaClientRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeLunaClientRequest =>
     __isa(o, "DescribeLunaClientRequest");
 }
@@ -609,6 +676,9 @@ export interface DescribeLunaClientResponse {
 }
 
 export namespace DescribeLunaClientResponse {
+  export const filterSensitiveLog = (obj: DescribeLunaClientResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeLunaClientResponse =>
     __isa(o, "DescribeLunaClientResponse");
 }
@@ -633,6 +703,9 @@ export interface GetConfigRequest {
 }
 
 export namespace GetConfigRequest {
+  export const filterSensitiveLog = (obj: GetConfigRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetConfigRequest =>
     __isa(o, "GetConfigRequest");
 }
@@ -656,6 +729,9 @@ export interface GetConfigResponse {
 }
 
 export namespace GetConfigResponse {
+  export const filterSensitiveLog = (obj: GetConfigResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is GetConfigResponse =>
     __isa(o, "GetConfigResponse");
 }
@@ -690,6 +766,9 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
+  export const filterSensitiveLog = (obj: InvalidRequestException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidRequestException =>
     __isa(o, "InvalidRequestException");
 }
@@ -702,6 +781,9 @@ export interface ListAvailableZonesRequest {
 }
 
 export namespace ListAvailableZonesRequest {
+  export const filterSensitiveLog = (obj: ListAvailableZonesRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListAvailableZonesRequest =>
     __isa(o, "ListAvailableZonesRequest");
 }
@@ -715,6 +797,9 @@ export interface ListAvailableZonesResponse {
 }
 
 export namespace ListAvailableZonesResponse {
+  export const filterSensitiveLog = (obj: ListAvailableZonesResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListAvailableZonesResponse =>
     __isa(o, "ListAvailableZonesResponse");
 }
@@ -729,6 +814,9 @@ export interface ListHapgsRequest {
 }
 
 export namespace ListHapgsRequest {
+  export const filterSensitiveLog = (obj: ListHapgsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListHapgsRequest =>
     __isa(o, "ListHapgsRequest");
 }
@@ -748,6 +836,9 @@ export interface ListHapgsResponse {
 }
 
 export namespace ListHapgsResponse {
+  export const filterSensitiveLog = (obj: ListHapgsResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListHapgsResponse =>
     __isa(o, "ListHapgsResponse");
 }
@@ -762,6 +853,9 @@ export interface ListHsmsRequest {
 }
 
 export namespace ListHsmsRequest {
+  export const filterSensitiveLog = (obj: ListHsmsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListHsmsRequest =>
     __isa(o, "ListHsmsRequest");
 }
@@ -784,6 +878,9 @@ export interface ListHsmsResponse {
 }
 
 export namespace ListHsmsResponse {
+  export const filterSensitiveLog = (obj: ListHsmsResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListHsmsResponse =>
     __isa(o, "ListHsmsResponse");
 }
@@ -798,6 +895,9 @@ export interface ListLunaClientsRequest {
 }
 
 export namespace ListLunaClientsRequest {
+  export const filterSensitiveLog = (obj: ListLunaClientsRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListLunaClientsRequest =>
     __isa(o, "ListLunaClientsRequest");
 }
@@ -817,6 +917,9 @@ export interface ListLunaClientsResponse {
 }
 
 export namespace ListLunaClientsResponse {
+  export const filterSensitiveLog = (obj: ListLunaClientsResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListLunaClientsResponse =>
     __isa(o, "ListLunaClientsResponse");
 }
@@ -830,6 +933,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
     __isa(o, "ListTagsForResourceRequest");
 }
@@ -843,6 +949,12 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+    ...obj,
+    ...(obj.TagList && {
+      TagList: obj.TagList.map(item => item.map(Tag.filterSensitiveLog))
+    })
+  });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
     __isa(o, "ListTagsForResourceResponse");
 }
@@ -867,6 +979,9 @@ export interface ModifyHapgRequest {
 }
 
 export namespace ModifyHapgRequest {
+  export const filterSensitiveLog = (obj: ModifyHapgRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ModifyHapgRequest =>
     __isa(o, "ModifyHapgRequest");
 }
@@ -880,6 +995,9 @@ export interface ModifyHapgResponse {
 }
 
 export namespace ModifyHapgResponse {
+  export const filterSensitiveLog = (obj: ModifyHapgResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ModifyHapgResponse =>
     __isa(o, "ModifyHapgResponse");
 }
@@ -926,6 +1044,9 @@ export interface ModifyHsmRequest {
 }
 
 export namespace ModifyHsmRequest {
+  export const filterSensitiveLog = (obj: ModifyHsmRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ModifyHsmRequest =>
     __isa(o, "ModifyHsmRequest");
 }
@@ -942,6 +1063,9 @@ export interface ModifyHsmResponse {
 }
 
 export namespace ModifyHsmResponse {
+  export const filterSensitiveLog = (obj: ModifyHsmResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ModifyHsmResponse =>
     __isa(o, "ModifyHsmResponse");
 }
@@ -960,6 +1084,9 @@ export interface ModifyLunaClientRequest {
 }
 
 export namespace ModifyLunaClientRequest {
+  export const filterSensitiveLog = (obj: ModifyLunaClientRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ModifyLunaClientRequest =>
     __isa(o, "ModifyLunaClientRequest");
 }
@@ -973,6 +1100,9 @@ export interface ModifyLunaClientResponse {
 }
 
 export namespace ModifyLunaClientResponse {
+  export const filterSensitiveLog = (obj: ModifyLunaClientResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ModifyLunaClientResponse =>
     __isa(o, "ModifyLunaClientResponse");
 }
@@ -993,6 +1123,9 @@ export interface RemoveTagsFromResourceRequest {
 }
 
 export namespace RemoveTagsFromResourceRequest {
+  export const filterSensitiveLog = (obj: RemoveTagsFromResourceRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RemoveTagsFromResourceRequest =>
     __isa(o, "RemoveTagsFromResourceRequest");
 }
@@ -1006,6 +1139,9 @@ export interface RemoveTagsFromResourceResponse {
 }
 
 export namespace RemoveTagsFromResourceResponse {
+  export const filterSensitiveLog = (obj: RemoveTagsFromResourceResponse) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RemoveTagsFromResourceResponse =>
     __isa(o, "RemoveTagsFromResourceResponse");
 }
@@ -1032,5 +1168,8 @@ export interface Tag {
 }
 
 export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag) => ({
+    ...obj
+  });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }

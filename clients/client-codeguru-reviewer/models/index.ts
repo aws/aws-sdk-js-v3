@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -16,6 +17,9 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
+  export const filterSensitiveLog = (obj: AccessDeniedException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is AccessDeniedException =>
     __isa(o, "AccessDeniedException");
 }
@@ -50,6 +54,12 @@ export interface AssociateRepositoryRequest {
 }
 
 export namespace AssociateRepositoryRequest {
+  export const filterSensitiveLog = (obj: AssociateRepositoryRequest) => ({
+    ...obj,
+    ...(obj.Repository && {
+      Repository: Repository.filterSensitiveLog(obj.Repository)
+    })
+  });
   export const isa = (o: any): o is AssociateRepositoryRequest =>
     __isa(o, "AssociateRepositoryRequest");
 }
@@ -63,6 +73,14 @@ export interface AssociateRepositoryResponse {
 }
 
 export namespace AssociateRepositoryResponse {
+  export const filterSensitiveLog = (obj: AssociateRepositoryResponse) => ({
+    ...obj,
+    ...(obj.RepositoryAssociation && {
+      RepositoryAssociation: RepositoryAssociation.filterSensitiveLog(
+        obj.RepositoryAssociation
+      )
+    })
+  });
   export const isa = (o: any): o is AssociateRepositoryResponse =>
     __isa(o, "AssociateRepositoryResponse");
 }
@@ -79,6 +97,9 @@ export interface CodeCommitRepository {
 }
 
 export namespace CodeCommitRepository {
+  export const filterSensitiveLog = (obj: CodeCommitRepository) => ({
+    ...obj
+  });
   export const isa = (o: any): o is CodeCommitRepository =>
     __isa(o, "CodeCommitRepository");
 }
@@ -96,6 +117,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConflictException =>
     __isa(o, "ConflictException");
 }
@@ -109,6 +133,11 @@ export interface DescribeRepositoryAssociationRequest {
 }
 
 export namespace DescribeRepositoryAssociationRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeRepositoryAssociationRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DescribeRepositoryAssociationRequest =>
     __isa(o, "DescribeRepositoryAssociationRequest");
 }
@@ -122,6 +151,16 @@ export interface DescribeRepositoryAssociationResponse {
 }
 
 export namespace DescribeRepositoryAssociationResponse {
+  export const filterSensitiveLog = (
+    obj: DescribeRepositoryAssociationResponse
+  ) => ({
+    ...obj,
+    ...(obj.RepositoryAssociation && {
+      RepositoryAssociation: RepositoryAssociation.filterSensitiveLog(
+        obj.RepositoryAssociation
+      )
+    })
+  });
   export const isa = (o: any): o is DescribeRepositoryAssociationResponse =>
     __isa(o, "DescribeRepositoryAssociationResponse");
 }
@@ -135,6 +174,9 @@ export interface DisassociateRepositoryRequest {
 }
 
 export namespace DisassociateRepositoryRequest {
+  export const filterSensitiveLog = (obj: DisassociateRepositoryRequest) => ({
+    ...obj
+  });
   export const isa = (o: any): o is DisassociateRepositoryRequest =>
     __isa(o, "DisassociateRepositoryRequest");
 }
@@ -148,6 +190,14 @@ export interface DisassociateRepositoryResponse {
 }
 
 export namespace DisassociateRepositoryResponse {
+  export const filterSensitiveLog = (obj: DisassociateRepositoryResponse) => ({
+    ...obj,
+    ...(obj.RepositoryAssociation && {
+      RepositoryAssociation: RepositoryAssociation.filterSensitiveLog(
+        obj.RepositoryAssociation
+      )
+    })
+  });
   export const isa = (o: any): o is DisassociateRepositoryResponse =>
     __isa(o, "DisassociateRepositoryResponse");
 }
@@ -164,6 +214,9 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
+  export const filterSensitiveLog = (obj: InternalServerException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is InternalServerException =>
     __isa(o, "InternalServerException");
 }
@@ -218,6 +271,11 @@ export interface ListRepositoryAssociationsRequest {
 }
 
 export namespace ListRepositoryAssociationsRequest {
+  export const filterSensitiveLog = (
+    obj: ListRepositoryAssociationsRequest
+  ) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ListRepositoryAssociationsRequest =>
     __isa(o, "ListRepositoryAssociationsRequest");
 }
@@ -239,6 +297,16 @@ export interface ListRepositoryAssociationsResponse {
 }
 
 export namespace ListRepositoryAssociationsResponse {
+  export const filterSensitiveLog = (
+    obj: ListRepositoryAssociationsResponse
+  ) => ({
+    ...obj,
+    ...(obj.RepositoryAssociationSummaries && {
+      RepositoryAssociationSummaries: obj.RepositoryAssociationSummaries.map(
+        item => item.map(RepositoryAssociationSummary.filterSensitiveLog)
+      )
+    })
+  });
   export const isa = (o: any): o is ListRepositoryAssociationsResponse =>
     __isa(o, "ListRepositoryAssociationsResponse");
 }
@@ -253,6 +321,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is NotFoundException =>
     __isa(o, "NotFoundException");
 }
@@ -274,6 +345,12 @@ export interface Repository {
 }
 
 export namespace Repository {
+  export const filterSensitiveLog = (obj: Repository) => ({
+    ...obj,
+    ...(obj.CodeCommit && {
+      CodeCommit: CodeCommitRepository.filterSensitiveLog(obj.CodeCommit)
+    })
+  });
   export const isa = (o: any): o is Repository => __isa(o, "Repository");
 }
 
@@ -329,6 +406,9 @@ export interface RepositoryAssociation {
 }
 
 export namespace RepositoryAssociation {
+  export const filterSensitiveLog = (obj: RepositoryAssociation) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RepositoryAssociation =>
     __isa(o, "RepositoryAssociation");
 }
@@ -407,6 +487,9 @@ export interface RepositoryAssociationSummary {
 }
 
 export namespace RepositoryAssociationSummary {
+  export const filterSensitiveLog = (obj: RepositoryAssociationSummary) => ({
+    ...obj
+  });
   export const isa = (o: any): o is RepositoryAssociationSummary =>
     __isa(o, "RepositoryAssociationSummary");
 }
@@ -423,6 +506,9 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ThrottlingException =>
     __isa(o, "ThrottlingException");
 }
@@ -439,6 +525,9 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
+  export const filterSensitiveLog = (obj: ValidationException) => ({
+    ...obj
+  });
   export const isa = (o: any): o is ValidationException =>
     __isa(o, "ValidationException");
 }
