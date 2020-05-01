@@ -1849,7 +1849,13 @@ export namespace GetBlacklistReportsResponse {
   export const filterSensitiveLog = (obj: GetBlacklistReportsResponse) => ({
     ...obj,
     ...(obj.BlacklistReport && {
-      BlacklistReport: Object.entries(obj.BlacklistReport).reduce()
+      BlacklistReport: Object.entries(obj.BlacklistReport).reduce(
+        (acc: any, [key, value]: [string, Array<BlacklistEntry>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is GetBlacklistReportsResponse =>

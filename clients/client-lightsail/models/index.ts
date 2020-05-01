@@ -1521,7 +1521,13 @@ export namespace CreateInstancesFromSnapshotRequest {
       addOns: obj.addOns.map(AddOnRequest.filterSensitiveLog)
     }),
     ...(obj.attachedDiskMapping && {
-      attachedDiskMapping: Object.entries(obj.attachedDiskMapping).reduce()
+      attachedDiskMapping: Object.entries(obj.attachedDiskMapping).reduce(
+        (acc: any, [key, value]: [string, Array<DiskMap>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     }),
     ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });

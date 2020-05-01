@@ -547,7 +547,13 @@ export namespace DescribeSecretResponse {
     }),
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
     ...(obj.VersionIdsToStages && {
-      VersionIdsToStages: Object.entries(obj.VersionIdsToStages).reduce()
+      VersionIdsToStages: Object.entries(obj.VersionIdsToStages).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is DescribeSecretResponse =>
@@ -1641,9 +1647,13 @@ export namespace SecretListEntry {
       RotationRules: RotationRulesType.filterSensitiveLog(obj.RotationRules)
     }),
     ...(obj.SecretVersionsToStages && {
-      SecretVersionsToStages: Object.entries(
-        obj.SecretVersionsToStages
-      ).reduce()
+      SecretVersionsToStages: Object.entries(obj.SecretVersionsToStages).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     }),
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });

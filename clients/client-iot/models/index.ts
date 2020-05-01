@@ -13630,7 +13630,10 @@ export namespace DescribeAuditMitigationActionsTaskResponse {
     ...(obj.auditCheckToActionsMapping && {
       auditCheckToActionsMapping: Object.entries(
         obj.auditCheckToActionsMapping
-      ).reduce()
+      ).reduce((acc: any, [key, value]: [string, Array<string>]) => {
+        acc[key] = value;
+        return acc;
+      }, {})
     }),
     ...(obj.target && {
       target: AuditMitigationActionsTaskTarget.filterSensitiveLog(obj.target)
@@ -14699,7 +14702,10 @@ export namespace StartAuditMitigationActionsTaskRequest {
     ...(obj.auditCheckToActionsMapping && {
       auditCheckToActionsMapping: Object.entries(
         obj.auditCheckToActionsMapping
-      ).reduce()
+      ).reduce((acc: any, [key, value]: [string, Array<string>]) => {
+        acc[key] = value;
+        return acc;
+      }, {})
     }),
     ...(obj.target && {
       target: AuditMitigationActionsTaskTarget.filterSensitiveLog(obj.target)
@@ -15726,7 +15732,10 @@ export namespace AuditMitigationActionsTaskTarget {
     ...(obj.auditCheckToReasonCodeFilter && {
       auditCheckToReasonCodeFilter: Object.entries(
         obj.auditCheckToReasonCodeFilter
-      ).reduce()
+      ).reduce((acc: any, [key, value]: [string, Array<string>]) => {
+        acc[key] = value;
+        return acc;
+      }, {})
     })
   });
   export const isa = (o: any): o is AuditMitigationActionsTaskTarget =>

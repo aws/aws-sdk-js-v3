@@ -847,10 +847,22 @@ export namespace Policy {
   export const filterSensitiveLog = (obj: Policy) => ({
     ...obj,
     ...(obj.ExcludeMap && {
-      ExcludeMap: Object.entries(obj.ExcludeMap).reduce()
+      ExcludeMap: Object.entries(obj.ExcludeMap).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     }),
     ...(obj.IncludeMap && {
-      IncludeMap: Object.entries(obj.IncludeMap).reduce()
+      IncludeMap: Object.entries(obj.IncludeMap).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     }),
     ...(obj.ResourceTags && {
       ResourceTags: obj.ResourceTags.map(ResourceTag.filterSensitiveLog)

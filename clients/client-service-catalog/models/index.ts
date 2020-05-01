@@ -3697,7 +3697,13 @@ export namespace ExecuteProvisionedProductServiceActionInput {
   ) => ({
     ...obj,
     ...(obj.Parameters && {
-      Parameters: Object.entries(obj.Parameters).reduce()
+      Parameters: Object.entries(obj.Parameters).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (
@@ -6971,7 +6977,15 @@ export interface SearchProductsAsAdminInput {
 export namespace SearchProductsAsAdminInput {
   export const filterSensitiveLog = (obj: SearchProductsAsAdminInput) => ({
     ...obj,
-    ...(obj.Filters && { Filters: Object.entries(obj.Filters).reduce() })
+    ...(obj.Filters && {
+      Filters: Object.entries(obj.Filters).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is SearchProductsAsAdminInput =>
     __isa(o, "SearchProductsAsAdminInput");
@@ -7054,7 +7068,15 @@ export interface SearchProductsInput {
 export namespace SearchProductsInput {
   export const filterSensitiveLog = (obj: SearchProductsInput) => ({
     ...obj,
-    ...(obj.Filters && { Filters: Object.entries(obj.Filters).reduce() })
+    ...(obj.Filters && {
+      Filters: Object.entries(obj.Filters).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is SearchProductsInput =>
     __isa(o, "SearchProductsInput");
@@ -7084,7 +7106,16 @@ export namespace SearchProductsOutput {
     ...(obj.ProductViewAggregations && {
       ProductViewAggregations: Object.entries(
         obj.ProductViewAggregations
-      ).reduce()
+      ).reduce(
+        (
+          acc: any,
+          [key, value]: [string, Array<ProductViewAggregationValue>]
+        ) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     }),
     ...(obj.ProductViewSummaries && {
       ProductViewSummaries: obj.ProductViewSummaries.map(
@@ -7164,7 +7195,15 @@ export namespace SearchProvisionedProductsInput {
         obj.AccessLevelFilter
       )
     }),
-    ...(obj.Filters && { Filters: Object.entries(obj.Filters).reduce() })
+    ...(obj.Filters && {
+      Filters: Object.entries(obj.Filters).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is SearchProvisionedProductsInput =>
     __isa(o, "SearchProvisionedProductsInput");

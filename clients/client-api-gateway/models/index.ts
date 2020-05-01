@@ -2017,7 +2017,16 @@ export namespace Deployment {
   export const filterSensitiveLog = (obj: Deployment) => ({
     ...obj,
     ...(obj.apiSummary && {
-      apiSummary: Object.entries(obj.apiSummary).reduce()
+      apiSummary: Object.entries(obj.apiSummary).reduce(
+        (
+          acc: any,
+          [key, value]: [string, { [key: string]: MethodSnapshot }]
+        ) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is Deployment => __isa(o, "Deployment");
@@ -6917,7 +6926,13 @@ export namespace TestInvokeAuthorizerRequest {
   export const filterSensitiveLog = (obj: TestInvokeAuthorizerRequest) => ({
     ...obj,
     ...(obj.multiValueHeaders && {
-      multiValueHeaders: Object.entries(obj.multiValueHeaders).reduce()
+      multiValueHeaders: Object.entries(obj.multiValueHeaders).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is TestInvokeAuthorizerRequest =>
@@ -6965,7 +6980,13 @@ export namespace TestInvokeAuthorizerResponse {
   export const filterSensitiveLog = (obj: TestInvokeAuthorizerResponse) => ({
     ...obj,
     ...(obj.authorization && {
-      authorization: Object.entries(obj.authorization).reduce()
+      authorization: Object.entries(obj.authorization).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is TestInvokeAuthorizerResponse =>
@@ -7027,7 +7048,13 @@ export namespace TestInvokeMethodRequest {
   export const filterSensitiveLog = (obj: TestInvokeMethodRequest) => ({
     ...obj,
     ...(obj.multiValueHeaders && {
-      multiValueHeaders: Object.entries(obj.multiValueHeaders).reduce()
+      multiValueHeaders: Object.entries(obj.multiValueHeaders).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is TestInvokeMethodRequest =>
@@ -7077,7 +7104,13 @@ export namespace TestInvokeMethodResponse {
   export const filterSensitiveLog = (obj: TestInvokeMethodResponse) => ({
     ...obj,
     ...(obj.multiValueHeaders && {
-      multiValueHeaders: Object.entries(obj.multiValueHeaders).reduce()
+      multiValueHeaders: Object.entries(obj.multiValueHeaders).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is TestInvokeMethodResponse =>
@@ -8032,7 +8065,15 @@ export interface Usage {
 export namespace Usage {
   export const filterSensitiveLog = (obj: Usage) => ({
     ...obj,
-    ...(obj.items && { items: Object.entries(obj.items).reduce() })
+    ...(obj.items && {
+      items: Object.entries(obj.items).reduce(
+        (acc: any, [key, value]: [string, Array<Array<number>>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is Usage => __isa(o, "Usage");
 }

@@ -2317,7 +2317,15 @@ export interface DeploymentCommand {
 export namespace DeploymentCommand {
   export const filterSensitiveLog = (obj: DeploymentCommand) => ({
     ...obj,
-    ...(obj.Args && { Args: Object.entries(obj.Args).reduce() })
+    ...(obj.Args && {
+      Args: Object.entries(obj.Args).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is DeploymentCommand =>
     __isa(o, "DeploymentCommand");

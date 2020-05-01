@@ -57,7 +57,13 @@ export namespace Forecast {
   export const filterSensitiveLog = (obj: Forecast) => ({
     ...obj,
     ...(obj.Predictions && {
-      Predictions: Object.entries(obj.Predictions).reduce()
+      Predictions: Object.entries(obj.Predictions).reduce(
+        (acc: any, [key, value]: [string, Array<DataPoint>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is Forecast => __isa(o, "Forecast");

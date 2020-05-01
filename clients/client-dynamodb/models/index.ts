@@ -1077,7 +1077,18 @@ export namespace BatchGetItemOutput {
         ConsumedCapacity.filterSensitiveLog
       )
     }),
-    ...(obj.Responses && { Responses: Object.entries(obj.Responses).reduce() }),
+    ...(obj.Responses && {
+      Responses: Object.entries(obj.Responses).reduce(
+        (
+          acc: any,
+          [key, value]: [string, Array<{ [key: string]: AttributeValue }>]
+        ) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.UnprocessedKeys && {
       UnprocessedKeys: Object.entries(obj.UnprocessedKeys).reduce(
         (acc: any, [key, value]: [string, KeysAndAttributes]) => {
@@ -1169,7 +1180,13 @@ export namespace BatchWriteItemInput {
   export const filterSensitiveLog = (obj: BatchWriteItemInput) => ({
     ...obj,
     ...(obj.RequestItems && {
-      RequestItems: Object.entries(obj.RequestItems).reduce()
+      RequestItems: Object.entries(obj.RequestItems).reduce(
+        (acc: any, [key, value]: [string, Array<WriteRequest>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is BatchWriteItemInput =>
@@ -1273,10 +1290,22 @@ export namespace BatchWriteItemOutput {
       )
     }),
     ...(obj.ItemCollectionMetrics && {
-      ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce()
+      ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce(
+        (acc: any, [key, value]: [string, Array<ItemCollectionMetrics>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     }),
     ...(obj.UnprocessedItems && {
-      UnprocessedItems: Object.entries(obj.UnprocessedItems).reduce()
+      UnprocessedItems: Object.entries(obj.UnprocessedItems).reduce(
+        (acc: any, [key, value]: [string, Array<WriteRequest>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is BatchWriteItemOutput =>
@@ -8907,7 +8936,13 @@ export namespace TransactWriteItemsOutput {
       )
     }),
     ...(obj.ItemCollectionMetrics && {
-      ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce()
+      ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce(
+        (acc: any, [key, value]: [string, Array<ItemCollectionMetrics>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is TransactWriteItemsOutput =>

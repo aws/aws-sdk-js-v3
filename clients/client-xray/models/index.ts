@@ -2607,7 +2607,13 @@ export namespace TraceSummary {
   export const filterSensitiveLog = (obj: TraceSummary) => ({
     ...obj,
     ...(obj.Annotations && {
-      Annotations: Object.entries(obj.Annotations).reduce()
+      Annotations: Object.entries(obj.Annotations).reduce(
+        (acc: any, [key, value]: [string, Array<ValueWithServiceIds>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     }),
     ...(obj.AvailabilityZones && {
       AvailabilityZones: obj.AvailabilityZones.map(

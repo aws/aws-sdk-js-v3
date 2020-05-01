@@ -188,7 +188,13 @@ export namespace ADMMessage {
   export const filterSensitiveLog = (obj: ADMMessage) => ({
     ...obj,
     ...(obj.Substitutions && {
-      Substitutions: Object.entries(obj.Substitutions).reduce()
+      Substitutions: Object.entries(obj.Substitutions).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is ADMMessage => __isa(o, "ADMMessage");
@@ -422,7 +428,13 @@ export namespace APNSMessage {
   export const filterSensitiveLog = (obj: APNSMessage) => ({
     ...obj,
     ...(obj.Substitutions && {
-      Substitutions: Object.entries(obj.Substitutions).reduce()
+      Substitutions: Object.entries(obj.Substitutions).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is APNSMessage => __isa(o, "APNSMessage");
@@ -1079,7 +1091,13 @@ export namespace AddressConfiguration {
   export const filterSensitiveLog = (obj: AddressConfiguration) => ({
     ...obj,
     ...(obj.Substitutions && {
-      Substitutions: Object.entries(obj.Substitutions).reduce()
+      Substitutions: Object.entries(obj.Substitutions).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is AddressConfiguration =>
@@ -1564,7 +1582,13 @@ export namespace BaiduMessage {
   export const filterSensitiveLog = (obj: BaiduMessage) => ({
     ...obj,
     ...(obj.Substitutions && {
-      Substitutions: Object.entries(obj.Substitutions).reduce()
+      Substitutions: Object.entries(obj.Substitutions).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is BaiduMessage => __isa(o, "BaiduMessage");
@@ -2701,7 +2725,13 @@ export namespace DefaultMessage {
   export const filterSensitiveLog = (obj: DefaultMessage) => ({
     ...obj,
     ...(obj.Substitutions && {
-      Substitutions: Object.entries(obj.Substitutions).reduce()
+      Substitutions: Object.entries(obj.Substitutions).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is DefaultMessage =>
@@ -2753,7 +2783,13 @@ export namespace DefaultPushNotificationMessage {
   export const filterSensitiveLog = (obj: DefaultPushNotificationMessage) => ({
     ...obj,
     ...(obj.Substitutions && {
-      Substitutions: Object.entries(obj.Substitutions).reduce()
+      Substitutions: Object.entries(obj.Substitutions).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is DefaultPushNotificationMessage =>
@@ -3902,7 +3938,13 @@ export namespace EmailMessage {
       SimpleEmail: SimpleEmail.filterSensitiveLog(obj.SimpleEmail)
     }),
     ...(obj.Substitutions && {
-      Substitutions: Object.entries(obj.Substitutions).reduce()
+      Substitutions: Object.entries(obj.Substitutions).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is EmailMessage => __isa(o, "EmailMessage");
@@ -4133,7 +4175,13 @@ export namespace EndpointBatchItem {
   export const filterSensitiveLog = (obj: EndpointBatchItem) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: Object.entries(obj.Attributes).reduce()
+      Attributes: Object.entries(obj.Attributes).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     }),
     ...(obj.Demographic && {
       Demographic: EndpointDemographic.filterSensitiveLog(obj.Demographic)
@@ -4400,7 +4448,13 @@ export namespace EndpointRequest {
   export const filterSensitiveLog = (obj: EndpointRequest) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: Object.entries(obj.Attributes).reduce()
+      Attributes: Object.entries(obj.Attributes).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     }),
     ...(obj.Demographic && {
       Demographic: EndpointDemographic.filterSensitiveLog(obj.Demographic)
@@ -4499,7 +4553,13 @@ export namespace EndpointResponse {
   export const filterSensitiveLog = (obj: EndpointResponse) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: Object.entries(obj.Attributes).reduce()
+      Attributes: Object.entries(obj.Attributes).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     }),
     ...(obj.Demographic && {
       Demographic: EndpointDemographic.filterSensitiveLog(obj.Demographic)
@@ -4548,7 +4608,13 @@ export namespace EndpointSendConfiguration {
   export const filterSensitiveLog = (obj: EndpointSendConfiguration) => ({
     ...obj,
     ...(obj.Substitutions && {
-      Substitutions: Object.entries(obj.Substitutions).reduce()
+      Substitutions: Object.entries(obj.Substitutions).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is EndpointSendConfiguration =>
@@ -4575,7 +4641,13 @@ export namespace EndpointUser {
   export const filterSensitiveLog = (obj: EndpointUser) => ({
     ...obj,
     ...(obj.UserAttributes && {
-      UserAttributes: Object.entries(obj.UserAttributes).reduce()
+      UserAttributes: Object.entries(obj.UserAttributes).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is EndpointUser => __isa(o, "EndpointUser");
@@ -5310,7 +5382,13 @@ export namespace GCMMessage {
   export const filterSensitiveLog = (obj: GCMMessage) => ({
     ...obj,
     ...(obj.Substitutions && {
-      Substitutions: Object.entries(obj.Substitutions).reduce()
+      Substitutions: Object.entries(obj.Substitutions).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is GCMMessage => __isa(o, "GCMMessage");
@@ -8820,7 +8898,13 @@ export namespace PublicEndpoint {
   export const filterSensitiveLog = (obj: PublicEndpoint) => ({
     ...obj,
     ...(obj.Attributes && {
-      Attributes: Object.entries(obj.Attributes).reduce()
+      Attributes: Object.entries(obj.Attributes).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     }),
     ...(obj.Demographic && {
       Demographic: EndpointDemographic.filterSensitiveLog(obj.Demographic)
@@ -9471,7 +9555,13 @@ export namespace SMSMessage {
   export const filterSensitiveLog = (obj: SMSMessage) => ({
     ...obj,
     ...(obj.Substitutions && {
-      Substitutions: Object.entries(obj.Substitutions).reduce()
+      Substitutions: Object.entries(obj.Substitutions).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is SMSMessage => __isa(o, "SMSMessage");
@@ -10217,7 +10307,18 @@ export interface SendUsersMessageResponse {
 export namespace SendUsersMessageResponse {
   export const filterSensitiveLog = (obj: SendUsersMessageResponse) => ({
     ...obj,
-    ...(obj.Result && { Result: Object.entries(obj.Result).reduce() })
+    ...(obj.Result && {
+      Result: Object.entries(obj.Result).reduce(
+        (
+          acc: any,
+          [key, value]: [string, { [key: string]: EndpointMessageResult }]
+        ) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is SendUsersMessageResponse =>
     __isa(o, "SendUsersMessageResponse");
@@ -12134,7 +12235,13 @@ export namespace VoiceMessage {
   export const filterSensitiveLog = (obj: VoiceMessage) => ({
     ...obj,
     ...(obj.Substitutions && {
-      Substitutions: Object.entries(obj.Substitutions).reduce()
+      Substitutions: Object.entries(obj.Substitutions).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is VoiceMessage => __isa(o, "VoiceMessage");

@@ -4789,7 +4789,13 @@ export namespace ListUniqueProblemsResult {
   export const filterSensitiveLog = (obj: ListUniqueProblemsResult) => ({
     ...obj,
     ...(obj.uniqueProblems && {
-      uniqueProblems: Object.entries(obj.uniqueProblems).reduce()
+      uniqueProblems: Object.entries(obj.uniqueProblems).reduce(
+        (acc: any, [key, value]: [string, Array<UniqueProblem>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is ListUniqueProblemsResult =>

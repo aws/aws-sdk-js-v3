@@ -135,7 +135,15 @@ export interface GetEntitlementsRequest {
 export namespace GetEntitlementsRequest {
   export const filterSensitiveLog = (obj: GetEntitlementsRequest) => ({
     ...obj,
-    ...(obj.Filter && { Filter: Object.entries(obj.Filter).reduce() })
+    ...(obj.Filter && {
+      Filter: Object.entries(obj.Filter).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is GetEntitlementsRequest =>
     __isa(o, "GetEntitlementsRequest");

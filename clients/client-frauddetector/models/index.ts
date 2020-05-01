@@ -1253,7 +1253,13 @@ export namespace LabelSchema {
   export const filterSensitiveLog = (obj: LabelSchema) => ({
     ...obj,
     ...(obj.labelMapper && {
-      labelMapper: Object.entries(obj.labelMapper).reduce()
+      labelMapper: Object.entries(obj.labelMapper).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is LabelSchema => __isa(o, "LabelSchema");

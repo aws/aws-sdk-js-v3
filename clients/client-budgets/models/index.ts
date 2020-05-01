@@ -131,7 +131,13 @@ export namespace Budget {
       CalculatedSpend: CalculatedSpend.filterSensitiveLog(obj.CalculatedSpend)
     }),
     ...(obj.CostFilters && {
-      CostFilters: Object.entries(obj.CostFilters).reduce()
+      CostFilters: Object.entries(obj.CostFilters).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     }),
     ...(obj.CostTypes && {
       CostTypes: CostTypes.filterSensitiveLog(obj.CostTypes)
@@ -199,7 +205,13 @@ export namespace BudgetPerformanceHistory {
       )
     }),
     ...(obj.CostFilters && {
-      CostFilters: Object.entries(obj.CostFilters).reduce()
+      CostFilters: Object.entries(obj.CostFilters).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     }),
     ...(obj.CostTypes && {
       CostTypes: CostTypes.filterSensitiveLog(obj.CostTypes)

@@ -1009,7 +1009,13 @@ export namespace CreateIAMPolicyAssignmentRequest {
   ) => ({
     ...obj,
     ...(obj.Identities && {
-      Identities: Object.entries(obj.Identities).reduce()
+      Identities: Object.entries(obj.Identities).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is CreateIAMPolicyAssignmentRequest =>
@@ -1071,7 +1077,13 @@ export namespace CreateIAMPolicyAssignmentResponse {
   ) => ({
     ...obj,
     ...(obj.Identities && {
-      Identities: Object.entries(obj.Identities).reduce()
+      Identities: Object.entries(obj.Identities).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is CreateIAMPolicyAssignmentResponse =>
@@ -3856,7 +3868,13 @@ export namespace IAMPolicyAssignment {
   export const filterSensitiveLog = (obj: IAMPolicyAssignment) => ({
     ...obj,
     ...(obj.Identities && {
-      Identities: Object.entries(obj.Identities).reduce()
+      Identities: Object.entries(obj.Identities).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is IAMPolicyAssignment =>
@@ -7307,7 +7325,13 @@ export namespace UpdateIAMPolicyAssignmentRequest {
   ) => ({
     ...obj,
     ...(obj.Identities && {
-      Identities: Object.entries(obj.Identities).reduce()
+      Identities: Object.entries(obj.Identities).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is UpdateIAMPolicyAssignmentRequest =>
@@ -7370,7 +7394,13 @@ export namespace UpdateIAMPolicyAssignmentResponse {
   ) => ({
     ...obj,
     ...(obj.Identities && {
-      Identities: Object.entries(obj.Identities).reduce()
+      Identities: Object.entries(obj.Identities).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is UpdateIAMPolicyAssignmentResponse =>

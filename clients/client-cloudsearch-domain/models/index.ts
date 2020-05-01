@@ -181,7 +181,15 @@ export interface Hit {
 export namespace Hit {
   export const filterSensitiveLog = (obj: Hit) => ({
     ...obj,
-    ...(obj.fields && { fields: Object.entries(obj.fields).reduce() })
+    ...(obj.fields && {
+      fields: Object.entries(obj.fields).reduce(
+        (acc: any, [key, value]: [string, Array<string>]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is Hit => __isa(o, "Hit");
 }
