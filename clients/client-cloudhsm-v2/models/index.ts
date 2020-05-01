@@ -65,7 +65,7 @@ export interface Backup {
 }
 
 export namespace Backup {
-  export const filterSensitiveLog = (obj: Backup) => ({
+  export const filterSensitiveLog = (obj: Backup): any => ({
     ...obj,
     ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
   });
@@ -117,7 +117,7 @@ export interface Certificates {
 }
 
 export namespace Certificates {
-  export const filterSensitiveLog = (obj: Certificates) => ({
+  export const filterSensitiveLog = (obj: Certificates): any => ({
     ...obj
   });
   export const isa = (o: any): o is Certificates => __isa(o, "Certificates");
@@ -198,7 +198,7 @@ export interface Cluster {
 }
 
 export namespace Cluster {
-  export const filterSensitiveLog = (obj: Cluster) => ({
+  export const filterSensitiveLog = (obj: Cluster): any => ({
     ...obj,
     ...(obj.Certificates && {
       Certificates: Certificates.filterSensitiveLog(obj.Certificates)
@@ -237,7 +237,7 @@ export interface CopyBackupToRegionRequest {
 }
 
 export namespace CopyBackupToRegionRequest {
-  export const filterSensitiveLog = (obj: CopyBackupToRegionRequest) => ({
+  export const filterSensitiveLog = (obj: CopyBackupToRegionRequest): any => ({
     ...obj,
     ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
   });
@@ -259,7 +259,7 @@ export interface CopyBackupToRegionResponse {
 }
 
 export namespace CopyBackupToRegionResponse {
-  export const filterSensitiveLog = (obj: CopyBackupToRegionResponse) => ({
+  export const filterSensitiveLog = (obj: CopyBackupToRegionResponse): any => ({
     ...obj,
     ...(obj.DestinationBackup && {
       DestinationBackup: DestinationBackup.filterSensitiveLog(
@@ -304,7 +304,7 @@ export interface CreateClusterRequest {
 }
 
 export namespace CreateClusterRequest {
-  export const filterSensitiveLog = (obj: CreateClusterRequest) => ({
+  export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
     ...obj,
     ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
   });
@@ -321,7 +321,7 @@ export interface CreateClusterResponse {
 }
 
 export namespace CreateClusterResponse {
-  export const filterSensitiveLog = (obj: CreateClusterResponse) => ({
+  export const filterSensitiveLog = (obj: CreateClusterResponse): any => ({
     ...obj,
     ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
   });
@@ -351,7 +351,7 @@ export interface CreateHsmRequest {
 }
 
 export namespace CreateHsmRequest {
-  export const filterSensitiveLog = (obj: CreateHsmRequest) => ({
+  export const filterSensitiveLog = (obj: CreateHsmRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateHsmRequest =>
@@ -367,7 +367,7 @@ export interface CreateHsmResponse {
 }
 
 export namespace CreateHsmResponse {
-  export const filterSensitiveLog = (obj: CreateHsmResponse) => ({
+  export const filterSensitiveLog = (obj: CreateHsmResponse): any => ({
     ...obj,
     ...(obj.Hsm && { Hsm: Hsm.filterSensitiveLog(obj.Hsm) })
   });
@@ -384,7 +384,7 @@ export interface DeleteBackupRequest {
 }
 
 export namespace DeleteBackupRequest {
-  export const filterSensitiveLog = (obj: DeleteBackupRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteBackupRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteBackupRequest =>
@@ -400,7 +400,7 @@ export interface DeleteBackupResponse {
 }
 
 export namespace DeleteBackupResponse {
-  export const filterSensitiveLog = (obj: DeleteBackupResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteBackupResponse): any => ({
     ...obj,
     ...(obj.Backup && { Backup: Backup.filterSensitiveLog(obj.Backup) })
   });
@@ -418,7 +418,7 @@ export interface DeleteClusterRequest {
 }
 
 export namespace DeleteClusterRequest {
-  export const filterSensitiveLog = (obj: DeleteClusterRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteClusterRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteClusterRequest =>
@@ -434,7 +434,7 @@ export interface DeleteClusterResponse {
 }
 
 export namespace DeleteClusterResponse {
-  export const filterSensitiveLog = (obj: DeleteClusterResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteClusterResponse): any => ({
     ...obj,
     ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
   });
@@ -469,7 +469,7 @@ export interface DeleteHsmRequest {
 }
 
 export namespace DeleteHsmRequest {
-  export const filterSensitiveLog = (obj: DeleteHsmRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteHsmRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteHsmRequest =>
@@ -485,7 +485,7 @@ export interface DeleteHsmResponse {
 }
 
 export namespace DeleteHsmResponse {
-  export const filterSensitiveLog = (obj: DeleteHsmResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteHsmResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteHsmResponse =>
@@ -527,7 +527,7 @@ export interface DescribeBackupsRequest {
 }
 
 export namespace DescribeBackupsRequest {
-  export const filterSensitiveLog = (obj: DescribeBackupsRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeBackupsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeBackupsRequest =>
@@ -550,7 +550,7 @@ export interface DescribeBackupsResponse {
 }
 
 export namespace DescribeBackupsResponse {
-  export const filterSensitiveLog = (obj: DescribeBackupsResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
     ...obj,
     ...(obj.Backups && { Backups: obj.Backups.map(Backup.filterSensitiveLog) })
   });
@@ -585,7 +585,7 @@ export interface DescribeClustersRequest {
 }
 
 export namespace DescribeClustersRequest {
-  export const filterSensitiveLog = (obj: DescribeClustersRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeClustersRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeClustersRequest =>
@@ -608,7 +608,7 @@ export interface DescribeClustersResponse {
 }
 
 export namespace DescribeClustersResponse {
-  export const filterSensitiveLog = (obj: DescribeClustersResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeClustersResponse): any => ({
     ...obj,
     ...(obj.Clusters && {
       Clusters: obj.Clusters.map(Cluster.filterSensitiveLog)
@@ -645,7 +645,7 @@ export interface DestinationBackup {
 }
 
 export namespace DestinationBackup {
-  export const filterSensitiveLog = (obj: DestinationBackup) => ({
+  export const filterSensitiveLog = (obj: DestinationBackup): any => ({
     ...obj
   });
   export const isa = (o: any): o is DestinationBackup =>
@@ -700,7 +700,7 @@ export interface Hsm {
 }
 
 export namespace Hsm {
-  export const filterSensitiveLog = (obj: Hsm) => ({
+  export const filterSensitiveLog = (obj: Hsm): any => ({
     ...obj
   });
   export const isa = (o: any): o is Hsm => __isa(o, "Hsm");
@@ -738,7 +738,7 @@ export interface InitializeClusterRequest {
 }
 
 export namespace InitializeClusterRequest {
-  export const filterSensitiveLog = (obj: InitializeClusterRequest) => ({
+  export const filterSensitiveLog = (obj: InitializeClusterRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is InitializeClusterRequest =>
@@ -759,7 +759,7 @@ export interface InitializeClusterResponse {
 }
 
 export namespace InitializeClusterResponse {
-  export const filterSensitiveLog = (obj: InitializeClusterResponse) => ({
+  export const filterSensitiveLog = (obj: InitializeClusterResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is InitializeClusterResponse =>
@@ -788,7 +788,7 @@ export interface ListTagsRequest {
 }
 
 export namespace ListTagsRequest {
-  export const filterSensitiveLog = (obj: ListTagsRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsRequest =>
@@ -810,7 +810,7 @@ export interface ListTagsResponse {
 }
 
 export namespace ListTagsResponse {
-  export const filterSensitiveLog = (obj: ListTagsResponse) => ({
+  export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
     ...obj,
     ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
   });
@@ -827,7 +827,7 @@ export interface RestoreBackupRequest {
 }
 
 export namespace RestoreBackupRequest {
-  export const filterSensitiveLog = (obj: RestoreBackupRequest) => ({
+  export const filterSensitiveLog = (obj: RestoreBackupRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is RestoreBackupRequest =>
@@ -843,7 +843,7 @@ export interface RestoreBackupResponse {
 }
 
 export namespace RestoreBackupResponse {
-  export const filterSensitiveLog = (obj: RestoreBackupResponse) => ({
+  export const filterSensitiveLog = (obj: RestoreBackupResponse): any => ({
     ...obj,
     ...(obj.Backup && { Backup: Backup.filterSensitiveLog(obj.Backup) })
   });
@@ -868,7 +868,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -889,7 +889,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
     ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
   });
@@ -902,7 +902,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const filterSensitiveLog = (obj: TagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceResponse =>
@@ -925,7 +925,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>
@@ -937,7 +937,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceResponse =>
@@ -957,7 +957,9 @@ export interface CloudHsmAccessDeniedException
 }
 
 export namespace CloudHsmAccessDeniedException {
-  export const filterSensitiveLog = (obj: CloudHsmAccessDeniedException) => ({
+  export const filterSensitiveLog = (
+    obj: CloudHsmAccessDeniedException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CloudHsmAccessDeniedException =>
@@ -979,7 +981,7 @@ export interface CloudHsmInternalFailureException
 export namespace CloudHsmInternalFailureException {
   export const filterSensitiveLog = (
     obj: CloudHsmInternalFailureException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CloudHsmInternalFailureException =>
@@ -998,7 +1000,9 @@ export interface CloudHsmInvalidRequestException
 }
 
 export namespace CloudHsmInvalidRequestException {
-  export const filterSensitiveLog = (obj: CloudHsmInvalidRequestException) => ({
+  export const filterSensitiveLog = (
+    obj: CloudHsmInvalidRequestException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CloudHsmInvalidRequestException =>
@@ -1020,7 +1024,7 @@ export interface CloudHsmResourceNotFoundException
 export namespace CloudHsmResourceNotFoundException {
   export const filterSensitiveLog = (
     obj: CloudHsmResourceNotFoundException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CloudHsmResourceNotFoundException =>
@@ -1039,7 +1043,7 @@ export interface CloudHsmServiceException
 }
 
 export namespace CloudHsmServiceException {
-  export const filterSensitiveLog = (obj: CloudHsmServiceException) => ({
+  export const filterSensitiveLog = (obj: CloudHsmServiceException): any => ({
     ...obj
   });
   export const isa = (o: any): o is CloudHsmServiceException =>
@@ -1055,7 +1059,7 @@ export interface CloudHsmTagException
 }
 
 export namespace CloudHsmTagException {
-  export const filterSensitiveLog = (obj: CloudHsmTagException) => ({
+  export const filterSensitiveLog = (obj: CloudHsmTagException): any => ({
     ...obj
   });
   export const isa = (o: any): o is CloudHsmTagException =>

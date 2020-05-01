@@ -23,7 +23,7 @@ export interface Block {
 }
 
 export namespace Block {
-  export const filterSensitiveLog = (obj: Block) => ({
+  export const filterSensitiveLog = (obj: Block): any => ({
     ...obj
   });
   export const isa = (o: any): o is Block => __isa(o, "Block");
@@ -55,7 +55,7 @@ export interface ChangedBlock {
 }
 
 export namespace ChangedBlock {
-  export const filterSensitiveLog = (obj: ChangedBlock) => ({
+  export const filterSensitiveLog = (obj: ChangedBlock): any => ({
     ...obj
   });
   export const isa = (o: any): o is ChangedBlock => __isa(o, "ChangedBlock");
@@ -92,7 +92,7 @@ export interface GetSnapshotBlockRequest {
 }
 
 export namespace GetSnapshotBlockRequest {
-  export const filterSensitiveLog = (obj: GetSnapshotBlockRequest) => ({
+  export const filterSensitiveLog = (obj: GetSnapshotBlockRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetSnapshotBlockRequest =>
@@ -123,7 +123,7 @@ export interface GetSnapshotBlockResponse {
 }
 
 export namespace GetSnapshotBlockResponse {
-  export const filterSensitiveLog = (obj: GetSnapshotBlockResponse) => ({
+  export const filterSensitiveLog = (obj: GetSnapshotBlockResponse): any => ({
     ...obj,
     ...(obj.BlockData && { BlockData: SENSITIVE_STRING })
   });
@@ -164,7 +164,7 @@ export interface ListChangedBlocksRequest {
 }
 
 export namespace ListChangedBlocksRequest {
-  export const filterSensitiveLog = (obj: ListChangedBlocksRequest) => ({
+  export const filterSensitiveLog = (obj: ListChangedBlocksRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListChangedBlocksRequest =>
@@ -201,7 +201,7 @@ export interface ListChangedBlocksResponse {
 }
 
 export namespace ListChangedBlocksResponse {
-  export const filterSensitiveLog = (obj: ListChangedBlocksResponse) => ({
+  export const filterSensitiveLog = (obj: ListChangedBlocksResponse): any => ({
     ...obj,
     ...(obj.ChangedBlocks && {
       ChangedBlocks: obj.ChangedBlocks.map(ChangedBlock.filterSensitiveLog)
@@ -236,7 +236,7 @@ export interface ListSnapshotBlocksRequest {
 }
 
 export namespace ListSnapshotBlocksRequest {
-  export const filterSensitiveLog = (obj: ListSnapshotBlocksRequest) => ({
+  export const filterSensitiveLog = (obj: ListSnapshotBlocksRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListSnapshotBlocksRequest =>
@@ -273,7 +273,7 @@ export interface ListSnapshotBlocksResponse {
 }
 
 export namespace ListSnapshotBlocksResponse {
-  export const filterSensitiveLog = (obj: ListSnapshotBlocksResponse) => ({
+  export const filterSensitiveLog = (obj: ListSnapshotBlocksResponse): any => ({
     ...obj,
     ...(obj.Blocks && { Blocks: SENSITIVE_STRING })
   });
@@ -293,7 +293,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -316,7 +316,7 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const filterSensitiveLog = (obj: ValidationException) => ({
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ValidationException =>

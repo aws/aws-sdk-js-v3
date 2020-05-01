@@ -17,7 +17,7 @@ export interface InternalServiceError
 }
 
 export namespace InternalServiceError {
-  export const filterSensitiveLog = (obj: InternalServiceError) => ({
+  export const filterSensitiveLog = (obj: InternalServiceError): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServiceError =>
@@ -36,7 +36,7 @@ export interface InvalidArgumentException
 }
 
 export namespace InvalidArgumentException {
-  export const filterSensitiveLog = (obj: InvalidArgumentException) => ({
+  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidArgumentException =>
@@ -55,7 +55,7 @@ export interface NotAuthorizedException
 }
 
 export namespace NotAuthorizedException {
-  export const filterSensitiveLog = (obj: NotAuthorizedException) => ({
+  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is NotAuthorizedException =>
@@ -83,7 +83,7 @@ export interface DataPoint {
 }
 
 export namespace DataPoint {
-  export const filterSensitiveLog = (obj: DataPoint) => ({
+  export const filterSensitiveLog = (obj: DataPoint): any => ({
     ...obj
   });
   export const isa = (o: any): o is DataPoint => __isa(o, "DataPoint");
@@ -224,7 +224,9 @@ export interface DescribeDimensionKeysRequest {
 }
 
 export namespace DescribeDimensionKeysRequest {
-  export const filterSensitiveLog = (obj: DescribeDimensionKeysRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeDimensionKeysRequest
+  ): any => ({
     ...obj,
     ...(obj.GroupBy && {
       GroupBy: DimensionGroup.filterSensitiveLog(obj.GroupBy)
@@ -272,7 +274,9 @@ export interface DescribeDimensionKeysResponse {
 }
 
 export namespace DescribeDimensionKeysResponse {
-  export const filterSensitiveLog = (obj: DescribeDimensionKeysResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeDimensionKeysResponse
+  ): any => ({
     ...obj,
     ...(obj.Keys && {
       Keys: obj.Keys.map(DimensionKeyDescription.filterSensitiveLog)
@@ -392,7 +396,7 @@ export interface DimensionGroup {
 }
 
 export namespace DimensionGroup {
-  export const filterSensitiveLog = (obj: DimensionGroup) => ({
+  export const filterSensitiveLog = (obj: DimensionGroup): any => ({
     ...obj
   });
   export const isa = (o: any): o is DimensionGroup =>
@@ -422,7 +426,7 @@ export interface DimensionKeyDescription {
 }
 
 export namespace DimensionKeyDescription {
-  export const filterSensitiveLog = (obj: DimensionKeyDescription) => ({
+  export const filterSensitiveLog = (obj: DimensionKeyDescription): any => ({
     ...obj
   });
   export const isa = (o: any): o is DimensionKeyDescription =>
@@ -520,7 +524,7 @@ export interface GetResourceMetricsRequest {
 }
 
 export namespace GetResourceMetricsRequest {
-  export const filterSensitiveLog = (obj: GetResourceMetricsRequest) => ({
+  export const filterSensitiveLog = (obj: GetResourceMetricsRequest): any => ({
     ...obj,
     ...(obj.MetricQueries && {
       MetricQueries: obj.MetricQueries.map(MetricQuery.filterSensitiveLog)
@@ -570,7 +574,7 @@ export interface GetResourceMetricsResponse {
 }
 
 export namespace GetResourceMetricsResponse {
-  export const filterSensitiveLog = (obj: GetResourceMetricsResponse) => ({
+  export const filterSensitiveLog = (obj: GetResourceMetricsResponse): any => ({
     ...obj,
     ...(obj.MetricList && {
       MetricList: obj.MetricList.map(MetricKeyDataPoints.filterSensitiveLog)
@@ -598,7 +602,7 @@ export interface MetricKeyDataPoints {
 }
 
 export namespace MetricKeyDataPoints {
-  export const filterSensitiveLog = (obj: MetricKeyDataPoints) => ({
+  export const filterSensitiveLog = (obj: MetricKeyDataPoints): any => ({
     ...obj,
     ...(obj.DataPoints && {
       DataPoints: obj.DataPoints.map(DataPoint.filterSensitiveLog)
@@ -661,7 +665,7 @@ export interface MetricQuery {
 }
 
 export namespace MetricQuery {
-  export const filterSensitiveLog = (obj: MetricQuery) => ({
+  export const filterSensitiveLog = (obj: MetricQuery): any => ({
     ...obj,
     ...(obj.GroupBy && {
       GroupBy: DimensionGroup.filterSensitiveLog(obj.GroupBy)
@@ -684,7 +688,7 @@ export interface ResponsePartitionKey {
 }
 
 export namespace ResponsePartitionKey {
-  export const filterSensitiveLog = (obj: ResponsePartitionKey) => ({
+  export const filterSensitiveLog = (obj: ResponsePartitionKey): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResponsePartitionKey =>
@@ -722,7 +726,7 @@ export interface ResponseResourceMetricKey {
 }
 
 export namespace ResponseResourceMetricKey {
-  export const filterSensitiveLog = (obj: ResponseResourceMetricKey) => ({
+  export const filterSensitiveLog = (obj: ResponseResourceMetricKey): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResponseResourceMetricKey =>

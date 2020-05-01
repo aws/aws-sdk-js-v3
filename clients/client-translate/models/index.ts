@@ -28,7 +28,7 @@ export interface AppliedTerminology {
 }
 
 export namespace AppliedTerminology {
-  export const filterSensitiveLog = (obj: AppliedTerminology) => ({
+  export const filterSensitiveLog = (obj: AppliedTerminology): any => ({
     ...obj,
     ...(obj.Terms && { Terms: obj.Terms.map(Term.filterSensitiveLog) })
   });
@@ -45,7 +45,7 @@ export interface DeleteTerminologyRequest {
 }
 
 export namespace DeleteTerminologyRequest {
-  export const filterSensitiveLog = (obj: DeleteTerminologyRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteTerminologyRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteTerminologyRequest =>
@@ -64,7 +64,7 @@ export interface DescribeTextTranslationJobRequest {
 export namespace DescribeTextTranslationJobRequest {
   export const filterSensitiveLog = (
     obj: DescribeTextTranslationJobRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeTextTranslationJobRequest =>
@@ -83,7 +83,7 @@ export interface DescribeTextTranslationJobResponse {
 export namespace DescribeTextTranslationJobResponse {
   export const filterSensitiveLog = (
     obj: DescribeTextTranslationJobResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.TextTranslationJobProperties && {
       TextTranslationJobProperties: TextTranslationJobProperties.filterSensitiveLog(
@@ -117,7 +117,7 @@ export interface DetectedLanguageLowConfidenceException
 export namespace DetectedLanguageLowConfidenceException {
   export const filterSensitiveLog = (
     obj: DetectedLanguageLowConfidenceException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DetectedLanguageLowConfidenceException =>
@@ -142,7 +142,7 @@ export interface EncryptionKey {
 }
 
 export namespace EncryptionKey {
-  export const filterSensitiveLog = (obj: EncryptionKey) => ({
+  export const filterSensitiveLog = (obj: EncryptionKey): any => ({
     ...obj
   });
   export const isa = (o: any): o is EncryptionKey => __isa(o, "EncryptionKey");
@@ -166,7 +166,7 @@ export interface GetTerminologyRequest {
 }
 
 export namespace GetTerminologyRequest {
-  export const filterSensitiveLog = (obj: GetTerminologyRequest) => ({
+  export const filterSensitiveLog = (obj: GetTerminologyRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetTerminologyRequest =>
@@ -188,7 +188,7 @@ export interface GetTerminologyResponse {
 }
 
 export namespace GetTerminologyResponse {
-  export const filterSensitiveLog = (obj: GetTerminologyResponse) => ({
+  export const filterSensitiveLog = (obj: GetTerminologyResponse): any => ({
     ...obj,
     ...(obj.TerminologyDataLocation && {
       TerminologyDataLocation: TerminologyDataLocation.filterSensitiveLog(
@@ -236,7 +236,7 @@ export interface ImportTerminologyRequest {
 }
 
 export namespace ImportTerminologyRequest {
-  export const filterSensitiveLog = (obj: ImportTerminologyRequest) => ({
+  export const filterSensitiveLog = (obj: ImportTerminologyRequest): any => ({
     ...obj,
     ...(obj.EncryptionKey && {
       EncryptionKey: EncryptionKey.filterSensitiveLog(obj.EncryptionKey)
@@ -258,7 +258,7 @@ export interface ImportTerminologyResponse {
 }
 
 export namespace ImportTerminologyResponse {
-  export const filterSensitiveLog = (obj: ImportTerminologyResponse) => ({
+  export const filterSensitiveLog = (obj: ImportTerminologyResponse): any => ({
     ...obj,
     ...(obj.TerminologyProperties && {
       TerminologyProperties: TerminologyProperties.filterSensitiveLog(
@@ -290,7 +290,7 @@ export interface InputDataConfig {
 }
 
 export namespace InputDataConfig {
-  export const filterSensitiveLog = (obj: InputDataConfig) => ({
+  export const filterSensitiveLog = (obj: InputDataConfig): any => ({
     ...obj
   });
   export const isa = (o: any): o is InputDataConfig =>
@@ -309,7 +309,7 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export const filterSensitiveLog = (obj: InternalServerException) => ({
+  export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerException =>
@@ -328,7 +328,7 @@ export interface InvalidFilterException
 }
 
 export namespace InvalidFilterException {
-  export const filterSensitiveLog = (obj: InvalidFilterException) => ({
+  export const filterSensitiveLog = (obj: InvalidFilterException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidFilterException =>
@@ -348,7 +348,9 @@ export interface InvalidParameterValueException
 }
 
 export namespace InvalidParameterValueException {
-  export const filterSensitiveLog = (obj: InvalidParameterValueException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidParameterValueException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidParameterValueException =>
@@ -368,7 +370,7 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const filterSensitiveLog = (obj: InvalidRequestException) => ({
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidRequestException =>
@@ -398,7 +400,7 @@ export interface JobDetails {
 }
 
 export namespace JobDetails {
-  export const filterSensitiveLog = (obj: JobDetails) => ({
+  export const filterSensitiveLog = (obj: JobDetails): any => ({
     ...obj
   });
   export const isa = (o: any): o is JobDetails => __isa(o, "JobDetails");
@@ -427,7 +429,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -449,7 +451,7 @@ export interface ListTerminologiesRequest {
 }
 
 export namespace ListTerminologiesRequest {
-  export const filterSensitiveLog = (obj: ListTerminologiesRequest) => ({
+  export const filterSensitiveLog = (obj: ListTerminologiesRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTerminologiesRequest =>
@@ -471,7 +473,7 @@ export interface ListTerminologiesResponse {
 }
 
 export namespace ListTerminologiesResponse {
-  export const filterSensitiveLog = (obj: ListTerminologiesResponse) => ({
+  export const filterSensitiveLog = (obj: ListTerminologiesResponse): any => ({
     ...obj,
     ...(obj.TerminologyPropertiesList && {
       TerminologyPropertiesList: obj.TerminologyPropertiesList.map(
@@ -503,7 +505,9 @@ export interface ListTextTranslationJobsRequest {
 }
 
 export namespace ListTextTranslationJobsRequest {
-  export const filterSensitiveLog = (obj: ListTextTranslationJobsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListTextTranslationJobsRequest
+  ): any => ({
     ...obj,
     ...(obj.Filter && {
       Filter: TextTranslationJobFilter.filterSensitiveLog(obj.Filter)
@@ -528,7 +532,9 @@ export interface ListTextTranslationJobsResponse {
 }
 
 export namespace ListTextTranslationJobsResponse {
-  export const filterSensitiveLog = (obj: ListTextTranslationJobsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListTextTranslationJobsResponse
+  ): any => ({
     ...obj,
     ...(obj.TextTranslationJobPropertiesList && {
       TextTranslationJobPropertiesList: obj.TextTranslationJobPropertiesList.map(
@@ -557,7 +563,7 @@ export interface OutputDataConfig {
 }
 
 export namespace OutputDataConfig {
-  export const filterSensitiveLog = (obj: OutputDataConfig) => ({
+  export const filterSensitiveLog = (obj: OutputDataConfig): any => ({
     ...obj
   });
   export const isa = (o: any): o is OutputDataConfig =>
@@ -578,7 +584,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -598,7 +604,9 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (obj: ServiceUnavailableException) => ({
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceUnavailableException =>
@@ -658,7 +666,9 @@ export interface StartTextTranslationJobRequest {
 }
 
 export namespace StartTextTranslationJobRequest {
-  export const filterSensitiveLog = (obj: StartTextTranslationJobRequest) => ({
+  export const filterSensitiveLog = (
+    obj: StartTextTranslationJobRequest
+  ): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
       InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
@@ -722,7 +732,9 @@ export interface StartTextTranslationJobResponse {
 }
 
 export namespace StartTextTranslationJobResponse {
-  export const filterSensitiveLog = (obj: StartTextTranslationJobResponse) => ({
+  export const filterSensitiveLog = (
+    obj: StartTextTranslationJobResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartTextTranslationJobResponse =>
@@ -738,7 +750,9 @@ export interface StopTextTranslationJobRequest {
 }
 
 export namespace StopTextTranslationJobRequest {
-  export const filterSensitiveLog = (obj: StopTextTranslationJobRequest) => ({
+  export const filterSensitiveLog = (
+    obj: StopTextTranslationJobRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopTextTranslationJobRequest =>
@@ -760,7 +774,9 @@ export interface StopTextTranslationJobResponse {
 }
 
 export namespace StopTextTranslationJobResponse {
-  export const filterSensitiveLog = (obj: StopTextTranslationJobResponse) => ({
+  export const filterSensitiveLog = (
+    obj: StopTextTranslationJobResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopTextTranslationJobResponse =>
@@ -784,7 +800,7 @@ export interface Term {
 }
 
 export namespace Term {
-  export const filterSensitiveLog = (obj: Term) => ({
+  export const filterSensitiveLog = (obj: Term): any => ({
     ...obj
   });
   export const isa = (o: any): o is Term => __isa(o, "Term");
@@ -809,7 +825,7 @@ export interface TerminologyData {
 }
 
 export namespace TerminologyData {
-  export const filterSensitiveLog = (obj: TerminologyData) => ({
+  export const filterSensitiveLog = (obj: TerminologyData): any => ({
     ...obj,
     ...(obj.File && { File: SENSITIVE_STRING })
   });
@@ -839,7 +855,7 @@ export interface TerminologyDataLocation {
 }
 
 export namespace TerminologyDataLocation {
-  export const filterSensitiveLog = (obj: TerminologyDataLocation) => ({
+  export const filterSensitiveLog = (obj: TerminologyDataLocation): any => ({
     ...obj
   });
   export const isa = (o: any): o is TerminologyDataLocation =>
@@ -905,7 +921,7 @@ export interface TerminologyProperties {
 }
 
 export namespace TerminologyProperties {
-  export const filterSensitiveLog = (obj: TerminologyProperties) => ({
+  export const filterSensitiveLog = (obj: TerminologyProperties): any => ({
     ...obj,
     ...(obj.EncryptionKey && {
       EncryptionKey: EncryptionKey.filterSensitiveLog(obj.EncryptionKey)
@@ -928,7 +944,9 @@ export interface TextSizeLimitExceededException
 }
 
 export namespace TextSizeLimitExceededException {
-  export const filterSensitiveLog = (obj: TextSizeLimitExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: TextSizeLimitExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TextSizeLimitExceededException =>
@@ -967,7 +985,7 @@ export interface TextTranslationJobFilter {
 }
 
 export namespace TextTranslationJobFilter {
-  export const filterSensitiveLog = (obj: TextTranslationJobFilter) => ({
+  export const filterSensitiveLog = (obj: TextTranslationJobFilter): any => ({
     ...obj
   });
   export const isa = (o: any): o is TextTranslationJobFilter =>
@@ -1052,7 +1070,9 @@ export interface TextTranslationJobProperties {
 }
 
 export namespace TextTranslationJobProperties {
-  export const filterSensitiveLog = (obj: TextTranslationJobProperties) => ({
+  export const filterSensitiveLog = (
+    obj: TextTranslationJobProperties
+  ): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
       InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
@@ -1083,7 +1103,7 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export const filterSensitiveLog = (obj: TooManyRequestsException) => ({
+  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj
   });
   export const isa = (o: any): o is TooManyRequestsException =>
@@ -1123,7 +1143,7 @@ export interface TranslateTextRequest {
 }
 
 export namespace TranslateTextRequest {
-  export const filterSensitiveLog = (obj: TranslateTextRequest) => ({
+  export const filterSensitiveLog = (obj: TranslateTextRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is TranslateTextRequest =>
@@ -1155,7 +1175,7 @@ export interface TranslateTextResponse {
 }
 
 export namespace TranslateTextResponse {
-  export const filterSensitiveLog = (obj: TranslateTextResponse) => ({
+  export const filterSensitiveLog = (obj: TranslateTextResponse): any => ({
     ...obj,
     ...(obj.AppliedTerminologies && {
       AppliedTerminologies: obj.AppliedTerminologies.map(
@@ -1191,7 +1211,7 @@ export interface UnsupportedLanguagePairException
 export namespace UnsupportedLanguagePairException {
   export const filterSensitiveLog = (
     obj: UnsupportedLanguagePairException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnsupportedLanguagePairException =>

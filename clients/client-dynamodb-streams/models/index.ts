@@ -28,7 +28,7 @@ export interface DescribeStreamInput {
 }
 
 export namespace DescribeStreamInput {
-  export const filterSensitiveLog = (obj: DescribeStreamInput) => ({
+  export const filterSensitiveLog = (obj: DescribeStreamInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeStreamInput =>
@@ -47,7 +47,7 @@ export interface DescribeStreamOutput {
 }
 
 export namespace DescribeStreamOutput {
-  export const filterSensitiveLog = (obj: DescribeStreamOutput) => ({
+  export const filterSensitiveLog = (obj: DescribeStreamOutput): any => ({
     ...obj,
     ...(obj.StreamDescription && {
       StreamDescription: StreamDescription.filterSensitiveLog(
@@ -76,7 +76,7 @@ export interface ExpiredIteratorException
 }
 
 export namespace ExpiredIteratorException {
-  export const filterSensitiveLog = (obj: ExpiredIteratorException) => ({
+  export const filterSensitiveLog = (obj: ExpiredIteratorException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ExpiredIteratorException =>
@@ -100,7 +100,7 @@ export interface GetRecordsInput {
 }
 
 export namespace GetRecordsInput {
-  export const filterSensitiveLog = (obj: GetRecordsInput) => ({
+  export const filterSensitiveLog = (obj: GetRecordsInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetRecordsInput =>
@@ -126,7 +126,7 @@ export interface GetRecordsOutput {
 }
 
 export namespace GetRecordsOutput {
-  export const filterSensitiveLog = (obj: GetRecordsOutput) => ({
+  export const filterSensitiveLog = (obj: GetRecordsOutput): any => ({
     ...obj,
     ...(obj.Records && { Records: obj.Records.map(_Record.filterSensitiveLog) })
   });
@@ -185,7 +185,7 @@ export interface GetShardIteratorInput {
 }
 
 export namespace GetShardIteratorInput {
-  export const filterSensitiveLog = (obj: GetShardIteratorInput) => ({
+  export const filterSensitiveLog = (obj: GetShardIteratorInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetShardIteratorInput =>
@@ -204,7 +204,7 @@ export interface GetShardIteratorOutput {
 }
 
 export namespace GetShardIteratorOutput {
-  export const filterSensitiveLog = (obj: GetShardIteratorOutput) => ({
+  export const filterSensitiveLog = (obj: GetShardIteratorOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetShardIteratorOutput =>
@@ -229,7 +229,7 @@ export interface Identity {
 }
 
 export namespace Identity {
-  export const filterSensitiveLog = (obj: Identity) => ({
+  export const filterSensitiveLog = (obj: Identity): any => ({
     ...obj
   });
   export const isa = (o: any): o is Identity => __isa(o, "Identity");
@@ -259,7 +259,7 @@ export interface ListStreamsInput {
 }
 
 export namespace ListStreamsInput {
-  export const filterSensitiveLog = (obj: ListStreamsInput) => ({
+  export const filterSensitiveLog = (obj: ListStreamsInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListStreamsInput =>
@@ -288,7 +288,7 @@ export interface ListStreamsOutput {
 }
 
 export namespace ListStreamsOutput {
-  export const filterSensitiveLog = (obj: ListStreamsOutput) => ({
+  export const filterSensitiveLog = (obj: ListStreamsOutput): any => ({
     ...obj,
     ...(obj.Streams && { Streams: obj.Streams.map(_Stream.filterSensitiveLog) })
   });
@@ -367,7 +367,7 @@ export interface _Record {
 }
 
 export namespace _Record {
-  export const filterSensitiveLog = (obj: _Record) => ({
+  export const filterSensitiveLog = (obj: _Record): any => ({
     ...obj,
     ...(obj.dynamodb && {
       dynamodb: StreamRecord.filterSensitiveLog(obj.dynamodb)
@@ -396,7 +396,7 @@ export interface SequenceNumberRange {
 }
 
 export namespace SequenceNumberRange {
-  export const filterSensitiveLog = (obj: SequenceNumberRange) => ({
+  export const filterSensitiveLog = (obj: SequenceNumberRange): any => ({
     ...obj
   });
   export const isa = (o: any): o is SequenceNumberRange =>
@@ -425,7 +425,7 @@ export interface Shard {
 }
 
 export namespace Shard {
-  export const filterSensitiveLog = (obj: Shard) => ({
+  export const filterSensitiveLog = (obj: Shard): any => ({
     ...obj,
     ...(obj.SequenceNumberRange && {
       SequenceNumberRange: SequenceNumberRange.filterSensitiveLog(
@@ -479,7 +479,7 @@ export interface _Stream {
 }
 
 export namespace _Stream {
-  export const filterSensitiveLog = (obj: _Stream) => ({
+  export const filterSensitiveLog = (obj: _Stream): any => ({
     ...obj
   });
   export const isa = (o: any): o is _Stream => __isa(o, "Stream");
@@ -593,7 +593,7 @@ export interface StreamDescription {
 }
 
 export namespace StreamDescription {
-  export const filterSensitiveLog = (obj: StreamDescription) => ({
+  export const filterSensitiveLog = (obj: StreamDescription): any => ({
     ...obj,
     ...(obj.KeySchema && {
       KeySchema: obj.KeySchema.map(KeySchemaElement.filterSensitiveLog)
@@ -664,7 +664,7 @@ export interface StreamRecord {
 }
 
 export namespace StreamRecord {
-  export const filterSensitiveLog = (obj: StreamRecord) => ({
+  export const filterSensitiveLog = (obj: StreamRecord): any => ({
     ...obj,
     ...(obj.Keys && {
       Keys: Object.entries(obj.Keys).reduce(
@@ -725,7 +725,7 @@ export interface TrimmedDataAccessException
 }
 
 export namespace TrimmedDataAccessException {
-  export const filterSensitiveLog = (obj: TrimmedDataAccessException) => ({
+  export const filterSensitiveLog = (obj: TrimmedDataAccessException): any => ({
     ...obj
   });
   export const isa = (o: any): o is TrimmedDataAccessException =>
@@ -790,7 +790,7 @@ export interface AttributeValue {
 }
 
 export namespace AttributeValue {
-  export const filterSensitiveLog = (obj: AttributeValue) => ({
+  export const filterSensitiveLog = (obj: AttributeValue): any => ({
     ...obj,
     ...(obj.L && { L: obj.L.map(AttributeValue.filterSensitiveLog) }),
     ...(obj.M && {
@@ -822,7 +822,7 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export const filterSensitiveLog = (obj: InternalServerError) => ({
+  export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerError =>
@@ -858,7 +858,7 @@ export interface KeySchemaElement {
 }
 
 export namespace KeySchemaElement {
-  export const filterSensitiveLog = (obj: KeySchemaElement) => ({
+  export const filterSensitiveLog = (obj: KeySchemaElement): any => ({
     ...obj
   });
   export const isa = (o: any): o is KeySchemaElement =>
@@ -886,7 +886,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -908,7 +908,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>

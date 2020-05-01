@@ -22,7 +22,7 @@ export interface Alternative {
 }
 
 export namespace Alternative {
-  export const filterSensitiveLog = (obj: Alternative) => ({
+  export const filterSensitiveLog = (obj: Alternative): any => ({
     ...obj,
     ...(obj.Items && { Items: obj.Items.map(Item.filterSensitiveLog) })
   });
@@ -41,7 +41,7 @@ export interface AudioEvent {
 }
 
 export namespace AudioEvent {
-  export const filterSensitiveLog = (obj: AudioEvent) => ({
+  export const filterSensitiveLog = (obj: AudioEvent): any => ({
     ...obj
   });
   export const isa = (o: any): o is AudioEvent => __isa(o, "AudioEvent");
@@ -96,7 +96,7 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export const filterSensitiveLog = (obj: BadRequestException) => ({
+  export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is BadRequestException =>
@@ -114,7 +114,7 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export const filterSensitiveLog = (obj: ConflictException) => ({
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConflictException =>
@@ -134,7 +134,7 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
-  export const filterSensitiveLog = (obj: InternalFailureException) => ({
+  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalFailureException =>
@@ -172,7 +172,7 @@ export interface Item {
 }
 
 export namespace Item {
-  export const filterSensitiveLog = (obj: Item) => ({
+  export const filterSensitiveLog = (obj: Item): any => ({
     ...obj
   });
   export const isa = (o: any): o is Item => __isa(o, "Item");
@@ -207,7 +207,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -253,7 +253,7 @@ export interface Result {
 }
 
 export namespace Result {
-  export const filterSensitiveLog = (obj: Result) => ({
+  export const filterSensitiveLog = (obj: Result): any => ({
     ...obj,
     ...(obj.Alternatives && {
       Alternatives: obj.Alternatives.map(Alternative.filterSensitiveLog)
@@ -300,7 +300,9 @@ export interface StartStreamTranscriptionRequest {
 }
 
 export namespace StartStreamTranscriptionRequest {
-  export const filterSensitiveLog = (obj: StartStreamTranscriptionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: StartStreamTranscriptionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartStreamTranscriptionRequest =>
@@ -349,7 +351,7 @@ export interface StartStreamTranscriptionResponse {
 export namespace StartStreamTranscriptionResponse {
   export const filterSensitiveLog = (
     obj: StartStreamTranscriptionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartStreamTranscriptionResponse =>
@@ -370,7 +372,7 @@ export interface Transcript {
 }
 
 export namespace Transcript {
-  export const filterSensitiveLog = (obj: Transcript) => ({
+  export const filterSensitiveLog = (obj: Transcript): any => ({
     ...obj,
     ...(obj.Results && { Results: obj.Results.map(Result.filterSensitiveLog) })
   });
@@ -391,7 +393,7 @@ export interface TranscriptEvent {
 }
 
 export namespace TranscriptEvent {
-  export const filterSensitiveLog = (obj: TranscriptEvent) => ({
+  export const filterSensitiveLog = (obj: TranscriptEvent): any => ({
     ...obj,
     ...(obj.Transcript && {
       Transcript: Transcript.filterSensitiveLog(obj.Transcript)

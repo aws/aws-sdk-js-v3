@@ -22,7 +22,7 @@ export interface ApplicationSource {
 }
 
 export namespace ApplicationSource {
-  export const filterSensitiveLog = (obj: ApplicationSource) => ({
+  export const filterSensitiveLog = (obj: ApplicationSource): any => ({
     ...obj,
     ...(obj.TagFilters && {
       TagFilters: obj.TagFilters.map(TagFilter.filterSensitiveLog)
@@ -45,7 +45,7 @@ export interface ConcurrentUpdateException
 }
 
 export namespace ConcurrentUpdateException {
-  export const filterSensitiveLog = (obj: ConcurrentUpdateException) => ({
+  export const filterSensitiveLog = (obj: ConcurrentUpdateException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConcurrentUpdateException =>
@@ -73,7 +73,7 @@ export interface CreateScalingPlanRequest {
 }
 
 export namespace CreateScalingPlanRequest {
-  export const filterSensitiveLog = (obj: CreateScalingPlanRequest) => ({
+  export const filterSensitiveLog = (obj: CreateScalingPlanRequest): any => ({
     ...obj,
     ...(obj.ApplicationSource && {
       ApplicationSource: ApplicationSource.filterSensitiveLog(
@@ -100,7 +100,7 @@ export interface CreateScalingPlanResponse {
 }
 
 export namespace CreateScalingPlanResponse {
-  export const filterSensitiveLog = (obj: CreateScalingPlanResponse) => ({
+  export const filterSensitiveLog = (obj: CreateScalingPlanResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateScalingPlanResponse =>
@@ -160,7 +160,7 @@ export interface CustomizedLoadMetricSpecification {
 export namespace CustomizedLoadMetricSpecification {
   export const filterSensitiveLog = (
     obj: CustomizedLoadMetricSpecification
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Dimensions && {
       Dimensions: obj.Dimensions.map(MetricDimension.filterSensitiveLog)
@@ -223,7 +223,7 @@ export interface CustomizedScalingMetricSpecification {
 export namespace CustomizedScalingMetricSpecification {
   export const filterSensitiveLog = (
     obj: CustomizedScalingMetricSpecification
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Dimensions && {
       Dimensions: obj.Dimensions.map(MetricDimension.filterSensitiveLog)
@@ -250,7 +250,7 @@ export interface Datapoint {
 }
 
 export namespace Datapoint {
-  export const filterSensitiveLog = (obj: Datapoint) => ({
+  export const filterSensitiveLog = (obj: Datapoint): any => ({
     ...obj
   });
   export const isa = (o: any): o is Datapoint => __isa(o, "Datapoint");
@@ -270,7 +270,7 @@ export interface DeleteScalingPlanRequest {
 }
 
 export namespace DeleteScalingPlanRequest {
-  export const filterSensitiveLog = (obj: DeleteScalingPlanRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteScalingPlanRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteScalingPlanRequest =>
@@ -282,7 +282,7 @@ export interface DeleteScalingPlanResponse {
 }
 
 export namespace DeleteScalingPlanResponse {
-  export const filterSensitiveLog = (obj: DeleteScalingPlanResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteScalingPlanResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteScalingPlanResponse =>
@@ -316,7 +316,7 @@ export interface DescribeScalingPlanResourcesRequest {
 export namespace DescribeScalingPlanResourcesRequest {
   export const filterSensitiveLog = (
     obj: DescribeScalingPlanResourcesRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeScalingPlanResourcesRequest =>
@@ -340,7 +340,7 @@ export interface DescribeScalingPlanResourcesResponse {
 export namespace DescribeScalingPlanResourcesResponse {
   export const filterSensitiveLog = (
     obj: DescribeScalingPlanResourcesResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ScalingPlanResources && {
       ScalingPlanResources: obj.ScalingPlanResources.map(
@@ -385,7 +385,9 @@ export interface DescribeScalingPlansRequest {
 }
 
 export namespace DescribeScalingPlansRequest {
-  export const filterSensitiveLog = (obj: DescribeScalingPlansRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeScalingPlansRequest
+  ): any => ({
     ...obj,
     ...(obj.ApplicationSources && {
       ApplicationSources: obj.ApplicationSources.map(
@@ -412,7 +414,9 @@ export interface DescribeScalingPlansResponse {
 }
 
 export namespace DescribeScalingPlansResponse {
-  export const filterSensitiveLog = (obj: DescribeScalingPlansResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeScalingPlansResponse
+  ): any => ({
     ...obj,
     ...(obj.ScalingPlans && {
       ScalingPlans: obj.ScalingPlans.map(ScalingPlan.filterSensitiveLog)
@@ -529,7 +533,7 @@ export interface GetScalingPlanResourceForecastDataRequest {
 export namespace GetScalingPlanResourceForecastDataRequest {
   export const filterSensitiveLog = (
     obj: GetScalingPlanResourceForecastDataRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetScalingPlanResourceForecastDataRequest =>
@@ -547,7 +551,7 @@ export interface GetScalingPlanResourceForecastDataResponse {
 export namespace GetScalingPlanResourceForecastDataResponse {
   export const filterSensitiveLog = (
     obj: GetScalingPlanResourceForecastDataResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Datapoints && {
       Datapoints: obj.Datapoints.map(Datapoint.filterSensitiveLog)
@@ -571,7 +575,7 @@ export interface InternalServiceException
 }
 
 export namespace InternalServiceException {
-  export const filterSensitiveLog = (obj: InternalServiceException) => ({
+  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServiceException =>
@@ -590,7 +594,7 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export const filterSensitiveLog = (obj: InvalidNextTokenException) => ({
+  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidNextTokenException =>
@@ -610,7 +614,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -641,7 +645,7 @@ export interface MetricDimension {
 }
 
 export namespace MetricDimension {
-  export const filterSensitiveLog = (obj: MetricDimension) => ({
+  export const filterSensitiveLog = (obj: MetricDimension): any => ({
     ...obj
   });
   export const isa = (o: any): o is MetricDimension =>
@@ -668,7 +672,7 @@ export interface ObjectNotFoundException
 }
 
 export namespace ObjectNotFoundException {
-  export const filterSensitiveLog = (obj: ObjectNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ObjectNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ObjectNotFoundException =>
@@ -713,7 +717,7 @@ export interface PredefinedLoadMetricSpecification {
 export namespace PredefinedLoadMetricSpecification {
   export const filterSensitiveLog = (
     obj: PredefinedLoadMetricSpecification
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is PredefinedLoadMetricSpecification =>
@@ -757,7 +761,7 @@ export interface PredefinedScalingMetricSpecification {
 export namespace PredefinedScalingMetricSpecification {
   export const filterSensitiveLog = (
     obj: PredefinedScalingMetricSpecification
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is PredefinedScalingMetricSpecification =>
@@ -1006,7 +1010,7 @@ export interface ScalingInstruction {
 }
 
 export namespace ScalingInstruction {
-  export const filterSensitiveLog = (obj: ScalingInstruction) => ({
+  export const filterSensitiveLog = (obj: ScalingInstruction): any => ({
     ...obj,
     ...(obj.CustomizedLoadMetricSpecification && {
       CustomizedLoadMetricSpecification: CustomizedLoadMetricSpecification.filterSensitiveLog(
@@ -1126,7 +1130,7 @@ export interface ScalingPlan {
 }
 
 export namespace ScalingPlan {
-  export const filterSensitiveLog = (obj: ScalingPlan) => ({
+  export const filterSensitiveLog = (obj: ScalingPlan): any => ({
     ...obj,
     ...(obj.ApplicationSource && {
       ApplicationSource: ApplicationSource.filterSensitiveLog(
@@ -1268,7 +1272,7 @@ export interface ScalingPlanResource {
 }
 
 export namespace ScalingPlanResource {
-  export const filterSensitiveLog = (obj: ScalingPlanResource) => ({
+  export const filterSensitiveLog = (obj: ScalingPlanResource): any => ({
     ...obj,
     ...(obj.ScalingPolicies && {
       ScalingPolicies: obj.ScalingPolicies.map(ScalingPolicy.filterSensitiveLog)
@@ -1312,7 +1316,7 @@ export interface ScalingPolicy {
 }
 
 export namespace ScalingPolicy {
-  export const filterSensitiveLog = (obj: ScalingPolicy) => ({
+  export const filterSensitiveLog = (obj: ScalingPolicy): any => ({
     ...obj,
     ...(obj.TargetTrackingConfiguration && {
       TargetTrackingConfiguration: TargetTrackingConfiguration.filterSensitiveLog(
@@ -1359,7 +1363,7 @@ export interface TagFilter {
 }
 
 export namespace TagFilter {
-  export const filterSensitiveLog = (obj: TagFilter) => ({
+  export const filterSensitiveLog = (obj: TagFilter): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
@@ -1427,7 +1431,9 @@ export interface TargetTrackingConfiguration {
 }
 
 export namespace TargetTrackingConfiguration {
-  export const filterSensitiveLog = (obj: TargetTrackingConfiguration) => ({
+  export const filterSensitiveLog = (
+    obj: TargetTrackingConfiguration
+  ): any => ({
     ...obj,
     ...(obj.CustomizedScalingMetricSpecification && {
       CustomizedScalingMetricSpecification: CustomizedScalingMetricSpecification.filterSensitiveLog(
@@ -1468,7 +1474,7 @@ export interface UpdateScalingPlanRequest {
 }
 
 export namespace UpdateScalingPlanRequest {
-  export const filterSensitiveLog = (obj: UpdateScalingPlanRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateScalingPlanRequest): any => ({
     ...obj,
     ...(obj.ApplicationSource && {
       ApplicationSource: ApplicationSource.filterSensitiveLog(
@@ -1490,7 +1496,7 @@ export interface UpdateScalingPlanResponse {
 }
 
 export namespace UpdateScalingPlanResponse {
-  export const filterSensitiveLog = (obj: UpdateScalingPlanResponse) => ({
+  export const filterSensitiveLog = (obj: UpdateScalingPlanResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateScalingPlanResponse =>
@@ -1509,7 +1515,7 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const filterSensitiveLog = (obj: ValidationException) => ({
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ValidationException =>

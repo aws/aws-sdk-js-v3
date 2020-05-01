@@ -16,7 +16,7 @@ export interface AcceptInvitationRequest {
 }
 
 export namespace AcceptInvitationRequest {
-  export const filterSensitiveLog = (obj: AcceptInvitationRequest) => ({
+  export const filterSensitiveLog = (obj: AcceptInvitationRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is AcceptInvitationRequest =>
@@ -42,7 +42,7 @@ export interface Account {
 }
 
 export namespace Account {
-  export const filterSensitiveLog = (obj: Account) => ({
+  export const filterSensitiveLog = (obj: Account): any => ({
     ...obj
   });
   export const isa = (o: any): o is Account => __isa(o, "Account");
@@ -58,7 +58,7 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export const filterSensitiveLog = (obj: ConflictException) => ({
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConflictException =>
@@ -74,7 +74,7 @@ export interface CreateGraphResponse {
 }
 
 export namespace CreateGraphResponse {
-  export const filterSensitiveLog = (obj: CreateGraphResponse) => ({
+  export const filterSensitiveLog = (obj: CreateGraphResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateGraphResponse =>
@@ -104,7 +104,7 @@ export interface CreateMembersRequest {
 }
 
 export namespace CreateMembersRequest {
-  export const filterSensitiveLog = (obj: CreateMembersRequest) => ({
+  export const filterSensitiveLog = (obj: CreateMembersRequest): any => ({
     ...obj,
     ...(obj.Accounts && {
       Accounts: obj.Accounts.map(Account.filterSensitiveLog)
@@ -132,7 +132,7 @@ export interface CreateMembersResponse {
 }
 
 export namespace CreateMembersResponse {
-  export const filterSensitiveLog = (obj: CreateMembersResponse) => ({
+  export const filterSensitiveLog = (obj: CreateMembersResponse): any => ({
     ...obj,
     ...(obj.Members && {
       Members: obj.Members.map(MemberDetail.filterSensitiveLog)
@@ -156,7 +156,7 @@ export interface DeleteGraphRequest {
 }
 
 export namespace DeleteGraphRequest {
-  export const filterSensitiveLog = (obj: DeleteGraphRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteGraphRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteGraphRequest =>
@@ -178,7 +178,7 @@ export interface DeleteMembersRequest {
 }
 
 export namespace DeleteMembersRequest {
-  export const filterSensitiveLog = (obj: DeleteMembersRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteMembersRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteMembersRequest =>
@@ -202,7 +202,7 @@ export interface DeleteMembersResponse {
 }
 
 export namespace DeleteMembersResponse {
-  export const filterSensitiveLog = (obj: DeleteMembersResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteMembersResponse): any => ({
     ...obj,
     ...(obj.UnprocessedAccounts && {
       UnprocessedAccounts: obj.UnprocessedAccounts.map(
@@ -225,7 +225,9 @@ export interface DisassociateMembershipRequest {
 }
 
 export namespace DisassociateMembershipRequest {
-  export const filterSensitiveLog = (obj: DisassociateMembershipRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DisassociateMembershipRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateMembershipRequest =>
@@ -249,7 +251,7 @@ export interface GetMembersRequest {
 }
 
 export namespace GetMembersRequest {
-  export const filterSensitiveLog = (obj: GetMembersRequest) => ({
+  export const filterSensitiveLog = (obj: GetMembersRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetMembersRequest =>
@@ -272,7 +274,7 @@ export interface GetMembersResponse {
 }
 
 export namespace GetMembersResponse {
-  export const filterSensitiveLog = (obj: GetMembersResponse) => ({
+  export const filterSensitiveLog = (obj: GetMembersResponse): any => ({
     ...obj,
     ...(obj.MemberDetails && {
       MemberDetails: obj.MemberDetails.map(MemberDetail.filterSensitiveLog)
@@ -307,7 +309,7 @@ export interface Graph {
 }
 
 export namespace Graph {
-  export const filterSensitiveLog = (obj: Graph) => ({
+  export const filterSensitiveLog = (obj: Graph): any => ({
     ...obj
   });
   export const isa = (o: any): o is Graph => __isa(o, "Graph");
@@ -325,7 +327,7 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export const filterSensitiveLog = (obj: InternalServerException) => ({
+  export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerException =>
@@ -349,7 +351,7 @@ export interface ListGraphsRequest {
 }
 
 export namespace ListGraphsRequest {
-  export const filterSensitiveLog = (obj: ListGraphsRequest) => ({
+  export const filterSensitiveLog = (obj: ListGraphsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListGraphsRequest =>
@@ -371,7 +373,7 @@ export interface ListGraphsResponse {
 }
 
 export namespace ListGraphsResponse {
-  export const filterSensitiveLog = (obj: ListGraphsResponse) => ({
+  export const filterSensitiveLog = (obj: ListGraphsResponse): any => ({
     ...obj,
     ...(obj.GraphList && {
       GraphList: obj.GraphList.map(Graph.filterSensitiveLog)
@@ -399,7 +401,7 @@ export interface ListInvitationsRequest {
 }
 
 export namespace ListInvitationsRequest {
-  export const filterSensitiveLog = (obj: ListInvitationsRequest) => ({
+  export const filterSensitiveLog = (obj: ListInvitationsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListInvitationsRequest =>
@@ -422,7 +424,7 @@ export interface ListInvitationsResponse {
 }
 
 export namespace ListInvitationsResponse {
-  export const filterSensitiveLog = (obj: ListInvitationsResponse) => ({
+  export const filterSensitiveLog = (obj: ListInvitationsResponse): any => ({
     ...obj,
     ...(obj.Invitations && {
       Invitations: obj.Invitations.map(MemberDetail.filterSensitiveLog)
@@ -454,7 +456,7 @@ export interface ListMembersRequest {
 }
 
 export namespace ListMembersRequest {
-  export const filterSensitiveLog = (obj: ListMembersRequest) => ({
+  export const filterSensitiveLog = (obj: ListMembersRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListMembersRequest =>
@@ -479,7 +481,7 @@ export interface ListMembersResponse {
 }
 
 export namespace ListMembersResponse {
-  export const filterSensitiveLog = (obj: ListMembersResponse) => ({
+  export const filterSensitiveLog = (obj: ListMembersResponse): any => ({
     ...obj,
     ...(obj.MemberDetails && {
       MemberDetails: obj.MemberDetails.map(MemberDetail.filterSensitiveLog)
@@ -565,7 +567,7 @@ export interface MemberDetail {
 }
 
 export namespace MemberDetail {
-  export const filterSensitiveLog = (obj: MemberDetail) => ({
+  export const filterSensitiveLog = (obj: MemberDetail): any => ({
     ...obj
   });
   export const isa = (o: any): o is MemberDetail => __isa(o, "MemberDetail");
@@ -589,7 +591,7 @@ export interface RejectInvitationRequest {
 }
 
 export namespace RejectInvitationRequest {
-  export const filterSensitiveLog = (obj: RejectInvitationRequest) => ({
+  export const filterSensitiveLog = (obj: RejectInvitationRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is RejectInvitationRequest =>
@@ -608,7 +610,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -628,7 +630,9 @@ export interface ServiceQuotaExceededException
 }
 
 export namespace ServiceQuotaExceededException {
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: ServiceQuotaExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceQuotaExceededException =>
@@ -656,7 +660,7 @@ export interface UnprocessedAccount {
 }
 
 export namespace UnprocessedAccount {
-  export const filterSensitiveLog = (obj: UnprocessedAccount) => ({
+  export const filterSensitiveLog = (obj: UnprocessedAccount): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnprocessedAccount =>
@@ -675,7 +679,7 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const filterSensitiveLog = (obj: ValidationException) => ({
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ValidationException =>

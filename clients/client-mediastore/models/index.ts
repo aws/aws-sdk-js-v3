@@ -52,7 +52,7 @@ export interface Container {
 }
 
 export namespace Container {
-  export const filterSensitiveLog = (obj: Container) => ({
+  export const filterSensitiveLog = (obj: Container): any => ({
     ...obj
   });
   export const isa = (o: any): o is Container => __isa(o, "Container");
@@ -71,7 +71,7 @@ export interface ContainerInUseException
 }
 
 export namespace ContainerInUseException {
-  export const filterSensitiveLog = (obj: ContainerInUseException) => ({
+  export const filterSensitiveLog = (obj: ContainerInUseException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ContainerInUseException =>
@@ -90,7 +90,7 @@ export interface ContainerNotFoundException
 }
 
 export namespace ContainerNotFoundException {
-  export const filterSensitiveLog = (obj: ContainerNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ContainerNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ContainerNotFoundException =>
@@ -115,7 +115,9 @@ export interface CorsPolicyNotFoundException
 }
 
 export namespace CorsPolicyNotFoundException {
-  export const filterSensitiveLog = (obj: CorsPolicyNotFoundException) => ({
+  export const filterSensitiveLog = (
+    obj: CorsPolicyNotFoundException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CorsPolicyNotFoundException =>
@@ -172,7 +174,7 @@ export interface CorsRule {
 }
 
 export namespace CorsRule {
-  export const filterSensitiveLog = (obj: CorsRule) => ({
+  export const filterSensitiveLog = (obj: CorsRule): any => ({
     ...obj
   });
   export const isa = (o: any): o is CorsRule => __isa(o, "CorsRule");
@@ -197,7 +199,7 @@ export interface CreateContainerInput {
 }
 
 export namespace CreateContainerInput {
-  export const filterSensitiveLog = (obj: CreateContainerInput) => ({
+  export const filterSensitiveLog = (obj: CreateContainerInput): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -225,7 +227,7 @@ export interface CreateContainerOutput {
 }
 
 export namespace CreateContainerOutput {
-  export const filterSensitiveLog = (obj: CreateContainerOutput) => ({
+  export const filterSensitiveLog = (obj: CreateContainerOutput): any => ({
     ...obj,
     ...(obj.Container && {
       Container: Container.filterSensitiveLog(obj.Container)
@@ -244,7 +246,7 @@ export interface DeleteContainerInput {
 }
 
 export namespace DeleteContainerInput {
-  export const filterSensitiveLog = (obj: DeleteContainerInput) => ({
+  export const filterSensitiveLog = (obj: DeleteContainerInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteContainerInput =>
@@ -256,7 +258,7 @@ export interface DeleteContainerOutput {
 }
 
 export namespace DeleteContainerOutput {
-  export const filterSensitiveLog = (obj: DeleteContainerOutput) => ({
+  export const filterSensitiveLog = (obj: DeleteContainerOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteContainerOutput =>
@@ -272,7 +274,7 @@ export interface DeleteContainerPolicyInput {
 }
 
 export namespace DeleteContainerPolicyInput {
-  export const filterSensitiveLog = (obj: DeleteContainerPolicyInput) => ({
+  export const filterSensitiveLog = (obj: DeleteContainerPolicyInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteContainerPolicyInput =>
@@ -284,7 +286,9 @@ export interface DeleteContainerPolicyOutput {
 }
 
 export namespace DeleteContainerPolicyOutput {
-  export const filterSensitiveLog = (obj: DeleteContainerPolicyOutput) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteContainerPolicyOutput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteContainerPolicyOutput =>
@@ -300,7 +304,7 @@ export interface DeleteCorsPolicyInput {
 }
 
 export namespace DeleteCorsPolicyInput {
-  export const filterSensitiveLog = (obj: DeleteCorsPolicyInput) => ({
+  export const filterSensitiveLog = (obj: DeleteCorsPolicyInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteCorsPolicyInput =>
@@ -312,7 +316,7 @@ export interface DeleteCorsPolicyOutput {
 }
 
 export namespace DeleteCorsPolicyOutput {
-  export const filterSensitiveLog = (obj: DeleteCorsPolicyOutput) => ({
+  export const filterSensitiveLog = (obj: DeleteCorsPolicyOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteCorsPolicyOutput =>
@@ -328,7 +332,7 @@ export interface DeleteLifecyclePolicyInput {
 }
 
 export namespace DeleteLifecyclePolicyInput {
-  export const filterSensitiveLog = (obj: DeleteLifecyclePolicyInput) => ({
+  export const filterSensitiveLog = (obj: DeleteLifecyclePolicyInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteLifecyclePolicyInput =>
@@ -340,7 +344,9 @@ export interface DeleteLifecyclePolicyOutput {
 }
 
 export namespace DeleteLifecyclePolicyOutput {
-  export const filterSensitiveLog = (obj: DeleteLifecyclePolicyOutput) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteLifecyclePolicyOutput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteLifecyclePolicyOutput =>
@@ -356,7 +362,7 @@ export interface DescribeContainerInput {
 }
 
 export namespace DescribeContainerInput {
-  export const filterSensitiveLog = (obj: DescribeContainerInput) => ({
+  export const filterSensitiveLog = (obj: DescribeContainerInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeContainerInput =>
@@ -372,7 +378,7 @@ export interface DescribeContainerOutput {
 }
 
 export namespace DescribeContainerOutput {
-  export const filterSensitiveLog = (obj: DescribeContainerOutput) => ({
+  export const filterSensitiveLog = (obj: DescribeContainerOutput): any => ({
     ...obj,
     ...(obj.Container && {
       Container: Container.filterSensitiveLog(obj.Container)
@@ -391,7 +397,7 @@ export interface GetContainerPolicyInput {
 }
 
 export namespace GetContainerPolicyInput {
-  export const filterSensitiveLog = (obj: GetContainerPolicyInput) => ({
+  export const filterSensitiveLog = (obj: GetContainerPolicyInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetContainerPolicyInput =>
@@ -407,7 +413,7 @@ export interface GetContainerPolicyOutput {
 }
 
 export namespace GetContainerPolicyOutput {
-  export const filterSensitiveLog = (obj: GetContainerPolicyOutput) => ({
+  export const filterSensitiveLog = (obj: GetContainerPolicyOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetContainerPolicyOutput =>
@@ -423,7 +429,7 @@ export interface GetCorsPolicyInput {
 }
 
 export namespace GetCorsPolicyInput {
-  export const filterSensitiveLog = (obj: GetCorsPolicyInput) => ({
+  export const filterSensitiveLog = (obj: GetCorsPolicyInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetCorsPolicyInput =>
@@ -439,7 +445,7 @@ export interface GetCorsPolicyOutput {
 }
 
 export namespace GetCorsPolicyOutput {
-  export const filterSensitiveLog = (obj: GetCorsPolicyOutput) => ({
+  export const filterSensitiveLog = (obj: GetCorsPolicyOutput): any => ({
     ...obj,
     ...(obj.CorsPolicy && {
       CorsPolicy: obj.CorsPolicy.map(CorsRule.filterSensitiveLog)
@@ -458,7 +464,7 @@ export interface GetLifecyclePolicyInput {
 }
 
 export namespace GetLifecyclePolicyInput {
-  export const filterSensitiveLog = (obj: GetLifecyclePolicyInput) => ({
+  export const filterSensitiveLog = (obj: GetLifecyclePolicyInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetLifecyclePolicyInput =>
@@ -474,7 +480,7 @@ export interface GetLifecyclePolicyOutput {
 }
 
 export namespace GetLifecyclePolicyOutput {
-  export const filterSensitiveLog = (obj: GetLifecyclePolicyOutput) => ({
+  export const filterSensitiveLog = (obj: GetLifecyclePolicyOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetLifecyclePolicyOutput =>
@@ -493,7 +499,7 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export const filterSensitiveLog = (obj: InternalServerError) => ({
+  export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerError =>
@@ -512,7 +518,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -536,7 +542,7 @@ export interface ListContainersInput {
 }
 
 export namespace ListContainersInput {
-  export const filterSensitiveLog = (obj: ListContainersInput) => ({
+  export const filterSensitiveLog = (obj: ListContainersInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListContainersInput =>
@@ -560,7 +566,7 @@ export interface ListContainersOutput {
 }
 
 export namespace ListContainersOutput {
-  export const filterSensitiveLog = (obj: ListContainersOutput) => ({
+  export const filterSensitiveLog = (obj: ListContainersOutput): any => ({
     ...obj,
     ...(obj.Containers && {
       Containers: obj.Containers.map(Container.filterSensitiveLog)
@@ -579,7 +585,7 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceInput =>
@@ -595,7 +601,7 @@ export interface ListTagsForResourceOutput {
 }
 
 export namespace ListTagsForResourceOutput {
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -622,7 +628,7 @@ export interface PolicyNotFoundException
 }
 
 export namespace PolicyNotFoundException {
-  export const filterSensitiveLog = (obj: PolicyNotFoundException) => ({
+  export const filterSensitiveLog = (obj: PolicyNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is PolicyNotFoundException =>
@@ -652,7 +658,7 @@ export interface PutContainerPolicyInput {
 }
 
 export namespace PutContainerPolicyInput {
-  export const filterSensitiveLog = (obj: PutContainerPolicyInput) => ({
+  export const filterSensitiveLog = (obj: PutContainerPolicyInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutContainerPolicyInput =>
@@ -664,7 +670,7 @@ export interface PutContainerPolicyOutput {
 }
 
 export namespace PutContainerPolicyOutput {
-  export const filterSensitiveLog = (obj: PutContainerPolicyOutput) => ({
+  export const filterSensitiveLog = (obj: PutContainerPolicyOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutContainerPolicyOutput =>
@@ -685,7 +691,7 @@ export interface PutCorsPolicyInput {
 }
 
 export namespace PutCorsPolicyInput {
-  export const filterSensitiveLog = (obj: PutCorsPolicyInput) => ({
+  export const filterSensitiveLog = (obj: PutCorsPolicyInput): any => ({
     ...obj,
     ...(obj.CorsPolicy && {
       CorsPolicy: obj.CorsPolicy.map(CorsRule.filterSensitiveLog)
@@ -700,7 +706,7 @@ export interface PutCorsPolicyOutput {
 }
 
 export namespace PutCorsPolicyOutput {
-  export const filterSensitiveLog = (obj: PutCorsPolicyOutput) => ({
+  export const filterSensitiveLog = (obj: PutCorsPolicyOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutCorsPolicyOutput =>
@@ -721,7 +727,7 @@ export interface PutLifecyclePolicyInput {
 }
 
 export namespace PutLifecyclePolicyInput {
-  export const filterSensitiveLog = (obj: PutLifecyclePolicyInput) => ({
+  export const filterSensitiveLog = (obj: PutLifecyclePolicyInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutLifecyclePolicyInput =>
@@ -733,7 +739,7 @@ export interface PutLifecyclePolicyOutput {
 }
 
 export namespace PutLifecyclePolicyOutput {
-  export const filterSensitiveLog = (obj: PutLifecyclePolicyOutput) => ({
+  export const filterSensitiveLog = (obj: PutLifecyclePolicyOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutLifecyclePolicyOutput =>
@@ -749,7 +755,7 @@ export interface StartAccessLoggingInput {
 }
 
 export namespace StartAccessLoggingInput {
-  export const filterSensitiveLog = (obj: StartAccessLoggingInput) => ({
+  export const filterSensitiveLog = (obj: StartAccessLoggingInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartAccessLoggingInput =>
@@ -761,7 +767,7 @@ export interface StartAccessLoggingOutput {
 }
 
 export namespace StartAccessLoggingOutput {
-  export const filterSensitiveLog = (obj: StartAccessLoggingOutput) => ({
+  export const filterSensitiveLog = (obj: StartAccessLoggingOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartAccessLoggingOutput =>
@@ -777,7 +783,7 @@ export interface StopAccessLoggingInput {
 }
 
 export namespace StopAccessLoggingInput {
-  export const filterSensitiveLog = (obj: StopAccessLoggingInput) => ({
+  export const filterSensitiveLog = (obj: StopAccessLoggingInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopAccessLoggingInput =>
@@ -789,7 +795,7 @@ export interface StopAccessLoggingOutput {
 }
 
 export namespace StopAccessLoggingOutput {
-  export const filterSensitiveLog = (obj: StopAccessLoggingOutput) => ({
+  export const filterSensitiveLog = (obj: StopAccessLoggingOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopAccessLoggingOutput =>
@@ -818,7 +824,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -841,7 +847,7 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
-  export const filterSensitiveLog = (obj: TagResourceInput) => ({
+  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -854,7 +860,7 @@ export interface TagResourceOutput {
 }
 
 export namespace TagResourceOutput {
-  export const filterSensitiveLog = (obj: TagResourceOutput) => ({
+  export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceOutput =>
@@ -877,7 +883,7 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
-  export const filterSensitiveLog = (obj: UntagResourceInput) => ({
+  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceInput =>
@@ -889,7 +895,7 @@ export interface UntagResourceOutput {
 }
 
 export namespace UntagResourceOutput {
-  export const filterSensitiveLog = (obj: UntagResourceOutput) => ({
+  export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceOutput =>

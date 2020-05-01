@@ -17,7 +17,7 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export const filterSensitiveLog = (obj: BadRequestException) => ({
+  export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is BadRequestException =>
@@ -41,7 +41,7 @@ export interface CdnConfiguration {
 }
 
 export namespace CdnConfiguration {
-  export const filterSensitiveLog = (obj: CdnConfiguration) => ({
+  export const filterSensitiveLog = (obj: CdnConfiguration): any => ({
     ...obj
   });
   export const isa = (o: any): o is CdnConfiguration =>
@@ -70,7 +70,7 @@ export interface DashConfiguration {
 }
 
 export namespace DashConfiguration {
-  export const filterSensitiveLog = (obj: DashConfiguration) => ({
+  export const filterSensitiveLog = (obj: DashConfiguration): any => ({
     ...obj
   });
   export const isa = (o: any): o is DashConfiguration =>
@@ -94,7 +94,7 @@ export interface DashConfigurationForPut {
 }
 
 export namespace DashConfigurationForPut {
-  export const filterSensitiveLog = (obj: DashConfigurationForPut) => ({
+  export const filterSensitiveLog = (obj: DashConfigurationForPut): any => ({
     ...obj
   });
   export const isa = (o: any): o is DashConfigurationForPut =>
@@ -112,7 +112,7 @@ export interface DeletePlaybackConfigurationRequest {
 export namespace DeletePlaybackConfigurationRequest {
   export const filterSensitiveLog = (
     obj: DeletePlaybackConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeletePlaybackConfigurationRequest =>
@@ -126,7 +126,7 @@ export interface DeletePlaybackConfigurationResponse {
 export namespace DeletePlaybackConfigurationResponse {
   export const filterSensitiveLog = (
     obj: DeletePlaybackConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeletePlaybackConfigurationResponse =>
@@ -142,7 +142,9 @@ export interface GetPlaybackConfigurationRequest {
 }
 
 export namespace GetPlaybackConfigurationRequest {
-  export const filterSensitiveLog = (obj: GetPlaybackConfigurationRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetPlaybackConfigurationRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetPlaybackConfigurationRequest =>
@@ -220,7 +222,7 @@ export interface GetPlaybackConfigurationResponse {
 export namespace GetPlaybackConfigurationResponse {
   export const filterSensitiveLog = (
     obj: GetPlaybackConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CdnConfiguration && {
       CdnConfiguration: CdnConfiguration.filterSensitiveLog(
@@ -259,7 +261,7 @@ export interface HlsConfiguration {
 }
 
 export namespace HlsConfiguration {
-  export const filterSensitiveLog = (obj: HlsConfiguration) => ({
+  export const filterSensitiveLog = (obj: HlsConfiguration): any => ({
     ...obj
   });
   export const isa = (o: any): o is HlsConfiguration =>
@@ -282,7 +284,7 @@ export interface ListPlaybackConfigurationsRequest {
 export namespace ListPlaybackConfigurationsRequest {
   export const filterSensitiveLog = (
     obj: ListPlaybackConfigurationsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListPlaybackConfigurationsRequest =>
@@ -305,7 +307,7 @@ export interface ListPlaybackConfigurationsResponse {
 export namespace ListPlaybackConfigurationsResponse {
   export const filterSensitiveLog = (
     obj: ListPlaybackConfigurationsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Items && {
       Items: obj.Items.map(PlaybackConfiguration.filterSensitiveLog)
@@ -324,7 +326,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
@@ -345,7 +347,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
@@ -369,7 +373,7 @@ export interface LivePreRollConfiguration {
 }
 
 export namespace LivePreRollConfiguration {
-  export const filterSensitiveLog = (obj: LivePreRollConfiguration) => ({
+  export const filterSensitiveLog = (obj: LivePreRollConfiguration): any => ({
     ...obj
   });
   export const isa = (o: any): o is LivePreRollConfiguration =>
@@ -448,7 +452,7 @@ export interface PlaybackConfiguration {
 }
 
 export namespace PlaybackConfiguration {
-  export const filterSensitiveLog = (obj: PlaybackConfiguration) => ({
+  export const filterSensitiveLog = (obj: PlaybackConfiguration): any => ({
     ...obj,
     ...(obj.CdnConfiguration && {
       CdnConfiguration: CdnConfiguration.filterSensitiveLog(
@@ -519,7 +523,9 @@ export interface PutPlaybackConfigurationRequest {
 }
 
 export namespace PutPlaybackConfigurationRequest {
-  export const filterSensitiveLog = (obj: PutPlaybackConfigurationRequest) => ({
+  export const filterSensitiveLog = (
+    obj: PutPlaybackConfigurationRequest
+  ): any => ({
     ...obj,
     ...(obj.CdnConfiguration && {
       CdnConfiguration: CdnConfiguration.filterSensitiveLog(
@@ -612,7 +618,7 @@ export interface PutPlaybackConfigurationResponse {
 export namespace PutPlaybackConfigurationResponse {
   export const filterSensitiveLog = (
     obj: PutPlaybackConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CdnConfiguration && {
       CdnConfiguration: CdnConfiguration.filterSensitiveLog(
@@ -658,7 +664,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
@@ -679,7 +685,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>

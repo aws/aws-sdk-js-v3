@@ -23,7 +23,7 @@ export interface Attachment {
 }
 
 export namespace Attachment {
-  export const filterSensitiveLog = (obj: Attachment) => ({
+  export const filterSensitiveLog = (obj: Attachment): any => ({
     ...obj
   });
   export const isa = (o: any): o is Attachment => __isa(o, "Attachment");
@@ -48,7 +48,7 @@ export interface AttachmentDetails {
 }
 
 export namespace AttachmentDetails {
-  export const filterSensitiveLog = (obj: AttachmentDetails) => ({
+  export const filterSensitiveLog = (obj: AttachmentDetails): any => ({
     ...obj
   });
   export const isa = (o: any): o is AttachmentDetails =>
@@ -206,7 +206,7 @@ export interface CaseDetails {
 }
 
 export namespace CaseDetails {
-  export const filterSensitiveLog = (obj: CaseDetails) => ({
+  export const filterSensitiveLog = (obj: CaseDetails): any => ({
     ...obj,
     ...(obj.recentCommunications && {
       recentCommunications: RecentCaseCommunications.filterSensitiveLog(
@@ -236,7 +236,7 @@ export interface Category {
 }
 
 export namespace Category {
-  export const filterSensitiveLog = (obj: Category) => ({
+  export const filterSensitiveLog = (obj: Category): any => ({
     ...obj
   });
   export const isa = (o: any): o is Category => __isa(o, "Category");
@@ -283,7 +283,7 @@ export interface Communication {
 }
 
 export namespace Communication {
-  export const filterSensitiveLog = (obj: Communication) => ({
+  export const filterSensitiveLog = (obj: Communication): any => ({
     ...obj,
     ...(obj.attachmentSet && {
       attachmentSet: obj.attachmentSet.map(AttachmentDetails.filterSensitiveLog)
@@ -309,7 +309,7 @@ export interface RecentCaseCommunications {
 }
 
 export namespace RecentCaseCommunications {
-  export const filterSensitiveLog = (obj: RecentCaseCommunications) => ({
+  export const filterSensitiveLog = (obj: RecentCaseCommunications): any => ({
     ...obj,
     ...(obj.communications && {
       communications: obj.communications.map(Communication.filterSensitiveLog)
@@ -347,7 +347,7 @@ export interface Service {
 }
 
 export namespace Service {
-  export const filterSensitiveLog = (obj: Service) => ({
+  export const filterSensitiveLog = (obj: Service): any => ({
     ...obj,
     ...(obj.categories && {
       categories: obj.categories.map(Category.filterSensitiveLog)
@@ -371,7 +371,7 @@ export interface AttachmentIdNotFound
 }
 
 export namespace AttachmentIdNotFound {
-  export const filterSensitiveLog = (obj: AttachmentIdNotFound) => ({
+  export const filterSensitiveLog = (obj: AttachmentIdNotFound): any => ({
     ...obj
   });
   export const isa = (o: any): o is AttachmentIdNotFound =>
@@ -395,7 +395,7 @@ export interface AttachmentLimitExceeded
 }
 
 export namespace AttachmentLimitExceeded {
-  export const filterSensitiveLog = (obj: AttachmentLimitExceeded) => ({
+  export const filterSensitiveLog = (obj: AttachmentLimitExceeded): any => ({
     ...obj
   });
   export const isa = (o: any): o is AttachmentLimitExceeded =>
@@ -419,7 +419,7 @@ export interface AttachmentSetExpired
 }
 
 export namespace AttachmentSetExpired {
-  export const filterSensitiveLog = (obj: AttachmentSetExpired) => ({
+  export const filterSensitiveLog = (obj: AttachmentSetExpired): any => ({
     ...obj
   });
   export const isa = (o: any): o is AttachmentSetExpired =>
@@ -441,7 +441,7 @@ export interface AttachmentSetIdNotFound
 }
 
 export namespace AttachmentSetIdNotFound {
-  export const filterSensitiveLog = (obj: AttachmentSetIdNotFound) => ({
+  export const filterSensitiveLog = (obj: AttachmentSetIdNotFound): any => ({
     ...obj
   });
   export const isa = (o: any): o is AttachmentSetIdNotFound =>
@@ -465,7 +465,9 @@ export interface AttachmentSetSizeLimitExceeded
 }
 
 export namespace AttachmentSetSizeLimitExceeded {
-  export const filterSensitiveLog = (obj: AttachmentSetSizeLimitExceeded) => ({
+  export const filterSensitiveLog = (
+    obj: AttachmentSetSizeLimitExceeded
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AttachmentSetSizeLimitExceeded =>
@@ -488,7 +490,7 @@ export interface CaseCreationLimitExceeded
 }
 
 export namespace CaseCreationLimitExceeded {
-  export const filterSensitiveLog = (obj: CaseCreationLimitExceeded) => ({
+  export const filterSensitiveLog = (obj: CaseCreationLimitExceeded): any => ({
     ...obj
   });
   export const isa = (o: any): o is CaseCreationLimitExceeded =>
@@ -508,7 +510,7 @@ export interface CaseIdNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace CaseIdNotFound {
-  export const filterSensitiveLog = (obj: CaseIdNotFound) => ({
+  export const filterSensitiveLog = (obj: CaseIdNotFound): any => ({
     ...obj
   });
   export const isa = (o: any): o is CaseIdNotFound =>
@@ -532,7 +534,9 @@ export interface DescribeAttachmentLimitExceeded
 }
 
 export namespace DescribeAttachmentLimitExceeded {
-  export const filterSensitiveLog = (obj: DescribeAttachmentLimitExceeded) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeAttachmentLimitExceeded
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeAttachmentLimitExceeded =>
@@ -554,7 +558,7 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export const filterSensitiveLog = (obj: InternalServerError) => ({
+  export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerError =>
@@ -582,7 +586,7 @@ export interface AddAttachmentsToSetRequest {
 }
 
 export namespace AddAttachmentsToSetRequest {
-  export const filterSensitiveLog = (obj: AddAttachmentsToSetRequest) => ({
+  export const filterSensitiveLog = (obj: AddAttachmentsToSetRequest): any => ({
     ...obj,
     ...(obj.attachments && {
       attachments: obj.attachments.map(Attachment.filterSensitiveLog)
@@ -612,7 +616,9 @@ export interface AddAttachmentsToSetResponse {
 }
 
 export namespace AddAttachmentsToSetResponse {
-  export const filterSensitiveLog = (obj: AddAttachmentsToSetResponse) => ({
+  export const filterSensitiveLog = (
+    obj: AddAttachmentsToSetResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AddAttachmentsToSetResponse =>
@@ -652,7 +658,9 @@ export interface AddCommunicationToCaseRequest {
 }
 
 export namespace AddCommunicationToCaseRequest {
-  export const filterSensitiveLog = (obj: AddCommunicationToCaseRequest) => ({
+  export const filterSensitiveLog = (
+    obj: AddCommunicationToCaseRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AddCommunicationToCaseRequest =>
@@ -672,7 +680,9 @@ export interface AddCommunicationToCaseResponse {
 }
 
 export namespace AddCommunicationToCaseResponse {
-  export const filterSensitiveLog = (obj: AddCommunicationToCaseResponse) => ({
+  export const filterSensitiveLog = (
+    obj: AddCommunicationToCaseResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AddCommunicationToCaseResponse =>
@@ -741,7 +751,7 @@ export interface CreateCaseRequest {
 }
 
 export namespace CreateCaseRequest {
-  export const filterSensitiveLog = (obj: CreateCaseRequest) => ({
+  export const filterSensitiveLog = (obj: CreateCaseRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateCaseRequest =>
@@ -763,7 +773,7 @@ export interface CreateCaseResponse {
 }
 
 export namespace CreateCaseResponse {
-  export const filterSensitiveLog = (obj: CreateCaseResponse) => ({
+  export const filterSensitiveLog = (obj: CreateCaseResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateCaseResponse =>
@@ -779,7 +789,7 @@ export interface DescribeAttachmentRequest {
 }
 
 export namespace DescribeAttachmentRequest {
-  export const filterSensitiveLog = (obj: DescribeAttachmentRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeAttachmentRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeAttachmentRequest =>
@@ -798,7 +808,7 @@ export interface DescribeAttachmentResponse {
 }
 
 export namespace DescribeAttachmentResponse {
-  export const filterSensitiveLog = (obj: DescribeAttachmentResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeAttachmentResponse): any => ({
     ...obj,
     ...(obj.attachment && {
       attachment: Attachment.filterSensitiveLog(obj.attachment)
@@ -864,7 +874,7 @@ export interface DescribeCasesRequest {
 }
 
 export namespace DescribeCasesRequest {
-  export const filterSensitiveLog = (obj: DescribeCasesRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeCasesRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeCasesRequest =>
@@ -890,7 +900,7 @@ export interface DescribeCasesResponse {
 }
 
 export namespace DescribeCasesResponse {
-  export const filterSensitiveLog = (obj: DescribeCasesResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeCasesResponse): any => ({
     ...obj,
     ...(obj.cases && { cases: obj.cases.map(CaseDetails.filterSensitiveLog) })
   });
@@ -932,7 +942,9 @@ export interface DescribeCommunicationsRequest {
 }
 
 export namespace DescribeCommunicationsRequest {
-  export const filterSensitiveLog = (obj: DescribeCommunicationsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeCommunicationsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeCommunicationsRequest =>
@@ -957,7 +969,9 @@ export interface DescribeCommunicationsResponse {
 }
 
 export namespace DescribeCommunicationsResponse {
-  export const filterSensitiveLog = (obj: DescribeCommunicationsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeCommunicationsResponse
+  ): any => ({
     ...obj,
     ...(obj.communications && {
       communications: obj.communications.map(Communication.filterSensitiveLog)
@@ -983,7 +997,7 @@ export interface DescribeServicesRequest {
 }
 
 export namespace DescribeServicesRequest {
-  export const filterSensitiveLog = (obj: DescribeServicesRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeServicesRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeServicesRequest =>
@@ -1003,7 +1017,7 @@ export interface DescribeServicesResponse {
 }
 
 export namespace DescribeServicesResponse {
-  export const filterSensitiveLog = (obj: DescribeServicesResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeServicesResponse): any => ({
     ...obj,
     ...(obj.services && {
       services: obj.services.map(Service.filterSensitiveLog)
@@ -1024,7 +1038,9 @@ export interface DescribeSeverityLevelsRequest {
 }
 
 export namespace DescribeSeverityLevelsRequest {
-  export const filterSensitiveLog = (obj: DescribeSeverityLevelsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeSeverityLevelsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeSeverityLevelsRequest =>
@@ -1044,7 +1060,9 @@ export interface DescribeSeverityLevelsResponse {
 }
 
 export namespace DescribeSeverityLevelsResponse {
-  export const filterSensitiveLog = (obj: DescribeSeverityLevelsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeSeverityLevelsResponse
+  ): any => ({
     ...obj,
     ...(obj.severityLevels && {
       severityLevels: obj.severityLevels.map(SeverityLevel.filterSensitiveLog)
@@ -1066,7 +1084,7 @@ export interface ResolveCaseRequest {
 }
 
 export namespace ResolveCaseRequest {
-  export const filterSensitiveLog = (obj: ResolveCaseRequest) => ({
+  export const filterSensitiveLog = (obj: ResolveCaseRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResolveCaseRequest =>
@@ -1093,7 +1111,7 @@ export interface ResolveCaseResponse {
 }
 
 export namespace ResolveCaseResponse {
-  export const filterSensitiveLog = (obj: ResolveCaseResponse) => ({
+  export const filterSensitiveLog = (obj: ResolveCaseResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResolveCaseResponse =>
@@ -1155,7 +1173,7 @@ export interface SeverityLevel {
 }
 
 export namespace SeverityLevel {
-  export const filterSensitiveLog = (obj: SeverityLevel) => ({
+  export const filterSensitiveLog = (obj: SeverityLevel): any => ({
     ...obj
   });
   export const isa = (o: any): o is SeverityLevel => __isa(o, "SeverityLevel");
@@ -1176,7 +1194,7 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
 export namespace DescribeTrustedAdvisorCheckRefreshStatusesRequest {
   export const filterSensitiveLog = (
     obj: DescribeTrustedAdvisorCheckRefreshStatusesRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -1199,7 +1217,7 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse {
 export namespace DescribeTrustedAdvisorCheckRefreshStatusesResponse {
   export const filterSensitiveLog = (
     obj: DescribeTrustedAdvisorCheckRefreshStatusesResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.statuses && {
       statuses: obj.statuses.map(
@@ -1234,7 +1252,7 @@ export interface DescribeTrustedAdvisorCheckResultRequest {
 export namespace DescribeTrustedAdvisorCheckResultRequest {
   export const filterSensitiveLog = (
     obj: DescribeTrustedAdvisorCheckResultRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeTrustedAdvisorCheckResultRequest =>
@@ -1255,7 +1273,7 @@ export interface DescribeTrustedAdvisorCheckResultResponse {
 export namespace DescribeTrustedAdvisorCheckResultResponse {
   export const filterSensitiveLog = (
     obj: DescribeTrustedAdvisorCheckResultResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.result && {
       result: TrustedAdvisorCheckResult.filterSensitiveLog(obj.result)
@@ -1276,7 +1294,7 @@ export interface DescribeTrustedAdvisorCheckSummariesRequest {
 export namespace DescribeTrustedAdvisorCheckSummariesRequest {
   export const filterSensitiveLog = (
     obj: DescribeTrustedAdvisorCheckSummariesRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -1299,7 +1317,7 @@ export interface DescribeTrustedAdvisorCheckSummariesResponse {
 export namespace DescribeTrustedAdvisorCheckSummariesResponse {
   export const filterSensitiveLog = (
     obj: DescribeTrustedAdvisorCheckSummariesResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.summaries && {
       summaries: obj.summaries.map(
@@ -1329,7 +1347,7 @@ export interface DescribeTrustedAdvisorChecksRequest {
 export namespace DescribeTrustedAdvisorChecksRequest {
   export const filterSensitiveLog = (
     obj: DescribeTrustedAdvisorChecksRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeTrustedAdvisorChecksRequest =>
@@ -1350,7 +1368,7 @@ export interface DescribeTrustedAdvisorChecksResponse {
 export namespace DescribeTrustedAdvisorChecksResponse {
   export const filterSensitiveLog = (
     obj: DescribeTrustedAdvisorChecksResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.checks && {
       checks: obj.checks.map(TrustedAdvisorCheckDescription.filterSensitiveLog)
@@ -1375,7 +1393,7 @@ export interface RefreshTrustedAdvisorCheckRequest {
 export namespace RefreshTrustedAdvisorCheckRequest {
   export const filterSensitiveLog = (
     obj: RefreshTrustedAdvisorCheckRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is RefreshTrustedAdvisorCheckRequest =>
@@ -1397,7 +1415,7 @@ export interface RefreshTrustedAdvisorCheckResponse {
 export namespace RefreshTrustedAdvisorCheckResponse {
   export const filterSensitiveLog = (
     obj: RefreshTrustedAdvisorCheckResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.status && {
       status: TrustedAdvisorCheckRefreshStatus.filterSensitiveLog(obj.status)
@@ -1423,7 +1441,7 @@ export interface TrustedAdvisorCategorySpecificSummary {
 export namespace TrustedAdvisorCategorySpecificSummary {
   export const filterSensitiveLog = (
     obj: TrustedAdvisorCategorySpecificSummary
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.costOptimizing && {
       costOptimizing: TrustedAdvisorCostOptimizingSummary.filterSensitiveLog(
@@ -1472,7 +1490,9 @@ export interface TrustedAdvisorCheckDescription {
 }
 
 export namespace TrustedAdvisorCheckDescription {
-  export const filterSensitiveLog = (obj: TrustedAdvisorCheckDescription) => ({
+  export const filterSensitiveLog = (
+    obj: TrustedAdvisorCheckDescription
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TrustedAdvisorCheckDescription =>
@@ -1530,7 +1550,7 @@ export interface TrustedAdvisorCheckRefreshStatus {
 export namespace TrustedAdvisorCheckRefreshStatus {
   export const filterSensitiveLog = (
     obj: TrustedAdvisorCheckRefreshStatus
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TrustedAdvisorCheckRefreshStatus =>
@@ -1576,7 +1596,7 @@ export interface TrustedAdvisorCheckResult {
 }
 
 export namespace TrustedAdvisorCheckResult {
-  export const filterSensitiveLog = (obj: TrustedAdvisorCheckResult) => ({
+  export const filterSensitiveLog = (obj: TrustedAdvisorCheckResult): any => ({
     ...obj,
     ...(obj.categorySpecificSummary && {
       categorySpecificSummary: TrustedAdvisorCategorySpecificSummary.filterSensitiveLog(
@@ -1638,7 +1658,7 @@ export interface TrustedAdvisorCheckSummary {
 }
 
 export namespace TrustedAdvisorCheckSummary {
-  export const filterSensitiveLog = (obj: TrustedAdvisorCheckSummary) => ({
+  export const filterSensitiveLog = (obj: TrustedAdvisorCheckSummary): any => ({
     ...obj,
     ...(obj.categorySpecificSummary && {
       categorySpecificSummary: TrustedAdvisorCategorySpecificSummary.filterSensitiveLog(
@@ -1677,7 +1697,7 @@ export interface TrustedAdvisorCostOptimizingSummary {
 export namespace TrustedAdvisorCostOptimizingSummary {
   export const filterSensitiveLog = (
     obj: TrustedAdvisorCostOptimizingSummary
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TrustedAdvisorCostOptimizingSummary =>
@@ -1721,7 +1741,9 @@ export interface TrustedAdvisorResourceDetail {
 }
 
 export namespace TrustedAdvisorResourceDetail {
-  export const filterSensitiveLog = (obj: TrustedAdvisorResourceDetail) => ({
+  export const filterSensitiveLog = (
+    obj: TrustedAdvisorResourceDetail
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TrustedAdvisorResourceDetail =>
@@ -1759,7 +1781,9 @@ export interface TrustedAdvisorResourcesSummary {
 }
 
 export namespace TrustedAdvisorResourcesSummary {
-  export const filterSensitiveLog = (obj: TrustedAdvisorResourcesSummary) => ({
+  export const filterSensitiveLog = (
+    obj: TrustedAdvisorResourcesSummary
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TrustedAdvisorResourcesSummary =>

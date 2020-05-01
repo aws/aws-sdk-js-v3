@@ -44,7 +44,9 @@ export interface DeleteReportDefinitionRequest {
 }
 
 export namespace DeleteReportDefinitionRequest {
-  export const filterSensitiveLog = (obj: DeleteReportDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteReportDefinitionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteReportDefinitionRequest =>
@@ -63,7 +65,9 @@ export interface DeleteReportDefinitionResponse {
 }
 
 export namespace DeleteReportDefinitionResponse {
-  export const filterSensitiveLog = (obj: DeleteReportDefinitionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteReportDefinitionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteReportDefinitionResponse =>
@@ -89,7 +93,7 @@ export interface DescribeReportDefinitionsRequest {
 export namespace DescribeReportDefinitionsRequest {
   export const filterSensitiveLog = (
     obj: DescribeReportDefinitionsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeReportDefinitionsRequest =>
@@ -115,7 +119,7 @@ export interface DescribeReportDefinitionsResponse {
 export namespace DescribeReportDefinitionsResponse {
   export const filterSensitiveLog = (
     obj: DescribeReportDefinitionsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ReportDefinitions && {
       ReportDefinitions: obj.ReportDefinitions.map(
@@ -142,7 +146,9 @@ export interface DuplicateReportNameException
 }
 
 export namespace DuplicateReportNameException {
-  export const filterSensitiveLog = (obj: DuplicateReportNameException) => ({
+  export const filterSensitiveLog = (
+    obj: DuplicateReportNameException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DuplicateReportNameException =>
@@ -164,7 +170,7 @@ export interface InternalErrorException
 }
 
 export namespace InternalErrorException {
-  export const filterSensitiveLog = (obj: InternalErrorException) => ({
+  export const filterSensitiveLog = (obj: InternalErrorException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalErrorException =>
@@ -189,7 +195,9 @@ export interface ModifyReportDefinitionRequest {
 }
 
 export namespace ModifyReportDefinitionRequest {
-  export const filterSensitiveLog = (obj: ModifyReportDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ModifyReportDefinitionRequest
+  ): any => ({
     ...obj,
     ...(obj.ReportDefinition && {
       ReportDefinition: ReportDefinition.filterSensitiveLog(
@@ -206,7 +214,9 @@ export interface ModifyReportDefinitionResponse {
 }
 
 export namespace ModifyReportDefinitionResponse {
-  export const filterSensitiveLog = (obj: ModifyReportDefinitionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ModifyReportDefinitionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyReportDefinitionResponse =>
@@ -226,7 +236,7 @@ export interface PutReportDefinitionRequest {
 }
 
 export namespace PutReportDefinitionRequest {
-  export const filterSensitiveLog = (obj: PutReportDefinitionRequest) => ({
+  export const filterSensitiveLog = (obj: PutReportDefinitionRequest): any => ({
     ...obj,
     ...(obj.ReportDefinition && {
       ReportDefinition: ReportDefinition.filterSensitiveLog(
@@ -246,7 +256,9 @@ export interface PutReportDefinitionResponse {
 }
 
 export namespace PutReportDefinitionResponse {
-  export const filterSensitiveLog = (obj: PutReportDefinitionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: PutReportDefinitionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutReportDefinitionResponse =>
@@ -322,7 +334,7 @@ export interface ReportDefinition {
 }
 
 export namespace ReportDefinition {
-  export const filterSensitiveLog = (obj: ReportDefinition) => ({
+  export const filterSensitiveLog = (obj: ReportDefinition): any => ({
     ...obj
   });
   export const isa = (o: any): o is ReportDefinition =>
@@ -349,7 +361,9 @@ export interface ReportLimitReachedException
 }
 
 export namespace ReportLimitReachedException {
-  export const filterSensitiveLog = (obj: ReportLimitReachedException) => ({
+  export const filterSensitiveLog = (
+    obj: ReportLimitReachedException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ReportLimitReachedException =>
@@ -385,7 +399,7 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const filterSensitiveLog = (obj: ValidationException) => ({
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ValidationException =>

@@ -20,7 +20,9 @@ export interface CertificateValidationException
 }
 
 export namespace CertificateValidationException {
-  export const filterSensitiveLog = (obj: CertificateValidationException) => ({
+  export const filterSensitiveLog = (
+    obj: CertificateValidationException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CertificateValidationException =>
@@ -42,7 +44,7 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const filterSensitiveLog = (obj: InvalidRequestException) => ({
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidRequestException =>
@@ -63,7 +65,9 @@ export interface InvalidStateTransitionException
 }
 
 export namespace InvalidStateTransitionException {
-  export const filterSensitiveLog = (obj: InvalidStateTransitionException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidStateTransitionException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidStateTransitionException =>
@@ -85,7 +89,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -107,7 +111,9 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (obj: ServiceUnavailableException) => ({
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceUnavailableException =>
@@ -126,7 +132,7 @@ export interface TerminalStateException
 }
 
 export namespace TerminalStateException {
-  export const filterSensitiveLog = (obj: TerminalStateException) => ({
+  export const filterSensitiveLog = (obj: TerminalStateException): any => ({
     ...obj
   });
   export const isa = (o: any): o is TerminalStateException =>
@@ -164,7 +170,7 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ThrottlingException =>
@@ -196,7 +202,9 @@ export interface DescribeJobExecutionRequest {
 }
 
 export namespace DescribeJobExecutionRequest {
-  export const filterSensitiveLog = (obj: DescribeJobExecutionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeJobExecutionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeJobExecutionRequest =>
@@ -212,7 +220,9 @@ export interface DescribeJobExecutionResponse {
 }
 
 export namespace DescribeJobExecutionResponse {
-  export const filterSensitiveLog = (obj: DescribeJobExecutionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeJobExecutionResponse
+  ): any => ({
     ...obj,
     ...(obj.execution && {
       execution: JobExecution.filterSensitiveLog(obj.execution)
@@ -231,7 +241,9 @@ export interface GetPendingJobExecutionsRequest {
 }
 
 export namespace GetPendingJobExecutionsRequest {
-  export const filterSensitiveLog = (obj: GetPendingJobExecutionsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetPendingJobExecutionsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetPendingJobExecutionsRequest =>
@@ -252,7 +264,9 @@ export interface GetPendingJobExecutionsResponse {
 }
 
 export namespace GetPendingJobExecutionsResponse {
-  export const filterSensitiveLog = (obj: GetPendingJobExecutionsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetPendingJobExecutionsResponse
+  ): any => ({
     ...obj,
     ...(obj.inProgressJobs && {
       inProgressJobs: obj.inProgressJobs.map(
@@ -333,7 +347,7 @@ export interface JobExecution {
 }
 
 export namespace JobExecution {
-  export const filterSensitiveLog = (obj: JobExecution) => ({
+  export const filterSensitiveLog = (obj: JobExecution): any => ({
     ...obj
   });
   export const isa = (o: any): o is JobExecution => __isa(o, "JobExecution");
@@ -363,7 +377,7 @@ export interface JobExecutionState {
 }
 
 export namespace JobExecutionState {
-  export const filterSensitiveLog = (obj: JobExecutionState) => ({
+  export const filterSensitiveLog = (obj: JobExecutionState): any => ({
     ...obj
   });
   export const isa = (o: any): o is JobExecutionState =>
@@ -408,7 +422,7 @@ export interface JobExecutionSummary {
 }
 
 export namespace JobExecutionSummary {
-  export const filterSensitiveLog = (obj: JobExecutionSummary) => ({
+  export const filterSensitiveLog = (obj: JobExecutionSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is JobExecutionSummary =>
@@ -443,7 +457,7 @@ export interface StartNextPendingJobExecutionRequest {
 export namespace StartNextPendingJobExecutionRequest {
   export const filterSensitiveLog = (
     obj: StartNextPendingJobExecutionRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartNextPendingJobExecutionRequest =>
@@ -461,7 +475,7 @@ export interface StartNextPendingJobExecutionResponse {
 export namespace StartNextPendingJobExecutionResponse {
   export const filterSensitiveLog = (
     obj: StartNextPendingJobExecutionResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.execution && {
       execution: JobExecution.filterSensitiveLog(obj.execution)
@@ -533,7 +547,7 @@ export interface UpdateJobExecutionRequest {
 }
 
 export namespace UpdateJobExecutionRequest {
-  export const filterSensitiveLog = (obj: UpdateJobExecutionRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateJobExecutionRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateJobExecutionRequest =>
@@ -554,7 +568,7 @@ export interface UpdateJobExecutionResponse {
 }
 
 export namespace UpdateJobExecutionResponse {
-  export const filterSensitiveLog = (obj: UpdateJobExecutionResponse) => ({
+  export const filterSensitiveLog = (obj: UpdateJobExecutionResponse): any => ({
     ...obj,
     ...(obj.executionState && {
       executionState: JobExecutionState.filterSensitiveLog(obj.executionState)

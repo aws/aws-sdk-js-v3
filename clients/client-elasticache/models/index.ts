@@ -22,7 +22,7 @@ export interface InvalidParameterCombinationException
 export namespace InvalidParameterCombinationException {
   export const filterSensitiveLog = (
     obj: InvalidParameterCombinationException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidParameterCombinationException =>
@@ -44,7 +44,9 @@ export interface InvalidParameterValueException
 }
 
 export namespace InvalidParameterValueException {
-  export const filterSensitiveLog = (obj: InvalidParameterValueException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidParameterValueException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidParameterValueException =>
@@ -65,7 +67,7 @@ export interface APICallRateForCustomerExceededFault
 export namespace APICallRateForCustomerExceededFault {
   export const filterSensitiveLog = (
     obj: APICallRateForCustomerExceededFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is APICallRateForCustomerExceededFault =>
@@ -84,7 +86,9 @@ export interface AuthorizationAlreadyExistsFault
 }
 
 export namespace AuthorizationAlreadyExistsFault {
-  export const filterSensitiveLog = (obj: AuthorizationAlreadyExistsFault) => ({
+  export const filterSensitiveLog = (
+    obj: AuthorizationAlreadyExistsFault
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AuthorizationAlreadyExistsFault =>
@@ -103,7 +107,7 @@ export interface AuthorizationNotFoundFault
 }
 
 export namespace AuthorizationNotFoundFault {
-  export const filterSensitiveLog = (obj: AuthorizationNotFoundFault) => ({
+  export const filterSensitiveLog = (obj: AuthorizationNotFoundFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is AuthorizationNotFoundFault =>
@@ -122,7 +126,9 @@ export interface CacheClusterAlreadyExistsFault
 }
 
 export namespace CacheClusterAlreadyExistsFault {
-  export const filterSensitiveLog = (obj: CacheClusterAlreadyExistsFault) => ({
+  export const filterSensitiveLog = (
+    obj: CacheClusterAlreadyExistsFault
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheClusterAlreadyExistsFault =>
@@ -141,7 +147,7 @@ export interface CacheClusterNotFoundFault
 }
 
 export namespace CacheClusterNotFoundFault {
-  export const filterSensitiveLog = (obj: CacheClusterNotFoundFault) => ({
+  export const filterSensitiveLog = (obj: CacheClusterNotFoundFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheClusterNotFoundFault =>
@@ -162,7 +168,7 @@ export interface CacheParameterGroupAlreadyExistsFault
 export namespace CacheParameterGroupAlreadyExistsFault {
   export const filterSensitiveLog = (
     obj: CacheParameterGroupAlreadyExistsFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheParameterGroupAlreadyExistsFault =>
@@ -183,7 +189,7 @@ export interface CacheParameterGroupNotFoundFault
 export namespace CacheParameterGroupNotFoundFault {
   export const filterSensitiveLog = (
     obj: CacheParameterGroupNotFoundFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheParameterGroupNotFoundFault =>
@@ -204,7 +210,7 @@ export interface CacheParameterGroupQuotaExceededFault
 export namespace CacheParameterGroupQuotaExceededFault {
   export const filterSensitiveLog = (
     obj: CacheParameterGroupQuotaExceededFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheParameterGroupQuotaExceededFault =>
@@ -225,7 +231,7 @@ export interface CacheSecurityGroupAlreadyExistsFault
 export namespace CacheSecurityGroupAlreadyExistsFault {
   export const filterSensitiveLog = (
     obj: CacheSecurityGroupAlreadyExistsFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheSecurityGroupAlreadyExistsFault =>
@@ -244,7 +250,9 @@ export interface CacheSecurityGroupNotFoundFault
 }
 
 export namespace CacheSecurityGroupNotFoundFault {
-  export const filterSensitiveLog = (obj: CacheSecurityGroupNotFoundFault) => ({
+  export const filterSensitiveLog = (
+    obj: CacheSecurityGroupNotFoundFault
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheSecurityGroupNotFoundFault =>
@@ -265,7 +273,7 @@ export interface CacheSecurityGroupQuotaExceededFault
 export namespace CacheSecurityGroupQuotaExceededFault {
   export const filterSensitiveLog = (
     obj: CacheSecurityGroupQuotaExceededFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheSecurityGroupQuotaExceededFault =>
@@ -286,7 +294,7 @@ export interface CacheSubnetGroupAlreadyExistsFault
 export namespace CacheSubnetGroupAlreadyExistsFault {
   export const filterSensitiveLog = (
     obj: CacheSubnetGroupAlreadyExistsFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheSubnetGroupAlreadyExistsFault =>
@@ -305,7 +313,7 @@ export interface CacheSubnetGroupInUse
 }
 
 export namespace CacheSubnetGroupInUse {
-  export const filterSensitiveLog = (obj: CacheSubnetGroupInUse) => ({
+  export const filterSensitiveLog = (obj: CacheSubnetGroupInUse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheSubnetGroupInUse =>
@@ -324,7 +332,9 @@ export interface CacheSubnetGroupNotFoundFault
 }
 
 export namespace CacheSubnetGroupNotFoundFault {
-  export const filterSensitiveLog = (obj: CacheSubnetGroupNotFoundFault) => ({
+  export const filterSensitiveLog = (
+    obj: CacheSubnetGroupNotFoundFault
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheSubnetGroupNotFoundFault =>
@@ -345,7 +355,7 @@ export interface CacheSubnetGroupQuotaExceededFault
 export namespace CacheSubnetGroupQuotaExceededFault {
   export const filterSensitiveLog = (
     obj: CacheSubnetGroupQuotaExceededFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheSubnetGroupQuotaExceededFault =>
@@ -364,7 +374,9 @@ export interface CacheSubnetQuotaExceededFault
 }
 
 export namespace CacheSubnetQuotaExceededFault {
-  export const filterSensitiveLog = (obj: CacheSubnetQuotaExceededFault) => ({
+  export const filterSensitiveLog = (
+    obj: CacheSubnetQuotaExceededFault
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheSubnetQuotaExceededFault =>
@@ -385,7 +397,7 @@ export interface ClusterQuotaForCustomerExceededFault
 export namespace ClusterQuotaForCustomerExceededFault {
   export const filterSensitiveLog = (
     obj: ClusterQuotaForCustomerExceededFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ClusterQuotaForCustomerExceededFault =>
@@ -407,7 +419,7 @@ export interface InsufficientCacheClusterCapacityFault
 export namespace InsufficientCacheClusterCapacityFault {
   export const filterSensitiveLog = (
     obj: InsufficientCacheClusterCapacityFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InsufficientCacheClusterCapacityFault =>
@@ -424,7 +436,7 @@ export interface InvalidARNFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidARNFault {
-  export const filterSensitiveLog = (obj: InvalidARNFault) => ({
+  export const filterSensitiveLog = (obj: InvalidARNFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidARNFault =>
@@ -443,7 +455,9 @@ export interface InvalidCacheClusterStateFault
 }
 
 export namespace InvalidCacheClusterStateFault {
-  export const filterSensitiveLog = (obj: InvalidCacheClusterStateFault) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidCacheClusterStateFault
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidCacheClusterStateFault =>
@@ -464,7 +478,7 @@ export interface InvalidCacheParameterGroupStateFault
 export namespace InvalidCacheParameterGroupStateFault {
   export const filterSensitiveLog = (
     obj: InvalidCacheParameterGroupStateFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidCacheParameterGroupStateFault =>
@@ -485,7 +499,7 @@ export interface InvalidCacheSecurityGroupStateFault
 export namespace InvalidCacheSecurityGroupStateFault {
   export const filterSensitiveLog = (
     obj: InvalidCacheSecurityGroupStateFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidCacheSecurityGroupStateFault =>
@@ -502,7 +516,7 @@ export interface InvalidKMSKeyFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidKMSKeyFault {
-  export const filterSensitiveLog = (obj: InvalidKMSKeyFault) => ({
+  export const filterSensitiveLog = (obj: InvalidKMSKeyFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidKMSKeyFault =>
@@ -523,7 +537,7 @@ export interface InvalidReplicationGroupStateFault
 export namespace InvalidReplicationGroupStateFault {
   export const filterSensitiveLog = (
     obj: InvalidReplicationGroupStateFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidReplicationGroupStateFault =>
@@ -542,7 +556,7 @@ export interface InvalidSnapshotStateFault
 }
 
 export namespace InvalidSnapshotStateFault {
-  export const filterSensitiveLog = (obj: InvalidSnapshotStateFault) => ({
+  export const filterSensitiveLog = (obj: InvalidSnapshotStateFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidSnapshotStateFault =>
@@ -559,7 +573,7 @@ export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidSubnet {
-  export const filterSensitiveLog = (obj: InvalidSubnet) => ({
+  export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidSubnet => __isa(o, "InvalidSubnet");
@@ -577,7 +591,9 @@ export interface InvalidVPCNetworkStateFault
 }
 
 export namespace InvalidVPCNetworkStateFault {
-  export const filterSensitiveLog = (obj: InvalidVPCNetworkStateFault) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidVPCNetworkStateFault
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidVPCNetworkStateFault =>
@@ -594,7 +610,7 @@ export interface NoOperationFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NoOperationFault {
-  export const filterSensitiveLog = (obj: NoOperationFault) => ({
+  export const filterSensitiveLog = (obj: NoOperationFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is NoOperationFault =>
@@ -614,7 +630,7 @@ export interface NodeGroupNotFoundFault
 }
 
 export namespace NodeGroupNotFoundFault {
-  export const filterSensitiveLog = (obj: NodeGroupNotFoundFault) => ({
+  export const filterSensitiveLog = (obj: NodeGroupNotFoundFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is NodeGroupNotFoundFault =>
@@ -636,7 +652,7 @@ export interface NodeGroupsPerReplicationGroupQuotaExceededFault
 export namespace NodeGroupsPerReplicationGroupQuotaExceededFault {
   export const filterSensitiveLog = (
     obj: NodeGroupsPerReplicationGroupQuotaExceededFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -659,7 +675,7 @@ export interface NodeQuotaForClusterExceededFault
 export namespace NodeQuotaForClusterExceededFault {
   export const filterSensitiveLog = (
     obj: NodeQuotaForClusterExceededFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is NodeQuotaForClusterExceededFault =>
@@ -680,7 +696,7 @@ export interface NodeQuotaForCustomerExceededFault
 export namespace NodeQuotaForCustomerExceededFault {
   export const filterSensitiveLog = (
     obj: NodeQuotaForCustomerExceededFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is NodeQuotaForCustomerExceededFault =>
@@ -701,7 +717,7 @@ export interface ReplicationGroupAlreadyExistsFault
 export namespace ReplicationGroupAlreadyExistsFault {
   export const filterSensitiveLog = (
     obj: ReplicationGroupAlreadyExistsFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ReplicationGroupAlreadyExistsFault =>
@@ -722,7 +738,7 @@ export interface ReplicationGroupAlreadyUnderMigrationFault
 export namespace ReplicationGroupAlreadyUnderMigrationFault {
   export const filterSensitiveLog = (
     obj: ReplicationGroupAlreadyUnderMigrationFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -743,7 +759,9 @@ export interface ReplicationGroupNotFoundFault
 }
 
 export namespace ReplicationGroupNotFoundFault {
-  export const filterSensitiveLog = (obj: ReplicationGroupNotFoundFault) => ({
+  export const filterSensitiveLog = (
+    obj: ReplicationGroupNotFoundFault
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ReplicationGroupNotFoundFault =>
@@ -764,7 +782,7 @@ export interface ReplicationGroupNotUnderMigrationFault
 export namespace ReplicationGroupNotUnderMigrationFault {
   export const filterSensitiveLog = (
     obj: ReplicationGroupNotUnderMigrationFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ReplicationGroupNotUnderMigrationFault =>
@@ -785,7 +803,7 @@ export interface ReservedCacheNodeAlreadyExistsFault
 export namespace ReservedCacheNodeAlreadyExistsFault {
   export const filterSensitiveLog = (
     obj: ReservedCacheNodeAlreadyExistsFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ReservedCacheNodeAlreadyExistsFault =>
@@ -804,7 +822,9 @@ export interface ReservedCacheNodeNotFoundFault
 }
 
 export namespace ReservedCacheNodeNotFoundFault {
-  export const filterSensitiveLog = (obj: ReservedCacheNodeNotFoundFault) => ({
+  export const filterSensitiveLog = (
+    obj: ReservedCacheNodeNotFoundFault
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ReservedCacheNodeNotFoundFault =>
@@ -825,7 +845,7 @@ export interface ReservedCacheNodeQuotaExceededFault
 export namespace ReservedCacheNodeQuotaExceededFault {
   export const filterSensitiveLog = (
     obj: ReservedCacheNodeQuotaExceededFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ReservedCacheNodeQuotaExceededFault =>
@@ -846,7 +866,7 @@ export interface ReservedCacheNodesOfferingNotFoundFault
 export namespace ReservedCacheNodesOfferingNotFoundFault {
   export const filterSensitiveLog = (
     obj: ReservedCacheNodesOfferingNotFoundFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ReservedCacheNodesOfferingNotFoundFault =>
@@ -865,7 +885,9 @@ export interface ServiceLinkedRoleNotFoundFault
 }
 
 export namespace ServiceLinkedRoleNotFoundFault {
-  export const filterSensitiveLog = (obj: ServiceLinkedRoleNotFoundFault) => ({
+  export const filterSensitiveLog = (
+    obj: ServiceLinkedRoleNotFoundFault
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceLinkedRoleNotFoundFault =>
@@ -884,7 +906,7 @@ export interface ServiceUpdateNotFoundFault
 }
 
 export namespace ServiceUpdateNotFoundFault {
-  export const filterSensitiveLog = (obj: ServiceUpdateNotFoundFault) => ({
+  export const filterSensitiveLog = (obj: ServiceUpdateNotFoundFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceUpdateNotFoundFault =>
@@ -903,7 +925,7 @@ export interface SnapshotAlreadyExistsFault
 }
 
 export namespace SnapshotAlreadyExistsFault {
-  export const filterSensitiveLog = (obj: SnapshotAlreadyExistsFault) => ({
+  export const filterSensitiveLog = (obj: SnapshotAlreadyExistsFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is SnapshotAlreadyExistsFault =>
@@ -934,7 +956,7 @@ export interface SnapshotFeatureNotSupportedFault
 export namespace SnapshotFeatureNotSupportedFault {
   export const filterSensitiveLog = (
     obj: SnapshotFeatureNotSupportedFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is SnapshotFeatureNotSupportedFault =>
@@ -953,7 +975,7 @@ export interface SnapshotNotFoundFault
 }
 
 export namespace SnapshotNotFoundFault {
-  export const filterSensitiveLog = (obj: SnapshotNotFoundFault) => ({
+  export const filterSensitiveLog = (obj: SnapshotNotFoundFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is SnapshotNotFoundFault =>
@@ -972,7 +994,7 @@ export interface SnapshotQuotaExceededFault
 }
 
 export namespace SnapshotQuotaExceededFault {
-  export const filterSensitiveLog = (obj: SnapshotQuotaExceededFault) => ({
+  export const filterSensitiveLog = (obj: SnapshotQuotaExceededFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is SnapshotQuotaExceededFault =>
@@ -989,7 +1011,7 @@ export interface SubnetInUse extends __SmithyException, $MetadataBearer {
 }
 
 export namespace SubnetInUse {
-  export const filterSensitiveLog = (obj: SubnetInUse) => ({
+  export const filterSensitiveLog = (obj: SubnetInUse): any => ({
     ...obj
   });
   export const isa = (o: any): o is SubnetInUse => __isa(o, "SubnetInUse");
@@ -1005,7 +1027,7 @@ export interface TagNotFoundFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TagNotFoundFault {
-  export const filterSensitiveLog = (obj: TagNotFoundFault) => ({
+  export const filterSensitiveLog = (obj: TagNotFoundFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagNotFoundFault =>
@@ -1024,7 +1046,9 @@ export interface TagQuotaPerResourceExceeded
 }
 
 export namespace TagQuotaPerResourceExceeded {
-  export const filterSensitiveLog = (obj: TagQuotaPerResourceExceeded) => ({
+  export const filterSensitiveLog = (
+    obj: TagQuotaPerResourceExceeded
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagQuotaPerResourceExceeded =>
@@ -1043,7 +1067,9 @@ export interface TestFailoverNotAvailableFault
 }
 
 export namespace TestFailoverNotAvailableFault {
-  export const filterSensitiveLog = (obj: TestFailoverNotAvailableFault) => ({
+  export const filterSensitiveLog = (
+    obj: TestFailoverNotAvailableFault
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TestFailoverNotAvailableFault =>
@@ -1077,7 +1103,7 @@ export interface AddTagsToResourceMessage {
 }
 
 export namespace AddTagsToResourceMessage {
-  export const filterSensitiveLog = (obj: AddTagsToResourceMessage) => ({
+  export const filterSensitiveLog = (obj: AddTagsToResourceMessage): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1112,7 +1138,7 @@ export interface AllowedNodeTypeModificationsMessage {
 export namespace AllowedNodeTypeModificationsMessage {
   export const filterSensitiveLog = (
     obj: AllowedNodeTypeModificationsMessage
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AllowedNodeTypeModificationsMessage =>
@@ -1149,7 +1175,7 @@ export interface AuthorizeCacheSecurityGroupIngressMessage {
 export namespace AuthorizeCacheSecurityGroupIngressMessage {
   export const filterSensitiveLog = (
     obj: AuthorizeCacheSecurityGroupIngressMessage
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AuthorizeCacheSecurityGroupIngressMessage =>
@@ -1184,7 +1210,7 @@ export interface AuthorizeCacheSecurityGroupIngressResult {
 export namespace AuthorizeCacheSecurityGroupIngressResult {
   export const filterSensitiveLog = (
     obj: AuthorizeCacheSecurityGroupIngressResult
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CacheSecurityGroup && {
       CacheSecurityGroup: CacheSecurityGroup.filterSensitiveLog(
@@ -1215,7 +1241,7 @@ export interface AvailabilityZone {
 }
 
 export namespace AvailabilityZone {
-  export const filterSensitiveLog = (obj: AvailabilityZone) => ({
+  export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
     ...obj
   });
   export const isa = (o: any): o is AvailabilityZone =>
@@ -1241,7 +1267,9 @@ export interface BatchApplyUpdateActionMessage {
 }
 
 export namespace BatchApplyUpdateActionMessage {
-  export const filterSensitiveLog = (obj: BatchApplyUpdateActionMessage) => ({
+  export const filterSensitiveLog = (
+    obj: BatchApplyUpdateActionMessage
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchApplyUpdateActionMessage =>
@@ -1267,7 +1295,9 @@ export interface BatchStopUpdateActionMessage {
 }
 
 export namespace BatchStopUpdateActionMessage {
-  export const filterSensitiveLog = (obj: BatchStopUpdateActionMessage) => ({
+  export const filterSensitiveLog = (
+    obj: BatchStopUpdateActionMessage
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchStopUpdateActionMessage =>
@@ -1667,7 +1697,7 @@ export interface CacheCluster {
 }
 
 export namespace CacheCluster {
-  export const filterSensitiveLog = (obj: CacheCluster) => ({
+  export const filterSensitiveLog = (obj: CacheCluster): any => ({
     ...obj,
     ...(obj.CacheNodes && {
       CacheNodes: obj.CacheNodes.map(CacheNode.filterSensitiveLog)
@@ -1723,7 +1753,7 @@ export interface CacheClusterMessage {
 }
 
 export namespace CacheClusterMessage {
-  export const filterSensitiveLog = (obj: CacheClusterMessage) => ({
+  export const filterSensitiveLog = (obj: CacheClusterMessage): any => ({
     ...obj,
     ...(obj.CacheClusters && {
       CacheClusters: obj.CacheClusters.map(CacheCluster.filterSensitiveLog)
@@ -1774,7 +1804,7 @@ export interface CacheEngineVersion {
 }
 
 export namespace CacheEngineVersion {
-  export const filterSensitiveLog = (obj: CacheEngineVersion) => ({
+  export const filterSensitiveLog = (obj: CacheEngineVersion): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheEngineVersion =>
@@ -1799,7 +1829,7 @@ export interface CacheEngineVersionMessage {
 }
 
 export namespace CacheEngineVersionMessage {
-  export const filterSensitiveLog = (obj: CacheEngineVersionMessage) => ({
+  export const filterSensitiveLog = (obj: CacheEngineVersionMessage): any => ({
     ...obj,
     ...(obj.CacheEngineVersions && {
       CacheEngineVersions: obj.CacheEngineVersions.map(
@@ -2018,7 +2048,7 @@ export interface CacheNode {
 }
 
 export namespace CacheNode {
-  export const filterSensitiveLog = (obj: CacheNode) => ({
+  export const filterSensitiveLog = (obj: CacheNode): any => ({
     ...obj,
     ...(obj.Endpoint && { Endpoint: Endpoint.filterSensitiveLog(obj.Endpoint) })
   });
@@ -2084,7 +2114,9 @@ export interface CacheNodeTypeSpecificParameter {
 }
 
 export namespace CacheNodeTypeSpecificParameter {
-  export const filterSensitiveLog = (obj: CacheNodeTypeSpecificParameter) => ({
+  export const filterSensitiveLog = (
+    obj: CacheNodeTypeSpecificParameter
+  ): any => ({
     ...obj,
     ...(obj.CacheNodeTypeSpecificValues && {
       CacheNodeTypeSpecificValues: obj.CacheNodeTypeSpecificValues.map(
@@ -2113,7 +2145,7 @@ export interface CacheNodeTypeSpecificValue {
 }
 
 export namespace CacheNodeTypeSpecificValue {
-  export const filterSensitiveLog = (obj: CacheNodeTypeSpecificValue) => ({
+  export const filterSensitiveLog = (obj: CacheNodeTypeSpecificValue): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheNodeTypeSpecificValue =>
@@ -2167,7 +2199,7 @@ export interface CacheNodeUpdateStatus {
 }
 
 export namespace CacheNodeUpdateStatus {
-  export const filterSensitiveLog = (obj: CacheNodeUpdateStatus) => ({
+  export const filterSensitiveLog = (obj: CacheNodeUpdateStatus): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheNodeUpdateStatus =>
@@ -2205,7 +2237,7 @@ export interface CacheParameterGroup {
 }
 
 export namespace CacheParameterGroup {
-  export const filterSensitiveLog = (obj: CacheParameterGroup) => ({
+  export const filterSensitiveLog = (obj: CacheParameterGroup): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheParameterGroup =>
@@ -2235,7 +2267,7 @@ export interface CacheParameterGroupDetails {
 }
 
 export namespace CacheParameterGroupDetails {
-  export const filterSensitiveLog = (obj: CacheParameterGroupDetails) => ({
+  export const filterSensitiveLog = (obj: CacheParameterGroupDetails): any => ({
     ...obj,
     ...(obj.CacheNodeTypeSpecificParameters && {
       CacheNodeTypeSpecificParameters: obj.CacheNodeTypeSpecificParameters.map(
@@ -2274,7 +2306,9 @@ export interface CacheParameterGroupNameMessage {
 }
 
 export namespace CacheParameterGroupNameMessage {
-  export const filterSensitiveLog = (obj: CacheParameterGroupNameMessage) => ({
+  export const filterSensitiveLog = (
+    obj: CacheParameterGroupNameMessage
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheParameterGroupNameMessage =>
@@ -2304,7 +2338,7 @@ export interface CacheParameterGroupStatus {
 }
 
 export namespace CacheParameterGroupStatus {
-  export const filterSensitiveLog = (obj: CacheParameterGroupStatus) => ({
+  export const filterSensitiveLog = (obj: CacheParameterGroupStatus): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheParameterGroupStatus =>
@@ -2329,7 +2363,9 @@ export interface CacheParameterGroupsMessage {
 }
 
 export namespace CacheParameterGroupsMessage {
-  export const filterSensitiveLog = (obj: CacheParameterGroupsMessage) => ({
+  export const filterSensitiveLog = (
+    obj: CacheParameterGroupsMessage
+  ): any => ({
     ...obj,
     ...(obj.CacheParameterGroups && {
       CacheParameterGroups: obj.CacheParameterGroups.map(
@@ -2385,7 +2421,7 @@ export interface CacheSecurityGroup {
 }
 
 export namespace CacheSecurityGroup {
-  export const filterSensitiveLog = (obj: CacheSecurityGroup) => ({
+  export const filterSensitiveLog = (obj: CacheSecurityGroup): any => ({
     ...obj,
     ...(obj.EC2SecurityGroups && {
       EC2SecurityGroups: obj.EC2SecurityGroups.map(
@@ -2414,7 +2450,9 @@ export interface CacheSecurityGroupMembership {
 }
 
 export namespace CacheSecurityGroupMembership {
-  export const filterSensitiveLog = (obj: CacheSecurityGroupMembership) => ({
+  export const filterSensitiveLog = (
+    obj: CacheSecurityGroupMembership
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CacheSecurityGroupMembership =>
@@ -2438,7 +2476,7 @@ export interface CacheSecurityGroupMessage {
 }
 
 export namespace CacheSecurityGroupMessage {
-  export const filterSensitiveLog = (obj: CacheSecurityGroupMessage) => ({
+  export const filterSensitiveLog = (obj: CacheSecurityGroupMessage): any => ({
     ...obj,
     ...(obj.CacheSecurityGroups && {
       CacheSecurityGroups: obj.CacheSecurityGroups.map(
@@ -2489,7 +2527,7 @@ export interface CacheSubnetGroup {
 }
 
 export namespace CacheSubnetGroup {
-  export const filterSensitiveLog = (obj: CacheSubnetGroup) => ({
+  export const filterSensitiveLog = (obj: CacheSubnetGroup): any => ({
     ...obj,
     ...(obj.Subnets && { Subnets: obj.Subnets.map(Subnet.filterSensitiveLog) })
   });
@@ -2514,7 +2552,7 @@ export interface CacheSubnetGroupMessage {
 }
 
 export namespace CacheSubnetGroupMessage {
-  export const filterSensitiveLog = (obj: CacheSubnetGroupMessage) => ({
+  export const filterSensitiveLog = (obj: CacheSubnetGroupMessage): any => ({
     ...obj,
     ...(obj.CacheSubnetGroups && {
       CacheSubnetGroups: obj.CacheSubnetGroups.map(
@@ -2542,7 +2580,7 @@ export interface CompleteMigrationMessage {
 }
 
 export namespace CompleteMigrationMessage {
-  export const filterSensitiveLog = (obj: CompleteMigrationMessage) => ({
+  export const filterSensitiveLog = (obj: CompleteMigrationMessage): any => ({
     ...obj
   });
   export const isa = (o: any): o is CompleteMigrationMessage =>
@@ -2558,7 +2596,7 @@ export interface CompleteMigrationResponse {
 }
 
 export namespace CompleteMigrationResponse {
-  export const filterSensitiveLog = (obj: CompleteMigrationResponse) => ({
+  export const filterSensitiveLog = (obj: CompleteMigrationResponse): any => ({
     ...obj,
     ...(obj.ReplicationGroup && {
       ReplicationGroup: ReplicationGroup.filterSensitiveLog(
@@ -2618,7 +2656,7 @@ export interface ConfigureShard {
 }
 
 export namespace ConfigureShard {
-  export const filterSensitiveLog = (obj: ConfigureShard) => ({
+  export const filterSensitiveLog = (obj: ConfigureShard): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConfigureShard =>
@@ -2660,7 +2698,7 @@ export interface CopySnapshotMessage {
 }
 
 export namespace CopySnapshotMessage {
-  export const filterSensitiveLog = (obj: CopySnapshotMessage) => ({
+  export const filterSensitiveLog = (obj: CopySnapshotMessage): any => ({
     ...obj
   });
   export const isa = (o: any): o is CopySnapshotMessage =>
@@ -2676,7 +2714,7 @@ export interface CopySnapshotResult {
 }
 
 export namespace CopySnapshotResult {
-  export const filterSensitiveLog = (obj: CopySnapshotResult) => ({
+  export const filterSensitiveLog = (obj: CopySnapshotResult): any => ({
     ...obj,
     ...(obj.Snapshot && { Snapshot: Snapshot.filterSensitiveLog(obj.Snapshot) })
   });
@@ -3115,7 +3153,7 @@ export interface CreateCacheClusterMessage {
 }
 
 export namespace CreateCacheClusterMessage {
-  export const filterSensitiveLog = (obj: CreateCacheClusterMessage) => ({
+  export const filterSensitiveLog = (obj: CreateCacheClusterMessage): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -3132,7 +3170,7 @@ export interface CreateCacheClusterResult {
 }
 
 export namespace CreateCacheClusterResult {
-  export const filterSensitiveLog = (obj: CreateCacheClusterResult) => ({
+  export const filterSensitiveLog = (obj: CreateCacheClusterResult): any => ({
     ...obj,
     ...(obj.CacheCluster && {
       CacheCluster: CacheCluster.filterSensitiveLog(obj.CacheCluster)
@@ -3175,7 +3213,7 @@ export interface CreateCacheParameterGroupMessage {
 export namespace CreateCacheParameterGroupMessage {
   export const filterSensitiveLog = (
     obj: CreateCacheParameterGroupMessage
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateCacheParameterGroupMessage =>
@@ -3191,7 +3229,9 @@ export interface CreateCacheParameterGroupResult {
 }
 
 export namespace CreateCacheParameterGroupResult {
-  export const filterSensitiveLog = (obj: CreateCacheParameterGroupResult) => ({
+  export const filterSensitiveLog = (
+    obj: CreateCacheParameterGroupResult
+  ): any => ({
     ...obj,
     ...(obj.CacheParameterGroup && {
       CacheParameterGroup: CacheParameterGroup.filterSensitiveLog(
@@ -3223,7 +3263,9 @@ export interface CreateCacheSecurityGroupMessage {
 }
 
 export namespace CreateCacheSecurityGroupMessage {
-  export const filterSensitiveLog = (obj: CreateCacheSecurityGroupMessage) => ({
+  export const filterSensitiveLog = (
+    obj: CreateCacheSecurityGroupMessage
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateCacheSecurityGroupMessage =>
@@ -3256,7 +3298,9 @@ export interface CreateCacheSecurityGroupResult {
 }
 
 export namespace CreateCacheSecurityGroupResult {
-  export const filterSensitiveLog = (obj: CreateCacheSecurityGroupResult) => ({
+  export const filterSensitiveLog = (
+    obj: CreateCacheSecurityGroupResult
+  ): any => ({
     ...obj,
     ...(obj.CacheSecurityGroup && {
       CacheSecurityGroup: CacheSecurityGroup.filterSensitiveLog(
@@ -3293,7 +3337,9 @@ export interface CreateCacheSubnetGroupMessage {
 }
 
 export namespace CreateCacheSubnetGroupMessage {
-  export const filterSensitiveLog = (obj: CreateCacheSubnetGroupMessage) => ({
+  export const filterSensitiveLog = (
+    obj: CreateCacheSubnetGroupMessage
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateCacheSubnetGroupMessage =>
@@ -3321,7 +3367,9 @@ export interface CreateCacheSubnetGroupResult {
 }
 
 export namespace CreateCacheSubnetGroupResult {
-  export const filterSensitiveLog = (obj: CreateCacheSubnetGroupResult) => ({
+  export const filterSensitiveLog = (
+    obj: CreateCacheSubnetGroupResult
+  ): any => ({
     ...obj,
     ...(obj.CacheSubnetGroup && {
       CacheSubnetGroup: CacheSubnetGroup.filterSensitiveLog(
@@ -3858,7 +3906,9 @@ export interface CreateReplicationGroupMessage {
 }
 
 export namespace CreateReplicationGroupMessage {
-  export const filterSensitiveLog = (obj: CreateReplicationGroupMessage) => ({
+  export const filterSensitiveLog = (
+    obj: CreateReplicationGroupMessage
+  ): any => ({
     ...obj,
     ...(obj.NodeGroupConfiguration && {
       NodeGroupConfiguration: obj.NodeGroupConfiguration.map(
@@ -3880,7 +3930,9 @@ export interface CreateReplicationGroupResult {
 }
 
 export namespace CreateReplicationGroupResult {
-  export const filterSensitiveLog = (obj: CreateReplicationGroupResult) => ({
+  export const filterSensitiveLog = (
+    obj: CreateReplicationGroupResult
+  ): any => ({
     ...obj,
     ...(obj.ReplicationGroup && {
       ReplicationGroup: ReplicationGroup.filterSensitiveLog(
@@ -3919,7 +3971,7 @@ export interface CreateSnapshotMessage {
 }
 
 export namespace CreateSnapshotMessage {
-  export const filterSensitiveLog = (obj: CreateSnapshotMessage) => ({
+  export const filterSensitiveLog = (obj: CreateSnapshotMessage): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateSnapshotMessage =>
@@ -3935,7 +3987,7 @@ export interface CreateSnapshotResult {
 }
 
 export namespace CreateSnapshotResult {
-  export const filterSensitiveLog = (obj: CreateSnapshotResult) => ({
+  export const filterSensitiveLog = (obj: CreateSnapshotResult): any => ({
     ...obj,
     ...(obj.Snapshot && { Snapshot: Snapshot.filterSensitiveLog(obj.Snapshot) })
   });
@@ -3960,7 +4012,7 @@ export interface CustomerNodeEndpoint {
 }
 
 export namespace CustomerNodeEndpoint {
-  export const filterSensitiveLog = (obj: CustomerNodeEndpoint) => ({
+  export const filterSensitiveLog = (obj: CustomerNodeEndpoint): any => ({
     ...obj
   });
   export const isa = (o: any): o is CustomerNodeEndpoint =>
@@ -4020,7 +4072,9 @@ export interface DecreaseReplicaCountMessage {
 }
 
 export namespace DecreaseReplicaCountMessage {
-  export const filterSensitiveLog = (obj: DecreaseReplicaCountMessage) => ({
+  export const filterSensitiveLog = (
+    obj: DecreaseReplicaCountMessage
+  ): any => ({
     ...obj,
     ...(obj.ReplicaConfiguration && {
       ReplicaConfiguration: obj.ReplicaConfiguration.map(
@@ -4041,7 +4095,7 @@ export interface DecreaseReplicaCountResult {
 }
 
 export namespace DecreaseReplicaCountResult {
-  export const filterSensitiveLog = (obj: DecreaseReplicaCountResult) => ({
+  export const filterSensitiveLog = (obj: DecreaseReplicaCountResult): any => ({
     ...obj,
     ...(obj.ReplicationGroup && {
       ReplicationGroup: ReplicationGroup.filterSensitiveLog(
@@ -4071,7 +4125,7 @@ export interface DeleteCacheClusterMessage {
 }
 
 export namespace DeleteCacheClusterMessage {
-  export const filterSensitiveLog = (obj: DeleteCacheClusterMessage) => ({
+  export const filterSensitiveLog = (obj: DeleteCacheClusterMessage): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteCacheClusterMessage =>
@@ -4087,7 +4141,7 @@ export interface DeleteCacheClusterResult {
 }
 
 export namespace DeleteCacheClusterResult {
-  export const filterSensitiveLog = (obj: DeleteCacheClusterResult) => ({
+  export const filterSensitiveLog = (obj: DeleteCacheClusterResult): any => ({
     ...obj,
     ...(obj.CacheCluster && {
       CacheCluster: CacheCluster.filterSensitiveLog(obj.CacheCluster)
@@ -4114,7 +4168,7 @@ export interface DeleteCacheParameterGroupMessage {
 export namespace DeleteCacheParameterGroupMessage {
   export const filterSensitiveLog = (
     obj: DeleteCacheParameterGroupMessage
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteCacheParameterGroupMessage =>
@@ -4136,7 +4190,9 @@ export interface DeleteCacheSecurityGroupMessage {
 }
 
 export namespace DeleteCacheSecurityGroupMessage {
-  export const filterSensitiveLog = (obj: DeleteCacheSecurityGroupMessage) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteCacheSecurityGroupMessage
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteCacheSecurityGroupMessage =>
@@ -4156,7 +4212,9 @@ export interface DeleteCacheSubnetGroupMessage {
 }
 
 export namespace DeleteCacheSubnetGroupMessage {
-  export const filterSensitiveLog = (obj: DeleteCacheSubnetGroupMessage) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteCacheSubnetGroupMessage
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteCacheSubnetGroupMessage =>
@@ -4189,7 +4247,9 @@ export interface DeleteReplicationGroupMessage {
 }
 
 export namespace DeleteReplicationGroupMessage {
-  export const filterSensitiveLog = (obj: DeleteReplicationGroupMessage) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteReplicationGroupMessage
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteReplicationGroupMessage =>
@@ -4205,7 +4265,9 @@ export interface DeleteReplicationGroupResult {
 }
 
 export namespace DeleteReplicationGroupResult {
-  export const filterSensitiveLog = (obj: DeleteReplicationGroupResult) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteReplicationGroupResult
+  ): any => ({
     ...obj,
     ...(obj.ReplicationGroup && {
       ReplicationGroup: ReplicationGroup.filterSensitiveLog(
@@ -4229,7 +4291,7 @@ export interface DeleteSnapshotMessage {
 }
 
 export namespace DeleteSnapshotMessage {
-  export const filterSensitiveLog = (obj: DeleteSnapshotMessage) => ({
+  export const filterSensitiveLog = (obj: DeleteSnapshotMessage): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteSnapshotMessage =>
@@ -4245,7 +4307,7 @@ export interface DeleteSnapshotResult {
 }
 
 export namespace DeleteSnapshotResult {
-  export const filterSensitiveLog = (obj: DeleteSnapshotResult) => ({
+  export const filterSensitiveLog = (obj: DeleteSnapshotResult): any => ({
     ...obj,
     ...(obj.Snapshot && { Snapshot: Snapshot.filterSensitiveLog(obj.Snapshot) })
   });
@@ -4297,7 +4359,9 @@ export interface DescribeCacheClustersMessage {
 }
 
 export namespace DescribeCacheClustersMessage {
-  export const filterSensitiveLog = (obj: DescribeCacheClustersMessage) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeCacheClustersMessage
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeCacheClustersMessage =>
@@ -4375,7 +4439,7 @@ export interface DescribeCacheEngineVersionsMessage {
 export namespace DescribeCacheEngineVersionsMessage {
   export const filterSensitiveLog = (
     obj: DescribeCacheEngineVersionsMessage
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeCacheEngineVersionsMessage =>
@@ -4413,7 +4477,7 @@ export interface DescribeCacheParameterGroupsMessage {
 export namespace DescribeCacheParameterGroupsMessage {
   export const filterSensitiveLog = (
     obj: DescribeCacheParameterGroupsMessage
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeCacheParameterGroupsMessage =>
@@ -4457,7 +4521,9 @@ export interface DescribeCacheParametersMessage {
 }
 
 export namespace DescribeCacheParametersMessage {
-  export const filterSensitiveLog = (obj: DescribeCacheParametersMessage) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeCacheParametersMessage
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeCacheParametersMessage =>
@@ -4495,7 +4561,7 @@ export interface DescribeCacheSecurityGroupsMessage {
 export namespace DescribeCacheSecurityGroupsMessage {
   export const filterSensitiveLog = (
     obj: DescribeCacheSecurityGroupsMessage
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeCacheSecurityGroupsMessage =>
@@ -4534,7 +4600,7 @@ export interface DescribeCacheSubnetGroupsMessage {
 export namespace DescribeCacheSubnetGroupsMessage {
   export const filterSensitiveLog = (
     obj: DescribeCacheSubnetGroupsMessage
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeCacheSubnetGroupsMessage =>
@@ -4581,7 +4647,7 @@ export interface DescribeEngineDefaultParametersMessage {
 export namespace DescribeEngineDefaultParametersMessage {
   export const filterSensitiveLog = (
     obj: DescribeEngineDefaultParametersMessage
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeEngineDefaultParametersMessage =>
@@ -4599,7 +4665,7 @@ export interface DescribeEngineDefaultParametersResult {
 export namespace DescribeEngineDefaultParametersResult {
   export const filterSensitiveLog = (
     obj: DescribeEngineDefaultParametersResult
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.EngineDefaults && {
       EngineDefaults: EngineDefaults.filterSensitiveLog(obj.EngineDefaults)
@@ -4665,7 +4731,7 @@ export interface DescribeEventsMessage {
 }
 
 export namespace DescribeEventsMessage {
-  export const filterSensitiveLog = (obj: DescribeEventsMessage) => ({
+  export const filterSensitiveLog = (obj: DescribeEventsMessage): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeEventsMessage =>
@@ -4704,7 +4770,7 @@ export interface DescribeReplicationGroupsMessage {
 export namespace DescribeReplicationGroupsMessage {
   export const filterSensitiveLog = (
     obj: DescribeReplicationGroupsMessage
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeReplicationGroupsMessage =>
@@ -4939,7 +5005,7 @@ export interface DescribeReservedCacheNodesMessage {
 export namespace DescribeReservedCacheNodesMessage {
   export const filterSensitiveLog = (
     obj: DescribeReservedCacheNodesMessage
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeReservedCacheNodesMessage =>
@@ -5171,7 +5237,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
 export namespace DescribeReservedCacheNodesOfferingsMessage {
   export const filterSensitiveLog = (
     obj: DescribeReservedCacheNodesOfferingsMessage
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -5207,7 +5273,9 @@ export interface DescribeServiceUpdatesMessage {
 }
 
 export namespace DescribeServiceUpdatesMessage {
-  export const filterSensitiveLog = (obj: DescribeServiceUpdatesMessage) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeServiceUpdatesMessage
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeServiceUpdatesMessage =>
@@ -5234,7 +5302,9 @@ export interface DescribeSnapshotsListMessage {
 }
 
 export namespace DescribeSnapshotsListMessage {
-  export const filterSensitiveLog = (obj: DescribeSnapshotsListMessage) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeSnapshotsListMessage
+  ): any => ({
     ...obj,
     ...(obj.Snapshots && {
       Snapshots: obj.Snapshots.map(Snapshot.filterSensitiveLog)
@@ -5298,7 +5368,7 @@ export interface DescribeSnapshotsMessage {
 }
 
 export namespace DescribeSnapshotsMessage {
-  export const filterSensitiveLog = (obj: DescribeSnapshotsMessage) => ({
+  export const filterSensitiveLog = (obj: DescribeSnapshotsMessage): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeSnapshotsMessage =>
@@ -5362,7 +5432,9 @@ export interface DescribeUpdateActionsMessage {
 }
 
 export namespace DescribeUpdateActionsMessage {
-  export const filterSensitiveLog = (obj: DescribeUpdateActionsMessage) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeUpdateActionsMessage
+  ): any => ({
     ...obj,
     ...(obj.ServiceUpdateTimeRange && {
       ServiceUpdateTimeRange: TimeRangeFilter.filterSensitiveLog(
@@ -5396,7 +5468,7 @@ export interface EC2SecurityGroup {
 }
 
 export namespace EC2SecurityGroup {
-  export const filterSensitiveLog = (obj: EC2SecurityGroup) => ({
+  export const filterSensitiveLog = (obj: EC2SecurityGroup): any => ({
     ...obj
   });
   export const isa = (o: any): o is EC2SecurityGroup =>
@@ -5420,7 +5492,7 @@ export interface Endpoint {
 }
 
 export namespace Endpoint {
-  export const filterSensitiveLog = (obj: Endpoint) => ({
+  export const filterSensitiveLog = (obj: Endpoint): any => ({
     ...obj
   });
   export const isa = (o: any): o is Endpoint => __isa(o, "Endpoint");
@@ -5462,7 +5534,7 @@ export interface EngineDefaults {
 }
 
 export namespace EngineDefaults {
-  export const filterSensitiveLog = (obj: EngineDefaults) => ({
+  export const filterSensitiveLog = (obj: EngineDefaults): any => ({
     ...obj,
     ...(obj.CacheNodeTypeSpecificParameters && {
       CacheNodeTypeSpecificParameters: obj.CacheNodeTypeSpecificParameters.map(
@@ -5507,7 +5579,7 @@ export interface Event {
 }
 
 export namespace Event {
-  export const filterSensitiveLog = (obj: Event) => ({
+  export const filterSensitiveLog = (obj: Event): any => ({
     ...obj
   });
   export const isa = (o: any): o is Event => __isa(o, "Event");
@@ -5530,7 +5602,7 @@ export interface EventsMessage {
 }
 
 export namespace EventsMessage {
-  export const filterSensitiveLog = (obj: EventsMessage) => ({
+  export const filterSensitiveLog = (obj: EventsMessage): any => ({
     ...obj,
     ...(obj.Events && { Events: obj.Events.map(Event.filterSensitiveLog) })
   });
@@ -5568,7 +5640,9 @@ export interface IncreaseReplicaCountMessage {
 }
 
 export namespace IncreaseReplicaCountMessage {
-  export const filterSensitiveLog = (obj: IncreaseReplicaCountMessage) => ({
+  export const filterSensitiveLog = (
+    obj: IncreaseReplicaCountMessage
+  ): any => ({
     ...obj,
     ...(obj.ReplicaConfiguration && {
       ReplicaConfiguration: obj.ReplicaConfiguration.map(
@@ -5589,7 +5663,7 @@ export interface IncreaseReplicaCountResult {
 }
 
 export namespace IncreaseReplicaCountResult {
-  export const filterSensitiveLog = (obj: IncreaseReplicaCountResult) => ({
+  export const filterSensitiveLog = (obj: IncreaseReplicaCountResult): any => ({
     ...obj,
     ...(obj.ReplicationGroup && {
       ReplicationGroup: ReplicationGroup.filterSensitiveLog(
@@ -5633,7 +5707,7 @@ export interface ListAllowedNodeTypeModificationsMessage {
 export namespace ListAllowedNodeTypeModificationsMessage {
   export const filterSensitiveLog = (
     obj: ListAllowedNodeTypeModificationsMessage
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListAllowedNodeTypeModificationsMessage =>
@@ -5655,7 +5729,7 @@ export interface ListTagsForResourceMessage {
 }
 
 export namespace ListTagsForResourceMessage {
-  export const filterSensitiveLog = (obj: ListTagsForResourceMessage) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceMessage): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceMessage =>
@@ -6013,7 +6087,7 @@ export interface ModifyCacheClusterMessage {
 }
 
 export namespace ModifyCacheClusterMessage {
-  export const filterSensitiveLog = (obj: ModifyCacheClusterMessage) => ({
+  export const filterSensitiveLog = (obj: ModifyCacheClusterMessage): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyCacheClusterMessage =>
@@ -6029,7 +6103,7 @@ export interface ModifyCacheClusterResult {
 }
 
 export namespace ModifyCacheClusterResult {
-  export const filterSensitiveLog = (obj: ModifyCacheClusterResult) => ({
+  export const filterSensitiveLog = (obj: ModifyCacheClusterResult): any => ({
     ...obj,
     ...(obj.CacheCluster && {
       CacheCluster: CacheCluster.filterSensitiveLog(obj.CacheCluster)
@@ -6058,7 +6132,7 @@ export interface ModifyCacheParameterGroupMessage {
 export namespace ModifyCacheParameterGroupMessage {
   export const filterSensitiveLog = (
     obj: ModifyCacheParameterGroupMessage
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ParameterNameValues && {
       ParameterNameValues: obj.ParameterNameValues.map(
@@ -6095,7 +6169,9 @@ export interface ModifyCacheSubnetGroupMessage {
 }
 
 export namespace ModifyCacheSubnetGroupMessage {
-  export const filterSensitiveLog = (obj: ModifyCacheSubnetGroupMessage) => ({
+  export const filterSensitiveLog = (
+    obj: ModifyCacheSubnetGroupMessage
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyCacheSubnetGroupMessage =>
@@ -6123,7 +6199,9 @@ export interface ModifyCacheSubnetGroupResult {
 }
 
 export namespace ModifyCacheSubnetGroupResult {
-  export const filterSensitiveLog = (obj: ModifyCacheSubnetGroupResult) => ({
+  export const filterSensitiveLog = (
+    obj: ModifyCacheSubnetGroupResult
+  ): any => ({
     ...obj,
     ...(obj.CacheSubnetGroup && {
       CacheSubnetGroup: CacheSubnetGroup.filterSensitiveLog(
@@ -6364,7 +6442,9 @@ export interface ModifyReplicationGroupMessage {
 }
 
 export namespace ModifyReplicationGroupMessage {
-  export const filterSensitiveLog = (obj: ModifyReplicationGroupMessage) => ({
+  export const filterSensitiveLog = (
+    obj: ModifyReplicationGroupMessage
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyReplicationGroupMessage =>
@@ -6380,7 +6460,9 @@ export interface ModifyReplicationGroupResult {
 }
 
 export namespace ModifyReplicationGroupResult {
-  export const filterSensitiveLog = (obj: ModifyReplicationGroupResult) => ({
+  export const filterSensitiveLog = (
+    obj: ModifyReplicationGroupResult
+  ): any => ({
     ...obj,
     ...(obj.ReplicationGroup && {
       ReplicationGroup: ReplicationGroup.filterSensitiveLog(
@@ -6453,7 +6535,7 @@ export interface ModifyReplicationGroupShardConfigurationMessage {
 export namespace ModifyReplicationGroupShardConfigurationMessage {
   export const filterSensitiveLog = (
     obj: ModifyReplicationGroupShardConfigurationMessage
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ReshardingConfiguration && {
       ReshardingConfiguration: obj.ReshardingConfiguration.map(
@@ -6478,7 +6560,7 @@ export interface ModifyReplicationGroupShardConfigurationResult {
 export namespace ModifyReplicationGroupShardConfigurationResult {
   export const filterSensitiveLog = (
     obj: ModifyReplicationGroupShardConfigurationResult
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ReplicationGroup && {
       ReplicationGroup: ReplicationGroup.filterSensitiveLog(
@@ -6534,7 +6616,7 @@ export interface NodeGroup {
 }
 
 export namespace NodeGroup {
-  export const filterSensitiveLog = (obj: NodeGroup) => ({
+  export const filterSensitiveLog = (obj: NodeGroup): any => ({
     ...obj,
     ...(obj.NodeGroupMembers && {
       NodeGroupMembers: obj.NodeGroupMembers.map(
@@ -6591,7 +6673,7 @@ export interface NodeGroupConfiguration {
 }
 
 export namespace NodeGroupConfiguration {
-  export const filterSensitiveLog = (obj: NodeGroupConfiguration) => ({
+  export const filterSensitiveLog = (obj: NodeGroupConfiguration): any => ({
     ...obj
   });
   export const isa = (o: any): o is NodeGroupConfiguration =>
@@ -6633,7 +6715,7 @@ export interface NodeGroupMember {
 }
 
 export namespace NodeGroupMember {
-  export const filterSensitiveLog = (obj: NodeGroupMember) => ({
+  export const filterSensitiveLog = (obj: NodeGroupMember): any => ({
     ...obj,
     ...(obj.ReadEndpoint && {
       ReadEndpoint: Endpoint.filterSensitiveLog(obj.ReadEndpoint)
@@ -6695,7 +6777,9 @@ export interface NodeGroupMemberUpdateStatus {
 }
 
 export namespace NodeGroupMemberUpdateStatus {
-  export const filterSensitiveLog = (obj: NodeGroupMemberUpdateStatus) => ({
+  export const filterSensitiveLog = (
+    obj: NodeGroupMemberUpdateStatus
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is NodeGroupMemberUpdateStatus =>
@@ -6719,7 +6803,7 @@ export interface NodeGroupUpdateStatus {
 }
 
 export namespace NodeGroupUpdateStatus {
-  export const filterSensitiveLog = (obj: NodeGroupUpdateStatus) => ({
+  export const filterSensitiveLog = (obj: NodeGroupUpdateStatus): any => ({
     ...obj,
     ...(obj.NodeGroupMemberUpdateStatus && {
       NodeGroupMemberUpdateStatus: obj.NodeGroupMemberUpdateStatus.map(
@@ -6773,7 +6857,7 @@ export interface NodeSnapshot {
 }
 
 export namespace NodeSnapshot {
-  export const filterSensitiveLog = (obj: NodeSnapshot) => ({
+  export const filterSensitiveLog = (obj: NodeSnapshot): any => ({
     ...obj,
     ...(obj.NodeGroupConfiguration && {
       NodeGroupConfiguration: NodeGroupConfiguration.filterSensitiveLog(
@@ -6817,7 +6901,7 @@ export interface NotificationConfiguration {
 }
 
 export namespace NotificationConfiguration {
-  export const filterSensitiveLog = (obj: NotificationConfiguration) => ({
+  export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
     ...obj
   });
   export const isa = (o: any): o is NotificationConfiguration =>
@@ -6880,7 +6964,7 @@ export interface Parameter {
 }
 
 export namespace Parameter {
-  export const filterSensitiveLog = (obj: Parameter) => ({
+  export const filterSensitiveLog = (obj: Parameter): any => ({
     ...obj
   });
   export const isa = (o: any): o is Parameter => __isa(o, "Parameter");
@@ -6903,7 +6987,7 @@ export interface ParameterNameValue {
 }
 
 export namespace ParameterNameValue {
-  export const filterSensitiveLog = (obj: ParameterNameValue) => ({
+  export const filterSensitiveLog = (obj: ParameterNameValue): any => ({
     ...obj
   });
   export const isa = (o: any): o is ParameterNameValue =>
@@ -6951,7 +7035,7 @@ export interface PendingModifiedValues {
 }
 
 export namespace PendingModifiedValues {
-  export const filterSensitiveLog = (obj: PendingModifiedValues) => ({
+  export const filterSensitiveLog = (obj: PendingModifiedValues): any => ({
     ...obj
   });
   export const isa = (o: any): o is PendingModifiedValues =>
@@ -6985,7 +7069,7 @@ export interface ProcessedUpdateAction {
 }
 
 export namespace ProcessedUpdateAction {
-  export const filterSensitiveLog = (obj: ProcessedUpdateAction) => ({
+  export const filterSensitiveLog = (obj: ProcessedUpdateAction): any => ({
     ...obj
   });
   export const isa = (o: any): o is ProcessedUpdateAction =>
@@ -7026,7 +7110,7 @@ export interface PurchaseReservedCacheNodesOfferingMessage {
 export namespace PurchaseReservedCacheNodesOfferingMessage {
   export const filterSensitiveLog = (
     obj: PurchaseReservedCacheNodesOfferingMessage
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is PurchaseReservedCacheNodesOfferingMessage =>
@@ -7044,7 +7128,7 @@ export interface PurchaseReservedCacheNodesOfferingResult {
 export namespace PurchaseReservedCacheNodesOfferingResult {
   export const filterSensitiveLog = (
     obj: PurchaseReservedCacheNodesOfferingResult
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ReservedCacheNode && {
       ReservedCacheNode: ReservedCacheNode.filterSensitiveLog(
@@ -7073,7 +7157,7 @@ export interface RebootCacheClusterMessage {
 }
 
 export namespace RebootCacheClusterMessage {
-  export const filterSensitiveLog = (obj: RebootCacheClusterMessage) => ({
+  export const filterSensitiveLog = (obj: RebootCacheClusterMessage): any => ({
     ...obj
   });
   export const isa = (o: any): o is RebootCacheClusterMessage =>
@@ -7089,7 +7173,7 @@ export interface RebootCacheClusterResult {
 }
 
 export namespace RebootCacheClusterResult {
-  export const filterSensitiveLog = (obj: RebootCacheClusterResult) => ({
+  export const filterSensitiveLog = (obj: RebootCacheClusterResult): any => ({
     ...obj,
     ...(obj.CacheCluster && {
       CacheCluster: CacheCluster.filterSensitiveLog(obj.CacheCluster)
@@ -7117,7 +7201,7 @@ export interface RecurringCharge {
 }
 
 export namespace RecurringCharge {
-  export const filterSensitiveLog = (obj: RecurringCharge) => ({
+  export const filterSensitiveLog = (obj: RecurringCharge): any => ({
     ...obj
   });
   export const isa = (o: any): o is RecurringCharge =>
@@ -7144,7 +7228,9 @@ export interface RemoveTagsFromResourceMessage {
 }
 
 export namespace RemoveTagsFromResourceMessage {
-  export const filterSensitiveLog = (obj: RemoveTagsFromResourceMessage) => ({
+  export const filterSensitiveLog = (
+    obj: RemoveTagsFromResourceMessage
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is RemoveTagsFromResourceMessage =>
@@ -7307,7 +7393,7 @@ export interface ReplicationGroup {
 }
 
 export namespace ReplicationGroup {
-  export const filterSensitiveLog = (obj: ReplicationGroup) => ({
+  export const filterSensitiveLog = (obj: ReplicationGroup): any => ({
     ...obj,
     ...(obj.ConfigurationEndpoint && {
       ConfigurationEndpoint: Endpoint.filterSensitiveLog(
@@ -7344,7 +7430,7 @@ export interface ReplicationGroupMessage {
 }
 
 export namespace ReplicationGroupMessage {
-  export const filterSensitiveLog = (obj: ReplicationGroupMessage) => ({
+  export const filterSensitiveLog = (obj: ReplicationGroupMessage): any => ({
     ...obj,
     ...(obj.ReplicationGroups && {
       ReplicationGroups: obj.ReplicationGroups.map(
@@ -7399,7 +7485,7 @@ export interface ReplicationGroupPendingModifiedValues {
 export namespace ReplicationGroupPendingModifiedValues {
   export const filterSensitiveLog = (
     obj: ReplicationGroupPendingModifiedValues
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Resharding && {
       Resharding: ReshardingStatus.filterSensitiveLog(obj.Resharding)
@@ -7645,7 +7731,7 @@ export interface ReservedCacheNode {
 }
 
 export namespace ReservedCacheNode {
-  export const filterSensitiveLog = (obj: ReservedCacheNode) => ({
+  export const filterSensitiveLog = (obj: ReservedCacheNode): any => ({
     ...obj,
     ...(obj.RecurringCharges && {
       RecurringCharges: obj.RecurringCharges.map(
@@ -7674,7 +7760,7 @@ export interface ReservedCacheNodeMessage {
 }
 
 export namespace ReservedCacheNodeMessage {
-  export const filterSensitiveLog = (obj: ReservedCacheNodeMessage) => ({
+  export const filterSensitiveLog = (obj: ReservedCacheNodeMessage): any => ({
     ...obj,
     ...(obj.ReservedCacheNodes && {
       ReservedCacheNodes: obj.ReservedCacheNodes.map(
@@ -7894,7 +7980,7 @@ export interface ReservedCacheNodesOffering {
 }
 
 export namespace ReservedCacheNodesOffering {
-  export const filterSensitiveLog = (obj: ReservedCacheNodesOffering) => ({
+  export const filterSensitiveLog = (obj: ReservedCacheNodesOffering): any => ({
     ...obj,
     ...(obj.RecurringCharges && {
       RecurringCharges: obj.RecurringCharges.map(
@@ -7925,7 +8011,7 @@ export interface ReservedCacheNodesOfferingMessage {
 export namespace ReservedCacheNodesOfferingMessage {
   export const filterSensitiveLog = (
     obj: ReservedCacheNodesOfferingMessage
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ReservedCacheNodesOfferings && {
       ReservedCacheNodesOfferings: obj.ReservedCacheNodesOfferings.map(
@@ -7968,7 +8054,9 @@ export interface ResetCacheParameterGroupMessage {
 }
 
 export namespace ResetCacheParameterGroupMessage {
-  export const filterSensitiveLog = (obj: ResetCacheParameterGroupMessage) => ({
+  export const filterSensitiveLog = (
+    obj: ResetCacheParameterGroupMessage
+  ): any => ({
     ...obj,
     ...(obj.ParameterNameValues && {
       ParameterNameValues: obj.ParameterNameValues.map(
@@ -7999,7 +8087,7 @@ export interface ReshardingConfiguration {
 }
 
 export namespace ReshardingConfiguration {
-  export const filterSensitiveLog = (obj: ReshardingConfiguration) => ({
+  export const filterSensitiveLog = (obj: ReshardingConfiguration): any => ({
     ...obj
   });
   export const isa = (o: any): o is ReshardingConfiguration =>
@@ -8018,7 +8106,7 @@ export interface ReshardingStatus {
 }
 
 export namespace ReshardingStatus {
-  export const filterSensitiveLog = (obj: ReshardingStatus) => ({
+  export const filterSensitiveLog = (obj: ReshardingStatus): any => ({
     ...obj,
     ...(obj.SlotMigration && {
       SlotMigration: SlotMigration.filterSensitiveLog(obj.SlotMigration)
@@ -8054,7 +8142,7 @@ export interface RevokeCacheSecurityGroupIngressMessage {
 export namespace RevokeCacheSecurityGroupIngressMessage {
   export const filterSensitiveLog = (
     obj: RevokeCacheSecurityGroupIngressMessage
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is RevokeCacheSecurityGroupIngressMessage =>
@@ -8089,7 +8177,7 @@ export interface RevokeCacheSecurityGroupIngressResult {
 export namespace RevokeCacheSecurityGroupIngressResult {
   export const filterSensitiveLog = (
     obj: RevokeCacheSecurityGroupIngressResult
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CacheSecurityGroup && {
       CacheSecurityGroup: CacheSecurityGroup.filterSensitiveLog(
@@ -8120,7 +8208,7 @@ export interface SecurityGroupMembership {
 }
 
 export namespace SecurityGroupMembership {
-  export const filterSensitiveLog = (obj: SecurityGroupMembership) => ({
+  export const filterSensitiveLog = (obj: SecurityGroupMembership): any => ({
     ...obj
   });
   export const isa = (o: any): o is SecurityGroupMembership =>
@@ -8194,7 +8282,7 @@ export interface ServiceUpdate {
 }
 
 export namespace ServiceUpdate {
-  export const filterSensitiveLog = (obj: ServiceUpdate) => ({
+  export const filterSensitiveLog = (obj: ServiceUpdate): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceUpdate => __isa(o, "ServiceUpdate");
@@ -8234,7 +8322,7 @@ export interface ServiceUpdatesMessage {
 }
 
 export namespace ServiceUpdatesMessage {
-  export const filterSensitiveLog = (obj: ServiceUpdatesMessage) => ({
+  export const filterSensitiveLog = (obj: ServiceUpdatesMessage): any => ({
     ...obj,
     ...(obj.ServiceUpdates && {
       ServiceUpdates: obj.ServiceUpdates.map(ServiceUpdate.filterSensitiveLog)
@@ -8262,7 +8350,7 @@ export interface SlotMigration {
 }
 
 export namespace SlotMigration {
-  export const filterSensitiveLog = (obj: SlotMigration) => ({
+  export const filterSensitiveLog = (obj: SlotMigration): any => ({
     ...obj
   });
   export const isa = (o: any): o is SlotMigration => __isa(o, "SlotMigration");
@@ -8633,7 +8721,7 @@ export interface Snapshot {
 }
 
 export namespace Snapshot {
-  export const filterSensitiveLog = (obj: Snapshot) => ({
+  export const filterSensitiveLog = (obj: Snapshot): any => ({
     ...obj,
     ...(obj.NodeSnapshots && {
       NodeSnapshots: obj.NodeSnapshots.map(NodeSnapshot.filterSensitiveLog)
@@ -8663,7 +8751,7 @@ export interface StartMigrationMessage {
 }
 
 export namespace StartMigrationMessage {
-  export const filterSensitiveLog = (obj: StartMigrationMessage) => ({
+  export const filterSensitiveLog = (obj: StartMigrationMessage): any => ({
     ...obj,
     ...(obj.CustomerNodeEndpointList && {
       CustomerNodeEndpointList: obj.CustomerNodeEndpointList.map(
@@ -8684,7 +8772,7 @@ export interface StartMigrationResponse {
 }
 
 export namespace StartMigrationResponse {
-  export const filterSensitiveLog = (obj: StartMigrationResponse) => ({
+  export const filterSensitiveLog = (obj: StartMigrationResponse): any => ({
     ...obj,
     ...(obj.ReplicationGroup && {
       ReplicationGroup: ReplicationGroup.filterSensitiveLog(
@@ -8714,7 +8802,7 @@ export interface Subnet {
 }
 
 export namespace Subnet {
-  export const filterSensitiveLog = (obj: Subnet) => ({
+  export const filterSensitiveLog = (obj: Subnet): any => ({
     ...obj,
     ...(obj.SubnetAvailabilityZone && {
       SubnetAvailabilityZone: AvailabilityZone.filterSensitiveLog(
@@ -8743,7 +8831,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -8762,7 +8850,7 @@ export interface TagListMessage {
 }
 
 export namespace TagListMessage {
-  export const filterSensitiveLog = (obj: TagListMessage) => ({
+  export const filterSensitiveLog = (obj: TagListMessage): any => ({
     ...obj,
     ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
   });
@@ -8787,7 +8875,7 @@ export interface TestFailoverMessage {
 }
 
 export namespace TestFailoverMessage {
-  export const filterSensitiveLog = (obj: TestFailoverMessage) => ({
+  export const filterSensitiveLog = (obj: TestFailoverMessage): any => ({
     ...obj
   });
   export const isa = (o: any): o is TestFailoverMessage =>
@@ -8803,7 +8891,7 @@ export interface TestFailoverResult {
 }
 
 export namespace TestFailoverResult {
-  export const filterSensitiveLog = (obj: TestFailoverResult) => ({
+  export const filterSensitiveLog = (obj: TestFailoverResult): any => ({
     ...obj,
     ...(obj.ReplicationGroup && {
       ReplicationGroup: ReplicationGroup.filterSensitiveLog(
@@ -8832,7 +8920,7 @@ export interface TimeRangeFilter {
 }
 
 export namespace TimeRangeFilter {
-  export const filterSensitiveLog = (obj: TimeRangeFilter) => ({
+  export const filterSensitiveLog = (obj: TimeRangeFilter): any => ({
     ...obj
   });
   export const isa = (o: any): o is TimeRangeFilter =>
@@ -8871,7 +8959,7 @@ export interface UnprocessedUpdateAction {
 }
 
 export namespace UnprocessedUpdateAction {
-  export const filterSensitiveLog = (obj: UnprocessedUpdateAction) => ({
+  export const filterSensitiveLog = (obj: UnprocessedUpdateAction): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnprocessedUpdateAction =>
@@ -8971,7 +9059,7 @@ export interface UpdateAction {
 }
 
 export namespace UpdateAction {
-  export const filterSensitiveLog = (obj: UpdateAction) => ({
+  export const filterSensitiveLog = (obj: UpdateAction): any => ({
     ...obj,
     ...(obj.CacheNodeUpdateStatus && {
       CacheNodeUpdateStatus: obj.CacheNodeUpdateStatus.map(
@@ -9001,7 +9089,7 @@ export interface UpdateActionResultsMessage {
 }
 
 export namespace UpdateActionResultsMessage {
-  export const filterSensitiveLog = (obj: UpdateActionResultsMessage) => ({
+  export const filterSensitiveLog = (obj: UpdateActionResultsMessage): any => ({
     ...obj,
     ...(obj.ProcessedUpdateActions && {
       ProcessedUpdateActions: obj.ProcessedUpdateActions.map(
@@ -9044,7 +9132,7 @@ export interface UpdateActionsMessage {
 }
 
 export namespace UpdateActionsMessage {
-  export const filterSensitiveLog = (obj: UpdateActionsMessage) => ({
+  export const filterSensitiveLog = (obj: UpdateActionsMessage): any => ({
     ...obj,
     ...(obj.UpdateActions && {
       UpdateActions: obj.UpdateActions.map(UpdateAction.filterSensitiveLog)

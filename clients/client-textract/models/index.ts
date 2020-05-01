@@ -19,7 +19,7 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export const filterSensitiveLog = (obj: AccessDeniedException) => ({
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is AccessDeniedException =>
@@ -53,7 +53,7 @@ export interface AnalyzeDocumentRequest {
 }
 
 export namespace AnalyzeDocumentRequest {
-  export const filterSensitiveLog = (obj: AnalyzeDocumentRequest) => ({
+  export const filterSensitiveLog = (obj: AnalyzeDocumentRequest): any => ({
     ...obj,
     ...(obj.Document && {
       Document: Document.filterSensitiveLog(obj.Document)
@@ -90,7 +90,7 @@ export interface AnalyzeDocumentResponse {
 }
 
 export namespace AnalyzeDocumentResponse {
-  export const filterSensitiveLog = (obj: AnalyzeDocumentResponse) => ({
+  export const filterSensitiveLog = (obj: AnalyzeDocumentResponse): any => ({
     ...obj,
     ...(obj.Blocks && { Blocks: obj.Blocks.map(Block.filterSensitiveLog) }),
     ...(obj.DocumentMetadata && {
@@ -121,7 +121,7 @@ export interface BadDocumentException
 }
 
 export namespace BadDocumentException {
-  export const filterSensitiveLog = (obj: BadDocumentException) => ({
+  export const filterSensitiveLog = (obj: BadDocumentException): any => ({
     ...obj
   });
   export const isa = (o: any): o is BadDocumentException =>
@@ -313,7 +313,7 @@ export interface Block {
 }
 
 export namespace Block {
-  export const filterSensitiveLog = (obj: Block) => ({
+  export const filterSensitiveLog = (obj: Block): any => ({
     ...obj,
     ...(obj.Geometry && {
       Geometry: Geometry.filterSensitiveLog(obj.Geometry)
@@ -377,7 +377,7 @@ export interface BoundingBox {
 }
 
 export namespace BoundingBox {
-  export const filterSensitiveLog = (obj: BoundingBox) => ({
+  export const filterSensitiveLog = (obj: BoundingBox): any => ({
     ...obj
   });
   export const isa = (o: any): o is BoundingBox => __isa(o, "BoundingBox");
@@ -401,7 +401,7 @@ export interface DetectDocumentTextRequest {
 }
 
 export namespace DetectDocumentTextRequest {
-  export const filterSensitiveLog = (obj: DetectDocumentTextRequest) => ({
+  export const filterSensitiveLog = (obj: DetectDocumentTextRequest): any => ({
     ...obj,
     ...(obj.Document && { Document: Document.filterSensitiveLog(obj.Document) })
   });
@@ -430,7 +430,7 @@ export interface DetectDocumentTextResponse {
 }
 
 export namespace DetectDocumentTextResponse {
-  export const filterSensitiveLog = (obj: DetectDocumentTextResponse) => ({
+  export const filterSensitiveLog = (obj: DetectDocumentTextResponse): any => ({
     ...obj,
     ...(obj.Blocks && { Blocks: obj.Blocks.map(Block.filterSensitiveLog) }),
     ...(obj.DocumentMetadata && {
@@ -480,7 +480,7 @@ export interface Document {
 }
 
 export namespace Document {
-  export const filterSensitiveLog = (obj: Document) => ({
+  export const filterSensitiveLog = (obj: Document): any => ({
     ...obj,
     ...(obj.S3Object && { S3Object: S3Object.filterSensitiveLog(obj.S3Object) })
   });
@@ -502,7 +502,7 @@ export interface DocumentLocation {
 }
 
 export namespace DocumentLocation {
-  export const filterSensitiveLog = (obj: DocumentLocation) => ({
+  export const filterSensitiveLog = (obj: DocumentLocation): any => ({
     ...obj,
     ...(obj.S3Object && { S3Object: S3Object.filterSensitiveLog(obj.S3Object) })
   });
@@ -522,7 +522,7 @@ export interface DocumentMetadata {
 }
 
 export namespace DocumentMetadata {
-  export const filterSensitiveLog = (obj: DocumentMetadata) => ({
+  export const filterSensitiveLog = (obj: DocumentMetadata): any => ({
     ...obj
   });
   export const isa = (o: any): o is DocumentMetadata =>
@@ -544,7 +544,7 @@ export interface DocumentTooLargeException
 }
 
 export namespace DocumentTooLargeException {
-  export const filterSensitiveLog = (obj: DocumentTooLargeException) => ({
+  export const filterSensitiveLog = (obj: DocumentTooLargeException): any => ({
     ...obj
   });
   export const isa = (o: any): o is DocumentTooLargeException =>
@@ -580,7 +580,7 @@ export interface Geometry {
 }
 
 export namespace Geometry {
-  export const filterSensitiveLog = (obj: Geometry) => ({
+  export const filterSensitiveLog = (obj: Geometry): any => ({
     ...obj,
     ...(obj.BoundingBox && {
       BoundingBox: BoundingBox.filterSensitiveLog(obj.BoundingBox)
@@ -613,7 +613,7 @@ export interface GetDocumentAnalysisRequest {
 }
 
 export namespace GetDocumentAnalysisRequest {
-  export const filterSensitiveLog = (obj: GetDocumentAnalysisRequest) => ({
+  export const filterSensitiveLog = (obj: GetDocumentAnalysisRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetDocumentAnalysisRequest =>
@@ -661,7 +661,9 @@ export interface GetDocumentAnalysisResponse {
 }
 
 export namespace GetDocumentAnalysisResponse {
-  export const filterSensitiveLog = (obj: GetDocumentAnalysisResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetDocumentAnalysisResponse
+  ): any => ({
     ...obj,
     ...(obj.Blocks && { Blocks: obj.Blocks.map(Block.filterSensitiveLog) }),
     ...(obj.DocumentMetadata && {
@@ -700,7 +702,9 @@ export interface GetDocumentTextDetectionRequest {
 }
 
 export namespace GetDocumentTextDetectionRequest {
-  export const filterSensitiveLog = (obj: GetDocumentTextDetectionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetDocumentTextDetectionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetDocumentTextDetectionRequest =>
@@ -751,7 +755,7 @@ export interface GetDocumentTextDetectionResponse {
 export namespace GetDocumentTextDetectionResponse {
   export const filterSensitiveLog = (
     obj: GetDocumentTextDetectionResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Blocks && { Blocks: obj.Blocks.map(Block.filterSensitiveLog) }),
     ...(obj.DocumentMetadata && {
@@ -790,7 +794,7 @@ export interface HumanLoopActivationOutput {
 }
 
 export namespace HumanLoopActivationOutput {
-  export const filterSensitiveLog = (obj: HumanLoopActivationOutput) => ({
+  export const filterSensitiveLog = (obj: HumanLoopActivationOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is HumanLoopActivationOutput =>
@@ -820,7 +824,7 @@ export interface HumanLoopConfig {
 }
 
 export namespace HumanLoopConfig {
-  export const filterSensitiveLog = (obj: HumanLoopConfig) => ({
+  export const filterSensitiveLog = (obj: HumanLoopConfig): any => ({
     ...obj,
     ...(obj.DataAttributes && {
       DataAttributes: HumanLoopDataAttributes.filterSensitiveLog(
@@ -845,7 +849,7 @@ export interface HumanLoopDataAttributes {
 }
 
 export namespace HumanLoopDataAttributes {
-  export const filterSensitiveLog = (obj: HumanLoopDataAttributes) => ({
+  export const filterSensitiveLog = (obj: HumanLoopDataAttributes): any => ({
     ...obj
   });
   export const isa = (o: any): o is HumanLoopDataAttributes =>
@@ -868,7 +872,9 @@ export interface HumanLoopQuotaExceededException
 }
 
 export namespace HumanLoopQuotaExceededException {
-  export const filterSensitiveLog = (obj: HumanLoopQuotaExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: HumanLoopQuotaExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is HumanLoopQuotaExceededException =>
@@ -892,7 +898,7 @@ export interface IdempotentParameterMismatchException
 export namespace IdempotentParameterMismatchException {
   export const filterSensitiveLog = (
     obj: IdempotentParameterMismatchException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is IdempotentParameterMismatchException =>
@@ -912,7 +918,7 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export const filterSensitiveLog = (obj: InternalServerError) => ({
+  export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerError =>
@@ -933,7 +939,7 @@ export interface InvalidJobIdException
 }
 
 export namespace InvalidJobIdException {
-  export const filterSensitiveLog = (obj: InvalidJobIdException) => ({
+  export const filterSensitiveLog = (obj: InvalidJobIdException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidJobIdException =>
@@ -957,7 +963,7 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export const filterSensitiveLog = (obj: InvalidParameterException) => ({
+  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidParameterException =>
@@ -977,7 +983,7 @@ export interface InvalidS3ObjectException
 }
 
 export namespace InvalidS3ObjectException {
-  export const filterSensitiveLog = (obj: InvalidS3ObjectException) => ({
+  export const filterSensitiveLog = (obj: InvalidS3ObjectException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidS3ObjectException =>
@@ -1008,7 +1014,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -1033,7 +1039,7 @@ export interface NotificationChannel {
 }
 
 export namespace NotificationChannel {
-  export const filterSensitiveLog = (obj: NotificationChannel) => ({
+  export const filterSensitiveLog = (obj: NotificationChannel): any => ({
     ...obj
   });
   export const isa = (o: any): o is NotificationChannel =>
@@ -1065,7 +1071,7 @@ export interface Point {
 }
 
 export namespace Point {
-  export const filterSensitiveLog = (obj: Point) => ({
+  export const filterSensitiveLog = (obj: Point): any => ({
     ...obj
   });
   export const isa = (o: any): o is Point => __isa(o, "Point");
@@ -1087,7 +1093,7 @@ export interface ProvisionedThroughputExceededException
 export namespace ProvisionedThroughputExceededException {
   export const filterSensitiveLog = (
     obj: ProvisionedThroughputExceededException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ProvisionedThroughputExceededException =>
@@ -1120,7 +1126,7 @@ export interface Relationship {
 }
 
 export namespace Relationship {
-  export const filterSensitiveLog = (obj: Relationship) => ({
+  export const filterSensitiveLog = (obj: Relationship): any => ({
     ...obj
   });
   export const isa = (o: any): o is Relationship => __isa(o, "Relationship");
@@ -1161,7 +1167,7 @@ export interface S3Object {
 }
 
 export namespace S3Object {
-  export const filterSensitiveLog = (obj: S3Object) => ({
+  export const filterSensitiveLog = (obj: S3Object): any => ({
     ...obj
   });
   export const isa = (o: any): o is S3Object => __isa(o, "S3Object");
@@ -1214,7 +1220,9 @@ export interface StartDocumentAnalysisRequest {
 }
 
 export namespace StartDocumentAnalysisRequest {
-  export const filterSensitiveLog = (obj: StartDocumentAnalysisRequest) => ({
+  export const filterSensitiveLog = (
+    obj: StartDocumentAnalysisRequest
+  ): any => ({
     ...obj,
     ...(obj.DocumentLocation && {
       DocumentLocation: DocumentLocation.filterSensitiveLog(
@@ -1242,7 +1250,9 @@ export interface StartDocumentAnalysisResponse {
 }
 
 export namespace StartDocumentAnalysisResponse {
-  export const filterSensitiveLog = (obj: StartDocumentAnalysisResponse) => ({
+  export const filterSensitiveLog = (
+    obj: StartDocumentAnalysisResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartDocumentAnalysisResponse =>
@@ -1283,7 +1293,7 @@ export interface StartDocumentTextDetectionRequest {
 export namespace StartDocumentTextDetectionRequest {
   export const filterSensitiveLog = (
     obj: StartDocumentTextDetectionRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.DocumentLocation && {
       DocumentLocation: DocumentLocation.filterSensitiveLog(
@@ -1313,7 +1323,7 @@ export interface StartDocumentTextDetectionResponse {
 export namespace StartDocumentTextDetectionResponse {
   export const filterSensitiveLog = (
     obj: StartDocumentTextDetectionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartDocumentTextDetectionResponse =>
@@ -1333,7 +1343,7 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ThrottlingException =>
@@ -1354,7 +1364,9 @@ export interface UnsupportedDocumentException
 }
 
 export namespace UnsupportedDocumentException {
-  export const filterSensitiveLog = (obj: UnsupportedDocumentException) => ({
+  export const filterSensitiveLog = (
+    obj: UnsupportedDocumentException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnsupportedDocumentException =>
@@ -1378,7 +1390,7 @@ export interface Warning {
 }
 
 export namespace Warning {
-  export const filterSensitiveLog = (obj: Warning) => ({
+  export const filterSensitiveLog = (obj: Warning): any => ({
     ...obj
   });
   export const isa = (o: any): o is Warning => __isa(o, "Warning");

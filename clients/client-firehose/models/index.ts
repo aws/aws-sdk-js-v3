@@ -35,7 +35,7 @@ export interface BufferingHints {
 }
 
 export namespace BufferingHints {
-  export const filterSensitiveLog = (obj: BufferingHints) => ({
+  export const filterSensitiveLog = (obj: BufferingHints): any => ({
     ...obj
   });
   export const isa = (o: any): o is BufferingHints =>
@@ -66,7 +66,7 @@ export interface CloudWatchLoggingOptions {
 }
 
 export namespace CloudWatchLoggingOptions {
-  export const filterSensitiveLog = (obj: CloudWatchLoggingOptions) => ({
+  export const filterSensitiveLog = (obj: CloudWatchLoggingOptions): any => ({
     ...obj
   });
   export const isa = (o: any): o is CloudWatchLoggingOptions =>
@@ -96,7 +96,9 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
-  export const filterSensitiveLog = (obj: ConcurrentModificationException) => ({
+  export const filterSensitiveLog = (
+    obj: ConcurrentModificationException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConcurrentModificationException =>
@@ -144,7 +146,7 @@ export interface CopyCommand {
 }
 
 export namespace CopyCommand {
-  export const filterSensitiveLog = (obj: CopyCommand) => ({
+  export const filterSensitiveLog = (obj: CopyCommand): any => ({
     ...obj
   });
   export const isa = (o: any): o is CopyCommand => __isa(o, "CopyCommand");
@@ -228,7 +230,7 @@ export interface CreateDeliveryStreamInput {
 }
 
 export namespace CreateDeliveryStreamInput {
-  export const filterSensitiveLog = (obj: CreateDeliveryStreamInput) => ({
+  export const filterSensitiveLog = (obj: CreateDeliveryStreamInput): any => ({
     ...obj,
     ...(obj.DeliveryStreamEncryptionConfigurationInput && {
       DeliveryStreamEncryptionConfigurationInput: DeliveryStreamEncryptionConfigurationInput.filterSensitiveLog(
@@ -280,7 +282,7 @@ export interface CreateDeliveryStreamOutput {
 }
 
 export namespace CreateDeliveryStreamOutput {
-  export const filterSensitiveLog = (obj: CreateDeliveryStreamOutput) => ({
+  export const filterSensitiveLog = (obj: CreateDeliveryStreamOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateDeliveryStreamOutput =>
@@ -322,7 +324,7 @@ export interface DataFormatConversionConfiguration {
 export namespace DataFormatConversionConfiguration {
   export const filterSensitiveLog = (
     obj: DataFormatConversionConfiguration
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.InputFormatConfiguration && {
       InputFormatConfiguration: InputFormatConfiguration.filterSensitiveLog(
@@ -364,7 +366,7 @@ export interface DeleteDeliveryStreamInput {
 }
 
 export namespace DeleteDeliveryStreamInput {
-  export const filterSensitiveLog = (obj: DeleteDeliveryStreamInput) => ({
+  export const filterSensitiveLog = (obj: DeleteDeliveryStreamInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteDeliveryStreamInput =>
@@ -376,7 +378,7 @@ export interface DeleteDeliveryStreamOutput {
 }
 
 export namespace DeleteDeliveryStreamOutput {
-  export const filterSensitiveLog = (obj: DeleteDeliveryStreamOutput) => ({
+  export const filterSensitiveLog = (obj: DeleteDeliveryStreamOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteDeliveryStreamOutput =>
@@ -470,7 +472,7 @@ export interface DeliveryStreamDescription {
 }
 
 export namespace DeliveryStreamDescription {
-  export const filterSensitiveLog = (obj: DeliveryStreamDescription) => ({
+  export const filterSensitiveLog = (obj: DeliveryStreamDescription): any => ({
     ...obj,
     ...(obj.DeliveryStreamEncryptionConfiguration && {
       DeliveryStreamEncryptionConfiguration: DeliveryStreamEncryptionConfiguration.filterSensitiveLog(
@@ -532,7 +534,7 @@ export interface DeliveryStreamEncryptionConfiguration {
 export namespace DeliveryStreamEncryptionConfiguration {
   export const filterSensitiveLog = (
     obj: DeliveryStreamEncryptionConfiguration
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.FailureDescription && {
       FailureDescription: FailureDescription.filterSensitiveLog(
@@ -574,7 +576,7 @@ export interface DeliveryStreamEncryptionConfigurationInput {
 export namespace DeliveryStreamEncryptionConfigurationInput {
   export const filterSensitiveLog = (
     obj: DeliveryStreamEncryptionConfigurationInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -634,7 +636,9 @@ export interface DescribeDeliveryStreamInput {
 }
 
 export namespace DescribeDeliveryStreamInput {
-  export const filterSensitiveLog = (obj: DescribeDeliveryStreamInput) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeDeliveryStreamInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeDeliveryStreamInput =>
@@ -650,7 +654,9 @@ export interface DescribeDeliveryStreamOutput {
 }
 
 export namespace DescribeDeliveryStreamOutput {
-  export const filterSensitiveLog = (obj: DescribeDeliveryStreamOutput) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeDeliveryStreamOutput
+  ): any => ({
     ...obj,
     ...(obj.DeliveryStreamDescription && {
       DeliveryStreamDescription: DeliveryStreamDescription.filterSensitiveLog(
@@ -688,7 +694,7 @@ export interface Deserializer {
 }
 
 export namespace Deserializer {
-  export const filterSensitiveLog = (obj: Deserializer) => ({
+  export const filterSensitiveLog = (obj: Deserializer): any => ({
     ...obj,
     ...(obj.HiveJsonSerDe && {
       HiveJsonSerDe: HiveJsonSerDe.filterSensitiveLog(obj.HiveJsonSerDe)
@@ -737,7 +743,7 @@ export interface DestinationDescription {
 }
 
 export namespace DestinationDescription {
-  export const filterSensitiveLog = (obj: DestinationDescription) => ({
+  export const filterSensitiveLog = (obj: DestinationDescription): any => ({
     ...obj,
     ...(obj.ElasticsearchDestinationDescription && {
       ElasticsearchDestinationDescription: ElasticsearchDestinationDescription.filterSensitiveLog(
@@ -792,7 +798,9 @@ export interface ElasticsearchBufferingHints {
 }
 
 export namespace ElasticsearchBufferingHints {
-  export const filterSensitiveLog = (obj: ElasticsearchBufferingHints) => ({
+  export const filterSensitiveLog = (
+    obj: ElasticsearchBufferingHints
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ElasticsearchBufferingHints =>
@@ -896,7 +904,7 @@ export interface ElasticsearchDestinationConfiguration {
 export namespace ElasticsearchDestinationConfiguration {
   export const filterSensitiveLog = (
     obj: ElasticsearchDestinationConfiguration
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.BufferingHints && {
       BufferingHints: ElasticsearchBufferingHints.filterSensitiveLog(
@@ -1001,7 +1009,7 @@ export interface ElasticsearchDestinationDescription {
 export namespace ElasticsearchDestinationDescription {
   export const filterSensitiveLog = (
     obj: ElasticsearchDestinationDescription
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.BufferingHints && {
       BufferingHints: ElasticsearchBufferingHints.filterSensitiveLog(
@@ -1116,7 +1124,9 @@ export interface ElasticsearchDestinationUpdate {
 }
 
 export namespace ElasticsearchDestinationUpdate {
-  export const filterSensitiveLog = (obj: ElasticsearchDestinationUpdate) => ({
+  export const filterSensitiveLog = (
+    obj: ElasticsearchDestinationUpdate
+  ): any => ({
     ...obj,
     ...(obj.BufferingHints && {
       BufferingHints: ElasticsearchBufferingHints.filterSensitiveLog(
@@ -1170,7 +1180,7 @@ export interface ElasticsearchRetryOptions {
 }
 
 export namespace ElasticsearchRetryOptions {
-  export const filterSensitiveLog = (obj: ElasticsearchRetryOptions) => ({
+  export const filterSensitiveLog = (obj: ElasticsearchRetryOptions): any => ({
     ...obj
   });
   export const isa = (o: any): o is ElasticsearchRetryOptions =>
@@ -1197,7 +1207,7 @@ export interface EncryptionConfiguration {
 }
 
 export namespace EncryptionConfiguration {
-  export const filterSensitiveLog = (obj: EncryptionConfiguration) => ({
+  export const filterSensitiveLog = (obj: EncryptionConfiguration): any => ({
     ...obj,
     ...(obj.KMSEncryptionConfig && {
       KMSEncryptionConfig: KMSEncryptionConfig.filterSensitiveLog(
@@ -1285,7 +1295,7 @@ export interface ExtendedS3DestinationConfiguration {
 export namespace ExtendedS3DestinationConfiguration {
   export const filterSensitiveLog = (
     obj: ExtendedS3DestinationConfiguration
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.BufferingHints && {
       BufferingHints: BufferingHints.filterSensitiveLog(obj.BufferingHints)
@@ -1397,7 +1407,7 @@ export interface ExtendedS3DestinationDescription {
 export namespace ExtendedS3DestinationDescription {
   export const filterSensitiveLog = (
     obj: ExtendedS3DestinationDescription
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.BufferingHints && {
       BufferingHints: BufferingHints.filterSensitiveLog(obj.BufferingHints)
@@ -1507,7 +1517,9 @@ export interface ExtendedS3DestinationUpdate {
 }
 
 export namespace ExtendedS3DestinationUpdate {
-  export const filterSensitiveLog = (obj: ExtendedS3DestinationUpdate) => ({
+  export const filterSensitiveLog = (
+    obj: ExtendedS3DestinationUpdate
+  ): any => ({
     ...obj,
     ...(obj.BufferingHints && {
       BufferingHints: BufferingHints.filterSensitiveLog(obj.BufferingHints)
@@ -1558,7 +1570,7 @@ export interface FailureDescription {
 }
 
 export namespace FailureDescription {
-  export const filterSensitiveLog = (obj: FailureDescription) => ({
+  export const filterSensitiveLog = (obj: FailureDescription): any => ({
     ...obj
   });
   export const isa = (o: any): o is FailureDescription =>
@@ -1586,7 +1598,7 @@ export interface HiveJsonSerDe {
 }
 
 export namespace HiveJsonSerDe {
-  export const filterSensitiveLog = (obj: HiveJsonSerDe) => ({
+  export const filterSensitiveLog = (obj: HiveJsonSerDe): any => ({
     ...obj
   });
   export const isa = (o: any): o is HiveJsonSerDe => __isa(o, "HiveJsonSerDe");
@@ -1605,7 +1617,7 @@ export interface InputFormatConfiguration {
 }
 
 export namespace InputFormatConfiguration {
-  export const filterSensitiveLog = (obj: InputFormatConfiguration) => ({
+  export const filterSensitiveLog = (obj: InputFormatConfiguration): any => ({
     ...obj,
     ...(obj.Deserializer && {
       Deserializer: Deserializer.filterSensitiveLog(obj.Deserializer)
@@ -1630,7 +1642,7 @@ export interface InvalidArgumentException
 }
 
 export namespace InvalidArgumentException {
-  export const filterSensitiveLog = (obj: InvalidArgumentException) => ({
+  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidArgumentException =>
@@ -1651,7 +1663,9 @@ export interface InvalidKMSResourceException
 }
 
 export namespace InvalidKMSResourceException {
-  export const filterSensitiveLog = (obj: InvalidKMSResourceException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidKMSResourceException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidKMSResourceException =>
@@ -1672,7 +1686,7 @@ export interface KMSEncryptionConfig {
 }
 
 export namespace KMSEncryptionConfig {
-  export const filterSensitiveLog = (obj: KMSEncryptionConfig) => ({
+  export const filterSensitiveLog = (obj: KMSEncryptionConfig): any => ({
     ...obj
   });
   export const isa = (o: any): o is KMSEncryptionConfig =>
@@ -1705,7 +1719,7 @@ export interface KinesisStreamSourceConfiguration {
 export namespace KinesisStreamSourceConfiguration {
   export const filterSensitiveLog = (
     obj: KinesisStreamSourceConfiguration
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is KinesisStreamSourceConfiguration =>
@@ -1738,7 +1752,9 @@ export interface KinesisStreamSourceDescription {
 }
 
 export namespace KinesisStreamSourceDescription {
-  export const filterSensitiveLog = (obj: KinesisStreamSourceDescription) => ({
+  export const filterSensitiveLog = (
+    obj: KinesisStreamSourceDescription
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is KinesisStreamSourceDescription =>
@@ -1760,7 +1776,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -1803,7 +1819,7 @@ export interface ListDeliveryStreamsInput {
 }
 
 export namespace ListDeliveryStreamsInput {
-  export const filterSensitiveLog = (obj: ListDeliveryStreamsInput) => ({
+  export const filterSensitiveLog = (obj: ListDeliveryStreamsInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDeliveryStreamsInput =>
@@ -1824,7 +1840,7 @@ export interface ListDeliveryStreamsOutput {
 }
 
 export namespace ListDeliveryStreamsOutput {
-  export const filterSensitiveLog = (obj: ListDeliveryStreamsOutput) => ({
+  export const filterSensitiveLog = (obj: ListDeliveryStreamsOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDeliveryStreamsOutput =>
@@ -1854,7 +1870,9 @@ export interface ListTagsForDeliveryStreamInput {
 }
 
 export namespace ListTagsForDeliveryStreamInput {
-  export const filterSensitiveLog = (obj: ListTagsForDeliveryStreamInput) => ({
+  export const filterSensitiveLog = (
+    obj: ListTagsForDeliveryStreamInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForDeliveryStreamInput =>
@@ -1878,7 +1896,9 @@ export interface ListTagsForDeliveryStreamOutput {
 }
 
 export namespace ListTagsForDeliveryStreamOutput {
-  export const filterSensitiveLog = (obj: ListTagsForDeliveryStreamOutput) => ({
+  export const filterSensitiveLog = (
+    obj: ListTagsForDeliveryStreamOutput
+  ): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1923,7 +1943,7 @@ export interface OpenXJsonSerDe {
 }
 
 export namespace OpenXJsonSerDe {
-  export const filterSensitiveLog = (obj: OpenXJsonSerDe) => ({
+  export const filterSensitiveLog = (obj: OpenXJsonSerDe): any => ({
     ...obj
   });
   export const isa = (o: any): o is OpenXJsonSerDe =>
@@ -2016,7 +2036,7 @@ export interface OrcSerDe {
 }
 
 export namespace OrcSerDe {
-  export const filterSensitiveLog = (obj: OrcSerDe) => ({
+  export const filterSensitiveLog = (obj: OrcSerDe): any => ({
     ...obj
   });
   export const isa = (o: any): o is OrcSerDe => __isa(o, "OrcSerDe");
@@ -2035,7 +2055,7 @@ export interface OutputFormatConfiguration {
 }
 
 export namespace OutputFormatConfiguration {
-  export const filterSensitiveLog = (obj: OutputFormatConfiguration) => ({
+  export const filterSensitiveLog = (obj: OutputFormatConfiguration): any => ({
     ...obj,
     ...(obj.Serializer && {
       Serializer: Serializer.filterSensitiveLog(obj.Serializer)
@@ -2095,7 +2115,7 @@ export interface ParquetSerDe {
 }
 
 export namespace ParquetSerDe {
-  export const filterSensitiveLog = (obj: ParquetSerDe) => ({
+  export const filterSensitiveLog = (obj: ParquetSerDe): any => ({
     ...obj
   });
   export const isa = (o: any): o is ParquetSerDe => __isa(o, "ParquetSerDe");
@@ -2123,7 +2143,7 @@ export interface ProcessingConfiguration {
 }
 
 export namespace ProcessingConfiguration {
-  export const filterSensitiveLog = (obj: ProcessingConfiguration) => ({
+  export const filterSensitiveLog = (obj: ProcessingConfiguration): any => ({
     ...obj,
     ...(obj.Processors && {
       Processors: obj.Processors.map(Processor.filterSensitiveLog)
@@ -2150,7 +2170,7 @@ export interface Processor {
 }
 
 export namespace Processor {
-  export const filterSensitiveLog = (obj: Processor) => ({
+  export const filterSensitiveLog = (obj: Processor): any => ({
     ...obj,
     ...(obj.Parameters && {
       Parameters: obj.Parameters.map(ProcessorParameter.filterSensitiveLog)
@@ -2176,7 +2196,7 @@ export interface ProcessorParameter {
 }
 
 export namespace ProcessorParameter {
-  export const filterSensitiveLog = (obj: ProcessorParameter) => ({
+  export const filterSensitiveLog = (obj: ProcessorParameter): any => ({
     ...obj
   });
   export const isa = (o: any): o is ProcessorParameter =>
@@ -2207,7 +2227,7 @@ export interface PutRecordBatchInput {
 }
 
 export namespace PutRecordBatchInput {
-  export const filterSensitiveLog = (obj: PutRecordBatchInput) => ({
+  export const filterSensitiveLog = (obj: PutRecordBatchInput): any => ({
     ...obj,
     ...(obj.Records && { Records: obj.Records.map(_Record.filterSensitiveLog) })
   });
@@ -2238,7 +2258,7 @@ export interface PutRecordBatchOutput {
 }
 
 export namespace PutRecordBatchOutput {
-  export const filterSensitiveLog = (obj: PutRecordBatchOutput) => ({
+  export const filterSensitiveLog = (obj: PutRecordBatchOutput): any => ({
     ...obj,
     ...(obj.RequestResponses && {
       RequestResponses: obj.RequestResponses.map(
@@ -2275,7 +2295,9 @@ export interface PutRecordBatchResponseEntry {
 }
 
 export namespace PutRecordBatchResponseEntry {
-  export const filterSensitiveLog = (obj: PutRecordBatchResponseEntry) => ({
+  export const filterSensitiveLog = (
+    obj: PutRecordBatchResponseEntry
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutRecordBatchResponseEntry =>
@@ -2296,7 +2318,7 @@ export interface PutRecordInput {
 }
 
 export namespace PutRecordInput {
-  export const filterSensitiveLog = (obj: PutRecordInput) => ({
+  export const filterSensitiveLog = (obj: PutRecordInput): any => ({
     ...obj,
     ...(obj.Record && { Record: _Record.filterSensitiveLog(obj.Record) })
   });
@@ -2318,7 +2340,7 @@ export interface PutRecordOutput {
 }
 
 export namespace PutRecordOutput {
-  export const filterSensitiveLog = (obj: PutRecordOutput) => ({
+  export const filterSensitiveLog = (obj: PutRecordOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutRecordOutput =>
@@ -2338,7 +2360,7 @@ export interface _Record {
 }
 
 export namespace _Record {
-  export const filterSensitiveLog = (obj: _Record) => ({
+  export const filterSensitiveLog = (obj: _Record): any => ({
     ...obj
   });
   export const isa = (o: any): o is _Record => __isa(o, "Record");
@@ -2415,7 +2437,7 @@ export interface RedshiftDestinationConfiguration {
 export namespace RedshiftDestinationConfiguration {
   export const filterSensitiveLog = (
     obj: RedshiftDestinationConfiguration
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CloudWatchLoggingOptions && {
       CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
@@ -2509,7 +2531,9 @@ export interface RedshiftDestinationDescription {
 }
 
 export namespace RedshiftDestinationDescription {
-  export const filterSensitiveLog = (obj: RedshiftDestinationDescription) => ({
+  export const filterSensitiveLog = (
+    obj: RedshiftDestinationDescription
+  ): any => ({
     ...obj,
     ...(obj.CloudWatchLoggingOptions && {
       CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
@@ -2611,7 +2635,7 @@ export interface RedshiftDestinationUpdate {
 }
 
 export namespace RedshiftDestinationUpdate {
-  export const filterSensitiveLog = (obj: RedshiftDestinationUpdate) => ({
+  export const filterSensitiveLog = (obj: RedshiftDestinationUpdate): any => ({
     ...obj,
     ...(obj.CloudWatchLoggingOptions && {
       CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
@@ -2659,7 +2683,7 @@ export interface RedshiftRetryOptions {
 }
 
 export namespace RedshiftRetryOptions {
-  export const filterSensitiveLog = (obj: RedshiftRetryOptions) => ({
+  export const filterSensitiveLog = (obj: RedshiftRetryOptions): any => ({
     ...obj
   });
   export const isa = (o: any): o is RedshiftRetryOptions =>
@@ -2683,7 +2707,7 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export const filterSensitiveLog = (obj: ResourceInUseException) => ({
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceInUseException =>
@@ -2705,7 +2729,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -2774,7 +2798,7 @@ export interface S3DestinationConfiguration {
 }
 
 export namespace S3DestinationConfiguration {
-  export const filterSensitiveLog = (obj: S3DestinationConfiguration) => ({
+  export const filterSensitiveLog = (obj: S3DestinationConfiguration): any => ({
     ...obj,
     ...(obj.BufferingHints && {
       BufferingHints: BufferingHints.filterSensitiveLog(obj.BufferingHints)
@@ -2851,7 +2875,7 @@ export interface S3DestinationDescription {
 }
 
 export namespace S3DestinationDescription {
-  export const filterSensitiveLog = (obj: S3DestinationDescription) => ({
+  export const filterSensitiveLog = (obj: S3DestinationDescription): any => ({
     ...obj,
     ...(obj.BufferingHints && {
       BufferingHints: BufferingHints.filterSensitiveLog(obj.BufferingHints)
@@ -2931,7 +2955,7 @@ export interface S3DestinationUpdate {
 }
 
 export namespace S3DestinationUpdate {
-  export const filterSensitiveLog = (obj: S3DestinationUpdate) => ({
+  export const filterSensitiveLog = (obj: S3DestinationUpdate): any => ({
     ...obj,
     ...(obj.BufferingHints && {
       BufferingHints: BufferingHints.filterSensitiveLog(obj.BufferingHints)
@@ -2996,7 +3020,7 @@ export interface SchemaConfiguration {
 }
 
 export namespace SchemaConfiguration {
-  export const filterSensitiveLog = (obj: SchemaConfiguration) => ({
+  export const filterSensitiveLog = (obj: SchemaConfiguration): any => ({
     ...obj
   });
   export const isa = (o: any): o is SchemaConfiguration =>
@@ -3025,7 +3049,7 @@ export interface Serializer {
 }
 
 export namespace Serializer {
-  export const filterSensitiveLog = (obj: Serializer) => ({
+  export const filterSensitiveLog = (obj: Serializer): any => ({
     ...obj,
     ...(obj.OrcSerDe && {
       OrcSerDe: OrcSerDe.filterSensitiveLog(obj.OrcSerDe)
@@ -3055,7 +3079,9 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (obj: ServiceUnavailableException) => ({
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceUnavailableException =>
@@ -3076,7 +3102,7 @@ export interface SourceDescription {
 }
 
 export namespace SourceDescription {
-  export const filterSensitiveLog = (obj: SourceDescription) => ({
+  export const filterSensitiveLog = (obj: SourceDescription): any => ({
     ...obj,
     ...(obj.KinesisStreamSourceDescription && {
       KinesisStreamSourceDescription: KinesisStreamSourceDescription.filterSensitiveLog(
@@ -3150,7 +3176,9 @@ export interface SplunkDestinationConfiguration {
 }
 
 export namespace SplunkDestinationConfiguration {
-  export const filterSensitiveLog = (obj: SplunkDestinationConfiguration) => ({
+  export const filterSensitiveLog = (
+    obj: SplunkDestinationConfiguration
+  ): any => ({
     ...obj,
     ...(obj.CloudWatchLoggingOptions && {
       CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
@@ -3237,7 +3265,9 @@ export interface SplunkDestinationDescription {
 }
 
 export namespace SplunkDestinationDescription {
-  export const filterSensitiveLog = (obj: SplunkDestinationDescription) => ({
+  export const filterSensitiveLog = (
+    obj: SplunkDestinationDescription
+  ): any => ({
     ...obj,
     ...(obj.CloudWatchLoggingOptions && {
       CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
@@ -3325,7 +3355,7 @@ export interface SplunkDestinationUpdate {
 }
 
 export namespace SplunkDestinationUpdate {
-  export const filterSensitiveLog = (obj: SplunkDestinationUpdate) => ({
+  export const filterSensitiveLog = (obj: SplunkDestinationUpdate): any => ({
     ...obj,
     ...(obj.CloudWatchLoggingOptions && {
       CloudWatchLoggingOptions: CloudWatchLoggingOptions.filterSensitiveLog(
@@ -3364,7 +3394,7 @@ export interface SplunkRetryOptions {
 }
 
 export namespace SplunkRetryOptions {
-  export const filterSensitiveLog = (obj: SplunkRetryOptions) => ({
+  export const filterSensitiveLog = (obj: SplunkRetryOptions): any => ({
     ...obj
   });
   export const isa = (o: any): o is SplunkRetryOptions =>
@@ -3391,7 +3421,7 @@ export interface StartDeliveryStreamEncryptionInput {
 export namespace StartDeliveryStreamEncryptionInput {
   export const filterSensitiveLog = (
     obj: StartDeliveryStreamEncryptionInput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.DeliveryStreamEncryptionConfigurationInput && {
       DeliveryStreamEncryptionConfigurationInput: DeliveryStreamEncryptionConfigurationInput.filterSensitiveLog(
@@ -3410,7 +3440,7 @@ export interface StartDeliveryStreamEncryptionOutput {
 export namespace StartDeliveryStreamEncryptionOutput {
   export const filterSensitiveLog = (
     obj: StartDeliveryStreamEncryptionOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartDeliveryStreamEncryptionOutput =>
@@ -3429,7 +3459,7 @@ export interface StopDeliveryStreamEncryptionInput {
 export namespace StopDeliveryStreamEncryptionInput {
   export const filterSensitiveLog = (
     obj: StopDeliveryStreamEncryptionInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopDeliveryStreamEncryptionInput =>
@@ -3443,7 +3473,7 @@ export interface StopDeliveryStreamEncryptionOutput {
 export namespace StopDeliveryStreamEncryptionOutput {
   export const filterSensitiveLog = (
     obj: StopDeliveryStreamEncryptionOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopDeliveryStreamEncryptionOutput =>
@@ -3467,7 +3497,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -3487,7 +3517,7 @@ export interface TagDeliveryStreamInput {
 }
 
 export namespace TagDeliveryStreamInput {
-  export const filterSensitiveLog = (obj: TagDeliveryStreamInput) => ({
+  export const filterSensitiveLog = (obj: TagDeliveryStreamInput): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -3500,7 +3530,7 @@ export interface TagDeliveryStreamOutput {
 }
 
 export namespace TagDeliveryStreamOutput {
-  export const filterSensitiveLog = (obj: TagDeliveryStreamOutput) => ({
+  export const filterSensitiveLog = (obj: TagDeliveryStreamOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagDeliveryStreamOutput =>
@@ -3521,7 +3551,7 @@ export interface UntagDeliveryStreamInput {
 }
 
 export namespace UntagDeliveryStreamInput {
-  export const filterSensitiveLog = (obj: UntagDeliveryStreamInput) => ({
+  export const filterSensitiveLog = (obj: UntagDeliveryStreamInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagDeliveryStreamInput =>
@@ -3533,7 +3563,7 @@ export interface UntagDeliveryStreamOutput {
 }
 
 export namespace UntagDeliveryStreamOutput {
-  export const filterSensitiveLog = (obj: UntagDeliveryStreamOutput) => ({
+  export const filterSensitiveLog = (obj: UntagDeliveryStreamOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagDeliveryStreamOutput =>
@@ -3588,7 +3618,7 @@ export interface UpdateDestinationInput {
 }
 
 export namespace UpdateDestinationInput {
-  export const filterSensitiveLog = (obj: UpdateDestinationInput) => ({
+  export const filterSensitiveLog = (obj: UpdateDestinationInput): any => ({
     ...obj,
     ...(obj.ElasticsearchDestinationUpdate && {
       ElasticsearchDestinationUpdate: ElasticsearchDestinationUpdate.filterSensitiveLog(
@@ -3625,7 +3655,7 @@ export interface UpdateDestinationOutput {
 }
 
 export namespace UpdateDestinationOutput {
-  export const filterSensitiveLog = (obj: UpdateDestinationOutput) => ({
+  export const filterSensitiveLog = (obj: UpdateDestinationOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateDestinationOutput =>

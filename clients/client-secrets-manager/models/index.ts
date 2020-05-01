@@ -26,7 +26,7 @@ export interface CancelRotateSecretRequest {
 }
 
 export namespace CancelRotateSecretRequest {
-  export const filterSensitiveLog = (obj: CancelRotateSecretRequest) => ({
+  export const filterSensitiveLog = (obj: CancelRotateSecretRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CancelRotateSecretRequest =>
@@ -56,7 +56,7 @@ export interface CancelRotateSecretResponse {
 }
 
 export namespace CancelRotateSecretResponse {
-  export const filterSensitiveLog = (obj: CancelRotateSecretResponse) => ({
+  export const filterSensitiveLog = (obj: CancelRotateSecretResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CancelRotateSecretResponse =>
@@ -230,7 +230,7 @@ export interface CreateSecretRequest {
 }
 
 export namespace CreateSecretRequest {
-  export const filterSensitiveLog = (obj: CreateSecretRequest) => ({
+  export const filterSensitiveLog = (obj: CreateSecretRequest): any => ({
     ...obj,
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
     ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
@@ -267,7 +267,7 @@ export interface CreateSecretResponse {
 }
 
 export namespace CreateSecretResponse {
-  export const filterSensitiveLog = (obj: CreateSecretResponse) => ({
+  export const filterSensitiveLog = (obj: CreateSecretResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateSecretResponse =>
@@ -284,7 +284,7 @@ export interface DecryptionFailure extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DecryptionFailure {
-  export const filterSensitiveLog = (obj: DecryptionFailure) => ({
+  export const filterSensitiveLog = (obj: DecryptionFailure): any => ({
     ...obj
   });
   export const isa = (o: any): o is DecryptionFailure =>
@@ -312,7 +312,9 @@ export interface DeleteResourcePolicyRequest {
 }
 
 export namespace DeleteResourcePolicyRequest {
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteResourcePolicyRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteResourcePolicyRequest =>
@@ -333,7 +335,9 @@ export interface DeleteResourcePolicyResponse {
 }
 
 export namespace DeleteResourcePolicyResponse {
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteResourcePolicyResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteResourcePolicyResponse =>
@@ -387,7 +391,7 @@ export interface DeleteSecretRequest {
 }
 
 export namespace DeleteSecretRequest {
-  export const filterSensitiveLog = (obj: DeleteSecretRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteSecretRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteSecretRequest =>
@@ -415,7 +419,7 @@ export interface DeleteSecretResponse {
 }
 
 export namespace DeleteSecretResponse {
-  export const filterSensitiveLog = (obj: DeleteSecretResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteSecretResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteSecretResponse =>
@@ -443,7 +447,7 @@ export interface DescribeSecretRequest {
 }
 
 export namespace DescribeSecretRequest {
-  export const filterSensitiveLog = (obj: DescribeSecretRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeSecretRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeSecretRequest =>
@@ -540,7 +544,7 @@ export interface DescribeSecretResponse {
 }
 
 export namespace DescribeSecretResponse {
-  export const filterSensitiveLog = (obj: DescribeSecretResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeSecretResponse): any => ({
     ...obj,
     ...(obj.RotationRules && {
       RotationRules: RotationRulesType.filterSensitiveLog(obj.RotationRules)
@@ -564,7 +568,7 @@ export interface EncryptionFailure extends __SmithyException, $MetadataBearer {
 }
 
 export namespace EncryptionFailure {
-  export const filterSensitiveLog = (obj: EncryptionFailure) => ({
+  export const filterSensitiveLog = (obj: EncryptionFailure): any => ({
     ...obj
   });
   export const isa = (o: any): o is EncryptionFailure =>
@@ -632,7 +636,7 @@ export interface GetRandomPasswordRequest {
 }
 
 export namespace GetRandomPasswordRequest {
-  export const filterSensitiveLog = (obj: GetRandomPasswordRequest) => ({
+  export const filterSensitiveLog = (obj: GetRandomPasswordRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetRandomPasswordRequest =>
@@ -648,7 +652,7 @@ export interface GetRandomPasswordResponse {
 }
 
 export namespace GetRandomPasswordResponse {
-  export const filterSensitiveLog = (obj: GetRandomPasswordResponse) => ({
+  export const filterSensitiveLog = (obj: GetRandomPasswordResponse): any => ({
     ...obj,
     ...(obj.RandomPassword && { RandomPassword: SENSITIVE_STRING })
   });
@@ -677,7 +681,7 @@ export interface GetResourcePolicyRequest {
 }
 
 export namespace GetResourcePolicyRequest {
-  export const filterSensitiveLog = (obj: GetResourcePolicyRequest) => ({
+  export const filterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetResourcePolicyRequest =>
@@ -707,7 +711,7 @@ export interface GetResourcePolicyResponse {
 }
 
 export namespace GetResourcePolicyResponse {
-  export const filterSensitiveLog = (obj: GetResourcePolicyResponse) => ({
+  export const filterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetResourcePolicyResponse =>
@@ -757,7 +761,7 @@ export interface GetSecretValueRequest {
 }
 
 export namespace GetSecretValueRequest {
-  export const filterSensitiveLog = (obj: GetSecretValueRequest) => ({
+  export const filterSensitiveLog = (obj: GetSecretValueRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetSecretValueRequest =>
@@ -820,7 +824,7 @@ export interface GetSecretValueResponse {
 }
 
 export namespace GetSecretValueResponse {
-  export const filterSensitiveLog = (obj: GetSecretValueResponse) => ({
+  export const filterSensitiveLog = (obj: GetSecretValueResponse): any => ({
     ...obj,
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
     ...(obj.SecretString && { SecretString: SENSITIVE_STRING })
@@ -841,7 +845,7 @@ export interface InternalServiceError
 }
 
 export namespace InternalServiceError {
-  export const filterSensitiveLog = (obj: InternalServiceError) => ({
+  export const filterSensitiveLog = (obj: InternalServiceError): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServiceError =>
@@ -860,7 +864,7 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export const filterSensitiveLog = (obj: InvalidNextTokenException) => ({
+  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidNextTokenException =>
@@ -879,7 +883,7 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export const filterSensitiveLog = (obj: InvalidParameterException) => ({
+  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidParameterException =>
@@ -909,7 +913,7 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const filterSensitiveLog = (obj: InvalidRequestException) => ({
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidRequestException =>
@@ -928,7 +932,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -983,7 +987,9 @@ export interface ListSecretVersionIdsRequest {
 }
 
 export namespace ListSecretVersionIdsRequest {
-  export const filterSensitiveLog = (obj: ListSecretVersionIdsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListSecretVersionIdsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListSecretVersionIdsRequest =>
@@ -1027,7 +1033,9 @@ export interface ListSecretVersionIdsResponse {
 }
 
 export namespace ListSecretVersionIdsResponse {
-  export const filterSensitiveLog = (obj: ListSecretVersionIdsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListSecretVersionIdsResponse
+  ): any => ({
     ...obj,
     ...(obj.Versions && {
       Versions: obj.Versions.map(SecretVersionsListEntry.filterSensitiveLog)
@@ -1061,7 +1069,7 @@ export interface ListSecretsRequest {
 }
 
 export namespace ListSecretsRequest {
-  export const filterSensitiveLog = (obj: ListSecretsRequest) => ({
+  export const filterSensitiveLog = (obj: ListSecretsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListSecretsRequest =>
@@ -1088,7 +1096,7 @@ export interface ListSecretsResponse {
 }
 
 export namespace ListSecretsResponse {
-  export const filterSensitiveLog = (obj: ListSecretsResponse) => ({
+  export const filterSensitiveLog = (obj: ListSecretsResponse): any => ({
     ...obj,
     ...(obj.SecretList && {
       SecretList: obj.SecretList.map(SecretListEntry.filterSensitiveLog)
@@ -1112,7 +1120,7 @@ export interface MalformedPolicyDocumentException
 export namespace MalformedPolicyDocumentException {
   export const filterSensitiveLog = (
     obj: MalformedPolicyDocumentException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is MalformedPolicyDocumentException =>
@@ -1131,7 +1139,9 @@ export interface PreconditionNotMetException
 }
 
 export namespace PreconditionNotMetException {
-  export const filterSensitiveLog = (obj: PreconditionNotMetException) => ({
+  export const filterSensitiveLog = (
+    obj: PreconditionNotMetException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is PreconditionNotMetException =>
@@ -1168,7 +1178,7 @@ export interface PutResourcePolicyRequest {
 }
 
 export namespace PutResourcePolicyRequest {
-  export const filterSensitiveLog = (obj: PutResourcePolicyRequest) => ({
+  export const filterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutResourcePolicyRequest =>
@@ -1189,7 +1199,7 @@ export interface PutResourcePolicyResponse {
 }
 
 export namespace PutResourcePolicyResponse {
-  export const filterSensitiveLog = (obj: PutResourcePolicyResponse) => ({
+  export const filterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutResourcePolicyResponse =>
@@ -1298,7 +1308,7 @@ export interface PutSecretValueRequest {
 }
 
 export namespace PutSecretValueRequest {
-  export const filterSensitiveLog = (obj: PutSecretValueRequest) => ({
+  export const filterSensitiveLog = (obj: PutSecretValueRequest): any => ({
     ...obj,
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
     ...(obj.SecretString && { SecretString: SENSITIVE_STRING })
@@ -1333,7 +1343,7 @@ export interface PutSecretValueResponse {
 }
 
 export namespace PutSecretValueResponse {
-  export const filterSensitiveLog = (obj: PutSecretValueResponse) => ({
+  export const filterSensitiveLog = (obj: PutSecretValueResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutSecretValueResponse =>
@@ -1352,7 +1362,7 @@ export interface ResourceExistsException
 }
 
 export namespace ResourceExistsException {
-  export const filterSensitiveLog = (obj: ResourceExistsException) => ({
+  export const filterSensitiveLog = (obj: ResourceExistsException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceExistsException =>
@@ -1371,7 +1381,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -1399,7 +1409,7 @@ export interface RestoreSecretRequest {
 }
 
 export namespace RestoreSecretRequest {
-  export const filterSensitiveLog = (obj: RestoreSecretRequest) => ({
+  export const filterSensitiveLog = (obj: RestoreSecretRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is RestoreSecretRequest =>
@@ -1420,7 +1430,7 @@ export interface RestoreSecretResponse {
 }
 
 export namespace RestoreSecretResponse {
-  export const filterSensitiveLog = (obj: RestoreSecretResponse) => ({
+  export const filterSensitiveLog = (obj: RestoreSecretResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is RestoreSecretResponse =>
@@ -1477,7 +1487,7 @@ export interface RotateSecretRequest {
 }
 
 export namespace RotateSecretRequest {
-  export const filterSensitiveLog = (obj: RotateSecretRequest) => ({
+  export const filterSensitiveLog = (obj: RotateSecretRequest): any => ({
     ...obj,
     ...(obj.RotationRules && {
       RotationRules: RotationRulesType.filterSensitiveLog(obj.RotationRules)
@@ -1507,7 +1517,7 @@ export interface RotateSecretResponse {
 }
 
 export namespace RotateSecretResponse {
-  export const filterSensitiveLog = (obj: RotateSecretResponse) => ({
+  export const filterSensitiveLog = (obj: RotateSecretResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is RotateSecretResponse =>
@@ -1531,7 +1541,7 @@ export interface RotationRulesType {
 }
 
 export namespace RotationRulesType {
-  export const filterSensitiveLog = (obj: RotationRulesType) => ({
+  export const filterSensitiveLog = (obj: RotationRulesType): any => ({
     ...obj
   });
   export const isa = (o: any): o is RotationRulesType =>
@@ -1632,7 +1642,7 @@ export interface SecretListEntry {
 }
 
 export namespace SecretListEntry {
-  export const filterSensitiveLog = (obj: SecretListEntry) => ({
+  export const filterSensitiveLog = (obj: SecretListEntry): any => ({
     ...obj,
     ...(obj.RotationRules && {
       RotationRules: RotationRulesType.filterSensitiveLog(obj.RotationRules)
@@ -1672,7 +1682,7 @@ export interface SecretVersionsListEntry {
 }
 
 export namespace SecretVersionsListEntry {
-  export const filterSensitiveLog = (obj: SecretVersionsListEntry) => ({
+  export const filterSensitiveLog = (obj: SecretVersionsListEntry): any => ({
     ...obj
   });
   export const isa = (o: any): o is SecretVersionsListEntry =>
@@ -1696,7 +1706,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -1734,7 +1744,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1771,7 +1781,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>
@@ -1888,7 +1898,7 @@ export interface UpdateSecretRequest {
 }
 
 export namespace UpdateSecretRequest {
-  export const filterSensitiveLog = (obj: UpdateSecretRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateSecretRequest): any => ({
     ...obj,
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
     ...(obj.SecretString && { SecretString: SENSITIVE_STRING })
@@ -1924,7 +1934,7 @@ export interface UpdateSecretResponse {
 }
 
 export namespace UpdateSecretResponse {
-  export const filterSensitiveLog = (obj: UpdateSecretResponse) => ({
+  export const filterSensitiveLog = (obj: UpdateSecretResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateSecretResponse =>
@@ -1974,7 +1984,9 @@ export interface UpdateSecretVersionStageRequest {
 }
 
 export namespace UpdateSecretVersionStageRequest {
-  export const filterSensitiveLog = (obj: UpdateSecretVersionStageRequest) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateSecretVersionStageRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateSecretVersionStageRequest =>
@@ -1997,7 +2009,7 @@ export interface UpdateSecretVersionStageResponse {
 export namespace UpdateSecretVersionStageResponse {
   export const filterSensitiveLog = (
     obj: UpdateSecretVersionStageResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateSecretVersionStageResponse =>

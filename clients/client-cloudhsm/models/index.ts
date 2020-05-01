@@ -19,7 +19,7 @@ export interface AddTagsToResourceRequest {
 }
 
 export namespace AddTagsToResourceRequest {
-  export const filterSensitiveLog = (obj: AddTagsToResourceRequest) => ({
+  export const filterSensitiveLog = (obj: AddTagsToResourceRequest): any => ({
     ...obj,
     ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
   });
@@ -36,7 +36,7 @@ export interface AddTagsToResourceResponse {
 }
 
 export namespace AddTagsToResourceResponse {
-  export const filterSensitiveLog = (obj: AddTagsToResourceResponse) => ({
+  export const filterSensitiveLog = (obj: AddTagsToResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is AddTagsToResourceResponse =>
@@ -68,7 +68,7 @@ export interface CloudHsmInternalException
 }
 
 export namespace CloudHsmInternalException {
-  export const filterSensitiveLog = (obj: CloudHsmInternalException) => ({
+  export const filterSensitiveLog = (obj: CloudHsmInternalException): any => ({
     ...obj
   });
   export const isa = (o: any): o is CloudHsmInternalException =>
@@ -101,7 +101,7 @@ export interface CloudHsmServiceException
 }
 
 export namespace CloudHsmServiceException {
-  export const filterSensitiveLog = (obj: CloudHsmServiceException) => ({
+  export const filterSensitiveLog = (obj: CloudHsmServiceException): any => ({
     ...obj
   });
   export const isa = (o: any): o is CloudHsmServiceException =>
@@ -120,7 +120,7 @@ export interface CreateHapgRequest {
 }
 
 export namespace CreateHapgRequest {
-  export const filterSensitiveLog = (obj: CreateHapgRequest) => ({
+  export const filterSensitiveLog = (obj: CreateHapgRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateHapgRequest =>
@@ -139,7 +139,7 @@ export interface CreateHapgResponse {
 }
 
 export namespace CreateHapgResponse {
-  export const filterSensitiveLog = (obj: CreateHapgResponse) => ({
+  export const filterSensitiveLog = (obj: CreateHapgResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateHapgResponse =>
@@ -210,7 +210,7 @@ export interface CreateHsmRequest {
 }
 
 export namespace CreateHsmRequest {
-  export const filterSensitiveLog = (obj: CreateHsmRequest) => ({
+  export const filterSensitiveLog = (obj: CreateHsmRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateHsmRequest =>
@@ -229,7 +229,7 @@ export interface CreateHsmResponse {
 }
 
 export namespace CreateHsmResponse {
-  export const filterSensitiveLog = (obj: CreateHsmResponse) => ({
+  export const filterSensitiveLog = (obj: CreateHsmResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateHsmResponse =>
@@ -254,7 +254,7 @@ export interface CreateLunaClientRequest {
 }
 
 export namespace CreateLunaClientRequest {
-  export const filterSensitiveLog = (obj: CreateLunaClientRequest) => ({
+  export const filterSensitiveLog = (obj: CreateLunaClientRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateLunaClientRequest =>
@@ -273,7 +273,7 @@ export interface CreateLunaClientResponse {
 }
 
 export namespace CreateLunaClientResponse {
-  export const filterSensitiveLog = (obj: CreateLunaClientResponse) => ({
+  export const filterSensitiveLog = (obj: CreateLunaClientResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateLunaClientResponse =>
@@ -292,7 +292,7 @@ export interface DeleteHapgRequest {
 }
 
 export namespace DeleteHapgRequest {
-  export const filterSensitiveLog = (obj: DeleteHapgRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteHapgRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteHapgRequest =>
@@ -311,7 +311,7 @@ export interface DeleteHapgResponse {
 }
 
 export namespace DeleteHapgResponse {
-  export const filterSensitiveLog = (obj: DeleteHapgResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteHapgResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteHapgResponse =>
@@ -330,7 +330,7 @@ export interface DeleteHsmRequest {
 }
 
 export namespace DeleteHsmRequest {
-  export const filterSensitiveLog = (obj: DeleteHsmRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteHsmRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteHsmRequest =>
@@ -349,7 +349,7 @@ export interface DeleteHsmResponse {
 }
 
 export namespace DeleteHsmResponse {
-  export const filterSensitiveLog = (obj: DeleteHsmResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteHsmResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteHsmResponse =>
@@ -365,7 +365,7 @@ export interface DeleteLunaClientRequest {
 }
 
 export namespace DeleteLunaClientRequest {
-  export const filterSensitiveLog = (obj: DeleteLunaClientRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteLunaClientRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteLunaClientRequest =>
@@ -381,7 +381,7 @@ export interface DeleteLunaClientResponse {
 }
 
 export namespace DeleteLunaClientResponse {
-  export const filterSensitiveLog = (obj: DeleteLunaClientResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteLunaClientResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteLunaClientResponse =>
@@ -400,7 +400,7 @@ export interface DescribeHapgRequest {
 }
 
 export namespace DescribeHapgRequest {
-  export const filterSensitiveLog = (obj: DescribeHapgRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeHapgRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeHapgRequest =>
@@ -460,7 +460,7 @@ export interface DescribeHapgResponse {
 }
 
 export namespace DescribeHapgResponse {
-  export const filterSensitiveLog = (obj: DescribeHapgResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeHapgResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeHapgResponse =>
@@ -486,7 +486,7 @@ export interface DescribeHsmRequest {
 }
 
 export namespace DescribeHsmRequest {
-  export const filterSensitiveLog = (obj: DescribeHsmRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeHsmRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeHsmRequest =>
@@ -617,7 +617,7 @@ export interface DescribeHsmResponse {
 }
 
 export namespace DescribeHsmResponse {
-  export const filterSensitiveLog = (obj: DescribeHsmResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeHsmResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeHsmResponse =>
@@ -638,7 +638,7 @@ export interface DescribeLunaClientRequest {
 }
 
 export namespace DescribeLunaClientRequest {
-  export const filterSensitiveLog = (obj: DescribeLunaClientRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeLunaClientRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeLunaClientRequest =>
@@ -674,7 +674,7 @@ export interface DescribeLunaClientResponse {
 }
 
 export namespace DescribeLunaClientResponse {
-  export const filterSensitiveLog = (obj: DescribeLunaClientResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeLunaClientResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeLunaClientResponse =>
@@ -701,7 +701,7 @@ export interface GetConfigRequest {
 }
 
 export namespace GetConfigRequest {
-  export const filterSensitiveLog = (obj: GetConfigRequest) => ({
+  export const filterSensitiveLog = (obj: GetConfigRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetConfigRequest =>
@@ -727,7 +727,7 @@ export interface GetConfigResponse {
 }
 
 export namespace GetConfigResponse {
-  export const filterSensitiveLog = (obj: GetConfigResponse) => ({
+  export const filterSensitiveLog = (obj: GetConfigResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetConfigResponse =>
@@ -764,7 +764,7 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const filterSensitiveLog = (obj: InvalidRequestException) => ({
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidRequestException =>
@@ -779,7 +779,7 @@ export interface ListAvailableZonesRequest {
 }
 
 export namespace ListAvailableZonesRequest {
-  export const filterSensitiveLog = (obj: ListAvailableZonesRequest) => ({
+  export const filterSensitiveLog = (obj: ListAvailableZonesRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListAvailableZonesRequest =>
@@ -795,7 +795,7 @@ export interface ListAvailableZonesResponse {
 }
 
 export namespace ListAvailableZonesResponse {
-  export const filterSensitiveLog = (obj: ListAvailableZonesResponse) => ({
+  export const filterSensitiveLog = (obj: ListAvailableZonesResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListAvailableZonesResponse =>
@@ -812,7 +812,7 @@ export interface ListHapgsRequest {
 }
 
 export namespace ListHapgsRequest {
-  export const filterSensitiveLog = (obj: ListHapgsRequest) => ({
+  export const filterSensitiveLog = (obj: ListHapgsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListHapgsRequest =>
@@ -834,7 +834,7 @@ export interface ListHapgsResponse {
 }
 
 export namespace ListHapgsResponse {
-  export const filterSensitiveLog = (obj: ListHapgsResponse) => ({
+  export const filterSensitiveLog = (obj: ListHapgsResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListHapgsResponse =>
@@ -851,7 +851,7 @@ export interface ListHsmsRequest {
 }
 
 export namespace ListHsmsRequest {
-  export const filterSensitiveLog = (obj: ListHsmsRequest) => ({
+  export const filterSensitiveLog = (obj: ListHsmsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListHsmsRequest =>
@@ -876,7 +876,7 @@ export interface ListHsmsResponse {
 }
 
 export namespace ListHsmsResponse {
-  export const filterSensitiveLog = (obj: ListHsmsResponse) => ({
+  export const filterSensitiveLog = (obj: ListHsmsResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListHsmsResponse =>
@@ -893,7 +893,7 @@ export interface ListLunaClientsRequest {
 }
 
 export namespace ListLunaClientsRequest {
-  export const filterSensitiveLog = (obj: ListLunaClientsRequest) => ({
+  export const filterSensitiveLog = (obj: ListLunaClientsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListLunaClientsRequest =>
@@ -915,7 +915,7 @@ export interface ListLunaClientsResponse {
 }
 
 export namespace ListLunaClientsResponse {
-  export const filterSensitiveLog = (obj: ListLunaClientsResponse) => ({
+  export const filterSensitiveLog = (obj: ListLunaClientsResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListLunaClientsResponse =>
@@ -931,7 +931,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
@@ -947,7 +947,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
     ...obj,
     ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
   });
@@ -975,7 +977,7 @@ export interface ModifyHapgRequest {
 }
 
 export namespace ModifyHapgRequest {
-  export const filterSensitiveLog = (obj: ModifyHapgRequest) => ({
+  export const filterSensitiveLog = (obj: ModifyHapgRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyHapgRequest =>
@@ -991,7 +993,7 @@ export interface ModifyHapgResponse {
 }
 
 export namespace ModifyHapgResponse {
-  export const filterSensitiveLog = (obj: ModifyHapgResponse) => ({
+  export const filterSensitiveLog = (obj: ModifyHapgResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyHapgResponse =>
@@ -1040,7 +1042,7 @@ export interface ModifyHsmRequest {
 }
 
 export namespace ModifyHsmRequest {
-  export const filterSensitiveLog = (obj: ModifyHsmRequest) => ({
+  export const filterSensitiveLog = (obj: ModifyHsmRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyHsmRequest =>
@@ -1059,7 +1061,7 @@ export interface ModifyHsmResponse {
 }
 
 export namespace ModifyHsmResponse {
-  export const filterSensitiveLog = (obj: ModifyHsmResponse) => ({
+  export const filterSensitiveLog = (obj: ModifyHsmResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyHsmResponse =>
@@ -1080,7 +1082,7 @@ export interface ModifyLunaClientRequest {
 }
 
 export namespace ModifyLunaClientRequest {
-  export const filterSensitiveLog = (obj: ModifyLunaClientRequest) => ({
+  export const filterSensitiveLog = (obj: ModifyLunaClientRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyLunaClientRequest =>
@@ -1096,7 +1098,7 @@ export interface ModifyLunaClientResponse {
 }
 
 export namespace ModifyLunaClientResponse {
-  export const filterSensitiveLog = (obj: ModifyLunaClientResponse) => ({
+  export const filterSensitiveLog = (obj: ModifyLunaClientResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyLunaClientResponse =>
@@ -1119,7 +1121,9 @@ export interface RemoveTagsFromResourceRequest {
 }
 
 export namespace RemoveTagsFromResourceRequest {
-  export const filterSensitiveLog = (obj: RemoveTagsFromResourceRequest) => ({
+  export const filterSensitiveLog = (
+    obj: RemoveTagsFromResourceRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is RemoveTagsFromResourceRequest =>
@@ -1135,7 +1139,9 @@ export interface RemoveTagsFromResourceResponse {
 }
 
 export namespace RemoveTagsFromResourceResponse {
-  export const filterSensitiveLog = (obj: RemoveTagsFromResourceResponse) => ({
+  export const filterSensitiveLog = (
+    obj: RemoveTagsFromResourceResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is RemoveTagsFromResourceResponse =>
@@ -1164,7 +1170,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");

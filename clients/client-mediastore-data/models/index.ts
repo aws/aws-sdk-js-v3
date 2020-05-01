@@ -18,7 +18,7 @@ export interface ContainerNotFoundException
 }
 
 export namespace ContainerNotFoundException {
-  export const filterSensitiveLog = (obj: ContainerNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ContainerNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ContainerNotFoundException =>
@@ -35,7 +35,7 @@ export interface DeleteObjectRequest {
 }
 
 export namespace DeleteObjectRequest {
-  export const filterSensitiveLog = (obj: DeleteObjectRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteObjectRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteObjectRequest =>
@@ -47,7 +47,7 @@ export interface DeleteObjectResponse {
 }
 
 export namespace DeleteObjectResponse {
-  export const filterSensitiveLog = (obj: DeleteObjectResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteObjectResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteObjectResponse =>
@@ -64,7 +64,7 @@ export interface DescribeObjectRequest {
 }
 
 export namespace DescribeObjectRequest {
-  export const filterSensitiveLog = (obj: DescribeObjectRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeObjectRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeObjectRequest =>
@@ -102,7 +102,7 @@ export interface DescribeObjectResponse {
 }
 
 export namespace DescribeObjectResponse {
-  export const filterSensitiveLog = (obj: DescribeObjectResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeObjectResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeObjectResponse =>
@@ -141,7 +141,7 @@ export interface GetObjectRequest {
 }
 
 export namespace GetObjectRequest {
-  export const filterSensitiveLog = (obj: GetObjectRequest) => ({
+  export const filterSensitiveLog = (obj: GetObjectRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetObjectRequest =>
@@ -189,7 +189,7 @@ export interface GetObjectResponse {
 }
 
 export namespace GetObjectResponse {
-  export const filterSensitiveLog = (obj: GetObjectResponse) => ({
+  export const filterSensitiveLog = (obj: GetObjectResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetObjectResponse =>
@@ -208,7 +208,7 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export const filterSensitiveLog = (obj: InternalServerError) => ({
+  export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerError =>
@@ -252,7 +252,7 @@ export interface Item {
 }
 
 export namespace Item {
-  export const filterSensitiveLog = (obj: Item) => ({
+  export const filterSensitiveLog = (obj: Item): any => ({
     ...obj
   });
   export const isa = (o: any): o is Item => __isa(o, "Item");
@@ -295,7 +295,7 @@ export interface ListItemsRequest {
 }
 
 export namespace ListItemsRequest {
-  export const filterSensitiveLog = (obj: ListItemsRequest) => ({
+  export const filterSensitiveLog = (obj: ListItemsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListItemsRequest =>
@@ -320,7 +320,7 @@ export interface ListItemsResponse {
 }
 
 export namespace ListItemsResponse {
-  export const filterSensitiveLog = (obj: ListItemsResponse) => ({
+  export const filterSensitiveLog = (obj: ListItemsResponse): any => ({
     ...obj,
     ...(obj.Items && { Items: obj.Items.map(Item.filterSensitiveLog) })
   });
@@ -340,7 +340,7 @@ export interface ObjectNotFoundException
 }
 
 export namespace ObjectNotFoundException {
-  export const filterSensitiveLog = (obj: ObjectNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ObjectNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ObjectNotFoundException =>
@@ -397,7 +397,7 @@ export interface PutObjectRequest {
 }
 
 export namespace PutObjectRequest {
-  export const filterSensitiveLog = (obj: PutObjectRequest) => ({
+  export const filterSensitiveLog = (obj: PutObjectRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutObjectRequest =>
@@ -424,7 +424,7 @@ export interface PutObjectResponse {
 }
 
 export namespace PutObjectResponse {
-  export const filterSensitiveLog = (obj: PutObjectResponse) => ({
+  export const filterSensitiveLog = (obj: PutObjectResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutObjectResponse =>
@@ -445,7 +445,7 @@ export interface RequestedRangeNotSatisfiableException
 export namespace RequestedRangeNotSatisfiableException {
   export const filterSensitiveLog = (
     obj: RequestedRangeNotSatisfiableException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is RequestedRangeNotSatisfiableException =>

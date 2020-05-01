@@ -34,7 +34,9 @@ export interface GetPersonalizedRankingRequest {
 }
 
 export namespace GetPersonalizedRankingRequest {
-  export const filterSensitiveLog = (obj: GetPersonalizedRankingRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetPersonalizedRankingRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetPersonalizedRankingRequest =>
@@ -50,7 +52,9 @@ export interface GetPersonalizedRankingResponse {
 }
 
 export namespace GetPersonalizedRankingResponse {
-  export const filterSensitiveLog = (obj: GetPersonalizedRankingResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetPersonalizedRankingResponse
+  ): any => ({
     ...obj,
     ...(obj.personalizedRanking && {
       personalizedRanking: obj.personalizedRanking.map(
@@ -96,7 +100,7 @@ export interface GetRecommendationsRequest {
 }
 
 export namespace GetRecommendationsRequest {
-  export const filterSensitiveLog = (obj: GetRecommendationsRequest) => ({
+  export const filterSensitiveLog = (obj: GetRecommendationsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetRecommendationsRequest =>
@@ -113,7 +117,7 @@ export interface GetRecommendationsResponse {
 }
 
 export namespace GetRecommendationsResponse {
-  export const filterSensitiveLog = (obj: GetRecommendationsResponse) => ({
+  export const filterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
     ...obj,
     ...(obj.itemList && {
       itemList: obj.itemList.map(PredictedItem.filterSensitiveLog)
@@ -137,7 +141,7 @@ export interface PredictedItem {
 }
 
 export namespace PredictedItem {
-  export const filterSensitiveLog = (obj: PredictedItem) => ({
+  export const filterSensitiveLog = (obj: PredictedItem): any => ({
     ...obj
   });
   export const isa = (o: any): o is PredictedItem => __isa(o, "PredictedItem");
@@ -155,7 +159,7 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
-  export const filterSensitiveLog = (obj: InvalidInputException) => ({
+  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidInputException =>
@@ -174,7 +178,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>

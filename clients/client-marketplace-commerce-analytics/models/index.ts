@@ -175,7 +175,7 @@ export interface GenerateDataSetRequest {
 }
 
 export namespace GenerateDataSetRequest {
-  export const filterSensitiveLog = (obj: GenerateDataSetRequest) => ({
+  export const filterSensitiveLog = (obj: GenerateDataSetRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GenerateDataSetRequest =>
@@ -195,7 +195,7 @@ export interface GenerateDataSetResult {
 }
 
 export namespace GenerateDataSetResult {
-  export const filterSensitiveLog = (obj: GenerateDataSetResult) => ({
+  export const filterSensitiveLog = (obj: GenerateDataSetResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is GenerateDataSetResult =>
@@ -219,7 +219,7 @@ export interface MarketplaceCommerceAnalyticsException
 export namespace MarketplaceCommerceAnalyticsException {
   export const filterSensitiveLog = (
     obj: MarketplaceCommerceAnalyticsException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is MarketplaceCommerceAnalyticsException =>
@@ -286,7 +286,9 @@ export interface StartSupportDataExportRequest {
 }
 
 export namespace StartSupportDataExportRequest {
-  export const filterSensitiveLog = (obj: StartSupportDataExportRequest) => ({
+  export const filterSensitiveLog = (
+    obj: StartSupportDataExportRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartSupportDataExportRequest =>
@@ -306,7 +308,9 @@ export interface StartSupportDataExportResult {
 }
 
 export namespace StartSupportDataExportResult {
-  export const filterSensitiveLog = (obj: StartSupportDataExportResult) => ({
+  export const filterSensitiveLog = (
+    obj: StartSupportDataExportResult
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartSupportDataExportResult =>

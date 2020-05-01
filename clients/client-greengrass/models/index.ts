@@ -19,7 +19,9 @@ export interface AssociateRoleToGroupRequest {
 }
 
 export namespace AssociateRoleToGroupRequest {
-  export const filterSensitiveLog = (obj: AssociateRoleToGroupRequest) => ({
+  export const filterSensitiveLog = (
+    obj: AssociateRoleToGroupRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateRoleToGroupRequest =>
@@ -35,7 +37,9 @@ export interface AssociateRoleToGroupResponse {
 }
 
 export namespace AssociateRoleToGroupResponse {
-  export const filterSensitiveLog = (obj: AssociateRoleToGroupResponse) => ({
+  export const filterSensitiveLog = (
+    obj: AssociateRoleToGroupResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateRoleToGroupResponse =>
@@ -53,7 +57,7 @@ export interface AssociateServiceRoleToAccountRequest {
 export namespace AssociateServiceRoleToAccountRequest {
   export const filterSensitiveLog = (
     obj: AssociateServiceRoleToAccountRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateServiceRoleToAccountRequest =>
@@ -71,7 +75,7 @@ export interface AssociateServiceRoleToAccountResponse {
 export namespace AssociateServiceRoleToAccountResponse {
   export const filterSensitiveLog = (
     obj: AssociateServiceRoleToAccountResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateServiceRoleToAccountResponse =>
@@ -98,7 +102,7 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export const filterSensitiveLog = (obj: BadRequestException) => ({
+  export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
     ...(obj.ErrorDetails && {
       ErrorDetails: obj.ErrorDetails.map(ErrorDetail.filterSensitiveLog)
@@ -130,7 +134,7 @@ export interface BulkDeployment {
 }
 
 export namespace BulkDeployment {
-  export const filterSensitiveLog = (obj: BulkDeployment) => ({
+  export const filterSensitiveLog = (obj: BulkDeployment): any => ({
     ...obj
   });
   export const isa = (o: any): o is BulkDeployment =>
@@ -159,7 +163,7 @@ export interface BulkDeploymentMetrics {
 }
 
 export namespace BulkDeploymentMetrics {
-  export const filterSensitiveLog = (obj: BulkDeploymentMetrics) => ({
+  export const filterSensitiveLog = (obj: BulkDeploymentMetrics): any => ({
     ...obj
   });
   export const isa = (o: any): o is BulkDeploymentMetrics =>
@@ -213,7 +217,7 @@ export interface BulkDeploymentResult {
 }
 
 export namespace BulkDeploymentResult {
-  export const filterSensitiveLog = (obj: BulkDeploymentResult) => ({
+  export const filterSensitiveLog = (obj: BulkDeploymentResult): any => ({
     ...obj,
     ...(obj.ErrorDetails && {
       ErrorDetails: obj.ErrorDetails.map(ErrorDetail.filterSensitiveLog)
@@ -259,7 +263,7 @@ export interface ConnectivityInfo {
 }
 
 export namespace ConnectivityInfo {
-  export const filterSensitiveLog = (obj: ConnectivityInfo) => ({
+  export const filterSensitiveLog = (obj: ConnectivityInfo): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConnectivityInfo =>
@@ -288,7 +292,7 @@ export interface Connector {
 }
 
 export namespace Connector {
-  export const filterSensitiveLog = (obj: Connector) => ({
+  export const filterSensitiveLog = (obj: Connector): any => ({
     ...obj
   });
   export const isa = (o: any): o is Connector => __isa(o, "Connector");
@@ -306,7 +310,7 @@ export interface ConnectorDefinitionVersion {
 }
 
 export namespace ConnectorDefinitionVersion {
-  export const filterSensitiveLog = (obj: ConnectorDefinitionVersion) => ({
+  export const filterSensitiveLog = (obj: ConnectorDefinitionVersion): any => ({
     ...obj,
     ...(obj.Connectors && {
       Connectors: obj.Connectors.map(Connector.filterSensitiveLog)
@@ -343,7 +347,7 @@ export interface Core {
 }
 
 export namespace Core {
-  export const filterSensitiveLog = (obj: Core) => ({
+  export const filterSensitiveLog = (obj: Core): any => ({
     ...obj
   });
   export const isa = (o: any): o is Core => __isa(o, "Core");
@@ -361,7 +365,7 @@ export interface CoreDefinitionVersion {
 }
 
 export namespace CoreDefinitionVersion {
-  export const filterSensitiveLog = (obj: CoreDefinitionVersion) => ({
+  export const filterSensitiveLog = (obj: CoreDefinitionVersion): any => ({
     ...obj,
     ...(obj.Cores && { Cores: obj.Cores.map(Core.filterSensitiveLog) })
   });
@@ -395,7 +399,7 @@ export interface CreateConnectorDefinitionRequest {
 export namespace CreateConnectorDefinitionRequest {
   export const filterSensitiveLog = (
     obj: CreateConnectorDefinitionRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.InitialVersion && {
       InitialVersion: ConnectorDefinitionVersion.filterSensitiveLog(
@@ -448,7 +452,7 @@ export interface CreateConnectorDefinitionResponse {
 export namespace CreateConnectorDefinitionResponse {
   export const filterSensitiveLog = (
     obj: CreateConnectorDefinitionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateConnectorDefinitionResponse =>
@@ -476,7 +480,7 @@ export interface CreateConnectorDefinitionVersionRequest {
 export namespace CreateConnectorDefinitionVersionRequest {
   export const filterSensitiveLog = (
     obj: CreateConnectorDefinitionVersionRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Connectors && {
       Connectors: obj.Connectors.map(Connector.filterSensitiveLog)
@@ -512,7 +516,7 @@ export interface CreateConnectorDefinitionVersionResponse {
 export namespace CreateConnectorDefinitionVersionResponse {
   export const filterSensitiveLog = (
     obj: CreateConnectorDefinitionVersionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateConnectorDefinitionVersionResponse =>
@@ -546,7 +550,9 @@ export interface CreateCoreDefinitionRequest {
 }
 
 export namespace CreateCoreDefinitionRequest {
-  export const filterSensitiveLog = (obj: CreateCoreDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreateCoreDefinitionRequest
+  ): any => ({
     ...obj,
     ...(obj.InitialVersion && {
       InitialVersion: CoreDefinitionVersion.filterSensitiveLog(
@@ -597,7 +603,9 @@ export interface CreateCoreDefinitionResponse {
 }
 
 export namespace CreateCoreDefinitionResponse {
-  export const filterSensitiveLog = (obj: CreateCoreDefinitionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: CreateCoreDefinitionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateCoreDefinitionResponse =>
@@ -625,7 +633,7 @@ export interface CreateCoreDefinitionVersionRequest {
 export namespace CreateCoreDefinitionVersionRequest {
   export const filterSensitiveLog = (
     obj: CreateCoreDefinitionVersionRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Cores && { Cores: obj.Cores.map(Core.filterSensitiveLog) })
   });
@@ -659,7 +667,7 @@ export interface CreateCoreDefinitionVersionResponse {
 export namespace CreateCoreDefinitionVersionResponse {
   export const filterSensitiveLog = (
     obj: CreateCoreDefinitionVersionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateCoreDefinitionVersionResponse =>
@@ -695,7 +703,7 @@ export interface CreateDeploymentRequest {
 }
 
 export namespace CreateDeploymentRequest {
-  export const filterSensitiveLog = (obj: CreateDeploymentRequest) => ({
+  export const filterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateDeploymentRequest =>
@@ -716,7 +724,7 @@ export interface CreateDeploymentResponse {
 }
 
 export namespace CreateDeploymentResponse {
-  export const filterSensitiveLog = (obj: CreateDeploymentResponse) => ({
+  export const filterSensitiveLog = (obj: CreateDeploymentResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateDeploymentResponse =>
@@ -747,7 +755,9 @@ export interface CreateDeviceDefinitionRequest {
 }
 
 export namespace CreateDeviceDefinitionRequest {
-  export const filterSensitiveLog = (obj: CreateDeviceDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreateDeviceDefinitionRequest
+  ): any => ({
     ...obj,
     ...(obj.InitialVersion && {
       InitialVersion: DeviceDefinitionVersion.filterSensitiveLog(
@@ -798,7 +808,9 @@ export interface CreateDeviceDefinitionResponse {
 }
 
 export namespace CreateDeviceDefinitionResponse {
-  export const filterSensitiveLog = (obj: CreateDeviceDefinitionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: CreateDeviceDefinitionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateDeviceDefinitionResponse =>
@@ -826,7 +838,7 @@ export interface CreateDeviceDefinitionVersionRequest {
 export namespace CreateDeviceDefinitionVersionRequest {
   export const filterSensitiveLog = (
     obj: CreateDeviceDefinitionVersionRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Devices && { Devices: obj.Devices.map(Device.filterSensitiveLog) })
   });
@@ -860,7 +872,7 @@ export interface CreateDeviceDefinitionVersionResponse {
 export namespace CreateDeviceDefinitionVersionResponse {
   export const filterSensitiveLog = (
     obj: CreateDeviceDefinitionVersionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateDeviceDefinitionVersionResponse =>
@@ -891,7 +903,9 @@ export interface CreateFunctionDefinitionRequest {
 }
 
 export namespace CreateFunctionDefinitionRequest {
-  export const filterSensitiveLog = (obj: CreateFunctionDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreateFunctionDefinitionRequest
+  ): any => ({
     ...obj,
     ...(obj.InitialVersion && {
       InitialVersion: FunctionDefinitionVersion.filterSensitiveLog(
@@ -944,7 +958,7 @@ export interface CreateFunctionDefinitionResponse {
 export namespace CreateFunctionDefinitionResponse {
   export const filterSensitiveLog = (
     obj: CreateFunctionDefinitionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateFunctionDefinitionResponse =>
@@ -980,7 +994,7 @@ export interface CreateFunctionDefinitionVersionRequest {
 export namespace CreateFunctionDefinitionVersionRequest {
   export const filterSensitiveLog = (
     obj: CreateFunctionDefinitionVersionRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.DefaultConfig && {
       DefaultConfig: FunctionDefaultConfig.filterSensitiveLog(obj.DefaultConfig)
@@ -1019,7 +1033,7 @@ export interface CreateFunctionDefinitionVersionResponse {
 export namespace CreateFunctionDefinitionVersionResponse {
   export const filterSensitiveLog = (
     obj: CreateFunctionDefinitionVersionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateFunctionDefinitionVersionResponse =>
@@ -1042,7 +1056,7 @@ export interface CreateGroupCertificateAuthorityRequest {
 export namespace CreateGroupCertificateAuthorityRequest {
   export const filterSensitiveLog = (
     obj: CreateGroupCertificateAuthorityRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateGroupCertificateAuthorityRequest =>
@@ -1060,7 +1074,7 @@ export interface CreateGroupCertificateAuthorityResponse {
 export namespace CreateGroupCertificateAuthorityResponse {
   export const filterSensitiveLog = (
     obj: CreateGroupCertificateAuthorityResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateGroupCertificateAuthorityResponse =>
@@ -1091,7 +1105,7 @@ export interface CreateGroupRequest {
 }
 
 export namespace CreateGroupRequest {
-  export const filterSensitiveLog = (obj: CreateGroupRequest) => ({
+  export const filterSensitiveLog = (obj: CreateGroupRequest): any => ({
     ...obj,
     ...(obj.InitialVersion && {
       InitialVersion: GroupVersion.filterSensitiveLog(obj.InitialVersion)
@@ -1140,7 +1154,7 @@ export interface CreateGroupResponse {
 }
 
 export namespace CreateGroupResponse {
-  export const filterSensitiveLog = (obj: CreateGroupResponse) => ({
+  export const filterSensitiveLog = (obj: CreateGroupResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateGroupResponse =>
@@ -1196,7 +1210,7 @@ export interface CreateGroupVersionRequest {
 }
 
 export namespace CreateGroupVersionRequest {
-  export const filterSensitiveLog = (obj: CreateGroupVersionRequest) => ({
+  export const filterSensitiveLog = (obj: CreateGroupVersionRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateGroupVersionRequest =>
@@ -1227,7 +1241,7 @@ export interface CreateGroupVersionResponse {
 }
 
 export namespace CreateGroupVersionResponse {
-  export const filterSensitiveLog = (obj: CreateGroupVersionResponse) => ({
+  export const filterSensitiveLog = (obj: CreateGroupVersionResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateGroupVersionResponse =>
@@ -1258,7 +1272,9 @@ export interface CreateLoggerDefinitionRequest {
 }
 
 export namespace CreateLoggerDefinitionRequest {
-  export const filterSensitiveLog = (obj: CreateLoggerDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreateLoggerDefinitionRequest
+  ): any => ({
     ...obj,
     ...(obj.InitialVersion && {
       InitialVersion: LoggerDefinitionVersion.filterSensitiveLog(
@@ -1309,7 +1325,9 @@ export interface CreateLoggerDefinitionResponse {
 }
 
 export namespace CreateLoggerDefinitionResponse {
-  export const filterSensitiveLog = (obj: CreateLoggerDefinitionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: CreateLoggerDefinitionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateLoggerDefinitionResponse =>
@@ -1337,7 +1355,7 @@ export interface CreateLoggerDefinitionVersionRequest {
 export namespace CreateLoggerDefinitionVersionRequest {
   export const filterSensitiveLog = (
     obj: CreateLoggerDefinitionVersionRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Loggers && { Loggers: obj.Loggers.map(Logger.filterSensitiveLog) })
   });
@@ -1371,7 +1389,7 @@ export interface CreateLoggerDefinitionVersionResponse {
 export namespace CreateLoggerDefinitionVersionResponse {
   export const filterSensitiveLog = (
     obj: CreateLoggerDefinitionVersionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateLoggerDefinitionVersionResponse =>
@@ -1402,7 +1420,9 @@ export interface CreateResourceDefinitionRequest {
 }
 
 export namespace CreateResourceDefinitionRequest {
-  export const filterSensitiveLog = (obj: CreateResourceDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreateResourceDefinitionRequest
+  ): any => ({
     ...obj,
     ...(obj.InitialVersion && {
       InitialVersion: ResourceDefinitionVersion.filterSensitiveLog(
@@ -1455,7 +1475,7 @@ export interface CreateResourceDefinitionResponse {
 export namespace CreateResourceDefinitionResponse {
   export const filterSensitiveLog = (
     obj: CreateResourceDefinitionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateResourceDefinitionResponse =>
@@ -1483,7 +1503,7 @@ export interface CreateResourceDefinitionVersionRequest {
 export namespace CreateResourceDefinitionVersionRequest {
   export const filterSensitiveLog = (
     obj: CreateResourceDefinitionVersionRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Resources && {
       Resources: obj.Resources.map(Resource.filterSensitiveLog)
@@ -1519,7 +1539,7 @@ export interface CreateResourceDefinitionVersionResponse {
 export namespace CreateResourceDefinitionVersionResponse {
   export const filterSensitiveLog = (
     obj: CreateResourceDefinitionVersionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateResourceDefinitionVersionResponse =>
@@ -1568,7 +1588,9 @@ export interface CreateSoftwareUpdateJobRequest {
 }
 
 export namespace CreateSoftwareUpdateJobRequest {
-  export const filterSensitiveLog = (obj: CreateSoftwareUpdateJobRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreateSoftwareUpdateJobRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateSoftwareUpdateJobRequest =>
@@ -1594,7 +1616,9 @@ export interface CreateSoftwareUpdateJobResponse {
 }
 
 export namespace CreateSoftwareUpdateJobResponse {
-  export const filterSensitiveLog = (obj: CreateSoftwareUpdateJobResponse) => ({
+  export const filterSensitiveLog = (
+    obj: CreateSoftwareUpdateJobResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateSoftwareUpdateJobResponse =>
@@ -1627,7 +1651,7 @@ export interface CreateSubscriptionDefinitionRequest {
 export namespace CreateSubscriptionDefinitionRequest {
   export const filterSensitiveLog = (
     obj: CreateSubscriptionDefinitionRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.InitialVersion && {
       InitialVersion: SubscriptionDefinitionVersion.filterSensitiveLog(
@@ -1680,7 +1704,7 @@ export interface CreateSubscriptionDefinitionResponse {
 export namespace CreateSubscriptionDefinitionResponse {
   export const filterSensitiveLog = (
     obj: CreateSubscriptionDefinitionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateSubscriptionDefinitionResponse =>
@@ -1708,7 +1732,7 @@ export interface CreateSubscriptionDefinitionVersionRequest {
 export namespace CreateSubscriptionDefinitionVersionRequest {
   export const filterSensitiveLog = (
     obj: CreateSubscriptionDefinitionVersionRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Subscriptions && {
       Subscriptions: obj.Subscriptions.map(Subscription.filterSensitiveLog)
@@ -1746,7 +1770,7 @@ export interface CreateSubscriptionDefinitionVersionResponse {
 export namespace CreateSubscriptionDefinitionVersionResponse {
   export const filterSensitiveLog = (
     obj: CreateSubscriptionDefinitionVersionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -1802,7 +1826,7 @@ export interface DefinitionInformation {
 }
 
 export namespace DefinitionInformation {
-  export const filterSensitiveLog = (obj: DefinitionInformation) => ({
+  export const filterSensitiveLog = (obj: DefinitionInformation): any => ({
     ...obj
   });
   export const isa = (o: any): o is DefinitionInformation =>
@@ -1820,7 +1844,7 @@ export interface DeleteConnectorDefinitionRequest {
 export namespace DeleteConnectorDefinitionRequest {
   export const filterSensitiveLog = (
     obj: DeleteConnectorDefinitionRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteConnectorDefinitionRequest =>
@@ -1834,7 +1858,7 @@ export interface DeleteConnectorDefinitionResponse {
 export namespace DeleteConnectorDefinitionResponse {
   export const filterSensitiveLog = (
     obj: DeleteConnectorDefinitionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteConnectorDefinitionResponse =>
@@ -1850,7 +1874,9 @@ export interface DeleteCoreDefinitionRequest {
 }
 
 export namespace DeleteCoreDefinitionRequest {
-  export const filterSensitiveLog = (obj: DeleteCoreDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteCoreDefinitionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteCoreDefinitionRequest =>
@@ -1862,7 +1888,9 @@ export interface DeleteCoreDefinitionResponse {
 }
 
 export namespace DeleteCoreDefinitionResponse {
-  export const filterSensitiveLog = (obj: DeleteCoreDefinitionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteCoreDefinitionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteCoreDefinitionResponse =>
@@ -1878,7 +1906,9 @@ export interface DeleteDeviceDefinitionRequest {
 }
 
 export namespace DeleteDeviceDefinitionRequest {
-  export const filterSensitiveLog = (obj: DeleteDeviceDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteDeviceDefinitionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteDeviceDefinitionRequest =>
@@ -1890,7 +1920,9 @@ export interface DeleteDeviceDefinitionResponse {
 }
 
 export namespace DeleteDeviceDefinitionResponse {
-  export const filterSensitiveLog = (obj: DeleteDeviceDefinitionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteDeviceDefinitionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteDeviceDefinitionResponse =>
@@ -1906,7 +1938,9 @@ export interface DeleteFunctionDefinitionRequest {
 }
 
 export namespace DeleteFunctionDefinitionRequest {
-  export const filterSensitiveLog = (obj: DeleteFunctionDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteFunctionDefinitionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteFunctionDefinitionRequest =>
@@ -1920,7 +1954,7 @@ export interface DeleteFunctionDefinitionResponse {
 export namespace DeleteFunctionDefinitionResponse {
   export const filterSensitiveLog = (
     obj: DeleteFunctionDefinitionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteFunctionDefinitionResponse =>
@@ -1936,7 +1970,7 @@ export interface DeleteGroupRequest {
 }
 
 export namespace DeleteGroupRequest {
-  export const filterSensitiveLog = (obj: DeleteGroupRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteGroupRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteGroupRequest =>
@@ -1948,7 +1982,7 @@ export interface DeleteGroupResponse {
 }
 
 export namespace DeleteGroupResponse {
-  export const filterSensitiveLog = (obj: DeleteGroupResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteGroupResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteGroupResponse =>
@@ -1964,7 +1998,9 @@ export interface DeleteLoggerDefinitionRequest {
 }
 
 export namespace DeleteLoggerDefinitionRequest {
-  export const filterSensitiveLog = (obj: DeleteLoggerDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteLoggerDefinitionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteLoggerDefinitionRequest =>
@@ -1976,7 +2012,9 @@ export interface DeleteLoggerDefinitionResponse {
 }
 
 export namespace DeleteLoggerDefinitionResponse {
-  export const filterSensitiveLog = (obj: DeleteLoggerDefinitionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteLoggerDefinitionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteLoggerDefinitionResponse =>
@@ -1992,7 +2030,9 @@ export interface DeleteResourceDefinitionRequest {
 }
 
 export namespace DeleteResourceDefinitionRequest {
-  export const filterSensitiveLog = (obj: DeleteResourceDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteResourceDefinitionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteResourceDefinitionRequest =>
@@ -2006,7 +2046,7 @@ export interface DeleteResourceDefinitionResponse {
 export namespace DeleteResourceDefinitionResponse {
   export const filterSensitiveLog = (
     obj: DeleteResourceDefinitionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteResourceDefinitionResponse =>
@@ -2024,7 +2064,7 @@ export interface DeleteSubscriptionDefinitionRequest {
 export namespace DeleteSubscriptionDefinitionRequest {
   export const filterSensitiveLog = (
     obj: DeleteSubscriptionDefinitionRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteSubscriptionDefinitionRequest =>
@@ -2038,7 +2078,7 @@ export interface DeleteSubscriptionDefinitionResponse {
 export namespace DeleteSubscriptionDefinitionResponse {
   export const filterSensitiveLog = (
     obj: DeleteSubscriptionDefinitionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteSubscriptionDefinitionResponse =>
@@ -2077,7 +2117,7 @@ export interface Deployment {
 }
 
 export namespace Deployment {
-  export const filterSensitiveLog = (obj: Deployment) => ({
+  export const filterSensitiveLog = (obj: Deployment): any => ({
     ...obj
   });
   export const isa = (o: any): o is Deployment => __isa(o, "Deployment");
@@ -2117,7 +2157,7 @@ export interface Device {
 }
 
 export namespace Device {
-  export const filterSensitiveLog = (obj: Device) => ({
+  export const filterSensitiveLog = (obj: Device): any => ({
     ...obj
   });
   export const isa = (o: any): o is Device => __isa(o, "Device");
@@ -2135,7 +2175,7 @@ export interface DeviceDefinitionVersion {
 }
 
 export namespace DeviceDefinitionVersion {
-  export const filterSensitiveLog = (obj: DeviceDefinitionVersion) => ({
+  export const filterSensitiveLog = (obj: DeviceDefinitionVersion): any => ({
     ...obj,
     ...(obj.Devices && { Devices: obj.Devices.map(Device.filterSensitiveLog) })
   });
@@ -2154,7 +2194,7 @@ export interface DisassociateRoleFromGroupRequest {
 export namespace DisassociateRoleFromGroupRequest {
   export const filterSensitiveLog = (
     obj: DisassociateRoleFromGroupRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateRoleFromGroupRequest =>
@@ -2172,7 +2212,7 @@ export interface DisassociateRoleFromGroupResponse {
 export namespace DisassociateRoleFromGroupResponse {
   export const filterSensitiveLog = (
     obj: DisassociateRoleFromGroupResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateRoleFromGroupResponse =>
@@ -2186,7 +2226,7 @@ export interface DisassociateServiceRoleFromAccountRequest {
 export namespace DisassociateServiceRoleFromAccountRequest {
   export const filterSensitiveLog = (
     obj: DisassociateServiceRoleFromAccountRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateServiceRoleFromAccountRequest =>
@@ -2204,7 +2244,7 @@ export interface DisassociateServiceRoleFromAccountResponse {
 export namespace DisassociateServiceRoleFromAccountResponse {
   export const filterSensitiveLog = (
     obj: DisassociateServiceRoleFromAccountResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -2235,7 +2275,7 @@ export interface ErrorDetail {
 }
 
 export namespace ErrorDetail {
-  export const filterSensitiveLog = (obj: ErrorDetail) => ({
+  export const filterSensitiveLog = (obj: ErrorDetail): any => ({
     ...obj
   });
   export const isa = (o: any): o is ErrorDetail => __isa(o, "ErrorDetail");
@@ -2263,7 +2303,7 @@ export interface Function {
 }
 
 export namespace Function {
-  export const filterSensitiveLog = (obj: Function) => ({
+  export const filterSensitiveLog = (obj: Function): any => ({
     ...obj,
     ...(obj.FunctionConfiguration && {
       FunctionConfiguration: FunctionConfiguration.filterSensitiveLog(
@@ -2316,7 +2356,7 @@ export interface FunctionConfiguration {
 }
 
 export namespace FunctionConfiguration {
-  export const filterSensitiveLog = (obj: FunctionConfiguration) => ({
+  export const filterSensitiveLog = (obj: FunctionConfiguration): any => ({
     ...obj,
     ...(obj.Environment && {
       Environment: FunctionConfigurationEnvironment.filterSensitiveLog(
@@ -2357,7 +2397,7 @@ export interface FunctionConfigurationEnvironment {
 export namespace FunctionConfigurationEnvironment {
   export const filterSensitiveLog = (
     obj: FunctionConfigurationEnvironment
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Execution && {
       Execution: FunctionExecutionConfig.filterSensitiveLog(obj.Execution)
@@ -2384,7 +2424,7 @@ export interface FunctionDefaultConfig {
 }
 
 export namespace FunctionDefaultConfig {
-  export const filterSensitiveLog = (obj: FunctionDefaultConfig) => ({
+  export const filterSensitiveLog = (obj: FunctionDefaultConfig): any => ({
     ...obj,
     ...(obj.Execution && {
       Execution: FunctionDefaultExecutionConfig.filterSensitiveLog(
@@ -2413,7 +2453,9 @@ export interface FunctionDefaultExecutionConfig {
 }
 
 export namespace FunctionDefaultExecutionConfig {
-  export const filterSensitiveLog = (obj: FunctionDefaultExecutionConfig) => ({
+  export const filterSensitiveLog = (
+    obj: FunctionDefaultExecutionConfig
+  ): any => ({
     ...obj,
     ...(obj.RunAs && {
       RunAs: FunctionRunAsConfig.filterSensitiveLog(obj.RunAs)
@@ -2440,7 +2482,7 @@ export interface FunctionDefinitionVersion {
 }
 
 export namespace FunctionDefinitionVersion {
-  export const filterSensitiveLog = (obj: FunctionDefinitionVersion) => ({
+  export const filterSensitiveLog = (obj: FunctionDefinitionVersion): any => ({
     ...obj,
     ...(obj.DefaultConfig && {
       DefaultConfig: FunctionDefaultConfig.filterSensitiveLog(obj.DefaultConfig)
@@ -2470,7 +2512,7 @@ export interface FunctionExecutionConfig {
 }
 
 export namespace FunctionExecutionConfig {
-  export const filterSensitiveLog = (obj: FunctionExecutionConfig) => ({
+  export const filterSensitiveLog = (obj: FunctionExecutionConfig): any => ({
     ...obj,
     ...(obj.RunAs && {
       RunAs: FunctionRunAsConfig.filterSensitiveLog(obj.RunAs)
@@ -2502,7 +2544,7 @@ export interface FunctionRunAsConfig {
 }
 
 export namespace FunctionRunAsConfig {
-  export const filterSensitiveLog = (obj: FunctionRunAsConfig) => ({
+  export const filterSensitiveLog = (obj: FunctionRunAsConfig): any => ({
     ...obj
   });
   export const isa = (o: any): o is FunctionRunAsConfig =>
@@ -2518,7 +2560,7 @@ export interface GetAssociatedRoleRequest {
 }
 
 export namespace GetAssociatedRoleRequest {
-  export const filterSensitiveLog = (obj: GetAssociatedRoleRequest) => ({
+  export const filterSensitiveLog = (obj: GetAssociatedRoleRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetAssociatedRoleRequest =>
@@ -2539,7 +2581,7 @@ export interface GetAssociatedRoleResponse {
 }
 
 export namespace GetAssociatedRoleResponse {
-  export const filterSensitiveLog = (obj: GetAssociatedRoleResponse) => ({
+  export const filterSensitiveLog = (obj: GetAssociatedRoleResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetAssociatedRoleResponse =>
@@ -2555,7 +2597,9 @@ export interface GetBulkDeploymentStatusRequest {
 }
 
 export namespace GetBulkDeploymentStatusRequest {
-  export const filterSensitiveLog = (obj: GetBulkDeploymentStatusRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetBulkDeploymentStatusRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetBulkDeploymentStatusRequest =>
@@ -2596,7 +2640,9 @@ export interface GetBulkDeploymentStatusResponse {
 }
 
 export namespace GetBulkDeploymentStatusResponse {
-  export const filterSensitiveLog = (obj: GetBulkDeploymentStatusResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetBulkDeploymentStatusResponse
+  ): any => ({
     ...obj,
     ...(obj.BulkDeploymentMetrics && {
       BulkDeploymentMetrics: BulkDeploymentMetrics.filterSensitiveLog(
@@ -2620,7 +2666,7 @@ export interface GetConnectivityInfoRequest {
 }
 
 export namespace GetConnectivityInfoRequest {
-  export const filterSensitiveLog = (obj: GetConnectivityInfoRequest) => ({
+  export const filterSensitiveLog = (obj: GetConnectivityInfoRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetConnectivityInfoRequest =>
@@ -2641,7 +2687,9 @@ export interface GetConnectivityInfoResponse {
 }
 
 export namespace GetConnectivityInfoResponse {
-  export const filterSensitiveLog = (obj: GetConnectivityInfoResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetConnectivityInfoResponse
+  ): any => ({
     ...obj,
     ...(obj.ConnectivityInfo && {
       ConnectivityInfo: obj.ConnectivityInfo.map(
@@ -2662,7 +2710,9 @@ export interface GetConnectorDefinitionRequest {
 }
 
 export namespace GetConnectorDefinitionRequest {
-  export const filterSensitiveLog = (obj: GetConnectorDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetConnectorDefinitionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetConnectorDefinitionRequest =>
@@ -2713,7 +2763,9 @@ export interface GetConnectorDefinitionResponse {
 }
 
 export namespace GetConnectorDefinitionResponse {
-  export const filterSensitiveLog = (obj: GetConnectorDefinitionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetConnectorDefinitionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetConnectorDefinitionResponse =>
@@ -2741,7 +2793,7 @@ export interface GetConnectorDefinitionVersionRequest {
 export namespace GetConnectorDefinitionVersionRequest {
   export const filterSensitiveLog = (
     obj: GetConnectorDefinitionVersionRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetConnectorDefinitionVersionRequest =>
@@ -2784,7 +2836,7 @@ export interface GetConnectorDefinitionVersionResponse {
 export namespace GetConnectorDefinitionVersionResponse {
   export const filterSensitiveLog = (
     obj: GetConnectorDefinitionVersionResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Definition && {
       Definition: ConnectorDefinitionVersion.filterSensitiveLog(obj.Definition)
@@ -2803,7 +2855,7 @@ export interface GetCoreDefinitionRequest {
 }
 
 export namespace GetCoreDefinitionRequest {
-  export const filterSensitiveLog = (obj: GetCoreDefinitionRequest) => ({
+  export const filterSensitiveLog = (obj: GetCoreDefinitionRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetCoreDefinitionRequest =>
@@ -2854,7 +2906,7 @@ export interface GetCoreDefinitionResponse {
 }
 
 export namespace GetCoreDefinitionResponse {
-  export const filterSensitiveLog = (obj: GetCoreDefinitionResponse) => ({
+  export const filterSensitiveLog = (obj: GetCoreDefinitionResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetCoreDefinitionResponse =>
@@ -2875,7 +2927,9 @@ export interface GetCoreDefinitionVersionRequest {
 }
 
 export namespace GetCoreDefinitionVersionRequest {
-  export const filterSensitiveLog = (obj: GetCoreDefinitionVersionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetCoreDefinitionVersionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetCoreDefinitionVersionRequest =>
@@ -2918,7 +2972,7 @@ export interface GetCoreDefinitionVersionResponse {
 export namespace GetCoreDefinitionVersionResponse {
   export const filterSensitiveLog = (
     obj: GetCoreDefinitionVersionResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Definition && {
       Definition: CoreDefinitionVersion.filterSensitiveLog(obj.Definition)
@@ -2942,7 +2996,7 @@ export interface GetDeploymentStatusRequest {
 }
 
 export namespace GetDeploymentStatusRequest {
-  export const filterSensitiveLog = (obj: GetDeploymentStatusRequest) => ({
+  export const filterSensitiveLog = (obj: GetDeploymentStatusRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetDeploymentStatusRequest =>
@@ -2978,7 +3032,9 @@ export interface GetDeploymentStatusResponse {
 }
 
 export namespace GetDeploymentStatusResponse {
-  export const filterSensitiveLog = (obj: GetDeploymentStatusResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetDeploymentStatusResponse
+  ): any => ({
     ...obj,
     ...(obj.ErrorDetails && {
       ErrorDetails: obj.ErrorDetails.map(ErrorDetail.filterSensitiveLog)
@@ -2997,7 +3053,7 @@ export interface GetDeviceDefinitionRequest {
 }
 
 export namespace GetDeviceDefinitionRequest {
-  export const filterSensitiveLog = (obj: GetDeviceDefinitionRequest) => ({
+  export const filterSensitiveLog = (obj: GetDeviceDefinitionRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetDeviceDefinitionRequest =>
@@ -3048,7 +3104,9 @@ export interface GetDeviceDefinitionResponse {
 }
 
 export namespace GetDeviceDefinitionResponse {
-  export const filterSensitiveLog = (obj: GetDeviceDefinitionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetDeviceDefinitionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetDeviceDefinitionResponse =>
@@ -3076,7 +3134,7 @@ export interface GetDeviceDefinitionVersionRequest {
 export namespace GetDeviceDefinitionVersionRequest {
   export const filterSensitiveLog = (
     obj: GetDeviceDefinitionVersionRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetDeviceDefinitionVersionRequest =>
@@ -3119,7 +3177,7 @@ export interface GetDeviceDefinitionVersionResponse {
 export namespace GetDeviceDefinitionVersionResponse {
   export const filterSensitiveLog = (
     obj: GetDeviceDefinitionVersionResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Definition && {
       Definition: DeviceDefinitionVersion.filterSensitiveLog(obj.Definition)
@@ -3138,7 +3196,9 @@ export interface GetFunctionDefinitionRequest {
 }
 
 export namespace GetFunctionDefinitionRequest {
-  export const filterSensitiveLog = (obj: GetFunctionDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetFunctionDefinitionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetFunctionDefinitionRequest =>
@@ -3189,7 +3249,9 @@ export interface GetFunctionDefinitionResponse {
 }
 
 export namespace GetFunctionDefinitionResponse {
-  export const filterSensitiveLog = (obj: GetFunctionDefinitionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetFunctionDefinitionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetFunctionDefinitionResponse =>
@@ -3217,7 +3279,7 @@ export interface GetFunctionDefinitionVersionRequest {
 export namespace GetFunctionDefinitionVersionRequest {
   export const filterSensitiveLog = (
     obj: GetFunctionDefinitionVersionRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetFunctionDefinitionVersionRequest =>
@@ -3260,7 +3322,7 @@ export interface GetFunctionDefinitionVersionResponse {
 export namespace GetFunctionDefinitionVersionResponse {
   export const filterSensitiveLog = (
     obj: GetFunctionDefinitionVersionResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Definition && {
       Definition: FunctionDefinitionVersion.filterSensitiveLog(obj.Definition)
@@ -3286,7 +3348,7 @@ export interface GetGroupCertificateAuthorityRequest {
 export namespace GetGroupCertificateAuthorityRequest {
   export const filterSensitiveLog = (
     obj: GetGroupCertificateAuthorityRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetGroupCertificateAuthorityRequest =>
@@ -3314,7 +3376,7 @@ export interface GetGroupCertificateAuthorityResponse {
 export namespace GetGroupCertificateAuthorityResponse {
   export const filterSensitiveLog = (
     obj: GetGroupCertificateAuthorityResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetGroupCertificateAuthorityResponse =>
@@ -3332,7 +3394,7 @@ export interface GetGroupCertificateConfigurationRequest {
 export namespace GetGroupCertificateConfigurationRequest {
   export const filterSensitiveLog = (
     obj: GetGroupCertificateConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetGroupCertificateConfigurationRequest =>
@@ -3360,7 +3422,7 @@ export interface GetGroupCertificateConfigurationResponse {
 export namespace GetGroupCertificateConfigurationResponse {
   export const filterSensitiveLog = (
     obj: GetGroupCertificateConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetGroupCertificateConfigurationResponse =>
@@ -3376,7 +3438,7 @@ export interface GetGroupRequest {
 }
 
 export namespace GetGroupRequest {
-  export const filterSensitiveLog = (obj: GetGroupRequest) => ({
+  export const filterSensitiveLog = (obj: GetGroupRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetGroupRequest =>
@@ -3427,7 +3489,7 @@ export interface GetGroupResponse {
 }
 
 export namespace GetGroupResponse {
-  export const filterSensitiveLog = (obj: GetGroupResponse) => ({
+  export const filterSensitiveLog = (obj: GetGroupResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetGroupResponse =>
@@ -3448,7 +3510,7 @@ export interface GetGroupVersionRequest {
 }
 
 export namespace GetGroupVersionRequest {
-  export const filterSensitiveLog = (obj: GetGroupVersionRequest) => ({
+  export const filterSensitiveLog = (obj: GetGroupVersionRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetGroupVersionRequest =>
@@ -3484,7 +3546,7 @@ export interface GetGroupVersionResponse {
 }
 
 export namespace GetGroupVersionResponse {
-  export const filterSensitiveLog = (obj: GetGroupVersionResponse) => ({
+  export const filterSensitiveLog = (obj: GetGroupVersionResponse): any => ({
     ...obj,
     ...(obj.Definition && {
       Definition: GroupVersion.filterSensitiveLog(obj.Definition)
@@ -3503,7 +3565,7 @@ export interface GetLoggerDefinitionRequest {
 }
 
 export namespace GetLoggerDefinitionRequest {
-  export const filterSensitiveLog = (obj: GetLoggerDefinitionRequest) => ({
+  export const filterSensitiveLog = (obj: GetLoggerDefinitionRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetLoggerDefinitionRequest =>
@@ -3554,7 +3616,9 @@ export interface GetLoggerDefinitionResponse {
 }
 
 export namespace GetLoggerDefinitionResponse {
-  export const filterSensitiveLog = (obj: GetLoggerDefinitionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetLoggerDefinitionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetLoggerDefinitionResponse =>
@@ -3582,7 +3646,7 @@ export interface GetLoggerDefinitionVersionRequest {
 export namespace GetLoggerDefinitionVersionRequest {
   export const filterSensitiveLog = (
     obj: GetLoggerDefinitionVersionRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetLoggerDefinitionVersionRequest =>
@@ -3620,7 +3684,7 @@ export interface GetLoggerDefinitionVersionResponse {
 export namespace GetLoggerDefinitionVersionResponse {
   export const filterSensitiveLog = (
     obj: GetLoggerDefinitionVersionResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Definition && {
       Definition: LoggerDefinitionVersion.filterSensitiveLog(obj.Definition)
@@ -3639,7 +3703,9 @@ export interface GetResourceDefinitionRequest {
 }
 
 export namespace GetResourceDefinitionRequest {
-  export const filterSensitiveLog = (obj: GetResourceDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetResourceDefinitionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetResourceDefinitionRequest =>
@@ -3690,7 +3756,9 @@ export interface GetResourceDefinitionResponse {
 }
 
 export namespace GetResourceDefinitionResponse {
-  export const filterSensitiveLog = (obj: GetResourceDefinitionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetResourceDefinitionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetResourceDefinitionResponse =>
@@ -3713,7 +3781,7 @@ export interface GetResourceDefinitionVersionRequest {
 export namespace GetResourceDefinitionVersionRequest {
   export const filterSensitiveLog = (
     obj: GetResourceDefinitionVersionRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetResourceDefinitionVersionRequest =>
@@ -3751,7 +3819,7 @@ export interface GetResourceDefinitionVersionResponse {
 export namespace GetResourceDefinitionVersionResponse {
   export const filterSensitiveLog = (
     obj: GetResourceDefinitionVersionResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Definition && {
       Definition: ResourceDefinitionVersion.filterSensitiveLog(obj.Definition)
@@ -3766,7 +3834,9 @@ export interface GetServiceRoleForAccountRequest {
 }
 
 export namespace GetServiceRoleForAccountRequest {
-  export const filterSensitiveLog = (obj: GetServiceRoleForAccountRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetServiceRoleForAccountRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetServiceRoleForAccountRequest =>
@@ -3789,7 +3859,7 @@ export interface GetServiceRoleForAccountResponse {
 export namespace GetServiceRoleForAccountResponse {
   export const filterSensitiveLog = (
     obj: GetServiceRoleForAccountResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetServiceRoleForAccountResponse =>
@@ -3807,7 +3877,7 @@ export interface GetSubscriptionDefinitionRequest {
 export namespace GetSubscriptionDefinitionRequest {
   export const filterSensitiveLog = (
     obj: GetSubscriptionDefinitionRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetSubscriptionDefinitionRequest =>
@@ -3860,7 +3930,7 @@ export interface GetSubscriptionDefinitionResponse {
 export namespace GetSubscriptionDefinitionResponse {
   export const filterSensitiveLog = (
     obj: GetSubscriptionDefinitionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetSubscriptionDefinitionResponse =>
@@ -3888,7 +3958,7 @@ export interface GetSubscriptionDefinitionVersionRequest {
 export namespace GetSubscriptionDefinitionVersionRequest {
   export const filterSensitiveLog = (
     obj: GetSubscriptionDefinitionVersionRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetSubscriptionDefinitionVersionRequest =>
@@ -3931,7 +4001,7 @@ export interface GetSubscriptionDefinitionVersionResponse {
 export namespace GetSubscriptionDefinitionVersionResponse {
   export const filterSensitiveLog = (
     obj: GetSubscriptionDefinitionVersionResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Definition && {
       Definition: SubscriptionDefinitionVersion.filterSensitiveLog(
@@ -3962,7 +4032,7 @@ export interface GroupCertificateAuthorityProperties {
 export namespace GroupCertificateAuthorityProperties {
   export const filterSensitiveLog = (
     obj: GroupCertificateAuthorityProperties
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GroupCertificateAuthorityProperties =>
@@ -4011,7 +4081,7 @@ export interface GroupInformation {
 }
 
 export namespace GroupInformation {
-  export const filterSensitiveLog = (obj: GroupInformation) => ({
+  export const filterSensitiveLog = (obj: GroupInformation): any => ({
     ...obj
   });
   export const isa = (o: any): o is GroupInformation =>
@@ -4035,7 +4105,7 @@ export interface GroupOwnerSetting {
 }
 
 export namespace GroupOwnerSetting {
-  export const filterSensitiveLog = (obj: GroupOwnerSetting) => ({
+  export const filterSensitiveLog = (obj: GroupOwnerSetting): any => ({
     ...obj
   });
   export const isa = (o: any): o is GroupOwnerSetting =>
@@ -4084,7 +4154,7 @@ export interface GroupVersion {
 }
 
 export namespace GroupVersion {
-  export const filterSensitiveLog = (obj: GroupVersion) => ({
+  export const filterSensitiveLog = (obj: GroupVersion): any => ({
     ...obj
   });
   export const isa = (o: any): o is GroupVersion => __isa(o, "GroupVersion");
@@ -4110,7 +4180,9 @@ export interface InternalServerErrorException
 }
 
 export namespace InternalServerErrorException {
-  export const filterSensitiveLog = (obj: InternalServerErrorException) => ({
+  export const filterSensitiveLog = (
+    obj: InternalServerErrorException
+  ): any => ({
     ...obj,
     ...(obj.ErrorDetails && {
       ErrorDetails: obj.ErrorDetails.map(ErrorDetail.filterSensitiveLog)
@@ -4141,7 +4213,7 @@ export interface ListBulkDeploymentDetailedReportsRequest {
 export namespace ListBulkDeploymentDetailedReportsRequest {
   export const filterSensitiveLog = (
     obj: ListBulkDeploymentDetailedReportsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListBulkDeploymentDetailedReportsRequest =>
@@ -4164,7 +4236,7 @@ export interface ListBulkDeploymentDetailedReportsResponse {
 export namespace ListBulkDeploymentDetailedReportsResponse {
   export const filterSensitiveLog = (
     obj: ListBulkDeploymentDetailedReportsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Deployments && {
       Deployments: obj.Deployments.map(BulkDeploymentResult.filterSensitiveLog)
@@ -4188,7 +4260,7 @@ export interface ListBulkDeploymentsRequest {
 }
 
 export namespace ListBulkDeploymentsRequest {
-  export const filterSensitiveLog = (obj: ListBulkDeploymentsRequest) => ({
+  export const filterSensitiveLog = (obj: ListBulkDeploymentsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListBulkDeploymentsRequest =>
@@ -4209,7 +4281,9 @@ export interface ListBulkDeploymentsResponse {
 }
 
 export namespace ListBulkDeploymentsResponse {
-  export const filterSensitiveLog = (obj: ListBulkDeploymentsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListBulkDeploymentsResponse
+  ): any => ({
     ...obj,
     ...(obj.BulkDeployments && {
       BulkDeployments: obj.BulkDeployments.map(
@@ -4242,7 +4316,7 @@ export interface ListConnectorDefinitionVersionsRequest {
 export namespace ListConnectorDefinitionVersionsRequest {
   export const filterSensitiveLog = (
     obj: ListConnectorDefinitionVersionsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListConnectorDefinitionVersionsRequest =>
@@ -4265,7 +4339,7 @@ export interface ListConnectorDefinitionVersionsResponse {
 export namespace ListConnectorDefinitionVersionsResponse {
   export const filterSensitiveLog = (
     obj: ListConnectorDefinitionVersionsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Versions && {
       Versions: obj.Versions.map(VersionInformation.filterSensitiveLog)
@@ -4289,7 +4363,9 @@ export interface ListConnectorDefinitionsRequest {
 }
 
 export namespace ListConnectorDefinitionsRequest {
-  export const filterSensitiveLog = (obj: ListConnectorDefinitionsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListConnectorDefinitionsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListConnectorDefinitionsRequest =>
@@ -4312,7 +4388,7 @@ export interface ListConnectorDefinitionsResponse {
 export namespace ListConnectorDefinitionsResponse {
   export const filterSensitiveLog = (
     obj: ListConnectorDefinitionsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Definitions && {
       Definitions: obj.Definitions.map(DefinitionInformation.filterSensitiveLog)
@@ -4343,7 +4419,7 @@ export interface ListCoreDefinitionVersionsRequest {
 export namespace ListCoreDefinitionVersionsRequest {
   export const filterSensitiveLog = (
     obj: ListCoreDefinitionVersionsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListCoreDefinitionVersionsRequest =>
@@ -4366,7 +4442,7 @@ export interface ListCoreDefinitionVersionsResponse {
 export namespace ListCoreDefinitionVersionsResponse {
   export const filterSensitiveLog = (
     obj: ListCoreDefinitionVersionsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Versions && {
       Versions: obj.Versions.map(VersionInformation.filterSensitiveLog)
@@ -4390,7 +4466,7 @@ export interface ListCoreDefinitionsRequest {
 }
 
 export namespace ListCoreDefinitionsRequest {
-  export const filterSensitiveLog = (obj: ListCoreDefinitionsRequest) => ({
+  export const filterSensitiveLog = (obj: ListCoreDefinitionsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListCoreDefinitionsRequest =>
@@ -4411,7 +4487,9 @@ export interface ListCoreDefinitionsResponse {
 }
 
 export namespace ListCoreDefinitionsResponse {
-  export const filterSensitiveLog = (obj: ListCoreDefinitionsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListCoreDefinitionsResponse
+  ): any => ({
     ...obj,
     ...(obj.Definitions && {
       Definitions: obj.Definitions.map(DefinitionInformation.filterSensitiveLog)
@@ -4440,7 +4518,7 @@ export interface ListDeploymentsRequest {
 }
 
 export namespace ListDeploymentsRequest {
-  export const filterSensitiveLog = (obj: ListDeploymentsRequest) => ({
+  export const filterSensitiveLog = (obj: ListDeploymentsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDeploymentsRequest =>
@@ -4461,7 +4539,7 @@ export interface ListDeploymentsResponse {
 }
 
 export namespace ListDeploymentsResponse {
-  export const filterSensitiveLog = (obj: ListDeploymentsResponse) => ({
+  export const filterSensitiveLog = (obj: ListDeploymentsResponse): any => ({
     ...obj,
     ...(obj.Deployments && {
       Deployments: obj.Deployments.map(Deployment.filterSensitiveLog)
@@ -4492,7 +4570,7 @@ export interface ListDeviceDefinitionVersionsRequest {
 export namespace ListDeviceDefinitionVersionsRequest {
   export const filterSensitiveLog = (
     obj: ListDeviceDefinitionVersionsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDeviceDefinitionVersionsRequest =>
@@ -4515,7 +4593,7 @@ export interface ListDeviceDefinitionVersionsResponse {
 export namespace ListDeviceDefinitionVersionsResponse {
   export const filterSensitiveLog = (
     obj: ListDeviceDefinitionVersionsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Versions && {
       Versions: obj.Versions.map(VersionInformation.filterSensitiveLog)
@@ -4539,7 +4617,9 @@ export interface ListDeviceDefinitionsRequest {
 }
 
 export namespace ListDeviceDefinitionsRequest {
-  export const filterSensitiveLog = (obj: ListDeviceDefinitionsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListDeviceDefinitionsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDeviceDefinitionsRequest =>
@@ -4560,7 +4640,9 @@ export interface ListDeviceDefinitionsResponse {
 }
 
 export namespace ListDeviceDefinitionsResponse {
-  export const filterSensitiveLog = (obj: ListDeviceDefinitionsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListDeviceDefinitionsResponse
+  ): any => ({
     ...obj,
     ...(obj.Definitions && {
       Definitions: obj.Definitions.map(DefinitionInformation.filterSensitiveLog)
@@ -4591,7 +4673,7 @@ export interface ListFunctionDefinitionVersionsRequest {
 export namespace ListFunctionDefinitionVersionsRequest {
   export const filterSensitiveLog = (
     obj: ListFunctionDefinitionVersionsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListFunctionDefinitionVersionsRequest =>
@@ -4614,7 +4696,7 @@ export interface ListFunctionDefinitionVersionsResponse {
 export namespace ListFunctionDefinitionVersionsResponse {
   export const filterSensitiveLog = (
     obj: ListFunctionDefinitionVersionsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Versions && {
       Versions: obj.Versions.map(VersionInformation.filterSensitiveLog)
@@ -4638,7 +4720,9 @@ export interface ListFunctionDefinitionsRequest {
 }
 
 export namespace ListFunctionDefinitionsRequest {
-  export const filterSensitiveLog = (obj: ListFunctionDefinitionsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListFunctionDefinitionsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListFunctionDefinitionsRequest =>
@@ -4659,7 +4743,9 @@ export interface ListFunctionDefinitionsResponse {
 }
 
 export namespace ListFunctionDefinitionsResponse {
-  export const filterSensitiveLog = (obj: ListFunctionDefinitionsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListFunctionDefinitionsResponse
+  ): any => ({
     ...obj,
     ...(obj.Definitions && {
       Definitions: obj.Definitions.map(DefinitionInformation.filterSensitiveLog)
@@ -4680,7 +4766,7 @@ export interface ListGroupCertificateAuthoritiesRequest {
 export namespace ListGroupCertificateAuthoritiesRequest {
   export const filterSensitiveLog = (
     obj: ListGroupCertificateAuthoritiesRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListGroupCertificateAuthoritiesRequest =>
@@ -4698,7 +4784,7 @@ export interface ListGroupCertificateAuthoritiesResponse {
 export namespace ListGroupCertificateAuthoritiesResponse {
   export const filterSensitiveLog = (
     obj: ListGroupCertificateAuthoritiesResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.GroupCertificateAuthorities && {
       GroupCertificateAuthorities: obj.GroupCertificateAuthorities.map(
@@ -4729,7 +4815,7 @@ export interface ListGroupVersionsRequest {
 }
 
 export namespace ListGroupVersionsRequest {
-  export const filterSensitiveLog = (obj: ListGroupVersionsRequest) => ({
+  export const filterSensitiveLog = (obj: ListGroupVersionsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListGroupVersionsRequest =>
@@ -4750,7 +4836,7 @@ export interface ListGroupVersionsResponse {
 }
 
 export namespace ListGroupVersionsResponse {
-  export const filterSensitiveLog = (obj: ListGroupVersionsResponse) => ({
+  export const filterSensitiveLog = (obj: ListGroupVersionsResponse): any => ({
     ...obj,
     ...(obj.Versions && {
       Versions: obj.Versions.map(VersionInformation.filterSensitiveLog)
@@ -4774,7 +4860,7 @@ export interface ListGroupsRequest {
 }
 
 export namespace ListGroupsRequest {
-  export const filterSensitiveLog = (obj: ListGroupsRequest) => ({
+  export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListGroupsRequest =>
@@ -4795,7 +4881,7 @@ export interface ListGroupsResponse {
 }
 
 export namespace ListGroupsResponse {
-  export const filterSensitiveLog = (obj: ListGroupsResponse) => ({
+  export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
     ...obj,
     ...(obj.Groups && {
       Groups: obj.Groups.map(GroupInformation.filterSensitiveLog)
@@ -4826,7 +4912,7 @@ export interface ListLoggerDefinitionVersionsRequest {
 export namespace ListLoggerDefinitionVersionsRequest {
   export const filterSensitiveLog = (
     obj: ListLoggerDefinitionVersionsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListLoggerDefinitionVersionsRequest =>
@@ -4849,7 +4935,7 @@ export interface ListLoggerDefinitionVersionsResponse {
 export namespace ListLoggerDefinitionVersionsResponse {
   export const filterSensitiveLog = (
     obj: ListLoggerDefinitionVersionsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Versions && {
       Versions: obj.Versions.map(VersionInformation.filterSensitiveLog)
@@ -4873,7 +4959,9 @@ export interface ListLoggerDefinitionsRequest {
 }
 
 export namespace ListLoggerDefinitionsRequest {
-  export const filterSensitiveLog = (obj: ListLoggerDefinitionsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListLoggerDefinitionsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListLoggerDefinitionsRequest =>
@@ -4894,7 +4982,9 @@ export interface ListLoggerDefinitionsResponse {
 }
 
 export namespace ListLoggerDefinitionsResponse {
-  export const filterSensitiveLog = (obj: ListLoggerDefinitionsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListLoggerDefinitionsResponse
+  ): any => ({
     ...obj,
     ...(obj.Definitions && {
       Definitions: obj.Definitions.map(DefinitionInformation.filterSensitiveLog)
@@ -4925,7 +5015,7 @@ export interface ListResourceDefinitionVersionsRequest {
 export namespace ListResourceDefinitionVersionsRequest {
   export const filterSensitiveLog = (
     obj: ListResourceDefinitionVersionsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListResourceDefinitionVersionsRequest =>
@@ -4948,7 +5038,7 @@ export interface ListResourceDefinitionVersionsResponse {
 export namespace ListResourceDefinitionVersionsResponse {
   export const filterSensitiveLog = (
     obj: ListResourceDefinitionVersionsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Versions && {
       Versions: obj.Versions.map(VersionInformation.filterSensitiveLog)
@@ -4972,7 +5062,9 @@ export interface ListResourceDefinitionsRequest {
 }
 
 export namespace ListResourceDefinitionsRequest {
-  export const filterSensitiveLog = (obj: ListResourceDefinitionsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListResourceDefinitionsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListResourceDefinitionsRequest =>
@@ -4993,7 +5085,9 @@ export interface ListResourceDefinitionsResponse {
 }
 
 export namespace ListResourceDefinitionsResponse {
-  export const filterSensitiveLog = (obj: ListResourceDefinitionsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListResourceDefinitionsResponse
+  ): any => ({
     ...obj,
     ...(obj.Definitions && {
       Definitions: obj.Definitions.map(DefinitionInformation.filterSensitiveLog)
@@ -5024,7 +5118,7 @@ export interface ListSubscriptionDefinitionVersionsRequest {
 export namespace ListSubscriptionDefinitionVersionsRequest {
   export const filterSensitiveLog = (
     obj: ListSubscriptionDefinitionVersionsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListSubscriptionDefinitionVersionsRequest =>
@@ -5047,7 +5141,7 @@ export interface ListSubscriptionDefinitionVersionsResponse {
 export namespace ListSubscriptionDefinitionVersionsResponse {
   export const filterSensitiveLog = (
     obj: ListSubscriptionDefinitionVersionsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Versions && {
       Versions: obj.Versions.map(VersionInformation.filterSensitiveLog)
@@ -5075,7 +5169,7 @@ export interface ListSubscriptionDefinitionsRequest {
 export namespace ListSubscriptionDefinitionsRequest {
   export const filterSensitiveLog = (
     obj: ListSubscriptionDefinitionsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListSubscriptionDefinitionsRequest =>
@@ -5098,7 +5192,7 @@ export interface ListSubscriptionDefinitionsResponse {
 export namespace ListSubscriptionDefinitionsResponse {
   export const filterSensitiveLog = (
     obj: ListSubscriptionDefinitionsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Definitions && {
       Definitions: obj.Definitions.map(DefinitionInformation.filterSensitiveLog)
@@ -5117,7 +5211,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
@@ -5133,7 +5227,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
@@ -5157,7 +5253,7 @@ export interface LocalDeviceResourceData {
 }
 
 export namespace LocalDeviceResourceData {
-  export const filterSensitiveLog = (obj: LocalDeviceResourceData) => ({
+  export const filterSensitiveLog = (obj: LocalDeviceResourceData): any => ({
     ...obj,
     ...(obj.GroupOwnerSetting && {
       GroupOwnerSetting: GroupOwnerSetting.filterSensitiveLog(
@@ -5191,7 +5287,7 @@ export interface LocalVolumeResourceData {
 }
 
 export namespace LocalVolumeResourceData {
-  export const filterSensitiveLog = (obj: LocalVolumeResourceData) => ({
+  export const filterSensitiveLog = (obj: LocalVolumeResourceData): any => ({
     ...obj,
     ...(obj.GroupOwnerSetting && {
       GroupOwnerSetting: GroupOwnerSetting.filterSensitiveLog(
@@ -5235,7 +5331,7 @@ export interface Logger {
 }
 
 export namespace Logger {
-  export const filterSensitiveLog = (obj: Logger) => ({
+  export const filterSensitiveLog = (obj: Logger): any => ({
     ...obj
   });
   export const isa = (o: any): o is Logger => __isa(o, "Logger");
@@ -5258,7 +5354,7 @@ export interface LoggerDefinitionVersion {
 }
 
 export namespace LoggerDefinitionVersion {
-  export const filterSensitiveLog = (obj: LoggerDefinitionVersion) => ({
+  export const filterSensitiveLog = (obj: LoggerDefinitionVersion): any => ({
     ...obj,
     ...(obj.Loggers && { Loggers: obj.Loggers.map(Logger.filterSensitiveLog) })
   });
@@ -5306,7 +5402,7 @@ export interface ResetDeploymentsRequest {
 }
 
 export namespace ResetDeploymentsRequest {
-  export const filterSensitiveLog = (obj: ResetDeploymentsRequest) => ({
+  export const filterSensitiveLog = (obj: ResetDeploymentsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResetDeploymentsRequest =>
@@ -5327,7 +5423,7 @@ export interface ResetDeploymentsResponse {
 }
 
 export namespace ResetDeploymentsResponse {
-  export const filterSensitiveLog = (obj: ResetDeploymentsResponse) => ({
+  export const filterSensitiveLog = (obj: ResetDeploymentsResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResetDeploymentsResponse =>
@@ -5356,7 +5452,7 @@ export interface Resource {
 }
 
 export namespace Resource {
-  export const filterSensitiveLog = (obj: Resource) => ({
+  export const filterSensitiveLog = (obj: Resource): any => ({
     ...obj,
     ...(obj.ResourceDataContainer && {
       ResourceDataContainer: ResourceDataContainer.filterSensitiveLog(
@@ -5384,7 +5480,7 @@ export interface ResourceAccessPolicy {
 }
 
 export namespace ResourceAccessPolicy {
-  export const filterSensitiveLog = (obj: ResourceAccessPolicy) => ({
+  export const filterSensitiveLog = (obj: ResourceAccessPolicy): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceAccessPolicy =>
@@ -5423,7 +5519,7 @@ export interface ResourceDataContainer {
 }
 
 export namespace ResourceDataContainer {
-  export const filterSensitiveLog = (obj: ResourceDataContainer) => ({
+  export const filterSensitiveLog = (obj: ResourceDataContainer): any => ({
     ...obj,
     ...(obj.LocalDeviceResourceData && {
       LocalDeviceResourceData: LocalDeviceResourceData.filterSensitiveLog(
@@ -5467,7 +5563,7 @@ export interface ResourceDefinitionVersion {
 }
 
 export namespace ResourceDefinitionVersion {
-  export const filterSensitiveLog = (obj: ResourceDefinitionVersion) => ({
+  export const filterSensitiveLog = (obj: ResourceDefinitionVersion): any => ({
     ...obj,
     ...(obj.Resources && {
       Resources: obj.Resources.map(Resource.filterSensitiveLog)
@@ -5494,7 +5590,9 @@ export interface ResourceDownloadOwnerSetting {
 }
 
 export namespace ResourceDownloadOwnerSetting {
-  export const filterSensitiveLog = (obj: ResourceDownloadOwnerSetting) => ({
+  export const filterSensitiveLog = (
+    obj: ResourceDownloadOwnerSetting
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceDownloadOwnerSetting =>
@@ -5525,7 +5623,7 @@ export interface S3MachineLearningModelResourceData {
 export namespace S3MachineLearningModelResourceData {
   export const filterSensitiveLog = (
     obj: S3MachineLearningModelResourceData
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.OwnerSetting && {
       OwnerSetting: ResourceDownloadOwnerSetting.filterSensitiveLog(
@@ -5561,7 +5659,7 @@ export interface SageMakerMachineLearningModelResourceData {
 export namespace SageMakerMachineLearningModelResourceData {
   export const filterSensitiveLog = (
     obj: SageMakerMachineLearningModelResourceData
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.OwnerSetting && {
       OwnerSetting: ResourceDownloadOwnerSetting.filterSensitiveLog(
@@ -5592,7 +5690,7 @@ export interface SecretsManagerSecretResourceData {
 export namespace SecretsManagerSecretResourceData {
   export const filterSensitiveLog = (
     obj: SecretsManagerSecretResourceData
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is SecretsManagerSecretResourceData =>
@@ -5628,7 +5726,7 @@ export interface StartBulkDeploymentRequest {
 }
 
 export namespace StartBulkDeploymentRequest {
-  export const filterSensitiveLog = (obj: StartBulkDeploymentRequest) => ({
+  export const filterSensitiveLog = (obj: StartBulkDeploymentRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartBulkDeploymentRequest =>
@@ -5649,7 +5747,9 @@ export interface StartBulkDeploymentResponse {
 }
 
 export namespace StartBulkDeploymentResponse {
-  export const filterSensitiveLog = (obj: StartBulkDeploymentResponse) => ({
+  export const filterSensitiveLog = (
+    obj: StartBulkDeploymentResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartBulkDeploymentResponse =>
@@ -5665,7 +5765,7 @@ export interface StopBulkDeploymentRequest {
 }
 
 export namespace StopBulkDeploymentRequest {
-  export const filterSensitiveLog = (obj: StopBulkDeploymentRequest) => ({
+  export const filterSensitiveLog = (obj: StopBulkDeploymentRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopBulkDeploymentRequest =>
@@ -5677,7 +5777,7 @@ export interface StopBulkDeploymentResponse {
 }
 
 export namespace StopBulkDeploymentResponse {
-  export const filterSensitiveLog = (obj: StopBulkDeploymentResponse) => ({
+  export const filterSensitiveLog = (obj: StopBulkDeploymentResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopBulkDeploymentResponse =>
@@ -5711,7 +5811,7 @@ export interface Subscription {
 }
 
 export namespace Subscription {
-  export const filterSensitiveLog = (obj: Subscription) => ({
+  export const filterSensitiveLog = (obj: Subscription): any => ({
     ...obj
   });
   export const isa = (o: any): o is Subscription => __isa(o, "Subscription");
@@ -5729,7 +5829,9 @@ export interface SubscriptionDefinitionVersion {
 }
 
 export namespace SubscriptionDefinitionVersion {
-  export const filterSensitiveLog = (obj: SubscriptionDefinitionVersion) => ({
+  export const filterSensitiveLog = (
+    obj: SubscriptionDefinitionVersion
+  ): any => ({
     ...obj,
     ...(obj.Subscriptions && {
       Subscriptions: obj.Subscriptions.map(Subscription.filterSensitiveLog)
@@ -5756,7 +5858,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
@@ -5777,7 +5879,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>
@@ -5812,7 +5914,9 @@ export interface UpdateConnectivityInfoRequest {
 }
 
 export namespace UpdateConnectivityInfoRequest {
-  export const filterSensitiveLog = (obj: UpdateConnectivityInfoRequest) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateConnectivityInfoRequest
+  ): any => ({
     ...obj,
     ...(obj.ConnectivityInfo && {
       ConnectivityInfo: obj.ConnectivityInfo.map(
@@ -5838,7 +5942,9 @@ export interface UpdateConnectivityInfoResponse {
 }
 
 export namespace UpdateConnectivityInfoResponse {
-  export const filterSensitiveLog = (obj: UpdateConnectivityInfoResponse) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateConnectivityInfoResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateConnectivityInfoResponse =>
@@ -5861,7 +5967,7 @@ export interface UpdateConnectorDefinitionRequest {
 export namespace UpdateConnectorDefinitionRequest {
   export const filterSensitiveLog = (
     obj: UpdateConnectorDefinitionRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateConnectorDefinitionRequest =>
@@ -5875,7 +5981,7 @@ export interface UpdateConnectorDefinitionResponse {
 export namespace UpdateConnectorDefinitionResponse {
   export const filterSensitiveLog = (
     obj: UpdateConnectorDefinitionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateConnectorDefinitionResponse =>
@@ -5896,7 +6002,9 @@ export interface UpdateCoreDefinitionRequest {
 }
 
 export namespace UpdateCoreDefinitionRequest {
-  export const filterSensitiveLog = (obj: UpdateCoreDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateCoreDefinitionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateCoreDefinitionRequest =>
@@ -5908,7 +6016,9 @@ export interface UpdateCoreDefinitionResponse {
 }
 
 export namespace UpdateCoreDefinitionResponse {
-  export const filterSensitiveLog = (obj: UpdateCoreDefinitionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateCoreDefinitionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateCoreDefinitionResponse =>
@@ -5929,7 +6039,9 @@ export interface UpdateDeviceDefinitionRequest {
 }
 
 export namespace UpdateDeviceDefinitionRequest {
-  export const filterSensitiveLog = (obj: UpdateDeviceDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateDeviceDefinitionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateDeviceDefinitionRequest =>
@@ -5941,7 +6053,9 @@ export interface UpdateDeviceDefinitionResponse {
 }
 
 export namespace UpdateDeviceDefinitionResponse {
-  export const filterSensitiveLog = (obj: UpdateDeviceDefinitionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateDeviceDefinitionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateDeviceDefinitionResponse =>
@@ -5962,7 +6076,9 @@ export interface UpdateFunctionDefinitionRequest {
 }
 
 export namespace UpdateFunctionDefinitionRequest {
-  export const filterSensitiveLog = (obj: UpdateFunctionDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateFunctionDefinitionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateFunctionDefinitionRequest =>
@@ -5976,7 +6092,7 @@ export interface UpdateFunctionDefinitionResponse {
 export namespace UpdateFunctionDefinitionResponse {
   export const filterSensitiveLog = (
     obj: UpdateFunctionDefinitionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateFunctionDefinitionResponse =>
@@ -5999,7 +6115,7 @@ export interface UpdateGroupCertificateConfigurationRequest {
 export namespace UpdateGroupCertificateConfigurationRequest {
   export const filterSensitiveLog = (
     obj: UpdateGroupCertificateConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -6029,7 +6145,7 @@ export interface UpdateGroupCertificateConfigurationResponse {
 export namespace UpdateGroupCertificateConfigurationResponse {
   export const filterSensitiveLog = (
     obj: UpdateGroupCertificateConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -6052,7 +6168,7 @@ export interface UpdateGroupRequest {
 }
 
 export namespace UpdateGroupRequest {
-  export const filterSensitiveLog = (obj: UpdateGroupRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateGroupRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateGroupRequest =>
@@ -6064,7 +6180,7 @@ export interface UpdateGroupResponse {
 }
 
 export namespace UpdateGroupResponse {
-  export const filterSensitiveLog = (obj: UpdateGroupResponse) => ({
+  export const filterSensitiveLog = (obj: UpdateGroupResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateGroupResponse =>
@@ -6085,7 +6201,9 @@ export interface UpdateLoggerDefinitionRequest {
 }
 
 export namespace UpdateLoggerDefinitionRequest {
-  export const filterSensitiveLog = (obj: UpdateLoggerDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateLoggerDefinitionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateLoggerDefinitionRequest =>
@@ -6097,7 +6215,9 @@ export interface UpdateLoggerDefinitionResponse {
 }
 
 export namespace UpdateLoggerDefinitionResponse {
-  export const filterSensitiveLog = (obj: UpdateLoggerDefinitionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateLoggerDefinitionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateLoggerDefinitionResponse =>
@@ -6118,7 +6238,9 @@ export interface UpdateResourceDefinitionRequest {
 }
 
 export namespace UpdateResourceDefinitionRequest {
-  export const filterSensitiveLog = (obj: UpdateResourceDefinitionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateResourceDefinitionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateResourceDefinitionRequest =>
@@ -6132,7 +6254,7 @@ export interface UpdateResourceDefinitionResponse {
 export namespace UpdateResourceDefinitionResponse {
   export const filterSensitiveLog = (
     obj: UpdateResourceDefinitionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateResourceDefinitionResponse =>
@@ -6155,7 +6277,7 @@ export interface UpdateSubscriptionDefinitionRequest {
 export namespace UpdateSubscriptionDefinitionRequest {
   export const filterSensitiveLog = (
     obj: UpdateSubscriptionDefinitionRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateSubscriptionDefinitionRequest =>
@@ -6169,7 +6291,7 @@ export interface UpdateSubscriptionDefinitionResponse {
 export namespace UpdateSubscriptionDefinitionResponse {
   export const filterSensitiveLog = (
     obj: UpdateSubscriptionDefinitionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateSubscriptionDefinitionResponse =>
@@ -6217,7 +6339,7 @@ export interface VersionInformation {
 }
 
 export namespace VersionInformation {
-  export const filterSensitiveLog = (obj: VersionInformation) => ({
+  export const filterSensitiveLog = (obj: VersionInformation): any => ({
     ...obj
   });
   export const isa = (o: any): o is VersionInformation =>

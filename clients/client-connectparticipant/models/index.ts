@@ -17,7 +17,7 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export const filterSensitiveLog = (obj: AccessDeniedException) => ({
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is AccessDeniedException =>
@@ -40,7 +40,7 @@ export interface CreateParticipantConnectionRequest {
 export namespace CreateParticipantConnectionRequest {
   export const filterSensitiveLog = (
     obj: CreateParticipantConnectionRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateParticipantConnectionRequest =>
@@ -64,7 +64,7 @@ export interface CreateParticipantConnectionResponse {
 export namespace CreateParticipantConnectionResponse {
   export const filterSensitiveLog = (
     obj: CreateParticipantConnectionResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ConnectionCredentials && {
       ConnectionCredentials: ConnectionCredentials.filterSensitiveLog(
@@ -94,7 +94,9 @@ export interface DisconnectParticipantRequest {
 }
 
 export namespace DisconnectParticipantRequest {
-  export const filterSensitiveLog = (obj: DisconnectParticipantRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DisconnectParticipantRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisconnectParticipantRequest =>
@@ -106,7 +108,9 @@ export interface DisconnectParticipantResponse {
 }
 
 export namespace DisconnectParticipantResponse {
-  export const filterSensitiveLog = (obj: DisconnectParticipantResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DisconnectParticipantResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisconnectParticipantResponse =>
@@ -154,7 +158,7 @@ export interface GetTranscriptRequest {
 }
 
 export namespace GetTranscriptRequest {
-  export const filterSensitiveLog = (obj: GetTranscriptRequest) => ({
+  export const filterSensitiveLog = (obj: GetTranscriptRequest): any => ({
     ...obj,
     ...(obj.StartPosition && {
       StartPosition: StartPosition.filterSensitiveLog(obj.StartPosition)
@@ -184,7 +188,7 @@ export interface GetTranscriptResponse {
 }
 
 export namespace GetTranscriptResponse {
-  export const filterSensitiveLog = (obj: GetTranscriptResponse) => ({
+  export const filterSensitiveLog = (obj: GetTranscriptResponse): any => ({
     ...obj,
     ...(obj.Transcript && {
       Transcript: obj.Transcript.map(Item.filterSensitiveLog)
@@ -206,7 +210,7 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export const filterSensitiveLog = (obj: InternalServerException) => ({
+  export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerException =>
@@ -248,7 +252,7 @@ export interface SendEventRequest {
 }
 
 export namespace SendEventRequest {
-  export const filterSensitiveLog = (obj: SendEventRequest) => ({
+  export const filterSensitiveLog = (obj: SendEventRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is SendEventRequest =>
@@ -271,7 +275,7 @@ export interface SendEventResponse {
 }
 
 export namespace SendEventResponse {
-  export const filterSensitiveLog = (obj: SendEventResponse) => ({
+  export const filterSensitiveLog = (obj: SendEventResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is SendEventResponse =>
@@ -303,7 +307,7 @@ export interface SendMessageRequest {
 }
 
 export namespace SendMessageRequest {
-  export const filterSensitiveLog = (obj: SendMessageRequest) => ({
+  export const filterSensitiveLog = (obj: SendMessageRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is SendMessageRequest =>
@@ -326,7 +330,7 @@ export interface SendMessageResponse {
 }
 
 export namespace SendMessageResponse {
-  export const filterSensitiveLog = (obj: SendMessageResponse) => ({
+  export const filterSensitiveLog = (obj: SendMessageResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is SendMessageResponse =>
@@ -345,7 +349,7 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ThrottlingException =>
@@ -364,7 +368,7 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const filterSensitiveLog = (obj: ValidationException) => ({
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ValidationException =>
@@ -426,7 +430,7 @@ export interface Item {
 }
 
 export namespace Item {
-  export const filterSensitiveLog = (obj: Item) => ({
+  export const filterSensitiveLog = (obj: Item): any => ({
     ...obj
   });
   export const isa = (o: any): o is Item => __isa(o, "Item");
@@ -467,7 +471,7 @@ export interface StartPosition {
 }
 
 export namespace StartPosition {
-  export const filterSensitiveLog = (obj: StartPosition) => ({
+  export const filterSensitiveLog = (obj: StartPosition): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartPosition => __isa(o, "StartPosition");
@@ -492,7 +496,7 @@ export interface ConnectionCredentials {
 }
 
 export namespace ConnectionCredentials {
-  export const filterSensitiveLog = (obj: ConnectionCredentials) => ({
+  export const filterSensitiveLog = (obj: ConnectionCredentials): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConnectionCredentials =>
@@ -529,7 +533,7 @@ export interface Websocket {
 }
 
 export namespace Websocket {
-  export const filterSensitiveLog = (obj: Websocket) => ({
+  export const filterSensitiveLog = (obj: Websocket): any => ({
     ...obj
   });
   export const isa = (o: any): o is Websocket => __isa(o, "Websocket");

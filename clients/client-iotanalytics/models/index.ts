@@ -17,7 +17,7 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
-  export const filterSensitiveLog = (obj: InternalFailureException) => ({
+  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalFailureException =>
@@ -36,7 +36,7 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const filterSensitiveLog = (obj: InvalidRequestException) => ({
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidRequestException =>
@@ -55,7 +55,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -83,7 +83,9 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException) => ({
+  export const filterSensitiveLog = (
+    obj: ResourceAlreadyExistsException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceAlreadyExistsException =>
@@ -102,7 +104,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -121,7 +123,9 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (obj: ServiceUnavailableException) => ({
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceUnavailableException =>
@@ -140,7 +144,7 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ThrottlingException =>
@@ -175,7 +179,7 @@ export interface AddAttributesActivity {
 }
 
 export namespace AddAttributesActivity {
-  export const filterSensitiveLog = (obj: AddAttributesActivity) => ({
+  export const filterSensitiveLog = (obj: AddAttributesActivity): any => ({
     ...obj
   });
   export const isa = (o: any): o is AddAttributesActivity =>
@@ -198,7 +202,7 @@ export interface CancelPipelineReprocessingRequest {
 export namespace CancelPipelineReprocessingRequest {
   export const filterSensitiveLog = (
     obj: CancelPipelineReprocessingRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CancelPipelineReprocessingRequest =>
@@ -212,7 +216,7 @@ export interface CancelPipelineReprocessingResponse {
 export namespace CancelPipelineReprocessingResponse {
   export const filterSensitiveLog = (
     obj: CancelPipelineReprocessingResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CancelPipelineReprocessingResponse =>
@@ -264,7 +268,7 @@ export interface Channel {
 }
 
 export namespace Channel {
-  export const filterSensitiveLog = (obj: Channel) => ({
+  export const filterSensitiveLog = (obj: Channel): any => ({
     ...obj,
     ...(obj.retentionPeriod && {
       retentionPeriod: RetentionPeriod.filterSensitiveLog(obj.retentionPeriod)
@@ -298,7 +302,7 @@ export interface ChannelActivity {
 }
 
 export namespace ChannelActivity {
-  export const filterSensitiveLog = (obj: ChannelActivity) => ({
+  export const filterSensitiveLog = (obj: ChannelActivity): any => ({
     ...obj
   });
   export const isa = (o: any): o is ChannelActivity =>
@@ -317,7 +321,7 @@ export interface ChannelStatistics {
 }
 
 export namespace ChannelStatistics {
-  export const filterSensitiveLog = (obj: ChannelStatistics) => ({
+  export const filterSensitiveLog = (obj: ChannelStatistics): any => ({
     ...obj,
     ...(obj.size && {
       size: EstimatedResourceSize.filterSensitiveLog(obj.size)
@@ -356,7 +360,7 @@ export interface ChannelStorage {
 }
 
 export namespace ChannelStorage {
-  export const filterSensitiveLog = (obj: ChannelStorage) => ({
+  export const filterSensitiveLog = (obj: ChannelStorage): any => ({
     ...obj,
     ...(obj.customerManagedS3 && {
       customerManagedS3: CustomerManagedChannelS3Storage.filterSensitiveLog(
@@ -390,7 +394,7 @@ export interface ChannelStorageSummary {
 }
 
 export namespace ChannelStorageSummary {
-  export const filterSensitiveLog = (obj: ChannelStorageSummary) => ({
+  export const filterSensitiveLog = (obj: ChannelStorageSummary): any => ({
     ...obj,
     ...(obj.customerManagedS3 && {
       customerManagedS3: CustomerManagedChannelS3StorageSummary.filterSensitiveLog(
@@ -439,7 +443,7 @@ export interface ChannelSummary {
 }
 
 export namespace ChannelSummary {
-  export const filterSensitiveLog = (obj: ChannelSummary) => ({
+  export const filterSensitiveLog = (obj: ChannelSummary): any => ({
     ...obj,
     ...(obj.channelStorage && {
       channelStorage: ChannelStorageSummary.filterSensitiveLog(
@@ -489,7 +493,7 @@ export interface ContainerDatasetAction {
 }
 
 export namespace ContainerDatasetAction {
-  export const filterSensitiveLog = (obj: ContainerDatasetAction) => ({
+  export const filterSensitiveLog = (obj: ContainerDatasetAction): any => ({
     ...obj,
     ...(obj.resourceConfiguration && {
       resourceConfiguration: ResourceConfiguration.filterSensitiveLog(
@@ -531,7 +535,7 @@ export interface CreateChannelRequest {
 }
 
 export namespace CreateChannelRequest {
-  export const filterSensitiveLog = (obj: CreateChannelRequest) => ({
+  export const filterSensitiveLog = (obj: CreateChannelRequest): any => ({
     ...obj,
     ...(obj.channelStorage && {
       channelStorage: ChannelStorage.filterSensitiveLog(obj.channelStorage)
@@ -564,7 +568,7 @@ export interface CreateChannelResponse {
 }
 
 export namespace CreateChannelResponse {
-  export const filterSensitiveLog = (obj: CreateChannelResponse) => ({
+  export const filterSensitiveLog = (obj: CreateChannelResponse): any => ({
     ...obj,
     ...(obj.retentionPeriod && {
       retentionPeriod: RetentionPeriod.filterSensitiveLog(obj.retentionPeriod)
@@ -583,7 +587,9 @@ export interface CreateDatasetContentRequest {
 }
 
 export namespace CreateDatasetContentRequest {
-  export const filterSensitiveLog = (obj: CreateDatasetContentRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreateDatasetContentRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateDatasetContentRequest =>
@@ -599,7 +605,9 @@ export interface CreateDatasetContentResponse {
 }
 
 export namespace CreateDatasetContentResponse {
-  export const filterSensitiveLog = (obj: CreateDatasetContentResponse) => ({
+  export const filterSensitiveLog = (
+    obj: CreateDatasetContentResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateDatasetContentResponse =>
@@ -654,7 +662,7 @@ export interface CreateDatasetRequest {
 }
 
 export namespace CreateDatasetRequest {
-  export const filterSensitiveLog = (obj: CreateDatasetRequest) => ({
+  export const filterSensitiveLog = (obj: CreateDatasetRequest): any => ({
     ...obj,
     ...(obj.actions && {
       actions: obj.actions.map(DatasetAction.filterSensitiveLog)
@@ -700,7 +708,7 @@ export interface CreateDatasetResponse {
 }
 
 export namespace CreateDatasetResponse {
-  export const filterSensitiveLog = (obj: CreateDatasetResponse) => ({
+  export const filterSensitiveLog = (obj: CreateDatasetResponse): any => ({
     ...obj,
     ...(obj.retentionPeriod && {
       retentionPeriod: RetentionPeriod.filterSensitiveLog(obj.retentionPeriod)
@@ -737,7 +745,7 @@ export interface CreateDatastoreRequest {
 }
 
 export namespace CreateDatastoreRequest {
-  export const filterSensitiveLog = (obj: CreateDatastoreRequest) => ({
+  export const filterSensitiveLog = (obj: CreateDatastoreRequest): any => ({
     ...obj,
     ...(obj.datastoreStorage && {
       datastoreStorage: DatastoreStorage.filterSensitiveLog(
@@ -772,7 +780,7 @@ export interface CreateDatastoreResponse {
 }
 
 export namespace CreateDatastoreResponse {
-  export const filterSensitiveLog = (obj: CreateDatastoreResponse) => ({
+  export const filterSensitiveLog = (obj: CreateDatastoreResponse): any => ({
     ...obj,
     ...(obj.retentionPeriod && {
       retentionPeriod: RetentionPeriod.filterSensitiveLog(obj.retentionPeriod)
@@ -818,7 +826,7 @@ export interface CreatePipelineRequest {
 }
 
 export namespace CreatePipelineRequest {
-  export const filterSensitiveLog = (obj: CreatePipelineRequest) => ({
+  export const filterSensitiveLog = (obj: CreatePipelineRequest): any => ({
     ...obj,
     ...(obj.pipelineActivities && {
       pipelineActivities: obj.pipelineActivities.map(
@@ -845,7 +853,7 @@ export interface CreatePipelineResponse {
 }
 
 export namespace CreatePipelineResponse {
-  export const filterSensitiveLog = (obj: CreatePipelineResponse) => ({
+  export const filterSensitiveLog = (obj: CreatePipelineResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreatePipelineResponse =>
@@ -878,7 +886,9 @@ export interface CustomerManagedChannelS3Storage {
 }
 
 export namespace CustomerManagedChannelS3Storage {
-  export const filterSensitiveLog = (obj: CustomerManagedChannelS3Storage) => ({
+  export const filterSensitiveLog = (
+    obj: CustomerManagedChannelS3Storage
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CustomerManagedChannelS3Storage =>
@@ -912,7 +922,7 @@ export interface CustomerManagedChannelS3StorageSummary {
 export namespace CustomerManagedChannelS3StorageSummary {
   export const filterSensitiveLog = (
     obj: CustomerManagedChannelS3StorageSummary
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CustomerManagedChannelS3StorageSummary =>
@@ -947,7 +957,7 @@ export interface CustomerManagedDatastoreS3Storage {
 export namespace CustomerManagedDatastoreS3Storage {
   export const filterSensitiveLog = (
     obj: CustomerManagedDatastoreS3Storage
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CustomerManagedDatastoreS3Storage =>
@@ -980,7 +990,7 @@ export interface CustomerManagedDatastoreS3StorageSummary {
 export namespace CustomerManagedDatastoreS3StorageSummary {
   export const filterSensitiveLog = (
     obj: CustomerManagedDatastoreS3StorageSummary
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CustomerManagedDatastoreS3StorageSummary =>
@@ -1048,7 +1058,7 @@ export interface Dataset {
 }
 
 export namespace Dataset {
-  export const filterSensitiveLog = (obj: Dataset) => ({
+  export const filterSensitiveLog = (obj: Dataset): any => ({
     ...obj,
     ...(obj.actions && {
       actions: obj.actions.map(DatasetAction.filterSensitiveLog)
@@ -1097,7 +1107,7 @@ export interface DatasetAction {
 }
 
 export namespace DatasetAction {
-  export const filterSensitiveLog = (obj: DatasetAction) => ({
+  export const filterSensitiveLog = (obj: DatasetAction): any => ({
     ...obj,
     ...(obj.containerAction && {
       containerAction: ContainerDatasetAction.filterSensitiveLog(
@@ -1128,7 +1138,7 @@ export interface DatasetActionSummary {
 }
 
 export namespace DatasetActionSummary {
-  export const filterSensitiveLog = (obj: DatasetActionSummary) => ({
+  export const filterSensitiveLog = (obj: DatasetActionSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is DatasetActionSummary =>
@@ -1159,7 +1169,7 @@ export interface DatasetContentDeliveryDestination {
 export namespace DatasetContentDeliveryDestination {
   export const filterSensitiveLog = (
     obj: DatasetContentDeliveryDestination
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.iotEventsDestinationConfiguration && {
       iotEventsDestinationConfiguration: IotEventsDestinationConfiguration.filterSensitiveLog(
@@ -1193,7 +1203,7 @@ export interface DatasetContentDeliveryRule {
 }
 
 export namespace DatasetContentDeliveryRule {
-  export const filterSensitiveLog = (obj: DatasetContentDeliveryRule) => ({
+  export const filterSensitiveLog = (obj: DatasetContentDeliveryRule): any => ({
     ...obj,
     ...(obj.destination && {
       destination: DatasetContentDeliveryDestination.filterSensitiveLog(
@@ -1229,7 +1239,7 @@ export interface DatasetContentStatus {
 }
 
 export namespace DatasetContentStatus {
-  export const filterSensitiveLog = (obj: DatasetContentStatus) => ({
+  export const filterSensitiveLog = (obj: DatasetContentStatus): any => ({
     ...obj
   });
   export const isa = (o: any): o is DatasetContentStatus =>
@@ -1268,7 +1278,7 @@ export interface DatasetContentSummary {
 }
 
 export namespace DatasetContentSummary {
-  export const filterSensitiveLog = (obj: DatasetContentSummary) => ({
+  export const filterSensitiveLog = (obj: DatasetContentSummary): any => ({
     ...obj,
     ...(obj.status && {
       status: DatasetContentStatus.filterSensitiveLog(obj.status)
@@ -1292,7 +1302,7 @@ export interface DatasetContentVersionValue {
 }
 
 export namespace DatasetContentVersionValue {
-  export const filterSensitiveLog = (obj: DatasetContentVersionValue) => ({
+  export const filterSensitiveLog = (obj: DatasetContentVersionValue): any => ({
     ...obj
   });
   export const isa = (o: any): o is DatasetContentVersionValue =>
@@ -1316,7 +1326,7 @@ export interface DatasetEntry {
 }
 
 export namespace DatasetEntry {
-  export const filterSensitiveLog = (obj: DatasetEntry) => ({
+  export const filterSensitiveLog = (obj: DatasetEntry): any => ({
     ...obj
   });
   export const isa = (o: any): o is DatasetEntry => __isa(o, "DatasetEntry");
@@ -1367,7 +1377,7 @@ export interface DatasetSummary {
 }
 
 export namespace DatasetSummary {
-  export const filterSensitiveLog = (obj: DatasetSummary) => ({
+  export const filterSensitiveLog = (obj: DatasetSummary): any => ({
     ...obj,
     ...(obj.actions && {
       actions: obj.actions.map(DatasetActionSummary.filterSensitiveLog)
@@ -1398,7 +1408,7 @@ export interface DatasetTrigger {
 }
 
 export namespace DatasetTrigger {
-  export const filterSensitiveLog = (obj: DatasetTrigger) => ({
+  export const filterSensitiveLog = (obj: DatasetTrigger): any => ({
     ...obj,
     ...(obj.dataset && {
       dataset: TriggeringDataset.filterSensitiveLog(obj.dataset)
@@ -1468,7 +1478,7 @@ export interface Datastore {
 }
 
 export namespace Datastore {
-  export const filterSensitiveLog = (obj: Datastore) => ({
+  export const filterSensitiveLog = (obj: Datastore): any => ({
     ...obj,
     ...(obj.retentionPeriod && {
       retentionPeriod: RetentionPeriod.filterSensitiveLog(obj.retentionPeriod)
@@ -1497,7 +1507,7 @@ export interface DatastoreActivity {
 }
 
 export namespace DatastoreActivity {
-  export const filterSensitiveLog = (obj: DatastoreActivity) => ({
+  export const filterSensitiveLog = (obj: DatastoreActivity): any => ({
     ...obj
   });
   export const isa = (o: any): o is DatastoreActivity =>
@@ -1516,7 +1526,7 @@ export interface DatastoreStatistics {
 }
 
 export namespace DatastoreStatistics {
-  export const filterSensitiveLog = (obj: DatastoreStatistics) => ({
+  export const filterSensitiveLog = (obj: DatastoreStatistics): any => ({
     ...obj,
     ...(obj.size && {
       size: EstimatedResourceSize.filterSensitiveLog(obj.size)
@@ -1555,7 +1565,7 @@ export interface DatastoreStorage {
 }
 
 export namespace DatastoreStorage {
-  export const filterSensitiveLog = (obj: DatastoreStorage) => ({
+  export const filterSensitiveLog = (obj: DatastoreStorage): any => ({
     ...obj,
     ...(obj.customerManagedS3 && {
       customerManagedS3: CustomerManagedDatastoreS3Storage.filterSensitiveLog(
@@ -1589,7 +1599,7 @@ export interface DatastoreStorageSummary {
 }
 
 export namespace DatastoreStorageSummary {
-  export const filterSensitiveLog = (obj: DatastoreStorageSummary) => ({
+  export const filterSensitiveLog = (obj: DatastoreStorageSummary): any => ({
     ...obj,
     ...(obj.customerManagedS3 && {
       customerManagedS3: CustomerManagedDatastoreS3StorageSummary.filterSensitiveLog(
@@ -1638,7 +1648,7 @@ export interface DatastoreSummary {
 }
 
 export namespace DatastoreSummary {
-  export const filterSensitiveLog = (obj: DatastoreSummary) => ({
+  export const filterSensitiveLog = (obj: DatastoreSummary): any => ({
     ...obj,
     ...(obj.datastoreStorage && {
       datastoreStorage: DatastoreStorageSummary.filterSensitiveLog(
@@ -1659,7 +1669,7 @@ export interface DeleteChannelRequest {
 }
 
 export namespace DeleteChannelRequest {
-  export const filterSensitiveLog = (obj: DeleteChannelRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteChannelRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteChannelRequest =>
@@ -1682,7 +1692,9 @@ export interface DeleteDatasetContentRequest {
 }
 
 export namespace DeleteDatasetContentRequest {
-  export const filterSensitiveLog = (obj: DeleteDatasetContentRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteDatasetContentRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteDatasetContentRequest =>
@@ -1698,7 +1710,7 @@ export interface DeleteDatasetRequest {
 }
 
 export namespace DeleteDatasetRequest {
-  export const filterSensitiveLog = (obj: DeleteDatasetRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteDatasetRequest =>
@@ -1714,7 +1726,7 @@ export interface DeleteDatastoreRequest {
 }
 
 export namespace DeleteDatastoreRequest {
-  export const filterSensitiveLog = (obj: DeleteDatastoreRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteDatastoreRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteDatastoreRequest =>
@@ -1730,7 +1742,7 @@ export interface DeletePipelineRequest {
 }
 
 export namespace DeletePipelineRequest {
-  export const filterSensitiveLog = (obj: DeletePipelineRequest) => ({
+  export const filterSensitiveLog = (obj: DeletePipelineRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeletePipelineRequest =>
@@ -1762,7 +1774,7 @@ export interface DeltaTime {
 }
 
 export namespace DeltaTime {
-  export const filterSensitiveLog = (obj: DeltaTime) => ({
+  export const filterSensitiveLog = (obj: DeltaTime): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeltaTime => __isa(o, "DeltaTime");
@@ -1783,7 +1795,7 @@ export interface DescribeChannelRequest {
 }
 
 export namespace DescribeChannelRequest {
-  export const filterSensitiveLog = (obj: DescribeChannelRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeChannelRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeChannelRequest =>
@@ -1805,7 +1817,7 @@ export interface DescribeChannelResponse {
 }
 
 export namespace DescribeChannelResponse {
-  export const filterSensitiveLog = (obj: DescribeChannelResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeChannelResponse): any => ({
     ...obj,
     ...(obj.channel && { channel: Channel.filterSensitiveLog(obj.channel) }),
     ...(obj.statistics && {
@@ -1825,7 +1837,7 @@ export interface DescribeDatasetRequest {
 }
 
 export namespace DescribeDatasetRequest {
-  export const filterSensitiveLog = (obj: DescribeDatasetRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeDatasetRequest =>
@@ -1841,7 +1853,7 @@ export interface DescribeDatasetResponse {
 }
 
 export namespace DescribeDatasetResponse {
-  export const filterSensitiveLog = (obj: DescribeDatasetResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
     ...obj,
     ...(obj.dataset && { dataset: Dataset.filterSensitiveLog(obj.dataset) })
   });
@@ -1864,7 +1876,7 @@ export interface DescribeDatastoreRequest {
 }
 
 export namespace DescribeDatastoreRequest {
-  export const filterSensitiveLog = (obj: DescribeDatastoreRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeDatastoreRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeDatastoreRequest =>
@@ -1886,7 +1898,7 @@ export interface DescribeDatastoreResponse {
 }
 
 export namespace DescribeDatastoreResponse {
-  export const filterSensitiveLog = (obj: DescribeDatastoreResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeDatastoreResponse): any => ({
     ...obj,
     ...(obj.datastore && {
       datastore: Datastore.filterSensitiveLog(obj.datastore)
@@ -1904,7 +1916,9 @@ export interface DescribeLoggingOptionsRequest {
 }
 
 export namespace DescribeLoggingOptionsRequest {
-  export const filterSensitiveLog = (obj: DescribeLoggingOptionsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeLoggingOptionsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeLoggingOptionsRequest =>
@@ -1920,7 +1934,9 @@ export interface DescribeLoggingOptionsResponse {
 }
 
 export namespace DescribeLoggingOptionsResponse {
-  export const filterSensitiveLog = (obj: DescribeLoggingOptionsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeLoggingOptionsResponse
+  ): any => ({
     ...obj,
     ...(obj.loggingOptions && {
       loggingOptions: LoggingOptions.filterSensitiveLog(obj.loggingOptions)
@@ -1939,7 +1955,7 @@ export interface DescribePipelineRequest {
 }
 
 export namespace DescribePipelineRequest {
-  export const filterSensitiveLog = (obj: DescribePipelineRequest) => ({
+  export const filterSensitiveLog = (obj: DescribePipelineRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribePipelineRequest =>
@@ -1956,7 +1972,7 @@ export interface DescribePipelineResponse {
 }
 
 export namespace DescribePipelineResponse {
-  export const filterSensitiveLog = (obj: DescribePipelineResponse) => ({
+  export const filterSensitiveLog = (obj: DescribePipelineResponse): any => ({
     ...obj,
     ...(obj.pipeline && { pipeline: Pipeline.filterSensitiveLog(obj.pipeline) })
   });
@@ -1996,7 +2012,9 @@ export interface DeviceRegistryEnrichActivity {
 }
 
 export namespace DeviceRegistryEnrichActivity {
-  export const filterSensitiveLog = (obj: DeviceRegistryEnrichActivity) => ({
+  export const filterSensitiveLog = (
+    obj: DeviceRegistryEnrichActivity
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeviceRegistryEnrichActivity =>
@@ -2036,7 +2054,7 @@ export interface DeviceShadowEnrichActivity {
 }
 
 export namespace DeviceShadowEnrichActivity {
-  export const filterSensitiveLog = (obj: DeviceShadowEnrichActivity) => ({
+  export const filterSensitiveLog = (obj: DeviceShadowEnrichActivity): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeviceShadowEnrichActivity =>
@@ -2060,7 +2078,7 @@ export interface EstimatedResourceSize {
 }
 
 export namespace EstimatedResourceSize {
-  export const filterSensitiveLog = (obj: EstimatedResourceSize) => ({
+  export const filterSensitiveLog = (obj: EstimatedResourceSize): any => ({
     ...obj
   });
   export const isa = (o: any): o is EstimatedResourceSize =>
@@ -2089,7 +2107,7 @@ export interface FilterActivity {
 }
 
 export namespace FilterActivity {
-  export const filterSensitiveLog = (obj: FilterActivity) => ({
+  export const filterSensitiveLog = (obj: FilterActivity): any => ({
     ...obj
   });
   export const isa = (o: any): o is FilterActivity =>
@@ -2113,7 +2131,7 @@ export interface GetDatasetContentRequest {
 }
 
 export namespace GetDatasetContentRequest {
-  export const filterSensitiveLog = (obj: GetDatasetContentRequest) => ({
+  export const filterSensitiveLog = (obj: GetDatasetContentRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetDatasetContentRequest =>
@@ -2139,7 +2157,7 @@ export interface GetDatasetContentResponse {
 }
 
 export namespace GetDatasetContentResponse {
-  export const filterSensitiveLog = (obj: GetDatasetContentResponse) => ({
+  export const filterSensitiveLog = (obj: GetDatasetContentResponse): any => ({
     ...obj,
     ...(obj.entries && {
       entries: obj.entries.map(DatasetEntry.filterSensitiveLog)
@@ -2173,7 +2191,7 @@ export interface GlueConfiguration {
 }
 
 export namespace GlueConfiguration {
-  export const filterSensitiveLog = (obj: GlueConfiguration) => ({
+  export const filterSensitiveLog = (obj: GlueConfiguration): any => ({
     ...obj
   });
   export const isa = (o: any): o is GlueConfiguration =>
@@ -2200,7 +2218,7 @@ export interface IotEventsDestinationConfiguration {
 export namespace IotEventsDestinationConfiguration {
   export const filterSensitiveLog = (
     obj: IotEventsDestinationConfiguration
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is IotEventsDestinationConfiguration =>
@@ -2236,7 +2254,7 @@ export interface LambdaActivity {
 }
 
 export namespace LambdaActivity {
-  export const filterSensitiveLog = (obj: LambdaActivity) => ({
+  export const filterSensitiveLog = (obj: LambdaActivity): any => ({
     ...obj
   });
   export const isa = (o: any): o is LambdaActivity =>
@@ -2258,7 +2276,7 @@ export interface ListChannelsRequest {
 }
 
 export namespace ListChannelsRequest {
-  export const filterSensitiveLog = (obj: ListChannelsRequest) => ({
+  export const filterSensitiveLog = (obj: ListChannelsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListChannelsRequest =>
@@ -2280,7 +2298,7 @@ export interface ListChannelsResponse {
 }
 
 export namespace ListChannelsResponse {
-  export const filterSensitiveLog = (obj: ListChannelsResponse) => ({
+  export const filterSensitiveLog = (obj: ListChannelsResponse): any => ({
     ...obj,
     ...(obj.channelSummaries && {
       channelSummaries: obj.channelSummaries.map(
@@ -2324,7 +2342,7 @@ export interface ListDatasetContentsRequest {
 }
 
 export namespace ListDatasetContentsRequest {
-  export const filterSensitiveLog = (obj: ListDatasetContentsRequest) => ({
+  export const filterSensitiveLog = (obj: ListDatasetContentsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDatasetContentsRequest =>
@@ -2346,7 +2364,9 @@ export interface ListDatasetContentsResponse {
 }
 
 export namespace ListDatasetContentsResponse {
-  export const filterSensitiveLog = (obj: ListDatasetContentsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListDatasetContentsResponse
+  ): any => ({
     ...obj,
     ...(obj.datasetContentSummaries && {
       datasetContentSummaries: obj.datasetContentSummaries.map(
@@ -2373,7 +2393,7 @@ export interface ListDatasetsRequest {
 }
 
 export namespace ListDatasetsRequest {
-  export const filterSensitiveLog = (obj: ListDatasetsRequest) => ({
+  export const filterSensitiveLog = (obj: ListDatasetsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDatasetsRequest =>
@@ -2395,7 +2415,7 @@ export interface ListDatasetsResponse {
 }
 
 export namespace ListDatasetsResponse {
-  export const filterSensitiveLog = (obj: ListDatasetsResponse) => ({
+  export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
     ...obj,
     ...(obj.datasetSummaries && {
       datasetSummaries: obj.datasetSummaries.map(
@@ -2422,7 +2442,7 @@ export interface ListDatastoresRequest {
 }
 
 export namespace ListDatastoresRequest {
-  export const filterSensitiveLog = (obj: ListDatastoresRequest) => ({
+  export const filterSensitiveLog = (obj: ListDatastoresRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDatastoresRequest =>
@@ -2444,7 +2464,7 @@ export interface ListDatastoresResponse {
 }
 
 export namespace ListDatastoresResponse {
-  export const filterSensitiveLog = (obj: ListDatastoresResponse) => ({
+  export const filterSensitiveLog = (obj: ListDatastoresResponse): any => ({
     ...obj,
     ...(obj.datastoreSummaries && {
       datastoreSummaries: obj.datastoreSummaries.map(
@@ -2471,7 +2491,7 @@ export interface ListPipelinesRequest {
 }
 
 export namespace ListPipelinesRequest {
-  export const filterSensitiveLog = (obj: ListPipelinesRequest) => ({
+  export const filterSensitiveLog = (obj: ListPipelinesRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListPipelinesRequest =>
@@ -2493,7 +2513,7 @@ export interface ListPipelinesResponse {
 }
 
 export namespace ListPipelinesResponse {
-  export const filterSensitiveLog = (obj: ListPipelinesResponse) => ({
+  export const filterSensitiveLog = (obj: ListPipelinesResponse): any => ({
     ...obj,
     ...(obj.pipelineSummaries && {
       pipelineSummaries: obj.pipelineSummaries.map(
@@ -2514,7 +2534,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
@@ -2530,7 +2550,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
     ...obj,
     ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
@@ -2565,7 +2587,7 @@ export interface LoggingOptions {
 }
 
 export namespace LoggingOptions {
-  export const filterSensitiveLog = (obj: LoggingOptions) => ({
+  export const filterSensitiveLog = (obj: LoggingOptions): any => ({
     ...obj
   });
   export const isa = (o: any): o is LoggingOptions =>
@@ -2599,7 +2621,7 @@ export interface MathActivity {
 }
 
 export namespace MathActivity {
-  export const filterSensitiveLog = (obj: MathActivity) => ({
+  export const filterSensitiveLog = (obj: MathActivity): any => ({
     ...obj
   });
   export const isa = (o: any): o is MathActivity => __isa(o, "MathActivity");
@@ -2618,7 +2640,7 @@ export interface OutputFileUriValue {
 }
 
 export namespace OutputFileUriValue {
-  export const filterSensitiveLog = (obj: OutputFileUriValue) => ({
+  export const filterSensitiveLog = (obj: OutputFileUriValue): any => ({
     ...obj
   });
   export const isa = (o: any): o is OutputFileUriValue =>
@@ -2662,7 +2684,7 @@ export interface Pipeline {
 }
 
 export namespace Pipeline {
-  export const filterSensitiveLog = (obj: Pipeline) => ({
+  export const filterSensitiveLog = (obj: Pipeline): any => ({
     ...obj,
     ...(obj.activities && {
       activities: obj.activities.map(PipelineActivity.filterSensitiveLog)
@@ -2735,7 +2757,7 @@ export interface PipelineActivity {
 }
 
 export namespace PipelineActivity {
-  export const filterSensitiveLog = (obj: PipelineActivity) => ({
+  export const filterSensitiveLog = (obj: PipelineActivity): any => ({
     ...obj,
     ...(obj.addAttributes && {
       addAttributes: AddAttributesActivity.filterSensitiveLog(obj.addAttributes)
@@ -2805,7 +2827,7 @@ export interface PipelineSummary {
 }
 
 export namespace PipelineSummary {
-  export const filterSensitiveLog = (obj: PipelineSummary) => ({
+  export const filterSensitiveLog = (obj: PipelineSummary): any => ({
     ...obj,
     ...(obj.reprocessingSummaries && {
       reprocessingSummaries: obj.reprocessingSummaries.map(
@@ -2826,7 +2848,7 @@ export interface PutLoggingOptionsRequest {
 }
 
 export namespace PutLoggingOptionsRequest {
-  export const filterSensitiveLog = (obj: PutLoggingOptionsRequest) => ({
+  export const filterSensitiveLog = (obj: PutLoggingOptionsRequest): any => ({
     ...obj,
     ...(obj.loggingOptions && {
       loggingOptions: LoggingOptions.filterSensitiveLog(obj.loggingOptions)
@@ -2849,7 +2871,7 @@ export interface QueryFilter {
 }
 
 export namespace QueryFilter {
-  export const filterSensitiveLog = (obj: QueryFilter) => ({
+  export const filterSensitiveLog = (obj: QueryFilter): any => ({
     ...obj,
     ...(obj.deltaTime && {
       deltaTime: DeltaTime.filterSensitiveLog(obj.deltaTime)
@@ -2880,7 +2902,7 @@ export interface RemoveAttributesActivity {
 }
 
 export namespace RemoveAttributesActivity {
-  export const filterSensitiveLog = (obj: RemoveAttributesActivity) => ({
+  export const filterSensitiveLog = (obj: RemoveAttributesActivity): any => ({
     ...obj
   });
   export const isa = (o: any): o is RemoveAttributesActivity =>
@@ -2916,7 +2938,7 @@ export interface ReprocessingSummary {
 }
 
 export namespace ReprocessingSummary {
-  export const filterSensitiveLog = (obj: ReprocessingSummary) => ({
+  export const filterSensitiveLog = (obj: ReprocessingSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is ReprocessingSummary =>
@@ -2942,7 +2964,7 @@ export interface ResourceConfiguration {
 }
 
 export namespace ResourceConfiguration {
-  export const filterSensitiveLog = (obj: ResourceConfiguration) => ({
+  export const filterSensitiveLog = (obj: ResourceConfiguration): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceConfiguration =>
@@ -2966,7 +2988,7 @@ export interface RetentionPeriod {
 }
 
 export namespace RetentionPeriod {
-  export const filterSensitiveLog = (obj: RetentionPeriod) => ({
+  export const filterSensitiveLog = (obj: RetentionPeriod): any => ({
     ...obj
   });
   export const isa = (o: any): o is RetentionPeriod =>
@@ -2991,7 +3013,7 @@ export interface RunPipelineActivityRequest {
 }
 
 export namespace RunPipelineActivityRequest {
-  export const filterSensitiveLog = (obj: RunPipelineActivityRequest) => ({
+  export const filterSensitiveLog = (obj: RunPipelineActivityRequest): any => ({
     ...obj,
     ...(obj.pipelineActivity && {
       pipelineActivity: PipelineActivity.filterSensitiveLog(
@@ -3019,7 +3041,9 @@ export interface RunPipelineActivityResponse {
 }
 
 export namespace RunPipelineActivityResponse {
-  export const filterSensitiveLog = (obj: RunPipelineActivityResponse) => ({
+  export const filterSensitiveLog = (
+    obj: RunPipelineActivityResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is RunPipelineActivityResponse =>
@@ -3059,7 +3083,7 @@ export interface S3DestinationConfiguration {
 }
 
 export namespace S3DestinationConfiguration {
-  export const filterSensitiveLog = (obj: S3DestinationConfiguration) => ({
+  export const filterSensitiveLog = (obj: S3DestinationConfiguration): any => ({
     ...obj,
     ...(obj.glueConfiguration && {
       glueConfiguration: GlueConfiguration.filterSensitiveLog(
@@ -3096,7 +3120,7 @@ export interface SampleChannelDataRequest {
 }
 
 export namespace SampleChannelDataRequest {
-  export const filterSensitiveLog = (obj: SampleChannelDataRequest) => ({
+  export const filterSensitiveLog = (obj: SampleChannelDataRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is SampleChannelDataRequest =>
@@ -3113,7 +3137,7 @@ export interface SampleChannelDataResponse {
 }
 
 export namespace SampleChannelDataResponse {
-  export const filterSensitiveLog = (obj: SampleChannelDataResponse) => ({
+  export const filterSensitiveLog = (obj: SampleChannelDataResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is SampleChannelDataResponse =>
@@ -3134,7 +3158,7 @@ export interface Schedule {
 }
 
 export namespace Schedule {
-  export const filterSensitiveLog = (obj: Schedule) => ({
+  export const filterSensitiveLog = (obj: Schedule): any => ({
     ...obj
   });
   export const isa = (o: any): o is Schedule => __isa(o, "Schedule");
@@ -3163,7 +3187,7 @@ export interface SelectAttributesActivity {
 }
 
 export namespace SelectAttributesActivity {
-  export const filterSensitiveLog = (obj: SelectAttributesActivity) => ({
+  export const filterSensitiveLog = (obj: SelectAttributesActivity): any => ({
     ...obj
   });
   export const isa = (o: any): o is SelectAttributesActivity =>
@@ -3180,7 +3204,9 @@ export interface ServiceManagedChannelS3Storage {
 }
 
 export namespace ServiceManagedChannelS3Storage {
-  export const filterSensitiveLog = (obj: ServiceManagedChannelS3Storage) => ({
+  export const filterSensitiveLog = (
+    obj: ServiceManagedChannelS3Storage
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceManagedChannelS3Storage =>
@@ -3197,7 +3223,7 @@ export interface ServiceManagedChannelS3StorageSummary {
 export namespace ServiceManagedChannelS3StorageSummary {
   export const filterSensitiveLog = (
     obj: ServiceManagedChannelS3StorageSummary
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceManagedChannelS3StorageSummary =>
@@ -3216,7 +3242,7 @@ export interface ServiceManagedDatastoreS3Storage {
 export namespace ServiceManagedDatastoreS3Storage {
   export const filterSensitiveLog = (
     obj: ServiceManagedDatastoreS3Storage
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceManagedDatastoreS3Storage =>
@@ -3233,7 +3259,7 @@ export interface ServiceManagedDatastoreS3StorageSummary {
 export namespace ServiceManagedDatastoreS3StorageSummary {
   export const filterSensitiveLog = (
     obj: ServiceManagedDatastoreS3StorageSummary
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceManagedDatastoreS3StorageSummary =>
@@ -3257,7 +3283,7 @@ export interface SqlQueryDatasetAction {
 }
 
 export namespace SqlQueryDatasetAction {
-  export const filterSensitiveLog = (obj: SqlQueryDatasetAction) => ({
+  export const filterSensitiveLog = (obj: SqlQueryDatasetAction): any => ({
     ...obj,
     ...(obj.filters && {
       filters: obj.filters.map(QueryFilter.filterSensitiveLog)
@@ -3288,7 +3314,7 @@ export interface StartPipelineReprocessingRequest {
 export namespace StartPipelineReprocessingRequest {
   export const filterSensitiveLog = (
     obj: StartPipelineReprocessingRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartPipelineReprocessingRequest =>
@@ -3306,7 +3332,7 @@ export interface StartPipelineReprocessingResponse {
 export namespace StartPipelineReprocessingResponse {
   export const filterSensitiveLog = (
     obj: StartPipelineReprocessingResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartPipelineReprocessingResponse =>
@@ -3330,7 +3356,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -3350,7 +3376,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
     ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
@@ -3363,7 +3389,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const filterSensitiveLog = (obj: TagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceResponse =>
@@ -3384,7 +3410,7 @@ export interface TriggeringDataset {
 }
 
 export namespace TriggeringDataset {
-  export const filterSensitiveLog = (obj: TriggeringDataset) => ({
+  export const filterSensitiveLog = (obj: TriggeringDataset): any => ({
     ...obj
   });
   export const isa = (o: any): o is TriggeringDataset =>
@@ -3405,7 +3431,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>
@@ -3417,7 +3443,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceResponse =>
@@ -3446,7 +3472,7 @@ export interface UpdateChannelRequest {
 }
 
 export namespace UpdateChannelRequest {
-  export const filterSensitiveLog = (obj: UpdateChannelRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateChannelRequest): any => ({
     ...obj,
     ...(obj.channelStorage && {
       channelStorage: ChannelStorage.filterSensitiveLog(obj.channelStorage)
@@ -3497,7 +3523,7 @@ export interface UpdateDatasetRequest {
 }
 
 export namespace UpdateDatasetRequest {
-  export const filterSensitiveLog = (obj: UpdateDatasetRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateDatasetRequest): any => ({
     ...obj,
     ...(obj.actions && {
       actions: obj.actions.map(DatasetAction.filterSensitiveLog)
@@ -3545,7 +3571,7 @@ export interface UpdateDatastoreRequest {
 }
 
 export namespace UpdateDatastoreRequest {
-  export const filterSensitiveLog = (obj: UpdateDatastoreRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateDatastoreRequest): any => ({
     ...obj,
     ...(obj.datastoreStorage && {
       datastoreStorage: DatastoreStorage.filterSensitiveLog(
@@ -3591,7 +3617,7 @@ export interface UpdatePipelineRequest {
 }
 
 export namespace UpdatePipelineRequest {
-  export const filterSensitiveLog = (obj: UpdatePipelineRequest) => ({
+  export const filterSensitiveLog = (obj: UpdatePipelineRequest): any => ({
     ...obj,
     ...(obj.pipelineActivities && {
       pipelineActivities: obj.pipelineActivities.map(
@@ -3637,7 +3663,7 @@ export interface Variable {
 }
 
 export namespace Variable {
-  export const filterSensitiveLog = (obj: Variable) => ({
+  export const filterSensitiveLog = (obj: Variable): any => ({
     ...obj,
     ...(obj.datasetContentVersionValue && {
       datasetContentVersionValue: DatasetContentVersionValue.filterSensitiveLog(
@@ -3670,7 +3696,7 @@ export interface VersioningConfiguration {
 }
 
 export namespace VersioningConfiguration {
-  export const filterSensitiveLog = (obj: VersioningConfiguration) => ({
+  export const filterSensitiveLog = (obj: VersioningConfiguration): any => ({
     ...obj
   });
   export const isa = (o: any): o is VersioningConfiguration =>
@@ -3700,7 +3726,7 @@ export interface BatchPutMessageErrorEntry {
 }
 
 export namespace BatchPutMessageErrorEntry {
-  export const filterSensitiveLog = (obj: BatchPutMessageErrorEntry) => ({
+  export const filterSensitiveLog = (obj: BatchPutMessageErrorEntry): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchPutMessageErrorEntry =>
@@ -3748,7 +3774,7 @@ export interface BatchPutMessageRequest {
 }
 
 export namespace BatchPutMessageRequest {
-  export const filterSensitiveLog = (obj: BatchPutMessageRequest) => ({
+  export const filterSensitiveLog = (obj: BatchPutMessageRequest): any => ({
     ...obj,
     ...(obj.messages && {
       messages: obj.messages.map(Message.filterSensitiveLog)
@@ -3767,7 +3793,7 @@ export interface BatchPutMessageResponse {
 }
 
 export namespace BatchPutMessageResponse {
-  export const filterSensitiveLog = (obj: BatchPutMessageResponse) => ({
+  export const filterSensitiveLog = (obj: BatchPutMessageResponse): any => ({
     ...obj,
     ...(obj.batchPutMessageErrorEntries && {
       batchPutMessageErrorEntries: obj.batchPutMessageErrorEntries.map(
@@ -3798,7 +3824,7 @@ export interface Message {
 }
 
 export namespace Message {
-  export const filterSensitiveLog = (obj: Message) => ({
+  export const filterSensitiveLog = (obj: Message): any => ({
     ...obj
   });
   export const isa = (o: any): o is Message => __isa(o, "Message");

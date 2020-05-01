@@ -27,7 +27,7 @@ export interface BatchDetectDominantLanguageItemResult {
 export namespace BatchDetectDominantLanguageItemResult {
   export const filterSensitiveLog = (
     obj: BatchDetectDominantLanguageItemResult
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Languages && {
       Languages: obj.Languages.map(DominantLanguage.filterSensitiveLog)
@@ -50,7 +50,7 @@ export interface BatchDetectDominantLanguageRequest {
 export namespace BatchDetectDominantLanguageRequest {
   export const filterSensitiveLog = (
     obj: BatchDetectDominantLanguageRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchDetectDominantLanguageRequest =>
@@ -79,7 +79,7 @@ export interface BatchDetectDominantLanguageResponse {
 export namespace BatchDetectDominantLanguageResponse {
   export const filterSensitiveLog = (
     obj: BatchDetectDominantLanguageResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ErrorList && {
       ErrorList: obj.ErrorList.map(BatchItemError.filterSensitiveLog)
@@ -114,7 +114,9 @@ export interface BatchDetectEntitiesItemResult {
 }
 
 export namespace BatchDetectEntitiesItemResult {
-  export const filterSensitiveLog = (obj: BatchDetectEntitiesItemResult) => ({
+  export const filterSensitiveLog = (
+    obj: BatchDetectEntitiesItemResult
+  ): any => ({
     ...obj,
     ...(obj.Entities && {
       Entities: obj.Entities.map(Entity.filterSensitiveLog)
@@ -142,7 +144,7 @@ export interface BatchDetectEntitiesRequest {
 }
 
 export namespace BatchDetectEntitiesRequest {
-  export const filterSensitiveLog = (obj: BatchDetectEntitiesRequest) => ({
+  export const filterSensitiveLog = (obj: BatchDetectEntitiesRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchDetectEntitiesRequest =>
@@ -169,7 +171,9 @@ export interface BatchDetectEntitiesResponse {
 }
 
 export namespace BatchDetectEntitiesResponse {
-  export const filterSensitiveLog = (obj: BatchDetectEntitiesResponse) => ({
+  export const filterSensitiveLog = (
+    obj: BatchDetectEntitiesResponse
+  ): any => ({
     ...obj,
     ...(obj.ErrorList && {
       ErrorList: obj.ErrorList.map(BatchItemError.filterSensitiveLog)
@@ -204,7 +208,9 @@ export interface BatchDetectKeyPhrasesItemResult {
 }
 
 export namespace BatchDetectKeyPhrasesItemResult {
-  export const filterSensitiveLog = (obj: BatchDetectKeyPhrasesItemResult) => ({
+  export const filterSensitiveLog = (
+    obj: BatchDetectKeyPhrasesItemResult
+  ): any => ({
     ...obj,
     ...(obj.KeyPhrases && {
       KeyPhrases: obj.KeyPhrases.map(KeyPhrase.filterSensitiveLog)
@@ -232,7 +238,9 @@ export interface BatchDetectKeyPhrasesRequest {
 }
 
 export namespace BatchDetectKeyPhrasesRequest {
-  export const filterSensitiveLog = (obj: BatchDetectKeyPhrasesRequest) => ({
+  export const filterSensitiveLog = (
+    obj: BatchDetectKeyPhrasesRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchDetectKeyPhrasesRequest =>
@@ -259,7 +267,9 @@ export interface BatchDetectKeyPhrasesResponse {
 }
 
 export namespace BatchDetectKeyPhrasesResponse {
-  export const filterSensitiveLog = (obj: BatchDetectKeyPhrasesResponse) => ({
+  export const filterSensitiveLog = (
+    obj: BatchDetectKeyPhrasesResponse
+  ): any => ({
     ...obj,
     ...(obj.ErrorList && {
       ErrorList: obj.ErrorList.map(BatchItemError.filterSensitiveLog)
@@ -299,7 +309,9 @@ export interface BatchDetectSentimentItemResult {
 }
 
 export namespace BatchDetectSentimentItemResult {
-  export const filterSensitiveLog = (obj: BatchDetectSentimentItemResult) => ({
+  export const filterSensitiveLog = (
+    obj: BatchDetectSentimentItemResult
+  ): any => ({
     ...obj,
     ...(obj.SentimentScore && {
       SentimentScore: SentimentScore.filterSensitiveLog(obj.SentimentScore)
@@ -327,7 +339,9 @@ export interface BatchDetectSentimentRequest {
 }
 
 export namespace BatchDetectSentimentRequest {
-  export const filterSensitiveLog = (obj: BatchDetectSentimentRequest) => ({
+  export const filterSensitiveLog = (
+    obj: BatchDetectSentimentRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchDetectSentimentRequest =>
@@ -354,7 +368,9 @@ export interface BatchDetectSentimentResponse {
 }
 
 export namespace BatchDetectSentimentResponse {
-  export const filterSensitiveLog = (obj: BatchDetectSentimentResponse) => ({
+  export const filterSensitiveLog = (
+    obj: BatchDetectSentimentResponse
+  ): any => ({
     ...obj,
     ...(obj.ErrorList && {
       ErrorList: obj.ErrorList.map(BatchItemError.filterSensitiveLog)
@@ -387,7 +403,9 @@ export interface BatchDetectSyntaxItemResult {
 }
 
 export namespace BatchDetectSyntaxItemResult {
-  export const filterSensitiveLog = (obj: BatchDetectSyntaxItemResult) => ({
+  export const filterSensitiveLog = (
+    obj: BatchDetectSyntaxItemResult
+  ): any => ({
     ...obj,
     ...(obj.SyntaxTokens && {
       SyntaxTokens: obj.SyntaxTokens.map(SyntaxToken.filterSensitiveLog)
@@ -415,7 +433,7 @@ export interface BatchDetectSyntaxRequest {
 }
 
 export namespace BatchDetectSyntaxRequest {
-  export const filterSensitiveLog = (obj: BatchDetectSyntaxRequest) => ({
+  export const filterSensitiveLog = (obj: BatchDetectSyntaxRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchDetectSyntaxRequest =>
@@ -442,7 +460,7 @@ export interface BatchDetectSyntaxResponse {
 }
 
 export namespace BatchDetectSyntaxResponse {
-  export const filterSensitiveLog = (obj: BatchDetectSyntaxResponse) => ({
+  export const filterSensitiveLog = (obj: BatchDetectSyntaxResponse): any => ({
     ...obj,
     ...(obj.ErrorList && {
       ErrorList: obj.ErrorList.map(BatchItemError.filterSensitiveLog)
@@ -481,7 +499,7 @@ export interface BatchItemError {
 }
 
 export namespace BatchItemError {
-  export const filterSensitiveLog = (obj: BatchItemError) => ({
+  export const filterSensitiveLog = (obj: BatchItemError): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchItemError =>
@@ -501,7 +519,9 @@ export interface BatchSizeLimitExceededException
 }
 
 export namespace BatchSizeLimitExceededException {
-  export const filterSensitiveLog = (obj: BatchSizeLimitExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: BatchSizeLimitExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchSizeLimitExceededException =>
@@ -569,7 +589,9 @@ export interface ClassifierEvaluationMetrics {
 }
 
 export namespace ClassifierEvaluationMetrics {
-  export const filterSensitiveLog = (obj: ClassifierEvaluationMetrics) => ({
+  export const filterSensitiveLog = (
+    obj: ClassifierEvaluationMetrics
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ClassifierEvaluationMetrics =>
@@ -605,7 +627,7 @@ export interface ClassifierMetadata {
 }
 
 export namespace ClassifierMetadata {
-  export const filterSensitiveLog = (obj: ClassifierMetadata) => ({
+  export const filterSensitiveLog = (obj: ClassifierMetadata): any => ({
     ...obj,
     ...(obj.EvaluationMetrics && {
       EvaluationMetrics: ClassifierEvaluationMetrics.filterSensitiveLog(
@@ -631,7 +653,7 @@ export interface ClassifyDocumentRequest {
 }
 
 export namespace ClassifyDocumentRequest {
-  export const filterSensitiveLog = (obj: ClassifyDocumentRequest) => ({
+  export const filterSensitiveLog = (obj: ClassifyDocumentRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ClassifyDocumentRequest =>
@@ -655,7 +677,7 @@ export interface ClassifyDocumentResponse {
 }
 
 export namespace ClassifyDocumentResponse {
-  export const filterSensitiveLog = (obj: ClassifyDocumentResponse) => ({
+  export const filterSensitiveLog = (obj: ClassifyDocumentResponse): any => ({
     ...obj,
     ...(obj.Classes && {
       Classes: obj.Classes.map(DocumentClass.filterSensitiveLog)
@@ -680,7 +702,9 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
-  export const filterSensitiveLog = (obj: ConcurrentModificationException) => ({
+  export const filterSensitiveLog = (
+    obj: ConcurrentModificationException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConcurrentModificationException =>
@@ -762,7 +786,9 @@ export interface CreateDocumentClassifierRequest {
 }
 
 export namespace CreateDocumentClassifierRequest {
-  export const filterSensitiveLog = (obj: CreateDocumentClassifierRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreateDocumentClassifierRequest
+  ): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
       InputDataConfig: DocumentClassifierInputDataConfig.filterSensitiveLog(
@@ -794,7 +820,7 @@ export interface CreateDocumentClassifierResponse {
 export namespace CreateDocumentClassifierResponse {
   export const filterSensitiveLog = (
     obj: CreateDocumentClassifierResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateDocumentClassifierResponse =>
@@ -834,7 +860,7 @@ export interface CreateEndpointRequest {
 }
 
 export namespace CreateEndpointRequest {
-  export const filterSensitiveLog = (obj: CreateEndpointRequest) => ({
+  export const filterSensitiveLog = (obj: CreateEndpointRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -851,7 +877,7 @@ export interface CreateEndpointResponse {
 }
 
 export namespace CreateEndpointResponse {
-  export const filterSensitiveLog = (obj: CreateEndpointResponse) => ({
+  export const filterSensitiveLog = (obj: CreateEndpointResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateEndpointResponse =>
@@ -919,7 +945,9 @@ export interface CreateEntityRecognizerRequest {
 }
 
 export namespace CreateEntityRecognizerRequest {
-  export const filterSensitiveLog = (obj: CreateEntityRecognizerRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreateEntityRecognizerRequest
+  ): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
       InputDataConfig: EntityRecognizerInputDataConfig.filterSensitiveLog(
@@ -944,7 +972,9 @@ export interface CreateEntityRecognizerResponse {
 }
 
 export namespace CreateEntityRecognizerResponse {
-  export const filterSensitiveLog = (obj: CreateEntityRecognizerResponse) => ({
+  export const filterSensitiveLog = (
+    obj: CreateEntityRecognizerResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateEntityRecognizerResponse =>
@@ -960,7 +990,9 @@ export interface DeleteDocumentClassifierRequest {
 }
 
 export namespace DeleteDocumentClassifierRequest {
-  export const filterSensitiveLog = (obj: DeleteDocumentClassifierRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteDocumentClassifierRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteDocumentClassifierRequest =>
@@ -974,7 +1006,7 @@ export interface DeleteDocumentClassifierResponse {
 export namespace DeleteDocumentClassifierResponse {
   export const filterSensitiveLog = (
     obj: DeleteDocumentClassifierResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteDocumentClassifierResponse =>
@@ -990,7 +1022,7 @@ export interface DeleteEndpointRequest {
 }
 
 export namespace DeleteEndpointRequest {
-  export const filterSensitiveLog = (obj: DeleteEndpointRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteEndpointRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteEndpointRequest =>
@@ -1002,7 +1034,7 @@ export interface DeleteEndpointResponse {
 }
 
 export namespace DeleteEndpointResponse {
-  export const filterSensitiveLog = (obj: DeleteEndpointResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteEndpointResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteEndpointResponse =>
@@ -1018,7 +1050,9 @@ export interface DeleteEntityRecognizerRequest {
 }
 
 export namespace DeleteEntityRecognizerRequest {
-  export const filterSensitiveLog = (obj: DeleteEntityRecognizerRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteEntityRecognizerRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteEntityRecognizerRequest =>
@@ -1030,7 +1064,9 @@ export interface DeleteEntityRecognizerResponse {
 }
 
 export namespace DeleteEntityRecognizerResponse {
-  export const filterSensitiveLog = (obj: DeleteEntityRecognizerResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteEntityRecognizerResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteEntityRecognizerResponse =>
@@ -1049,7 +1085,7 @@ export interface DescribeDocumentClassificationJobRequest {
 export namespace DescribeDocumentClassificationJobRequest {
   export const filterSensitiveLog = (
     obj: DescribeDocumentClassificationJobRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeDocumentClassificationJobRequest =>
@@ -1068,7 +1104,7 @@ export interface DescribeDocumentClassificationJobResponse {
 export namespace DescribeDocumentClassificationJobResponse {
   export const filterSensitiveLog = (
     obj: DescribeDocumentClassificationJobResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.DocumentClassificationJobProperties && {
       DocumentClassificationJobProperties: DocumentClassificationJobProperties.filterSensitiveLog(
@@ -1092,7 +1128,7 @@ export interface DescribeDocumentClassifierRequest {
 export namespace DescribeDocumentClassifierRequest {
   export const filterSensitiveLog = (
     obj: DescribeDocumentClassifierRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeDocumentClassifierRequest =>
@@ -1110,7 +1146,7 @@ export interface DescribeDocumentClassifierResponse {
 export namespace DescribeDocumentClassifierResponse {
   export const filterSensitiveLog = (
     obj: DescribeDocumentClassifierResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.DocumentClassifierProperties && {
       DocumentClassifierProperties: DocumentClassifierProperties.filterSensitiveLog(
@@ -1134,7 +1170,7 @@ export interface DescribeDominantLanguageDetectionJobRequest {
 export namespace DescribeDominantLanguageDetectionJobRequest {
   export const filterSensitiveLog = (
     obj: DescribeDominantLanguageDetectionJobRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -1155,7 +1191,7 @@ export interface DescribeDominantLanguageDetectionJobResponse {
 export namespace DescribeDominantLanguageDetectionJobResponse {
   export const filterSensitiveLog = (
     obj: DescribeDominantLanguageDetectionJobResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.DominantLanguageDetectionJobProperties && {
       DominantLanguageDetectionJobProperties: DominantLanguageDetectionJobProperties.filterSensitiveLog(
@@ -1178,7 +1214,7 @@ export interface DescribeEndpointRequest {
 }
 
 export namespace DescribeEndpointRequest {
-  export const filterSensitiveLog = (obj: DescribeEndpointRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeEndpointRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeEndpointRequest =>
@@ -1194,7 +1230,7 @@ export interface DescribeEndpointResponse {
 }
 
 export namespace DescribeEndpointResponse {
-  export const filterSensitiveLog = (obj: DescribeEndpointResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeEndpointResponse): any => ({
     ...obj,
     ...(obj.EndpointProperties && {
       EndpointProperties: EndpointProperties.filterSensitiveLog(
@@ -1218,7 +1254,7 @@ export interface DescribeEntitiesDetectionJobRequest {
 export namespace DescribeEntitiesDetectionJobRequest {
   export const filterSensitiveLog = (
     obj: DescribeEntitiesDetectionJobRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeEntitiesDetectionJobRequest =>
@@ -1236,7 +1272,7 @@ export interface DescribeEntitiesDetectionJobResponse {
 export namespace DescribeEntitiesDetectionJobResponse {
   export const filterSensitiveLog = (
     obj: DescribeEntitiesDetectionJobResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.EntitiesDetectionJobProperties && {
       EntitiesDetectionJobProperties: EntitiesDetectionJobProperties.filterSensitiveLog(
@@ -1257,7 +1293,9 @@ export interface DescribeEntityRecognizerRequest {
 }
 
 export namespace DescribeEntityRecognizerRequest {
-  export const filterSensitiveLog = (obj: DescribeEntityRecognizerRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeEntityRecognizerRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeEntityRecognizerRequest =>
@@ -1275,7 +1313,7 @@ export interface DescribeEntityRecognizerResponse {
 export namespace DescribeEntityRecognizerResponse {
   export const filterSensitiveLog = (
     obj: DescribeEntityRecognizerResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.EntityRecognizerProperties && {
       EntityRecognizerProperties: EntityRecognizerProperties.filterSensitiveLog(
@@ -1299,7 +1337,7 @@ export interface DescribeKeyPhrasesDetectionJobRequest {
 export namespace DescribeKeyPhrasesDetectionJobRequest {
   export const filterSensitiveLog = (
     obj: DescribeKeyPhrasesDetectionJobRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeKeyPhrasesDetectionJobRequest =>
@@ -1318,7 +1356,7 @@ export interface DescribeKeyPhrasesDetectionJobResponse {
 export namespace DescribeKeyPhrasesDetectionJobResponse {
   export const filterSensitiveLog = (
     obj: DescribeKeyPhrasesDetectionJobResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.KeyPhrasesDetectionJobProperties && {
       KeyPhrasesDetectionJobProperties: KeyPhrasesDetectionJobProperties.filterSensitiveLog(
@@ -1342,7 +1380,7 @@ export interface DescribeSentimentDetectionJobRequest {
 export namespace DescribeSentimentDetectionJobRequest {
   export const filterSensitiveLog = (
     obj: DescribeSentimentDetectionJobRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeSentimentDetectionJobRequest =>
@@ -1360,7 +1398,7 @@ export interface DescribeSentimentDetectionJobResponse {
 export namespace DescribeSentimentDetectionJobResponse {
   export const filterSensitiveLog = (
     obj: DescribeSentimentDetectionJobResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.SentimentDetectionJobProperties && {
       SentimentDetectionJobProperties: SentimentDetectionJobProperties.filterSensitiveLog(
@@ -1383,7 +1421,7 @@ export interface DescribeTopicsDetectionJobRequest {
 export namespace DescribeTopicsDetectionJobRequest {
   export const filterSensitiveLog = (
     obj: DescribeTopicsDetectionJobRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeTopicsDetectionJobRequest =>
@@ -1401,7 +1439,7 @@ export interface DescribeTopicsDetectionJobResponse {
 export namespace DescribeTopicsDetectionJobResponse {
   export const filterSensitiveLog = (
     obj: DescribeTopicsDetectionJobResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.TopicsDetectionJobProperties && {
       TopicsDetectionJobProperties: TopicsDetectionJobProperties.filterSensitiveLog(
@@ -1423,7 +1461,9 @@ export interface DetectDominantLanguageRequest {
 }
 
 export namespace DetectDominantLanguageRequest {
-  export const filterSensitiveLog = (obj: DetectDominantLanguageRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DetectDominantLanguageRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DetectDominantLanguageRequest =>
@@ -1442,7 +1482,9 @@ export interface DetectDominantLanguageResponse {
 }
 
 export namespace DetectDominantLanguageResponse {
-  export const filterSensitiveLog = (obj: DetectDominantLanguageResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DetectDominantLanguageResponse
+  ): any => ({
     ...obj,
     ...(obj.Languages && {
       Languages: obj.Languages.map(DominantLanguage.filterSensitiveLog)
@@ -1469,7 +1511,7 @@ export interface DetectEntitiesRequest {
 }
 
 export namespace DetectEntitiesRequest {
-  export const filterSensitiveLog = (obj: DetectEntitiesRequest) => ({
+  export const filterSensitiveLog = (obj: DetectEntitiesRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DetectEntitiesRequest =>
@@ -1487,7 +1529,7 @@ export interface DetectEntitiesResponse {
 }
 
 export namespace DetectEntitiesResponse {
-  export const filterSensitiveLog = (obj: DetectEntitiesResponse) => ({
+  export const filterSensitiveLog = (obj: DetectEntitiesResponse): any => ({
     ...obj,
     ...(obj.Entities && {
       Entities: obj.Entities.map(Entity.filterSensitiveLog)
@@ -1514,7 +1556,7 @@ export interface DetectKeyPhrasesRequest {
 }
 
 export namespace DetectKeyPhrasesRequest {
-  export const filterSensitiveLog = (obj: DetectKeyPhrasesRequest) => ({
+  export const filterSensitiveLog = (obj: DetectKeyPhrasesRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DetectKeyPhrasesRequest =>
@@ -1532,7 +1574,7 @@ export interface DetectKeyPhrasesResponse {
 }
 
 export namespace DetectKeyPhrasesResponse {
-  export const filterSensitiveLog = (obj: DetectKeyPhrasesResponse) => ({
+  export const filterSensitiveLog = (obj: DetectKeyPhrasesResponse): any => ({
     ...obj,
     ...(obj.KeyPhrases && {
       KeyPhrases: obj.KeyPhrases.map(KeyPhrase.filterSensitiveLog)
@@ -1559,7 +1601,7 @@ export interface DetectSentimentRequest {
 }
 
 export namespace DetectSentimentRequest {
-  export const filterSensitiveLog = (obj: DetectSentimentRequest) => ({
+  export const filterSensitiveLog = (obj: DetectSentimentRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DetectSentimentRequest =>
@@ -1581,7 +1623,7 @@ export interface DetectSentimentResponse {
 }
 
 export namespace DetectSentimentResponse {
-  export const filterSensitiveLog = (obj: DetectSentimentResponse) => ({
+  export const filterSensitiveLog = (obj: DetectSentimentResponse): any => ({
     ...obj,
     ...(obj.SentimentScore && {
       SentimentScore: SentimentScore.filterSensitiveLog(obj.SentimentScore)
@@ -1607,7 +1649,7 @@ export interface DetectSyntaxRequest {
 }
 
 export namespace DetectSyntaxRequest {
-  export const filterSensitiveLog = (obj: DetectSyntaxRequest) => ({
+  export const filterSensitiveLog = (obj: DetectSyntaxRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DetectSyntaxRequest =>
@@ -1625,7 +1667,7 @@ export interface DetectSyntaxResponse {
 }
 
 export namespace DetectSyntaxResponse {
-  export const filterSensitiveLog = (obj: DetectSyntaxResponse) => ({
+  export const filterSensitiveLog = (obj: DetectSyntaxResponse): any => ({
     ...obj,
     ...(obj.SyntaxTokens && {
       SyntaxTokens: obj.SyntaxTokens.map(SyntaxToken.filterSensitiveLog)
@@ -1652,7 +1694,7 @@ export interface DocumentClass {
 }
 
 export namespace DocumentClass {
-  export const filterSensitiveLog = (obj: DocumentClass) => ({
+  export const filterSensitiveLog = (obj: DocumentClass): any => ({
     ...obj
   });
   export const isa = (o: any): o is DocumentClass => __isa(o, "DocumentClass");
@@ -1691,7 +1733,9 @@ export interface DocumentClassificationJobFilter {
 }
 
 export namespace DocumentClassificationJobFilter {
-  export const filterSensitiveLog = (obj: DocumentClassificationJobFilter) => ({
+  export const filterSensitiveLog = (
+    obj: DocumentClassificationJobFilter
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DocumentClassificationJobFilter =>
@@ -1783,7 +1827,7 @@ export interface DocumentClassificationJobProperties {
 export namespace DocumentClassificationJobProperties {
   export const filterSensitiveLog = (
     obj: DocumentClassificationJobProperties
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
       InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
@@ -1829,7 +1873,7 @@ export interface DocumentClassifierFilter {
 }
 
 export namespace DocumentClassifierFilter {
-  export const filterSensitiveLog = (obj: DocumentClassifierFilter) => ({
+  export const filterSensitiveLog = (obj: DocumentClassifierFilter): any => ({
     ...obj
   });
   export const isa = (o: any): o is DocumentClassifierFilter =>
@@ -1865,7 +1909,7 @@ export interface DocumentClassifierInputDataConfig {
 export namespace DocumentClassifierInputDataConfig {
   export const filterSensitiveLog = (
     obj: DocumentClassifierInputDataConfig
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DocumentClassifierInputDataConfig =>
@@ -1922,7 +1966,7 @@ export interface DocumentClassifierOutputDataConfig {
 export namespace DocumentClassifierOutputDataConfig {
   export const filterSensitiveLog = (
     obj: DocumentClassifierOutputDataConfig
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DocumentClassifierOutputDataConfig =>
@@ -2034,7 +2078,9 @@ export interface DocumentClassifierProperties {
 }
 
 export namespace DocumentClassifierProperties {
-  export const filterSensitiveLog = (obj: DocumentClassifierProperties) => ({
+  export const filterSensitiveLog = (
+    obj: DocumentClassifierProperties
+  ): any => ({
     ...obj,
     ...(obj.ClassifierMetadata && {
       ClassifierMetadata: ClassifierMetadata.filterSensitiveLog(
@@ -2076,7 +2122,7 @@ export interface DocumentLabel {
 }
 
 export namespace DocumentLabel {
-  export const filterSensitiveLog = (obj: DocumentLabel) => ({
+  export const filterSensitiveLog = (obj: DocumentLabel): any => ({
     ...obj
   });
   export const isa = (o: any): o is DocumentLabel => __isa(o, "DocumentLabel");
@@ -2102,7 +2148,7 @@ export interface DominantLanguage {
 }
 
 export namespace DominantLanguage {
-  export const filterSensitiveLog = (obj: DominantLanguage) => ({
+  export const filterSensitiveLog = (obj: DominantLanguage): any => ({
     ...obj
   });
   export const isa = (o: any): o is DominantLanguage =>
@@ -2144,7 +2190,7 @@ export interface DominantLanguageDetectionJobFilter {
 export namespace DominantLanguageDetectionJobFilter {
   export const filterSensitiveLog = (
     obj: DominantLanguageDetectionJobFilter
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DominantLanguageDetectionJobFilter =>
@@ -2230,7 +2276,7 @@ export interface DominantLanguageDetectionJobProperties {
 export namespace DominantLanguageDetectionJobProperties {
   export const filterSensitiveLog = (
     obj: DominantLanguageDetectionJobProperties
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
       InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
@@ -2276,7 +2322,7 @@ export interface EndpointFilter {
 }
 
 export namespace EndpointFilter {
-  export const filterSensitiveLog = (obj: EndpointFilter) => ({
+  export const filterSensitiveLog = (obj: EndpointFilter): any => ({
     ...obj
   });
   export const isa = (o: any): o is EndpointFilter =>
@@ -2332,7 +2378,7 @@ export interface EndpointProperties {
 }
 
 export namespace EndpointProperties {
-  export const filterSensitiveLog = (obj: EndpointProperties) => ({
+  export const filterSensitiveLog = (obj: EndpointProperties): any => ({
     ...obj
   });
   export const isa = (o: any): o is EndpointProperties =>
@@ -2380,7 +2426,7 @@ export interface EntitiesDetectionJobFilter {
 }
 
 export namespace EntitiesDetectionJobFilter {
-  export const filterSensitiveLog = (obj: EntitiesDetectionJobFilter) => ({
+  export const filterSensitiveLog = (obj: EntitiesDetectionJobFilter): any => ({
     ...obj
   });
   export const isa = (o: any): o is EntitiesDetectionJobFilter =>
@@ -2474,7 +2520,9 @@ export interface EntitiesDetectionJobProperties {
 }
 
 export namespace EntitiesDetectionJobProperties {
-  export const filterSensitiveLog = (obj: EntitiesDetectionJobProperties) => ({
+  export const filterSensitiveLog = (
+    obj: EntitiesDetectionJobProperties
+  ): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
       InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
@@ -2532,7 +2580,7 @@ export interface Entity {
 }
 
 export namespace Entity {
-  export const filterSensitiveLog = (obj: Entity) => ({
+  export const filterSensitiveLog = (obj: Entity): any => ({
     ...obj
   });
   export const isa = (o: any): o is Entity => __isa(o, "Entity");
@@ -2551,7 +2599,9 @@ export interface EntityRecognizerAnnotations {
 }
 
 export namespace EntityRecognizerAnnotations {
-  export const filterSensitiveLog = (obj: EntityRecognizerAnnotations) => ({
+  export const filterSensitiveLog = (
+    obj: EntityRecognizerAnnotations
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is EntityRecognizerAnnotations =>
@@ -2571,7 +2621,7 @@ export interface EntityRecognizerDocuments {
 }
 
 export namespace EntityRecognizerDocuments {
-  export const filterSensitiveLog = (obj: EntityRecognizerDocuments) => ({
+  export const filterSensitiveLog = (obj: EntityRecognizerDocuments): any => ({
     ...obj
   });
   export const isa = (o: any): o is EntityRecognizerDocuments =>
@@ -2590,7 +2640,7 @@ export interface EntityRecognizerEntityList {
 }
 
 export namespace EntityRecognizerEntityList {
-  export const filterSensitiveLog = (obj: EntityRecognizerEntityList) => ({
+  export const filterSensitiveLog = (obj: EntityRecognizerEntityList): any => ({
     ...obj
   });
   export const isa = (o: any): o is EntityRecognizerEntityList =>
@@ -2627,7 +2677,7 @@ export interface EntityRecognizerEvaluationMetrics {
 export namespace EntityRecognizerEvaluationMetrics {
   export const filterSensitiveLog = (
     obj: EntityRecognizerEvaluationMetrics
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is EntityRecognizerEvaluationMetrics =>
@@ -2661,7 +2711,7 @@ export interface EntityRecognizerFilter {
 }
 
 export namespace EntityRecognizerFilter {
-  export const filterSensitiveLog = (obj: EntityRecognizerFilter) => ({
+  export const filterSensitiveLog = (obj: EntityRecognizerFilter): any => ({
     ...obj
   });
   export const isa = (o: any): o is EntityRecognizerFilter =>
@@ -2695,7 +2745,9 @@ export interface EntityRecognizerInputDataConfig {
 }
 
 export namespace EntityRecognizerInputDataConfig {
-  export const filterSensitiveLog = (obj: EntityRecognizerInputDataConfig) => ({
+  export const filterSensitiveLog = (
+    obj: EntityRecognizerInputDataConfig
+  ): any => ({
     ...obj,
     ...(obj.Annotations && {
       Annotations: EntityRecognizerAnnotations.filterSensitiveLog(
@@ -2743,7 +2795,7 @@ export interface EntityRecognizerMetadata {
 }
 
 export namespace EntityRecognizerMetadata {
-  export const filterSensitiveLog = (obj: EntityRecognizerMetadata) => ({
+  export const filterSensitiveLog = (obj: EntityRecognizerMetadata): any => ({
     ...obj,
     ...(obj.EntityTypes && {
       EntityTypes: obj.EntityTypes.map(
@@ -2784,7 +2836,7 @@ export interface EntityRecognizerMetadataEntityTypesListItem {
 export namespace EntityRecognizerMetadataEntityTypesListItem {
   export const filterSensitiveLog = (
     obj: EntityRecognizerMetadataEntityTypesListItem
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.EvaluationMetrics && {
       EvaluationMetrics: EntityTypesEvaluationMetrics.filterSensitiveLog(
@@ -2883,7 +2935,7 @@ export interface EntityRecognizerProperties {
 }
 
 export namespace EntityRecognizerProperties {
-  export const filterSensitiveLog = (obj: EntityRecognizerProperties) => ({
+  export const filterSensitiveLog = (obj: EntityRecognizerProperties): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
       InputDataConfig: EntityRecognizerInputDataConfig.filterSensitiveLog(
@@ -2943,7 +2995,9 @@ export interface EntityTypesEvaluationMetrics {
 }
 
 export namespace EntityTypesEvaluationMetrics {
-  export const filterSensitiveLog = (obj: EntityTypesEvaluationMetrics) => ({
+  export const filterSensitiveLog = (
+    obj: EntityTypesEvaluationMetrics
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is EntityTypesEvaluationMetrics =>
@@ -2962,7 +3016,7 @@ export interface EntityTypesListItem {
 }
 
 export namespace EntityTypesListItem {
-  export const filterSensitiveLog = (obj: EntityTypesListItem) => ({
+  export const filterSensitiveLog = (obj: EntityTypesListItem): any => ({
     ...obj
   });
   export const isa = (o: any): o is EntityTypesListItem =>
@@ -3005,7 +3059,7 @@ export interface InputDataConfig {
 }
 
 export namespace InputDataConfig {
-  export const filterSensitiveLog = (obj: InputDataConfig) => ({
+  export const filterSensitiveLog = (obj: InputDataConfig): any => ({
     ...obj
   });
   export const isa = (o: any): o is InputDataConfig =>
@@ -3029,7 +3083,7 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export const filterSensitiveLog = (obj: InternalServerException) => ({
+  export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerException =>
@@ -3049,7 +3103,7 @@ export interface InvalidFilterException
 }
 
 export namespace InvalidFilterException {
-  export const filterSensitiveLog = (obj: InvalidFilterException) => ({
+  export const filterSensitiveLog = (obj: InvalidFilterException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidFilterException =>
@@ -3069,7 +3123,7 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const filterSensitiveLog = (obj: InvalidRequestException) => ({
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidRequestException =>
@@ -3088,7 +3142,7 @@ export interface JobNotFoundException
 }
 
 export namespace JobNotFoundException {
-  export const filterSensitiveLog = (obj: JobNotFoundException) => ({
+  export const filterSensitiveLog = (obj: JobNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is JobNotFoundException =>
@@ -3138,7 +3192,7 @@ export interface KeyPhrase {
 }
 
 export namespace KeyPhrase {
-  export const filterSensitiveLog = (obj: KeyPhrase) => ({
+  export const filterSensitiveLog = (obj: KeyPhrase): any => ({
     ...obj
   });
   export const isa = (o: any): o is KeyPhrase => __isa(o, "KeyPhrase");
@@ -3177,7 +3231,9 @@ export interface KeyPhrasesDetectionJobFilter {
 }
 
 export namespace KeyPhrasesDetectionJobFilter {
-  export const filterSensitiveLog = (obj: KeyPhrasesDetectionJobFilter) => ({
+  export const filterSensitiveLog = (
+    obj: KeyPhrasesDetectionJobFilter
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is KeyPhrasesDetectionJobFilter =>
@@ -3268,7 +3324,7 @@ export interface KeyPhrasesDetectionJobProperties {
 export namespace KeyPhrasesDetectionJobProperties {
   export const filterSensitiveLog = (
     obj: KeyPhrasesDetectionJobProperties
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
       InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
@@ -3298,7 +3354,7 @@ export interface KmsKeyValidationException
 }
 
 export namespace KmsKeyValidationException {
-  export const filterSensitiveLog = (obj: KmsKeyValidationException) => ({
+  export const filterSensitiveLog = (obj: KmsKeyValidationException): any => ({
     ...obj
   });
   export const isa = (o: any): o is KmsKeyValidationException =>
@@ -3342,7 +3398,7 @@ export interface ListDocumentClassificationJobsRequest {
 export namespace ListDocumentClassificationJobsRequest {
   export const filterSensitiveLog = (
     obj: ListDocumentClassificationJobsRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Filter && {
       Filter: DocumentClassificationJobFilter.filterSensitiveLog(obj.Filter)
@@ -3368,7 +3424,7 @@ export interface ListDocumentClassificationJobsResponse {
 export namespace ListDocumentClassificationJobsResponse {
   export const filterSensitiveLog = (
     obj: ListDocumentClassificationJobsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.DocumentClassificationJobPropertiesList && {
       DocumentClassificationJobPropertiesList: obj.DocumentClassificationJobPropertiesList.map(
@@ -3400,7 +3456,9 @@ export interface ListDocumentClassifiersRequest {
 }
 
 export namespace ListDocumentClassifiersRequest {
-  export const filterSensitiveLog = (obj: ListDocumentClassifiersRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListDocumentClassifiersRequest
+  ): any => ({
     ...obj,
     ...(obj.Filter && {
       Filter: DocumentClassifierFilter.filterSensitiveLog(obj.Filter)
@@ -3424,7 +3482,9 @@ export interface ListDocumentClassifiersResponse {
 }
 
 export namespace ListDocumentClassifiersResponse {
-  export const filterSensitiveLog = (obj: ListDocumentClassifiersResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListDocumentClassifiersResponse
+  ): any => ({
     ...obj,
     ...(obj.DocumentClassifierPropertiesList && {
       DocumentClassifierPropertiesList: obj.DocumentClassifierPropertiesList.map(
@@ -3458,7 +3518,7 @@ export interface ListDominantLanguageDetectionJobsRequest {
 export namespace ListDominantLanguageDetectionJobsRequest {
   export const filterSensitiveLog = (
     obj: ListDominantLanguageDetectionJobsRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Filter && {
       Filter: DominantLanguageDetectionJobFilter.filterSensitiveLog(obj.Filter)
@@ -3484,7 +3544,7 @@ export interface ListDominantLanguageDetectionJobsResponse {
 export namespace ListDominantLanguageDetectionJobsResponse {
   export const filterSensitiveLog = (
     obj: ListDominantLanguageDetectionJobsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.DominantLanguageDetectionJobPropertiesList && {
       DominantLanguageDetectionJobPropertiesList: obj.DominantLanguageDetectionJobPropertiesList.map(
@@ -3516,7 +3576,7 @@ export interface ListEndpointsRequest {
 }
 
 export namespace ListEndpointsRequest {
-  export const filterSensitiveLog = (obj: ListEndpointsRequest) => ({
+  export const filterSensitiveLog = (obj: ListEndpointsRequest): any => ({
     ...obj,
     ...(obj.Filter && { Filter: EndpointFilter.filterSensitiveLog(obj.Filter) })
   });
@@ -3538,7 +3598,7 @@ export interface ListEndpointsResponse {
 }
 
 export namespace ListEndpointsResponse {
-  export const filterSensitiveLog = (obj: ListEndpointsResponse) => ({
+  export const filterSensitiveLog = (obj: ListEndpointsResponse): any => ({
     ...obj,
     ...(obj.EndpointPropertiesList && {
       EndpointPropertiesList: obj.EndpointPropertiesList.map(
@@ -3572,7 +3632,7 @@ export interface ListEntitiesDetectionJobsRequest {
 export namespace ListEntitiesDetectionJobsRequest {
   export const filterSensitiveLog = (
     obj: ListEntitiesDetectionJobsRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Filter && {
       Filter: EntitiesDetectionJobFilter.filterSensitiveLog(obj.Filter)
@@ -3598,7 +3658,7 @@ export interface ListEntitiesDetectionJobsResponse {
 export namespace ListEntitiesDetectionJobsResponse {
   export const filterSensitiveLog = (
     obj: ListEntitiesDetectionJobsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.EntitiesDetectionJobPropertiesList && {
       EntitiesDetectionJobPropertiesList: obj.EntitiesDetectionJobPropertiesList.map(
@@ -3629,7 +3689,9 @@ export interface ListEntityRecognizersRequest {
 }
 
 export namespace ListEntityRecognizersRequest {
-  export const filterSensitiveLog = (obj: ListEntityRecognizersRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListEntityRecognizersRequest
+  ): any => ({
     ...obj,
     ...(obj.Filter && {
       Filter: EntityRecognizerFilter.filterSensitiveLog(obj.Filter)
@@ -3653,7 +3715,9 @@ export interface ListEntityRecognizersResponse {
 }
 
 export namespace ListEntityRecognizersResponse {
-  export const filterSensitiveLog = (obj: ListEntityRecognizersResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListEntityRecognizersResponse
+  ): any => ({
     ...obj,
     ...(obj.EntityRecognizerPropertiesList && {
       EntityRecognizerPropertiesList: obj.EntityRecognizerPropertiesList.map(
@@ -3687,7 +3751,7 @@ export interface ListKeyPhrasesDetectionJobsRequest {
 export namespace ListKeyPhrasesDetectionJobsRequest {
   export const filterSensitiveLog = (
     obj: ListKeyPhrasesDetectionJobsRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Filter && {
       Filter: KeyPhrasesDetectionJobFilter.filterSensitiveLog(obj.Filter)
@@ -3713,7 +3777,7 @@ export interface ListKeyPhrasesDetectionJobsResponse {
 export namespace ListKeyPhrasesDetectionJobsResponse {
   export const filterSensitiveLog = (
     obj: ListKeyPhrasesDetectionJobsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.KeyPhrasesDetectionJobPropertiesList && {
       KeyPhrasesDetectionJobPropertiesList: obj.KeyPhrasesDetectionJobPropertiesList.map(
@@ -3747,7 +3811,7 @@ export interface ListSentimentDetectionJobsRequest {
 export namespace ListSentimentDetectionJobsRequest {
   export const filterSensitiveLog = (
     obj: ListSentimentDetectionJobsRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Filter && {
       Filter: SentimentDetectionJobFilter.filterSensitiveLog(obj.Filter)
@@ -3773,7 +3837,7 @@ export interface ListSentimentDetectionJobsResponse {
 export namespace ListSentimentDetectionJobsResponse {
   export const filterSensitiveLog = (
     obj: ListSentimentDetectionJobsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.SentimentDetectionJobPropertiesList && {
       SentimentDetectionJobPropertiesList: obj.SentimentDetectionJobPropertiesList.map(
@@ -3794,7 +3858,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
@@ -3816,7 +3880,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -3844,7 +3910,9 @@ export interface ListTopicsDetectionJobsRequest {
 }
 
 export namespace ListTopicsDetectionJobsRequest {
-  export const filterSensitiveLog = (obj: ListTopicsDetectionJobsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListTopicsDetectionJobsRequest
+  ): any => ({
     ...obj,
     ...(obj.Filter && {
       Filter: TopicsDetectionJobFilter.filterSensitiveLog(obj.Filter)
@@ -3868,7 +3936,9 @@ export interface ListTopicsDetectionJobsResponse {
 }
 
 export namespace ListTopicsDetectionJobsResponse {
-  export const filterSensitiveLog = (obj: ListTopicsDetectionJobsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListTopicsDetectionJobsResponse
+  ): any => ({
     ...obj,
     ...(obj.TopicsDetectionJobPropertiesList && {
       TopicsDetectionJobPropertiesList: obj.TopicsDetectionJobPropertiesList.map(
@@ -3933,7 +4003,7 @@ export interface OutputDataConfig {
 }
 
 export namespace OutputDataConfig {
-  export const filterSensitiveLog = (obj: OutputDataConfig) => ({
+  export const filterSensitiveLog = (obj: OutputDataConfig): any => ({
     ...obj
   });
   export const isa = (o: any): o is OutputDataConfig =>
@@ -3959,7 +4029,7 @@ export interface PartOfSpeechTag {
 }
 
 export namespace PartOfSpeechTag {
-  export const filterSensitiveLog = (obj: PartOfSpeechTag) => ({
+  export const filterSensitiveLog = (obj: PartOfSpeechTag): any => ({
     ...obj
   });
   export const isa = (o: any): o is PartOfSpeechTag =>
@@ -3999,7 +4069,7 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export const filterSensitiveLog = (obj: ResourceInUseException) => ({
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceInUseException =>
@@ -4018,7 +4088,9 @@ export interface ResourceLimitExceededException
 }
 
 export namespace ResourceLimitExceededException {
-  export const filterSensitiveLog = (obj: ResourceLimitExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: ResourceLimitExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceLimitExceededException =>
@@ -4037,7 +4109,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -4057,7 +4129,9 @@ export interface ResourceUnavailableException
 }
 
 export namespace ResourceUnavailableException {
-  export const filterSensitiveLog = (obj: ResourceUnavailableException) => ({
+  export const filterSensitiveLog = (
+    obj: ResourceUnavailableException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceUnavailableException =>
@@ -4097,7 +4171,9 @@ export interface SentimentDetectionJobFilter {
 }
 
 export namespace SentimentDetectionJobFilter {
-  export const filterSensitiveLog = (obj: SentimentDetectionJobFilter) => ({
+  export const filterSensitiveLog = (
+    obj: SentimentDetectionJobFilter
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is SentimentDetectionJobFilter =>
@@ -4186,7 +4262,9 @@ export interface SentimentDetectionJobProperties {
 }
 
 export namespace SentimentDetectionJobProperties {
-  export const filterSensitiveLog = (obj: SentimentDetectionJobProperties) => ({
+  export const filterSensitiveLog = (
+    obj: SentimentDetectionJobProperties
+  ): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
       InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
@@ -4236,7 +4314,7 @@ export interface SentimentScore {
 }
 
 export namespace SentimentScore {
-  export const filterSensitiveLog = (obj: SentimentScore) => ({
+  export const filterSensitiveLog = (obj: SentimentScore): any => ({
     ...obj
   });
   export const isa = (o: any): o is SentimentScore =>
@@ -4311,7 +4389,7 @@ export interface StartDocumentClassificationJobRequest {
 export namespace StartDocumentClassificationJobRequest {
   export const filterSensitiveLog = (
     obj: StartDocumentClassificationJobRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
       InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
@@ -4366,7 +4444,7 @@ export interface StartDocumentClassificationJobResponse {
 export namespace StartDocumentClassificationJobResponse {
   export const filterSensitiveLog = (
     obj: StartDocumentClassificationJobResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartDocumentClassificationJobResponse =>
@@ -4428,7 +4506,7 @@ export interface StartDominantLanguageDetectionJobRequest {
 export namespace StartDominantLanguageDetectionJobRequest {
   export const filterSensitiveLog = (
     obj: StartDominantLanguageDetectionJobRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
       InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
@@ -4477,7 +4555,7 @@ export interface StartDominantLanguageDetectionJobResponse {
 export namespace StartDominantLanguageDetectionJobResponse {
   export const filterSensitiveLog = (
     obj: StartDominantLanguageDetectionJobResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartDominantLanguageDetectionJobResponse =>
@@ -4553,7 +4631,7 @@ export interface StartEntitiesDetectionJobRequest {
 export namespace StartEntitiesDetectionJobRequest {
   export const filterSensitiveLog = (
     obj: StartEntitiesDetectionJobRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
       InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
@@ -4608,7 +4686,7 @@ export interface StartEntitiesDetectionJobResponse {
 export namespace StartEntitiesDetectionJobResponse {
   export const filterSensitiveLog = (
     obj: StartEntitiesDetectionJobResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartEntitiesDetectionJobResponse =>
@@ -4677,7 +4755,7 @@ export interface StartKeyPhrasesDetectionJobRequest {
 export namespace StartKeyPhrasesDetectionJobRequest {
   export const filterSensitiveLog = (
     obj: StartKeyPhrasesDetectionJobRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
       InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
@@ -4726,7 +4804,7 @@ export interface StartKeyPhrasesDetectionJobResponse {
 export namespace StartKeyPhrasesDetectionJobResponse {
   export const filterSensitiveLog = (
     obj: StartKeyPhrasesDetectionJobResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartKeyPhrasesDetectionJobResponse =>
@@ -4795,7 +4873,7 @@ export interface StartSentimentDetectionJobRequest {
 export namespace StartSentimentDetectionJobRequest {
   export const filterSensitiveLog = (
     obj: StartSentimentDetectionJobRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
       InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
@@ -4844,7 +4922,7 @@ export interface StartSentimentDetectionJobResponse {
 export namespace StartSentimentDetectionJobResponse {
   export const filterSensitiveLog = (
     obj: StartSentimentDetectionJobResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartSentimentDetectionJobResponse =>
@@ -4911,7 +4989,9 @@ export interface StartTopicsDetectionJobRequest {
 }
 
 export namespace StartTopicsDetectionJobRequest {
-  export const filterSensitiveLog = (obj: StartTopicsDetectionJobRequest) => ({
+  export const filterSensitiveLog = (
+    obj: StartTopicsDetectionJobRequest
+  ): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
       InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
@@ -4960,7 +5040,9 @@ export interface StartTopicsDetectionJobResponse {
 }
 
 export namespace StartTopicsDetectionJobResponse {
-  export const filterSensitiveLog = (obj: StartTopicsDetectionJobResponse) => ({
+  export const filterSensitiveLog = (
+    obj: StartTopicsDetectionJobResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartTopicsDetectionJobResponse =>
@@ -4978,7 +5060,7 @@ export interface StopDominantLanguageDetectionJobRequest {
 export namespace StopDominantLanguageDetectionJobRequest {
   export const filterSensitiveLog = (
     obj: StopDominantLanguageDetectionJobRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopDominantLanguageDetectionJobRequest =>
@@ -5003,7 +5085,7 @@ export interface StopDominantLanguageDetectionJobResponse {
 export namespace StopDominantLanguageDetectionJobResponse {
   export const filterSensitiveLog = (
     obj: StopDominantLanguageDetectionJobResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopDominantLanguageDetectionJobResponse =>
@@ -5019,7 +5101,9 @@ export interface StopEntitiesDetectionJobRequest {
 }
 
 export namespace StopEntitiesDetectionJobRequest {
-  export const filterSensitiveLog = (obj: StopEntitiesDetectionJobRequest) => ({
+  export const filterSensitiveLog = (
+    obj: StopEntitiesDetectionJobRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopEntitiesDetectionJobRequest =>
@@ -5044,7 +5128,7 @@ export interface StopEntitiesDetectionJobResponse {
 export namespace StopEntitiesDetectionJobResponse {
   export const filterSensitiveLog = (
     obj: StopEntitiesDetectionJobResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopEntitiesDetectionJobResponse =>
@@ -5062,7 +5146,7 @@ export interface StopKeyPhrasesDetectionJobRequest {
 export namespace StopKeyPhrasesDetectionJobRequest {
   export const filterSensitiveLog = (
     obj: StopKeyPhrasesDetectionJobRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopKeyPhrasesDetectionJobRequest =>
@@ -5087,7 +5171,7 @@ export interface StopKeyPhrasesDetectionJobResponse {
 export namespace StopKeyPhrasesDetectionJobResponse {
   export const filterSensitiveLog = (
     obj: StopKeyPhrasesDetectionJobResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopKeyPhrasesDetectionJobResponse =>
@@ -5105,7 +5189,7 @@ export interface StopSentimentDetectionJobRequest {
 export namespace StopSentimentDetectionJobRequest {
   export const filterSensitiveLog = (
     obj: StopSentimentDetectionJobRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopSentimentDetectionJobRequest =>
@@ -5130,7 +5214,7 @@ export interface StopSentimentDetectionJobResponse {
 export namespace StopSentimentDetectionJobResponse {
   export const filterSensitiveLog = (
     obj: StopSentimentDetectionJobResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopSentimentDetectionJobResponse =>
@@ -5148,7 +5232,7 @@ export interface StopTrainingDocumentClassifierRequest {
 export namespace StopTrainingDocumentClassifierRequest {
   export const filterSensitiveLog = (
     obj: StopTrainingDocumentClassifierRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopTrainingDocumentClassifierRequest =>
@@ -5162,7 +5246,7 @@ export interface StopTrainingDocumentClassifierResponse {
 export namespace StopTrainingDocumentClassifierResponse {
   export const filterSensitiveLog = (
     obj: StopTrainingDocumentClassifierResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopTrainingDocumentClassifierResponse =>
@@ -5180,7 +5264,7 @@ export interface StopTrainingEntityRecognizerRequest {
 export namespace StopTrainingEntityRecognizerRequest {
   export const filterSensitiveLog = (
     obj: StopTrainingEntityRecognizerRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopTrainingEntityRecognizerRequest =>
@@ -5194,7 +5278,7 @@ export interface StopTrainingEntityRecognizerResponse {
 export namespace StopTrainingEntityRecognizerResponse {
   export const filterSensitiveLog = (
     obj: StopTrainingEntityRecognizerResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopTrainingEntityRecognizerResponse =>
@@ -5246,7 +5330,7 @@ export interface SyntaxToken {
 }
 
 export namespace SyntaxToken {
-  export const filterSensitiveLog = (obj: SyntaxToken) => ({
+  export const filterSensitiveLog = (obj: SyntaxToken): any => ({
     ...obj,
     ...(obj.PartOfSpeech && {
       PartOfSpeech: PartOfSpeechTag.filterSensitiveLog(obj.PartOfSpeech)
@@ -5272,7 +5356,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -5292,7 +5376,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -5305,7 +5389,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const filterSensitiveLog = (obj: TagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceResponse =>
@@ -5324,7 +5408,9 @@ export interface TextSizeLimitExceededException
 }
 
 export namespace TextSizeLimitExceededException {
-  export const filterSensitiveLog = (obj: TextSizeLimitExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: TextSizeLimitExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TextSizeLimitExceededException =>
@@ -5343,7 +5429,7 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export const filterSensitiveLog = (obj: TooManyRequestsException) => ({
+  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj
   });
   export const isa = (o: any): o is TooManyRequestsException =>
@@ -5362,7 +5448,7 @@ export interface TooManyTagKeysException
 }
 
 export namespace TooManyTagKeysException {
-  export const filterSensitiveLog = (obj: TooManyTagKeysException) => ({
+  export const filterSensitiveLog = (obj: TooManyTagKeysException): any => ({
     ...obj
   });
   export const isa = (o: any): o is TooManyTagKeysException =>
@@ -5382,7 +5468,7 @@ export interface TooManyTagsException
 }
 
 export namespace TooManyTagsException {
-  export const filterSensitiveLog = (obj: TooManyTagsException) => ({
+  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
     ...obj
   });
   export const isa = (o: any): o is TooManyTagsException =>
@@ -5422,7 +5508,7 @@ export interface TopicsDetectionJobFilter {
 }
 
 export namespace TopicsDetectionJobFilter {
-  export const filterSensitiveLog = (obj: TopicsDetectionJobFilter) => ({
+  export const filterSensitiveLog = (obj: TopicsDetectionJobFilter): any => ({
     ...obj
   });
   export const isa = (o: any): o is TopicsDetectionJobFilter =>
@@ -5512,7 +5598,9 @@ export interface TopicsDetectionJobProperties {
 }
 
 export namespace TopicsDetectionJobProperties {
-  export const filterSensitiveLog = (obj: TopicsDetectionJobProperties) => ({
+  export const filterSensitiveLog = (
+    obj: TopicsDetectionJobProperties
+  ): any => ({
     ...obj,
     ...(obj.InputDataConfig && {
       InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig)
@@ -5544,7 +5632,9 @@ export interface UnsupportedLanguageException
 }
 
 export namespace UnsupportedLanguageException {
-  export const filterSensitiveLog = (obj: UnsupportedLanguageException) => ({
+  export const filterSensitiveLog = (
+    obj: UnsupportedLanguageException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnsupportedLanguageException =>
@@ -5567,7 +5657,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>
@@ -5579,7 +5669,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceResponse =>
@@ -5601,7 +5691,7 @@ export interface UpdateEndpointRequest {
 }
 
 export namespace UpdateEndpointRequest {
-  export const filterSensitiveLog = (obj: UpdateEndpointRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateEndpointRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateEndpointRequest =>
@@ -5613,7 +5703,7 @@ export interface UpdateEndpointResponse {
 }
 
 export namespace UpdateEndpointResponse {
-  export const filterSensitiveLog = (obj: UpdateEndpointResponse) => ({
+  export const filterSensitiveLog = (obj: UpdateEndpointResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateEndpointResponse =>
@@ -5642,7 +5732,7 @@ export interface VpcConfig {
 }
 
 export namespace VpcConfig {
-  export const filterSensitiveLog = (obj: VpcConfig) => ({
+  export const filterSensitiveLog = (obj: VpcConfig): any => ({
     ...obj
   });
   export const isa = (o: any): o is VpcConfig => __isa(o, "VpcConfig");

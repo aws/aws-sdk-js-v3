@@ -21,7 +21,7 @@ export interface AssociateTagOptionWithResourceInput {
 export namespace AssociateTagOptionWithResourceInput {
   export const filterSensitiveLog = (
     obj: AssociateTagOptionWithResourceInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateTagOptionWithResourceInput =>
@@ -35,7 +35,7 @@ export interface AssociateTagOptionWithResourceOutput {
 export namespace AssociateTagOptionWithResourceOutput {
   export const filterSensitiveLog = (
     obj: AssociateTagOptionWithResourceOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateTagOptionWithResourceOutput =>
@@ -56,7 +56,7 @@ export interface CreateTagOptionInput {
 }
 
 export namespace CreateTagOptionInput {
-  export const filterSensitiveLog = (obj: CreateTagOptionInput) => ({
+  export const filterSensitiveLog = (obj: CreateTagOptionInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateTagOptionInput =>
@@ -72,7 +72,7 @@ export interface CreateTagOptionOutput {
 }
 
 export namespace CreateTagOptionOutput {
-  export const filterSensitiveLog = (obj: CreateTagOptionOutput) => ({
+  export const filterSensitiveLog = (obj: CreateTagOptionOutput): any => ({
     ...obj,
     ...(obj.TagOptionDetail && {
       TagOptionDetail: TagOptionDetail.filterSensitiveLog(obj.TagOptionDetail)
@@ -91,7 +91,7 @@ export interface DeleteTagOptionInput {
 }
 
 export namespace DeleteTagOptionInput {
-  export const filterSensitiveLog = (obj: DeleteTagOptionInput) => ({
+  export const filterSensitiveLog = (obj: DeleteTagOptionInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteTagOptionInput =>
@@ -103,7 +103,7 @@ export interface DeleteTagOptionOutput {
 }
 
 export namespace DeleteTagOptionOutput {
-  export const filterSensitiveLog = (obj: DeleteTagOptionOutput) => ({
+  export const filterSensitiveLog = (obj: DeleteTagOptionOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteTagOptionOutput =>
@@ -119,7 +119,7 @@ export interface DescribeTagOptionInput {
 }
 
 export namespace DescribeTagOptionInput {
-  export const filterSensitiveLog = (obj: DescribeTagOptionInput) => ({
+  export const filterSensitiveLog = (obj: DescribeTagOptionInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeTagOptionInput =>
@@ -135,7 +135,7 @@ export interface DescribeTagOptionOutput {
 }
 
 export namespace DescribeTagOptionOutput {
-  export const filterSensitiveLog = (obj: DescribeTagOptionOutput) => ({
+  export const filterSensitiveLog = (obj: DescribeTagOptionOutput): any => ({
     ...obj,
     ...(obj.TagOptionDetail && {
       TagOptionDetail: TagOptionDetail.filterSensitiveLog(obj.TagOptionDetail)
@@ -161,7 +161,7 @@ export interface DisassociateTagOptionFromResourceInput {
 export namespace DisassociateTagOptionFromResourceInput {
   export const filterSensitiveLog = (
     obj: DisassociateTagOptionFromResourceInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateTagOptionFromResourceInput =>
@@ -175,7 +175,7 @@ export interface DisassociateTagOptionFromResourceOutput {
 export namespace DisassociateTagOptionFromResourceOutput {
   export const filterSensitiveLog = (
     obj: DisassociateTagOptionFromResourceOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateTagOptionFromResourceOutput =>
@@ -218,7 +218,9 @@ export interface ListResourcesForTagOptionInput {
 }
 
 export namespace ListResourcesForTagOptionInput {
-  export const filterSensitiveLog = (obj: ListResourcesForTagOptionInput) => ({
+  export const filterSensitiveLog = (
+    obj: ListResourcesForTagOptionInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListResourcesForTagOptionInput =>
@@ -239,7 +241,9 @@ export interface ListResourcesForTagOptionOutput {
 }
 
 export namespace ListResourcesForTagOptionOutput {
-  export const filterSensitiveLog = (obj: ListResourcesForTagOptionOutput) => ({
+  export const filterSensitiveLog = (
+    obj: ListResourcesForTagOptionOutput
+  ): any => ({
     ...obj,
     ...(obj.ResourceDetails && {
       ResourceDetails: obj.ResourceDetails.map(
@@ -273,7 +277,7 @@ export interface ListTagOptionsFilters {
 }
 
 export namespace ListTagOptionsFilters {
-  export const filterSensitiveLog = (obj: ListTagOptionsFilters) => ({
+  export const filterSensitiveLog = (obj: ListTagOptionsFilters): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagOptionsFilters =>
@@ -299,7 +303,7 @@ export interface ListTagOptionsInput {
 }
 
 export namespace ListTagOptionsInput {
-  export const filterSensitiveLog = (obj: ListTagOptionsInput) => ({
+  export const filterSensitiveLog = (obj: ListTagOptionsInput): any => ({
     ...obj,
     ...(obj.Filters && {
       Filters: ListTagOptionsFilters.filterSensitiveLog(obj.Filters)
@@ -323,7 +327,7 @@ export interface ListTagOptionsOutput {
 }
 
 export namespace ListTagOptionsOutput {
-  export const filterSensitiveLog = (obj: ListTagOptionsOutput) => ({
+  export const filterSensitiveLog = (obj: ListTagOptionsOutput): any => ({
     ...obj,
     ...(obj.TagOptionDetails && {
       TagOptionDetails: obj.TagOptionDetails.map(
@@ -367,7 +371,7 @@ export interface ResourceDetail {
 }
 
 export namespace ResourceDetail {
-  export const filterSensitiveLog = (obj: ResourceDetail) => ({
+  export const filterSensitiveLog = (obj: ResourceDetail): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceDetail =>
@@ -401,7 +405,7 @@ export interface TagOptionDetail {
 }
 
 export namespace TagOptionDetail {
-  export const filterSensitiveLog = (obj: TagOptionDetail) => ({
+  export const filterSensitiveLog = (obj: TagOptionDetail): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagOptionDetail =>
@@ -427,7 +431,7 @@ export interface UpdateTagOptionInput {
 }
 
 export namespace UpdateTagOptionInput {
-  export const filterSensitiveLog = (obj: UpdateTagOptionInput) => ({
+  export const filterSensitiveLog = (obj: UpdateTagOptionInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateTagOptionInput =>
@@ -443,7 +447,7 @@ export interface UpdateTagOptionOutput {
 }
 
 export namespace UpdateTagOptionOutput {
-  export const filterSensitiveLog = (obj: UpdateTagOptionOutput) => ({
+  export const filterSensitiveLog = (obj: UpdateTagOptionOutput): any => ({
     ...obj,
     ...(obj.TagOptionDetail && {
       TagOptionDetail: TagOptionDetail.filterSensitiveLog(obj.TagOptionDetail)
@@ -502,7 +506,7 @@ export interface AcceptPortfolioShareInput {
 }
 
 export namespace AcceptPortfolioShareInput {
-  export const filterSensitiveLog = (obj: AcceptPortfolioShareInput) => ({
+  export const filterSensitiveLog = (obj: AcceptPortfolioShareInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is AcceptPortfolioShareInput =>
@@ -514,7 +518,7 @@ export interface AcceptPortfolioShareOutput {
 }
 
 export namespace AcceptPortfolioShareOutput {
-  export const filterSensitiveLog = (obj: AcceptPortfolioShareOutput) => ({
+  export const filterSensitiveLog = (obj: AcceptPortfolioShareOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is AcceptPortfolioShareOutput =>
@@ -552,7 +556,7 @@ export interface AccessLevelFilter {
 }
 
 export namespace AccessLevelFilter {
-  export const filterSensitiveLog = (obj: AccessLevelFilter) => ({
+  export const filterSensitiveLog = (obj: AccessLevelFilter): any => ({
     ...obj
   });
   export const isa = (o: any): o is AccessLevelFilter =>
@@ -587,7 +591,7 @@ export interface AssociateBudgetWithResourceInput {
 export namespace AssociateBudgetWithResourceInput {
   export const filterSensitiveLog = (
     obj: AssociateBudgetWithResourceInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateBudgetWithResourceInput =>
@@ -601,7 +605,7 @@ export interface AssociateBudgetWithResourceOutput {
 export namespace AssociateBudgetWithResourceOutput {
   export const filterSensitiveLog = (
     obj: AssociateBudgetWithResourceOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateBudgetWithResourceOutput =>
@@ -648,7 +652,7 @@ export interface AssociatePrincipalWithPortfolioInput {
 export namespace AssociatePrincipalWithPortfolioInput {
   export const filterSensitiveLog = (
     obj: AssociatePrincipalWithPortfolioInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociatePrincipalWithPortfolioInput =>
@@ -662,7 +666,7 @@ export interface AssociatePrincipalWithPortfolioOutput {
 export namespace AssociatePrincipalWithPortfolioOutput {
   export const filterSensitiveLog = (
     obj: AssociatePrincipalWithPortfolioOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociatePrincipalWithPortfolioOutput =>
@@ -709,7 +713,7 @@ export interface AssociateProductWithPortfolioInput {
 export namespace AssociateProductWithPortfolioInput {
   export const filterSensitiveLog = (
     obj: AssociateProductWithPortfolioInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateProductWithPortfolioInput =>
@@ -723,7 +727,7 @@ export interface AssociateProductWithPortfolioOutput {
 export namespace AssociateProductWithPortfolioOutput {
   export const filterSensitiveLog = (
     obj: AssociateProductWithPortfolioOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateProductWithPortfolioOutput =>
@@ -770,7 +774,7 @@ export interface AssociateServiceActionWithProvisioningArtifactInput {
 export namespace AssociateServiceActionWithProvisioningArtifactInput {
   export const filterSensitiveLog = (
     obj: AssociateServiceActionWithProvisioningArtifactInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -786,7 +790,7 @@ export interface AssociateServiceActionWithProvisioningArtifactOutput {
 export namespace AssociateServiceActionWithProvisioningArtifactOutput {
   export const filterSensitiveLog = (
     obj: AssociateServiceActionWithProvisioningArtifactOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -825,7 +829,7 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
 export namespace BatchAssociateServiceActionWithProvisioningArtifactInput {
   export const filterSensitiveLog = (
     obj: BatchAssociateServiceActionWithProvisioningArtifactInput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ServiceActionAssociations && {
       ServiceActionAssociations: obj.ServiceActionAssociations.map(
@@ -850,7 +854,7 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactOutput {
 export namespace BatchAssociateServiceActionWithProvisioningArtifactOutput {
   export const filterSensitiveLog = (
     obj: BatchAssociateServiceActionWithProvisioningArtifactOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.FailedServiceActionAssociations && {
       FailedServiceActionAssociations: obj.FailedServiceActionAssociations.map(
@@ -894,7 +898,7 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactInput {
 export namespace BatchDisassociateServiceActionFromProvisioningArtifactInput {
   export const filterSensitiveLog = (
     obj: BatchDisassociateServiceActionFromProvisioningArtifactInput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ServiceActionAssociations && {
       ServiceActionAssociations: obj.ServiceActionAssociations.map(
@@ -919,7 +923,7 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput {
 export namespace BatchDisassociateServiceActionFromProvisioningArtifactOutput {
   export const filterSensitiveLog = (
     obj: BatchDisassociateServiceActionFromProvisioningArtifactOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.FailedServiceActionAssociations && {
       FailedServiceActionAssociations: obj.FailedServiceActionAssociations.map(
@@ -945,7 +949,7 @@ export interface BudgetDetail {
 }
 
 export namespace BudgetDetail {
-  export const filterSensitiveLog = (obj: BudgetDetail) => ({
+  export const filterSensitiveLog = (obj: BudgetDetail): any => ({
     ...obj
   });
   export const isa = (o: any): o is BudgetDetail => __isa(o, "BudgetDetail");
@@ -969,7 +973,7 @@ export interface CloudWatchDashboard {
 }
 
 export namespace CloudWatchDashboard {
-  export const filterSensitiveLog = (obj: CloudWatchDashboard) => ({
+  export const filterSensitiveLog = (obj: CloudWatchDashboard): any => ({
     ...obj
   });
   export const isa = (o: any): o is CloudWatchDashboard =>
@@ -1023,7 +1027,7 @@ export interface ConstraintDetail {
 }
 
 export namespace ConstraintDetail {
-  export const filterSensitiveLog = (obj: ConstraintDetail) => ({
+  export const filterSensitiveLog = (obj: ConstraintDetail): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConstraintDetail =>
@@ -1067,7 +1071,7 @@ export interface ConstraintSummary {
 }
 
 export namespace ConstraintSummary {
-  export const filterSensitiveLog = (obj: ConstraintSummary) => ({
+  export const filterSensitiveLog = (obj: ConstraintSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConstraintSummary =>
@@ -1134,7 +1138,7 @@ export interface CopyProductInput {
 }
 
 export namespace CopyProductInput {
-  export const filterSensitiveLog = (obj: CopyProductInput) => ({
+  export const filterSensitiveLog = (obj: CopyProductInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is CopyProductInput =>
@@ -1150,7 +1154,7 @@ export interface CopyProductOutput {
 }
 
 export namespace CopyProductOutput {
-  export const filterSensitiveLog = (obj: CopyProductOutput) => ({
+  export const filterSensitiveLog = (obj: CopyProductOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is CopyProductOutput =>
@@ -1285,7 +1289,7 @@ export interface CreateConstraintInput {
 }
 
 export namespace CreateConstraintInput {
-  export const filterSensitiveLog = (obj: CreateConstraintInput) => ({
+  export const filterSensitiveLog = (obj: CreateConstraintInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateConstraintInput =>
@@ -1311,7 +1315,7 @@ export interface CreateConstraintOutput {
 }
 
 export namespace CreateConstraintOutput {
-  export const filterSensitiveLog = (obj: CreateConstraintOutput) => ({
+  export const filterSensitiveLog = (obj: CreateConstraintOutput): any => ({
     ...obj,
     ...(obj.ConstraintDetail && {
       ConstraintDetail: ConstraintDetail.filterSensitiveLog(
@@ -1372,7 +1376,7 @@ export interface CreatePortfolioInput {
 }
 
 export namespace CreatePortfolioInput {
-  export const filterSensitiveLog = (obj: CreatePortfolioInput) => ({
+  export const filterSensitiveLog = (obj: CreatePortfolioInput): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1394,7 +1398,7 @@ export interface CreatePortfolioOutput {
 }
 
 export namespace CreatePortfolioOutput {
-  export const filterSensitiveLog = (obj: CreatePortfolioOutput) => ({
+  export const filterSensitiveLog = (obj: CreatePortfolioOutput): any => ({
     ...obj,
     ...(obj.PortfolioDetail && {
       PortfolioDetail: PortfolioDetail.filterSensitiveLog(obj.PortfolioDetail)
@@ -1443,7 +1447,7 @@ export interface CreatePortfolioShareInput {
 }
 
 export namespace CreatePortfolioShareInput {
-  export const filterSensitiveLog = (obj: CreatePortfolioShareInput) => ({
+  export const filterSensitiveLog = (obj: CreatePortfolioShareInput): any => ({
     ...obj,
     ...(obj.OrganizationNode && {
       OrganizationNode: OrganizationNode.filterSensitiveLog(
@@ -1464,7 +1468,7 @@ export interface CreatePortfolioShareOutput {
 }
 
 export namespace CreatePortfolioShareOutput {
-  export const filterSensitiveLog = (obj: CreatePortfolioShareOutput) => ({
+  export const filterSensitiveLog = (obj: CreatePortfolioShareOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreatePortfolioShareOutput =>
@@ -1550,7 +1554,7 @@ export interface CreateProductInput {
 }
 
 export namespace CreateProductInput {
-  export const filterSensitiveLog = (obj: CreateProductInput) => ({
+  export const filterSensitiveLog = (obj: CreateProductInput): any => ({
     ...obj,
     ...(obj.ProvisioningArtifactParameters && {
       ProvisioningArtifactParameters: ProvisioningArtifactProperties.filterSensitiveLog(
@@ -1582,7 +1586,7 @@ export interface CreateProductOutput {
 }
 
 export namespace CreateProductOutput {
-  export const filterSensitiveLog = (obj: CreateProductOutput) => ({
+  export const filterSensitiveLog = (obj: CreateProductOutput): any => ({
     ...obj,
     ...(obj.ProductViewDetail && {
       ProductViewDetail: ProductViewDetail.filterSensitiveLog(
@@ -1682,7 +1686,7 @@ export interface CreateProvisionedProductPlanInput {
 export namespace CreateProvisionedProductPlanInput {
   export const filterSensitiveLog = (
     obj: CreateProvisionedProductPlanInput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ProvisioningParameters && {
       ProvisioningParameters: obj.ProvisioningParameters.map(
@@ -1726,7 +1730,7 @@ export interface CreateProvisionedProductPlanOutput {
 export namespace CreateProvisionedProductPlanOutput {
   export const filterSensitiveLog = (
     obj: CreateProvisionedProductPlanOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateProvisionedProductPlanOutput =>
@@ -1772,7 +1776,9 @@ export interface CreateProvisioningArtifactInput {
 }
 
 export namespace CreateProvisioningArtifactInput {
-  export const filterSensitiveLog = (obj: CreateProvisioningArtifactInput) => ({
+  export const filterSensitiveLog = (
+    obj: CreateProvisioningArtifactInput
+  ): any => ({
     ...obj,
     ...(obj.Parameters && {
       Parameters: ProvisioningArtifactProperties.filterSensitiveLog(
@@ -1805,7 +1811,7 @@ export interface CreateProvisioningArtifactOutput {
 export namespace CreateProvisioningArtifactOutput {
   export const filterSensitiveLog = (
     obj: CreateProvisioningArtifactOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ProvisioningArtifactDetail && {
       ProvisioningArtifactDetail: ProvisioningArtifactDetail.filterSensitiveLog(
@@ -1887,7 +1893,7 @@ export interface CreateServiceActionInput {
 }
 
 export namespace CreateServiceActionInput {
-  export const filterSensitiveLog = (obj: CreateServiceActionInput) => ({
+  export const filterSensitiveLog = (obj: CreateServiceActionInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateServiceActionInput =>
@@ -1903,7 +1909,7 @@ export interface CreateServiceActionOutput {
 }
 
 export namespace CreateServiceActionOutput {
-  export const filterSensitiveLog = (obj: CreateServiceActionOutput) => ({
+  export const filterSensitiveLog = (obj: CreateServiceActionOutput): any => ({
     ...obj,
     ...(obj.ServiceActionDetail && {
       ServiceActionDetail: ServiceActionDetail.filterSensitiveLog(
@@ -1943,7 +1949,7 @@ export interface DeleteConstraintInput {
 }
 
 export namespace DeleteConstraintInput {
-  export const filterSensitiveLog = (obj: DeleteConstraintInput) => ({
+  export const filterSensitiveLog = (obj: DeleteConstraintInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteConstraintInput =>
@@ -1955,7 +1961,7 @@ export interface DeleteConstraintOutput {
 }
 
 export namespace DeleteConstraintOutput {
-  export const filterSensitiveLog = (obj: DeleteConstraintOutput) => ({
+  export const filterSensitiveLog = (obj: DeleteConstraintOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteConstraintOutput =>
@@ -1990,7 +1996,7 @@ export interface DeletePortfolioInput {
 }
 
 export namespace DeletePortfolioInput {
-  export const filterSensitiveLog = (obj: DeletePortfolioInput) => ({
+  export const filterSensitiveLog = (obj: DeletePortfolioInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeletePortfolioInput =>
@@ -2002,7 +2008,7 @@ export interface DeletePortfolioOutput {
 }
 
 export namespace DeletePortfolioOutput {
-  export const filterSensitiveLog = (obj: DeletePortfolioOutput) => ({
+  export const filterSensitiveLog = (obj: DeletePortfolioOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeletePortfolioOutput =>
@@ -2047,7 +2053,7 @@ export interface DeletePortfolioShareInput {
 }
 
 export namespace DeletePortfolioShareInput {
-  export const filterSensitiveLog = (obj: DeletePortfolioShareInput) => ({
+  export const filterSensitiveLog = (obj: DeletePortfolioShareInput): any => ({
     ...obj,
     ...(obj.OrganizationNode && {
       OrganizationNode: OrganizationNode.filterSensitiveLog(
@@ -2068,7 +2074,7 @@ export interface DeletePortfolioShareOutput {
 }
 
 export namespace DeletePortfolioShareOutput {
-  export const filterSensitiveLog = (obj: DeletePortfolioShareOutput) => ({
+  export const filterSensitiveLog = (obj: DeletePortfolioShareOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeletePortfolioShareOutput =>
@@ -2103,7 +2109,7 @@ export interface DeleteProductInput {
 }
 
 export namespace DeleteProductInput {
-  export const filterSensitiveLog = (obj: DeleteProductInput) => ({
+  export const filterSensitiveLog = (obj: DeleteProductInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteProductInput =>
@@ -2115,7 +2121,7 @@ export interface DeleteProductOutput {
 }
 
 export namespace DeleteProductOutput {
-  export const filterSensitiveLog = (obj: DeleteProductOutput) => ({
+  export const filterSensitiveLog = (obj: DeleteProductOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteProductOutput =>
@@ -2158,7 +2164,7 @@ export interface DeleteProvisionedProductPlanInput {
 export namespace DeleteProvisionedProductPlanInput {
   export const filterSensitiveLog = (
     obj: DeleteProvisionedProductPlanInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteProvisionedProductPlanInput =>
@@ -2172,7 +2178,7 @@ export interface DeleteProvisionedProductPlanOutput {
 export namespace DeleteProvisionedProductPlanOutput {
   export const filterSensitiveLog = (
     obj: DeleteProvisionedProductPlanOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteProvisionedProductPlanOutput =>
@@ -2212,7 +2218,9 @@ export interface DeleteProvisioningArtifactInput {
 }
 
 export namespace DeleteProvisioningArtifactInput {
-  export const filterSensitiveLog = (obj: DeleteProvisioningArtifactInput) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteProvisioningArtifactInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteProvisioningArtifactInput =>
@@ -2226,7 +2234,7 @@ export interface DeleteProvisioningArtifactOutput {
 export namespace DeleteProvisioningArtifactOutput {
   export const filterSensitiveLog = (
     obj: DeleteProvisioningArtifactOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteProvisioningArtifactOutput =>
@@ -2261,7 +2269,7 @@ export interface DeleteServiceActionInput {
 }
 
 export namespace DeleteServiceActionInput {
-  export const filterSensitiveLog = (obj: DeleteServiceActionInput) => ({
+  export const filterSensitiveLog = (obj: DeleteServiceActionInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteServiceActionInput =>
@@ -2273,7 +2281,7 @@ export interface DeleteServiceActionOutput {
 }
 
 export namespace DeleteServiceActionOutput {
-  export const filterSensitiveLog = (obj: DeleteServiceActionOutput) => ({
+  export const filterSensitiveLog = (obj: DeleteServiceActionOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteServiceActionOutput =>
@@ -2308,7 +2316,7 @@ export interface DescribeConstraintInput {
 }
 
 export namespace DescribeConstraintInput {
-  export const filterSensitiveLog = (obj: DescribeConstraintInput) => ({
+  export const filterSensitiveLog = (obj: DescribeConstraintInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeConstraintInput =>
@@ -2334,7 +2342,7 @@ export interface DescribeConstraintOutput {
 }
 
 export namespace DescribeConstraintOutput {
-  export const filterSensitiveLog = (obj: DescribeConstraintOutput) => ({
+  export const filterSensitiveLog = (obj: DescribeConstraintOutput): any => ({
     ...obj,
     ...(obj.ConstraintDetail && {
       ConstraintDetail: ConstraintDetail.filterSensitiveLog(
@@ -2374,7 +2382,9 @@ export interface DescribeCopyProductStatusInput {
 }
 
 export namespace DescribeCopyProductStatusInput {
-  export const filterSensitiveLog = (obj: DescribeCopyProductStatusInput) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeCopyProductStatusInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeCopyProductStatusInput =>
@@ -2400,7 +2410,9 @@ export interface DescribeCopyProductStatusOutput {
 }
 
 export namespace DescribeCopyProductStatusOutput {
-  export const filterSensitiveLog = (obj: DescribeCopyProductStatusOutput) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeCopyProductStatusOutput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeCopyProductStatusOutput =>
@@ -2435,7 +2447,7 @@ export interface DescribePortfolioInput {
 }
 
 export namespace DescribePortfolioInput {
-  export const filterSensitiveLog = (obj: DescribePortfolioInput) => ({
+  export const filterSensitiveLog = (obj: DescribePortfolioInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribePortfolioInput =>
@@ -2466,7 +2478,7 @@ export interface DescribePortfolioOutput {
 }
 
 export namespace DescribePortfolioOutput {
-  export const filterSensitiveLog = (obj: DescribePortfolioOutput) => ({
+  export const filterSensitiveLog = (obj: DescribePortfolioOutput): any => ({
     ...obj,
     ...(obj.Budgets && {
       Budgets: obj.Budgets.map(BudgetDetail.filterSensitiveLog)
@@ -2494,7 +2506,7 @@ export interface DescribePortfolioShareStatusInput {
 export namespace DescribePortfolioShareStatusInput {
   export const filterSensitiveLog = (
     obj: DescribePortfolioShareStatusInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribePortfolioShareStatusInput =>
@@ -2532,7 +2544,7 @@ export interface DescribePortfolioShareStatusOutput {
 export namespace DescribePortfolioShareStatusOutput {
   export const filterSensitiveLog = (
     obj: DescribePortfolioShareStatusOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ShareDetails && {
       ShareDetails: ShareDetails.filterSensitiveLog(obj.ShareDetails)
@@ -2570,7 +2582,9 @@ export interface DescribeProductAsAdminInput {
 }
 
 export namespace DescribeProductAsAdminInput {
-  export const filterSensitiveLog = (obj: DescribeProductAsAdminInput) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeProductAsAdminInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeProductAsAdminInput =>
@@ -2606,7 +2620,9 @@ export interface DescribeProductAsAdminOutput {
 }
 
 export namespace DescribeProductAsAdminOutput {
-  export const filterSensitiveLog = (obj: DescribeProductAsAdminOutput) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeProductAsAdminOutput
+  ): any => ({
     ...obj,
     ...(obj.Budgets && {
       Budgets: obj.Budgets.map(BudgetDetail.filterSensitiveLog)
@@ -2658,7 +2674,7 @@ export interface DescribeProductInput {
 }
 
 export namespace DescribeProductInput {
-  export const filterSensitiveLog = (obj: DescribeProductInput) => ({
+  export const filterSensitiveLog = (obj: DescribeProductInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeProductInput =>
@@ -2684,7 +2700,7 @@ export interface DescribeProductOutput {
 }
 
 export namespace DescribeProductOutput {
-  export const filterSensitiveLog = (obj: DescribeProductOutput) => ({
+  export const filterSensitiveLog = (obj: DescribeProductOutput): any => ({
     ...obj,
     ...(obj.Budgets && {
       Budgets: obj.Budgets.map(BudgetDetail.filterSensitiveLog)
@@ -2732,7 +2748,7 @@ export interface DescribeProductViewInput {
 }
 
 export namespace DescribeProductViewInput {
-  export const filterSensitiveLog = (obj: DescribeProductViewInput) => ({
+  export const filterSensitiveLog = (obj: DescribeProductViewInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeProductViewInput =>
@@ -2753,7 +2769,7 @@ export interface DescribeProductViewOutput {
 }
 
 export namespace DescribeProductViewOutput {
-  export const filterSensitiveLog = (obj: DescribeProductViewOutput) => ({
+  export const filterSensitiveLog = (obj: DescribeProductViewOutput): any => ({
     ...obj,
     ...(obj.ProductViewSummary && {
       ProductViewSummary: ProductViewSummary.filterSensitiveLog(
@@ -2798,7 +2814,9 @@ export interface DescribeProvisionedProductInput {
 }
 
 export namespace DescribeProvisionedProductInput {
-  export const filterSensitiveLog = (obj: DescribeProvisionedProductInput) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeProvisionedProductInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeProvisionedProductInput =>
@@ -2821,7 +2839,7 @@ export interface DescribeProvisionedProductOutput {
 export namespace DescribeProvisionedProductOutput {
   export const filterSensitiveLog = (
     obj: DescribeProvisionedProductOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CloudWatchDashboards && {
       CloudWatchDashboards: obj.CloudWatchDashboards.map(
@@ -2878,7 +2896,7 @@ export interface DescribeProvisionedProductPlanInput {
 export namespace DescribeProvisionedProductPlanInput {
   export const filterSensitiveLog = (
     obj: DescribeProvisionedProductPlanInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeProvisionedProductPlanInput =>
@@ -2906,7 +2924,7 @@ export interface DescribeProvisionedProductPlanOutput {
 export namespace DescribeProvisionedProductPlanOutput {
   export const filterSensitiveLog = (
     obj: DescribeProvisionedProductPlanOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ProvisionedProductPlanDetails && {
       ProvisionedProductPlanDetails: ProvisionedProductPlanDetails.filterSensitiveLog(
@@ -2963,7 +2981,7 @@ export interface DescribeProvisioningArtifactInput {
 export namespace DescribeProvisioningArtifactInput {
   export const filterSensitiveLog = (
     obj: DescribeProvisioningArtifactInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeProvisioningArtifactInput =>
@@ -2991,7 +3009,7 @@ export interface DescribeProvisioningArtifactOutput {
 export namespace DescribeProvisioningArtifactOutput {
   export const filterSensitiveLog = (
     obj: DescribeProvisioningArtifactOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ProvisioningArtifactDetail && {
       ProvisioningArtifactDetail: ProvisioningArtifactDetail.filterSensitiveLog(
@@ -3045,7 +3063,7 @@ export interface DescribeProvisioningParametersInput {
 export namespace DescribeProvisioningParametersInput {
   export const filterSensitiveLog = (
     obj: DescribeProvisioningParametersInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeProvisioningParametersInput =>
@@ -3084,7 +3102,7 @@ export interface DescribeProvisioningParametersOutput {
 export namespace DescribeProvisioningParametersOutput {
   export const filterSensitiveLog = (
     obj: DescribeProvisioningParametersOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ConstraintSummaries && {
       ConstraintSummaries: obj.ConstraintSummaries.map(
@@ -3153,7 +3171,7 @@ export interface DescribeRecordInput {
 }
 
 export namespace DescribeRecordInput {
-  export const filterSensitiveLog = (obj: DescribeRecordInput) => ({
+  export const filterSensitiveLog = (obj: DescribeRecordInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeRecordInput =>
@@ -3180,7 +3198,7 @@ export interface DescribeRecordOutput {
 }
 
 export namespace DescribeRecordOutput {
-  export const filterSensitiveLog = (obj: DescribeRecordOutput) => ({
+  export const filterSensitiveLog = (obj: DescribeRecordOutput): any => ({
     ...obj,
     ...(obj.RecordDetail && {
       RecordDetail: RecordDetail.filterSensitiveLog(obj.RecordDetail)
@@ -3203,7 +3221,7 @@ export interface DescribeServiceActionExecutionParametersInput {
 export namespace DescribeServiceActionExecutionParametersInput {
   export const filterSensitiveLog = (
     obj: DescribeServiceActionExecutionParametersInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -3220,7 +3238,7 @@ export interface DescribeServiceActionExecutionParametersOutput {
 export namespace DescribeServiceActionExecutionParametersOutput {
   export const filterSensitiveLog = (
     obj: DescribeServiceActionExecutionParametersOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ServiceActionParameters && {
       ServiceActionParameters: obj.ServiceActionParameters.map(
@@ -3262,7 +3280,7 @@ export interface DescribeServiceActionInput {
 }
 
 export namespace DescribeServiceActionInput {
-  export const filterSensitiveLog = (obj: DescribeServiceActionInput) => ({
+  export const filterSensitiveLog = (obj: DescribeServiceActionInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeServiceActionInput =>
@@ -3278,7 +3296,9 @@ export interface DescribeServiceActionOutput {
 }
 
 export namespace DescribeServiceActionOutput {
-  export const filterSensitiveLog = (obj: DescribeServiceActionOutput) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeServiceActionOutput
+  ): any => ({
     ...obj,
     ...(obj.ServiceActionDetail && {
       ServiceActionDetail: ServiceActionDetail.filterSensitiveLog(
@@ -3297,7 +3317,7 @@ export interface DisableAWSOrganizationsAccessInput {
 export namespace DisableAWSOrganizationsAccessInput {
   export const filterSensitiveLog = (
     obj: DisableAWSOrganizationsAccessInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisableAWSOrganizationsAccessInput =>
@@ -3311,7 +3331,7 @@ export interface DisableAWSOrganizationsAccessOutput {
 export namespace DisableAWSOrganizationsAccessOutput {
   export const filterSensitiveLog = (
     obj: DisableAWSOrganizationsAccessOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisableAWSOrganizationsAccessOutput =>
@@ -3334,7 +3354,7 @@ export interface DisassociateBudgetFromResourceInput {
 export namespace DisassociateBudgetFromResourceInput {
   export const filterSensitiveLog = (
     obj: DisassociateBudgetFromResourceInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateBudgetFromResourceInput =>
@@ -3348,7 +3368,7 @@ export interface DisassociateBudgetFromResourceOutput {
 export namespace DisassociateBudgetFromResourceOutput {
   export const filterSensitiveLog = (
     obj: DisassociateBudgetFromResourceOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateBudgetFromResourceOutput =>
@@ -3390,7 +3410,7 @@ export interface DisassociatePrincipalFromPortfolioInput {
 export namespace DisassociatePrincipalFromPortfolioInput {
   export const filterSensitiveLog = (
     obj: DisassociatePrincipalFromPortfolioInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociatePrincipalFromPortfolioInput =>
@@ -3404,7 +3424,7 @@ export interface DisassociatePrincipalFromPortfolioOutput {
 export namespace DisassociatePrincipalFromPortfolioOutput {
   export const filterSensitiveLog = (
     obj: DisassociatePrincipalFromPortfolioOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociatePrincipalFromPortfolioOutput =>
@@ -3446,7 +3466,7 @@ export interface DisassociateProductFromPortfolioInput {
 export namespace DisassociateProductFromPortfolioInput {
   export const filterSensitiveLog = (
     obj: DisassociateProductFromPortfolioInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateProductFromPortfolioInput =>
@@ -3460,7 +3480,7 @@ export interface DisassociateProductFromPortfolioOutput {
 export namespace DisassociateProductFromPortfolioOutput {
   export const filterSensitiveLog = (
     obj: DisassociateProductFromPortfolioOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateProductFromPortfolioOutput =>
@@ -3507,7 +3527,7 @@ export interface DisassociateServiceActionFromProvisioningArtifactInput {
 export namespace DisassociateServiceActionFromProvisioningArtifactInput {
   export const filterSensitiveLog = (
     obj: DisassociateServiceActionFromProvisioningArtifactInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -3523,7 +3543,7 @@ export interface DisassociateServiceActionFromProvisioningArtifactOutput {
 export namespace DisassociateServiceActionFromProvisioningArtifactOutput {
   export const filterSensitiveLog = (
     obj: DisassociateServiceActionFromProvisioningArtifactOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -3544,7 +3564,7 @@ export interface DuplicateResourceException
 }
 
 export namespace DuplicateResourceException {
-  export const filterSensitiveLog = (obj: DuplicateResourceException) => ({
+  export const filterSensitiveLog = (obj: DuplicateResourceException): any => ({
     ...obj
   });
   export const isa = (o: any): o is DuplicateResourceException =>
@@ -3558,7 +3578,7 @@ export interface EnableAWSOrganizationsAccessInput {
 export namespace EnableAWSOrganizationsAccessInput {
   export const filterSensitiveLog = (
     obj: EnableAWSOrganizationsAccessInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is EnableAWSOrganizationsAccessInput =>
@@ -3572,7 +3592,7 @@ export interface EnableAWSOrganizationsAccessOutput {
 export namespace EnableAWSOrganizationsAccessOutput {
   export const filterSensitiveLog = (
     obj: EnableAWSOrganizationsAccessOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is EnableAWSOrganizationsAccessOutput =>
@@ -3620,7 +3640,7 @@ export interface ExecuteProvisionedProductPlanInput {
 export namespace ExecuteProvisionedProductPlanInput {
   export const filterSensitiveLog = (
     obj: ExecuteProvisionedProductPlanInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ExecuteProvisionedProductPlanInput =>
@@ -3638,7 +3658,7 @@ export interface ExecuteProvisionedProductPlanOutput {
 export namespace ExecuteProvisionedProductPlanOutput {
   export const filterSensitiveLog = (
     obj: ExecuteProvisionedProductPlanOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.RecordDetail && {
       RecordDetail: RecordDetail.filterSensitiveLog(obj.RecordDetail)
@@ -3689,7 +3709,7 @@ export interface ExecuteProvisionedProductServiceActionInput {
 export namespace ExecuteProvisionedProductServiceActionInput {
   export const filterSensitiveLog = (
     obj: ExecuteProvisionedProductServiceActionInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -3709,7 +3729,7 @@ export interface ExecuteProvisionedProductServiceActionOutput {
 export namespace ExecuteProvisionedProductServiceActionOutput {
   export const filterSensitiveLog = (
     obj: ExecuteProvisionedProductServiceActionOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.RecordDetail && {
       RecordDetail: RecordDetail.filterSensitiveLog(obj.RecordDetail)
@@ -3729,7 +3749,7 @@ export interface ExecutionParameter {
 }
 
 export namespace ExecutionParameter {
-  export const filterSensitiveLog = (obj: ExecutionParameter) => ({
+  export const filterSensitiveLog = (obj: ExecutionParameter): any => ({
     ...obj
   });
   export const isa = (o: any): o is ExecutionParameter =>
@@ -3768,7 +3788,9 @@ export interface FailedServiceActionAssociation {
 }
 
 export namespace FailedServiceActionAssociation {
-  export const filterSensitiveLog = (obj: FailedServiceActionAssociation) => ({
+  export const filterSensitiveLog = (
+    obj: FailedServiceActionAssociation
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is FailedServiceActionAssociation =>
@@ -3782,7 +3804,7 @@ export interface GetAWSOrganizationsAccessStatusInput {
 export namespace GetAWSOrganizationsAccessStatusInput {
   export const filterSensitiveLog = (
     obj: GetAWSOrganizationsAccessStatusInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetAWSOrganizationsAccessStatusInput =>
@@ -3800,7 +3822,7 @@ export interface GetAWSOrganizationsAccessStatusOutput {
 export namespace GetAWSOrganizationsAccessStatusOutput {
   export const filterSensitiveLog = (
     obj: GetAWSOrganizationsAccessStatusOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetAWSOrganizationsAccessStatusOutput =>
@@ -3819,7 +3841,7 @@ export interface InvalidParametersException
 }
 
 export namespace InvalidParametersException {
-  export const filterSensitiveLog = (obj: InvalidParametersException) => ({
+  export const filterSensitiveLog = (obj: InvalidParametersException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidParametersException =>
@@ -3839,7 +3861,7 @@ export interface InvalidStateException
 }
 
 export namespace InvalidStateException {
-  export const filterSensitiveLog = (obj: InvalidStateException) => ({
+  export const filterSensitiveLog = (obj: InvalidStateException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidStateException =>
@@ -3873,7 +3895,7 @@ export interface LaunchPathSummary {
 }
 
 export namespace LaunchPathSummary {
-  export const filterSensitiveLog = (obj: LaunchPathSummary) => ({
+  export const filterSensitiveLog = (obj: LaunchPathSummary): any => ({
     ...obj,
     ...(obj.ConstraintSummaries && {
       ConstraintSummaries: obj.ConstraintSummaries.map(
@@ -3899,7 +3921,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -3960,7 +3982,7 @@ export interface ListAcceptedPortfolioSharesInput {
 export namespace ListAcceptedPortfolioSharesInput {
   export const filterSensitiveLog = (
     obj: ListAcceptedPortfolioSharesInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListAcceptedPortfolioSharesInput =>
@@ -3983,7 +4005,7 @@ export interface ListAcceptedPortfolioSharesOutput {
 export namespace ListAcceptedPortfolioSharesOutput {
   export const filterSensitiveLog = (
     obj: ListAcceptedPortfolioSharesOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.PortfolioDetails && {
       PortfolioDetails: obj.PortfolioDetails.map(
@@ -4033,7 +4055,9 @@ export interface ListBudgetsForResourceInput {
 }
 
 export namespace ListBudgetsForResourceInput {
-  export const filterSensitiveLog = (obj: ListBudgetsForResourceInput) => ({
+  export const filterSensitiveLog = (
+    obj: ListBudgetsForResourceInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListBudgetsForResourceInput =>
@@ -4054,7 +4078,9 @@ export interface ListBudgetsForResourceOutput {
 }
 
 export namespace ListBudgetsForResourceOutput {
-  export const filterSensitiveLog = (obj: ListBudgetsForResourceOutput) => ({
+  export const filterSensitiveLog = (
+    obj: ListBudgetsForResourceOutput
+  ): any => ({
     ...obj,
     ...(obj.Budgets && {
       Budgets: obj.Budgets.map(BudgetDetail.filterSensitiveLog)
@@ -4109,7 +4135,7 @@ export interface ListConstraintsForPortfolioInput {
 export namespace ListConstraintsForPortfolioInput {
   export const filterSensitiveLog = (
     obj: ListConstraintsForPortfolioInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListConstraintsForPortfolioInput =>
@@ -4132,7 +4158,7 @@ export interface ListConstraintsForPortfolioOutput {
 export namespace ListConstraintsForPortfolioOutput {
   export const filterSensitiveLog = (
     obj: ListConstraintsForPortfolioOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ConstraintDetails && {
       ConstraintDetails: obj.ConstraintDetails.map(
@@ -4182,7 +4208,7 @@ export interface ListLaunchPathsInput {
 }
 
 export namespace ListLaunchPathsInput {
-  export const filterSensitiveLog = (obj: ListLaunchPathsInput) => ({
+  export const filterSensitiveLog = (obj: ListLaunchPathsInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListLaunchPathsInput =>
@@ -4203,7 +4229,7 @@ export interface ListLaunchPathsOutput {
 }
 
 export namespace ListLaunchPathsOutput {
-  export const filterSensitiveLog = (obj: ListLaunchPathsOutput) => ({
+  export const filterSensitiveLog = (obj: ListLaunchPathsOutput): any => ({
     ...obj,
     ...(obj.LaunchPathSummaries && {
       LaunchPathSummaries: obj.LaunchPathSummaries.map(
@@ -4274,7 +4300,7 @@ export interface ListOrganizationPortfolioAccessInput {
 export namespace ListOrganizationPortfolioAccessInput {
   export const filterSensitiveLog = (
     obj: ListOrganizationPortfolioAccessInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListOrganizationPortfolioAccessInput =>
@@ -4297,7 +4323,7 @@ export interface ListOrganizationPortfolioAccessOutput {
 export namespace ListOrganizationPortfolioAccessOutput {
   export const filterSensitiveLog = (
     obj: ListOrganizationPortfolioAccessOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.OrganizationNodes && {
       OrganizationNodes: obj.OrganizationNodes.map(
@@ -4337,7 +4363,7 @@ export interface ListPortfolioAccessInput {
 }
 
 export namespace ListPortfolioAccessInput {
-  export const filterSensitiveLog = (obj: ListPortfolioAccessInput) => ({
+  export const filterSensitiveLog = (obj: ListPortfolioAccessInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListPortfolioAccessInput =>
@@ -4358,7 +4384,7 @@ export interface ListPortfolioAccessOutput {
 }
 
 export namespace ListPortfolioAccessOutput {
-  export const filterSensitiveLog = (obj: ListPortfolioAccessOutput) => ({
+  export const filterSensitiveLog = (obj: ListPortfolioAccessOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListPortfolioAccessOutput =>
@@ -4403,7 +4429,9 @@ export interface ListPortfoliosForProductInput {
 }
 
 export namespace ListPortfoliosForProductInput {
-  export const filterSensitiveLog = (obj: ListPortfoliosForProductInput) => ({
+  export const filterSensitiveLog = (
+    obj: ListPortfoliosForProductInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListPortfoliosForProductInput =>
@@ -4424,7 +4452,9 @@ export interface ListPortfoliosForProductOutput {
 }
 
 export namespace ListPortfoliosForProductOutput {
-  export const filterSensitiveLog = (obj: ListPortfoliosForProductOutput) => ({
+  export const filterSensitiveLog = (
+    obj: ListPortfoliosForProductOutput
+  ): any => ({
     ...obj,
     ...(obj.PortfolioDetails && {
       PortfolioDetails: obj.PortfolioDetails.map(
@@ -4469,7 +4499,7 @@ export interface ListPortfoliosInput {
 }
 
 export namespace ListPortfoliosInput {
-  export const filterSensitiveLog = (obj: ListPortfoliosInput) => ({
+  export const filterSensitiveLog = (obj: ListPortfoliosInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListPortfoliosInput =>
@@ -4490,7 +4520,7 @@ export interface ListPortfoliosOutput {
 }
 
 export namespace ListPortfoliosOutput {
-  export const filterSensitiveLog = (obj: ListPortfoliosOutput) => ({
+  export const filterSensitiveLog = (obj: ListPortfoliosOutput): any => ({
     ...obj,
     ...(obj.PortfolioDetails && {
       PortfolioDetails: obj.PortfolioDetails.map(
@@ -4540,7 +4570,9 @@ export interface ListPrincipalsForPortfolioInput {
 }
 
 export namespace ListPrincipalsForPortfolioInput {
-  export const filterSensitiveLog = (obj: ListPrincipalsForPortfolioInput) => ({
+  export const filterSensitiveLog = (
+    obj: ListPrincipalsForPortfolioInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListPrincipalsForPortfolioInput =>
@@ -4563,7 +4595,7 @@ export interface ListPrincipalsForPortfolioOutput {
 export namespace ListPrincipalsForPortfolioOutput {
   export const filterSensitiveLog = (
     obj: ListPrincipalsForPortfolioOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Principals && {
       Principals: obj.Principals.map(Principal.filterSensitiveLog)
@@ -4618,7 +4650,7 @@ export interface ListProvisionedProductPlansInput {
 export namespace ListProvisionedProductPlansInput {
   export const filterSensitiveLog = (
     obj: ListProvisionedProductPlansInput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.AccessLevelFilter && {
       AccessLevelFilter: AccessLevelFilter.filterSensitiveLog(
@@ -4646,7 +4678,7 @@ export interface ListProvisionedProductPlansOutput {
 export namespace ListProvisionedProductPlansOutput {
   export const filterSensitiveLog = (
     obj: ListProvisionedProductPlansOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ProvisionedProductPlans && {
       ProvisionedProductPlans: obj.ProvisionedProductPlans.map(
@@ -4698,7 +4730,7 @@ export interface ListProvisioningArtifactsForServiceActionInput {
 export namespace ListProvisioningArtifactsForServiceActionInput {
   export const filterSensitiveLog = (
     obj: ListProvisioningArtifactsForServiceActionInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -4723,7 +4755,7 @@ export interface ListProvisioningArtifactsForServiceActionOutput {
 export namespace ListProvisioningArtifactsForServiceActionOutput {
   export const filterSensitiveLog = (
     obj: ListProvisioningArtifactsForServiceActionOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ProvisioningArtifactViews && {
       ProvisioningArtifactViews: obj.ProvisioningArtifactViews.map(
@@ -4765,7 +4797,9 @@ export interface ListProvisioningArtifactsInput {
 }
 
 export namespace ListProvisioningArtifactsInput {
-  export const filterSensitiveLog = (obj: ListProvisioningArtifactsInput) => ({
+  export const filterSensitiveLog = (
+    obj: ListProvisioningArtifactsInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListProvisioningArtifactsInput =>
@@ -4786,7 +4820,9 @@ export interface ListProvisioningArtifactsOutput {
 }
 
 export namespace ListProvisioningArtifactsOutput {
-  export const filterSensitiveLog = (obj: ListProvisioningArtifactsOutput) => ({
+  export const filterSensitiveLog = (
+    obj: ListProvisioningArtifactsOutput
+  ): any => ({
     ...obj,
     ...(obj.ProvisioningArtifactDetails && {
       ProvisioningArtifactDetails: obj.ProvisioningArtifactDetails.map(
@@ -4841,7 +4877,7 @@ export interface ListRecordHistoryInput {
 }
 
 export namespace ListRecordHistoryInput {
-  export const filterSensitiveLog = (obj: ListRecordHistoryInput) => ({
+  export const filterSensitiveLog = (obj: ListRecordHistoryInput): any => ({
     ...obj,
     ...(obj.AccessLevelFilter && {
       AccessLevelFilter: AccessLevelFilter.filterSensitiveLog(
@@ -4872,7 +4908,7 @@ export interface ListRecordHistoryOutput {
 }
 
 export namespace ListRecordHistoryOutput {
-  export const filterSensitiveLog = (obj: ListRecordHistoryOutput) => ({
+  export const filterSensitiveLog = (obj: ListRecordHistoryOutput): any => ({
     ...obj,
     ...(obj.RecordDetails && {
       RecordDetails: obj.RecordDetails.map(RecordDetail.filterSensitiveLog)
@@ -4909,7 +4945,9 @@ export interface ListRecordHistorySearchFilter {
 }
 
 export namespace ListRecordHistorySearchFilter {
-  export const filterSensitiveLog = (obj: ListRecordHistorySearchFilter) => ({
+  export const filterSensitiveLog = (
+    obj: ListRecordHistorySearchFilter
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListRecordHistorySearchFilter =>
@@ -4961,7 +4999,7 @@ export interface ListServiceActionsForProvisioningArtifactInput {
 export namespace ListServiceActionsForProvisioningArtifactInput {
   export const filterSensitiveLog = (
     obj: ListServiceActionsForProvisioningArtifactInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -4986,7 +5024,7 @@ export interface ListServiceActionsForProvisioningArtifactOutput {
 export namespace ListServiceActionsForProvisioningArtifactOutput {
   export const filterSensitiveLog = (
     obj: ListServiceActionsForProvisioningArtifactOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ServiceActionSummaries && {
       ServiceActionSummaries: obj.ServiceActionSummaries.map(
@@ -5033,7 +5071,7 @@ export interface ListServiceActionsInput {
 }
 
 export namespace ListServiceActionsInput {
-  export const filterSensitiveLog = (obj: ListServiceActionsInput) => ({
+  export const filterSensitiveLog = (obj: ListServiceActionsInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListServiceActionsInput =>
@@ -5054,7 +5092,7 @@ export interface ListServiceActionsOutput {
 }
 
 export namespace ListServiceActionsOutput {
-  export const filterSensitiveLog = (obj: ListServiceActionsOutput) => ({
+  export const filterSensitiveLog = (obj: ListServiceActionsOutput): any => ({
     ...obj,
     ...(obj.ServiceActionSummaries && {
       ServiceActionSummaries: obj.ServiceActionSummaries.map(
@@ -5106,7 +5144,7 @@ export interface ListStackInstancesForProvisionedProductInput {
 export namespace ListStackInstancesForProvisionedProductInput {
   export const filterSensitiveLog = (
     obj: ListStackInstancesForProvisionedProductInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -5131,7 +5169,7 @@ export interface ListStackInstancesForProvisionedProductOutput {
 export namespace ListStackInstancesForProvisionedProductOutput {
   export const filterSensitiveLog = (
     obj: ListStackInstancesForProvisionedProductOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.StackInstances && {
       StackInstances: obj.StackInstances.map(StackInstance.filterSensitiveLog)
@@ -5155,7 +5193,9 @@ export interface OperationNotSupportedException
 }
 
 export namespace OperationNotSupportedException {
-  export const filterSensitiveLog = (obj: OperationNotSupportedException) => ({
+  export const filterSensitiveLog = (
+    obj: OperationNotSupportedException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is OperationNotSupportedException =>
@@ -5179,7 +5219,7 @@ export interface OrganizationNode {
 }
 
 export namespace OrganizationNode {
-  export const filterSensitiveLog = (obj: OrganizationNode) => ({
+  export const filterSensitiveLog = (obj: OrganizationNode): any => ({
     ...obj
   });
   export const isa = (o: any): o is OrganizationNode =>
@@ -5204,7 +5244,7 @@ export interface ParameterConstraints {
 }
 
 export namespace ParameterConstraints {
-  export const filterSensitiveLog = (obj: ParameterConstraints) => ({
+  export const filterSensitiveLog = (obj: ParameterConstraints): any => ({
     ...obj
   });
   export const isa = (o: any): o is ParameterConstraints =>
@@ -5248,7 +5288,7 @@ export interface PortfolioDetail {
 }
 
 export namespace PortfolioDetail {
-  export const filterSensitiveLog = (obj: PortfolioDetail) => ({
+  export const filterSensitiveLog = (obj: PortfolioDetail): any => ({
     ...obj
   });
   export const isa = (o: any): o is PortfolioDetail =>
@@ -5278,7 +5318,7 @@ export interface Principal {
 }
 
 export namespace Principal {
-  export const filterSensitiveLog = (obj: Principal) => ({
+  export const filterSensitiveLog = (obj: Principal): any => ({
     ...obj
   });
   export const isa = (o: any): o is Principal => __isa(o, "Principal");
@@ -5315,7 +5355,9 @@ export interface ProductViewAggregationValue {
 }
 
 export namespace ProductViewAggregationValue {
-  export const filterSensitiveLog = (obj: ProductViewAggregationValue) => ({
+  export const filterSensitiveLog = (
+    obj: ProductViewAggregationValue
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ProductViewAggregationValue =>
@@ -5363,7 +5405,7 @@ export interface ProductViewDetail {
 }
 
 export namespace ProductViewDetail {
-  export const filterSensitiveLog = (obj: ProductViewDetail) => ({
+  export const filterSensitiveLog = (obj: ProductViewDetail): any => ({
     ...obj,
     ...(obj.ProductViewSummary && {
       ProductViewSummary: ProductViewSummary.filterSensitiveLog(
@@ -5458,7 +5500,7 @@ export interface ProductViewSummary {
 }
 
 export namespace ProductViewSummary {
-  export const filterSensitiveLog = (obj: ProductViewSummary) => ({
+  export const filterSensitiveLog = (obj: ProductViewSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is ProductViewSummary =>
@@ -5542,7 +5584,7 @@ export interface ProvisionProductInput {
 }
 
 export namespace ProvisionProductInput {
-  export const filterSensitiveLog = (obj: ProvisionProductInput) => ({
+  export const filterSensitiveLog = (obj: ProvisionProductInput): any => ({
     ...obj,
     ...(obj.ProvisioningParameters && {
       ProvisioningParameters: obj.ProvisioningParameters.map(
@@ -5569,7 +5611,7 @@ export interface ProvisionProductOutput {
 }
 
 export namespace ProvisionProductOutput {
-  export const filterSensitiveLog = (obj: ProvisionProductOutput) => ({
+  export const filterSensitiveLog = (obj: ProvisionProductOutput): any => ({
     ...obj,
     ...(obj.RecordDetail && {
       RecordDetail: RecordDetail.filterSensitiveLog(obj.RecordDetail)
@@ -5690,7 +5732,9 @@ export interface ProvisionedProductAttribute {
 }
 
 export namespace ProvisionedProductAttribute {
-  export const filterSensitiveLog = (obj: ProvisionedProductAttribute) => ({
+  export const filterSensitiveLog = (
+    obj: ProvisionedProductAttribute
+  ): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -5789,7 +5833,7 @@ export interface ProvisionedProductDetail {
 }
 
 export namespace ProvisionedProductDetail {
-  export const filterSensitiveLog = (obj: ProvisionedProductDetail) => ({
+  export const filterSensitiveLog = (obj: ProvisionedProductDetail): any => ({
     ...obj
   });
   export const isa = (o: any): o is ProvisionedProductDetail =>
@@ -5882,7 +5926,9 @@ export interface ProvisionedProductPlanDetails {
 }
 
 export namespace ProvisionedProductPlanDetails {
-  export const filterSensitiveLog = (obj: ProvisionedProductPlanDetails) => ({
+  export const filterSensitiveLog = (
+    obj: ProvisionedProductPlanDetails
+  ): any => ({
     ...obj,
     ...(obj.ProvisioningParameters && {
       ProvisioningParameters: obj.ProvisioningParameters.map(
@@ -5941,7 +5987,9 @@ export interface ProvisionedProductPlanSummary {
 }
 
 export namespace ProvisionedProductPlanSummary {
-  export const filterSensitiveLog = (obj: ProvisionedProductPlanSummary) => ({
+  export const filterSensitiveLog = (
+    obj: ProvisionedProductPlanSummary
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ProvisionedProductPlanSummary =>
@@ -5996,7 +6044,7 @@ export interface ProvisioningArtifact {
 }
 
 export namespace ProvisioningArtifact {
-  export const filterSensitiveLog = (obj: ProvisioningArtifact) => ({
+  export const filterSensitiveLog = (obj: ProvisioningArtifact): any => ({
     ...obj
   });
   export const isa = (o: any): o is ProvisioningArtifact =>
@@ -6059,7 +6107,7 @@ export interface ProvisioningArtifactDetail {
 }
 
 export namespace ProvisioningArtifactDetail {
-  export const filterSensitiveLog = (obj: ProvisioningArtifactDetail) => ({
+  export const filterSensitiveLog = (obj: ProvisioningArtifactDetail): any => ({
     ...obj
   });
   export const isa = (o: any): o is ProvisioningArtifactDetail =>
@@ -6109,7 +6157,9 @@ export interface ProvisioningArtifactParameter {
 }
 
 export namespace ProvisioningArtifactParameter {
-  export const filterSensitiveLog = (obj: ProvisioningArtifactParameter) => ({
+  export const filterSensitiveLog = (
+    obj: ProvisioningArtifactParameter
+  ): any => ({
     ...obj,
     ...(obj.ParameterConstraints && {
       ParameterConstraints: ParameterConstraints.filterSensitiveLog(
@@ -6141,7 +6191,9 @@ export interface ProvisioningArtifactPreferences {
 }
 
 export namespace ProvisioningArtifactPreferences {
-  export const filterSensitiveLog = (obj: ProvisioningArtifactPreferences) => ({
+  export const filterSensitiveLog = (
+    obj: ProvisioningArtifactPreferences
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ProvisioningArtifactPreferences =>
@@ -6197,7 +6249,9 @@ export interface ProvisioningArtifactProperties {
 }
 
 export namespace ProvisioningArtifactProperties {
-  export const filterSensitiveLog = (obj: ProvisioningArtifactProperties) => ({
+  export const filterSensitiveLog = (
+    obj: ProvisioningArtifactProperties
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ProvisioningArtifactProperties =>
@@ -6240,7 +6294,9 @@ export interface ProvisioningArtifactSummary {
 }
 
 export namespace ProvisioningArtifactSummary {
-  export const filterSensitiveLog = (obj: ProvisioningArtifactSummary) => ({
+  export const filterSensitiveLog = (
+    obj: ProvisioningArtifactSummary
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ProvisioningArtifactSummary =>
@@ -6270,7 +6326,7 @@ export interface ProvisioningArtifactView {
 }
 
 export namespace ProvisioningArtifactView {
-  export const filterSensitiveLog = (obj: ProvisioningArtifactView) => ({
+  export const filterSensitiveLog = (obj: ProvisioningArtifactView): any => ({
     ...obj,
     ...(obj.ProductViewSummary && {
       ProductViewSummary: ProductViewSummary.filterSensitiveLog(
@@ -6304,7 +6360,7 @@ export interface ProvisioningParameter {
 }
 
 export namespace ProvisioningParameter {
-  export const filterSensitiveLog = (obj: ProvisioningParameter) => ({
+  export const filterSensitiveLog = (obj: ProvisioningParameter): any => ({
     ...obj
   });
   export const isa = (o: any): o is ProvisioningParameter =>
@@ -6367,7 +6423,7 @@ export interface ProvisioningPreferences {
 }
 
 export namespace ProvisioningPreferences {
-  export const filterSensitiveLog = (obj: ProvisioningPreferences) => ({
+  export const filterSensitiveLog = (obj: ProvisioningPreferences): any => ({
     ...obj
   });
   export const isa = (o: any): o is ProvisioningPreferences =>
@@ -6487,7 +6543,7 @@ export interface RecordDetail {
 }
 
 export namespace RecordDetail {
-  export const filterSensitiveLog = (obj: RecordDetail) => ({
+  export const filterSensitiveLog = (obj: RecordDetail): any => ({
     ...obj,
     ...(obj.RecordErrors && {
       RecordErrors: obj.RecordErrors.map(RecordError.filterSensitiveLog)
@@ -6516,7 +6572,7 @@ export interface RecordError {
 }
 
 export namespace RecordError {
-  export const filterSensitiveLog = (obj: RecordError) => ({
+  export const filterSensitiveLog = (obj: RecordError): any => ({
     ...obj
   });
   export const isa = (o: any): o is RecordError => __isa(o, "RecordError");
@@ -6545,7 +6601,7 @@ export interface RecordOutput {
 }
 
 export namespace RecordOutput {
-  export const filterSensitiveLog = (obj: RecordOutput) => ({
+  export const filterSensitiveLog = (obj: RecordOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is RecordOutput => __isa(o, "RecordOutput");
@@ -6576,7 +6632,7 @@ export interface RecordTag {
 }
 
 export namespace RecordTag {
-  export const filterSensitiveLog = (obj: RecordTag) => ({
+  export const filterSensitiveLog = (obj: RecordTag): any => ({
     ...obj
   });
   export const isa = (o: any): o is RecordTag => __isa(o, "RecordTag");
@@ -6631,7 +6687,7 @@ export interface RejectPortfolioShareInput {
 }
 
 export namespace RejectPortfolioShareInput {
-  export const filterSensitiveLog = (obj: RejectPortfolioShareInput) => ({
+  export const filterSensitiveLog = (obj: RejectPortfolioShareInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is RejectPortfolioShareInput =>
@@ -6643,7 +6699,7 @@ export interface RejectPortfolioShareOutput {
 }
 
 export namespace RejectPortfolioShareOutput {
-  export const filterSensitiveLog = (obj: RejectPortfolioShareOutput) => ({
+  export const filterSensitiveLog = (obj: RejectPortfolioShareOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is RejectPortfolioShareOutput =>
@@ -6714,7 +6770,7 @@ export interface ResourceChange {
 }
 
 export namespace ResourceChange {
-  export const filterSensitiveLog = (obj: ResourceChange) => ({
+  export const filterSensitiveLog = (obj: ResourceChange): any => ({
     ...obj,
     ...(obj.Details && {
       Details: obj.Details.map(ResourceChangeDetail.filterSensitiveLog)
@@ -6747,7 +6803,7 @@ export interface ResourceChangeDetail {
 }
 
 export namespace ResourceChangeDetail {
-  export const filterSensitiveLog = (obj: ResourceChangeDetail) => ({
+  export const filterSensitiveLog = (obj: ResourceChangeDetail): any => ({
     ...obj,
     ...(obj.Target && {
       Target: ResourceTargetDefinition.filterSensitiveLog(obj.Target)
@@ -6769,7 +6825,7 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export const filterSensitiveLog = (obj: ResourceInUseException) => ({
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceInUseException =>
@@ -6788,7 +6844,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -6819,7 +6875,7 @@ export interface ResourceTargetDefinition {
 }
 
 export namespace ResourceTargetDefinition {
-  export const filterSensitiveLog = (obj: ResourceTargetDefinition) => ({
+  export const filterSensitiveLog = (obj: ResourceTargetDefinition): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceTargetDefinition =>
@@ -6864,7 +6920,9 @@ export interface ScanProvisionedProductsInput {
 }
 
 export namespace ScanProvisionedProductsInput {
-  export const filterSensitiveLog = (obj: ScanProvisionedProductsInput) => ({
+  export const filterSensitiveLog = (
+    obj: ScanProvisionedProductsInput
+  ): any => ({
     ...obj,
     ...(obj.AccessLevelFilter && {
       AccessLevelFilter: AccessLevelFilter.filterSensitiveLog(
@@ -6890,7 +6948,9 @@ export interface ScanProvisionedProductsOutput {
 }
 
 export namespace ScanProvisionedProductsOutput {
-  export const filterSensitiveLog = (obj: ScanProvisionedProductsOutput) => ({
+  export const filterSensitiveLog = (
+    obj: ScanProvisionedProductsOutput
+  ): any => ({
     ...obj,
     ...(obj.ProvisionedProducts && {
       ProvisionedProducts: obj.ProvisionedProducts.map(
@@ -6961,7 +7021,7 @@ export interface SearchProductsAsAdminInput {
 }
 
 export namespace SearchProductsAsAdminInput {
-  export const filterSensitiveLog = (obj: SearchProductsAsAdminInput) => ({
+  export const filterSensitiveLog = (obj: SearchProductsAsAdminInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is SearchProductsAsAdminInput =>
@@ -6982,7 +7042,9 @@ export interface SearchProductsAsAdminOutput {
 }
 
 export namespace SearchProductsAsAdminOutput {
-  export const filterSensitiveLog = (obj: SearchProductsAsAdminOutput) => ({
+  export const filterSensitiveLog = (
+    obj: SearchProductsAsAdminOutput
+  ): any => ({
     ...obj,
     ...(obj.ProductViewDetails && {
       ProductViewDetails: obj.ProductViewDetails.map(
@@ -7043,7 +7105,7 @@ export interface SearchProductsInput {
 }
 
 export namespace SearchProductsInput {
-  export const filterSensitiveLog = (obj: SearchProductsInput) => ({
+  export const filterSensitiveLog = (obj: SearchProductsInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is SearchProductsInput =>
@@ -7069,7 +7131,7 @@ export interface SearchProductsOutput {
 }
 
 export namespace SearchProductsOutput {
-  export const filterSensitiveLog = (obj: SearchProductsOutput) => ({
+  export const filterSensitiveLog = (obj: SearchProductsOutput): any => ({
     ...obj,
     ...(obj.ProductViewAggregations && {
       ProductViewAggregations: Object.entries(
@@ -7156,7 +7218,9 @@ export interface SearchProvisionedProductsInput {
 }
 
 export namespace SearchProvisionedProductsInput {
-  export const filterSensitiveLog = (obj: SearchProvisionedProductsInput) => ({
+  export const filterSensitiveLog = (
+    obj: SearchProvisionedProductsInput
+  ): any => ({
     ...obj,
     ...(obj.AccessLevelFilter && {
       AccessLevelFilter: AccessLevelFilter.filterSensitiveLog(
@@ -7187,7 +7251,9 @@ export interface SearchProvisionedProductsOutput {
 }
 
 export namespace SearchProvisionedProductsOutput {
-  export const filterSensitiveLog = (obj: SearchProvisionedProductsOutput) => ({
+  export const filterSensitiveLog = (
+    obj: SearchProvisionedProductsOutput
+  ): any => ({
     ...obj,
     ...(obj.ProvisionedProducts && {
       ProvisionedProducts: obj.ProvisionedProducts.map(
@@ -7221,7 +7287,7 @@ export interface ServiceActionAssociation {
 }
 
 export namespace ServiceActionAssociation {
-  export const filterSensitiveLog = (obj: ServiceActionAssociation) => ({
+  export const filterSensitiveLog = (obj: ServiceActionAssociation): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceActionAssociation =>
@@ -7264,7 +7330,7 @@ export interface ServiceActionDetail {
 }
 
 export namespace ServiceActionDetail {
-  export const filterSensitiveLog = (obj: ServiceActionDetail) => ({
+  export const filterSensitiveLog = (obj: ServiceActionDetail): any => ({
     ...obj,
     ...(obj.ServiceActionSummary && {
       ServiceActionSummary: ServiceActionSummary.filterSensitiveLog(
@@ -7303,7 +7369,7 @@ export interface ServiceActionSummary {
 }
 
 export namespace ServiceActionSummary {
-  export const filterSensitiveLog = (obj: ServiceActionSummary) => ({
+  export const filterSensitiveLog = (obj: ServiceActionSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceActionSummary =>
@@ -7327,7 +7393,7 @@ export interface ShareDetails {
 }
 
 export namespace ShareDetails {
-  export const filterSensitiveLog = (obj: ShareDetails) => ({
+  export const filterSensitiveLog = (obj: ShareDetails): any => ({
     ...obj,
     ...(obj.ShareErrors && {
       ShareErrors: obj.ShareErrors.map(ShareError.filterSensitiveLog)
@@ -7358,7 +7424,7 @@ export interface ShareError {
 }
 
 export namespace ShareError {
-  export const filterSensitiveLog = (obj: ShareError) => ({
+  export const filterSensitiveLog = (obj: ShareError): any => ({
     ...obj
   });
   export const isa = (o: any): o is ShareError => __isa(o, "ShareError");
@@ -7415,7 +7481,7 @@ export interface StackInstance {
 }
 
 export namespace StackInstance {
-  export const filterSensitiveLog = (obj: StackInstance) => ({
+  export const filterSensitiveLog = (obj: StackInstance): any => ({
     ...obj
   });
   export const isa = (o: any): o is StackInstance => __isa(o, "StackInstance");
@@ -7453,7 +7519,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -7473,7 +7539,9 @@ export interface TagOptionNotMigratedException
 }
 
 export namespace TagOptionNotMigratedException {
-  export const filterSensitiveLog = (obj: TagOptionNotMigratedException) => ({
+  export const filterSensitiveLog = (
+    obj: TagOptionNotMigratedException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagOptionNotMigratedException =>
@@ -7497,7 +7565,7 @@ export interface TagOptionSummary {
 }
 
 export namespace TagOptionSummary {
-  export const filterSensitiveLog = (obj: TagOptionSummary) => ({
+  export const filterSensitiveLog = (obj: TagOptionSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagOptionSummary =>
@@ -7555,7 +7623,7 @@ export interface TerminateProvisionedProductInput {
 export namespace TerminateProvisionedProductInput {
   export const filterSensitiveLog = (
     obj: TerminateProvisionedProductInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TerminateProvisionedProductInput =>
@@ -7573,7 +7641,7 @@ export interface TerminateProvisionedProductOutput {
 export namespace TerminateProvisionedProductOutput {
   export const filterSensitiveLog = (
     obj: TerminateProvisionedProductOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.RecordDetail && {
       RecordDetail: RecordDetail.filterSensitiveLog(obj.RecordDetail)
@@ -7662,7 +7730,7 @@ export interface UpdateConstraintInput {
 }
 
 export namespace UpdateConstraintInput {
-  export const filterSensitiveLog = (obj: UpdateConstraintInput) => ({
+  export const filterSensitiveLog = (obj: UpdateConstraintInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateConstraintInput =>
@@ -7688,7 +7756,7 @@ export interface UpdateConstraintOutput {
 }
 
 export namespace UpdateConstraintOutput {
-  export const filterSensitiveLog = (obj: UpdateConstraintOutput) => ({
+  export const filterSensitiveLog = (obj: UpdateConstraintOutput): any => ({
     ...obj,
     ...(obj.ConstraintDetail && {
       ConstraintDetail: ConstraintDetail.filterSensitiveLog(
@@ -7753,7 +7821,7 @@ export interface UpdatePortfolioInput {
 }
 
 export namespace UpdatePortfolioInput {
-  export const filterSensitiveLog = (obj: UpdatePortfolioInput) => ({
+  export const filterSensitiveLog = (obj: UpdatePortfolioInput): any => ({
     ...obj,
     ...(obj.AddTags && { AddTags: obj.AddTags.map(Tag.filterSensitiveLog) })
   });
@@ -7775,7 +7843,7 @@ export interface UpdatePortfolioOutput {
 }
 
 export namespace UpdatePortfolioOutput {
-  export const filterSensitiveLog = (obj: UpdatePortfolioOutput) => ({
+  export const filterSensitiveLog = (obj: UpdatePortfolioOutput): any => ({
     ...obj,
     ...(obj.PortfolioDetail && {
       PortfolioDetail: PortfolioDetail.filterSensitiveLog(obj.PortfolioDetail)
@@ -7859,7 +7927,7 @@ export interface UpdateProductInput {
 }
 
 export namespace UpdateProductInput {
-  export const filterSensitiveLog = (obj: UpdateProductInput) => ({
+  export const filterSensitiveLog = (obj: UpdateProductInput): any => ({
     ...obj,
     ...(obj.AddTags && { AddTags: obj.AddTags.map(Tag.filterSensitiveLog) })
   });
@@ -7881,7 +7949,7 @@ export interface UpdateProductOutput {
 }
 
 export namespace UpdateProductOutput {
-  export const filterSensitiveLog = (obj: UpdateProductOutput) => ({
+  export const filterSensitiveLog = (obj: UpdateProductOutput): any => ({
     ...obj,
     ...(obj.ProductViewDetail && {
       ProductViewDetail: ProductViewDetail.filterSensitiveLog(
@@ -7965,7 +8033,9 @@ export interface UpdateProvisionedProductInput {
 }
 
 export namespace UpdateProvisionedProductInput {
-  export const filterSensitiveLog = (obj: UpdateProvisionedProductInput) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateProvisionedProductInput
+  ): any => ({
     ...obj,
     ...(obj.ProvisioningParameters && {
       ProvisioningParameters: obj.ProvisioningParameters.map(
@@ -7992,7 +8062,9 @@ export interface UpdateProvisionedProductOutput {
 }
 
 export namespace UpdateProvisionedProductOutput {
-  export const filterSensitiveLog = (obj: UpdateProvisionedProductOutput) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateProvisionedProductOutput
+  ): any => ({
     ...obj,
     ...(obj.RecordDetail && {
       RecordDetail: RecordDetail.filterSensitiveLog(obj.RecordDetail)
@@ -8052,7 +8124,7 @@ export interface UpdateProvisionedProductPropertiesInput {
 export namespace UpdateProvisionedProductPropertiesInput {
   export const filterSensitiveLog = (
     obj: UpdateProvisionedProductPropertiesInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateProvisionedProductPropertiesInput =>
@@ -8085,7 +8157,7 @@ export interface UpdateProvisionedProductPropertiesOutput {
 export namespace UpdateProvisionedProductPropertiesOutput {
   export const filterSensitiveLog = (
     obj: UpdateProvisionedProductPropertiesOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateProvisionedProductPropertiesOutput =>
@@ -8149,7 +8221,9 @@ export interface UpdateProvisioningArtifactInput {
 }
 
 export namespace UpdateProvisioningArtifactInput {
-  export const filterSensitiveLog = (obj: UpdateProvisioningArtifactInput) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateProvisioningArtifactInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateProvisioningArtifactInput =>
@@ -8177,7 +8251,7 @@ export interface UpdateProvisioningArtifactOutput {
 export namespace UpdateProvisioningArtifactOutput {
   export const filterSensitiveLog = (
     obj: UpdateProvisioningArtifactOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ProvisioningArtifactDetail && {
       ProvisioningArtifactDetail: ProvisioningArtifactDetail.filterSensitiveLog(
@@ -8211,7 +8285,9 @@ export interface UpdateProvisioningParameter {
 }
 
 export namespace UpdateProvisioningParameter {
-  export const filterSensitiveLog = (obj: UpdateProvisioningParameter) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateProvisioningParameter
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateProvisioningParameter =>
@@ -8294,7 +8370,9 @@ export interface UpdateProvisioningPreferences {
 }
 
 export namespace UpdateProvisioningPreferences {
-  export const filterSensitiveLog = (obj: UpdateProvisioningPreferences) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateProvisioningPreferences
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateProvisioningPreferences =>
@@ -8344,7 +8422,7 @@ export interface UpdateServiceActionInput {
 }
 
 export namespace UpdateServiceActionInput {
-  export const filterSensitiveLog = (obj: UpdateServiceActionInput) => ({
+  export const filterSensitiveLog = (obj: UpdateServiceActionInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateServiceActionInput =>
@@ -8360,7 +8438,7 @@ export interface UpdateServiceActionOutput {
 }
 
 export namespace UpdateServiceActionOutput {
-  export const filterSensitiveLog = (obj: UpdateServiceActionOutput) => ({
+  export const filterSensitiveLog = (obj: UpdateServiceActionOutput): any => ({
     ...obj,
     ...(obj.ServiceActionDetail && {
       ServiceActionDetail: ServiceActionDetail.filterSensitiveLog(
@@ -8389,7 +8467,7 @@ export interface UsageInstruction {
 }
 
 export namespace UsageInstruction {
-  export const filterSensitiveLog = (obj: UsageInstruction) => ({
+  export const filterSensitiveLog = (obj: UsageInstruction): any => ({
     ...obj
   });
   export const isa = (o: any): o is UsageInstruction =>

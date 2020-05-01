@@ -17,7 +17,7 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export const filterSensitiveLog = (obj: AccessDeniedException) => ({
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is AccessDeniedException =>
@@ -44,7 +44,9 @@ export interface CreateHomeRegionControlRequest {
 }
 
 export namespace CreateHomeRegionControlRequest {
-  export const filterSensitiveLog = (obj: CreateHomeRegionControlRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreateHomeRegionControlRequest
+  ): any => ({
     ...obj,
     ...(obj.Target && { Target: Target.filterSensitiveLog(obj.Target) })
   });
@@ -62,7 +64,9 @@ export interface CreateHomeRegionControlResult {
 }
 
 export namespace CreateHomeRegionControlResult {
-  export const filterSensitiveLog = (obj: CreateHomeRegionControlResult) => ({
+  export const filterSensitiveLog = (
+    obj: CreateHomeRegionControlResult
+  ): any => ({
     ...obj,
     ...(obj.HomeRegionControl && {
       HomeRegionControl: HomeRegionControl.filterSensitiveLog(
@@ -109,7 +113,7 @@ export interface DescribeHomeRegionControlsRequest {
 export namespace DescribeHomeRegionControlsRequest {
   export const filterSensitiveLog = (
     obj: DescribeHomeRegionControlsRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Target && { Target: Target.filterSensitiveLog(obj.Target) })
   });
@@ -135,7 +139,7 @@ export interface DescribeHomeRegionControlsResult {
 export namespace DescribeHomeRegionControlsResult {
   export const filterSensitiveLog = (
     obj: DescribeHomeRegionControlsResult
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.HomeRegionControls && {
       HomeRegionControls: obj.HomeRegionControls.map(
@@ -158,7 +162,7 @@ export interface DryRunOperation extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DryRunOperation {
-  export const filterSensitiveLog = (obj: DryRunOperation) => ({
+  export const filterSensitiveLog = (obj: DryRunOperation): any => ({
     ...obj
   });
   export const isa = (o: any): o is DryRunOperation =>
@@ -170,7 +174,7 @@ export interface GetHomeRegionRequest {
 }
 
 export namespace GetHomeRegionRequest {
-  export const filterSensitiveLog = (obj: GetHomeRegionRequest) => ({
+  export const filterSensitiveLog = (obj: GetHomeRegionRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetHomeRegionRequest =>
@@ -186,7 +190,7 @@ export interface GetHomeRegionResult {
 }
 
 export namespace GetHomeRegionResult {
-  export const filterSensitiveLog = (obj: GetHomeRegionResult) => ({
+  export const filterSensitiveLog = (obj: GetHomeRegionResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetHomeRegionResult =>
@@ -227,7 +231,7 @@ export interface HomeRegionControl {
 }
 
 export namespace HomeRegionControl {
-  export const filterSensitiveLog = (obj: HomeRegionControl) => ({
+  export const filterSensitiveLog = (obj: HomeRegionControl): any => ({
     ...obj,
     ...(obj.Target && { Target: Target.filterSensitiveLog(obj.Target) })
   });
@@ -248,7 +252,7 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export const filterSensitiveLog = (obj: InternalServerError) => ({
+  export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerError =>
@@ -268,7 +272,7 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
-  export const filterSensitiveLog = (obj: InvalidInputException) => ({
+  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidInputException =>
@@ -287,7 +291,9 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (obj: ServiceUnavailableException) => ({
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceUnavailableException =>
@@ -313,7 +319,7 @@ export interface Target {
 }
 
 export namespace Target {
-  export const filterSensitiveLog = (obj: Target) => ({
+  export const filterSensitiveLog = (obj: Target): any => ({
     ...obj
   });
   export const isa = (o: any): o is Target => __isa(o, "Target");

@@ -16,7 +16,7 @@ export interface DeleteLexiconInput {
 }
 
 export namespace DeleteLexiconInput {
-  export const filterSensitiveLog = (obj: DeleteLexiconInput) => ({
+  export const filterSensitiveLog = (obj: DeleteLexiconInput): any => ({
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING })
   });
@@ -29,7 +29,7 @@ export interface DeleteLexiconOutput {
 }
 
 export namespace DeleteLexiconOutput {
-  export const filterSensitiveLog = (obj: DeleteLexiconOutput) => ({
+  export const filterSensitiveLog = (obj: DeleteLexiconOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteLexiconOutput =>
@@ -69,7 +69,7 @@ export interface DescribeVoicesInput {
 }
 
 export namespace DescribeVoicesInput {
-  export const filterSensitiveLog = (obj: DescribeVoicesInput) => ({
+  export const filterSensitiveLog = (obj: DescribeVoicesInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeVoicesInput =>
@@ -92,7 +92,7 @@ export interface DescribeVoicesOutput {
 }
 
 export namespace DescribeVoicesOutput {
-  export const filterSensitiveLog = (obj: DescribeVoicesOutput) => ({
+  export const filterSensitiveLog = (obj: DescribeVoicesOutput): any => ({
     ...obj,
     ...(obj.Voices && { Voices: obj.Voices.map(Voice.filterSensitiveLog) })
   });
@@ -118,7 +118,9 @@ export interface EngineNotSupportedException
 }
 
 export namespace EngineNotSupportedException {
-  export const filterSensitiveLog = (obj: EngineNotSupportedException) => ({
+  export const filterSensitiveLog = (
+    obj: EngineNotSupportedException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is EngineNotSupportedException =>
@@ -136,7 +138,7 @@ export interface GetLexiconInput {
 }
 
 export namespace GetLexiconInput {
-  export const filterSensitiveLog = (obj: GetLexiconInput) => ({
+  export const filterSensitiveLog = (obj: GetLexiconInput): any => ({
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING })
   });
@@ -160,7 +162,7 @@ export interface GetLexiconOutput {
 }
 
 export namespace GetLexiconOutput {
-  export const filterSensitiveLog = (obj: GetLexiconOutput) => ({
+  export const filterSensitiveLog = (obj: GetLexiconOutput): any => ({
     ...obj,
     ...(obj.Lexicon && { Lexicon: Lexicon.filterSensitiveLog(obj.Lexicon) }),
     ...(obj.LexiconAttributes && {
@@ -182,7 +184,9 @@ export interface GetSpeechSynthesisTaskInput {
 }
 
 export namespace GetSpeechSynthesisTaskInput {
-  export const filterSensitiveLog = (obj: GetSpeechSynthesisTaskInput) => ({
+  export const filterSensitiveLog = (
+    obj: GetSpeechSynthesisTaskInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetSpeechSynthesisTaskInput =>
@@ -199,7 +203,9 @@ export interface GetSpeechSynthesisTaskOutput {
 }
 
 export namespace GetSpeechSynthesisTaskOutput {
-  export const filterSensitiveLog = (obj: GetSpeechSynthesisTaskOutput) => ({
+  export const filterSensitiveLog = (
+    obj: GetSpeechSynthesisTaskOutput
+  ): any => ({
     ...obj,
     ...(obj.SynthesisTask && {
       SynthesisTask: SynthesisTask.filterSensitiveLog(obj.SynthesisTask)
@@ -222,7 +228,7 @@ export interface InvalidLexiconException
 }
 
 export namespace InvalidLexiconException {
-  export const filterSensitiveLog = (obj: InvalidLexiconException) => ({
+  export const filterSensitiveLog = (obj: InvalidLexiconException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidLexiconException =>
@@ -242,7 +248,7 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export const filterSensitiveLog = (obj: InvalidNextTokenException) => ({
+  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidNextTokenException =>
@@ -262,7 +268,7 @@ export interface InvalidS3BucketException
 }
 
 export namespace InvalidS3BucketException {
-  export const filterSensitiveLog = (obj: InvalidS3BucketException) => ({
+  export const filterSensitiveLog = (obj: InvalidS3BucketException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidS3BucketException =>
@@ -281,7 +287,7 @@ export interface InvalidS3KeyException
 }
 
 export namespace InvalidS3KeyException {
-  export const filterSensitiveLog = (obj: InvalidS3KeyException) => ({
+  export const filterSensitiveLog = (obj: InvalidS3KeyException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidS3KeyException =>
@@ -300,7 +306,7 @@ export interface InvalidSampleRateException
 }
 
 export namespace InvalidSampleRateException {
-  export const filterSensitiveLog = (obj: InvalidSampleRateException) => ({
+  export const filterSensitiveLog = (obj: InvalidSampleRateException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidSampleRateException =>
@@ -319,7 +325,9 @@ export interface InvalidSnsTopicArnException
 }
 
 export namespace InvalidSnsTopicArnException {
-  export const filterSensitiveLog = (obj: InvalidSnsTopicArnException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidSnsTopicArnException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidSnsTopicArnException =>
@@ -339,7 +347,7 @@ export interface InvalidSsmlException
 }
 
 export namespace InvalidSsmlException {
-  export const filterSensitiveLog = (obj: InvalidSsmlException) => ({
+  export const filterSensitiveLog = (obj: InvalidSsmlException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidSsmlException =>
@@ -358,7 +366,7 @@ export interface InvalidTaskIdException
 }
 
 export namespace InvalidTaskIdException {
-  export const filterSensitiveLog = (obj: InvalidTaskIdException) => ({
+  export const filterSensitiveLog = (obj: InvalidTaskIdException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidTaskIdException =>
@@ -408,7 +416,9 @@ export interface LanguageNotSupportedException
 }
 
 export namespace LanguageNotSupportedException {
-  export const filterSensitiveLog = (obj: LanguageNotSupportedException) => ({
+  export const filterSensitiveLog = (
+    obj: LanguageNotSupportedException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is LanguageNotSupportedException =>
@@ -434,7 +444,7 @@ export interface Lexicon {
 }
 
 export namespace Lexicon {
-  export const filterSensitiveLog = (obj: Lexicon) => ({
+  export const filterSensitiveLog = (obj: Lexicon): any => ({
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING })
   });
@@ -484,7 +494,7 @@ export interface LexiconAttributes {
 }
 
 export namespace LexiconAttributes {
-  export const filterSensitiveLog = (obj: LexiconAttributes) => ({
+  export const filterSensitiveLog = (obj: LexiconAttributes): any => ({
     ...obj
   });
   export const isa = (o: any): o is LexiconAttributes =>
@@ -508,7 +518,7 @@ export interface LexiconDescription {
 }
 
 export namespace LexiconDescription {
-  export const filterSensitiveLog = (obj: LexiconDescription) => ({
+  export const filterSensitiveLog = (obj: LexiconDescription): any => ({
     ...obj,
     ...(obj.Attributes && {
       Attributes: LexiconAttributes.filterSensitiveLog(obj.Attributes)
@@ -535,7 +545,7 @@ export interface LexiconNotFoundException
 }
 
 export namespace LexiconNotFoundException {
-  export const filterSensitiveLog = (obj: LexiconNotFoundException) => ({
+  export const filterSensitiveLog = (obj: LexiconNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LexiconNotFoundException =>
@@ -554,7 +564,9 @@ export interface LexiconSizeExceededException
 }
 
 export namespace LexiconSizeExceededException {
-  export const filterSensitiveLog = (obj: LexiconSizeExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: LexiconSizeExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is LexiconSizeExceededException =>
@@ -572,7 +584,7 @@ export interface ListLexiconsInput {
 }
 
 export namespace ListLexiconsInput {
-  export const filterSensitiveLog = (obj: ListLexiconsInput) => ({
+  export const filterSensitiveLog = (obj: ListLexiconsInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListLexiconsInput =>
@@ -595,7 +607,7 @@ export interface ListLexiconsOutput {
 }
 
 export namespace ListLexiconsOutput {
-  export const filterSensitiveLog = (obj: ListLexiconsOutput) => ({
+  export const filterSensitiveLog = (obj: ListLexiconsOutput): any => ({
     ...obj,
     ...(obj.Lexicons && {
       Lexicons: obj.Lexicons.map(LexiconDescription.filterSensitiveLog)
@@ -625,7 +637,9 @@ export interface ListSpeechSynthesisTasksInput {
 }
 
 export namespace ListSpeechSynthesisTasksInput {
-  export const filterSensitiveLog = (obj: ListSpeechSynthesisTasksInput) => ({
+  export const filterSensitiveLog = (
+    obj: ListSpeechSynthesisTasksInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListSpeechSynthesisTasksInput =>
@@ -648,7 +662,9 @@ export interface ListSpeechSynthesisTasksOutput {
 }
 
 export namespace ListSpeechSynthesisTasksOutput {
-  export const filterSensitiveLog = (obj: ListSpeechSynthesisTasksOutput) => ({
+  export const filterSensitiveLog = (
+    obj: ListSpeechSynthesisTasksOutput
+  ): any => ({
     ...obj,
     ...(obj.SynthesisTasks && {
       SynthesisTasks: obj.SynthesisTasks.map(SynthesisTask.filterSensitiveLog)
@@ -673,7 +689,7 @@ export interface MarksNotSupportedForFormatException
 export namespace MarksNotSupportedForFormatException {
   export const filterSensitiveLog = (
     obj: MarksNotSupportedForFormatException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is MarksNotSupportedForFormatException =>
@@ -694,7 +710,7 @@ export interface MaxLexemeLengthExceededException
 export namespace MaxLexemeLengthExceededException {
   export const filterSensitiveLog = (
     obj: MaxLexemeLengthExceededException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is MaxLexemeLengthExceededException =>
@@ -715,7 +731,7 @@ export interface MaxLexiconsNumberExceededException
 export namespace MaxLexiconsNumberExceededException {
   export const filterSensitiveLog = (
     obj: MaxLexiconsNumberExceededException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is MaxLexiconsNumberExceededException =>
@@ -746,7 +762,7 @@ export interface PutLexiconInput {
 }
 
 export namespace PutLexiconInput {
-  export const filterSensitiveLog = (obj: PutLexiconInput) => ({
+  export const filterSensitiveLog = (obj: PutLexiconInput): any => ({
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING })
   });
@@ -759,7 +775,7 @@ export interface PutLexiconOutput {
 }
 
 export namespace PutLexiconOutput {
-  export const filterSensitiveLog = (obj: PutLexiconOutput) => ({
+  export const filterSensitiveLog = (obj: PutLexiconOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutLexiconOutput =>
@@ -778,7 +794,7 @@ export interface ServiceFailureException
 }
 
 export namespace ServiceFailureException {
-  export const filterSensitiveLog = (obj: ServiceFailureException) => ({
+  export const filterSensitiveLog = (obj: ServiceFailureException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceFailureException =>
@@ -806,7 +822,7 @@ export interface SsmlMarksNotSupportedForTextTypeException
 export namespace SsmlMarksNotSupportedForTextTypeException {
   export const filterSensitiveLog = (
     obj: SsmlMarksNotSupportedForTextTypeException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is SsmlMarksNotSupportedForTextTypeException =>
@@ -890,7 +906,9 @@ export interface StartSpeechSynthesisTaskInput {
 }
 
 export namespace StartSpeechSynthesisTaskInput {
-  export const filterSensitiveLog = (obj: StartSpeechSynthesisTaskInput) => ({
+  export const filterSensitiveLog = (
+    obj: StartSpeechSynthesisTaskInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartSpeechSynthesisTaskInput =>
@@ -906,7 +924,9 @@ export interface StartSpeechSynthesisTaskOutput {
 }
 
 export namespace StartSpeechSynthesisTaskOutput {
-  export const filterSensitiveLog = (obj: StartSpeechSynthesisTaskOutput) => ({
+  export const filterSensitiveLog = (
+    obj: StartSpeechSynthesisTaskOutput
+  ): any => ({
     ...obj,
     ...(obj.SynthesisTask && {
       SynthesisTask: SynthesisTask.filterSensitiveLog(obj.SynthesisTask)
@@ -1012,7 +1032,7 @@ export interface SynthesisTask {
 }
 
 export namespace SynthesisTask {
-  export const filterSensitiveLog = (obj: SynthesisTask) => ({
+  export const filterSensitiveLog = (obj: SynthesisTask): any => ({
     ...obj
   });
   export const isa = (o: any): o is SynthesisTask => __isa(o, "SynthesisTask");
@@ -1030,7 +1050,9 @@ export interface SynthesisTaskNotFoundException
 }
 
 export namespace SynthesisTaskNotFoundException {
-  export const filterSensitiveLog = (obj: SynthesisTaskNotFoundException) => ({
+  export const filterSensitiveLog = (
+    obj: SynthesisTaskNotFoundException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is SynthesisTaskNotFoundException =>
@@ -1110,7 +1132,7 @@ export interface SynthesizeSpeechInput {
 }
 
 export namespace SynthesizeSpeechInput {
-  export const filterSensitiveLog = (obj: SynthesizeSpeechInput) => ({
+  export const filterSensitiveLog = (obj: SynthesizeSpeechInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is SynthesizeSpeechInput =>
@@ -1167,7 +1189,7 @@ export interface SynthesizeSpeechOutput {
 }
 
 export namespace SynthesizeSpeechOutput {
-  export const filterSensitiveLog = (obj: SynthesizeSpeechOutput) => ({
+  export const filterSensitiveLog = (obj: SynthesizeSpeechOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is SynthesizeSpeechOutput =>
@@ -1196,7 +1218,9 @@ export interface TextLengthExceededException
 }
 
 export namespace TextLengthExceededException {
-  export const filterSensitiveLog = (obj: TextLengthExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: TextLengthExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TextLengthExceededException =>
@@ -1221,7 +1245,9 @@ export interface UnsupportedPlsAlphabetException
 }
 
 export namespace UnsupportedPlsAlphabetException {
-  export const filterSensitiveLog = (obj: UnsupportedPlsAlphabetException) => ({
+  export const filterSensitiveLog = (
+    obj: UnsupportedPlsAlphabetException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnsupportedPlsAlphabetException =>
@@ -1241,7 +1267,9 @@ export interface UnsupportedPlsLanguageException
 }
 
 export namespace UnsupportedPlsLanguageException {
-  export const filterSensitiveLog = (obj: UnsupportedPlsLanguageException) => ({
+  export const filterSensitiveLog = (
+    obj: UnsupportedPlsLanguageException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnsupportedPlsLanguageException =>
@@ -1295,7 +1323,7 @@ export interface Voice {
 }
 
 export namespace Voice {
-  export const filterSensitiveLog = (obj: Voice) => ({
+  export const filterSensitiveLog = (obj: Voice): any => ({
     ...obj
   });
   export const isa = (o: any): o is Voice => __isa(o, "Voice");

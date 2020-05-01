@@ -17,7 +17,7 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export const filterSensitiveLog = (obj: AccessDeniedException) => ({
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is AccessDeniedException =>
@@ -49,7 +49,9 @@ export interface AssociateCustomerGatewayRequest {
 }
 
 export namespace AssociateCustomerGatewayRequest {
-  export const filterSensitiveLog = (obj: AssociateCustomerGatewayRequest) => ({
+  export const filterSensitiveLog = (
+    obj: AssociateCustomerGatewayRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateCustomerGatewayRequest =>
@@ -67,7 +69,7 @@ export interface AssociateCustomerGatewayResponse {
 export namespace AssociateCustomerGatewayResponse {
   export const filterSensitiveLog = (
     obj: AssociateCustomerGatewayResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CustomerGatewayAssociation && {
       CustomerGatewayAssociation: CustomerGatewayAssociation.filterSensitiveLog(
@@ -98,7 +100,7 @@ export interface AssociateLinkRequest {
 }
 
 export namespace AssociateLinkRequest {
-  export const filterSensitiveLog = (obj: AssociateLinkRequest) => ({
+  export const filterSensitiveLog = (obj: AssociateLinkRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateLinkRequest =>
@@ -114,7 +116,7 @@ export interface AssociateLinkResponse {
 }
 
 export namespace AssociateLinkResponse {
-  export const filterSensitiveLog = (obj: AssociateLinkResponse) => ({
+  export const filterSensitiveLog = (obj: AssociateLinkResponse): any => ({
     ...obj,
     ...(obj.LinkAssociation && {
       LinkAssociation: LinkAssociation.filterSensitiveLog(obj.LinkAssociation)
@@ -141,7 +143,7 @@ export interface Bandwidth {
 }
 
 export namespace Bandwidth {
-  export const filterSensitiveLog = (obj: Bandwidth) => ({
+  export const filterSensitiveLog = (obj: Bandwidth): any => ({
     ...obj
   });
   export const isa = (o: any): o is Bandwidth => __isa(o, "Bandwidth");
@@ -167,7 +169,7 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export const filterSensitiveLog = (obj: ConflictException) => ({
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConflictException =>
@@ -227,7 +229,7 @@ export interface CreateDeviceRequest {
 }
 
 export namespace CreateDeviceRequest {
-  export const filterSensitiveLog = (obj: CreateDeviceRequest) => ({
+  export const filterSensitiveLog = (obj: CreateDeviceRequest): any => ({
     ...obj,
     ...(obj.Location && {
       Location: Location.filterSensitiveLog(obj.Location)
@@ -247,7 +249,7 @@ export interface CreateDeviceResponse {
 }
 
 export namespace CreateDeviceResponse {
-  export const filterSensitiveLog = (obj: CreateDeviceResponse) => ({
+  export const filterSensitiveLog = (obj: CreateDeviceResponse): any => ({
     ...obj,
     ...(obj.Device && { Device: Device.filterSensitiveLog(obj.Device) })
   });
@@ -270,7 +272,7 @@ export interface CreateGlobalNetworkRequest {
 }
 
 export namespace CreateGlobalNetworkRequest {
-  export const filterSensitiveLog = (obj: CreateGlobalNetworkRequest) => ({
+  export const filterSensitiveLog = (obj: CreateGlobalNetworkRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -287,7 +289,9 @@ export interface CreateGlobalNetworkResponse {
 }
 
 export namespace CreateGlobalNetworkResponse {
-  export const filterSensitiveLog = (obj: CreateGlobalNetworkResponse) => ({
+  export const filterSensitiveLog = (
+    obj: CreateGlobalNetworkResponse
+  ): any => ({
     ...obj,
     ...(obj.GlobalNetwork && {
       GlobalNetwork: GlobalNetwork.filterSensitiveLog(obj.GlobalNetwork)
@@ -341,7 +345,7 @@ export interface CreateLinkRequest {
 }
 
 export namespace CreateLinkRequest {
-  export const filterSensitiveLog = (obj: CreateLinkRequest) => ({
+  export const filterSensitiveLog = (obj: CreateLinkRequest): any => ({
     ...obj,
     ...(obj.Bandwidth && {
       Bandwidth: Bandwidth.filterSensitiveLog(obj.Bandwidth)
@@ -361,7 +365,7 @@ export interface CreateLinkResponse {
 }
 
 export namespace CreateLinkResponse {
-  export const filterSensitiveLog = (obj: CreateLinkResponse) => ({
+  export const filterSensitiveLog = (obj: CreateLinkResponse): any => ({
     ...obj,
     ...(obj.Link && { Link: Link.filterSensitiveLog(obj.Link) })
   });
@@ -408,7 +412,7 @@ export interface CreateSiteRequest {
 }
 
 export namespace CreateSiteRequest {
-  export const filterSensitiveLog = (obj: CreateSiteRequest) => ({
+  export const filterSensitiveLog = (obj: CreateSiteRequest): any => ({
     ...obj,
     ...(obj.Location && {
       Location: Location.filterSensitiveLog(obj.Location)
@@ -428,7 +432,7 @@ export interface CreateSiteResponse {
 }
 
 export namespace CreateSiteResponse {
-  export const filterSensitiveLog = (obj: CreateSiteResponse) => ({
+  export const filterSensitiveLog = (obj: CreateSiteResponse): any => ({
     ...obj,
     ...(obj.Site && { Site: Site.filterSensitiveLog(obj.Site) })
   });
@@ -468,7 +472,7 @@ export interface CustomerGatewayAssociation {
 }
 
 export namespace CustomerGatewayAssociation {
-  export const filterSensitiveLog = (obj: CustomerGatewayAssociation) => ({
+  export const filterSensitiveLog = (obj: CustomerGatewayAssociation): any => ({
     ...obj
   });
   export const isa = (o: any): o is CustomerGatewayAssociation =>
@@ -496,7 +500,7 @@ export interface DeleteDeviceRequest {
 }
 
 export namespace DeleteDeviceRequest {
-  export const filterSensitiveLog = (obj: DeleteDeviceRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteDeviceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteDeviceRequest =>
@@ -512,7 +516,7 @@ export interface DeleteDeviceResponse {
 }
 
 export namespace DeleteDeviceResponse {
-  export const filterSensitiveLog = (obj: DeleteDeviceResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteDeviceResponse): any => ({
     ...obj,
     ...(obj.Device && { Device: Device.filterSensitiveLog(obj.Device) })
   });
@@ -529,7 +533,7 @@ export interface DeleteGlobalNetworkRequest {
 }
 
 export namespace DeleteGlobalNetworkRequest {
-  export const filterSensitiveLog = (obj: DeleteGlobalNetworkRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteGlobalNetworkRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteGlobalNetworkRequest =>
@@ -545,7 +549,9 @@ export interface DeleteGlobalNetworkResponse {
 }
 
 export namespace DeleteGlobalNetworkResponse {
-  export const filterSensitiveLog = (obj: DeleteGlobalNetworkResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteGlobalNetworkResponse
+  ): any => ({
     ...obj,
     ...(obj.GlobalNetwork && {
       GlobalNetwork: GlobalNetwork.filterSensitiveLog(obj.GlobalNetwork)
@@ -569,7 +575,7 @@ export interface DeleteLinkRequest {
 }
 
 export namespace DeleteLinkRequest {
-  export const filterSensitiveLog = (obj: DeleteLinkRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteLinkRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteLinkRequest =>
@@ -585,7 +591,7 @@ export interface DeleteLinkResponse {
 }
 
 export namespace DeleteLinkResponse {
-  export const filterSensitiveLog = (obj: DeleteLinkResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteLinkResponse): any => ({
     ...obj,
     ...(obj.Link && { Link: Link.filterSensitiveLog(obj.Link) })
   });
@@ -607,7 +613,7 @@ export interface DeleteSiteRequest {
 }
 
 export namespace DeleteSiteRequest {
-  export const filterSensitiveLog = (obj: DeleteSiteRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteSiteRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteSiteRequest =>
@@ -623,7 +629,7 @@ export interface DeleteSiteResponse {
 }
 
 export namespace DeleteSiteResponse {
-  export const filterSensitiveLog = (obj: DeleteSiteResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteSiteResponse): any => ({
     ...obj,
     ...(obj.Site && { Site: Site.filterSensitiveLog(obj.Site) })
   });
@@ -645,7 +651,9 @@ export interface DeregisterTransitGatewayRequest {
 }
 
 export namespace DeregisterTransitGatewayRequest {
-  export const filterSensitiveLog = (obj: DeregisterTransitGatewayRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeregisterTransitGatewayRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeregisterTransitGatewayRequest =>
@@ -663,7 +671,7 @@ export interface DeregisterTransitGatewayResponse {
 export namespace DeregisterTransitGatewayResponse {
   export const filterSensitiveLog = (
     obj: DeregisterTransitGatewayResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.TransitGatewayRegistration && {
       TransitGatewayRegistration: TransitGatewayRegistration.filterSensitiveLog(
@@ -694,7 +702,9 @@ export interface DescribeGlobalNetworksRequest {
 }
 
 export namespace DescribeGlobalNetworksRequest {
-  export const filterSensitiveLog = (obj: DescribeGlobalNetworksRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeGlobalNetworksRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeGlobalNetworksRequest =>
@@ -715,7 +725,9 @@ export interface DescribeGlobalNetworksResponse {
 }
 
 export namespace DescribeGlobalNetworksResponse {
-  export const filterSensitiveLog = (obj: DescribeGlobalNetworksResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeGlobalNetworksResponse
+  ): any => ({
     ...obj,
     ...(obj.GlobalNetworks && {
       GlobalNetworks: obj.GlobalNetworks.map(GlobalNetwork.filterSensitiveLog)
@@ -797,7 +809,7 @@ export interface Device {
 }
 
 export namespace Device {
-  export const filterSensitiveLog = (obj: Device) => ({
+  export const filterSensitiveLog = (obj: Device): any => ({
     ...obj,
     ...(obj.Location && {
       Location: Location.filterSensitiveLog(obj.Location)
@@ -831,7 +843,7 @@ export interface DisassociateCustomerGatewayRequest {
 export namespace DisassociateCustomerGatewayRequest {
   export const filterSensitiveLog = (
     obj: DisassociateCustomerGatewayRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateCustomerGatewayRequest =>
@@ -849,7 +861,7 @@ export interface DisassociateCustomerGatewayResponse {
 export namespace DisassociateCustomerGatewayResponse {
   export const filterSensitiveLog = (
     obj: DisassociateCustomerGatewayResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CustomerGatewayAssociation && {
       CustomerGatewayAssociation: CustomerGatewayAssociation.filterSensitiveLog(
@@ -880,7 +892,7 @@ export interface DisassociateLinkRequest {
 }
 
 export namespace DisassociateLinkRequest {
-  export const filterSensitiveLog = (obj: DisassociateLinkRequest) => ({
+  export const filterSensitiveLog = (obj: DisassociateLinkRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateLinkRequest =>
@@ -896,7 +908,7 @@ export interface DisassociateLinkResponse {
 }
 
 export namespace DisassociateLinkResponse {
-  export const filterSensitiveLog = (obj: DisassociateLinkResponse) => ({
+  export const filterSensitiveLog = (obj: DisassociateLinkResponse): any => ({
     ...obj,
     ...(obj.LinkAssociation && {
       LinkAssociation: LinkAssociation.filterSensitiveLog(obj.LinkAssociation)
@@ -933,7 +945,7 @@ export interface GetCustomerGatewayAssociationsRequest {
 export namespace GetCustomerGatewayAssociationsRequest {
   export const filterSensitiveLog = (
     obj: GetCustomerGatewayAssociationsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetCustomerGatewayAssociationsRequest =>
@@ -956,7 +968,7 @@ export interface GetCustomerGatewayAssociationsResponse {
 export namespace GetCustomerGatewayAssociationsResponse {
   export const filterSensitiveLog = (
     obj: GetCustomerGatewayAssociationsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CustomerGatewayAssociations && {
       CustomerGatewayAssociations: obj.CustomerGatewayAssociations.map(
@@ -997,7 +1009,7 @@ export interface GetDevicesRequest {
 }
 
 export namespace GetDevicesRequest {
-  export const filterSensitiveLog = (obj: GetDevicesRequest) => ({
+  export const filterSensitiveLog = (obj: GetDevicesRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetDevicesRequest =>
@@ -1018,7 +1030,7 @@ export interface GetDevicesResponse {
 }
 
 export namespace GetDevicesResponse {
-  export const filterSensitiveLog = (obj: GetDevicesResponse) => ({
+  export const filterSensitiveLog = (obj: GetDevicesResponse): any => ({
     ...obj,
     ...(obj.Devices && { Devices: obj.Devices.map(Device.filterSensitiveLog) })
   });
@@ -1055,7 +1067,7 @@ export interface GetLinkAssociationsRequest {
 }
 
 export namespace GetLinkAssociationsRequest {
-  export const filterSensitiveLog = (obj: GetLinkAssociationsRequest) => ({
+  export const filterSensitiveLog = (obj: GetLinkAssociationsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetLinkAssociationsRequest =>
@@ -1076,7 +1088,9 @@ export interface GetLinkAssociationsResponse {
 }
 
 export namespace GetLinkAssociationsResponse {
-  export const filterSensitiveLog = (obj: GetLinkAssociationsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetLinkAssociationsResponse
+  ): any => ({
     ...obj,
     ...(obj.LinkAssociations && {
       LinkAssociations: obj.LinkAssociations.map(
@@ -1127,7 +1141,7 @@ export interface GetLinksRequest {
 }
 
 export namespace GetLinksRequest {
-  export const filterSensitiveLog = (obj: GetLinksRequest) => ({
+  export const filterSensitiveLog = (obj: GetLinksRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetLinksRequest =>
@@ -1148,7 +1162,7 @@ export interface GetLinksResponse {
 }
 
 export namespace GetLinksResponse {
-  export const filterSensitiveLog = (obj: GetLinksResponse) => ({
+  export const filterSensitiveLog = (obj: GetLinksResponse): any => ({
     ...obj,
     ...(obj.Links && { Links: obj.Links.map(Link.filterSensitiveLog) })
   });
@@ -1180,7 +1194,7 @@ export interface GetSitesRequest {
 }
 
 export namespace GetSitesRequest {
-  export const filterSensitiveLog = (obj: GetSitesRequest) => ({
+  export const filterSensitiveLog = (obj: GetSitesRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetSitesRequest =>
@@ -1201,7 +1215,7 @@ export interface GetSitesResponse {
 }
 
 export namespace GetSitesResponse {
-  export const filterSensitiveLog = (obj: GetSitesResponse) => ({
+  export const filterSensitiveLog = (obj: GetSitesResponse): any => ({
     ...obj,
     ...(obj.Sites && { Sites: obj.Sites.map(Site.filterSensitiveLog) })
   });
@@ -1236,7 +1250,7 @@ export interface GetTransitGatewayRegistrationsRequest {
 export namespace GetTransitGatewayRegistrationsRequest {
   export const filterSensitiveLog = (
     obj: GetTransitGatewayRegistrationsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetTransitGatewayRegistrationsRequest =>
@@ -1259,7 +1273,7 @@ export interface GetTransitGatewayRegistrationsResponse {
 export namespace GetTransitGatewayRegistrationsResponse {
   export const filterSensitiveLog = (
     obj: GetTransitGatewayRegistrationsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.TransitGatewayRegistrations && {
       TransitGatewayRegistrations: obj.TransitGatewayRegistrations.map(
@@ -1308,7 +1322,7 @@ export interface GlobalNetwork {
 }
 
 export namespace GlobalNetwork {
-  export const filterSensitiveLog = (obj: GlobalNetwork) => ({
+  export const filterSensitiveLog = (obj: GlobalNetwork): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1338,7 +1352,7 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export const filterSensitiveLog = (obj: InternalServerException) => ({
+  export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerException =>
@@ -1407,7 +1421,7 @@ export interface Link {
 }
 
 export namespace Link {
-  export const filterSensitiveLog = (obj: Link) => ({
+  export const filterSensitiveLog = (obj: Link): any => ({
     ...obj,
     ...(obj.Bandwidth && {
       Bandwidth: Bandwidth.filterSensitiveLog(obj.Bandwidth)
@@ -1444,7 +1458,7 @@ export interface LinkAssociation {
 }
 
 export namespace LinkAssociation {
-  export const filterSensitiveLog = (obj: LinkAssociation) => ({
+  export const filterSensitiveLog = (obj: LinkAssociation): any => ({
     ...obj
   });
   export const isa = (o: any): o is LinkAssociation =>
@@ -1474,7 +1488,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
@@ -1490,7 +1504,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
     ...obj,
     ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
   });
@@ -1520,7 +1536,7 @@ export interface Location {
 }
 
 export namespace Location {
-  export const filterSensitiveLog = (obj: Location) => ({
+  export const filterSensitiveLog = (obj: Location): any => ({
     ...obj
   });
   export const isa = (o: any): o is Location => __isa(o, "Location");
@@ -1541,7 +1557,9 @@ export interface RegisterTransitGatewayRequest {
 }
 
 export namespace RegisterTransitGatewayRequest {
-  export const filterSensitiveLog = (obj: RegisterTransitGatewayRequest) => ({
+  export const filterSensitiveLog = (
+    obj: RegisterTransitGatewayRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is RegisterTransitGatewayRequest =>
@@ -1557,7 +1575,9 @@ export interface RegisterTransitGatewayResponse {
 }
 
 export namespace RegisterTransitGatewayResponse {
-  export const filterSensitiveLog = (obj: RegisterTransitGatewayResponse) => ({
+  export const filterSensitiveLog = (
+    obj: RegisterTransitGatewayResponse
+  ): any => ({
     ...obj,
     ...(obj.TransitGatewayRegistration && {
       TransitGatewayRegistration: TransitGatewayRegistration.filterSensitiveLog(
@@ -1590,7 +1610,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -1632,7 +1652,9 @@ export interface ServiceQuotaExceededException
 }
 
 export namespace ServiceQuotaExceededException {
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: ServiceQuotaExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceQuotaExceededException =>
@@ -1686,7 +1708,7 @@ export interface Site {
 }
 
 export namespace Site {
-  export const filterSensitiveLog = (obj: Site) => ({
+  export const filterSensitiveLog = (obj: Site): any => ({
     ...obj,
     ...(obj.Location && {
       Location: Location.filterSensitiveLog(obj.Location)
@@ -1722,7 +1744,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -1742,7 +1764,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1755,7 +1777,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const filterSensitiveLog = (obj: TagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceResponse =>
@@ -1778,7 +1800,7 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ThrottlingException =>
@@ -1807,7 +1829,7 @@ export interface TransitGatewayRegistration {
 }
 
 export namespace TransitGatewayRegistration {
-  export const filterSensitiveLog = (obj: TransitGatewayRegistration) => ({
+  export const filterSensitiveLog = (obj: TransitGatewayRegistration): any => ({
     ...obj,
     ...(obj.State && {
       State: TransitGatewayRegistrationStateReason.filterSensitiveLog(obj.State)
@@ -1844,7 +1866,7 @@ export interface TransitGatewayRegistrationStateReason {
 export namespace TransitGatewayRegistrationStateReason {
   export const filterSensitiveLog = (
     obj: TransitGatewayRegistrationStateReason
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TransitGatewayRegistrationStateReason =>
@@ -1865,7 +1887,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>
@@ -1877,7 +1899,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceResponse =>
@@ -1937,7 +1959,7 @@ export interface UpdateDeviceRequest {
 }
 
 export namespace UpdateDeviceRequest {
-  export const filterSensitiveLog = (obj: UpdateDeviceRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateDeviceRequest): any => ({
     ...obj,
     ...(obj.Location && { Location: Location.filterSensitiveLog(obj.Location) })
   });
@@ -1954,7 +1976,7 @@ export interface UpdateDeviceResponse {
 }
 
 export namespace UpdateDeviceResponse {
-  export const filterSensitiveLog = (obj: UpdateDeviceResponse) => ({
+  export const filterSensitiveLog = (obj: UpdateDeviceResponse): any => ({
     ...obj,
     ...(obj.Device && { Device: Device.filterSensitiveLog(obj.Device) })
   });
@@ -1977,7 +1999,7 @@ export interface UpdateGlobalNetworkRequest {
 }
 
 export namespace UpdateGlobalNetworkRequest {
-  export const filterSensitiveLog = (obj: UpdateGlobalNetworkRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateGlobalNetworkRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateGlobalNetworkRequest =>
@@ -1993,7 +2015,9 @@ export interface UpdateGlobalNetworkResponse {
 }
 
 export namespace UpdateGlobalNetworkResponse {
-  export const filterSensitiveLog = (obj: UpdateGlobalNetworkResponse) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateGlobalNetworkResponse
+  ): any => ({
     ...obj,
     ...(obj.GlobalNetwork && {
       GlobalNetwork: GlobalNetwork.filterSensitiveLog(obj.GlobalNetwork)
@@ -2040,7 +2064,7 @@ export interface UpdateLinkRequest {
 }
 
 export namespace UpdateLinkRequest {
-  export const filterSensitiveLog = (obj: UpdateLinkRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateLinkRequest): any => ({
     ...obj,
     ...(obj.Bandwidth && {
       Bandwidth: Bandwidth.filterSensitiveLog(obj.Bandwidth)
@@ -2059,7 +2083,7 @@ export interface UpdateLinkResponse {
 }
 
 export namespace UpdateLinkResponse {
-  export const filterSensitiveLog = (obj: UpdateLinkResponse) => ({
+  export const filterSensitiveLog = (obj: UpdateLinkResponse): any => ({
     ...obj,
     ...(obj.Link && { Link: Link.filterSensitiveLog(obj.Link) })
   });
@@ -2106,7 +2130,7 @@ export interface UpdateSiteRequest {
 }
 
 export namespace UpdateSiteRequest {
-  export const filterSensitiveLog = (obj: UpdateSiteRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateSiteRequest): any => ({
     ...obj,
     ...(obj.Location && { Location: Location.filterSensitiveLog(obj.Location) })
   });
@@ -2123,7 +2147,7 @@ export interface UpdateSiteResponse {
 }
 
 export namespace UpdateSiteResponse {
-  export const filterSensitiveLog = (obj: UpdateSiteResponse) => ({
+  export const filterSensitiveLog = (obj: UpdateSiteResponse): any => ({
     ...obj,
     ...(obj.Site && { Site: Site.filterSensitiveLog(obj.Site) })
   });
@@ -2152,7 +2176,7 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const filterSensitiveLog = (obj: ValidationException) => ({
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
     ...(obj.Fields && {
       Fields: obj.Fields.map(ValidationExceptionField.filterSensitiveLog)
@@ -2179,7 +2203,7 @@ export interface ValidationExceptionField {
 }
 
 export namespace ValidationExceptionField {
-  export const filterSensitiveLog = (obj: ValidationExceptionField) => ({
+  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
     ...obj
   });
   export const isa = (o: any): o is ValidationExceptionField =>

@@ -15,7 +15,7 @@ export interface InternalFailure extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InternalFailure {
-  export const filterSensitiveLog = (obj: InternalFailure) => ({
+  export const filterSensitiveLog = (obj: InternalFailure): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalFailure =>
@@ -67,7 +67,7 @@ export interface InvokeEndpointInput {
 }
 
 export namespace InvokeEndpointInput {
-  export const filterSensitiveLog = (obj: InvokeEndpointInput) => ({
+  export const filterSensitiveLog = (obj: InvokeEndpointInput): any => ({
     ...obj,
     ...(obj.Body && { Body: SENSITIVE_STRING }),
     ...(obj.CustomAttributes && { CustomAttributes: SENSITIVE_STRING })
@@ -112,7 +112,7 @@ export interface InvokeEndpointOutput {
 }
 
 export namespace InvokeEndpointOutput {
-  export const filterSensitiveLog = (obj: InvokeEndpointOutput) => ({
+  export const filterSensitiveLog = (obj: InvokeEndpointOutput): any => ({
     ...obj,
     ...(obj.Body && { Body: SENSITIVE_STRING }),
     ...(obj.CustomAttributes && { CustomAttributes: SENSITIVE_STRING })
@@ -146,7 +146,7 @@ export interface ModelError extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ModelError {
-  export const filterSensitiveLog = (obj: ModelError) => ({
+  export const filterSensitiveLog = (obj: ModelError): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModelError => __isa(o, "ModelError");
@@ -162,7 +162,7 @@ export interface ServiceUnavailable extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ServiceUnavailable {
-  export const filterSensitiveLog = (obj: ServiceUnavailable) => ({
+  export const filterSensitiveLog = (obj: ServiceUnavailable): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceUnavailable =>
@@ -179,7 +179,7 @@ export interface ValidationError extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ValidationError {
-  export const filterSensitiveLog = (obj: ValidationError) => ({
+  export const filterSensitiveLog = (obj: ValidationError): any => ({
     ...obj
   });
   export const isa = (o: any): o is ValidationError =>

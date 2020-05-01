@@ -23,7 +23,7 @@ export interface Bucket {
 }
 
 export namespace Bucket {
-  export const filterSensitiveLog = (obj: Bucket) => ({
+  export const filterSensitiveLog = (obj: Bucket): any => ({
     ...obj
   });
   export const isa = (o: any): o is Bucket => __isa(o, "Bucket");
@@ -41,7 +41,7 @@ export interface BucketInfo {
 }
 
 export namespace BucketInfo {
-  export const filterSensitiveLog = (obj: BucketInfo) => ({
+  export const filterSensitiveLog = (obj: BucketInfo): any => ({
     ...obj,
     ...(obj.buckets && { buckets: obj.buckets.map(Bucket.filterSensitiveLog) })
   });
@@ -70,7 +70,7 @@ export interface DocumentServiceException
 }
 
 export namespace DocumentServiceException {
-  export const filterSensitiveLog = (obj: DocumentServiceException) => ({
+  export const filterSensitiveLog = (obj: DocumentServiceException): any => ({
     ...obj
   });
   export const isa = (o: any): o is DocumentServiceException =>
@@ -89,7 +89,7 @@ export interface DocumentServiceWarning {
 }
 
 export namespace DocumentServiceWarning {
-  export const filterSensitiveLog = (obj: DocumentServiceWarning) => ({
+  export const filterSensitiveLog = (obj: DocumentServiceWarning): any => ({
     ...obj
   });
   export const isa = (o: any): o is DocumentServiceWarning =>
@@ -146,7 +146,7 @@ export interface FieldStats {
 }
 
 export namespace FieldStats {
-  export const filterSensitiveLog = (obj: FieldStats) => ({
+  export const filterSensitiveLog = (obj: FieldStats): any => ({
     ...obj
   });
   export const isa = (o: any): o is FieldStats => __isa(o, "FieldStats");
@@ -179,7 +179,7 @@ export interface Hit {
 }
 
 export namespace Hit {
-  export const filterSensitiveLog = (obj: Hit) => ({
+  export const filterSensitiveLog = (obj: Hit): any => ({
     ...obj
   });
   export const isa = (o: any): o is Hit => __isa(o, "Hit");
@@ -212,7 +212,7 @@ export interface Hits {
 }
 
 export namespace Hits {
-  export const filterSensitiveLog = (obj: Hits) => ({
+  export const filterSensitiveLog = (obj: Hits): any => ({
     ...obj,
     ...(obj.hit && { hit: obj.hit.map(Hit.filterSensitiveLog) })
   });
@@ -234,7 +234,7 @@ export interface SearchException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace SearchException {
-  export const filterSensitiveLog = (obj: SearchException) => ({
+  export const filterSensitiveLog = (obj: SearchException): any => ({
     ...obj
   });
   export const isa = (o: any): o is SearchException =>
@@ -528,7 +528,7 @@ export interface SearchRequest {
 }
 
 export namespace SearchRequest {
-  export const filterSensitiveLog = (obj: SearchRequest) => ({
+  export const filterSensitiveLog = (obj: SearchRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is SearchRequest => __isa(o, "SearchRequest");
@@ -561,7 +561,7 @@ export interface SearchResponse {
 }
 
 export namespace SearchResponse {
-  export const filterSensitiveLog = (obj: SearchResponse) => ({
+  export const filterSensitiveLog = (obj: SearchResponse): any => ({
     ...obj,
     ...(obj.facets && {
       facets: Object.entries(obj.facets).reduce(
@@ -605,7 +605,7 @@ export interface SearchStatus {
 }
 
 export namespace SearchStatus {
-  export const filterSensitiveLog = (obj: SearchStatus) => ({
+  export const filterSensitiveLog = (obj: SearchStatus): any => ({
     ...obj
   });
   export const isa = (o: any): o is SearchStatus => __isa(o, "SearchStatus");
@@ -633,7 +633,7 @@ export interface SuggestModel {
 }
 
 export namespace SuggestModel {
-  export const filterSensitiveLog = (obj: SuggestModel) => ({
+  export const filterSensitiveLog = (obj: SuggestModel): any => ({
     ...obj,
     ...(obj.suggestions && {
       suggestions: obj.suggestions.map(SuggestionMatch.filterSensitiveLog)
@@ -664,7 +664,7 @@ export interface SuggestRequest {
 }
 
 export namespace SuggestRequest {
-  export const filterSensitiveLog = (obj: SuggestRequest) => ({
+  export const filterSensitiveLog = (obj: SuggestRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is SuggestRequest =>
@@ -688,7 +688,7 @@ export interface SuggestResponse {
 }
 
 export namespace SuggestResponse {
-  export const filterSensitiveLog = (obj: SuggestResponse) => ({
+  export const filterSensitiveLog = (obj: SuggestResponse): any => ({
     ...obj,
     ...(obj.status && { status: SuggestStatus.filterSensitiveLog(obj.status) }),
     ...(obj.suggest && {
@@ -716,7 +716,7 @@ export interface SuggestStatus {
 }
 
 export namespace SuggestStatus {
-  export const filterSensitiveLog = (obj: SuggestStatus) => ({
+  export const filterSensitiveLog = (obj: SuggestStatus): any => ({
     ...obj
   });
   export const isa = (o: any): o is SuggestStatus => __isa(o, "SuggestStatus");
@@ -744,7 +744,7 @@ export interface SuggestionMatch {
 }
 
 export namespace SuggestionMatch {
-  export const filterSensitiveLog = (obj: SuggestionMatch) => ({
+  export const filterSensitiveLog = (obj: SuggestionMatch): any => ({
     ...obj
   });
   export const isa = (o: any): o is SuggestionMatch =>
@@ -772,7 +772,7 @@ export interface UploadDocumentsRequest {
 }
 
 export namespace UploadDocumentsRequest {
-  export const filterSensitiveLog = (obj: UploadDocumentsRequest) => ({
+  export const filterSensitiveLog = (obj: UploadDocumentsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UploadDocumentsRequest =>
@@ -806,7 +806,7 @@ export interface UploadDocumentsResponse {
 }
 
 export namespace UploadDocumentsResponse {
-  export const filterSensitiveLog = (obj: UploadDocumentsResponse) => ({
+  export const filterSensitiveLog = (obj: UploadDocumentsResponse): any => ({
     ...obj,
     ...(obj.warnings && {
       warnings: obj.warnings.map(DocumentServiceWarning.filterSensitiveLog)

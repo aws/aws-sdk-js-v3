@@ -53,7 +53,7 @@ export interface AssetShallow {
 }
 
 export namespace AssetShallow {
-  export const filterSensitiveLog = (obj: AssetShallow) => ({
+  export const filterSensitiveLog = (obj: AssetShallow): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssetShallow => __isa(o, "AssetShallow");
@@ -71,7 +71,7 @@ export interface CmafEncryption {
 }
 
 export namespace CmafEncryption {
-  export const filterSensitiveLog = (obj: CmafEncryption) => ({
+  export const filterSensitiveLog = (obj: CmafEncryption): any => ({
     ...obj,
     ...(obj.SpekeKeyProvider && {
       SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
@@ -106,7 +106,7 @@ export interface CmafPackage {
 }
 
 export namespace CmafPackage {
-  export const filterSensitiveLog = (obj: CmafPackage) => ({
+  export const filterSensitiveLog = (obj: CmafPackage): any => ({
     ...obj,
     ...(obj.Encryption && {
       Encryption: CmafEncryption.filterSensitiveLog(obj.Encryption)
@@ -150,7 +150,7 @@ export interface CreateAssetRequest {
 }
 
 export namespace CreateAssetRequest {
-  export const filterSensitiveLog = (obj: CreateAssetRequest) => ({
+  export const filterSensitiveLog = (obj: CreateAssetRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateAssetRequest =>
@@ -201,7 +201,7 @@ export interface CreateAssetResponse {
 }
 
 export namespace CreateAssetResponse {
-  export const filterSensitiveLog = (obj: CreateAssetResponse) => ({
+  export const filterSensitiveLog = (obj: CreateAssetResponse): any => ({
     ...obj,
     ...(obj.EgressEndpoints && {
       EgressEndpoints: obj.EgressEndpoints.map(
@@ -252,7 +252,7 @@ export interface CreatePackagingConfigurationRequest {
 export namespace CreatePackagingConfigurationRequest {
   export const filterSensitiveLog = (
     obj: CreatePackagingConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CmafPackage && {
       CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
@@ -312,7 +312,7 @@ export interface CreatePackagingConfigurationResponse {
 export namespace CreatePackagingConfigurationResponse {
   export const filterSensitiveLog = (
     obj: CreatePackagingConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CmafPackage && {
       CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
@@ -343,7 +343,9 @@ export interface CreatePackagingGroupRequest {
 }
 
 export namespace CreatePackagingGroupRequest {
-  export const filterSensitiveLog = (obj: CreatePackagingGroupRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreatePackagingGroupRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreatePackagingGroupRequest =>
@@ -369,7 +371,9 @@ export interface CreatePackagingGroupResponse {
 }
 
 export namespace CreatePackagingGroupResponse {
-  export const filterSensitiveLog = (obj: CreatePackagingGroupResponse) => ({
+  export const filterSensitiveLog = (
+    obj: CreatePackagingGroupResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreatePackagingGroupResponse =>
@@ -388,7 +392,7 @@ export interface DashEncryption {
 }
 
 export namespace DashEncryption {
-  export const filterSensitiveLog = (obj: DashEncryption) => ({
+  export const filterSensitiveLog = (obj: DashEncryption): any => ({
     ...obj,
     ...(obj.SpekeKeyProvider && {
       SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
@@ -427,7 +431,7 @@ export interface DashManifest {
 }
 
 export namespace DashManifest {
-  export const filterSensitiveLog = (obj: DashManifest) => ({
+  export const filterSensitiveLog = (obj: DashManifest): any => ({
     ...obj,
     ...(obj.StreamSelection && {
       StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
@@ -459,7 +463,7 @@ export interface DashPackage {
 }
 
 export namespace DashPackage {
-  export const filterSensitiveLog = (obj: DashPackage) => ({
+  export const filterSensitiveLog = (obj: DashPackage): any => ({
     ...obj,
     ...(obj.DashManifests && {
       DashManifests: obj.DashManifests.map(DashManifest.filterSensitiveLog)
@@ -480,7 +484,7 @@ export interface DeleteAssetRequest {
 }
 
 export namespace DeleteAssetRequest {
-  export const filterSensitiveLog = (obj: DeleteAssetRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteAssetRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteAssetRequest =>
@@ -492,7 +496,7 @@ export interface DeleteAssetResponse {
 }
 
 export namespace DeleteAssetResponse {
-  export const filterSensitiveLog = (obj: DeleteAssetResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteAssetResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteAssetResponse =>
@@ -510,7 +514,7 @@ export interface DeletePackagingConfigurationRequest {
 export namespace DeletePackagingConfigurationRequest {
   export const filterSensitiveLog = (
     obj: DeletePackagingConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeletePackagingConfigurationRequest =>
@@ -524,7 +528,7 @@ export interface DeletePackagingConfigurationResponse {
 export namespace DeletePackagingConfigurationResponse {
   export const filterSensitiveLog = (
     obj: DeletePackagingConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeletePackagingConfigurationResponse =>
@@ -540,7 +544,9 @@ export interface DeletePackagingGroupRequest {
 }
 
 export namespace DeletePackagingGroupRequest {
-  export const filterSensitiveLog = (obj: DeletePackagingGroupRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeletePackagingGroupRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeletePackagingGroupRequest =>
@@ -552,7 +558,9 @@ export interface DeletePackagingGroupResponse {
 }
 
 export namespace DeletePackagingGroupResponse {
-  export const filterSensitiveLog = (obj: DeletePackagingGroupResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DeletePackagingGroupResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeletePackagingGroupResponse =>
@@ -568,7 +576,7 @@ export interface DescribeAssetRequest {
 }
 
 export namespace DescribeAssetRequest {
-  export const filterSensitiveLog = (obj: DescribeAssetRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeAssetRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeAssetRequest =>
@@ -619,7 +627,7 @@ export interface DescribeAssetResponse {
 }
 
 export namespace DescribeAssetResponse {
-  export const filterSensitiveLog = (obj: DescribeAssetResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeAssetResponse): any => ({
     ...obj,
     ...(obj.EgressEndpoints && {
       EgressEndpoints: obj.EgressEndpoints.map(
@@ -642,7 +650,7 @@ export interface DescribePackagingConfigurationRequest {
 export namespace DescribePackagingConfigurationRequest {
   export const filterSensitiveLog = (
     obj: DescribePackagingConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribePackagingConfigurationRequest =>
@@ -690,7 +698,7 @@ export interface DescribePackagingConfigurationResponse {
 export namespace DescribePackagingConfigurationResponse {
   export const filterSensitiveLog = (
     obj: DescribePackagingConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CmafPackage && {
       CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
@@ -718,7 +726,9 @@ export interface DescribePackagingGroupRequest {
 }
 
 export namespace DescribePackagingGroupRequest {
-  export const filterSensitiveLog = (obj: DescribePackagingGroupRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribePackagingGroupRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribePackagingGroupRequest =>
@@ -744,7 +754,9 @@ export interface DescribePackagingGroupResponse {
 }
 
 export namespace DescribePackagingGroupResponse {
-  export const filterSensitiveLog = (obj: DescribePackagingGroupResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribePackagingGroupResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribePackagingGroupResponse =>
@@ -768,7 +780,7 @@ export interface EgressEndpoint {
 }
 
 export namespace EgressEndpoint {
-  export const filterSensitiveLog = (obj: EgressEndpoint) => ({
+  export const filterSensitiveLog = (obj: EgressEndpoint): any => ({
     ...obj
   });
   export const isa = (o: any): o is EgressEndpoint =>
@@ -790,7 +802,7 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export const filterSensitiveLog = (obj: ForbiddenException) => ({
+  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ForbiddenException =>
@@ -820,7 +832,7 @@ export interface HlsEncryption {
 }
 
 export namespace HlsEncryption {
-  export const filterSensitiveLog = (obj: HlsEncryption) => ({
+  export const filterSensitiveLog = (obj: HlsEncryption): any => ({
     ...obj,
     ...(obj.SpekeKeyProvider && {
       SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
@@ -881,7 +893,7 @@ export interface HlsManifest {
 }
 
 export namespace HlsManifest {
-  export const filterSensitiveLog = (obj: HlsManifest) => ({
+  export const filterSensitiveLog = (obj: HlsManifest): any => ({
     ...obj,
     ...(obj.StreamSelection && {
       StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
@@ -918,7 +930,7 @@ export interface HlsPackage {
 }
 
 export namespace HlsPackage {
-  export const filterSensitiveLog = (obj: HlsPackage) => ({
+  export const filterSensitiveLog = (obj: HlsPackage): any => ({
     ...obj,
     ...(obj.Encryption && {
       Encryption: HlsEncryption.filterSensitiveLog(obj.Encryption)
@@ -942,7 +954,9 @@ export interface InternalServerErrorException
 }
 
 export namespace InternalServerErrorException {
-  export const filterSensitiveLog = (obj: InternalServerErrorException) => ({
+  export const filterSensitiveLog = (
+    obj: InternalServerErrorException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerErrorException =>
@@ -968,7 +982,7 @@ export interface ListAssetsRequest {
 }
 
 export namespace ListAssetsRequest {
-  export const filterSensitiveLog = (obj: ListAssetsRequest) => ({
+  export const filterSensitiveLog = (obj: ListAssetsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListAssetsRequest =>
@@ -989,7 +1003,7 @@ export interface ListAssetsResponse {
 }
 
 export namespace ListAssetsResponse {
-  export const filterSensitiveLog = (obj: ListAssetsResponse) => ({
+  export const filterSensitiveLog = (obj: ListAssetsResponse): any => ({
     ...obj,
     ...(obj.Assets && {
       Assets: obj.Assets.map(AssetShallow.filterSensitiveLog)
@@ -1020,7 +1034,7 @@ export interface ListPackagingConfigurationsRequest {
 export namespace ListPackagingConfigurationsRequest {
   export const filterSensitiveLog = (
     obj: ListPackagingConfigurationsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListPackagingConfigurationsRequest =>
@@ -1043,7 +1057,7 @@ export interface ListPackagingConfigurationsResponse {
 export namespace ListPackagingConfigurationsResponse {
   export const filterSensitiveLog = (
     obj: ListPackagingConfigurationsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.PackagingConfigurations && {
       PackagingConfigurations: obj.PackagingConfigurations.map(
@@ -1069,7 +1083,7 @@ export interface ListPackagingGroupsRequest {
 }
 
 export namespace ListPackagingGroupsRequest {
-  export const filterSensitiveLog = (obj: ListPackagingGroupsRequest) => ({
+  export const filterSensitiveLog = (obj: ListPackagingGroupsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListPackagingGroupsRequest =>
@@ -1090,7 +1104,9 @@ export interface ListPackagingGroupsResponse {
 }
 
 export namespace ListPackagingGroupsResponse {
-  export const filterSensitiveLog = (obj: ListPackagingGroupsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListPackagingGroupsResponse
+  ): any => ({
     ...obj,
     ...(obj.PackagingGroups && {
       PackagingGroups: obj.PackagingGroups.map(
@@ -1114,7 +1130,7 @@ export interface MssEncryption {
 }
 
 export namespace MssEncryption {
-  export const filterSensitiveLog = (obj: MssEncryption) => ({
+  export const filterSensitiveLog = (obj: MssEncryption): any => ({
     ...obj,
     ...(obj.SpekeKeyProvider && {
       SpekeKeyProvider: SpekeKeyProvider.filterSensitiveLog(
@@ -1142,7 +1158,7 @@ export interface MssManifest {
 }
 
 export namespace MssManifest {
-  export const filterSensitiveLog = (obj: MssManifest) => ({
+  export const filterSensitiveLog = (obj: MssManifest): any => ({
     ...obj,
     ...(obj.StreamSelection && {
       StreamSelection: StreamSelection.filterSensitiveLog(obj.StreamSelection)
@@ -1173,7 +1189,7 @@ export interface MssPackage {
 }
 
 export namespace MssPackage {
-  export const filterSensitiveLog = (obj: MssPackage) => ({
+  export const filterSensitiveLog = (obj: MssPackage): any => ({
     ...obj,
     ...(obj.Encryption && {
       Encryption: MssEncryption.filterSensitiveLog(obj.Encryption)
@@ -1195,7 +1211,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const filterSensitiveLog = (obj: NotFoundException) => ({
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is NotFoundException =>
@@ -1244,7 +1260,7 @@ export interface PackagingConfiguration {
 }
 
 export namespace PackagingConfiguration {
-  export const filterSensitiveLog = (obj: PackagingConfiguration) => ({
+  export const filterSensitiveLog = (obj: PackagingConfiguration): any => ({
     ...obj,
     ...(obj.CmafPackage && {
       CmafPackage: CmafPackage.filterSensitiveLog(obj.CmafPackage)
@@ -1285,7 +1301,7 @@ export interface PackagingGroup {
 }
 
 export namespace PackagingGroup {
-  export const filterSensitiveLog = (obj: PackagingGroup) => ({
+  export const filterSensitiveLog = (obj: PackagingGroup): any => ({
     ...obj
   });
   export const isa = (o: any): o is PackagingGroup =>
@@ -1309,7 +1325,9 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (obj: ServiceUnavailableException) => ({
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceUnavailableException =>
@@ -1339,7 +1357,7 @@ export interface SpekeKeyProvider {
 }
 
 export namespace SpekeKeyProvider {
-  export const filterSensitiveLog = (obj: SpekeKeyProvider) => ({
+  export const filterSensitiveLog = (obj: SpekeKeyProvider): any => ({
     ...obj
   });
   export const isa = (o: any): o is SpekeKeyProvider =>
@@ -1374,7 +1392,7 @@ export interface StreamSelection {
 }
 
 export namespace StreamSelection {
-  export const filterSensitiveLog = (obj: StreamSelection) => ({
+  export const filterSensitiveLog = (obj: StreamSelection): any => ({
     ...obj
   });
   export const isa = (o: any): o is StreamSelection =>
@@ -1393,7 +1411,7 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export const filterSensitiveLog = (obj: TooManyRequestsException) => ({
+  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj
   });
   export const isa = (o: any): o is TooManyRequestsException =>
@@ -1412,7 +1430,9 @@ export interface UnprocessableEntityException
 }
 
 export namespace UnprocessableEntityException {
-  export const filterSensitiveLog = (obj: UnprocessableEntityException) => ({
+  export const filterSensitiveLog = (
+    obj: UnprocessableEntityException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnprocessableEntityException =>

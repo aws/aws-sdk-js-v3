@@ -15,7 +15,9 @@ export interface GetRawMessageContentRequest {
 }
 
 export namespace GetRawMessageContentRequest {
-  export const filterSensitiveLog = (obj: GetRawMessageContentRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetRawMessageContentRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetRawMessageContentRequest =>
@@ -31,7 +33,9 @@ export interface GetRawMessageContentResponse {
 }
 
 export namespace GetRawMessageContentResponse {
-  export const filterSensitiveLog = (obj: GetRawMessageContentResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetRawMessageContentResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetRawMessageContentResponse =>
@@ -50,7 +54,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>

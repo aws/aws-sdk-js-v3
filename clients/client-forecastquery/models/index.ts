@@ -23,7 +23,7 @@ export interface DataPoint {
 }
 
 export namespace DataPoint {
-  export const filterSensitiveLog = (obj: DataPoint) => ({
+  export const filterSensitiveLog = (obj: DataPoint): any => ({
     ...obj
   });
   export const isa = (o: any): o is DataPoint => __isa(o, "DataPoint");
@@ -54,7 +54,7 @@ export interface Forecast {
 }
 
 export namespace Forecast {
-  export const filterSensitiveLog = (obj: Forecast) => ({
+  export const filterSensitiveLog = (obj: Forecast): any => ({
     ...obj,
     ...(obj.Predictions && {
       Predictions: Object.entries(obj.Predictions).reduce(
@@ -81,7 +81,7 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
-  export const filterSensitiveLog = (obj: InvalidInputException) => ({
+  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidInputException =>
@@ -100,7 +100,7 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export const filterSensitiveLog = (obj: InvalidNextTokenException) => ({
+  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidNextTokenException =>
@@ -119,7 +119,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -167,7 +167,7 @@ export interface QueryForecastRequest {
 }
 
 export namespace QueryForecastRequest {
-  export const filterSensitiveLog = (obj: QueryForecastRequest) => ({
+  export const filterSensitiveLog = (obj: QueryForecastRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is QueryForecastRequest =>
@@ -183,7 +183,7 @@ export interface QueryForecastResponse {
 }
 
 export namespace QueryForecastResponse {
-  export const filterSensitiveLog = (obj: QueryForecastResponse) => ({
+  export const filterSensitiveLog = (obj: QueryForecastResponse): any => ({
     ...obj,
     ...(obj.Forecast && { Forecast: Forecast.filterSensitiveLog(obj.Forecast) })
   });
@@ -203,7 +203,7 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export const filterSensitiveLog = (obj: ResourceInUseException) => ({
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceInUseException =>
@@ -223,7 +223,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>

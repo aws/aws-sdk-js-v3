@@ -28,7 +28,7 @@ export interface GetMediaInput {
 }
 
 export namespace GetMediaInput {
-  export const filterSensitiveLog = (obj: GetMediaInput) => ({
+  export const filterSensitiveLog = (obj: GetMediaInput): any => ({
     ...obj,
     ...(obj.StartSelector && {
       StartSelector: StartSelector.filterSensitiveLog(obj.StartSelector)
@@ -118,7 +118,7 @@ export interface GetMediaOutput {
 }
 
 export namespace GetMediaOutput {
-  export const filterSensitiveLog = (obj: GetMediaOutput) => ({
+  export const filterSensitiveLog = (obj: GetMediaOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetMediaOutput =>
@@ -201,7 +201,7 @@ export interface StartSelector {
 }
 
 export namespace StartSelector {
-  export const filterSensitiveLog = (obj: StartSelector) => ({
+  export const filterSensitiveLog = (obj: StartSelector): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartSelector => __isa(o, "StartSelector");
@@ -229,7 +229,9 @@ export interface ClientLimitExceededException
 }
 
 export namespace ClientLimitExceededException {
-  export const filterSensitiveLog = (obj: ClientLimitExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: ClientLimitExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ClientLimitExceededException =>
@@ -251,7 +253,7 @@ export interface ConnectionLimitExceededException
 export namespace ConnectionLimitExceededException {
   export const filterSensitiveLog = (
     obj: ConnectionLimitExceededException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConnectionLimitExceededException =>
@@ -270,7 +272,7 @@ export interface InvalidArgumentException
 }
 
 export namespace InvalidArgumentException {
-  export const filterSensitiveLog = (obj: InvalidArgumentException) => ({
+  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidArgumentException =>
@@ -292,7 +294,7 @@ export interface InvalidEndpointException
 }
 
 export namespace InvalidEndpointException {
-  export const filterSensitiveLog = (obj: InvalidEndpointException) => ({
+  export const filterSensitiveLog = (obj: InvalidEndpointException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidEndpointException =>
@@ -312,7 +314,7 @@ export interface NotAuthorizedException
 }
 
 export namespace NotAuthorizedException {
-  export const filterSensitiveLog = (obj: NotAuthorizedException) => ({
+  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is NotAuthorizedException =>
@@ -331,7 +333,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>

@@ -29,7 +29,7 @@ export interface AssociateDomainRequest {
 }
 
 export namespace AssociateDomainRequest {
-  export const filterSensitiveLog = (obj: AssociateDomainRequest) => ({
+  export const filterSensitiveLog = (obj: AssociateDomainRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateDomainRequest =>
@@ -41,7 +41,7 @@ export interface AssociateDomainResponse {
 }
 
 export namespace AssociateDomainResponse {
-  export const filterSensitiveLog = (obj: AssociateDomainResponse) => ({
+  export const filterSensitiveLog = (obj: AssociateDomainResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateDomainResponse =>
@@ -70,7 +70,7 @@ export interface AssociateWebsiteAuthorizationProviderRequest {
 export namespace AssociateWebsiteAuthorizationProviderRequest {
   export const filterSensitiveLog = (
     obj: AssociateWebsiteAuthorizationProviderRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -90,7 +90,7 @@ export interface AssociateWebsiteAuthorizationProviderResponse {
 export namespace AssociateWebsiteAuthorizationProviderResponse {
   export const filterSensitiveLog = (
     obj: AssociateWebsiteAuthorizationProviderResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -120,7 +120,7 @@ export interface AssociateWebsiteCertificateAuthorityRequest {
 export namespace AssociateWebsiteCertificateAuthorityRequest {
   export const filterSensitiveLog = (
     obj: AssociateWebsiteCertificateAuthorityRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -140,7 +140,7 @@ export interface AssociateWebsiteCertificateAuthorityResponse {
 export namespace AssociateWebsiteCertificateAuthorityResponse {
   export const filterSensitiveLog = (
     obj: AssociateWebsiteCertificateAuthorityResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -173,7 +173,7 @@ export interface CreateFleetRequest {
 }
 
 export namespace CreateFleetRequest {
-  export const filterSensitiveLog = (obj: CreateFleetRequest) => ({
+  export const filterSensitiveLog = (obj: CreateFleetRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateFleetRequest =>
@@ -189,7 +189,7 @@ export interface CreateFleetResponse {
 }
 
 export namespace CreateFleetResponse {
-  export const filterSensitiveLog = (obj: CreateFleetResponse) => ({
+  export const filterSensitiveLog = (obj: CreateFleetResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateFleetResponse =>
@@ -205,7 +205,7 @@ export interface DeleteFleetRequest {
 }
 
 export namespace DeleteFleetRequest {
-  export const filterSensitiveLog = (obj: DeleteFleetRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteFleetRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteFleetRequest =>
@@ -217,7 +217,7 @@ export interface DeleteFleetResponse {
 }
 
 export namespace DeleteFleetResponse {
-  export const filterSensitiveLog = (obj: DeleteFleetResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteFleetResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteFleetResponse =>
@@ -235,7 +235,7 @@ export interface DescribeAuditStreamConfigurationRequest {
 export namespace DescribeAuditStreamConfigurationRequest {
   export const filterSensitiveLog = (
     obj: DescribeAuditStreamConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeAuditStreamConfigurationRequest =>
@@ -253,7 +253,7 @@ export interface DescribeAuditStreamConfigurationResponse {
 export namespace DescribeAuditStreamConfigurationResponse {
   export const filterSensitiveLog = (
     obj: DescribeAuditStreamConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeAuditStreamConfigurationResponse =>
@@ -271,7 +271,7 @@ export interface DescribeCompanyNetworkConfigurationRequest {
 export namespace DescribeCompanyNetworkConfigurationRequest {
   export const filterSensitiveLog = (
     obj: DescribeCompanyNetworkConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -303,7 +303,7 @@ export interface DescribeCompanyNetworkConfigurationResponse {
 export namespace DescribeCompanyNetworkConfigurationResponse {
   export const filterSensitiveLog = (
     obj: DescribeCompanyNetworkConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -323,7 +323,7 @@ export interface DescribeDevicePolicyConfigurationRequest {
 export namespace DescribeDevicePolicyConfigurationRequest {
   export const filterSensitiveLog = (
     obj: DescribeDevicePolicyConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeDevicePolicyConfigurationRequest =>
@@ -341,7 +341,7 @@ export interface DescribeDevicePolicyConfigurationResponse {
 export namespace DescribeDevicePolicyConfigurationResponse {
   export const filterSensitiveLog = (
     obj: DescribeDevicePolicyConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeDevicePolicyConfigurationResponse =>
@@ -362,7 +362,7 @@ export interface DescribeDeviceRequest {
 }
 
 export namespace DescribeDeviceRequest {
-  export const filterSensitiveLog = (obj: DescribeDeviceRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeDeviceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeDeviceRequest =>
@@ -418,7 +418,7 @@ export interface DescribeDeviceResponse {
 }
 
 export namespace DescribeDeviceResponse {
-  export const filterSensitiveLog = (obj: DescribeDeviceResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeDeviceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeDeviceResponse =>
@@ -439,7 +439,7 @@ export interface DescribeDomainRequest {
 }
 
 export namespace DescribeDomainRequest {
-  export const filterSensitiveLog = (obj: DescribeDomainRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeDomainRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeDomainRequest =>
@@ -475,7 +475,7 @@ export interface DescribeDomainResponse {
 }
 
 export namespace DescribeDomainResponse {
-  export const filterSensitiveLog = (obj: DescribeDomainResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeDomainResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeDomainResponse =>
@@ -491,7 +491,9 @@ export interface DescribeFleetMetadataRequest {
 }
 
 export namespace DescribeFleetMetadataRequest {
-  export const filterSensitiveLog = (obj: DescribeFleetMetadataRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeFleetMetadataRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeFleetMetadataRequest =>
@@ -538,7 +540,9 @@ export interface DescribeFleetMetadataResponse {
 }
 
 export namespace DescribeFleetMetadataResponse {
-  export const filterSensitiveLog = (obj: DescribeFleetMetadataResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeFleetMetadataResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeFleetMetadataResponse =>
@@ -556,7 +560,7 @@ export interface DescribeIdentityProviderConfigurationRequest {
 export namespace DescribeIdentityProviderConfigurationRequest {
   export const filterSensitiveLog = (
     obj: DescribeIdentityProviderConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -586,7 +590,7 @@ export interface DescribeIdentityProviderConfigurationResponse {
 export namespace DescribeIdentityProviderConfigurationResponse {
   export const filterSensitiveLog = (
     obj: DescribeIdentityProviderConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -611,7 +615,7 @@ export interface DescribeWebsiteCertificateAuthorityRequest {
 export namespace DescribeWebsiteCertificateAuthorityRequest {
   export const filterSensitiveLog = (
     obj: DescribeWebsiteCertificateAuthorityRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -641,7 +645,7 @@ export interface DescribeWebsiteCertificateAuthorityResponse {
 export namespace DescribeWebsiteCertificateAuthorityResponse {
   export const filterSensitiveLog = (
     obj: DescribeWebsiteCertificateAuthorityResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -672,7 +676,7 @@ export interface DeviceSummary {
 }
 
 export namespace DeviceSummary {
-  export const filterSensitiveLog = (obj: DeviceSummary) => ({
+  export const filterSensitiveLog = (obj: DeviceSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeviceSummary => __isa(o, "DeviceSummary");
@@ -692,7 +696,7 @@ export interface DisassociateDomainRequest {
 }
 
 export namespace DisassociateDomainRequest {
-  export const filterSensitiveLog = (obj: DisassociateDomainRequest) => ({
+  export const filterSensitiveLog = (obj: DisassociateDomainRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateDomainRequest =>
@@ -704,7 +708,7 @@ export interface DisassociateDomainResponse {
 }
 
 export namespace DisassociateDomainResponse {
-  export const filterSensitiveLog = (obj: DisassociateDomainResponse) => ({
+  export const filterSensitiveLog = (obj: DisassociateDomainResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateDomainResponse =>
@@ -727,7 +731,7 @@ export interface DisassociateWebsiteAuthorizationProviderRequest {
 export namespace DisassociateWebsiteAuthorizationProviderRequest {
   export const filterSensitiveLog = (
     obj: DisassociateWebsiteAuthorizationProviderRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -743,7 +747,7 @@ export interface DisassociateWebsiteAuthorizationProviderResponse {
 export namespace DisassociateWebsiteAuthorizationProviderResponse {
   export const filterSensitiveLog = (
     obj: DisassociateWebsiteAuthorizationProviderResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -768,7 +772,7 @@ export interface DisassociateWebsiteCertificateAuthorityRequest {
 export namespace DisassociateWebsiteCertificateAuthorityRequest {
   export const filterSensitiveLog = (
     obj: DisassociateWebsiteCertificateAuthorityRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -784,7 +788,7 @@ export interface DisassociateWebsiteCertificateAuthorityResponse {
 export namespace DisassociateWebsiteCertificateAuthorityResponse {
   export const filterSensitiveLog = (
     obj: DisassociateWebsiteCertificateAuthorityResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -831,7 +835,7 @@ export interface DomainSummary {
 }
 
 export namespace DomainSummary {
-  export const filterSensitiveLog = (obj: DomainSummary) => ({
+  export const filterSensitiveLog = (obj: DomainSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is DomainSummary => __isa(o, "DomainSummary");
@@ -888,7 +892,7 @@ export interface FleetSummary {
 }
 
 export namespace FleetSummary {
-  export const filterSensitiveLog = (obj: FleetSummary) => ({
+  export const filterSensitiveLog = (obj: FleetSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is FleetSummary => __isa(o, "FleetSummary");
@@ -910,7 +914,9 @@ export interface InternalServerErrorException
 }
 
 export namespace InternalServerErrorException {
-  export const filterSensitiveLog = (obj: InternalServerErrorException) => ({
+  export const filterSensitiveLog = (
+    obj: InternalServerErrorException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerErrorException =>
@@ -929,7 +935,7 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const filterSensitiveLog = (obj: InvalidRequestException) => ({
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidRequestException =>
@@ -956,7 +962,7 @@ export interface ListDevicesRequest {
 }
 
 export namespace ListDevicesRequest {
-  export const filterSensitiveLog = (obj: ListDevicesRequest) => ({
+  export const filterSensitiveLog = (obj: ListDevicesRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDevicesRequest =>
@@ -978,7 +984,7 @@ export interface ListDevicesResponse {
 }
 
 export namespace ListDevicesResponse {
-  export const filterSensitiveLog = (obj: ListDevicesResponse) => ({
+  export const filterSensitiveLog = (obj: ListDevicesResponse): any => ({
     ...obj,
     ...(obj.Devices && {
       Devices: obj.Devices.map(DeviceSummary.filterSensitiveLog)
@@ -1008,7 +1014,7 @@ export interface ListDomainsRequest {
 }
 
 export namespace ListDomainsRequest {
-  export const filterSensitiveLog = (obj: ListDomainsRequest) => ({
+  export const filterSensitiveLog = (obj: ListDomainsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDomainsRequest =>
@@ -1030,7 +1036,7 @@ export interface ListDomainsResponse {
 }
 
 export namespace ListDomainsResponse {
-  export const filterSensitiveLog = (obj: ListDomainsResponse) => ({
+  export const filterSensitiveLog = (obj: ListDomainsResponse): any => ({
     ...obj,
     ...(obj.Domains && {
       Domains: obj.Domains.map(DomainSummary.filterSensitiveLog)
@@ -1055,7 +1061,7 @@ export interface ListFleetsRequest {
 }
 
 export namespace ListFleetsRequest {
-  export const filterSensitiveLog = (obj: ListFleetsRequest) => ({
+  export const filterSensitiveLog = (obj: ListFleetsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListFleetsRequest =>
@@ -1077,7 +1083,7 @@ export interface ListFleetsResponse {
 }
 
 export namespace ListFleetsResponse {
-  export const filterSensitiveLog = (obj: ListFleetsResponse) => ({
+  export const filterSensitiveLog = (obj: ListFleetsResponse): any => ({
     ...obj,
     ...(obj.FleetSummaryList && {
       FleetSummaryList: obj.FleetSummaryList.map(
@@ -1110,7 +1116,7 @@ export interface ListWebsiteAuthorizationProvidersRequest {
 export namespace ListWebsiteAuthorizationProvidersRequest {
   export const filterSensitiveLog = (
     obj: ListWebsiteAuthorizationProvidersRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListWebsiteAuthorizationProvidersRequest =>
@@ -1133,7 +1139,7 @@ export interface ListWebsiteAuthorizationProvidersResponse {
 export namespace ListWebsiteAuthorizationProvidersResponse {
   export const filterSensitiveLog = (
     obj: ListWebsiteAuthorizationProvidersResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.WebsiteAuthorizationProviders && {
       WebsiteAuthorizationProviders: obj.WebsiteAuthorizationProviders.map(
@@ -1167,7 +1173,7 @@ export interface ListWebsiteCertificateAuthoritiesRequest {
 export namespace ListWebsiteCertificateAuthoritiesRequest {
   export const filterSensitiveLog = (
     obj: ListWebsiteCertificateAuthoritiesRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListWebsiteCertificateAuthoritiesRequest =>
@@ -1192,7 +1198,7 @@ export interface ListWebsiteCertificateAuthoritiesResponse {
 export namespace ListWebsiteCertificateAuthoritiesResponse {
   export const filterSensitiveLog = (
     obj: ListWebsiteCertificateAuthoritiesResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.WebsiteCertificateAuthorities && {
       WebsiteCertificateAuthorities: obj.WebsiteCertificateAuthorities.map(
@@ -1216,7 +1222,9 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException) => ({
+  export const filterSensitiveLog = (
+    obj: ResourceAlreadyExistsException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceAlreadyExistsException =>
@@ -1235,7 +1243,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -1256,7 +1264,7 @@ export interface RestoreDomainAccessRequest {
 }
 
 export namespace RestoreDomainAccessRequest {
-  export const filterSensitiveLog = (obj: RestoreDomainAccessRequest) => ({
+  export const filterSensitiveLog = (obj: RestoreDomainAccessRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is RestoreDomainAccessRequest =>
@@ -1268,7 +1276,9 @@ export interface RestoreDomainAccessResponse {
 }
 
 export namespace RestoreDomainAccessResponse {
-  export const filterSensitiveLog = (obj: RestoreDomainAccessResponse) => ({
+  export const filterSensitiveLog = (
+    obj: RestoreDomainAccessResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is RestoreDomainAccessResponse =>
@@ -1289,7 +1299,7 @@ export interface RevokeDomainAccessRequest {
 }
 
 export namespace RevokeDomainAccessRequest {
-  export const filterSensitiveLog = (obj: RevokeDomainAccessRequest) => ({
+  export const filterSensitiveLog = (obj: RevokeDomainAccessRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is RevokeDomainAccessRequest =>
@@ -1301,7 +1311,7 @@ export interface RevokeDomainAccessResponse {
 }
 
 export namespace RevokeDomainAccessResponse {
-  export const filterSensitiveLog = (obj: RevokeDomainAccessResponse) => ({
+  export const filterSensitiveLog = (obj: RevokeDomainAccessResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is RevokeDomainAccessResponse =>
@@ -1322,7 +1332,7 @@ export interface SignOutUserRequest {
 }
 
 export namespace SignOutUserRequest {
-  export const filterSensitiveLog = (obj: SignOutUserRequest) => ({
+  export const filterSensitiveLog = (obj: SignOutUserRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is SignOutUserRequest =>
@@ -1334,7 +1344,7 @@ export interface SignOutUserResponse {
 }
 
 export namespace SignOutUserResponse {
-  export const filterSensitiveLog = (obj: SignOutUserResponse) => ({
+  export const filterSensitiveLog = (obj: SignOutUserResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is SignOutUserResponse =>
@@ -1353,7 +1363,7 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export const filterSensitiveLog = (obj: TooManyRequestsException) => ({
+  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj
   });
   export const isa = (o: any): o is TooManyRequestsException =>
@@ -1372,7 +1382,7 @@ export interface UnauthorizedException
 }
 
 export namespace UnauthorizedException {
-  export const filterSensitiveLog = (obj: UnauthorizedException) => ({
+  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnauthorizedException =>
@@ -1395,7 +1405,7 @@ export interface UpdateAuditStreamConfigurationRequest {
 export namespace UpdateAuditStreamConfigurationRequest {
   export const filterSensitiveLog = (
     obj: UpdateAuditStreamConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateAuditStreamConfigurationRequest =>
@@ -1409,7 +1419,7 @@ export interface UpdateAuditStreamConfigurationResponse {
 export namespace UpdateAuditStreamConfigurationResponse {
   export const filterSensitiveLog = (
     obj: UpdateAuditStreamConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateAuditStreamConfigurationResponse =>
@@ -1444,7 +1454,7 @@ export interface UpdateCompanyNetworkConfigurationRequest {
 export namespace UpdateCompanyNetworkConfigurationRequest {
   export const filterSensitiveLog = (
     obj: UpdateCompanyNetworkConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateCompanyNetworkConfigurationRequest =>
@@ -1458,7 +1468,7 @@ export interface UpdateCompanyNetworkConfigurationResponse {
 export namespace UpdateCompanyNetworkConfigurationResponse {
   export const filterSensitiveLog = (
     obj: UpdateCompanyNetworkConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateCompanyNetworkConfigurationResponse =>
@@ -1481,7 +1491,7 @@ export interface UpdateDevicePolicyConfigurationRequest {
 export namespace UpdateDevicePolicyConfigurationRequest {
   export const filterSensitiveLog = (
     obj: UpdateDevicePolicyConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateDevicePolicyConfigurationRequest =>
@@ -1495,7 +1505,7 @@ export interface UpdateDevicePolicyConfigurationResponse {
 export namespace UpdateDevicePolicyConfigurationResponse {
   export const filterSensitiveLog = (
     obj: UpdateDevicePolicyConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateDevicePolicyConfigurationResponse =>
@@ -1521,7 +1531,9 @@ export interface UpdateDomainMetadataRequest {
 }
 
 export namespace UpdateDomainMetadataRequest {
-  export const filterSensitiveLog = (obj: UpdateDomainMetadataRequest) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateDomainMetadataRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateDomainMetadataRequest =>
@@ -1533,7 +1545,9 @@ export interface UpdateDomainMetadataResponse {
 }
 
 export namespace UpdateDomainMetadataResponse {
-  export const filterSensitiveLog = (obj: UpdateDomainMetadataResponse) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateDomainMetadataResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateDomainMetadataResponse =>
@@ -1560,7 +1574,7 @@ export interface UpdateFleetMetadataRequest {
 }
 
 export namespace UpdateFleetMetadataRequest {
-  export const filterSensitiveLog = (obj: UpdateFleetMetadataRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateFleetMetadataRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateFleetMetadataRequest =>
@@ -1572,7 +1586,9 @@ export interface UpdateFleetMetadataResponse {
 }
 
 export namespace UpdateFleetMetadataResponse {
-  export const filterSensitiveLog = (obj: UpdateFleetMetadataResponse) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateFleetMetadataResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateFleetMetadataResponse =>
@@ -1601,7 +1617,7 @@ export interface UpdateIdentityProviderConfigurationRequest {
 export namespace UpdateIdentityProviderConfigurationRequest {
   export const filterSensitiveLog = (
     obj: UpdateIdentityProviderConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -1617,7 +1633,7 @@ export interface UpdateIdentityProviderConfigurationResponse {
 export namespace UpdateIdentityProviderConfigurationResponse {
   export const filterSensitiveLog = (
     obj: UpdateIdentityProviderConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -1656,7 +1672,7 @@ export interface WebsiteAuthorizationProviderSummary {
 export namespace WebsiteAuthorizationProviderSummary {
   export const filterSensitiveLog = (
     obj: WebsiteAuthorizationProviderSummary
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is WebsiteAuthorizationProviderSummary =>
@@ -1685,7 +1701,7 @@ export interface WebsiteCaSummary {
 }
 
 export namespace WebsiteCaSummary {
-  export const filterSensitiveLog = (obj: WebsiteCaSummary) => ({
+  export const filterSensitiveLog = (obj: WebsiteCaSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is WebsiteCaSummary =>

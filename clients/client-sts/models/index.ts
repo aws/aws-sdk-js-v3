@@ -191,7 +191,7 @@ export interface AssumeRoleRequest {
 }
 
 export namespace AssumeRoleRequest {
-  export const filterSensitiveLog = (obj: AssumeRoleRequest) => ({
+  export const filterSensitiveLog = (obj: AssumeRoleRequest): any => ({
     ...obj,
     ...(obj.PolicyArns && {
       PolicyArns: obj.PolicyArns.map(PolicyDescriptorType.filterSensitiveLog)
@@ -236,7 +236,7 @@ export interface AssumeRoleResponse {
 }
 
 export namespace AssumeRoleResponse {
-  export const filterSensitiveLog = (obj: AssumeRoleResponse) => ({
+  export const filterSensitiveLog = (obj: AssumeRoleResponse): any => ({
     ...obj,
     ...(obj.AssumedRoleUser && {
       AssumedRoleUser: AssumedRoleUser.filterSensitiveLog(obj.AssumedRoleUser)
@@ -349,7 +349,7 @@ export interface AssumeRoleWithSAMLRequest {
 }
 
 export namespace AssumeRoleWithSAMLRequest {
-  export const filterSensitiveLog = (obj: AssumeRoleWithSAMLRequest) => ({
+  export const filterSensitiveLog = (obj: AssumeRoleWithSAMLRequest): any => ({
     ...obj,
     ...(obj.PolicyArns && {
       PolicyArns: obj.PolicyArns.map(PolicyDescriptorType.filterSensitiveLog)
@@ -431,7 +431,7 @@ export interface AssumeRoleWithSAMLResponse {
 }
 
 export namespace AssumeRoleWithSAMLResponse {
-  export const filterSensitiveLog = (obj: AssumeRoleWithSAMLResponse) => ({
+  export const filterSensitiveLog = (obj: AssumeRoleWithSAMLResponse): any => ({
     ...obj,
     ...(obj.AssumedRoleUser && {
       AssumedRoleUser: AssumedRoleUser.filterSensitiveLog(obj.AssumedRoleUser)
@@ -560,7 +560,7 @@ export interface AssumeRoleWithWebIdentityRequest {
 export namespace AssumeRoleWithWebIdentityRequest {
   export const filterSensitiveLog = (
     obj: AssumeRoleWithWebIdentityRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.PolicyArns && {
       PolicyArns: obj.PolicyArns.map(PolicyDescriptorType.filterSensitiveLog)
@@ -631,7 +631,7 @@ export interface AssumeRoleWithWebIdentityResponse {
 export namespace AssumeRoleWithWebIdentityResponse {
   export const filterSensitiveLog = (
     obj: AssumeRoleWithWebIdentityResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.AssumedRoleUser && {
       AssumedRoleUser: AssumedRoleUser.filterSensitiveLog(obj.AssumedRoleUser)
@@ -665,7 +665,7 @@ export interface AssumedRoleUser {
 }
 
 export namespace AssumedRoleUser {
-  export const filterSensitiveLog = (obj: AssumedRoleUser) => ({
+  export const filterSensitiveLog = (obj: AssumedRoleUser): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssumedRoleUser =>
@@ -700,7 +700,7 @@ export interface Credentials {
 }
 
 export namespace Credentials {
-  export const filterSensitiveLog = (obj: Credentials) => ({
+  export const filterSensitiveLog = (obj: Credentials): any => ({
     ...obj
   });
   export const isa = (o: any): o is Credentials => __isa(o, "Credentials");
@@ -717,7 +717,7 @@ export interface DecodeAuthorizationMessageRequest {
 export namespace DecodeAuthorizationMessageRequest {
   export const filterSensitiveLog = (
     obj: DecodeAuthorizationMessageRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DecodeAuthorizationMessageRequest =>
@@ -739,7 +739,7 @@ export interface DecodeAuthorizationMessageResponse {
 export namespace DecodeAuthorizationMessageResponse {
   export const filterSensitiveLog = (
     obj: DecodeAuthorizationMessageResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DecodeAuthorizationMessageResponse =>
@@ -759,7 +759,7 @@ export interface ExpiredTokenException
 }
 
 export namespace ExpiredTokenException {
-  export const filterSensitiveLog = (obj: ExpiredTokenException) => ({
+  export const filterSensitiveLog = (obj: ExpiredTokenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ExpiredTokenException =>
@@ -786,7 +786,7 @@ export interface FederatedUser {
 }
 
 export namespace FederatedUser {
-  export const filterSensitiveLog = (obj: FederatedUser) => ({
+  export const filterSensitiveLog = (obj: FederatedUser): any => ({
     ...obj
   });
   export const isa = (o: any): o is FederatedUser => __isa(o, "FederatedUser");
@@ -803,7 +803,7 @@ export interface GetAccessKeyInfoRequest {
 }
 
 export namespace GetAccessKeyInfoRequest {
-  export const filterSensitiveLog = (obj: GetAccessKeyInfoRequest) => ({
+  export const filterSensitiveLog = (obj: GetAccessKeyInfoRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetAccessKeyInfoRequest =>
@@ -819,7 +819,7 @@ export interface GetAccessKeyInfoResponse {
 }
 
 export namespace GetAccessKeyInfoResponse {
-  export const filterSensitiveLog = (obj: GetAccessKeyInfoResponse) => ({
+  export const filterSensitiveLog = (obj: GetAccessKeyInfoResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetAccessKeyInfoResponse =>
@@ -831,7 +831,7 @@ export interface GetCallerIdentityRequest {
 }
 
 export namespace GetCallerIdentityRequest {
-  export const filterSensitiveLog = (obj: GetCallerIdentityRequest) => ({
+  export const filterSensitiveLog = (obj: GetCallerIdentityRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetCallerIdentityRequest =>
@@ -865,7 +865,7 @@ export interface GetCallerIdentityResponse {
 }
 
 export namespace GetCallerIdentityResponse {
-  export const filterSensitiveLog = (obj: GetCallerIdentityResponse) => ({
+  export const filterSensitiveLog = (obj: GetCallerIdentityResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetCallerIdentityResponse =>
@@ -995,7 +995,7 @@ export interface GetFederationTokenRequest {
 }
 
 export namespace GetFederationTokenRequest {
-  export const filterSensitiveLog = (obj: GetFederationTokenRequest) => ({
+  export const filterSensitiveLog = (obj: GetFederationTokenRequest): any => ({
     ...obj,
     ...(obj.PolicyArns && {
       PolicyArns: obj.PolicyArns.map(PolicyDescriptorType.filterSensitiveLog)
@@ -1039,7 +1039,7 @@ export interface GetFederationTokenResponse {
 }
 
 export namespace GetFederationTokenResponse {
-  export const filterSensitiveLog = (obj: GetFederationTokenResponse) => ({
+  export const filterSensitiveLog = (obj: GetFederationTokenResponse): any => ({
     ...obj,
     ...(obj.Credentials && {
       Credentials: Credentials.filterSensitiveLog(obj.Credentials)
@@ -1090,7 +1090,7 @@ export interface GetSessionTokenRequest {
 }
 
 export namespace GetSessionTokenRequest {
-  export const filterSensitiveLog = (obj: GetSessionTokenRequest) => ({
+  export const filterSensitiveLog = (obj: GetSessionTokenRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetSessionTokenRequest =>
@@ -1115,7 +1115,7 @@ export interface GetSessionTokenResponse {
 }
 
 export namespace GetSessionTokenResponse {
-  export const filterSensitiveLog = (obj: GetSessionTokenResponse) => ({
+  export const filterSensitiveLog = (obj: GetSessionTokenResponse): any => ({
     ...obj,
     ...(obj.Credentials && {
       Credentials: Credentials.filterSensitiveLog(obj.Credentials)
@@ -1141,7 +1141,9 @@ export interface IDPCommunicationErrorException
 }
 
 export namespace IDPCommunicationErrorException {
-  export const filterSensitiveLog = (obj: IDPCommunicationErrorException) => ({
+  export const filterSensitiveLog = (
+    obj: IDPCommunicationErrorException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is IDPCommunicationErrorException =>
@@ -1163,7 +1165,7 @@ export interface IDPRejectedClaimException
 }
 
 export namespace IDPRejectedClaimException {
-  export const filterSensitiveLog = (obj: IDPRejectedClaimException) => ({
+  export const filterSensitiveLog = (obj: IDPRejectedClaimException): any => ({
     ...obj
   });
   export const isa = (o: any): o is IDPRejectedClaimException =>
@@ -1186,7 +1188,7 @@ export interface InvalidAuthorizationMessageException
 export namespace InvalidAuthorizationMessageException {
   export const filterSensitiveLog = (
     obj: InvalidAuthorizationMessageException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidAuthorizationMessageException =>
@@ -1206,7 +1208,9 @@ export interface InvalidIdentityTokenException
 }
 
 export namespace InvalidIdentityTokenException {
-  export const filterSensitiveLog = (obj: InvalidIdentityTokenException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidIdentityTokenException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidIdentityTokenException =>
@@ -1228,7 +1232,7 @@ export interface MalformedPolicyDocumentException
 export namespace MalformedPolicyDocumentException {
   export const filterSensitiveLog = (
     obj: MalformedPolicyDocumentException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is MalformedPolicyDocumentException =>
@@ -1255,7 +1259,9 @@ export interface PackedPolicyTooLargeException
 }
 
 export namespace PackedPolicyTooLargeException {
-  export const filterSensitiveLog = (obj: PackedPolicyTooLargeException) => ({
+  export const filterSensitiveLog = (
+    obj: PackedPolicyTooLargeException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is PackedPolicyTooLargeException =>
@@ -1277,7 +1283,7 @@ export interface PolicyDescriptorType {
 }
 
 export namespace PolicyDescriptorType {
-  export const filterSensitiveLog = (obj: PolicyDescriptorType) => ({
+  export const filterSensitiveLog = (obj: PolicyDescriptorType): any => ({
     ...obj
   });
   export const isa = (o: any): o is PolicyDescriptorType =>
@@ -1300,7 +1306,7 @@ export interface RegionDisabledException
 }
 
 export namespace RegionDisabledException {
-  export const filterSensitiveLog = (obj: RegionDisabledException) => ({
+  export const filterSensitiveLog = (obj: RegionDisabledException): any => ({
     ...obj
   });
   export const isa = (o: any): o is RegionDisabledException =>
@@ -1333,7 +1339,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");

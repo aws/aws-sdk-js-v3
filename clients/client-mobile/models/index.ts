@@ -24,7 +24,9 @@ export interface AccountActionRequiredException
 }
 
 export namespace AccountActionRequiredException {
-  export const filterSensitiveLog = (obj: AccountActionRequiredException) => ({
+  export const filterSensitiveLog = (
+    obj: AccountActionRequiredException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AccountActionRequiredException =>
@@ -51,7 +53,7 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export const filterSensitiveLog = (obj: BadRequestException) => ({
+  export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is BadRequestException =>
@@ -109,7 +111,7 @@ export interface BundleDetails {
 }
 
 export namespace BundleDetails {
-  export const filterSensitiveLog = (obj: BundleDetails) => ({
+  export const filterSensitiveLog = (obj: BundleDetails): any => ({
     ...obj
   });
   export const isa = (o: any): o is BundleDetails => __isa(o, "BundleDetails");
@@ -155,7 +157,7 @@ export interface CreateProjectRequest {
 }
 
 export namespace CreateProjectRequest {
-  export const filterSensitiveLog = (obj: CreateProjectRequest) => ({
+  export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateProjectRequest =>
@@ -178,7 +180,7 @@ export interface CreateProjectResult {
 }
 
 export namespace CreateProjectResult {
-  export const filterSensitiveLog = (obj: CreateProjectResult) => ({
+  export const filterSensitiveLog = (obj: CreateProjectResult): any => ({
     ...obj,
     ...(obj.details && {
       details: ProjectDetails.filterSensitiveLog(obj.details)
@@ -204,7 +206,7 @@ export interface DeleteProjectRequest {
 }
 
 export namespace DeleteProjectRequest {
-  export const filterSensitiveLog = (obj: DeleteProjectRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteProjectRequest =>
@@ -235,7 +237,7 @@ export interface DeleteProjectResult {
 }
 
 export namespace DeleteProjectResult {
-  export const filterSensitiveLog = (obj: DeleteProjectResult) => ({
+  export const filterSensitiveLog = (obj: DeleteProjectResult): any => ({
     ...obj,
     ...(obj.deletedResources && {
       deletedResources: obj.deletedResources.map(Resource.filterSensitiveLog)
@@ -264,7 +266,7 @@ export interface DescribeBundleRequest {
 }
 
 export namespace DescribeBundleRequest {
-  export const filterSensitiveLog = (obj: DescribeBundleRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeBundleRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeBundleRequest =>
@@ -287,7 +289,7 @@ export interface DescribeBundleResult {
 }
 
 export namespace DescribeBundleResult {
-  export const filterSensitiveLog = (obj: DescribeBundleResult) => ({
+  export const filterSensitiveLog = (obj: DescribeBundleResult): any => ({
     ...obj,
     ...(obj.details && {
       details: BundleDetails.filterSensitiveLog(obj.details)
@@ -320,7 +322,7 @@ export interface DescribeProjectRequest {
 }
 
 export namespace DescribeProjectRequest {
-  export const filterSensitiveLog = (obj: DescribeProjectRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeProjectRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeProjectRequest =>
@@ -343,7 +345,7 @@ export interface DescribeProjectResult {
 }
 
 export namespace DescribeProjectResult {
-  export const filterSensitiveLog = (obj: DescribeProjectResult) => ({
+  export const filterSensitiveLog = (obj: DescribeProjectResult): any => ({
     ...obj,
     ...(obj.details && {
       details: ProjectDetails.filterSensitiveLog(obj.details)
@@ -384,7 +386,7 @@ export interface ExportBundleRequest {
 }
 
 export namespace ExportBundleRequest {
-  export const filterSensitiveLog = (obj: ExportBundleRequest) => ({
+  export const filterSensitiveLog = (obj: ExportBundleRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ExportBundleRequest =>
@@ -411,7 +413,7 @@ export interface ExportBundleResult {
 }
 
 export namespace ExportBundleResult {
-  export const filterSensitiveLog = (obj: ExportBundleResult) => ({
+  export const filterSensitiveLog = (obj: ExportBundleResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is ExportBundleResult =>
@@ -434,7 +436,7 @@ export interface ExportProjectRequest {
 }
 
 export namespace ExportProjectRequest {
-  export const filterSensitiveLog = (obj: ExportProjectRequest) => ({
+  export const filterSensitiveLog = (obj: ExportProjectRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ExportProjectRequest =>
@@ -477,7 +479,7 @@ export interface ExportProjectResult {
 }
 
 export namespace ExportProjectResult {
-  export const filterSensitiveLog = (obj: ExportProjectResult) => ({
+  export const filterSensitiveLog = (obj: ExportProjectResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is ExportProjectResult =>
@@ -504,7 +506,7 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
-  export const filterSensitiveLog = (obj: InternalFailureException) => ({
+  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalFailureException =>
@@ -540,7 +542,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -572,7 +574,7 @@ export interface ListBundlesRequest {
 }
 
 export namespace ListBundlesRequest {
-  export const filterSensitiveLog = (obj: ListBundlesRequest) => ({
+  export const filterSensitiveLog = (obj: ListBundlesRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListBundlesRequest =>
@@ -603,7 +605,7 @@ export interface ListBundlesResult {
 }
 
 export namespace ListBundlesResult {
-  export const filterSensitiveLog = (obj: ListBundlesResult) => ({
+  export const filterSensitiveLog = (obj: ListBundlesResult): any => ({
     ...obj,
     ...(obj.bundleList && {
       bundleList: obj.bundleList.map(BundleDetails.filterSensitiveLog)
@@ -638,7 +640,7 @@ export interface ListProjectsRequest {
 }
 
 export namespace ListProjectsRequest {
-  export const filterSensitiveLog = (obj: ListProjectsRequest) => ({
+  export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListProjectsRequest =>
@@ -670,7 +672,7 @@ export interface ListProjectsResult {
 }
 
 export namespace ListProjectsResult {
-  export const filterSensitiveLog = (obj: ListProjectsResult) => ({
+  export const filterSensitiveLog = (obj: ListProjectsResult): any => ({
     ...obj,
     ...(obj.projects && {
       projects: obj.projects.map(ProjectSummary.filterSensitiveLog)
@@ -697,7 +699,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const filterSensitiveLog = (obj: NotFoundException) => ({
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is NotFoundException =>
@@ -779,7 +781,7 @@ export interface ProjectDetails {
 }
 
 export namespace ProjectDetails {
-  export const filterSensitiveLog = (obj: ProjectDetails) => ({
+  export const filterSensitiveLog = (obj: ProjectDetails): any => ({
     ...obj,
     ...(obj.resources && {
       resources: obj.resources.map(Resource.filterSensitiveLog)
@@ -818,7 +820,7 @@ export interface ProjectSummary {
 }
 
 export namespace ProjectSummary {
-  export const filterSensitiveLog = (obj: ProjectSummary) => ({
+  export const filterSensitiveLog = (obj: ProjectSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is ProjectSummary =>
@@ -869,7 +871,7 @@ export interface Resource {
 }
 
 export namespace Resource {
-  export const filterSensitiveLog = (obj: Resource) => ({
+  export const filterSensitiveLog = (obj: Resource): any => ({
     ...obj
   });
   export const isa = (o: any): o is Resource => __isa(o, "Resource");
@@ -902,7 +904,9 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (obj: ServiceUnavailableException) => ({
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceUnavailableException =>
@@ -936,7 +940,7 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export const filterSensitiveLog = (obj: TooManyRequestsException) => ({
+  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj
   });
   export const isa = (o: any): o is TooManyRequestsException =>
@@ -962,7 +966,7 @@ export interface UnauthorizedException
 }
 
 export namespace UnauthorizedException {
-  export const filterSensitiveLog = (obj: UnauthorizedException) => ({
+  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnauthorizedException =>
@@ -994,7 +998,7 @@ export interface UpdateProjectRequest {
 }
 
 export namespace UpdateProjectRequest {
-  export const filterSensitiveLog = (obj: UpdateProjectRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateProjectRequest =>
@@ -1017,7 +1021,7 @@ export interface UpdateProjectResult {
 }
 
 export namespace UpdateProjectResult {
-  export const filterSensitiveLog = (obj: UpdateProjectResult) => ({
+  export const filterSensitiveLog = (obj: UpdateProjectResult): any => ({
     ...obj,
     ...(obj.details && {
       details: ProjectDetails.filterSensitiveLog(obj.details)

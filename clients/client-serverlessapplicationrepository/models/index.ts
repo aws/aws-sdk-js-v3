@@ -22,7 +22,9 @@ export interface ApplicationDependencySummary {
 }
 
 export namespace ApplicationDependencySummary {
-  export const filterSensitiveLog = (obj: ApplicationDependencySummary) => ({
+  export const filterSensitiveLog = (
+    obj: ApplicationDependencySummary
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ApplicationDependencySummary =>
@@ -52,7 +54,7 @@ export interface ApplicationPolicyStatement {
 }
 
 export namespace ApplicationPolicyStatement {
-  export const filterSensitiveLog = (obj: ApplicationPolicyStatement) => ({
+  export const filterSensitiveLog = (obj: ApplicationPolicyStatement): any => ({
     ...obj
   });
   export const isa = (o: any): o is ApplicationPolicyStatement =>
@@ -106,7 +108,7 @@ export interface ApplicationSummary {
 }
 
 export namespace ApplicationSummary {
-  export const filterSensitiveLog = (obj: ApplicationSummary) => ({
+  export const filterSensitiveLog = (obj: ApplicationSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is ApplicationSummary =>
@@ -133,7 +135,7 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export const filterSensitiveLog = (obj: BadRequestException) => ({
+  export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is BadRequestException =>
@@ -165,7 +167,7 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export const filterSensitiveLog = (obj: ConflictException) => ({
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConflictException =>
@@ -256,7 +258,7 @@ export interface CreateApplicationRequest {
 }
 
 export namespace CreateApplicationRequest {
-  export const filterSensitiveLog = (obj: CreateApplicationRequest) => ({
+  export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateApplicationRequest =>
@@ -332,7 +334,7 @@ export interface CreateApplicationResponse {
 }
 
 export namespace CreateApplicationResponse {
-  export const filterSensitiveLog = (obj: CreateApplicationResponse) => ({
+  export const filterSensitiveLog = (obj: CreateApplicationResponse): any => ({
     ...obj,
     ...(obj.Version && { Version: Version.filterSensitiveLog(obj.Version) })
   });
@@ -374,7 +376,9 @@ export interface CreateApplicationVersionRequest {
 }
 
 export namespace CreateApplicationVersionRequest {
-  export const filterSensitiveLog = (obj: CreateApplicationVersionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreateApplicationVersionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateApplicationVersionRequest =>
@@ -457,7 +461,7 @@ export interface CreateApplicationVersionResponse {
 export namespace CreateApplicationVersionResponse {
   export const filterSensitiveLog = (
     obj: CreateApplicationVersionResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ParameterDefinitions && {
       ParameterDefinitions: obj.ParameterDefinitions.map(
@@ -572,7 +576,7 @@ export interface CreateCloudFormationChangeSetRequest {
 export namespace CreateCloudFormationChangeSetRequest {
   export const filterSensitiveLog = (
     obj: CreateCloudFormationChangeSetRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ParameterOverrides && {
       ParameterOverrides: obj.ParameterOverrides.map(
@@ -618,7 +622,7 @@ export interface CreateCloudFormationChangeSetResponse {
 export namespace CreateCloudFormationChangeSetResponse {
   export const filterSensitiveLog = (
     obj: CreateCloudFormationChangeSetResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateCloudFormationChangeSetResponse =>
@@ -643,7 +647,7 @@ export interface CreateCloudFormationTemplateRequest {
 export namespace CreateCloudFormationTemplateRequest {
   export const filterSensitiveLog = (
     obj: CreateCloudFormationTemplateRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateCloudFormationTemplateRequest =>
@@ -696,7 +700,7 @@ export interface CreateCloudFormationTemplateResponse {
 export namespace CreateCloudFormationTemplateResponse {
   export const filterSensitiveLog = (
     obj: CreateCloudFormationTemplateResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateCloudFormationTemplateResponse =>
@@ -712,7 +716,7 @@ export interface DeleteApplicationRequest {
 }
 
 export namespace DeleteApplicationRequest {
-  export const filterSensitiveLog = (obj: DeleteApplicationRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteApplicationRequest =>
@@ -737,7 +741,7 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export const filterSensitiveLog = (obj: ForbiddenException) => ({
+  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ForbiddenException =>
@@ -753,7 +757,9 @@ export interface GetApplicationPolicyRequest {
 }
 
 export namespace GetApplicationPolicyRequest {
-  export const filterSensitiveLog = (obj: GetApplicationPolicyRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetApplicationPolicyRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetApplicationPolicyRequest =>
@@ -769,7 +775,9 @@ export interface GetApplicationPolicyResponse {
 }
 
 export namespace GetApplicationPolicyResponse {
-  export const filterSensitiveLog = (obj: GetApplicationPolicyResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetApplicationPolicyResponse
+  ): any => ({
     ...obj,
     ...(obj.Statements && {
       Statements: obj.Statements.map(
@@ -795,7 +803,7 @@ export interface GetApplicationRequest {
 }
 
 export namespace GetApplicationRequest {
-  export const filterSensitiveLog = (obj: GetApplicationRequest) => ({
+  export const filterSensitiveLog = (obj: GetApplicationRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetApplicationRequest =>
@@ -871,7 +879,7 @@ export interface GetApplicationResponse {
 }
 
 export namespace GetApplicationResponse {
-  export const filterSensitiveLog = (obj: GetApplicationResponse) => ({
+  export const filterSensitiveLog = (obj: GetApplicationResponse): any => ({
     ...obj,
     ...(obj.Version && { Version: Version.filterSensitiveLog(obj.Version) })
   });
@@ -895,7 +903,7 @@ export interface GetCloudFormationTemplateRequest {
 export namespace GetCloudFormationTemplateRequest {
   export const filterSensitiveLog = (
     obj: GetCloudFormationTemplateRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetCloudFormationTemplateRequest =>
@@ -948,7 +956,7 @@ export interface GetCloudFormationTemplateResponse {
 export namespace GetCloudFormationTemplateResponse {
   export const filterSensitiveLog = (
     obj: GetCloudFormationTemplateResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetCloudFormationTemplateResponse =>
@@ -975,7 +983,9 @@ export interface InternalServerErrorException
 }
 
 export namespace InternalServerErrorException {
-  export const filterSensitiveLog = (obj: InternalServerErrorException) => ({
+  export const filterSensitiveLog = (
+    obj: InternalServerErrorException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerErrorException =>
@@ -1008,7 +1018,7 @@ export interface ListApplicationDependenciesRequest {
 export namespace ListApplicationDependenciesRequest {
   export const filterSensitiveLog = (
     obj: ListApplicationDependenciesRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListApplicationDependenciesRequest =>
@@ -1031,7 +1041,7 @@ export interface ListApplicationDependenciesResponse {
 export namespace ListApplicationDependenciesResponse {
   export const filterSensitiveLog = (
     obj: ListApplicationDependenciesResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Dependencies && {
       Dependencies: obj.Dependencies.map(
@@ -1062,7 +1072,9 @@ export interface ListApplicationVersionsRequest {
 }
 
 export namespace ListApplicationVersionsRequest {
-  export const filterSensitiveLog = (obj: ListApplicationVersionsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListApplicationVersionsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListApplicationVersionsRequest =>
@@ -1083,7 +1095,9 @@ export interface ListApplicationVersionsResponse {
 }
 
 export namespace ListApplicationVersionsResponse {
-  export const filterSensitiveLog = (obj: ListApplicationVersionsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListApplicationVersionsResponse
+  ): any => ({
     ...obj,
     ...(obj.Versions && {
       Versions: obj.Versions.map(VersionSummary.filterSensitiveLog)
@@ -1107,7 +1121,7 @@ export interface ListApplicationsRequest {
 }
 
 export namespace ListApplicationsRequest {
-  export const filterSensitiveLog = (obj: ListApplicationsRequest) => ({
+  export const filterSensitiveLog = (obj: ListApplicationsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListApplicationsRequest =>
@@ -1128,7 +1142,7 @@ export interface ListApplicationsResponse {
 }
 
 export namespace ListApplicationsResponse {
-  export const filterSensitiveLog = (obj: ListApplicationsResponse) => ({
+  export const filterSensitiveLog = (obj: ListApplicationsResponse): any => ({
     ...obj,
     ...(obj.Applications && {
       Applications: obj.Applications.map(ApplicationSummary.filterSensitiveLog)
@@ -1156,7 +1170,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const filterSensitiveLog = (obj: NotFoundException) => ({
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is NotFoundException =>
@@ -1252,7 +1266,7 @@ export interface ParameterDefinition {
 }
 
 export namespace ParameterDefinition {
-  export const filterSensitiveLog = (obj: ParameterDefinition) => ({
+  export const filterSensitiveLog = (obj: ParameterDefinition): any => ({
     ...obj
   });
   export const isa = (o: any): o is ParameterDefinition =>
@@ -1277,7 +1291,7 @@ export interface ParameterValue {
 }
 
 export namespace ParameterValue {
-  export const filterSensitiveLog = (obj: ParameterValue) => ({
+  export const filterSensitiveLog = (obj: ParameterValue): any => ({
     ...obj
   });
   export const isa = (o: any): o is ParameterValue =>
@@ -1298,7 +1312,9 @@ export interface PutApplicationPolicyRequest {
 }
 
 export namespace PutApplicationPolicyRequest {
-  export const filterSensitiveLog = (obj: PutApplicationPolicyRequest) => ({
+  export const filterSensitiveLog = (
+    obj: PutApplicationPolicyRequest
+  ): any => ({
     ...obj,
     ...(obj.Statements && {
       Statements: obj.Statements.map(
@@ -1319,7 +1335,9 @@ export interface PutApplicationPolicyResponse {
 }
 
 export namespace PutApplicationPolicyResponse {
-  export const filterSensitiveLog = (obj: PutApplicationPolicyResponse) => ({
+  export const filterSensitiveLog = (
+    obj: PutApplicationPolicyResponse
+  ): any => ({
     ...obj,
     ...(obj.Statements && {
       Statements: obj.Statements.map(
@@ -1351,7 +1369,7 @@ export interface RollbackConfiguration {
 }
 
 export namespace RollbackConfiguration {
-  export const filterSensitiveLog = (obj: RollbackConfiguration) => ({
+  export const filterSensitiveLog = (obj: RollbackConfiguration): any => ({
     ...obj,
     ...(obj.RollbackTriggers && {
       RollbackTriggers: obj.RollbackTriggers.map(
@@ -1383,7 +1401,7 @@ export interface RollbackTrigger {
 }
 
 export namespace RollbackTrigger {
-  export const filterSensitiveLog = (obj: RollbackTrigger) => ({
+  export const filterSensitiveLog = (obj: RollbackTrigger): any => ({
     ...obj
   });
   export const isa = (o: any): o is RollbackTrigger =>
@@ -1418,7 +1436,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -1444,7 +1462,7 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export const filterSensitiveLog = (obj: TooManyRequestsException) => ({
+  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj
   });
   export const isa = (o: any): o is TooManyRequestsException =>
@@ -1490,7 +1508,7 @@ export interface UpdateApplicationRequest {
 }
 
 export namespace UpdateApplicationRequest {
-  export const filterSensitiveLog = (obj: UpdateApplicationRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateApplicationRequest =>
@@ -1566,7 +1584,7 @@ export interface UpdateApplicationResponse {
 }
 
 export namespace UpdateApplicationResponse {
-  export const filterSensitiveLog = (obj: UpdateApplicationResponse) => ({
+  export const filterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
     ...obj,
     ...(obj.Version && { Version: Version.filterSensitiveLog(obj.Version) })
   });
@@ -1651,7 +1669,7 @@ export interface Version {
 }
 
 export namespace Version {
-  export const filterSensitiveLog = (obj: Version) => ({
+  export const filterSensitiveLog = (obj: Version): any => ({
     ...obj,
     ...(obj.ParameterDefinitions && {
       ParameterDefinitions: obj.ParameterDefinitions.map(
@@ -1691,7 +1709,7 @@ export interface VersionSummary {
 }
 
 export namespace VersionSummary {
-  export const filterSensitiveLog = (obj: VersionSummary) => ({
+  export const filterSensitiveLog = (obj: VersionSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is VersionSummary =>

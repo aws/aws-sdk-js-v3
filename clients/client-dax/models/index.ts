@@ -19,7 +19,7 @@ export interface InvalidParameterCombinationException
 export namespace InvalidParameterCombinationException {
   export const filterSensitiveLog = (
     obj: InvalidParameterCombinationException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidParameterCombinationException =>
@@ -38,7 +38,9 @@ export interface InvalidParameterValueException
 }
 
 export namespace InvalidParameterValueException {
-  export const filterSensitiveLog = (obj: InvalidParameterValueException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidParameterValueException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidParameterValueException =>
@@ -151,7 +153,7 @@ export interface Cluster {
 }
 
 export namespace Cluster {
-  export const filterSensitiveLog = (obj: Cluster) => ({
+  export const filterSensitiveLog = (obj: Cluster): any => ({
     ...obj,
     ...(obj.ClusterDiscoveryEndpoint && {
       ClusterDiscoveryEndpoint: Endpoint.filterSensitiveLog(
@@ -336,7 +338,7 @@ export interface CreateClusterRequest {
 }
 
 export namespace CreateClusterRequest {
-  export const filterSensitiveLog = (obj: CreateClusterRequest) => ({
+  export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
     ...obj,
     ...(obj.SSESpecification && {
       SSESpecification: SSESpecification.filterSensitiveLog(
@@ -358,7 +360,7 @@ export interface CreateClusterResponse {
 }
 
 export namespace CreateClusterResponse {
-  export const filterSensitiveLog = (obj: CreateClusterResponse) => ({
+  export const filterSensitiveLog = (obj: CreateClusterResponse): any => ({
     ...obj,
     ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
   });
@@ -381,7 +383,9 @@ export interface CreateParameterGroupRequest {
 }
 
 export namespace CreateParameterGroupRequest {
-  export const filterSensitiveLog = (obj: CreateParameterGroupRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreateParameterGroupRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateParameterGroupRequest =>
@@ -398,7 +402,9 @@ export interface CreateParameterGroupResponse {
 }
 
 export namespace CreateParameterGroupResponse {
-  export const filterSensitiveLog = (obj: CreateParameterGroupResponse) => ({
+  export const filterSensitiveLog = (
+    obj: CreateParameterGroupResponse
+  ): any => ({
     ...obj,
     ...(obj.ParameterGroup && {
       ParameterGroup: ParameterGroup.filterSensitiveLog(obj.ParameterGroup)
@@ -427,7 +433,7 @@ export interface CreateSubnetGroupRequest {
 }
 
 export namespace CreateSubnetGroupRequest {
-  export const filterSensitiveLog = (obj: CreateSubnetGroupRequest) => ({
+  export const filterSensitiveLog = (obj: CreateSubnetGroupRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateSubnetGroupRequest =>
@@ -444,7 +450,7 @@ export interface CreateSubnetGroupResponse {
 }
 
 export namespace CreateSubnetGroupResponse {
-  export const filterSensitiveLog = (obj: CreateSubnetGroupResponse) => ({
+  export const filterSensitiveLog = (obj: CreateSubnetGroupResponse): any => ({
     ...obj,
     ...(obj.SubnetGroup && {
       SubnetGroup: SubnetGroup.filterSensitiveLog(obj.SubnetGroup)
@@ -480,7 +486,7 @@ export interface DecreaseReplicationFactorRequest {
 export namespace DecreaseReplicationFactorRequest {
   export const filterSensitiveLog = (
     obj: DecreaseReplicationFactorRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DecreaseReplicationFactorRequest =>
@@ -499,7 +505,7 @@ export interface DecreaseReplicationFactorResponse {
 export namespace DecreaseReplicationFactorResponse {
   export const filterSensitiveLog = (
     obj: DecreaseReplicationFactorResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
   });
@@ -516,7 +522,7 @@ export interface DeleteClusterRequest {
 }
 
 export namespace DeleteClusterRequest {
-  export const filterSensitiveLog = (obj: DeleteClusterRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteClusterRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteClusterRequest =>
@@ -532,7 +538,7 @@ export interface DeleteClusterResponse {
 }
 
 export namespace DeleteClusterResponse {
-  export const filterSensitiveLog = (obj: DeleteClusterResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteClusterResponse): any => ({
     ...obj,
     ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
   });
@@ -549,7 +555,9 @@ export interface DeleteParameterGroupRequest {
 }
 
 export namespace DeleteParameterGroupRequest {
-  export const filterSensitiveLog = (obj: DeleteParameterGroupRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteParameterGroupRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteParameterGroupRequest =>
@@ -566,7 +574,9 @@ export interface DeleteParameterGroupResponse {
 }
 
 export namespace DeleteParameterGroupResponse {
-  export const filterSensitiveLog = (obj: DeleteParameterGroupResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteParameterGroupResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteParameterGroupResponse =>
@@ -582,7 +592,7 @@ export interface DeleteSubnetGroupRequest {
 }
 
 export namespace DeleteSubnetGroupRequest {
-  export const filterSensitiveLog = (obj: DeleteSubnetGroupRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteSubnetGroupRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteSubnetGroupRequest =>
@@ -599,7 +609,7 @@ export interface DeleteSubnetGroupResponse {
 }
 
 export namespace DeleteSubnetGroupResponse {
-  export const filterSensitiveLog = (obj: DeleteSubnetGroupResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteSubnetGroupResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteSubnetGroupResponse =>
@@ -631,7 +641,7 @@ export interface DescribeClustersRequest {
 }
 
 export namespace DescribeClustersRequest {
-  export const filterSensitiveLog = (obj: DescribeClustersRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeClustersRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeClustersRequest =>
@@ -653,7 +663,7 @@ export interface DescribeClustersResponse {
 }
 
 export namespace DescribeClustersResponse {
-  export const filterSensitiveLog = (obj: DescribeClustersResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeClustersResponse): any => ({
     ...obj,
     ...(obj.Clusters && {
       Clusters: obj.Clusters.map(Cluster.filterSensitiveLog)
@@ -685,7 +695,7 @@ export interface DescribeDefaultParametersRequest {
 export namespace DescribeDefaultParametersRequest {
   export const filterSensitiveLog = (
     obj: DescribeDefaultParametersRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeDefaultParametersRequest =>
@@ -708,7 +718,7 @@ export interface DescribeDefaultParametersResponse {
 export namespace DescribeDefaultParametersResponse {
   export const filterSensitiveLog = (
     obj: DescribeDefaultParametersResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Parameters && {
       Parameters: obj.Parameters.map(Parameter.filterSensitiveLog)
@@ -767,7 +777,7 @@ export interface DescribeEventsRequest {
 }
 
 export namespace DescribeEventsRequest {
-  export const filterSensitiveLog = (obj: DescribeEventsRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeEventsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeEventsRequest =>
@@ -788,7 +798,7 @@ export interface DescribeEventsResponse {
 }
 
 export namespace DescribeEventsResponse {
-  export const filterSensitiveLog = (obj: DescribeEventsResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeEventsResponse): any => ({
     ...obj,
     ...(obj.Events && { Events: obj.Events.map(Event.filterSensitiveLog) })
   });
@@ -821,7 +831,9 @@ export interface DescribeParameterGroupsRequest {
 }
 
 export namespace DescribeParameterGroupsRequest {
-  export const filterSensitiveLog = (obj: DescribeParameterGroupsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeParameterGroupsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeParameterGroupsRequest =>
@@ -842,7 +854,9 @@ export interface DescribeParameterGroupsResponse {
 }
 
 export namespace DescribeParameterGroupsResponse {
-  export const filterSensitiveLog = (obj: DescribeParameterGroupsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeParameterGroupsResponse
+  ): any => ({
     ...obj,
     ...(obj.ParameterGroups && {
       ParameterGroups: obj.ParameterGroups.map(
@@ -885,7 +899,7 @@ export interface DescribeParametersRequest {
 }
 
 export namespace DescribeParametersRequest {
-  export const filterSensitiveLog = (obj: DescribeParametersRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeParametersRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeParametersRequest =>
@@ -906,7 +920,7 @@ export interface DescribeParametersResponse {
 }
 
 export namespace DescribeParametersResponse {
-  export const filterSensitiveLog = (obj: DescribeParametersResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeParametersResponse): any => ({
     ...obj,
     ...(obj.Parameters && {
       Parameters: obj.Parameters.map(Parameter.filterSensitiveLog)
@@ -941,7 +955,9 @@ export interface DescribeSubnetGroupsRequest {
 }
 
 export namespace DescribeSubnetGroupsRequest {
-  export const filterSensitiveLog = (obj: DescribeSubnetGroupsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeSubnetGroupsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeSubnetGroupsRequest =>
@@ -962,7 +978,9 @@ export interface DescribeSubnetGroupsResponse {
 }
 
 export namespace DescribeSubnetGroupsResponse {
-  export const filterSensitiveLog = (obj: DescribeSubnetGroupsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeSubnetGroupsResponse
+  ): any => ({
     ...obj,
     ...(obj.SubnetGroups && {
       SubnetGroups: obj.SubnetGroups.map(SubnetGroup.filterSensitiveLog)
@@ -991,7 +1009,7 @@ export interface Endpoint {
 }
 
 export namespace Endpoint {
-  export const filterSensitiveLog = (obj: Endpoint) => ({
+  export const filterSensitiveLog = (obj: Endpoint): any => ({
     ...obj
   });
   export const isa = (o: any): o is Endpoint => __isa(o, "Endpoint");
@@ -1028,7 +1046,7 @@ export interface Event {
 }
 
 export namespace Event {
-  export const filterSensitiveLog = (obj: Event) => ({
+  export const filterSensitiveLog = (obj: Event): any => ({
     ...obj
   });
   export const isa = (o: any): o is Event => __isa(o, "Event");
@@ -1057,7 +1075,7 @@ export interface IncreaseReplicationFactorRequest {
 export namespace IncreaseReplicationFactorRequest {
   export const filterSensitiveLog = (
     obj: IncreaseReplicationFactorRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is IncreaseReplicationFactorRequest =>
@@ -1075,7 +1093,7 @@ export interface IncreaseReplicationFactorResponse {
 export namespace IncreaseReplicationFactorResponse {
   export const filterSensitiveLog = (
     obj: IncreaseReplicationFactorResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
   });
@@ -1101,7 +1119,7 @@ export interface ListTagsRequest {
 }
 
 export namespace ListTagsRequest {
-  export const filterSensitiveLog = (obj: ListTagsRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsRequest =>
@@ -1123,7 +1141,7 @@ export interface ListTagsResponse {
 }
 
 export namespace ListTagsResponse {
-  export const filterSensitiveLog = (obj: ListTagsResponse) => ({
+  export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1172,7 +1190,7 @@ export interface Node {
 }
 
 export namespace Node {
-  export const filterSensitiveLog = (obj: Node) => ({
+  export const filterSensitiveLog = (obj: Node): any => ({
     ...obj,
     ...(obj.Endpoint && { Endpoint: Endpoint.filterSensitiveLog(obj.Endpoint) })
   });
@@ -1197,7 +1215,7 @@ export interface NodeTypeSpecificValue {
 }
 
 export namespace NodeTypeSpecificValue {
-  export const filterSensitiveLog = (obj: NodeTypeSpecificValue) => ({
+  export const filterSensitiveLog = (obj: NodeTypeSpecificValue): any => ({
     ...obj
   });
   export const isa = (o: any): o is NodeTypeSpecificValue =>
@@ -1223,7 +1241,7 @@ export interface NotificationConfiguration {
 }
 
 export namespace NotificationConfiguration {
-  export const filterSensitiveLog = (obj: NotificationConfiguration) => ({
+  export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
     ...obj
   });
   export const isa = (o: any): o is NotificationConfiguration =>
@@ -1292,7 +1310,7 @@ export interface Parameter {
 }
 
 export namespace Parameter {
-  export const filterSensitiveLog = (obj: Parameter) => ({
+  export const filterSensitiveLog = (obj: Parameter): any => ({
     ...obj,
     ...(obj.NodeTypeSpecificValues && {
       NodeTypeSpecificValues: obj.NodeTypeSpecificValues.map(
@@ -1321,7 +1339,7 @@ export interface ParameterGroup {
 }
 
 export namespace ParameterGroup {
-  export const filterSensitiveLog = (obj: ParameterGroup) => ({
+  export const filterSensitiveLog = (obj: ParameterGroup): any => ({
     ...obj
   });
   export const isa = (o: any): o is ParameterGroup =>
@@ -1350,7 +1368,7 @@ export interface ParameterGroupStatus {
 }
 
 export namespace ParameterGroupStatus {
-  export const filterSensitiveLog = (obj: ParameterGroupStatus) => ({
+  export const filterSensitiveLog = (obj: ParameterGroupStatus): any => ({
     ...obj
   });
   export const isa = (o: any): o is ParameterGroupStatus =>
@@ -1374,7 +1392,7 @@ export interface ParameterNameValue {
 }
 
 export namespace ParameterNameValue {
-  export const filterSensitiveLog = (obj: ParameterNameValue) => ({
+  export const filterSensitiveLog = (obj: ParameterNameValue): any => ({
     ...obj
   });
   export const isa = (o: any): o is ParameterNameValue =>
@@ -1397,7 +1415,7 @@ export interface RebootNodeRequest {
 }
 
 export namespace RebootNodeRequest {
-  export const filterSensitiveLog = (obj: RebootNodeRequest) => ({
+  export const filterSensitiveLog = (obj: RebootNodeRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is RebootNodeRequest =>
@@ -1413,7 +1431,7 @@ export interface RebootNodeResponse {
 }
 
 export namespace RebootNodeResponse {
-  export const filterSensitiveLog = (obj: RebootNodeResponse) => ({
+  export const filterSensitiveLog = (obj: RebootNodeResponse): any => ({
     ...obj,
     ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
   });
@@ -1451,7 +1469,7 @@ export interface SSEDescription {
 }
 
 export namespace SSEDescription {
-  export const filterSensitiveLog = (obj: SSEDescription) => ({
+  export const filterSensitiveLog = (obj: SSEDescription): any => ({
     ...obj
   });
   export const isa = (o: any): o is SSEDescription =>
@@ -1470,7 +1488,7 @@ export interface SSESpecification {
 }
 
 export namespace SSESpecification {
-  export const filterSensitiveLog = (obj: SSESpecification) => ({
+  export const filterSensitiveLog = (obj: SSESpecification): any => ({
     ...obj
   });
   export const isa = (o: any): o is SSESpecification =>
@@ -1496,7 +1514,7 @@ export interface SecurityGroupMembership {
 }
 
 export namespace SecurityGroupMembership {
-  export const filterSensitiveLog = (obj: SecurityGroupMembership) => ({
+  export const filterSensitiveLog = (obj: SecurityGroupMembership): any => ({
     ...obj
   });
   export const isa = (o: any): o is SecurityGroupMembership =>
@@ -1524,7 +1542,7 @@ export interface Subnet {
 }
 
 export namespace Subnet {
-  export const filterSensitiveLog = (obj: Subnet) => ({
+  export const filterSensitiveLog = (obj: Subnet): any => ({
     ...obj
   });
   export const isa = (o: any): o is Subnet => __isa(o, "Subnet");
@@ -1569,7 +1587,7 @@ export interface SubnetGroup {
 }
 
 export namespace SubnetGroup {
-  export const filterSensitiveLog = (obj: SubnetGroup) => ({
+  export const filterSensitiveLog = (obj: SubnetGroup): any => ({
     ...obj,
     ...(obj.Subnets && { Subnets: obj.Subnets.map(Subnet.filterSensitiveLog) })
   });
@@ -1600,7 +1618,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -1620,7 +1638,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1637,7 +1655,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const filterSensitiveLog = (obj: TagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1659,7 +1677,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>
@@ -1675,7 +1693,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1725,7 +1743,7 @@ export interface UpdateClusterRequest {
 }
 
 export namespace UpdateClusterRequest {
-  export const filterSensitiveLog = (obj: UpdateClusterRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateClusterRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateClusterRequest =>
@@ -1741,7 +1759,7 @@ export interface UpdateClusterResponse {
 }
 
 export namespace UpdateClusterResponse {
-  export const filterSensitiveLog = (obj: UpdateClusterResponse) => ({
+  export const filterSensitiveLog = (obj: UpdateClusterResponse): any => ({
     ...obj,
     ...(obj.Cluster && { Cluster: Cluster.filterSensitiveLog(obj.Cluster) })
   });
@@ -1764,7 +1782,9 @@ export interface UpdateParameterGroupRequest {
 }
 
 export namespace UpdateParameterGroupRequest {
-  export const filterSensitiveLog = (obj: UpdateParameterGroupRequest) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateParameterGroupRequest
+  ): any => ({
     ...obj,
     ...(obj.ParameterNameValues && {
       ParameterNameValues: obj.ParameterNameValues.map(
@@ -1785,7 +1805,9 @@ export interface UpdateParameterGroupResponse {
 }
 
 export namespace UpdateParameterGroupResponse {
-  export const filterSensitiveLog = (obj: UpdateParameterGroupResponse) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateParameterGroupResponse
+  ): any => ({
     ...obj,
     ...(obj.ParameterGroup && {
       ParameterGroup: ParameterGroup.filterSensitiveLog(obj.ParameterGroup)
@@ -1814,7 +1836,7 @@ export interface UpdateSubnetGroupRequest {
 }
 
 export namespace UpdateSubnetGroupRequest {
-  export const filterSensitiveLog = (obj: UpdateSubnetGroupRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateSubnetGroupRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateSubnetGroupRequest =>
@@ -1830,7 +1852,7 @@ export interface UpdateSubnetGroupResponse {
 }
 
 export namespace UpdateSubnetGroupResponse {
-  export const filterSensitiveLog = (obj: UpdateSubnetGroupResponse) => ({
+  export const filterSensitiveLog = (obj: UpdateSubnetGroupResponse): any => ({
     ...obj,
     ...(obj.SubnetGroup && {
       SubnetGroup: SubnetGroup.filterSensitiveLog(obj.SubnetGroup)
@@ -1852,7 +1874,7 @@ export interface ClusterAlreadyExistsFault
 }
 
 export namespace ClusterAlreadyExistsFault {
-  export const filterSensitiveLog = (obj: ClusterAlreadyExistsFault) => ({
+  export const filterSensitiveLog = (obj: ClusterAlreadyExistsFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is ClusterAlreadyExistsFault =>
@@ -1871,7 +1893,7 @@ export interface ClusterNotFoundFault
 }
 
 export namespace ClusterNotFoundFault {
-  export const filterSensitiveLog = (obj: ClusterNotFoundFault) => ({
+  export const filterSensitiveLog = (obj: ClusterNotFoundFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is ClusterNotFoundFault =>
@@ -1893,7 +1915,7 @@ export interface ClusterQuotaForCustomerExceededFault
 export namespace ClusterQuotaForCustomerExceededFault {
   export const filterSensitiveLog = (
     obj: ClusterQuotaForCustomerExceededFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ClusterQuotaForCustomerExceededFault =>
@@ -1915,7 +1937,7 @@ export interface InsufficientClusterCapacityFault
 export namespace InsufficientClusterCapacityFault {
   export const filterSensitiveLog = (
     obj: InsufficientClusterCapacityFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InsufficientClusterCapacityFault =>
@@ -1932,7 +1954,7 @@ export interface InvalidARNFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidARNFault {
-  export const filterSensitiveLog = (obj: InvalidARNFault) => ({
+  export const filterSensitiveLog = (obj: InvalidARNFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidARNFault =>
@@ -1952,7 +1974,7 @@ export interface InvalidClusterStateFault
 }
 
 export namespace InvalidClusterStateFault {
-  export const filterSensitiveLog = (obj: InvalidClusterStateFault) => ({
+  export const filterSensitiveLog = (obj: InvalidClusterStateFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidClusterStateFault =>
@@ -1971,7 +1993,9 @@ export interface InvalidParameterGroupStateFault
 }
 
 export namespace InvalidParameterGroupStateFault {
-  export const filterSensitiveLog = (obj: InvalidParameterGroupStateFault) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidParameterGroupStateFault
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidParameterGroupStateFault =>
@@ -1988,7 +2012,7 @@ export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidSubnet {
-  export const filterSensitiveLog = (obj: InvalidSubnet) => ({
+  export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidSubnet => __isa(o, "InvalidSubnet");
@@ -2006,7 +2030,9 @@ export interface InvalidVPCNetworkStateFault
 }
 
 export namespace InvalidVPCNetworkStateFault {
-  export const filterSensitiveLog = (obj: InvalidVPCNetworkStateFault) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidVPCNetworkStateFault
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidVPCNetworkStateFault =>
@@ -2023,7 +2049,7 @@ export interface NodeNotFoundFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NodeNotFoundFault {
-  export const filterSensitiveLog = (obj: NodeNotFoundFault) => ({
+  export const filterSensitiveLog = (obj: NodeNotFoundFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is NodeNotFoundFault =>
@@ -2045,7 +2071,7 @@ export interface NodeQuotaForClusterExceededFault
 export namespace NodeQuotaForClusterExceededFault {
   export const filterSensitiveLog = (
     obj: NodeQuotaForClusterExceededFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is NodeQuotaForClusterExceededFault =>
@@ -2067,7 +2093,7 @@ export interface NodeQuotaForCustomerExceededFault
 export namespace NodeQuotaForCustomerExceededFault {
   export const filterSensitiveLog = (
     obj: NodeQuotaForCustomerExceededFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is NodeQuotaForCustomerExceededFault =>
@@ -2088,7 +2114,7 @@ export interface ParameterGroupAlreadyExistsFault
 export namespace ParameterGroupAlreadyExistsFault {
   export const filterSensitiveLog = (
     obj: ParameterGroupAlreadyExistsFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ParameterGroupAlreadyExistsFault =>
@@ -2107,7 +2133,9 @@ export interface ParameterGroupNotFoundFault
 }
 
 export namespace ParameterGroupNotFoundFault {
-  export const filterSensitiveLog = (obj: ParameterGroupNotFoundFault) => ({
+  export const filterSensitiveLog = (
+    obj: ParameterGroupNotFoundFault
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ParameterGroupNotFoundFault =>
@@ -2128,7 +2156,7 @@ export interface ParameterGroupQuotaExceededFault
 export namespace ParameterGroupQuotaExceededFault {
   export const filterSensitiveLog = (
     obj: ParameterGroupQuotaExceededFault
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ParameterGroupQuotaExceededFault =>
@@ -2147,7 +2175,9 @@ export interface ServiceLinkedRoleNotFoundFault
 }
 
 export namespace ServiceLinkedRoleNotFoundFault {
-  export const filterSensitiveLog = (obj: ServiceLinkedRoleNotFoundFault) => ({
+  export const filterSensitiveLog = (
+    obj: ServiceLinkedRoleNotFoundFault
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceLinkedRoleNotFoundFault =>
@@ -2166,7 +2196,9 @@ export interface SubnetGroupAlreadyExistsFault
 }
 
 export namespace SubnetGroupAlreadyExistsFault {
-  export const filterSensitiveLog = (obj: SubnetGroupAlreadyExistsFault) => ({
+  export const filterSensitiveLog = (
+    obj: SubnetGroupAlreadyExistsFault
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is SubnetGroupAlreadyExistsFault =>
@@ -2185,7 +2217,7 @@ export interface SubnetGroupInUseFault
 }
 
 export namespace SubnetGroupInUseFault {
-  export const filterSensitiveLog = (obj: SubnetGroupInUseFault) => ({
+  export const filterSensitiveLog = (obj: SubnetGroupInUseFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is SubnetGroupInUseFault =>
@@ -2205,7 +2237,7 @@ export interface SubnetGroupNotFoundFault
 }
 
 export namespace SubnetGroupNotFoundFault {
-  export const filterSensitiveLog = (obj: SubnetGroupNotFoundFault) => ({
+  export const filterSensitiveLog = (obj: SubnetGroupNotFoundFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is SubnetGroupNotFoundFault =>
@@ -2225,7 +2257,9 @@ export interface SubnetGroupQuotaExceededFault
 }
 
 export namespace SubnetGroupQuotaExceededFault {
-  export const filterSensitiveLog = (obj: SubnetGroupQuotaExceededFault) => ({
+  export const filterSensitiveLog = (
+    obj: SubnetGroupQuotaExceededFault
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is SubnetGroupQuotaExceededFault =>
@@ -2242,7 +2276,7 @@ export interface SubnetInUse extends __SmithyException, $MetadataBearer {
 }
 
 export namespace SubnetInUse {
-  export const filterSensitiveLog = (obj: SubnetInUse) => ({
+  export const filterSensitiveLog = (obj: SubnetInUse): any => ({
     ...obj
   });
   export const isa = (o: any): o is SubnetInUse => __isa(o, "SubnetInUse");
@@ -2261,7 +2295,7 @@ export interface SubnetQuotaExceededFault
 }
 
 export namespace SubnetQuotaExceededFault {
-  export const filterSensitiveLog = (obj: SubnetQuotaExceededFault) => ({
+  export const filterSensitiveLog = (obj: SubnetQuotaExceededFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is SubnetQuotaExceededFault =>
@@ -2278,7 +2312,7 @@ export interface TagNotFoundFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TagNotFoundFault {
-  export const filterSensitiveLog = (obj: TagNotFoundFault) => ({
+  export const filterSensitiveLog = (obj: TagNotFoundFault): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagNotFoundFault =>
@@ -2297,7 +2331,9 @@ export interface TagQuotaPerResourceExceeded
 }
 
 export namespace TagQuotaPerResourceExceeded {
-  export const filterSensitiveLog = (obj: TagQuotaPerResourceExceeded) => ({
+  export const filterSensitiveLog = (
+    obj: TagQuotaPerResourceExceeded
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagQuotaPerResourceExceeded =>

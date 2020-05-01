@@ -26,7 +26,7 @@ export interface BatchMeterUsageRequest {
 }
 
 export namespace BatchMeterUsageRequest {
-  export const filterSensitiveLog = (obj: BatchMeterUsageRequest) => ({
+  export const filterSensitiveLog = (obj: BatchMeterUsageRequest): any => ({
     ...obj,
     ...(obj.UsageRecords && {
       UsageRecords: obj.UsageRecords.map(UsageRecord.filterSensitiveLog)
@@ -57,7 +57,7 @@ export interface BatchMeterUsageResult {
 }
 
 export namespace BatchMeterUsageResult {
-  export const filterSensitiveLog = (obj: BatchMeterUsageResult) => ({
+  export const filterSensitiveLog = (obj: BatchMeterUsageResult): any => ({
     ...obj,
     ...(obj.Results && {
       Results: obj.Results.map(UsageRecordResult.filterSensitiveLog)
@@ -85,7 +85,9 @@ export interface CustomerNotEntitledException
 }
 
 export namespace CustomerNotEntitledException {
-  export const filterSensitiveLog = (obj: CustomerNotEntitledException) => ({
+  export const filterSensitiveLog = (
+    obj: CustomerNotEntitledException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CustomerNotEntitledException =>
@@ -104,7 +106,7 @@ export interface DisabledApiException
 }
 
 export namespace DisabledApiException {
-  export const filterSensitiveLog = (obj: DisabledApiException) => ({
+  export const filterSensitiveLog = (obj: DisabledApiException): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisabledApiException =>
@@ -125,7 +127,7 @@ export interface DuplicateRequestException
 }
 
 export namespace DuplicateRequestException {
-  export const filterSensitiveLog = (obj: DuplicateRequestException) => ({
+  export const filterSensitiveLog = (obj: DuplicateRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is DuplicateRequestException =>
@@ -148,7 +150,7 @@ export interface ExpiredTokenException
 }
 
 export namespace ExpiredTokenException {
-  export const filterSensitiveLog = (obj: ExpiredTokenException) => ({
+  export const filterSensitiveLog = (obj: ExpiredTokenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ExpiredTokenException =>
@@ -168,7 +170,9 @@ export interface InternalServiceErrorException
 }
 
 export namespace InternalServiceErrorException {
-  export const filterSensitiveLog = (obj: InternalServiceErrorException) => ({
+  export const filterSensitiveLog = (
+    obj: InternalServiceErrorException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServiceErrorException =>
@@ -189,7 +193,7 @@ export interface InvalidCustomerIdentifierException
 export namespace InvalidCustomerIdentifierException {
   export const filterSensitiveLog = (
     obj: InvalidCustomerIdentifierException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidCustomerIdentifierException =>
@@ -210,7 +214,9 @@ export interface InvalidEndpointRegionException
 }
 
 export namespace InvalidEndpointRegionException {
-  export const filterSensitiveLog = (obj: InvalidEndpointRegionException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidEndpointRegionException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidEndpointRegionException =>
@@ -230,7 +236,9 @@ export interface InvalidProductCodeException
 }
 
 export namespace InvalidProductCodeException {
-  export const filterSensitiveLog = (obj: InvalidProductCodeException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidProductCodeException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidProductCodeException =>
@@ -251,7 +259,7 @@ export interface InvalidPublicKeyVersionException
 export namespace InvalidPublicKeyVersionException {
   export const filterSensitiveLog = (
     obj: InvalidPublicKeyVersionException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidPublicKeyVersionException =>
@@ -272,7 +280,7 @@ export interface InvalidRegionException
 }
 
 export namespace InvalidRegionException {
-  export const filterSensitiveLog = (obj: InvalidRegionException) => ({
+  export const filterSensitiveLog = (obj: InvalidRegionException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidRegionException =>
@@ -291,7 +299,7 @@ export interface InvalidTokenException
 }
 
 export namespace InvalidTokenException {
-  export const filterSensitiveLog = (obj: InvalidTokenException) => ({
+  export const filterSensitiveLog = (obj: InvalidTokenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidTokenException =>
@@ -311,7 +319,9 @@ export interface InvalidUsageDimensionException
 }
 
 export namespace InvalidUsageDimensionException {
-  export const filterSensitiveLog = (obj: InvalidUsageDimensionException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidUsageDimensionException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidUsageDimensionException =>
@@ -356,7 +366,7 @@ export interface MeterUsageRequest {
 }
 
 export namespace MeterUsageRequest {
-  export const filterSensitiveLog = (obj: MeterUsageRequest) => ({
+  export const filterSensitiveLog = (obj: MeterUsageRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is MeterUsageRequest =>
@@ -372,7 +382,7 @@ export interface MeterUsageResult {
 }
 
 export namespace MeterUsageResult {
-  export const filterSensitiveLog = (obj: MeterUsageResult) => ({
+  export const filterSensitiveLog = (obj: MeterUsageResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is MeterUsageResult =>
@@ -392,7 +402,9 @@ export interface PlatformNotSupportedException
 }
 
 export namespace PlatformNotSupportedException {
-  export const filterSensitiveLog = (obj: PlatformNotSupportedException) => ({
+  export const filterSensitiveLog = (
+    obj: PlatformNotSupportedException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is PlatformNotSupportedException =>
@@ -421,7 +433,7 @@ export interface RegisterUsageRequest {
 }
 
 export namespace RegisterUsageRequest {
-  export const filterSensitiveLog = (obj: RegisterUsageRequest) => ({
+  export const filterSensitiveLog = (obj: RegisterUsageRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is RegisterUsageRequest =>
@@ -442,7 +454,7 @@ export interface RegisterUsageResult {
 }
 
 export namespace RegisterUsageResult {
-  export const filterSensitiveLog = (obj: RegisterUsageResult) => ({
+  export const filterSensitiveLog = (obj: RegisterUsageResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is RegisterUsageResult =>
@@ -463,7 +475,7 @@ export interface ResolveCustomerRequest {
 }
 
 export namespace ResolveCustomerRequest {
-  export const filterSensitiveLog = (obj: ResolveCustomerRequest) => ({
+  export const filterSensitiveLog = (obj: ResolveCustomerRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResolveCustomerRequest =>
@@ -492,7 +504,7 @@ export interface ResolveCustomerResult {
 }
 
 export namespace ResolveCustomerResult {
-  export const filterSensitiveLog = (obj: ResolveCustomerResult) => ({
+  export const filterSensitiveLog = (obj: ResolveCustomerResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResolveCustomerResult =>
@@ -511,7 +523,7 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ThrottlingException =>
@@ -530,7 +542,9 @@ export interface TimestampOutOfBoundsException
 }
 
 export namespace TimestampOutOfBoundsException {
-  export const filterSensitiveLog = (obj: TimestampOutOfBoundsException) => ({
+  export const filterSensitiveLog = (
+    obj: TimestampOutOfBoundsException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TimestampOutOfBoundsException =>
@@ -573,7 +587,7 @@ export interface UsageRecord {
 }
 
 export namespace UsageRecord {
-  export const filterSensitiveLog = (obj: UsageRecord) => ({
+  export const filterSensitiveLog = (obj: UsageRecord): any => ({
     ...obj
   });
   export const isa = (o: any): o is UsageRecord => __isa(o, "UsageRecord");
@@ -623,7 +637,7 @@ export interface UsageRecordResult {
 }
 
 export namespace UsageRecordResult {
-  export const filterSensitiveLog = (obj: UsageRecordResult) => ({
+  export const filterSensitiveLog = (obj: UsageRecordResult): any => ({
     ...obj,
     ...(obj.UsageRecord && {
       UsageRecord: UsageRecord.filterSensitiveLog(obj.UsageRecord)

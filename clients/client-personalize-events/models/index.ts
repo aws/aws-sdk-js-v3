@@ -56,7 +56,7 @@ export interface Event {
 }
 
 export namespace Event {
-  export const filterSensitiveLog = (obj: Event) => ({
+  export const filterSensitiveLog = (obj: Event): any => ({
     ...obj
   });
   export const isa = (o: any): o is Event => __isa(o, "Event");
@@ -88,7 +88,7 @@ export interface PutEventsRequest {
 }
 
 export namespace PutEventsRequest {
-  export const filterSensitiveLog = (obj: PutEventsRequest) => ({
+  export const filterSensitiveLog = (obj: PutEventsRequest): any => ({
     ...obj,
     ...(obj.eventList && {
       eventList: obj.eventList.map(Event.filterSensitiveLog)
@@ -110,7 +110,7 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
-  export const filterSensitiveLog = (obj: InvalidInputException) => ({
+  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidInputException =>

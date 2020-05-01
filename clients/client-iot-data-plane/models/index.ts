@@ -20,7 +20,7 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
-  export const filterSensitiveLog = (obj: InternalFailureException) => ({
+  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalFailureException =>
@@ -42,7 +42,7 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const filterSensitiveLog = (obj: InvalidRequestException) => ({
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidRequestException =>
@@ -64,7 +64,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -86,7 +86,9 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (obj: ServiceUnavailableException) => ({
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceUnavailableException =>
@@ -108,7 +110,7 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ThrottlingException =>
@@ -130,7 +132,7 @@ export interface UnauthorizedException
 }
 
 export namespace UnauthorizedException {
-  export const filterSensitiveLog = (obj: UnauthorizedException) => ({
+  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnauthorizedException =>
@@ -154,7 +156,7 @@ export interface UnsupportedDocumentEncodingException
 export namespace UnsupportedDocumentEncodingException {
   export const filterSensitiveLog = (
     obj: UnsupportedDocumentEncodingException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnsupportedDocumentEncodingException =>
@@ -174,7 +176,7 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export const filterSensitiveLog = (obj: ConflictException) => ({
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConflictException =>
@@ -193,7 +195,7 @@ export interface DeleteThingShadowRequest {
 }
 
 export namespace DeleteThingShadowRequest {
-  export const filterSensitiveLog = (obj: DeleteThingShadowRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteThingShadowRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteThingShadowRequest =>
@@ -212,7 +214,7 @@ export interface DeleteThingShadowResponse {
 }
 
 export namespace DeleteThingShadowResponse {
-  export const filterSensitiveLog = (obj: DeleteThingShadowResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteThingShadowResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteThingShadowResponse =>
@@ -231,7 +233,7 @@ export interface GetThingShadowRequest {
 }
 
 export namespace GetThingShadowRequest {
-  export const filterSensitiveLog = (obj: GetThingShadowRequest) => ({
+  export const filterSensitiveLog = (obj: GetThingShadowRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetThingShadowRequest =>
@@ -250,7 +252,7 @@ export interface GetThingShadowResponse {
 }
 
 export namespace GetThingShadowResponse {
-  export const filterSensitiveLog = (obj: GetThingShadowResponse) => ({
+  export const filterSensitiveLog = (obj: GetThingShadowResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetThingShadowResponse =>
@@ -272,7 +274,7 @@ export interface MethodNotAllowedException
 }
 
 export namespace MethodNotAllowedException {
-  export const filterSensitiveLog = (obj: MethodNotAllowedException) => ({
+  export const filterSensitiveLog = (obj: MethodNotAllowedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is MethodNotAllowedException =>
@@ -301,7 +303,7 @@ export interface PublishRequest {
 }
 
 export namespace PublishRequest {
-  export const filterSensitiveLog = (obj: PublishRequest) => ({
+  export const filterSensitiveLog = (obj: PublishRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is PublishRequest =>
@@ -323,7 +325,9 @@ export interface RequestEntityTooLargeException
 }
 
 export namespace RequestEntityTooLargeException {
-  export const filterSensitiveLog = (obj: RequestEntityTooLargeException) => ({
+  export const filterSensitiveLog = (
+    obj: RequestEntityTooLargeException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is RequestEntityTooLargeException =>
@@ -347,7 +351,7 @@ export interface UpdateThingShadowRequest {
 }
 
 export namespace UpdateThingShadowRequest {
-  export const filterSensitiveLog = (obj: UpdateThingShadowRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateThingShadowRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateThingShadowRequest =>
@@ -366,7 +370,7 @@ export interface UpdateThingShadowResponse {
 }
 
 export namespace UpdateThingShadowResponse {
-  export const filterSensitiveLog = (obj: UpdateThingShadowResponse) => ({
+  export const filterSensitiveLog = (obj: UpdateThingShadowResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateThingShadowResponse =>

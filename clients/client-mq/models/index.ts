@@ -17,7 +17,7 @@ export interface AvailabilityZone {
 }
 
 export namespace AvailabilityZone {
-  export const filterSensitiveLog = (obj: AvailabilityZone) => ({
+  export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
     ...obj
   });
   export const isa = (o: any): o is AvailabilityZone =>
@@ -44,7 +44,7 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export const filterSensitiveLog = (obj: BadRequestException) => ({
+  export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is BadRequestException =>
@@ -68,7 +68,7 @@ export interface BrokerEngineType {
 }
 
 export namespace BrokerEngineType {
-  export const filterSensitiveLog = (obj: BrokerEngineType) => ({
+  export const filterSensitiveLog = (obj: BrokerEngineType): any => ({
     ...obj,
     ...(obj.EngineVersions && {
       EngineVersions: obj.EngineVersions.map(EngineVersion.filterSensitiveLog)
@@ -100,7 +100,7 @@ export interface BrokerInstance {
 }
 
 export namespace BrokerInstance {
-  export const filterSensitiveLog = (obj: BrokerInstance) => ({
+  export const filterSensitiveLog = (obj: BrokerInstance): any => ({
     ...obj
   });
   export const isa = (o: any): o is BrokerInstance =>
@@ -144,7 +144,7 @@ export interface BrokerInstanceOption {
 }
 
 export namespace BrokerInstanceOption {
-  export const filterSensitiveLog = (obj: BrokerInstanceOption) => ({
+  export const filterSensitiveLog = (obj: BrokerInstanceOption): any => ({
     ...obj,
     ...(obj.AvailabilityZones && {
       AvailabilityZones: obj.AvailabilityZones.map(
@@ -211,7 +211,7 @@ export interface BrokerSummary {
 }
 
 export namespace BrokerSummary {
-  export const filterSensitiveLog = (obj: BrokerSummary) => ({
+  export const filterSensitiveLog = (obj: BrokerSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is BrokerSummary => __isa(o, "BrokerSummary");
@@ -275,7 +275,7 @@ export interface Configuration {
 }
 
 export namespace Configuration {
-  export const filterSensitiveLog = (obj: Configuration) => ({
+  export const filterSensitiveLog = (obj: Configuration): any => ({
     ...obj,
     ...(obj.LatestRevision && {
       LatestRevision: ConfigurationRevision.filterSensitiveLog(
@@ -303,7 +303,7 @@ export interface ConfigurationId {
 }
 
 export namespace ConfigurationId {
-  export const filterSensitiveLog = (obj: ConfigurationId) => ({
+  export const filterSensitiveLog = (obj: ConfigurationId): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConfigurationId =>
@@ -332,7 +332,7 @@ export interface ConfigurationRevision {
 }
 
 export namespace ConfigurationRevision {
-  export const filterSensitiveLog = (obj: ConfigurationRevision) => ({
+  export const filterSensitiveLog = (obj: ConfigurationRevision): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConfigurationRevision =>
@@ -361,7 +361,7 @@ export interface Configurations {
 }
 
 export namespace Configurations {
-  export const filterSensitiveLog = (obj: Configurations) => ({
+  export const filterSensitiveLog = (obj: Configurations): any => ({
     ...obj,
     ...(obj.Current && {
       Current: ConfigurationId.filterSensitiveLog(obj.Current)
@@ -395,7 +395,7 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export const filterSensitiveLog = (obj: ConflictException) => ({
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConflictException =>
@@ -494,7 +494,7 @@ export interface CreateBrokerRequest {
 }
 
 export namespace CreateBrokerRequest {
-  export const filterSensitiveLog = (obj: CreateBrokerRequest) => ({
+  export const filterSensitiveLog = (obj: CreateBrokerRequest): any => ({
     ...obj,
     ...(obj.Configuration && {
       Configuration: ConfigurationId.filterSensitiveLog(obj.Configuration)
@@ -530,7 +530,7 @@ export interface CreateBrokerResponse {
 }
 
 export namespace CreateBrokerResponse {
-  export const filterSensitiveLog = (obj: CreateBrokerResponse) => ({
+  export const filterSensitiveLog = (obj: CreateBrokerResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateBrokerResponse =>
@@ -564,7 +564,7 @@ export interface CreateConfigurationRequest {
 }
 
 export namespace CreateConfigurationRequest {
-  export const filterSensitiveLog = (obj: CreateConfigurationRequest) => ({
+  export const filterSensitiveLog = (obj: CreateConfigurationRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateConfigurationRequest =>
@@ -600,7 +600,9 @@ export interface CreateConfigurationResponse {
 }
 
 export namespace CreateConfigurationResponse {
-  export const filterSensitiveLog = (obj: CreateConfigurationResponse) => ({
+  export const filterSensitiveLog = (
+    obj: CreateConfigurationResponse
+  ): any => ({
     ...obj,
     ...(obj.LatestRevision && {
       LatestRevision: ConfigurationRevision.filterSensitiveLog(
@@ -629,7 +631,7 @@ export interface CreateTagsRequest {
 }
 
 export namespace CreateTagsRequest {
-  export const filterSensitiveLog = (obj: CreateTagsRequest) => ({
+  export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateTagsRequest =>
@@ -668,7 +670,7 @@ export interface CreateUserRequest {
 }
 
 export namespace CreateUserRequest {
-  export const filterSensitiveLog = (obj: CreateUserRequest) => ({
+  export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateUserRequest =>
@@ -680,7 +682,7 @@ export interface CreateUserResponse {
 }
 
 export namespace CreateUserResponse {
-  export const filterSensitiveLog = (obj: CreateUserResponse) => ({
+  export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateUserResponse =>
@@ -706,7 +708,7 @@ export interface DeleteBrokerRequest {
 }
 
 export namespace DeleteBrokerRequest {
-  export const filterSensitiveLog = (obj: DeleteBrokerRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteBrokerRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteBrokerRequest =>
@@ -722,7 +724,7 @@ export interface DeleteBrokerResponse {
 }
 
 export namespace DeleteBrokerResponse {
-  export const filterSensitiveLog = (obj: DeleteBrokerResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteBrokerResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteBrokerResponse =>
@@ -743,7 +745,7 @@ export interface DeleteTagsRequest {
 }
 
 export namespace DeleteTagsRequest {
-  export const filterSensitiveLog = (obj: DeleteTagsRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteTagsRequest =>
@@ -764,7 +766,7 @@ export interface DeleteUserRequest {
 }
 
 export namespace DeleteUserRequest {
-  export const filterSensitiveLog = (obj: DeleteUserRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteUserRequest =>
@@ -776,7 +778,7 @@ export interface DeleteUserResponse {
 }
 
 export namespace DeleteUserResponse {
-  export const filterSensitiveLog = (obj: DeleteUserResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteUserResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteUserResponse =>
@@ -809,7 +811,7 @@ export interface DescribeBrokerEngineTypesRequest {
 export namespace DescribeBrokerEngineTypesRequest {
   export const filterSensitiveLog = (
     obj: DescribeBrokerEngineTypesRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeBrokerEngineTypesRequest =>
@@ -837,7 +839,7 @@ export interface DescribeBrokerEngineTypesResponse {
 export namespace DescribeBrokerEngineTypesResponse {
   export const filterSensitiveLog = (
     obj: DescribeBrokerEngineTypesResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.BrokerEngineTypes && {
       BrokerEngineTypes: obj.BrokerEngineTypes.map(
@@ -880,7 +882,7 @@ export interface DescribeBrokerInstanceOptionsRequest {
 export namespace DescribeBrokerInstanceOptionsRequest {
   export const filterSensitiveLog = (
     obj: DescribeBrokerInstanceOptionsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeBrokerInstanceOptionsRequest =>
@@ -908,7 +910,7 @@ export interface DescribeBrokerInstanceOptionsResponse {
 export namespace DescribeBrokerInstanceOptionsResponse {
   export const filterSensitiveLog = (
     obj: DescribeBrokerInstanceOptionsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.BrokerInstanceOptions && {
       BrokerInstanceOptions: obj.BrokerInstanceOptions.map(
@@ -929,7 +931,7 @@ export interface DescribeBrokerRequest {
 }
 
 export namespace DescribeBrokerRequest {
-  export const filterSensitiveLog = (obj: DescribeBrokerRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeBrokerRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeBrokerRequest =>
@@ -1060,7 +1062,7 @@ export interface DescribeBrokerResponse {
 }
 
 export namespace DescribeBrokerResponse {
-  export const filterSensitiveLog = (obj: DescribeBrokerResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeBrokerResponse): any => ({
     ...obj,
     ...(obj.BrokerInstances && {
       BrokerInstances: obj.BrokerInstances.map(
@@ -1096,7 +1098,9 @@ export interface DescribeConfigurationRequest {
 }
 
 export namespace DescribeConfigurationRequest {
-  export const filterSensitiveLog = (obj: DescribeConfigurationRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeConfigurationRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeConfigurationRequest =>
@@ -1152,7 +1156,9 @@ export interface DescribeConfigurationResponse {
 }
 
 export namespace DescribeConfigurationResponse {
-  export const filterSensitiveLog = (obj: DescribeConfigurationResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeConfigurationResponse
+  ): any => ({
     ...obj,
     ...(obj.LatestRevision && {
       LatestRevision: ConfigurationRevision.filterSensitiveLog(
@@ -1180,7 +1186,7 @@ export interface DescribeConfigurationRevisionRequest {
 export namespace DescribeConfigurationRevisionRequest {
   export const filterSensitiveLog = (
     obj: DescribeConfigurationRevisionRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeConfigurationRevisionRequest =>
@@ -1213,7 +1219,7 @@ export interface DescribeConfigurationRevisionResponse {
 export namespace DescribeConfigurationRevisionResponse {
   export const filterSensitiveLog = (
     obj: DescribeConfigurationRevisionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeConfigurationRevisionResponse =>
@@ -1234,7 +1240,7 @@ export interface DescribeUserRequest {
 }
 
 export namespace DescribeUserRequest {
-  export const filterSensitiveLog = (obj: DescribeUserRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeUserRequest =>
@@ -1270,7 +1276,7 @@ export interface DescribeUserResponse {
 }
 
 export namespace DescribeUserResponse {
-  export const filterSensitiveLog = (obj: DescribeUserResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
     ...obj,
     ...(obj.Pending && {
       Pending: UserPendingChanges.filterSensitiveLog(obj.Pending)
@@ -1297,7 +1303,7 @@ export interface EncryptionOptions {
 }
 
 export namespace EncryptionOptions {
-  export const filterSensitiveLog = (obj: EncryptionOptions) => ({
+  export const filterSensitiveLog = (obj: EncryptionOptions): any => ({
     ...obj
   });
   export const isa = (o: any): o is EncryptionOptions =>
@@ -1320,7 +1326,7 @@ export interface EngineVersion {
 }
 
 export namespace EngineVersion {
-  export const filterSensitiveLog = (obj: EngineVersion) => ({
+  export const filterSensitiveLog = (obj: EngineVersion): any => ({
     ...obj
   });
   export const isa = (o: any): o is EngineVersion => __isa(o, "EngineVersion");
@@ -1344,7 +1350,7 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export const filterSensitiveLog = (obj: ForbiddenException) => ({
+  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ForbiddenException =>
@@ -1371,7 +1377,9 @@ export interface InternalServerErrorException
 }
 
 export namespace InternalServerErrorException {
-  export const filterSensitiveLog = (obj: InternalServerErrorException) => ({
+  export const filterSensitiveLog = (
+    obj: InternalServerErrorException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerErrorException =>
@@ -1392,7 +1400,7 @@ export interface ListBrokersRequest {
 }
 
 export namespace ListBrokersRequest {
-  export const filterSensitiveLog = (obj: ListBrokersRequest) => ({
+  export const filterSensitiveLog = (obj: ListBrokersRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListBrokersRequest =>
@@ -1413,7 +1421,7 @@ export interface ListBrokersResponse {
 }
 
 export namespace ListBrokersResponse {
-  export const filterSensitiveLog = (obj: ListBrokersResponse) => ({
+  export const filterSensitiveLog = (obj: ListBrokersResponse): any => ({
     ...obj,
     ...(obj.BrokerSummaries && {
       BrokerSummaries: obj.BrokerSummaries.map(BrokerSummary.filterSensitiveLog)
@@ -1444,7 +1452,7 @@ export interface ListConfigurationRevisionsRequest {
 export namespace ListConfigurationRevisionsRequest {
   export const filterSensitiveLog = (
     obj: ListConfigurationRevisionsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListConfigurationRevisionsRequest =>
@@ -1477,7 +1485,7 @@ export interface ListConfigurationRevisionsResponse {
 export namespace ListConfigurationRevisionsResponse {
   export const filterSensitiveLog = (
     obj: ListConfigurationRevisionsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Revisions && {
       Revisions: obj.Revisions.map(ConfigurationRevision.filterSensitiveLog)
@@ -1501,7 +1509,7 @@ export interface ListConfigurationsRequest {
 }
 
 export namespace ListConfigurationsRequest {
-  export const filterSensitiveLog = (obj: ListConfigurationsRequest) => ({
+  export const filterSensitiveLog = (obj: ListConfigurationsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListConfigurationsRequest =>
@@ -1527,7 +1535,7 @@ export interface ListConfigurationsResponse {
 }
 
 export namespace ListConfigurationsResponse {
-  export const filterSensitiveLog = (obj: ListConfigurationsResponse) => ({
+  export const filterSensitiveLog = (obj: ListConfigurationsResponse): any => ({
     ...obj,
     ...(obj.Configurations && {
       Configurations: obj.Configurations.map(Configuration.filterSensitiveLog)
@@ -1546,7 +1554,7 @@ export interface ListTagsRequest {
 }
 
 export namespace ListTagsRequest {
-  export const filterSensitiveLog = (obj: ListTagsRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsRequest =>
@@ -1562,7 +1570,7 @@ export interface ListTagsResponse {
 }
 
 export namespace ListTagsResponse {
-  export const filterSensitiveLog = (obj: ListTagsResponse) => ({
+  export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsResponse =>
@@ -1588,7 +1596,7 @@ export interface ListUsersRequest {
 }
 
 export namespace ListUsersRequest {
-  export const filterSensitiveLog = (obj: ListUsersRequest) => ({
+  export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListUsersRequest =>
@@ -1619,7 +1627,7 @@ export interface ListUsersResponse {
 }
 
 export namespace ListUsersResponse {
-  export const filterSensitiveLog = (obj: ListUsersResponse) => ({
+  export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
     ...obj,
     ...(obj.Users && { Users: obj.Users.map(UserSummary.filterSensitiveLog) })
   });
@@ -1644,7 +1652,7 @@ export interface Logs {
 }
 
 export namespace Logs {
-  export const filterSensitiveLog = (obj: Logs) => ({
+  export const filterSensitiveLog = (obj: Logs): any => ({
     ...obj
   });
   export const isa = (o: any): o is Logs => __isa(o, "Logs");
@@ -1682,7 +1690,7 @@ export interface LogsSummary {
 }
 
 export namespace LogsSummary {
-  export const filterSensitiveLog = (obj: LogsSummary) => ({
+  export const filterSensitiveLog = (obj: LogsSummary): any => ({
     ...obj,
     ...(obj.Pending && { Pending: PendingLogs.filterSensitiveLog(obj.Pending) })
   });
@@ -1707,7 +1715,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const filterSensitiveLog = (obj: NotFoundException) => ({
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is NotFoundException =>
@@ -1731,7 +1739,7 @@ export interface PendingLogs {
 }
 
 export namespace PendingLogs {
-  export const filterSensitiveLog = (obj: PendingLogs) => ({
+  export const filterSensitiveLog = (obj: PendingLogs): any => ({
     ...obj
   });
   export const isa = (o: any): o is PendingLogs => __isa(o, "PendingLogs");
@@ -1746,7 +1754,7 @@ export interface RebootBrokerRequest {
 }
 
 export namespace RebootBrokerRequest {
-  export const filterSensitiveLog = (obj: RebootBrokerRequest) => ({
+  export const filterSensitiveLog = (obj: RebootBrokerRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is RebootBrokerRequest =>
@@ -1758,7 +1766,7 @@ export interface RebootBrokerResponse {
 }
 
 export namespace RebootBrokerResponse {
-  export const filterSensitiveLog = (obj: RebootBrokerResponse) => ({
+  export const filterSensitiveLog = (obj: RebootBrokerResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is RebootBrokerResponse =>
@@ -1787,7 +1795,7 @@ export interface SanitizationWarning {
 }
 
 export namespace SanitizationWarning {
-  export const filterSensitiveLog = (obj: SanitizationWarning) => ({
+  export const filterSensitiveLog = (obj: SanitizationWarning): any => ({
     ...obj
   });
   export const isa = (o: any): o is SanitizationWarning =>
@@ -1820,7 +1828,7 @@ export interface UnauthorizedException
 }
 
 export namespace UnauthorizedException {
-  export const filterSensitiveLog = (obj: UnauthorizedException) => ({
+  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnauthorizedException =>
@@ -1869,7 +1877,7 @@ export interface UpdateBrokerRequest {
 }
 
 export namespace UpdateBrokerRequest {
-  export const filterSensitiveLog = (obj: UpdateBrokerRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateBrokerRequest): any => ({
     ...obj,
     ...(obj.Configuration && {
       Configuration: ConfigurationId.filterSensitiveLog(obj.Configuration)
@@ -1919,7 +1927,7 @@ export interface UpdateBrokerResponse {
 }
 
 export namespace UpdateBrokerResponse {
-  export const filterSensitiveLog = (obj: UpdateBrokerResponse) => ({
+  export const filterSensitiveLog = (obj: UpdateBrokerResponse): any => ({
     ...obj,
     ...(obj.Configuration && {
       Configuration: ConfigurationId.filterSensitiveLog(obj.Configuration)
@@ -1952,7 +1960,7 @@ export interface UpdateConfigurationRequest {
 }
 
 export namespace UpdateConfigurationRequest {
-  export const filterSensitiveLog = (obj: UpdateConfigurationRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateConfigurationRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateConfigurationRequest =>
@@ -1993,7 +2001,9 @@ export interface UpdateConfigurationResponse {
 }
 
 export namespace UpdateConfigurationResponse {
-  export const filterSensitiveLog = (obj: UpdateConfigurationResponse) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateConfigurationResponse
+  ): any => ({
     ...obj,
     ...(obj.LatestRevision && {
       LatestRevision: ConfigurationRevision.filterSensitiveLog(
@@ -2040,7 +2050,7 @@ export interface UpdateUserRequest {
 }
 
 export namespace UpdateUserRequest {
-  export const filterSensitiveLog = (obj: UpdateUserRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateUserRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateUserRequest =>
@@ -2052,7 +2062,7 @@ export interface UpdateUserResponse {
 }
 
 export namespace UpdateUserResponse {
-  export const filterSensitiveLog = (obj: UpdateUserResponse) => ({
+  export const filterSensitiveLog = (obj: UpdateUserResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateUserResponse =>
@@ -2086,7 +2096,7 @@ export interface User {
 }
 
 export namespace User {
-  export const filterSensitiveLog = (obj: User) => ({
+  export const filterSensitiveLog = (obj: User): any => ({
     ...obj
   });
   export const isa = (o: any): o is User => __isa(o, "User");
@@ -2114,7 +2124,7 @@ export interface UserPendingChanges {
 }
 
 export namespace UserPendingChanges {
-  export const filterSensitiveLog = (obj: UserPendingChanges) => ({
+  export const filterSensitiveLog = (obj: UserPendingChanges): any => ({
     ...obj
   });
   export const isa = (o: any): o is UserPendingChanges =>
@@ -2138,7 +2148,7 @@ export interface UserSummary {
 }
 
 export namespace UserSummary {
-  export const filterSensitiveLog = (obj: UserSummary) => ({
+  export const filterSensitiveLog = (obj: UserSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is UserSummary => __isa(o, "UserSummary");
@@ -2166,7 +2176,7 @@ export interface WeeklyStartTime {
 }
 
 export namespace WeeklyStartTime {
-  export const filterSensitiveLog = (obj: WeeklyStartTime) => ({
+  export const filterSensitiveLog = (obj: WeeklyStartTime): any => ({
     ...obj
   });
   export const isa = (o: any): o is WeeklyStartTime =>

@@ -20,7 +20,7 @@ export interface AttributeValue {
 }
 
 export namespace AttributeValue {
-  export const filterSensitiveLog = (obj: AttributeValue) => ({
+  export const filterSensitiveLog = (obj: AttributeValue): any => ({
     ...obj
   });
   export const isa = (o: any): o is AttributeValue =>
@@ -56,7 +56,7 @@ export interface DescribeServicesRequest {
 }
 
 export namespace DescribeServicesRequest {
-  export const filterSensitiveLog = (obj: DescribeServicesRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeServicesRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeServicesRequest =>
@@ -82,7 +82,7 @@ export interface DescribeServicesResponse {
 }
 
 export namespace DescribeServicesResponse {
-  export const filterSensitiveLog = (obj: DescribeServicesResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeServicesResponse): any => ({
     ...obj,
     ...(obj.Services && {
       Services: obj.Services.map(Service.filterSensitiveLog)
@@ -104,7 +104,7 @@ export interface ExpiredNextTokenException
 }
 
 export namespace ExpiredNextTokenException {
-  export const filterSensitiveLog = (obj: ExpiredNextTokenException) => ({
+  export const filterSensitiveLog = (obj: ExpiredNextTokenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ExpiredNextTokenException =>
@@ -145,7 +145,7 @@ export interface Filter {
 }
 
 export namespace Filter {
-  export const filterSensitiveLog = (obj: Filter) => ({
+  export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj
   });
   export const isa = (o: any): o is Filter => __isa(o, "Filter");
@@ -180,7 +180,7 @@ export interface GetAttributeValuesRequest {
 }
 
 export namespace GetAttributeValuesRequest {
-  export const filterSensitiveLog = (obj: GetAttributeValuesRequest) => ({
+  export const filterSensitiveLog = (obj: GetAttributeValuesRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetAttributeValuesRequest =>
@@ -203,7 +203,7 @@ export interface GetAttributeValuesResponse {
 }
 
 export namespace GetAttributeValuesResponse {
-  export const filterSensitiveLog = (obj: GetAttributeValuesResponse) => ({
+  export const filterSensitiveLog = (obj: GetAttributeValuesResponse): any => ({
     ...obj,
     ...(obj.AttributeValues && {
       AttributeValues: obj.AttributeValues.map(
@@ -247,7 +247,7 @@ export interface GetProductsRequest {
 }
 
 export namespace GetProductsRequest {
-  export const filterSensitiveLog = (obj: GetProductsRequest) => ({
+  export const filterSensitiveLog = (obj: GetProductsRequest): any => ({
     ...obj,
     ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
@@ -275,7 +275,7 @@ export interface GetProductsResponse {
 }
 
 export namespace GetProductsResponse {
-  export const filterSensitiveLog = (obj: GetProductsResponse) => ({
+  export const filterSensitiveLog = (obj: GetProductsResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetProductsResponse =>
@@ -294,7 +294,7 @@ export interface InternalErrorException
 }
 
 export namespace InternalErrorException {
-  export const filterSensitiveLog = (obj: InternalErrorException) => ({
+  export const filterSensitiveLog = (obj: InternalErrorException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalErrorException =>
@@ -313,7 +313,7 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export const filterSensitiveLog = (obj: InvalidNextTokenException) => ({
+  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidNextTokenException =>
@@ -332,7 +332,7 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export const filterSensitiveLog = (obj: InvalidParameterException) => ({
+  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidParameterException =>
@@ -349,7 +349,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const filterSensitiveLog = (obj: NotFoundException) => ({
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is NotFoundException =>
@@ -373,7 +373,7 @@ export interface Service {
 }
 
 export namespace Service {
-  export const filterSensitiveLog = (obj: Service) => ({
+  export const filterSensitiveLog = (obj: Service): any => ({
     ...obj
   });
   export const isa = (o: any): o is Service => __isa(o, "Service");

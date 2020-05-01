@@ -20,7 +20,7 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
-  export const filterSensitiveLog = (obj: InternalFailureException) => ({
+  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalFailureException =>
@@ -42,7 +42,7 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const filterSensitiveLog = (obj: InvalidRequestException) => ({
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidRequestException =>
@@ -64,7 +64,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -86,7 +86,9 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (obj: ServiceUnavailableException) => ({
+  export const filterSensitiveLog = (
+    obj: ServiceUnavailableException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceUnavailableException =>
@@ -108,7 +110,7 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ThrottlingException =>
@@ -138,7 +140,7 @@ export interface BatchPutMessageErrorEntry {
 }
 
 export namespace BatchPutMessageErrorEntry {
-  export const filterSensitiveLog = (obj: BatchPutMessageErrorEntry) => ({
+  export const filterSensitiveLog = (obj: BatchPutMessageErrorEntry): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchPutMessageErrorEntry =>
@@ -156,7 +158,7 @@ export interface BatchPutMessageRequest {
 }
 
 export namespace BatchPutMessageRequest {
-  export const filterSensitiveLog = (obj: BatchPutMessageRequest) => ({
+  export const filterSensitiveLog = (obj: BatchPutMessageRequest): any => ({
     ...obj,
     ...(obj.messages && {
       messages: obj.messages.map(Message.filterSensitiveLog)
@@ -175,7 +177,7 @@ export interface BatchPutMessageResponse {
 }
 
 export namespace BatchPutMessageResponse {
-  export const filterSensitiveLog = (obj: BatchPutMessageResponse) => ({
+  export const filterSensitiveLog = (obj: BatchPutMessageResponse): any => ({
     ...obj,
     ...(obj.BatchPutMessageErrorEntries && {
       BatchPutMessageErrorEntries: obj.BatchPutMessageErrorEntries.map(
@@ -210,7 +212,9 @@ export interface BatchUpdateDetectorErrorEntry {
 }
 
 export namespace BatchUpdateDetectorErrorEntry {
-  export const filterSensitiveLog = (obj: BatchUpdateDetectorErrorEntry) => ({
+  export const filterSensitiveLog = (
+    obj: BatchUpdateDetectorErrorEntry
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchUpdateDetectorErrorEntry =>
@@ -226,7 +230,7 @@ export interface BatchUpdateDetectorRequest {
 }
 
 export namespace BatchUpdateDetectorRequest {
-  export const filterSensitiveLog = (obj: BatchUpdateDetectorRequest) => ({
+  export const filterSensitiveLog = (obj: BatchUpdateDetectorRequest): any => ({
     ...obj,
     ...(obj.detectors && {
       detectors: obj.detectors.map(UpdateDetectorRequest.filterSensitiveLog)
@@ -246,7 +250,9 @@ export interface BatchUpdateDetectorResponse {
 }
 
 export namespace BatchUpdateDetectorResponse {
-  export const filterSensitiveLog = (obj: BatchUpdateDetectorResponse) => ({
+  export const filterSensitiveLog = (
+    obj: BatchUpdateDetectorResponse
+  ): any => ({
     ...obj,
     ...(obj.batchUpdateDetectorErrorEntries && {
       batchUpdateDetectorErrorEntries: obj.batchUpdateDetectorErrorEntries.map(
@@ -272,7 +278,7 @@ export interface DescribeDetectorRequest {
 }
 
 export namespace DescribeDetectorRequest {
-  export const filterSensitiveLog = (obj: DescribeDetectorRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeDetectorRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeDetectorRequest =>
@@ -288,7 +294,7 @@ export interface DescribeDetectorResponse {
 }
 
 export namespace DescribeDetectorResponse {
-  export const filterSensitiveLog = (obj: DescribeDetectorResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeDetectorResponse): any => ({
     ...obj,
     ...(obj.detector && { detector: Detector.filterSensitiveLog(obj.detector) })
   });
@@ -334,7 +340,7 @@ export interface Detector {
 }
 
 export namespace Detector {
-  export const filterSensitiveLog = (obj: Detector) => ({
+  export const filterSensitiveLog = (obj: Detector): any => ({
     ...obj,
     ...(obj.state && { state: DetectorState.filterSensitiveLog(obj.state) })
   });
@@ -363,7 +369,7 @@ export interface DetectorState {
 }
 
 export namespace DetectorState {
-  export const filterSensitiveLog = (obj: DetectorState) => ({
+  export const filterSensitiveLog = (obj: DetectorState): any => ({
     ...obj,
     ...(obj.timers && { timers: obj.timers.map(Timer.filterSensitiveLog) }),
     ...(obj.variables && {
@@ -396,7 +402,7 @@ export interface DetectorStateDefinition {
 }
 
 export namespace DetectorStateDefinition {
-  export const filterSensitiveLog = (obj: DetectorStateDefinition) => ({
+  export const filterSensitiveLog = (obj: DetectorStateDefinition): any => ({
     ...obj,
     ...(obj.timers && {
       timers: obj.timers.map(TimerDefinition.filterSensitiveLog)
@@ -421,7 +427,7 @@ export interface DetectorStateSummary {
 }
 
 export namespace DetectorStateSummary {
-  export const filterSensitiveLog = (obj: DetectorStateSummary) => ({
+  export const filterSensitiveLog = (obj: DetectorStateSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is DetectorStateSummary =>
@@ -466,7 +472,7 @@ export interface DetectorSummary {
 }
 
 export namespace DetectorSummary {
-  export const filterSensitiveLog = (obj: DetectorSummary) => ({
+  export const filterSensitiveLog = (obj: DetectorSummary): any => ({
     ...obj,
     ...(obj.state && {
       state: DetectorStateSummary.filterSensitiveLog(obj.state)
@@ -508,7 +514,7 @@ export interface ListDetectorsRequest {
 }
 
 export namespace ListDetectorsRequest {
-  export const filterSensitiveLog = (obj: ListDetectorsRequest) => ({
+  export const filterSensitiveLog = (obj: ListDetectorsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDetectorsRequest =>
@@ -530,7 +536,7 @@ export interface ListDetectorsResponse {
 }
 
 export namespace ListDetectorsResponse {
-  export const filterSensitiveLog = (obj: ListDetectorsResponse) => ({
+  export const filterSensitiveLog = (obj: ListDetectorsResponse): any => ({
     ...obj,
     ...(obj.detectorSummaries && {
       detectorSummaries: obj.detectorSummaries.map(
@@ -566,7 +572,7 @@ export interface Message {
 }
 
 export namespace Message {
-  export const filterSensitiveLog = (obj: Message) => ({
+  export const filterSensitiveLog = (obj: Message): any => ({
     ...obj
   });
   export const isa = (o: any): o is Message => __isa(o, "Message");
@@ -589,7 +595,7 @@ export interface Timer {
 }
 
 export namespace Timer {
-  export const filterSensitiveLog = (obj: Timer) => ({
+  export const filterSensitiveLog = (obj: Timer): any => ({
     ...obj
   });
   export const isa = (o: any): o is Timer => __isa(o, "Timer");
@@ -612,7 +618,7 @@ export interface TimerDefinition {
 }
 
 export namespace TimerDefinition {
-  export const filterSensitiveLog = (obj: TimerDefinition) => ({
+  export const filterSensitiveLog = (obj: TimerDefinition): any => ({
     ...obj
   });
   export const isa = (o: any): o is TimerDefinition =>
@@ -648,7 +654,7 @@ export interface UpdateDetectorRequest {
 }
 
 export namespace UpdateDetectorRequest {
-  export const filterSensitiveLog = (obj: UpdateDetectorRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateDetectorRequest): any => ({
     ...obj,
     ...(obj.state && {
       state: DetectorStateDefinition.filterSensitiveLog(obj.state)
@@ -675,7 +681,7 @@ export interface Variable {
 }
 
 export namespace Variable {
-  export const filterSensitiveLog = (obj: Variable) => ({
+  export const filterSensitiveLog = (obj: Variable): any => ({
     ...obj
   });
   export const isa = (o: any): o is Variable => __isa(o, "Variable");
@@ -698,7 +704,7 @@ export interface VariableDefinition {
 }
 
 export namespace VariableDefinition {
-  export const filterSensitiveLog = (obj: VariableDefinition) => ({
+  export const filterSensitiveLog = (obj: VariableDefinition): any => ({
     ...obj
   });
   export const isa = (o: any): o is VariableDefinition =>

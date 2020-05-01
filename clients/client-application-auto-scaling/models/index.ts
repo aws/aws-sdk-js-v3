@@ -28,7 +28,7 @@ export interface Alarm {
 }
 
 export namespace Alarm {
-  export const filterSensitiveLog = (obj: Alarm) => ({
+  export const filterSensitiveLog = (obj: Alarm): any => ({
     ...obj
   });
   export const isa = (o: any): o is Alarm => __isa(o, "Alarm");
@@ -47,7 +47,7 @@ export interface ConcurrentUpdateException
 }
 
 export namespace ConcurrentUpdateException {
-  export const filterSensitiveLog = (obj: ConcurrentUpdateException) => ({
+  export const filterSensitiveLog = (obj: ConcurrentUpdateException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConcurrentUpdateException =>
@@ -105,7 +105,9 @@ export interface CustomizedMetricSpecification {
 }
 
 export namespace CustomizedMetricSpecification {
-  export const filterSensitiveLog = (obj: CustomizedMetricSpecification) => ({
+  export const filterSensitiveLog = (
+    obj: CustomizedMetricSpecification
+  ): any => ({
     ...obj,
     ...(obj.Dimensions && {
       Dimensions: obj.Dimensions.map(MetricDimension.filterSensitiveLog)
@@ -242,7 +244,7 @@ export interface DeleteScalingPolicyRequest {
 }
 
 export namespace DeleteScalingPolicyRequest {
-  export const filterSensitiveLog = (obj: DeleteScalingPolicyRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteScalingPolicyRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteScalingPolicyRequest =>
@@ -254,7 +256,9 @@ export interface DeleteScalingPolicyResponse {
 }
 
 export namespace DeleteScalingPolicyResponse {
-  export const filterSensitiveLog = (obj: DeleteScalingPolicyResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteScalingPolicyResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteScalingPolicyResponse =>
@@ -388,7 +392,9 @@ export interface DeleteScheduledActionRequest {
 }
 
 export namespace DeleteScheduledActionRequest {
-  export const filterSensitiveLog = (obj: DeleteScheduledActionRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteScheduledActionRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteScheduledActionRequest =>
@@ -400,7 +406,9 @@ export interface DeleteScheduledActionResponse {
 }
 
 export namespace DeleteScheduledActionResponse {
-  export const filterSensitiveLog = (obj: DeleteScheduledActionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteScheduledActionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteScheduledActionResponse =>
@@ -530,7 +538,9 @@ export interface DeregisterScalableTargetRequest {
 }
 
 export namespace DeregisterScalableTargetRequest {
-  export const filterSensitiveLog = (obj: DeregisterScalableTargetRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeregisterScalableTargetRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeregisterScalableTargetRequest =>
@@ -544,7 +554,7 @@ export interface DeregisterScalableTargetResponse {
 export namespace DeregisterScalableTargetResponse {
   export const filterSensitiveLog = (
     obj: DeregisterScalableTargetResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeregisterScalableTargetResponse =>
@@ -690,7 +700,9 @@ export interface DescribeScalableTargetsRequest {
 }
 
 export namespace DescribeScalableTargetsRequest {
-  export const filterSensitiveLog = (obj: DescribeScalableTargetsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeScalableTargetsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeScalableTargetsRequest =>
@@ -712,7 +724,9 @@ export interface DescribeScalableTargetsResponse {
 }
 
 export namespace DescribeScalableTargetsResponse {
-  export const filterSensitiveLog = (obj: DescribeScalableTargetsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeScalableTargetsResponse
+  ): any => ({
     ...obj,
     ...(obj.ScalableTargets && {
       ScalableTargets: obj.ScalableTargets.map(
@@ -865,7 +879,7 @@ export interface DescribeScalingActivitiesRequest {
 export namespace DescribeScalingActivitiesRequest {
   export const filterSensitiveLog = (
     obj: DescribeScalingActivitiesRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeScalingActivitiesRequest =>
@@ -889,7 +903,7 @@ export interface DescribeScalingActivitiesResponse {
 export namespace DescribeScalingActivitiesResponse {
   export const filterSensitiveLog = (
     obj: DescribeScalingActivitiesResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ScalingActivities && {
       ScalingActivities: obj.ScalingActivities.map(
@@ -1045,7 +1059,9 @@ export interface DescribeScalingPoliciesRequest {
 }
 
 export namespace DescribeScalingPoliciesRequest {
-  export const filterSensitiveLog = (obj: DescribeScalingPoliciesRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeScalingPoliciesRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeScalingPoliciesRequest =>
@@ -1067,7 +1083,9 @@ export interface DescribeScalingPoliciesResponse {
 }
 
 export namespace DescribeScalingPoliciesResponse {
-  export const filterSensitiveLog = (obj: DescribeScalingPoliciesResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeScalingPoliciesResponse
+  ): any => ({
     ...obj,
     ...(obj.ScalingPolicies && {
       ScalingPolicies: obj.ScalingPolicies.map(ScalingPolicy.filterSensitiveLog)
@@ -1221,7 +1239,9 @@ export interface DescribeScheduledActionsRequest {
 }
 
 export namespace DescribeScheduledActionsRequest {
-  export const filterSensitiveLog = (obj: DescribeScheduledActionsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeScheduledActionsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeScheduledActionsRequest =>
@@ -1245,7 +1265,7 @@ export interface DescribeScheduledActionsResponse {
 export namespace DescribeScheduledActionsResponse {
   export const filterSensitiveLog = (
     obj: DescribeScheduledActionsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ScheduledActions && {
       ScheduledActions: obj.ScheduledActions.map(
@@ -1272,7 +1292,9 @@ export interface FailedResourceAccessException
 }
 
 export namespace FailedResourceAccessException {
-  export const filterSensitiveLog = (obj: FailedResourceAccessException) => ({
+  export const filterSensitiveLog = (
+    obj: FailedResourceAccessException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is FailedResourceAccessException =>
@@ -1291,7 +1313,7 @@ export interface InternalServiceException
 }
 
 export namespace InternalServiceException {
-  export const filterSensitiveLog = (obj: InternalServiceException) => ({
+  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServiceException =>
@@ -1310,7 +1332,7 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export const filterSensitiveLog = (obj: InvalidNextTokenException) => ({
+  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidNextTokenException =>
@@ -1329,7 +1351,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -1359,7 +1381,7 @@ export interface MetricDimension {
 }
 
 export namespace MetricDimension {
-  export const filterSensitiveLog = (obj: MetricDimension) => ({
+  export const filterSensitiveLog = (obj: MetricDimension): any => ({
     ...obj
   });
   export const isa = (o: any): o is MetricDimension =>
@@ -1407,7 +1429,7 @@ export interface ObjectNotFoundException
 }
 
 export namespace ObjectNotFoundException {
-  export const filterSensitiveLog = (obj: ObjectNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ObjectNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ObjectNotFoundException =>
@@ -1454,7 +1476,9 @@ export interface PredefinedMetricSpecification {
 }
 
 export namespace PredefinedMetricSpecification {
-  export const filterSensitiveLog = (obj: PredefinedMetricSpecification) => ({
+  export const filterSensitiveLog = (
+    obj: PredefinedMetricSpecification
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is PredefinedMetricSpecification =>
@@ -1614,7 +1638,7 @@ export interface PutScalingPolicyRequest {
 }
 
 export namespace PutScalingPolicyRequest {
-  export const filterSensitiveLog = (obj: PutScalingPolicyRequest) => ({
+  export const filterSensitiveLog = (obj: PutScalingPolicyRequest): any => ({
     ...obj,
     ...(obj.StepScalingPolicyConfiguration && {
       StepScalingPolicyConfiguration: StepScalingPolicyConfiguration.filterSensitiveLog(
@@ -1645,7 +1669,7 @@ export interface PutScalingPolicyResponse {
 }
 
 export namespace PutScalingPolicyResponse {
-  export const filterSensitiveLog = (obj: PutScalingPolicyResponse) => ({
+  export const filterSensitiveLog = (obj: PutScalingPolicyResponse): any => ({
     ...obj,
     ...(obj.Alarms && { Alarms: obj.Alarms.map(Alarm.filterSensitiveLog) })
   });
@@ -1819,7 +1843,7 @@ export interface PutScheduledActionRequest {
 }
 
 export namespace PutScheduledActionRequest {
-  export const filterSensitiveLog = (obj: PutScheduledActionRequest) => ({
+  export const filterSensitiveLog = (obj: PutScheduledActionRequest): any => ({
     ...obj,
     ...(obj.ScalableTargetAction && {
       ScalableTargetAction: ScalableTargetAction.filterSensitiveLog(
@@ -1836,7 +1860,7 @@ export interface PutScheduledActionResponse {
 }
 
 export namespace PutScheduledActionResponse {
-  export const filterSensitiveLog = (obj: PutScheduledActionResponse) => ({
+  export const filterSensitiveLog = (obj: PutScheduledActionResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutScheduledActionResponse =>
@@ -2015,7 +2039,9 @@ export interface RegisterScalableTargetRequest {
 }
 
 export namespace RegisterScalableTargetRequest {
-  export const filterSensitiveLog = (obj: RegisterScalableTargetRequest) => ({
+  export const filterSensitiveLog = (
+    obj: RegisterScalableTargetRequest
+  ): any => ({
     ...obj,
     ...(obj.SuspendedState && {
       SuspendedState: SuspendedState.filterSensitiveLog(obj.SuspendedState)
@@ -2030,7 +2056,9 @@ export interface RegisterScalableTargetResponse {
 }
 
 export namespace RegisterScalableTargetResponse {
-  export const filterSensitiveLog = (obj: RegisterScalableTargetResponse) => ({
+  export const filterSensitiveLog = (
+    obj: RegisterScalableTargetResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is RegisterScalableTargetResponse =>
@@ -2206,7 +2234,7 @@ export interface ScalableTarget {
 }
 
 export namespace ScalableTarget {
-  export const filterSensitiveLog = (obj: ScalableTarget) => ({
+  export const filterSensitiveLog = (obj: ScalableTarget): any => ({
     ...obj,
     ...(obj.SuspendedState && {
       SuspendedState: SuspendedState.filterSensitiveLog(obj.SuspendedState)
@@ -2233,7 +2261,7 @@ export interface ScalableTargetAction {
 }
 
 export namespace ScalableTargetAction {
-  export const filterSensitiveLog = (obj: ScalableTargetAction) => ({
+  export const filterSensitiveLog = (obj: ScalableTargetAction): any => ({
     ...obj
   });
   export const isa = (o: any): o is ScalableTargetAction =>
@@ -2405,7 +2433,7 @@ export interface ScalingActivity {
 }
 
 export namespace ScalingActivity {
-  export const filterSensitiveLog = (obj: ScalingActivity) => ({
+  export const filterSensitiveLog = (obj: ScalingActivity): any => ({
     ...obj
   });
   export const isa = (o: any): o is ScalingActivity =>
@@ -2581,7 +2609,7 @@ export interface ScalingPolicy {
 }
 
 export namespace ScalingPolicy {
-  export const filterSensitiveLog = (obj: ScalingPolicy) => ({
+  export const filterSensitiveLog = (obj: ScalingPolicy): any => ({
     ...obj,
     ...(obj.Alarms && { Alarms: obj.Alarms.map(Alarm.filterSensitiveLog) }),
     ...(obj.StepScalingPolicyConfiguration && {
@@ -2777,7 +2805,7 @@ export interface ScheduledAction {
 }
 
 export namespace ScheduledAction {
-  export const filterSensitiveLog = (obj: ScheduledAction) => ({
+  export const filterSensitiveLog = (obj: ScheduledAction): any => ({
     ...obj,
     ...(obj.ScalableTargetAction && {
       ScalableTargetAction: ScalableTargetAction.filterSensitiveLog(
@@ -2868,7 +2896,7 @@ export interface StepAdjustment {
 }
 
 export namespace StepAdjustment {
-  export const filterSensitiveLog = (obj: StepAdjustment) => ({
+  export const filterSensitiveLog = (obj: StepAdjustment): any => ({
     ...obj
   });
   export const isa = (o: any): o is StepAdjustment =>
@@ -2933,7 +2961,9 @@ export interface StepScalingPolicyConfiguration {
 }
 
 export namespace StepScalingPolicyConfiguration {
-  export const filterSensitiveLog = (obj: StepScalingPolicyConfiguration) => ({
+  export const filterSensitiveLog = (
+    obj: StepScalingPolicyConfiguration
+  ): any => ({
     ...obj,
     ...(obj.StepAdjustments && {
       StepAdjustments: obj.StepAdjustments.map(
@@ -2974,7 +3004,7 @@ export interface SuspendedState {
 }
 
 export namespace SuspendedState {
-  export const filterSensitiveLog = (obj: SuspendedState) => ({
+  export const filterSensitiveLog = (obj: SuspendedState): any => ({
     ...obj
   });
   export const isa = (o: any): o is SuspendedState =>
@@ -3037,7 +3067,7 @@ export interface TargetTrackingScalingPolicyConfiguration {
 export namespace TargetTrackingScalingPolicyConfiguration {
   export const filterSensitiveLog = (
     obj: TargetTrackingScalingPolicyConfiguration
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CustomizedMetricSpecification && {
       CustomizedMetricSpecification: CustomizedMetricSpecification.filterSensitiveLog(
@@ -3067,7 +3097,7 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const filterSensitiveLog = (obj: ValidationException) => ({
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ValidationException =>

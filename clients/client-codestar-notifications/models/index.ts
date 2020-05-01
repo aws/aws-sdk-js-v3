@@ -18,7 +18,7 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export const filterSensitiveLog = (obj: AccessDeniedException) => ({
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is AccessDeniedException =>
@@ -38,7 +38,9 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
-  export const filterSensitiveLog = (obj: ConcurrentModificationException) => ({
+  export const filterSensitiveLog = (
+    obj: ConcurrentModificationException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConcurrentModificationException =>
@@ -57,7 +59,7 @@ export interface ConfigurationException
 }
 
 export namespace ConfigurationException {
-  export const filterSensitiveLog = (obj: ConfigurationException) => ({
+  export const filterSensitiveLog = (obj: ConfigurationException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConfigurationException =>
@@ -122,7 +124,9 @@ export interface CreateNotificationRuleRequest {
 }
 
 export namespace CreateNotificationRuleRequest {
-  export const filterSensitiveLog = (obj: CreateNotificationRuleRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreateNotificationRuleRequest
+  ): any => ({
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
@@ -140,7 +144,9 @@ export interface CreateNotificationRuleResult {
 }
 
 export namespace CreateNotificationRuleResult {
-  export const filterSensitiveLog = (obj: CreateNotificationRuleResult) => ({
+  export const filterSensitiveLog = (
+    obj: CreateNotificationRuleResult
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateNotificationRuleResult =>
@@ -156,7 +162,9 @@ export interface DeleteNotificationRuleRequest {
 }
 
 export namespace DeleteNotificationRuleRequest {
-  export const filterSensitiveLog = (obj: DeleteNotificationRuleRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteNotificationRuleRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteNotificationRuleRequest =>
@@ -172,7 +180,9 @@ export interface DeleteNotificationRuleResult {
 }
 
 export namespace DeleteNotificationRuleResult {
-  export const filterSensitiveLog = (obj: DeleteNotificationRuleResult) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteNotificationRuleResult
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteNotificationRuleResult =>
@@ -195,7 +205,7 @@ export interface DeleteTargetRequest {
 }
 
 export namespace DeleteTargetRequest {
-  export const filterSensitiveLog = (obj: DeleteTargetRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteTargetRequest): any => ({
     ...obj,
     ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING })
   });
@@ -208,7 +218,7 @@ export interface DeleteTargetResult {
 }
 
 export namespace DeleteTargetResult {
-  export const filterSensitiveLog = (obj: DeleteTargetResult) => ({
+  export const filterSensitiveLog = (obj: DeleteTargetResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteTargetResult =>
@@ -224,7 +234,9 @@ export interface DescribeNotificationRuleRequest {
 }
 
 export namespace DescribeNotificationRuleRequest {
-  export const filterSensitiveLog = (obj: DescribeNotificationRuleRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeNotificationRuleRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeNotificationRuleRequest =>
@@ -295,7 +307,9 @@ export interface DescribeNotificationRuleResult {
 }
 
 export namespace DescribeNotificationRuleResult {
-  export const filterSensitiveLog = (obj: DescribeNotificationRuleResult) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeNotificationRuleResult
+  ): any => ({
     ...obj,
     ...(obj.EventTypes && {
       EventTypes: obj.EventTypes.map(EventTypeSummary.filterSensitiveLog)
@@ -341,7 +355,7 @@ export interface EventTypeSummary {
 }
 
 export namespace EventTypeSummary {
-  export const filterSensitiveLog = (obj: EventTypeSummary) => ({
+  export const filterSensitiveLog = (obj: EventTypeSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is EventTypeSummary =>
@@ -360,7 +374,7 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export const filterSensitiveLog = (obj: InvalidNextTokenException) => ({
+  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidNextTokenException =>
@@ -381,7 +395,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -407,7 +421,7 @@ export interface ListEventTypesFilter {
 }
 
 export namespace ListEventTypesFilter {
-  export const filterSensitiveLog = (obj: ListEventTypesFilter) => ({
+  export const filterSensitiveLog = (obj: ListEventTypesFilter): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListEventTypesFilter =>
@@ -440,7 +454,7 @@ export interface ListEventTypesRequest {
 }
 
 export namespace ListEventTypesRequest {
-  export const filterSensitiveLog = (obj: ListEventTypesRequest) => ({
+  export const filterSensitiveLog = (obj: ListEventTypesRequest): any => ({
     ...obj,
     ...(obj.Filters && {
       Filters: obj.Filters.map(ListEventTypesFilter.filterSensitiveLog)
@@ -465,7 +479,7 @@ export interface ListEventTypesResult {
 }
 
 export namespace ListEventTypesResult {
-  export const filterSensitiveLog = (obj: ListEventTypesResult) => ({
+  export const filterSensitiveLog = (obj: ListEventTypesResult): any => ({
     ...obj,
     ...(obj.EventTypes && {
       EventTypes: obj.EventTypes.map(EventTypeSummary.filterSensitiveLog)
@@ -494,7 +508,9 @@ export interface ListNotificationRulesFilter {
 }
 
 export namespace ListNotificationRulesFilter {
-  export const filterSensitiveLog = (obj: ListNotificationRulesFilter) => ({
+  export const filterSensitiveLog = (
+    obj: ListNotificationRulesFilter
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListNotificationRulesFilter =>
@@ -533,7 +549,9 @@ export interface ListNotificationRulesRequest {
 }
 
 export namespace ListNotificationRulesRequest {
-  export const filterSensitiveLog = (obj: ListNotificationRulesRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListNotificationRulesRequest
+  ): any => ({
     ...obj,
     ...(obj.Filters && {
       Filters: obj.Filters.map(ListNotificationRulesFilter.filterSensitiveLog)
@@ -557,7 +575,9 @@ export interface ListNotificationRulesResult {
 }
 
 export namespace ListNotificationRulesResult {
-  export const filterSensitiveLog = (obj: ListNotificationRulesResult) => ({
+  export const filterSensitiveLog = (
+    obj: ListNotificationRulesResult
+  ): any => ({
     ...obj,
     ...(obj.NotificationRules && {
       NotificationRules: obj.NotificationRules.map(
@@ -578,7 +598,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
@@ -594,7 +614,7 @@ export interface ListTagsForResourceResult {
 }
 
 export namespace ListTagsForResourceResult {
-  export const filterSensitiveLog = (obj: ListTagsForResourceResult) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResult =>
@@ -624,7 +644,7 @@ export interface ListTargetsFilter {
 }
 
 export namespace ListTargetsFilter {
-  export const filterSensitiveLog = (obj: ListTargetsFilter) => ({
+  export const filterSensitiveLog = (obj: ListTargetsFilter): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTargetsFilter =>
@@ -662,7 +682,7 @@ export interface ListTargetsRequest {
 }
 
 export namespace ListTargetsRequest {
-  export const filterSensitiveLog = (obj: ListTargetsRequest) => ({
+  export const filterSensitiveLog = (obj: ListTargetsRequest): any => ({
     ...obj,
     ...(obj.Filters && {
       Filters: obj.Filters.map(ListTargetsFilter.filterSensitiveLog)
@@ -687,7 +707,7 @@ export interface ListTargetsResult {
 }
 
 export namespace ListTargetsResult {
-  export const filterSensitiveLog = (obj: ListTargetsResult) => ({
+  export const filterSensitiveLog = (obj: ListTargetsResult): any => ({
     ...obj,
     ...(obj.Targets && {
       Targets: obj.Targets.map(TargetSummary.filterSensitiveLog)
@@ -719,7 +739,7 @@ export interface NotificationRuleSummary {
 }
 
 export namespace NotificationRuleSummary {
-  export const filterSensitiveLog = (obj: NotificationRuleSummary) => ({
+  export const filterSensitiveLog = (obj: NotificationRuleSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is NotificationRuleSummary =>
@@ -739,7 +759,9 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException) => ({
+  export const filterSensitiveLog = (
+    obj: ResourceAlreadyExistsException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceAlreadyExistsException =>
@@ -758,7 +780,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -785,7 +807,7 @@ export interface SubscribeRequest {
 }
 
 export namespace SubscribeRequest {
-  export const filterSensitiveLog = (obj: SubscribeRequest) => ({
+  export const filterSensitiveLog = (obj: SubscribeRequest): any => ({
     ...obj,
     ...(obj.Target && { Target: Target.filterSensitiveLog(obj.Target) })
   });
@@ -802,7 +824,7 @@ export interface SubscribeResult {
 }
 
 export namespace SubscribeResult {
-  export const filterSensitiveLog = (obj: SubscribeResult) => ({
+  export const filterSensitiveLog = (obj: SubscribeResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is SubscribeResult =>
@@ -823,7 +845,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
@@ -839,7 +861,7 @@ export interface TagResourceResult {
 }
 
 export namespace TagResourceResult {
-  export const filterSensitiveLog = (obj: TagResourceResult) => ({
+  export const filterSensitiveLog = (obj: TagResourceResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceResult =>
@@ -863,7 +885,7 @@ export interface Target {
 }
 
 export namespace Target {
-  export const filterSensitiveLog = (obj: Target) => ({
+  export const filterSensitiveLog = (obj: Target): any => ({
     ...obj,
     ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING })
   });
@@ -900,7 +922,7 @@ export interface TargetSummary {
 }
 
 export namespace TargetSummary {
-  export const filterSensitiveLog = (obj: TargetSummary) => ({
+  export const filterSensitiveLog = (obj: TargetSummary): any => ({
     ...obj,
     ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING })
   });
@@ -921,7 +943,7 @@ export interface UnsubscribeRequest {
 }
 
 export namespace UnsubscribeRequest {
-  export const filterSensitiveLog = (obj: UnsubscribeRequest) => ({
+  export const filterSensitiveLog = (obj: UnsubscribeRequest): any => ({
     ...obj,
     ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING })
   });
@@ -938,7 +960,7 @@ export interface UnsubscribeResult {
 }
 
 export namespace UnsubscribeResult {
-  export const filterSensitiveLog = (obj: UnsubscribeResult) => ({
+  export const filterSensitiveLog = (obj: UnsubscribeResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnsubscribeResult =>
@@ -960,7 +982,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>
@@ -972,7 +994,7 @@ export interface UntagResourceResult {
 }
 
 export namespace UntagResourceResult {
-  export const filterSensitiveLog = (obj: UntagResourceResult) => ({
+  export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceResult =>
@@ -1017,7 +1039,9 @@ export interface UpdateNotificationRuleRequest {
 }
 
 export namespace UpdateNotificationRuleRequest {
-  export const filterSensitiveLog = (obj: UpdateNotificationRuleRequest) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateNotificationRuleRequest
+  ): any => ({
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
@@ -1031,7 +1055,9 @@ export interface UpdateNotificationRuleResult {
 }
 
 export namespace UpdateNotificationRuleResult {
-  export const filterSensitiveLog = (obj: UpdateNotificationRuleResult) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateNotificationRuleResult
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateNotificationRuleResult =>
@@ -1050,7 +1076,7 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const filterSensitiveLog = (obj: ValidationException) => ({
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ValidationException =>

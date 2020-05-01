@@ -17,7 +17,7 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export const filterSensitiveLog = (obj: AccessDeniedException) => ({
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is AccessDeniedException =>
@@ -37,7 +37,7 @@ export interface AuthorizationException
 }
 
 export namespace AuthorizationException {
-  export const filterSensitiveLog = (obj: AuthorizationException) => ({
+  export const filterSensitiveLog = (obj: AuthorizationException): any => ({
     ...obj
   });
   export const isa = (o: any): o is AuthorizationException =>
@@ -56,7 +56,9 @@ export interface AutomatedDiscoveryInformation {
 }
 
 export namespace AutomatedDiscoveryInformation {
-  export const filterSensitiveLog = (obj: AutomatedDiscoveryInformation) => ({
+  export const filterSensitiveLog = (
+    obj: AutomatedDiscoveryInformation
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AutomatedDiscoveryInformation =>
@@ -80,7 +82,7 @@ export interface ConsumedLicenseSummary {
 }
 
 export namespace ConsumedLicenseSummary {
-  export const filterSensitiveLog = (obj: ConsumedLicenseSummary) => ({
+  export const filterSensitiveLog = (obj: ConsumedLicenseSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConsumedLicenseSummary =>
@@ -159,7 +161,7 @@ export interface CreateLicenseConfigurationRequest {
 export namespace CreateLicenseConfigurationRequest {
   export const filterSensitiveLog = (
     obj: CreateLicenseConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ProductInformationList && {
       ProductInformationList: obj.ProductInformationList.map(
@@ -183,7 +185,7 @@ export interface CreateLicenseConfigurationResponse {
 export namespace CreateLicenseConfigurationResponse {
   export const filterSensitiveLog = (
     obj: CreateLicenseConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateLicenseConfigurationResponse =>
@@ -201,7 +203,7 @@ export interface DeleteLicenseConfigurationRequest {
 export namespace DeleteLicenseConfigurationRequest {
   export const filterSensitiveLog = (
     obj: DeleteLicenseConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteLicenseConfigurationRequest =>
@@ -215,7 +217,7 @@ export interface DeleteLicenseConfigurationResponse {
 export namespace DeleteLicenseConfigurationResponse {
   export const filterSensitiveLog = (
     obj: DeleteLicenseConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteLicenseConfigurationResponse =>
@@ -234,7 +236,7 @@ export interface FailedDependencyException
 }
 
 export namespace FailedDependencyException {
-  export const filterSensitiveLog = (obj: FailedDependencyException) => ({
+  export const filterSensitiveLog = (obj: FailedDependencyException): any => ({
     ...obj
   });
   export const isa = (o: any): o is FailedDependencyException =>
@@ -260,7 +262,7 @@ export interface Filter {
 }
 
 export namespace Filter {
-  export const filterSensitiveLog = (obj: Filter) => ({
+  export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj
   });
   export const isa = (o: any): o is Filter => __isa(o, "Filter");
@@ -278,7 +280,9 @@ export interface FilterLimitExceededException
 }
 
 export namespace FilterLimitExceededException {
-  export const filterSensitiveLog = (obj: FilterLimitExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: FilterLimitExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is FilterLimitExceededException =>
@@ -294,7 +298,9 @@ export interface GetLicenseConfigurationRequest {
 }
 
 export namespace GetLicenseConfigurationRequest {
-  export const filterSensitiveLog = (obj: GetLicenseConfigurationRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetLicenseConfigurationRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetLicenseConfigurationRequest =>
@@ -385,7 +391,9 @@ export interface GetLicenseConfigurationResponse {
 }
 
 export namespace GetLicenseConfigurationResponse {
-  export const filterSensitiveLog = (obj: GetLicenseConfigurationResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetLicenseConfigurationResponse
+  ): any => ({
     ...obj,
     ...(obj.AutomatedDiscoveryInformation && {
       AutomatedDiscoveryInformation: AutomatedDiscoveryInformation.filterSensitiveLog(
@@ -418,7 +426,7 @@ export interface GetServiceSettingsRequest {
 }
 
 export namespace GetServiceSettingsRequest {
-  export const filterSensitiveLog = (obj: GetServiceSettingsRequest) => ({
+  export const filterSensitiveLog = (obj: GetServiceSettingsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetServiceSettingsRequest =>
@@ -457,7 +465,7 @@ export interface GetServiceSettingsResponse {
 }
 
 export namespace GetServiceSettingsResponse {
-  export const filterSensitiveLog = (obj: GetServiceSettingsResponse) => ({
+  export const filterSensitiveLog = (obj: GetServiceSettingsResponse): any => ({
     ...obj,
     ...(obj.OrganizationConfiguration && {
       OrganizationConfiguration: OrganizationConfiguration.filterSensitiveLog(
@@ -481,7 +489,9 @@ export interface InvalidParameterValueException
 }
 
 export namespace InvalidParameterValueException {
-  export const filterSensitiveLog = (obj: InvalidParameterValueException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidParameterValueException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidParameterValueException =>
@@ -502,7 +512,9 @@ export interface InvalidResourceStateException
 }
 
 export namespace InvalidResourceStateException {
-  export const filterSensitiveLog = (obj: InvalidResourceStateException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidResourceStateException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidResourceStateException =>
@@ -531,7 +543,7 @@ export interface InventoryFilter {
 }
 
 export namespace InventoryFilter {
-  export const filterSensitiveLog = (obj: InventoryFilter) => ({
+  export const filterSensitiveLog = (obj: InventoryFilter): any => ({
     ...obj
   });
   export const isa = (o: any): o is InventoryFilter =>
@@ -631,7 +643,7 @@ export interface LicenseConfiguration {
 }
 
 export namespace LicenseConfiguration {
-  export const filterSensitiveLog = (obj: LicenseConfiguration) => ({
+  export const filterSensitiveLog = (obj: LicenseConfiguration): any => ({
     ...obj,
     ...(obj.AutomatedDiscoveryInformation && {
       AutomatedDiscoveryInformation: AutomatedDiscoveryInformation.filterSensitiveLog(
@@ -685,7 +697,9 @@ export interface LicenseConfigurationAssociation {
 }
 
 export namespace LicenseConfigurationAssociation {
-  export const filterSensitiveLog = (obj: LicenseConfigurationAssociation) => ({
+  export const filterSensitiveLog = (
+    obj: LicenseConfigurationAssociation
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is LicenseConfigurationAssociation =>
@@ -734,7 +748,7 @@ export interface LicenseConfigurationUsage {
 }
 
 export namespace LicenseConfigurationUsage {
-  export const filterSensitiveLog = (obj: LicenseConfigurationUsage) => ({
+  export const filterSensitiveLog = (obj: LicenseConfigurationUsage): any => ({
     ...obj
   });
   export const isa = (o: any): o is LicenseConfigurationUsage =>
@@ -795,7 +809,7 @@ export interface LicenseOperationFailure {
 }
 
 export namespace LicenseOperationFailure {
-  export const filterSensitiveLog = (obj: LicenseOperationFailure) => ({
+  export const filterSensitiveLog = (obj: LicenseOperationFailure): any => ({
     ...obj,
     ...(obj.MetadataList && {
       MetadataList: obj.MetadataList.map(Metadata.filterSensitiveLog)
@@ -817,7 +831,7 @@ export interface LicenseSpecification {
 }
 
 export namespace LicenseSpecification {
-  export const filterSensitiveLog = (obj: LicenseSpecification) => ({
+  export const filterSensitiveLog = (obj: LicenseSpecification): any => ({
     ...obj
   });
   export const isa = (o: any): o is LicenseSpecification =>
@@ -836,7 +850,7 @@ export interface LicenseUsageException
 }
 
 export namespace LicenseUsageException {
-  export const filterSensitiveLog = (obj: LicenseUsageException) => ({
+  export const filterSensitiveLog = (obj: LicenseUsageException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LicenseUsageException =>
@@ -864,7 +878,7 @@ export interface ListAssociationsForLicenseConfigurationRequest {
 export namespace ListAssociationsForLicenseConfigurationRequest {
   export const filterSensitiveLog = (
     obj: ListAssociationsForLicenseConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -889,7 +903,7 @@ export interface ListAssociationsForLicenseConfigurationResponse {
 export namespace ListAssociationsForLicenseConfigurationResponse {
   export const filterSensitiveLog = (
     obj: ListAssociationsForLicenseConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.LicenseConfigurationAssociations && {
       LicenseConfigurationAssociations: obj.LicenseConfigurationAssociations.map(
@@ -924,7 +938,7 @@ export interface ListFailuresForLicenseConfigurationOperationsRequest {
 export namespace ListFailuresForLicenseConfigurationOperationsRequest {
   export const filterSensitiveLog = (
     obj: ListFailuresForLicenseConfigurationOperationsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -949,7 +963,7 @@ export interface ListFailuresForLicenseConfigurationOperationsResponse {
 export namespace ListFailuresForLicenseConfigurationOperationsResponse {
   export const filterSensitiveLog = (
     obj: ListFailuresForLicenseConfigurationOperationsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.LicenseOperationFailureList && {
       LicenseOperationFailureList: obj.LicenseOperationFailureList.map(
@@ -1007,7 +1021,7 @@ export interface ListLicenseConfigurationsRequest {
 export namespace ListLicenseConfigurationsRequest {
   export const filterSensitiveLog = (
     obj: ListLicenseConfigurationsRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
@@ -1031,7 +1045,7 @@ export interface ListLicenseConfigurationsResponse {
 export namespace ListLicenseConfigurationsResponse {
   export const filterSensitiveLog = (
     obj: ListLicenseConfigurationsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.LicenseConfigurations && {
       LicenseConfigurations: obj.LicenseConfigurations.map(
@@ -1064,7 +1078,7 @@ export interface ListLicenseSpecificationsForResourceRequest {
 export namespace ListLicenseSpecificationsForResourceRequest {
   export const filterSensitiveLog = (
     obj: ListLicenseSpecificationsForResourceRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -1089,7 +1103,7 @@ export interface ListLicenseSpecificationsForResourceResponse {
 export namespace ListLicenseSpecificationsForResourceResponse {
   export const filterSensitiveLog = (
     obj: ListLicenseSpecificationsForResourceResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.LicenseSpecifications && {
       LicenseSpecifications: obj.LicenseSpecifications.map(
@@ -1154,7 +1168,9 @@ export interface ListResourceInventoryRequest {
 }
 
 export namespace ListResourceInventoryRequest {
-  export const filterSensitiveLog = (obj: ListResourceInventoryRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListResourceInventoryRequest
+  ): any => ({
     ...obj,
     ...(obj.Filters && {
       Filters: obj.Filters.map(InventoryFilter.filterSensitiveLog)
@@ -1178,7 +1194,9 @@ export interface ListResourceInventoryResponse {
 }
 
 export namespace ListResourceInventoryResponse {
-  export const filterSensitiveLog = (obj: ListResourceInventoryResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListResourceInventoryResponse
+  ): any => ({
     ...obj,
     ...(obj.ResourceInventoryList && {
       ResourceInventoryList: obj.ResourceInventoryList.map(
@@ -1199,7 +1217,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
@@ -1215,7 +1233,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1267,7 +1287,7 @@ export interface ListUsageForLicenseConfigurationRequest {
 export namespace ListUsageForLicenseConfigurationRequest {
   export const filterSensitiveLog = (
     obj: ListUsageForLicenseConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
@@ -1291,7 +1311,7 @@ export interface ListUsageForLicenseConfigurationResponse {
 export namespace ListUsageForLicenseConfigurationResponse {
   export const filterSensitiveLog = (
     obj: ListUsageForLicenseConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.LicenseConfigurationUsageList && {
       LicenseConfigurationUsageList: obj.LicenseConfigurationUsageList.map(
@@ -1320,7 +1340,7 @@ export interface ManagedResourceSummary {
 }
 
 export namespace ManagedResourceSummary {
-  export const filterSensitiveLog = (obj: ManagedResourceSummary) => ({
+  export const filterSensitiveLog = (obj: ManagedResourceSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is ManagedResourceSummary =>
@@ -1344,7 +1364,7 @@ export interface Metadata {
 }
 
 export namespace Metadata {
-  export const filterSensitiveLog = (obj: Metadata) => ({
+  export const filterSensitiveLog = (obj: Metadata): any => ({
     ...obj
   });
   export const isa = (o: any): o is Metadata => __isa(o, "Metadata");
@@ -1362,7 +1382,7 @@ export interface OrganizationConfiguration {
 }
 
 export namespace OrganizationConfiguration {
-  export const filterSensitiveLog = (obj: OrganizationConfiguration) => ({
+  export const filterSensitiveLog = (obj: OrganizationConfiguration): any => ({
     ...obj
   });
   export const isa = (o: any): o is OrganizationConfiguration =>
@@ -1423,7 +1443,7 @@ export interface ProductInformation {
 }
 
 export namespace ProductInformation {
-  export const filterSensitiveLog = (obj: ProductInformation) => ({
+  export const filterSensitiveLog = (obj: ProductInformation): any => ({
     ...obj,
     ...(obj.ProductInformationFilterList && {
       ProductInformationFilterList: obj.ProductInformationFilterList.map(
@@ -1457,7 +1477,7 @@ export interface ProductInformationFilter {
 }
 
 export namespace ProductInformationFilter {
-  export const filterSensitiveLog = (obj: ProductInformationFilter) => ({
+  export const filterSensitiveLog = (obj: ProductInformationFilter): any => ({
     ...obj
   });
   export const isa = (o: any): o is ProductInformationFilter =>
@@ -1476,7 +1496,7 @@ export interface RateLimitExceededException
 }
 
 export namespace RateLimitExceededException {
-  export const filterSensitiveLog = (obj: RateLimitExceededException) => ({
+  export const filterSensitiveLog = (obj: RateLimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is RateLimitExceededException =>
@@ -1520,7 +1540,7 @@ export interface ResourceInventory {
 }
 
 export namespace ResourceInventory {
-  export const filterSensitiveLog = (obj: ResourceInventory) => ({
+  export const filterSensitiveLog = (obj: ResourceInventory): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceInventory =>
@@ -1539,7 +1559,9 @@ export interface ResourceLimitExceededException
 }
 
 export namespace ResourceLimitExceededException {
-  export const filterSensitiveLog = (obj: ResourceLimitExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: ResourceLimitExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceLimitExceededException =>
@@ -1566,7 +1588,7 @@ export interface ServerInternalException
 }
 
 export namespace ServerInternalException {
-  export const filterSensitiveLog = (obj: ServerInternalException) => ({
+  export const filterSensitiveLog = (obj: ServerInternalException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServerInternalException =>
@@ -1590,7 +1612,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -1610,7 +1632,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1623,7 +1645,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const filterSensitiveLog = (obj: TagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceResponse =>
@@ -1644,7 +1666,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>
@@ -1656,7 +1678,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceResponse =>
@@ -1709,7 +1731,7 @@ export interface UpdateLicenseConfigurationRequest {
 export namespace UpdateLicenseConfigurationRequest {
   export const filterSensitiveLog = (
     obj: UpdateLicenseConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ProductInformationList && {
       ProductInformationList: obj.ProductInformationList.map(
@@ -1728,7 +1750,7 @@ export interface UpdateLicenseConfigurationResponse {
 export namespace UpdateLicenseConfigurationResponse {
   export const filterSensitiveLog = (
     obj: UpdateLicenseConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateLicenseConfigurationResponse =>
@@ -1756,7 +1778,7 @@ export interface UpdateLicenseSpecificationsForResourceRequest {
 export namespace UpdateLicenseSpecificationsForResourceRequest {
   export const filterSensitiveLog = (
     obj: UpdateLicenseSpecificationsForResourceRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.AddLicenseSpecifications && {
       AddLicenseSpecifications: obj.AddLicenseSpecifications.map(
@@ -1782,7 +1804,7 @@ export interface UpdateLicenseSpecificationsForResourceResponse {
 export namespace UpdateLicenseSpecificationsForResourceResponse {
   export const filterSensitiveLog = (
     obj: UpdateLicenseSpecificationsForResourceResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -1815,7 +1837,9 @@ export interface UpdateServiceSettingsRequest {
 }
 
 export namespace UpdateServiceSettingsRequest {
-  export const filterSensitiveLog = (obj: UpdateServiceSettingsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateServiceSettingsRequest
+  ): any => ({
     ...obj,
     ...(obj.OrganizationConfiguration && {
       OrganizationConfiguration: OrganizationConfiguration.filterSensitiveLog(
@@ -1832,7 +1856,9 @@ export interface UpdateServiceSettingsResponse {
 }
 
 export namespace UpdateServiceSettingsResponse {
-  export const filterSensitiveLog = (obj: UpdateServiceSettingsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateServiceSettingsResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateServiceSettingsResponse =>

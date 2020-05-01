@@ -121,7 +121,7 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export const filterSensitiveLog = (obj: BadRequestException) => ({
+  export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is BadRequestException =>
@@ -175,7 +175,9 @@ export interface BatchExecuteStatementRequest {
 }
 
 export namespace BatchExecuteStatementRequest {
-  export const filterSensitiveLog = (obj: BatchExecuteStatementRequest) => ({
+  export const filterSensitiveLog = (
+    obj: BatchExecuteStatementRequest
+  ): any => ({
     ...obj,
     ...(obj.parameterSets && {
       parameterSets: obj.parameterSets.map(item =>
@@ -200,7 +202,9 @@ export interface BatchExecuteStatementResponse {
 }
 
 export namespace BatchExecuteStatementResponse {
-  export const filterSensitiveLog = (obj: BatchExecuteStatementResponse) => ({
+  export const filterSensitiveLog = (
+    obj: BatchExecuteStatementResponse
+  ): any => ({
     ...obj,
     ...(obj.updateResults && {
       updateResults: obj.updateResults.map(UpdateResult.filterSensitiveLog)
@@ -238,7 +242,7 @@ export interface BeginTransactionRequest {
 }
 
 export namespace BeginTransactionRequest {
-  export const filterSensitiveLog = (obj: BeginTransactionRequest) => ({
+  export const filterSensitiveLog = (obj: BeginTransactionRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is BeginTransactionRequest =>
@@ -258,7 +262,7 @@ export interface BeginTransactionResponse {
 }
 
 export namespace BeginTransactionResponse {
-  export const filterSensitiveLog = (obj: BeginTransactionResponse) => ({
+  export const filterSensitiveLog = (obj: BeginTransactionResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is BeginTransactionResponse =>
@@ -342,7 +346,7 @@ export interface ColumnMetadata {
 }
 
 export namespace ColumnMetadata {
-  export const filterSensitiveLog = (obj: ColumnMetadata) => ({
+  export const filterSensitiveLog = (obj: ColumnMetadata): any => ({
     ...obj
   });
   export const isa = (o: any): o is ColumnMetadata =>
@@ -371,7 +375,7 @@ export interface CommitTransactionRequest {
 }
 
 export namespace CommitTransactionRequest {
-  export const filterSensitiveLog = (obj: CommitTransactionRequest) => ({
+  export const filterSensitiveLog = (obj: CommitTransactionRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CommitTransactionRequest =>
@@ -390,7 +394,7 @@ export interface CommitTransactionResponse {
 }
 
 export namespace CommitTransactionResponse {
-  export const filterSensitiveLog = (obj: CommitTransactionResponse) => ({
+  export const filterSensitiveLog = (obj: CommitTransactionResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CommitTransactionResponse =>
@@ -433,7 +437,7 @@ export interface ExecuteSqlRequest {
 }
 
 export namespace ExecuteSqlRequest {
-  export const filterSensitiveLog = (obj: ExecuteSqlRequest) => ({
+  export const filterSensitiveLog = (obj: ExecuteSqlRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ExecuteSqlRequest =>
@@ -453,7 +457,7 @@ export interface ExecuteSqlResponse {
 }
 
 export namespace ExecuteSqlResponse {
-  export const filterSensitiveLog = (obj: ExecuteSqlResponse) => ({
+  export const filterSensitiveLog = (obj: ExecuteSqlResponse): any => ({
     ...obj,
     ...(obj.sqlStatementResults && {
       sqlStatementResults: obj.sqlStatementResults.map(
@@ -528,7 +532,7 @@ export interface ExecuteStatementRequest {
 }
 
 export namespace ExecuteStatementRequest {
-  export const filterSensitiveLog = (obj: ExecuteStatementRequest) => ({
+  export const filterSensitiveLog = (obj: ExecuteStatementRequest): any => ({
     ...obj,
     ...(obj.parameters && {
       parameters: obj.parameters.map(SqlParameter.filterSensitiveLog)
@@ -566,7 +570,7 @@ export interface ExecuteStatementResponse {
 }
 
 export namespace ExecuteStatementResponse {
-  export const filterSensitiveLog = (obj: ExecuteStatementResponse) => ({
+  export const filterSensitiveLog = (obj: ExecuteStatementResponse): any => ({
     ...obj,
     ...(obj.columnMetadata && {
       columnMetadata: obj.columnMetadata.map(ColumnMetadata.filterSensitiveLog)
@@ -735,7 +739,7 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export const filterSensitiveLog = (obj: ForbiddenException) => ({
+  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ForbiddenException =>
@@ -753,7 +757,9 @@ export interface InternalServerErrorException
 }
 
 export namespace InternalServerErrorException {
-  export const filterSensitiveLog = (obj: InternalServerErrorException) => ({
+  export const filterSensitiveLog = (
+    obj: InternalServerErrorException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerErrorException =>
@@ -773,7 +779,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const filterSensitiveLog = (obj: NotFoundException) => ({
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is NotFoundException =>
@@ -792,7 +798,7 @@ export interface _Record {
 }
 
 export namespace _Record {
-  export const filterSensitiveLog = (obj: _Record) => ({
+  export const filterSensitiveLog = (obj: _Record): any => ({
     ...obj
   });
   export const isa = (o: any): o is _Record => __isa(o, "Record");
@@ -815,7 +821,7 @@ export interface ResultFrame {
 }
 
 export namespace ResultFrame {
-  export const filterSensitiveLog = (obj: ResultFrame) => ({
+  export const filterSensitiveLog = (obj: ResultFrame): any => ({
     ...obj,
     ...(obj.records && {
       records: obj.records.map(_Record.filterSensitiveLog)
@@ -846,7 +852,7 @@ export interface ResultSetMetadata {
 }
 
 export namespace ResultSetMetadata {
-  export const filterSensitiveLog = (obj: ResultSetMetadata) => ({
+  export const filterSensitiveLog = (obj: ResultSetMetadata): any => ({
     ...obj,
     ...(obj.columnMetadata && {
       columnMetadata: obj.columnMetadata.map(ColumnMetadata.filterSensitiveLog)
@@ -879,7 +885,7 @@ export interface RollbackTransactionRequest {
 }
 
 export namespace RollbackTransactionRequest {
-  export const filterSensitiveLog = (obj: RollbackTransactionRequest) => ({
+  export const filterSensitiveLog = (obj: RollbackTransactionRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is RollbackTransactionRequest =>
@@ -899,7 +905,9 @@ export interface RollbackTransactionResponse {
 }
 
 export namespace RollbackTransactionResponse {
-  export const filterSensitiveLog = (obj: RollbackTransactionResponse) => ({
+  export const filterSensitiveLog = (
+    obj: RollbackTransactionResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is RollbackTransactionResponse =>
@@ -918,7 +926,7 @@ export interface ServiceUnavailableError
 }
 
 export namespace ServiceUnavailableError {
-  export const filterSensitiveLog = (obj: ServiceUnavailableError) => ({
+  export const filterSensitiveLog = (obj: ServiceUnavailableError): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceUnavailableError =>
@@ -942,7 +950,7 @@ export interface SqlParameter {
 }
 
 export namespace SqlParameter {
-  export const filterSensitiveLog = (obj: SqlParameter) => ({
+  export const filterSensitiveLog = (obj: SqlParameter): any => ({
     ...obj
   });
   export const isa = (o: any): o is SqlParameter => __isa(o, "SqlParameter");
@@ -965,7 +973,7 @@ export interface SqlStatementResult {
 }
 
 export namespace SqlStatementResult {
-  export const filterSensitiveLog = (obj: SqlStatementResult) => ({
+  export const filterSensitiveLog = (obj: SqlStatementResult): any => ({
     ...obj,
     ...(obj.resultFrame && {
       resultFrame: ResultFrame.filterSensitiveLog(obj.resultFrame)
@@ -995,7 +1003,7 @@ export interface StatementTimeoutException
 }
 
 export namespace StatementTimeoutException {
-  export const filterSensitiveLog = (obj: StatementTimeoutException) => ({
+  export const filterSensitiveLog = (obj: StatementTimeoutException): any => ({
     ...obj
   });
   export const isa = (o: any): o is StatementTimeoutException =>
@@ -1014,7 +1022,7 @@ export interface StructValue {
 }
 
 export namespace StructValue {
-  export const filterSensitiveLog = (obj: StructValue) => ({
+  export const filterSensitiveLog = (obj: StructValue): any => ({
     ...obj
   });
   export const isa = (o: any): o is StructValue => __isa(o, "StructValue");
@@ -1032,7 +1040,7 @@ export interface UpdateResult {
 }
 
 export namespace UpdateResult {
-  export const filterSensitiveLog = (obj: UpdateResult) => ({
+  export const filterSensitiveLog = (obj: UpdateResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateResult => __isa(o, "UpdateResult");

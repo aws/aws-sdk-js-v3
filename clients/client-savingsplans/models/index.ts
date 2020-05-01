@@ -62,7 +62,7 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
 export namespace DescribeSavingsPlansOfferingRatesRequest {
   export const filterSensitiveLog = (
     obj: DescribeSavingsPlansOfferingRatesRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.filters && {
       filters: obj.filters.map(
@@ -91,7 +91,7 @@ export interface DescribeSavingsPlansOfferingRatesResponse {
 export namespace DescribeSavingsPlansOfferingRatesResponse {
   export const filterSensitiveLog = (
     obj: DescribeSavingsPlansOfferingRatesResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.searchResults && {
       searchResults: obj.searchResults.map(
@@ -175,7 +175,7 @@ export interface DescribeSavingsPlansOfferingsRequest {
 export namespace DescribeSavingsPlansOfferingsRequest {
   export const filterSensitiveLog = (
     obj: DescribeSavingsPlansOfferingsRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.filters && {
       filters: obj.filters.map(
@@ -204,7 +204,7 @@ export interface DescribeSavingsPlansOfferingsResponse {
 export namespace DescribeSavingsPlansOfferingsResponse {
   export const filterSensitiveLog = (
     obj: DescribeSavingsPlansOfferingsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.searchResults && {
       searchResults: obj.searchResults.map(
@@ -253,7 +253,7 @@ export interface ParentSavingsPlanOffering {
 }
 
 export namespace ParentSavingsPlanOffering {
-  export const filterSensitiveLog = (obj: ParentSavingsPlanOffering) => ({
+  export const filterSensitiveLog = (obj: ParentSavingsPlanOffering): any => ({
     ...obj
   });
   export const isa = (o: any): o is ParentSavingsPlanOffering =>
@@ -322,7 +322,7 @@ export interface SavingsPlanOffering {
 }
 
 export namespace SavingsPlanOffering {
-  export const filterSensitiveLog = (obj: SavingsPlanOffering) => ({
+  export const filterSensitiveLog = (obj: SavingsPlanOffering): any => ({
     ...obj,
     ...(obj.properties && {
       properties: obj.properties.map(
@@ -358,7 +358,7 @@ export interface SavingsPlanOfferingFilterElement {
 export namespace SavingsPlanOfferingFilterElement {
   export const filterSensitiveLog = (
     obj: SavingsPlanOfferingFilterElement
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is SavingsPlanOfferingFilterElement =>
@@ -382,7 +382,9 @@ export interface SavingsPlanOfferingProperty {
 }
 
 export namespace SavingsPlanOfferingProperty {
-  export const filterSensitiveLog = (obj: SavingsPlanOfferingProperty) => ({
+  export const filterSensitiveLog = (
+    obj: SavingsPlanOfferingProperty
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is SavingsPlanOfferingProperty =>
@@ -441,7 +443,7 @@ export interface SavingsPlanOfferingRate {
 }
 
 export namespace SavingsPlanOfferingRate {
-  export const filterSensitiveLog = (obj: SavingsPlanOfferingRate) => ({
+  export const filterSensitiveLog = (obj: SavingsPlanOfferingRate): any => ({
     ...obj,
     ...(obj.properties && {
       properties: obj.properties.map(
@@ -477,7 +479,7 @@ export interface SavingsPlanOfferingRateFilterElement {
 export namespace SavingsPlanOfferingRateFilterElement {
   export const filterSensitiveLog = (
     obj: SavingsPlanOfferingRateFilterElement
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is SavingsPlanOfferingRateFilterElement =>
@@ -501,7 +503,9 @@ export interface SavingsPlanOfferingRateProperty {
 }
 
 export namespace SavingsPlanOfferingRateProperty {
-  export const filterSensitiveLog = (obj: SavingsPlanOfferingRateProperty) => ({
+  export const filterSensitiveLog = (
+    obj: SavingsPlanOfferingRateProperty
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is SavingsPlanOfferingRateProperty =>
@@ -551,7 +555,7 @@ export interface SavingsPlanRateProperty {
 }
 
 export namespace SavingsPlanRateProperty {
-  export const filterSensitiveLog = (obj: SavingsPlanRateProperty) => ({
+  export const filterSensitiveLog = (obj: SavingsPlanRateProperty): any => ({
     ...obj
   });
   export const isa = (o: any): o is SavingsPlanRateProperty =>
@@ -607,7 +611,7 @@ export interface CreateSavingsPlanRequest {
 }
 
 export namespace CreateSavingsPlanRequest {
-  export const filterSensitiveLog = (obj: CreateSavingsPlanRequest) => ({
+  export const filterSensitiveLog = (obj: CreateSavingsPlanRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateSavingsPlanRequest =>
@@ -623,7 +627,7 @@ export interface CreateSavingsPlanResponse {
 }
 
 export namespace CreateSavingsPlanResponse {
-  export const filterSensitiveLog = (obj: CreateSavingsPlanResponse) => ({
+  export const filterSensitiveLog = (obj: CreateSavingsPlanResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateSavingsPlanResponse =>
@@ -655,7 +659,9 @@ export interface DescribeSavingsPlanRatesRequest {
 }
 
 export namespace DescribeSavingsPlanRatesRequest {
-  export const filterSensitiveLog = (obj: DescribeSavingsPlanRatesRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeSavingsPlanRatesRequest
+  ): any => ({
     ...obj,
     ...(obj.filters && {
       filters: obj.filters.map(SavingsPlanRateFilter.filterSensitiveLog)
@@ -687,7 +693,7 @@ export interface DescribeSavingsPlanRatesResponse {
 export namespace DescribeSavingsPlanRatesResponse {
   export const filterSensitiveLog = (
     obj: DescribeSavingsPlanRatesResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.searchResults && {
       searchResults: obj.searchResults.map(SavingsPlanRate.filterSensitiveLog)
@@ -732,7 +738,9 @@ export interface DescribeSavingsPlansRequest {
 }
 
 export namespace DescribeSavingsPlansRequest {
-  export const filterSensitiveLog = (obj: DescribeSavingsPlansRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeSavingsPlansRequest
+  ): any => ({
     ...obj,
     ...(obj.filters && {
       filters: obj.filters.map(SavingsPlanFilter.filterSensitiveLog)
@@ -757,7 +765,9 @@ export interface DescribeSavingsPlansResponse {
 }
 
 export namespace DescribeSavingsPlansResponse {
-  export const filterSensitiveLog = (obj: DescribeSavingsPlansResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeSavingsPlansResponse
+  ): any => ({
     ...obj,
     ...(obj.savingsPlans && {
       savingsPlans: obj.savingsPlans.map(SavingsPlan.filterSensitiveLog)
@@ -779,7 +789,7 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export const filterSensitiveLog = (obj: InternalServerException) => ({
+  export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerException =>
@@ -795,7 +805,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
@@ -811,7 +821,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
@@ -830,7 +842,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -934,7 +946,7 @@ export interface SavingsPlan {
 }
 
 export namespace SavingsPlan {
-  export const filterSensitiveLog = (obj: SavingsPlan) => ({
+  export const filterSensitiveLog = (obj: SavingsPlan): any => ({
     ...obj
   });
   export const isa = (o: any): o is SavingsPlan => __isa(o, "SavingsPlan");
@@ -957,7 +969,7 @@ export interface SavingsPlanFilter {
 }
 
 export namespace SavingsPlanFilter {
-  export const filterSensitiveLog = (obj: SavingsPlanFilter) => ({
+  export const filterSensitiveLog = (obj: SavingsPlanFilter): any => ({
     ...obj
   });
   export const isa = (o: any): o is SavingsPlanFilter =>
@@ -1011,7 +1023,7 @@ export interface SavingsPlanRate {
 }
 
 export namespace SavingsPlanRate {
-  export const filterSensitiveLog = (obj: SavingsPlanRate) => ({
+  export const filterSensitiveLog = (obj: SavingsPlanRate): any => ({
     ...obj,
     ...(obj.properties && {
       properties: obj.properties.map(SavingsPlanRateProperty.filterSensitiveLog)
@@ -1038,7 +1050,7 @@ export interface SavingsPlanRateFilter {
 }
 
 export namespace SavingsPlanRateFilter {
-  export const filterSensitiveLog = (obj: SavingsPlanRateFilter) => ({
+  export const filterSensitiveLog = (obj: SavingsPlanRateFilter): any => ({
     ...obj
   });
   export const isa = (o: any): o is SavingsPlanRateFilter =>
@@ -1087,7 +1099,9 @@ export interface ServiceQuotaExceededException
 }
 
 export namespace ServiceQuotaExceededException {
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: ServiceQuotaExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceQuotaExceededException =>
@@ -1108,7 +1122,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
@@ -1120,7 +1134,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const filterSensitiveLog = (obj: TagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceResponse =>
@@ -1141,7 +1155,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>
@@ -1153,7 +1167,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceResponse =>
@@ -1172,7 +1186,7 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const filterSensitiveLog = (obj: ValidationException) => ({
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ValidationException =>

@@ -22,7 +22,7 @@ export interface AssociateResolverEndpointIpAddressRequest {
 export namespace AssociateResolverEndpointIpAddressRequest {
   export const filterSensitiveLog = (
     obj: AssociateResolverEndpointIpAddressRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.IpAddress && {
       IpAddress: IpAddressUpdate.filterSensitiveLog(obj.IpAddress)
@@ -43,7 +43,7 @@ export interface AssociateResolverEndpointIpAddressResponse {
 export namespace AssociateResolverEndpointIpAddressResponse {
   export const filterSensitiveLog = (
     obj: AssociateResolverEndpointIpAddressResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ResolverEndpoint && {
       ResolverEndpoint: ResolverEndpoint.filterSensitiveLog(
@@ -77,7 +77,9 @@ export interface AssociateResolverRuleRequest {
 }
 
 export namespace AssociateResolverRuleRequest {
-  export const filterSensitiveLog = (obj: AssociateResolverRuleRequest) => ({
+  export const filterSensitiveLog = (
+    obj: AssociateResolverRuleRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateResolverRuleRequest =>
@@ -93,7 +95,9 @@ export interface AssociateResolverRuleResponse {
 }
 
 export namespace AssociateResolverRuleResponse {
-  export const filterSensitiveLog = (obj: AssociateResolverRuleResponse) => ({
+  export const filterSensitiveLog = (
+    obj: AssociateResolverRuleResponse
+  ): any => ({
     ...obj,
     ...(obj.ResolverRuleAssociation && {
       ResolverRuleAssociation: ResolverRuleAssociation.filterSensitiveLog(
@@ -152,7 +156,9 @@ export interface CreateResolverEndpointRequest {
 }
 
 export namespace CreateResolverEndpointRequest {
-  export const filterSensitiveLog = (obj: CreateResolverEndpointRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreateResolverEndpointRequest
+  ): any => ({
     ...obj,
     ...(obj.IpAddresses && {
       IpAddresses: obj.IpAddresses.map(IpAddressRequest.filterSensitiveLog)
@@ -172,7 +178,9 @@ export interface CreateResolverEndpointResponse {
 }
 
 export namespace CreateResolverEndpointResponse {
-  export const filterSensitiveLog = (obj: CreateResolverEndpointResponse) => ({
+  export const filterSensitiveLog = (
+    obj: CreateResolverEndpointResponse
+  ): any => ({
     ...obj,
     ...(obj.ResolverEndpoint && {
       ResolverEndpoint: ResolverEndpoint.filterSensitiveLog(
@@ -227,7 +235,7 @@ export interface CreateResolverRuleRequest {
 }
 
 export namespace CreateResolverRuleRequest {
-  export const filterSensitiveLog = (obj: CreateResolverRuleRequest) => ({
+  export const filterSensitiveLog = (obj: CreateResolverRuleRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
     ...(obj.TargetIps && {
@@ -247,7 +255,7 @@ export interface CreateResolverRuleResponse {
 }
 
 export namespace CreateResolverRuleResponse {
-  export const filterSensitiveLog = (obj: CreateResolverRuleResponse) => ({
+  export const filterSensitiveLog = (obj: CreateResolverRuleResponse): any => ({
     ...obj,
     ...(obj.ResolverRule && {
       ResolverRule: ResolverRule.filterSensitiveLog(obj.ResolverRule)
@@ -266,7 +274,9 @@ export interface DeleteResolverEndpointRequest {
 }
 
 export namespace DeleteResolverEndpointRequest {
-  export const filterSensitiveLog = (obj: DeleteResolverEndpointRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteResolverEndpointRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteResolverEndpointRequest =>
@@ -282,7 +292,9 @@ export interface DeleteResolverEndpointResponse {
 }
 
 export namespace DeleteResolverEndpointResponse {
-  export const filterSensitiveLog = (obj: DeleteResolverEndpointResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteResolverEndpointResponse
+  ): any => ({
     ...obj,
     ...(obj.ResolverEndpoint && {
       ResolverEndpoint: ResolverEndpoint.filterSensitiveLog(
@@ -303,7 +315,7 @@ export interface DeleteResolverRuleRequest {
 }
 
 export namespace DeleteResolverRuleRequest {
-  export const filterSensitiveLog = (obj: DeleteResolverRuleRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteResolverRuleRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteResolverRuleRequest =>
@@ -319,7 +331,7 @@ export interface DeleteResolverRuleResponse {
 }
 
 export namespace DeleteResolverRuleResponse {
-  export const filterSensitiveLog = (obj: DeleteResolverRuleResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteResolverRuleResponse): any => ({
     ...obj,
     ...(obj.ResolverRule && {
       ResolverRule: ResolverRule.filterSensitiveLog(obj.ResolverRule)
@@ -345,7 +357,7 @@ export interface DisassociateResolverEndpointIpAddressRequest {
 export namespace DisassociateResolverEndpointIpAddressRequest {
   export const filterSensitiveLog = (
     obj: DisassociateResolverEndpointIpAddressRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.IpAddress && {
       IpAddress: IpAddressUpdate.filterSensitiveLog(obj.IpAddress)
@@ -368,7 +380,7 @@ export interface DisassociateResolverEndpointIpAddressResponse {
 export namespace DisassociateResolverEndpointIpAddressResponse {
   export const filterSensitiveLog = (
     obj: DisassociateResolverEndpointIpAddressResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ResolverEndpoint && {
       ResolverEndpoint: ResolverEndpoint.filterSensitiveLog(
@@ -396,7 +408,9 @@ export interface DisassociateResolverRuleRequest {
 }
 
 export namespace DisassociateResolverRuleRequest {
-  export const filterSensitiveLog = (obj: DisassociateResolverRuleRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DisassociateResolverRuleRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateResolverRuleRequest =>
@@ -414,7 +428,7 @@ export interface DisassociateResolverRuleResponse {
 export namespace DisassociateResolverRuleResponse {
   export const filterSensitiveLog = (
     obj: DisassociateResolverRuleResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ResolverRuleAssociation && {
       ResolverRuleAssociation: ResolverRuleAssociation.filterSensitiveLog(
@@ -447,7 +461,7 @@ export interface Filter {
 }
 
 export namespace Filter {
-  export const filterSensitiveLog = (obj: Filter) => ({
+  export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj
   });
   export const isa = (o: any): o is Filter => __isa(o, "Filter");
@@ -462,7 +476,7 @@ export interface GetResolverEndpointRequest {
 }
 
 export namespace GetResolverEndpointRequest {
-  export const filterSensitiveLog = (obj: GetResolverEndpointRequest) => ({
+  export const filterSensitiveLog = (obj: GetResolverEndpointRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetResolverEndpointRequest =>
@@ -478,7 +492,9 @@ export interface GetResolverEndpointResponse {
 }
 
 export namespace GetResolverEndpointResponse {
-  export const filterSensitiveLog = (obj: GetResolverEndpointResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetResolverEndpointResponse
+  ): any => ({
     ...obj,
     ...(obj.ResolverEndpoint && {
       ResolverEndpoint: ResolverEndpoint.filterSensitiveLog(
@@ -501,7 +517,7 @@ export interface GetResolverRuleAssociationRequest {
 export namespace GetResolverRuleAssociationRequest {
   export const filterSensitiveLog = (
     obj: GetResolverRuleAssociationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetResolverRuleAssociationRequest =>
@@ -519,7 +535,7 @@ export interface GetResolverRuleAssociationResponse {
 export namespace GetResolverRuleAssociationResponse {
   export const filterSensitiveLog = (
     obj: GetResolverRuleAssociationResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ResolverRuleAssociation && {
       ResolverRuleAssociation: ResolverRuleAssociation.filterSensitiveLog(
@@ -540,7 +556,9 @@ export interface GetResolverRulePolicyRequest {
 }
 
 export namespace GetResolverRulePolicyRequest {
-  export const filterSensitiveLog = (obj: GetResolverRulePolicyRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetResolverRulePolicyRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetResolverRulePolicyRequest =>
@@ -556,7 +574,9 @@ export interface GetResolverRulePolicyResponse {
 }
 
 export namespace GetResolverRulePolicyResponse {
-  export const filterSensitiveLog = (obj: GetResolverRulePolicyResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetResolverRulePolicyResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetResolverRulePolicyResponse =>
@@ -572,7 +592,7 @@ export interface GetResolverRuleRequest {
 }
 
 export namespace GetResolverRuleRequest {
-  export const filterSensitiveLog = (obj: GetResolverRuleRequest) => ({
+  export const filterSensitiveLog = (obj: GetResolverRuleRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetResolverRuleRequest =>
@@ -588,7 +608,7 @@ export interface GetResolverRuleResponse {
 }
 
 export namespace GetResolverRuleResponse {
-  export const filterSensitiveLog = (obj: GetResolverRuleResponse) => ({
+  export const filterSensitiveLog = (obj: GetResolverRuleResponse): any => ({
     ...obj,
     ...(obj.ResolverRule && {
       ResolverRule: ResolverRule.filterSensitiveLog(obj.ResolverRule)
@@ -610,7 +630,9 @@ export interface InternalServiceErrorException
 }
 
 export namespace InternalServiceErrorException {
-  export const filterSensitiveLog = (obj: InternalServiceErrorException) => ({
+  export const filterSensitiveLog = (
+    obj: InternalServiceErrorException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServiceErrorException =>
@@ -629,7 +651,7 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export const filterSensitiveLog = (obj: InvalidNextTokenException) => ({
+  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidNextTokenException =>
@@ -653,7 +675,7 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export const filterSensitiveLog = (obj: InvalidParameterException) => ({
+  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidParameterException =>
@@ -672,7 +694,7 @@ export interface InvalidPolicyDocument
 }
 
 export namespace InvalidPolicyDocument {
-  export const filterSensitiveLog = (obj: InvalidPolicyDocument) => ({
+  export const filterSensitiveLog = (obj: InvalidPolicyDocument): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidPolicyDocument =>
@@ -691,7 +713,7 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const filterSensitiveLog = (obj: InvalidRequestException) => ({
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidRequestException =>
@@ -710,7 +732,7 @@ export interface InvalidTagException
 }
 
 export namespace InvalidTagException {
-  export const filterSensitiveLog = (obj: InvalidTagException) => ({
+  export const filterSensitiveLog = (obj: InvalidTagException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidTagException =>
@@ -734,7 +756,7 @@ export interface IpAddressRequest {
 }
 
 export namespace IpAddressRequest {
-  export const filterSensitiveLog = (obj: IpAddressRequest) => ({
+  export const filterSensitiveLog = (obj: IpAddressRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is IpAddressRequest =>
@@ -784,7 +806,7 @@ export interface IpAddressResponse {
 }
 
 export namespace IpAddressResponse {
-  export const filterSensitiveLog = (obj: IpAddressResponse) => ({
+  export const filterSensitiveLog = (obj: IpAddressResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is IpAddressResponse =>
@@ -828,7 +850,7 @@ export interface IpAddressUpdate {
 }
 
 export namespace IpAddressUpdate {
-  export const filterSensitiveLog = (obj: IpAddressUpdate) => ({
+  export const filterSensitiveLog = (obj: IpAddressUpdate): any => ({
     ...obj
   });
   export const isa = (o: any): o is IpAddressUpdate =>
@@ -851,7 +873,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -883,7 +905,7 @@ export interface ListResolverEndpointIpAddressesRequest {
 export namespace ListResolverEndpointIpAddressesRequest {
   export const filterSensitiveLog = (
     obj: ListResolverEndpointIpAddressesRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListResolverEndpointIpAddressesRequest =>
@@ -914,7 +936,7 @@ export interface ListResolverEndpointIpAddressesResponse {
 export namespace ListResolverEndpointIpAddressesResponse {
   export const filterSensitiveLog = (
     obj: ListResolverEndpointIpAddressesResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.IpAddresses && {
       IpAddresses: obj.IpAddresses.map(IpAddressResponse.filterSensitiveLog)
@@ -950,7 +972,9 @@ export interface ListResolverEndpointsRequest {
 }
 
 export namespace ListResolverEndpointsRequest {
-  export const filterSensitiveLog = (obj: ListResolverEndpointsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListResolverEndpointsRequest
+  ): any => ({
     ...obj,
     ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
@@ -978,7 +1002,9 @@ export interface ListResolverEndpointsResponse {
 }
 
 export namespace ListResolverEndpointsResponse {
-  export const filterSensitiveLog = (obj: ListResolverEndpointsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListResolverEndpointsResponse
+  ): any => ({
     ...obj,
     ...(obj.ResolverEndpoints && {
       ResolverEndpoints: obj.ResolverEndpoints.map(
@@ -1018,7 +1044,7 @@ export interface ListResolverRuleAssociationsRequest {
 export namespace ListResolverRuleAssociationsRequest {
   export const filterSensitiveLog = (
     obj: ListResolverRuleAssociationsRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
@@ -1050,7 +1076,7 @@ export interface ListResolverRuleAssociationsResponse {
 export namespace ListResolverRuleAssociationsResponse {
   export const filterSensitiveLog = (
     obj: ListResolverRuleAssociationsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ResolverRuleAssociations && {
       ResolverRuleAssociations: obj.ResolverRuleAssociations.map(
@@ -1088,7 +1114,7 @@ export interface ListResolverRulesRequest {
 }
 
 export namespace ListResolverRulesRequest {
-  export const filterSensitiveLog = (obj: ListResolverRulesRequest) => ({
+  export const filterSensitiveLog = (obj: ListResolverRulesRequest): any => ({
     ...obj,
     ...(obj.Filters && { Filters: obj.Filters.map(Filter.filterSensitiveLog) })
   });
@@ -1117,7 +1143,7 @@ export interface ListResolverRulesResponse {
 }
 
 export namespace ListResolverRulesResponse {
-  export const filterSensitiveLog = (obj: ListResolverRulesResponse) => ({
+  export const filterSensitiveLog = (obj: ListResolverRulesResponse): any => ({
     ...obj,
     ...(obj.ResolverRules && {
       ResolverRules: obj.ResolverRules.map(ResolverRule.filterSensitiveLog)
@@ -1149,7 +1175,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
@@ -1172,7 +1198,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1194,7 +1222,9 @@ export interface PutResolverRulePolicyRequest {
 }
 
 export namespace PutResolverRulePolicyRequest {
-  export const filterSensitiveLog = (obj: PutResolverRulePolicyRequest) => ({
+  export const filterSensitiveLog = (
+    obj: PutResolverRulePolicyRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutResolverRulePolicyRequest =>
@@ -1213,7 +1243,9 @@ export interface PutResolverRulePolicyResponse {
 }
 
 export namespace PutResolverRulePolicyResponse {
-  export const filterSensitiveLog = (obj: PutResolverRulePolicyResponse) => ({
+  export const filterSensitiveLog = (
+    obj: PutResolverRulePolicyResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutResolverRulePolicyResponse =>
@@ -1300,7 +1332,7 @@ export interface ResolverEndpoint {
 }
 
 export namespace ResolverEndpoint {
-  export const filterSensitiveLog = (obj: ResolverEndpoint) => ({
+  export const filterSensitiveLog = (obj: ResolverEndpoint): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResolverEndpoint =>
@@ -1395,7 +1427,7 @@ export interface ResolverRule {
 }
 
 export namespace ResolverRule {
-  export const filterSensitiveLog = (obj: ResolverRule) => ({
+  export const filterSensitiveLog = (obj: ResolverRule): any => ({
     ...obj,
     ...(obj.TargetIps && {
       TargetIps: obj.TargetIps.map(TargetAddress.filterSensitiveLog)
@@ -1444,7 +1476,7 @@ export interface ResolverRuleAssociation {
 }
 
 export namespace ResolverRuleAssociation {
-  export const filterSensitiveLog = (obj: ResolverRuleAssociation) => ({
+  export const filterSensitiveLog = (obj: ResolverRuleAssociation): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResolverRuleAssociation =>
@@ -1482,7 +1514,7 @@ export interface ResolverRuleConfig {
 }
 
 export namespace ResolverRuleConfig {
-  export const filterSensitiveLog = (obj: ResolverRuleConfig) => ({
+  export const filterSensitiveLog = (obj: ResolverRuleConfig): any => ({
     ...obj,
     ...(obj.TargetIps && {
       TargetIps: obj.TargetIps.map(TargetAddress.filterSensitiveLog)
@@ -1515,7 +1547,7 @@ export interface ResourceExistsException
 }
 
 export namespace ResourceExistsException {
-  export const filterSensitiveLog = (obj: ResourceExistsException) => ({
+  export const filterSensitiveLog = (obj: ResourceExistsException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceExistsException =>
@@ -1538,7 +1570,7 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export const filterSensitiveLog = (obj: ResourceInUseException) => ({
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceInUseException =>
@@ -1561,7 +1593,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -1584,7 +1616,9 @@ export interface ResourceUnavailableException
 }
 
 export namespace ResourceUnavailableException {
-  export const filterSensitiveLog = (obj: ResourceUnavailableException) => ({
+  export const filterSensitiveLog = (
+    obj: ResourceUnavailableException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceUnavailableException =>
@@ -1622,7 +1656,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -1675,7 +1709,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1688,7 +1722,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const filterSensitiveLog = (obj: TagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceResponse =>
@@ -1712,7 +1746,7 @@ export interface TargetAddress {
 }
 
 export namespace TargetAddress {
-  export const filterSensitiveLog = (obj: TargetAddress) => ({
+  export const filterSensitiveLog = (obj: TargetAddress): any => ({
     ...obj
   });
   export const isa = (o: any): o is TargetAddress => __isa(o, "TargetAddress");
@@ -1730,7 +1764,7 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ThrottlingException =>
@@ -1749,7 +1783,7 @@ export interface UnknownResourceException
 }
 
 export namespace UnknownResourceException {
-  export const filterSensitiveLog = (obj: UnknownResourceException) => ({
+  export const filterSensitiveLog = (obj: UnknownResourceException): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnknownResourceException =>
@@ -1803,7 +1837,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>
@@ -1815,7 +1849,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceResponse =>
@@ -1836,7 +1870,9 @@ export interface UpdateResolverEndpointRequest {
 }
 
 export namespace UpdateResolverEndpointRequest {
-  export const filterSensitiveLog = (obj: UpdateResolverEndpointRequest) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateResolverEndpointRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateResolverEndpointRequest =>
@@ -1852,7 +1888,9 @@ export interface UpdateResolverEndpointResponse {
 }
 
 export namespace UpdateResolverEndpointResponse {
-  export const filterSensitiveLog = (obj: UpdateResolverEndpointResponse) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateResolverEndpointResponse
+  ): any => ({
     ...obj,
     ...(obj.ResolverEndpoint && {
       ResolverEndpoint: ResolverEndpoint.filterSensitiveLog(
@@ -1878,7 +1916,7 @@ export interface UpdateResolverRuleRequest {
 }
 
 export namespace UpdateResolverRuleRequest {
-  export const filterSensitiveLog = (obj: UpdateResolverRuleRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateResolverRuleRequest): any => ({
     ...obj,
     ...(obj.Config && {
       Config: ResolverRuleConfig.filterSensitiveLog(obj.Config)
@@ -1897,7 +1935,7 @@ export interface UpdateResolverRuleResponse {
 }
 
 export namespace UpdateResolverRuleResponse {
-  export const filterSensitiveLog = (obj: UpdateResolverRuleResponse) => ({
+  export const filterSensitiveLog = (obj: UpdateResolverRuleResponse): any => ({
     ...obj,
     ...(obj.ResolverRule && {
       ResolverRule: ResolverRule.filterSensitiveLog(obj.ResolverRule)

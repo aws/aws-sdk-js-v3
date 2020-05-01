@@ -24,7 +24,7 @@ export interface Application {
 }
 
 export namespace Application {
-  export const filterSensitiveLog = (obj: Application) => ({
+  export const filterSensitiveLog = (obj: Application): any => ({
     ...obj
   });
   export const isa = (o: any): o is Application => __isa(o, "Application");
@@ -45,7 +45,7 @@ export interface Applications {
 }
 
 export namespace Applications {
-  export const filterSensitiveLog = (obj: Applications) => ({
+  export const filterSensitiveLog = (obj: Applications): any => ({
     ...obj,
     ...(obj.Items && { Items: obj.Items.map(Application.filterSensitiveLog) })
   });
@@ -64,7 +64,7 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export const filterSensitiveLog = (obj: BadRequestException) => ({
+  export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is BadRequestException =>
@@ -91,7 +91,7 @@ export interface Configuration {
 }
 
 export namespace Configuration {
-  export const filterSensitiveLog = (obj: Configuration) => ({
+  export const filterSensitiveLog = (obj: Configuration): any => ({
     ...obj
   });
   export const isa = (o: any): o is Configuration => __isa(o, "Configuration");
@@ -137,7 +137,7 @@ export interface ConfigurationProfile {
 }
 
 export namespace ConfigurationProfile {
-  export const filterSensitiveLog = (obj: ConfigurationProfile) => ({
+  export const filterSensitiveLog = (obj: ConfigurationProfile): any => ({
     ...obj,
     ...(obj.Validators && {
       Validators: obj.Validators.map(Validator.filterSensitiveLog)
@@ -179,7 +179,9 @@ export interface ConfigurationProfileSummary {
 }
 
 export namespace ConfigurationProfileSummary {
-  export const filterSensitiveLog = (obj: ConfigurationProfileSummary) => ({
+  export const filterSensitiveLog = (
+    obj: ConfigurationProfileSummary
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConfigurationProfileSummary =>
@@ -201,7 +203,7 @@ export interface ConfigurationProfiles {
 }
 
 export namespace ConfigurationProfiles {
-  export const filterSensitiveLog = (obj: ConfigurationProfiles) => ({
+  export const filterSensitiveLog = (obj: ConfigurationProfiles): any => ({
     ...obj,
     ...(obj.Items && {
       Items: obj.Items.map(ConfigurationProfileSummary.filterSensitiveLog)
@@ -222,7 +224,7 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export const filterSensitiveLog = (obj: ConflictException) => ({
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConflictException =>
@@ -250,7 +252,7 @@ export interface CreateApplicationRequest {
 }
 
 export namespace CreateApplicationRequest {
-  export const filterSensitiveLog = (obj: CreateApplicationRequest) => ({
+  export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateApplicationRequest =>
@@ -301,7 +303,7 @@ export interface CreateConfigurationProfileRequest {
 export namespace CreateConfigurationProfileRequest {
   export const filterSensitiveLog = (
     obj: CreateConfigurationProfileRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Validators && {
       Validators: obj.Validators.map(Validator.filterSensitiveLog)
@@ -359,7 +361,9 @@ export interface CreateDeploymentStrategyRequest {
 }
 
 export namespace CreateDeploymentStrategyRequest {
-  export const filterSensitiveLog = (obj: CreateDeploymentStrategyRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreateDeploymentStrategyRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateDeploymentStrategyRequest =>
@@ -397,7 +401,7 @@ export interface CreateEnvironmentRequest {
 }
 
 export namespace CreateEnvironmentRequest {
-  export const filterSensitiveLog = (obj: CreateEnvironmentRequest) => ({
+  export const filterSensitiveLog = (obj: CreateEnvironmentRequest): any => ({
     ...obj,
     ...(obj.Monitors && {
       Monitors: obj.Monitors.map(Monitor.filterSensitiveLog)
@@ -416,7 +420,7 @@ export interface DeleteApplicationRequest {
 }
 
 export namespace DeleteApplicationRequest {
-  export const filterSensitiveLog = (obj: DeleteApplicationRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteApplicationRequest =>
@@ -439,7 +443,7 @@ export interface DeleteConfigurationProfileRequest {
 export namespace DeleteConfigurationProfileRequest {
   export const filterSensitiveLog = (
     obj: DeleteConfigurationProfileRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteConfigurationProfileRequest =>
@@ -455,7 +459,9 @@ export interface DeleteDeploymentStrategyRequest {
 }
 
 export namespace DeleteDeploymentStrategyRequest {
-  export const filterSensitiveLog = (obj: DeleteDeploymentStrategyRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteDeploymentStrategyRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteDeploymentStrategyRequest =>
@@ -476,7 +482,7 @@ export interface DeleteEnvironmentRequest {
 }
 
 export namespace DeleteEnvironmentRequest {
-  export const filterSensitiveLog = (obj: DeleteEnvironmentRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteEnvironmentRequest =>
@@ -574,7 +580,7 @@ export interface Deployment {
 }
 
 export namespace Deployment {
-  export const filterSensitiveLog = (obj: Deployment) => ({
+  export const filterSensitiveLog = (obj: Deployment): any => ({
     ...obj
   });
   export const isa = (o: any): o is Deployment => __isa(o, "Deployment");
@@ -604,7 +610,7 @@ export interface DeploymentStrategies {
 }
 
 export namespace DeploymentStrategies {
-  export const filterSensitiveLog = (obj: DeploymentStrategies) => ({
+  export const filterSensitiveLog = (obj: DeploymentStrategies): any => ({
     ...obj,
     ...(obj.Items && {
       Items: obj.Items.map(DeploymentStrategy.filterSensitiveLog)
@@ -660,7 +666,7 @@ export interface DeploymentStrategy {
 }
 
 export namespace DeploymentStrategy {
-  export const filterSensitiveLog = (obj: DeploymentStrategy) => ({
+  export const filterSensitiveLog = (obj: DeploymentStrategy): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentStrategy =>
@@ -731,7 +737,7 @@ export interface DeploymentSummary {
 }
 
 export namespace DeploymentSummary {
-  export const filterSensitiveLog = (obj: DeploymentSummary) => ({
+  export const filterSensitiveLog = (obj: DeploymentSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentSummary =>
@@ -753,7 +759,7 @@ export interface Deployments {
 }
 
 export namespace Deployments {
-  export const filterSensitiveLog = (obj: Deployments) => ({
+  export const filterSensitiveLog = (obj: Deployments): any => ({
     ...obj,
     ...(obj.Items && {
       Items: obj.Items.map(DeploymentSummary.filterSensitiveLog)
@@ -799,7 +805,7 @@ export interface Environment {
 }
 
 export namespace Environment {
-  export const filterSensitiveLog = (obj: Environment) => ({
+  export const filterSensitiveLog = (obj: Environment): any => ({
     ...obj,
     ...(obj.Monitors && {
       Monitors: obj.Monitors.map(Monitor.filterSensitiveLog)
@@ -830,7 +836,7 @@ export interface Environments {
 }
 
 export namespace Environments {
-  export const filterSensitiveLog = (obj: Environments) => ({
+  export const filterSensitiveLog = (obj: Environments): any => ({
     ...obj,
     ...(obj.Items && { Items: obj.Items.map(Environment.filterSensitiveLog) })
   });
@@ -846,7 +852,7 @@ export interface GetApplicationRequest {
 }
 
 export namespace GetApplicationRequest {
-  export const filterSensitiveLog = (obj: GetApplicationRequest) => ({
+  export const filterSensitiveLog = (obj: GetApplicationRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetApplicationRequest =>
@@ -868,7 +874,9 @@ export interface GetConfigurationProfileRequest {
 }
 
 export namespace GetConfigurationProfileRequest {
-  export const filterSensitiveLog = (obj: GetConfigurationProfileRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetConfigurationProfileRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetConfigurationProfileRequest =>
@@ -905,7 +913,7 @@ export interface GetConfigurationRequest {
 }
 
 export namespace GetConfigurationRequest {
-  export const filterSensitiveLog = (obj: GetConfigurationRequest) => ({
+  export const filterSensitiveLog = (obj: GetConfigurationRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetConfigurationRequest =>
@@ -931,7 +939,7 @@ export interface GetDeploymentRequest {
 }
 
 export namespace GetDeploymentRequest {
-  export const filterSensitiveLog = (obj: GetDeploymentRequest) => ({
+  export const filterSensitiveLog = (obj: GetDeploymentRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetDeploymentRequest =>
@@ -947,7 +955,9 @@ export interface GetDeploymentStrategyRequest {
 }
 
 export namespace GetDeploymentStrategyRequest {
-  export const filterSensitiveLog = (obj: GetDeploymentStrategyRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetDeploymentStrategyRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetDeploymentStrategyRequest =>
@@ -968,7 +978,7 @@ export interface GetEnvironmentRequest {
 }
 
 export namespace GetEnvironmentRequest {
-  export const filterSensitiveLog = (obj: GetEnvironmentRequest) => ({
+  export const filterSensitiveLog = (obj: GetEnvironmentRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetEnvironmentRequest =>
@@ -991,7 +1001,7 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export const filterSensitiveLog = (obj: InternalServerException) => ({
+  export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerException =>
@@ -1013,7 +1023,7 @@ export interface ListApplicationsRequest {
 }
 
 export namespace ListApplicationsRequest {
-  export const filterSensitiveLog = (obj: ListApplicationsRequest) => ({
+  export const filterSensitiveLog = (obj: ListApplicationsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListApplicationsRequest =>
@@ -1042,7 +1052,7 @@ export interface ListConfigurationProfilesRequest {
 export namespace ListConfigurationProfilesRequest {
   export const filterSensitiveLog = (
     obj: ListConfigurationProfilesRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListConfigurationProfilesRequest =>
@@ -1064,7 +1074,9 @@ export interface ListDeploymentStrategiesRequest {
 }
 
 export namespace ListDeploymentStrategiesRequest {
-  export const filterSensitiveLog = (obj: ListDeploymentStrategiesRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListDeploymentStrategiesRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDeploymentStrategiesRequest =>
@@ -1096,7 +1108,7 @@ export interface ListDeploymentsRequest {
 }
 
 export namespace ListDeploymentsRequest {
-  export const filterSensitiveLog = (obj: ListDeploymentsRequest) => ({
+  export const filterSensitiveLog = (obj: ListDeploymentsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDeploymentsRequest =>
@@ -1123,7 +1135,7 @@ export interface ListEnvironmentsRequest {
 }
 
 export namespace ListEnvironmentsRequest {
-  export const filterSensitiveLog = (obj: ListEnvironmentsRequest) => ({
+  export const filterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListEnvironmentsRequest =>
@@ -1139,7 +1151,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
@@ -1163,7 +1175,7 @@ export interface Monitor {
 }
 
 export namespace Monitor {
-  export const filterSensitiveLog = (obj: Monitor) => ({
+  export const filterSensitiveLog = (obj: Monitor): any => ({
     ...obj
   });
   export const isa = (o: any): o is Monitor => __isa(o, "Monitor");
@@ -1187,7 +1199,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -1205,7 +1217,7 @@ export interface ResourceTags {
 }
 
 export namespace ResourceTags {
-  export const filterSensitiveLog = (obj: ResourceTags) => ({
+  export const filterSensitiveLog = (obj: ResourceTags): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceTags => __isa(o, "ResourceTags");
@@ -1252,7 +1264,7 @@ export interface StartDeploymentRequest {
 }
 
 export namespace StartDeploymentRequest {
-  export const filterSensitiveLog = (obj: StartDeploymentRequest) => ({
+  export const filterSensitiveLog = (obj: StartDeploymentRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartDeploymentRequest =>
@@ -1278,7 +1290,7 @@ export interface StopDeploymentRequest {
 }
 
 export namespace StopDeploymentRequest {
-  export const filterSensitiveLog = (obj: StopDeploymentRequest) => ({
+  export const filterSensitiveLog = (obj: StopDeploymentRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopDeploymentRequest =>
@@ -1301,7 +1313,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
@@ -1322,7 +1334,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>
@@ -1348,7 +1360,7 @@ export interface UpdateApplicationRequest {
 }
 
 export namespace UpdateApplicationRequest {
-  export const filterSensitiveLog = (obj: UpdateApplicationRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateApplicationRequest =>
@@ -1392,7 +1404,7 @@ export interface UpdateConfigurationProfileRequest {
 export namespace UpdateConfigurationProfileRequest {
   export const filterSensitiveLog = (
     obj: UpdateConfigurationProfileRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Validators && {
       Validators: obj.Validators.map(Validator.filterSensitiveLog)
@@ -1438,7 +1450,9 @@ export interface UpdateDeploymentStrategyRequest {
 }
 
 export namespace UpdateDeploymentStrategyRequest {
-  export const filterSensitiveLog = (obj: UpdateDeploymentStrategyRequest) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateDeploymentStrategyRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateDeploymentStrategyRequest =>
@@ -1474,7 +1488,7 @@ export interface UpdateEnvironmentRequest {
 }
 
 export namespace UpdateEnvironmentRequest {
-  export const filterSensitiveLog = (obj: UpdateEnvironmentRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateEnvironmentRequest): any => ({
     ...obj,
     ...(obj.Monitors && {
       Monitors: obj.Monitors.map(Monitor.filterSensitiveLog)
@@ -1503,7 +1517,9 @@ export interface ValidateConfigurationRequest {
 }
 
 export namespace ValidateConfigurationRequest {
-  export const filterSensitiveLog = (obj: ValidateConfigurationRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ValidateConfigurationRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ValidateConfigurationRequest =>
@@ -1532,7 +1548,7 @@ export interface Validator {
 }
 
 export namespace Validator {
-  export const filterSensitiveLog = (obj: Validator) => ({
+  export const filterSensitiveLog = (obj: Validator): any => ({
     ...obj
   });
   export const isa = (o: any): o is Validator => __isa(o, "Validator");

@@ -22,7 +22,7 @@ export interface BillExpirationException
 }
 
 export namespace BillExpirationException {
-  export const filterSensitiveLog = (obj: BillExpirationException) => ({
+  export const filterSensitiveLog = (obj: BillExpirationException): any => ({
     ...obj
   });
   export const isa = (o: any): o is BillExpirationException =>
@@ -85,7 +85,7 @@ export interface CostCategory {
 }
 
 export namespace CostCategory {
-  export const filterSensitiveLog = (obj: CostCategory) => ({
+  export const filterSensitiveLog = (obj: CostCategory): any => ({
     ...obj,
     ...(obj.Rules && {
       Rules: obj.Rules.map(CostCategoryRule.filterSensitiveLog)
@@ -133,7 +133,7 @@ export interface CostCategoryReference {
 }
 
 export namespace CostCategoryReference {
-  export const filterSensitiveLog = (obj: CostCategoryReference) => ({
+  export const filterSensitiveLog = (obj: CostCategoryReference): any => ({
     ...obj
   });
   export const isa = (o: any): o is CostCategoryReference =>
@@ -165,7 +165,7 @@ export interface CostCategoryRule {
 }
 
 export namespace CostCategoryRule {
-  export const filterSensitiveLog = (obj: CostCategoryRule) => ({
+  export const filterSensitiveLog = (obj: CostCategoryRule): any => ({
     ...obj,
     ...(obj.Rule && { Rule: Expression.filterSensitiveLog(obj.Rule) })
   });
@@ -201,7 +201,7 @@ export interface CostCategoryValues {
 }
 
 export namespace CostCategoryValues {
-  export const filterSensitiveLog = (obj: CostCategoryValues) => ({
+  export const filterSensitiveLog = (obj: CostCategoryValues): any => ({
     ...obj
   });
   export const isa = (o: any): o is CostCategoryValues =>
@@ -231,7 +231,7 @@ export interface Coverage {
 }
 
 export namespace Coverage {
-  export const filterSensitiveLog = (obj: Coverage) => ({
+  export const filterSensitiveLog = (obj: Coverage): any => ({
     ...obj,
     ...(obj.CoverageCost && {
       CoverageCost: CoverageCost.filterSensitiveLog(obj.CoverageCost)
@@ -272,7 +272,7 @@ export interface CoverageByTime {
 }
 
 export namespace CoverageByTime {
-  export const filterSensitiveLog = (obj: CoverageByTime) => ({
+  export const filterSensitiveLog = (obj: CoverageByTime): any => ({
     ...obj,
     ...(obj.Groups && {
       Groups: obj.Groups.map(ReservationCoverageGroup.filterSensitiveLog)
@@ -298,7 +298,7 @@ export interface CoverageCost {
 }
 
 export namespace CoverageCost {
-  export const filterSensitiveLog = (obj: CoverageCost) => ({
+  export const filterSensitiveLog = (obj: CoverageCost): any => ({
     ...obj
   });
   export const isa = (o: any): o is CoverageCost => __isa(o, "CoverageCost");
@@ -331,7 +331,7 @@ export interface CoverageHours {
 }
 
 export namespace CoverageHours {
-  export const filterSensitiveLog = (obj: CoverageHours) => ({
+  export const filterSensitiveLog = (obj: CoverageHours): any => ({
     ...obj
   });
   export const isa = (o: any): o is CoverageHours => __isa(o, "CoverageHours");
@@ -374,7 +374,7 @@ export interface CoverageNormalizedUnits {
 }
 
 export namespace CoverageNormalizedUnits {
-  export const filterSensitiveLog = (obj: CoverageNormalizedUnits) => ({
+  export const filterSensitiveLog = (obj: CoverageNormalizedUnits): any => ({
     ...obj
   });
   export const isa = (o: any): o is CoverageNormalizedUnits =>
@@ -407,7 +407,7 @@ export interface CreateCostCategoryDefinitionRequest {
 export namespace CreateCostCategoryDefinitionRequest {
   export const filterSensitiveLog = (
     obj: CreateCostCategoryDefinitionRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Rules && {
       Rules: obj.Rules.map(CostCategoryRule.filterSensitiveLog)
@@ -437,7 +437,7 @@ export interface CreateCostCategoryDefinitionResponse {
 export namespace CreateCostCategoryDefinitionResponse {
   export const filterSensitiveLog = (
     obj: CreateCostCategoryDefinitionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateCostCategoryDefinitionResponse =>
@@ -501,7 +501,7 @@ export interface CurrentInstance {
 }
 
 export namespace CurrentInstance {
-  export const filterSensitiveLog = (obj: CurrentInstance) => ({
+  export const filterSensitiveLog = (obj: CurrentInstance): any => ({
     ...obj,
     ...(obj.ResourceDetails && {
       ResourceDetails: ResourceDetails.filterSensitiveLog(obj.ResourceDetails)
@@ -529,7 +529,7 @@ export interface DataUnavailableException
 }
 
 export namespace DataUnavailableException {
-  export const filterSensitiveLog = (obj: DataUnavailableException) => ({
+  export const filterSensitiveLog = (obj: DataUnavailableException): any => ({
     ...obj
   });
   export const isa = (o: any): o is DataUnavailableException =>
@@ -560,7 +560,7 @@ export interface DateInterval {
 }
 
 export namespace DateInterval {
-  export const filterSensitiveLog = (obj: DateInterval) => ({
+  export const filterSensitiveLog = (obj: DateInterval): any => ({
     ...obj
   });
   export const isa = (o: any): o is DateInterval => __isa(o, "DateInterval");
@@ -579,7 +579,7 @@ export interface DeleteCostCategoryDefinitionRequest {
 export namespace DeleteCostCategoryDefinitionRequest {
   export const filterSensitiveLog = (
     obj: DeleteCostCategoryDefinitionRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteCostCategoryDefinitionRequest =>
@@ -606,7 +606,7 @@ export interface DeleteCostCategoryDefinitionResponse {
 export namespace DeleteCostCategoryDefinitionResponse {
   export const filterSensitiveLog = (
     obj: DeleteCostCategoryDefinitionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteCostCategoryDefinitionResponse =>
@@ -633,7 +633,7 @@ export interface DescribeCostCategoryDefinitionRequest {
 export namespace DescribeCostCategoryDefinitionRequest {
   export const filterSensitiveLog = (
     obj: DescribeCostCategoryDefinitionRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeCostCategoryDefinitionRequest =>
@@ -658,7 +658,7 @@ export interface DescribeCostCategoryDefinitionResponse {
 export namespace DescribeCostCategoryDefinitionResponse {
   export const filterSensitiveLog = (
     obj: DescribeCostCategoryDefinitionResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CostCategory && {
       CostCategory: CostCategory.filterSensitiveLog(obj.CostCategory)
@@ -724,7 +724,7 @@ export interface DimensionValues {
 }
 
 export namespace DimensionValues {
-  export const filterSensitiveLog = (obj: DimensionValues) => ({
+  export const filterSensitiveLog = (obj: DimensionValues): any => ({
     ...obj
   });
   export const isa = (o: any): o is DimensionValues =>
@@ -749,7 +749,9 @@ export interface DimensionValuesWithAttributes {
 }
 
 export namespace DimensionValuesWithAttributes {
-  export const filterSensitiveLog = (obj: DimensionValuesWithAttributes) => ({
+  export const filterSensitiveLog = (
+    obj: DimensionValuesWithAttributes
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DimensionValuesWithAttributes =>
@@ -804,7 +806,7 @@ export interface EC2InstanceDetails {
 }
 
 export namespace EC2InstanceDetails {
-  export const filterSensitiveLog = (obj: EC2InstanceDetails) => ({
+  export const filterSensitiveLog = (obj: EC2InstanceDetails): any => ({
     ...obj
   });
   export const isa = (o: any): o is EC2InstanceDetails =>
@@ -863,7 +865,7 @@ export interface EC2ResourceDetails {
 }
 
 export namespace EC2ResourceDetails {
-  export const filterSensitiveLog = (obj: EC2ResourceDetails) => ({
+  export const filterSensitiveLog = (obj: EC2ResourceDetails): any => ({
     ...obj
   });
   export const isa = (o: any): o is EC2ResourceDetails =>
@@ -892,7 +894,7 @@ export interface EC2ResourceUtilization {
 }
 
 export namespace EC2ResourceUtilization {
-  export const filterSensitiveLog = (obj: EC2ResourceUtilization) => ({
+  export const filterSensitiveLog = (obj: EC2ResourceUtilization): any => ({
     ...obj
   });
   export const isa = (o: any): o is EC2ResourceUtilization =>
@@ -913,7 +915,7 @@ export interface EC2Specification {
 }
 
 export namespace EC2Specification {
-  export const filterSensitiveLog = (obj: EC2Specification) => ({
+  export const filterSensitiveLog = (obj: EC2Specification): any => ({
     ...obj
   });
   export const isa = (o: any): o is EC2Specification =>
@@ -953,7 +955,7 @@ export interface ESInstanceDetails {
 }
 
 export namespace ESInstanceDetails {
-  export const filterSensitiveLog = (obj: ESInstanceDetails) => ({
+  export const filterSensitiveLog = (obj: ESInstanceDetails): any => ({
     ...obj
   });
   export const isa = (o: any): o is ESInstanceDetails =>
@@ -998,7 +1000,7 @@ export interface ElastiCacheInstanceDetails {
 }
 
 export namespace ElastiCacheInstanceDetails {
-  export const filterSensitiveLog = (obj: ElastiCacheInstanceDetails) => ({
+  export const filterSensitiveLog = (obj: ElastiCacheInstanceDetails): any => ({
     ...obj
   });
   export const isa = (o: any): o is ElastiCacheInstanceDetails =>
@@ -1097,7 +1099,7 @@ export interface Expression {
 }
 
 export namespace Expression {
-  export const filterSensitiveLog = (obj: Expression) => ({
+  export const filterSensitiveLog = (obj: Expression): any => ({
     ...obj,
     ...(obj.And && { And: obj.And.map(Expression.filterSensitiveLog) }),
     ...(obj.CostCategories && {
@@ -1140,7 +1142,7 @@ export interface ForecastResult {
 }
 
 export namespace ForecastResult {
-  export const filterSensitiveLog = (obj: ForecastResult) => ({
+  export const filterSensitiveLog = (obj: ForecastResult): any => ({
     ...obj,
     ...(obj.TimePeriod && {
       TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
@@ -1206,7 +1208,7 @@ export interface GetCostAndUsageRequest {
 }
 
 export namespace GetCostAndUsageRequest {
-  export const filterSensitiveLog = (obj: GetCostAndUsageRequest) => ({
+  export const filterSensitiveLog = (obj: GetCostAndUsageRequest): any => ({
     ...obj,
     ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
     ...(obj.GroupBy && {
@@ -1239,7 +1241,7 @@ export interface GetCostAndUsageResponse {
 }
 
 export namespace GetCostAndUsageResponse {
-  export const filterSensitiveLog = (obj: GetCostAndUsageResponse) => ({
+  export const filterSensitiveLog = (obj: GetCostAndUsageResponse): any => ({
     ...obj,
     ...(obj.GroupDefinitions && {
       GroupDefinitions: obj.GroupDefinitions.map(
@@ -1315,7 +1317,7 @@ export interface GetCostAndUsageWithResourcesRequest {
 export namespace GetCostAndUsageWithResourcesRequest {
   export const filterSensitiveLog = (
     obj: GetCostAndUsageWithResourcesRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
     ...(obj.GroupBy && {
@@ -1351,7 +1353,7 @@ export interface GetCostAndUsageWithResourcesResponse {
 export namespace GetCostAndUsageWithResourcesResponse {
   export const filterSensitiveLog = (
     obj: GetCostAndUsageWithResourcesResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.GroupDefinitions && {
       GroupDefinitions: obj.GroupDefinitions.map(
@@ -1418,7 +1420,7 @@ export interface GetCostForecastRequest {
 }
 
 export namespace GetCostForecastRequest {
-  export const filterSensitiveLog = (obj: GetCostForecastRequest) => ({
+  export const filterSensitiveLog = (obj: GetCostForecastRequest): any => ({
     ...obj,
     ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
     ...(obj.TimePeriod && {
@@ -1444,7 +1446,7 @@ export interface GetCostForecastResponse {
 }
 
 export namespace GetCostForecastResponse {
-  export const filterSensitiveLog = (obj: GetCostForecastResponse) => ({
+  export const filterSensitiveLog = (obj: GetCostForecastResponse): any => ({
     ...obj,
     ...(obj.ForecastResultsByTime && {
       ForecastResultsByTime: obj.ForecastResultsByTime.map(
@@ -1600,7 +1602,7 @@ export interface GetDimensionValuesRequest {
 }
 
 export namespace GetDimensionValuesRequest {
-  export const filterSensitiveLog = (obj: GetDimensionValuesRequest) => ({
+  export const filterSensitiveLog = (obj: GetDimensionValuesRequest): any => ({
     ...obj,
     ...(obj.TimePeriod && {
       TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
@@ -1741,7 +1743,7 @@ export interface GetDimensionValuesResponse {
 }
 
 export namespace GetDimensionValuesResponse {
-  export const filterSensitiveLog = (obj: GetDimensionValuesResponse) => ({
+  export const filterSensitiveLog = (obj: GetDimensionValuesResponse): any => ({
     ...obj,
     ...(obj.DimensionValues && {
       DimensionValues: obj.DimensionValues.map(
@@ -1872,7 +1874,9 @@ export interface GetReservationCoverageRequest {
 }
 
 export namespace GetReservationCoverageRequest {
-  export const filterSensitiveLog = (obj: GetReservationCoverageRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetReservationCoverageRequest
+  ): any => ({
     ...obj,
     ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
     ...(obj.GroupBy && {
@@ -1905,7 +1909,9 @@ export interface GetReservationCoverageResponse {
 }
 
 export namespace GetReservationCoverageResponse {
-  export const filterSensitiveLog = (obj: GetReservationCoverageResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetReservationCoverageResponse
+  ): any => ({
     ...obj,
     ...(obj.CoveragesByTime && {
       CoveragesByTime: obj.CoveragesByTime.map(
@@ -1972,7 +1978,7 @@ export interface GetReservationPurchaseRecommendationRequest {
 export namespace GetReservationPurchaseRecommendationRequest {
   export const filterSensitiveLog = (
     obj: GetReservationPurchaseRecommendationRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.ServiceSpecification && {
       ServiceSpecification: ServiceSpecification.filterSensitiveLog(
@@ -2007,7 +2013,7 @@ export interface GetReservationPurchaseRecommendationResponse {
 export namespace GetReservationPurchaseRecommendationResponse {
   export const filterSensitiveLog = (
     obj: GetReservationPurchaseRecommendationResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Metadata && {
       Metadata: ReservationPurchaseRecommendationMetadata.filterSensitiveLog(
@@ -2101,7 +2107,7 @@ export interface GetReservationUtilizationRequest {
 export namespace GetReservationUtilizationRequest {
   export const filterSensitiveLog = (
     obj: GetReservationUtilizationRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
     ...(obj.GroupBy && {
@@ -2136,7 +2142,7 @@ export interface GetReservationUtilizationResponse {
 export namespace GetReservationUtilizationResponse {
   export const filterSensitiveLog = (
     obj: GetReservationUtilizationResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Total && {
       Total: ReservationAggregates.filterSensitiveLog(obj.Total)
@@ -2228,7 +2234,7 @@ export interface GetRightsizingRecommendationRequest {
 export namespace GetRightsizingRecommendationRequest {
   export const filterSensitiveLog = (
     obj: GetRightsizingRecommendationRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) })
   });
@@ -2262,7 +2268,7 @@ export interface GetRightsizingRecommendationResponse {
 export namespace GetRightsizingRecommendationResponse {
   export const filterSensitiveLog = (
     obj: GetRightsizingRecommendationResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Metadata && {
       Metadata: RightsizingRecommendationMetadata.filterSensitiveLog(
@@ -2348,7 +2354,9 @@ export interface GetSavingsPlansCoverageRequest {
 }
 
 export namespace GetSavingsPlansCoverageRequest {
-  export const filterSensitiveLog = (obj: GetSavingsPlansCoverageRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetSavingsPlansCoverageRequest
+  ): any => ({
     ...obj,
     ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
     ...(obj.GroupBy && {
@@ -2376,7 +2384,9 @@ export interface GetSavingsPlansCoverageResponse {
 }
 
 export namespace GetSavingsPlansCoverageResponse {
-  export const filterSensitiveLog = (obj: GetSavingsPlansCoverageResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetSavingsPlansCoverageResponse
+  ): any => ({
     ...obj,
     ...(obj.SavingsPlansCoverages && {
       SavingsPlansCoverages: obj.SavingsPlansCoverages.map(
@@ -2424,7 +2434,7 @@ export interface GetSavingsPlansPurchaseRecommendationRequest {
 export namespace GetSavingsPlansPurchaseRecommendationRequest {
   export const filterSensitiveLog = (
     obj: GetSavingsPlansPurchaseRecommendationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -2454,7 +2464,7 @@ export interface GetSavingsPlansPurchaseRecommendationResponse {
 export namespace GetSavingsPlansPurchaseRecommendationResponse {
   export const filterSensitiveLog = (
     obj: GetSavingsPlansPurchaseRecommendationResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Metadata && {
       Metadata: SavingsPlansPurchaseRecommendationMetadata.filterSensitiveLog(
@@ -2530,7 +2540,7 @@ export interface GetSavingsPlansUtilizationDetailsRequest {
 export namespace GetSavingsPlansUtilizationDetailsRequest {
   export const filterSensitiveLog = (
     obj: GetSavingsPlansUtilizationDetailsRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
     ...(obj.TimePeriod && {
@@ -2568,7 +2578,7 @@ export interface GetSavingsPlansUtilizationDetailsResponse {
 export namespace GetSavingsPlansUtilizationDetailsResponse {
   export const filterSensitiveLog = (
     obj: GetSavingsPlansUtilizationDetailsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.SavingsPlansUtilizationDetails && {
       SavingsPlansUtilizationDetails: obj.SavingsPlansUtilizationDetails.map(
@@ -2644,7 +2654,7 @@ export interface GetSavingsPlansUtilizationRequest {
 export namespace GetSavingsPlansUtilizationRequest {
   export const filterSensitiveLog = (
     obj: GetSavingsPlansUtilizationRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
     ...(obj.TimePeriod && {
@@ -2671,7 +2681,7 @@ export interface GetSavingsPlansUtilizationResponse {
 export namespace GetSavingsPlansUtilizationResponse {
   export const filterSensitiveLog = (
     obj: GetSavingsPlansUtilizationResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.SavingsPlansUtilizationsByTime && {
       SavingsPlansUtilizationsByTime: obj.SavingsPlansUtilizationsByTime.map(
@@ -2711,7 +2721,7 @@ export interface GetTagsRequest {
 }
 
 export namespace GetTagsRequest {
-  export const filterSensitiveLog = (obj: GetTagsRequest) => ({
+  export const filterSensitiveLog = (obj: GetTagsRequest): any => ({
     ...obj,
     ...(obj.TimePeriod && {
       TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
@@ -2745,7 +2755,7 @@ export interface GetTagsResponse {
 }
 
 export namespace GetTagsResponse {
-  export const filterSensitiveLog = (obj: GetTagsResponse) => ({
+  export const filterSensitiveLog = (obj: GetTagsResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetTagsResponse =>
@@ -2794,7 +2804,7 @@ export interface GetUsageForecastRequest {
 }
 
 export namespace GetUsageForecastRequest {
-  export const filterSensitiveLog = (obj: GetUsageForecastRequest) => ({
+  export const filterSensitiveLog = (obj: GetUsageForecastRequest): any => ({
     ...obj,
     ...(obj.Filter && { Filter: Expression.filterSensitiveLog(obj.Filter) }),
     ...(obj.TimePeriod && {
@@ -2820,7 +2830,7 @@ export interface GetUsageForecastResponse {
 }
 
 export namespace GetUsageForecastResponse {
-  export const filterSensitiveLog = (obj: GetUsageForecastResponse) => ({
+  export const filterSensitiveLog = (obj: GetUsageForecastResponse): any => ({
     ...obj,
     ...(obj.ForecastResultsByTime && {
       ForecastResultsByTime: obj.ForecastResultsByTime.map(
@@ -2856,7 +2866,7 @@ export interface Group {
 }
 
 export namespace Group {
-  export const filterSensitiveLog = (obj: Group) => ({
+  export const filterSensitiveLog = (obj: Group): any => ({
     ...obj,
     ...(obj.Metrics && {
       Metrics: Object.entries(obj.Metrics).reduce(
@@ -2889,7 +2899,7 @@ export interface GroupDefinition {
 }
 
 export namespace GroupDefinition {
-  export const filterSensitiveLog = (obj: GroupDefinition) => ({
+  export const filterSensitiveLog = (obj: GroupDefinition): any => ({
     ...obj
   });
   export const isa = (o: any): o is GroupDefinition =>
@@ -2934,7 +2944,7 @@ export interface InstanceDetails {
 }
 
 export namespace InstanceDetails {
-  export const filterSensitiveLog = (obj: InstanceDetails) => ({
+  export const filterSensitiveLog = (obj: InstanceDetails): any => ({
     ...obj,
     ...(obj.EC2InstanceDetails && {
       EC2InstanceDetails: EC2InstanceDetails.filterSensitiveLog(
@@ -2978,7 +2988,7 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export const filterSensitiveLog = (obj: InvalidNextTokenException) => ({
+  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidNextTokenException =>
@@ -2997,7 +3007,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -3025,7 +3035,7 @@ export interface ListCostCategoryDefinitionsRequest {
 export namespace ListCostCategoryDefinitionsRequest {
   export const filterSensitiveLog = (
     obj: ListCostCategoryDefinitionsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListCostCategoryDefinitionsRequest =>
@@ -3052,7 +3062,7 @@ export interface ListCostCategoryDefinitionsResponse {
 export namespace ListCostCategoryDefinitionsResponse {
   export const filterSensitiveLog = (
     obj: ListCostCategoryDefinitionsResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CostCategoryReferences && {
       CostCategoryReferences: obj.CostCategoryReferences.map(
@@ -3097,7 +3107,7 @@ export interface MetricValue {
 }
 
 export namespace MetricValue {
-  export const filterSensitiveLog = (obj: MetricValue) => ({
+  export const filterSensitiveLog = (obj: MetricValue): any => ({
     ...obj
   });
   export const isa = (o: any): o is MetricValue => __isa(o, "MetricValue");
@@ -3115,7 +3125,7 @@ export interface ModifyRecommendationDetail {
 }
 
 export namespace ModifyRecommendationDetail {
-  export const filterSensitiveLog = (obj: ModifyRecommendationDetail) => ({
+  export const filterSensitiveLog = (obj: ModifyRecommendationDetail): any => ({
     ...obj,
     ...(obj.TargetInstances && {
       TargetInstances: obj.TargetInstances.map(
@@ -3195,7 +3205,7 @@ export interface RDSInstanceDetails {
 }
 
 export namespace RDSInstanceDetails {
-  export const filterSensitiveLog = (obj: RDSInstanceDetails) => ({
+  export const filterSensitiveLog = (obj: RDSInstanceDetails): any => ({
     ...obj
   });
   export const isa = (o: any): o is RDSInstanceDetails =>
@@ -3235,7 +3245,7 @@ export interface RedshiftInstanceDetails {
 }
 
 export namespace RedshiftInstanceDetails {
-  export const filterSensitiveLog = (obj: RedshiftInstanceDetails) => ({
+  export const filterSensitiveLog = (obj: RedshiftInstanceDetails): any => ({
     ...obj
   });
   export const isa = (o: any): o is RedshiftInstanceDetails =>
@@ -3255,7 +3265,7 @@ export interface RequestChangedException
 }
 
 export namespace RequestChangedException {
-  export const filterSensitiveLog = (obj: RequestChangedException) => ({
+  export const filterSensitiveLog = (obj: RequestChangedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is RequestChangedException =>
@@ -3351,7 +3361,7 @@ export interface ReservationAggregates {
 }
 
 export namespace ReservationAggregates {
-  export const filterSensitiveLog = (obj: ReservationAggregates) => ({
+  export const filterSensitiveLog = (obj: ReservationAggregates): any => ({
     ...obj
   });
   export const isa = (o: any): o is ReservationAggregates =>
@@ -3376,7 +3386,7 @@ export interface ReservationCoverageGroup {
 }
 
 export namespace ReservationCoverageGroup {
-  export const filterSensitiveLog = (obj: ReservationCoverageGroup) => ({
+  export const filterSensitiveLog = (obj: ReservationCoverageGroup): any => ({
     ...obj,
     ...(obj.Coverage && { Coverage: Coverage.filterSensitiveLog(obj.Coverage) })
   });
@@ -3433,7 +3443,7 @@ export interface ReservationPurchaseRecommendation {
 export namespace ReservationPurchaseRecommendation {
   export const filterSensitiveLog = (
     obj: ReservationPurchaseRecommendation
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.RecommendationDetails && {
       RecommendationDetails: obj.RecommendationDetails.map(
@@ -3575,7 +3585,7 @@ export interface ReservationPurchaseRecommendationDetail {
 export namespace ReservationPurchaseRecommendationDetail {
   export const filterSensitiveLog = (
     obj: ReservationPurchaseRecommendationDetail
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.InstanceDetails && {
       InstanceDetails: InstanceDetails.filterSensitiveLog(obj.InstanceDetails)
@@ -3605,7 +3615,7 @@ export interface ReservationPurchaseRecommendationMetadata {
 export namespace ReservationPurchaseRecommendationMetadata {
   export const filterSensitiveLog = (
     obj: ReservationPurchaseRecommendationMetadata
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ReservationPurchaseRecommendationMetadata =>
@@ -3640,7 +3650,7 @@ export interface ReservationPurchaseRecommendationSummary {
 export namespace ReservationPurchaseRecommendationSummary {
   export const filterSensitiveLog = (
     obj: ReservationPurchaseRecommendationSummary
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ReservationPurchaseRecommendationSummary =>
@@ -3674,7 +3684,9 @@ export interface ReservationUtilizationGroup {
 }
 
 export namespace ReservationUtilizationGroup {
-  export const filterSensitiveLog = (obj: ReservationUtilizationGroup) => ({
+  export const filterSensitiveLog = (
+    obj: ReservationUtilizationGroup
+  ): any => ({
     ...obj,
     ...(obj.Utilization && {
       Utilization: ReservationAggregates.filterSensitiveLog(obj.Utilization)
@@ -3696,7 +3708,7 @@ export interface ResourceDetails {
 }
 
 export namespace ResourceDetails {
-  export const filterSensitiveLog = (obj: ResourceDetails) => ({
+  export const filterSensitiveLog = (obj: ResourceDetails): any => ({
     ...obj,
     ...(obj.EC2ResourceDetails && {
       EC2ResourceDetails: EC2ResourceDetails.filterSensitiveLog(
@@ -3722,7 +3734,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -3741,7 +3753,7 @@ export interface ResourceUtilization {
 }
 
 export namespace ResourceUtilization {
-  export const filterSensitiveLog = (obj: ResourceUtilization) => ({
+  export const filterSensitiveLog = (obj: ResourceUtilization): any => ({
     ...obj,
     ...(obj.EC2ResourceUtilization && {
       EC2ResourceUtilization: EC2ResourceUtilization.filterSensitiveLog(
@@ -3781,7 +3793,7 @@ export interface ResultByTime {
 }
 
 export namespace ResultByTime {
-  export const filterSensitiveLog = (obj: ResultByTime) => ({
+  export const filterSensitiveLog = (obj: ResultByTime): any => ({
     ...obj,
     ...(obj.Groups && { Groups: obj.Groups.map(Group.filterSensitiveLog) }),
     ...(obj.TimePeriod && {
@@ -3832,7 +3844,7 @@ export interface RightsizingRecommendation {
 }
 
 export namespace RightsizingRecommendation {
-  export const filterSensitiveLog = (obj: RightsizingRecommendation) => ({
+  export const filterSensitiveLog = (obj: RightsizingRecommendation): any => ({
     ...obj,
     ...(obj.CurrentInstance && {
       CurrentInstance: CurrentInstance.filterSensitiveLog(obj.CurrentInstance)
@@ -3876,7 +3888,7 @@ export interface RightsizingRecommendationMetadata {
 export namespace RightsizingRecommendationMetadata {
   export const filterSensitiveLog = (
     obj: RightsizingRecommendationMetadata
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is RightsizingRecommendationMetadata =>
@@ -3912,7 +3924,7 @@ export interface RightsizingRecommendationSummary {
 export namespace RightsizingRecommendationSummary {
   export const filterSensitiveLog = (
     obj: RightsizingRecommendationSummary
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is RightsizingRecommendationSummary =>
@@ -3946,7 +3958,9 @@ export interface SavingsPlansAmortizedCommitment {
 }
 
 export namespace SavingsPlansAmortizedCommitment {
-  export const filterSensitiveLog = (obj: SavingsPlansAmortizedCommitment) => ({
+  export const filterSensitiveLog = (
+    obj: SavingsPlansAmortizedCommitment
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is SavingsPlansAmortizedCommitment =>
@@ -3976,7 +3990,7 @@ export interface SavingsPlansCoverage {
 }
 
 export namespace SavingsPlansCoverage {
-  export const filterSensitiveLog = (obj: SavingsPlansCoverage) => ({
+  export const filterSensitiveLog = (obj: SavingsPlansCoverage): any => ({
     ...obj,
     ...(obj.Coverage && {
       Coverage: SavingsPlansCoverageData.filterSensitiveLog(obj.Coverage)
@@ -4016,7 +4030,7 @@ export interface SavingsPlansCoverageData {
 }
 
 export namespace SavingsPlansCoverageData {
-  export const filterSensitiveLog = (obj: SavingsPlansCoverageData) => ({
+  export const filterSensitiveLog = (obj: SavingsPlansCoverageData): any => ({
     ...obj
   });
   export const isa = (o: any): o is SavingsPlansCoverageData =>
@@ -4045,7 +4059,7 @@ export interface SavingsPlansDetails {
 }
 
 export namespace SavingsPlansDetails {
-  export const filterSensitiveLog = (obj: SavingsPlansDetails) => ({
+  export const filterSensitiveLog = (obj: SavingsPlansDetails): any => ({
     ...obj
   });
   export const isa = (o: any): o is SavingsPlansDetails =>
@@ -4091,7 +4105,7 @@ export interface SavingsPlansPurchaseRecommendation {
 export namespace SavingsPlansPurchaseRecommendation {
   export const filterSensitiveLog = (
     obj: SavingsPlansPurchaseRecommendation
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.SavingsPlansPurchaseRecommendationDetails && {
       SavingsPlansPurchaseRecommendationDetails: obj.SavingsPlansPurchaseRecommendationDetails.map(
@@ -4199,7 +4213,7 @@ export interface SavingsPlansPurchaseRecommendationDetail {
 export namespace SavingsPlansPurchaseRecommendationDetail {
   export const filterSensitiveLog = (
     obj: SavingsPlansPurchaseRecommendationDetail
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.SavingsPlansDetails && {
       SavingsPlansDetails: SavingsPlansDetails.filterSensitiveLog(
@@ -4230,7 +4244,7 @@ export interface SavingsPlansPurchaseRecommendationMetadata {
 export namespace SavingsPlansPurchaseRecommendationMetadata {
   export const filterSensitiveLog = (
     obj: SavingsPlansPurchaseRecommendationMetadata
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -4305,7 +4319,7 @@ export interface SavingsPlansPurchaseRecommendationSummary {
 export namespace SavingsPlansPurchaseRecommendationSummary {
   export const filterSensitiveLog = (
     obj: SavingsPlansPurchaseRecommendationSummary
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is SavingsPlansPurchaseRecommendationSummary =>
@@ -4331,7 +4345,7 @@ export interface SavingsPlansSavings {
 }
 
 export namespace SavingsPlansSavings {
-  export const filterSensitiveLog = (obj: SavingsPlansSavings) => ({
+  export const filterSensitiveLog = (obj: SavingsPlansSavings): any => ({
     ...obj
   });
   export const isa = (o: any): o is SavingsPlansSavings =>
@@ -4365,7 +4379,7 @@ export interface SavingsPlansUtilization {
 }
 
 export namespace SavingsPlansUtilization {
-  export const filterSensitiveLog = (obj: SavingsPlansUtilization) => ({
+  export const filterSensitiveLog = (obj: SavingsPlansUtilization): any => ({
     ...obj
   });
   export const isa = (o: any): o is SavingsPlansUtilization =>
@@ -4396,7 +4410,7 @@ export interface SavingsPlansUtilizationAggregates {
 export namespace SavingsPlansUtilizationAggregates {
   export const filterSensitiveLog = (
     obj: SavingsPlansUtilizationAggregates
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.AmortizedCommitment && {
       AmortizedCommitment: SavingsPlansAmortizedCommitment.filterSensitiveLog(
@@ -4442,7 +4456,9 @@ export interface SavingsPlansUtilizationByTime {
 }
 
 export namespace SavingsPlansUtilizationByTime {
-  export const filterSensitiveLog = (obj: SavingsPlansUtilizationByTime) => ({
+  export const filterSensitiveLog = (
+    obj: SavingsPlansUtilizationByTime
+  ): any => ({
     ...obj,
     ...(obj.AmortizedCommitment && {
       AmortizedCommitment: SavingsPlansAmortizedCommitment.filterSensitiveLog(
@@ -4495,7 +4511,9 @@ export interface SavingsPlansUtilizationDetail {
 }
 
 export namespace SavingsPlansUtilizationDetail {
-  export const filterSensitiveLog = (obj: SavingsPlansUtilizationDetail) => ({
+  export const filterSensitiveLog = (
+    obj: SavingsPlansUtilizationDetail
+  ): any => ({
     ...obj,
     ...(obj.AmortizedCommitment && {
       AmortizedCommitment: SavingsPlansAmortizedCommitment.filterSensitiveLog(
@@ -4527,7 +4545,9 @@ export interface ServiceQuotaExceededException
 }
 
 export namespace ServiceQuotaExceededException {
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: ServiceQuotaExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceQuotaExceededException =>
@@ -4548,7 +4568,7 @@ export interface ServiceSpecification {
 }
 
 export namespace ServiceSpecification {
-  export const filterSensitiveLog = (obj: ServiceSpecification) => ({
+  export const filterSensitiveLog = (obj: ServiceSpecification): any => ({
     ...obj,
     ...(obj.EC2Specification && {
       EC2Specification: EC2Specification.filterSensitiveLog(
@@ -4582,7 +4602,7 @@ export interface TagValues {
 }
 
 export namespace TagValues {
-  export const filterSensitiveLog = (obj: TagValues) => ({
+  export const filterSensitiveLog = (obj: TagValues): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagValues => __isa(o, "TagValues");
@@ -4625,7 +4645,7 @@ export interface TargetInstance {
 }
 
 export namespace TargetInstance {
-  export const filterSensitiveLog = (obj: TargetInstance) => ({
+  export const filterSensitiveLog = (obj: TargetInstance): any => ({
     ...obj,
     ...(obj.ExpectedResourceUtilization && {
       ExpectedResourceUtilization: ResourceUtilization.filterSensitiveLog(
@@ -4662,7 +4682,9 @@ export interface TerminateRecommendationDetail {
 }
 
 export namespace TerminateRecommendationDetail {
-  export const filterSensitiveLog = (obj: TerminateRecommendationDetail) => ({
+  export const filterSensitiveLog = (
+    obj: TerminateRecommendationDetail
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TerminateRecommendationDetail =>
@@ -4681,7 +4703,9 @@ export interface UnresolvableUsageUnitException
 }
 
 export namespace UnresolvableUsageUnitException {
-  export const filterSensitiveLog = (obj: UnresolvableUsageUnitException) => ({
+  export const filterSensitiveLog = (
+    obj: UnresolvableUsageUnitException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnresolvableUsageUnitException =>
@@ -4713,7 +4737,7 @@ export interface UpdateCostCategoryDefinitionRequest {
 export namespace UpdateCostCategoryDefinitionRequest {
   export const filterSensitiveLog = (
     obj: UpdateCostCategoryDefinitionRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Rules && {
       Rules: obj.Rules.map(CostCategoryRule.filterSensitiveLog)
@@ -4743,7 +4767,7 @@ export interface UpdateCostCategoryDefinitionResponse {
 export namespace UpdateCostCategoryDefinitionResponse {
   export const filterSensitiveLog = (
     obj: UpdateCostCategoryDefinitionResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateCostCategoryDefinitionResponse =>
@@ -4772,7 +4796,7 @@ export interface UtilizationByTime {
 }
 
 export namespace UtilizationByTime {
-  export const filterSensitiveLog = (obj: UtilizationByTime) => ({
+  export const filterSensitiveLog = (obj: UtilizationByTime): any => ({
     ...obj,
     ...(obj.Groups && {
       Groups: obj.Groups.map(ReservationUtilizationGroup.filterSensitiveLog)

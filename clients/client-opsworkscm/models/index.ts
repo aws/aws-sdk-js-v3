@@ -47,7 +47,7 @@ export interface AccountAttribute {
 }
 
 export namespace AccountAttribute {
-  export const filterSensitiveLog = (obj: AccountAttribute) => ({
+  export const filterSensitiveLog = (obj: AccountAttribute): any => ({
     ...obj
   });
   export const isa = (o: any): o is AccountAttribute =>
@@ -103,7 +103,7 @@ export interface AssociateNodeRequest {
 }
 
 export namespace AssociateNodeRequest {
-  export const filterSensitiveLog = (obj: AssociateNodeRequest) => ({
+  export const filterSensitiveLog = (obj: AssociateNodeRequest): any => ({
     ...obj,
     ...(obj.EngineAttributes && {
       EngineAttributes: obj.EngineAttributes.map(
@@ -125,7 +125,7 @@ export interface AssociateNodeResponse {
 }
 
 export namespace AssociateNodeResponse {
-  export const filterSensitiveLog = (obj: AssociateNodeResponse) => ({
+  export const filterSensitiveLog = (obj: AssociateNodeResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateNodeResponse =>
@@ -307,7 +307,7 @@ export interface Backup {
 }
 
 export namespace Backup {
-  export const filterSensitiveLog = (obj: Backup) => ({
+  export const filterSensitiveLog = (obj: Backup): any => ({
     ...obj
   });
   export const isa = (o: any): o is Backup => __isa(o, "Backup");
@@ -366,7 +366,7 @@ export interface CreateBackupRequest {
 }
 
 export namespace CreateBackupRequest {
-  export const filterSensitiveLog = (obj: CreateBackupRequest) => ({
+  export const filterSensitiveLog = (obj: CreateBackupRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -383,7 +383,7 @@ export interface CreateBackupResponse {
 }
 
 export namespace CreateBackupResponse {
-  export const filterSensitiveLog = (obj: CreateBackupResponse) => ({
+  export const filterSensitiveLog = (obj: CreateBackupResponse): any => ({
     ...obj,
     ...(obj.Backup && { Backup: Backup.filterSensitiveLog(obj.Backup) })
   });
@@ -665,7 +665,7 @@ export interface CreateServerRequest {
 }
 
 export namespace CreateServerRequest {
-  export const filterSensitiveLog = (obj: CreateServerRequest) => ({
+  export const filterSensitiveLog = (obj: CreateServerRequest): any => ({
     ...obj,
     ...(obj.CustomPrivateKey && { CustomPrivateKey: SENSITIVE_STRING }),
     ...(obj.EngineAttributes && {
@@ -689,7 +689,7 @@ export interface CreateServerResponse {
 }
 
 export namespace CreateServerResponse {
-  export const filterSensitiveLog = (obj: CreateServerResponse) => ({
+  export const filterSensitiveLog = (obj: CreateServerResponse): any => ({
     ...obj,
     ...(obj.Server && { Server: Server.filterSensitiveLog(obj.Server) })
   });
@@ -708,7 +708,7 @@ export interface DeleteBackupRequest {
 }
 
 export namespace DeleteBackupRequest {
-  export const filterSensitiveLog = (obj: DeleteBackupRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteBackupRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteBackupRequest =>
@@ -720,7 +720,7 @@ export interface DeleteBackupResponse {
 }
 
 export namespace DeleteBackupResponse {
-  export const filterSensitiveLog = (obj: DeleteBackupResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteBackupResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteBackupResponse =>
@@ -736,7 +736,7 @@ export interface DeleteServerRequest {
 }
 
 export namespace DeleteServerRequest {
-  export const filterSensitiveLog = (obj: DeleteServerRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteServerRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteServerRequest =>
@@ -748,7 +748,7 @@ export interface DeleteServerResponse {
 }
 
 export namespace DeleteServerResponse {
-  export const filterSensitiveLog = (obj: DeleteServerResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteServerResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteServerResponse =>
@@ -762,7 +762,7 @@ export interface DescribeAccountAttributesRequest {
 export namespace DescribeAccountAttributesRequest {
   export const filterSensitiveLog = (
     obj: DescribeAccountAttributesRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeAccountAttributesRequest =>
@@ -782,7 +782,7 @@ export interface DescribeAccountAttributesResponse {
 export namespace DescribeAccountAttributesResponse {
   export const filterSensitiveLog = (
     obj: DescribeAccountAttributesResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Attributes && {
       Attributes: obj.Attributes.map(AccountAttribute.filterSensitiveLog)
@@ -818,7 +818,7 @@ export interface DescribeBackupsRequest {
 }
 
 export namespace DescribeBackupsRequest {
-  export const filterSensitiveLog = (obj: DescribeBackupsRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeBackupsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeBackupsRequest =>
@@ -840,7 +840,7 @@ export interface DescribeBackupsResponse {
 }
 
 export namespace DescribeBackupsResponse {
-  export const filterSensitiveLog = (obj: DescribeBackupsResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
     ...obj,
     ...(obj.Backups && { Backups: obj.Backups.map(Backup.filterSensitiveLog) })
   });
@@ -878,7 +878,7 @@ export interface DescribeEventsRequest {
 }
 
 export namespace DescribeEventsRequest {
-  export const filterSensitiveLog = (obj: DescribeEventsRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeEventsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeEventsRequest =>
@@ -907,7 +907,7 @@ export interface DescribeEventsResponse {
 }
 
 export namespace DescribeEventsResponse {
-  export const filterSensitiveLog = (obj: DescribeEventsResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeEventsResponse): any => ({
     ...obj,
     ...(obj.ServerEvents && {
       ServerEvents: obj.ServerEvents.map(ServerEvent.filterSensitiveLog)
@@ -935,7 +935,7 @@ export interface DescribeNodeAssociationStatusRequest {
 export namespace DescribeNodeAssociationStatusRequest {
   export const filterSensitiveLog = (
     obj: DescribeNodeAssociationStatusRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeNodeAssociationStatusRequest =>
@@ -981,7 +981,7 @@ export interface DescribeNodeAssociationStatusResponse {
 export namespace DescribeNodeAssociationStatusResponse {
   export const filterSensitiveLog = (
     obj: DescribeNodeAssociationStatusResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.EngineAttributes && {
       EngineAttributes: obj.EngineAttributes.map(
@@ -1014,7 +1014,7 @@ export interface DescribeServersRequest {
 }
 
 export namespace DescribeServersRequest {
-  export const filterSensitiveLog = (obj: DescribeServersRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeServersRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeServersRequest =>
@@ -1042,7 +1042,7 @@ export interface DescribeServersResponse {
 }
 
 export namespace DescribeServersResponse {
-  export const filterSensitiveLog = (obj: DescribeServersResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeServersResponse): any => ({
     ...obj,
     ...(obj.Servers && { Servers: obj.Servers.map(Server.filterSensitiveLog) })
   });
@@ -1084,7 +1084,7 @@ export interface DisassociateNodeRequest {
 }
 
 export namespace DisassociateNodeRequest {
-  export const filterSensitiveLog = (obj: DisassociateNodeRequest) => ({
+  export const filterSensitiveLog = (obj: DisassociateNodeRequest): any => ({
     ...obj,
     ...(obj.EngineAttributes && {
       EngineAttributes: obj.EngineAttributes.map(
@@ -1108,7 +1108,7 @@ export interface DisassociateNodeResponse {
 }
 
 export namespace DisassociateNodeResponse {
-  export const filterSensitiveLog = (obj: DisassociateNodeResponse) => ({
+  export const filterSensitiveLog = (obj: DisassociateNodeResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateNodeResponse =>
@@ -1135,7 +1135,7 @@ export interface EngineAttribute {
 }
 
 export namespace EngineAttribute {
-  export const filterSensitiveLog = (obj: EngineAttribute) => ({
+  export const filterSensitiveLog = (obj: EngineAttribute): any => ({
     ...obj,
     ...(obj.Value && { Value: SENSITIVE_STRING })
   });
@@ -1190,7 +1190,7 @@ export interface ExportServerEngineAttributeRequest {
 export namespace ExportServerEngineAttributeRequest {
   export const filterSensitiveLog = (
     obj: ExportServerEngineAttributeRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.InputAttributes && {
       InputAttributes: obj.InputAttributes.map(
@@ -1218,7 +1218,7 @@ export interface ExportServerEngineAttributeResponse {
 export namespace ExportServerEngineAttributeResponse {
   export const filterSensitiveLog = (
     obj: ExportServerEngineAttributeResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.EngineAttribute && {
       EngineAttribute: EngineAttribute.filterSensitiveLog(obj.EngineAttribute)
@@ -1245,7 +1245,7 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export const filterSensitiveLog = (obj: InvalidNextTokenException) => ({
+  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidNextTokenException =>
@@ -1270,7 +1270,7 @@ export interface InvalidStateException
 }
 
 export namespace InvalidStateException {
-  export const filterSensitiveLog = (obj: InvalidStateException) => ({
+  export const filterSensitiveLog = (obj: InvalidStateException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidStateException =>
@@ -1294,7 +1294,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -1330,7 +1330,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
@@ -1351,7 +1351,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1387,7 +1389,9 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException) => ({
+  export const filterSensitiveLog = (
+    obj: ResourceAlreadyExistsException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceAlreadyExistsException =>
@@ -1411,7 +1415,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -1449,7 +1453,7 @@ export interface RestoreServerRequest {
 }
 
 export namespace RestoreServerRequest {
-  export const filterSensitiveLog = (obj: RestoreServerRequest) => ({
+  export const filterSensitiveLog = (obj: RestoreServerRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is RestoreServerRequest =>
@@ -1461,7 +1465,7 @@ export interface RestoreServerResponse {
 }
 
 export namespace RestoreServerResponse {
-  export const filterSensitiveLog = (obj: RestoreServerResponse) => ({
+  export const filterSensitiveLog = (obj: RestoreServerResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is RestoreServerResponse =>
@@ -1667,7 +1671,7 @@ export interface Server {
 }
 
 export namespace Server {
-  export const filterSensitiveLog = (obj: Server) => ({
+  export const filterSensitiveLog = (obj: Server): any => ({
     ...obj,
     ...(obj.EngineAttributes && {
       EngineAttributes: obj.EngineAttributes.map(
@@ -1708,7 +1712,7 @@ export interface ServerEvent {
 }
 
 export namespace ServerEvent {
-  export const filterSensitiveLog = (obj: ServerEvent) => ({
+  export const filterSensitiveLog = (obj: ServerEvent): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServerEvent => __isa(o, "ServerEvent");
@@ -1745,7 +1749,7 @@ export interface StartMaintenanceRequest {
 }
 
 export namespace StartMaintenanceRequest {
-  export const filterSensitiveLog = (obj: StartMaintenanceRequest) => ({
+  export const filterSensitiveLog = (obj: StartMaintenanceRequest): any => ({
     ...obj,
     ...(obj.EngineAttributes && {
       EngineAttributes: obj.EngineAttributes.map(
@@ -1767,7 +1771,7 @@ export interface StartMaintenanceResponse {
 }
 
 export namespace StartMaintenanceResponse {
-  export const filterSensitiveLog = (obj: StartMaintenanceResponse) => ({
+  export const filterSensitiveLog = (obj: StartMaintenanceResponse): any => ({
     ...obj,
     ...(obj.Server && { Server: Server.filterSensitiveLog(obj.Server) })
   });
@@ -1798,7 +1802,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -1838,7 +1842,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1851,7 +1855,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const filterSensitiveLog = (obj: TagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceResponse =>
@@ -1873,7 +1877,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>
@@ -1885,7 +1889,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceResponse =>
@@ -1916,7 +1920,7 @@ export interface UpdateServerEngineAttributesRequest {
 export namespace UpdateServerEngineAttributesRequest {
   export const filterSensitiveLog = (
     obj: UpdateServerEngineAttributesRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateServerEngineAttributesRequest =>
@@ -1935,7 +1939,7 @@ export interface UpdateServerEngineAttributesResponse {
 export namespace UpdateServerEngineAttributesResponse {
   export const filterSensitiveLog = (
     obj: UpdateServerEngineAttributesResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Server && { Server: Server.filterSensitiveLog(obj.Server) })
   });
@@ -1987,7 +1991,7 @@ export interface UpdateServerRequest {
 }
 
 export namespace UpdateServerRequest {
-  export const filterSensitiveLog = (obj: UpdateServerRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateServerRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateServerRequest =>
@@ -2004,7 +2008,7 @@ export interface UpdateServerResponse {
 }
 
 export namespace UpdateServerResponse {
-  export const filterSensitiveLog = (obj: UpdateServerResponse) => ({
+  export const filterSensitiveLog = (obj: UpdateServerResponse): any => ({
     ...obj,
     ...(obj.Server && { Server: Server.filterSensitiveLog(obj.Server) })
   });
@@ -2029,7 +2033,7 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const filterSensitiveLog = (obj: ValidationException) => ({
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ValidationException =>

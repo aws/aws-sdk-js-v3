@@ -161,7 +161,7 @@ export interface App {
 }
 
 export namespace App {
-  export const filterSensitiveLog = (obj: App) => ({
+  export const filterSensitiveLog = (obj: App): any => ({
     ...obj,
     ...(obj.autoBranchCreationConfig && {
       autoBranchCreationConfig: AutoBranchCreationConfig.filterSensitiveLog(
@@ -203,7 +203,7 @@ export interface Artifact {
 }
 
 export namespace Artifact {
-  export const filterSensitiveLog = (obj: Artifact) => ({
+  export const filterSensitiveLog = (obj: Artifact): any => ({
     ...obj
   });
   export const isa = (o: any): o is Artifact => __isa(o, "Artifact");
@@ -281,7 +281,7 @@ export interface AutoBranchCreationConfig {
 }
 
 export namespace AutoBranchCreationConfig {
-  export const filterSensitiveLog = (obj: AutoBranchCreationConfig) => ({
+  export const filterSensitiveLog = (obj: AutoBranchCreationConfig): any => ({
     ...obj
   });
   export const isa = (o: any): o is AutoBranchCreationConfig =>
@@ -339,7 +339,7 @@ export interface BackendEnvironment {
 }
 
 export namespace BackendEnvironment {
-  export const filterSensitiveLog = (obj: BackendEnvironment) => ({
+  export const filterSensitiveLog = (obj: BackendEnvironment): any => ({
     ...obj
   });
   export const isa = (o: any): o is BackendEnvironment =>
@@ -360,7 +360,7 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export const filterSensitiveLog = (obj: BadRequestException) => ({
+  export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is BadRequestException =>
@@ -558,7 +558,7 @@ export interface Branch {
 }
 
 export namespace Branch {
-  export const filterSensitiveLog = (obj: Branch) => ({
+  export const filterSensitiveLog = (obj: Branch): any => ({
     ...obj
   });
   export const isa = (o: any): o is Branch => __isa(o, "Branch");
@@ -694,7 +694,7 @@ export interface CreateAppRequest {
 }
 
 export namespace CreateAppRequest {
-  export const filterSensitiveLog = (obj: CreateAppRequest) => ({
+  export const filterSensitiveLog = (obj: CreateAppRequest): any => ({
     ...obj,
     ...(obj.autoBranchCreationConfig && {
       autoBranchCreationConfig: AutoBranchCreationConfig.filterSensitiveLog(
@@ -720,7 +720,7 @@ export interface CreateAppResult {
 }
 
 export namespace CreateAppResult {
-  export const filterSensitiveLog = (obj: CreateAppResult) => ({
+  export const filterSensitiveLog = (obj: CreateAppResult): any => ({
     ...obj,
     ...(obj.app && { app: App.filterSensitiveLog(obj.app) })
   });
@@ -765,7 +765,9 @@ export interface CreateBackendEnvironmentRequest {
 }
 
 export namespace CreateBackendEnvironmentRequest {
-  export const filterSensitiveLog = (obj: CreateBackendEnvironmentRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreateBackendEnvironmentRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateBackendEnvironmentRequest =>
@@ -788,7 +790,9 @@ export interface CreateBackendEnvironmentResult {
 }
 
 export namespace CreateBackendEnvironmentResult {
-  export const filterSensitiveLog = (obj: CreateBackendEnvironmentResult) => ({
+  export const filterSensitiveLog = (
+    obj: CreateBackendEnvironmentResult
+  ): any => ({
     ...obj,
     ...(obj.backendEnvironment && {
       backendEnvironment: BackendEnvironment.filterSensitiveLog(
@@ -928,7 +932,7 @@ export interface CreateBranchRequest {
 }
 
 export namespace CreateBranchRequest {
-  export const filterSensitiveLog = (obj: CreateBranchRequest) => ({
+  export const filterSensitiveLog = (obj: CreateBranchRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateBranchRequest =>
@@ -951,7 +955,7 @@ export interface CreateBranchResult {
 }
 
 export namespace CreateBranchResult {
-  export const filterSensitiveLog = (obj: CreateBranchResult) => ({
+  export const filterSensitiveLog = (obj: CreateBranchResult): any => ({
     ...obj,
     ...(obj.branch && { branch: Branch.filterSensitiveLog(obj.branch) })
   });
@@ -991,7 +995,7 @@ export interface CreateDeploymentRequest {
 }
 
 export namespace CreateDeploymentRequest {
-  export const filterSensitiveLog = (obj: CreateDeploymentRequest) => ({
+  export const filterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateDeploymentRequest =>
@@ -1029,7 +1033,7 @@ export interface CreateDeploymentResult {
 }
 
 export namespace CreateDeploymentResult {
-  export const filterSensitiveLog = (obj: CreateDeploymentResult) => ({
+  export const filterSensitiveLog = (obj: CreateDeploymentResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateDeploymentResult =>
@@ -1073,7 +1077,9 @@ export interface CreateDomainAssociationRequest {
 }
 
 export namespace CreateDomainAssociationRequest {
-  export const filterSensitiveLog = (obj: CreateDomainAssociationRequest) => ({
+  export const filterSensitiveLog = (
+    obj: CreateDomainAssociationRequest
+  ): any => ({
     ...obj,
     ...(obj.subDomainSettings && {
       subDomainSettings: obj.subDomainSettings.map(
@@ -1101,7 +1107,9 @@ export interface CreateDomainAssociationResult {
 }
 
 export namespace CreateDomainAssociationResult {
-  export const filterSensitiveLog = (obj: CreateDomainAssociationResult) => ({
+  export const filterSensitiveLog = (
+    obj: CreateDomainAssociationResult
+  ): any => ({
     ...obj,
     ...(obj.domainAssociation && {
       domainAssociation: DomainAssociation.filterSensitiveLog(
@@ -1143,7 +1151,7 @@ export interface CreateWebhookRequest {
 }
 
 export namespace CreateWebhookRequest {
-  export const filterSensitiveLog = (obj: CreateWebhookRequest) => ({
+  export const filterSensitiveLog = (obj: CreateWebhookRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateWebhookRequest =>
@@ -1166,7 +1174,7 @@ export interface CreateWebhookResult {
 }
 
 export namespace CreateWebhookResult {
-  export const filterSensitiveLog = (obj: CreateWebhookResult) => ({
+  export const filterSensitiveLog = (obj: CreateWebhookResult): any => ({
     ...obj,
     ...(obj.webhook && { webhook: Webhook.filterSensitiveLog(obj.webhook) })
   });
@@ -1211,7 +1219,7 @@ export interface CustomRule {
 }
 
 export namespace CustomRule {
-  export const filterSensitiveLog = (obj: CustomRule) => ({
+  export const filterSensitiveLog = (obj: CustomRule): any => ({
     ...obj
   });
   export const isa = (o: any): o is CustomRule => __isa(o, "CustomRule");
@@ -1233,7 +1241,7 @@ export interface DeleteAppRequest {
 }
 
 export namespace DeleteAppRequest {
-  export const filterSensitiveLog = (obj: DeleteAppRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteAppRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteAppRequest =>
@@ -1256,7 +1264,7 @@ export interface DeleteAppResult {
 }
 
 export namespace DeleteAppResult {
-  export const filterSensitiveLog = (obj: DeleteAppResult) => ({
+  export const filterSensitiveLog = (obj: DeleteAppResult): any => ({
     ...obj,
     ...(obj.app && { app: App.filterSensitiveLog(obj.app) })
   });
@@ -1287,7 +1295,9 @@ export interface DeleteBackendEnvironmentRequest {
 }
 
 export namespace DeleteBackendEnvironmentRequest {
-  export const filterSensitiveLog = (obj: DeleteBackendEnvironmentRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteBackendEnvironmentRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteBackendEnvironmentRequest =>
@@ -1310,7 +1320,9 @@ export interface DeleteBackendEnvironmentResult {
 }
 
 export namespace DeleteBackendEnvironmentResult {
-  export const filterSensitiveLog = (obj: DeleteBackendEnvironmentResult) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteBackendEnvironmentResult
+  ): any => ({
     ...obj,
     ...(obj.backendEnvironment && {
       backendEnvironment: BackendEnvironment.filterSensitiveLog(
@@ -1345,7 +1357,7 @@ export interface DeleteBranchRequest {
 }
 
 export namespace DeleteBranchRequest {
-  export const filterSensitiveLog = (obj: DeleteBranchRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteBranchRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteBranchRequest =>
@@ -1368,7 +1380,7 @@ export interface DeleteBranchResult {
 }
 
 export namespace DeleteBranchResult {
-  export const filterSensitiveLog = (obj: DeleteBranchResult) => ({
+  export const filterSensitiveLog = (obj: DeleteBranchResult): any => ({
     ...obj,
     ...(obj.branch && { branch: Branch.filterSensitiveLog(obj.branch) })
   });
@@ -1399,7 +1411,9 @@ export interface DeleteDomainAssociationRequest {
 }
 
 export namespace DeleteDomainAssociationRequest {
-  export const filterSensitiveLog = (obj: DeleteDomainAssociationRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteDomainAssociationRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteDomainAssociationRequest =>
@@ -1417,7 +1431,9 @@ export interface DeleteDomainAssociationResult {
 }
 
 export namespace DeleteDomainAssociationResult {
-  export const filterSensitiveLog = (obj: DeleteDomainAssociationResult) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteDomainAssociationResult
+  ): any => ({
     ...obj,
     ...(obj.domainAssociation && {
       domainAssociation: DomainAssociation.filterSensitiveLog(
@@ -1459,7 +1475,7 @@ export interface DeleteJobRequest {
 }
 
 export namespace DeleteJobRequest {
-  export const filterSensitiveLog = (obj: DeleteJobRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteJobRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteJobRequest =>
@@ -1482,7 +1498,7 @@ export interface DeleteJobResult {
 }
 
 export namespace DeleteJobResult {
-  export const filterSensitiveLog = (obj: DeleteJobResult) => ({
+  export const filterSensitiveLog = (obj: DeleteJobResult): any => ({
     ...obj,
     ...(obj.jobSummary && {
       jobSummary: JobSummary.filterSensitiveLog(obj.jobSummary)
@@ -1508,7 +1524,7 @@ export interface DeleteWebhookRequest {
 }
 
 export namespace DeleteWebhookRequest {
-  export const filterSensitiveLog = (obj: DeleteWebhookRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteWebhookRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteWebhookRequest =>
@@ -1531,7 +1547,7 @@ export interface DeleteWebhookResult {
 }
 
 export namespace DeleteWebhookResult {
-  export const filterSensitiveLog = (obj: DeleteWebhookResult) => ({
+  export const filterSensitiveLog = (obj: DeleteWebhookResult): any => ({
     ...obj,
     ...(obj.webhook && { webhook: Webhook.filterSensitiveLog(obj.webhook) })
   });
@@ -1555,7 +1571,7 @@ export interface DependentServiceFailureException
 export namespace DependentServiceFailureException {
   export const filterSensitiveLog = (
     obj: DependentServiceFailureException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DependentServiceFailureException =>
@@ -1620,7 +1636,7 @@ export interface DomainAssociation {
 }
 
 export namespace DomainAssociation {
-  export const filterSensitiveLog = (obj: DomainAssociation) => ({
+  export const filterSensitiveLog = (obj: DomainAssociation): any => ({
     ...obj,
     ...(obj.subDomains && {
       subDomains: obj.subDomains.map(SubDomain.filterSensitiveLog)
@@ -1678,7 +1694,7 @@ export interface GenerateAccessLogsRequest {
 }
 
 export namespace GenerateAccessLogsRequest {
-  export const filterSensitiveLog = (obj: GenerateAccessLogsRequest) => ({
+  export const filterSensitiveLog = (obj: GenerateAccessLogsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GenerateAccessLogsRequest =>
@@ -1701,7 +1717,7 @@ export interface GenerateAccessLogsResult {
 }
 
 export namespace GenerateAccessLogsResult {
-  export const filterSensitiveLog = (obj: GenerateAccessLogsResult) => ({
+  export const filterSensitiveLog = (obj: GenerateAccessLogsResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is GenerateAccessLogsResult =>
@@ -1724,7 +1740,7 @@ export interface GetAppRequest {
 }
 
 export namespace GetAppRequest {
-  export const filterSensitiveLog = (obj: GetAppRequest) => ({
+  export const filterSensitiveLog = (obj: GetAppRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetAppRequest => __isa(o, "GetAppRequest");
@@ -1741,7 +1757,7 @@ export interface GetAppResult {
 }
 
 export namespace GetAppResult {
-  export const filterSensitiveLog = (obj: GetAppResult) => ({
+  export const filterSensitiveLog = (obj: GetAppResult): any => ({
     ...obj,
     ...(obj.app && { app: App.filterSensitiveLog(obj.app) })
   });
@@ -1764,7 +1780,7 @@ export interface GetArtifactUrlRequest {
 }
 
 export namespace GetArtifactUrlRequest {
-  export const filterSensitiveLog = (obj: GetArtifactUrlRequest) => ({
+  export const filterSensitiveLog = (obj: GetArtifactUrlRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetArtifactUrlRequest =>
@@ -1794,7 +1810,7 @@ export interface GetArtifactUrlResult {
 }
 
 export namespace GetArtifactUrlResult {
-  export const filterSensitiveLog = (obj: GetArtifactUrlResult) => ({
+  export const filterSensitiveLog = (obj: GetArtifactUrlResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetArtifactUrlResult =>
@@ -1824,7 +1840,9 @@ export interface GetBackendEnvironmentRequest {
 }
 
 export namespace GetBackendEnvironmentRequest {
-  export const filterSensitiveLog = (obj: GetBackendEnvironmentRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetBackendEnvironmentRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetBackendEnvironmentRequest =>
@@ -1847,7 +1865,9 @@ export interface GetBackendEnvironmentResult {
 }
 
 export namespace GetBackendEnvironmentResult {
-  export const filterSensitiveLog = (obj: GetBackendEnvironmentResult) => ({
+  export const filterSensitiveLog = (
+    obj: GetBackendEnvironmentResult
+  ): any => ({
     ...obj,
     ...(obj.backendEnvironment && {
       backendEnvironment: BackendEnvironment.filterSensitiveLog(
@@ -1882,7 +1902,7 @@ export interface GetBranchRequest {
 }
 
 export namespace GetBranchRequest {
-  export const filterSensitiveLog = (obj: GetBranchRequest) => ({
+  export const filterSensitiveLog = (obj: GetBranchRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetBranchRequest =>
@@ -1900,7 +1920,7 @@ export interface GetBranchResult {
 }
 
 export namespace GetBranchResult {
-  export const filterSensitiveLog = (obj: GetBranchResult) => ({
+  export const filterSensitiveLog = (obj: GetBranchResult): any => ({
     ...obj,
     ...(obj.branch && { branch: Branch.filterSensitiveLog(obj.branch) })
   });
@@ -1931,7 +1951,9 @@ export interface GetDomainAssociationRequest {
 }
 
 export namespace GetDomainAssociationRequest {
-  export const filterSensitiveLog = (obj: GetDomainAssociationRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetDomainAssociationRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetDomainAssociationRequest =>
@@ -1954,7 +1976,7 @@ export interface GetDomainAssociationResult {
 }
 
 export namespace GetDomainAssociationResult {
-  export const filterSensitiveLog = (obj: GetDomainAssociationResult) => ({
+  export const filterSensitiveLog = (obj: GetDomainAssociationResult): any => ({
     ...obj,
     ...(obj.domainAssociation && {
       domainAssociation: DomainAssociation.filterSensitiveLog(
@@ -1996,7 +2018,7 @@ export interface GetJobRequest {
 }
 
 export namespace GetJobRequest {
-  export const filterSensitiveLog = (obj: GetJobRequest) => ({
+  export const filterSensitiveLog = (obj: GetJobRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetJobRequest => __isa(o, "GetJobRequest");
@@ -2013,7 +2035,7 @@ export interface GetJobResult {
 }
 
 export namespace GetJobResult {
-  export const filterSensitiveLog = (obj: GetJobResult) => ({
+  export const filterSensitiveLog = (obj: GetJobResult): any => ({
     ...obj,
     ...(obj.job && { job: Job.filterSensitiveLog(obj.job) })
   });
@@ -2036,7 +2058,7 @@ export interface GetWebhookRequest {
 }
 
 export namespace GetWebhookRequest {
-  export const filterSensitiveLog = (obj: GetWebhookRequest) => ({
+  export const filterSensitiveLog = (obj: GetWebhookRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetWebhookRequest =>
@@ -2059,7 +2081,7 @@ export interface GetWebhookResult {
 }
 
 export namespace GetWebhookResult {
-  export const filterSensitiveLog = (obj: GetWebhookResult) => ({
+  export const filterSensitiveLog = (obj: GetWebhookResult): any => ({
     ...obj,
     ...(obj.webhook && { webhook: Webhook.filterSensitiveLog(obj.webhook) })
   });
@@ -2081,7 +2103,7 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
-  export const filterSensitiveLog = (obj: InternalFailureException) => ({
+  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalFailureException =>
@@ -2111,7 +2133,7 @@ export interface Job {
 }
 
 export namespace Job {
-  export const filterSensitiveLog = (obj: Job) => ({
+  export const filterSensitiveLog = (obj: Job): any => ({
     ...obj,
     ...(obj.steps && { steps: obj.steps.map(Step.filterSensitiveLog) }),
     ...(obj.summary && { summary: JobSummary.filterSensitiveLog(obj.summary) })
@@ -2204,7 +2226,7 @@ export interface JobSummary {
 }
 
 export namespace JobSummary {
-  export const filterSensitiveLog = (obj: JobSummary) => ({
+  export const filterSensitiveLog = (obj: JobSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is JobSummary => __isa(o, "JobSummary");
@@ -2231,7 +2253,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -2262,7 +2284,7 @@ export interface ListAppsRequest {
 }
 
 export namespace ListAppsRequest {
-  export const filterSensitiveLog = (obj: ListAppsRequest) => ({
+  export const filterSensitiveLog = (obj: ListAppsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListAppsRequest =>
@@ -2294,7 +2316,7 @@ export interface ListAppsResult {
 }
 
 export namespace ListAppsResult {
-  export const filterSensitiveLog = (obj: ListAppsResult) => ({
+  export const filterSensitiveLog = (obj: ListAppsResult): any => ({
     ...obj,
     ...(obj.apps && { apps: obj.apps.map(App.filterSensitiveLog) })
   });
@@ -2348,7 +2370,7 @@ export interface ListArtifactsRequest {
 }
 
 export namespace ListArtifactsRequest {
-  export const filterSensitiveLog = (obj: ListArtifactsRequest) => ({
+  export const filterSensitiveLog = (obj: ListArtifactsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListArtifactsRequest =>
@@ -2379,7 +2401,7 @@ export interface ListArtifactsResult {
 }
 
 export namespace ListArtifactsResult {
-  export const filterSensitiveLog = (obj: ListArtifactsResult) => ({
+  export const filterSensitiveLog = (obj: ListArtifactsResult): any => ({
     ...obj,
     ...(obj.artifacts && {
       artifacts: obj.artifacts.map(Artifact.filterSensitiveLog)
@@ -2428,7 +2450,9 @@ export interface ListBackendEnvironmentsRequest {
 }
 
 export namespace ListBackendEnvironmentsRequest {
-  export const filterSensitiveLog = (obj: ListBackendEnvironmentsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListBackendEnvironmentsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListBackendEnvironmentsRequest =>
@@ -2459,7 +2483,9 @@ export interface ListBackendEnvironmentsResult {
 }
 
 export namespace ListBackendEnvironmentsResult {
-  export const filterSensitiveLog = (obj: ListBackendEnvironmentsResult) => ({
+  export const filterSensitiveLog = (
+    obj: ListBackendEnvironmentsResult
+  ): any => ({
     ...obj,
     ...(obj.backendEnvironments && {
       backendEnvironments: obj.backendEnvironments.map(
@@ -2503,7 +2529,7 @@ export interface ListBranchesRequest {
 }
 
 export namespace ListBranchesRequest {
-  export const filterSensitiveLog = (obj: ListBranchesRequest) => ({
+  export const filterSensitiveLog = (obj: ListBranchesRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListBranchesRequest =>
@@ -2534,7 +2560,7 @@ export interface ListBranchesResult {
 }
 
 export namespace ListBranchesResult {
-  export const filterSensitiveLog = (obj: ListBranchesResult) => ({
+  export const filterSensitiveLog = (obj: ListBranchesResult): any => ({
     ...obj,
     ...(obj.branches && {
       branches: obj.branches.map(Branch.filterSensitiveLog)
@@ -2576,7 +2602,9 @@ export interface ListDomainAssociationsRequest {
 }
 
 export namespace ListDomainAssociationsRequest {
-  export const filterSensitiveLog = (obj: ListDomainAssociationsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListDomainAssociationsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDomainAssociationsRequest =>
@@ -2607,7 +2635,9 @@ export interface ListDomainAssociationsResult {
 }
 
 export namespace ListDomainAssociationsResult {
-  export const filterSensitiveLog = (obj: ListDomainAssociationsResult) => ({
+  export const filterSensitiveLog = (
+    obj: ListDomainAssociationsResult
+  ): any => ({
     ...obj,
     ...(obj.domainAssociations && {
       domainAssociations: obj.domainAssociations.map(
@@ -2658,7 +2688,7 @@ export interface ListJobsRequest {
 }
 
 export namespace ListJobsRequest {
-  export const filterSensitiveLog = (obj: ListJobsRequest) => ({
+  export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListJobsRequest =>
@@ -2689,7 +2719,7 @@ export interface ListJobsResult {
 }
 
 export namespace ListJobsResult {
-  export const filterSensitiveLog = (obj: ListJobsResult) => ({
+  export const filterSensitiveLog = (obj: ListJobsResult): any => ({
     ...obj,
     ...(obj.jobSummaries && {
       jobSummaries: obj.jobSummaries.map(JobSummary.filterSensitiveLog)
@@ -2715,7 +2745,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
@@ -2738,7 +2768,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResponse =>
@@ -2777,7 +2809,7 @@ export interface ListWebhooksRequest {
 }
 
 export namespace ListWebhooksRequest {
-  export const filterSensitiveLog = (obj: ListWebhooksRequest) => ({
+  export const filterSensitiveLog = (obj: ListWebhooksRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListWebhooksRequest =>
@@ -2808,7 +2840,7 @@ export interface ListWebhooksResult {
 }
 
 export namespace ListWebhooksResult {
-  export const filterSensitiveLog = (obj: ListWebhooksResult) => ({
+  export const filterSensitiveLog = (obj: ListWebhooksResult): any => ({
     ...obj,
     ...(obj.webhooks && {
       webhooks: obj.webhooks.map(Webhook.filterSensitiveLog)
@@ -2830,7 +2862,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const filterSensitiveLog = (obj: NotFoundException) => ({
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is NotFoundException =>
@@ -2878,7 +2910,7 @@ export interface ProductionBranch {
 }
 
 export namespace ProductionBranch {
-  export const filterSensitiveLog = (obj: ProductionBranch) => ({
+  export const filterSensitiveLog = (obj: ProductionBranch): any => ({
     ...obj
   });
   export const isa = (o: any): o is ProductionBranch =>
@@ -2900,7 +2932,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -2953,7 +2985,7 @@ export interface StartDeploymentRequest {
 }
 
 export namespace StartDeploymentRequest {
-  export const filterSensitiveLog = (obj: StartDeploymentRequest) => ({
+  export const filterSensitiveLog = (obj: StartDeploymentRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartDeploymentRequest =>
@@ -2976,7 +3008,7 @@ export interface StartDeploymentResult {
 }
 
 export namespace StartDeploymentResult {
-  export const filterSensitiveLog = (obj: StartDeploymentResult) => ({
+  export const filterSensitiveLog = (obj: StartDeploymentResult): any => ({
     ...obj,
     ...(obj.jobSummary && {
       jobSummary: JobSummary.filterSensitiveLog(obj.jobSummary)
@@ -3053,7 +3085,7 @@ export interface StartJobRequest {
 }
 
 export namespace StartJobRequest {
-  export const filterSensitiveLog = (obj: StartJobRequest) => ({
+  export const filterSensitiveLog = (obj: StartJobRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartJobRequest =>
@@ -3076,7 +3108,7 @@ export interface StartJobResult {
 }
 
 export namespace StartJobResult {
-  export const filterSensitiveLog = (obj: StartJobResult) => ({
+  export const filterSensitiveLog = (obj: StartJobResult): any => ({
     ...obj,
     ...(obj.jobSummary && {
       jobSummary: JobSummary.filterSensitiveLog(obj.jobSummary)
@@ -3172,7 +3204,7 @@ export interface Step {
 }
 
 export namespace Step {
-  export const filterSensitiveLog = (obj: Step) => ({
+  export const filterSensitiveLog = (obj: Step): any => ({
     ...obj
   });
   export const isa = (o: any): o is Step => __isa(o, "Step");
@@ -3208,7 +3240,7 @@ export interface StopJobRequest {
 }
 
 export namespace StopJobRequest {
-  export const filterSensitiveLog = (obj: StopJobRequest) => ({
+  export const filterSensitiveLog = (obj: StopJobRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopJobRequest =>
@@ -3231,7 +3263,7 @@ export interface StopJobResult {
 }
 
 export namespace StopJobResult {
-  export const filterSensitiveLog = (obj: StopJobResult) => ({
+  export const filterSensitiveLog = (obj: StopJobResult): any => ({
     ...obj,
     ...(obj.jobSummary && {
       jobSummary: JobSummary.filterSensitiveLog(obj.jobSummary)
@@ -3270,7 +3302,7 @@ export interface SubDomain {
 }
 
 export namespace SubDomain {
-  export const filterSensitiveLog = (obj: SubDomain) => ({
+  export const filterSensitiveLog = (obj: SubDomain): any => ({
     ...obj,
     ...(obj.subDomainSetting && {
       subDomainSetting: SubDomainSetting.filterSensitiveLog(
@@ -3304,7 +3336,7 @@ export interface SubDomainSetting {
 }
 
 export namespace SubDomainSetting {
-  export const filterSensitiveLog = (obj: SubDomainSetting) => ({
+  export const filterSensitiveLog = (obj: SubDomainSetting): any => ({
     ...obj
   });
   export const isa = (o: any): o is SubDomainSetting =>
@@ -3334,7 +3366,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
@@ -3351,7 +3383,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const filterSensitiveLog = (obj: TagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceResponse =>
@@ -3372,7 +3404,7 @@ export interface UnauthorizedException
 }
 
 export namespace UnauthorizedException {
-  export const filterSensitiveLog = (obj: UnauthorizedException) => ({
+  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnauthorizedException =>
@@ -3402,7 +3434,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>
@@ -3419,7 +3451,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceResponse =>
@@ -3556,7 +3588,7 @@ export interface UpdateAppRequest {
 }
 
 export namespace UpdateAppRequest {
-  export const filterSensitiveLog = (obj: UpdateAppRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateAppRequest): any => ({
     ...obj,
     ...(obj.autoBranchCreationConfig && {
       autoBranchCreationConfig: AutoBranchCreationConfig.filterSensitiveLog(
@@ -3587,7 +3619,7 @@ export interface UpdateAppResult {
 }
 
 export namespace UpdateAppResult {
-  export const filterSensitiveLog = (obj: UpdateAppResult) => ({
+  export const filterSensitiveLog = (obj: UpdateAppResult): any => ({
     ...obj,
     ...(obj.app && { app: App.filterSensitiveLog(obj.app) })
   });
@@ -3716,7 +3748,7 @@ export interface UpdateBranchRequest {
 }
 
 export namespace UpdateBranchRequest {
-  export const filterSensitiveLog = (obj: UpdateBranchRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateBranchRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateBranchRequest =>
@@ -3739,7 +3771,7 @@ export interface UpdateBranchResult {
 }
 
 export namespace UpdateBranchResult {
-  export const filterSensitiveLog = (obj: UpdateBranchResult) => ({
+  export const filterSensitiveLog = (obj: UpdateBranchResult): any => ({
     ...obj,
     ...(obj.branch && { branch: Branch.filterSensitiveLog(obj.branch) })
   });
@@ -3784,7 +3816,9 @@ export interface UpdateDomainAssociationRequest {
 }
 
 export namespace UpdateDomainAssociationRequest {
-  export const filterSensitiveLog = (obj: UpdateDomainAssociationRequest) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateDomainAssociationRequest
+  ): any => ({
     ...obj,
     ...(obj.subDomainSettings && {
       subDomainSettings: obj.subDomainSettings.map(
@@ -3812,7 +3846,9 @@ export interface UpdateDomainAssociationResult {
 }
 
 export namespace UpdateDomainAssociationResult {
-  export const filterSensitiveLog = (obj: UpdateDomainAssociationResult) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateDomainAssociationResult
+  ): any => ({
     ...obj,
     ...(obj.domainAssociation && {
       domainAssociation: DomainAssociation.filterSensitiveLog(
@@ -3854,7 +3890,7 @@ export interface UpdateWebhookRequest {
 }
 
 export namespace UpdateWebhookRequest {
-  export const filterSensitiveLog = (obj: UpdateWebhookRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateWebhookRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateWebhookRequest =>
@@ -3877,7 +3913,7 @@ export interface UpdateWebhookResult {
 }
 
 export namespace UpdateWebhookResult {
-  export const filterSensitiveLog = (obj: UpdateWebhookResult) => ({
+  export const filterSensitiveLog = (obj: UpdateWebhookResult): any => ({
     ...obj,
     ...(obj.webhook && { webhook: Webhook.filterSensitiveLog(obj.webhook) })
   });
@@ -3943,7 +3979,7 @@ export interface Webhook {
 }
 
 export namespace Webhook {
-  export const filterSensitiveLog = (obj: Webhook) => ({
+  export const filterSensitiveLog = (obj: Webhook): any => ({
     ...obj
   });
   export const isa = (o: any): o is Webhook => __isa(o, "Webhook");

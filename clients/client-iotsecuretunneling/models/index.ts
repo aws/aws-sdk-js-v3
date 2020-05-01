@@ -20,7 +20,7 @@ export interface CloseTunnelRequest {
 }
 
 export namespace CloseTunnelRequest {
-  export const filterSensitiveLog = (obj: CloseTunnelRequest) => ({
+  export const filterSensitiveLog = (obj: CloseTunnelRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CloseTunnelRequest =>
@@ -32,7 +32,7 @@ export interface CloseTunnelResponse {
 }
 
 export namespace CloseTunnelResponse {
-  export const filterSensitiveLog = (obj: CloseTunnelResponse) => ({
+  export const filterSensitiveLog = (obj: CloseTunnelResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CloseTunnelResponse =>
@@ -57,7 +57,7 @@ export interface ConnectionState {
 }
 
 export namespace ConnectionState {
-  export const filterSensitiveLog = (obj: ConnectionState) => ({
+  export const filterSensitiveLog = (obj: ConnectionState): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConnectionState =>
@@ -78,7 +78,7 @@ export interface DescribeTunnelRequest {
 }
 
 export namespace DescribeTunnelRequest {
-  export const filterSensitiveLog = (obj: DescribeTunnelRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeTunnelRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeTunnelRequest =>
@@ -94,7 +94,7 @@ export interface DescribeTunnelResponse {
 }
 
 export namespace DescribeTunnelResponse {
-  export const filterSensitiveLog = (obj: DescribeTunnelResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeTunnelResponse): any => ({
     ...obj,
     ...(obj.tunnel && { tunnel: Tunnel.filterSensitiveLog(obj.tunnel) })
   });
@@ -123,7 +123,7 @@ export interface DestinationConfig {
 }
 
 export namespace DestinationConfig {
-  export const filterSensitiveLog = (obj: DestinationConfig) => ({
+  export const filterSensitiveLog = (obj: DestinationConfig): any => ({
     ...obj
   });
   export const isa = (o: any): o is DestinationConfig =>
@@ -142,7 +142,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -158,7 +158,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
@@ -174,7 +174,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
     ...obj,
     ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
@@ -201,7 +203,7 @@ export interface ListTunnelsRequest {
 }
 
 export namespace ListTunnelsRequest {
-  export const filterSensitiveLog = (obj: ListTunnelsRequest) => ({
+  export const filterSensitiveLog = (obj: ListTunnelsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTunnelsRequest =>
@@ -222,7 +224,7 @@ export interface ListTunnelsResponse {
 }
 
 export namespace ListTunnelsResponse {
-  export const filterSensitiveLog = (obj: ListTunnelsResponse) => ({
+  export const filterSensitiveLog = (obj: ListTunnelsResponse): any => ({
     ...obj,
     ...(obj.tunnelSummaries && {
       tunnelSummaries: obj.tunnelSummaries.map(TunnelSummary.filterSensitiveLog)
@@ -256,7 +258,7 @@ export interface OpenTunnelRequest {
 }
 
 export namespace OpenTunnelRequest {
-  export const filterSensitiveLog = (obj: OpenTunnelRequest) => ({
+  export const filterSensitiveLog = (obj: OpenTunnelRequest): any => ({
     ...obj,
     ...(obj.destinationConfig && {
       destinationConfig: DestinationConfig.filterSensitiveLog(
@@ -300,7 +302,7 @@ export interface OpenTunnelResponse {
 }
 
 export namespace OpenTunnelResponse {
-  export const filterSensitiveLog = (obj: OpenTunnelResponse) => ({
+  export const filterSensitiveLog = (obj: OpenTunnelResponse): any => ({
     ...obj,
     ...(obj.destinationAccessToken && {
       destinationAccessToken: SENSITIVE_STRING
@@ -323,7 +325,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -348,7 +350,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -368,7 +370,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
     ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
@@ -381,7 +383,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const filterSensitiveLog = (obj: TagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceResponse =>
@@ -402,7 +404,7 @@ export interface TimeoutConfig {
 }
 
 export namespace TimeoutConfig {
-  export const filterSensitiveLog = (obj: TimeoutConfig) => ({
+  export const filterSensitiveLog = (obj: TimeoutConfig): any => ({
     ...obj
   });
   export const isa = (o: any): o is TimeoutConfig => __isa(o, "TimeoutConfig");
@@ -474,7 +476,7 @@ export interface Tunnel {
 }
 
 export namespace Tunnel {
-  export const filterSensitiveLog = (obj: Tunnel) => ({
+  export const filterSensitiveLog = (obj: Tunnel): any => ({
     ...obj,
     ...(obj.destinationConfig && {
       destinationConfig: DestinationConfig.filterSensitiveLog(
@@ -543,7 +545,7 @@ export interface TunnelSummary {
 }
 
 export namespace TunnelSummary {
-  export const filterSensitiveLog = (obj: TunnelSummary) => ({
+  export const filterSensitiveLog = (obj: TunnelSummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is TunnelSummary => __isa(o, "TunnelSummary");
@@ -563,7 +565,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>
@@ -575,7 +577,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const filterSensitiveLog = (obj: UntagResourceResponse) => ({
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceResponse =>

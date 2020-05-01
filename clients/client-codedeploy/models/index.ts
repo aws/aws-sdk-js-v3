@@ -26,7 +26,7 @@ export interface AddTagsToOnPremisesInstancesInput {
 export namespace AddTagsToOnPremisesInstancesInput {
   export const filterSensitiveLog = (
     obj: AddTagsToOnPremisesInstancesInput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
@@ -47,7 +47,7 @@ export interface Alarm {
 }
 
 export namespace Alarm {
-  export const filterSensitiveLog = (obj: Alarm) => ({
+  export const filterSensitiveLog = (obj: Alarm): any => ({
     ...obj
   });
   export const isa = (o: any): o is Alarm => __isa(o, "Alarm");
@@ -87,7 +87,7 @@ export interface AlarmConfiguration {
 }
 
 export namespace AlarmConfiguration {
-  export const filterSensitiveLog = (obj: AlarmConfiguration) => ({
+  export const filterSensitiveLog = (obj: AlarmConfiguration): any => ({
     ...obj,
     ...(obj.alarms && { alarms: obj.alarms.map(Alarm.filterSensitiveLog) })
   });
@@ -110,7 +110,9 @@ export interface AlarmsLimitExceededException
 }
 
 export namespace AlarmsLimitExceededException {
-  export const filterSensitiveLog = (obj: AlarmsLimitExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: AlarmsLimitExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is AlarmsLimitExceededException =>
@@ -145,7 +147,7 @@ export interface AppSpecContent {
 }
 
 export namespace AppSpecContent {
-  export const filterSensitiveLog = (obj: AppSpecContent) => ({
+  export const filterSensitiveLog = (obj: AppSpecContent): any => ({
     ...obj
   });
   export const isa = (o: any): o is AppSpecContent =>
@@ -170,7 +172,7 @@ export interface ApplicationAlreadyExistsException
 export namespace ApplicationAlreadyExistsException {
   export const filterSensitiveLog = (
     obj: ApplicationAlreadyExistsException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ApplicationAlreadyExistsException =>
@@ -194,7 +196,7 @@ export interface ApplicationDoesNotExistException
 export namespace ApplicationDoesNotExistException {
   export const filterSensitiveLog = (
     obj: ApplicationDoesNotExistException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ApplicationDoesNotExistException =>
@@ -240,7 +242,7 @@ export interface ApplicationInfo {
 }
 
 export namespace ApplicationInfo {
-  export const filterSensitiveLog = (obj: ApplicationInfo) => ({
+  export const filterSensitiveLog = (obj: ApplicationInfo): any => ({
     ...obj
   });
   export const isa = (o: any): o is ApplicationInfo =>
@@ -264,7 +266,7 @@ export interface ApplicationLimitExceededException
 export namespace ApplicationLimitExceededException {
   export const filterSensitiveLog = (
     obj: ApplicationLimitExceededException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ApplicationLimitExceededException =>
@@ -288,7 +290,7 @@ export interface ApplicationNameRequiredException
 export namespace ApplicationNameRequiredException {
   export const filterSensitiveLog = (
     obj: ApplicationNameRequiredException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ApplicationNameRequiredException =>
@@ -318,7 +320,7 @@ export interface ArnNotSupportedException
 }
 
 export namespace ArnNotSupportedException {
-  export const filterSensitiveLog = (obj: ArnNotSupportedException) => ({
+  export const filterSensitiveLog = (obj: ArnNotSupportedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ArnNotSupportedException =>
@@ -344,7 +346,7 @@ export interface AutoRollbackConfiguration {
 }
 
 export namespace AutoRollbackConfiguration {
-  export const filterSensitiveLog = (obj: AutoRollbackConfiguration) => ({
+  export const filterSensitiveLog = (obj: AutoRollbackConfiguration): any => ({
     ...obj
   });
   export const isa = (o: any): o is AutoRollbackConfiguration =>
@@ -374,7 +376,7 @@ export interface AutoScalingGroup {
 }
 
 export namespace AutoScalingGroup {
-  export const filterSensitiveLog = (obj: AutoScalingGroup) => ({
+  export const filterSensitiveLog = (obj: AutoScalingGroup): any => ({
     ...obj
   });
   export const isa = (o: any): o is AutoScalingGroup =>
@@ -402,7 +404,7 @@ export interface BatchGetApplicationRevisionsInput {
 export namespace BatchGetApplicationRevisionsInput {
   export const filterSensitiveLog = (
     obj: BatchGetApplicationRevisionsInput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.revisions && {
       revisions: obj.revisions.map(RevisionLocation.filterSensitiveLog)
@@ -436,7 +438,7 @@ export interface BatchGetApplicationRevisionsOutput {
 export namespace BatchGetApplicationRevisionsOutput {
   export const filterSensitiveLog = (
     obj: BatchGetApplicationRevisionsOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.revisions && {
       revisions: obj.revisions.map(RevisionInfo.filterSensitiveLog)
@@ -458,7 +460,7 @@ export interface BatchGetApplicationsInput {
 }
 
 export namespace BatchGetApplicationsInput {
-  export const filterSensitiveLog = (obj: BatchGetApplicationsInput) => ({
+  export const filterSensitiveLog = (obj: BatchGetApplicationsInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchGetApplicationsInput =>
@@ -477,7 +479,7 @@ export interface BatchGetApplicationsOutput {
 }
 
 export namespace BatchGetApplicationsOutput {
-  export const filterSensitiveLog = (obj: BatchGetApplicationsOutput) => ({
+  export const filterSensitiveLog = (obj: BatchGetApplicationsOutput): any => ({
     ...obj,
     ...(obj.applicationsInfo && {
       applicationsInfo: obj.applicationsInfo.map(
@@ -507,7 +509,9 @@ export interface BatchGetDeploymentGroupsInput {
 }
 
 export namespace BatchGetDeploymentGroupsInput {
-  export const filterSensitiveLog = (obj: BatchGetDeploymentGroupsInput) => ({
+  export const filterSensitiveLog = (
+    obj: BatchGetDeploymentGroupsInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchGetDeploymentGroupsInput =>
@@ -531,7 +535,9 @@ export interface BatchGetDeploymentGroupsOutput {
 }
 
 export namespace BatchGetDeploymentGroupsOutput {
-  export const filterSensitiveLog = (obj: BatchGetDeploymentGroupsOutput) => ({
+  export const filterSensitiveLog = (
+    obj: BatchGetDeploymentGroupsOutput
+  ): any => ({
     ...obj,
     ...(obj.deploymentGroupsInfo && {
       deploymentGroupsInfo: obj.deploymentGroupsInfo.map(
@@ -562,7 +568,7 @@ export interface BatchGetDeploymentInstancesInput {
 export namespace BatchGetDeploymentInstancesInput {
   export const filterSensitiveLog = (
     obj: BatchGetDeploymentInstancesInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchGetDeploymentInstancesInput =>
@@ -588,7 +594,7 @@ export interface BatchGetDeploymentInstancesOutput {
 export namespace BatchGetDeploymentInstancesOutput {
   export const filterSensitiveLog = (
     obj: BatchGetDeploymentInstancesOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.instancesSummary && {
       instancesSummary: obj.instancesSummary.map(
@@ -633,7 +639,9 @@ export interface BatchGetDeploymentTargetsInput {
 }
 
 export namespace BatchGetDeploymentTargetsInput {
-  export const filterSensitiveLog = (obj: BatchGetDeploymentTargetsInput) => ({
+  export const filterSensitiveLog = (
+    obj: BatchGetDeploymentTargetsInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchGetDeploymentTargetsInput =>
@@ -668,7 +676,9 @@ export interface BatchGetDeploymentTargetsOutput {
 }
 
 export namespace BatchGetDeploymentTargetsOutput {
-  export const filterSensitiveLog = (obj: BatchGetDeploymentTargetsOutput) => ({
+  export const filterSensitiveLog = (
+    obj: BatchGetDeploymentTargetsOutput
+  ): any => ({
     ...obj,
     ...(obj.deploymentTargets && {
       deploymentTargets: obj.deploymentTargets.map(
@@ -692,7 +702,7 @@ export interface BatchGetDeploymentsInput {
 }
 
 export namespace BatchGetDeploymentsInput {
-  export const filterSensitiveLog = (obj: BatchGetDeploymentsInput) => ({
+  export const filterSensitiveLog = (obj: BatchGetDeploymentsInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchGetDeploymentsInput =>
@@ -711,7 +721,7 @@ export interface BatchGetDeploymentsOutput {
 }
 
 export namespace BatchGetDeploymentsOutput {
-  export const filterSensitiveLog = (obj: BatchGetDeploymentsOutput) => ({
+  export const filterSensitiveLog = (obj: BatchGetDeploymentsOutput): any => ({
     ...obj,
     ...(obj.deploymentsInfo && {
       deploymentsInfo: obj.deploymentsInfo.map(
@@ -737,7 +747,7 @@ export interface BatchGetOnPremisesInstancesInput {
 export namespace BatchGetOnPremisesInstancesInput {
   export const filterSensitiveLog = (
     obj: BatchGetOnPremisesInstancesInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchGetOnPremisesInstancesInput =>
@@ -758,7 +768,7 @@ export interface BatchGetOnPremisesInstancesOutput {
 export namespace BatchGetOnPremisesInstancesOutput {
   export const filterSensitiveLog = (
     obj: BatchGetOnPremisesInstancesOutput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.instanceInfos && {
       instanceInfos: obj.instanceInfos.map(InstanceInfo.filterSensitiveLog)
@@ -783,7 +793,9 @@ export interface BatchLimitExceededException
 }
 
 export namespace BatchLimitExceededException {
-  export const filterSensitiveLog = (obj: BatchLimitExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: BatchLimitExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is BatchLimitExceededException =>
@@ -817,7 +829,7 @@ export interface BlueGreenDeploymentConfiguration {
 export namespace BlueGreenDeploymentConfiguration {
   export const filterSensitiveLog = (
     obj: BlueGreenDeploymentConfiguration
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.deploymentReadyOption && {
       deploymentReadyOption: DeploymentReadyOption.filterSensitiveLog(
@@ -879,7 +891,9 @@ export interface BlueInstanceTerminationOption {
 }
 
 export namespace BlueInstanceTerminationOption {
-  export const filterSensitiveLog = (obj: BlueInstanceTerminationOption) => ({
+  export const filterSensitiveLog = (
+    obj: BlueInstanceTerminationOption
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is BlueInstanceTerminationOption =>
@@ -903,7 +917,7 @@ export interface BucketNameFilterRequiredException
 export namespace BucketNameFilterRequiredException {
   export const filterSensitiveLog = (
     obj: BucketNameFilterRequiredException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is BucketNameFilterRequiredException =>
@@ -941,7 +955,7 @@ export interface ContinueDeploymentInput {
 }
 
 export namespace ContinueDeploymentInput {
-  export const filterSensitiveLog = (obj: ContinueDeploymentInput) => ({
+  export const filterSensitiveLog = (obj: ContinueDeploymentInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ContinueDeploymentInput =>
@@ -975,7 +989,7 @@ export interface CreateApplicationInput {
 }
 
 export namespace CreateApplicationInput {
-  export const filterSensitiveLog = (obj: CreateApplicationInput) => ({
+  export const filterSensitiveLog = (obj: CreateApplicationInput): any => ({
     ...obj,
     ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
@@ -995,7 +1009,7 @@ export interface CreateApplicationOutput {
 }
 
 export namespace CreateApplicationOutput {
-  export const filterSensitiveLog = (obj: CreateApplicationOutput) => ({
+  export const filterSensitiveLog = (obj: CreateApplicationOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateApplicationOutput =>
@@ -1047,7 +1061,9 @@ export interface CreateDeploymentConfigInput {
 }
 
 export namespace CreateDeploymentConfigInput {
-  export const filterSensitiveLog = (obj: CreateDeploymentConfigInput) => ({
+  export const filterSensitiveLog = (
+    obj: CreateDeploymentConfigInput
+  ): any => ({
     ...obj,
     ...(obj.minimumHealthyHosts && {
       minimumHealthyHosts: MinimumHealthyHosts.filterSensitiveLog(
@@ -1076,7 +1092,9 @@ export interface CreateDeploymentConfigOutput {
 }
 
 export namespace CreateDeploymentConfigOutput {
-  export const filterSensitiveLog = (obj: CreateDeploymentConfigOutput) => ({
+  export const filterSensitiveLog = (
+    obj: CreateDeploymentConfigOutput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateDeploymentConfigOutput =>
@@ -1202,7 +1220,7 @@ export interface CreateDeploymentGroupInput {
 }
 
 export namespace CreateDeploymentGroupInput {
-  export const filterSensitiveLog = (obj: CreateDeploymentGroupInput) => ({
+  export const filterSensitiveLog = (obj: CreateDeploymentGroupInput): any => ({
     ...obj,
     ...(obj.alarmConfiguration && {
       alarmConfiguration: AlarmConfiguration.filterSensitiveLog(
@@ -1269,7 +1287,9 @@ export interface CreateDeploymentGroupOutput {
 }
 
 export namespace CreateDeploymentGroupOutput {
-  export const filterSensitiveLog = (obj: CreateDeploymentGroupOutput) => ({
+  export const filterSensitiveLog = (
+    obj: CreateDeploymentGroupOutput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateDeploymentGroupOutput =>
@@ -1381,7 +1401,7 @@ export interface CreateDeploymentInput {
 }
 
 export namespace CreateDeploymentInput {
-  export const filterSensitiveLog = (obj: CreateDeploymentInput) => ({
+  export const filterSensitiveLog = (obj: CreateDeploymentInput): any => ({
     ...obj,
     ...(obj.autoRollbackConfiguration && {
       autoRollbackConfiguration: AutoRollbackConfiguration.filterSensitiveLog(
@@ -1411,7 +1431,7 @@ export interface CreateDeploymentOutput {
 }
 
 export namespace CreateDeploymentOutput {
-  export const filterSensitiveLog = (obj: CreateDeploymentOutput) => ({
+  export const filterSensitiveLog = (obj: CreateDeploymentOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateDeploymentOutput =>
@@ -1431,7 +1451,7 @@ export interface DeleteApplicationInput {
 }
 
 export namespace DeleteApplicationInput {
-  export const filterSensitiveLog = (obj: DeleteApplicationInput) => ({
+  export const filterSensitiveLog = (obj: DeleteApplicationInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteApplicationInput =>
@@ -1451,7 +1471,9 @@ export interface DeleteDeploymentConfigInput {
 }
 
 export namespace DeleteDeploymentConfigInput {
-  export const filterSensitiveLog = (obj: DeleteDeploymentConfigInput) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteDeploymentConfigInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteDeploymentConfigInput =>
@@ -1476,7 +1498,7 @@ export interface DeleteDeploymentGroupInput {
 }
 
 export namespace DeleteDeploymentGroupInput {
-  export const filterSensitiveLog = (obj: DeleteDeploymentGroupInput) => ({
+  export const filterSensitiveLog = (obj: DeleteDeploymentGroupInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteDeploymentGroupInput =>
@@ -1499,7 +1521,9 @@ export interface DeleteDeploymentGroupOutput {
 }
 
 export namespace DeleteDeploymentGroupOutput {
-  export const filterSensitiveLog = (obj: DeleteDeploymentGroupOutput) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteDeploymentGroupOutput
+  ): any => ({
     ...obj,
     ...(obj.hooksNotCleanedUp && {
       hooksNotCleanedUp: obj.hooksNotCleanedUp.map(
@@ -1523,7 +1547,9 @@ export interface DeleteGitHubAccountTokenInput {
 }
 
 export namespace DeleteGitHubAccountTokenInput {
-  export const filterSensitiveLog = (obj: DeleteGitHubAccountTokenInput) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteGitHubAccountTokenInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteGitHubAccountTokenInput =>
@@ -1542,7 +1568,9 @@ export interface DeleteGitHubAccountTokenOutput {
 }
 
 export namespace DeleteGitHubAccountTokenOutput {
-  export const filterSensitiveLog = (obj: DeleteGitHubAccountTokenOutput) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteGitHubAccountTokenOutput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteGitHubAccountTokenOutput =>
@@ -1566,7 +1594,7 @@ export interface DeploymentAlreadyCompletedException
 export namespace DeploymentAlreadyCompletedException {
   export const filterSensitiveLog = (
     obj: DeploymentAlreadyCompletedException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentAlreadyCompletedException =>
@@ -1591,7 +1619,7 @@ export interface DeploymentConfigAlreadyExistsException
 export namespace DeploymentConfigAlreadyExistsException {
   export const filterSensitiveLog = (
     obj: DeploymentConfigAlreadyExistsException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentConfigAlreadyExistsException =>
@@ -1615,7 +1643,7 @@ export interface DeploymentConfigDoesNotExistException
 export namespace DeploymentConfigDoesNotExistException {
   export const filterSensitiveLog = (
     obj: DeploymentConfigDoesNotExistException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentConfigDoesNotExistException =>
@@ -1637,7 +1665,9 @@ export interface DeploymentConfigInUseException
 }
 
 export namespace DeploymentConfigInUseException {
-  export const filterSensitiveLog = (obj: DeploymentConfigInUseException) => ({
+  export const filterSensitiveLog = (
+    obj: DeploymentConfigInUseException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentConfigInUseException =>
@@ -1682,7 +1712,7 @@ export interface DeploymentConfigInfo {
 }
 
 export namespace DeploymentConfigInfo {
-  export const filterSensitiveLog = (obj: DeploymentConfigInfo) => ({
+  export const filterSensitiveLog = (obj: DeploymentConfigInfo): any => ({
     ...obj,
     ...(obj.minimumHealthyHosts && {
       minimumHealthyHosts: MinimumHealthyHosts.filterSensitiveLog(
@@ -1716,7 +1746,7 @@ export interface DeploymentConfigLimitExceededException
 export namespace DeploymentConfigLimitExceededException {
   export const filterSensitiveLog = (
     obj: DeploymentConfigLimitExceededException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentConfigLimitExceededException =>
@@ -1740,7 +1770,7 @@ export interface DeploymentConfigNameRequiredException
 export namespace DeploymentConfigNameRequiredException {
   export const filterSensitiveLog = (
     obj: DeploymentConfigNameRequiredException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentConfigNameRequiredException =>
@@ -1768,7 +1798,9 @@ export interface DeploymentDoesNotExistException
 }
 
 export namespace DeploymentDoesNotExistException {
-  export const filterSensitiveLog = (obj: DeploymentDoesNotExistException) => ({
+  export const filterSensitiveLog = (
+    obj: DeploymentDoesNotExistException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentDoesNotExistException =>
@@ -1793,7 +1825,7 @@ export interface DeploymentGroupAlreadyExistsException
 export namespace DeploymentGroupAlreadyExistsException {
   export const filterSensitiveLog = (
     obj: DeploymentGroupAlreadyExistsException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentGroupAlreadyExistsException =>
@@ -1817,7 +1849,7 @@ export interface DeploymentGroupDoesNotExistException
 export namespace DeploymentGroupDoesNotExistException {
   export const filterSensitiveLog = (
     obj: DeploymentGroupDoesNotExistException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentGroupDoesNotExistException =>
@@ -1951,7 +1983,7 @@ export interface DeploymentGroupInfo {
 }
 
 export namespace DeploymentGroupInfo {
-  export const filterSensitiveLog = (obj: DeploymentGroupInfo) => ({
+  export const filterSensitiveLog = (obj: DeploymentGroupInfo): any => ({
     ...obj,
     ...(obj.alarmConfiguration && {
       alarmConfiguration: AlarmConfiguration.filterSensitiveLog(
@@ -2040,7 +2072,7 @@ export interface DeploymentGroupLimitExceededException
 export namespace DeploymentGroupLimitExceededException {
   export const filterSensitiveLog = (
     obj: DeploymentGroupLimitExceededException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentGroupLimitExceededException =>
@@ -2064,7 +2096,7 @@ export interface DeploymentGroupNameRequiredException
 export namespace DeploymentGroupNameRequiredException {
   export const filterSensitiveLog = (
     obj: DeploymentGroupNameRequiredException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentGroupNameRequiredException =>
@@ -2086,7 +2118,9 @@ export interface DeploymentIdRequiredException
 }
 
 export namespace DeploymentIdRequiredException {
-  export const filterSensitiveLog = (obj: DeploymentIdRequiredException) => ({
+  export const filterSensitiveLog = (
+    obj: DeploymentIdRequiredException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentIdRequiredException =>
@@ -2299,7 +2333,7 @@ export interface DeploymentInfo {
 }
 
 export namespace DeploymentInfo {
-  export const filterSensitiveLog = (obj: DeploymentInfo) => ({
+  export const filterSensitiveLog = (obj: DeploymentInfo): any => ({
     ...obj,
     ...(obj.autoRollbackConfiguration && {
       autoRollbackConfiguration: AutoRollbackConfiguration.filterSensitiveLog(
@@ -2365,7 +2399,7 @@ export interface DeploymentIsNotInReadyStateException
 export namespace DeploymentIsNotInReadyStateException {
   export const filterSensitiveLog = (
     obj: DeploymentIsNotInReadyStateException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentIsNotInReadyStateException =>
@@ -2389,7 +2423,7 @@ export interface DeploymentLimitExceededException
 export namespace DeploymentLimitExceededException {
   export const filterSensitiveLog = (
     obj: DeploymentLimitExceededException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentLimitExceededException =>
@@ -2411,7 +2445,9 @@ export interface DeploymentNotStartedException
 }
 
 export namespace DeploymentNotStartedException {
-  export const filterSensitiveLog = (obj: DeploymentNotStartedException) => ({
+  export const filterSensitiveLog = (
+    obj: DeploymentNotStartedException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentNotStartedException =>
@@ -2462,7 +2498,7 @@ export interface DeploymentOverview {
 }
 
 export namespace DeploymentOverview {
-  export const filterSensitiveLog = (obj: DeploymentOverview) => ({
+  export const filterSensitiveLog = (obj: DeploymentOverview): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentOverview =>
@@ -2508,7 +2544,7 @@ export interface DeploymentReadyOption {
 }
 
 export namespace DeploymentReadyOption {
-  export const filterSensitiveLog = (obj: DeploymentReadyOption) => ({
+  export const filterSensitiveLog = (obj: DeploymentReadyOption): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentReadyOption =>
@@ -2543,7 +2579,7 @@ export interface DeploymentStyle {
 }
 
 export namespace DeploymentStyle {
-  export const filterSensitiveLog = (obj: DeploymentStyle) => ({
+  export const filterSensitiveLog = (obj: DeploymentStyle): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentStyle =>
@@ -2580,7 +2616,7 @@ export interface DeploymentTarget {
 }
 
 export namespace DeploymentTarget {
-  export const filterSensitiveLog = (obj: DeploymentTarget) => ({
+  export const filterSensitiveLog = (obj: DeploymentTarget): any => ({
     ...obj,
     ...(obj.ecsTarget && {
       ecsTarget: ECSTarget.filterSensitiveLog(obj.ecsTarget)
@@ -2613,7 +2649,7 @@ export interface DeploymentTargetDoesNotExistException
 export namespace DeploymentTargetDoesNotExistException {
   export const filterSensitiveLog = (
     obj: DeploymentTargetDoesNotExistException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentTargetDoesNotExistException =>
@@ -2637,7 +2673,7 @@ export interface DeploymentTargetIdRequiredException
 export namespace DeploymentTargetIdRequiredException {
   export const filterSensitiveLog = (
     obj: DeploymentTargetIdRequiredException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentTargetIdRequiredException =>
@@ -2663,7 +2699,7 @@ export interface DeploymentTargetListSizeExceededException
 export namespace DeploymentTargetListSizeExceededException {
   export const filterSensitiveLog = (
     obj: DeploymentTargetListSizeExceededException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeploymentTargetListSizeExceededException =>
@@ -2700,7 +2736,7 @@ export interface DeregisterOnPremisesInstanceInput {
 export namespace DeregisterOnPremisesInstanceInput {
   export const filterSensitiveLog = (
     obj: DeregisterOnPremisesInstanceInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeregisterOnPremisesInstanceInput =>
@@ -2722,7 +2758,9 @@ export interface DescriptionTooLongException
 }
 
 export namespace DescriptionTooLongException {
-  export const filterSensitiveLog = (obj: DescriptionTooLongException) => ({
+  export const filterSensitiveLog = (
+    obj: DescriptionTooLongException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescriptionTooLongException =>
@@ -2780,7 +2818,7 @@ export interface Diagnostics {
 }
 
 export namespace Diagnostics {
-  export const filterSensitiveLog = (obj: Diagnostics) => ({
+  export const filterSensitiveLog = (obj: Diagnostics): any => ({
     ...obj
   });
   export const isa = (o: any): o is Diagnostics => __isa(o, "Diagnostics");
@@ -2819,7 +2857,7 @@ export interface EC2TagFilter {
 }
 
 export namespace EC2TagFilter {
-  export const filterSensitiveLog = (obj: EC2TagFilter) => ({
+  export const filterSensitiveLog = (obj: EC2TagFilter): any => ({
     ...obj
   });
   export const isa = (o: any): o is EC2TagFilter => __isa(o, "EC2TagFilter");
@@ -2845,7 +2883,7 @@ export interface EC2TagSet {
 }
 
 export namespace EC2TagSet {
-  export const filterSensitiveLog = (obj: EC2TagSet) => ({
+  export const filterSensitiveLog = (obj: EC2TagSet): any => ({
     ...obj,
     ...(obj.ec2TagSetList && {
       ec2TagSetList: obj.ec2TagSetList.map(item =>
@@ -2874,7 +2912,7 @@ export interface ECSService {
 }
 
 export namespace ECSService {
-  export const filterSensitiveLog = (obj: ECSService) => ({
+  export const filterSensitiveLog = (obj: ECSService): any => ({
     ...obj
   });
   export const isa = (o: any): o is ECSService => __isa(o, "ECSService");
@@ -2898,7 +2936,7 @@ export interface ECSServiceMappingLimitExceededException
 export namespace ECSServiceMappingLimitExceededException {
   export const filterSensitiveLog = (
     obj: ECSServiceMappingLimitExceededException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ECSServiceMappingLimitExceededException =>
@@ -2949,7 +2987,7 @@ export interface ECSTarget {
 }
 
 export namespace ECSTarget {
-  export const filterSensitiveLog = (obj: ECSTarget) => ({
+  export const filterSensitiveLog = (obj: ECSTarget): any => ({
     ...obj,
     ...(obj.lifecycleEvents && {
       lifecycleEvents: obj.lifecycleEvents.map(
@@ -3040,7 +3078,7 @@ export interface ECSTaskSet {
 }
 
 export namespace ECSTaskSet {
-  export const filterSensitiveLog = (obj: ECSTaskSet) => ({
+  export const filterSensitiveLog = (obj: ECSTaskSet): any => ({
     ...obj,
     ...(obj.targetGroup && {
       targetGroup: TargetGroupInfo.filterSensitiveLog(obj.targetGroup)
@@ -3067,7 +3105,7 @@ export interface ELBInfo {
 }
 
 export namespace ELBInfo {
-  export const filterSensitiveLog = (obj: ELBInfo) => ({
+  export const filterSensitiveLog = (obj: ELBInfo): any => ({
     ...obj
   });
   export const isa = (o: any): o is ELBInfo => __isa(o, "ELBInfo");
@@ -3181,7 +3219,7 @@ export interface ErrorInformation {
 }
 
 export namespace ErrorInformation {
-  export const filterSensitiveLog = (obj: ErrorInformation) => ({
+  export const filterSensitiveLog = (obj: ErrorInformation): any => ({
     ...obj
   });
   export const isa = (o: any): o is ErrorInformation =>
@@ -3226,7 +3264,7 @@ export interface GenericRevisionInfo {
 }
 
 export namespace GenericRevisionInfo {
-  export const filterSensitiveLog = (obj: GenericRevisionInfo) => ({
+  export const filterSensitiveLog = (obj: GenericRevisionInfo): any => ({
     ...obj
   });
   export const isa = (o: any): o is GenericRevisionInfo =>
@@ -3246,7 +3284,7 @@ export interface GetApplicationInput {
 }
 
 export namespace GetApplicationInput {
-  export const filterSensitiveLog = (obj: GetApplicationInput) => ({
+  export const filterSensitiveLog = (obj: GetApplicationInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetApplicationInput =>
@@ -3265,7 +3303,7 @@ export interface GetApplicationOutput {
 }
 
 export namespace GetApplicationOutput {
-  export const filterSensitiveLog = (obj: GetApplicationOutput) => ({
+  export const filterSensitiveLog = (obj: GetApplicationOutput): any => ({
     ...obj,
     ...(obj.application && {
       application: ApplicationInfo.filterSensitiveLog(obj.application)
@@ -3292,7 +3330,9 @@ export interface GetApplicationRevisionInput {
 }
 
 export namespace GetApplicationRevisionInput {
-  export const filterSensitiveLog = (obj: GetApplicationRevisionInput) => ({
+  export const filterSensitiveLog = (
+    obj: GetApplicationRevisionInput
+  ): any => ({
     ...obj,
     ...(obj.revision && {
       revision: RevisionLocation.filterSensitiveLog(obj.revision)
@@ -3324,7 +3364,9 @@ export interface GetApplicationRevisionOutput {
 }
 
 export namespace GetApplicationRevisionOutput {
-  export const filterSensitiveLog = (obj: GetApplicationRevisionOutput) => ({
+  export const filterSensitiveLog = (
+    obj: GetApplicationRevisionOutput
+  ): any => ({
     ...obj,
     ...(obj.revision && {
       revision: RevisionLocation.filterSensitiveLog(obj.revision)
@@ -3350,7 +3392,7 @@ export interface GetDeploymentConfigInput {
 }
 
 export namespace GetDeploymentConfigInput {
-  export const filterSensitiveLog = (obj: GetDeploymentConfigInput) => ({
+  export const filterSensitiveLog = (obj: GetDeploymentConfigInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetDeploymentConfigInput =>
@@ -3369,7 +3411,7 @@ export interface GetDeploymentConfigOutput {
 }
 
 export namespace GetDeploymentConfigOutput {
-  export const filterSensitiveLog = (obj: GetDeploymentConfigOutput) => ({
+  export const filterSensitiveLog = (obj: GetDeploymentConfigOutput): any => ({
     ...obj,
     ...(obj.deploymentConfigInfo && {
       deploymentConfigInfo: DeploymentConfigInfo.filterSensitiveLog(
@@ -3399,7 +3441,7 @@ export interface GetDeploymentGroupInput {
 }
 
 export namespace GetDeploymentGroupInput {
-  export const filterSensitiveLog = (obj: GetDeploymentGroupInput) => ({
+  export const filterSensitiveLog = (obj: GetDeploymentGroupInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetDeploymentGroupInput =>
@@ -3418,7 +3460,7 @@ export interface GetDeploymentGroupOutput {
 }
 
 export namespace GetDeploymentGroupOutput {
-  export const filterSensitiveLog = (obj: GetDeploymentGroupOutput) => ({
+  export const filterSensitiveLog = (obj: GetDeploymentGroupOutput): any => ({
     ...obj,
     ...(obj.deploymentGroupInfo && {
       deploymentGroupInfo: DeploymentGroupInfo.filterSensitiveLog(
@@ -3442,7 +3484,7 @@ export interface GetDeploymentInput {
 }
 
 export namespace GetDeploymentInput {
-  export const filterSensitiveLog = (obj: GetDeploymentInput) => ({
+  export const filterSensitiveLog = (obj: GetDeploymentInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetDeploymentInput =>
@@ -3466,7 +3508,7 @@ export interface GetDeploymentInstanceInput {
 }
 
 export namespace GetDeploymentInstanceInput {
-  export const filterSensitiveLog = (obj: GetDeploymentInstanceInput) => ({
+  export const filterSensitiveLog = (obj: GetDeploymentInstanceInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetDeploymentInstanceInput =>
@@ -3485,7 +3527,9 @@ export interface GetDeploymentInstanceOutput {
 }
 
 export namespace GetDeploymentInstanceOutput {
-  export const filterSensitiveLog = (obj: GetDeploymentInstanceOutput) => ({
+  export const filterSensitiveLog = (
+    obj: GetDeploymentInstanceOutput
+  ): any => ({
     ...obj,
     ...(obj.instanceSummary && {
       instanceSummary: InstanceSummary.filterSensitiveLog(obj.instanceSummary)
@@ -3507,7 +3551,7 @@ export interface GetDeploymentOutput {
 }
 
 export namespace GetDeploymentOutput {
-  export const filterSensitiveLog = (obj: GetDeploymentOutput) => ({
+  export const filterSensitiveLog = (obj: GetDeploymentOutput): any => ({
     ...obj,
     ...(obj.deploymentInfo && {
       deploymentInfo: DeploymentInfo.filterSensitiveLog(obj.deploymentInfo)
@@ -3531,7 +3575,7 @@ export interface GetDeploymentTargetInput {
 }
 
 export namespace GetDeploymentTargetInput {
-  export const filterSensitiveLog = (obj: GetDeploymentTargetInput) => ({
+  export const filterSensitiveLog = (obj: GetDeploymentTargetInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetDeploymentTargetInput =>
@@ -3551,7 +3595,7 @@ export interface GetDeploymentTargetOutput {
 }
 
 export namespace GetDeploymentTargetOutput {
-  export const filterSensitiveLog = (obj: GetDeploymentTargetOutput) => ({
+  export const filterSensitiveLog = (obj: GetDeploymentTargetOutput): any => ({
     ...obj,
     ...(obj.deploymentTarget && {
       deploymentTarget: DeploymentTarget.filterSensitiveLog(
@@ -3575,7 +3619,7 @@ export interface GetOnPremisesInstanceInput {
 }
 
 export namespace GetOnPremisesInstanceInput {
-  export const filterSensitiveLog = (obj: GetOnPremisesInstanceInput) => ({
+  export const filterSensitiveLog = (obj: GetOnPremisesInstanceInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetOnPremisesInstanceInput =>
@@ -3594,7 +3638,9 @@ export interface GetOnPremisesInstanceOutput {
 }
 
 export namespace GetOnPremisesInstanceOutput {
-  export const filterSensitiveLog = (obj: GetOnPremisesInstanceOutput) => ({
+  export const filterSensitiveLog = (
+    obj: GetOnPremisesInstanceOutput
+  ): any => ({
     ...obj,
     ...(obj.instanceInfo && {
       instanceInfo: InstanceInfo.filterSensitiveLog(obj.instanceInfo)
@@ -3621,7 +3667,7 @@ export interface GitHubAccountTokenDoesNotExistException
 export namespace GitHubAccountTokenDoesNotExistException {
   export const filterSensitiveLog = (
     obj: GitHubAccountTokenDoesNotExistException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GitHubAccountTokenDoesNotExistException =>
@@ -3645,7 +3691,7 @@ export interface GitHubAccountTokenNameRequiredException
 export namespace GitHubAccountTokenNameRequiredException {
   export const filterSensitiveLog = (
     obj: GitHubAccountTokenNameRequiredException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GitHubAccountTokenNameRequiredException =>
@@ -3672,7 +3718,7 @@ export interface GitHubLocation {
 }
 
 export namespace GitHubLocation {
-  export const filterSensitiveLog = (obj: GitHubLocation) => ({
+  export const filterSensitiveLog = (obj: GitHubLocation): any => ({
     ...obj
   });
   export const isa = (o: any): o is GitHubLocation =>
@@ -3707,7 +3753,9 @@ export interface GreenFleetProvisioningOption {
 }
 
 export namespace GreenFleetProvisioningOption {
-  export const filterSensitiveLog = (obj: GreenFleetProvisioningOption) => ({
+  export const filterSensitiveLog = (
+    obj: GreenFleetProvisioningOption
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GreenFleetProvisioningOption =>
@@ -3730,7 +3778,7 @@ export interface IamArnRequiredException
 }
 
 export namespace IamArnRequiredException {
-  export const filterSensitiveLog = (obj: IamArnRequiredException) => ({
+  export const filterSensitiveLog = (obj: IamArnRequiredException): any => ({
     ...obj
   });
   export const isa = (o: any): o is IamArnRequiredException =>
@@ -3755,7 +3803,7 @@ export interface IamSessionArnAlreadyRegisteredException
 export namespace IamSessionArnAlreadyRegisteredException {
   export const filterSensitiveLog = (
     obj: IamSessionArnAlreadyRegisteredException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is IamSessionArnAlreadyRegisteredException =>
@@ -3779,7 +3827,7 @@ export interface IamUserArnAlreadyRegisteredException
 export namespace IamUserArnAlreadyRegisteredException {
   export const filterSensitiveLog = (
     obj: IamUserArnAlreadyRegisteredException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is IamUserArnAlreadyRegisteredException =>
@@ -3801,7 +3849,9 @@ export interface IamUserArnRequiredException
 }
 
 export namespace IamUserArnRequiredException {
-  export const filterSensitiveLog = (obj: IamUserArnRequiredException) => ({
+  export const filterSensitiveLog = (
+    obj: IamUserArnRequiredException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is IamUserArnRequiredException =>
@@ -3828,7 +3878,9 @@ export interface InstanceDoesNotExistException
 }
 
 export namespace InstanceDoesNotExistException {
-  export const filterSensitiveLog = (obj: InstanceDoesNotExistException) => ({
+  export const filterSensitiveLog = (
+    obj: InstanceDoesNotExistException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InstanceDoesNotExistException =>
@@ -3850,7 +3902,9 @@ export interface InstanceIdRequiredException
 }
 
 export namespace InstanceIdRequiredException {
-  export const filterSensitiveLog = (obj: InstanceIdRequiredException) => ({
+  export const filterSensitiveLog = (
+    obj: InstanceIdRequiredException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InstanceIdRequiredException =>
@@ -3900,7 +3954,7 @@ export interface InstanceInfo {
 }
 
 export namespace InstanceInfo {
-  export const filterSensitiveLog = (obj: InstanceInfo) => ({
+  export const filterSensitiveLog = (obj: InstanceInfo): any => ({
     ...obj,
     ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
@@ -3923,7 +3977,9 @@ export interface InstanceLimitExceededException
 }
 
 export namespace InstanceLimitExceededException {
-  export const filterSensitiveLog = (obj: InstanceLimitExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: InstanceLimitExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InstanceLimitExceededException =>
@@ -3947,7 +4003,7 @@ export interface InstanceNameAlreadyRegisteredException
 export namespace InstanceNameAlreadyRegisteredException {
   export const filterSensitiveLog = (
     obj: InstanceNameAlreadyRegisteredException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InstanceNameAlreadyRegisteredException =>
@@ -3969,7 +4025,9 @@ export interface InstanceNameRequiredException
 }
 
 export namespace InstanceNameRequiredException {
-  export const filterSensitiveLog = (obj: InstanceNameRequiredException) => ({
+  export const filterSensitiveLog = (
+    obj: InstanceNameRequiredException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InstanceNameRequiredException =>
@@ -3991,7 +4049,9 @@ export interface InstanceNotRegisteredException
 }
 
 export namespace InstanceNotRegisteredException {
-  export const filterSensitiveLog = (obj: InstanceNotRegisteredException) => ({
+  export const filterSensitiveLog = (
+    obj: InstanceNotRegisteredException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InstanceNotRegisteredException =>
@@ -4074,7 +4134,7 @@ export interface InstanceSummary {
 }
 
 export namespace InstanceSummary {
-  export const filterSensitiveLog = (obj: InstanceSummary) => ({
+  export const filterSensitiveLog = (obj: InstanceSummary): any => ({
     ...obj,
     ...(obj.lifecycleEvents && {
       lifecycleEvents: obj.lifecycleEvents.map(
@@ -4131,7 +4191,7 @@ export interface InstanceTarget {
 }
 
 export namespace InstanceTarget {
-  export const filterSensitiveLog = (obj: InstanceTarget) => ({
+  export const filterSensitiveLog = (obj: InstanceTarget): any => ({
     ...obj,
     ...(obj.lifecycleEvents && {
       lifecycleEvents: obj.lifecycleEvents.map(
@@ -4180,7 +4240,9 @@ export interface InvalidAlarmConfigException
 }
 
 export namespace InvalidAlarmConfigException {
-  export const filterSensitiveLog = (obj: InvalidAlarmConfigException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidAlarmConfigException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidAlarmConfigException =>
@@ -4202,7 +4264,9 @@ export interface InvalidApplicationNameException
 }
 
 export namespace InvalidApplicationNameException {
-  export const filterSensitiveLog = (obj: InvalidApplicationNameException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidApplicationNameException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidApplicationNameException =>
@@ -4226,7 +4290,7 @@ export interface InvalidArnException
 }
 
 export namespace InvalidArnException {
-  export const filterSensitiveLog = (obj: InvalidArnException) => ({
+  export const filterSensitiveLog = (obj: InvalidArnException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidArnException =>
@@ -4252,7 +4316,7 @@ export interface InvalidAutoRollbackConfigException
 export namespace InvalidAutoRollbackConfigException {
   export const filterSensitiveLog = (
     obj: InvalidAutoRollbackConfigException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidAutoRollbackConfigException =>
@@ -4276,7 +4340,7 @@ export interface InvalidAutoScalingGroupException
 export namespace InvalidAutoScalingGroupException {
   export const filterSensitiveLog = (
     obj: InvalidAutoScalingGroupException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidAutoScalingGroupException =>
@@ -4301,7 +4365,7 @@ export interface InvalidBlueGreenDeploymentConfigurationException
 export namespace InvalidBlueGreenDeploymentConfigurationException {
   export const filterSensitiveLog = (
     obj: InvalidBlueGreenDeploymentConfigurationException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -4327,7 +4391,7 @@ export interface InvalidBucketNameFilterException
 export namespace InvalidBucketNameFilterException {
   export const filterSensitiveLog = (
     obj: InvalidBucketNameFilterException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidBucketNameFilterException =>
@@ -4350,7 +4414,9 @@ export interface InvalidComputePlatformException
 }
 
 export namespace InvalidComputePlatformException {
-  export const filterSensitiveLog = (obj: InvalidComputePlatformException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidComputePlatformException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidComputePlatformException =>
@@ -4374,7 +4440,7 @@ export interface InvalidDeployedStateFilterException
 export namespace InvalidDeployedStateFilterException {
   export const filterSensitiveLog = (
     obj: InvalidDeployedStateFilterException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidDeployedStateFilterException =>
@@ -4398,7 +4464,7 @@ export interface InvalidDeploymentConfigNameException
 export namespace InvalidDeploymentConfigNameException {
   export const filterSensitiveLog = (
     obj: InvalidDeploymentConfigNameException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidDeploymentConfigNameException =>
@@ -4422,7 +4488,7 @@ export interface InvalidDeploymentGroupNameException
 export namespace InvalidDeploymentGroupNameException {
   export const filterSensitiveLog = (
     obj: InvalidDeploymentGroupNameException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidDeploymentGroupNameException =>
@@ -4444,7 +4510,9 @@ export interface InvalidDeploymentIdException
 }
 
 export namespace InvalidDeploymentIdException {
-  export const filterSensitiveLog = (obj: InvalidDeploymentIdException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidDeploymentIdException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidDeploymentIdException =>
@@ -4469,7 +4537,7 @@ export interface InvalidDeploymentInstanceTypeException
 export namespace InvalidDeploymentInstanceTypeException {
   export const filterSensitiveLog = (
     obj: InvalidDeploymentInstanceTypeException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidDeploymentInstanceTypeException =>
@@ -4493,7 +4561,7 @@ export interface InvalidDeploymentStatusException
 export namespace InvalidDeploymentStatusException {
   export const filterSensitiveLog = (
     obj: InvalidDeploymentStatusException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidDeploymentStatusException =>
@@ -4517,7 +4585,9 @@ export interface InvalidDeploymentStyleException
 }
 
 export namespace InvalidDeploymentStyleException {
-  export const filterSensitiveLog = (obj: InvalidDeploymentStyleException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidDeploymentStyleException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidDeploymentStyleException =>
@@ -4541,7 +4611,7 @@ export interface InvalidDeploymentTargetIdException
 export namespace InvalidDeploymentTargetIdException {
   export const filterSensitiveLog = (
     obj: InvalidDeploymentTargetIdException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidDeploymentTargetIdException =>
@@ -4565,7 +4635,7 @@ export interface InvalidDeploymentWaitTypeException
 export namespace InvalidDeploymentWaitTypeException {
   export const filterSensitiveLog = (
     obj: InvalidDeploymentWaitTypeException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidDeploymentWaitTypeException =>
@@ -4590,7 +4660,7 @@ export interface InvalidEC2TagCombinationException
 export namespace InvalidEC2TagCombinationException {
   export const filterSensitiveLog = (
     obj: InvalidEC2TagCombinationException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidEC2TagCombinationException =>
@@ -4612,7 +4682,7 @@ export interface InvalidEC2TagException
 }
 
 export namespace InvalidEC2TagException {
-  export const filterSensitiveLog = (obj: InvalidEC2TagException) => ({
+  export const filterSensitiveLog = (obj: InvalidEC2TagException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidEC2TagException =>
@@ -4634,7 +4704,7 @@ export interface InvalidECSServiceException
 }
 
 export namespace InvalidECSServiceException {
-  export const filterSensitiveLog = (obj: InvalidECSServiceException) => ({
+  export const filterSensitiveLog = (obj: InvalidECSServiceException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidECSServiceException =>
@@ -4661,7 +4731,7 @@ export interface InvalidFileExistsBehaviorException
 export namespace InvalidFileExistsBehaviorException {
   export const filterSensitiveLog = (
     obj: InvalidFileExistsBehaviorException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidFileExistsBehaviorException =>
@@ -4685,7 +4755,7 @@ export interface InvalidGitHubAccountTokenException
 export namespace InvalidGitHubAccountTokenException {
   export const filterSensitiveLog = (
     obj: InvalidGitHubAccountTokenException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidGitHubAccountTokenException =>
@@ -4709,7 +4779,7 @@ export interface InvalidGitHubAccountTokenNameException
 export namespace InvalidGitHubAccountTokenNameException {
   export const filterSensitiveLog = (
     obj: InvalidGitHubAccountTokenNameException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidGitHubAccountTokenNameException =>
@@ -4731,7 +4801,9 @@ export interface InvalidIamSessionArnException
 }
 
 export namespace InvalidIamSessionArnException {
-  export const filterSensitiveLog = (obj: InvalidIamSessionArnException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidIamSessionArnException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidIamSessionArnException =>
@@ -4753,7 +4825,7 @@ export interface InvalidIamUserArnException
 }
 
 export namespace InvalidIamUserArnException {
-  export const filterSensitiveLog = (obj: InvalidIamUserArnException) => ({
+  export const filterSensitiveLog = (obj: InvalidIamUserArnException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidIamUserArnException =>
@@ -4779,7 +4851,7 @@ export interface InvalidIgnoreApplicationStopFailuresValueException
 export namespace InvalidIgnoreApplicationStopFailuresValueException {
   export const filterSensitiveLog = (
     obj: InvalidIgnoreApplicationStopFailuresValueException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -4803,7 +4875,7 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
-  export const filterSensitiveLog = (obj: InvalidInputException) => ({
+  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidInputException =>
@@ -4825,7 +4897,9 @@ export interface InvalidInstanceNameException
 }
 
 export namespace InvalidInstanceNameException {
-  export const filterSensitiveLog = (obj: InvalidInstanceNameException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidInstanceNameException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidInstanceNameException =>
@@ -4847,7 +4921,9 @@ export interface InvalidInstanceStatusException
 }
 
 export namespace InvalidInstanceStatusException {
-  export const filterSensitiveLog = (obj: InvalidInstanceStatusException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidInstanceStatusException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidInstanceStatusException =>
@@ -4871,7 +4947,9 @@ export interface InvalidInstanceTypeException
 }
 
 export namespace InvalidInstanceTypeException {
-  export const filterSensitiveLog = (obj: InvalidInstanceTypeException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidInstanceTypeException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidInstanceTypeException =>
@@ -4893,7 +4971,9 @@ export interface InvalidKeyPrefixFilterException
 }
 
 export namespace InvalidKeyPrefixFilterException {
-  export const filterSensitiveLog = (obj: InvalidKeyPrefixFilterException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidKeyPrefixFilterException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidKeyPrefixFilterException =>
@@ -4919,7 +4999,7 @@ export interface InvalidLifecycleEventHookExecutionIdException
 export namespace InvalidLifecycleEventHookExecutionIdException {
   export const filterSensitiveLog = (
     obj: InvalidLifecycleEventHookExecutionIdException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -4946,7 +5026,7 @@ export interface InvalidLifecycleEventHookExecutionStatusException
 export namespace InvalidLifecycleEventHookExecutionStatusException {
   export const filterSensitiveLog = (
     obj: InvalidLifecycleEventHookExecutionStatusException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -4972,7 +5052,7 @@ export interface InvalidLoadBalancerInfoException
 export namespace InvalidLoadBalancerInfoException {
   export const filterSensitiveLog = (
     obj: InvalidLoadBalancerInfoException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidLoadBalancerInfoException =>
@@ -4996,7 +5076,7 @@ export interface InvalidMinimumHealthyHostValueException
 export namespace InvalidMinimumHealthyHostValueException {
   export const filterSensitiveLog = (
     obj: InvalidMinimumHealthyHostValueException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidMinimumHealthyHostValueException =>
@@ -5018,7 +5098,7 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export const filterSensitiveLog = (obj: InvalidNextTokenException) => ({
+  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidNextTokenException =>
@@ -5043,7 +5123,7 @@ export interface InvalidOnPremisesTagCombinationException
 export namespace InvalidOnPremisesTagCombinationException {
   export const filterSensitiveLog = (
     obj: InvalidOnPremisesTagCombinationException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidOnPremisesTagCombinationException =>
@@ -5065,7 +5145,7 @@ export interface InvalidOperationException
 }
 
 export namespace InvalidOperationException {
-  export const filterSensitiveLog = (obj: InvalidOperationException) => ({
+  export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidOperationException =>
@@ -5089,7 +5169,7 @@ export interface InvalidRegistrationStatusException
 export namespace InvalidRegistrationStatusException {
   export const filterSensitiveLog = (
     obj: InvalidRegistrationStatusException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidRegistrationStatusException =>
@@ -5111,7 +5191,7 @@ export interface InvalidRevisionException
 }
 
 export namespace InvalidRevisionException {
-  export const filterSensitiveLog = (obj: InvalidRevisionException) => ({
+  export const filterSensitiveLog = (obj: InvalidRevisionException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidRevisionException =>
@@ -5135,7 +5215,7 @@ export interface InvalidRoleException
 }
 
 export namespace InvalidRoleException {
-  export const filterSensitiveLog = (obj: InvalidRoleException) => ({
+  export const filterSensitiveLog = (obj: InvalidRoleException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidRoleException =>
@@ -5158,7 +5238,7 @@ export interface InvalidSortByException
 }
 
 export namespace InvalidSortByException {
-  export const filterSensitiveLog = (obj: InvalidSortByException) => ({
+  export const filterSensitiveLog = (obj: InvalidSortByException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidSortByException =>
@@ -5180,7 +5260,7 @@ export interface InvalidSortOrderException
 }
 
 export namespace InvalidSortOrderException {
-  export const filterSensitiveLog = (obj: InvalidSortOrderException) => ({
+  export const filterSensitiveLog = (obj: InvalidSortOrderException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidSortOrderException =>
@@ -5202,7 +5282,7 @@ export interface InvalidTagException
 }
 
 export namespace InvalidTagException {
-  export const filterSensitiveLog = (obj: InvalidTagException) => ({
+  export const filterSensitiveLog = (obj: InvalidTagException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidTagException =>
@@ -5224,7 +5304,7 @@ export interface InvalidTagFilterException
 }
 
 export namespace InvalidTagFilterException {
-  export const filterSensitiveLog = (obj: InvalidTagFilterException) => ({
+  export const filterSensitiveLog = (obj: InvalidTagFilterException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidTagFilterException =>
@@ -5248,7 +5328,7 @@ export interface InvalidTagsToAddException
 }
 
 export namespace InvalidTagsToAddException {
-  export const filterSensitiveLog = (obj: InvalidTagsToAddException) => ({
+  export const filterSensitiveLog = (obj: InvalidTagsToAddException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidTagsToAddException =>
@@ -5272,7 +5352,7 @@ export interface InvalidTargetFilterNameException
 export namespace InvalidTargetFilterNameException {
   export const filterSensitiveLog = (
     obj: InvalidTargetFilterNameException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidTargetFilterNameException =>
@@ -5294,7 +5374,9 @@ export interface InvalidTargetGroupPairException
 }
 
 export namespace InvalidTargetGroupPairException {
-  export const filterSensitiveLog = (obj: InvalidTargetGroupPairException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidTargetGroupPairException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidTargetGroupPairException =>
@@ -5331,7 +5413,9 @@ export interface InvalidTargetInstancesException
 }
 
 export namespace InvalidTargetInstancesException {
-  export const filterSensitiveLog = (obj: InvalidTargetInstancesException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidTargetInstancesException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidTargetInstancesException =>
@@ -5353,7 +5437,7 @@ export interface InvalidTimeRangeException
 }
 
 export namespace InvalidTimeRangeException {
-  export const filterSensitiveLog = (obj: InvalidTimeRangeException) => ({
+  export const filterSensitiveLog = (obj: InvalidTimeRangeException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidTimeRangeException =>
@@ -5378,7 +5462,7 @@ export interface InvalidTrafficRoutingConfigurationException
 export namespace InvalidTrafficRoutingConfigurationException {
   export const filterSensitiveLog = (
     obj: InvalidTrafficRoutingConfigurationException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -5402,7 +5486,9 @@ export interface InvalidTriggerConfigException
 }
 
 export namespace InvalidTriggerConfigException {
-  export const filterSensitiveLog = (obj: InvalidTriggerConfigException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidTriggerConfigException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidTriggerConfigException =>
@@ -5428,7 +5514,7 @@ export interface InvalidUpdateOutdatedInstancesOnlyValueException
 export namespace InvalidUpdateOutdatedInstancesOnlyValueException {
   export const filterSensitiveLog = (
     obj: InvalidUpdateOutdatedInstancesOnlyValueException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -5482,7 +5568,7 @@ export interface LambdaFunctionInfo {
 }
 
 export namespace LambdaFunctionInfo {
-  export const filterSensitiveLog = (obj: LambdaFunctionInfo) => ({
+  export const filterSensitiveLog = (obj: LambdaFunctionInfo): any => ({
     ...obj
   });
   export const isa = (o: any): o is LambdaFunctionInfo =>
@@ -5536,7 +5622,7 @@ export interface LambdaTarget {
 }
 
 export namespace LambdaTarget {
-  export const filterSensitiveLog = (obj: LambdaTarget) => ({
+  export const filterSensitiveLog = (obj: LambdaTarget): any => ({
     ...obj,
     ...(obj.lambdaFunctionInfo && {
       lambdaFunctionInfo: LambdaFunctionInfo.filterSensitiveLog(
@@ -5582,7 +5668,7 @@ export interface LastDeploymentInfo {
 }
 
 export namespace LastDeploymentInfo {
-  export const filterSensitiveLog = (obj: LastDeploymentInfo) => ({
+  export const filterSensitiveLog = (obj: LastDeploymentInfo): any => ({
     ...obj
   });
   export const isa = (o: any): o is LastDeploymentInfo =>
@@ -5651,7 +5737,7 @@ export interface LifecycleEvent {
 }
 
 export namespace LifecycleEvent {
-  export const filterSensitiveLog = (obj: LifecycleEvent) => ({
+  export const filterSensitiveLog = (obj: LifecycleEvent): any => ({
     ...obj,
     ...(obj.diagnostics && {
       diagnostics: Diagnostics.filterSensitiveLog(obj.diagnostics)
@@ -5679,7 +5765,7 @@ export interface LifecycleEventAlreadyCompletedException
 export namespace LifecycleEventAlreadyCompletedException {
   export const filterSensitiveLog = (
     obj: LifecycleEventAlreadyCompletedException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is LifecycleEventAlreadyCompletedException =>
@@ -5712,7 +5798,7 @@ export interface LifecycleHookLimitExceededException
 export namespace LifecycleHookLimitExceededException {
   export const filterSensitiveLog = (
     obj: LifecycleHookLimitExceededException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is LifecycleHookLimitExceededException =>
@@ -5804,7 +5890,9 @@ export interface ListApplicationRevisionsInput {
 }
 
 export namespace ListApplicationRevisionsInput {
-  export const filterSensitiveLog = (obj: ListApplicationRevisionsInput) => ({
+  export const filterSensitiveLog = (
+    obj: ListApplicationRevisionsInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListApplicationRevisionsInput =>
@@ -5830,7 +5918,9 @@ export interface ListApplicationRevisionsOutput {
 }
 
 export namespace ListApplicationRevisionsOutput {
-  export const filterSensitiveLog = (obj: ListApplicationRevisionsOutput) => ({
+  export const filterSensitiveLog = (
+    obj: ListApplicationRevisionsOutput
+  ): any => ({
     ...obj,
     ...(obj.revisions && {
       revisions: obj.revisions.map(RevisionLocation.filterSensitiveLog)
@@ -5853,7 +5943,7 @@ export interface ListApplicationsInput {
 }
 
 export namespace ListApplicationsInput {
-  export const filterSensitiveLog = (obj: ListApplicationsInput) => ({
+  export const filterSensitiveLog = (obj: ListApplicationsInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListApplicationsInput =>
@@ -5879,7 +5969,7 @@ export interface ListApplicationsOutput {
 }
 
 export namespace ListApplicationsOutput {
-  export const filterSensitiveLog = (obj: ListApplicationsOutput) => ({
+  export const filterSensitiveLog = (obj: ListApplicationsOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListApplicationsOutput =>
@@ -5899,7 +5989,7 @@ export interface ListDeploymentConfigsInput {
 }
 
 export namespace ListDeploymentConfigsInput {
-  export const filterSensitiveLog = (obj: ListDeploymentConfigsInput) => ({
+  export const filterSensitiveLog = (obj: ListDeploymentConfigsInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDeploymentConfigsInput =>
@@ -5926,7 +6016,9 @@ export interface ListDeploymentConfigsOutput {
 }
 
 export namespace ListDeploymentConfigsOutput {
-  export const filterSensitiveLog = (obj: ListDeploymentConfigsOutput) => ({
+  export const filterSensitiveLog = (
+    obj: ListDeploymentConfigsOutput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDeploymentConfigsOutput =>
@@ -5952,7 +6044,7 @@ export interface ListDeploymentGroupsInput {
 }
 
 export namespace ListDeploymentGroupsInput {
-  export const filterSensitiveLog = (obj: ListDeploymentGroupsInput) => ({
+  export const filterSensitiveLog = (obj: ListDeploymentGroupsInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDeploymentGroupsInput =>
@@ -5983,7 +6075,7 @@ export interface ListDeploymentGroupsOutput {
 }
 
 export namespace ListDeploymentGroupsOutput {
-  export const filterSensitiveLog = (obj: ListDeploymentGroupsOutput) => ({
+  export const filterSensitiveLog = (obj: ListDeploymentGroupsOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDeploymentGroupsOutput =>
@@ -6041,7 +6133,9 @@ export interface ListDeploymentInstancesInput {
 }
 
 export namespace ListDeploymentInstancesInput {
-  export const filterSensitiveLog = (obj: ListDeploymentInstancesInput) => ({
+  export const filterSensitiveLog = (
+    obj: ListDeploymentInstancesInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDeploymentInstancesInput =>
@@ -6067,7 +6161,9 @@ export interface ListDeploymentInstancesOutput {
 }
 
 export namespace ListDeploymentInstancesOutput {
-  export const filterSensitiveLog = (obj: ListDeploymentInstancesOutput) => ({
+  export const filterSensitiveLog = (
+    obj: ListDeploymentInstancesOutput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDeploymentInstancesOutput =>
@@ -6107,7 +6203,7 @@ export interface ListDeploymentTargetsInput {
 }
 
 export namespace ListDeploymentTargetsInput {
-  export const filterSensitiveLog = (obj: ListDeploymentTargetsInput) => ({
+  export const filterSensitiveLog = (obj: ListDeploymentTargetsInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDeploymentTargetsInput =>
@@ -6130,7 +6226,9 @@ export interface ListDeploymentTargetsOutput {
 }
 
 export namespace ListDeploymentTargetsOutput {
-  export const filterSensitiveLog = (obj: ListDeploymentTargetsOutput) => ({
+  export const filterSensitiveLog = (
+    obj: ListDeploymentTargetsOutput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDeploymentTargetsOutput =>
@@ -6203,7 +6301,7 @@ export interface ListDeploymentsInput {
 }
 
 export namespace ListDeploymentsInput {
-  export const filterSensitiveLog = (obj: ListDeploymentsInput) => ({
+  export const filterSensitiveLog = (obj: ListDeploymentsInput): any => ({
     ...obj,
     ...(obj.createTimeRange && {
       createTimeRange: TimeRange.filterSensitiveLog(obj.createTimeRange)
@@ -6232,7 +6330,7 @@ export interface ListDeploymentsOutput {
 }
 
 export namespace ListDeploymentsOutput {
-  export const filterSensitiveLog = (obj: ListDeploymentsOutput) => ({
+  export const filterSensitiveLog = (obj: ListDeploymentsOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDeploymentsOutput =>
@@ -6254,7 +6352,7 @@ export interface ListGitHubAccountTokenNamesInput {
 export namespace ListGitHubAccountTokenNamesInput {
   export const filterSensitiveLog = (
     obj: ListGitHubAccountTokenNamesInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListGitHubAccountTokenNamesInput =>
@@ -6282,7 +6380,7 @@ export interface ListGitHubAccountTokenNamesOutput {
 export namespace ListGitHubAccountTokenNamesOutput {
   export const filterSensitiveLog = (
     obj: ListGitHubAccountTokenNamesOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListGitHubAccountTokenNamesOutput =>
@@ -6323,7 +6421,9 @@ export interface ListOnPremisesInstancesInput {
 }
 
 export namespace ListOnPremisesInstancesInput {
-  export const filterSensitiveLog = (obj: ListOnPremisesInstancesInput) => ({
+  export const filterSensitiveLog = (
+    obj: ListOnPremisesInstancesInput
+  ): any => ({
     ...obj,
     ...(obj.tagFilters && {
       tagFilters: obj.tagFilters.map(TagFilter.filterSensitiveLog)
@@ -6352,7 +6452,9 @@ export interface ListOnPremisesInstancesOutput {
 }
 
 export namespace ListOnPremisesInstancesOutput {
-  export const filterSensitiveLog = (obj: ListOnPremisesInstancesOutput) => ({
+  export const filterSensitiveLog = (
+    obj: ListOnPremisesInstancesOutput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListOnPremisesInstancesOutput =>
@@ -6383,7 +6485,7 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceInput =>
@@ -6409,7 +6511,7 @@ export interface ListTagsForResourceOutput {
 }
 
 export namespace ListTagsForResourceOutput {
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -6451,7 +6553,7 @@ export interface LoadBalancerInfo {
 }
 
 export namespace LoadBalancerInfo {
-  export const filterSensitiveLog = (obj: LoadBalancerInfo) => ({
+  export const filterSensitiveLog = (obj: LoadBalancerInfo): any => ({
     ...obj,
     ...(obj.elbInfoList && {
       elbInfoList: obj.elbInfoList.map(ELBInfo.filterSensitiveLog)
@@ -6516,7 +6618,7 @@ export interface MinimumHealthyHosts {
 }
 
 export namespace MinimumHealthyHosts {
-  export const filterSensitiveLog = (obj: MinimumHealthyHosts) => ({
+  export const filterSensitiveLog = (obj: MinimumHealthyHosts): any => ({
     ...obj
   });
   export const isa = (o: any): o is MinimumHealthyHosts =>
@@ -6543,7 +6645,7 @@ export interface MultipleIamArnsProvidedException
 export namespace MultipleIamArnsProvidedException {
   export const filterSensitiveLog = (
     obj: MultipleIamArnsProvidedException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is MultipleIamArnsProvidedException =>
@@ -6564,7 +6666,7 @@ export interface OnPremisesTagSet {
 }
 
 export namespace OnPremisesTagSet {
-  export const filterSensitiveLog = (obj: OnPremisesTagSet) => ({
+  export const filterSensitiveLog = (obj: OnPremisesTagSet): any => ({
     ...obj,
     ...(obj.onPremisesTagSetList && {
       onPremisesTagSetList: obj.onPremisesTagSetList.map(item =>
@@ -6591,7 +6693,9 @@ export interface OperationNotSupportedException
 }
 
 export namespace OperationNotSupportedException {
-  export const filterSensitiveLog = (obj: OperationNotSupportedException) => ({
+  export const filterSensitiveLog = (
+    obj: OperationNotSupportedException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is OperationNotSupportedException =>
@@ -6622,7 +6726,7 @@ export interface PutLifecycleEventHookExecutionStatusInput {
 export namespace PutLifecycleEventHookExecutionStatusInput {
   export const filterSensitiveLog = (
     obj: PutLifecycleEventHookExecutionStatusInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutLifecycleEventHookExecutionStatusInput =>
@@ -6641,7 +6745,7 @@ export interface PutLifecycleEventHookExecutionStatusOutput {
 export namespace PutLifecycleEventHookExecutionStatusOutput {
   export const filterSensitiveLog = (
     obj: PutLifecycleEventHookExecutionStatusOutput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -6670,7 +6774,7 @@ export interface RawString {
 }
 
 export namespace RawString {
-  export const filterSensitiveLog = (obj: RawString) => ({
+  export const filterSensitiveLog = (obj: RawString): any => ({
     ...obj
   });
   export const isa = (o: any): o is RawString => __isa(o, "RawString");
@@ -6702,7 +6806,7 @@ export interface RegisterApplicationRevisionInput {
 export namespace RegisterApplicationRevisionInput {
   export const filterSensitiveLog = (
     obj: RegisterApplicationRevisionInput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.revision && {
       revision: RevisionLocation.filterSensitiveLog(obj.revision)
@@ -6734,7 +6838,9 @@ export interface RegisterOnPremisesInstanceInput {
 }
 
 export namespace RegisterOnPremisesInstanceInput {
-  export const filterSensitiveLog = (obj: RegisterOnPremisesInstanceInput) => ({
+  export const filterSensitiveLog = (
+    obj: RegisterOnPremisesInstanceInput
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is RegisterOnPremisesInstanceInput =>
@@ -6765,7 +6871,7 @@ export interface RemoveTagsFromOnPremisesInstancesInput {
 export namespace RemoveTagsFromOnPremisesInstancesInput {
   export const filterSensitiveLog = (
     obj: RemoveTagsFromOnPremisesInstancesInput
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
@@ -6790,7 +6896,9 @@ export interface ResourceArnRequiredException
 }
 
 export namespace ResourceArnRequiredException {
-  export const filterSensitiveLog = (obj: ResourceArnRequiredException) => ({
+  export const filterSensitiveLog = (
+    obj: ResourceArnRequiredException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceArnRequiredException =>
@@ -6812,7 +6920,9 @@ export interface ResourceValidationException
 }
 
 export namespace ResourceValidationException {
-  export const filterSensitiveLog = (obj: ResourceValidationException) => ({
+  export const filterSensitiveLog = (
+    obj: ResourceValidationException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceValidationException =>
@@ -6834,7 +6944,9 @@ export interface RevisionDoesNotExistException
 }
 
 export namespace RevisionDoesNotExistException {
-  export const filterSensitiveLog = (obj: RevisionDoesNotExistException) => ({
+  export const filterSensitiveLog = (
+    obj: RevisionDoesNotExistException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is RevisionDoesNotExistException =>
@@ -6859,7 +6971,7 @@ export interface RevisionInfo {
 }
 
 export namespace RevisionInfo {
-  export const filterSensitiveLog = (obj: RevisionInfo) => ({
+  export const filterSensitiveLog = (obj: RevisionInfo): any => ({
     ...obj,
     ...(obj.genericRevisionInfo && {
       genericRevisionInfo: GenericRevisionInfo.filterSensitiveLog(
@@ -6922,7 +7034,7 @@ export interface RevisionLocation {
 }
 
 export namespace RevisionLocation {
-  export const filterSensitiveLog = (obj: RevisionLocation) => ({
+  export const filterSensitiveLog = (obj: RevisionLocation): any => ({
     ...obj,
     ...(obj.appSpecContent && {
       appSpecContent: AppSpecContent.filterSensitiveLog(obj.appSpecContent)
@@ -6961,7 +7073,7 @@ export interface RevisionRequiredException
 }
 
 export namespace RevisionRequiredException {
-  export const filterSensitiveLog = (obj: RevisionRequiredException) => ({
+  export const filterSensitiveLog = (obj: RevisionRequiredException): any => ({
     ...obj
   });
   export const isa = (o: any): o is RevisionRequiredException =>
@@ -6983,7 +7095,7 @@ export interface RoleRequiredException
 }
 
 export namespace RoleRequiredException {
-  export const filterSensitiveLog = (obj: RoleRequiredException) => ({
+  export const filterSensitiveLog = (obj: RoleRequiredException): any => ({
     ...obj
   });
   export const isa = (o: any): o is RoleRequiredException =>
@@ -7014,7 +7126,7 @@ export interface RollbackInfo {
 }
 
 export namespace RollbackInfo {
-  export const filterSensitiveLog = (obj: RollbackInfo) => ({
+  export const filterSensitiveLog = (obj: RollbackInfo): any => ({
     ...obj
   });
   export const isa = (o: any): o is RollbackInfo => __isa(o, "RollbackInfo");
@@ -7070,7 +7182,7 @@ export interface S3Location {
 }
 
 export namespace S3Location {
-  export const filterSensitiveLog = (obj: S3Location) => ({
+  export const filterSensitiveLog = (obj: S3Location): any => ({
     ...obj
   });
   export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
@@ -7088,7 +7200,7 @@ export interface SkipWaitTimeForInstanceTerminationInput {
 export namespace SkipWaitTimeForInstanceTerminationInput {
   export const filterSensitiveLog = (
     obj: SkipWaitTimeForInstanceTerminationInput
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is SkipWaitTimeForInstanceTerminationInput =>
@@ -7118,7 +7230,7 @@ export interface StopDeploymentInput {
 }
 
 export namespace StopDeploymentInput {
-  export const filterSensitiveLog = (obj: StopDeploymentInput) => ({
+  export const filterSensitiveLog = (obj: StopDeploymentInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopDeploymentInput =>
@@ -7150,7 +7262,7 @@ export interface StopDeploymentOutput {
 }
 
 export namespace StopDeploymentOutput {
-  export const filterSensitiveLog = (obj: StopDeploymentOutput) => ({
+  export const filterSensitiveLog = (obj: StopDeploymentOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopDeploymentOutput =>
@@ -7179,7 +7291,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -7218,7 +7330,7 @@ export interface TagFilter {
 }
 
 export namespace TagFilter {
-  export const filterSensitiveLog = (obj: TagFilter) => ({
+  export const filterSensitiveLog = (obj: TagFilter): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
@@ -7245,7 +7357,7 @@ export interface TagLimitExceededException
 }
 
 export namespace TagLimitExceededException {
-  export const filterSensitiveLog = (obj: TagLimitExceededException) => ({
+  export const filterSensitiveLog = (obj: TagLimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagLimitExceededException =>
@@ -7267,7 +7379,7 @@ export interface TagRequiredException
 }
 
 export namespace TagRequiredException {
-  export const filterSensitiveLog = (obj: TagRequiredException) => ({
+  export const filterSensitiveLog = (obj: TagRequiredException): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagRequiredException =>
@@ -7292,7 +7404,7 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
-  export const filterSensitiveLog = (obj: TagResourceInput) => ({
+  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -7305,7 +7417,7 @@ export interface TagResourceOutput {
 }
 
 export namespace TagResourceOutput {
-  export const filterSensitiveLog = (obj: TagResourceOutput) => ({
+  export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceOutput =>
@@ -7330,7 +7442,7 @@ export interface TagSetListLimitExceededException
 export namespace TagSetListLimitExceededException {
   export const filterSensitiveLog = (
     obj: TagSetListLimitExceededException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagSetListLimitExceededException =>
@@ -7360,7 +7472,7 @@ export interface TargetGroupInfo {
 }
 
 export namespace TargetGroupInfo {
-  export const filterSensitiveLog = (obj: TargetGroupInfo) => ({
+  export const filterSensitiveLog = (obj: TargetGroupInfo): any => ({
     ...obj
   });
   export const isa = (o: any): o is TargetGroupInfo =>
@@ -7393,7 +7505,7 @@ export interface TargetGroupPairInfo {
 }
 
 export namespace TargetGroupPairInfo {
-  export const filterSensitiveLog = (obj: TargetGroupPairInfo) => ({
+  export const filterSensitiveLog = (obj: TargetGroupPairInfo): any => ({
     ...obj,
     ...(obj.prodTrafficRoute && {
       prodTrafficRoute: TrafficRoute.filterSensitiveLog(obj.prodTrafficRoute)
@@ -7437,7 +7549,7 @@ export interface TargetInstances {
 }
 
 export namespace TargetInstances {
-  export const filterSensitiveLog = (obj: TargetInstances) => ({
+  export const filterSensitiveLog = (obj: TargetInstances): any => ({
     ...obj,
     ...(obj.ec2TagSet && {
       ec2TagSet: EC2TagSet.filterSensitiveLog(obj.ec2TagSet)
@@ -7480,7 +7592,7 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ThrottlingException =>
@@ -7508,7 +7620,7 @@ export interface TimeBasedCanary {
 }
 
 export namespace TimeBasedCanary {
-  export const filterSensitiveLog = (obj: TimeBasedCanary) => ({
+  export const filterSensitiveLog = (obj: TimeBasedCanary): any => ({
     ...obj
   });
   export const isa = (o: any): o is TimeBasedCanary =>
@@ -7537,7 +7649,7 @@ export interface TimeBasedLinear {
 }
 
 export namespace TimeBasedLinear {
-  export const filterSensitiveLog = (obj: TimeBasedLinear) => ({
+  export const filterSensitiveLog = (obj: TimeBasedLinear): any => ({
     ...obj
   });
   export const isa = (o: any): o is TimeBasedLinear =>
@@ -7567,7 +7679,7 @@ export interface TimeRange {
 }
 
 export namespace TimeRange {
-  export const filterSensitiveLog = (obj: TimeRange) => ({
+  export const filterSensitiveLog = (obj: TimeRange): any => ({
     ...obj
   });
   export const isa = (o: any): o is TimeRange => __isa(o, "TimeRange");
@@ -7587,7 +7699,7 @@ export interface TrafficRoute {
 }
 
 export namespace TrafficRoute {
-  export const filterSensitiveLog = (obj: TrafficRoute) => ({
+  export const filterSensitiveLog = (obj: TrafficRoute): any => ({
     ...obj
   });
   export const isa = (o: any): o is TrafficRoute => __isa(o, "TrafficRoute");
@@ -7622,7 +7734,7 @@ export interface TrafficRoutingConfig {
 }
 
 export namespace TrafficRoutingConfig {
-  export const filterSensitiveLog = (obj: TrafficRoutingConfig) => ({
+  export const filterSensitiveLog = (obj: TrafficRoutingConfig): any => ({
     ...obj,
     ...(obj.timeBasedCanary && {
       timeBasedCanary: TimeBasedCanary.filterSensitiveLog(obj.timeBasedCanary)
@@ -7664,7 +7776,7 @@ export interface TriggerConfig {
 }
 
 export namespace TriggerConfig {
-  export const filterSensitiveLog = (obj: TriggerConfig) => ({
+  export const filterSensitiveLog = (obj: TriggerConfig): any => ({
     ...obj
   });
   export const isa = (o: any): o is TriggerConfig => __isa(o, "TriggerConfig");
@@ -7700,7 +7812,7 @@ export interface TriggerTargetsLimitExceededException
 export namespace TriggerTargetsLimitExceededException {
   export const filterSensitiveLog = (
     obj: TriggerTargetsLimitExceededException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is TriggerTargetsLimitExceededException =>
@@ -7724,7 +7836,7 @@ export interface UnsupportedActionForDeploymentTypeException
 export namespace UnsupportedActionForDeploymentTypeException {
   export const filterSensitiveLog = (
     obj: UnsupportedActionForDeploymentTypeException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -7752,7 +7864,7 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
-  export const filterSensitiveLog = (obj: UntagResourceInput) => ({
+  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceInput =>
@@ -7764,7 +7876,7 @@ export interface UntagResourceOutput {
 }
 
 export namespace UntagResourceOutput {
-  export const filterSensitiveLog = (obj: UntagResourceOutput) => ({
+  export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceOutput =>
@@ -7788,7 +7900,7 @@ export interface UpdateApplicationInput {
 }
 
 export namespace UpdateApplicationInput {
-  export const filterSensitiveLog = (obj: UpdateApplicationInput) => ({
+  export const filterSensitiveLog = (obj: UpdateApplicationInput): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateApplicationInput =>
@@ -7903,7 +8015,7 @@ export interface UpdateDeploymentGroupInput {
 }
 
 export namespace UpdateDeploymentGroupInput {
-  export const filterSensitiveLog = (obj: UpdateDeploymentGroupInput) => ({
+  export const filterSensitiveLog = (obj: UpdateDeploymentGroupInput): any => ({
     ...obj,
     ...(obj.alarmConfiguration && {
       alarmConfiguration: AlarmConfiguration.filterSensitiveLog(
@@ -7973,7 +8085,9 @@ export interface UpdateDeploymentGroupOutput {
 }
 
 export namespace UpdateDeploymentGroupOutput {
-  export const filterSensitiveLog = (obj: UpdateDeploymentGroupOutput) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateDeploymentGroupOutput
+  ): any => ({
     ...obj,
     ...(obj.hooksNotCleanedUp && {
       hooksNotCleanedUp: obj.hooksNotCleanedUp.map(

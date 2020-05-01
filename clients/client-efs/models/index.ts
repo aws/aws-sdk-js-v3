@@ -20,7 +20,7 @@ export interface AccessPointAlreadyExists
 }
 
 export namespace AccessPointAlreadyExists {
-  export const filterSensitiveLog = (obj: AccessPointAlreadyExists) => ({
+  export const filterSensitiveLog = (obj: AccessPointAlreadyExists): any => ({
     ...obj
   });
   export const isa = (o: any): o is AccessPointAlreadyExists =>
@@ -41,7 +41,7 @@ export interface AccessPointLimitExceeded
 }
 
 export namespace AccessPointLimitExceeded {
-  export const filterSensitiveLog = (obj: AccessPointLimitExceeded) => ({
+  export const filterSensitiveLog = (obj: AccessPointLimitExceeded): any => ({
     ...obj
   });
   export const isa = (o: any): o is AccessPointLimitExceeded =>
@@ -62,7 +62,7 @@ export interface AccessPointNotFound
 }
 
 export namespace AccessPointNotFound {
-  export const filterSensitiveLog = (obj: AccessPointNotFound) => ({
+  export const filterSensitiveLog = (obj: AccessPointNotFound): any => ({
     ...obj
   });
   export const isa = (o: any): o is AccessPointNotFound =>
@@ -81,7 +81,7 @@ export interface BadRequest extends __SmithyException, $MetadataBearer {
 }
 
 export namespace BadRequest {
-  export const filterSensitiveLog = (obj: BadRequest) => ({
+  export const filterSensitiveLog = (obj: BadRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is BadRequest => __isa(o, "BadRequest");
@@ -99,7 +99,7 @@ export interface DependencyTimeout extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DependencyTimeout {
-  export const filterSensitiveLog = (obj: DependencyTimeout) => ({
+  export const filterSensitiveLog = (obj: DependencyTimeout): any => ({
     ...obj
   });
   export const isa = (o: any): o is DependencyTimeout =>
@@ -121,7 +121,7 @@ export interface FileSystemAlreadyExists
 }
 
 export namespace FileSystemAlreadyExists {
-  export const filterSensitiveLog = (obj: FileSystemAlreadyExists) => ({
+  export const filterSensitiveLog = (obj: FileSystemAlreadyExists): any => ({
     ...obj
   });
   export const isa = (o: any): o is FileSystemAlreadyExists =>
@@ -139,7 +139,7 @@ export interface FileSystemInUse extends __SmithyException, $MetadataBearer {
 }
 
 export namespace FileSystemInUse {
-  export const filterSensitiveLog = (obj: FileSystemInUse) => ({
+  export const filterSensitiveLog = (obj: FileSystemInUse): any => ({
     ...obj
   });
   export const isa = (o: any): o is FileSystemInUse =>
@@ -160,7 +160,7 @@ export interface FileSystemLimitExceeded
 }
 
 export namespace FileSystemLimitExceeded {
-  export const filterSensitiveLog = (obj: FileSystemLimitExceeded) => ({
+  export const filterSensitiveLog = (obj: FileSystemLimitExceeded): any => ({
     ...obj
   });
   export const isa = (o: any): o is FileSystemLimitExceeded =>
@@ -179,7 +179,7 @@ export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace FileSystemNotFound {
-  export const filterSensitiveLog = (obj: FileSystemNotFound) => ({
+  export const filterSensitiveLog = (obj: FileSystemNotFound): any => ({
     ...obj
   });
   export const isa = (o: any): o is FileSystemNotFound =>
@@ -201,7 +201,7 @@ export interface IncorrectFileSystemLifeCycleState
 export namespace IncorrectFileSystemLifeCycleState {
   export const filterSensitiveLog = (
     obj: IncorrectFileSystemLifeCycleState
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is IncorrectFileSystemLifeCycleState =>
@@ -222,7 +222,7 @@ export interface IncorrectMountTargetState
 }
 
 export namespace IncorrectMountTargetState {
-  export const filterSensitiveLog = (obj: IncorrectMountTargetState) => ({
+  export const filterSensitiveLog = (obj: IncorrectMountTargetState): any => ({
     ...obj
   });
   export const isa = (o: any): o is IncorrectMountTargetState =>
@@ -246,7 +246,9 @@ export interface InsufficientThroughputCapacity
 }
 
 export namespace InsufficientThroughputCapacity {
-  export const filterSensitiveLog = (obj: InsufficientThroughputCapacity) => ({
+  export const filterSensitiveLog = (
+    obj: InsufficientThroughputCapacity
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InsufficientThroughputCapacity =>
@@ -266,7 +268,7 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export const filterSensitiveLog = (obj: InternalServerError) => ({
+  export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerError =>
@@ -287,7 +289,7 @@ export interface InvalidPolicyException
 }
 
 export namespace InvalidPolicyException {
-  export const filterSensitiveLog = (obj: InvalidPolicyException) => ({
+  export const filterSensitiveLog = (obj: InvalidPolicyException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidPolicyException =>
@@ -306,7 +308,7 @@ export interface IpAddressInUse extends __SmithyException, $MetadataBearer {
 }
 
 export namespace IpAddressInUse {
-  export const filterSensitiveLog = (obj: IpAddressInUse) => ({
+  export const filterSensitiveLog = (obj: IpAddressInUse): any => ({
     ...obj
   });
   export const isa = (o: any): o is IpAddressInUse =>
@@ -327,7 +329,7 @@ export interface MountTargetConflict
 }
 
 export namespace MountTargetConflict {
-  export const filterSensitiveLog = (obj: MountTargetConflict) => ({
+  export const filterSensitiveLog = (obj: MountTargetConflict): any => ({
     ...obj
   });
   export const isa = (o: any): o is MountTargetConflict =>
@@ -348,7 +350,7 @@ export interface MountTargetNotFound
 }
 
 export namespace MountTargetNotFound {
-  export const filterSensitiveLog = (obj: MountTargetNotFound) => ({
+  export const filterSensitiveLog = (obj: MountTargetNotFound): any => ({
     ...obj
   });
   export const isa = (o: any): o is MountTargetNotFound =>
@@ -372,7 +374,9 @@ export interface NetworkInterfaceLimitExceeded
 }
 
 export namespace NetworkInterfaceLimitExceeded {
-  export const filterSensitiveLog = (obj: NetworkInterfaceLimitExceeded) => ({
+  export const filterSensitiveLog = (
+    obj: NetworkInterfaceLimitExceeded
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is NetworkInterfaceLimitExceeded =>
@@ -393,7 +397,7 @@ export interface NoFreeAddressesInSubnet
 }
 
 export namespace NoFreeAddressesInSubnet {
-  export const filterSensitiveLog = (obj: NoFreeAddressesInSubnet) => ({
+  export const filterSensitiveLog = (obj: NoFreeAddressesInSubnet): any => ({
     ...obj
   });
   export const isa = (o: any): o is NoFreeAddressesInSubnet =>
@@ -411,7 +415,7 @@ export interface PolicyNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace PolicyNotFound {
-  export const filterSensitiveLog = (obj: PolicyNotFound) => ({
+  export const filterSensitiveLog = (obj: PolicyNotFound): any => ({
     ...obj
   });
   export const isa = (o: any): o is PolicyNotFound =>
@@ -432,7 +436,7 @@ export interface SecurityGroupLimitExceeded
 }
 
 export namespace SecurityGroupLimitExceeded {
-  export const filterSensitiveLog = (obj: SecurityGroupLimitExceeded) => ({
+  export const filterSensitiveLog = (obj: SecurityGroupLimitExceeded): any => ({
     ...obj
   });
   export const isa = (o: any): o is SecurityGroupLimitExceeded =>
@@ -453,7 +457,7 @@ export interface SecurityGroupNotFound
 }
 
 export namespace SecurityGroupNotFound {
-  export const filterSensitiveLog = (obj: SecurityGroupNotFound) => ({
+  export const filterSensitiveLog = (obj: SecurityGroupNotFound): any => ({
     ...obj
   });
   export const isa = (o: any): o is SecurityGroupNotFound =>
@@ -472,7 +476,7 @@ export interface SubnetNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace SubnetNotFound {
-  export const filterSensitiveLog = (obj: SubnetNotFound) => ({
+  export const filterSensitiveLog = (obj: SubnetNotFound): any => ({
     ...obj
   });
   export const isa = (o: any): o is SubnetNotFound =>
@@ -493,7 +497,7 @@ export interface ThroughputLimitExceeded
 }
 
 export namespace ThroughputLimitExceeded {
-  export const filterSensitiveLog = (obj: ThroughputLimitExceeded) => ({
+  export const filterSensitiveLog = (obj: ThroughputLimitExceeded): any => ({
     ...obj
   });
   export const isa = (o: any): o is ThroughputLimitExceeded =>
@@ -512,7 +516,7 @@ export interface TooManyRequests extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TooManyRequests {
-  export const filterSensitiveLog = (obj: TooManyRequests) => ({
+  export const filterSensitiveLog = (obj: TooManyRequests): any => ({
     ...obj
   });
   export const isa = (o: any): o is TooManyRequests =>
@@ -532,7 +536,9 @@ export interface UnsupportedAvailabilityZone
 }
 
 export namespace UnsupportedAvailabilityZone {
-  export const filterSensitiveLog = (obj: UnsupportedAvailabilityZone) => ({
+  export const filterSensitiveLog = (
+    obj: UnsupportedAvailabilityZone
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnsupportedAvailabilityZone =>
@@ -597,7 +603,7 @@ export interface AccessPointDescription {
 }
 
 export namespace AccessPointDescription {
-  export const filterSensitiveLog = (obj: AccessPointDescription) => ({
+  export const filterSensitiveLog = (obj: AccessPointDescription): any => ({
     ...obj,
     ...(obj.PosixUser && {
       PosixUser: PosixUser.filterSensitiveLog(obj.PosixUser)
@@ -647,7 +653,7 @@ export interface CreateAccessPointRequest {
 }
 
 export namespace CreateAccessPointRequest {
-  export const filterSensitiveLog = (obj: CreateAccessPointRequest) => ({
+  export const filterSensitiveLog = (obj: CreateAccessPointRequest): any => ({
     ...obj,
     ...(obj.PosixUser && {
       PosixUser: PosixUser.filterSensitiveLog(obj.PosixUser)
@@ -745,7 +751,7 @@ export interface CreateFileSystemRequest {
 }
 
 export namespace CreateFileSystemRequest {
-  export const filterSensitiveLog = (obj: CreateFileSystemRequest) => ({
+  export const filterSensitiveLog = (obj: CreateFileSystemRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -781,7 +787,7 @@ export interface CreateMountTargetRequest {
 }
 
 export namespace CreateMountTargetRequest {
-  export const filterSensitiveLog = (obj: CreateMountTargetRequest) => ({
+  export const filterSensitiveLog = (obj: CreateMountTargetRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateMountTargetRequest =>
@@ -807,7 +813,7 @@ export interface CreateTagsRequest {
 }
 
 export namespace CreateTagsRequest {
-  export const filterSensitiveLog = (obj: CreateTagsRequest) => ({
+  export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -845,7 +851,7 @@ export interface CreationInfo {
 }
 
 export namespace CreationInfo {
-  export const filterSensitiveLog = (obj: CreationInfo) => ({
+  export const filterSensitiveLog = (obj: CreationInfo): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreationInfo => __isa(o, "CreationInfo");
@@ -860,7 +866,7 @@ export interface DeleteAccessPointRequest {
 }
 
 export namespace DeleteAccessPointRequest {
-  export const filterSensitiveLog = (obj: DeleteAccessPointRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteAccessPointRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteAccessPointRequest =>
@@ -876,7 +882,9 @@ export interface DeleteFileSystemPolicyRequest {
 }
 
 export namespace DeleteFileSystemPolicyRequest {
-  export const filterSensitiveLog = (obj: DeleteFileSystemPolicyRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteFileSystemPolicyRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteFileSystemPolicyRequest =>
@@ -895,7 +903,7 @@ export interface DeleteFileSystemRequest {
 }
 
 export namespace DeleteFileSystemRequest {
-  export const filterSensitiveLog = (obj: DeleteFileSystemRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteFileSystemRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteFileSystemRequest =>
@@ -914,7 +922,7 @@ export interface DeleteMountTargetRequest {
 }
 
 export namespace DeleteMountTargetRequest {
-  export const filterSensitiveLog = (obj: DeleteMountTargetRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteMountTargetRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteMountTargetRequest =>
@@ -938,7 +946,7 @@ export interface DeleteTagsRequest {
 }
 
 export namespace DeleteTagsRequest {
-  export const filterSensitiveLog = (obj: DeleteTagsRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteTagsRequest =>
@@ -972,7 +980,9 @@ export interface DescribeAccessPointsRequest {
 }
 
 export namespace DescribeAccessPointsRequest {
-  export const filterSensitiveLog = (obj: DescribeAccessPointsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeAccessPointsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeAccessPointsRequest =>
@@ -994,7 +1004,9 @@ export interface DescribeAccessPointsResponse {
 }
 
 export namespace DescribeAccessPointsResponse {
-  export const filterSensitiveLog = (obj: DescribeAccessPointsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeAccessPointsResponse
+  ): any => ({
     ...obj,
     ...(obj.AccessPoints && {
       AccessPoints: obj.AccessPoints.map(
@@ -1015,7 +1027,9 @@ export interface DescribeFileSystemPolicyRequest {
 }
 
 export namespace DescribeFileSystemPolicyRequest {
-  export const filterSensitiveLog = (obj: DescribeFileSystemPolicyRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeFileSystemPolicyRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeFileSystemPolicyRequest =>
@@ -1055,7 +1069,7 @@ export interface DescribeFileSystemsRequest {
 }
 
 export namespace DescribeFileSystemsRequest {
-  export const filterSensitiveLog = (obj: DescribeFileSystemsRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeFileSystemsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeFileSystemsRequest =>
@@ -1082,7 +1096,9 @@ export interface DescribeFileSystemsResponse {
 }
 
 export namespace DescribeFileSystemsResponse {
-  export const filterSensitiveLog = (obj: DescribeFileSystemsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeFileSystemsResponse
+  ): any => ({
     ...obj,
     ...(obj.FileSystems && {
       FileSystems: obj.FileSystems.map(FileSystemDescription.filterSensitiveLog)
@@ -1104,7 +1120,7 @@ export interface DescribeLifecycleConfigurationRequest {
 export namespace DescribeLifecycleConfigurationRequest {
   export const filterSensitiveLog = (
     obj: DescribeLifecycleConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeLifecycleConfigurationRequest =>
@@ -1125,7 +1141,7 @@ export interface DescribeMountTargetSecurityGroupsRequest {
 export namespace DescribeMountTargetSecurityGroupsRequest {
   export const filterSensitiveLog = (
     obj: DescribeMountTargetSecurityGroupsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeMountTargetSecurityGroupsRequest =>
@@ -1143,7 +1159,7 @@ export interface DescribeMountTargetSecurityGroupsResponse {
 export namespace DescribeMountTargetSecurityGroupsResponse {
   export const filterSensitiveLog = (
     obj: DescribeMountTargetSecurityGroupsResponse
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeMountTargetSecurityGroupsResponse =>
@@ -1189,7 +1205,9 @@ export interface DescribeMountTargetsRequest {
 }
 
 export namespace DescribeMountTargetsRequest {
-  export const filterSensitiveLog = (obj: DescribeMountTargetsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeMountTargetsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeMountTargetsRequest =>
@@ -1222,7 +1240,9 @@ export interface DescribeMountTargetsResponse {
 }
 
 export namespace DescribeMountTargetsResponse {
-  export const filterSensitiveLog = (obj: DescribeMountTargetsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeMountTargetsResponse
+  ): any => ({
     ...obj,
     ...(obj.MountTargets && {
       MountTargets: obj.MountTargets.map(
@@ -1260,7 +1280,7 @@ export interface DescribeTagsRequest {
 }
 
 export namespace DescribeTagsRequest {
-  export const filterSensitiveLog = (obj: DescribeTagsRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeTagsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeTagsRequest =>
@@ -1293,7 +1313,7 @@ export interface DescribeTagsResponse {
 }
 
 export namespace DescribeTagsResponse {
-  export const filterSensitiveLog = (obj: DescribeTagsResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeTagsResponse): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1402,7 +1422,7 @@ export interface FileSystemDescription {
 }
 
 export namespace FileSystemDescription {
-  export const filterSensitiveLog = (obj: FileSystemDescription) => ({
+  export const filterSensitiveLog = (obj: FileSystemDescription): any => ({
     ...obj,
     ...(obj.SizeInBytes && {
       SizeInBytes: FileSystemSize.filterSensitiveLog(obj.SizeInBytes)
@@ -1427,7 +1447,9 @@ export interface FileSystemPolicyDescription {
 }
 
 export namespace FileSystemPolicyDescription {
-  export const filterSensitiveLog = (obj: FileSystemPolicyDescription) => ({
+  export const filterSensitiveLog = (
+    obj: FileSystemPolicyDescription
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is FileSystemPolicyDescription =>
@@ -1470,7 +1492,7 @@ export interface FileSystemSize {
 }
 
 export namespace FileSystemSize {
-  export const filterSensitiveLog = (obj: FileSystemSize) => ({
+  export const filterSensitiveLog = (obj: FileSystemSize): any => ({
     ...obj
   });
   export const isa = (o: any): o is FileSystemSize =>
@@ -1497,7 +1519,7 @@ export interface LifecycleConfigurationDescription {
 export namespace LifecycleConfigurationDescription {
   export const filterSensitiveLog = (
     obj: LifecycleConfigurationDescription
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.LifecyclePolicies && {
       LifecyclePolicies: obj.LifecyclePolicies.map(
@@ -1525,7 +1547,7 @@ export interface LifecyclePolicy {
 }
 
 export namespace LifecyclePolicy {
-  export const filterSensitiveLog = (obj: LifecyclePolicy) => ({
+  export const filterSensitiveLog = (obj: LifecyclePolicy): any => ({
     ...obj
   });
   export const isa = (o: any): o is LifecyclePolicy =>
@@ -1551,7 +1573,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
@@ -1573,7 +1595,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListTagsForResourceResponse
+  ): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1600,7 +1624,7 @@ export interface ModifyMountTargetSecurityGroupsRequest {
 export namespace ModifyMountTargetSecurityGroupsRequest {
   export const filterSensitiveLog = (
     obj: ModifyMountTargetSecurityGroupsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyMountTargetSecurityGroupsRequest =>
@@ -1663,7 +1687,7 @@ export interface MountTargetDescription {
 }
 
 export namespace MountTargetDescription {
-  export const filterSensitiveLog = (obj: MountTargetDescription) => ({
+  export const filterSensitiveLog = (obj: MountTargetDescription): any => ({
     ...obj
   });
   export const isa = (o: any): o is MountTargetDescription =>
@@ -1698,7 +1722,7 @@ export interface PosixUser {
 }
 
 export namespace PosixUser {
-  export const filterSensitiveLog = (obj: PosixUser) => ({
+  export const filterSensitiveLog = (obj: PosixUser): any => ({
     ...obj
   });
   export const isa = (o: any): o is PosixUser => __isa(o, "PosixUser");
@@ -1731,7 +1755,7 @@ export interface PutFileSystemPolicyRequest {
 }
 
 export namespace PutFileSystemPolicyRequest {
-  export const filterSensitiveLog = (obj: PutFileSystemPolicyRequest) => ({
+  export const filterSensitiveLog = (obj: PutFileSystemPolicyRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is PutFileSystemPolicyRequest =>
@@ -1758,7 +1782,7 @@ export interface PutLifecycleConfigurationRequest {
 export namespace PutLifecycleConfigurationRequest {
   export const filterSensitiveLog = (
     obj: PutLifecycleConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.LifecyclePolicies && {
       LifecyclePolicies: obj.LifecyclePolicies.map(
@@ -1800,7 +1824,7 @@ export interface RootDirectory {
 }
 
 export namespace RootDirectory {
-  export const filterSensitiveLog = (obj: RootDirectory) => ({
+  export const filterSensitiveLog = (obj: RootDirectory): any => ({
     ...obj,
     ...(obj.CreationInfo && {
       CreationInfo: CreationInfo.filterSensitiveLog(obj.CreationInfo)
@@ -1828,7 +1852,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -1848,7 +1872,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1883,7 +1907,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>
@@ -1914,7 +1938,7 @@ export interface UpdateFileSystemRequest {
 }
 
 export namespace UpdateFileSystemRequest {
-  export const filterSensitiveLog = (obj: UpdateFileSystemRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateFileSystemRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateFileSystemRequest =>

@@ -18,7 +18,9 @@ export interface ClientLimitExceededException
 }
 
 export namespace ClientLimitExceededException {
-  export const filterSensitiveLog = (obj: ClientLimitExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: ClientLimitExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ClientLimitExceededException =>
@@ -37,7 +39,7 @@ export interface InvalidArgumentException
 }
 
 export namespace InvalidArgumentException {
-  export const filterSensitiveLog = (obj: InvalidArgumentException) => ({
+  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidArgumentException =>
@@ -56,7 +58,7 @@ export interface NotAuthorizedException
 }
 
 export namespace NotAuthorizedException {
-  export const filterSensitiveLog = (obj: NotAuthorizedException) => ({
+  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is NotAuthorizedException =>
@@ -75,7 +77,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -108,7 +110,7 @@ export interface GetIceServerConfigRequest {
 }
 
 export namespace GetIceServerConfigRequest {
-  export const filterSensitiveLog = (obj: GetIceServerConfigRequest) => ({
+  export const filterSensitiveLog = (obj: GetIceServerConfigRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetIceServerConfigRequest =>
@@ -124,7 +126,7 @@ export interface GetIceServerConfigResponse {
 }
 
 export namespace GetIceServerConfigResponse {
-  export const filterSensitiveLog = (obj: GetIceServerConfigResponse) => ({
+  export const filterSensitiveLog = (obj: GetIceServerConfigResponse): any => ({
     ...obj,
     ...(obj.IceServerList && {
       IceServerList: obj.IceServerList.map(IceServer.filterSensitiveLog)
@@ -163,7 +165,7 @@ export interface IceServer {
 }
 
 export namespace IceServer {
-  export const filterSensitiveLog = (obj: IceServer) => ({
+  export const filterSensitiveLog = (obj: IceServer): any => ({
     ...obj
   });
   export const isa = (o: any): o is IceServer => __isa(o, "IceServer");
@@ -181,7 +183,7 @@ export interface InvalidClientException
 }
 
 export namespace InvalidClientException {
-  export const filterSensitiveLog = (obj: InvalidClientException) => ({
+  export const filterSensitiveLog = (obj: InvalidClientException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidClientException =>
@@ -208,7 +210,9 @@ export interface SendAlexaOfferToMasterRequest {
 }
 
 export namespace SendAlexaOfferToMasterRequest {
-  export const filterSensitiveLog = (obj: SendAlexaOfferToMasterRequest) => ({
+  export const filterSensitiveLog = (
+    obj: SendAlexaOfferToMasterRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is SendAlexaOfferToMasterRequest =>
@@ -224,7 +228,9 @@ export interface SendAlexaOfferToMasterResponse {
 }
 
 export namespace SendAlexaOfferToMasterResponse {
-  export const filterSensitiveLog = (obj: SendAlexaOfferToMasterResponse) => ({
+  export const filterSensitiveLog = (
+    obj: SendAlexaOfferToMasterResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is SendAlexaOfferToMasterResponse =>
@@ -249,7 +255,7 @@ export interface SessionExpiredException
 }
 
 export namespace SessionExpiredException {
-  export const filterSensitiveLog = (obj: SessionExpiredException) => ({
+  export const filterSensitiveLog = (obj: SessionExpiredException): any => ({
     ...obj
   });
   export const isa = (o: any): o is SessionExpiredException =>

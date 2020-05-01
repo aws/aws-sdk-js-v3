@@ -17,7 +17,7 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export const filterSensitiveLog = (obj: AccessDeniedException) => ({
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is AccessDeniedException =>
@@ -69,7 +69,7 @@ export interface AccountModification {
 }
 
 export namespace AccountModification {
-  export const filterSensitiveLog = (obj: AccountModification) => ({
+  export const filterSensitiveLog = (obj: AccountModification): any => ({
     ...obj
   });
   export const isa = (o: any): o is AccountModification =>
@@ -90,7 +90,7 @@ export interface AssociateIpGroupsRequest {
 }
 
 export namespace AssociateIpGroupsRequest {
-  export const filterSensitiveLog = (obj: AssociateIpGroupsRequest) => ({
+  export const filterSensitiveLog = (obj: AssociateIpGroupsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateIpGroupsRequest =>
@@ -102,7 +102,7 @@ export interface AssociateIpGroupsResult {
 }
 
 export namespace AssociateIpGroupsResult {
-  export const filterSensitiveLog = (obj: AssociateIpGroupsResult) => ({
+  export const filterSensitiveLog = (obj: AssociateIpGroupsResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is AssociateIpGroupsResult =>
@@ -123,7 +123,7 @@ export interface AuthorizeIpRulesRequest {
 }
 
 export namespace AuthorizeIpRulesRequest {
-  export const filterSensitiveLog = (obj: AuthorizeIpRulesRequest) => ({
+  export const filterSensitiveLog = (obj: AuthorizeIpRulesRequest): any => ({
     ...obj,
     ...(obj.UserRules && {
       UserRules: obj.UserRules.map(IpRuleItem.filterSensitiveLog)
@@ -138,7 +138,7 @@ export interface AuthorizeIpRulesResult {
 }
 
 export namespace AuthorizeIpRulesResult {
-  export const filterSensitiveLog = (obj: AuthorizeIpRulesResult) => ({
+  export const filterSensitiveLog = (obj: AuthorizeIpRulesResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is AuthorizeIpRulesResult =>
@@ -159,7 +159,7 @@ export interface ClientProperties {
 }
 
 export namespace ClientProperties {
-  export const filterSensitiveLog = (obj: ClientProperties) => ({
+  export const filterSensitiveLog = (obj: ClientProperties): any => ({
     ...obj
   });
   export const isa = (o: any): o is ClientProperties =>
@@ -183,7 +183,7 @@ export interface ClientPropertiesResult {
 }
 
 export namespace ClientPropertiesResult {
-  export const filterSensitiveLog = (obj: ClientPropertiesResult) => ({
+  export const filterSensitiveLog = (obj: ClientPropertiesResult): any => ({
     ...obj,
     ...(obj.ClientProperties && {
       ClientProperties: ClientProperties.filterSensitiveLog(
@@ -217,7 +217,7 @@ export interface ComputeType {
 }
 
 export namespace ComputeType {
-  export const filterSensitiveLog = (obj: ComputeType) => ({
+  export const filterSensitiveLog = (obj: ComputeType): any => ({
     ...obj
   });
   export const isa = (o: any): o is ComputeType => __isa(o, "ComputeType");
@@ -258,7 +258,7 @@ export interface CopyWorkspaceImageRequest {
 }
 
 export namespace CopyWorkspaceImageRequest {
-  export const filterSensitiveLog = (obj: CopyWorkspaceImageRequest) => ({
+  export const filterSensitiveLog = (obj: CopyWorkspaceImageRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -275,7 +275,7 @@ export interface CopyWorkspaceImageResult {
 }
 
 export namespace CopyWorkspaceImageResult {
-  export const filterSensitiveLog = (obj: CopyWorkspaceImageResult) => ({
+  export const filterSensitiveLog = (obj: CopyWorkspaceImageResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is CopyWorkspaceImageResult =>
@@ -306,7 +306,7 @@ export interface CreateIpGroupRequest {
 }
 
 export namespace CreateIpGroupRequest {
-  export const filterSensitiveLog = (obj: CreateIpGroupRequest) => ({
+  export const filterSensitiveLog = (obj: CreateIpGroupRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
     ...(obj.UserRules && {
@@ -326,7 +326,7 @@ export interface CreateIpGroupResult {
 }
 
 export namespace CreateIpGroupResult {
-  export const filterSensitiveLog = (obj: CreateIpGroupResult) => ({
+  export const filterSensitiveLog = (obj: CreateIpGroupResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateIpGroupResult =>
@@ -349,7 +349,7 @@ export interface CreateTagsRequest {
 }
 
 export namespace CreateTagsRequest {
-  export const filterSensitiveLog = (obj: CreateTagsRequest) => ({
+  export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -362,7 +362,7 @@ export interface CreateTagsResult {
 }
 
 export namespace CreateTagsResult {
-  export const filterSensitiveLog = (obj: CreateTagsResult) => ({
+  export const filterSensitiveLog = (obj: CreateTagsResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is CreateTagsResult =>
@@ -378,7 +378,7 @@ export interface CreateWorkspacesRequest {
 }
 
 export namespace CreateWorkspacesRequest {
-  export const filterSensitiveLog = (obj: CreateWorkspacesRequest) => ({
+  export const filterSensitiveLog = (obj: CreateWorkspacesRequest): any => ({
     ...obj,
     ...(obj.Workspaces && {
       Workspaces: obj.Workspaces.map(WorkspaceRequest.filterSensitiveLog)
@@ -405,7 +405,7 @@ export interface CreateWorkspacesResult {
 }
 
 export namespace CreateWorkspacesResult {
-  export const filterSensitiveLog = (obj: CreateWorkspacesResult) => ({
+  export const filterSensitiveLog = (obj: CreateWorkspacesResult): any => ({
     ...obj,
     ...(obj.FailedRequests && {
       FailedRequests: obj.FailedRequests.map(
@@ -484,7 +484,7 @@ export interface DefaultWorkspaceCreationProperties {
 export namespace DefaultWorkspaceCreationProperties {
   export const filterSensitiveLog = (
     obj: DefaultWorkspaceCreationProperties
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DefaultWorkspaceCreationProperties =>
@@ -500,7 +500,7 @@ export interface DeleteIpGroupRequest {
 }
 
 export namespace DeleteIpGroupRequest {
-  export const filterSensitiveLog = (obj: DeleteIpGroupRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteIpGroupRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteIpGroupRequest =>
@@ -512,7 +512,7 @@ export interface DeleteIpGroupResult {
 }
 
 export namespace DeleteIpGroupResult {
-  export const filterSensitiveLog = (obj: DeleteIpGroupResult) => ({
+  export const filterSensitiveLog = (obj: DeleteIpGroupResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteIpGroupResult =>
@@ -534,7 +534,7 @@ export interface DeleteTagsRequest {
 }
 
 export namespace DeleteTagsRequest {
-  export const filterSensitiveLog = (obj: DeleteTagsRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteTagsRequest =>
@@ -546,7 +546,7 @@ export interface DeleteTagsResult {
 }
 
 export namespace DeleteTagsResult {
-  export const filterSensitiveLog = (obj: DeleteTagsResult) => ({
+  export const filterSensitiveLog = (obj: DeleteTagsResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteTagsResult =>
@@ -562,7 +562,9 @@ export interface DeleteWorkspaceImageRequest {
 }
 
 export namespace DeleteWorkspaceImageRequest {
-  export const filterSensitiveLog = (obj: DeleteWorkspaceImageRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DeleteWorkspaceImageRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteWorkspaceImageRequest =>
@@ -574,7 +576,7 @@ export interface DeleteWorkspaceImageResult {
 }
 
 export namespace DeleteWorkspaceImageResult {
-  export const filterSensitiveLog = (obj: DeleteWorkspaceImageResult) => ({
+  export const filterSensitiveLog = (obj: DeleteWorkspaceImageResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteWorkspaceImageResult =>
@@ -594,7 +596,7 @@ export interface DeregisterWorkspaceDirectoryRequest {
 export namespace DeregisterWorkspaceDirectoryRequest {
   export const filterSensitiveLog = (
     obj: DeregisterWorkspaceDirectoryRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeregisterWorkspaceDirectoryRequest =>
@@ -608,7 +610,7 @@ export interface DeregisterWorkspaceDirectoryResult {
 export namespace DeregisterWorkspaceDirectoryResult {
   export const filterSensitiveLog = (
     obj: DeregisterWorkspaceDirectoryResult
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeregisterWorkspaceDirectoryResult =>
@@ -627,7 +629,7 @@ export interface DescribeAccountModificationsRequest {
 export namespace DescribeAccountModificationsRequest {
   export const filterSensitiveLog = (
     obj: DescribeAccountModificationsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeAccountModificationsRequest =>
@@ -651,7 +653,7 @@ export interface DescribeAccountModificationsResult {
 export namespace DescribeAccountModificationsResult {
   export const filterSensitiveLog = (
     obj: DescribeAccountModificationsResult
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.AccountModifications && {
       AccountModifications: obj.AccountModifications.map(
@@ -668,7 +670,7 @@ export interface DescribeAccountRequest {
 }
 
 export namespace DescribeAccountRequest {
-  export const filterSensitiveLog = (obj: DescribeAccountRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeAccountRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeAccountRequest =>
@@ -693,7 +695,7 @@ export interface DescribeAccountResult {
 }
 
 export namespace DescribeAccountResult {
-  export const filterSensitiveLog = (obj: DescribeAccountResult) => ({
+  export const filterSensitiveLog = (obj: DescribeAccountResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeAccountResult =>
@@ -709,7 +711,9 @@ export interface DescribeClientPropertiesRequest {
 }
 
 export namespace DescribeClientPropertiesRequest {
-  export const filterSensitiveLog = (obj: DescribeClientPropertiesRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeClientPropertiesRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeClientPropertiesRequest =>
@@ -725,7 +729,9 @@ export interface DescribeClientPropertiesResult {
 }
 
 export namespace DescribeClientPropertiesResult {
-  export const filterSensitiveLog = (obj: DescribeClientPropertiesResult) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeClientPropertiesResult
+  ): any => ({
     ...obj,
     ...(obj.ClientPropertiesList && {
       ClientPropertiesList: obj.ClientPropertiesList.map(
@@ -757,7 +763,7 @@ export interface DescribeIpGroupsRequest {
 }
 
 export namespace DescribeIpGroupsRequest {
-  export const filterSensitiveLog = (obj: DescribeIpGroupsRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeIpGroupsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeIpGroupsRequest =>
@@ -779,7 +785,7 @@ export interface DescribeIpGroupsResult {
 }
 
 export namespace DescribeIpGroupsResult {
-  export const filterSensitiveLog = (obj: DescribeIpGroupsResult) => ({
+  export const filterSensitiveLog = (obj: DescribeIpGroupsResult): any => ({
     ...obj,
     ...(obj.Result && {
       Result: obj.Result.map(WorkspacesIpGroup.filterSensitiveLog)
@@ -799,7 +805,7 @@ export interface DescribeTagsRequest {
 }
 
 export namespace DescribeTagsRequest {
-  export const filterSensitiveLog = (obj: DescribeTagsRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeTagsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeTagsRequest =>
@@ -815,7 +821,7 @@ export interface DescribeTagsResult {
 }
 
 export namespace DescribeTagsResult {
-  export const filterSensitiveLog = (obj: DescribeTagsResult) => ({
+  export const filterSensitiveLog = (obj: DescribeTagsResult): any => ({
     ...obj,
     ...(obj.TagList && { TagList: obj.TagList.map(Tag.filterSensitiveLog) })
   });
@@ -844,7 +850,9 @@ export interface DescribeWorkspaceBundlesRequest {
 }
 
 export namespace DescribeWorkspaceBundlesRequest {
-  export const filterSensitiveLog = (obj: DescribeWorkspaceBundlesRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeWorkspaceBundlesRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeWorkspaceBundlesRequest =>
@@ -866,7 +874,9 @@ export interface DescribeWorkspaceBundlesResult {
 }
 
 export namespace DescribeWorkspaceBundlesResult {
-  export const filterSensitiveLog = (obj: DescribeWorkspaceBundlesResult) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeWorkspaceBundlesResult
+  ): any => ({
     ...obj,
     ...(obj.Bundles && {
       Bundles: obj.Bundles.map(WorkspaceBundle.filterSensitiveLog)
@@ -899,7 +909,7 @@ export interface DescribeWorkspaceDirectoriesRequest {
 export namespace DescribeWorkspaceDirectoriesRequest {
   export const filterSensitiveLog = (
     obj: DescribeWorkspaceDirectoriesRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeWorkspaceDirectoriesRequest =>
@@ -923,7 +933,7 @@ export interface DescribeWorkspaceDirectoriesResult {
 export namespace DescribeWorkspaceDirectoriesResult {
   export const filterSensitiveLog = (
     obj: DescribeWorkspaceDirectoriesResult
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Directories && {
       Directories: obj.Directories.map(WorkspaceDirectory.filterSensitiveLog)
@@ -953,7 +963,9 @@ export interface DescribeWorkspaceImagesRequest {
 }
 
 export namespace DescribeWorkspaceImagesRequest {
-  export const filterSensitiveLog = (obj: DescribeWorkspaceImagesRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeWorkspaceImagesRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeWorkspaceImagesRequest =>
@@ -975,7 +987,9 @@ export interface DescribeWorkspaceImagesResult {
 }
 
 export namespace DescribeWorkspaceImagesResult {
-  export const filterSensitiveLog = (obj: DescribeWorkspaceImagesResult) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeWorkspaceImagesResult
+  ): any => ({
     ...obj,
     ...(obj.Images && {
       Images: obj.Images.map(WorkspaceImage.filterSensitiveLog)
@@ -996,7 +1010,7 @@ export interface DescribeWorkspaceSnapshotsRequest {
 export namespace DescribeWorkspaceSnapshotsRequest {
   export const filterSensitiveLog = (
     obj: DescribeWorkspaceSnapshotsRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeWorkspaceSnapshotsRequest =>
@@ -1021,7 +1035,7 @@ export interface DescribeWorkspaceSnapshotsResult {
 export namespace DescribeWorkspaceSnapshotsResult {
   export const filterSensitiveLog = (
     obj: DescribeWorkspaceSnapshotsResult
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.RebuildSnapshots && {
       RebuildSnapshots: obj.RebuildSnapshots.map(Snapshot.filterSensitiveLog)
@@ -1051,7 +1065,7 @@ export interface DescribeWorkspacesConnectionStatusRequest {
 export namespace DescribeWorkspacesConnectionStatusRequest {
   export const filterSensitiveLog = (
     obj: DescribeWorkspacesConnectionStatusRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeWorkspacesConnectionStatusRequest =>
@@ -1075,7 +1089,7 @@ export interface DescribeWorkspacesConnectionStatusResult {
 export namespace DescribeWorkspacesConnectionStatusResult {
   export const filterSensitiveLog = (
     obj: DescribeWorkspacesConnectionStatusResult
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.WorkspacesConnectionStatus && {
       WorkspacesConnectionStatus: obj.WorkspacesConnectionStatus.map(
@@ -1129,7 +1143,7 @@ export interface DescribeWorkspacesRequest {
 }
 
 export namespace DescribeWorkspacesRequest {
-  export const filterSensitiveLog = (obj: DescribeWorkspacesRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeWorkspacesRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeWorkspacesRequest =>
@@ -1153,7 +1167,7 @@ export interface DescribeWorkspacesResult {
 }
 
 export namespace DescribeWorkspacesResult {
-  export const filterSensitiveLog = (obj: DescribeWorkspacesResult) => ({
+  export const filterSensitiveLog = (obj: DescribeWorkspacesResult): any => ({
     ...obj,
     ...(obj.Workspaces && {
       Workspaces: obj.Workspaces.map(Workspace.filterSensitiveLog)
@@ -1177,7 +1191,9 @@ export interface DisassociateIpGroupsRequest {
 }
 
 export namespace DisassociateIpGroupsRequest {
-  export const filterSensitiveLog = (obj: DisassociateIpGroupsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DisassociateIpGroupsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateIpGroupsRequest =>
@@ -1189,7 +1205,7 @@ export interface DisassociateIpGroupsResult {
 }
 
 export namespace DisassociateIpGroupsResult {
-  export const filterSensitiveLog = (obj: DisassociateIpGroupsResult) => ({
+  export const filterSensitiveLog = (obj: DisassociateIpGroupsResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is DisassociateIpGroupsResult =>
@@ -1219,7 +1235,9 @@ export interface FailedCreateWorkspaceRequest {
 }
 
 export namespace FailedCreateWorkspaceRequest {
-  export const filterSensitiveLog = (obj: FailedCreateWorkspaceRequest) => ({
+  export const filterSensitiveLog = (
+    obj: FailedCreateWorkspaceRequest
+  ): any => ({
     ...obj,
     ...(obj.WorkspaceRequest && {
       WorkspaceRequest: WorkspaceRequest.filterSensitiveLog(
@@ -1256,7 +1274,9 @@ export interface FailedWorkspaceChangeRequest {
 }
 
 export namespace FailedWorkspaceChangeRequest {
-  export const filterSensitiveLog = (obj: FailedWorkspaceChangeRequest) => ({
+  export const filterSensitiveLog = (
+    obj: FailedWorkspaceChangeRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is FailedWorkspaceChangeRequest =>
@@ -1292,7 +1312,9 @@ export interface ImportWorkspaceImageRequest {
 }
 
 export namespace ImportWorkspaceImageRequest {
-  export const filterSensitiveLog = (obj: ImportWorkspaceImageRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ImportWorkspaceImageRequest
+  ): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -1309,7 +1331,7 @@ export interface ImportWorkspaceImageResult {
 }
 
 export namespace ImportWorkspaceImageResult {
-  export const filterSensitiveLog = (obj: ImportWorkspaceImageResult) => ({
+  export const filterSensitiveLog = (obj: ImportWorkspaceImageResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is ImportWorkspaceImageResult =>
@@ -1331,7 +1353,9 @@ export interface InvalidParameterValuesException
 }
 
 export namespace InvalidParameterValuesException {
-  export const filterSensitiveLog = (obj: InvalidParameterValuesException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidParameterValuesException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidParameterValuesException =>
@@ -1350,7 +1374,9 @@ export interface InvalidResourceStateException
 }
 
 export namespace InvalidResourceStateException {
-  export const filterSensitiveLog = (obj: InvalidResourceStateException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidResourceStateException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidResourceStateException =>
@@ -1374,7 +1400,7 @@ export interface IpRuleItem {
 }
 
 export namespace IpRuleItem {
-  export const filterSensitiveLog = (obj: IpRuleItem) => ({
+  export const filterSensitiveLog = (obj: IpRuleItem): any => ({
     ...obj
   });
   export const isa = (o: any): o is IpRuleItem => __isa(o, "IpRuleItem");
@@ -1403,7 +1429,7 @@ export interface ListAvailableManagementCidrRangesRequest {
 export namespace ListAvailableManagementCidrRangesRequest {
   export const filterSensitiveLog = (
     obj: ListAvailableManagementCidrRangesRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListAvailableManagementCidrRangesRequest =>
@@ -1427,7 +1453,7 @@ export interface ListAvailableManagementCidrRangesResult {
 export namespace ListAvailableManagementCidrRangesResult {
   export const filterSensitiveLog = (
     obj: ListAvailableManagementCidrRangesResult
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListAvailableManagementCidrRangesResult =>
@@ -1448,7 +1474,7 @@ export interface MigrateWorkspaceRequest {
 }
 
 export namespace MigrateWorkspaceRequest {
-  export const filterSensitiveLog = (obj: MigrateWorkspaceRequest) => ({
+  export const filterSensitiveLog = (obj: MigrateWorkspaceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is MigrateWorkspaceRequest =>
@@ -1470,7 +1496,7 @@ export interface MigrateWorkspaceResult {
 }
 
 export namespace MigrateWorkspaceResult {
-  export const filterSensitiveLog = (obj: MigrateWorkspaceResult) => ({
+  export const filterSensitiveLog = (obj: MigrateWorkspaceResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is MigrateWorkspaceResult =>
@@ -1500,7 +1526,7 @@ export interface ModificationState {
 }
 
 export namespace ModificationState {
-  export const filterSensitiveLog = (obj: ModificationState) => ({
+  export const filterSensitiveLog = (obj: ModificationState): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModificationState =>
@@ -1530,7 +1556,7 @@ export interface ModifyAccountRequest {
 }
 
 export namespace ModifyAccountRequest {
-  export const filterSensitiveLog = (obj: ModifyAccountRequest) => ({
+  export const filterSensitiveLog = (obj: ModifyAccountRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyAccountRequest =>
@@ -1542,7 +1568,7 @@ export interface ModifyAccountResult {
 }
 
 export namespace ModifyAccountResult {
-  export const filterSensitiveLog = (obj: ModifyAccountResult) => ({
+  export const filterSensitiveLog = (obj: ModifyAccountResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyAccountResult =>
@@ -1563,7 +1589,9 @@ export interface ModifyClientPropertiesRequest {
 }
 
 export namespace ModifyClientPropertiesRequest {
-  export const filterSensitiveLog = (obj: ModifyClientPropertiesRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ModifyClientPropertiesRequest
+  ): any => ({
     ...obj,
     ...(obj.ClientProperties && {
       ClientProperties: ClientProperties.filterSensitiveLog(
@@ -1580,7 +1608,9 @@ export interface ModifyClientPropertiesResult {
 }
 
 export namespace ModifyClientPropertiesResult {
-  export const filterSensitiveLog = (obj: ModifyClientPropertiesResult) => ({
+  export const filterSensitiveLog = (
+    obj: ModifyClientPropertiesResult
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyClientPropertiesResult =>
@@ -1603,7 +1633,7 @@ export interface ModifySelfservicePermissionsRequest {
 export namespace ModifySelfservicePermissionsRequest {
   export const filterSensitiveLog = (
     obj: ModifySelfservicePermissionsRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.SelfservicePermissions && {
       SelfservicePermissions: SelfservicePermissions.filterSensitiveLog(
@@ -1622,7 +1652,7 @@ export interface ModifySelfservicePermissionsResult {
 export namespace ModifySelfservicePermissionsResult {
   export const filterSensitiveLog = (
     obj: ModifySelfservicePermissionsResult
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifySelfservicePermissionsResult =>
@@ -1645,7 +1675,7 @@ export interface ModifyWorkspaceAccessPropertiesRequest {
 export namespace ModifyWorkspaceAccessPropertiesRequest {
   export const filterSensitiveLog = (
     obj: ModifyWorkspaceAccessPropertiesRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.WorkspaceAccessProperties && {
       WorkspaceAccessProperties: WorkspaceAccessProperties.filterSensitiveLog(
@@ -1664,7 +1694,7 @@ export interface ModifyWorkspaceAccessPropertiesResult {
 export namespace ModifyWorkspaceAccessPropertiesResult {
   export const filterSensitiveLog = (
     obj: ModifyWorkspaceAccessPropertiesResult
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyWorkspaceAccessPropertiesResult =>
@@ -1687,7 +1717,7 @@ export interface ModifyWorkspaceCreationPropertiesRequest {
 export namespace ModifyWorkspaceCreationPropertiesRequest {
   export const filterSensitiveLog = (
     obj: ModifyWorkspaceCreationPropertiesRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.WorkspaceCreationProperties && {
       WorkspaceCreationProperties: WorkspaceCreationProperties.filterSensitiveLog(
@@ -1706,7 +1736,7 @@ export interface ModifyWorkspaceCreationPropertiesResult {
 export namespace ModifyWorkspaceCreationPropertiesResult {
   export const filterSensitiveLog = (
     obj: ModifyWorkspaceCreationPropertiesResult
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyWorkspaceCreationPropertiesResult =>
@@ -1729,7 +1759,7 @@ export interface ModifyWorkspacePropertiesRequest {
 export namespace ModifyWorkspacePropertiesRequest {
   export const filterSensitiveLog = (
     obj: ModifyWorkspacePropertiesRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.WorkspaceProperties && {
       WorkspaceProperties: WorkspaceProperties.filterSensitiveLog(
@@ -1746,7 +1776,9 @@ export interface ModifyWorkspacePropertiesResult {
 }
 
 export namespace ModifyWorkspacePropertiesResult {
-  export const filterSensitiveLog = (obj: ModifyWorkspacePropertiesResult) => ({
+  export const filterSensitiveLog = (
+    obj: ModifyWorkspacePropertiesResult
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyWorkspacePropertiesResult =>
@@ -1767,7 +1799,9 @@ export interface ModifyWorkspaceStateRequest {
 }
 
 export namespace ModifyWorkspaceStateRequest {
-  export const filterSensitiveLog = (obj: ModifyWorkspaceStateRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ModifyWorkspaceStateRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyWorkspaceStateRequest =>
@@ -1779,7 +1813,7 @@ export interface ModifyWorkspaceStateResult {
 }
 
 export namespace ModifyWorkspaceStateResult {
-  export const filterSensitiveLog = (obj: ModifyWorkspaceStateResult) => ({
+  export const filterSensitiveLog = (obj: ModifyWorkspaceStateResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is ModifyWorkspaceStateResult =>
@@ -1798,7 +1832,7 @@ export interface OperatingSystem {
 }
 
 export namespace OperatingSystem {
-  export const filterSensitiveLog = (obj: OperatingSystem) => ({
+  export const filterSensitiveLog = (obj: OperatingSystem): any => ({
     ...obj
   });
   export const isa = (o: any): o is OperatingSystem =>
@@ -1822,7 +1856,9 @@ export interface OperationInProgressException
 }
 
 export namespace OperationInProgressException {
-  export const filterSensitiveLog = (obj: OperationInProgressException) => ({
+  export const filterSensitiveLog = (
+    obj: OperationInProgressException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is OperationInProgressException =>
@@ -1841,7 +1877,9 @@ export interface OperationNotSupportedException
 }
 
 export namespace OperationNotSupportedException {
-  export const filterSensitiveLog = (obj: OperationNotSupportedException) => ({
+  export const filterSensitiveLog = (
+    obj: OperationNotSupportedException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is OperationNotSupportedException =>
@@ -1860,7 +1898,7 @@ export interface RebootRequest {
 }
 
 export namespace RebootRequest {
-  export const filterSensitiveLog = (obj: RebootRequest) => ({
+  export const filterSensitiveLog = (obj: RebootRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is RebootRequest => __isa(o, "RebootRequest");
@@ -1875,7 +1913,7 @@ export interface RebootWorkspacesRequest {
 }
 
 export namespace RebootWorkspacesRequest {
-  export const filterSensitiveLog = (obj: RebootWorkspacesRequest) => ({
+  export const filterSensitiveLog = (obj: RebootWorkspacesRequest): any => ({
     ...obj,
     ...(obj.RebootWorkspaceRequests && {
       RebootWorkspaceRequests: obj.RebootWorkspaceRequests.map(
@@ -1896,7 +1934,7 @@ export interface RebootWorkspacesResult {
 }
 
 export namespace RebootWorkspacesResult {
-  export const filterSensitiveLog = (obj: RebootWorkspacesResult) => ({
+  export const filterSensitiveLog = (obj: RebootWorkspacesResult): any => ({
     ...obj,
     ...(obj.FailedRequests && {
       FailedRequests: obj.FailedRequests.map(
@@ -1920,7 +1958,7 @@ export interface RebuildRequest {
 }
 
 export namespace RebuildRequest {
-  export const filterSensitiveLog = (obj: RebuildRequest) => ({
+  export const filterSensitiveLog = (obj: RebuildRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is RebuildRequest =>
@@ -1936,7 +1974,7 @@ export interface RebuildWorkspacesRequest {
 }
 
 export namespace RebuildWorkspacesRequest {
-  export const filterSensitiveLog = (obj: RebuildWorkspacesRequest) => ({
+  export const filterSensitiveLog = (obj: RebuildWorkspacesRequest): any => ({
     ...obj,
     ...(obj.RebuildWorkspaceRequests && {
       RebuildWorkspaceRequests: obj.RebuildWorkspaceRequests.map(
@@ -1957,7 +1995,7 @@ export interface RebuildWorkspacesResult {
 }
 
 export namespace RebuildWorkspacesResult {
-  export const filterSensitiveLog = (obj: RebuildWorkspacesResult) => ({
+  export const filterSensitiveLog = (obj: RebuildWorkspacesResult): any => ({
     ...obj,
     ...(obj.FailedRequests && {
       FailedRequests: obj.FailedRequests.map(
@@ -2022,7 +2060,7 @@ export interface RegisterWorkspaceDirectoryRequest {
 export namespace RegisterWorkspaceDirectoryRequest {
   export const filterSensitiveLog = (
     obj: RegisterWorkspaceDirectoryRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) })
   });
@@ -2037,7 +2075,7 @@ export interface RegisterWorkspaceDirectoryResult {
 export namespace RegisterWorkspaceDirectoryResult {
   export const filterSensitiveLog = (
     obj: RegisterWorkspaceDirectoryResult
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is RegisterWorkspaceDirectoryResult =>
@@ -2056,7 +2094,9 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException) => ({
+  export const filterSensitiveLog = (
+    obj: ResourceAlreadyExistsException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceAlreadyExistsException =>
@@ -2075,7 +2115,9 @@ export interface ResourceAssociatedException
 }
 
 export namespace ResourceAssociatedException {
-  export const filterSensitiveLog = (obj: ResourceAssociatedException) => ({
+  export const filterSensitiveLog = (
+    obj: ResourceAssociatedException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceAssociatedException =>
@@ -2094,7 +2136,9 @@ export interface ResourceCreationFailedException
 }
 
 export namespace ResourceCreationFailedException {
-  export const filterSensitiveLog = (obj: ResourceCreationFailedException) => ({
+  export const filterSensitiveLog = (
+    obj: ResourceCreationFailedException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceCreationFailedException =>
@@ -2116,7 +2160,9 @@ export interface ResourceLimitExceededException
 }
 
 export namespace ResourceLimitExceededException {
-  export const filterSensitiveLog = (obj: ResourceLimitExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: ResourceLimitExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceLimitExceededException =>
@@ -2143,7 +2189,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -2170,7 +2216,9 @@ export interface ResourceUnavailableException
 }
 
 export namespace ResourceUnavailableException {
-  export const filterSensitiveLog = (obj: ResourceUnavailableException) => ({
+  export const filterSensitiveLog = (
+    obj: ResourceUnavailableException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceUnavailableException =>
@@ -2186,7 +2234,7 @@ export interface RestoreWorkspaceRequest {
 }
 
 export namespace RestoreWorkspaceRequest {
-  export const filterSensitiveLog = (obj: RestoreWorkspaceRequest) => ({
+  export const filterSensitiveLog = (obj: RestoreWorkspaceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is RestoreWorkspaceRequest =>
@@ -2198,7 +2246,7 @@ export interface RestoreWorkspaceResult {
 }
 
 export namespace RestoreWorkspaceResult {
-  export const filterSensitiveLog = (obj: RestoreWorkspaceResult) => ({
+  export const filterSensitiveLog = (obj: RestoreWorkspaceResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is RestoreWorkspaceResult =>
@@ -2219,7 +2267,7 @@ export interface RevokeIpRulesRequest {
 }
 
 export namespace RevokeIpRulesRequest {
-  export const filterSensitiveLog = (obj: RevokeIpRulesRequest) => ({
+  export const filterSensitiveLog = (obj: RevokeIpRulesRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is RevokeIpRulesRequest =>
@@ -2231,7 +2279,7 @@ export interface RevokeIpRulesResult {
 }
 
 export namespace RevokeIpRulesResult {
-  export const filterSensitiveLog = (obj: RevokeIpRulesResult) => ({
+  export const filterSensitiveLog = (obj: RevokeIpRulesResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is RevokeIpRulesResult =>
@@ -2250,7 +2298,7 @@ export interface RootStorage {
 }
 
 export namespace RootStorage {
-  export const filterSensitiveLog = (obj: RootStorage) => ({
+  export const filterSensitiveLog = (obj: RootStorage): any => ({
     ...obj
   });
   export const isa = (o: any): o is RootStorage => __isa(o, "RootStorage");
@@ -2295,7 +2343,7 @@ export interface SelfservicePermissions {
 }
 
 export namespace SelfservicePermissions {
-  export const filterSensitiveLog = (obj: SelfservicePermissions) => ({
+  export const filterSensitiveLog = (obj: SelfservicePermissions): any => ({
     ...obj
   });
   export const isa = (o: any): o is SelfservicePermissions =>
@@ -2314,7 +2362,7 @@ export interface Snapshot {
 }
 
 export namespace Snapshot {
-  export const filterSensitiveLog = (obj: Snapshot) => ({
+  export const filterSensitiveLog = (obj: Snapshot): any => ({
     ...obj
   });
   export const isa = (o: any): o is Snapshot => __isa(o, "Snapshot");
@@ -2332,7 +2380,7 @@ export interface StartRequest {
 }
 
 export namespace StartRequest {
-  export const filterSensitiveLog = (obj: StartRequest) => ({
+  export const filterSensitiveLog = (obj: StartRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartRequest => __isa(o, "StartRequest");
@@ -2347,7 +2395,7 @@ export interface StartWorkspacesRequest {
 }
 
 export namespace StartWorkspacesRequest {
-  export const filterSensitiveLog = (obj: StartWorkspacesRequest) => ({
+  export const filterSensitiveLog = (obj: StartWorkspacesRequest): any => ({
     ...obj,
     ...(obj.StartWorkspaceRequests && {
       StartWorkspaceRequests: obj.StartWorkspaceRequests.map(
@@ -2368,7 +2416,7 @@ export interface StartWorkspacesResult {
 }
 
 export namespace StartWorkspacesResult {
-  export const filterSensitiveLog = (obj: StartWorkspacesResult) => ({
+  export const filterSensitiveLog = (obj: StartWorkspacesResult): any => ({
     ...obj,
     ...(obj.FailedRequests && {
       FailedRequests: obj.FailedRequests.map(
@@ -2392,7 +2440,7 @@ export interface StopRequest {
 }
 
 export namespace StopRequest {
-  export const filterSensitiveLog = (obj: StopRequest) => ({
+  export const filterSensitiveLog = (obj: StopRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is StopRequest => __isa(o, "StopRequest");
@@ -2407,7 +2455,7 @@ export interface StopWorkspacesRequest {
 }
 
 export namespace StopWorkspacesRequest {
-  export const filterSensitiveLog = (obj: StopWorkspacesRequest) => ({
+  export const filterSensitiveLog = (obj: StopWorkspacesRequest): any => ({
     ...obj,
     ...(obj.StopWorkspaceRequests && {
       StopWorkspaceRequests: obj.StopWorkspaceRequests.map(
@@ -2428,7 +2476,7 @@ export interface StopWorkspacesResult {
 }
 
 export namespace StopWorkspacesResult {
-  export const filterSensitiveLog = (obj: StopWorkspacesResult) => ({
+  export const filterSensitiveLog = (obj: StopWorkspacesResult): any => ({
     ...obj,
     ...(obj.FailedRequests && {
       FailedRequests: obj.FailedRequests.map(
@@ -2457,7 +2505,7 @@ export interface Tag {
 }
 
 export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag) => ({
+  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj
   });
   export const isa = (o: any): o is Tag => __isa(o, "Tag");
@@ -2485,7 +2533,7 @@ export interface TerminateRequest {
 }
 
 export namespace TerminateRequest {
-  export const filterSensitiveLog = (obj: TerminateRequest) => ({
+  export const filterSensitiveLog = (obj: TerminateRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is TerminateRequest =>
@@ -2501,7 +2549,7 @@ export interface TerminateWorkspacesRequest {
 }
 
 export namespace TerminateWorkspacesRequest {
-  export const filterSensitiveLog = (obj: TerminateWorkspacesRequest) => ({
+  export const filterSensitiveLog = (obj: TerminateWorkspacesRequest): any => ({
     ...obj,
     ...(obj.TerminateWorkspaceRequests && {
       TerminateWorkspaceRequests: obj.TerminateWorkspaceRequests.map(
@@ -2522,7 +2570,7 @@ export interface TerminateWorkspacesResult {
 }
 
 export namespace TerminateWorkspacesResult {
-  export const filterSensitiveLog = (obj: TerminateWorkspacesResult) => ({
+  export const filterSensitiveLog = (obj: TerminateWorkspacesResult): any => ({
     ...obj,
     ...(obj.FailedRequests && {
       FailedRequests: obj.FailedRequests.map(
@@ -2551,7 +2599,7 @@ export interface UnsupportedNetworkConfigurationException
 export namespace UnsupportedNetworkConfigurationException {
   export const filterSensitiveLog = (
     obj: UnsupportedNetworkConfigurationException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnsupportedNetworkConfigurationException =>
@@ -2574,7 +2622,7 @@ export interface UnsupportedWorkspaceConfigurationException
 export namespace UnsupportedWorkspaceConfigurationException {
   export const filterSensitiveLog = (
     obj: UnsupportedWorkspaceConfigurationException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (
@@ -2597,7 +2645,9 @@ export interface UpdateRulesOfIpGroupRequest {
 }
 
 export namespace UpdateRulesOfIpGroupRequest {
-  export const filterSensitiveLog = (obj: UpdateRulesOfIpGroupRequest) => ({
+  export const filterSensitiveLog = (
+    obj: UpdateRulesOfIpGroupRequest
+  ): any => ({
     ...obj,
     ...(obj.UserRules && {
       UserRules: obj.UserRules.map(IpRuleItem.filterSensitiveLog)
@@ -2612,7 +2662,7 @@ export interface UpdateRulesOfIpGroupResult {
 }
 
 export namespace UpdateRulesOfIpGroupResult {
-  export const filterSensitiveLog = (obj: UpdateRulesOfIpGroupResult) => ({
+  export const filterSensitiveLog = (obj: UpdateRulesOfIpGroupResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is UpdateRulesOfIpGroupResult =>
@@ -2631,7 +2681,7 @@ export interface UserStorage {
 }
 
 export namespace UserStorage {
-  export const filterSensitiveLog = (obj: UserStorage) => ({
+  export const filterSensitiveLog = (obj: UserStorage): any => ({
     ...obj
   });
   export const isa = (o: any): o is UserStorage => __isa(o, "UserStorage");
@@ -2721,7 +2771,7 @@ export interface Workspace {
 }
 
 export namespace Workspace {
-  export const filterSensitiveLog = (obj: Workspace) => ({
+  export const filterSensitiveLog = (obj: Workspace): any => ({
     ...obj,
     ...(obj.ModificationStates && {
       ModificationStates: obj.ModificationStates.map(
@@ -2787,7 +2837,7 @@ export interface WorkspaceAccessProperties {
 }
 
 export namespace WorkspaceAccessProperties {
-  export const filterSensitiveLog = (obj: WorkspaceAccessProperties) => ({
+  export const filterSensitiveLog = (obj: WorkspaceAccessProperties): any => ({
     ...obj
   });
   export const isa = (o: any): o is WorkspaceAccessProperties =>
@@ -2847,7 +2897,7 @@ export interface WorkspaceBundle {
 }
 
 export namespace WorkspaceBundle {
-  export const filterSensitiveLog = (obj: WorkspaceBundle) => ({
+  export const filterSensitiveLog = (obj: WorkspaceBundle): any => ({
     ...obj,
     ...(obj.ComputeType && {
       ComputeType: ComputeType.filterSensitiveLog(obj.ComputeType)
@@ -2891,7 +2941,7 @@ export interface WorkspaceConnectionStatus {
 }
 
 export namespace WorkspaceConnectionStatus {
-  export const filterSensitiveLog = (obj: WorkspaceConnectionStatus) => ({
+  export const filterSensitiveLog = (obj: WorkspaceConnectionStatus): any => ({
     ...obj
   });
   export const isa = (o: any): o is WorkspaceConnectionStatus =>
@@ -2934,7 +2984,9 @@ export interface WorkspaceCreationProperties {
 }
 
 export namespace WorkspaceCreationProperties {
-  export const filterSensitiveLog = (obj: WorkspaceCreationProperties) => ({
+  export const filterSensitiveLog = (
+    obj: WorkspaceCreationProperties
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is WorkspaceCreationProperties =>
@@ -3032,7 +3084,7 @@ export interface WorkspaceDirectory {
 }
 
 export namespace WorkspaceDirectory {
-  export const filterSensitiveLog = (obj: WorkspaceDirectory) => ({
+  export const filterSensitiveLog = (obj: WorkspaceDirectory): any => ({
     ...obj,
     ...(obj.SelfservicePermissions && {
       SelfservicePermissions: SelfservicePermissions.filterSensitiveLog(
@@ -3117,7 +3169,7 @@ export interface WorkspaceImage {
 }
 
 export namespace WorkspaceImage {
-  export const filterSensitiveLog = (obj: WorkspaceImage) => ({
+  export const filterSensitiveLog = (obj: WorkspaceImage): any => ({
     ...obj,
     ...(obj.OperatingSystem && {
       OperatingSystem: OperatingSystem.filterSensitiveLog(obj.OperatingSystem)
@@ -3178,7 +3230,7 @@ export interface WorkspaceProperties {
 }
 
 export namespace WorkspaceProperties {
-  export const filterSensitiveLog = (obj: WorkspaceProperties) => ({
+  export const filterSensitiveLog = (obj: WorkspaceProperties): any => ({
     ...obj
   });
   export const isa = (o: any): o is WorkspaceProperties =>
@@ -3235,7 +3287,7 @@ export interface WorkspaceRequest {
 }
 
 export namespace WorkspaceRequest {
-  export const filterSensitiveLog = (obj: WorkspaceRequest) => ({
+  export const filterSensitiveLog = (obj: WorkspaceRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
     ...(obj.WorkspaceProperties && {
@@ -3283,7 +3335,7 @@ export interface WorkspacesDefaultRoleNotFoundException
 export namespace WorkspacesDefaultRoleNotFoundException {
   export const filterSensitiveLog = (
     obj: WorkspacesDefaultRoleNotFoundException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is WorkspacesDefaultRoleNotFoundException =>
@@ -3317,7 +3369,7 @@ export interface WorkspacesIpGroup {
 }
 
 export namespace WorkspacesIpGroup {
-  export const filterSensitiveLog = (obj: WorkspacesIpGroup) => ({
+  export const filterSensitiveLog = (obj: WorkspacesIpGroup): any => ({
     ...obj,
     ...(obj.userRules && {
       userRules: obj.userRules.map(IpRuleItem.filterSensitiveLog)

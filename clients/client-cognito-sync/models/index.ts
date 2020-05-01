@@ -20,7 +20,7 @@ export interface AlreadyStreamedException
 }
 
 export namespace AlreadyStreamedException {
-  export const filterSensitiveLog = (obj: AlreadyStreamedException) => ({
+  export const filterSensitiveLog = (obj: AlreadyStreamedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is AlreadyStreamedException =>
@@ -39,7 +39,7 @@ export interface BulkPublishRequest {
 }
 
 export namespace BulkPublishRequest {
-  export const filterSensitiveLog = (obj: BulkPublishRequest) => ({
+  export const filterSensitiveLog = (obj: BulkPublishRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is BulkPublishRequest =>
@@ -58,7 +58,7 @@ export interface BulkPublishResponse {
 }
 
 export namespace BulkPublishResponse {
-  export const filterSensitiveLog = (obj: BulkPublishResponse) => ({
+  export const filterSensitiveLog = (obj: BulkPublishResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is BulkPublishResponse =>
@@ -107,7 +107,7 @@ export interface CognitoStreams {
 }
 
 export namespace CognitoStreams {
-  export const filterSensitiveLog = (obj: CognitoStreams) => ({
+  export const filterSensitiveLog = (obj: CognitoStreams): any => ({
     ...obj
   });
   export const isa = (o: any): o is CognitoStreams =>
@@ -129,7 +129,9 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
-  export const filterSensitiveLog = (obj: ConcurrentModificationException) => ({
+  export const filterSensitiveLog = (
+    obj: ConcurrentModificationException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ConcurrentModificationException =>
@@ -182,7 +184,7 @@ export interface Dataset {
 }
 
 export namespace Dataset {
-  export const filterSensitiveLog = (obj: Dataset) => ({
+  export const filterSensitiveLog = (obj: Dataset): any => ({
     ...obj
   });
   export const isa = (o: any): o is Dataset => __isa(o, "Dataset");
@@ -213,7 +215,7 @@ export interface DeleteDatasetRequest {
 }
 
 export namespace DeleteDatasetRequest {
-  export const filterSensitiveLog = (obj: DeleteDatasetRequest) => ({
+  export const filterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DeleteDatasetRequest =>
@@ -235,7 +237,7 @@ export interface DeleteDatasetResponse {
 }
 
 export namespace DeleteDatasetResponse {
-  export const filterSensitiveLog = (obj: DeleteDatasetResponse) => ({
+  export const filterSensitiveLog = (obj: DeleteDatasetResponse): any => ({
     ...obj,
     ...(obj.Dataset && { Dataset: Dataset.filterSensitiveLog(obj.Dataset) })
   });
@@ -269,7 +271,7 @@ export interface DescribeDatasetRequest {
 }
 
 export namespace DescribeDatasetRequest {
-  export const filterSensitiveLog = (obj: DescribeDatasetRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeDatasetRequest =>
@@ -291,7 +293,7 @@ export interface DescribeDatasetResponse {
 }
 
 export namespace DescribeDatasetResponse {
-  export const filterSensitiveLog = (obj: DescribeDatasetResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
     ...obj,
     ...(obj.Dataset && { Dataset: Dataset.filterSensitiveLog(obj.Dataset) })
   });
@@ -314,7 +316,7 @@ export interface DescribeIdentityPoolUsageRequest {
 export namespace DescribeIdentityPoolUsageRequest {
   export const filterSensitiveLog = (
     obj: DescribeIdentityPoolUsageRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeIdentityPoolUsageRequest =>
@@ -335,7 +337,7 @@ export interface DescribeIdentityPoolUsageResponse {
 export namespace DescribeIdentityPoolUsageResponse {
   export const filterSensitiveLog = (
     obj: DescribeIdentityPoolUsageResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.IdentityPoolUsage && {
       IdentityPoolUsage: IdentityPoolUsage.filterSensitiveLog(
@@ -366,7 +368,9 @@ export interface DescribeIdentityUsageRequest {
 }
 
 export namespace DescribeIdentityUsageRequest {
-  export const filterSensitiveLog = (obj: DescribeIdentityUsageRequest) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeIdentityUsageRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeIdentityUsageRequest =>
@@ -385,7 +389,9 @@ export interface DescribeIdentityUsageResponse {
 }
 
 export namespace DescribeIdentityUsageResponse {
-  export const filterSensitiveLog = (obj: DescribeIdentityUsageResponse) => ({
+  export const filterSensitiveLog = (
+    obj: DescribeIdentityUsageResponse
+  ): any => ({
     ...obj,
     ...(obj.IdentityUsage && {
       IdentityUsage: IdentityUsage.filterSensitiveLog(obj.IdentityUsage)
@@ -410,7 +416,7 @@ export interface DuplicateRequestException
 }
 
 export namespace DuplicateRequestException {
-  export const filterSensitiveLog = (obj: DuplicateRequestException) => ({
+  export const filterSensitiveLog = (obj: DuplicateRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is DuplicateRequestException =>
@@ -429,7 +435,9 @@ export interface GetBulkPublishDetailsRequest {
 }
 
 export namespace GetBulkPublishDetailsRequest {
-  export const filterSensitiveLog = (obj: GetBulkPublishDetailsRequest) => ({
+  export const filterSensitiveLog = (
+    obj: GetBulkPublishDetailsRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetBulkPublishDetailsRequest =>
@@ -482,7 +490,9 @@ export interface GetBulkPublishDetailsResponse {
 }
 
 export namespace GetBulkPublishDetailsResponse {
-  export const filterSensitiveLog = (obj: GetBulkPublishDetailsResponse) => ({
+  export const filterSensitiveLog = (
+    obj: GetBulkPublishDetailsResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetBulkPublishDetailsResponse =>
@@ -501,7 +511,7 @@ export interface GetCognitoEventsRequest {
 }
 
 export namespace GetCognitoEventsRequest {
-  export const filterSensitiveLog = (obj: GetCognitoEventsRequest) => ({
+  export const filterSensitiveLog = (obj: GetCognitoEventsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetCognitoEventsRequest =>
@@ -520,7 +530,7 @@ export interface GetCognitoEventsResponse {
 }
 
 export namespace GetCognitoEventsResponse {
-  export const filterSensitiveLog = (obj: GetCognitoEventsResponse) => ({
+  export const filterSensitiveLog = (obj: GetCognitoEventsResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetCognitoEventsResponse =>
@@ -541,7 +551,7 @@ export interface GetIdentityPoolConfigurationRequest {
 export namespace GetIdentityPoolConfigurationRequest {
   export const filterSensitiveLog = (
     obj: GetIdentityPoolConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is GetIdentityPoolConfigurationRequest =>
@@ -572,7 +582,7 @@ export interface GetIdentityPoolConfigurationResponse {
 export namespace GetIdentityPoolConfigurationResponse {
   export const filterSensitiveLog = (
     obj: GetIdentityPoolConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CognitoStreams && {
       CognitoStreams: CognitoStreams.filterSensitiveLog(obj.CognitoStreams)
@@ -611,7 +621,7 @@ export interface IdentityPoolUsage {
 }
 
 export namespace IdentityPoolUsage {
-  export const filterSensitiveLog = (obj: IdentityPoolUsage) => ({
+  export const filterSensitiveLog = (obj: IdentityPoolUsage): any => ({
     ...obj
   });
   export const isa = (o: any): o is IdentityPoolUsage =>
@@ -652,7 +662,7 @@ export interface IdentityUsage {
 }
 
 export namespace IdentityUsage {
-  export const filterSensitiveLog = (obj: IdentityUsage) => ({
+  export const filterSensitiveLog = (obj: IdentityUsage): any => ({
     ...obj
   });
   export const isa = (o: any): o is IdentityUsage => __isa(o, "IdentityUsage");
@@ -673,7 +683,7 @@ export interface InternalErrorException
 }
 
 export namespace InternalErrorException {
-  export const filterSensitiveLog = (obj: InternalErrorException) => ({
+  export const filterSensitiveLog = (obj: InternalErrorException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalErrorException =>
@@ -695,7 +705,9 @@ export interface InvalidConfigurationException
 }
 
 export namespace InvalidConfigurationException {
-  export const filterSensitiveLog = (obj: InvalidConfigurationException) => ({
+  export const filterSensitiveLog = (
+    obj: InvalidConfigurationException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidConfigurationException =>
@@ -719,7 +731,7 @@ export interface InvalidLambdaFunctionOutputException
 export namespace InvalidLambdaFunctionOutputException {
   export const filterSensitiveLog = (
     obj: InvalidLambdaFunctionOutputException
-  ) => ({
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidLambdaFunctionOutputException =>
@@ -741,7 +753,7 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export const filterSensitiveLog = (obj: InvalidParameterException) => ({
+  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InvalidParameterException =>
@@ -762,7 +774,9 @@ export interface LambdaSocketTimeoutException
 }
 
 export namespace LambdaSocketTimeoutException {
-  export const filterSensitiveLog = (obj: LambdaSocketTimeoutException) => ({
+  export const filterSensitiveLog = (
+    obj: LambdaSocketTimeoutException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is LambdaSocketTimeoutException =>
@@ -784,7 +798,7 @@ export interface LambdaThrottledException
 }
 
 export namespace LambdaThrottledException {
-  export const filterSensitiveLog = (obj: LambdaThrottledException) => ({
+  export const filterSensitiveLog = (obj: LambdaThrottledException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LambdaThrottledException =>
@@ -806,7 +820,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException) => ({
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj
   });
   export const isa = (o: any): o is LimitExceededException =>
@@ -840,7 +854,7 @@ export interface ListDatasetsRequest {
 }
 
 export namespace ListDatasetsRequest {
-  export const filterSensitiveLog = (obj: ListDatasetsRequest) => ({
+  export const filterSensitiveLog = (obj: ListDatasetsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListDatasetsRequest =>
@@ -869,7 +883,7 @@ export interface ListDatasetsResponse {
 }
 
 export namespace ListDatasetsResponse {
-  export const filterSensitiveLog = (obj: ListDatasetsResponse) => ({
+  export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
     ...obj,
     ...(obj.Datasets && {
       Datasets: obj.Datasets.map(Dataset.filterSensitiveLog)
@@ -896,7 +910,9 @@ export interface ListIdentityPoolUsageRequest {
 }
 
 export namespace ListIdentityPoolUsageRequest {
-  export const filterSensitiveLog = (obj: ListIdentityPoolUsageRequest) => ({
+  export const filterSensitiveLog = (
+    obj: ListIdentityPoolUsageRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListIdentityPoolUsageRequest =>
@@ -930,7 +946,9 @@ export interface ListIdentityPoolUsageResponse {
 }
 
 export namespace ListIdentityPoolUsageResponse {
-  export const filterSensitiveLog = (obj: ListIdentityPoolUsageResponse) => ({
+  export const filterSensitiveLog = (
+    obj: ListIdentityPoolUsageResponse
+  ): any => ({
     ...obj,
     ...(obj.IdentityPoolUsages && {
       IdentityPoolUsages: obj.IdentityPoolUsages.map(
@@ -984,7 +1002,7 @@ export interface ListRecordsRequest {
 }
 
 export namespace ListRecordsRequest {
-  export const filterSensitiveLog = (obj: ListRecordsRequest) => ({
+  export const filterSensitiveLog = (obj: ListRecordsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListRecordsRequest =>
@@ -1043,7 +1061,7 @@ export interface ListRecordsResponse {
 }
 
 export namespace ListRecordsResponse {
-  export const filterSensitiveLog = (obj: ListRecordsResponse) => ({
+  export const filterSensitiveLog = (obj: ListRecordsResponse): any => ({
     ...obj,
     ...(obj.Records && { Records: obj.Records.map(_Record.filterSensitiveLog) })
   });
@@ -1066,7 +1084,7 @@ export interface NotAuthorizedException
 }
 
 export namespace NotAuthorizedException {
-  export const filterSensitiveLog = (obj: NotAuthorizedException) => ({
+  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is NotAuthorizedException =>
@@ -1094,7 +1112,7 @@ export interface PushSync {
 }
 
 export namespace PushSync {
-  export const filterSensitiveLog = (obj: PushSync) => ({
+  export const filterSensitiveLog = (obj: PushSync): any => ({
     ...obj
   });
   export const isa = (o: any): o is PushSync => __isa(o, "PushSync");
@@ -1137,7 +1155,7 @@ export interface _Record {
 }
 
 export namespace _Record {
-  export const filterSensitiveLog = (obj: _Record) => ({
+  export const filterSensitiveLog = (obj: _Record): any => ({
     ...obj
   });
   export const isa = (o: any): o is _Record => __isa(o, "Record");
@@ -1175,7 +1193,7 @@ export interface RecordPatch {
 }
 
 export namespace RecordPatch {
-  export const filterSensitiveLog = (obj: RecordPatch) => ({
+  export const filterSensitiveLog = (obj: RecordPatch): any => ({
     ...obj
   });
   export const isa = (o: any): o is RecordPatch => __isa(o, "RecordPatch");
@@ -1208,7 +1226,7 @@ export interface RegisterDeviceRequest {
 }
 
 export namespace RegisterDeviceRequest {
-  export const filterSensitiveLog = (obj: RegisterDeviceRequest) => ({
+  export const filterSensitiveLog = (obj: RegisterDeviceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is RegisterDeviceRequest =>
@@ -1227,7 +1245,7 @@ export interface RegisterDeviceResponse {
 }
 
 export namespace RegisterDeviceResponse {
-  export const filterSensitiveLog = (obj: RegisterDeviceResponse) => ({
+  export const filterSensitiveLog = (obj: RegisterDeviceResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is RegisterDeviceResponse =>
@@ -1249,7 +1267,7 @@ export interface ResourceConflictException
 }
 
 export namespace ResourceConflictException {
-  export const filterSensitiveLog = (obj: ResourceConflictException) => ({
+  export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceConflictException =>
@@ -1271,7 +1289,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -1295,7 +1313,7 @@ export interface SetCognitoEventsRequest {
 }
 
 export namespace SetCognitoEventsRequest {
-  export const filterSensitiveLog = (obj: SetCognitoEventsRequest) => ({
+  export const filterSensitiveLog = (obj: SetCognitoEventsRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is SetCognitoEventsRequest =>
@@ -1326,7 +1344,7 @@ export interface SetIdentityPoolConfigurationRequest {
 export namespace SetIdentityPoolConfigurationRequest {
   export const filterSensitiveLog = (
     obj: SetIdentityPoolConfigurationRequest
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CognitoStreams && {
       CognitoStreams: CognitoStreams.filterSensitiveLog(obj.CognitoStreams)
@@ -1361,7 +1379,7 @@ export interface SetIdentityPoolConfigurationResponse {
 export namespace SetIdentityPoolConfigurationResponse {
   export const filterSensitiveLog = (
     obj: SetIdentityPoolConfigurationResponse
-  ) => ({
+  ): any => ({
     ...obj,
     ...(obj.CognitoStreams && {
       CognitoStreams: CognitoStreams.filterSensitiveLog(obj.CognitoStreams)
@@ -1401,7 +1419,7 @@ export interface SubscribeToDatasetRequest {
 }
 
 export namespace SubscribeToDatasetRequest {
-  export const filterSensitiveLog = (obj: SubscribeToDatasetRequest) => ({
+  export const filterSensitiveLog = (obj: SubscribeToDatasetRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is SubscribeToDatasetRequest =>
@@ -1416,7 +1434,7 @@ export interface SubscribeToDatasetResponse {
 }
 
 export namespace SubscribeToDatasetResponse {
-  export const filterSensitiveLog = (obj: SubscribeToDatasetResponse) => ({
+  export const filterSensitiveLog = (obj: SubscribeToDatasetResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is SubscribeToDatasetResponse =>
@@ -1438,7 +1456,7 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export const filterSensitiveLog = (obj: TooManyRequestsException) => ({
+  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj
   });
   export const isa = (o: any): o is TooManyRequestsException =>
@@ -1472,7 +1490,9 @@ export interface UnsubscribeFromDatasetRequest {
 }
 
 export namespace UnsubscribeFromDatasetRequest {
-  export const filterSensitiveLog = (obj: UnsubscribeFromDatasetRequest) => ({
+  export const filterSensitiveLog = (
+    obj: UnsubscribeFromDatasetRequest
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnsubscribeFromDatasetRequest =>
@@ -1487,7 +1507,9 @@ export interface UnsubscribeFromDatasetResponse {
 }
 
 export namespace UnsubscribeFromDatasetResponse {
-  export const filterSensitiveLog = (obj: UnsubscribeFromDatasetResponse) => ({
+  export const filterSensitiveLog = (
+    obj: UnsubscribeFromDatasetResponse
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is UnsubscribeFromDatasetResponse =>
@@ -1536,7 +1558,7 @@ export interface UpdateRecordsRequest {
 }
 
 export namespace UpdateRecordsRequest {
-  export const filterSensitiveLog = (obj: UpdateRecordsRequest) => ({
+  export const filterSensitiveLog = (obj: UpdateRecordsRequest): any => ({
     ...obj,
     ...(obj.RecordPatches && {
       RecordPatches: obj.RecordPatches.map(RecordPatch.filterSensitiveLog)
@@ -1558,7 +1580,7 @@ export interface UpdateRecordsResponse {
 }
 
 export namespace UpdateRecordsResponse {
-  export const filterSensitiveLog = (obj: UpdateRecordsResponse) => ({
+  export const filterSensitiveLog = (obj: UpdateRecordsResponse): any => ({
     ...obj,
     ...(obj.Records && { Records: obj.Records.map(_Record.filterSensitiveLog) })
   });

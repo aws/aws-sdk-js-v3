@@ -17,7 +17,7 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export const filterSensitiveLog = (obj: BadRequestException) => ({
+  export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj
   });
   export const isa = (o: any): o is BadRequestException =>
@@ -36,7 +36,7 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export const filterSensitiveLog = (obj: InternalServerException) => ({
+  export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServerException =>
@@ -52,7 +52,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceRequest =>
@@ -68,7 +68,7 @@ export interface ListTagsForResourceResult {
 }
 
 export namespace ListTagsForResourceResult {
-  export const filterSensitiveLog = (obj: ListTagsForResourceResult) => ({
+  export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is ListTagsForResourceResult =>
@@ -87,7 +87,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -108,7 +108,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceRequest =>
@@ -120,7 +120,7 @@ export interface TagResourceResult {
 }
 
 export namespace TagResourceResult {
-  export const filterSensitiveLog = (obj: TagResourceResult) => ({
+  export const filterSensitiveLog = (obj: TagResourceResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is TagResourceResult =>
@@ -141,7 +141,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const filterSensitiveLog = (obj: UntagResourceRequest) => ({
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceRequest =>
@@ -153,7 +153,7 @@ export interface UntagResourceResult {
 }
 
 export namespace UntagResourceResult {
-  export const filterSensitiveLog = (obj: UntagResourceResult) => ({
+  export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
     ...obj
   });
   export const isa = (o: any): o is UntagResourceResult =>

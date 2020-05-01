@@ -17,7 +17,7 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export const filterSensitiveLog = (obj: AccessDeniedException) => ({
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj
   });
   export const isa = (o: any): o is AccessDeniedException =>
@@ -40,7 +40,7 @@ export interface CancelChangeSetRequest {
 }
 
 export namespace CancelChangeSetRequest {
-  export const filterSensitiveLog = (obj: CancelChangeSetRequest) => ({
+  export const filterSensitiveLog = (obj: CancelChangeSetRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is CancelChangeSetRequest =>
@@ -61,7 +61,7 @@ export interface CancelChangeSetResponse {
 }
 
 export namespace CancelChangeSetResponse {
-  export const filterSensitiveLog = (obj: CancelChangeSetResponse) => ({
+  export const filterSensitiveLog = (obj: CancelChangeSetResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is CancelChangeSetResponse =>
@@ -94,7 +94,7 @@ export interface Change {
 }
 
 export namespace Change {
-  export const filterSensitiveLog = (obj: Change) => ({
+  export const filterSensitiveLog = (obj: Change): any => ({
     ...obj,
     ...(obj.Entity && { Entity: Entity.filterSensitiveLog(obj.Entity) })
   });
@@ -148,7 +148,7 @@ export interface ChangeSetSummaryListItem {
 }
 
 export namespace ChangeSetSummaryListItem {
-  export const filterSensitiveLog = (obj: ChangeSetSummaryListItem) => ({
+  export const filterSensitiveLog = (obj: ChangeSetSummaryListItem): any => ({
     ...obj
   });
   export const isa = (o: any): o is ChangeSetSummaryListItem =>
@@ -186,7 +186,7 @@ export interface ChangeSummary {
 }
 
 export namespace ChangeSummary {
-  export const filterSensitiveLog = (obj: ChangeSummary) => ({
+  export const filterSensitiveLog = (obj: ChangeSummary): any => ({
     ...obj,
     ...(obj.Entity && { Entity: Entity.filterSensitiveLog(obj.Entity) }),
     ...(obj.ErrorDetailList && {
@@ -213,7 +213,7 @@ export interface DescribeChangeSetRequest {
 }
 
 export namespace DescribeChangeSetRequest {
-  export const filterSensitiveLog = (obj: DescribeChangeSetRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeChangeSetRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeChangeSetRequest =>
@@ -270,7 +270,7 @@ export interface DescribeChangeSetResponse {
 }
 
 export namespace DescribeChangeSetResponse {
-  export const filterSensitiveLog = (obj: DescribeChangeSetResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeChangeSetResponse): any => ({
     ...obj,
     ...(obj.ChangeSet && {
       ChangeSet: obj.ChangeSet.map(ChangeSummary.filterSensitiveLog)
@@ -296,7 +296,7 @@ export interface DescribeEntityRequest {
 }
 
 export namespace DescribeEntityRequest {
-  export const filterSensitiveLog = (obj: DescribeEntityRequest) => ({
+  export const filterSensitiveLog = (obj: DescribeEntityRequest): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeEntityRequest =>
@@ -335,7 +335,7 @@ export interface DescribeEntityResponse {
 }
 
 export namespace DescribeEntityResponse {
-  export const filterSensitiveLog = (obj: DescribeEntityResponse) => ({
+  export const filterSensitiveLog = (obj: DescribeEntityResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is DescribeEntityResponse =>
@@ -360,7 +360,7 @@ export interface Entity {
 }
 
 export namespace Entity {
-  export const filterSensitiveLog = (obj: Entity) => ({
+  export const filterSensitiveLog = (obj: Entity): any => ({
     ...obj
   });
   export const isa = (o: any): o is Entity => __isa(o, "Entity");
@@ -410,7 +410,7 @@ export interface EntitySummary {
 }
 
 export namespace EntitySummary {
-  export const filterSensitiveLog = (obj: EntitySummary) => ({
+  export const filterSensitiveLog = (obj: EntitySummary): any => ({
     ...obj
   });
   export const isa = (o: any): o is EntitySummary => __isa(o, "EntitySummary");
@@ -433,7 +433,7 @@ export interface ErrorDetail {
 }
 
 export namespace ErrorDetail {
-  export const filterSensitiveLog = (obj: ErrorDetail) => ({
+  export const filterSensitiveLog = (obj: ErrorDetail): any => ({
     ...obj
   });
   export const isa = (o: any): o is ErrorDetail => __isa(o, "ErrorDetail");
@@ -502,7 +502,7 @@ export interface Filter {
 }
 
 export namespace Filter {
-  export const filterSensitiveLog = (obj: Filter) => ({
+  export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj
   });
   export const isa = (o: any): o is Filter => __isa(o, "Filter");
@@ -520,7 +520,7 @@ export interface InternalServiceException
 }
 
 export namespace InternalServiceException {
-  export const filterSensitiveLog = (obj: InternalServiceException) => ({
+  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj
   });
   export const isa = (o: any): o is InternalServiceException =>
@@ -561,7 +561,7 @@ export interface ListChangeSetsRequest {
 }
 
 export namespace ListChangeSetsRequest {
-  export const filterSensitiveLog = (obj: ListChangeSetsRequest) => ({
+  export const filterSensitiveLog = (obj: ListChangeSetsRequest): any => ({
     ...obj,
     ...(obj.FilterList && {
       FilterList: obj.FilterList.map(Filter.filterSensitiveLog)
@@ -586,7 +586,7 @@ export interface ListChangeSetsResponse {
 }
 
 export namespace ListChangeSetsResponse {
-  export const filterSensitiveLog = (obj: ListChangeSetsResponse) => ({
+  export const filterSensitiveLog = (obj: ListChangeSetsResponse): any => ({
     ...obj,
     ...(obj.ChangeSetSummaryList && {
       ChangeSetSummaryList: obj.ChangeSetSummaryList.map(
@@ -636,7 +636,7 @@ export interface ListEntitiesRequest {
 }
 
 export namespace ListEntitiesRequest {
-  export const filterSensitiveLog = (obj: ListEntitiesRequest) => ({
+  export const filterSensitiveLog = (obj: ListEntitiesRequest): any => ({
     ...obj,
     ...(obj.FilterList && {
       FilterList: obj.FilterList.map(Filter.filterSensitiveLog)
@@ -661,7 +661,7 @@ export interface ListEntitiesResponse {
 }
 
 export namespace ListEntitiesResponse {
-  export const filterSensitiveLog = (obj: ListEntitiesResponse) => ({
+  export const filterSensitiveLog = (obj: ListEntitiesResponse): any => ({
     ...obj,
     ...(obj.EntitySummaryList && {
       EntitySummaryList: obj.EntitySummaryList.map(
@@ -685,7 +685,7 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export const filterSensitiveLog = (obj: ResourceInUseException) => ({
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceInUseException =>
@@ -704,7 +704,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException) => ({
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotFoundException =>
@@ -723,7 +723,9 @@ export interface ResourceNotSupportedException
 }
 
 export namespace ResourceNotSupportedException {
-  export const filterSensitiveLog = (obj: ResourceNotSupportedException) => ({
+  export const filterSensitiveLog = (
+    obj: ResourceNotSupportedException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ResourceNotSupportedException =>
@@ -742,7 +744,9 @@ export interface ServiceQuotaExceededException
 }
 
 export namespace ServiceQuotaExceededException {
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException) => ({
+  export const filterSensitiveLog = (
+    obj: ServiceQuotaExceededException
+  ): any => ({
     ...obj
   });
   export const isa = (o: any): o is ServiceQuotaExceededException =>
@@ -773,7 +777,7 @@ export interface Sort {
 }
 
 export namespace Sort {
-  export const filterSensitiveLog = (obj: Sort) => ({
+  export const filterSensitiveLog = (obj: Sort): any => ({
     ...obj
   });
   export const isa = (o: any): o is Sort => __isa(o, "Sort");
@@ -810,7 +814,7 @@ export interface StartChangeSetRequest {
 }
 
 export namespace StartChangeSetRequest {
-  export const filterSensitiveLog = (obj: StartChangeSetRequest) => ({
+  export const filterSensitiveLog = (obj: StartChangeSetRequest): any => ({
     ...obj,
     ...(obj.ChangeSet && {
       ChangeSet: obj.ChangeSet.map(Change.filterSensitiveLog)
@@ -834,7 +838,7 @@ export interface StartChangeSetResponse {
 }
 
 export namespace StartChangeSetResponse {
-  export const filterSensitiveLog = (obj: StartChangeSetResponse) => ({
+  export const filterSensitiveLog = (obj: StartChangeSetResponse): any => ({
     ...obj
   });
   export const isa = (o: any): o is StartChangeSetResponse =>
@@ -853,7 +857,7 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException) => ({
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ThrottlingException =>
@@ -872,7 +876,7 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const filterSensitiveLog = (obj: ValidationException) => ({
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj
   });
   export const isa = (o: any): o is ValidationException =>
