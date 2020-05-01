@@ -2040,14 +2040,13 @@ export namespace Deployment {
           acc: any,
           [key, value]: [string, { [key: string]: MethodSnapshot }]
         ) => {
-          (acc[key] = Object.entries(value).reduce(
+          acc[key] = Object.entries(value).reduce(
             (acc: any, [key, value]: [string, MethodSnapshot]) => {
               acc[key] = MethodSnapshot.filterSensitiveLog(value);
               return acc;
             },
             {}
-          )),
-            {};
+          );
           return acc;
         },
         {}
