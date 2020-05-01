@@ -1151,7 +1151,9 @@ export namespace DiscoverInputSchemaResponse {
       InputSchema: SourceSchema.filterSensitiveLog(obj.InputSchema)
     }),
     ...(obj.ParsedInputRecords && {
-      ParsedInputRecords: obj.ParsedInputRecords.map(item => item.map())
+      ParsedInputRecords: obj.ParsedInputRecords.map(item =>
+        item.map(item => item)
+      )
     })
   });
   export const isa = (o: any): o is DiscoverInputSchemaResponse =>

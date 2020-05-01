@@ -901,7 +901,7 @@ export namespace EntityFilter {
         DateTimeRange.filterSensitiveLog
       )
     }),
-    ...(obj.tags && { tags: obj.tags.map() })
+    ...(obj.tags && { tags: obj.tags.map(item => item) })
   });
   export const isa = (o: any): o is EntityFilter => __isa(o, "EntityFilter");
 }
@@ -1202,7 +1202,7 @@ export namespace EventFilter {
     ...(obj.startTimes && {
       startTimes: obj.startTimes.map(DateTimeRange.filterSensitiveLog)
     }),
-    ...(obj.tags && { tags: obj.tags.map() })
+    ...(obj.tags && { tags: obj.tags.map(item => item) })
   });
   export const isa = (o: any): o is EventFilter => __isa(o, "EventFilter");
 }

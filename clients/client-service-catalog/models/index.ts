@@ -1137,7 +1137,9 @@ export namespace CopyProductInput {
   export const filterSensitiveLog = (obj: CopyProductInput) => ({
     ...obj,
     ...(obj.SourceProvisioningArtifactIdentifiers && {
-      SourceProvisioningArtifactIdentifiers: obj.SourceProvisioningArtifactIdentifiers.map()
+      SourceProvisioningArtifactIdentifiers: obj.SourceProvisioningArtifactIdentifiers.map(
+        item => item
+      )
     })
   });
   export const isa = (o: any): o is CopyProductInput =>

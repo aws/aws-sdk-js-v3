@@ -514,7 +514,7 @@ export namespace CreateMissionProfileRequest {
   export const filterSensitiveLog = (obj: CreateMissionProfileRequest) => ({
     ...obj,
     ...(obj.dataflowEdges && {
-      dataflowEdges: obj.dataflowEdges.map(item => item.map())
+      dataflowEdges: obj.dataflowEdges.map(item => item.map(item => item))
     })
   });
   export const isa = (o: any): o is CreateMissionProfileRequest =>
@@ -1059,7 +1059,7 @@ export namespace GetMissionProfileResponse {
   export const filterSensitiveLog = (obj: GetMissionProfileResponse) => ({
     ...obj,
     ...(obj.dataflowEdges && {
-      dataflowEdges: obj.dataflowEdges.map(item => item.map())
+      dataflowEdges: obj.dataflowEdges.map(item => item.map(item => item))
     })
   });
   export const isa = (o: any): o is GetMissionProfileResponse =>
@@ -1505,7 +1505,7 @@ export namespace UpdateMissionProfileRequest {
   export const filterSensitiveLog = (obj: UpdateMissionProfileRequest) => ({
     ...obj,
     ...(obj.dataflowEdges && {
-      dataflowEdges: obj.dataflowEdges.map(item => item.map())
+      dataflowEdges: obj.dataflowEdges.map(item => item.map(item => item))
     })
   });
   export const isa = (o: any): o is UpdateMissionProfileRequest =>

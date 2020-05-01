@@ -1238,7 +1238,7 @@ export namespace AutomationExecution {
         TargetLocation.filterSensitiveLog
       )
     }),
-    ...(obj.TargetMaps && { TargetMaps: obj.TargetMaps.map() }),
+    ...(obj.TargetMaps && { TargetMaps: obj.TargetMaps.map(item => item) }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AutomationExecution =>
@@ -1433,7 +1433,7 @@ export namespace AutomationExecutionMetadata {
     ...(obj.ResolvedTargets && {
       ResolvedTargets: ResolvedTargets.filterSensitiveLog(obj.ResolvedTargets)
     }),
-    ...(obj.TargetMaps && { TargetMaps: obj.TargetMaps.map() }),
+    ...(obj.TargetMaps && { TargetMaps: obj.TargetMaps.map(item => item) }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AutomationExecutionMetadata =>
@@ -6190,7 +6190,7 @@ export interface DescribePatchPropertiesResult {
 export namespace DescribePatchPropertiesResult {
   export const filterSensitiveLog = (obj: DescribePatchPropertiesResult) => ({
     ...obj,
-    ...(obj.Properties && { Properties: obj.Properties.map() })
+    ...(obj.Properties && { Properties: obj.Properties.map(item => item) })
   });
   export const isa = (o: any): o is DescribePatchPropertiesResult =>
     __isa(o, "DescribePatchPropertiesResult");
@@ -10641,7 +10641,7 @@ export interface InventoryItem {
 export namespace InventoryItem {
   export const filterSensitiveLog = (obj: InventoryItem) => ({
     ...obj,
-    ...(obj.Content && { Content: obj.Content.map() })
+    ...(obj.Content && { Content: obj.Content.map(item => item) })
   });
   export const isa = (o: any): o is InventoryItem => __isa(o, "InventoryItem");
 }
@@ -10784,7 +10784,7 @@ export interface InventoryResultItem {
 export namespace InventoryResultItem {
   export const filterSensitiveLog = (obj: InventoryResultItem) => ({
     ...obj,
-    ...(obj.Content && { Content: obj.Content.map() })
+    ...(obj.Content && { Content: obj.Content.map(item => item) })
   });
   export const isa = (o: any): o is InventoryResultItem =>
     __isa(o, "InventoryResultItem");
@@ -11496,7 +11496,7 @@ export interface ListInventoryEntriesResult {
 export namespace ListInventoryEntriesResult {
   export const filterSensitiveLog = (obj: ListInventoryEntriesResult) => ({
     ...obj,
-    ...(obj.Entries && { Entries: obj.Entries.map() })
+    ...(obj.Entries && { Entries: obj.Entries.map(item => item) })
   });
   export const isa = (o: any): o is ListInventoryEntriesResult =>
     __isa(o, "ListInventoryEntriesResult");
@@ -12776,7 +12776,7 @@ export interface OpsEntityItem {
 export namespace OpsEntityItem {
   export const filterSensitiveLog = (obj: OpsEntityItem) => ({
     ...obj,
-    ...(obj.Content && { Content: obj.Content.map() })
+    ...(obj.Content && { Content: obj.Content.map(item => item) })
   });
   export const isa = (o: any): o is OpsEntityItem => __isa(o, "OpsEntityItem");
 }
@@ -16518,7 +16518,7 @@ export namespace StartAutomationExecutionRequest {
         TargetLocation.filterSensitiveLog
       )
     }),
-    ...(obj.TargetMaps && { TargetMaps: obj.TargetMaps.map() }),
+    ...(obj.TargetMaps && { TargetMaps: obj.TargetMaps.map(item => item) }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
   });
   export const isa = (o: any): o is StartAutomationExecutionRequest =>
