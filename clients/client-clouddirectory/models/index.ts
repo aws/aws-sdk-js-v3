@@ -3949,6 +3949,15 @@ export namespace FacetAttributeDefinition {
     ...obj,
     ...(obj.DefaultValue && {
       DefaultValue: TypedAttributeValue.filterSensitiveLog(obj.DefaultValue)
+    }),
+    ...(obj.Rules && {
+      Rules: Object.entries(obj.Rules).reduce(
+        (acc: any, [key, value]: [string, Rule]) => {
+          acc[key] = Rule.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is FacetAttributeDefinition =>
@@ -6871,6 +6880,15 @@ export namespace TypedLinkAttributeDefinition {
     ...obj,
     ...(obj.DefaultValue && {
       DefaultValue: TypedAttributeValue.filterSensitiveLog(obj.DefaultValue)
+    }),
+    ...(obj.Rules && {
+      Rules: Object.entries(obj.Rules).reduce(
+        (acc: any, [key, value]: [string, Rule]) => {
+          acc[key] = Rule.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is TypedLinkAttributeDefinition =>

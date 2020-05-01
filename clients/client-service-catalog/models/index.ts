@@ -3695,7 +3695,10 @@ export namespace ExecuteProvisionedProductServiceActionInput {
   export const filterSensitiveLog = (
     obj: ExecuteProvisionedProductServiceActionInput
   ) => ({
-    ...obj
+    ...obj,
+    ...(obj.Parameters && {
+      Parameters: Object.entries(obj.Parameters).reduce()
+    })
   });
   export const isa = (
     o: any
@@ -6967,7 +6970,8 @@ export interface SearchProductsAsAdminInput {
 
 export namespace SearchProductsAsAdminInput {
   export const filterSensitiveLog = (obj: SearchProductsAsAdminInput) => ({
-    ...obj
+    ...obj,
+    ...(obj.Filters && { Filters: Object.entries(obj.Filters).reduce() })
   });
   export const isa = (o: any): o is SearchProductsAsAdminInput =>
     __isa(o, "SearchProductsAsAdminInput");
@@ -7049,7 +7053,8 @@ export interface SearchProductsInput {
 
 export namespace SearchProductsInput {
   export const filterSensitiveLog = (obj: SearchProductsInput) => ({
-    ...obj
+    ...obj,
+    ...(obj.Filters && { Filters: Object.entries(obj.Filters).reduce() })
   });
   export const isa = (o: any): o is SearchProductsInput =>
     __isa(o, "SearchProductsInput");
@@ -7076,6 +7081,11 @@ export interface SearchProductsOutput {
 export namespace SearchProductsOutput {
   export const filterSensitiveLog = (obj: SearchProductsOutput) => ({
     ...obj,
+    ...(obj.ProductViewAggregations && {
+      ProductViewAggregations: Object.entries(
+        obj.ProductViewAggregations
+      ).reduce()
+    }),
     ...(obj.ProductViewSummaries && {
       ProductViewSummaries: obj.ProductViewSummaries.map(
         ProductViewSummary.filterSensitiveLog
@@ -7153,7 +7163,8 @@ export namespace SearchProvisionedProductsInput {
       AccessLevelFilter: AccessLevelFilter.filterSensitiveLog(
         obj.AccessLevelFilter
       )
-    })
+    }),
+    ...(obj.Filters && { Filters: Object.entries(obj.Filters).reduce() })
   });
   export const isa = (o: any): o is SearchProvisionedProductsInput =>
     __isa(o, "SearchProvisionedProductsInput");

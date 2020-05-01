@@ -186,7 +186,10 @@ export interface ADMMessage {
 
 export namespace ADMMessage {
   export const filterSensitiveLog = (obj: ADMMessage) => ({
-    ...obj
+    ...obj,
+    ...(obj.Substitutions && {
+      Substitutions: Object.entries(obj.Substitutions).reduce()
+    })
   });
   export const isa = (o: any): o is ADMMessage => __isa(o, "ADMMessage");
 }
@@ -417,7 +420,10 @@ export interface APNSMessage {
 
 export namespace APNSMessage {
   export const filterSensitiveLog = (obj: APNSMessage) => ({
-    ...obj
+    ...obj,
+    ...(obj.Substitutions && {
+      Substitutions: Object.entries(obj.Substitutions).reduce()
+    })
   });
   export const isa = (o: any): o is APNSMessage => __isa(o, "APNSMessage");
 }
@@ -1071,7 +1077,10 @@ export interface AddressConfiguration {
 
 export namespace AddressConfiguration {
   export const filterSensitiveLog = (obj: AddressConfiguration) => ({
-    ...obj
+    ...obj,
+    ...(obj.Substitutions && {
+      Substitutions: Object.entries(obj.Substitutions).reduce()
+    })
   });
   export const isa = (o: any): o is AddressConfiguration =>
     __isa(o, "AddressConfiguration");
@@ -1553,7 +1562,10 @@ export interface BaiduMessage {
 
 export namespace BaiduMessage {
   export const filterSensitiveLog = (obj: BaiduMessage) => ({
-    ...obj
+    ...obj,
+    ...(obj.Substitutions && {
+      Substitutions: Object.entries(obj.Substitutions).reduce()
+    })
   });
   export const isa = (o: any): o is BaiduMessage => __isa(o, "BaiduMessage");
 }
@@ -2074,7 +2086,16 @@ export interface ChannelsResponse {
 
 export namespace ChannelsResponse {
   export const filterSensitiveLog = (obj: ChannelsResponse) => ({
-    ...obj
+    ...obj,
+    ...(obj.Channels && {
+      Channels: Object.entries(obj.Channels).reduce(
+        (acc: any, [key, value]: [string, ChannelResponse]) => {
+          acc[key] = ChannelResponse.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is ChannelsResponse =>
     __isa(o, "ChannelsResponse");
@@ -2678,7 +2699,10 @@ export interface DefaultMessage {
 
 export namespace DefaultMessage {
   export const filterSensitiveLog = (obj: DefaultMessage) => ({
-    ...obj
+    ...obj,
+    ...(obj.Substitutions && {
+      Substitutions: Object.entries(obj.Substitutions).reduce()
+    })
   });
   export const isa = (o: any): o is DefaultMessage =>
     __isa(o, "DefaultMessage");
@@ -2727,7 +2751,10 @@ export interface DefaultPushNotificationMessage {
 
 export namespace DefaultPushNotificationMessage {
   export const filterSensitiveLog = (obj: DefaultPushNotificationMessage) => ({
-    ...obj
+    ...obj,
+    ...(obj.Substitutions && {
+      Substitutions: Object.entries(obj.Substitutions).reduce()
+    })
   });
   export const isa = (o: any): o is DefaultPushNotificationMessage =>
     __isa(o, "DefaultPushNotificationMessage");
@@ -3873,6 +3900,9 @@ export namespace EmailMessage {
     }),
     ...(obj.SimpleEmail && {
       SimpleEmail: SimpleEmail.filterSensitiveLog(obj.SimpleEmail)
+    }),
+    ...(obj.Substitutions && {
+      Substitutions: Object.entries(obj.Substitutions).reduce()
     })
   });
   export const isa = (o: any): o is EmailMessage => __isa(o, "EmailMessage");
@@ -4102,6 +4132,9 @@ export interface EndpointBatchItem {
 export namespace EndpointBatchItem {
   export const filterSensitiveLog = (obj: EndpointBatchItem) => ({
     ...obj,
+    ...(obj.Attributes && {
+      Attributes: Object.entries(obj.Attributes).reduce()
+    }),
     ...(obj.Demographic && {
       Demographic: EndpointDemographic.filterSensitiveLog(obj.Demographic)
     }),
@@ -4366,6 +4399,9 @@ export interface EndpointRequest {
 export namespace EndpointRequest {
   export const filterSensitiveLog = (obj: EndpointRequest) => ({
     ...obj,
+    ...(obj.Attributes && {
+      Attributes: Object.entries(obj.Attributes).reduce()
+    }),
     ...(obj.Demographic && {
       Demographic: EndpointDemographic.filterSensitiveLog(obj.Demographic)
     }),
@@ -4462,6 +4498,9 @@ export interface EndpointResponse {
 export namespace EndpointResponse {
   export const filterSensitiveLog = (obj: EndpointResponse) => ({
     ...obj,
+    ...(obj.Attributes && {
+      Attributes: Object.entries(obj.Attributes).reduce()
+    }),
     ...(obj.Demographic && {
       Demographic: EndpointDemographic.filterSensitiveLog(obj.Demographic)
     }),
@@ -4507,7 +4546,10 @@ export interface EndpointSendConfiguration {
 
 export namespace EndpointSendConfiguration {
   export const filterSensitiveLog = (obj: EndpointSendConfiguration) => ({
-    ...obj
+    ...obj,
+    ...(obj.Substitutions && {
+      Substitutions: Object.entries(obj.Substitutions).reduce()
+    })
   });
   export const isa = (o: any): o is EndpointSendConfiguration =>
     __isa(o, "EndpointSendConfiguration");
@@ -4531,7 +4573,10 @@ export interface EndpointUser {
 
 export namespace EndpointUser {
   export const filterSensitiveLog = (obj: EndpointUser) => ({
-    ...obj
+    ...obj,
+    ...(obj.UserAttributes && {
+      UserAttributes: Object.entries(obj.UserAttributes).reduce()
+    })
   });
   export const isa = (o: any): o is EndpointUser => __isa(o, "EndpointUser");
 }
@@ -4671,8 +4716,26 @@ export interface EventDimensions {
 export namespace EventDimensions {
   export const filterSensitiveLog = (obj: EventDimensions) => ({
     ...obj,
+    ...(obj.Attributes && {
+      Attributes: Object.entries(obj.Attributes).reduce(
+        (acc: any, [key, value]: [string, AttributeDimension]) => {
+          acc[key] = AttributeDimension.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.EventType && {
       EventType: SetDimension.filterSensitiveLog(obj.EventType)
+    }),
+    ...(obj.Metrics && {
+      Metrics: Object.entries(obj.Metrics).reduce(
+        (acc: any, [key, value]: [string, MetricDimension]) => {
+          acc[key] = MetricDimension.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is EventDimensions =>
@@ -4769,6 +4832,15 @@ export namespace EventsBatch {
     ...obj,
     ...(obj.Endpoint && {
       Endpoint: PublicEndpoint.filterSensitiveLog(obj.Endpoint)
+    }),
+    ...(obj.Events && {
+      Events: Object.entries(obj.Events).reduce(
+        (acc: any, [key, value]: [string, Event]) => {
+          acc[key] = Event.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is EventsBatch => __isa(o, "EventsBatch");
@@ -4787,7 +4859,16 @@ export interface EventsRequest {
 
 export namespace EventsRequest {
   export const filterSensitiveLog = (obj: EventsRequest) => ({
-    ...obj
+    ...obj,
+    ...(obj.BatchItem && {
+      BatchItem: Object.entries(obj.BatchItem).reduce(
+        (acc: any, [key, value]: [string, EventsBatch]) => {
+          acc[key] = EventsBatch.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is EventsRequest => __isa(o, "EventsRequest");
 }
@@ -4805,7 +4886,16 @@ export interface EventsResponse {
 
 export namespace EventsResponse {
   export const filterSensitiveLog = (obj: EventsResponse) => ({
-    ...obj
+    ...obj,
+    ...(obj.Results && {
+      Results: Object.entries(obj.Results).reduce(
+        (acc: any, [key, value]: [string, ItemResponse]) => {
+          acc[key] = ItemResponse.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is EventsResponse =>
     __isa(o, "EventsResponse");
@@ -5218,7 +5308,10 @@ export interface GCMMessage {
 
 export namespace GCMMessage {
   export const filterSensitiveLog = (obj: GCMMessage) => ({
-    ...obj
+    ...obj,
+    ...(obj.Substitutions && {
+      Substitutions: Object.entries(obj.Substitutions).reduce()
+    })
   });
   export const isa = (o: any): o is GCMMessage => __isa(o, "GCMMessage");
 }
@@ -7453,6 +7546,15 @@ export namespace ItemResponse {
       EndpointItemResponse: EndpointItemResponse.filterSensitiveLog(
         obj.EndpointItemResponse
       )
+    }),
+    ...(obj.EventsItemResponse && {
+      EventsItemResponse: Object.entries(obj.EventsItemResponse).reduce(
+        (acc: any, [key, value]: [string, EventItemResponse]) => {
+          acc[key] = EventItemResponse.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is ItemResponse => __isa(o, "ItemResponse");
@@ -7733,6 +7835,15 @@ export interface JourneyResponse {
 export namespace JourneyResponse {
   export const filterSensitiveLog = (obj: JourneyResponse) => ({
     ...obj,
+    ...(obj.Activities && {
+      Activities: Object.entries(obj.Activities).reduce(
+        (acc: any, [key, value]: [string, Activity]) => {
+          acc[key] = Activity.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.Limits && { Limits: JourneyLimits.filterSensitiveLog(obj.Limits) }),
     ...(obj.QuietTime && {
       QuietTime: QuietTime.filterSensitiveLog(obj.QuietTime)
@@ -8217,6 +8328,24 @@ export interface MessageRequest {
 export namespace MessageRequest {
   export const filterSensitiveLog = (obj: MessageRequest) => ({
     ...obj,
+    ...(obj.Addresses && {
+      Addresses: Object.entries(obj.Addresses).reduce(
+        (acc: any, [key, value]: [string, AddressConfiguration]) => {
+          acc[key] = AddressConfiguration.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.Endpoints && {
+      Endpoints: Object.entries(obj.Endpoints).reduce(
+        (acc: any, [key, value]: [string, EndpointSendConfiguration]) => {
+          acc[key] = EndpointSendConfiguration.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.MessageConfiguration && {
       MessageConfiguration: DirectMessageConfiguration.filterSensitiveLog(
         obj.MessageConfiguration
@@ -8260,7 +8389,25 @@ export interface MessageResponse {
 
 export namespace MessageResponse {
   export const filterSensitiveLog = (obj: MessageResponse) => ({
-    ...obj
+    ...obj,
+    ...(obj.EndpointResult && {
+      EndpointResult: Object.entries(obj.EndpointResult).reduce(
+        (acc: any, [key, value]: [string, EndpointMessageResult]) => {
+          acc[key] = EndpointMessageResult.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.Result && {
+      Result: Object.entries(obj.Result).reduce(
+        (acc: any, [key, value]: [string, MessageResult]) => {
+          acc[key] = MessageResult.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is MessageResponse =>
     __isa(o, "MessageResponse");
@@ -8672,6 +8819,9 @@ export interface PublicEndpoint {
 export namespace PublicEndpoint {
   export const filterSensitiveLog = (obj: PublicEndpoint) => ({
     ...obj,
+    ...(obj.Attributes && {
+      Attributes: Object.entries(obj.Attributes).reduce()
+    }),
     ...(obj.Demographic && {
       Demographic: EndpointDemographic.filterSensitiveLog(obj.Demographic)
     }),
@@ -9319,7 +9469,10 @@ export interface SMSMessage {
 
 export namespace SMSMessage {
   export const filterSensitiveLog = (obj: SMSMessage) => ({
-    ...obj
+    ...obj,
+    ...(obj.Substitutions && {
+      Substitutions: Object.entries(obj.Substitutions).reduce()
+    })
   });
   export const isa = (o: any): o is SMSMessage => __isa(o, "SMSMessage");
 }
@@ -9617,6 +9770,15 @@ export interface SegmentDimensions {
 export namespace SegmentDimensions {
   export const filterSensitiveLog = (obj: SegmentDimensions) => ({
     ...obj,
+    ...(obj.Attributes && {
+      Attributes: Object.entries(obj.Attributes).reduce(
+        (acc: any, [key, value]: [string, AttributeDimension]) => {
+          acc[key] = AttributeDimension.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.Behavior && {
       Behavior: SegmentBehaviors.filterSensitiveLog(obj.Behavior)
     }),
@@ -9625,6 +9787,24 @@ export namespace SegmentDimensions {
     }),
     ...(obj.Location && {
       Location: SegmentLocation.filterSensitiveLog(obj.Location)
+    }),
+    ...(obj.Metrics && {
+      Metrics: Object.entries(obj.Metrics).reduce(
+        (acc: any, [key, value]: [string, MetricDimension]) => {
+          acc[key] = MetricDimension.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.UserAttributes && {
+      UserAttributes: Object.entries(obj.UserAttributes).reduce(
+        (acc: any, [key, value]: [string, AttributeDimension]) => {
+          acc[key] = AttributeDimension.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is SegmentDimensions =>
@@ -9998,6 +10178,15 @@ export namespace SendUsersMessageRequest {
       TemplateConfiguration: TemplateConfiguration.filterSensitiveLog(
         obj.TemplateConfiguration
       )
+    }),
+    ...(obj.Users && {
+      Users: Object.entries(obj.Users).reduce(
+        (acc: any, [key, value]: [string, EndpointSendConfiguration]) => {
+          acc[key] = EndpointSendConfiguration.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is SendUsersMessageRequest =>
@@ -10027,7 +10216,8 @@ export interface SendUsersMessageResponse {
 
 export namespace SendUsersMessageResponse {
   export const filterSensitiveLog = (obj: SendUsersMessageResponse) => ({
-    ...obj
+    ...obj,
+    ...(obj.Result && { Result: Object.entries(obj.Result).reduce() })
   });
   export const isa = (o: any): o is SendUsersMessageResponse =>
     __isa(o, "SendUsersMessageResponse");
@@ -11942,7 +12132,10 @@ export interface VoiceMessage {
 
 export namespace VoiceMessage {
   export const filterSensitiveLog = (obj: VoiceMessage) => ({
-    ...obj
+    ...obj,
+    ...(obj.Substitutions && {
+      Substitutions: Object.entries(obj.Substitutions).reduce()
+    })
   });
   export const isa = (o: any): o is VoiceMessage => __isa(o, "VoiceMessage");
 }
@@ -12361,6 +12554,15 @@ export interface WriteJourneyRequest {
 export namespace WriteJourneyRequest {
   export const filterSensitiveLog = (obj: WriteJourneyRequest) => ({
     ...obj,
+    ...(obj.Activities && {
+      Activities: Object.entries(obj.Activities).reduce(
+        (acc: any, [key, value]: [string, Activity]) => {
+          acc[key] = Activity.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.Limits && { Limits: JourneyLimits.filterSensitiveLog(obj.Limits) }),
     ...(obj.QuietTime && {
       QuietTime: QuietTime.filterSensitiveLog(obj.QuietTime)

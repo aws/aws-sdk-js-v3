@@ -523,7 +523,16 @@ export interface GetIdentityPoolRolesResponse {
 
 export namespace GetIdentityPoolRolesResponse {
   export const filterSensitiveLog = (obj: GetIdentityPoolRolesResponse) => ({
-    ...obj
+    ...obj,
+    ...(obj.RoleMappings && {
+      RoleMappings: Object.entries(obj.RoleMappings).reduce(
+        (acc: any, [key, value]: [string, RoleMapping]) => {
+          acc[key] = RoleMapping.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is GetIdentityPoolRolesResponse =>
     __isa(o, "GetIdentityPoolRolesResponse");
@@ -1390,7 +1399,16 @@ export interface SetIdentityPoolRolesInput {
 
 export namespace SetIdentityPoolRolesInput {
   export const filterSensitiveLog = (obj: SetIdentityPoolRolesInput) => ({
-    ...obj
+    ...obj,
+    ...(obj.RoleMappings && {
+      RoleMappings: Object.entries(obj.RoleMappings).reduce(
+        (acc: any, [key, value]: [string, RoleMapping]) => {
+          acc[key] = RoleMapping.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is SetIdentityPoolRolesInput =>
     __isa(o, "SetIdentityPoolRolesInput");

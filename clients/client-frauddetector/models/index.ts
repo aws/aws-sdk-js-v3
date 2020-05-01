@@ -1251,7 +1251,10 @@ export interface LabelSchema {
 
 export namespace LabelSchema {
   export const filterSensitiveLog = (obj: LabelSchema) => ({
-    ...obj
+    ...obj,
+    ...(obj.labelMapper && {
+      labelMapper: Object.entries(obj.labelMapper).reduce()
+    })
   });
   export const isa = (o: any): o is LabelSchema => __isa(o, "LabelSchema");
 }

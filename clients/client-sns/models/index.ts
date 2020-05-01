@@ -1675,7 +1675,16 @@ export interface PublishInput {
 
 export namespace PublishInput {
   export const filterSensitiveLog = (obj: PublishInput) => ({
-    ...obj
+    ...obj,
+    ...(obj.MessageAttributes && {
+      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
+        (acc: any, [key, value]: [string, MessageAttributeValue]) => {
+          acc[key] = MessageAttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is PublishInput => __isa(o, "PublishInput");
 }

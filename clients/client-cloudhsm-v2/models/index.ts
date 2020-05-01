@@ -528,7 +528,8 @@ export interface DescribeBackupsRequest {
 
 export namespace DescribeBackupsRequest {
   export const filterSensitiveLog = (obj: DescribeBackupsRequest) => ({
-    ...obj
+    ...obj,
+    ...(obj.Filters && { Filters: Object.entries(obj.Filters).reduce() })
   });
   export const isa = (o: any): o is DescribeBackupsRequest =>
     __isa(o, "DescribeBackupsRequest");
@@ -586,7 +587,8 @@ export interface DescribeClustersRequest {
 
 export namespace DescribeClustersRequest {
   export const filterSensitiveLog = (obj: DescribeClustersRequest) => ({
-    ...obj
+    ...obj,
+    ...(obj.Filters && { Filters: Object.entries(obj.Filters).reduce() })
   });
   export const isa = (o: any): o is DescribeClustersRequest =>
     __isa(o, "DescribeClustersRequest");

@@ -1628,7 +1628,10 @@ export interface GetBlacklistReportsResponse {
 
 export namespace GetBlacklistReportsResponse {
   export const filterSensitiveLog = (obj: GetBlacklistReportsResponse) => ({
-    ...obj
+    ...obj,
+    ...(obj.BlacklistReport && {
+      BlacklistReport: Object.entries(obj.BlacklistReport).reduce()
+    })
   });
   export const isa = (o: any): o is GetBlacklistReportsResponse =>
     __isa(o, "GetBlacklistReportsResponse");

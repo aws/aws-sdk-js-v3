@@ -560,7 +560,16 @@ export interface BatchDeleteConnectionResponse {
 
 export namespace BatchDeleteConnectionResponse {
   export const filterSensitiveLog = (obj: BatchDeleteConnectionResponse) => ({
-    ...obj
+    ...obj,
+    ...(obj.Errors && {
+      Errors: Object.entries(obj.Errors).reduce(
+        (acc: any, [key, value]: [string, ErrorDetail]) => {
+          acc[key] = ErrorDetail.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is BatchDeleteConnectionResponse =>
     __isa(o, "BatchDeleteConnectionResponse");

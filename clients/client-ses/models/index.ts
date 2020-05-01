@@ -2324,7 +2324,16 @@ export namespace GetIdentityDkimAttributesResponse {
   export const filterSensitiveLog = (
     obj: GetIdentityDkimAttributesResponse
   ) => ({
-    ...obj
+    ...obj,
+    ...(obj.DkimAttributes && {
+      DkimAttributes: Object.entries(obj.DkimAttributes).reduce(
+        (acc: any, [key, value]: [string, IdentityDkimAttributes]) => {
+          acc[key] = IdentityDkimAttributes.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is GetIdentityDkimAttributesResponse =>
     __isa(o, "GetIdentityDkimAttributesResponse");
@@ -2372,7 +2381,21 @@ export namespace GetIdentityMailFromDomainAttributesResponse {
   export const filterSensitiveLog = (
     obj: GetIdentityMailFromDomainAttributesResponse
   ) => ({
-    ...obj
+    ...obj,
+    ...(obj.MailFromDomainAttributes && {
+      MailFromDomainAttributes: Object.entries(
+        obj.MailFromDomainAttributes
+      ).reduce(
+        (
+          acc: any,
+          [key, value]: [string, IdentityMailFromDomainAttributes]
+        ) => {
+          acc[key] = IdentityMailFromDomainAttributes.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (
     o: any
@@ -2423,7 +2446,16 @@ export namespace GetIdentityNotificationAttributesResponse {
   export const filterSensitiveLog = (
     obj: GetIdentityNotificationAttributesResponse
   ) => ({
-    ...obj
+    ...obj,
+    ...(obj.NotificationAttributes && {
+      NotificationAttributes: Object.entries(obj.NotificationAttributes).reduce(
+        (acc: any, [key, value]: [string, IdentityNotificationAttributes]) => {
+          acc[key] = IdentityNotificationAttributes.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is GetIdentityNotificationAttributesResponse =>
     __isa(o, "GetIdentityNotificationAttributesResponse");
@@ -2523,7 +2555,16 @@ export namespace GetIdentityVerificationAttributesResponse {
   export const filterSensitiveLog = (
     obj: GetIdentityVerificationAttributesResponse
   ) => ({
-    ...obj
+    ...obj,
+    ...(obj.VerificationAttributes && {
+      VerificationAttributes: Object.entries(obj.VerificationAttributes).reduce(
+        (acc: any, [key, value]: [string, IdentityVerificationAttributes]) => {
+          acc[key] = IdentityVerificationAttributes.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is GetIdentityVerificationAttributesResponse =>
     __isa(o, "GetIdentityVerificationAttributesResponse");

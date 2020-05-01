@@ -2646,7 +2646,25 @@ export interface GetOfferingStatusResult {
 
 export namespace GetOfferingStatusResult {
   export const filterSensitiveLog = (obj: GetOfferingStatusResult) => ({
-    ...obj
+    ...obj,
+    ...(obj.current && {
+      current: Object.entries(obj.current).reduce(
+        (acc: any, [key, value]: [string, OfferingStatus]) => {
+          acc[key] = OfferingStatus.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.nextPeriod && {
+      nextPeriod: Object.entries(obj.nextPeriod).reduce(
+        (acc: any, [key, value]: [string, OfferingStatus]) => {
+          acc[key] = OfferingStatus.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is GetOfferingStatusResult =>
     __isa(o, "GetOfferingStatusResult");
@@ -4769,7 +4787,10 @@ export interface ListUniqueProblemsResult {
 
 export namespace ListUniqueProblemsResult {
   export const filterSensitiveLog = (obj: ListUniqueProblemsResult) => ({
-    ...obj
+    ...obj,
+    ...(obj.uniqueProblems && {
+      uniqueProblems: Object.entries(obj.uniqueProblems).reduce()
+    })
   });
   export const isa = (o: any): o is ListUniqueProblemsResult =>
     __isa(o, "ListUniqueProblemsResult");

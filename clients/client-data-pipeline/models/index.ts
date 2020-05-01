@@ -1464,7 +1464,16 @@ export interface TaskObject {
 
 export namespace TaskObject {
   export const filterSensitiveLog = (obj: TaskObject) => ({
-    ...obj
+    ...obj,
+    ...(obj.objects && {
+      objects: Object.entries(obj.objects).reduce(
+        (acc: any, [key, value]: [string, PipelineObject]) => {
+          acc[key] = PipelineObject.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is TaskObject => __isa(o, "TaskObject");
 }

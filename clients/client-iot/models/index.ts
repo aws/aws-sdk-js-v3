@@ -11137,7 +11137,16 @@ export namespace DescribeEventConfigurationsResponse {
   export const filterSensitiveLog = (
     obj: DescribeEventConfigurationsResponse
   ) => ({
-    ...obj
+    ...obj,
+    ...(obj.eventConfigurations && {
+      eventConfigurations: Object.entries(obj.eventConfigurations).reduce(
+        (acc: any, [key, value]: [string, Configuration]) => {
+          acc[key] = Configuration.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is DescribeEventConfigurationsResponse =>
     __isa(o, "DescribeEventConfigurationsResponse");
@@ -12519,7 +12528,16 @@ export namespace UpdateEventConfigurationsRequest {
   export const filterSensitiveLog = (
     obj: UpdateEventConfigurationsRequest
   ) => ({
-    ...obj
+    ...obj,
+    ...(obj.eventConfigurations && {
+      eventConfigurations: Object.entries(obj.eventConfigurations).reduce(
+        (acc: any, [key, value]: [string, Configuration]) => {
+          acc[key] = Configuration.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is UpdateEventConfigurationsRequest =>
     __isa(o, "UpdateEventConfigurationsRequest");
@@ -13281,6 +13299,15 @@ export interface CreateSecurityProfileRequest {
 export namespace CreateSecurityProfileRequest {
   export const filterSensitiveLog = (obj: CreateSecurityProfileRequest) => ({
     ...obj,
+    ...(obj.alertTargets && {
+      alertTargets: Object.entries(obj.alertTargets).reduce(
+        (acc: any, [key, value]: [string, AlertTarget]) => {
+          acc[key] = AlertTarget.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.behaviors && {
       behaviors: obj.behaviors.map(Behavior.filterSensitiveLog)
     }),
@@ -13477,7 +13504,23 @@ export namespace DescribeAccountAuditConfigurationResponse {
   export const filterSensitiveLog = (
     obj: DescribeAccountAuditConfigurationResponse
   ) => ({
-    ...obj
+    ...obj,
+    ...(obj.auditCheckConfigurations && {
+      auditCheckConfigurations: Object.entries(
+        obj.auditCheckConfigurations
+      ).reduce((acc: any, [key, value]: [string, AuditCheckConfiguration]) => {
+        acc[key] = AuditCheckConfiguration.filterSensitiveLog(value);
+        return acc;
+      }, {})
+    }),
+    ...(obj.auditNotificationTargetConfigurations && {
+      auditNotificationTargetConfigurations: Object.entries(
+        obj.auditNotificationTargetConfigurations
+      ).reduce((acc: any, [key, value]: [string, AuditNotificationTarget]) => {
+        acc[key] = AuditNotificationTarget.filterSensitiveLog(value);
+        return acc;
+      }, {})
+    })
   });
   export const isa = (o: any): o is DescribeAccountAuditConfigurationResponse =>
     __isa(o, "DescribeAccountAuditConfigurationResponse");
@@ -13584,8 +13627,22 @@ export namespace DescribeAuditMitigationActionsTaskResponse {
         MitigationAction.filterSensitiveLog
       )
     }),
+    ...(obj.auditCheckToActionsMapping && {
+      auditCheckToActionsMapping: Object.entries(
+        obj.auditCheckToActionsMapping
+      ).reduce()
+    }),
     ...(obj.target && {
       target: AuditMitigationActionsTaskTarget.filterSensitiveLog(obj.target)
+    }),
+    ...(obj.taskStatistics && {
+      taskStatistics: Object.entries(obj.taskStatistics).reduce(
+        (acc: any, [key, value]: [string, TaskStatisticsForAuditCheck]) => {
+          acc[key] = TaskStatisticsForAuditCheck.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (
@@ -13647,6 +13704,15 @@ export interface DescribeAuditTaskResponse {
 export namespace DescribeAuditTaskResponse {
   export const filterSensitiveLog = (obj: DescribeAuditTaskResponse) => ({
     ...obj,
+    ...(obj.auditDetails && {
+      auditDetails: Object.entries(obj.auditDetails).reduce(
+        (acc: any, [key, value]: [string, AuditCheckDetails]) => {
+          acc[key] = AuditCheckDetails.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.taskStatistics && {
       taskStatistics: TaskStatistics.filterSensitiveLog(obj.taskStatistics)
     })
@@ -13863,6 +13929,15 @@ export interface DescribeSecurityProfileResponse {
 export namespace DescribeSecurityProfileResponse {
   export const filterSensitiveLog = (obj: DescribeSecurityProfileResponse) => ({
     ...obj,
+    ...(obj.alertTargets && {
+      alertTargets: Object.entries(obj.alertTargets).reduce(
+        (acc: any, [key, value]: [string, AlertTarget]) => {
+          acc[key] = AlertTarget.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.behaviors && {
       behaviors: obj.behaviors.map(Behavior.filterSensitiveLog)
     })
@@ -14621,6 +14696,11 @@ export namespace StartAuditMitigationActionsTaskRequest {
     obj: StartAuditMitigationActionsTaskRequest
   ) => ({
     ...obj,
+    ...(obj.auditCheckToActionsMapping && {
+      auditCheckToActionsMapping: Object.entries(
+        obj.auditCheckToActionsMapping
+      ).reduce()
+    }),
     ...(obj.target && {
       target: AuditMitigationActionsTaskTarget.filterSensitiveLog(obj.target)
     })
@@ -14716,7 +14796,23 @@ export namespace UpdateAccountAuditConfigurationRequest {
   export const filterSensitiveLog = (
     obj: UpdateAccountAuditConfigurationRequest
   ) => ({
-    ...obj
+    ...obj,
+    ...(obj.auditCheckConfigurations && {
+      auditCheckConfigurations: Object.entries(
+        obj.auditCheckConfigurations
+      ).reduce((acc: any, [key, value]: [string, AuditCheckConfiguration]) => {
+        acc[key] = AuditCheckConfiguration.filterSensitiveLog(value);
+        return acc;
+      }, {})
+    }),
+    ...(obj.auditNotificationTargetConfigurations && {
+      auditNotificationTargetConfigurations: Object.entries(
+        obj.auditNotificationTargetConfigurations
+      ).reduce((acc: any, [key, value]: [string, AuditNotificationTarget]) => {
+        acc[key] = AuditNotificationTarget.filterSensitiveLog(value);
+        return acc;
+      }, {})
+    })
   });
   export const isa = (o: any): o is UpdateAccountAuditConfigurationRequest =>
     __isa(o, "UpdateAccountAuditConfigurationRequest");
@@ -14907,6 +15003,15 @@ export interface UpdateSecurityProfileRequest {
 export namespace UpdateSecurityProfileRequest {
   export const filterSensitiveLog = (obj: UpdateSecurityProfileRequest) => ({
     ...obj,
+    ...(obj.alertTargets && {
+      alertTargets: Object.entries(obj.alertTargets).reduce(
+        (acc: any, [key, value]: [string, AlertTarget]) => {
+          acc[key] = AlertTarget.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.behaviors && {
       behaviors: obj.behaviors.map(Behavior.filterSensitiveLog)
     })
@@ -14968,6 +15073,15 @@ export interface UpdateSecurityProfileResponse {
 export namespace UpdateSecurityProfileResponse {
   export const filterSensitiveLog = (obj: UpdateSecurityProfileResponse) => ({
     ...obj,
+    ...(obj.alertTargets && {
+      alertTargets: Object.entries(obj.alertTargets).reduce(
+        (acc: any, [key, value]: [string, AlertTarget]) => {
+          acc[key] = AlertTarget.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.behaviors && {
       behaviors: obj.behaviors.map(Behavior.filterSensitiveLog)
     })
@@ -15608,7 +15722,12 @@ export namespace AuditMitigationActionsTaskTarget {
   export const filterSensitiveLog = (
     obj: AuditMitigationActionsTaskTarget
   ) => ({
-    ...obj
+    ...obj,
+    ...(obj.auditCheckToReasonCodeFilter && {
+      auditCheckToReasonCodeFilter: Object.entries(
+        obj.auditCheckToReasonCodeFilter
+      ).reduce()
+    })
   });
   export const isa = (o: any): o is AuditMitigationActionsTaskTarget =>
     __isa(o, "AuditMitigationActionsTaskTarget");

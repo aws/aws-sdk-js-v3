@@ -421,6 +421,9 @@ export namespace AssociationDescription {
     ...(obj.Overview && {
       Overview: AssociationOverview.filterSensitiveLog(obj.Overview)
     }),
+    ...(obj.Parameters && {
+      Parameters: Object.entries(obj.Parameters).reduce()
+    }),
     ...(obj.Status && {
       Status: AssociationStatus.filterSensitiveLog(obj.Status)
     }),
@@ -880,6 +883,9 @@ export namespace AssociationVersionInfo {
         obj.OutputLocation
       )
     }),
+    ...(obj.Parameters && {
+      Parameters: Object.entries(obj.Parameters).reduce()
+    }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AssociationVersionInfo =>
@@ -1222,6 +1228,10 @@ export interface AutomationExecution {
 export namespace AutomationExecution {
   export const filterSensitiveLog = (obj: AutomationExecution) => ({
     ...obj,
+    ...(obj.Outputs && { Outputs: Object.entries(obj.Outputs).reduce() }),
+    ...(obj.Parameters && {
+      Parameters: Object.entries(obj.Parameters).reduce()
+    }),
     ...(obj.ProgressCounters && {
       ProgressCounters: ProgressCounters.filterSensitiveLog(
         obj.ProgressCounters
@@ -1430,6 +1440,7 @@ export interface AutomationExecutionMetadata {
 export namespace AutomationExecutionMetadata {
   export const filterSensitiveLog = (obj: AutomationExecutionMetadata) => ({
     ...obj,
+    ...(obj.Outputs && { Outputs: Object.entries(obj.Outputs).reduce() }),
     ...(obj.ResolvedTargets && {
       ResolvedTargets: ResolvedTargets.filterSensitiveLog(obj.ResolvedTargets)
     }),
@@ -1797,6 +1808,9 @@ export namespace Command {
       NotificationConfig: NotificationConfig.filterSensitiveLog(
         obj.NotificationConfig
       )
+    }),
+    ...(obj.Parameters && {
+      Parameters: Object.entries(obj.Parameters).reduce()
     }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
   });
@@ -2778,6 +2792,9 @@ export namespace CreateAssociationBatchRequestEntry {
         obj.OutputLocation
       )
     }),
+    ...(obj.Parameters && {
+      Parameters: Object.entries(obj.Parameters).reduce()
+    }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateAssociationBatchRequestEntry =>
@@ -2927,6 +2944,9 @@ export namespace CreateAssociationRequest {
       OutputLocation: InstanceAssociationOutputLocation.filterSensitiveLog(
         obj.OutputLocation
       )
+    }),
+    ...(obj.Parameters && {
+      Parameters: Object.entries(obj.Parameters).reduce()
     }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
   });
@@ -3301,6 +3321,15 @@ export namespace CreateOpsItemRequest {
     ...(obj.Notifications && {
       Notifications: obj.Notifications.map(
         OpsItemNotification.filterSensitiveLog
+      )
+    }),
+    ...(obj.OperationalData && {
+      OperationalData: Object.entries(obj.OperationalData).reduce(
+        (acc: any, [key, value]: [string, OpsItemDataValue]) => {
+          acc[key] = OpsItemDataValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
       )
     }),
     ...(obj.RelatedOpsItems && {
@@ -7003,7 +7032,8 @@ export interface FailureDetails {
 
 export namespace FailureDetails {
   export const filterSensitiveLog = (obj: FailureDetails) => ({
-    ...obj
+    ...obj,
+    ...(obj.Details && { Details: Object.entries(obj.Details).reduce() })
   });
   export const isa = (o: any): o is FailureDetails =>
     __isa(o, "FailureDetails");
@@ -10741,7 +10771,16 @@ export interface InventoryResultEntity {
 
 export namespace InventoryResultEntity {
   export const filterSensitiveLog = (obj: InventoryResultEntity) => ({
-    ...obj
+    ...obj,
+    ...(obj.Data && {
+      Data: Object.entries(obj.Data).reduce(
+        (acc: any, [key, value]: [string, InventoryResultItem]) => {
+          acc[key] = InventoryResultItem.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is InventoryResultEntity =>
     __isa(o, "InventoryResultEntity");
@@ -11731,7 +11770,10 @@ export namespace MaintenanceWindowAutomationParameters {
   export const filterSensitiveLog = (
     obj: MaintenanceWindowAutomationParameters
   ) => ({
-    ...obj
+    ...obj,
+    ...(obj.Parameters && {
+      Parameters: Object.entries(obj.Parameters).reduce()
+    })
   });
   export const isa = (o: any): o is MaintenanceWindowAutomationParameters =>
     __isa(o, "MaintenanceWindowAutomationParameters");
@@ -12218,6 +12260,9 @@ export namespace MaintenanceWindowRunCommandParameters {
       NotificationConfig: NotificationConfig.filterSensitiveLog(
         obj.NotificationConfig
       )
+    }),
+    ...(obj.Parameters && {
+      Parameters: Object.entries(obj.Parameters).reduce()
     })
   });
   export const isa = (o: any): o is MaintenanceWindowRunCommandParameters =>
@@ -12752,7 +12797,16 @@ export interface OpsEntity {
 
 export namespace OpsEntity {
   export const filterSensitiveLog = (obj: OpsEntity) => ({
-    ...obj
+    ...obj,
+    ...(obj.Data && {
+      Data: Object.entries(obj.Data).reduce(
+        (acc: any, [key, value]: [string, OpsEntityItem]) => {
+          acc[key] = OpsEntityItem.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is OpsEntity => __isa(o, "OpsEntity");
 }
@@ -12938,6 +12992,15 @@ export namespace OpsItem {
     ...(obj.Notifications && {
       Notifications: obj.Notifications.map(
         OpsItemNotification.filterSensitiveLog
+      )
+    }),
+    ...(obj.OperationalData && {
+      OperationalData: Object.entries(obj.OperationalData).reduce(
+        (acc: any, [key, value]: [string, OpsItemDataValue]) => {
+          acc[key] = OpsItemDataValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
       )
     }),
     ...(obj.RelatedOpsItems && {
@@ -13214,7 +13277,16 @@ export interface OpsItemSummary {
 
 export namespace OpsItemSummary {
   export const filterSensitiveLog = (obj: OpsItemSummary) => ({
-    ...obj
+    ...obj,
+    ...(obj.OperationalData && {
+      OperationalData: Object.entries(obj.OperationalData).reduce(
+        (acc: any, [key, value]: [string, OpsItemDataValue]) => {
+          acc[key] = OpsItemDataValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is OpsItemSummary =>
     __isa(o, "OpsItemSummary");
@@ -15880,7 +15952,8 @@ export interface SendAutomationSignalRequest {
 
 export namespace SendAutomationSignalRequest {
   export const filterSensitiveLog = (obj: SendAutomationSignalRequest) => ({
-    ...obj
+    ...obj,
+    ...(obj.Payload && { Payload: Object.entries(obj.Payload).reduce() })
   });
   export const isa = (o: any): o is SendAutomationSignalRequest =>
     __isa(o, "SendAutomationSignalRequest");
@@ -16029,6 +16102,9 @@ export namespace SendCommandRequest {
       NotificationConfig: NotificationConfig.filterSensitiveLog(
         obj.NotificationConfig
       )
+    }),
+    ...(obj.Parameters && {
+      Parameters: Object.entries(obj.Parameters).reduce()
     }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
   });
@@ -16512,6 +16588,9 @@ export interface StartAutomationExecutionRequest {
 export namespace StartAutomationExecutionRequest {
   export const filterSensitiveLog = (obj: StartAutomationExecutionRequest) => ({
     ...obj,
+    ...(obj.Parameters && {
+      Parameters: Object.entries(obj.Parameters).reduce()
+    }),
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
     ...(obj.TargetLocations && {
       TargetLocations: obj.TargetLocations.map(
@@ -16563,7 +16642,10 @@ export interface StartSessionRequest {
 
 export namespace StartSessionRequest {
   export const filterSensitiveLog = (obj: StartSessionRequest) => ({
-    ...obj
+    ...obj,
+    ...(obj.Parameters && {
+      Parameters: Object.entries(obj.Parameters).reduce()
+    })
   });
   export const isa = (o: any): o is StartSessionRequest =>
     __isa(o, "StartSessionRequest");
@@ -16751,6 +16833,10 @@ export namespace StepExecution {
     ...obj,
     ...(obj.FailureDetails && {
       FailureDetails: FailureDetails.filterSensitiveLog(obj.FailureDetails)
+    }),
+    ...(obj.Outputs && { Outputs: Object.entries(obj.Outputs).reduce() }),
+    ...(obj.OverriddenParameters && {
+      OverriddenParameters: Object.entries(obj.OverriddenParameters).reduce()
     }),
     ...(obj.TargetLocation && {
       TargetLocation: TargetLocation.filterSensitiveLog(obj.TargetLocation)
@@ -17413,6 +17499,9 @@ export namespace UpdateAssociationRequest {
       OutputLocation: InstanceAssociationOutputLocation.filterSensitiveLog(
         obj.OutputLocation
       )
+    }),
+    ...(obj.Parameters && {
+      Parameters: Object.entries(obj.Parameters).reduce()
     }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
   });
@@ -18240,6 +18329,15 @@ export namespace UpdateOpsItemRequest {
     ...(obj.Notifications && {
       Notifications: obj.Notifications.map(
         OpsItemNotification.filterSensitiveLog
+      )
+    }),
+    ...(obj.OperationalData && {
+      OperationalData: Object.entries(obj.OperationalData).reduce(
+        (acc: any, [key, value]: [string, OpsItemDataValue]) => {
+          acc[key] = OpsItemDataValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
       )
     }),
     ...(obj.RelatedOpsItems && {

@@ -55,7 +55,10 @@ export interface Forecast {
 
 export namespace Forecast {
   export const filterSensitiveLog = (obj: Forecast) => ({
-    ...obj
+    ...obj,
+    ...(obj.Predictions && {
+      Predictions: Object.entries(obj.Predictions).reduce()
+    })
   });
   export const isa = (o: any): o is Forecast => __isa(o, "Forecast");
 }

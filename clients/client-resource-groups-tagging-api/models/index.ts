@@ -844,7 +844,16 @@ export interface TagResourcesOutput {
 
 export namespace TagResourcesOutput {
   export const filterSensitiveLog = (obj: TagResourcesOutput) => ({
-    ...obj
+    ...obj,
+    ...(obj.FailedResourcesMap && {
+      FailedResourcesMap: Object.entries(obj.FailedResourcesMap).reduce(
+        (acc: any, [key, value]: [string, FailureInfo]) => {
+          acc[key] = FailureInfo.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is TagResourcesOutput =>
     __isa(o, "TagResourcesOutput");
@@ -909,7 +918,16 @@ export interface UntagResourcesOutput {
 
 export namespace UntagResourcesOutput {
   export const filterSensitiveLog = (obj: UntagResourcesOutput) => ({
-    ...obj
+    ...obj,
+    ...(obj.FailedResourcesMap && {
+      FailedResourcesMap: Object.entries(obj.FailedResourcesMap).reduce(
+        (acc: any, [key, value]: [string, FailureInfo]) => {
+          acc[key] = FailureInfo.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is UntagResourcesOutput =>
     __isa(o, "UntagResourcesOutput");

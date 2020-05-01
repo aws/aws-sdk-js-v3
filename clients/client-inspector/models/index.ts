@@ -83,7 +83,16 @@ export interface AddAttributesToFindingsResponse {
 
 export namespace AddAttributesToFindingsResponse {
   export const filterSensitiveLog = (obj: AddAttributesToFindingsResponse) => ({
-    ...obj
+    ...obj,
+    ...(obj.failedItems && {
+      failedItems: Object.entries(obj.failedItems).reduce(
+        (acc: any, [key, value]: [string, FailedItemDetails]) => {
+          acc[key] = FailedItemDetails.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is AddAttributesToFindingsResponse =>
     __isa(o, "AddAttributesToFindingsResponse");
@@ -1167,6 +1176,15 @@ export namespace DescribeAssessmentRunsResponse {
     ...obj,
     ...(obj.assessmentRuns && {
       assessmentRuns: obj.assessmentRuns.map(AssessmentRun.filterSensitiveLog)
+    }),
+    ...(obj.failedItems && {
+      failedItems: Object.entries(obj.failedItems).reduce(
+        (acc: any, [key, value]: [string, FailedItemDetails]) => {
+          acc[key] = FailedItemDetails.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is DescribeAssessmentRunsResponse =>
@@ -1214,6 +1232,15 @@ export namespace DescribeAssessmentTargetsResponse {
       assessmentTargets: obj.assessmentTargets.map(
         AssessmentTarget.filterSensitiveLog
       )
+    }),
+    ...(obj.failedItems && {
+      failedItems: Object.entries(obj.failedItems).reduce(
+        (acc: any, [key, value]: [string, FailedItemDetails]) => {
+          acc[key] = FailedItemDetails.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is DescribeAssessmentTargetsResponse =>
@@ -1257,6 +1284,15 @@ export namespace DescribeAssessmentTemplatesResponse {
     ...(obj.assessmentTemplates && {
       assessmentTemplates: obj.assessmentTemplates.map(
         AssessmentTemplate.filterSensitiveLog
+      )
+    }),
+    ...(obj.failedItems && {
+      failedItems: Object.entries(obj.failedItems).reduce(
+        (acc: any, [key, value]: [string, FailedItemDetails]) => {
+          acc[key] = FailedItemDetails.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
       )
     })
   });
@@ -1332,7 +1368,25 @@ export interface DescribeExclusionsResponse {
 
 export namespace DescribeExclusionsResponse {
   export const filterSensitiveLog = (obj: DescribeExclusionsResponse) => ({
-    ...obj
+    ...obj,
+    ...(obj.exclusions && {
+      exclusions: Object.entries(obj.exclusions).reduce(
+        (acc: any, [key, value]: [string, Exclusion]) => {
+          acc[key] = Exclusion.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.failedItems && {
+      failedItems: Object.entries(obj.failedItems).reduce(
+        (acc: any, [key, value]: [string, FailedItemDetails]) => {
+          acc[key] = FailedItemDetails.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is DescribeExclusionsResponse =>
     __isa(o, "DescribeExclusionsResponse");
@@ -1377,6 +1431,15 @@ export interface DescribeFindingsResponse {
 export namespace DescribeFindingsResponse {
   export const filterSensitiveLog = (obj: DescribeFindingsResponse) => ({
     ...obj,
+    ...(obj.failedItems && {
+      failedItems: Object.entries(obj.failedItems).reduce(
+        (acc: any, [key, value]: [string, FailedItemDetails]) => {
+          acc[key] = FailedItemDetails.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.findings && {
       findings: obj.findings.map(Finding.filterSensitiveLog)
     })
@@ -1418,6 +1481,15 @@ export interface DescribeResourceGroupsResponse {
 export namespace DescribeResourceGroupsResponse {
   export const filterSensitiveLog = (obj: DescribeResourceGroupsResponse) => ({
     ...obj,
+    ...(obj.failedItems && {
+      failedItems: Object.entries(obj.failedItems).reduce(
+        (acc: any, [key, value]: [string, FailedItemDetails]) => {
+          acc[key] = FailedItemDetails.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.resourceGroups && {
       resourceGroups: obj.resourceGroups.map(ResourceGroup.filterSensitiveLog)
     })
@@ -1464,6 +1536,15 @@ export interface DescribeRulesPackagesResponse {
 export namespace DescribeRulesPackagesResponse {
   export const filterSensitiveLog = (obj: DescribeRulesPackagesResponse) => ({
     ...obj,
+    ...(obj.failedItems && {
+      failedItems: Object.entries(obj.failedItems).reduce(
+        (acc: any, [key, value]: [string, FailedItemDetails]) => {
+          acc[key] = FailedItemDetails.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.rulesPackages && {
       rulesPackages: obj.rulesPackages.map(RulesPackage.filterSensitiveLog)
     })
@@ -3056,7 +3137,16 @@ export namespace RemoveAttributesFromFindingsResponse {
   export const filterSensitiveLog = (
     obj: RemoveAttributesFromFindingsResponse
   ) => ({
-    ...obj
+    ...obj,
+    ...(obj.failedItems && {
+      failedItems: Object.entries(obj.failedItems).reduce(
+        (acc: any, [key, value]: [string, FailedItemDetails]) => {
+          acc[key] = FailedItemDetails.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is RemoveAttributesFromFindingsResponse =>
     __isa(o, "RemoveAttributesFromFindingsResponse");

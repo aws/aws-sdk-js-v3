@@ -650,8 +650,26 @@ export namespace CreateDataSetRequest {
     ...(obj.ColumnGroups && {
       ColumnGroups: obj.ColumnGroups.map(ColumnGroup.filterSensitiveLog)
     }),
+    ...(obj.LogicalTableMap && {
+      LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
+        (acc: any, [key, value]: [string, LogicalTable]) => {
+          acc[key] = LogicalTable.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.Permissions && {
       Permissions: obj.Permissions.map(ResourcePermission.filterSensitiveLog)
+    }),
+    ...(obj.PhysicalTableMap && {
+      PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
+        (acc: any, [key, value]: [string, PhysicalTable]) => {
+          acc[key] = PhysicalTable.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
     }),
     ...(obj.RowLevelPermissionDataSet && {
       RowLevelPermissionDataSet: RowLevelPermissionDataSet.filterSensitiveLog(
@@ -989,7 +1007,10 @@ export namespace CreateIAMPolicyAssignmentRequest {
   export const filterSensitiveLog = (
     obj: CreateIAMPolicyAssignmentRequest
   ) => ({
-    ...obj
+    ...obj,
+    ...(obj.Identities && {
+      Identities: Object.entries(obj.Identities).reduce()
+    })
   });
   export const isa = (o: any): o is CreateIAMPolicyAssignmentRequest =>
     __isa(o, "CreateIAMPolicyAssignmentRequest");
@@ -1048,7 +1069,10 @@ export namespace CreateIAMPolicyAssignmentResponse {
   export const filterSensitiveLog = (
     obj: CreateIAMPolicyAssignmentResponse
   ) => ({
-    ...obj
+    ...obj,
+    ...(obj.Identities && {
+      Identities: Object.entries(obj.Identities).reduce()
+    })
   });
   export const isa = (o: any): o is CreateIAMPolicyAssignmentResponse =>
     __isa(o, "CreateIAMPolicyAssignmentResponse");
@@ -1739,8 +1763,26 @@ export namespace DataSet {
     ...(obj.ColumnGroups && {
       ColumnGroups: obj.ColumnGroups.map(ColumnGroup.filterSensitiveLog)
     }),
+    ...(obj.LogicalTableMap && {
+      LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
+        (acc: any, [key, value]: [string, LogicalTable]) => {
+          acc[key] = LogicalTable.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.OutputColumns && {
       OutputColumns: obj.OutputColumns.map(OutputColumn.filterSensitiveLog)
+    }),
+    ...(obj.PhysicalTableMap && {
+      PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
+        (acc: any, [key, value]: [string, PhysicalTable]) => {
+          acc[key] = PhysicalTable.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
     }),
     ...(obj.RowLevelPermissionDataSet && {
       RowLevelPermissionDataSet: RowLevelPermissionDataSet.filterSensitiveLog(
@@ -3812,7 +3854,10 @@ export interface IAMPolicyAssignment {
 
 export namespace IAMPolicyAssignment {
   export const filterSensitiveLog = (obj: IAMPolicyAssignment) => ({
-    ...obj
+    ...obj,
+    ...(obj.Identities && {
+      Identities: Object.entries(obj.Identities).reduce()
+    })
   });
   export const isa = (o: any): o is IAMPolicyAssignment =>
     __isa(o, "IAMPolicyAssignment");
@@ -6921,6 +6966,24 @@ export namespace UpdateDataSetRequest {
     ...(obj.ColumnGroups && {
       ColumnGroups: obj.ColumnGroups.map(ColumnGroup.filterSensitiveLog)
     }),
+    ...(obj.LogicalTableMap && {
+      LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
+        (acc: any, [key, value]: [string, LogicalTable]) => {
+          acc[key] = LogicalTable.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.PhysicalTableMap && {
+      PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
+        (acc: any, [key, value]: [string, PhysicalTable]) => {
+          acc[key] = PhysicalTable.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.RowLevelPermissionDataSet && {
       RowLevelPermissionDataSet: RowLevelPermissionDataSet.filterSensitiveLog(
         obj.RowLevelPermissionDataSet
@@ -7242,7 +7305,10 @@ export namespace UpdateIAMPolicyAssignmentRequest {
   export const filterSensitiveLog = (
     obj: UpdateIAMPolicyAssignmentRequest
   ) => ({
-    ...obj
+    ...obj,
+    ...(obj.Identities && {
+      Identities: Object.entries(obj.Identities).reduce()
+    })
   });
   export const isa = (o: any): o is UpdateIAMPolicyAssignmentRequest =>
     __isa(o, "UpdateIAMPolicyAssignmentRequest");
@@ -7302,7 +7368,10 @@ export namespace UpdateIAMPolicyAssignmentResponse {
   export const filterSensitiveLog = (
     obj: UpdateIAMPolicyAssignmentResponse
   ) => ({
-    ...obj
+    ...obj,
+    ...(obj.Identities && {
+      Identities: Object.entries(obj.Identities).reduce()
+    })
   });
   export const isa = (o: any): o is UpdateIAMPolicyAssignmentResponse =>
     __isa(o, "UpdateIAMPolicyAssignmentResponse");

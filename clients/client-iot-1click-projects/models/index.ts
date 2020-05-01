@@ -654,7 +654,16 @@ export interface PlacementTemplate {
 
 export namespace PlacementTemplate {
   export const filterSensitiveLog = (obj: PlacementTemplate) => ({
-    ...obj
+    ...obj,
+    ...(obj.deviceTemplates && {
+      deviceTemplates: Object.entries(obj.deviceTemplates).reduce(
+        (acc: any, [key, value]: [string, DeviceTemplate]) => {
+          acc[key] = DeviceTemplate.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is PlacementTemplate =>
     __isa(o, "PlacementTemplate");

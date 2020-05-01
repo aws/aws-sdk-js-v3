@@ -392,6 +392,15 @@ export namespace CreateElasticsearchDomainRequest {
         obj.EncryptionAtRestOptions
       )
     }),
+    ...(obj.LogPublishingOptions && {
+      LogPublishingOptions: Object.entries(obj.LogPublishingOptions).reduce(
+        (acc: any, [key, value]: [string, LogPublishingOption]) => {
+          acc[key] = LogPublishingOption.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.NodeToNodeEncryptionOptions && {
       NodeToNodeEncryptionOptions: NodeToNodeEncryptionOptions.filterSensitiveLog(
         obj.NodeToNodeEncryptionOptions
@@ -718,7 +727,16 @@ export namespace DescribeElasticsearchInstanceTypeLimitsResponse {
   export const filterSensitiveLog = (
     obj: DescribeElasticsearchInstanceTypeLimitsResponse
   ) => ({
-    ...obj
+    ...obj,
+    ...(obj.LimitsByRole && {
+      LimitsByRole: Object.entries(obj.LimitsByRole).reduce(
+        (acc: any, [key, value]: [string, Limits]) => {
+          acc[key] = Limits.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (
     o: any
@@ -1419,6 +1437,15 @@ export namespace ElasticsearchDomainStatus {
     ...(obj.EncryptionAtRestOptions && {
       EncryptionAtRestOptions: EncryptionAtRestOptions.filterSensitiveLog(
         obj.EncryptionAtRestOptions
+      )
+    }),
+    ...(obj.LogPublishingOptions && {
+      LogPublishingOptions: Object.entries(obj.LogPublishingOptions).reduce(
+        (acc: any, [key, value]: [string, LogPublishingOption]) => {
+          acc[key] = LogPublishingOption.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
       )
     }),
     ...(obj.NodeToNodeEncryptionOptions && {
@@ -2163,6 +2190,15 @@ export interface LogPublishingOptionsStatus {
 export namespace LogPublishingOptionsStatus {
   export const filterSensitiveLog = (obj: LogPublishingOptionsStatus) => ({
     ...obj,
+    ...(obj.Options && {
+      Options: Object.entries(obj.Options).reduce(
+        (acc: any, [key, value]: [string, LogPublishingOption]) => {
+          acc[key] = LogPublishingOption.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.Status && { Status: OptionStatus.filterSensitiveLog(obj.Status) })
   });
   export const isa = (o: any): o is LogPublishingOptionsStatus =>
@@ -2876,6 +2912,15 @@ export namespace UpdateElasticsearchDomainConfigRequest {
     ...(obj.ElasticsearchClusterConfig && {
       ElasticsearchClusterConfig: ElasticsearchClusterConfig.filterSensitiveLog(
         obj.ElasticsearchClusterConfig
+      )
+    }),
+    ...(obj.LogPublishingOptions && {
+      LogPublishingOptions: Object.entries(obj.LogPublishingOptions).reduce(
+        (acc: any, [key, value]: [string, LogPublishingOption]) => {
+          acc[key] = LogPublishingOption.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
       )
     }),
     ...(obj.SnapshotOptions && {

@@ -846,6 +846,12 @@ export interface Policy {
 export namespace Policy {
   export const filterSensitiveLog = (obj: Policy) => ({
     ...obj,
+    ...(obj.ExcludeMap && {
+      ExcludeMap: Object.entries(obj.ExcludeMap).reduce()
+    }),
+    ...(obj.IncludeMap && {
+      IncludeMap: Object.entries(obj.IncludeMap).reduce()
+    }),
     ...(obj.ResourceTags && {
       ResourceTags: obj.ResourceTags.map(ResourceTag.filterSensitiveLog)
     }),

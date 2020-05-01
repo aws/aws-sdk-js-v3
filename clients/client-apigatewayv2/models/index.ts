@@ -1260,7 +1260,16 @@ export interface CreateRouteRequest {
 
 export namespace CreateRouteRequest {
   export const filterSensitiveLog = (obj: CreateRouteRequest) => ({
-    ...obj
+    ...obj,
+    ...(obj.RequestParameters && {
+      RequestParameters: Object.entries(obj.RequestParameters).reduce(
+        (acc: any, [key, value]: [string, ParameterConstraints]) => {
+          acc[key] = ParameterConstraints.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is CreateRouteRequest =>
     __isa(o, "CreateRouteRequest");
@@ -1304,7 +1313,16 @@ export interface CreateRouteResponseRequest {
 
 export namespace CreateRouteResponseRequest {
   export const filterSensitiveLog = (obj: CreateRouteResponseRequest) => ({
-    ...obj
+    ...obj,
+    ...(obj.ResponseParameters && {
+      ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
+        (acc: any, [key, value]: [string, ParameterConstraints]) => {
+          acc[key] = ParameterConstraints.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is CreateRouteResponseRequest =>
     __isa(o, "CreateRouteResponseRequest");
@@ -1340,7 +1358,16 @@ export interface CreateRouteResponseResponse {
 
 export namespace CreateRouteResponseResponse {
   export const filterSensitiveLog = (obj: CreateRouteResponseResponse) => ({
-    ...obj
+    ...obj,
+    ...(obj.ResponseParameters && {
+      ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
+        (acc: any, [key, value]: [string, ParameterConstraints]) => {
+          acc[key] = ParameterConstraints.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is CreateRouteResponseResponse =>
     __isa(o, "CreateRouteResponseResponse");
@@ -1416,7 +1443,16 @@ export interface CreateRouteResult {
 
 export namespace CreateRouteResult {
   export const filterSensitiveLog = (obj: CreateRouteResult) => ({
-    ...obj
+    ...obj,
+    ...(obj.RequestParameters && {
+      RequestParameters: Object.entries(obj.RequestParameters).reduce(
+        (acc: any, [key, value]: [string, ParameterConstraints]) => {
+          acc[key] = ParameterConstraints.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is CreateRouteResult =>
     __isa(o, "CreateRouteResult");
@@ -1494,6 +1530,15 @@ export namespace CreateStageRequest {
     ...(obj.DefaultRouteSettings && {
       DefaultRouteSettings: RouteSettings.filterSensitiveLog(
         obj.DefaultRouteSettings
+      )
+    }),
+    ...(obj.RouteSettings && {
+      RouteSettings: Object.entries(obj.RouteSettings).reduce(
+        (acc: any, [key, value]: [string, RouteSettings]) => {
+          acc[key] = RouteSettings.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
       )
     })
   });
@@ -1585,6 +1630,15 @@ export namespace CreateStageResponse {
     ...(obj.DefaultRouteSettings && {
       DefaultRouteSettings: RouteSettings.filterSensitiveLog(
         obj.DefaultRouteSettings
+      )
+    }),
+    ...(obj.RouteSettings && {
+      RouteSettings: Object.entries(obj.RouteSettings).reduce(
+        (acc: any, [key, value]: [string, RouteSettings]) => {
+          acc[key] = RouteSettings.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
       )
     })
   });
@@ -3112,7 +3166,16 @@ export interface GetRouteResponseResponse {
 
 export namespace GetRouteResponseResponse {
   export const filterSensitiveLog = (obj: GetRouteResponseResponse) => ({
-    ...obj
+    ...obj,
+    ...(obj.ResponseParameters && {
+      ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
+        (acc: any, [key, value]: [string, ParameterConstraints]) => {
+          acc[key] = ParameterConstraints.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is GetRouteResponseResponse =>
     __isa(o, "GetRouteResponseResponse");
@@ -3241,7 +3304,16 @@ export interface GetRouteResult {
 
 export namespace GetRouteResult {
   export const filterSensitiveLog = (obj: GetRouteResult) => ({
-    ...obj
+    ...obj,
+    ...(obj.RequestParameters && {
+      RequestParameters: Object.entries(obj.RequestParameters).reduce(
+        (acc: any, [key, value]: [string, ParameterConstraints]) => {
+          acc[key] = ParameterConstraints.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is GetRouteResult =>
     __isa(o, "GetRouteResult");
@@ -3400,6 +3472,15 @@ export namespace GetStageResponse {
     ...(obj.DefaultRouteSettings && {
       DefaultRouteSettings: RouteSettings.filterSensitiveLog(
         obj.DefaultRouteSettings
+      )
+    }),
+    ...(obj.RouteSettings && {
+      RouteSettings: Object.entries(obj.RouteSettings).reduce(
+        (acc: any, [key, value]: [string, RouteSettings]) => {
+          acc[key] = RouteSettings.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
       )
     })
   });
@@ -4070,7 +4151,16 @@ export interface Route {
 
 export namespace Route {
   export const filterSensitiveLog = (obj: Route) => ({
-    ...obj
+    ...obj,
+    ...(obj.RequestParameters && {
+      RequestParameters: Object.entries(obj.RequestParameters).reduce(
+        (acc: any, [key, value]: [string, ParameterConstraints]) => {
+          acc[key] = ParameterConstraints.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is Route => __isa(o, "Route");
 }
@@ -4108,7 +4198,16 @@ export interface RouteResponse {
 
 export namespace RouteResponse {
   export const filterSensitiveLog = (obj: RouteResponse) => ({
-    ...obj
+    ...obj,
+    ...(obj.ResponseParameters && {
+      ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
+        (acc: any, [key, value]: [string, ParameterConstraints]) => {
+          acc[key] = ParameterConstraints.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is RouteResponse => __isa(o, "RouteResponse");
 }
@@ -4243,6 +4342,15 @@ export namespace Stage {
     ...(obj.DefaultRouteSettings && {
       DefaultRouteSettings: RouteSettings.filterSensitiveLog(
         obj.DefaultRouteSettings
+      )
+    }),
+    ...(obj.RouteSettings && {
+      RouteSettings: Object.entries(obj.RouteSettings).reduce(
+        (acc: any, [key, value]: [string, RouteSettings]) => {
+          acc[key] = RouteSettings.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
       )
     })
   });
@@ -5285,7 +5393,16 @@ export interface UpdateRouteRequest {
 
 export namespace UpdateRouteRequest {
   export const filterSensitiveLog = (obj: UpdateRouteRequest) => ({
-    ...obj
+    ...obj,
+    ...(obj.RequestParameters && {
+      RequestParameters: Object.entries(obj.RequestParameters).reduce(
+        (acc: any, [key, value]: [string, ParameterConstraints]) => {
+          acc[key] = ParameterConstraints.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is UpdateRouteRequest =>
     __isa(o, "UpdateRouteRequest");
@@ -5334,7 +5451,16 @@ export interface UpdateRouteResponseRequest {
 
 export namespace UpdateRouteResponseRequest {
   export const filterSensitiveLog = (obj: UpdateRouteResponseRequest) => ({
-    ...obj
+    ...obj,
+    ...(obj.ResponseParameters && {
+      ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
+        (acc: any, [key, value]: [string, ParameterConstraints]) => {
+          acc[key] = ParameterConstraints.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is UpdateRouteResponseRequest =>
     __isa(o, "UpdateRouteResponseRequest");
@@ -5370,7 +5496,16 @@ export interface UpdateRouteResponseResponse {
 
 export namespace UpdateRouteResponseResponse {
   export const filterSensitiveLog = (obj: UpdateRouteResponseResponse) => ({
-    ...obj
+    ...obj,
+    ...(obj.ResponseParameters && {
+      ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
+        (acc: any, [key, value]: [string, ParameterConstraints]) => {
+          acc[key] = ParameterConstraints.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is UpdateRouteResponseResponse =>
     __isa(o, "UpdateRouteResponseResponse");
@@ -5446,7 +5581,16 @@ export interface UpdateRouteResult {
 
 export namespace UpdateRouteResult {
   export const filterSensitiveLog = (obj: UpdateRouteResult) => ({
-    ...obj
+    ...obj,
+    ...(obj.RequestParameters && {
+      RequestParameters: Object.entries(obj.RequestParameters).reduce(
+        (acc: any, [key, value]: [string, ParameterConstraints]) => {
+          acc[key] = ParameterConstraints.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is UpdateRouteResult =>
     __isa(o, "UpdateRouteResult");
@@ -5519,6 +5663,15 @@ export namespace UpdateStageRequest {
     ...(obj.DefaultRouteSettings && {
       DefaultRouteSettings: RouteSettings.filterSensitiveLog(
         obj.DefaultRouteSettings
+      )
+    }),
+    ...(obj.RouteSettings && {
+      RouteSettings: Object.entries(obj.RouteSettings).reduce(
+        (acc: any, [key, value]: [string, RouteSettings]) => {
+          acc[key] = RouteSettings.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
       )
     })
   });
@@ -5610,6 +5763,15 @@ export namespace UpdateStageResponse {
     ...(obj.DefaultRouteSettings && {
       DefaultRouteSettings: RouteSettings.filterSensitiveLog(
         obj.DefaultRouteSettings
+      )
+    }),
+    ...(obj.RouteSettings && {
+      RouteSettings: Object.entries(obj.RouteSettings).reduce(
+        (acc: any, [key, value]: [string, RouteSettings]) => {
+          acc[key] = RouteSettings.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
       )
     })
   });

@@ -253,7 +253,16 @@ export interface AttributeValue {
 export namespace AttributeValue {
   export const filterSensitiveLog = (obj: AttributeValue) => ({
     ...obj,
-    ...(obj.L && { L: obj.L.map(AttributeValue.filterSensitiveLog) })
+    ...(obj.L && { L: obj.L.map(AttributeValue.filterSensitiveLog) }),
+    ...(obj.M && {
+      M: Object.entries(obj.M).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is AttributeValue =>
     __isa(o, "AttributeValue");
@@ -987,7 +996,16 @@ export interface BatchGetItemInput {
 
 export namespace BatchGetItemInput {
   export const filterSensitiveLog = (obj: BatchGetItemInput) => ({
-    ...obj
+    ...obj,
+    ...(obj.RequestItems && {
+      RequestItems: Object.entries(obj.RequestItems).reduce(
+        (acc: any, [key, value]: [string, KeysAndAttributes]) => {
+          acc[key] = KeysAndAttributes.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is BatchGetItemInput =>
     __isa(o, "BatchGetItemInput");
@@ -1057,6 +1075,16 @@ export namespace BatchGetItemOutput {
     ...(obj.ConsumedCapacity && {
       ConsumedCapacity: obj.ConsumedCapacity.map(
         ConsumedCapacity.filterSensitiveLog
+      )
+    }),
+    ...(obj.Responses && { Responses: Object.entries(obj.Responses).reduce() }),
+    ...(obj.UnprocessedKeys && {
+      UnprocessedKeys: Object.entries(obj.UnprocessedKeys).reduce(
+        (acc: any, [key, value]: [string, KeysAndAttributes]) => {
+          acc[key] = KeysAndAttributes.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
       )
     })
   });
@@ -1139,7 +1167,10 @@ export interface BatchWriteItemInput {
 
 export namespace BatchWriteItemInput {
   export const filterSensitiveLog = (obj: BatchWriteItemInput) => ({
-    ...obj
+    ...obj,
+    ...(obj.RequestItems && {
+      RequestItems: Object.entries(obj.RequestItems).reduce()
+    })
   });
   export const isa = (o: any): o is BatchWriteItemInput =>
     __isa(o, "BatchWriteItemInput");
@@ -1240,6 +1271,12 @@ export namespace BatchWriteItemOutput {
       ConsumedCapacity: obj.ConsumedCapacity.map(
         ConsumedCapacity.filterSensitiveLog
       )
+    }),
+    ...(obj.ItemCollectionMetrics && {
+      ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce()
+    }),
+    ...(obj.UnprocessedItems && {
+      UnprocessedItems: Object.entries(obj.UnprocessedItems).reduce()
     })
   });
   export const isa = (o: any): o is BatchWriteItemOutput =>
@@ -1310,7 +1347,16 @@ export interface CancellationReason {
 
 export namespace CancellationReason {
   export const filterSensitiveLog = (obj: CancellationReason) => ({
-    ...obj
+    ...obj,
+    ...(obj.Item && {
+      Item: Object.entries(obj.Item).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is CancellationReason =>
     __isa(o, "CancellationReason");
@@ -1602,7 +1648,24 @@ export interface ConditionCheck {
 
 export namespace ConditionCheck {
   export const filterSensitiveLog = (obj: ConditionCheck) => ({
-    ...obj
+    ...obj,
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(
+        obj.ExpressionAttributeValues
+      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
+        acc[key] = AttributeValue.filterSensitiveLog(value);
+        return acc;
+      }, {})
+    }),
+    ...(obj.Key && {
+      Key: Object.entries(obj.Key).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is ConditionCheck =>
     __isa(o, "ConditionCheck");
@@ -1680,6 +1743,24 @@ export interface ConsumedCapacity {
 export namespace ConsumedCapacity {
   export const filterSensitiveLog = (obj: ConsumedCapacity) => ({
     ...obj,
+    ...(obj.GlobalSecondaryIndexes && {
+      GlobalSecondaryIndexes: Object.entries(obj.GlobalSecondaryIndexes).reduce(
+        (acc: any, [key, value]: [string, Capacity]) => {
+          acc[key] = Capacity.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.LocalSecondaryIndexes && {
+      LocalSecondaryIndexes: Object.entries(obj.LocalSecondaryIndexes).reduce(
+        (acc: any, [key, value]: [string, Capacity]) => {
+          acc[key] = Capacity.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.Table && { Table: Capacity.filterSensitiveLog(obj.Table) })
   });
   export const isa = (o: any): o is ConsumedCapacity =>
@@ -2351,7 +2432,24 @@ export interface Delete {
 
 export namespace Delete {
   export const filterSensitiveLog = (obj: Delete) => ({
-    ...obj
+    ...obj,
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(
+        obj.ExpressionAttributeValues
+      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
+        acc[key] = AttributeValue.filterSensitiveLog(value);
+        return acc;
+      }, {})
+    }),
+    ...(obj.Key && {
+      Key: Object.entries(obj.Key).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is Delete => __isa(o, "Delete");
 }
@@ -2585,7 +2683,33 @@ export interface DeleteItemInput {
 
 export namespace DeleteItemInput {
   export const filterSensitiveLog = (obj: DeleteItemInput) => ({
-    ...obj
+    ...obj,
+    ...(obj.Expected && {
+      Expected: Object.entries(obj.Expected).reduce(
+        (acc: any, [key, value]: [string, ExpectedAttributeValue]) => {
+          acc[key] = ExpectedAttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(
+        obj.ExpressionAttributeValues
+      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
+        acc[key] = AttributeValue.filterSensitiveLog(value);
+        return acc;
+      }, {})
+    }),
+    ...(obj.Key && {
+      Key: Object.entries(obj.Key).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is DeleteItemInput =>
     __isa(o, "DeleteItemInput");
@@ -2647,6 +2771,15 @@ export interface DeleteItemOutput {
 export namespace DeleteItemOutput {
   export const filterSensitiveLog = (obj: DeleteItemOutput) => ({
     ...obj,
+    ...(obj.Attributes && {
+      Attributes: Object.entries(obj.Attributes).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.ConsumedCapacity && {
       ConsumedCapacity: ConsumedCapacity.filterSensitiveLog(
         obj.ConsumedCapacity
@@ -2715,7 +2848,16 @@ export interface DeleteRequest {
 
 export namespace DeleteRequest {
   export const filterSensitiveLog = (obj: DeleteRequest) => ({
-    ...obj
+    ...obj,
+    ...(obj.Key && {
+      Key: Object.entries(obj.Key).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is DeleteRequest => __isa(o, "DeleteRequest");
 }
@@ -3485,7 +3627,16 @@ export interface Get {
 
 export namespace Get {
   export const filterSensitiveLog = (obj: Get) => ({
-    ...obj
+    ...obj,
+    ...(obj.Key && {
+      Key: Object.entries(obj.Key).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is Get => __isa(o, "Get");
 }
@@ -3595,7 +3746,16 @@ export interface GetItemInput {
 
 export namespace GetItemInput {
   export const filterSensitiveLog = (obj: GetItemInput) => ({
-    ...obj
+    ...obj,
+    ...(obj.Key && {
+      Key: Object.entries(obj.Key).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is GetItemInput => __isa(o, "GetItemInput");
 }
@@ -3628,6 +3788,15 @@ export namespace GetItemOutput {
     ...(obj.ConsumedCapacity && {
       ConsumedCapacity: ConsumedCapacity.filterSensitiveLog(
         obj.ConsumedCapacity
+      )
+    }),
+    ...(obj.Item && {
+      Item: Object.entries(obj.Item).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
       )
     })
   });
@@ -4270,7 +4439,16 @@ export interface ItemCollectionMetrics {
 
 export namespace ItemCollectionMetrics {
   export const filterSensitiveLog = (obj: ItemCollectionMetrics) => ({
-    ...obj
+    ...obj,
+    ...(obj.ItemCollectionKey && {
+      ItemCollectionKey: Object.entries(obj.ItemCollectionKey).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is ItemCollectionMetrics =>
     __isa(o, "ItemCollectionMetrics");
@@ -4313,7 +4491,16 @@ export interface ItemResponse {
 
 export namespace ItemResponse {
   export const filterSensitiveLog = (obj: ItemResponse) => ({
-    ...obj
+    ...obj,
+    ...(obj.Item && {
+      Item: Object.entries(obj.Item).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is ItemResponse => __isa(o, "ItemResponse");
 }
@@ -5273,7 +5460,24 @@ export interface Put {
 
 export namespace Put {
   export const filterSensitiveLog = (obj: Put) => ({
-    ...obj
+    ...obj,
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(
+        obj.ExpressionAttributeValues
+      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
+        acc[key] = AttributeValue.filterSensitiveLog(value);
+        return acc;
+      }, {})
+    }),
+    ...(obj.Item && {
+      Item: Object.entries(obj.Item).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is Put => __isa(o, "Put");
 }
@@ -5453,7 +5657,33 @@ export interface PutItemInput {
 
 export namespace PutItemInput {
   export const filterSensitiveLog = (obj: PutItemInput) => ({
-    ...obj
+    ...obj,
+    ...(obj.Expected && {
+      Expected: Object.entries(obj.Expected).reduce(
+        (acc: any, [key, value]: [string, ExpectedAttributeValue]) => {
+          acc[key] = ExpectedAttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(
+        obj.ExpressionAttributeValues
+      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
+        acc[key] = AttributeValue.filterSensitiveLog(value);
+        return acc;
+      }, {})
+    }),
+    ...(obj.Item && {
+      Item: Object.entries(obj.Item).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is PutItemInput => __isa(o, "PutItemInput");
 }
@@ -5512,6 +5742,15 @@ export interface PutItemOutput {
 export namespace PutItemOutput {
   export const filterSensitiveLog = (obj: PutItemOutput) => ({
     ...obj,
+    ...(obj.Attributes && {
+      Attributes: Object.entries(obj.Attributes).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.ConsumedCapacity && {
       ConsumedCapacity: ConsumedCapacity.filterSensitiveLog(
         obj.ConsumedCapacity
@@ -5543,7 +5782,16 @@ export interface PutRequest {
 
 export namespace PutRequest {
   export const filterSensitiveLog = (obj: PutRequest) => ({
-    ...obj
+    ...obj,
+    ...(obj.Item && {
+      Item: Object.entries(obj.Item).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is PutRequest => __isa(o, "PutRequest");
 }
@@ -5911,7 +6159,42 @@ export interface QueryInput {
 
 export namespace QueryInput {
   export const filterSensitiveLog = (obj: QueryInput) => ({
-    ...obj
+    ...obj,
+    ...(obj.ExclusiveStartKey && {
+      ExclusiveStartKey: Object.entries(obj.ExclusiveStartKey).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(
+        obj.ExpressionAttributeValues
+      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
+        acc[key] = AttributeValue.filterSensitiveLog(value);
+        return acc;
+      }, {})
+    }),
+    ...(obj.KeyConditions && {
+      KeyConditions: Object.entries(obj.KeyConditions).reduce(
+        (acc: any, [key, value]: [string, Condition]) => {
+          acc[key] = Condition.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.QueryFilter && {
+      QueryFilter: Object.entries(obj.QueryFilter).reduce(
+        (acc: any, [key, value]: [string, Condition]) => {
+          acc[key] = Condition.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is QueryInput => __isa(o, "QueryInput");
 }
@@ -5972,7 +6255,16 @@ export namespace QueryOutput {
         obj.ConsumedCapacity
       )
     }),
-    ...(obj.Items && { Items: obj.Items.map(item => item) })
+    ...(obj.Items && { Items: obj.Items.map(item => item) }),
+    ...(obj.LastEvaluatedKey && {
+      LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is QueryOutput => __isa(o, "QueryOutput");
 }
@@ -7419,7 +7711,33 @@ export interface ScanInput {
 
 export namespace ScanInput {
   export const filterSensitiveLog = (obj: ScanInput) => ({
-    ...obj
+    ...obj,
+    ...(obj.ExclusiveStartKey && {
+      ExclusiveStartKey: Object.entries(obj.ExclusiveStartKey).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(
+        obj.ExpressionAttributeValues
+      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
+        acc[key] = AttributeValue.filterSensitiveLog(value);
+        return acc;
+      }, {})
+    }),
+    ...(obj.ScanFilter && {
+      ScanFilter: Object.entries(obj.ScanFilter).reduce(
+        (acc: any, [key, value]: [string, Condition]) => {
+          acc[key] = Condition.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is ScanInput => __isa(o, "ScanInput");
 }
@@ -7485,7 +7803,16 @@ export namespace ScanOutput {
         obj.ConsumedCapacity
       )
     }),
-    ...(obj.Items && { Items: obj.Items.map(item => item) })
+    ...(obj.Items && { Items: obj.Items.map(item => item) }),
+    ...(obj.LastEvaluatedKey && {
+      LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is ScanOutput => __isa(o, "ScanOutput");
 }
@@ -8578,6 +8905,9 @@ export namespace TransactWriteItemsOutput {
       ConsumedCapacity: obj.ConsumedCapacity.map(
         ConsumedCapacity.filterSensitiveLog
       )
+    }),
+    ...(obj.ItemCollectionMetrics && {
+      ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce()
     })
   });
   export const isa = (o: any): o is TransactWriteItemsOutput =>
@@ -8927,7 +9257,24 @@ export interface Update {
 
 export namespace Update {
   export const filterSensitiveLog = (obj: Update) => ({
-    ...obj
+    ...obj,
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(
+        obj.ExpressionAttributeValues
+      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
+        acc[key] = AttributeValue.filterSensitiveLog(value);
+        return acc;
+      }, {})
+    }),
+    ...(obj.Key && {
+      Key: Object.entries(obj.Key).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is Update => __isa(o, "Update");
 }
@@ -9490,7 +9837,42 @@ export interface UpdateItemInput {
 
 export namespace UpdateItemInput {
   export const filterSensitiveLog = (obj: UpdateItemInput) => ({
-    ...obj
+    ...obj,
+    ...(obj.AttributeUpdates && {
+      AttributeUpdates: Object.entries(obj.AttributeUpdates).reduce(
+        (acc: any, [key, value]: [string, AttributeValueUpdate]) => {
+          acc[key] = AttributeValueUpdate.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.Expected && {
+      Expected: Object.entries(obj.Expected).reduce(
+        (acc: any, [key, value]: [string, ExpectedAttributeValue]) => {
+          acc[key] = ExpectedAttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.ExpressionAttributeValues && {
+      ExpressionAttributeValues: Object.entries(
+        obj.ExpressionAttributeValues
+      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
+        acc[key] = AttributeValue.filterSensitiveLog(value);
+        return acc;
+      }, {})
+    }),
+    ...(obj.Key && {
+      Key: Object.entries(obj.Key).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is UpdateItemInput =>
     __isa(o, "UpdateItemInput");
@@ -9552,6 +9934,15 @@ export interface UpdateItemOutput {
 export namespace UpdateItemOutput {
   export const filterSensitiveLog = (obj: UpdateItemOutput) => ({
     ...obj,
+    ...(obj.Attributes && {
+      Attributes: Object.entries(obj.Attributes).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.ConsumedCapacity && {
       ConsumedCapacity: ConsumedCapacity.filterSensitiveLog(
         obj.ConsumedCapacity

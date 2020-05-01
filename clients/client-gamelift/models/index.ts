@@ -5874,7 +5874,16 @@ export interface Player {
 
 export namespace Player {
   export const filterSensitiveLog = (obj: Player) => ({
-    ...obj
+    ...obj,
+    ...(obj.PlayerAttributes && {
+      PlayerAttributes: Object.entries(obj.PlayerAttributes).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is Player => __isa(o, "Player");
 }

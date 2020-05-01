@@ -2857,7 +2857,16 @@ export interface Group {
 
 export namespace Group {
   export const filterSensitiveLog = (obj: Group) => ({
-    ...obj
+    ...obj,
+    ...(obj.Metrics && {
+      Metrics: Object.entries(obj.Metrics).reduce(
+        (acc: any, [key, value]: [string, MetricValue]) => {
+          acc[key] = MetricValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is Group => __isa(o, "Group");
 }
@@ -3777,6 +3786,15 @@ export namespace ResultByTime {
     ...(obj.Groups && { Groups: obj.Groups.map(Group.filterSensitiveLog) }),
     ...(obj.TimePeriod && {
       TimePeriod: DateInterval.filterSensitiveLog(obj.TimePeriod)
+    }),
+    ...(obj.Total && {
+      Total: Object.entries(obj.Total).reduce(
+        (acc: any, [key, value]: [string, MetricValue]) => {
+          acc[key] = MetricValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is ResultByTime => __isa(o, "ResultByTime");

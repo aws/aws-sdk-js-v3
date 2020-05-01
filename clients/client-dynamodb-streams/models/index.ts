@@ -665,7 +665,34 @@ export interface StreamRecord {
 
 export namespace StreamRecord {
   export const filterSensitiveLog = (obj: StreamRecord) => ({
-    ...obj
+    ...obj,
+    ...(obj.Keys && {
+      Keys: Object.entries(obj.Keys).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.NewImage && {
+      NewImage: Object.entries(obj.NewImage).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.OldImage && {
+      OldImage: Object.entries(obj.OldImage).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is StreamRecord => __isa(o, "StreamRecord");
 }
@@ -765,7 +792,16 @@ export interface AttributeValue {
 export namespace AttributeValue {
   export const filterSensitiveLog = (obj: AttributeValue) => ({
     ...obj,
-    ...(obj.L && { L: obj.L.map(AttributeValue.filterSensitiveLog) })
+    ...(obj.L && { L: obj.L.map(AttributeValue.filterSensitiveLog) }),
+    ...(obj.M && {
+      M: Object.entries(obj.M).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => {
+          acc[key] = AttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is AttributeValue =>
     __isa(o, "AttributeValue");

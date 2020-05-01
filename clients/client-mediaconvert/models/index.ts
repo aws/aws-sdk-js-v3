@@ -4967,6 +4967,33 @@ export interface Input {
 export namespace Input {
   export const filterSensitiveLog = (obj: Input) => ({
     ...obj,
+    ...(obj.AudioSelectorGroups && {
+      AudioSelectorGroups: Object.entries(obj.AudioSelectorGroups).reduce(
+        (acc: any, [key, value]: [string, AudioSelectorGroup]) => {
+          acc[key] = AudioSelectorGroup.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.AudioSelectors && {
+      AudioSelectors: Object.entries(obj.AudioSelectors).reduce(
+        (acc: any, [key, value]: [string, AudioSelector]) => {
+          acc[key] = AudioSelector.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.CaptionSelectors && {
+      CaptionSelectors: Object.entries(obj.CaptionSelectors).reduce(
+        (acc: any, [key, value]: [string, CaptionSelector]) => {
+          acc[key] = CaptionSelector.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.Crop && { Crop: Rectangle.filterSensitiveLog(obj.Crop) }),
     ...(obj.DecryptionSettings && {
       DecryptionSettings: InputDecryptionSettings.filterSensitiveLog(
@@ -5164,6 +5191,33 @@ export interface InputTemplate {
 export namespace InputTemplate {
   export const filterSensitiveLog = (obj: InputTemplate) => ({
     ...obj,
+    ...(obj.AudioSelectorGroups && {
+      AudioSelectorGroups: Object.entries(obj.AudioSelectorGroups).reduce(
+        (acc: any, [key, value]: [string, AudioSelectorGroup]) => {
+          acc[key] = AudioSelectorGroup.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.AudioSelectors && {
+      AudioSelectors: Object.entries(obj.AudioSelectors).reduce(
+        (acc: any, [key, value]: [string, AudioSelector]) => {
+          acc[key] = AudioSelector.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.CaptionSelectors && {
+      CaptionSelectors: Object.entries(obj.CaptionSelectors).reduce(
+        (acc: any, [key, value]: [string, CaptionSelector]) => {
+          acc[key] = CaptionSelector.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.Crop && { Crop: Rectangle.filterSensitiveLog(obj.Crop) }),
     ...(obj.ImageInserter && {
       ImageInserter: ImageInserter.filterSensitiveLog(obj.ImageInserter)

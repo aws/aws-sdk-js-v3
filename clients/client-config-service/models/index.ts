@@ -8260,6 +8260,15 @@ export namespace RemediationConfiguration {
       ExecutionControls: ExecutionControls.filterSensitiveLog(
         obj.ExecutionControls
       )
+    }),
+    ...(obj.Parameters && {
+      Parameters: Object.entries(obj.Parameters).reduce(
+        (acc: any, [key, value]: [string, RemediationParameterValue]) => {
+          acc[key] = RemediationParameterValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is RemediationConfiguration =>

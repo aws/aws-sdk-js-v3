@@ -1162,7 +1162,16 @@ export interface Message {
 
 export namespace Message {
   export const filterSensitiveLog = (obj: Message) => ({
-    ...obj
+    ...obj,
+    ...(obj.MessageAttributes && {
+      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
+        (acc: any, [key, value]: [string, MessageAttributeValue]) => {
+          acc[key] = MessageAttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is Message => __isa(o, "Message");
 }
@@ -1816,7 +1825,27 @@ export interface SendMessageBatchRequestEntry {
 
 export namespace SendMessageBatchRequestEntry {
   export const filterSensitiveLog = (obj: SendMessageBatchRequestEntry) => ({
-    ...obj
+    ...obj,
+    ...(obj.MessageAttributes && {
+      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
+        (acc: any, [key, value]: [string, MessageAttributeValue]) => {
+          acc[key] = MessageAttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.MessageSystemAttributes && {
+      MessageSystemAttributes: Object.entries(
+        obj.MessageSystemAttributes
+      ).reduce(
+        (acc: any, [key, value]: [string, MessageSystemAttributeValue]) => {
+          acc[key] = MessageSystemAttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is SendMessageBatchRequestEntry =>
     __isa(o, "SendMessageBatchRequestEntry");
@@ -2050,7 +2079,27 @@ export interface SendMessageRequest {
 
 export namespace SendMessageRequest {
   export const filterSensitiveLog = (obj: SendMessageRequest) => ({
-    ...obj
+    ...obj,
+    ...(obj.MessageAttributes && {
+      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
+        (acc: any, [key, value]: [string, MessageAttributeValue]) => {
+          acc[key] = MessageAttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.MessageSystemAttributes && {
+      MessageSystemAttributes: Object.entries(
+        obj.MessageSystemAttributes
+      ).reduce(
+        (acc: any, [key, value]: [string, MessageSystemAttributeValue]) => {
+          acc[key] = MessageSystemAttributeValue.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is SendMessageRequest =>
     __isa(o, "SendMessageRequest");

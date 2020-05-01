@@ -268,7 +268,16 @@ export interface ApiStage {
 
 export namespace ApiStage {
   export const filterSensitiveLog = (obj: ApiStage) => ({
-    ...obj
+    ...obj,
+    ...(obj.throttle && {
+      throttle: Object.entries(obj.throttle).reduce(
+        (acc: any, [key, value]: [string, ThrottleSettings]) => {
+          acc[key] = ThrottleSettings.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is ApiStage => __isa(o, "ApiStage");
 }
@@ -2006,7 +2015,10 @@ export interface Deployment {
 
 export namespace Deployment {
   export const filterSensitiveLog = (obj: Deployment) => ({
-    ...obj
+    ...obj,
+    ...(obj.apiSummary && {
+      apiSummary: Object.entries(obj.apiSummary).reduce()
+    })
   });
   export const isa = (o: any): o is Deployment => __isa(o, "Deployment");
 }
@@ -4980,7 +4992,16 @@ export interface Integration {
 
 export namespace Integration {
   export const filterSensitiveLog = (obj: Integration) => ({
-    ...obj
+    ...obj,
+    ...(obj.integrationResponses && {
+      integrationResponses: Object.entries(obj.integrationResponses).reduce(
+        (acc: any, [key, value]: [string, IntegrationResponse]) => {
+          acc[key] = IntegrationResponse.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is Integration => __isa(o, "Integration");
 }
@@ -5410,6 +5431,15 @@ export namespace Method {
     ...obj,
     ...(obj.methodIntegration && {
       methodIntegration: Integration.filterSensitiveLog(obj.methodIntegration)
+    }),
+    ...(obj.methodResponses && {
+      methodResponses: Object.entries(obj.methodResponses).reduce(
+        (acc: any, [key, value]: [string, MethodResponse]) => {
+          acc[key] = MethodResponse.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is Method => __isa(o, "Method");
@@ -6332,7 +6362,16 @@ export interface Resource {
 
 export namespace Resource {
   export const filterSensitiveLog = (obj: Resource) => ({
-    ...obj
+    ...obj,
+    ...(obj.resourceMethods && {
+      resourceMethods: Object.entries(obj.resourceMethods).reduce(
+        (acc: any, [key, value]: [string, Method]) => {
+          acc[key] = Method.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
@@ -6703,6 +6742,15 @@ export namespace Stage {
     }),
     ...(obj.canarySettings && {
       canarySettings: CanarySettings.filterSensitiveLog(obj.canarySettings)
+    }),
+    ...(obj.methodSettings && {
+      methodSettings: Object.entries(obj.methodSettings).reduce(
+        (acc: any, [key, value]: [string, MethodSetting]) => {
+          acc[key] = MethodSetting.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is Stage => __isa(o, "Stage");
@@ -6867,7 +6915,10 @@ export interface TestInvokeAuthorizerRequest {
 
 export namespace TestInvokeAuthorizerRequest {
   export const filterSensitiveLog = (obj: TestInvokeAuthorizerRequest) => ({
-    ...obj
+    ...obj,
+    ...(obj.multiValueHeaders && {
+      multiValueHeaders: Object.entries(obj.multiValueHeaders).reduce()
+    })
   });
   export const isa = (o: any): o is TestInvokeAuthorizerRequest =>
     __isa(o, "TestInvokeAuthorizerRequest");
@@ -6912,7 +6963,10 @@ export interface TestInvokeAuthorizerResponse {
 
 export namespace TestInvokeAuthorizerResponse {
   export const filterSensitiveLog = (obj: TestInvokeAuthorizerResponse) => ({
-    ...obj
+    ...obj,
+    ...(obj.authorization && {
+      authorization: Object.entries(obj.authorization).reduce()
+    })
   });
   export const isa = (o: any): o is TestInvokeAuthorizerResponse =>
     __isa(o, "TestInvokeAuthorizerResponse");
@@ -6971,7 +7025,10 @@ export interface TestInvokeMethodRequest {
 
 export namespace TestInvokeMethodRequest {
   export const filterSensitiveLog = (obj: TestInvokeMethodRequest) => ({
-    ...obj
+    ...obj,
+    ...(obj.multiValueHeaders && {
+      multiValueHeaders: Object.entries(obj.multiValueHeaders).reduce()
+    })
   });
   export const isa = (o: any): o is TestInvokeMethodRequest =>
     __isa(o, "TestInvokeMethodRequest");
@@ -7018,7 +7075,10 @@ export interface TestInvokeMethodResponse {
 
 export namespace TestInvokeMethodResponse {
   export const filterSensitiveLog = (obj: TestInvokeMethodResponse) => ({
-    ...obj
+    ...obj,
+    ...(obj.multiValueHeaders && {
+      multiValueHeaders: Object.entries(obj.multiValueHeaders).reduce()
+    })
   });
   export const isa = (o: any): o is TestInvokeMethodResponse =>
     __isa(o, "TestInvokeMethodResponse");
@@ -7971,7 +8031,8 @@ export interface Usage {
 
 export namespace Usage {
   export const filterSensitiveLog = (obj: Usage) => ({
-    ...obj
+    ...obj,
+    ...(obj.items && { items: Object.entries(obj.items).reduce() })
   });
   export const isa = (o: any): o is Usage => __isa(o, "Usage");
 }

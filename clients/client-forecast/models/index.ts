@@ -1122,6 +1122,15 @@ export namespace DescribeDatasetImportJobResponse {
     ...obj,
     ...(obj.DataSource && {
       DataSource: DataSource.filterSensitiveLog(obj.DataSource)
+    }),
+    ...(obj.FieldStatistics && {
+      FieldStatistics: Object.entries(obj.FieldStatistics).reduce(
+        (acc: any, [key, value]: [string, Statistics]) => {
+          acc[key] = Statistics.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
     })
   });
   export const isa = (o: any): o is DescribeDatasetImportJobResponse =>

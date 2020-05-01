@@ -1450,7 +1450,16 @@ export interface FindingCriteria {
 
 export namespace FindingCriteria {
   export const filterSensitiveLog = (obj: FindingCriteria) => ({
-    ...obj
+    ...obj,
+    ...(obj.Criterion && {
+      Criterion: Object.entries(obj.Criterion).reduce(
+        (acc: any, [key, value]: [string, Condition]) => {
+          acc[key] = Condition.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
   });
   export const isa = (o: any): o is FindingCriteria =>
     __isa(o, "FindingCriteria");

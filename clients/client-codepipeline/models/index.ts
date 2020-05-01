@@ -2677,6 +2677,15 @@ export namespace PipelineDeclaration {
     ...(obj.artifactStore && {
       artifactStore: ArtifactStore.filterSensitiveLog(obj.artifactStore)
     }),
+    ...(obj.artifactStores && {
+      artifactStores: Object.entries(obj.artifactStores).reduce(
+        (acc: any, [key, value]: [string, ArtifactStore]) => {
+          acc[key] = ArtifactStore.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.stages && {
       stages: obj.stages.map(StageDeclaration.filterSensitiveLog)
     })

@@ -2606,6 +2606,9 @@ export interface TraceSummary {
 export namespace TraceSummary {
   export const filterSensitiveLog = (obj: TraceSummary) => ({
     ...obj,
+    ...(obj.Annotations && {
+      Annotations: Object.entries(obj.Annotations).reduce()
+    }),
     ...(obj.AvailabilityZones && {
       AvailabilityZones: obj.AvailabilityZones.map(
         AvailabilityZoneDetail.filterSensitiveLog

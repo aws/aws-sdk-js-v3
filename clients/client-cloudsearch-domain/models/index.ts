@@ -180,7 +180,8 @@ export interface Hit {
 
 export namespace Hit {
   export const filterSensitiveLog = (obj: Hit) => ({
-    ...obj
+    ...obj,
+    ...(obj.fields && { fields: Object.entries(obj.fields).reduce() })
   });
   export const isa = (o: any): o is Hit => __isa(o, "Hit");
 }
@@ -563,7 +564,25 @@ export interface SearchResponse {
 export namespace SearchResponse {
   export const filterSensitiveLog = (obj: SearchResponse) => ({
     ...obj,
+    ...(obj.facets && {
+      facets: Object.entries(obj.facets).reduce(
+        (acc: any, [key, value]: [string, BucketInfo]) => {
+          acc[key] = BucketInfo.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.hits && { hits: Hits.filterSensitiveLog(obj.hits) }),
+    ...(obj.stats && {
+      stats: Object.entries(obj.stats).reduce(
+        (acc: any, [key, value]: [string, FieldStats]) => {
+          acc[key] = FieldStats.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
     ...(obj.status && { status: SearchStatus.filterSensitiveLog(obj.status) })
   });
   export const isa = (o: any): o is SearchResponse =>

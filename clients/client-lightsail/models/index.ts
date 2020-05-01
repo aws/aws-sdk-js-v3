@@ -1520,6 +1520,9 @@ export namespace CreateInstancesFromSnapshotRequest {
     ...(obj.addOns && {
       addOns: obj.addOns.map(AddOnRequest.filterSensitiveLog)
     }),
+    ...(obj.attachedDiskMapping && {
+      attachedDiskMapping: Object.entries(obj.attachedDiskMapping).reduce()
+    }),
     ...(obj.tags && { tags: obj.tags.map(Tag.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateInstancesFromSnapshotRequest =>
