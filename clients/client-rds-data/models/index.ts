@@ -570,9 +570,6 @@ export namespace ExecuteStatementResponse {
     ...obj,
     ...(obj.columnMetadata && {
       columnMetadata: obj.columnMetadata.map(ColumnMetadata.filterSensitiveLog)
-    }),
-    ...(obj.records && {
-      records: obj.records.map(item => item.map(item => item))
     })
   });
   export const isa = (o: any): o is ExecuteStatementResponse =>

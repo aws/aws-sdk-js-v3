@@ -831,10 +831,7 @@ export interface DescribeConfigurationsResponse {
 
 export namespace DescribeConfigurationsResponse {
   export const filterSensitiveLog = (obj: DescribeConfigurationsResponse) => ({
-    ...obj,
-    ...(obj.configurations && {
-      configurations: obj.configurations.map(item => item)
-    })
+    ...obj
   });
   export const isa = (o: any): o is DescribeConfigurationsResponse =>
     __isa(o, "DescribeConfigurationsResponse");
@@ -1685,10 +1682,7 @@ export interface ListConfigurationsResponse {
 
 export namespace ListConfigurationsResponse {
   export const filterSensitiveLog = (obj: ListConfigurationsResponse) => ({
-    ...obj,
-    ...(obj.configurations && {
-      configurations: obj.configurations.map(item => item)
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListConfigurationsResponse =>
     __isa(o, "ListConfigurationsResponse");

@@ -1135,12 +1135,7 @@ export interface CopyProductInput {
 
 export namespace CopyProductInput {
   export const filterSensitiveLog = (obj: CopyProductInput) => ({
-    ...obj,
-    ...(obj.SourceProvisioningArtifactIdentifiers && {
-      SourceProvisioningArtifactIdentifiers: obj.SourceProvisioningArtifactIdentifiers.map(
-        item => item
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CopyProductInput =>
     __isa(o, "CopyProductInput");
@@ -3695,16 +3690,7 @@ export namespace ExecuteProvisionedProductServiceActionInput {
   export const filterSensitiveLog = (
     obj: ExecuteProvisionedProductServiceActionInput
   ) => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (
     o: any
@@ -6976,16 +6962,7 @@ export interface SearchProductsAsAdminInput {
 
 export namespace SearchProductsAsAdminInput {
   export const filterSensitiveLog = (obj: SearchProductsAsAdminInput) => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: Object.entries(obj.Filters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SearchProductsAsAdminInput =>
     __isa(o, "SearchProductsAsAdminInput");
@@ -7067,16 +7044,7 @@ export interface SearchProductsInput {
 
 export namespace SearchProductsInput {
   export const filterSensitiveLog = (obj: SearchProductsInput) => ({
-    ...obj,
-    ...(obj.Filters && {
-      Filters: Object.entries(obj.Filters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SearchProductsInput =>
     __isa(o, "SearchProductsInput");
@@ -7193,15 +7161,6 @@ export namespace SearchProvisionedProductsInput {
     ...(obj.AccessLevelFilter && {
       AccessLevelFilter: AccessLevelFilter.filterSensitiveLog(
         obj.AccessLevelFilter
-      )
-    }),
-    ...(obj.Filters && {
-      Filters: Object.entries(obj.Filters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
       )
     })
   });

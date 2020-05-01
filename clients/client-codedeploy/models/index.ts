@@ -6108,16 +6108,7 @@ export interface ListDeploymentTargetsInput {
 
 export namespace ListDeploymentTargetsInput {
   export const filterSensitiveLog = (obj: ListDeploymentTargetsInput) => ({
-    ...obj,
-    ...(obj.targetFilters && {
-      targetFilters: Object.entries(obj.targetFilters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is ListDeploymentTargetsInput =>
     __isa(o, "ListDeploymentTargetsInput");

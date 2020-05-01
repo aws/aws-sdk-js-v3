@@ -130,15 +130,6 @@ export namespace Budget {
     ...(obj.CalculatedSpend && {
       CalculatedSpend: CalculatedSpend.filterSensitiveLog(obj.CalculatedSpend)
     }),
-    ...(obj.CostFilters && {
-      CostFilters: Object.entries(obj.CostFilters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    }),
     ...(obj.CostTypes && {
       CostTypes: CostTypes.filterSensitiveLog(obj.CostTypes)
     }),
@@ -202,15 +193,6 @@ export namespace BudgetPerformanceHistory {
     ...(obj.BudgetedAndActualAmountsList && {
       BudgetedAndActualAmountsList: obj.BudgetedAndActualAmountsList.map(
         BudgetedAndActualAmounts.filterSensitiveLog
-      )
-    }),
-    ...(obj.CostFilters && {
-      CostFilters: Object.entries(obj.CostFilters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
       )
     }),
     ...(obj.CostTypes && {

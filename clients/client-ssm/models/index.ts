@@ -421,15 +421,6 @@ export namespace AssociationDescription {
     ...(obj.Overview && {
       Overview: AssociationOverview.filterSensitiveLog(obj.Overview)
     }),
-    ...(obj.Parameters && {
-      Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    }),
     ...(obj.Status && {
       Status: AssociationStatus.filterSensitiveLog(obj.Status)
     }),
@@ -889,15 +880,6 @@ export namespace AssociationVersionInfo {
         obj.OutputLocation
       )
     }),
-    ...(obj.Parameters && {
-      Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AssociationVersionInfo =>
@@ -1240,24 +1222,6 @@ export interface AutomationExecution {
 export namespace AutomationExecution {
   export const filterSensitiveLog = (obj: AutomationExecution) => ({
     ...obj,
-    ...(obj.Outputs && {
-      Outputs: Object.entries(obj.Outputs).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    }),
-    ...(obj.Parameters && {
-      Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    }),
     ...(obj.ProgressCounters && {
       ProgressCounters: ProgressCounters.filterSensitiveLog(
         obj.ProgressCounters
@@ -1274,7 +1238,6 @@ export namespace AutomationExecution {
         TargetLocation.filterSensitiveLog
       )
     }),
-    ...(obj.TargetMaps && { TargetMaps: obj.TargetMaps.map(item => item) }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AutomationExecution =>
@@ -1466,19 +1429,9 @@ export interface AutomationExecutionMetadata {
 export namespace AutomationExecutionMetadata {
   export const filterSensitiveLog = (obj: AutomationExecutionMetadata) => ({
     ...obj,
-    ...(obj.Outputs && {
-      Outputs: Object.entries(obj.Outputs).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    }),
     ...(obj.ResolvedTargets && {
       ResolvedTargets: ResolvedTargets.filterSensitiveLog(obj.ResolvedTargets)
     }),
-    ...(obj.TargetMaps && { TargetMaps: obj.TargetMaps.map(item => item) }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
   });
   export const isa = (o: any): o is AutomationExecutionMetadata =>
@@ -1841,15 +1794,6 @@ export namespace Command {
     ...(obj.NotificationConfig && {
       NotificationConfig: NotificationConfig.filterSensitiveLog(
         obj.NotificationConfig
-      )
-    }),
-    ...(obj.Parameters && {
-      Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
       )
     }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
@@ -2832,15 +2776,6 @@ export namespace CreateAssociationBatchRequestEntry {
         obj.OutputLocation
       )
     }),
-    ...(obj.Parameters && {
-      Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
   });
   export const isa = (o: any): o is CreateAssociationBatchRequestEntry =>
@@ -2989,15 +2924,6 @@ export namespace CreateAssociationRequest {
     ...(obj.OutputLocation && {
       OutputLocation: InstanceAssociationOutputLocation.filterSensitiveLog(
         obj.OutputLocation
-      )
-    }),
-    ...(obj.Parameters && {
-      Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
       )
     }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
@@ -6270,8 +6196,7 @@ export interface DescribePatchPropertiesResult {
 
 export namespace DescribePatchPropertiesResult {
   export const filterSensitiveLog = (obj: DescribePatchPropertiesResult) => ({
-    ...obj,
-    ...(obj.Properties && { Properties: obj.Properties.map(item => item) })
+    ...obj
   });
   export const isa = (o: any): o is DescribePatchPropertiesResult =>
     __isa(o, "DescribePatchPropertiesResult");
@@ -7084,16 +7009,7 @@ export interface FailureDetails {
 
 export namespace FailureDetails {
   export const filterSensitiveLog = (obj: FailureDetails) => ({
-    ...obj,
-    ...(obj.Details && {
-      Details: Object.entries(obj.Details).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is FailureDetails =>
     __isa(o, "FailureDetails");
@@ -10730,8 +10646,7 @@ export interface InventoryItem {
 
 export namespace InventoryItem {
   export const filterSensitiveLog = (obj: InventoryItem) => ({
-    ...obj,
-    ...(obj.Content && { Content: obj.Content.map(item => item) })
+    ...obj
   });
   export const isa = (o: any): o is InventoryItem => __isa(o, "InventoryItem");
 }
@@ -10882,8 +10797,7 @@ export interface InventoryResultItem {
 
 export namespace InventoryResultItem {
   export const filterSensitiveLog = (obj: InventoryResultItem) => ({
-    ...obj,
-    ...(obj.Content && { Content: obj.Content.map(item => item) })
+    ...obj
   });
   export const isa = (o: any): o is InventoryResultItem =>
     __isa(o, "InventoryResultItem");
@@ -11594,8 +11508,7 @@ export interface ListInventoryEntriesResult {
 
 export namespace ListInventoryEntriesResult {
   export const filterSensitiveLog = (obj: ListInventoryEntriesResult) => ({
-    ...obj,
-    ...(obj.Entries && { Entries: obj.Entries.map(item => item) })
+    ...obj
   });
   export const isa = (o: any): o is ListInventoryEntriesResult =>
     __isa(o, "ListInventoryEntriesResult");
@@ -11830,16 +11743,7 @@ export namespace MaintenanceWindowAutomationParameters {
   export const filterSensitiveLog = (
     obj: MaintenanceWindowAutomationParameters
   ) => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is MaintenanceWindowAutomationParameters =>
     __isa(o, "MaintenanceWindowAutomationParameters");
@@ -12325,15 +12229,6 @@ export namespace MaintenanceWindowRunCommandParameters {
     ...(obj.NotificationConfig && {
       NotificationConfig: NotificationConfig.filterSensitiveLog(
         obj.NotificationConfig
-      )
-    }),
-    ...(obj.Parameters && {
-      Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
       )
     })
   });
@@ -12901,8 +12796,7 @@ export interface OpsEntityItem {
 
 export namespace OpsEntityItem {
   export const filterSensitiveLog = (obj: OpsEntityItem) => ({
-    ...obj,
-    ...(obj.Content && { Content: obj.Content.map(item => item) })
+    ...obj
   });
   export const isa = (o: any): o is OpsEntityItem => __isa(o, "OpsEntityItem");
 }
@@ -16024,16 +15918,7 @@ export interface SendAutomationSignalRequest {
 
 export namespace SendAutomationSignalRequest {
   export const filterSensitiveLog = (obj: SendAutomationSignalRequest) => ({
-    ...obj,
-    ...(obj.Payload && {
-      Payload: Object.entries(obj.Payload).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is SendAutomationSignalRequest =>
     __isa(o, "SendAutomationSignalRequest");
@@ -16181,15 +16066,6 @@ export namespace SendCommandRequest {
     ...(obj.NotificationConfig && {
       NotificationConfig: NotificationConfig.filterSensitiveLog(
         obj.NotificationConfig
-      )
-    }),
-    ...(obj.Parameters && {
-      Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
       )
     }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
@@ -16674,22 +16550,12 @@ export interface StartAutomationExecutionRequest {
 export namespace StartAutomationExecutionRequest {
   export const filterSensitiveLog = (obj: StartAutomationExecutionRequest) => ({
     ...obj,
-    ...(obj.Parameters && {
-      Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    }),
     ...(obj.Tags && { Tags: obj.Tags.map(Tag.filterSensitiveLog) }),
     ...(obj.TargetLocations && {
       TargetLocations: obj.TargetLocations.map(
         TargetLocation.filterSensitiveLog
       )
     }),
-    ...(obj.TargetMaps && { TargetMaps: obj.TargetMaps.map(item => item) }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })
   });
   export const isa = (o: any): o is StartAutomationExecutionRequest =>
@@ -16734,16 +16600,7 @@ export interface StartSessionRequest {
 
 export namespace StartSessionRequest {
   export const filterSensitiveLog = (obj: StartSessionRequest) => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is StartSessionRequest =>
     __isa(o, "StartSessionRequest");
@@ -16931,24 +16788,6 @@ export namespace StepExecution {
     ...obj,
     ...(obj.FailureDetails && {
       FailureDetails: FailureDetails.filterSensitiveLog(obj.FailureDetails)
-    }),
-    ...(obj.Outputs && {
-      Outputs: Object.entries(obj.Outputs).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    }),
-    ...(obj.OverriddenParameters && {
-      OverriddenParameters: Object.entries(obj.OverriddenParameters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
     }),
     ...(obj.TargetLocation && {
       TargetLocation: TargetLocation.filterSensitiveLog(obj.TargetLocation)
@@ -17610,15 +17449,6 @@ export namespace UpdateAssociationRequest {
     ...(obj.OutputLocation && {
       OutputLocation: InstanceAssociationOutputLocation.filterSensitiveLog(
         obj.OutputLocation
-      )
-    }),
-    ...(obj.Parameters && {
-      Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
       )
     }),
     ...(obj.Targets && { Targets: obj.Targets.map(Target.filterSensitiveLog) })

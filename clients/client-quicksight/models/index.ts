@@ -1007,16 +1007,7 @@ export namespace CreateIAMPolicyAssignmentRequest {
   export const filterSensitiveLog = (
     obj: CreateIAMPolicyAssignmentRequest
   ) => ({
-    ...obj,
-    ...(obj.Identities && {
-      Identities: Object.entries(obj.Identities).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateIAMPolicyAssignmentRequest =>
     __isa(o, "CreateIAMPolicyAssignmentRequest");
@@ -1075,16 +1066,7 @@ export namespace CreateIAMPolicyAssignmentResponse {
   export const filterSensitiveLog = (
     obj: CreateIAMPolicyAssignmentResponse
   ) => ({
-    ...obj,
-    ...(obj.Identities && {
-      Identities: Object.entries(obj.Identities).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is CreateIAMPolicyAssignmentResponse =>
     __isa(o, "CreateIAMPolicyAssignmentResponse");
@@ -3866,16 +3848,7 @@ export interface IAMPolicyAssignment {
 
 export namespace IAMPolicyAssignment {
   export const filterSensitiveLog = (obj: IAMPolicyAssignment) => ({
-    ...obj,
-    ...(obj.Identities && {
-      Identities: Object.entries(obj.Identities).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is IAMPolicyAssignment =>
     __isa(o, "IAMPolicyAssignment");
@@ -7323,16 +7296,7 @@ export namespace UpdateIAMPolicyAssignmentRequest {
   export const filterSensitiveLog = (
     obj: UpdateIAMPolicyAssignmentRequest
   ) => ({
-    ...obj,
-    ...(obj.Identities && {
-      Identities: Object.entries(obj.Identities).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateIAMPolicyAssignmentRequest =>
     __isa(o, "UpdateIAMPolicyAssignmentRequest");
@@ -7392,16 +7356,7 @@ export namespace UpdateIAMPolicyAssignmentResponse {
   export const filterSensitiveLog = (
     obj: UpdateIAMPolicyAssignmentResponse
   ) => ({
-    ...obj,
-    ...(obj.Identities && {
-      Identities: Object.entries(obj.Identities).reduce(
-        (acc: any, [key, value]: [string, Array<string>]) => {
-          acc[key] = value;
-          return acc;
-        },
-        {}
-      )
-    })
+    ...obj
   });
   export const isa = (o: any): o is UpdateIAMPolicyAssignmentResponse =>
     __isa(o, "UpdateIAMPolicyAssignmentResponse");
